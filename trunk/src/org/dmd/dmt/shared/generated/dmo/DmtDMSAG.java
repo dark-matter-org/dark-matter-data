@@ -13,10 +13,10 @@ import org.dmd.dms.generated.enums.ClassTypeEnum;                        // Have
 import org.dmd.dms.generated.enums.DataTypeEnum;                         // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:802)
 import org.dmd.dms.generated.enums.OriginalTypeEnum;                     // Have type/internal type definitions - (DmoCompactSchemaFormatter.java:807)
 import org.dmd.dms.generated.enums.ValueTypeEnum;                        // Have attribute definitions - (DmoCompactSchemaFormatter.java:828)
-import org.dmd.dms.generated.types.DmcTypeIntegerSV;                     // Support for addition of svInteger values to the extensible InitRuleData class - (ClassDefinition.java:959)
-import org.dmd.dms.generated.types.DmcTypeStringMV;                      // Support for addition of mvString values to the extensible InitRuleData class - (ClassDefinition.java:959)
-import org.dmd.dms.generated.types.DmcTypeStringSV;                      // Support for addition of svString values to the extensible InitRuleData class - (ClassDefinition.java:959)
-import org.dmd.dmt.shared.generated.types.DmcTypeDmtTestEnumSET;         // Support for addition of hsTestEnum values to the extensible InitRuleData class - (ClassDefinition.java:959)
+import org.dmd.dms.generated.types.DmcTypeIntegerSV;                     // Support for addition of svInteger values to the extensible InitRuleData class - (ClassDefinition.java:962)
+import org.dmd.dms.generated.types.DmcTypeStringMV;                      // Support for addition of mvString values to the extensible InitRuleData class - (ClassDefinition.java:962)
+import org.dmd.dms.generated.types.DmcTypeStringSV;                      // Support for addition of svString values to the extensible InitRuleData class - (ClassDefinition.java:962)
+import org.dmd.dmt.shared.generated.types.DmcTypeDmtTestEnumSET;         // Support for addition of hsTestEnum values to the extensible InitRuleData class - (ClassDefinition.java:962)
 import org.dmd.dmv.shared.extended.rulesdmo.InitRule;                    // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:854)
 import org.dmd.dmv.shared.extended.rulesdmo.NumericRangeRule;            // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:854)
 import org.dmd.dmv.shared.generated.dmo.InitRuleDataDMO;                 // To instantiate InitRuleData rule data - (DmoCompactSchemaFormatter.java:853)
@@ -69,6 +69,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __intToString = new DmcAttributeInfo("intToString", 10080, "IntegerToString", ValueTypeEnum.HASHMAPPED, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __intToStringMAP = new DmcAttributeInfo("intToStringMAP", 10924, "IntegerToString", ValueTypeEnum.TREEMAPPED, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __mvBoolean = new DmcAttributeInfo("mvBoolean", 10001, "Boolean", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __mvComplex = new DmcAttributeInfo("mvComplex", 10929, "MenuElementTypeAndComment", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __mvDate = new DmcAttributeInfo("mvDate", 10011, "Date", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __mvDmcObject = new DmcAttributeInfo("mvDmcObject", 10021, "DmcObject", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __mvDouble = new DmcAttributeInfo("mvDouble", 10041, "Double", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
@@ -96,6 +97,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __someRelationMVI = new DmcAttributeInfo("someRelationMVI", 10923, "SomeRelation", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, 8);
     public final static DmcAttributeInfo __someRelationSV = new DmcAttributeInfo("someRelationSV", 10921, "SomeRelation", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __svBoolean = new DmcAttributeInfo("svBoolean", 10000, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __svComplex = new DmcAttributeInfo("svComplex", 10928, "MenuElementTypeAndComment", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __svDate = new DmcAttributeInfo("svDate", 10010, "Date", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __svDmcObject = new DmcAttributeInfo("svDmcObject", 10020, "DmcObject", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __svDouble = new DmcAttributeInfo("svDouble", 10040, "Double", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
@@ -125,6 +127,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     public final static DmcTypeInfo __type_BaseObj = new DmcTypeInfo("BaseObj", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_ClientCountFilter = new DmcTypeInfo("ClientCountFilter", OriginalTypeEnum.OBJECT);
     public final static DmcTypeInfo __type_ClientCountFilterRequest = new DmcTypeInfo("ClientCountFilterRequest", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_ComplexTypeTest = new DmcTypeInfo("ComplexTypeTest", OriginalTypeEnum.OBJECT);
     public final static DmcTypeInfo __type_DmtStringName = new DmcTypeInfo("DmtStringName", OriginalTypeEnum.NAMETYPE);
     public final static DmcTypeInfo __type_DmtTestEnum = new DmcTypeInfo("DmtTestEnum", OriginalTypeEnum.ENUM);
     public final static DmcTypeInfo __type_ExtendedRefHS = new DmcTypeInfo("ExtendedRefHS", OriginalTypeEnum.OBJECT);
@@ -133,6 +136,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     public final static DmcTypeInfo __type_ExtendedRefSV = new DmcTypeInfo("ExtendedRefSV", OriginalTypeEnum.OBJECT);
     public final static DmcTypeInfo __type_ExtendedRefTS = new DmcTypeInfo("ExtendedRefTS", OriginalTypeEnum.OBJECT);
     public final static DmcTypeInfo __type_IntegerNamedObject = new DmcTypeInfo("IntegerNamedObject", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_MenuElementTypeAndComment = new DmcTypeInfo("MenuElementTypeAndComment", OriginalTypeEnum.COMPLEXTYPE);
     public final static DmcTypeInfo __type_NameContainerTest = new DmcTypeInfo("NameContainerTest", OriginalTypeEnum.OBJECT);
     public final static DmcTypeInfo __type_NamedObjHM = new DmcTypeInfo("NamedObjHM", OriginalTypeEnum.OBJECT);
     public final static DmcTypeInfo __type_NamedObjHS = new DmcTypeInfo("NamedObjHS", OriginalTypeEnum.OBJECT);
@@ -175,6 +179,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     public final static DmcClassInfo __ObjWithRefs = new DmcClassInfo("ObjWithRefs","org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO", 10016, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__BaseObj,MetaDMSAG.__name);
     public final static DmcClassInfo __ClientCountFilter = new DmcClassInfo("ClientCountFilter","org.dmd.dmt.shared.generated.dmo.ClientCountFilterDMO", 10017, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
     public final static DmcClassInfo __ClientCountFilterRequest = new DmcClassInfo("ClientCountFilterRequest","org.dmd.dmt.shared.generated.dmo.ClientCountFilterRequestDMO", 10018, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,DmpDMSAG.__Request,null);
+    public final static DmcClassInfo __ComplexTypeTest = new DmcClassInfo("ComplexTypeTest","org.dmd.dmt.shared.generated.dmo.ComplexTypeTestDMO", 10409, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
     public final static DmcClassInfo __ExtendedRefHS = new DmcClassInfo("ExtendedRefHS","org.dmd.dmt.shared.generated.dmo.ExtendedRefHSDMO", 10406, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
     public final static DmcClassInfo __ExtendedRefMV = new DmcClassInfo("ExtendedRefMV","org.dmd.dmt.shared.generated.dmo.ExtendedRefMVDMO", 10402, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
     public final static DmcClassInfo __ExtendedRefMVIDX = new DmcClassInfo("ExtendedRefMVIDX","org.dmd.dmt.shared.generated.dmo.ExtendedRefMVIDXDMO", 10403, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
@@ -291,6 +296,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__intToString.id,__intToString);
         _SmAp.put(__intToStringMAP.id,__intToStringMAP);
         _SmAp.put(__mvBoolean.id,__mvBoolean);
+        _SmAp.put(__mvComplex.id,__mvComplex);
         _SmAp.put(__mvDate.id,__mvDate);
         _SmAp.put(__mvDmcObject.id,__mvDmcObject);
         _SmAp.put(__mvDouble.id,__mvDouble);
@@ -318,6 +324,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__someRelationMVI.id,__someRelationMVI);
         _SmAp.put(__someRelationSV.id,__someRelationSV);
         _SmAp.put(__svBoolean.id,__svBoolean);
+        _SmAp.put(__svComplex.id,__svComplex);
         _SmAp.put(__svDate.id,__svDate);
         _SmAp.put(__svDmcObject.id,__svDmcObject);
         _SmAp.put(__svDouble.id,__svDouble);
@@ -345,6 +352,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         _CmAp.put(__BaseObj.id,__BaseObj);
         _CmAp.put(__ClientCountFilter.id,__ClientCountFilter);
         _CmAp.put(__ClientCountFilterRequest.id,__ClientCountFilterRequest);
+        _CmAp.put(__ComplexTypeTest.id,__ComplexTypeTest);
         _CmAp.put(__ExtendedRefHS.id,__ExtendedRefHS);
         _CmAp.put(__ExtendedRefMV.id,__ExtendedRefMV);
         _CmAp.put(__ExtendedRefMVIDX.id,__ExtendedRefMVIDX);
@@ -583,6 +591,9 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         __ParseTest.addMay(__svBoolean);
         __ParseTest.addMay(__mvIdxNamedObj);
         __ParseTest.addMay(__mvIdxUnnamedObj);
+
+        __ComplexTypeTest.addMay(__svComplex);
+        __ComplexTypeTest.addMay(__mvComplex);
 
 
         // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:327)

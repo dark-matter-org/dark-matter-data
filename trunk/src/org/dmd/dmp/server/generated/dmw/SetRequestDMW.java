@@ -67,6 +67,12 @@ abstract public class SetRequestDMW extends Request {
         super(obj, org.dmd.dmp.server.generated.DmpSchemaAG._SetRequest);
     }
 
+    public SetRequest cloneIt() {
+        SetRequest rc = new SetRequest();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public SetRequestDMO getDMO() {
         return((SetRequestDMO) core);
     }

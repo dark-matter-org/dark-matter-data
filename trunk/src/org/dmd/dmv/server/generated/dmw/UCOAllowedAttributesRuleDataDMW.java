@@ -62,6 +62,12 @@ public class UCOAllowedAttributesRuleDataDMW extends RuleData implements DmcName
         super(obj, org.dmd.dmv.server.generated.DmvSchemaAG._UCOAllowedAttributesRuleData);
     }
 
+    public UCOAllowedAttributesRuleDataDMW cloneIt() {
+        UCOAllowedAttributesRuleDataDMW rc = new UCOAllowedAttributesRuleDataDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public UCOAllowedAttributesRuleDataDMO getDMO() {
         return((UCOAllowedAttributesRuleDataDMO) core);
     }

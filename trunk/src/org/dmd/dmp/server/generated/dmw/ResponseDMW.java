@@ -63,6 +63,12 @@ abstract public class ResponseDMW extends DMPMessage {
         super(obj, org.dmd.dmp.server.generated.DmpSchemaAG._Response);
     }
 
+    public Response cloneIt() {
+        Response rc = new Response();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public ResponseDMO getDMO() {
         return((ResponseDMO) core);
     }

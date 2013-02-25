@@ -58,6 +58,12 @@ abstract public class PreAuthResponseDMW extends Response {
         super(obj, org.dmd.dmp.server.generated.DmpSchemaAG._PreAuthResponse);
     }
 
+    public PreAuthResponse cloneIt() {
+        PreAuthResponse rc = new PreAuthResponse();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public PreAuthResponseDMO getDMO() {
         return((PreAuthResponseDMO) core);
     }

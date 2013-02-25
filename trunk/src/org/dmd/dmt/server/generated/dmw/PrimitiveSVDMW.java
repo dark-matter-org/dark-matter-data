@@ -41,6 +41,12 @@ public class PrimitiveSVDMW extends DmwWrapper {
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._PrimitiveSV);
     }
 
+    public PrimitiveSVDMW cloneIt() {
+        PrimitiveSVDMW rc = new PrimitiveSVDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public PrimitiveSVDMO getDMO() {
         return((PrimitiveSVDMO) core);
     }

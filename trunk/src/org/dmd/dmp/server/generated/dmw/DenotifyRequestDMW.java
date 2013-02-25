@@ -62,6 +62,12 @@ abstract public class DenotifyRequestDMW extends Request {
         super(obj, org.dmd.dmp.server.generated.DmpSchemaAG._DenotifyRequest);
     }
 
+    public DenotifyRequest cloneIt() {
+        DenotifyRequest rc = new DenotifyRequest();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public DenotifyRequestDMO getDMO() {
         return((DenotifyRequestDMO) core);
     }

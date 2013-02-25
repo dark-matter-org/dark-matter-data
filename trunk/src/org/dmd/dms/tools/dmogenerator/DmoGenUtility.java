@@ -346,12 +346,12 @@ public class DmoGenUtility {
 			System.err.println(e.toString());
 			System.exit(1);
 		} catch (DmcValueException e) {
-			System.out.println(e.toString());
+			System.err.println(e.toString());
 			e.printStackTrace();
 			System.exit(1);
 		} catch (DmcRuleExceptionSet e) {
-			System.out.println(e.toString());
-			e.printStackTrace();
+			System.err.println(e.toString());
+//			e.printStackTrace();
 			System.exit(1);
 		} catch (IOException e) {
 			System.err.println(e.toString());

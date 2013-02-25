@@ -59,6 +59,12 @@ abstract public class LoginRequestDMW extends Request {
         super(obj, org.dmd.dmp.server.generated.DmpSchemaAG._LoginRequest);
     }
 
+    public LoginRequest cloneIt() {
+        LoginRequest rc = new LoginRequest();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public LoginRequestDMO getDMO() {
         return((LoginRequestDMO) core);
     }

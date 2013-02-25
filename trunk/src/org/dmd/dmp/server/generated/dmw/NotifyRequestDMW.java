@@ -62,6 +62,12 @@ abstract public class NotifyRequestDMW extends Request {
         super(obj, org.dmd.dmp.server.generated.DmpSchemaAG._NotifyRequest);
     }
 
+    public NotifyRequest cloneIt() {
+        NotifyRequest rc = new NotifyRequest();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public NotifyRequestDMO getDMO() {
         return((NotifyRequestDMO) core);
     }

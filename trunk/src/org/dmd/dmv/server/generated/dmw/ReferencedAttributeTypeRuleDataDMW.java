@@ -84,6 +84,12 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
         super(obj, org.dmd.dmv.server.generated.DmvSchemaAG._ReferencedAttributeTypeRuleData);
     }
 
+    public ReferencedAttributeTypeRuleDataDMW cloneIt() {
+        ReferencedAttributeTypeRuleDataDMW rc = new ReferencedAttributeTypeRuleDataDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public ReferencedAttributeTypeRuleDataDMO getDMO() {
         return((ReferencedAttributeTypeRuleDataDMO) core);
     }

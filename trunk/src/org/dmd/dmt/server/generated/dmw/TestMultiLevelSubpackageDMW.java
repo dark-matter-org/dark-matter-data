@@ -49,6 +49,12 @@ public class TestMultiLevelSubpackageDMW extends DmwNamedObjectWrapper implement
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._TestMultiLevelSubpackage);
     }
 
+    public TestMultiLevelSubpackageDMW cloneIt() {
+        TestMultiLevelSubpackageDMW rc = new TestMultiLevelSubpackageDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public TestMultiLevelSubpackageDMO getDMO() {
         return((TestMultiLevelSubpackageDMO) core);
     }

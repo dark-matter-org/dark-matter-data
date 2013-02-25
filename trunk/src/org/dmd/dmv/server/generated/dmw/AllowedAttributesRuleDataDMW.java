@@ -71,6 +71,12 @@ public class AllowedAttributesRuleDataDMW extends RuleData implements DmcNamedOb
         super(obj, org.dmd.dmv.server.generated.DmvSchemaAG._AllowedAttributesRuleData);
     }
 
+    public AllowedAttributesRuleDataDMW cloneIt() {
+        AllowedAttributesRuleDataDMW rc = new AllowedAttributesRuleDataDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public AllowedAttributesRuleDataDMO getDMO() {
         return((AllowedAttributesRuleDataDMO) core);
     }

@@ -57,6 +57,12 @@ abstract public class NotifyResponseDMW extends Response {
         super(obj, org.dmd.dmp.server.generated.DmpSchemaAG._NotifyResponse);
     }
 
+    public NotifyResponse cloneIt() {
+        NotifyResponse rc = new NotifyResponse();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public NotifyResponseDMO getDMO() {
         return((NotifyResponseDMO) core);
     }

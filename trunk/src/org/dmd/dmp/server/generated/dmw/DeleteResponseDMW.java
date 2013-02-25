@@ -65,6 +65,12 @@ abstract public class DeleteResponseDMW extends Response {
         super(obj, org.dmd.dmp.server.generated.DmpSchemaAG._DeleteResponse);
     }
 
+    public DeleteResponse cloneIt() {
+        DeleteResponse rc = new DeleteResponse();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public DeleteResponseDMO getDMO() {
         return((DeleteResponseDMO) core);
     }

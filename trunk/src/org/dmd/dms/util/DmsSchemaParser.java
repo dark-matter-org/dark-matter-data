@@ -23,6 +23,7 @@ import java.util.Stack;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
+import org.dmd.dmc.rules.SourceInfo;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
@@ -313,7 +314,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
         String              depSchema           = null;
         SchemaDefinition    newSchema           = null;
         String              currFile            = null;
-
+        String 				srcFile 			= "";
         // Determine if we have a valid class
         if ((cd = allSchema.isClass((String)uco.classes.get(0))) == null){
         	ResultException ex = new ResultException();
@@ -337,7 +338,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
         		// If we're underneath a standard eclipse project, we ignore everything before
         		// the /src folder name.
 				int srcloc = infile.indexOf("/src");
-				String srcFile = "";
+				srcFile = "";
 				if (srcloc != -1)
 					srcFile = infile.substring(srcloc);
 				else
@@ -412,6 +413,9 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
 				ex.addError(e.getMessage());
 				ex.result.lastResult().moreMessages(DebugInfo.extractTheStack(e));
 				throw(ex);
+			} catch(DmcRuleExceptionSet e){
+				e.source(new SourceInfo(srcFile, lineNumber + ""));
+				throw(e);
 			}
         	
             if (cd.getObjectName().getNameString().compareTo("SchemaDefinition") == 0)

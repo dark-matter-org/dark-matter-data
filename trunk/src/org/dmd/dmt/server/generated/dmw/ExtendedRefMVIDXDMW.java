@@ -43,6 +43,12 @@ public class ExtendedRefMVIDXDMW extends DmwWrapper {
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._ExtendedRefMVIDX);
     }
 
+    public ExtendedRefMVIDXDMW cloneIt() {
+        ExtendedRefMVIDXDMW rc = new ExtendedRefMVIDXDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public ExtendedRefMVIDXDMO getDMO() {
         return((ExtendedRefMVIDXDMO) core);
     }

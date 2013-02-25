@@ -66,6 +66,12 @@ abstract public class CreateRequestDMW extends Request {
         super(obj, org.dmd.dmp.server.generated.DmpSchemaAG._CreateRequest);
     }
 
+    public CreateRequest cloneIt() {
+        CreateRequest rc = new CreateRequest();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public CreateRequestDMO getDMO() {
         return((CreateRequestDMO) core);
     }

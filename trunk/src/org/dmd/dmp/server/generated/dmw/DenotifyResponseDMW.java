@@ -61,6 +61,12 @@ abstract public class DenotifyResponseDMW extends Response {
         super(obj, org.dmd.dmp.server.generated.DmpSchemaAG._DenotifyResponse);
     }
 
+    public DenotifyResponse cloneIt() {
+        DenotifyResponse rc = new DenotifyResponse();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public DenotifyResponseDMO getDMO() {
         return((DenotifyResponseDMO) core);
     }

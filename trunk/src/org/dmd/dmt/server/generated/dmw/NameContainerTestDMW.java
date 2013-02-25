@@ -44,6 +44,12 @@ public class NameContainerTestDMW extends DmwWrapper {
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._NameContainerTest);
     }
 
+    public NameContainerTestDMW cloneIt() {
+        NameContainerTestDMW rc = new NameContainerTestDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public NameContainerTestDMO getDMO() {
         return((NameContainerTestDMO) core);
     }

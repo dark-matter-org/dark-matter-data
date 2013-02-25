@@ -6,6 +6,7 @@ import java.util.Iterator;
 
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 import org.dmd.dms.ClassDefinition;
+import org.dmd.dms.ComplexTypeDefinition;
 import org.dmd.dms.EnumDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
@@ -13,6 +14,7 @@ import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
 import org.dmd.dms.util.GenUtility;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
@@ -106,6 +108,19 @@ public class DmwDMWGenerator extends BaseDMWGeneratorNewest {
 				GenUtility.dumpIterable(dmwdir, sd.getDmwPackage(), enumPrimitive, ed.getName().getNameString(), "", fileHeader, progress);
 			}
 		}
+		
+		Iterator<ComplexTypeDefinition>	ctypes = sd.getComplexTypeDefList();
+		if (ctypes != null){
+			while(ctypes.hasNext()){
+				ComplexTypeDefinition ctd = ctypes.next();
+				DebugInfo.debug("Generating Iterator for: " + ctd.getName().getNameString());
+				
+				String primitive = sd.getSchemaPackage() + ".generated.types." + ctd.getName().getNameString();
+				GenUtility.dumpIterable(dmwdir, sd.getDmwPackage(), primitive, ctd.getName().getNameString(), "", fileHeader, progress);
+				
+			}
+		}
+		
 	}
 
 }

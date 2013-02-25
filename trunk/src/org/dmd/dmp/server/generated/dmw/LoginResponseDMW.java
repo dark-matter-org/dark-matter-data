@@ -67,6 +67,12 @@ abstract public class LoginResponseDMW extends Response {
         super(obj, org.dmd.dmp.server.generated.DmpSchemaAG._LoginResponse);
     }
 
+    public LoginResponse cloneIt() {
+        LoginResponse rc = new LoginResponse();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public LoginResponseDMO getDMO() {
         return((LoginResponseDMO) core);
     }

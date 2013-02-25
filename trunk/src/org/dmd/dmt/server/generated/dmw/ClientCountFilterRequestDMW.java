@@ -49,6 +49,12 @@ abstract public class ClientCountFilterRequestDMW extends Request {
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._ClientCountFilterRequest);
     }
 
+    public ClientCountFilterRequest cloneIt() {
+        ClientCountFilterRequest rc = new ClientCountFilterRequest();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public ClientCountFilterRequestDMO getDMO() {
         return((ClientCountFilterRequestDMO) core);
     }

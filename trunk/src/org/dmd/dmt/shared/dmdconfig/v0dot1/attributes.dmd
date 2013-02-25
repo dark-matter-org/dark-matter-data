@@ -646,3 +646,16 @@ dmdID					927
 type					SomeRelation
 valueType				MULTI
 indexSize				8
+
+AttributeDefinition
+name					svComplex
+type					MenuElementTypeAndComment
+dmdID					928
+
+AttributeDefinition
+name					mvComplex
+type					MenuElementTypeAndComment
+dmdID					929
+valueType				MULTI
+
+

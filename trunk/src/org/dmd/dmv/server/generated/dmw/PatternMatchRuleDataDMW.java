@@ -69,6 +69,12 @@ public class PatternMatchRuleDataDMW extends RuleData implements DmcNamedObjectI
         super(obj, org.dmd.dmv.server.generated.DmvSchemaAG._PatternMatchRuleData);
     }
 
+    public PatternMatchRuleDataDMW cloneIt() {
+        PatternMatchRuleDataDMW rc = new PatternMatchRuleDataDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public PatternMatchRuleDataDMO getDMO() {
         return((PatternMatchRuleDataDMO) core);
     }

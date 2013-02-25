@@ -68,6 +68,12 @@ abstract public class DMPEventDMW extends DMPMessage {
         super(obj, org.dmd.dmp.server.generated.DmpSchemaAG._DMPEvent);
     }
 
+    public DMPEvent cloneIt() {
+        DMPEvent rc = new DMPEvent();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public DMPEventDMO getDMO() {
         return((DMPEventDMO) core);
     }

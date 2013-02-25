@@ -71,6 +71,12 @@ abstract public class GetRequestDMW extends Request {
         super(obj, org.dmd.dmp.server.generated.DmpSchemaAG._GetRequest);
     }
 
+    public GetRequest cloneIt() {
+        GetRequest rc = new GetRequest();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public GetRequestDMO getDMO() {
         return((GetRequestDMO) core);
     }

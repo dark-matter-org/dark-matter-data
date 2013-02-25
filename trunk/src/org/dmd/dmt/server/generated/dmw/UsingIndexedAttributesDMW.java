@@ -47,6 +47,12 @@ public class UsingIndexedAttributesDMW extends DmwWrapper {
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._UsingIndexedAttributes);
     }
 
+    public UsingIndexedAttributesDMW cloneIt() {
+        UsingIndexedAttributesDMW rc = new UsingIndexedAttributesDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public UsingIndexedAttributesDMO getDMO() {
         return((UsingIndexedAttributesDMO) core);
     }

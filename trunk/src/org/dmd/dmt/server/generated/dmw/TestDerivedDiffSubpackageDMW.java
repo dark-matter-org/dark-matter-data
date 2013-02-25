@@ -49,6 +49,12 @@ public class TestDerivedDiffSubpackageDMW extends TestOneLevelSubpackageDMW impl
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._TestDerivedDiffSubpackage);
     }
 
+    public TestDerivedDiffSubpackage cloneIt() {
+        TestDerivedDiffSubpackage rc = new TestDerivedDiffSubpackage();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public TestDerivedDiffSubpackageDMO getDMO() {
         return((TestDerivedDiffSubpackageDMO) core);
     }
