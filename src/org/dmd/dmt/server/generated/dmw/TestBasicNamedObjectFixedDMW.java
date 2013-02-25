@@ -50,6 +50,12 @@ public class TestBasicNamedObjectFixedDMW extends DmwNamedObjectWrapper implemen
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._TestBasicNamedObjectFixed);
     }
 
+    public TestBasicNamedObjectFixedDMW cloneIt() {
+        TestBasicNamedObjectFixedDMW rc = new TestBasicNamedObjectFixedDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public TestBasicNamedObjectFixedDMO getDMO() {
         return((TestBasicNamedObjectFixedDMO) core);
     }

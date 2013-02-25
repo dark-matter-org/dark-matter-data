@@ -59,6 +59,12 @@ abstract public class LogoutResponseDMW extends Response {
         super(obj, org.dmd.dmp.server.generated.DmpSchemaAG._LogoutResponse);
     }
 
+    public LogoutResponse cloneIt() {
+        LogoutResponse rc = new LogoutResponse();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public LogoutResponseDMO getDMO() {
         return((LogoutResponseDMO) core);
     }

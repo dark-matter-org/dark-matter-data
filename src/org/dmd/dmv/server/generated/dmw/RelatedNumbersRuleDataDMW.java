@@ -75,6 +75,12 @@ public class RelatedNumbersRuleDataDMW extends RuleData implements DmcNamedObjec
         super(obj, org.dmd.dmv.server.generated.DmvSchemaAG._RelatedNumbersRuleData);
     }
 
+    public RelatedNumbersRuleDataDMW cloneIt() {
+        RelatedNumbersRuleDataDMW rc = new RelatedNumbersRuleDataDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public RelatedNumbersRuleDataDMO getDMO() {
         return((RelatedNumbersRuleDataDMO) core);
     }

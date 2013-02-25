@@ -44,6 +44,12 @@ public class IntegerNamedObjectDMW extends DmwNamedObjectWrapper implements DmcN
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._IntegerNamedObject);
     }
 
+    public IntegerNamedObjectDMW cloneIt() {
+        IntegerNamedObjectDMW rc = new IntegerNamedObjectDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public IntegerNamedObjectDMO getDMO() {
         return((IntegerNamedObjectDMO) core);
     }

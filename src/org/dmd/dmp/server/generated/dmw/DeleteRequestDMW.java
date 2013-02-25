@@ -68,6 +68,12 @@ abstract public class DeleteRequestDMW extends Request {
         super(obj, org.dmd.dmp.server.generated.DmpSchemaAG._DeleteRequest);
     }
 
+    public DeleteRequest cloneIt() {
+        DeleteRequest rc = new DeleteRequest();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public DeleteRequestDMO getDMO() {
         return((DeleteRequestDMO) core);
     }

@@ -81,6 +81,12 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
         super(obj, org.dmd.dmv.server.generated.DmvSchemaAG._CheckAttributesBasedOnValueRuleData);
     }
 
+    public CheckAttributesBasedOnValueRuleDataDMW cloneIt() {
+        CheckAttributesBasedOnValueRuleDataDMW rc = new CheckAttributesBasedOnValueRuleDataDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public CheckAttributesBasedOnValueRuleDataDMO getDMO() {
         return((CheckAttributesBasedOnValueRuleDataDMO) core);
     }

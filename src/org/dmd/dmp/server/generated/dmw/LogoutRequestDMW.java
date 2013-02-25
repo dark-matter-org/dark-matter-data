@@ -58,6 +58,12 @@ abstract public class LogoutRequestDMW extends Request {
         super(obj, org.dmd.dmp.server.generated.DmpSchemaAG._LogoutRequest);
     }
 
+    public LogoutRequest cloneIt() {
+        LogoutRequest rc = new LogoutRequest();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public LogoutRequestDMO getDMO() {
         return((LogoutRequestDMO) core);
     }

@@ -74,6 +74,12 @@ public class OneOfTheseAttributesRequiredRuleDataDMW extends RuleData implements
         super(obj, org.dmd.dmv.server.generated.DmvSchemaAG._OneOfTheseAttributesRequiredRuleData);
     }
 
+    public OneOfTheseAttributesRequiredRuleDataDMW cloneIt() {
+        OneOfTheseAttributesRequiredRuleDataDMW rc = new OneOfTheseAttributesRequiredRuleDataDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public OneOfTheseAttributesRequiredRuleDataDMO getDMO() {
         return((OneOfTheseAttributesRequiredRuleDataDMO) core);
     }

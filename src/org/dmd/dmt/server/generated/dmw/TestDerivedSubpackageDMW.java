@@ -48,6 +48,12 @@ public class TestDerivedSubpackageDMW extends TestMultiLevelSubpackageDMW implem
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._TestDerivedSubpackage);
     }
 
+    public TestDerivedSubpackageDMW cloneIt() {
+        TestDerivedSubpackageDMW rc = new TestDerivedSubpackageDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public TestDerivedSubpackageDMO getDMO() {
         return((TestDerivedSubpackageDMO) core);
     }

@@ -52,6 +52,12 @@ public class UUIDNamedObjectDMW extends DmwNamedObjectWrapper implements DmcName
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._UUIDNamedObject);
     }
 
+    public UUIDNamedObjectDMW cloneIt() {
+        UUIDNamedObjectDMW rc = new UUIDNamedObjectDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public UUIDNamedObjectDMO getDMO() {
         return((UUIDNamedObjectDMO) core);
     }

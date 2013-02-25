@@ -49,6 +49,12 @@ public class TestOneLevelSubpackageDMW extends DmwNamedObjectWrapper implements 
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._TestOneLevelSubpackage);
     }
 
+    public TestOneLevelSubpackageDMW cloneIt() {
+        TestOneLevelSubpackageDMW rc = new TestOneLevelSubpackageDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public TestOneLevelSubpackageDMO getDMO() {
         return((TestOneLevelSubpackageDMO) core);
     }

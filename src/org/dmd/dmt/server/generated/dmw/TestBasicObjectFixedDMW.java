@@ -21,9 +21,11 @@ import org.dmd.dms.generated.dmw.IntegerToStringIterableDMW;                    
 import org.dmd.dms.generated.dmw.LongIterableDMW;                               // For multi-valued Long - (BaseDMWGeneratorNewest.java:1919)
 import org.dmd.dms.generated.dmw.StringIterableDMW;                             // For multi-valued String - (BaseDMWGeneratorNewest.java:1919)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                           // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:893)
+import org.dmd.dmt.server.generated.dmw.DmtTestEnumIterableDMW;                 // For multi-valued DmtTestEnum - (BaseDMWGeneratorNewest.java:1919)
 import org.dmd.dmt.server.generated.dmw.TestBasicNamedObjectFixedDMW;           // Is reference type - (BaseDMWGeneratorNewest.java:925)
 import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                               // Attribute hsDate from the dmt schema - (BaseDMWGeneratorNewest.java:720)
 import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;                // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1070)
+import org.dmd.dmt.shared.generated.enums.DmtTestEnum;                          // Primitive type - (BaseDMWGeneratorNewest.java:968)
 import org.dmd.dmt.shared.generated.types.TestBasicNamedObjectFixedREF;         // Is reference type REF - (BaseDMWGeneratorNewest.java:933)
 import org.dmd.dmw.DmwWrapper;                                                  // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1053)
 
@@ -58,6 +60,12 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:512)
     public TestBasicObjectFixedDMW(TestBasicObjectFixedDMO obj) {
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._TestBasicObjectFixed);
+    }
+
+    public TestBasicObjectFixedDMW cloneIt() {
+        TestBasicObjectFixedDMW rc = new TestBasicObjectFixedDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
     }
 
     public TestBasicObjectFixedDMO getDMO() {
@@ -745,6 +753,119 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2106)
     public void remHsString(){
         ((TestBasicObjectFixedDMO) core).remHsString();
+    }
+
+    /**
+     * @return The number of DmtTestEnum items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1489)
+    public int getHsTestEnumSize(){
+        return(((TestBasicObjectFixedDMO) core).getHsTestEnumSize());
+    }
+
+    /**
+     * @return true if there are no DmtTestEnumDMO items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1497)
+    public boolean getHsTestEnumIsEmpty(){
+        if (((TestBasicObjectFixedDMO) core).getHsTestEnumSize() == 0)
+            return(true);
+        return(false);
+    }
+
+    /**
+     * @return true if there are any DmtTestEnumDMO items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1507)
+    public boolean getHsTestEnumHasValue(){
+        if (((TestBasicObjectFixedDMO) core).getHsTestEnumSize() == 0)
+            return(false);
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of DmtTestEnum objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1923)
+    public DmtTestEnumIterableDMW getHsTestEnumIterable(){
+        DmcAttribute<?> attr = core.get(DmtDMSAG.__hsTestEnum);
+        if (attr == null)
+            return(DmtTestEnumIterableDMW.emptyList);
+        
+        return(new DmtTestEnumIterableDMW(((TestBasicObjectFixedDMO) core).getHsTestEnum()));
+    }
+
+    /**
+     * Adds another hsTestEnum value.
+     * @param value A value compatible with DmtTestEnum
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1949)
+    public void addHsTestEnum(Object value) throws DmcValueException {
+        ((TestBasicObjectFixedDMO) core).addHsTestEnum(value);
+    }
+
+    /**
+     * Adds another hsTestEnum value.
+     * @param value A value compatible with DmtTestEnum
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1959)
+    public void addHsTestEnum(DmtTestEnum value){
+        ((TestBasicObjectFixedDMO) core).addHsTestEnum(value);
+    }
+
+    /**
+     * Returns true if the collection contains the hsTestEnum value.
+     * @param value A value compatible with DmtTestEnum
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2016)
+    public boolean hsTestEnumContains(DmtTestEnum value){
+        return(((TestBasicObjectFixedDMO) core).hsTestEnumContains(value));
+    }
+
+    /**
+     * @return A COPY of the collection of DmtTestEnum objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2058)
+    @SuppressWarnings("unchecked")
+    public HashSet<DmtTestEnum> getHsTestEnumCopy(){
+        DmcAttribute<?> attr = core.get(DmtDMSAG.__hsTestEnum);
+        if (attr == null)
+            return(new HashSet<DmtTestEnum>());
+        
+        HashSet<DmtTestEnum> rc = new HashSet<DmtTestEnum>(attr.getMVSize());
+        
+        Iterator<DmtTestEnum> it = (Iterator<DmtTestEnum>) attr.getMV();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
+    }
+
+    /**
+     * Deletes a hsTestEnum value.
+     * @param value The DmtTestEnum to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2085)
+    public void delHsTestEnum(Object value) throws DmcValueException {
+        ((TestBasicObjectFixedDMO) core).delHsTestEnum(value);
+    }
+
+    /**
+     * Deletes a hsTestEnum value.
+     * @param value The DmtTestEnum to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2094)
+    public void delHsTestEnum(DmtTestEnum value){
+        ((TestBasicObjectFixedDMO) core).delHsTestEnum(value);
+    }
+
+    /**
+     * Removes the hsTestEnum attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2106)
+    public void remHsTestEnum(){
+        ((TestBasicObjectFixedDMO) core).remHsTestEnum();
     }
 
     /**

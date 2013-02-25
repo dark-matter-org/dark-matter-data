@@ -481,3 +481,10 @@ may				svBoolean
 may				mvIdxNamedObj
 may				mvIdxUnnamedObj
 description		Used to test the DmcUncheckedOIFParser in the creation of DmcUncheckedObjects within DmcUncheckedObjects.
+
+ClassDefinition
+name 			ComplexTypeTest
+classType		STRUCTURAL
+dmdID			409
+may				svComplex
+may				mvComplex

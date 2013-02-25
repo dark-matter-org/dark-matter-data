@@ -45,6 +45,12 @@ public class UnnamedObjHSDMW extends DmwWrapper {
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._UnnamedObjHS);
     }
 
+    public UnnamedObjHSDMW cloneIt() {
+        UnnamedObjHSDMW rc = new UnnamedObjHSDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public UnnamedObjHSDMO getDMO() {
         return((UnnamedObjHSDMO) core);
     }

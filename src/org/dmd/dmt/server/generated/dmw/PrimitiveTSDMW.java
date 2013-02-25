@@ -45,6 +45,12 @@ public class PrimitiveTSDMW extends DmwWrapper {
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._PrimitiveTS);
     }
 
+    public PrimitiveTSDMW cloneIt() {
+        PrimitiveTSDMW rc = new PrimitiveTSDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public PrimitiveTSDMO getDMO() {
         return((PrimitiveTSDMO) core);
     }

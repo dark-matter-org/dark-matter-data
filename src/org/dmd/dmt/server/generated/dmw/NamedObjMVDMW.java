@@ -46,6 +46,12 @@ public class NamedObjMVDMW extends DmwWrapper {
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._NamedObjMV);
     }
 
+    public NamedObjMVDMW cloneIt() {
+        NamedObjMVDMW rc = new NamedObjMVDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public NamedObjMVDMO getDMO() {
         return((NamedObjMVDMO) core);
     }

@@ -52,6 +52,12 @@ public class TestBasicNamedObjectExtendedDMW extends DmwNamedObjectWrapper imple
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._TestBasicNamedObjectExtended);
     }
 
+    public TestBasicNamedObjectExtendedDMW cloneIt() {
+        TestBasicNamedObjectExtendedDMW rc = new TestBasicNamedObjectExtendedDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public TestBasicNamedObjectExtendedDMO getDMO() {
         return((TestBasicNamedObjectExtendedDMO) core);
     }

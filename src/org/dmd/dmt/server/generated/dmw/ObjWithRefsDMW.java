@@ -74,6 +74,12 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._ObjWithRefs);
     }
 
+    public ObjWithRefs cloneIt() {
+        ObjWithRefs rc = new ObjWithRefs();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public ObjWithRefsDMO getDMO() {
         return((ObjWithRefsDMO) core);
     }

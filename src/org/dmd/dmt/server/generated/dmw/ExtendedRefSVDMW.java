@@ -42,6 +42,12 @@ public class ExtendedRefSVDMW extends DmwWrapper {
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._ExtendedRefSV);
     }
 
+    public ExtendedRefSVDMW cloneIt() {
+        ExtendedRefSVDMW rc = new ExtendedRefSVDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public ExtendedRefSVDMO getDMO() {
         return((ExtendedRefSVDMO) core);
     }

@@ -69,6 +69,12 @@ abstract public class GetResponseDMW extends Response {
         super(obj, org.dmd.dmp.server.generated.DmpSchemaAG._GetResponse);
     }
 
+    public GetResponse cloneIt() {
+        GetResponse rc = new GetResponse();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public GetResponseDMO getDMO() {
         return((GetResponseDMO) core);
     }

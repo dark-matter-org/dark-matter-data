@@ -59,6 +59,12 @@ abstract public class PreAuthRequestDMW extends Request {
         super(obj, org.dmd.dmp.server.generated.DmpSchemaAG._PreAuthRequest);
     }
 
+    public PreAuthRequest cloneIt() {
+        PreAuthRequest rc = new PreAuthRequest();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public PreAuthRequestDMO getDMO() {
         return((PreAuthRequestDMO) core);
     }

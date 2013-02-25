@@ -78,6 +78,12 @@ public class ValueLengthRuleDataDMW extends RuleData implements DmcNamedObjectIF
         super(obj, org.dmd.dmv.server.generated.DmvSchemaAG._ValueLengthRuleData);
     }
 
+    public ValueLengthRuleDataDMW cloneIt() {
+        ValueLengthRuleDataDMW rc = new ValueLengthRuleDataDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public ValueLengthRuleDataDMO getDMO() {
         return((ValueLengthRuleDataDMO) core);
     }

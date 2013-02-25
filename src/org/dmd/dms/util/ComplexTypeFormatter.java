@@ -60,7 +60,9 @@ public class ComplexTypeFormatter {
         	}
         }
         
-        out.write(header);
+        if (header != null)
+        	out.write(header);
+        
         out.write("package " + ctd.getDefinedIn().getSchemaPackage() + ".generated.types;\n\n");
 
 		ImportManager imports = new ImportManager();

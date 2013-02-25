@@ -43,6 +43,12 @@ public class UnnamedObjMVIDXDMW extends DmwWrapper {
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._UnnamedObjMVIDX);
     }
 
+    public UnnamedObjMVIDXDMW cloneIt() {
+        UnnamedObjMVIDXDMW rc = new UnnamedObjMVIDXDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public UnnamedObjMVIDXDMO getDMO() {
         return((UnnamedObjMVIDXDMO) core);
     }

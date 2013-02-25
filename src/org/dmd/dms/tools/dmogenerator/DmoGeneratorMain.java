@@ -39,7 +39,6 @@ public class DmoGeneratorMain {
 			e.printStackTrace();
 		} catch (DmcRuleExceptionSet e) {
 			System.err.print(e.toString());
-			e.printStackTrace();
 		}
 
 	}

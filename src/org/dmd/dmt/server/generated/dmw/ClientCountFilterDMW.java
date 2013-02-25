@@ -43,6 +43,12 @@ public class ClientCountFilterDMW extends DmwWrapper {
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._ClientCountFilter);
     }
 
+    public ClientCountFilter cloneIt() {
+        ClientCountFilter rc = new ClientCountFilter();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public ClientCountFilterDMO getDMO() {
         return((ClientCountFilterDMO) core);
     }

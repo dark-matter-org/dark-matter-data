@@ -45,6 +45,12 @@ public class PrimitiveMVIDXDMW extends DmwWrapper {
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._PrimitiveMVIDX);
     }
 
+    public PrimitiveMVIDXDMW cloneIt() {
+        PrimitiveMVIDXDMW rc = new PrimitiveMVIDXDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public PrimitiveMVIDXDMO getDMO() {
         return((PrimitiveMVIDXDMO) core);
     }

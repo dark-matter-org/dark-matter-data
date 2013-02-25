@@ -3052,7 +3052,9 @@ public class GenUtility {
     static public void dumpComplexTypeDmcType(String header, String basePackage, String od, String cn, boolean containsRefs) throws IOException {
     	BufferedWriter out = FileUpdateManager.instance().getWriter(od, "DmcType" + cn + ".java");
 
-    	out.write(header);
+    	if (header != null)
+    		out.write(header);
+    	
     	out.write("package " + basePackage + ".generated.types;\n\n");
       
     	out.write("import java.io.Serializable;\n");

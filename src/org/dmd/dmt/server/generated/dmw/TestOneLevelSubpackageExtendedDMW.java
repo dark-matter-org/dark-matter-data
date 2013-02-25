@@ -50,6 +50,12 @@ public class TestOneLevelSubpackageExtendedDMW extends DmwNamedObjectWrapper imp
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._TestOneLevelSubpackageExtended);
     }
 
+    public TestOneLevelSubpackageExtended cloneIt() {
+        TestOneLevelSubpackageExtended rc = new TestOneLevelSubpackageExtended();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public TestOneLevelSubpackageExtendedDMO getDMO() {
         return((TestOneLevelSubpackageExtendedDMO) core);
     }

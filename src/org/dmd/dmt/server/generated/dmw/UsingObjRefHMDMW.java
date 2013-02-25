@@ -47,6 +47,12 @@ public class UsingObjRefHMDMW extends DmwWrapper {
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._UsingObjRefHM);
     }
 
+    public UsingObjRefHMDMW cloneIt() {
+        UsingObjRefHMDMW rc = new UsingObjRefHMDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public UsingObjRefHMDMO getDMO() {
         return((UsingObjRefHMDMO) core);
     }

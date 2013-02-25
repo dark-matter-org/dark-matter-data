@@ -71,6 +71,12 @@ public class NumericRangeRuleDataDMW extends RuleData implements DmcNamedObjectI
         super(obj, org.dmd.dmv.server.generated.DmvSchemaAG._NumericRangeRuleData);
     }
 
+    public NumericRangeRuleDataDMW cloneIt() {
+        NumericRangeRuleDataDMW rc = new NumericRangeRuleDataDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public NumericRangeRuleDataDMO getDMO() {
         return((NumericRangeRuleDataDMO) core);
     }

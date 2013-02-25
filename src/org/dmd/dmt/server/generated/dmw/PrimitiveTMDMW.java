@@ -46,6 +46,12 @@ public class PrimitiveTMDMW extends DmwWrapper {
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._PrimitiveTM);
     }
 
+    public PrimitiveTMDMW cloneIt() {
+        PrimitiveTMDMW rc = new PrimitiveTMDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public PrimitiveTMDMO getDMO() {
         return((PrimitiveTMDMO) core);
     }
