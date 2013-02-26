@@ -2482,6 +2482,8 @@ public class SchemaManager implements DmcNameResolverIF {
     		while(ctdl.hasNext()){
     			ComplexTypeDefinition ctd = ctdl.next();
     			
+    			// The usual resolution mechanisms don't work for the fields, we have to 
+    			// handle that manually.
     			Iterator<Field> fields = ctd.getField();
     			while(fields.hasNext()){
     				Field field = fields.next();
@@ -2508,6 +2510,15 @@ public class SchemaManager implements DmcNameResolverIF {
         			}
 
     			}
+    			
+    			// And finally, the complex type def has to have it object class resolved so that
+    			// we don't run into problems later when generating the DMW schema
+    			try {
+					ctd.resolveReferences(this);
+				} catch (DmcValueExceptionSet e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
     		}
     	}
     	

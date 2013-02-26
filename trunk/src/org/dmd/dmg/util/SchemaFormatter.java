@@ -28,6 +28,7 @@ import org.dmd.dmc.types.StringName;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
+import org.dmd.dms.ComplexTypeDefinition;
 import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.EnumDefinition;
 import org.dmd.dms.RuleDefinition;
@@ -63,6 +64,8 @@ public class SchemaFormatter {
 	
 	ArrayList<VarToObject>		typeVars;
 	
+	ArrayList<VarToObject>		complexTypeVars;
+	
 	ArrayList<VarToObject>		actionVars;
 	
 	ArrayList<VarToObject>		enumVars;
@@ -88,6 +91,7 @@ public class SchemaFormatter {
 		classVars 		= new ArrayList<VarToObject>();
 		attributeVars 	= new ArrayList<VarToObject>();
 		typeVars 		= new ArrayList<VarToObject>();
+		complexTypeVars = new ArrayList<VarToObject>();
 		actionVars 		= new ArrayList<VarToObject>();
 		enumVars 		= new ArrayList<VarToObject>();
 		ruleVars 		= new ArrayList<VarToObject>();
@@ -223,6 +227,7 @@ public class SchemaFormatter {
         
 //        out.write("            initAttributes();\n");
         out.write("            initTypes();\n");
+        out.write("            initComplexTypes();\n");
         out.write("            initActions();\n");
         out.write("            initEnums();\n");
         out.write("            initRules();\n");
@@ -240,6 +245,8 @@ public class SchemaFormatter {
 //        dumpInitFunction(out,"initAttributes", attributeVars);
         
         dumpInitFunction(out,"initTypes", typeVars);
+        
+        dumpInitFunction(out,"initComplexTypes", complexTypeVars);
         
         dumpInitFunction(out,"initActions", actionVars);
         
@@ -340,6 +347,9 @@ public class SchemaFormatter {
 				else if (var.type.equals("TypeDefinition")){
 					sb.append("            addTypeDefList(" + var.name + ");\n");
 				}
+				else if (var.type.equals("ComplexTypeDefinition")){
+					sb.append("            addComplexTypeDefList(" + var.name + ");\n");
+				}
 				else if (var.type.equals("ActionDefinition")){
 					sb.append("            addActionDefList(" + var.name + ");\n");
 				}
@@ -382,6 +392,9 @@ public class SchemaFormatter {
 				else if (var.type.equals("TypeDefinition")){
 					sb.append("            addTypeDefList(" + var.name + ");\n");
 				}
+				else if (var.type.equals("ComplexTypeDefinition")){
+					sb.append("            addComplexTypeDefList(" + var.name + ");\n");
+				}
 				else if (var.type.equals("ActionDefinition")){
 					sb.append("            addActionDefList(" + var.name + ");\n");
 				}
@@ -421,6 +434,9 @@ public class SchemaFormatter {
 			}
 			else if (var.type.equals("TypeDefinition")){
 				sb.append("            addTypeDefList(" + var.name + ");\n");
+			}
+			else if (var.type.equals("ComplexTypeDefinition")){
+				sb.append("            addComplexTypeDefList(" + var.name + ");\n");
 			}
 			else if (var.type.equals("ActionDefinition")){
 				sb.append("            addActionDefList(" + var.name + ");\n");
@@ -469,6 +485,18 @@ public class SchemaFormatter {
 				sb.append("    public static TypeDefinition _" + td.getName() + ";\n");
 				allVars.add(new VarToObject("_" + td.getName(), td, "TypeDefinition"));
 				typeVars.add(new VarToObject("_" + td.getName(), td, "TypeDefinition"));
+			}
+			sb.append("\n");
+			allVars.add(new VarToObject("", null,null));
+		}
+		
+		Iterator<ComplexTypeDefinition> complextypes = schema.getComplexTypeDefList();
+		if (complextypes != null){
+			while(complextypes.hasNext()){
+				ComplexTypeDefinition td = complextypes.next();
+				sb.append("    public static ComplexTypeDefinition _" + td.getName() + ";\n");
+				allVars.add(new VarToObject("_" + td.getName(), td, "ComplexTypeDefinition"));
+				complexTypeVars.add(new VarToObject("_" + td.getName(), td, "ComplexTypeDefinition"));
 			}
 			sb.append("\n");
 			allVars.add(new VarToObject("", null,null));
@@ -624,7 +652,6 @@ public class SchemaFormatter {
 		while(oc.hasNext()){
 			ClassDefinition cd = oc.next();
 			
-//DebugInfo.debug(cd.getName());
 			if (cd.hasAttribute(ad.getName()) != null){
 				rc = cd;
 				break;
