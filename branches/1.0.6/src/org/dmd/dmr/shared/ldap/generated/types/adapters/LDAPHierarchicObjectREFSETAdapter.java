@@ -7,7 +7,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dmr.shared.ldap.generated.types.DmcTypeLDAPHierarchicObjectREFSET;
 
 @SuppressWarnings("serial")
-// org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:50)
+// org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:59)
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class LDAPHierarchicObjectREFSETAdapter extends DmcTypeLDAPHierarchicObjectREFSET implements DmcAdapterIF {
 
