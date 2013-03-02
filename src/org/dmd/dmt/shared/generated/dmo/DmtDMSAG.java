@@ -363,6 +363,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         __TestBasicNamedObjectFixed.addMust(__svString);
         __TestBasicNamedObjectFixed.addMay(__mvString);
         __TestBasicNamedObjectFixed.addMay(__mvTestBasicNamedObjectFixed);
+        __TestBasicNamedObjectFixed.addMay(__mvIdxUnnamedObj);
 
         __TestBasicNamedObjectExtended.addMust(MetaDMSAG.__name);
         __TestBasicNamedObjectExtended.addMust(__svString);
