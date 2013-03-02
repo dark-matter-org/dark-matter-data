@@ -72,6 +72,7 @@ must			name
 must            svString
 may				mvString
 may				mvTestBasicNamedObjectFixed
+may				mvIdxUnnamedObj
 description     The TestBasicNamedObjectFixed class provides a test bed for a named object.
 
 ClassDefinition
