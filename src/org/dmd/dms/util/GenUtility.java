@@ -2015,8 +2015,8 @@ public class GenUtility {
 //        if (nameAttr != null)
         	dumpSTATICType(dmotypedir, basePackage, baseTypeImport, typeName, dmcTypeImport, nameAttrImport, nameAttr, nameAttrID, genericArgs, isRef, isNameType, isFilterType, fileHeader, progress);
 
-        	if (!dmoREF)
-        		AdapterFormatter.dumpAdapterSV(dmotypedir, typeName, basePackage);
+//        	if (!dmoREF)
+        		AdapterFormatter.dumpAdapterSV(dmotypedir, typeName, basePackage, REF);
 
 	}
 
@@ -2508,8 +2508,8 @@ public class GenUtility {
         
         out.close();
         
-        if (!dmoREF)
-    		AdapterFormatter.dumpAdapterMV(dmotypedir, typeName, basePackage);
+//        if (!dmoREF)
+    		AdapterFormatter.dumpAdapterMV(dmotypedir, typeName, basePackage, REF);
 
 	}
 
@@ -2745,8 +2745,8 @@ public class GenUtility {
         
         out.close();
 
-        if (!dmoREF)
-    		AdapterFormatter.dumpAdapterSET(dmotypedir, typeName, basePackage);
+//        if (!dmoREF)
+    		AdapterFormatter.dumpAdapterSET(dmotypedir, typeName, basePackage, REF);
 
 	}
 

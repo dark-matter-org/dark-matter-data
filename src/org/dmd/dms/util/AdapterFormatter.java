@@ -8,27 +8,36 @@ import org.dmd.util.exceptions.DebugInfo;
 
 public class AdapterFormatter {
 	
-    public static void dumpAdapterSV(String od, String typename, String genpackage) throws IOException {
-    	dumpAdapter(od, typename, "SV", genpackage, true);
+    public static void dumpAdapterSV(String od, String typename, String genpackage, String REF) throws IOException {
+    	dumpAdapter(od, typename, "SV", genpackage, true, REF);
     }
 
-    public static void dumpAdapterMV(String od, String typename, String genpackage) throws IOException {
-    	dumpAdapter(od, typename, "MV", genpackage, false);
+    public static void dumpAdapterMV(String od, String typename, String genpackage, String REF) throws IOException {
+    	dumpAdapter(od, typename, "MV", genpackage, false, REF);
     }
 
-    public static void dumpAdapterSET(String od, String typename, String genpackage) throws IOException {
-    	dumpAdapter(od, typename, "SET", genpackage, false);
+    public static void dumpAdapterSET(String od, String typename, String genpackage, String REF) throws IOException {
+    	dumpAdapter(od, typename, "SET", genpackage, false, REF);
     }
 
     public static void dumpAdapterMAP(String od, String typename, String genpackage) throws IOException {
-    	dumpAdapter(od, typename, "MAP", genpackage, false);
+    	dumpAdapter(od, typename, "MAP", genpackage, false, "");
     }
 
-
-    static void dumpAdapter(String od, String typename, String subtype, String genpackage, boolean SV) throws IOException {
+/**
+ * 
+ * @param od
+ * @param typename
+ * @param subtype
+ * @param genpackage
+ * @param SV
+ * @param REF indicates if this is a reference to an unnamed DMO. Either REF or empty string.
+ * @throws IOException
+ */
+    static void dumpAdapter(String od, String typename, String subtype, String genpackage, boolean SV, String REF) throws IOException {
     	String 	className 	= typename + subtype + "Adapter";
     	String	packageName = genpackage + ".generated.types.adapters";
-    	String	baseClass	= "DmcType" + typename + subtype;
+    	String	baseClass	= "DmcType" + typename + REF + subtype;
     	String	baseImport	= genpackage + ".generated.types." + baseClass;
     	
         BufferedWriter out = FileUpdateManager.instance().getWriter(od + "/adapters", className + ".java");
