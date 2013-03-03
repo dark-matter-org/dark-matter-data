@@ -444,11 +444,13 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         __TestBasicObjectFixed.addMay(__tsString);
         __TestBasicObjectFixed.addMay(__svTestBasicNamedObjectFixed);
         __TestBasicObjectFixed.addMay(__hsTestEnum);
+        __TestBasicObjectFixed.addMay(__mvIdxUnnamedObj);
 
         __TestBasicNamedObjectFixed.addMust(MetaDMSAG.__name);
         __TestBasicNamedObjectFixed.addMust(__svString);
         __TestBasicNamedObjectFixed.addMay(__mvString);
         __TestBasicNamedObjectFixed.addMay(__mvTestBasicNamedObjectFixed);
+        __TestBasicNamedObjectFixed.addMay(__mvIdxUnnamedObj);
 
         __TestBasicNamedObjectExtended.addMust(MetaDMSAG.__name);
         __TestBasicNamedObjectExtended.addMust(__svString);
@@ -606,7 +608,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
             hsTestEnumValue1.add("TEST1");
             hsTestEnumValue1.add("TEST2");
             _dmtInitTestBasicObjectFixedData.add(DmtDMSAG.__hsTestEnum, hsTestEnumValue1);
-            _dmtInitTestBasicObjectFixedData.setLineNumber("76");
+            _dmtInitTestBasicObjectFixedData.setLineNumber("77");
             DmcTypeStringMV mvStringValue2 = new DmcTypeStringMV(DmtDMSAG.__mvString);
             mvStringValue2.add("first value");
             mvStringValue2.add("second value");
@@ -631,7 +633,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
             _dmtSvFloatNumericRangeData  .setApplyToClass("TestBasicObjectFixed");
             _dmtSvFloatNumericRangeData  .setDefinedIn("dmt");
             _dmtSvFloatNumericRangeData  .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _dmtSvFloatNumericRangeData  .setLineNumber("92");
+            _dmtSvFloatNumericRangeData  .setLineNumber("93");
             _dmtSvFloatNumericRangeData  .setNrrMaximum("2.5");
             _dmtSvFloatNumericRangeData  .setNrrMinimum("1.5");
             _dmtSvFloatNumericRangeData  .setRuleName("dmtSvFloatNumericRange");
@@ -646,7 +648,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
             _dmtSvIntegerNumericRangeData.setApplyToClass("TestBasicObjectFixed");
             _dmtSvIntegerNumericRangeData.setDefinedIn("dmt");
             _dmtSvIntegerNumericRangeData.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _dmtSvIntegerNumericRangeData.setLineNumber("84");
+            _dmtSvIntegerNumericRangeData.setLineNumber("85");
             _dmtSvIntegerNumericRangeData.setNrrMaximum("10");
             _dmtSvIntegerNumericRangeData.setNrrMinimum("1");
             _dmtSvIntegerNumericRangeData.setRuleName("dmtSvIntegerNumericRange");

@@ -16,7 +16,9 @@ import org.dmd.dms.generated.types.DmcTypeStringMV;                             
 import org.dmd.dms.generated.types.DmcTypeStringNameSV;                                  // Required type - (GenUtility.java:324)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                                      // Required type - (GenUtility.java:324)
 import org.dmd.dmt.shared.generated.dmo.TestBasicNamedObjectFixedDMO;                    // Type specific set/add - (GenUtility.java:303)
+import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;                         // Type specific set/add - (GenUtility.java:303)
 import org.dmd.dmt.shared.generated.types.DmcTypeTestBasicNamedObjectFixedREFMV;         // Reference type - (GenUtility.java:296)
+import org.dmd.dmt.shared.generated.types.DmcTypeTestBasicObjectFixedREFMV;              // Reference type - (GenUtility.java:296)
 import org.dmd.dmt.shared.generated.types.TestBasicNamedObjectFixedREF;                  // Helper class - (GenUtility.java:331)
 
 /**
@@ -335,6 +337,102 @@ public class TestBasicNamedObjectFixedDMO  extends DmcObject  implements DmcName
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1345)
     public void remMvTestBasicNamedObjectFixed(){
          rem(DmtDMSAG.__mvTestBasicNamedObjectFixed);
+    }
+
+    /**
+     * @return The nth TestBasicObjectFixed value without attempting lazy resolution.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1015)
+    public TestBasicObjectFixedDMO getNthMvIdxUnnamedObj(int i){
+        DmcTypeTestBasicObjectFixedREFMV attr = (DmcTypeTestBasicObjectFixedREFMV) get(DmtDMSAG.__mvIdxUnnamedObj);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMVnth(i));
+    }
+
+    /**
+     * Sets the mvIdxUnnamedObj value at the specified index.
+     * @param value TestBasicObjectFixed
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1061)
+    public DmcAttribute<?> setNthMvIdxUnnamedObj(int index, TestBasicObjectFixedDMO value) {
+        DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxUnnamedObj);
+        if (attr == null){
+            if (value == null){
+                if (getModifier() == null)
+                    throw(new IllegalStateException("Calling setNth() on a non-existent attribute with a null value makes no sense!"));
+                else{
+                    nthNullFromEmptyAttribute(DmtDMSAG.__mvIdxUnnamedObj, index);
+                    return(null);
+                }
+            }
+            else
+                attr = new DmcTypeTestBasicObjectFixedREFMV(DmtDMSAG.__mvIdxUnnamedObj);
+        }
+        
+        try{
+            setLastValue(attr.setMVnth(index, value));
+            nth(DmtDMSAG.__mvIdxUnnamedObj, index ,attr, null);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific setNth() method shouldn't throw exceptions!",ex));
+        }
+        return(attr);
+    }
+
+    /**
+     * Adds another mvIdxUnnamedObj value.
+     * @param value A value compatible with TestBasicObjectFixed
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1235)
+    public DmcAttribute<?> addMvIdxUnnamedObj(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxUnnamedObj);
+        if (attr == null)
+            attr = new DmcTypeTestBasicObjectFixedREFMV(DmtDMSAG.__mvIdxUnnamedObj);
+        
+        setLastValue(attr.add(value));
+        add(DmtDMSAG.__mvIdxUnnamedObj,attr);
+        return(attr);
+    }
+
+    /**
+     * Returns the number of values in mvIdxUnnamedObj
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1252)
+    public int getMvIdxUnnamedObjSize(){
+        DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxUnnamedObj);
+        if (attr == null){
+            if (DmtDMSAG.__mvIdxUnnamedObj.indexSize == 0)
+                return(0);
+            else
+                return(DmtDMSAG.__mvIdxUnnamedObj.indexSize);
+        }
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Deletes a mvIdxUnnamedObj value.
+     * @param value The TestBasicObjectFixed to be deleted from set of attribute values.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1274)
+    public DmcAttribute<?> delMvIdxUnnamedObj(Object value){
+        DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxUnnamedObj);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeTestBasicObjectFixedREFMV(DmtDMSAG.__mvIdxUnnamedObj), value);
+        else
+            attr = del(DmtDMSAG.__mvIdxUnnamedObj, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Removes the mvIdxUnnamedObj attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1345)
+    public void remMvIdxUnnamedObj(){
+         rem(DmtDMSAG.__mvIdxUnnamedObj);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
