@@ -7,7 +7,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dmg.generated.types.DmcTypeMethodGeneratorREFMAP;
 
 @SuppressWarnings("serial")
-// org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:50)
+// org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:59)
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMAP(AdapterFormatter.java:24)
 public class MethodGeneratorREFMAPAdapter extends DmcTypeMethodGeneratorREFMAP implements DmcAdapterIF {
 

@@ -209,9 +209,13 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
     	String REF = "";
     	
     	// If it's a reference type but NOT and extended reference type, insert the REF suffix
-    	if (getType().getIsRefType() && (!getType().getIsExtendedRefType()))
-    		REF = "REF";
-    	
+    	if (getType().getIsRefType() && (!getType().getIsExtendedRefType())){
+    		
+    		// We only put in the REF part if the object is a named object
+    		if (getType().getOriginalClass().getIsNamedBy() != null)
+    			REF = "REF";
+    	}
+    	    	
     	switch(getValueType()){
     	case HASHMAPPED:
     	case TREEMAPPED:

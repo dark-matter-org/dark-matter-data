@@ -7,7 +7,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dmp.shared.generated.types.DmcTypeResponseFormatEnumMV;
 
 @SuppressWarnings("serial")
-// org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:50)
+// org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:59)
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class ResponseFormatEnumMVAdapter extends DmcTypeResponseFormatEnumMV implements DmcAdapterIF {
 

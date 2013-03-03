@@ -60,6 +60,7 @@ may				hsString
 may				tsString
 may				svTestBasicNamedObjectFixed
 may				hsTestEnum
+may				mvIdxUnnamedObj
 description     The TestBasicObjectFixed class provides a test bed for all types of basic
  attribute values.
 
@@ -99,6 +100,7 @@ must			name
 must            svString
 may				mvString
 may				mvTestBasicNamedObjectFixed
+may				mvIdxUnnamedObj
 description     The TestBasicNamedObjectFixed class provides a test bed for a named object.
 
 ClassDefinition

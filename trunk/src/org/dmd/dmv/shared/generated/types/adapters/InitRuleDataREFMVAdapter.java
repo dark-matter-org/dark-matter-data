@@ -7,7 +7,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dmv.shared.generated.types.DmcTypeInitRuleDataREFMV;
 
 @SuppressWarnings("serial")
-// org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:50)
+// org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:59)
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class InitRuleDataREFMVAdapter extends DmcTypeInitRuleDataREFMV implements DmcAdapterIF {
 

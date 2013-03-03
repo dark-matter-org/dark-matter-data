@@ -2280,6 +2280,136 @@ abstract public class DmcObject implements Serializable {
     		add(attr.getAttributeInfo(), attr);
     	}
     }
+    
+    ///////////////////////////////////////////////////////////////////////////
+    
+    /**
+     * This method performs an attribute by attribute comparison of this
+     * object with the specified object and returns true if they are equal.
+     */
+    @Override
+    public boolean equals(Object obj){
+		synchronized (attributes){		
+	    	boolean rc = true;
+	    	
+	    	if (obj instanceof DmcObject){
+	    		DmcObject other = (DmcObject) obj;
+	    		
+	    		// If the construction class names don't match, we fail immediately
+	    		if (getConstructionClassName().equals(other.getConstructionClassName())){
+	    			// If the number of attributes is different, they're not equal
+		    		if (attributes.size() != other.attributes.size())
+		    			return(false);
+		    		
+		    		// Cycle through each attribute
+	    			for(DmcAttribute<?> attr: attributes.values()){
+	    				DmcAttribute<?> otherAttr = other.get(attr.attrInfo);
+	    				
+	    				// If we have an attribute that isn't in the other object - we're not equal
+	    				if (otherAttr == null){
+	    					rc = false;
+	    					break;
+	    				}
+	    				
+	    				if (attr.attrInfo.valueType == ValueTypeEnum.SINGLE){
+	    					if (!attr.getSV().equals(otherAttr.getSV())){
+	    						rc = false;
+	    						break;
+	    					}
+	    				}
+	    				else{
+	    					// If the value counts don't align - we're not equal
+	    					if (attr.getMVSize() != otherAttr.getMVSize()){
+	    						rc = false;
+	    						break;
+	    					}
+	    					else{
+	    						if (attr.attrInfo.indexSize != 0){
+		    						// We have an indexed attribute
+    								for(int i=0; i<attr.getMVSize(); i++){
+    									Object thisval = attr.getMVnth(i);
+    									Object thatval = otherAttr.getMVnth(i);
+    									
+    									if (thisval == null){
+    										if (thatval != null){
+    											rc = false;
+    											break;
+    										}
+    										// Both indices are null - that's fine
+    									}
+    									else{
+    										if (thatval == null){
+    											rc = false;
+    											break;
+    										}
+    										if (!thisval.equals(thatval)){
+    											rc = false;
+    											break;
+    										}
+    									}
+    									
+    								}
+	    						}
+	    						else{
+	    							switch(attr.attrInfo.valueType){
+	    							case HASHMAPPED:
+	    							case TREEMAPPED:
+	    								@SuppressWarnings("unchecked")
+										Iterator<Object> vals = (Iterator<Object>) attr.getMV();
+	    								while(vals.hasNext()){
+	    									DmcMappedAttributeIF thisval = (DmcMappedAttributeIF) vals.next();
+	    									DmcMappedAttributeIF otherval = (DmcMappedAttributeIF) otherAttr.getByKey(thisval.getKey());
+	    									if (otherval == null){
+	    										// We don't have the key in the other attr - we're not equal
+	    										rc = false;
+	    										break;
+	    									}
+	    									
+	    									if (!thisval.valuesAreEqual(otherval)){
+	    										// The values at the key don't match, we're not equal
+	    										rc = false;
+	    										break;
+	    									}
+	    								}
+	    								break;
+	    							case HASHSET:
+	    							case TREESET:
+	    								@SuppressWarnings("unchecked")
+										Iterator<Object> setvals = (Iterator<Object>) attr.getMV();
+	    								while(setvals.hasNext()){
+	    									Object thisval = setvals.next();
+	    									if (!otherAttr.contains(thisval)){
+	    										rc = false;
+	    										break;
+	    									}
+	    								}
+	    								break;
+	    							case MULTI:
+	    								for(int i=0; i<attr.getMVSize(); i++){
+	    									Object thisval = attr.getMVnth(i);
+	    									Object thatval = otherAttr.getMVnth(i);
+	    									if (!thisval.equals(thatval)){
+	    										rc = false;
+	    										break;
+	    									}
+	    								}
+	    								break;
+	    							}
+	    						}
+	    					}
+	    				}
+	    				
+	    				if (!rc)
+	    					break;
+	    			}
+	    		}
+	    	}
+	    	else
+	    		rc = false;
+	    	
+	    	return(rc);
+		}
+    }
 
     ///////////////////////////////////////////////////////////////////////////
     
