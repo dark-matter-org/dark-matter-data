@@ -26,11 +26,13 @@
   
   	<!-- Specify the paths for translatable code                    -->
   	<source path='dmc'/>
+  	<source path='dmc/rules'/>
     <source path='dmp/client'/>
     <source path='dmp/shared'/>
     <source path='dmr/shared'/>
     <source path='dms/generated/dmo'/>
     <source path='dms/generated/enums'/>
+    <source path='dms/generated/rulesdmo'/>
     <source path='dms/generated/types'/>
     <source path='dms/extended'/>
     <source path='dms/types'/>
@@ -38,6 +40,12 @@
     <source path='dmt/shared/generated'/>
     <source path='dmt/shared/types'/>
     <source path='dmv/shared'/>
+    <source path='dmv/shared/extended/rulesdmo'/>
+    <source path='dmv/shared/generated/dmo'/>
+    <source path='dmv/shared/generated/enums'/>
+    <source path='dmv/shared/generated/rulesdmo'/>
+    <source path='dmv/shared/generated/types'/>
+    <source path='dmv/shared/generated/types/adapters'/>
     <source path='map/generated'/>
 
 </module>

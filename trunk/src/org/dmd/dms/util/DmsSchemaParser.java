@@ -36,7 +36,7 @@ import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;
 import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
-import org.dmd.dmv.shared.DmvDynamicRuleManager;
+import org.dmd.dmv.server.DmvDynamicRuleManager;
 import org.dmd.dmv.shared.DmvRuleManager;
 import org.dmd.dmw.DmwObjectFactory;
 import org.dmd.dmw.DmwWrapper;

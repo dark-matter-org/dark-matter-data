@@ -7,7 +7,6 @@ import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dmv.shared.generated.dmo.NumericRangeRuleDataDMO;
 import org.dmd.dmv.shared.generated.rulesdmo.NumericRangeRuleBaseImpl;
-import org.dmd.util.exceptions.DebugInfo;
 
 /**
  * The NumericRangeRule validates that a numeric value falls with in a certain range
@@ -25,8 +24,6 @@ public class NumericRangeRule extends NumericRangeRuleBaseImpl {
 
 	@Override
 	public void execute(DmcObject obj, DmcAttribute<?> attribute) throws DmcRuleExceptionSet {
-		DebugInfo.debug("Entering >>>");
-		
 		DmcRuleExceptionSet rc = null;
 		Double minimum = ruleDMO.getNrrMinimum();
 		Double maximum = ruleDMO.getNrrMaximum();
@@ -69,8 +66,6 @@ public class NumericRangeRule extends NumericRangeRuleBaseImpl {
 		
 		if (rc != null)
 			throw(rc);
-
-		DebugInfo.debug("Leaving <<<");
 
 	}
 
