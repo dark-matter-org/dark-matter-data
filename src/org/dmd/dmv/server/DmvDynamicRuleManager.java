@@ -1,4 +1,4 @@
-package org.dmd.dmv.shared;
+package org.dmd.dmv.server;
 
 import java.net.URL;
 import java.net.URLClassLoader;
