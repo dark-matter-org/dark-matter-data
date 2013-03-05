@@ -31,6 +31,7 @@ import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dmc.types.DotName;
 import org.dmd.dmc.types.RuleName;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dmc.util.DmcUncheckedObject;
@@ -71,6 +72,8 @@ public class SchemaManager implements DmcNameResolverIF {
      * Value: TypeDefinition, ClassDefinition, AttributeDefinition, ActionDefinition, SchemaDefinition, EnumDefinition
      */
     public HashMap<StringName,DmsDefinition>    	allDefs;
+    
+    public HashMap<DotName, DmsDefinition>			allDefsDOT;
 
     /**
      * This map contains all enum  definitions keyed on their respective name attributes.
@@ -230,6 +233,8 @@ public class SchemaManager implements DmcNameResolverIF {
     void init() throws ResultException, DmcValueException{
         // Create our various hashmaps
         allDefs     				= new HashMap<StringName,DmsDefinition>();
+        allDefsDOT     				= new HashMap<DotName,DmsDefinition>();
+        
         enumDefs 					= new HashMap<StringName,EnumDefinition>();
         typeDefs    				= new HashMap<StringName,TypeDefinition>();
         internalTypeDefs    		= new HashMap<StringName,TypeDefinition>();
@@ -999,15 +1004,15 @@ public class SchemaManager implements DmcNameResolverIF {
      * @return If the name is that of any kind of definition, the definition is
      * returned as a generic object; otherwise null is returned.
      */
-    public DmsDefinition isDefinition(String name){
-    	StringName nameKey = new StringName(name);
-//    	try {
-//			nameKey.setNameString(name);
-//		} catch (DmcValueException e) {
-//			e.printStackTrace();
-//		}
-        return(allDefs.get(nameKey));
-    }
+//    public DmsDefinition isDefinition(String name){
+//    	StringName nameKey = new StringName(name);
+////    	try {
+////			nameKey.setNameString(name);
+////		} catch (DmcValueException e) {
+////			e.printStackTrace();
+////		}
+//        return(allDefs.get(nameKey));
+//    }
 
     /**
      * Adds the specified schema definition if it doesn't already exist.
@@ -1022,12 +1027,22 @@ public class SchemaManager implements DmcNameResolverIF {
             currentSchema = null;
         	throw(ex);
         }
-        if (checkAndAdd(sd.getObjectName(),sd,allDefs) == false){
+//        if (checkAndAdd(sd.getObjectName(),sd,allDefs) == false){
+//        	ResultException ex = new ResultException();
+//        	ex.addError(clashMsg(sd.getObjectName(),sd,allDefs,"definition names"));
+//            currentSchema = null;
+//        	throw(ex);
+//        }
+        
+        // TODO: NEW NAMING
+        
+        if (checkAndAddDOT(sd.getDotName(),sd,allDefsDOT) == false){
         	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(sd.getObjectName(),sd,allDefs,"definition names"));
+        	ex.addError(clashMsgDOT(sd.getObjectName(),sd,allDefsDOT,"definition names"));
             currentSchema = null;
         	throw(ex);
         }
+        
 
         if (sd.getObjectName().getNameString().length() > longestSchemaName)
             longestSchemaName = sd.getObjectName().getNameString().length();
@@ -1138,9 +1153,17 @@ public class SchemaManager implements DmcNameResolverIF {
         	ex.addError(clashMsg(sd.getObjectName(),sd,sliceDefs,"slice names"));
         	throw(ex);
         }
-        if (checkAndAdd(sd.getObjectName(),sd,allDefs) == false){
+//        if (checkAndAdd(sd.getObjectName(),sd,allDefs) == false){
+//        	ResultException ex = new ResultException();
+//        	ex.addError(clashMsg(sd.getObjectName(),sd,allDefs,"definition names"));
+//            throw(ex);
+//        }
+        
+        // TODO: NEW NAMING
+        
+        if (checkAndAddDOT(sd.getDotName(),sd,allDefsDOT) == false){
         	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(sd.getObjectName(),sd,allDefs,"definition names"));
+        	ex.addError(clashMsgDOT(sd.getObjectName(),sd,allDefsDOT,"definition names"));
             throw(ex);
         }
     }
@@ -1156,12 +1179,20 @@ public class SchemaManager implements DmcNameResolverIF {
         	ex.addError(clashMsg(rc.getObjectName(),rc,ruleCategoryDefs,"rule categories"));
         	throw(ex);
         }
-        if (checkAndAdd(rc.getObjectName(),rc,allDefs) == false){
+//        if (checkAndAdd(rc.getObjectName(),rc,allDefs) == false){
+//        	ResultException ex = new ResultException();
+//        	ex.addError(clashMsg(rc.getObjectName(),rc,allDefs,"definition names"));
+//            throw(ex);
+//        }
+        
+        // TODO: NEW NAMING
+        
+        if (checkAndAddDOT(rc.getDotName(),rc,allDefsDOT) == false){
         	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(rc.getObjectName(),rc,allDefs,"definition names"));
+        	ex.addError(clashMsgDOT(rc.getObjectName(),rc,allDefsDOT,"definition names"));
             throw(ex);
         }
-        
+
         if (performIDChecks){
 	        // Bump up the rule category ID by the amount of schemaBaseID
 	        int base = rc.getDefinedIn().getSchemaBaseID();
@@ -1218,12 +1249,20 @@ public class SchemaManager implements DmcNameResolverIF {
         	ex.addError(clashMsg(rd.getObjectName(),rd,ruleDefs,"rule definitions"));
         	throw(ex);
         }
-        if (checkAndAdd(rd.getObjectName(),rd,allDefs) == false){
+//        if (checkAndAdd(rd.getObjectName(),rd,allDefs) == false){
+//        	ResultException ex = new ResultException();
+//        	ex.addError(clashMsg(rd.getObjectName(),rd,allDefs,"definition names"));
+//            throw(ex);
+//        }
+        
+        // TODO: NEW NAMING
+        
+        if (checkAndAddDOT(rd.getDotName(),rd,allDefsDOT) == false){
         	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(rd.getObjectName(),rd,allDefs,"definition names"));
+        	ex.addError(clashMsgDOT(rd.getObjectName(),rd,allDefsDOT,"definition names"));
             throw(ex);
         }
-        
+
         if (performIDChecks){
 	        // Bump up the DMD ID by the amount of schemaBaseID
 	        int base = rd.getDefinedIn().getSchemaBaseID();
@@ -1319,6 +1358,14 @@ public class SchemaManager implements DmcNameResolverIF {
         	throw(ex);
         }
         
+        // TODO: NEW NAMING
+        
+        if (checkAndAddDOT(cd.getDotName(),cd,allDefsDOT) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsgDOT(cd.getObjectName(),cd,allDefsDOT,"definition names"));
+            throw(ex);
+        }
+
         if (cd.getAbbrev() != null){
             // We have an abbreviation - so it must also be unique and
             // added to the appropriate maps
@@ -1328,11 +1375,24 @@ public class SchemaManager implements DmcNameResolverIF {
             	ex.addError(clashMsg(abbrevName,cd,classDefs,"class abbreviations"));
             	throw(ex);
             }
+            
             if (checkAndAdd(abbrevName,cd,allDefs) == false){
             	ResultException ex = new ResultException();
             	ex.addError(clashMsg(abbrevName,cd,allDefs,"definition names"));
             	throw(ex);
             }
+            
+            // TODO: NEW NAMING
+            
+            DotName dotAbbrevName = new DotName(cd.getDefinedIn().getName() + "." + cd.getAbbrev());
+            
+            if (checkAndAddDOT(dotAbbrevName,cd,allDefsDOT) == false){
+                StringName errName = new StringName(cd.getDefinedIn().getName() + "." + cd.getAbbrev());
+            	ResultException ex = new ResultException();
+            	ex.addError(clashMsgDOT(errName,cd,allDefsDOT,"definition names"));
+                throw(ex);
+            }
+            
             classAbbrevs.put(abbrevName,cd);
         }
         
@@ -1582,6 +1642,14 @@ public class SchemaManager implements DmcNameResolverIF {
         	throw(ex);
         }
         
+        // TODO: NEW NAMING
+        
+        if (checkAndAddDOT(ad.getDotName(),ad,allDefsDOT) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsgDOT(ad.getObjectName(),ad,allDefsDOT,"definition names"));
+        	throw(ex);
+        }
+        
         if (ad.getDmdID() == null){
         	ResultException ex = new ResultException("Missing dmdID for attribute: " + ad.getName());
         	throw(ex);
@@ -1637,6 +1705,17 @@ public class SchemaManager implements DmcNameResolverIF {
             	ex.addError(clashMsg(ad.getObjectName(),ad,allDefs,"definition names"));
             	throw(ex);
             }
+            
+            // TODO: NEW NAMING
+            
+            DotName dotAbbrevName = new DotName(ad.getDefinedIn().getName() + "." + ad.getAbbrev());
+            if (checkAndAddDOT(dotAbbrevName,ad,allDefsDOT) == false){
+            	StringName errName = new StringName(ad.getDefinedIn().getName() + "." + ad.getAbbrev());
+            	ResultException ex = new ResultException();
+            	ex.addError(clashMsgDOT(errName,ad,allDefsDOT,"definition names"));
+            	throw(ex);
+            }
+
             attrAbbrevs.put(abbrevName,ad);
         }
         
@@ -1691,6 +1770,14 @@ public class SchemaManager implements DmcNameResolverIF {
             throw(ex);
         }
 
+        // TODO: NEW NAMING
+        
+        if (checkAndAddDOT(td.getDotName(),td,allDefsDOT) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsgDOT(td.getObjectName(),td,allDefsDOT,"definition names"));
+        	throw(ex);
+        }
+        
         if (td.getObjectName().getNameString().length() > longestTypeName)
             longestTypeName = td.getObjectName().getNameString().length();
      
@@ -1894,6 +1981,14 @@ public class SchemaManager implements DmcNameResolverIF {
             throw(ex);
         }
 
+        // TODO: NEW NAMING
+        
+        if (checkAndAddDOT(actd.getDotName(),actd,allDefsDOT) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsgDOT(actd.getObjectName(),actd,allDefsDOT,"definition names"));
+        	throw(ex);
+        }
+        
         if (actd.getObjectName().getNameString().length() > longestActionName)
             longestActionName = actd.getObjectName().getNameString().length();
 
@@ -1939,6 +2034,15 @@ public class SchemaManager implements DmcNameResolverIF {
 //    private boolean checkAndAdd(Object key, Object obj, HashMap map){
     @SuppressWarnings({ "unchecked", "rawtypes" })
 	private boolean checkAndAdd(StringName key, DmsDefinition obj, HashMap map){
+        if (map.containsKey(key))
+            return(false);
+        else
+            map.put(key,obj);
+
+        return(true);
+    }
+
+	private boolean checkAndAddDOT(DotName key, DmsDefinition obj, HashMap<DotName,DmsDefinition> map){
         if (map.containsKey(key))
             return(false);
         else
@@ -2028,6 +2132,14 @@ public class SchemaManager implements DmcNameResolverIF {
 //    		DebugInfo.debug("METASCHEMA");
     		return(MetaSchema._metaSchema);
     	}
+    	
+    	// TODO: NEW NAMING
+    	
+    	// Eventually, allDefs will contain collections of definition by string. If there's
+    	// more than one entry at a position in the allDefs, we'll throw an exception.
+    	
+    	// If we can't find it in allDefs, we'll look in allDefsDOT because it might be
+    	// a fully qualified name.
 
         return((DmcNamedObjectIF)allDefs.get(name));
 	}
@@ -2097,6 +2209,14 @@ public class SchemaManager implements DmcNameResolverIF {
     
 	@Override
 	public DmcObject findNamedDMO(DmcObjectName name) {
+    	// TODO: NEW NAMING
+    	
+    	// Eventually, allDefs will contain collections of definition by string. If there's
+    	// more than one entry at a position in the allDefs, we'll throw an exception.
+    	
+    	// If we can't find it in allDefs, we'll look in allDefsDOT because it might be
+    	// a fully qualified name.
+
 		DmsDefinition def = allDefs.get(name);
 		if (def == null)
 			return(null);
@@ -2124,7 +2244,15 @@ public class SchemaManager implements DmcNameResolverIF {
     		return(MetaSchema._ClassDefinition);
     	}
     	
-        return((DmcNamedObjectIF)allDefs.get(key));
+    	// TODO: NEW NAMING
+    	
+    	// Eventually, allDefs will contain collections of definition by string. If there's
+    	// more than one entry at a position in the allDefs, we'll throw an exception.
+    	
+    	// If we can't find it in allDefs, we'll look in allDefsDOT because it might be
+    	// a fully qualified name.
+
+    	return((DmcNamedObjectIF)allDefs.get(key));
     }
 
     /**
@@ -2150,6 +2278,19 @@ public class SchemaManager implements DmcNameResolverIF {
      * Returns a nice error message for a clashing definition name.
      */
     String clashMsg(StringName defName, DmsDefinition newDef, HashMap<StringName, ? extends DmsDefinition> defMap, String defType){
+        DmsDefinition    existing = defMap.get(defName);
+        SchemaDefinition ga1      = existing.getDefinedIn();
+        SchemaDefinition ga2      = newDef.getDefinedIn();
+
+        if (ga2 == null)
+            return(new String("Clashing " + defType + ": " + defName + " - Initially defined as part of " + ga1.getObjectName() + " - Redefined in " + currentSchema.getObjectName()));
+        else
+            return(new String("Clashing " + defType + ": " + defName + " - Initially defined as part of " + ga1.getObjectName() + " - Redefined in " + ga2.getObjectName()));
+    }
+
+    // TODO: NEW NAMING
+    
+    String clashMsgDOT(StringName defName, DmsDefinition newDef, HashMap<DotName, ? extends DmsDefinition> defMap, String defType){
         DmsDefinition    existing = defMap.get(defName);
         SchemaDefinition ga1      = existing.getDefinedIn();
         SchemaDefinition ga2      = newDef.getDefinedIn();

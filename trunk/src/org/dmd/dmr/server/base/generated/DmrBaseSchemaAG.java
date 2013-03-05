@@ -90,6 +90,7 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
             _HierarchicObjectOBJ.addMay("file");
             _HierarchicObjectOBJ.addMust("FQN");
             _HierarchicObjectOBJ.setDmwIteratorImport("org.dmd.dmr.server.base.generated.dmw.HierarchicObjectIterableDMW");
+            _HierarchicObjectOBJ.setDotName("dmr.base.HierarchicObject");
             _HierarchicObject.setDefinedIn(this);
             addClassDefList(_HierarchicObject);
 
@@ -109,6 +110,7 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
             _DotNamedObjectOBJ.setDmwIteratorClass("DotNamedObjectIterableDMW");
             _DotNamedObjectOBJ.addMust("FQN");
             _DotNamedObjectOBJ.setDmwIteratorImport("org.dmd.dmr.server.base.generated.dmw.DotNamedObjectIterableDMW");
+            _DotNamedObjectOBJ.setDotName("dmr.base.DotNamedObject");
             _DotNamedObject.setDefinedIn(this);
             addClassDefList(_DotNamedObject);
 
@@ -123,6 +125,7 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
             _userNameOBJ.setDmdID("400");
             _userNameOBJ.setDescription("The name of a user.");
             _userNameOBJ.setDataType("PERSISTENT");
+            _userNameOBJ.setDotName("dmr.base.userName");
             _userName.setDefinedIn(this);
             _userNameOBJ.setFile("/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/attributes.dmd");
             _userNameOBJ.setLineNumber("47");
@@ -136,6 +139,7 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
             _passwordOBJ.setDmdID("401");
             _passwordOBJ.setDescription("A user's password.");
             _passwordOBJ.setDataType("PERSISTENT");
+            _passwordOBJ.setDotName("dmr.base.password");
             _password.setDefinedIn(this);
             _passwordOBJ.setFile("/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/attributes.dmd");
             _passwordOBJ.setLineNumber("54");
