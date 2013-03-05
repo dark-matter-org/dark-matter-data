@@ -63,6 +63,7 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
         _ImAp.put(MetaDMSAG.__name.id,MetaDMSAG.__name);
         _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
         _ImAp.put(MetaDMSAG.__description.id,MetaDMSAG.__description);
+        _ImAp.put(MetaDMSAG.__dotName.id,MetaDMSAG.__dotName);
         _ImAp.put(MetaDMSAG.__extendedClass.id,MetaDMSAG.__extendedClass);
         _ImAp.put(MetaDMSAG.__fieldSeparator.id,MetaDMSAG.__fieldSeparator);
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
@@ -73,6 +74,7 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
         _SmAp.put(MetaDMSAG.__name.name,MetaDMSAG.__name);
         _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
         _SmAp.put(MetaDMSAG.__description.name,MetaDMSAG.__description);
+        _SmAp.put(MetaDMSAG.__dotName.name,MetaDMSAG.__dotName);
         _SmAp.put(MetaDMSAG.__extendedClass.name,MetaDMSAG.__extendedClass);
         _SmAp.put(MetaDMSAG.__fieldSeparator.name,MetaDMSAG.__fieldSeparator);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
@@ -228,6 +230,32 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
         
         attr.set(value);
         set(MetaDMSAG.__description,attr);
+    }
+
+    /**
+     * The dotName attribute is used to store dot separated names.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2232)
+    public DotName getDotName(){
+        DmcTypeDotNameSV attr = (DmcTypeDotNameSV) get(MetaDMSAG.__dotName);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets dotName to the specified value.
+     * @param value A value compatible with DmcTypeDotNameSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2325)
+    public void setDotName(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__dotName);
+        if (attr == null)
+            attr = new DmcTypeDotNameSV(MetaDMSAG.__dotName);
+        
+        attr.set(value);
+        set(MetaDMSAG.__dotName,attr);
     }
 
     /**

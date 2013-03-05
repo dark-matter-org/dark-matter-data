@@ -45,6 +45,7 @@ public class RunContextDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
         _ImAp.put(MetaDMSAG.__name.id,MetaDMSAG.__name);
         _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
         _ImAp.put(MetaDMSAG.__description.id,MetaDMSAG.__description);
+        _ImAp.put(MetaDMSAG.__dotName.id,MetaDMSAG.__dotName);
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
 
@@ -53,6 +54,7 @@ public class RunContextDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
         _SmAp.put(MetaDMSAG.__name.name,MetaDMSAG.__name);
         _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
         _SmAp.put(MetaDMSAG.__description.name,MetaDMSAG.__description);
+        _SmAp.put(MetaDMSAG.__dotName.name,MetaDMSAG.__dotName);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
     }
@@ -206,6 +208,32 @@ public class RunContextDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
         
         attr.set(value);
         set(MetaDMSAG.__description,attr);
+    }
+
+    /**
+     * The dotName attribute is used to store dot separated names.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2232)
+    public DotName getDotName(){
+        DmcTypeDotNameSV attr = (DmcTypeDotNameSV) get(MetaDMSAG.__dotName);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets dotName to the specified value.
+     * @param value A value compatible with DmcTypeDotNameSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2325)
+    public void setDotName(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__dotName);
+        if (attr == null)
+            attr = new DmcTypeDotNameSV(MetaDMSAG.__dotName);
+        
+        attr.set(value);
+        set(MetaDMSAG.__dotName,attr);
     }
 
     /**

@@ -119,6 +119,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         _ImAp.put(MetaDMSAG.__description.id,MetaDMSAG.__description);
         _ImAp.put(MetaDMSAG.__dmwIteratorClass.id,MetaDMSAG.__dmwIteratorClass);
         _ImAp.put(MetaDMSAG.__dmwIteratorImport.id,MetaDMSAG.__dmwIteratorImport);
+        _ImAp.put(MetaDMSAG.__dotName.id,MetaDMSAG.__dotName);
         _ImAp.put(MetaDMSAG.__enumName.id,MetaDMSAG.__enumName);
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
         _ImAp.put(MetaDMSAG.__filterAttributeDef.id,MetaDMSAG.__filterAttributeDef);
@@ -149,6 +150,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         _SmAp.put(MetaDMSAG.__description.name,MetaDMSAG.__description);
         _SmAp.put(MetaDMSAG.__dmwIteratorClass.name,MetaDMSAG.__dmwIteratorClass);
         _SmAp.put(MetaDMSAG.__dmwIteratorImport.name,MetaDMSAG.__dmwIteratorImport);
+        _SmAp.put(MetaDMSAG.__dotName.name,MetaDMSAG.__dotName);
         _SmAp.put(MetaDMSAG.__enumName.name,MetaDMSAG.__enumName);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
         _SmAp.put(MetaDMSAG.__filterAttributeDef.name,MetaDMSAG.__filterAttributeDef);
@@ -433,6 +435,32 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         
         attr.set(value);
         set(MetaDMSAG.__dmwIteratorImport,attr);
+    }
+
+    /**
+     * The dotName attribute is used to store dot separated names.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2232)
+    public DotName getDotName(){
+        DmcTypeDotNameSV attr = (DmcTypeDotNameSV) get(MetaDMSAG.__dotName);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets dotName to the specified value.
+     * @param value A value compatible with DmcTypeDotNameSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2325)
+    public void setDotName(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__dotName);
+        if (attr == null)
+            attr = new DmcTypeDotNameSV(MetaDMSAG.__dotName);
+        
+        attr.set(value);
+        set(MetaDMSAG.__dotName,attr);
     }
 
     /**

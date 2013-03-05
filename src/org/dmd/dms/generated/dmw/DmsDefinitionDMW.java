@@ -133,6 +133,23 @@ public abstract class DmsDefinitionDMW extends DmwNamedObjectWrapper {
         mycore.setLineNumber(value);
     }
 
+    /**
+     * The dotName attribute is used to store dot separated names.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2286)
+    public DotName getDotName(){
+        return(mycore.getDotName());
+    }
+
+    /**
+     * Sets dotName to the specified value.
+     * @param value A value compatible with DmcTypeDotNameSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2359)
+    public void setDotName(Object value) throws DmcValueException {
+        mycore.setDotName(value);
+    }
+
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation
