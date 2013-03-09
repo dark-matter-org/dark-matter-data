@@ -741,7 +741,7 @@ public class SchemaManager implements DmcNameResolverIF {
         currentSchema       = sd;
         // schemaDefs.put(sd.getName(),sd);
 
-System.out.println("The schema object:\n\n" + sd.toOIF(20) + "\n\n");
+//System.out.println("The schema object:\n\n" + sd.toOIF(20) + "\n\n");
 
         if ( (itTD = sd.getTypeDefList()) != null){
             while(itTD.hasNext()){
@@ -1772,8 +1772,6 @@ System.out.println("The schema object:\n\n" + sd.toOIF(20) + "\n\n");
         }
 
         // TODO: NEW NAMING
-        DebugInfo.debug(td.toOIF());
-        
         if (checkAndAddDOT(td.getDotName(),td,allDefsDOT) == false){
         	ResultException ex = new ResultException();
         	ex.addError(clashMsgDOT(td.getObjectName(),td,allDefsDOT,"definition names"));
