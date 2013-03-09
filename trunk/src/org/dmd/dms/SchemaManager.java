@@ -741,7 +741,7 @@ public class SchemaManager implements DmcNameResolverIF {
         currentSchema       = sd;
         // schemaDefs.put(sd.getName(),sd);
 
-//System.out.println("The schema object:\n\n" + sd.toOIF(20) + "\n\n");
+System.out.println("The schema object:\n\n" + sd.toOIF(20) + "\n\n");
 
         if ( (itTD = sd.getTypeDefList()) != null){
             while(itTD.hasNext()){
@@ -1073,6 +1073,7 @@ public class SchemaManager implements DmcNameResolverIF {
         TypeDefinition td  = new TypeDefinition();
         td.setInternallyGenerated(true);
         td.setName(ctd.getName());
+        td.setDotName(ctd.getDotName());
         td.setDescription("This is an internally generated type to represent complex type " + ctd.getName() + " values.");
         td.setIsEnumType(false);
         td.setIsRefType(false);
@@ -1771,6 +1772,7 @@ public class SchemaManager implements DmcNameResolverIF {
         }
 
         // TODO: NEW NAMING
+        DebugInfo.debug(td.toOIF());
         
         if (checkAndAddDOT(td.getDotName(),td,allDefsDOT) == false){
         	ResultException ex = new ResultException();
@@ -1906,6 +1908,7 @@ public class SchemaManager implements DmcNameResolverIF {
 	        TypeDefinition td  = new TypeDefinition();
 	        td.setInternallyGenerated(true);
 	        td.setName(evd.getName());
+	        td.setDotName(evd.getDotName());
 	        td.setEnumName(evd.getName().getNameString());
 	        td.setDescription("This is an internally generated type to allow references to " + evd.getName() + " values.");
 	        td.setIsEnumType(true);
