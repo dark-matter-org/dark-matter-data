@@ -3,26 +3,35 @@ package org.dmd.dmg.util;
 import java.util.ArrayList;
 import java.util.TreeMap;
 
-import org.dmd.dmc.DmcHierarchicObjectName;
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcObject;
-import org.dmd.dmc.DmcObjectName;
+import org.dmd.dmc.types.DotName;
+import org.dmd.dmc.types.StringName;
 
 /**
  * The DefinitionManager is a generic manager of a set of objects that comprise definitions
  * for some purpose.
  */
-public class DefinitionManager<DEF extends DmcObject, FLATNAME extends DmcObjectName, FQN extends DmcHierarchicObjectName> {
+public class DefinitionManager<DEF extends DmcObject> {
 	
-	TreeMap<FLATNAME,ArrayList<DEF>>	flatMap;
+	TreeMap<StringName,ArrayList<DEF>>	flatMap;
 	
-	TreeMap<FQN,DEF>					fqnMap;
+	TreeMap<DotName,DEF>				fqnMap;
 	
-	public DefinitionManager(){
-		flatMap	= new TreeMap<FLATNAME, ArrayList<DEF>>();
-		fqnMap	= new TreeMap<FQN, DEF>();
+	DmcAttributeInfo					flatAttr;
+	
+	DmcAttributeInfo					hierAttr;
+	
+	public DefinitionManager(DmcAttributeInfo fa, DmcAttributeInfo ha){
+		flatMap		= new TreeMap<StringName, ArrayList<DEF>>();
+		fqnMap		= new TreeMap<DotName, DEF>();
+		flatAttr	= fa;
+		hierAttr	= ha;
+		
+		
 	}
 	
-	public void addDefinition(){
+	public void addDefinition(DEF def){
 		
 	}
 
