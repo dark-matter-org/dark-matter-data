@@ -14,7 +14,7 @@ public class PrimitiveTMSETAdapter extends DmcTypePrimitiveTMREFSET implements D
     transient DmcTypePrimitiveTMREFSET existingValue;
 
     public PrimitiveTMSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

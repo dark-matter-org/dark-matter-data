@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -27,13 +27,11 @@ import org.dmd.dmc.types.DmcTypeDotName;    // DmcType import
  * The DmcTypeDotNameMV provides storage for a multi-valued DotName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:637)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2247)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:271)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDotNameMV extends DmcTypeDotName implements Serializable {
-    
-    private final static Iterator<DotName> emptyList = (new ArrayList<DotName>()).iterator();
     
     protected ArrayList<DotName> value;
     
@@ -47,19 +45,15 @@ public class DmcTypeDotNameMV extends DmcTypeDotName implements Serializable {
     
     @Override
     public DmcTypeDotNameMV getNew(){
-        return(new DmcTypeDotNameMV(getAttributeInfo()));
+        return(new DmcTypeDotNameMV(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2277)
     public DmcAttribute<DotName> cloneIt(){
         synchronized(this){
             DmcTypeDotNameMV rc = getNew();
-    
-            if (value == null)
-                return(rc);
-    
-            if (getAttributeInfo().indexSize == 0){
+            if (attrInfo.indexSize == 0){
                 for(DotName val: value)
                 try {
                     rc.add(val);
@@ -80,7 +74,7 @@ public class DmcTypeDotNameMV extends DmcTypeDotName implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2306)
     public DotName add(Object v) throws DmcValueException {
         synchronized(this){
             DotName rc = typeCheck(v);
@@ -92,12 +86,9 @@ public class DmcTypeDotNameMV extends DmcTypeDotName implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2319)
     public DotName del(Object v){
         synchronized(this){
-            if (value == null)
-                return(null);
-    
             DotName key = null;
             DotName rc = null;
             try {
@@ -116,43 +107,38 @@ public class DmcTypeDotNameMV extends DmcTypeDotName implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2350)
     public Iterator<DotName> getMV(){
         synchronized(this){
-            if (value == null)
-                return(emptyList);
-    
             ArrayList<DotName> clone = new ArrayList<DotName>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2359)
     public ArrayList<DotName> getMVCopy(){
         synchronized(this){
-            if (value == null)
-                return(new ArrayList<DotName>());
-            else 
-                return(new ArrayList<DotName>(value));
+            ArrayList<DotName> clone = new ArrayList<DotName>(value);
+            return(clone);
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2434)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2369)
     public int getMVSize(){
         synchronized(this){
-            if (getAttributeInfo().indexSize == 0){
+            if (attrInfo.indexSize == 0){
                 if (value == null)
                     return(0);
                 return(value.size());
             }
             else
-                return(getAttributeInfo().indexSize);
+                return(attrInfo.indexSize);
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2384)
     public DotName getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -162,14 +148,14 @@ public class DmcTypeDotNameMV extends DmcTypeDotName implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2395)
     public DotName setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
-            if (getAttributeInfo().indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
+            if (attrInfo.indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
             
-            if ( (index < 0) || (index >= getAttributeInfo().indexSize))
-                throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
+            if ( (index < 0) || (index >= attrInfo.indexSize))
+                throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
             
             DotName rc = null;
             
@@ -177,8 +163,8 @@ public class DmcTypeDotNameMV extends DmcTypeDotName implements Serializable {
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<DotName>(getAttributeInfo().indexSize);
-                for(int i=0;i<getAttributeInfo().indexSize;i++)
+                value = new ArrayList<DotName>(attrInfo.indexSize);
+                for(int i=0;i<attrInfo.indexSize;i++)
                     value.add(null);
             }
             
@@ -189,13 +175,13 @@ public class DmcTypeDotNameMV extends DmcTypeDotName implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2423)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
             
-            if (getAttributeInfo().indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use hasValue()."));
+            if (attrInfo.indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
             
             if (value == null)
                 return(rc);
@@ -212,7 +198,7 @@ public class DmcTypeDotNameMV extends DmcTypeDotName implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2447)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

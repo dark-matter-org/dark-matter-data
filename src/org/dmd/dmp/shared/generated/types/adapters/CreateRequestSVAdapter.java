@@ -14,7 +14,7 @@ public class CreateRequestSVAdapter extends DmcTypeCreateRequestREFSV implements
     transient DmcTypeCreateRequestREFSV existingValue;
 
     public CreateRequestSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

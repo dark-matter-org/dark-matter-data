@@ -62,9 +62,6 @@ public class DmwContainerIterator<CAST,REF extends DmcNamedObjectREF<?>> impleme
 		
 		REF ref = it.next();
 		DmcObject obj = (DmcObject) ref.getObject();
-		if (obj == null)
-			throw(new IllegalStateException("Trying to getNext() on an unresolved reference to: " + ref.getKeyAsString() + " from DmwContainerIterator"));
-			
 		return((CAST) obj.getContainer());
 	}
 

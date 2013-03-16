@@ -14,7 +14,7 @@ public class WrapperGeneratorREFMAPAdapter extends DmcTypeWrapperGeneratorREFMAP
     transient DmcTypeWrapperGeneratorREFMAP existingValue;
 
     public WrapperGeneratorREFMAPAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

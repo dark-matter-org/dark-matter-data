@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -15,37 +15,22 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.generated.dmo;
 
-// Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1844)
-import java.io.Serializable;                  // Serializable marker interface - (MetaGenerator.java:1797)
-import java.util.*;                           // Attribute info support - (MetaGenerator.java:1799)
-import org.dmd.dmc.*;                         // Dark matter core - (MetaGenerator.java:1821)
-import org.dmd.dmc.types.*;                   // Basic type access - (MetaGenerator.java:1811)
-import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGenerator.java:1833)
+import java.io.Serializable;
 
+import java.util.*;
+
+import org.dmd.dmc.types.*;
+import org.dmd.dmc.*;
+import org.dmd.dms.generated.dmo.MetaVCAG;
+import org.dmd.dms.generated.types.*;
 
 /**
  * The ComplexTypeDefinition provides a mechanism for defining the structure
- * of\n a complex type composed of other types. From this definition, a new
- * DmcType is generated that\n has all of the required methods automatically
- * defined.\n <p/>\n An example definition is the RuleParam:\n <pre>\n
- * ComplexTypeDefinition\n name			RuleParam\n fieldSeparator :\n field String
- * importStatement The import for the type of parameter\n field String
- * genericArgs     The generic arguments associated with this parameter\n
- * field String name            The name of the parameter\n field String
- * description     A description of the parameter\n description The RuleParam
- * type is used to succintly describe a parameter\n  to be supplied to a rule
- * when it is executed.\n </pre>\n In this case, the type has four fields,
- * all of String type. An example of the String\n format of the field might
- * be: <pre> org.dmc.DmcObject::obj:The object to be validated</pre> In
- * this\n case, the generic args field isn't available and will be the empty
- * string. When a field\n seperator is specified, all fields are, more or
- * less optional, but the underlying type\n must be able to handle the empty
- * string as a valid value. This wouldn't work with Integer.\n <p/>\n If no
- * field separator is specified, the separator is assumed to be whitespace
- * and additional\n whitespace is consumed during the parsing.
+ * of a complex type composed of other types. From this definition, a new
+ * DmcType is generated that has all of the required methods automatically
+ * defined.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1854)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1231)
  */
 @SuppressWarnings("serial")
 public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO implements Serializable  {
@@ -56,6 +41,10 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
+    static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
+
+    static Map<String ,DmcObjectValidator> _OvDmAp;
+
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
@@ -63,7 +52,6 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
         _ImAp.put(MetaDMSAG.__name.id,MetaDMSAG.__name);
         _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
         _ImAp.put(MetaDMSAG.__description.id,MetaDMSAG.__description);
-        _ImAp.put(MetaDMSAG.__dotName.id,MetaDMSAG.__dotName);
         _ImAp.put(MetaDMSAG.__extendedClass.id,MetaDMSAG.__extendedClass);
         _ImAp.put(MetaDMSAG.__fieldSeparator.id,MetaDMSAG.__fieldSeparator);
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
@@ -74,11 +62,15 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
         _SmAp.put(MetaDMSAG.__name.name,MetaDMSAG.__name);
         _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
         _SmAp.put(MetaDMSAG.__description.name,MetaDMSAG.__description);
-        _SmAp.put(MetaDMSAG.__dotName.name,MetaDMSAG.__dotName);
         _SmAp.put(MetaDMSAG.__extendedClass.name,MetaDMSAG.__extendedClass);
         _SmAp.put(MetaDMSAG.__fieldSeparator.name,MetaDMSAG.__fieldSeparator);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
+
+        _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
+
+        _OvDmAp = new HashMap<String ,DmcObjectValidator>();
+        _OvDmAp.put(MetaVCAG.__AttributeSetValidator.getName(),MetaVCAG.__AttributeSetValidator);
     }
 
 
@@ -98,6 +90,14 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
         return(_SmAp);
     }
 
+    protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
+        return(_AvDmAp);
+    }
+
+    protected Map<String,DmcObjectValidator> getObjectValidators(){
+        return(_OvDmAp);
+    }
+
     @Override
     public ComplexTypeDefinitionDMO getNew(){
         ComplexTypeDefinitionDMO rc = new ComplexTypeDefinitionDMO();
@@ -115,7 +115,7 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
      * The field indicates a type and name for a field in a ComplexType.
      * @return An Iterator of Field objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2437)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1715)
     public Iterator<Field> getField(){
         DmcTypeFieldMV attr = (DmcTypeFieldMV) get(MetaDMSAG.__field);
         if (attr == null)
@@ -128,7 +128,7 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
      * Adds another field value.
      * @param value A value compatible with DmcTypeFieldMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2492)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1760)
     public DmcAttribute<?> addField(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__field);
         if (attr == null)
@@ -141,11 +141,11 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
 
     /**
      * The name attribute is used to store a single string token that represents
-     * a unique name\n for an object. A name should be composed of characters in
-     * the range, [a-z] [A-Z] [0-9]. No whitespace\n characters are allowed. All
+     * a unique name for an object. A name should be composed of characters in
+     * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
      * names must start with a character.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2239)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -158,7 +158,7 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2332)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -171,7 +171,7 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
     /**
      * Indicates the schema in which a type, attribute or class is defined.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2239)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
     public SchemaDefinitionREF getDefinedIn(){
         DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) get(MetaDMSAG.__definedIn);
         if (attr == null)
@@ -184,7 +184,7 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
      * Sets definedIn to the specified value.
      * @param value A value compatible with DmcTypeSchemaDefinitionREFSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2332)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
     public void setDefinedIn(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__definedIn);
         if (attr == null)
@@ -195,12 +195,12 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
     }
 
     /**
-     * The description attribute is used to provide descriptive\n documentation
-     * for schema related definitions. The text provided should conform\n to
-     * XHTML concepts since it will be dumped in the context of the generated
-     * HTML\n documentation.
+     * The description attribute is used to provide descriptive documentation for
+     * schema related definitions. The description is of type XHMTLString which
+     * is basically an XML formatted fragment that conforms to the XHTML 1.0
+     * specification. For more information, see the DmdTypeDef for XHTMLString.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2239)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
     public String getDescription(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -209,20 +209,11 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
         return(attr.getSV());
     }
 
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2272)
-    public String getDescriptionWithNewlines(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__description);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV().replaceAll("\\\\n","\\\n"));
-    }
-
     /**
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2332)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
     public void setDescription(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -233,36 +224,10 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
     }
 
     /**
-     * The dotName attribute is used to store dot separated names.
+     * The extendedClass indicates the fully qualified name of the class that is
+     * derived from the generated ComplexType to provide additional behaviour.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2239)
-    public DotName getDotName(){
-        DmcTypeDotNameSV attr = (DmcTypeDotNameSV) get(MetaDMSAG.__dotName);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets dotName to the specified value.
-     * @param value A value compatible with DmcTypeDotNameSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2332)
-    public void setDotName(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(MetaDMSAG.__dotName);
-        if (attr == null)
-            attr = new DmcTypeDotNameSV(MetaDMSAG.__dotName);
-        
-        attr.set(value);
-        set(MetaDMSAG.__dotName,attr);
-    }
-
-    /**
-     * The extendedClass indicates the fully qualified name of the class\n that
-     * is derived from the generated ComplexType to provide additional behaviour.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2239)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
     public String getExtendedClass(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__extendedClass);
         if (attr == null)
@@ -275,7 +240,7 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
      * Sets extendedClass to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2332)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
     public void setExtendedClass(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__extendedClass);
         if (attr == null)
@@ -286,11 +251,11 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
     }
 
     /**
-     * The fieldSeparator is used to indicate the separation character used\n
-     * when a ComplexType is represented as a String. If a fieldSeparator isn't
-     * specified, it is\n assumed to be a space.
+     * The fieldSeparator is used to indicate the separation character used when
+     * a ComplexType is represented as a String. If a fieldSeparator isn't
+     * specified, it is assumed to be a space.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2239)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
     public String getFieldSeparator(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__fieldSeparator);
         if (attr == null)
@@ -303,7 +268,7 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
      * Sets fieldSeparator to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2332)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
     public void setFieldSeparator(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__fieldSeparator);
         if (attr == null)
@@ -316,7 +281,7 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
     /**
      * Indicates the file from which a definition was loaded.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2239)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
     public String getFile(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__file);
         if (attr == null)
@@ -329,7 +294,7 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2332)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
     public void setFile(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__file);
         if (attr == null)
@@ -342,7 +307,7 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
     /**
      * Indicates the line number of the file from which a definition was loaded.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2239)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
     public Integer getLineNumber(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaDMSAG.__lineNumber);
         if (attr == null)
@@ -355,7 +320,7 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2332)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
     public void setLineNumber(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__lineNumber);
         if (attr == null)
@@ -368,8 +333,6 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:2033)
-
     /**
      * @return The name of this object from the name attribute.
      */
@@ -386,8 +349,10 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
      * @return The name attribute.
      */
     @Override
-    public DmcAttribute<?> getObjectNameAttribute(){
-        DmcAttribute<?> attr = (DmcTypeStringName) get(MetaDMSAG.__name);
+    public DmcTypeStringName getObjectNameAttribute(){
+        DmcTypeStringName attr = (DmcTypeStringName) get(MetaDMSAG.__name);
+        if (attr == null)
+            return(null);
         return(attr);
     }
 

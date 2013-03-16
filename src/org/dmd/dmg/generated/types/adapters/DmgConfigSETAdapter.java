@@ -14,7 +14,7 @@ public class DmgConfigSETAdapter extends DmcTypeDmgConfigREFSET implements DmcAd
     transient DmcTypeDmgConfigREFSET existingValue;
 
     public DmgConfigSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

@@ -14,7 +14,7 @@ public class DeleteResponseMVAdapter extends DmcTypeDeleteResponseREFMV implemen
     transient DmcTypeDeleteResponseREFMV existingValue;
 
     public DeleteResponseMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

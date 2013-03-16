@@ -14,7 +14,7 @@ public class UnnamedObjMVIDXSETAdapter extends DmcTypeUnnamedObjMVIDXREFSET impl
     transient DmcTypeUnnamedObjMVIDXREFSET existingValue;
 
     public UnnamedObjMVIDXSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

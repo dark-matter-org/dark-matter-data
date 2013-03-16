@@ -2,17 +2,17 @@ package org.dmd.dmt.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import java.util.ArrayList;                                              // To support getMVCopy() - (BaseDMWGeneratorNewest.java:999)
-import org.dmd.dmc.*;                                                    // If any attributes - (BaseDMWGeneratorNewest.java:905)
-import org.dmd.dms.ClassDefinition;                                      // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:889)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                              // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:894)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                    // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:893)
-import org.dmd.dmt.server.extended.ObjWithRefs;                          // Is reference type - (BaseDMWGeneratorNewest.java:925)
-import org.dmd.dmt.server.generated.dmw.SomeRelationIterableDMW;         // For multi-valued SomeRelation - (BaseDMWGeneratorNewest.java:1527)
-import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                        // Attribute from the dmt schema - (BaseDMWGeneratorNewest.java:1528)
-import org.dmd.dmt.shared.generated.dmo.ExtendedRefMVDMO;                // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1070)
-import org.dmd.dmt.shared.generated.types.SomeRelation;                  // For addition of MV SomeRelation - (BaseDMWGeneratorNewest.java:1571)
-import org.dmd.dmw.DmwWrapper;                                           // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1053)
+import java.util.ArrayList;                                              // To support getMVCopy() - (BaseDMWGeneratorNewest.java:997)
+import org.dmd.dmc.*;                                                    // If any attributes - (BaseDMWGeneratorNewest.java:903)
+import org.dmd.dms.*;                                                    // Always 2 - (BaseDMWGeneratorNewest.java:888)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                              // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:892)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                    // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:891)
+import org.dmd.dmt.server.extended.ObjWithRefs;                          // Is reference type - (BaseDMWGeneratorNewest.java:923)
+import org.dmd.dmt.server.generated.dmw.SomeRelationIterableDMW;         // For multi-valued SomeRelation - (BaseDMWGeneratorNewest.java:1521)
+import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                        // Attribute from the dmt schema - (BaseDMWGeneratorNewest.java:1522)
+import org.dmd.dmt.shared.generated.dmo.ExtendedRefMVDMO;                // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1068)
+import org.dmd.dmt.shared.generated.types.SomeRelation;                  // For addition of MV SomeRelation - (BaseDMWGeneratorNewest.java:1565)
+import org.dmd.dmw.DmwWrapper;                                           // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1051)
 
 
 /**
@@ -46,12 +46,6 @@ public class ExtendedRefMVDMW extends DmwWrapper {
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._ExtendedRefMV);
     }
 
-    public ExtendedRefMVDMW cloneIt() {
-        ExtendedRefMVDMW rc = new ExtendedRefMVDMW();
-        rc.setDmcObject(getDMO().cloneIt());
-        return(rc);
-    }
-
     public ExtendedRefMVDMO getDMO() {
         return((ExtendedRefMVDMO) core);
     }
@@ -64,7 +58,7 @@ public class ExtendedRefMVDMW extends DmwWrapper {
     /**
      * @return The number of SomeRelation items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1483)
     public int getMvExtendedRefSize(){
         return(((ExtendedRefMVDMO) core).getMvExtendedRefSize());
     }
@@ -72,7 +66,7 @@ public class ExtendedRefMVDMW extends DmwWrapper {
     /**
      * @return true if there are no SomeRelationDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1497)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1491)
     public boolean getMvExtendedRefIsEmpty(){
         if (((ExtendedRefMVDMO) core).getMvExtendedRefSize() == 0)
             return(true);
@@ -82,7 +76,7 @@ public class ExtendedRefMVDMW extends DmwWrapper {
     /**
      * @return true if there are any SomeRelationDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1507)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1501)
     public boolean getMvExtendedRefHasValue(){
         if (((ExtendedRefMVDMO) core).getMvExtendedRefSize() == 0)
             return(false);
@@ -92,7 +86,7 @@ public class ExtendedRefMVDMW extends DmwWrapper {
     /**
      * @return An Iterator of SomeRelationDMO objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1534)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1528)
     public SomeRelationIterableDMW getMvExtendedRefIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvExtendedRef);
         if (attr == null)
@@ -105,7 +99,7 @@ public class ExtendedRefMVDMW extends DmwWrapper {
      * Adds another mvExtendedRef value.
      * @param value A value compatible with SomeRelation
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1577)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1571)
     public DmcAttribute<?> addMvExtendedRef(SomeRelation value){
         DmcAttribute<?> attr = ((ExtendedRefMVDMO) core).addMvExtendedRef(value);
         return(attr);
@@ -115,7 +109,7 @@ public class ExtendedRefMVDMW extends DmwWrapper {
      * Deletes a mvExtendedRef value.
      * @param value The SomeRelation to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1631)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1625)
     public void delMvExtendedRef(SomeRelation value){
         ((ExtendedRefMVDMO) core).delMvExtendedRef(value);
     }
@@ -123,7 +117,7 @@ public class ExtendedRefMVDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of SomeRelation objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1703)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1697)
     public ArrayList<ObjWithRefs> getMvExtendedRefCopy(){
         DmcAttribute<?> attr = ((ExtendedRefMVDMO) core).get(DmtDMSAG.__mvExtendedRef);
         if (attr == null)
@@ -142,7 +136,7 @@ public class ExtendedRefMVDMW extends DmwWrapper {
     /**
      * Removes the mvExtendedRef attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2100)
     public void remMvExtendedRef(){
         ((ExtendedRefMVDMO) core).remMvExtendedRef();
     }

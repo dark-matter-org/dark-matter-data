@@ -11,7 +11,7 @@ import org.dmd.dmt.shared.generated.dmo.PrimitiveMVIDXDMO;    // DmcType import
  * The DmcTypePrimitiveMVIDXREFMV provides storage for a multi-valued PrimitiveMVIDX
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2270)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:255)
  */
 @SuppressWarnings("serial")
@@ -31,11 +31,11 @@ public class DmcTypePrimitiveMVIDXREFMV extends DmcTypePrimitiveMVIDXREF impleme
     
     @Override
     public DmcTypePrimitiveMVIDXREFMV getNew(){
-        return(new DmcTypePrimitiveMVIDXREFMV(getAttributeInfo()));
+        return(new DmcTypePrimitiveMVIDXREFMV(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2302)
     public DmcAttribute<PrimitiveMVIDXDMO> cloneIt(){
         synchronized(this){
             DmcTypePrimitiveMVIDXREFMV rc = getNew();
@@ -43,7 +43,7 @@ public class DmcTypePrimitiveMVIDXREFMV extends DmcTypePrimitiveMVIDXREF impleme
             if (value == null)
                 return(rc);
     
-            if (getAttributeInfo().indexSize == 0){
+            if (attrInfo.indexSize == 0){
                 for(PrimitiveMVIDXDMO val: value)
                 try {
                     rc.add(val);
@@ -64,7 +64,7 @@ public class DmcTypePrimitiveMVIDXREFMV extends DmcTypePrimitiveMVIDXREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2335)
     public PrimitiveMVIDXDMO add(Object v) throws DmcValueException {
         synchronized(this){
             PrimitiveMVIDXDMO rc = typeCheck(v);
@@ -76,7 +76,7 @@ public class DmcTypePrimitiveMVIDXREFMV extends DmcTypePrimitiveMVIDXREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2348)
     public PrimitiveMVIDXDMO del(Object v){
         synchronized(this){
             if (value == null)
@@ -100,7 +100,7 @@ public class DmcTypePrimitiveMVIDXREFMV extends DmcTypePrimitiveMVIDXREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2382)
     public Iterator<PrimitiveMVIDXDMO> getMV(){
         synchronized(this){
             if (value == null)
@@ -111,7 +111,7 @@ public class DmcTypePrimitiveMVIDXREFMV extends DmcTypePrimitiveMVIDXREF impleme
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2394)
     public ArrayList<PrimitiveMVIDXDMO> getMVCopy(){
         synchronized(this){
             if (value == null)
@@ -122,21 +122,21 @@ public class DmcTypePrimitiveMVIDXREFMV extends DmcTypePrimitiveMVIDXREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2434)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2406)
     public int getMVSize(){
         synchronized(this){
-            if (getAttributeInfo().indexSize == 0){
+            if (attrInfo.indexSize == 0){
                 if (value == null)
                     return(0);
                 return(value.size());
             }
             else
-                return(getAttributeInfo().indexSize);
+                return(attrInfo.indexSize);
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2421)
     public PrimitiveMVIDXDMO getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -146,14 +146,14 @@ public class DmcTypePrimitiveMVIDXREFMV extends DmcTypePrimitiveMVIDXREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2432)
     public PrimitiveMVIDXDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
-            if (getAttributeInfo().indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
+            if (attrInfo.indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
             
-            if ( (index < 0) || (index >= getAttributeInfo().indexSize))
-                throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
+            if ( (index < 0) || (index >= attrInfo.indexSize))
+                throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
             
             PrimitiveMVIDXDMO rc = null;
             
@@ -161,8 +161,8 @@ public class DmcTypePrimitiveMVIDXREFMV extends DmcTypePrimitiveMVIDXREF impleme
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<PrimitiveMVIDXDMO>(getAttributeInfo().indexSize);
-                for(int i=0;i<getAttributeInfo().indexSize;i++)
+                value = new ArrayList<PrimitiveMVIDXDMO>(attrInfo.indexSize);
+                for(int i=0;i<attrInfo.indexSize;i++)
                     value.add(null);
             }
             
@@ -173,13 +173,13 @@ public class DmcTypePrimitiveMVIDXREFMV extends DmcTypePrimitiveMVIDXREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
             
-            if (getAttributeInfo().indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use hasValue()."));
+            if (attrInfo.indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
             
             if (value == null)
                 return(rc);
@@ -196,7 +196,7 @@ public class DmcTypePrimitiveMVIDXREFMV extends DmcTypePrimitiveMVIDXREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2484)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

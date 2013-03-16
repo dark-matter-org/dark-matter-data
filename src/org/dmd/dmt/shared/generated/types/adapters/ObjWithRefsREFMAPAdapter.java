@@ -14,7 +14,7 @@ public class ObjWithRefsREFMAPAdapter extends DmcTypeObjWithRefsREFMAP implement
     transient DmcTypeObjWithRefsREFMAP existingValue;
 
     public ObjWithRefsREFMAPAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

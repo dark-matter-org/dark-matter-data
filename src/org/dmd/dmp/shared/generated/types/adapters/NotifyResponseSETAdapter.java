@@ -14,7 +14,7 @@ public class NotifyResponseSETAdapter extends DmcTypeNotifyResponseREFSET implem
     transient DmcTypeNotifyResponseREFSET existingValue;
 
     public NotifyResponseSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

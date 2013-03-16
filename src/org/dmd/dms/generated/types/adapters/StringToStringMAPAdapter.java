@@ -7,14 +7,14 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dms.generated.types.DmcTypeStringToStringMAP;
 
 @SuppressWarnings("serial")
-// org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:59)
+// org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:50)
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMAP(AdapterFormatter.java:24)
 public class StringToStringMAPAdapter extends DmcTypeStringToStringMAP implements DmcAdapterIF {
 
     transient DmcTypeStringToStringMAP existingValue;
 
     public StringToStringMAPAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

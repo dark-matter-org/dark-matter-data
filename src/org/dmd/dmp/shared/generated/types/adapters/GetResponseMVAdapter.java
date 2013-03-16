@@ -14,7 +14,7 @@ public class GetResponseMVAdapter extends DmcTypeGetResponseREFMV implements Dmc
     transient DmcTypeGetResponseREFMV existingValue;
 
     public GetResponseMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

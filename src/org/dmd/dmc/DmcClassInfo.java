@@ -1,6 +1,5 @@
 package org.dmd.dmc;
 
-import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -14,11 +13,8 @@ import org.dmd.dms.generated.enums.DataTypeEnum;
  */
 public class DmcClassInfo implements Comparable<DmcClassInfo>{
 
-	// The string name of the class
+	// The string name of the attribute
 	final public String 		name;
-	
-	// The fully qualified name of the DMO
-	final public String			dmoImport;
 	
 	// The DMD identifier of this attribute. This is used to look up the attribute's 
 	// information when deserializing an attribute. We look up the information so
@@ -38,31 +34,14 @@ public class DmcClassInfo implements Comparable<DmcClassInfo>{
 	
 	final public DmcAttributeInfo	nameAttribute;
 	
-	// This is populated when the class is managed as part of the DmcOmni
-	transient TreeMap<String,DmcClassInfo>	derivedClasses;
-	
-	public DmcClassInfo(String n, String di, int i, ClassTypeEnum ct, DataTypeEnum dt, DmcClassInfo bc, DmcAttributeInfo na){
-		name			= n;
-		dmoImport		= di;
-		id				= i;
-		classType		= ct;
-		dataType		= dt;
-		derivedFrom		= bc;
-		byID			= new TreeMap<Integer,DmcAttributeInfoRef>();
-		nameAttribute	= na;
-		derivedClasses	= null;
-	}
-	
 	public DmcClassInfo(String n, int i, ClassTypeEnum ct, DataTypeEnum dt, DmcClassInfo bc, DmcAttributeInfo na){
 		name			= n;
-		dmoImport		= null;
 		id				= i;
 		classType		= ct;
 		dataType		= dt;
 		derivedFrom		= bc;
 		byID			= new TreeMap<Integer,DmcAttributeInfoRef>();
 		nameAttribute	= na;
-		derivedClasses	= null;
 	}
 	
 	public void addMust(DmcAttributeInfo info){
@@ -75,26 +54,6 @@ public class DmcClassInfo implements Comparable<DmcClassInfo>{
 	
 	public Map<Integer,DmcAttributeInfoRef>	getIdToAttr(){
 		return(byID);
-	}
-	
-	/**
-	 * Determines if the attribute is optional. If the attribute isn't in our set of attributes,
-	 * we indicate that it's optional - this could happen in the case of extensible classes,
-	 * or when auxiliary classes are involved. And, of course, auxiliary classes can't specify
-	 * mandatory attributes.
-	 * @param ai
-	 * @return true if the attribute is optional.
-	 */
-	public boolean isOptional(DmcAttributeInfo ai){
-		DmcAttributeInfoRef existing = byID.get(ai.id);
-		
-		if (existing == null)
-			return(true);
-		
-		if (existing.mandatory)
-			return(false);
-		
-		return(true);
 	}
 	
 	/**
@@ -191,17 +150,5 @@ public class DmcClassInfo implements Comparable<DmcClassInfo>{
 		return(id);
 	}
 
-	void addDerivedClass(DmcClassInfo ci){
-		if (derivedClasses == null)
-			derivedClasses = new TreeMap<String, DmcClassInfo>();
-		derivedClasses.put(ci.name, ci);
-	}
-	
-	public Iterator<DmcClassInfo> getDerivedClasses(){
-		if (derivedClasses != null){
-			return(derivedClasses.values().iterator());
-		}
-		return(null);
-	}
 
 }

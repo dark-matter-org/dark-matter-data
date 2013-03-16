@@ -14,7 +14,7 @@ public class DenotifyRequestSETAdapter extends DmcTypeDenotifyRequestREFSET impl
     transient DmcTypeDenotifyRequestREFSET existingValue;
 
     public DenotifyRequestSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

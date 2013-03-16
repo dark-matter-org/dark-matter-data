@@ -14,7 +14,7 @@ public class TestOneLevelSubpackageExtendedREFSETAdapter extends DmcTypeTestOneL
     transient DmcTypeTestOneLevelSubpackageExtendedREFSET existingValue;
 
     public TestOneLevelSubpackageExtendedREFSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

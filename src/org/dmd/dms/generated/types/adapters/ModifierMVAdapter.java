@@ -5,14 +5,14 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
 @SuppressWarnings("serial")
-// org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:59)
+// org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:50)
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class ModifierMVAdapter extends DmcTypeModifierMV implements DmcAdapterIF {
 
     transient DmcTypeModifierMV existingValue;
 
     public ModifierMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

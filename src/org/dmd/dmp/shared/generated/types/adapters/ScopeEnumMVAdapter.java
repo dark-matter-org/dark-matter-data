@@ -14,7 +14,7 @@ public class ScopeEnumMVAdapter extends DmcTypeScopeEnumMV implements DmcAdapter
     transient DmcTypeScopeEnumMV existingValue;
 
     public ScopeEnumMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

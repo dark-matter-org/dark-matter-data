@@ -7,14 +7,14 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dms.generated.types.DmcTypeDebugEnumSET;
 
 @SuppressWarnings("serial")
-// org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:59)
+// org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:50)
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class DebugEnumSETAdapter extends DmcTypeDebugEnumSET implements DmcAdapterIF {
 
     transient DmcTypeDebugEnumSET existingValue;
 
     public DebugEnumSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

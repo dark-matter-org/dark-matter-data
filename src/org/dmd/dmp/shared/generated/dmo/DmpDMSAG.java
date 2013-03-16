@@ -1,22 +1,19 @@
 package org.dmd.dmp.shared.generated.dmo;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import org.dmd.dmc.*;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:860)
-import java.util.ArrayList;                                        // For storage of schema info - (DmoCompactSchemaFormatter.java:794)
-import java.util.HashMap;                                          // For storage of schema info - (DmoCompactSchemaFormatter.java:793)
-import java.util.Iterator;                                         // For access of schema info - (DmoCompactSchemaFormatter.java:795)
-import org.dmd.dmc.*;                                              // Basic DMC stuff - (DmoCompactSchemaFormatter.java:796)
-import org.dmd.dmc.rules.RuleIF;                                   // For rule info - (DmoCompactSchemaFormatter.java:797)
-import org.dmd.dmr.shared.base.generated.dmo.DmrBaseDMSAG;         // Optional attribute from DmrBaseDMSAG - (DmoCompactSchemaFormatter.java:817)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                        // Optional attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:817)
-import org.dmd.dms.generated.enums.ClassTypeEnum;                  // Have class definitions - (DmoCompactSchemaFormatter.java:801)
-import org.dmd.dms.generated.enums.DataTypeEnum;                   // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:802)
-import org.dmd.dms.generated.enums.OriginalTypeEnum;               // Have type/internal type definitions - (DmoCompactSchemaFormatter.java:807)
-import org.dmd.dms.generated.enums.ValueTypeEnum;                  // Have attribute definitions - (DmoCompactSchemaFormatter.java:828)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:565)
+import org.dmd.dmr.shared.base.generated.dmo.DmrBaseDMSAG;         // Optional attribute from DmrBaseDMSAG - (DmoCompactSchemaFormatter.java:550)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                        // Optional attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:550)
+import org.dmd.dms.generated.enums.ClassTypeEnum;                  // Have class definitions - (DmoCompactSchemaFormatter.java:538)
+import org.dmd.dms.generated.enums.DataTypeEnum;                   // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:539)
+import org.dmd.dms.generated.enums.ValueTypeEnum;                  // Have attribute definitions - (DmoCompactSchemaFormatter.java:560)
 
 
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:124)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:95)
 public class DmpDMSAG implements DmcCompactSchemaIF {
 
 
@@ -74,64 +71,31 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __timeoutSeconds = new DmcAttributeInfo("timeoutSeconds", 540, "Integer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __trackingEnabled = new DmcAttributeInfo("trackingEnabled", 539, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __userFQN = new DmcAttributeInfo("userFQN", 524, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcClassInfo __DMPMessage = new DmcClassInfo("DMPMessage", 501, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __DMPEvent = new DmcClassInfo("DMPEvent", 518, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__DMPMessage,null);
+    public final static DmcClassInfo __Request = new DmcClassInfo("Request", 502, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,__DMPMessage,null);
+    public final static DmcClassInfo __ActionRequest = new DmcClassInfo("ActionRequest", 510, ClassTypeEnum.EXTENSIBLE, DataTypeEnum.PERSISTENT,__Request,null);
+    public final static DmcClassInfo __CreateRequest = new DmcClassInfo("CreateRequest", 514, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
+    public final static DmcClassInfo __DeleteRequest = new DmcClassInfo("DeleteRequest", 516, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
+    public final static DmcClassInfo __DenotifyRequest = new DmcClassInfo("DenotifyRequest", 521, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
+    public final static DmcClassInfo __GetRequest = new DmcClassInfo("GetRequest", 508, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
+    public final static DmcClassInfo __LoginRequest = new DmcClassInfo("LoginRequest", 504, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
+    public final static DmcClassInfo __LogoutRequest = new DmcClassInfo("LogoutRequest", 506, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
+    public final static DmcClassInfo __NotifyRequest = new DmcClassInfo("NotifyRequest", 519, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
+    public final static DmcClassInfo __PreAuthRequest = new DmcClassInfo("PreAuthRequest", 523, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
+    public final static DmcClassInfo __SetRequest = new DmcClassInfo("SetRequest", 512, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
+    public final static DmcClassInfo __Response = new DmcClassInfo("Response", 503, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__DMPMessage,null);
+    public final static DmcClassInfo __ActionResponse = new DmcClassInfo("ActionResponse", 511, ClassTypeEnum.EXTENSIBLE, DataTypeEnum.PERSISTENT,__Response,null);
+    public final static DmcClassInfo __CreateResponse = new DmcClassInfo("CreateResponse", 515, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
+    public final static DmcClassInfo __DeleteResponse = new DmcClassInfo("DeleteResponse", 517, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
+    public final static DmcClassInfo __DenotifyResponse = new DmcClassInfo("DenotifyResponse", 522, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
+    public final static DmcClassInfo __GetResponse = new DmcClassInfo("GetResponse", 509, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
+    public final static DmcClassInfo __LoginResponse = new DmcClassInfo("LoginResponse", 505, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
+    public final static DmcClassInfo __LogoutResponse = new DmcClassInfo("LogoutResponse", 507, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
+    public final static DmcClassInfo __NotifyResponse = new DmcClassInfo("NotifyResponse", 520, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
+    public final static DmcClassInfo __PreAuthResponse = new DmcClassInfo("PreAuthResponse", 524, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
+    public final static DmcClassInfo __SetResponse = new DmcClassInfo("SetResponse", 513, ClassTypeEnum.EXTENSIBLE, DataTypeEnum.PERSISTENT,__Response,null);
 
-    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:162)
-    public final static DmcTypeInfo __type_ActionRequest = new DmcTypeInfo("ActionRequest", OriginalTypeEnum.OBJECT);
-    public final static DmcTypeInfo __type_ActionResponse = new DmcTypeInfo("ActionResponse", OriginalTypeEnum.OBJECT);
-    public final static DmcTypeInfo __type_CreateRequest = new DmcTypeInfo("CreateRequest", OriginalTypeEnum.OBJECT);
-    public final static DmcTypeInfo __type_CreateResponse = new DmcTypeInfo("CreateResponse", OriginalTypeEnum.OBJECT);
-    public final static DmcTypeInfo __type_DMPEvent = new DmcTypeInfo("DMPEvent", OriginalTypeEnum.OBJECT);
-    public final static DmcTypeInfo __type_DMPEventTypeEnum = new DmcTypeInfo("DMPEventTypeEnum", OriginalTypeEnum.ENUM);
-    public final static DmcTypeInfo __type_DMPMessage = new DmcTypeInfo("DMPMessage", OriginalTypeEnum.OBJECT);
-    public final static DmcTypeInfo __type_DeleteRequest = new DmcTypeInfo("DeleteRequest", OriginalTypeEnum.OBJECT);
-    public final static DmcTypeInfo __type_DeleteResponse = new DmcTypeInfo("DeleteResponse", OriginalTypeEnum.OBJECT);
-    public final static DmcTypeInfo __type_DenotifyRequest = new DmcTypeInfo("DenotifyRequest", OriginalTypeEnum.OBJECT);
-    public final static DmcTypeInfo __type_DenotifyResponse = new DmcTypeInfo("DenotifyResponse", OriginalTypeEnum.OBJECT);
-    public final static DmcTypeInfo __type_FileModeEnum = new DmcTypeInfo("FileModeEnum", OriginalTypeEnum.ENUM);
-    public final static DmcTypeInfo __type_GetRequest = new DmcTypeInfo("GetRequest", OriginalTypeEnum.OBJECT);
-    public final static DmcTypeInfo __type_GetResponse = new DmcTypeInfo("GetResponse", OriginalTypeEnum.OBJECT);
-    public final static DmcTypeInfo __type_LoginRequest = new DmcTypeInfo("LoginRequest", OriginalTypeEnum.OBJECT);
-    public final static DmcTypeInfo __type_LoginResponse = new DmcTypeInfo("LoginResponse", OriginalTypeEnum.OBJECT);
-    public final static DmcTypeInfo __type_LogoutRequest = new DmcTypeInfo("LogoutRequest", OriginalTypeEnum.OBJECT);
-    public final static DmcTypeInfo __type_LogoutResponse = new DmcTypeInfo("LogoutResponse", OriginalTypeEnum.OBJECT);
-    public final static DmcTypeInfo __type_NotifyRequest = new DmcTypeInfo("NotifyRequest", OriginalTypeEnum.OBJECT);
-    public final static DmcTypeInfo __type_NotifyResponse = new DmcTypeInfo("NotifyResponse", OriginalTypeEnum.OBJECT);
-    public final static DmcTypeInfo __type_PreAuthRequest = new DmcTypeInfo("PreAuthRequest", OriginalTypeEnum.OBJECT);
-    public final static DmcTypeInfo __type_PreAuthResponse = new DmcTypeInfo("PreAuthResponse", OriginalTypeEnum.OBJECT);
-    public final static DmcTypeInfo __type_Request = new DmcTypeInfo("Request", OriginalTypeEnum.OBJECT);
-    public final static DmcTypeInfo __type_Response = new DmcTypeInfo("Response", OriginalTypeEnum.OBJECT);
-    public final static DmcTypeInfo __type_ResponseCategoryEnum = new DmcTypeInfo("ResponseCategoryEnum", OriginalTypeEnum.ENUM);
-    public final static DmcTypeInfo __type_ResponseFormatEnum = new DmcTypeInfo("ResponseFormatEnum", OriginalTypeEnum.ENUM);
-    public final static DmcTypeInfo __type_ResponseTypeEnum = new DmcTypeInfo("ResponseTypeEnum", OriginalTypeEnum.ENUM);
-    public final static DmcTypeInfo __type_ScopeEnum = new DmcTypeInfo("ScopeEnum", OriginalTypeEnum.ENUM);
-    public final static DmcTypeInfo __type_SetRequest = new DmcTypeInfo("SetRequest", OriginalTypeEnum.OBJECT);
-    public final static DmcTypeInfo __type_SetResponse = new DmcTypeInfo("SetResponse", OriginalTypeEnum.OBJECT);
-
-    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:203)
-    public final static DmcClassInfo __DMPMessage = new DmcClassInfo("DMPMessage","org.dmd.dmp.shared.generated.dmo.DMPMessageDMO", 501, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __DMPEvent = new DmcClassInfo("DMPEvent","org.dmd.dmp.shared.generated.dmo.DMPEventDMO", 518, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__DMPMessage,null);
-    public final static DmcClassInfo __Request = new DmcClassInfo("Request","org.dmd.dmp.shared.generated.dmo.RequestDMO", 502, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,__DMPMessage,null);
-    public final static DmcClassInfo __ActionRequest = new DmcClassInfo("ActionRequest","org.dmd.dmp.shared.generated.dmo.ActionRequestDMO", 510, ClassTypeEnum.EXTENSIBLE, DataTypeEnum.PERSISTENT,__Request,null);
-    public final static DmcClassInfo __CreateRequest = new DmcClassInfo("CreateRequest","org.dmd.dmp.shared.generated.dmo.CreateRequestDMO", 514, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
-    public final static DmcClassInfo __DeleteRequest = new DmcClassInfo("DeleteRequest","org.dmd.dmp.shared.generated.dmo.DeleteRequestDMO", 516, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
-    public final static DmcClassInfo __DenotifyRequest = new DmcClassInfo("DenotifyRequest","org.dmd.dmp.shared.generated.dmo.DenotifyRequestDMO", 521, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
-    public final static DmcClassInfo __GetRequest = new DmcClassInfo("GetRequest","org.dmd.dmp.shared.generated.dmo.GetRequestDMO", 508, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
-    public final static DmcClassInfo __LoginRequest = new DmcClassInfo("LoginRequest","org.dmd.dmp.shared.generated.dmo.LoginRequestDMO", 504, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
-    public final static DmcClassInfo __LogoutRequest = new DmcClassInfo("LogoutRequest","org.dmd.dmp.shared.generated.dmo.LogoutRequestDMO", 506, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
-    public final static DmcClassInfo __NotifyRequest = new DmcClassInfo("NotifyRequest","org.dmd.dmp.shared.generated.dmo.NotifyRequestDMO", 519, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
-    public final static DmcClassInfo __PreAuthRequest = new DmcClassInfo("PreAuthRequest","org.dmd.dmp.shared.generated.dmo.PreAuthRequestDMO", 523, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
-    public final static DmcClassInfo __SetRequest = new DmcClassInfo("SetRequest","org.dmd.dmp.shared.generated.dmo.SetRequestDMO", 512, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
-    public final static DmcClassInfo __Response = new DmcClassInfo("Response","org.dmd.dmp.shared.generated.dmo.ResponseDMO", 503, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__DMPMessage,null);
-    public final static DmcClassInfo __ActionResponse = new DmcClassInfo("ActionResponse","org.dmd.dmp.shared.generated.dmo.ActionResponseDMO", 511, ClassTypeEnum.EXTENSIBLE, DataTypeEnum.PERSISTENT,__Response,null);
-    public final static DmcClassInfo __CreateResponse = new DmcClassInfo("CreateResponse","org.dmd.dmp.shared.generated.dmo.CreateResponseDMO", 515, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
-    public final static DmcClassInfo __DeleteResponse = new DmcClassInfo("DeleteResponse","org.dmd.dmp.shared.generated.dmo.DeleteResponseDMO", 517, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
-    public final static DmcClassInfo __DenotifyResponse = new DmcClassInfo("DenotifyResponse","org.dmd.dmp.shared.generated.dmo.DenotifyResponseDMO", 522, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
-    public final static DmcClassInfo __GetResponse = new DmcClassInfo("GetResponse","org.dmd.dmp.shared.generated.dmo.GetResponseDMO", 509, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
-    public final static DmcClassInfo __LoginResponse = new DmcClassInfo("LoginResponse","org.dmd.dmp.shared.generated.dmo.LoginResponseDMO", 505, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
-    public final static DmcClassInfo __LogoutResponse = new DmcClassInfo("LogoutResponse","org.dmd.dmp.shared.generated.dmo.LogoutResponseDMO", 507, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
-    public final static DmcClassInfo __NotifyResponse = new DmcClassInfo("NotifyResponse","org.dmd.dmp.shared.generated.dmo.NotifyResponseDMO", 520, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
-    public final static DmcClassInfo __PreAuthResponse = new DmcClassInfo("PreAuthResponse","org.dmd.dmp.shared.generated.dmo.PreAuthResponseDMO", 524, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
-    public final static DmcClassInfo __SetResponse = new DmcClassInfo("SetResponse","org.dmd.dmp.shared.generated.dmo.SetResponseDMO", 513, ClassTypeEnum.EXTENSIBLE, DataTypeEnum.PERSISTENT,__Response,null);
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;
 
@@ -143,10 +107,6 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
 
     static  HashMap<String, DmcSliceInfo> _SImAp;
 
-    static  HashMap<String, DmcTypeInfo> _TImAp;
-
-    static  ArrayList<RuleIF>             _RmAp;
-
     static {
         _CmAp = new HashMap<Integer, DmcClassInfo>();
 
@@ -157,10 +117,6 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
         _FmAp = new HashMap<String, DmcFilterBuilderIF>();
 
         _SImAp = new HashMap<String, DmcSliceInfo>();
-
-        _TImAp = new HashMap<String, DmcTypeInfo>();
-
-        _RmAp = new ArrayList<RuleIF>();
 
         _SmAp.put(__FQNList.id,__FQNList);
         _SmAp.put(__actionName.id,__actionName);
@@ -389,11 +345,6 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
     }
 
 
-    public Iterator<DmcTypeInfo> getTypeInfo(){
-        return(_TImAp.values().iterator());
-    }
-
-
     public String getSchemaName(){
         return(schemaName);
     }
@@ -411,11 +362,6 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
 
     public int getSchemaMaxID(){
         return(schemaMaxID);
-    }
-
-
-    public Iterator<RuleIF> getRules(){
-        return(_RmAp.iterator());
     }
 
 

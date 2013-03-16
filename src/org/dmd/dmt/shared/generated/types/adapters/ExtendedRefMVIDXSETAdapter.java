@@ -14,7 +14,7 @@ public class ExtendedRefMVIDXSETAdapter extends DmcTypeExtendedRefMVIDXREFSET im
     transient DmcTypeExtendedRefMVIDXREFSET existingValue;
 
     public ExtendedRefMVIDXSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

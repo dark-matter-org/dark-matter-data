@@ -14,7 +14,7 @@ public class UsingObjRefHMSVAdapter extends DmcTypeUsingObjRefHMREFSV implements
     transient DmcTypeUsingObjRefHMREFSV existingValue;
 
     public UsingObjRefHMSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

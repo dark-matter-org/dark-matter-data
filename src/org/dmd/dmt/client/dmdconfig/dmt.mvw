@@ -1,0 +1,19 @@
+Module
+moduleName      dmt
+dependsOnSchema dmt
+dependsOnModule gxt
+dependsOnModule gxtforms
+genPackage      org.dmd.dmt.client
+description     The dmtTest module allows for testing of MVW generation mechanisms.
+
+FieldEditorDefinition
+editorName		DMTBasicObjectField
+useClass		org.dmd.dmt.client.editors.DMTBasicObjectField
+description		Used to display TestBasicObjectFixed objects.
+
+FormBindingDefinition
+bindingName			TestBasicNamedObjectFixedBinding
+editObject			TestBasicNamedObjectFixed
+//editField			svString GXTTextField MUST : SV String
+editField			mvIdxUnnamedObj DMTBasicObjectField MUST : Basic Objects
+

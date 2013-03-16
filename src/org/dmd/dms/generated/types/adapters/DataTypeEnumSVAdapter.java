@@ -7,14 +7,14 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dms.generated.types.DmcTypeDataTypeEnumSV;
 
 @SuppressWarnings("serial")
-// org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:59)
+// org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:50)
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class DataTypeEnumSVAdapter extends DmcTypeDataTypeEnumSV implements DmcAdapterIF {
 
     transient DmcTypeDataTypeEnumSV existingValue;
 
     public DataTypeEnumSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

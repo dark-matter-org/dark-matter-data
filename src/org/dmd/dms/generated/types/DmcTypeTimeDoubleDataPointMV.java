@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -27,13 +27,11 @@ import org.dmd.dmc.types.DmcTypeTimeDoubleDataPoint;    // DmcType import
  * The DmcTypeTimeDoubleDataPointMV provides storage for a multi-valued TimeDoubleDataPoint
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:637)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2247)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:271)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTimeDoubleDataPointMV extends DmcTypeTimeDoubleDataPoint implements Serializable {
-    
-    private final static Iterator<TimeDoubleDataPoint> emptyList = (new ArrayList<TimeDoubleDataPoint>()).iterator();
     
     protected ArrayList<TimeDoubleDataPoint> value;
     
@@ -47,19 +45,15 @@ public class DmcTypeTimeDoubleDataPointMV extends DmcTypeTimeDoubleDataPoint imp
     
     @Override
     public DmcTypeTimeDoubleDataPointMV getNew(){
-        return(new DmcTypeTimeDoubleDataPointMV(getAttributeInfo()));
+        return(new DmcTypeTimeDoubleDataPointMV(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2277)
     public DmcAttribute<TimeDoubleDataPoint> cloneIt(){
         synchronized(this){
             DmcTypeTimeDoubleDataPointMV rc = getNew();
-    
-            if (value == null)
-                return(rc);
-    
-            if (getAttributeInfo().indexSize == 0){
+            if (attrInfo.indexSize == 0){
                 for(TimeDoubleDataPoint val: value)
                 try {
                     rc.add(val);
@@ -80,7 +74,7 @@ public class DmcTypeTimeDoubleDataPointMV extends DmcTypeTimeDoubleDataPoint imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2306)
     public TimeDoubleDataPoint add(Object v) throws DmcValueException {
         synchronized(this){
             TimeDoubleDataPoint rc = typeCheck(v);
@@ -92,12 +86,9 @@ public class DmcTypeTimeDoubleDataPointMV extends DmcTypeTimeDoubleDataPoint imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2319)
     public TimeDoubleDataPoint del(Object v){
         synchronized(this){
-            if (value == null)
-                return(null);
-    
             TimeDoubleDataPoint key = null;
             TimeDoubleDataPoint rc = null;
             try {
@@ -116,43 +107,38 @@ public class DmcTypeTimeDoubleDataPointMV extends DmcTypeTimeDoubleDataPoint imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2350)
     public Iterator<TimeDoubleDataPoint> getMV(){
         synchronized(this){
-            if (value == null)
-                return(emptyList);
-    
             ArrayList<TimeDoubleDataPoint> clone = new ArrayList<TimeDoubleDataPoint>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2359)
     public ArrayList<TimeDoubleDataPoint> getMVCopy(){
         synchronized(this){
-            if (value == null)
-                return(new ArrayList<TimeDoubleDataPoint>());
-            else 
-                return(new ArrayList<TimeDoubleDataPoint>(value));
+            ArrayList<TimeDoubleDataPoint> clone = new ArrayList<TimeDoubleDataPoint>(value);
+            return(clone);
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2434)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2369)
     public int getMVSize(){
         synchronized(this){
-            if (getAttributeInfo().indexSize == 0){
+            if (attrInfo.indexSize == 0){
                 if (value == null)
                     return(0);
                 return(value.size());
             }
             else
-                return(getAttributeInfo().indexSize);
+                return(attrInfo.indexSize);
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2384)
     public TimeDoubleDataPoint getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -162,14 +148,14 @@ public class DmcTypeTimeDoubleDataPointMV extends DmcTypeTimeDoubleDataPoint imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2395)
     public TimeDoubleDataPoint setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
-            if (getAttributeInfo().indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
+            if (attrInfo.indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
             
-            if ( (index < 0) || (index >= getAttributeInfo().indexSize))
-                throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
+            if ( (index < 0) || (index >= attrInfo.indexSize))
+                throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
             
             TimeDoubleDataPoint rc = null;
             
@@ -177,8 +163,8 @@ public class DmcTypeTimeDoubleDataPointMV extends DmcTypeTimeDoubleDataPoint imp
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<TimeDoubleDataPoint>(getAttributeInfo().indexSize);
-                for(int i=0;i<getAttributeInfo().indexSize;i++)
+                value = new ArrayList<TimeDoubleDataPoint>(attrInfo.indexSize);
+                for(int i=0;i<attrInfo.indexSize;i++)
                     value.add(null);
             }
             
@@ -189,13 +175,13 @@ public class DmcTypeTimeDoubleDataPointMV extends DmcTypeTimeDoubleDataPoint imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2423)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
             
-            if (getAttributeInfo().indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use hasValue()."));
+            if (attrInfo.indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
             
             if (value == null)
                 return(rc);
@@ -212,7 +198,7 @@ public class DmcTypeTimeDoubleDataPointMV extends DmcTypeTimeDoubleDataPoint imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2447)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

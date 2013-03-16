@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -29,14 +29,11 @@ import org.dmd.dms.generated.enums.DataTypeEnum;    // DmcType import
  * The DmcTypeDataTypeEnumSET provides storage for a set of DataTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:565)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2530)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:234)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDataTypeEnumSET extends DmcTypeDataTypeEnum implements Serializable {
-    
-     private final static Iterator<DataTypeEnum> emptyList =  (new HashSet<DataTypeEnum>()).iterator();
-    
     
     protected Set<DataTypeEnum> value;
     
@@ -50,7 +47,7 @@ public class DmcTypeDataTypeEnumSET extends DmcTypeDataTypeEnum implements Seria
     }
     
     void initValue(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<DataTypeEnum>();
         else
             value = new TreeSet<DataTypeEnum>();
@@ -58,18 +55,14 @@ public class DmcTypeDataTypeEnumSET extends DmcTypeDataTypeEnum implements Seria
     
     @Override
     public DmcTypeDataTypeEnumSET getNew(){
-        return(new DmcTypeDataTypeEnumSET(getAttributeInfo()));
+        return(new DmcTypeDataTypeEnumSET(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
     public DmcAttribute<DataTypeEnum> cloneIt(){
         synchronized(this){
             DmcTypeDataTypeEnumSET rc = getNew();
-    
-            if (value == null)
-                return(rc);
-    
             for(DataTypeEnum val: value)
             try {
                 rc.add(val);
@@ -81,7 +74,7 @@ public class DmcTypeDataTypeEnumSET extends DmcTypeDataTypeEnum implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2586)
     public DataTypeEnum add(Object v) throws DmcValueException {
         synchronized(this){
             DataTypeEnum rc = typeCheck(v);
@@ -97,7 +90,7 @@ public class DmcTypeDataTypeEnumSET extends DmcTypeDataTypeEnum implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
     public DataTypeEnum del(Object v){
         synchronized(this){
             DataTypeEnum rc = null;
@@ -121,39 +114,28 @@ public class DmcTypeDataTypeEnumSET extends DmcTypeDataTypeEnum implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2628)
     public Iterator<DataTypeEnum> getMV(){
         synchronized(this){
-            if (value == null)
-                return(emptyList);
-
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<DataTypeEnum>(value)).iterator() );
             else
                 return( (new TreeSet<DataTypeEnum>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2645)
     public Set<DataTypeEnum> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
-                if (value == null)
-                    return(new HashSet<DataTypeEnum>());
-                else
-                    return(new HashSet<DataTypeEnum>(value));
-            }
-            else{
-                if (value == null)
-                    return(new TreeSet<DataTypeEnum>(value));
-                else
-                    return(new TreeSet<DataTypeEnum>(value));
-            }
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+                return(new HashSet<DataTypeEnum>(value));
+            else
+                return(new TreeSet<DataTypeEnum>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2663)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -163,7 +145,7 @@ public class DmcTypeDataTypeEnumSET extends DmcTypeDataTypeEnum implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2674)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

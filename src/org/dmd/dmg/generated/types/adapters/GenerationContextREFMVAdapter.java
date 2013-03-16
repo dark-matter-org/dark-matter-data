@@ -14,7 +14,7 @@ public class GenerationContextREFMVAdapter extends DmcTypeGenerationContextREFMV
     transient DmcTypeGenerationContextREFMV existingValue;
 
     public GenerationContextREFMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

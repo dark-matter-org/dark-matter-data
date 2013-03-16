@@ -14,7 +14,7 @@ public class NamedObjHSSETAdapter extends DmcTypeNamedObjHSREFSET implements Dmc
     transient DmcTypeNamedObjHSREFSET existingValue;
 
     public NamedObjHSSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

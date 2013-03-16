@@ -14,7 +14,7 @@ public class PrimitiveMVIDXSETAdapter extends DmcTypePrimitiveMVIDXREFSET implem
     transient DmcTypePrimitiveMVIDXREFSET existingValue;
 
     public PrimitiveMVIDXSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

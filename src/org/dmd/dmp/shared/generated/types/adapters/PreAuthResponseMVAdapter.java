@@ -14,7 +14,7 @@ public class PreAuthResponseMVAdapter extends DmcTypePreAuthResponseREFMV implem
     transient DmcTypePreAuthResponseREFMV existingValue;
 
     public PreAuthResponseMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

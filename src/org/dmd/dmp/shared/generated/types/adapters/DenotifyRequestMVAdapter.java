@@ -14,7 +14,7 @@ public class DenotifyRequestMVAdapter extends DmcTypeDenotifyRequestREFMV implem
     transient DmcTypeDenotifyRequestREFMV existingValue;
 
     public DenotifyRequestMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

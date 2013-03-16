@@ -14,7 +14,7 @@ public class DeleteRequestSETAdapter extends DmcTypeDeleteRequestREFSET implemen
     transient DmcTypeDeleteRequestREFSET existingValue;
 
     public DeleteRequestSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

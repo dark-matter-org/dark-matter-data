@@ -14,7 +14,7 @@ public class HierarchicObjectREFMAPAdapter extends DmcTypeHierarchicObjectREFMAP
     transient DmcTypeHierarchicObjectREFMAP existingValue;
 
     public HierarchicObjectREFMAPAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

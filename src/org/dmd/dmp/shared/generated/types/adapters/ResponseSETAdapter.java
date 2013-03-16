@@ -14,7 +14,7 @@ public class ResponseSETAdapter extends DmcTypeResponseREFSET implements DmcAdap
     transient DmcTypeResponseREFSET existingValue;
 
     public ResponseSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

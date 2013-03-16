@@ -15,18 +15,13 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms;
 
-import java.net.URL;
-import java.net.URLClassLoader;
-
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.dmo.TypeDefinitionDMO;
 import org.dmd.dms.generated.dmw.TypeDefinitionDMW;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
-import org.dmd.util.exceptions.DebugInfo;
 
 public class TypeDefinition extends TypeDefinitionDMW {
 	
@@ -112,7 +107,11 @@ public class TypeDefinition extends TypeDefinitionDMW {
 	 */
 	public DmcObjectName getNameValue() throws ClassNotFoundException, InstantiationException, IllegalAccessException{
 		DmcObjectName rc = null;
-				
+		
+		if (getNameType() == null){
+			throw(new IllegalStateException("The " + getName() + " type is not a name type!"));
+		}
+		
 		if (getNameAttributeDef() == null){
 			throw(new IllegalStateException("The " + getName() + " type does not have a designated name attribute definition!"));
 		}
@@ -136,7 +135,8 @@ public class TypeDefinition extends TypeDefinitionDMW {
 	public DmcAttribute<?> getAttributeHolder(DmcAttributeInfo ai) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
 		DmcAttribute<?>	rc = null;
 		
-		try{
+//DebugInfo.debug(ai.toString());
+		
 		switch(ai.valueType){
 		case SINGLE:
 			if (attributeClassSV == null){
@@ -165,19 +165,6 @@ public class TypeDefinition extends TypeDefinitionDMW {
 			rc = (DmcAttribute<?>) attributeClassSET.newInstance();
 			break;
 		}
-		}
-		catch (ClassNotFoundException e) {
-			DebugInfo.debug("Class not found while trying to get holder for: " + ai.toString());
-			DebugInfo.debug(System.getProperty("java.class.path"));
-			ClassLoader cl = ClassLoader.getSystemClassLoader();
-			 
-	        URL[] urls = ((URLClassLoader)cl).getURLs();
-	 
-	        for(URL url: urls){
-	        	DebugInfo.debug(url.getFile());
-	        }
-			throw(e);
-		}
 		
 		if (rc == null)
 			throw(new IllegalStateException("Could not instantiate holder for attribute: " + ai.toString()));
@@ -205,60 +192,6 @@ public class TypeDefinition extends TypeDefinitionDMW {
 	}
 	
 	/**
-	 * Determines the import statement for the type derivative of the specified attribute definition.
-	 * @param ad the attribute definition.
-	 * @return a fully qualified import for the required type container.
-	 */
-	public String getTypeImport(AttributeDefinition ad){
-		String rc = null;
-		switch(ad.getValueType()){
-		case SINGLE:
-			rc = getTypeName("SV");
-			break;
-		case MULTI:
-			rc = getTypeName("MV");
-			break;
-		case HASHMAPPED:
-		case TREEMAPPED:
-			rc = getTypeName("MAP");
-			break;
-		case HASHSET:
-		case TREESET:
-			rc = getTypeName("SET");
-			break;
-		}
-		return(rc);
-	}
-	
-	/**
-	 * @param ad the attribute definition.
-	 * @return just the name of the container type for the specified attribute.
-	 */
-	public String getContainerType(AttributeDefinition ad){
-		String tmp = null;
-		switch(ad.getValueType()){
-		case SINGLE:
-			tmp = getTypeName("SV");
-			break;
-		case MULTI:
-			tmp = getTypeName("MV");
-			break;
-		case HASHMAPPED:
-		case TREEMAPPED:
-			tmp = getTypeName("MAP");
-			break;
-		case HASHSET:
-		case TREESET:
-			tmp = getTypeName("SET");
-			break;
-		}
-		
-		int lastDot = tmp.lastIndexOf(".");
-		
-		return(tmp.substring(lastDot+1));
-	}
-	
-	/**
 	 * Complicated stuff to handle generation of wrapper classes in packages other than where
 	 * the DMOs are generated. This should only be used on internally generated type ref classes.
 	 * @throws DmcValueException  
@@ -277,11 +210,7 @@ public class TypeDefinition extends TypeDefinitionDMW {
 		}
 		else if (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED){
 			try {
-				if (cd.getDefinedIn().getName().getNameString().equals(MetaDMSAG.instance().getSchemaName())){
-					// For meta schema classes, there is no extended subpackage
-					cd.setJavaClass(genPackage + "." + cd.getName());
-				}
-				else if (cd.getSubpackage() == null)
+				if (cd.getSubpackage() == null)
 					cd.setJavaClass(genPackage + ".extended." + cd.getName());
 				else
 					cd.setJavaClass(genPackage + ".extended." + cd.getSubpackage() + "." + cd.getName());

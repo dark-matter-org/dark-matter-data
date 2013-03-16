@@ -14,7 +14,7 @@ public class TestDerivedDiffSubpackageREFSVAdapter extends DmcTypeTestDerivedDif
     transient DmcTypeTestDerivedDiffSubpackageREFSV existingValue;
 
     public TestDerivedDiffSubpackageREFSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

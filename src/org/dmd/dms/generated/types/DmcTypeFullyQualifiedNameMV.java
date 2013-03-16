@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -27,13 +27,11 @@ import org.dmd.dmc.types.DmcTypeFullyQualifiedName;    // DmcType import
  * The DmcTypeFullyQualifiedNameMV provides storage for a multi-valued FullyQualifiedName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:637)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2247)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:271)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFullyQualifiedNameMV extends DmcTypeFullyQualifiedName implements Serializable {
-    
-    private final static Iterator<FullyQualifiedName> emptyList = (new ArrayList<FullyQualifiedName>()).iterator();
     
     protected ArrayList<FullyQualifiedName> value;
     
@@ -47,19 +45,15 @@ public class DmcTypeFullyQualifiedNameMV extends DmcTypeFullyQualifiedName imple
     
     @Override
     public DmcTypeFullyQualifiedNameMV getNew(){
-        return(new DmcTypeFullyQualifiedNameMV(getAttributeInfo()));
+        return(new DmcTypeFullyQualifiedNameMV(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2277)
     public DmcAttribute<FullyQualifiedName> cloneIt(){
         synchronized(this){
             DmcTypeFullyQualifiedNameMV rc = getNew();
-    
-            if (value == null)
-                return(rc);
-    
-            if (getAttributeInfo().indexSize == 0){
+            if (attrInfo.indexSize == 0){
                 for(FullyQualifiedName val: value)
                 try {
                     rc.add(val);
@@ -80,7 +74,7 @@ public class DmcTypeFullyQualifiedNameMV extends DmcTypeFullyQualifiedName imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2306)
     public FullyQualifiedName add(Object v) throws DmcValueException {
         synchronized(this){
             FullyQualifiedName rc = typeCheck(v);
@@ -92,12 +86,9 @@ public class DmcTypeFullyQualifiedNameMV extends DmcTypeFullyQualifiedName imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2319)
     public FullyQualifiedName del(Object v){
         synchronized(this){
-            if (value == null)
-                return(null);
-    
             FullyQualifiedName key = null;
             FullyQualifiedName rc = null;
             try {
@@ -116,43 +107,38 @@ public class DmcTypeFullyQualifiedNameMV extends DmcTypeFullyQualifiedName imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2350)
     public Iterator<FullyQualifiedName> getMV(){
         synchronized(this){
-            if (value == null)
-                return(emptyList);
-    
             ArrayList<FullyQualifiedName> clone = new ArrayList<FullyQualifiedName>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2359)
     public ArrayList<FullyQualifiedName> getMVCopy(){
         synchronized(this){
-            if (value == null)
-                return(new ArrayList<FullyQualifiedName>());
-            else 
-                return(new ArrayList<FullyQualifiedName>(value));
+            ArrayList<FullyQualifiedName> clone = new ArrayList<FullyQualifiedName>(value);
+            return(clone);
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2434)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2369)
     public int getMVSize(){
         synchronized(this){
-            if (getAttributeInfo().indexSize == 0){
+            if (attrInfo.indexSize == 0){
                 if (value == null)
                     return(0);
                 return(value.size());
             }
             else
-                return(getAttributeInfo().indexSize);
+                return(attrInfo.indexSize);
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2384)
     public FullyQualifiedName getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -162,14 +148,14 @@ public class DmcTypeFullyQualifiedNameMV extends DmcTypeFullyQualifiedName imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2395)
     public FullyQualifiedName setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
-            if (getAttributeInfo().indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
+            if (attrInfo.indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
             
-            if ( (index < 0) || (index >= getAttributeInfo().indexSize))
-                throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
+            if ( (index < 0) || (index >= attrInfo.indexSize))
+                throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
             
             FullyQualifiedName rc = null;
             
@@ -177,8 +163,8 @@ public class DmcTypeFullyQualifiedNameMV extends DmcTypeFullyQualifiedName imple
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<FullyQualifiedName>(getAttributeInfo().indexSize);
-                for(int i=0;i<getAttributeInfo().indexSize;i++)
+                value = new ArrayList<FullyQualifiedName>(attrInfo.indexSize);
+                for(int i=0;i<attrInfo.indexSize;i++)
                     value.add(null);
             }
             
@@ -189,13 +175,13 @@ public class DmcTypeFullyQualifiedNameMV extends DmcTypeFullyQualifiedName imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2423)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
             
-            if (getAttributeInfo().indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use hasValue()."));
+            if (attrInfo.indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
             
             if (value == null)
                 return(rc);
@@ -212,7 +198,7 @@ public class DmcTypeFullyQualifiedNameMV extends DmcTypeFullyQualifiedName imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2447)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

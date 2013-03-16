@@ -14,7 +14,7 @@ public class MapZoomEnumMVAdapter extends DmcTypeMapZoomEnumMV implements DmcAda
     transient DmcTypeMapZoomEnumMV existingValue;
 
     public MapZoomEnumMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

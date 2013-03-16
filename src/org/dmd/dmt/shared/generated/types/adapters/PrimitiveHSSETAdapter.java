@@ -14,7 +14,7 @@ public class PrimitiveHSSETAdapter extends DmcTypePrimitiveHSREFSET implements D
     transient DmcTypePrimitiveHSREFSET existingValue;
 
     public PrimitiveHSSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

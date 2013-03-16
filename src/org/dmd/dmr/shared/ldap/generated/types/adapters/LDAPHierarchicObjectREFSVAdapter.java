@@ -14,7 +14,7 @@ public class LDAPHierarchicObjectREFSVAdapter extends DmcTypeLDAPHierarchicObjec
     transient DmcTypeLDAPHierarchicObjectREFSV existingValue;
 
     public LDAPHierarchicObjectREFSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

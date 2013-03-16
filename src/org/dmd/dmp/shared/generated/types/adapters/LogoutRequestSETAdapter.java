@@ -14,7 +14,7 @@ public class LogoutRequestSETAdapter extends DmcTypeLogoutRequestREFSET implemen
     transient DmcTypeLogoutRequestREFSET existingValue;
 
     public LogoutRequestSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

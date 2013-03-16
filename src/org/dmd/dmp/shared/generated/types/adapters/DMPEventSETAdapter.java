@@ -14,7 +14,7 @@ public class DMPEventSETAdapter extends DmcTypeDMPEventREFSET implements DmcAdap
     transient DmcTypeDMPEventREFSET existingValue;
 
     public DMPEventSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

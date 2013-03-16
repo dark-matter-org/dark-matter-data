@@ -14,7 +14,7 @@ public class NamedObjMVIDXSETAdapter extends DmcTypeNamedObjMVIDXREFSET implemen
     transient DmcTypeNamedObjMVIDXREFSET existingValue;
 
     public NamedObjMVIDXSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

@@ -30,7 +30,7 @@ import org.dmd.dmc.types.FullyQualifiedName;    // key type import
  * The DmcTypeLDAPHierarchicObjectREFMAP provides storage for a map of LDAPHierarchicObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2828)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2800)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
@@ -51,29 +51,29 @@ public class DmcTypeLDAPHierarchicObjectREFMAP extends DmcTypeLDAPHierarchicObje
     }
     
     void initValue(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<FullyQualifiedName,LDAPHierarchicObjectREF>();
         else
             value = new TreeMap<FullyQualifiedName,LDAPHierarchicObjectREF>();
     }
     
     public FullyQualifiedName firstKey(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
+        if (attrInfo.valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
             TreeMap<FullyQualifiedName,LDAPHierarchicObjectREF> map = (TreeMap<FullyQualifiedName,LDAPHierarchicObjectREF>)value;
             return(map.firstKey());
         }
-        throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
+        throw(new IllegalStateException("Attribute " + attrInfo.name + " is HASHMAPPED and doesn't support firstKey()"));
     }
     
     @Override
     public DmcTypeLDAPHierarchicObjectREFMAP getNew(){
-        return(new DmcTypeLDAPHierarchicObjectREFMAP(getAttributeInfo()));
+        return(new DmcTypeLDAPHierarchicObjectREFMAP(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2885)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2857)
     public DmcAttribute<LDAPHierarchicObjectREF> cloneIt(){
         synchronized(this){
             DmcTypeLDAPHierarchicObjectREFMAP rc = getNew();
@@ -92,7 +92,7 @@ public class DmcTypeLDAPHierarchicObjectREFMAP extends DmcTypeLDAPHierarchicObje
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2905)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2877)
     public LDAPHierarchicObjectREF add(Object v) throws DmcValueException {
         synchronized(this){
             LDAPHierarchicObjectREF newval = typeCheck(v);
@@ -112,7 +112,7 @@ public class DmcTypeLDAPHierarchicObjectREFMAP extends DmcTypeLDAPHierarchicObje
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2926)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2898)
     public LDAPHierarchicObjectREF del(Object key){
         synchronized(this){
     
@@ -127,7 +127,7 @@ public class DmcTypeLDAPHierarchicObjectREFMAP extends DmcTypeLDAPHierarchicObje
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2942)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2914)
     public Iterator<LDAPHierarchicObjectREF> getMV(){
         synchronized(this){
     
@@ -135,7 +135,7 @@ public class DmcTypeLDAPHierarchicObjectREFMAP extends DmcTypeLDAPHierarchicObje
                 return(emptyList);
     
             Map<FullyQualifiedName,LDAPHierarchicObjectREF> clone = null;
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
+            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<FullyQualifiedName,LDAPHierarchicObjectREF>(value);
             else
                 clone = new TreeMap<FullyQualifiedName,LDAPHierarchicObjectREF>(value);
@@ -143,11 +143,11 @@ public class DmcTypeLDAPHierarchicObjectREFMAP extends DmcTypeLDAPHierarchicObje
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2959)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2931)
     public Map<FullyQualifiedName,LDAPHierarchicObjectREF> getMVCopy(){
         synchronized(this){
             Map<FullyQualifiedName,LDAPHierarchicObjectREF> clone = null;
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED){
+            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED){
                 if (value == null)
                     clone = new HashMap<FullyQualifiedName,LDAPHierarchicObjectREF>();
                 else
@@ -163,7 +163,7 @@ public class DmcTypeLDAPHierarchicObjectREFMAP extends DmcTypeLDAPHierarchicObje
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2980)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2952)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -174,7 +174,7 @@ public class DmcTypeLDAPHierarchicObjectREFMAP extends DmcTypeLDAPHierarchicObje
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2992)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2964)
     public LDAPHierarchicObjectREF getByKey(Object key){
         synchronized(this){
            if (value == null)
@@ -188,7 +188,7 @@ public class DmcTypeLDAPHierarchicObjectREFMAP extends DmcTypeLDAPHierarchicObje
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3007)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2979)
     public boolean contains(Object v){
         synchronized(this){
            if (value == null)
@@ -204,7 +204,7 @@ public class DmcTypeLDAPHierarchicObjectREFMAP extends DmcTypeLDAPHierarchicObje
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3024)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2996)
     public boolean containsKey(Object key){
         synchronized(this){
            if (value == null)

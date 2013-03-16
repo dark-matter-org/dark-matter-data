@@ -14,7 +14,7 @@ public class UnnamedObjHSSETAdapter extends DmcTypeUnnamedObjHSREFSET implements
     transient DmcTypeUnnamedObjHSREFSET existingValue;
 
     public UnnamedObjHSSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

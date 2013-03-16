@@ -14,7 +14,7 @@ public class CreateRequestSETAdapter extends DmcTypeCreateRequestREFSET implemen
     transient DmcTypeCreateRequestREFSET existingValue;
 
     public CreateRequestSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

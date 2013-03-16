@@ -14,7 +14,7 @@ public class SetResponseSETAdapter extends DmcTypeSetResponseREFSET implements D
     transient DmcTypeSetResponseREFSET existingValue;
 
     public SetResponseSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

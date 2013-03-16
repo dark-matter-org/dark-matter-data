@@ -14,7 +14,7 @@ public class ExtendedRefMVIDXMVAdapter extends DmcTypeExtendedRefMVIDXREFMV impl
     transient DmcTypeExtendedRefMVIDXREFMV existingValue;
 
     public ExtendedRefMVIDXMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

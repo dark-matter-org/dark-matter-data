@@ -14,7 +14,7 @@ public class PreAuthResponseSETAdapter extends DmcTypePreAuthResponseREFSET impl
     transient DmcTypePreAuthResponseREFSET existingValue;
 
     public PreAuthResponseSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

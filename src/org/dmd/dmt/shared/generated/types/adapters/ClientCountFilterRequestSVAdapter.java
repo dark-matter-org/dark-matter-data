@@ -14,7 +14,7 @@ public class ClientCountFilterRequestSVAdapter extends DmcTypeClientCountFilterR
     transient DmcTypeClientCountFilterRequestREFSV existingValue;
 
     public ClientCountFilterRequestSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

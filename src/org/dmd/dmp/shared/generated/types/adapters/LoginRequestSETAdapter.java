@@ -14,7 +14,7 @@ public class LoginRequestSETAdapter extends DmcTypeLoginRequestREFSET implements
     transient DmcTypeLoginRequestREFSET existingValue;
 
     public LoginRequestSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

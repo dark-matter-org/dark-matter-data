@@ -17,17 +17,17 @@ package org.dmd.dmp.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import org.dmd.dmc.*;                                            // If any attributes - (BaseDMWGeneratorNewest.java:905)
-import org.dmd.dmp.server.extended.LoginRequest;                 // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:898)
-import org.dmd.dmp.server.extended.Request;                      // Derived class - (BaseDMWGeneratorNewest.java:1066)
-import org.dmd.dmp.shared.generated.dmo.LoginRequestDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1070)
-import org.dmd.dms.ClassDefinition;                              // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:889)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                      // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:894)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;            // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:893)
+import org.dmd.dmc.*;                                            // If any attributes - (BaseDMWGeneratorNewest.java:903)
+import org.dmd.dmp.server.extended.LoginRequest;                 // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:896)
+import org.dmd.dmp.server.extended.Request;                      // Derived class - (BaseDMWGeneratorNewest.java:1064)
+import org.dmd.dmp.shared.generated.dmo.LoginRequestDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1068)
+import org.dmd.dms.*;                                            // Always 2 - (BaseDMWGeneratorNewest.java:888)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                      // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:892)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;            // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:891)
 
 
 /**
- * The LoginRequest allows you to connect to connect to something and\n pass
+ * The LoginRequest allows you to connect to connect to something and pass
  * along credentials.
  * <P>
  * Generated from the dmp schema at version 0.1
@@ -59,12 +59,6 @@ abstract public class LoginRequestDMW extends Request {
         super(obj, org.dmd.dmp.server.generated.DmpSchemaAG._LoginRequest);
     }
 
-    public LoginRequest cloneIt() {
-        LoginRequest rc = new LoginRequest();
-        rc.setDmcObject(getDMO().cloneIt());
-        return(rc);
-    }
-
     public LoginRequestDMO getDMO() {
         return((LoginRequestDMO) core);
     }
@@ -74,7 +68,7 @@ abstract public class LoginRequestDMW extends Request {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public String getPassword(){
         return(((LoginRequestDMO) core).getPassword());
     }
@@ -83,7 +77,7 @@ abstract public class LoginRequestDMW extends Request {
      * Sets password to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1402)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setPassword(Object value) throws DmcValueException {
         ((LoginRequestDMO) core).setPassword(value);
     }
@@ -92,7 +86,7 @@ abstract public class LoginRequestDMW extends Request {
      * Sets password to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setPassword(String value){
         ((LoginRequestDMO) core).setPassword(value);
     }
@@ -100,12 +94,12 @@ abstract public class LoginRequestDMW extends Request {
     /**
      * Removes the password attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remPassword(){
         ((LoginRequestDMO) core).remPassword();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public String getUserName(){
         return(((LoginRequestDMO) core).getUserName());
     }
@@ -114,7 +108,7 @@ abstract public class LoginRequestDMW extends Request {
      * Sets userName to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1402)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setUserName(Object value) throws DmcValueException {
         ((LoginRequestDMO) core).setUserName(value);
     }
@@ -123,7 +117,7 @@ abstract public class LoginRequestDMW extends Request {
      * Sets userName to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setUserName(String value){
         ((LoginRequestDMO) core).setUserName(value);
     }
@@ -131,7 +125,7 @@ abstract public class LoginRequestDMW extends Request {
     /**
      * Removes the userName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remUserName(){
         ((LoginRequestDMO) core).remUserName();
     }

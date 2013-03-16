@@ -14,7 +14,7 @@ public class NameContainerTestSETAdapter extends DmcTypeNameContainerTestREFSET 
     transient DmcTypeNameContainerTestREFSET existingValue;
 
     public NameContainerTestSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

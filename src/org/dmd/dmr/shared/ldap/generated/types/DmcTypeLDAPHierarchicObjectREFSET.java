@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeLDAPHierarchicObjectREFSET provides storage for a set of LDAPHierarchicObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
@@ -49,7 +49,7 @@ public class DmcTypeLDAPHierarchicObjectREFSET extends DmcTypeLDAPHierarchicObje
     }
     
     void initValue(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<LDAPHierarchicObjectREF>();
         else
             value = new TreeSet<LDAPHierarchicObjectREF>();
@@ -57,11 +57,11 @@ public class DmcTypeLDAPHierarchicObjectREFSET extends DmcTypeLDAPHierarchicObje
     
     @Override
     public DmcTypeLDAPHierarchicObjectREFSET getNew(){
-        return(new DmcTypeLDAPHierarchicObjectREFSET(getAttributeInfo()));
+        return(new DmcTypeLDAPHierarchicObjectREFSET(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
     public DmcAttribute<LDAPHierarchicObjectREF> cloneIt(){
         synchronized(this){
             DmcTypeLDAPHierarchicObjectREFSET rc = getNew();
@@ -80,7 +80,7 @@ public class DmcTypeLDAPHierarchicObjectREFSET extends DmcTypeLDAPHierarchicObje
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2631)
     public LDAPHierarchicObjectREF add(Object v) throws DmcValueException {
         synchronized(this){
             LDAPHierarchicObjectREF rc = typeCheck(v);
@@ -96,7 +96,7 @@ public class DmcTypeLDAPHierarchicObjectREFSET extends DmcTypeLDAPHierarchicObje
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2648)
     public LDAPHierarchicObjectREF del(Object v){
         synchronized(this){
             LDAPHierarchicObjectREF rc = null;
@@ -120,23 +120,23 @@ public class DmcTypeLDAPHierarchicObjectREFSET extends DmcTypeLDAPHierarchicObje
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2673)
     public Iterator<LDAPHierarchicObjectREF> getMV(){
         synchronized(this){
             if (value == null)
                 return(emptyList);
 
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<LDAPHierarchicObjectREF>(value)).iterator() );
             else
                 return( (new TreeSet<LDAPHierarchicObjectREF>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2687)
     public Set<LDAPHierarchicObjectREF> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET){
                 if (value == null)
                     return(new HashSet<LDAPHierarchicObjectREF>());
                 else
@@ -152,7 +152,7 @@ public class DmcTypeLDAPHierarchicObjectREFSET extends DmcTypeLDAPHierarchicObje
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2707)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -162,7 +162,7 @@ public class DmcTypeLDAPHierarchicObjectREFSET extends DmcTypeLDAPHierarchicObje
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2718)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)
