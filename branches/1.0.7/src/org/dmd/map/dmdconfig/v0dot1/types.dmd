@@ -1,0 +1,30 @@
+EnumDefinition
+name            MapZoomEnum
+enumValue		0 LEVEL_00 Level 0 - 5000mi/10000km
+enumValue		1 LEVEL_01 Level 1 - 2000mi/5000km
+enumValue		2 LEVEL_02 Level 2 - 2000mi/2000km
+enumValue		3 LEVEL_03 Level 3 - 1000mi/1000km
+enumValue		4 LEVEL_04 Level 4 - 500mi/500km
+//
+enumValue		5 LEVEL_05 Level 5 - 200mi/500km
+enumValue		6 LEVEL_06 Level 6 - 100mi/200km
+enumValue		7 LEVEL_07 Level 7 - 50mi/100km
+enumValue		8 LEVEL_08 Level 8 - 20mi/50km
+enumValue		9 LEVEL_09 Level 9 - 10mi/20km
+//
+enumValue		10 LEVEL_10 Level 10 - 5mi/10km
+enumValue		11 LEVEL_11 Level 11 - 2mi/5km
+enumValue		12 LEVEL_12 Level 12 - 2mi/2km
+enumValue		13 LEVEL_13 Level 13 - 1mi/1km
+enumValue		14 LEVEL_14 Level 14 - 2000f/500m
+//
+enumValue		15 LEVEL_15 Level 15 - 1000f/200m
+enumValue		16 LEVEL_16 Level 16 - 500f/200m
+enumValue		17 LEVEL_17 Level 17 - 200f/100m
+enumValue		18 LEVEL_18 Level 18 - 200f/50m
+enumValue		19 LEVEL_19 Level 19 - 100f/20m
+//
+enumValue		20 LEVEL_20 Level 20 - 50f/10m
+enumValue		21 LEVEL_21 Level 21 - 20f/5m
+description		The MapZoomEnum indicates the various levels of zoom supported
+ by Google Maps.

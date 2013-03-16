@@ -1,0 +1,375 @@
+efClassDef
+efName          request
+efClassType     ABSTRACT
+efJavaClass     com.dmc.common.rrf.RrfRequest
+efCodeName      RrfRequest
+efCodePackage   com.dmc.common.rrf
+efMust          requestId
+efMay           username
+efMay           session
+efMay           logTime
+efMay           reqStartTime
+efDescr     The request class provides a common base for request messages.
+
+efClassDef
+efName          response
+efClassType     ABSTRACT
+efJavaClass     com.dmc.common.rrf.RrfResponse
+efCodeName      RrfResponse
+efCodePackage   com.dmc.common.rrf
+efMust          lastResponse
+efMust          requestId
+efMust          responseType
+efMay           responseText
+efMay           progress
+efMay           progressStep
+efMay           progressSteps
+efMay           progressStepComplete
+efMay           responseCategory
+efMay           globalId
+efMay           resolved
+efMay           reqStartTime
+efMay           reqDuration
+efDescr This class serves as a common base for all response messages.
+
+efClassDef
+efName          register
+efClassType     STRUCTURAL
+efDerivedFrom   request
+efJavaClass     com.dmc.common.rrf.RrfRegisterRequest
+efCodeName      RrfRegisterRequest
+efCodePackage   com.dmc.common.rrf
+efMust          username
+efMust          password
+efMust          hostname
+efMust          hostport
+efMay           clientAddress
+* efMay           timeout
+efDescr     The register request allows you to connect to a repository and provide
+ authentication information; you must issue a register request before any other
+ request can be executed.
+
+efClassDef
+efName          registerResponse
+efClassType     STRUCTURAL
+efDerivedFrom   response
+efJavaClass     com.dmc.common.rrf.RrfRegisterResponse
+efCodeName      RrfRegisterResponse
+efCodePackage   com.dmc.common.rrf
+efDescr     The register response indicates whether a register request was
+ successful or not. Generally, there will only be a single response for
+ a register request.
+
+efClassDef
+efName          deregister
+efClassType     STRUCTURAL
+efDerivedFrom   request
+efJavaClass     com.dmc.common.rrf.RrfDeregisterRequestAG
+efCodeName      RrfDeregisterRequest
+efCodePackage   com.dmc.common.rrf
+efDescr     Once you have finished sending requests to a repository, you can use the
+ deregister command to close the connection.
+
+efClassDef
+efName          deregisterResponse
+efClassType     STRUCTURAL
+efDerivedFrom   response
+efJavaClass     com.dmc.common.rrf.RrfDeregisterResponse
+efCodeName      RrfDeregisterResponse
+efCodePackage   com.dmc.common.rrf
+efDescr     The deregister response indicates whether the client successfully
+ disconnected from the server.
+
+efClassDef
+efName          create
+efClassType     EXTENSIBLE
+efDerivedFrom   request
+efJavaClass     com.dmc.common.rrf.RrfCreateRequest
+efCodeName      RrfCreateRequest
+efCodePackage   com.dmc.common.rrf
+efMust          objType
+efMay           parent
+efDescr     The create request allows you to create new object instances in the
+ repository. You must specify the objType and the parent for the new
+ object. You may also have to specify the value of the namingAttribute
+ for the class of object you're creating. The additional attributes that may be
+ specified for the new object will depend on the object type specified. The create
+ is special in that, although it only has two attributes of its own, it can accept
+ any other set of attributes associated with the object type it has been asked to create.
+
+efClassDef
+efName          createResponse
+efClassType     STRUCTURAL
+efDerivedFrom   response
+efJavaClass     com.dmc.common.rrf.RrfCreateResponse
+efCodeName      RrfCreateResponse
+efCodePackage   com.dmc.common.rrf
+efMust          objName
+efDescr     The create response indicates whether an object create operation
+ was successful or not and indicates the name of the newly created object.
+
+efClassDef
+efName          delete
+efClassType     STRUCTURAL
+efDerivedFrom   request
+efJavaClass     com.dmc.common.rrf.RrfDeleteRequest
+efCodeName      RrfDeleteRequest
+efCodePackage   com.dmc.common.rrf
+efMust          objName
+* efMay           recursive
+efDescr     The delete request allows you to delete one or more objects from the
+ repository. This request will also delete any chidlren of the specified object.
+
+efClassDef
+efName          deleteResponse
+efClassType     STRUCTURAL
+efDerivedFrom   response
+efJavaClass     com.dmc.common.rrf.RrfDeleteResponse
+efCodeName      RrfDeleteResponse
+efCodePackage   com.dmc.common.rrf
+efMust          objName
+efMay           deletedSubComps
+efDescr     The delete response indicates whether an object delete operation
+ was successful or not.
+
+efClassDef
+efName          get
+efClassType     STRUCTURAL
+efDerivedFrom   request
+efJavaClass     com.dmc.common.rrf.RrfGetRequest
+efCodeName      RrfGetRequest
+efCodePackage   com.dmc.common.rrf
+efMust          scope
+efMay           objName
+efMay           attrs
+efMay           onDemandAttrs
+efMay           blockingFactor
+efMay           allAttrs
+efMay           derefAttrs
+efMay           filter
+efMay           schemaAttrs
+* efMay           ot
+* efMay           file
+* efMay           mode
+* efMay           displayAsCreate
+efDescr     The get request allows you to retrieve one or more objects (or parts
+ thereof) from the repository.
+ <P>
+ All of the attributes of an object may be retrieved, by specifying true for the
+ allAttrs flag, or you can indicate that a subset of the available attributes
+ are to be retrieved.
+ <P>
+ If you want to retrieve attributes whose data type is ONDEMAND, you must
+ explicitly request them via the onDemandAttrs attribute list.
+ <P>
+ If no objName is specified, the request operates on the Root object.
+ <P>
+ If the
+ derefAttrs attribute is specified, the objects returned will be the objects
+ referred to by the derefAttrs attribute.
+
+efClassDef
+efName          getResponse
+efDerivedFrom   response
+efClassType     EXTENSIBLE
+efJavaClass     com.dmc.common.rrf.RrfGetResponse
+efCodeName      RrfGetResponse
+efCodePackage   com.dmc.common.rrf
+efMust          objName
+efMust          objClass
+efMay           scope
+efMay           parentObjName
+efMay           existingSubComps
+efDescr The get response will contain different information depending on the
+ nature of the request. It will always contain the name of the object being returned
+ and it type, as well as the scope of the original request. If the object isn't
+ a top level object, the parentObjName will be given. If the object has any
+ subcomponents, the existingSubComps will indicate how many.
+
+efClassDef
+efName          set
+efClassType     STRUCTURAL
+efDerivedFrom   request
+efJavaClass     com.dmc.common.rrf.RrfSetRequest
+efCodeName      RrfSetRequest
+efCodePackage   com.dmc.common.rrf
+efMust          objName
+efMust          modify
+efDescr     The set request allows you to alter the attribute values associated
+ with an object. Like the get request, the set of attributes that can be manipulated
+ will depend on the object type that is specified.
+
+efClassDef
+efName          setResponse
+efClassType     STRUCTURAL
+efDerivedFrom   response
+efJavaClass     com.dmc.common.rrf.RrfSetResponse
+efCodeName      RrfSetResponse
+efCodePackage   com.dmc.common.rrf
+efMay           alterred
+efDescr     The set response indicates whether a set operation was successful or
+ not. The alterred attribute indicates the attributes that were changed.
+
+efClassDef
+efName          suffix
+efClassType     STRUCTURAL
+efDerivedFrom   request
+efJavaClass     com.dmc.common.rrf.RrfSuffixRequest
+efCodeName      RrfSuffixRequest
+efCodePackage   com.dmc.common.rrf
+efMust          dn
+efMust          suffName
+efDescr     The suffix request allows you to define an abbreviation for a suffix to
+ be added to a distinguished name. It is the only request that doesn't actually
+ interact with the repository. It is designed as a request, however, so that
+ suffix definition objects can be stored along with other requests in a file.
+
+efClassDef
+efName          notify
+efClassType     STRUCTURAL
+efDerivedFrom   request
+efJavaClass     com.dmc.common.rrf.RrfNotifyRequest
+efCodeName      RrfNotifyRequest
+efCodePackage   com.dmc.common.rrf
+efMust          notificationState
+* efMust          scope
+* efMay           dn
+* efMay           filter
+* efMay           ot
+* efMay           attrs
+* efMay           file
+* efMay           mode
+* efMay           maxObjs
+* efMay           displayAsCreate
+efDescr     The notify request allows you to register for notification of changes.
+ Currently the implementation is simple and no filtering is enabled. Further
+ parameters (which are commented out above) maybe introduced later to allow
+ notofications of a specified set of objects in the repository. The implementation
+ of the notification mechanism will depend upon the repository in question. In the
+ case of directories that support it, the notify behaviour is implemented using the
+ persistent search control.
+
+efClassDef
+efName          notifyResponse
+efClassType     STRUCTURAL
+efDerivedFrom   response
+efJavaClass     com.dmc.common.rrf.RrfNotifyResponse
+efCodeName      RrfNotifyResponse
+efCodePackage   com.dmc.common.rrf
+efDescr     The notify response indicates if a request to enable/disable event
+ notification was successful or not.
+
+efClassDef
+efName          event
+efDerivedFrom   response
+efClassType     EXTENSIBLE
+efJavaClass     com.dmc.common.rrf.RrfEvent
+efCodeName      RrfEvent
+efCodePackage   com.dmc.common.rrf
+efMust          objName
+efMust          eventType
+efMay           enigmaEvent
+efMay           changedBy
+efMay           objType
+efMay           alterred
+efMay           seqId
+efMay           modify
+efMay           auxClasses
+efMay           nameAttrValue
+efMay           resolved
+efDescr         An event provides notification of some noteworthy occurrence
+ within the system. Depending on the type of object involved, the event may
+ have more information than the attributes shown here (thus the class is
+ EXTENSIBLE).
+
+efClassDef
+efName          action
+efClassType     EXTENSIBLE
+efDerivedFrom   request
+efJavaClass     com.dmc.common.rrf.RrfActionRequest
+efCodeName      RrfActionRequest
+efCodePackage   com.dmc.common.rrf
+efMust          objName
+efMust          actionName
+efDescr     The action request allows you to trigger methods on an
+ object instance. The set of parameters associated with an action as well
+ as the return values will depend on the definition of that action for the
+ object class in question.
+
+efClassDef
+efName          actionResponse
+efDerivedFrom   response
+efClassType     EXTENSIBLE
+efJavaClass     com.dmc.common.rrf.RrfActionResponse
+efCodeName      RrfActionResponse
+efCodePackage   com.dmc.common.rrf
+efMay	          objName
+efMay	          objClass
+efMay           parentObjName
+efMay           existingSubComps
+efDescr This class serves as a common base for all response messages.
+
+efClassDef
+efName          schemaDef
+efClassType     STRUCTURAL
+efJavaClass     com.dmc.common.rrf.RrfSchemaDefAG
+efCodeName      RrfSchemaDef
+efCodePackage   com.dmc.common.rrf
+efMust          rrfSchemaClass
+efDescr This sclass is used to define the schemas that must be loaded in order
+ to allow for use of the request/response framework.
+
+efClassDef
+efName              Log
+efClassType         STRUCTURAL
+efJavaClass         com.dmc.common.rrf.LogAG
+efCodeName          Log
+efCodePackage       com.dmc.common.rrf
+efMust              logTime
+efMay               logText
+efMay               username
+efMay               logIpAddress
+efDescr             The Log class is used to group information that is being
+ stored to the access log.
+
+efClassDef
+efName              LogAux
+efClassType         AUXILIARY
+efJavaClass         com.dmc.common.rrf.LogAuxAG
+efCodeName          LogAux
+efCodePackage       com.dmc.common.rrf
+efMay               logTime
+efMay               username
+efMay               logIpAddress
+efMay               logTimeString
+efMay               efFile
+efMay               logSDN
+efMay               logTargetSDN
+efMay               eventType
+efMay               logText
+efMay               objType
+efMay               logCategory
+efMay               logOrder
+efDescr             The Log class is used to group information that is being
+ stored to the access log.
+
+efClassDef
+efName              LogFormat
+efClassType         STRUCTURAL
+efJavaClass         com.dmc.common.rrf.LogFormat
+efCodeName          LogFormat
+efCodePackage       com.dmc.common.rrf
+efMust              requestType
+efMust              textFormat
+efMay               actionName
+efMay               actionResult
+efMay               objType
+efMay               forAllSubclasses
+efMay               insertArg
+efMay               skipLog
+efMay               logCategory
+efDescr             The LogFormat class prvides information about how to format
+ logs so that they are meaningful to users of the operations management tool.
+
+
+

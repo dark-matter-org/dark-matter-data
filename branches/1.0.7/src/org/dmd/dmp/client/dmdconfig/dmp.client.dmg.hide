@@ -1,0 +1,6 @@
+DmgConfig
+genPackage      org.dmd.dmp.client
+schemaToLoad    dmp
+generator		org.dmd.mvw.gxt.dmw.generators.GxtDMWGenerator
+//generator       org.dmd.features.extgwt.generators.ExtGWTWrapperGenerator
+description     We generate the GXT wrappers for use with the the Dark Matter Protocol.

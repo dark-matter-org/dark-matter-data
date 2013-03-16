@@ -1,0 +1,14 @@
+SchemaDefinition
+name       			extgwt
+schemaBaseID		600
+schemaIDRange		50
+dependsOn			dmg
+defFiles    		attributes.dmd
+defFiles    		classes.dmd
+generatedFileHeader LGPL.txt
+//
+schemaPackage 		org.dmd.features.extgwt
+dmwPackage			org.dmd.features.extgwt
+description The extgwt schema defines classes that can be used to model the Model
+ View Controller (MVC) structures associated with a GWT project that uses ExtGWT
+ MVC conventions.
