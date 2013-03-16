@@ -21,12 +21,15 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import org.dmd.dmc.types.StringName;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 import org.dmd.dmg.generators.BaseDMWGeneratorNewest;
+import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
+import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
 import org.dmd.dms.util.GenUtility;
 import org.dmd.util.FileUpdateManager;
@@ -83,6 +86,126 @@ public class GxtDMWGenerator extends BaseDMWGeneratorNewest {
 		createAutoWrapper(config, loc, f, sm);
 		
 		createAutoWrapperNEW(config, loc, f, sm);
+		
+	}
+	
+	boolean needSetMethod(ClassDefinition cd){
+		boolean needIt = false;
+		TreeMap<StringName,AttributeDefinition> attributes = cd.getAllAttributesAtThisLevel();
+		for(AttributeDefinition ad: attributes.values()){
+			if (ad.getValueType() == ValueTypeEnum.SINGLE){
+				needIt = true;
+				break;
+			}
+		}
+		
+		return(needIt);
+	}
+	
+	@Override
+	/**
+	 * In order to overload the set operator, we need some additional imports.
+	 * @param config
+	 * @param loc
+	 * @param f
+	 * @param sm
+	 * @param cd
+	 * @param imports
+	 * @throws IOException
+	 */
+	public void getAdditionalWrapperImports(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm, ClassDefinition cd, ImportManager imports) throws IOException {
+		if (!needSetMethod(cd))
+			return;
+		
+		imports.addImport("org.dmd.dms.generated.enums.ValueTypeEnum", "To allow overload of GxtWrapper.set()");
+	}
+	
+	@Override
+	/**
+	 * We generate a static mapping for our attributes so that we can map to the correct set method in the
+	 * overridden set() method.
+	 * @param config
+	 * @param loc
+	 * @param f
+	 * @param sm
+	 * @param cd
+	 * @param out
+	 * @throws IOException
+	 */
+	public void dumpAdditionalWrapperDefinitions(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm, ClassDefinition cd, BufferedWriter out) throws IOException {
+		if (!needSetMethod(cd))
+			return;
+
+		TreeMap<StringName,AttributeDefinition> attributes = cd.getAllAttributesAtThisLevel();
+		
+		out.write("\n");
+		for(AttributeDefinition ad: attributes.values()){
+			if (ad.getValueType() == ValueTypeEnum.SINGLE){
+				out.write("    static final int " + ad.getName() + "ID = " + ad.getDmdID()+ ";\n");
+			}
+		}
+		out.write("\n");
+	}
+	
+	@Override
+	/**
+	 * At this level, we do nothing. Derived classes can overload this to insert additional behaviour
+	 * in individual class wrappers.
+	 * @param config
+	 * @param loc
+	 * @param f
+	 * @param sm
+	 * @param cd
+	 * @param out
+	 * @throws IOException
+	 */
+	public void dumpAdditionalWrapperFunctions(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm, ClassDefinition cd, BufferedWriter out) throws IOException {
+		if (!needSetMethod(cd))
+			return;
+		
+		// In order to support cell editting, we overload the com.extjs.gxt.ui.client.data.BaseModel.set() method
+		// to handle setting single value attributes.
+		
+		// Need an additional hook to add required imports to the generated wrapper and also additional properties
+		// and static definitions.
+		
+		out.write("    @Override\n");
+		out.write("    public <X> X set(String property, X value) {\n");
+		out.write("        DmcAttributeInfo ai = core.getAttributeInfo(property);\n");
+		out.write("			\n");
+		out.write("			if (ai == null)\n");
+		out.write("				throw(new IllegalStateException(\"Unknown attribute: \" + property + \" for class: \" + core.getConstructionClassName()));\n");
+		out.write("\n");
+		out.write("			if (ai.valueType != ValueTypeEnum.SINGLE)\n");
+		out.write("				throw(new IllegalStateException(\"The set() method only supports single-valued attributes. This attribute is multi-valued: \" + property));\n");
+		out.write("\n");
+		out.write("			X oldValue = get(property);\n");
+		out.write("			\n");
+		out.write("			try {\n");
+		out.write("				switch(ai.id){\n");
+		
+		out.write("\n");
+		
+		TreeMap<StringName,AttributeDefinition> attributes = cd.getAllAttributesAtThisLevel();
+		for(AttributeDefinition ad: attributes.values()){
+			if (ad.getValueType() == ValueTypeEnum.SINGLE){
+				String capped = GenUtility.capTheName(ad.getName().getNameString());
+				out.write("				case " + ad.getName() + "ID:\n");
+				out.write("				    ((" + cd.getName() + "DMO) core).set" + capped + "(value);\n");
+				out.write("				    break;\n");
+			}
+		}
+		out.write("\n");
+		
+		
+		out.write("			    }\n");
+		out.write("	        } catch (DmcValueException e) {\n");
+		out.write("		        throw(new IllegalStateException(e));\n");
+		out.write("	        }\n");
+		out.write("\n");
+		out.write("			notifyPropertyChanged(property, value, oldValue);\n");
+		out.write("			return(oldValue);\n");
+		out.write("		}\n");
 		
 	}
 	
