@@ -126,18 +126,34 @@ public class DmcTypeIntegerRangeRuleREFMV extends DmcTypeIntegerRangeRuleREF imp
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2394)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2405)
     public ArrayList<IntegerRangeRuleDMO> getMVCopy(){
         synchronized(this){
             if (value == null)
                 return(new ArrayList<IntegerRangeRuleDMO>());
-            else 
-                return(new ArrayList<IntegerRangeRuleDMO>(value));
+            else{
+                ArrayList<IntegerRangeRuleDMO> rc = new  ArrayList<IntegerRangeRuleDMO>(value.size());
+                if (attrInfo.indexSize == 0){
+                    for(IntegerRangeRuleDMO val: value)
+                        rc.add((IntegerRangeRuleDMO) val.cloneIt());
+                }
+                else{
+                    // Initialize all of the indices to null
+                    for(int i=0;i<attrInfo.indexSize;i++)
+                        rc.add(null);
+    
+                    for(int index=0; index<value.size(); index++){
+                        if (value.get(index) != null)
+                            rc.set(index, (IntegerRangeRuleDMO) value.get(index).cloneIt());
+                    }
+                }
+                return(rc);
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2406)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2441)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -151,7 +167,7 @@ public class DmcTypeIntegerRangeRuleREFMV extends DmcTypeIntegerRangeRuleREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2421)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2456)
     public IntegerRangeRuleDMO getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -161,7 +177,7 @@ public class DmcTypeIntegerRangeRuleREFMV extends DmcTypeIntegerRangeRuleREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2432)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2467)
     public IntegerRangeRuleDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -188,7 +204,7 @@ public class DmcTypeIntegerRangeRuleREFMV extends DmcTypeIntegerRangeRuleREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2495)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -211,7 +227,7 @@ public class DmcTypeIntegerRangeRuleREFMV extends DmcTypeIntegerRangeRuleREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2484)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2519)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

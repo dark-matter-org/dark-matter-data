@@ -111,18 +111,34 @@ public class DmcTypeNameContainerTestREFMV extends DmcTypeNameContainerTestREF i
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2394)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2405)
     public ArrayList<NameContainerTestDMO> getMVCopy(){
         synchronized(this){
             if (value == null)
                 return(new ArrayList<NameContainerTestDMO>());
-            else 
-                return(new ArrayList<NameContainerTestDMO>(value));
+            else{
+                ArrayList<NameContainerTestDMO> rc = new  ArrayList<NameContainerTestDMO>(value.size());
+                if (attrInfo.indexSize == 0){
+                    for(NameContainerTestDMO val: value)
+                        rc.add((NameContainerTestDMO) val.cloneIt());
+                }
+                else{
+                    // Initialize all of the indices to null
+                    for(int i=0;i<attrInfo.indexSize;i++)
+                        rc.add(null);
+    
+                    for(int index=0; index<value.size(); index++){
+                        if (value.get(index) != null)
+                            rc.set(index, (NameContainerTestDMO) value.get(index).cloneIt());
+                    }
+                }
+                return(rc);
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2406)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2441)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -136,7 +152,7 @@ public class DmcTypeNameContainerTestREFMV extends DmcTypeNameContainerTestREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2421)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2456)
     public NameContainerTestDMO getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -146,7 +162,7 @@ public class DmcTypeNameContainerTestREFMV extends DmcTypeNameContainerTestREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2432)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2467)
     public NameContainerTestDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -173,7 +189,7 @@ public class DmcTypeNameContainerTestREFMV extends DmcTypeNameContainerTestREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2495)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -196,7 +212,7 @@ public class DmcTypeNameContainerTestREFMV extends DmcTypeNameContainerTestREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2484)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2519)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

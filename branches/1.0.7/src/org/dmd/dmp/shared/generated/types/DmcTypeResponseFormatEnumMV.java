@@ -126,18 +126,33 @@ public class DmcTypeResponseFormatEnumMV extends DmcTypeResponseFormatEnum imple
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2394)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2405)
     public ArrayList<ResponseFormatEnum> getMVCopy(){
         synchronized(this){
             if (value == null)
                 return(new ArrayList<ResponseFormatEnum>());
-            else 
-                return(new ArrayList<ResponseFormatEnum>(value));
+            else{
+                ArrayList<ResponseFormatEnum> rc = new  ArrayList<ResponseFormatEnum>(value.size());
+                if (attrInfo.indexSize == 0){
+                    for(ResponseFormatEnum val: value)
+                        rc.add(val);
+                }
+                else{
+                    // Initialize all of the indices to null
+                    for(int i=0;i<attrInfo.indexSize;i++)
+                        rc.add(null);
+    
+                    for(int index=0; index<value.size(); index++){
+                        rc.set(index, value.get(index));
+                    }
+                }
+                return(rc);
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2406)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2441)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -151,7 +166,7 @@ public class DmcTypeResponseFormatEnumMV extends DmcTypeResponseFormatEnum imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2421)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2456)
     public ResponseFormatEnum getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -161,7 +176,7 @@ public class DmcTypeResponseFormatEnumMV extends DmcTypeResponseFormatEnum imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2432)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2467)
     public ResponseFormatEnum setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -188,7 +203,7 @@ public class DmcTypeResponseFormatEnumMV extends DmcTypeResponseFormatEnum imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2495)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -211,7 +226,7 @@ public class DmcTypeResponseFormatEnumMV extends DmcTypeResponseFormatEnum imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2484)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2519)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

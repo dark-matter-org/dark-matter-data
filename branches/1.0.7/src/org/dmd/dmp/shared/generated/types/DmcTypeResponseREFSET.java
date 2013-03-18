@@ -29,7 +29,7 @@ import org.dmd.dmp.shared.generated.dmo.ResponseDMO;    // DmcType import
  * The DmcTypeResponseREFSET provides storage for a set of ResponseDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2602)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
  */
 @SuppressWarnings("serial")
@@ -62,7 +62,7 @@ public class DmcTypeResponseREFSET extends DmcTypeResponseREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2643)
     public DmcAttribute<ResponseDMO> cloneIt(){
         synchronized(this){
             DmcTypeResponseREFSET rc = getNew();
@@ -81,7 +81,7 @@ public class DmcTypeResponseREFSET extends DmcTypeResponseREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2631)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2666)
     public ResponseDMO add(Object v) throws DmcValueException {
         synchronized(this){
             ResponseDMO rc = typeCheck(v);
@@ -97,7 +97,7 @@ public class DmcTypeResponseREFSET extends DmcTypeResponseREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2648)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2683)
     public ResponseDMO del(Object v){
         synchronized(this){
             ResponseDMO rc = null;
@@ -121,7 +121,7 @@ public class DmcTypeResponseREFSET extends DmcTypeResponseREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2673)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2708)
     public Iterator<ResponseDMO> getMV(){
         synchronized(this){
             if (value == null)
@@ -134,7 +134,7 @@ public class DmcTypeResponseREFSET extends DmcTypeResponseREF implements Seriali
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2687)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2722)
     public Set<ResponseDMO> getMVCopy(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET){
@@ -153,7 +153,7 @@ public class DmcTypeResponseREFSET extends DmcTypeResponseREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2707)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2742)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -163,7 +163,7 @@ public class DmcTypeResponseREFSET extends DmcTypeResponseREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2718)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2753)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

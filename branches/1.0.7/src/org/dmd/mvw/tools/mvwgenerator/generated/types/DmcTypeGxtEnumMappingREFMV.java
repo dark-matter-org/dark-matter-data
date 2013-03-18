@@ -125,18 +125,33 @@ public class DmcTypeGxtEnumMappingREFMV extends DmcTypeGxtEnumMappingREF impleme
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2394)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2405)
     public ArrayList<GxtEnumMappingREF> getMVCopy(){
         synchronized(this){
             if (value == null)
                 return(new ArrayList<GxtEnumMappingREF>());
-            else 
-                return(new ArrayList<GxtEnumMappingREF>(value));
+            else{
+                ArrayList<GxtEnumMappingREF> rc = new  ArrayList<GxtEnumMappingREF>(value.size());
+                if (attrInfo.indexSize == 0){
+                    for(GxtEnumMappingREF val: value)
+                        rc.add(val);
+                }
+                else{
+                    // Initialize all of the indices to null
+                    for(int i=0;i<attrInfo.indexSize;i++)
+                        rc.add(null);
+    
+                    for(int index=0; index<value.size(); index++){
+                        rc.set(index, value.get(index));
+                    }
+                }
+                return(rc);
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2406)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2441)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -150,7 +165,7 @@ public class DmcTypeGxtEnumMappingREFMV extends DmcTypeGxtEnumMappingREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2421)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2456)
     public GxtEnumMappingREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -160,7 +175,7 @@ public class DmcTypeGxtEnumMappingREFMV extends DmcTypeGxtEnumMappingREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2432)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2467)
     public GxtEnumMappingREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -187,7 +202,7 @@ public class DmcTypeGxtEnumMappingREFMV extends DmcTypeGxtEnumMappingREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2495)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -210,7 +225,7 @@ public class DmcTypeGxtEnumMappingREFMV extends DmcTypeGxtEnumMappingREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2484)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2519)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

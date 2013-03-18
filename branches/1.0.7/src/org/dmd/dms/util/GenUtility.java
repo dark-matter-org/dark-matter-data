@@ -2391,16 +2391,51 @@ public class GenUtility {
         out.write("    }\n");
         out.write("    \n");
         
+//		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+//        out.write("    public ArrayList<" + typeName + DMO + genericArgs + "> getMVCopy(){\n");
+//        out.write("        synchronized(this){\n");
+//        out.write("            if (value == null)\n");
+//        out.write("                return(new ArrayList<" + typeName + DMO + genericArgs + ">());\n");
+//        out.write("            else \n");
+//        out.write("                return(new ArrayList<" + typeName + DMO + genericArgs + ">(value));\n");
+//        out.write("        }\n");
+//        out.write("    }\n");
+//        out.write("    \n");
+        
 		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public ArrayList<" + typeName + DMO + genericArgs + "> getMVCopy(){\n");
         out.write("        synchronized(this){\n");
         out.write("            if (value == null)\n");
         out.write("                return(new ArrayList<" + typeName + DMO + genericArgs + ">());\n");
-        out.write("            else \n");
-        out.write("                return(new ArrayList<" + typeName + DMO + genericArgs + ">(value));\n");
+        out.write("            else{\n");
+        out.write("                ArrayList<" + typeName + DMO + genericArgs + "> rc = new  ArrayList<" + typeName + DMO + genericArgs + ">(value.size());\n");
+        out.write("                if (attrInfo.indexSize == 0){\n");
+        out.write("                    for(" + typeName + DMO + genericArgs + " val: value)\n");
+        if (dmoREF)
+        	out.write("                        rc.add((" + typeName + DMO + genericArgs + ") val.cloneIt());\n");
+        else
+            out.write("                        rc.add(val);\n");
+        out.write("                }\n");
+        out.write("                else{\n");
+        out.write("                    // Initialize all of the indices to null\n");
+        out.write("                    for(int i=0;i<attrInfo.indexSize;i++)\n");
+        out.write("                        rc.add(null);\n");
+        out.write("    \n");
+        out.write("                    for(int index=0; index<value.size(); index++){\n");
+        if (dmoREF){
+            out.write("                        if (value.get(index) != null)\n");
+        	out.write("                            rc.set(index, (" + typeName + DMO + genericArgs + ") value.get(index).cloneIt());\n");
+        }
+        else
+            out.write("                        rc.set(index, value.get(index));\n");
+        out.write("                    }\n");
+        out.write("                }\n");
+        out.write("                return(rc);\n");
+        out.write("            }\n");
         out.write("        }\n");
         out.write("    }\n");
         out.write("    \n");
+
         
         out.write("    @Override\n");
 		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");

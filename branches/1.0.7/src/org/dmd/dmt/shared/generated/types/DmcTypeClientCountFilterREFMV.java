@@ -111,18 +111,34 @@ public class DmcTypeClientCountFilterREFMV extends DmcTypeClientCountFilterREF i
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2394)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2405)
     public ArrayList<ClientCountFilterDMO> getMVCopy(){
         synchronized(this){
             if (value == null)
                 return(new ArrayList<ClientCountFilterDMO>());
-            else 
-                return(new ArrayList<ClientCountFilterDMO>(value));
+            else{
+                ArrayList<ClientCountFilterDMO> rc = new  ArrayList<ClientCountFilterDMO>(value.size());
+                if (attrInfo.indexSize == 0){
+                    for(ClientCountFilterDMO val: value)
+                        rc.add((ClientCountFilterDMO) val.cloneIt());
+                }
+                else{
+                    // Initialize all of the indices to null
+                    for(int i=0;i<attrInfo.indexSize;i++)
+                        rc.add(null);
+    
+                    for(int index=0; index<value.size(); index++){
+                        if (value.get(index) != null)
+                            rc.set(index, (ClientCountFilterDMO) value.get(index).cloneIt());
+                    }
+                }
+                return(rc);
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2406)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2441)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -136,7 +152,7 @@ public class DmcTypeClientCountFilterREFMV extends DmcTypeClientCountFilterREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2421)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2456)
     public ClientCountFilterDMO getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -146,7 +162,7 @@ public class DmcTypeClientCountFilterREFMV extends DmcTypeClientCountFilterREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2432)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2467)
     public ClientCountFilterDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -173,7 +189,7 @@ public class DmcTypeClientCountFilterREFMV extends DmcTypeClientCountFilterREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2495)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -196,7 +212,7 @@ public class DmcTypeClientCountFilterREFMV extends DmcTypeClientCountFilterREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2484)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2519)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

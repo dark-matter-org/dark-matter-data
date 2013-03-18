@@ -125,18 +125,33 @@ public class DmcTypePlaceREFMV extends DmcTypePlaceREF implements Serializable {
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2394)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2405)
     public ArrayList<PlaceREF> getMVCopy(){
         synchronized(this){
             if (value == null)
                 return(new ArrayList<PlaceREF>());
-            else 
-                return(new ArrayList<PlaceREF>(value));
+            else{
+                ArrayList<PlaceREF> rc = new  ArrayList<PlaceREF>(value.size());
+                if (attrInfo.indexSize == 0){
+                    for(PlaceREF val: value)
+                        rc.add(val);
+                }
+                else{
+                    // Initialize all of the indices to null
+                    for(int i=0;i<attrInfo.indexSize;i++)
+                        rc.add(null);
+    
+                    for(int index=0; index<value.size(); index++){
+                        rc.set(index, value.get(index));
+                    }
+                }
+                return(rc);
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2406)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2441)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -150,7 +165,7 @@ public class DmcTypePlaceREFMV extends DmcTypePlaceREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2421)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2456)
     public PlaceREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -160,7 +175,7 @@ public class DmcTypePlaceREFMV extends DmcTypePlaceREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2432)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2467)
     public PlaceREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -187,7 +202,7 @@ public class DmcTypePlaceREFMV extends DmcTypePlaceREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2495)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -210,7 +225,7 @@ public class DmcTypePlaceREFMV extends DmcTypePlaceREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2484)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2519)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

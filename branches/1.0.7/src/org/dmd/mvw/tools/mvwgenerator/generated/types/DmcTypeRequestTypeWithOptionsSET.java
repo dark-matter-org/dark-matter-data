@@ -30,7 +30,7 @@ import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeRequestTypeWithOptions;    //
  * The DmcTypeRequestTypeWithOptionsSET provides storage for a set of RequestTypeWithOptions
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2602)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:102)
  */
 @SuppressWarnings("serial")
@@ -63,7 +63,7 @@ public class DmcTypeRequestTypeWithOptionsSET extends DmcTypeRequestTypeWithOpti
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2643)
     public DmcAttribute<RequestTypeWithOptions> cloneIt(){
         synchronized(this){
             DmcTypeRequestTypeWithOptionsSET rc = getNew();
@@ -82,7 +82,7 @@ public class DmcTypeRequestTypeWithOptionsSET extends DmcTypeRequestTypeWithOpti
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2631)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2666)
     public RequestTypeWithOptions add(Object v) throws DmcValueException {
         synchronized(this){
             RequestTypeWithOptions rc = typeCheck(v);
@@ -98,7 +98,7 @@ public class DmcTypeRequestTypeWithOptionsSET extends DmcTypeRequestTypeWithOpti
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2648)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2683)
     public RequestTypeWithOptions del(Object v){
         synchronized(this){
             RequestTypeWithOptions rc = null;
@@ -122,7 +122,7 @@ public class DmcTypeRequestTypeWithOptionsSET extends DmcTypeRequestTypeWithOpti
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2673)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2708)
     public Iterator<RequestTypeWithOptions> getMV(){
         synchronized(this){
             if (value == null)
@@ -135,7 +135,7 @@ public class DmcTypeRequestTypeWithOptionsSET extends DmcTypeRequestTypeWithOpti
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2687)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2722)
     public Set<RequestTypeWithOptions> getMVCopy(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET){
@@ -154,7 +154,7 @@ public class DmcTypeRequestTypeWithOptionsSET extends DmcTypeRequestTypeWithOpti
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2707)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2742)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -164,7 +164,7 @@ public class DmcTypeRequestTypeWithOptionsSET extends DmcTypeRequestTypeWithOpti
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2718)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2753)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

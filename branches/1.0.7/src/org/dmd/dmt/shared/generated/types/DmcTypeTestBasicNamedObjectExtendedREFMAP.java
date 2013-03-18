@@ -15,7 +15,7 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeTestBasicNamedObjectExtendedREFMAP provides storage for a map of TestBasicNamedObjectExtendedREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2800)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2835)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
@@ -58,7 +58,7 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicN
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2857)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2892)
     public DmcAttribute<TestBasicNamedObjectExtendedREF> cloneIt(){
         synchronized(this){
             DmcTypeTestBasicNamedObjectExtendedREFMAP rc = getNew();
@@ -77,7 +77,7 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicN
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2877)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2912)
     public TestBasicNamedObjectExtendedREF add(Object v) throws DmcValueException {
         synchronized(this){
             TestBasicNamedObjectExtendedREF newval = typeCheck(v);
@@ -97,7 +97,7 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicN
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2898)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2933)
     public TestBasicNamedObjectExtendedREF del(Object key){
         synchronized(this){
     
@@ -112,7 +112,7 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicN
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2914)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2949)
     public Iterator<TestBasicNamedObjectExtendedREF> getMV(){
         synchronized(this){
     
@@ -128,7 +128,7 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicN
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2931)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2966)
     public Map<StringName,TestBasicNamedObjectExtendedREF> getMVCopy(){
         synchronized(this){
             Map<StringName,TestBasicNamedObjectExtendedREF> clone = null;
@@ -148,7 +148,7 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicN
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2952)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2987)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -159,7 +159,7 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicN
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2964)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2999)
     public TestBasicNamedObjectExtendedREF getByKey(Object key){
         synchronized(this){
            if (value == null)
@@ -173,7 +173,7 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicN
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2979)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3014)
     public boolean contains(Object v){
         synchronized(this){
            if (value == null)
@@ -189,7 +189,7 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicN
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2996)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3031)
     public boolean containsKey(Object key){
         synchronized(this){
            if (value == null)
