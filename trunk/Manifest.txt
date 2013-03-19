@@ -4,5 +4,5 @@ Specification-Title: dark-matter-data
 Specification-Version: 2.0.5
 Specification-Vendor: dark-matter-data committers
 Implementation-Title: org.dmd
-Implementation-Version: rev1328
+Implementation-Version: rev1342
 Implementation-Vendor: dark-matter-data committers
