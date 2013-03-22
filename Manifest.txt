@@ -4,5 +4,5 @@ Specification-Title: dark-matter-data
 Specification-Version: 1.0.7
 Specification-Vendor: dark-matter-data committers
 Implementation-Title: org.dmd.mvw
-Implementation-Version: rev1339
+Implementation-Version: rev1343
 Implementation-Vendor: dark-matter-data committers
