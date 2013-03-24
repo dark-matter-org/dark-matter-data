@@ -1786,6 +1786,28 @@ dmdID						157
 type                		AttributeDefinition
 description    				Indicates the attribute to which an ATTRIBUTE type rule is applied.
 
+AttributeDefinition
+name                		isDSDefinition
+dmdID						158
+type                		Boolean
+description    				Indicates if the class defined by a ClassDefinition and its derivatives are part
+ of a domain specific set of definitions. For instance, the definitions associated with the meta schema are
+ considered a set of domain specific definitions for defining data objects; the dark-matter Model View
+ Whatever (MVW) definitions describe a set of domain specific concepts for defining aspects of a GWT
+ application.
+ <p/>
+ A domain specific definition must be named by name and must have dotName as an attribute because the 
+ generated class will implement the DmcDefinitionIF which assumes that these attributes exist. This
+ interface allows these definitions to be managed as part of a set of definitions.
+
+AttributeDefinition
+name                		isDSModule
+dmdID						159
+type                		Boolean
+description    				Indicates if the class defined by a ClassDefinition is considered to be a 
+ module-level entity in terms of a set of domain specific definitions. The generated dark-matter wrapper
+ for the class will indicate that it implements the DmcModuleIF.  
+
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
 AttributeDefinition
@@ -1816,7 +1838,7 @@ description		The ActionTriggerInfo class simply provides a common base for the b
  of information required to remotely trigger an action on an object. 
  Derivatives of this class are generated as part of the DMO generation
  process and have action specific interfaces to handle the parameters 
- required by an action.
+ required by an ActionDefinition.
  <p/>
  This mechanism is a replacement for the concept that ActionRequests were
  EXTENSIBLE objects. This way, the user can ask an object for the 
@@ -1847,6 +1869,7 @@ useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.ClassDefinition
 dmoImport		org.dmd.dms.generated.dmo.ClassDefinitionDMO
 derivedFrom     DmsDefinition
+isDSDefinition	true
 isNamedBy       name
 must         	name
 may         	description
@@ -1869,6 +1892,8 @@ may				supportsBackrefTracking
 may				excludeFromContext
 may           	abbrev
 may         	obsoleteVersion
+may				isDSDefinition
+may				isDSModule
 // Auto generated/set
 may             internallyGenerated
 may				ruleDefinition
@@ -1900,6 +1925,7 @@ useWrapperType	EXTENDED
 javaClass     	org.dmd.dms.EnumDefinition
 dmoImport		org.dmd.dms.generated.dmo.EnumDefinitionDMO
 derivedFrom     DmsDefinition
+isDSDefinition	true
 isNamedBy       name
 may            	description
 must          	name
@@ -1918,6 +1944,7 @@ useWrapperType	EXTENDED
 javaClass     	org.dmd.dms.TypeDefinition
 dmoImport		org.dmd.dms.generated.dmo.TypeDefinitionDMO
 derivedFrom     DmsDefinition
+isDSDefinition	true
 isNamedBy       name
 must          	name
 must            typeClassName
@@ -2043,6 +2070,7 @@ useWrapperType	EXTENDED
 javaClass     	org.dmd.dms.ComplexTypeDefinition
 dmoImport		org.dmd.dms.generated.dmo.ComplexTypeDefinitionDMO
 derivedFrom     DmsDefinition
+isDSDefinition	true
 isNamedBy       name
 must          	name
 must			field
@@ -2082,6 +2110,7 @@ useWrapperType	EXTENDED
 javaClass     	org.dmd.dms.ExtendedReferenceTypeDefinition
 dmoImport		org.dmd.dms.generated.dmo.ExtendedReferenceTypeDefinitionDMO
 derivedFrom     ComplexTypeDefinition
+isDSDefinition	true
 isNamedBy       name
 must          	name
 must			extendedReferenceClass
@@ -2098,6 +2127,7 @@ useWrapperType	EXTENDED
 javaClass      	org.dmd.dms.AttributeDefinition
 dmoImport		org.dmd.dms.generated.dmo.AttributeDefinitionDMO
 derivedFrom     DmsDefinition
+isDSDefinition	true
 isNamedBy       name
 must          	name
 must          	type
@@ -2128,6 +2158,7 @@ useWrapperType	EXTENDED
 javaClass      	org.dmd.dms.SliceDefinition
 dmoImport		org.dmd.dms.generated.dmo.SliceDefinitionDMO
 derivedFrom     DmsDefinition
+isDSDefinition	true
 must			name
 must 			selectAttribute
 may				description
@@ -2174,6 +2205,7 @@ useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.ActionDefinition
 dmoImport		org.dmd.dms.generated.dmo.ActionDefinitionDMO
 derivedFrom     DmsDefinition
+isDSDefinition	true
 isNamedBy       name
 must          	name
 may          	description
@@ -2202,6 +2234,7 @@ javaClass    	org.dmd.dms.SchemaDefinition
 dmoImport		org.dmd.dms.generated.dmo.SchemaDefinitionDMO
 derivedFrom     DmsDefinition
 isNamedBy       name
+isDSModule		true
 must        	name
 must        	description
 must          	schemaPackage
@@ -2244,6 +2277,7 @@ useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.RuleCategory
 dmoImport		org.dmd.dms.generated.dmo.RuleCategoryDMO
 derivedFrom     DmsDefinition
+isDSDefinition	true
 isNamedBy       name
 must        	name
 must			opContext
@@ -2287,6 +2321,7 @@ useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.RuleDefinition
 dmoImport		org.dmd.dms.generated.dmo.RuleDefinitionDMO
 derivedFrom     DmsDefinition
+isDSDefinition	true
 isNamedBy       name
 must        	name
 //must			ruleType
@@ -2342,6 +2377,7 @@ useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.Dependency
 dmoImport		org.dmd.dms.generated.dmo.DependencyDMO
 derivedFrom     DmsDefinition
+isDSDefinition	true
 isNamedBy       name
 must        	name
 must			useInterface
@@ -2373,6 +2409,7 @@ useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.DependencyImplementation
 dmoImport		org.dmd.dms.generated.dmo.DependencyImplementationDMO
 derivedFrom     DmsDefinition
+isDSDefinition	true
 isNamedBy       name
 must        	name
 must			dependency
@@ -2392,6 +2429,7 @@ dmdID			20
 useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.Dependency
 dmoImport		org.dmd.dms.generated.dmo.DependencyDMO
+isDSDefinition	true
 derivedFrom     DmsDefinition
 isNamedBy       name
 must        	name

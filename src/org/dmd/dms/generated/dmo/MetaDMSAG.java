@@ -110,6 +110,8 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __internalTypeRef = new DmcAttributeInfo("internalTypeRef",20,"TypeDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __internalUse = new DmcAttributeInfo("internalUse",122,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __internallyGenerated = new DmcAttributeInfo("internallyGenerated",77,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __isDSDefinition = new DmcAttributeInfo("isDSDefinition",158,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __isDSModule = new DmcAttributeInfo("isDSModule",159,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __isDefaultValue = new DmcAttributeInfo("isDefaultValue",17,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __isEnumType = new DmcAttributeInfo("isEnumType",16,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __isExtendedRefType = new DmcAttributeInfo("isExtendedRefType",133,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
@@ -376,6 +378,8 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__internalTypeRef.id,__internalTypeRef);
         _SmAp.put(__internalUse.id,__internalUse);
         _SmAp.put(__internallyGenerated.id,__internallyGenerated);
+        _SmAp.put(__isDSDefinition.id,__isDSDefinition);
+        _SmAp.put(__isDSModule.id,__isDSModule);
         _SmAp.put(__isDefaultValue.id,__isDefaultValue);
         _SmAp.put(__isEnumType.id,__isEnumType);
         _SmAp.put(__isExtendedRefType.id,__isExtendedRefType);
@@ -532,6 +536,8 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __ClassDefinition.addMay(__intendedToExtend);
         __ClassDefinition.addMay(__internalTypeRef);
         __ClassDefinition.addMay(__internallyGenerated);
+        __ClassDefinition.addMay(__isDSDefinition);
+        __ClassDefinition.addMay(__isDSModule);
         __ClassDefinition.addMay(__isNamedBy);
         __ClassDefinition.addMay(__javaClass);
         __ClassDefinition.addMay(__lineNumber);
