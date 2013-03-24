@@ -1512,12 +1512,16 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		String baseClass;
 		String derivedFrom;
 		String isNamedBy;
+		String isDSDefinition;
+		String isDSModule;
 
 		for (int i = 0; i < origOrderClasses.size(); i++) {
 			go = (DmcUncheckedObject) classDefs.get(origOrderClasses.get(i));
 
 			derivedFrom = go.getSV("derivedFrom");
 			isNamedBy = go.getSV("isNamedBy");
+			isDSDefinition = go.getSV("isDSDefinition");
+			isDSModule = go.getSV("isDSModule");
 
 			// System.out.println("*** Formatting class definition for: " +
 			// origOrderClasses.get(i));
@@ -1552,6 +1556,11 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 					out.write("import org.dmd.dms.generated.types.*;\n");
 					out.write("import org.dmd.util.exceptions.*;\n");
 					out.write("import org.dmd.dms.*;\n");
+					
+					if (isDSDefinition != null)
+						out.write("import org.dmd.dmc.definitions.DmcDefinitionIF;\n");
+					if (isDSModule != null)
+						out.write("import org.dmd.dmc.definitions.DmcModuleIF;\n");
 
 					if (cn.equals("ActionTriggerInfo")) {
 						// this is a complete friggin' hack!
@@ -1568,15 +1577,21 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 							+ DebugInfo.getWhereWeAreNow() + "\n");
 					out.write(" */\n");
 					out.write("@SuppressWarnings(\"unused\")\n");
+					
+					String additionalInterfaces = "";
+					if (isDSDefinition != null)
+						additionalInterfaces = " implements DmcDefinitionIF";
+					if (isDSModule != null)
+						additionalInterfaces = " implements DmcModuleIF";
 
 					// See if we're derived from anything. If not, just use
 					// DmwWrapper as the base class
 					// If we're named, use DmwNamedObjectWrapper.
 					if (derivedFrom == null) {
-						baseClass = "DmwWrapper";
+						baseClass = "DmwWrapper" + additionalInterfaces;
 
 						if (isNamedBy != null)
-							baseClass = "DmwNamedObjectWrapper";
+							baseClass = "DmwNamedObjectWrapper" + additionalInterfaces;
 					} else {
 						// Otherwise, we look up the derived from class and use
 						// its javaClass
@@ -1590,7 +1605,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 							ex.result.lastResult().lineNumber(go.lineNumber);
 							throw (ex);
 						}
-						baseClass = bc.getSV("javaClass");
+						baseClass = bc.getSV("javaClass") + additionalInterfaces;
 					}
 
 					classType = go.getSV("classType");
@@ -1598,9 +1613,15 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 					if (classType.equals("ABSTRACT"))
 						out.write("public abstract class " + cn
 								+ "DMW extends " + baseClass + " {\n\n");
-					else
-						out.write("public class " + cn + "DMW extends "
-								+ baseClass + " {\n\n");
+					else{
+						if (cn.equals("SchemaDefinition")){
+							// Have to make this abstract because we need to manually overload the DmcModuleIF methods
+							out.write("public abstract class " + cn + "DMW extends " + baseClass + " {\n\n");							
+						}
+						else{
+							out.write("public class " + cn + "DMW extends " + baseClass + " {\n\n");
+						}
+					}
 
 					out.write("    private " + cn + "DMO mycore;\n\n");
 
@@ -1764,6 +1785,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		String baseClass;
 		String derivedFrom;
 		String isNamedBy;
+		String isDSDefinition;
 		boolean isDmsDefinition = false;
 
 		for (int i = 0; i < origOrderClasses.size(); i++) {
@@ -1774,6 +1796,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 			derivedFrom = go.getSV("derivedFrom");
 			isNamedBy = go.getSV("isNamedBy");
+			isDSDefinition = go.getSV("isDSDefinition");
 
 			// System.out.println("*** Formatting DMO for: " +
 			// origOrderClasses.get(i));
@@ -1829,6 +1852,10 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 						imports.addImport("org.dmd.dms.types.*", "Enum support");
 						// out.write("import org.dmd.dms.types.*;\n");
 					}
+					
+					if (isDSDefinition != null){
+						imports.addImport("org.dmd.dmc.definitions.DmcDefinitionIF", "This is a domain specific definition");
+					}
 
 					imports.addImport("org.dmd.dms.generated.types.*",
 							"Generated type access");
@@ -1855,12 +1882,17 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 					out.write(" */\n");
 
 					out.write("@SuppressWarnings(\"serial\")\n");
+					
+					String additionalInterfaces = " ";
+					if (isDSDefinition != null){
+						additionalInterfaces = ", DmcDefinitionIF";
+					}
 
 					if (derivedFrom == null) {
 						if (isNamedBy == null) {
-							baseClass = "DmcObject implements Serializable";
+							baseClass = "DmcObject implements Serializable" + additionalInterfaces;
 						} else {
-							baseClass = "DmcObject implements DmcNamedObjectIF, Serializable";
+							baseClass = "DmcObject implements DmcNamedObjectIF, Serializable" + additionalInterfaces;
 						}
 					} else {
 						// Otherwise, we look up the derived from class and use
@@ -1877,7 +1909,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 						}
 
 						baseClass = bc.getSV("dmoImport")
-								+ " implements Serializable ";
+								+ " implements Serializable" + additionalInterfaces;
 					}
 
 					out.write("public class " + cn + "DMO extends " + baseClass

@@ -31,7 +31,7 @@ import org.dmd.dmc.types.IntegerToBoolean;    // primitive import
  * The DmcTypeIntegerToBooleanMAP provides storage for a map of IntegerToBoolean
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2828)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2829)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:647)
  */
 @SuppressWarnings("serial")
@@ -74,7 +74,7 @@ public class DmcTypeIntegerToBooleanMAP extends DmcTypeIntegerToBoolean implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2885)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2886)
     public DmcAttribute<IntegerToBoolean> cloneIt(){
         synchronized(this){
             DmcTypeIntegerToBooleanMAP rc = getNew();
@@ -93,7 +93,7 @@ public class DmcTypeIntegerToBooleanMAP extends DmcTypeIntegerToBoolean implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2905)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2906)
     public IntegerToBoolean add(Object v) throws DmcValueException {
         synchronized(this){
             IntegerToBoolean newval = typeCheck(v);
@@ -113,7 +113,7 @@ public class DmcTypeIntegerToBooleanMAP extends DmcTypeIntegerToBoolean implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2926)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2927)
     public IntegerToBoolean del(Object key){
         synchronized(this){
     
@@ -128,7 +128,7 @@ public class DmcTypeIntegerToBooleanMAP extends DmcTypeIntegerToBoolean implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2942)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2943)
     public Iterator<IntegerToBoolean> getMV(){
         synchronized(this){
     
@@ -144,7 +144,7 @@ public class DmcTypeIntegerToBooleanMAP extends DmcTypeIntegerToBoolean implemen
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2959)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2960)
     public Map<Integer,IntegerToBoolean> getMVCopy(){
         synchronized(this){
             Map<Integer,IntegerToBoolean> clone = null;
@@ -164,7 +164,7 @@ public class DmcTypeIntegerToBooleanMAP extends DmcTypeIntegerToBoolean implemen
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2980)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2981)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -175,7 +175,7 @@ public class DmcTypeIntegerToBooleanMAP extends DmcTypeIntegerToBoolean implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2992)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2993)
     public IntegerToBoolean getByKey(Object key){
         synchronized(this){
            if (value == null)
@@ -189,7 +189,7 @@ public class DmcTypeIntegerToBooleanMAP extends DmcTypeIntegerToBoolean implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3007)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3008)
     public boolean contains(Object v){
         synchronized(this){
            if (value == null)
@@ -205,7 +205,7 @@ public class DmcTypeIntegerToBooleanMAP extends DmcTypeIntegerToBoolean implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3024)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3025)
     public boolean containsKey(Object key){
         synchronized(this){
            if (value == null)

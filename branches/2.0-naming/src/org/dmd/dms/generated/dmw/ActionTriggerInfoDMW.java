@@ -32,13 +32,13 @@ import org.dmd.dms.extended.ActionTriggerInfo;
  * of information required to remotely trigger an action on an object. \n
  * Derivatives of this class are generated as part of the DMO generation\n
  * process and have action specific interfaces to handle the parameters \n
- * required by an action.\n <p/>\n This mechanism is a replacement for the
- * concept that ActionRequests were\n EXTENSIBLE objects. This way, the user
- * can ask an object for the \n ActionTriggerInfo (ATI) for a particular
- * action and have a well defined\n interface to specify the parameters for
- * the action.
+ * required by an ActionDefinition.\n <p/>\n This mechanism is a replacement
+ * for the concept that ActionRequests were\n EXTENSIBLE objects. This way,
+ * the user can ask an object for the \n ActionTriggerInfo (ATI) for a
+ * particular action and have a well defined\n interface to specify the
+ * parameters for the action.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1568)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1577)
  */
 @SuppressWarnings("unused")
 public abstract class ActionTriggerInfoDMW extends DmwWrapper {
@@ -73,7 +73,7 @@ public abstract class ActionTriggerInfoDMW extends DmwWrapper {
      * the range, [a-z] [A-Z] [0-9]. No whitespace\n characters are allowed. All
      * names must start with a character.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2293)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2325)
     public StringName getName(){
         return(mycore.getName());
     }
@@ -82,7 +82,7 @@ public abstract class ActionTriggerInfoDMW extends DmwWrapper {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2366)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2398)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }

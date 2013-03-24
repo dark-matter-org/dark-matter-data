@@ -29,7 +29,7 @@ import org.dmd.dmc.types.DmcTypeShort;    // DmcType import
  * The DmcTypeShortSET provides storage for a set of Short
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2596)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:641)
  */
 @SuppressWarnings("serial")
@@ -62,7 +62,7 @@ public class DmcTypeShortSET extends DmcTypeShort implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2637)
     public DmcAttribute<Short> cloneIt(){
         synchronized(this){
             DmcTypeShortSET rc = getNew();
@@ -81,7 +81,7 @@ public class DmcTypeShortSET extends DmcTypeShort implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2660)
     public Short add(Object v) throws DmcValueException {
         synchronized(this){
             Short rc = typeCheck(v);
@@ -97,7 +97,7 @@ public class DmcTypeShortSET extends DmcTypeShort implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2677)
     public Short del(Object v){
         synchronized(this){
             Short rc = null;
@@ -121,7 +121,7 @@ public class DmcTypeShortSET extends DmcTypeShort implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2702)
     public Iterator<Short> getMV(){
         synchronized(this){
             if (value == null)
@@ -134,7 +134,7 @@ public class DmcTypeShortSET extends DmcTypeShort implements Serializable {
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2716)
     public Set<Short> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -153,7 +153,7 @@ public class DmcTypeShortSET extends DmcTypeShort implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2736)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -163,7 +163,7 @@ public class DmcTypeShortSET extends DmcTypeShort implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2747)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

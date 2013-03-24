@@ -25,6 +25,7 @@ import org.dmd.dms.generated.enums.*;
 import org.dmd.dms.generated.types.*;
 import org.dmd.util.exceptions.*;
 import org.dmd.dms.*;
+import org.dmd.dmc.definitions.DmcDefinitionIF;
 
 /**
  * The ComplexTypeDefinition provides a mechanism for defining the structure
@@ -47,10 +48,10 @@ import org.dmd.dms.*;
  * field separator is specified, the separator is assumed to be whitespace
  * and additional\n whitespace is consumed during the parsing.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1568)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1577)
  */
 @SuppressWarnings("unused")
-public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
+public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcDefinitionIF {
 
     private ComplexTypeDefinitionDMO mycore;
 
@@ -94,7 +95,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * the range, [a-z] [A-Z] [0-9]. No whitespace\n characters are allowed. All
      * names must start with a character.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2293)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2325)
     public StringName getName(){
         return(mycore.getName());
     }
@@ -103,7 +104,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2366)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2398)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
@@ -112,7 +113,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * The field indicates a type and name for a field in a ComplexType.
      * @return An Iterator of Field objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2472)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2504)
     public Iterator<Field> getField(){
         DmcTypeFieldMV attr = (DmcTypeFieldMV) mycore.get(MetaDMSAG.__field);
         if (attr == null)
@@ -125,7 +126,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Adds another field value.
      * @param value A value compatible with DmcTypeFieldMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2527)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2559)
     public DmcAttribute<?> addField(Object value) throws DmcValueException {
         return(mycore.addField(value));
     }
@@ -133,7 +134,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
     /**
      * Returns the number of field values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2539)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2571)
     public int getFieldSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__field);
         if (attr == null)
@@ -146,7 +147,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * when a ComplexType is represented as a String. If a fieldSeparator isn't
      * specified, it is\n assumed to be a space.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2293)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2325)
     public String getFieldSeparator(){
         return(mycore.getFieldSeparator());
     }
@@ -155,7 +156,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets fieldSeparator to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2366)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2398)
     public void setFieldSeparator(Object value) throws DmcValueException {
         mycore.setFieldSeparator(value);
     }
@@ -164,7 +165,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * The extendedClass indicates the fully qualified name of the class\n that
      * is derived from the generated ComplexType to provide additional behaviour.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2293)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2325)
     public String getExtendedClass(){
         return(mycore.getExtendedClass());
     }
@@ -173,7 +174,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets extendedClass to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2366)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2398)
     public void setExtendedClass(Object value) throws DmcValueException {
         mycore.setExtendedClass(value);
     }
@@ -184,7 +185,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * XHTML concepts since it will be dumped in the context of the generated
      * HTML\n documentation.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2293)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2325)
     public String getDescription(){
         return(mycore.getDescription());
     }
@@ -197,7 +198,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2366)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2398)
     public void setDescription(Object value) throws DmcValueException {
         mycore.setDescription(value);
     }
@@ -205,7 +206,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1719)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1740)
 
     /**
      * @return The name of this object from the name attribute.

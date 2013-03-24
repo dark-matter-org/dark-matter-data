@@ -30,7 +30,7 @@ import org.dmd.dms.generated.types.DmcTypeField;    // DmcType import
  * The DmcTypeFieldSET provides storage for a set of Field
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2596)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:641)
  */
 @SuppressWarnings("serial")
@@ -63,7 +63,7 @@ public class DmcTypeFieldSET extends DmcTypeField implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2637)
     public DmcAttribute<Field> cloneIt(){
         synchronized(this){
             DmcTypeFieldSET rc = getNew();
@@ -82,7 +82,7 @@ public class DmcTypeFieldSET extends DmcTypeField implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2660)
     public Field add(Object v) throws DmcValueException {
         synchronized(this){
             Field rc = typeCheck(v);
@@ -98,7 +98,7 @@ public class DmcTypeFieldSET extends DmcTypeField implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2677)
     public Field del(Object v){
         synchronized(this){
             Field rc = null;
@@ -122,7 +122,7 @@ public class DmcTypeFieldSET extends DmcTypeField implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2702)
     public Iterator<Field> getMV(){
         synchronized(this){
             if (value == null)
@@ -135,7 +135,7 @@ public class DmcTypeFieldSET extends DmcTypeField implements Serializable {
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2716)
     public Set<Field> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -154,7 +154,7 @@ public class DmcTypeFieldSET extends DmcTypeField implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2736)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -164,7 +164,7 @@ public class DmcTypeFieldSET extends DmcTypeField implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2747)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)
