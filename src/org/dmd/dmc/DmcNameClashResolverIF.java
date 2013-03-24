@@ -18,7 +18,7 @@ public interface DmcNameClashResolverIF {
 	 * The clash resolver will overload this method to attempt to resolve the name clash.
 	 * @param obj the object on which resolveReferences() has been called
 	 * @param attr the attribute being resolved
-	 * @param ex the clas exception thrown form the name resolver. This will contain the
+	 * @param ex the clash exception thrown from the name resolver. This will contain the
 	 * set of objects with the given name. 
 	 * @return the appropriate object
 	 * @throws DmcValueException if the appropriate can't be determined

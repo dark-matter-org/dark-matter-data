@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2010 dark-matter-data committers
+//	Copyright (c) 2013 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -27,9 +27,15 @@ public class DmcNameClashException extends Exception {
 
 	ArrayList<DmcNamedObjectIF>	matches;
 	
+	@SuppressWarnings("unchecked")
+	public DmcNameClashException(String message, ArrayList<DmcNamedObjectIF> clash){
+		super(message);
+		matches = (ArrayList<DmcNamedObjectIF>) clash.clone();
+	}
+	
 	public DmcNameClashException(String message){
 		super(message);
-		matches = new ArrayList<DmcNamedObjectIF>(2);
+		matches = new ArrayList<DmcNamedObjectIF>();
 	}
 	
 	public void addMatch(DmcNamedObjectIF m){
