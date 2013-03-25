@@ -1634,7 +1634,7 @@ abstract public class DmcObject implements Serializable {
 	 * @throws Exception 
 	 */
 	public void resolveReferences(DmcNameResolverIF rx) throws DmcValueExceptionSet {
-		resolveReferences(rx, false);
+		resolveReferences(rx, false, null);
 	}
 	
 	/**
@@ -1645,7 +1645,21 @@ abstract public class DmcObject implements Serializable {
 	 * @throws DmcValueExceptionSet
 	 */
 	public void resolveReferencesExceptClass(DmcNameResolverIF rx) throws DmcValueExceptionSet {
-		resolveReferences(rx, true);
+		resolveReferences(rx, true, null);
+	}
+	
+	/**
+	 * This method is used to resolve references in names spaces where object names can clash.
+	 * This includes domain specific definition sets such as the dark-matter schema, Model View Whatever (MVW)
+	 * or other sets of definitions. The concept here is that it's convenient to use simple strings
+	 * as names for things and only use fully qualified names when it's necessary to distinguish
+	 * between ambiguous/clashing names. 
+	 * @param rx
+	 * @param ncr
+	 * @throws DmcValueExceptionSet
+	 */
+	public void resolveReferences(DmcNameResolverWithClashSupportIF rx, DmcNameClashResolverIF ncr) throws DmcValueExceptionSet {
+		resolveReferences(rx, false, ncr);		
 	}
 	
 	/**
@@ -1655,7 +1669,7 @@ abstract public class DmcObject implements Serializable {
 	 * @throws Exception 
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public void resolveReferences(DmcNameResolverIF rx, boolean skipClass) throws DmcValueExceptionSet {
+	protected void resolveReferences(DmcNameResolverIF rx, boolean skipClass, DmcNameClashResolverIF ncr) throws DmcValueExceptionSet {
 		synchronized (attributes) {
 			DmcValueExceptionSet	errors = null;
 	
@@ -1678,7 +1692,12 @@ abstract public class DmcObject implements Serializable {
 						if (ref.isResolved())
 							continue;
 						
-						DmcNamedObjectIF  	obj 			= rx.findNamedObject(ref.getObjectName(),attr.ID);
+						DmcNamedObjectIF obj = null;
+						if (ncr == null)
+							obj = rx.findNamedObject(ref.getObjectName(),attr.ID);
+						else{
+							obj = ((DmcNameResolverWithClashSupportIF)rx).findNamedObjectMayClash(this, ref.getObjectName(), ncr, attr.attrInfo);
+						}
 						DmcObject 			resolvedObject 	= null;
 						
 						if (obj == null){
@@ -1736,7 +1755,12 @@ abstract public class DmcObject implements Serializable {
 								if ( (ref == null) || ref.isResolved())
 									continue;
 								
-								DmcNamedObjectIF  	obj 			= rx.findNamedObject(ref.getObjectName(),attr.ID);
+								DmcNamedObjectIF obj = null;
+								if (ncr == null)
+									obj = rx.findNamedObject(ref.getObjectName(),attr.ID);
+								else{
+									obj = ((DmcNameResolverWithClashSupportIF)rx).findNamedObjectMayClash(this, ref.getObjectName(), ncr, attr.attrInfo);									
+								}
 								DmcObject 			resolvedObject 	= null;
 								
 								if (obj == null){
@@ -1765,8 +1789,8 @@ abstract public class DmcObject implements Serializable {
 										continue;
 									}
 									
-									if (resolvedObject == null)
-										System.out.println("HERE");
+//									if (resolvedObject == null)
+//										System.out.println("HERE");
 									
 									
 									// NOTE: we wouldn't do the backref tracking in the case of DMP
@@ -1820,6 +1844,7 @@ abstract public class DmcObject implements Serializable {
 				}
 				else if (attr instanceof DmcTypeComplexTypeWithRefs){
 					try {
+						// TODO name resolution for complex types
 						((DmcTypeComplexTypeWithRefs)attr).resolve(rx, attr.getName());
 					} catch (DmcValueException e) {
 						if (errors == null)
