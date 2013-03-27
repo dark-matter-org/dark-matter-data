@@ -946,7 +946,13 @@ public class ClassDefinition extends ClassDefinitionDMW {
     	if (attrNames != null){
     		while(attrNames.hasNext()){
     			String		name = attrNames.next();
-    			StringName 	attr = new StringName(name);
+    			StringName attr = null;
+				try {
+					attr = new StringName(name);
+				} catch (DmcValueException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
     			if (!isAllowedAttribute(attr)){
     				if (getClassType() == ClassTypeEnum.EXTENSIBLE){
     					// Add the appropriate import for the attribute's type

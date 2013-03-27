@@ -896,12 +896,13 @@ public class SchemaManager implements DmcNameResolverIF {
      * @return If the name is a type, its TypeDefinition is returned; otherwise null is returned.
      */
     public TypeDefinition isType(String name){
-    	StringName nameKey = new StringName(name);
-//    	try {
-//			nameKey.setNameString(name);
-//		} catch (DmcValueException e) {
-//			e.printStackTrace();
-//		}
+    	StringName nameKey = null;
+		try {
+			nameKey = new StringName(name);
+		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         return((TypeDefinition)typeDefs.get(nameKey));
     }
 
@@ -911,17 +912,24 @@ public class SchemaManager implements DmcNameResolverIF {
      * @return If the name is an attribute, its AttributeDefinition is returned; otherwise null is returned.
      */
     public AttributeDefinition isAttribute(String name){
-    	StringName nameKey = new StringName(name);
-//    	try {
-//			nameKey.setNameString(name);
-//		} catch (DmcValueException e) {
-//			e.printStackTrace();
-//		}
+    	StringName nameKey = null;
+		try {
+			nameKey = new StringName(name);
+		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         return((AttributeDefinition)attrDefs.get(nameKey));
     }
     
     public EnumDefinition isEnum(String name){
-    	StringName nameKey = new StringName(name);
+    	StringName nameKey = null;
+		try {
+			nameKey = new StringName(name);
+		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	return(enumDefs.get(nameKey));
     }
     
@@ -958,12 +966,13 @@ public class SchemaManager implements DmcNameResolverIF {
      * @return If the name is an action, its ActionDefinition is returned; otherwise null is returned.
      */
     public ActionDefinition isAction(String name){
-    	StringName nameKey = new StringName(name);
-//    	try {
-//			nameKey.setNameString(name);
-//		} catch (DmcValueException e) {
-//			e.printStackTrace();
-//		}
+    	StringName nameKey = null;
+		try {
+			nameKey = new StringName(name);
+		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         return((ActionDefinition)actionDefs.get(nameKey));
     }
 
@@ -973,12 +982,13 @@ public class SchemaManager implements DmcNameResolverIF {
      * @return If the name is a class, its ClassDefinition is returned; otherwise null is returned.
      */
     public ClassDefinition isClass(String name){
-    	StringName nameKey = new StringName(name);
-//    	try {
-//			nameKey.setNameString(name);
-//		} catch (DmcValueException e) {
-//			e.printStackTrace();
-//		}
+    	StringName nameKey = null;
+		try {
+			nameKey = new StringName(name);
+		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         return((ClassDefinition)classDefs.get(nameKey));
     }
 
@@ -988,12 +998,13 @@ public class SchemaManager implements DmcNameResolverIF {
      * @return If the name is a schema, its SchemaDefinition is returned; otherwise null is returned.
      */
     public SchemaDefinition isSchema(String name){
-    	StringName nameKey = new StringName(name);
-//    	try {
-//			nameKey.setNameString(name);
-//		} catch (DmcValueException e) {
-//			e.printStackTrace();
-//		}
+    	StringName nameKey = null;
+		try {
+			nameKey = new StringName(name);
+		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         return((SchemaDefinition)schemaDefs.get(nameKey));
     }
 
@@ -2229,12 +2240,13 @@ public class SchemaManager implements DmcNameResolverIF {
      */
     public DmcNamedObjectIF findNamedObject(String name){
 //    	DebugInfo.debug("Looking for: " + name);
-    	StringName key = new StringName(name);
-//    	try {
-//			nameKey.setNameString(name);
-//		} catch (DmcValueException e) {
-//			e.printStackTrace();
-//		}
+    	StringName key = null;
+		try {
+			key = new StringName(name);
+		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	
     	// HACK HACK HACK
     	// When we added actual support for the __objectClass attribute in DmcObject, we

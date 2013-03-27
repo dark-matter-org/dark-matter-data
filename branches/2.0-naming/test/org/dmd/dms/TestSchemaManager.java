@@ -27,7 +27,7 @@ import org.junit.Test;
 public class TestSchemaManager {
 	
 	@Test
-	public void testHashStringName(){
+	public void testHashStringName() throws DmcValueException {
 		HashMap<DmcObjectNameIF,String> map = new HashMap<DmcObjectNameIF, String>();
 		
 		map.put(new StringName("key1"), "key1");

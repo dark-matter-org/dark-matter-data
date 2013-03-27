@@ -24,6 +24,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmc.util.NamedStringArray;
@@ -1277,8 +1278,18 @@ public class DmoCompactSchemaFormatter {
 	    	StringBuffer 	attrNameCapped 	= new StringBuffer();
 	    	attrNameCapped.append(attrName);
 	    	attrNameCapped.setCharAt(0,Character.toUpperCase(attrNameCapped.charAt(0)));
+	    	
+	    	StringName allowed = null;
+	    	try {
+				allowed = new StringName(attrName);
+			} catch (DmcValueException e) {
+				ResultException ex = new ResultException("This is not a legal attribute name: " + attrName);
+				ex.moreMessages("StringNames must begin with an alpha character and contain only leters and numbers.");
+				ex.moreMessages("This occurred while formatting the compact schema for class: " + cd.getName().getNameString());
+				throw(ex);
+			}
 
-	    	if (cd.isAllowedAttribute(new StringName(attrName))){
+	    	if (cd.isAllowedAttribute(allowed)){
 				if (attrDef.getValueType() == ValueTypeEnum.SINGLE){
 					String value = obj.getSV(attrName);
 		            out.write("            _" + pf.sprintf(objName));
