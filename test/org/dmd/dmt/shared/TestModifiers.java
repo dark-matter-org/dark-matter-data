@@ -386,7 +386,7 @@ public class TestModifiers {
 	}
 	
 	@Test
-	public void testHashSetChangesRecorded(){
+	public void testHashSetChangesRecorded() throws DmcValueException {
 		ObjWithRefs obj1 = new ObjWithRefs();
 		
 		DmcTypeModifierMV mods = new DmcTypeModifierMV();

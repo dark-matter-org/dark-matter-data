@@ -9,6 +9,7 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.rules.RuleIF;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dms.RuleDefinition;
@@ -70,7 +71,13 @@ public class RuleInstanceFormatter {
 			for(String key: sortedRules.keySet()){
 				ArrayList<RuleIF> ruleset = sortedRules.get(key);
 				String base = key.substring(0, key.length()-4);
-				StringName rdn = new StringName(base);
+				StringName rdn = null;
+				try {
+					rdn = new StringName(base);
+				} catch (DmcValueException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				RuleDefinition rd = sm.ruleDefs.get(rdn);
 				dumpRuleInstances(out, rd, ruleset);
 			}

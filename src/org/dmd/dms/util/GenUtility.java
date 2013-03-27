@@ -24,6 +24,7 @@ import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.IntegerVar;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dms.ActionDefinition;
@@ -556,7 +557,12 @@ public class GenUtility {
 		// If the class is auxiliary, we need the DmcTypeString to manipulate the ocl attribute
 		if (cd != null){
 			if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
-				types.put(new StringName("String"), MetaSchema._String);
+				try {
+					types.put(new StringName("String"), MetaSchema._String);
+				} catch (DmcValueException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		}
 
