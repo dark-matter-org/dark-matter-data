@@ -23,7 +23,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeHierarchicObjectREFSV provides storage for a single-valued HierarchicObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1955)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1962)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:530)
  */
 @SuppressWarnings("serial")
@@ -48,14 +48,14 @@ public class DmcTypeHierarchicObjectREFSV extends DmcTypeHierarchicObjectREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1994)
     public DmcAttribute<HierarchicObjectREF> cloneIt(){
         DmcTypeHierarchicObjectREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2005)
     public HierarchicObjectREF getSVCopy(){
         if (value == null)
             return(null);
@@ -63,7 +63,7 @@ public class DmcTypeHierarchicObjectREFSV extends DmcTypeHierarchicObjectREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2010)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2017)
     public HierarchicObjectREF set(Object v) throws DmcValueException {
         HierarchicObjectREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
