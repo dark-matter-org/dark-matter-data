@@ -1,8 +1,8 @@
 SchemaDefinition
-name       			dmr.ldap
+name       			dmrldap
 schemaBaseID		450
 schemaIDRange		50
-dependsOn			dmr.base
+dependsOn			dmrbase
 defFiles    		attributes.dmd
 defFiles    		classes.dmd
 generatedFileHeader LGPL.txt

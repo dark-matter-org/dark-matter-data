@@ -1,5 +1,5 @@
 SchemaDefinition
-name       			dmr.base
+name       			dmrbase
 schemaBaseID		400
 schemaIDRange		50
 //dependsOn			dmp
