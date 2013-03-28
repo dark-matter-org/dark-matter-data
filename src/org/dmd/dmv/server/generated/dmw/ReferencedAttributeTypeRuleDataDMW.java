@@ -16,22 +16,22 @@
 package org.dmd.dmv.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import java.util.ArrayList;                                                         // To support getMVCopy() - (BaseDMWGeneratorNewest.java:999)
-import org.dmd.dmc.*;                                                               // If any attributes - (BaseDMWGeneratorNewest.java:905)
-import org.dmd.dmc.types.RuleName;                                                  // Is named by - (BaseDMWGeneratorNewest.java:884)
-import org.dmd.dms.AttributeDefinition;                                             // Is reference type - (BaseDMWGeneratorNewest.java:925)
-import org.dmd.dms.ClassDefinition;                                                 // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:889)
-import org.dmd.dms.RuleData;                                                        // Derived class - (BaseDMWGeneratorNewest.java:1066)
-import org.dmd.dms.TypeDefinition;                                                  // Is reference type - (BaseDMWGeneratorNewest.java:925)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                         // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:894)
-import org.dmd.dms.generated.dmo.TypeDefinitionDMO;                                 // For multi-valued adds of TypeDefinition - (BaseDMWGeneratorNewest.java:1585)
-import org.dmd.dms.generated.dmw.TypeDefinitionIterableDMW;                         // For multi-valued TypeDefinition - (BaseDMWGeneratorNewest.java:1527)
-import org.dmd.dms.generated.enums.ValueTypeEnum;                                   // Primitive type - (BaseDMWGeneratorNewest.java:968)
-import org.dmd.dms.generated.types.AttributeDefinitionREF;                          // Is reference type REF - (BaseDMWGeneratorNewest.java:933)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                               // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:893)
-import org.dmd.dmv.shared.generated.dmo.DmvDMSAG;                                   // Attribute allowedType from the dmv schema - (BaseDMWGeneratorNewest.java:720)
-import org.dmd.dmv.shared.generated.dmo.ReferencedAttributeTypeRuleDataDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1070)
+// Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:351)
+import java.util.ArrayList;                                                         // To support getMVCopy() - (BaseDMWGeneratorNewest.java:1050)
+import org.dmd.dmc.*;                                                               // If any attributes - (BaseDMWGeneratorNewest.java:956)
+import org.dmd.dmc.types.RuleName;                                                  // Is named by - (BaseDMWGeneratorNewest.java:935)
+import org.dmd.dms.AttributeDefinition;                                             // Is reference type - (BaseDMWGeneratorNewest.java:976)
+import org.dmd.dms.ClassDefinition;                                                 // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:940)
+import org.dmd.dms.RuleData;                                                        // Derived class - (BaseDMWGeneratorNewest.java:1117)
+import org.dmd.dms.TypeDefinition;                                                  // Is reference type - (BaseDMWGeneratorNewest.java:976)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                         // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:945)
+import org.dmd.dms.generated.dmo.TypeDefinitionDMO;                                 // For multi-valued adds of TypeDefinition - (BaseDMWGeneratorNewest.java:1636)
+import org.dmd.dms.generated.dmw.TypeDefinitionIterableDMW;                         // For multi-valued TypeDefinition - (BaseDMWGeneratorNewest.java:1578)
+import org.dmd.dms.generated.enums.ValueTypeEnum;                                   // Primitive type - (BaseDMWGeneratorNewest.java:1019)
+import org.dmd.dms.generated.types.AttributeDefinitionREF;                          // Is reference type REF - (BaseDMWGeneratorNewest.java:984)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                               // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:944)
+import org.dmd.dmv.shared.generated.dmo.DmvDMSAG;                                   // Attribute allowedType from the dmv schema - (BaseDMWGeneratorNewest.java:771)
+import org.dmd.dmv.shared.generated.dmo.ReferencedAttributeTypeRuleDataDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1121)
 
 
 /**
@@ -57,21 +57,21 @@ import org.dmd.dmv.shared.generated.dmo.ReferencedAttributeTypeRuleDataDMO;     
  * Generated from the dmv schema at version 0.1
  * <P>
  * This code was auto-generated by the dmggenerator utility and shouldn't be alterred manually!
- * Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:366)
+ * Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:368)
  */
 public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcNamedObjectIF {
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:443)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:447)
     public ReferencedAttributeTypeRuleDataDMW() {
         super(new ReferencedAttributeTypeRuleDataDMO(), org.dmd.dmv.server.generated.DmvSchemaAG._ReferencedAttributeTypeRuleData);
     }
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:449)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:453)
     public ReferencedAttributeTypeRuleDataDMW(DmcTypeModifierMV mods) {
         super(new ReferencedAttributeTypeRuleDataDMO(mods), org.dmd.dmv.server.generated.DmvSchemaAG._ReferencedAttributeTypeRuleData);
     }
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:500)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:504)
     public ReferencedAttributeTypeRuleDataDMW getModificationRecorder(){
         ReferencedAttributeTypeRuleDataDMW rc = new ReferencedAttributeTypeRuleDataDMW();
         rc.setRuleName(getRuleName());
@@ -79,7 +79,7 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
         return(rc);
     }
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:512)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:516)
     public ReferencedAttributeTypeRuleDataDMW(ReferencedAttributeTypeRuleDataDMO obj) {
         super(obj, org.dmd.dmv.server.generated.DmvSchemaAG._ReferencedAttributeTypeRuleData);
     }
@@ -94,12 +94,12 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
         return((ReferencedAttributeTypeRuleDataDMO) core);
     }
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:527)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:531)
     protected ReferencedAttributeTypeRuleDataDMW(ReferencedAttributeTypeRuleDataDMO obj, ClassDefinition cd) {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1115)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1166)
     public RuleName getObjectName(){
         return(((ReferencedAttributeTypeRuleDataDMO) core).getRuleName());
     }
@@ -122,7 +122,7 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
     /**
      * @return The number of TypeDefinition items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1540)
     public int getAllowedTypeSize(){
         return(((ReferencedAttributeTypeRuleDataDMO) core).getAllowedTypeSize());
     }
@@ -130,7 +130,7 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
     /**
      * @return true if there are no TypeDefinitionDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1497)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1548)
     public boolean getAllowedTypeIsEmpty(){
         if (((ReferencedAttributeTypeRuleDataDMO) core).getAllowedTypeSize() == 0)
             return(true);
@@ -140,7 +140,7 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
     /**
      * @return true if there are any TypeDefinitionDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1507)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1558)
     public boolean getAllowedTypeHasValue(){
         if (((ReferencedAttributeTypeRuleDataDMO) core).getAllowedTypeSize() == 0)
             return(false);
@@ -150,7 +150,7 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
     /**
      * @return An Iterator of TypeDefinitionDMO objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1534)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1585)
     public TypeDefinitionIterableDMW getAllowedTypeIterable(){
         DmcAttribute<?> attr = core.get(DmvDMSAG.__allowedType);
         if (attr == null)
@@ -163,7 +163,7 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
      * Adds another allowedType value.
      * @param value A value compatible with TypeDefinition
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1591)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1642)
     public DmcAttribute<?> addAllowedType(TypeDefinition value){
         DmcAttribute<?> attr = ((ReferencedAttributeTypeRuleDataDMO) core).addAllowedType(((TypeDefinitionDMO)value.getDmcObject()));
         return(attr);
@@ -173,7 +173,7 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
      * Deletes a allowedType value.
      * @param value The TypeDefinition to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1641)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1692)
     public void delAllowedType(TypeDefinition value){
         ((ReferencedAttributeTypeRuleDataDMO) core).delAllowedType(value.getDMO());
     }
@@ -181,7 +181,7 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
     /**
      * @return A COPY of the collection of TypeDefinition objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1703)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1754)
     public ArrayList<TypeDefinition> getAllowedTypeCopy(){
         DmcAttribute<?> attr = ((ReferencedAttributeTypeRuleDataDMO) core).get(DmvDMSAG.__allowedType);
         if (attr == null)
@@ -200,12 +200,12 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
     /**
      * Removes the allowedType attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2157)
     public void remAllowedType(){
         ((ReferencedAttributeTypeRuleDataDMO) core).remAllowedType();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1343)
     public ValueTypeEnum getAllowedValueType(){
         return(((ReferencedAttributeTypeRuleDataDMO) core).getAllowedValueType());
     }
@@ -214,7 +214,7 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
      * Sets allowedValueType to the specified value.
      * @param value A value compatible with DmcTypeValueTypeEnum
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1402)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1453)
     public void setAllowedValueType(Object value) throws DmcValueException {
         ((ReferencedAttributeTypeRuleDataDMO) core).setAllowedValueType(value);
     }
@@ -223,7 +223,7 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
      * Sets allowedValueType to the specified value.
      * @param value ValueTypeEnum
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1462)
     public void setAllowedValueType(ValueTypeEnum value){
         ((ReferencedAttributeTypeRuleDataDMO) core).setAllowedValueType(value);
     }
@@ -231,7 +231,7 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
     /**
      * Removes the allowedValueType attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1488)
     public void remAllowedValueType(){
         ((ReferencedAttributeTypeRuleDataDMO) core).remAllowedValueType();
     }
@@ -239,7 +239,7 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
     /**
      * @return A AttributeDefinition object.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1252)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1303)
     public AttributeDefinition getApplyToAttribute(){
         AttributeDefinitionREF ref = ((ReferencedAttributeTypeRuleDataDMO) core).getApplyToAttribute();
         if (ref == null)
@@ -255,7 +255,7 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
      * Sets the applyToAttribute to the specified value.
      * @param value A value compatible with AttributeDefinitionREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1337)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1388)
     public void setApplyToAttribute(AttributeDefinition value) {
         ((ReferencedAttributeTypeRuleDataDMO) core).setApplyToAttribute(value.getDMO());
     }
@@ -264,7 +264,7 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
      * Sets the applyToAttribute to the specified value.
      * @param value A value compatible with AttributeDefinitionREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1346)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1397)
     public void setApplyToAttribute(Object value) throws DmcValueException {
         ((ReferencedAttributeTypeRuleDataDMO) core).setApplyToAttribute(value);
     }
@@ -272,12 +272,12 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
     /**
      * Removes the applyToAttribute attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1488)
     public void remApplyToAttribute(){
         ((ReferencedAttributeTypeRuleDataDMO) core).remApplyToAttribute();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1343)
     public String getDescription(){
         return(((ReferencedAttributeTypeRuleDataDMO) core).getDescription());
     }
@@ -286,7 +286,7 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1402)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1453)
     public void setDescription(Object value) throws DmcValueException {
         ((ReferencedAttributeTypeRuleDataDMO) core).setDescription(value);
     }
@@ -295,7 +295,7 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
      * Sets description to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1462)
     public void setDescription(String value){
         ((ReferencedAttributeTypeRuleDataDMO) core).setDescription(value);
     }
@@ -303,12 +303,12 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1488)
     public void remDescription(){
         ((ReferencedAttributeTypeRuleDataDMO) core).remDescription();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1343)
     public RuleName getRuleName(){
         return(((ReferencedAttributeTypeRuleDataDMO) core).getRuleName());
     }
@@ -317,7 +317,7 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
      * Sets ruleName to the specified value.
      * @param value A value compatible with DmcTypeRuleName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1402)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1453)
     public void setRuleName(Object value) throws DmcValueException {
         ((ReferencedAttributeTypeRuleDataDMO) core).setRuleName(value);
     }
@@ -326,7 +326,7 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
      * Sets ruleName to the specified value.
      * @param value RuleName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1462)
     public void setRuleName(RuleName value){
         ((ReferencedAttributeTypeRuleDataDMO) core).setRuleName(value);
     }
@@ -334,12 +334,12 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
     /**
      * Removes the ruleName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1488)
     public void remRuleName(){
         ((ReferencedAttributeTypeRuleDataDMO) core).remRuleName();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1343)
     public String getRuleTitle(){
         return(((ReferencedAttributeTypeRuleDataDMO) core).getRuleTitle());
     }
@@ -348,7 +348,7 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1402)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1453)
     public void setRuleTitle(Object value) throws DmcValueException {
         ((ReferencedAttributeTypeRuleDataDMO) core).setRuleTitle(value);
     }
@@ -357,7 +357,7 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
      * Sets ruleTitle to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1462)
     public void setRuleTitle(String value){
         ((ReferencedAttributeTypeRuleDataDMO) core).setRuleTitle(value);
     }
@@ -365,7 +365,7 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
     /**
      * Removes the ruleTitle attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1488)
     public void remRuleTitle(){
         ((ReferencedAttributeTypeRuleDataDMO) core).remRuleTitle();
     }

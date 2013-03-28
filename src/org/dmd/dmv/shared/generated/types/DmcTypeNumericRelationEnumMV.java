@@ -26,7 +26,7 @@ import org.dmd.dmv.shared.generated.enums.NumericRelationEnum;    // DmcType imp
  * The DmcTypeNumericRelationEnumMV provides storage for a multi-valued NumericRelationEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2306)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:361)
  */
 @SuppressWarnings("serial")
@@ -50,7 +50,7 @@ public class DmcTypeNumericRelationEnumMV extends DmcTypeNumericRelationEnum imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2337)
     public DmcAttribute<NumericRelationEnum> cloneIt(){
         synchronized(this){
             DmcTypeNumericRelationEnumMV rc = getNew();
@@ -79,7 +79,7 @@ public class DmcTypeNumericRelationEnumMV extends DmcTypeNumericRelationEnum imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2370)
     public NumericRelationEnum add(Object v) throws DmcValueException {
         synchronized(this){
             NumericRelationEnum rc = typeCheck(v);
@@ -91,7 +91,7 @@ public class DmcTypeNumericRelationEnumMV extends DmcTypeNumericRelationEnum imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2383)
     public NumericRelationEnum del(Object v){
         synchronized(this){
             if (value == null)
@@ -115,7 +115,7 @@ public class DmcTypeNumericRelationEnumMV extends DmcTypeNumericRelationEnum imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2417)
     public Iterator<NumericRelationEnum> getMV(){
         synchronized(this){
             if (value == null)
@@ -126,7 +126,7 @@ public class DmcTypeNumericRelationEnumMV extends DmcTypeNumericRelationEnum imp
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2429)
     public ArrayList<NumericRelationEnum> getMVCopy(){
         synchronized(this){
             if (value == null)
@@ -137,7 +137,7 @@ public class DmcTypeNumericRelationEnumMV extends DmcTypeNumericRelationEnum imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2434)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2441)
     public int getMVSize(){
         synchronized(this){
             if (getAttributeInfo().indexSize == 0){
@@ -151,7 +151,7 @@ public class DmcTypeNumericRelationEnumMV extends DmcTypeNumericRelationEnum imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2456)
     public NumericRelationEnum getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -161,7 +161,7 @@ public class DmcTypeNumericRelationEnumMV extends DmcTypeNumericRelationEnum imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2467)
     public NumericRelationEnum setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
@@ -188,7 +188,7 @@ public class DmcTypeNumericRelationEnumMV extends DmcTypeNumericRelationEnum imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2495)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -211,7 +211,7 @@ public class DmcTypeNumericRelationEnumMV extends DmcTypeNumericRelationEnum imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2519)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

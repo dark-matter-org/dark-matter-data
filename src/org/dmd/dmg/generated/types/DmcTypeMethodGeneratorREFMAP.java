@@ -30,7 +30,7 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeMethodGeneratorREFMAP provides storage for a map of MethodGeneratorREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2828)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2835)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
@@ -73,7 +73,7 @@ public class DmcTypeMethodGeneratorREFMAP extends DmcTypeMethodGeneratorREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2885)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2892)
     public DmcAttribute<MethodGeneratorREF> cloneIt(){
         synchronized(this){
             DmcTypeMethodGeneratorREFMAP rc = getNew();
@@ -92,7 +92,7 @@ public class DmcTypeMethodGeneratorREFMAP extends DmcTypeMethodGeneratorREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2905)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2912)
     public MethodGeneratorREF add(Object v) throws DmcValueException {
         synchronized(this){
             MethodGeneratorREF newval = typeCheck(v);
@@ -112,7 +112,7 @@ public class DmcTypeMethodGeneratorREFMAP extends DmcTypeMethodGeneratorREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2926)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2933)
     public MethodGeneratorREF del(Object key){
         synchronized(this){
     
@@ -127,7 +127,7 @@ public class DmcTypeMethodGeneratorREFMAP extends DmcTypeMethodGeneratorREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2942)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2949)
     public Iterator<MethodGeneratorREF> getMV(){
         synchronized(this){
     
@@ -143,7 +143,7 @@ public class DmcTypeMethodGeneratorREFMAP extends DmcTypeMethodGeneratorREF impl
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2959)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2966)
     public Map<StringName,MethodGeneratorREF> getMVCopy(){
         synchronized(this){
             Map<StringName,MethodGeneratorREF> clone = null;
@@ -163,7 +163,7 @@ public class DmcTypeMethodGeneratorREFMAP extends DmcTypeMethodGeneratorREF impl
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2980)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2987)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -174,7 +174,7 @@ public class DmcTypeMethodGeneratorREFMAP extends DmcTypeMethodGeneratorREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2992)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2999)
     public MethodGeneratorREF getByKey(Object key){
         synchronized(this){
            if (value == null)
@@ -188,7 +188,7 @@ public class DmcTypeMethodGeneratorREFMAP extends DmcTypeMethodGeneratorREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3007)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3014)
     public boolean contains(Object v){
         synchronized(this){
            if (value == null)
@@ -204,7 +204,7 @@ public class DmcTypeMethodGeneratorREFMAP extends DmcTypeMethodGeneratorREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3024)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3031)
     public boolean containsKey(Object key){
         synchronized(this){
            if (value == null)

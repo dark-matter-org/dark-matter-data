@@ -24,7 +24,7 @@ import org.dmd.dmp.shared.generated.dmo.LogoutResponseDMO;    // DmcType import
  * The DmcTypeLogoutResponseREFSV provides storage for a single-valued LogoutResponse
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1955)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1962)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:254)
  */
 @SuppressWarnings("serial")
@@ -49,14 +49,14 @@ public class DmcTypeLogoutResponseREFSV extends DmcTypeLogoutResponseREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1994)
     public DmcAttribute<LogoutResponseDMO> cloneIt(){
         DmcTypeLogoutResponseREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2005)
     public LogoutResponseDMO getSVCopy(){
         if (value == null)
             return(null);
@@ -64,7 +64,7 @@ public class DmcTypeLogoutResponseREFSV extends DmcTypeLogoutResponseREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2010)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2017)
     public LogoutResponseDMO set(Object v) throws DmcValueException {
         LogoutResponseDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
