@@ -1038,12 +1038,12 @@ public class SchemaManager implements DmcNameResolverIF {
             currentSchema = null;
         	throw(ex);
         }
-//        if (checkAndAdd(sd.getObjectName(),sd,allDefs) == false){
-//        	ResultException ex = new ResultException();
-//        	ex.addError(clashMsg(sd.getObjectName(),sd,allDefs,"definition names"));
-//            currentSchema = null;
-//        	throw(ex);
-//        }
+        if (checkAndAdd(sd.getObjectName(),sd,allDefs) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsg(sd.getObjectName(),sd,allDefs,"definition names"));
+            currentSchema = null;
+        	throw(ex);
+        }
         
         // TODO: NEW NAMING
         
@@ -1084,7 +1084,13 @@ public class SchemaManager implements DmcNameResolverIF {
         TypeDefinition td  = new TypeDefinition();
         td.setInternallyGenerated(true);
         td.setName(ctd.getName());
-        td.setDotName(ctd.getDotName());
+        
+        // The name of a rule definition is schema.complextype.ComplexTypeDefinition
+        // For the associated class, it will be schema.complextype.TypeDefinition
+        DotName typeName = (DotName) ctd.getDotName().getParentName();
+        typeName.addChild("TypeDefinition");
+        td.setDotName(typeName);
+
         td.setDescription("This is an internally generated type to represent complex type " + ctd.getName() + " values.");
         td.setIsEnumType(false);
         td.setIsRefType(false);
@@ -1125,6 +1131,13 @@ public class SchemaManager implements DmcNameResolverIF {
         td.setInternallyGenerated(true);
         td.setIsExtendedRefType(true);
         td.setName(ertd.getName());
+        
+        // The name of an extended reference definition is schema.extreftype.ExtendedReferenceTypeDefinition
+        // For the associated class, it will be schema.extreftype.TypeDefinition
+        DotName typeName = (DotName) ertd.getDotName().getParentName();
+        typeName.addChild("TypeDefinition");
+        td.setDotName(typeName);
+
         td.setDescription("This is an internally generated type to represent extendedreference type " + ertd.getName() + " values.");
         td.setIsEnumType(false);
         td.setIsRefType(true);
@@ -1165,11 +1178,11 @@ public class SchemaManager implements DmcNameResolverIF {
         	ex.addError(clashMsg(sd.getObjectName(),sd,sliceDefs,"slice names"));
         	throw(ex);
         }
-//        if (checkAndAdd(sd.getObjectName(),sd,allDefs) == false){
-//        	ResultException ex = new ResultException();
-//        	ex.addError(clashMsg(sd.getObjectName(),sd,allDefs,"definition names"));
-//            throw(ex);
-//        }
+        if (checkAndAdd(sd.getObjectName(),sd,allDefs) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsg(sd.getObjectName(),sd,allDefs,"definition names"));
+            throw(ex);
+        }
         
         // TODO: NEW NAMING
         
@@ -1191,11 +1204,11 @@ public class SchemaManager implements DmcNameResolverIF {
         	ex.addError(clashMsg(rc.getObjectName(),rc,ruleCategoryDefs,"rule categories"));
         	throw(ex);
         }
-//        if (checkAndAdd(rc.getObjectName(),rc,allDefs) == false){
-//        	ResultException ex = new ResultException();
-//        	ex.addError(clashMsg(rc.getObjectName(),rc,allDefs,"definition names"));
-//            throw(ex);
-//        }
+        if (checkAndAdd(rc.getObjectName(),rc,allDefs) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsg(rc.getObjectName(),rc,allDefs,"definition names"));
+            throw(ex);
+        }
         
         // TODO: NEW NAMING
         
@@ -1261,11 +1274,11 @@ public class SchemaManager implements DmcNameResolverIF {
         	ex.addError(clashMsg(rd.getObjectName(),rd,ruleDefs,"rule definitions"));
         	throw(ex);
         }
-//        if (checkAndAdd(rd.getObjectName(),rd,allDefs) == false){
-//        	ResultException ex = new ResultException();
-//        	ex.addError(clashMsg(rd.getObjectName(),rd,allDefs,"definition names"));
-//            throw(ex);
-//        }
+        if (checkAndAdd(rd.getObjectName(),rd,allDefs) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsg(rd.getObjectName(),rd,allDefs,"definition names"));
+            throw(ex);
+        }
         
         // TODO: NEW NAMING
         
@@ -1322,6 +1335,12 @@ public class SchemaManager implements DmcNameResolverIF {
         cd.setInternallyGenerated(true);
         cd.setRuleDefinition(rd);
         cd.setIsNamedBy(MetaSchemaAG._ruleName);
+        
+        // The name of a rule definition is schema.ruledef.RuleDefinition
+        // For the associated class, it will be schema.ruledef.ClassDefinition
+        DotName className = (DotName) rd.getDotName().getParentName();
+        className.addChild("ClassDefinition");
+        cd.setDotName(className);
 
         cd.addMust(MetaSchemaAG._ruleName);
         cd.addMust(MetaSchemaAG._ruleTitle);
@@ -1581,6 +1600,13 @@ public class SchemaManager implements DmcNameResolverIF {
 	        
 	        td.setInternallyGenerated(true);
 	        td.setName(cd.getName());
+	        
+	        // The name of a class definition is schema.class.ClassDefinition
+	        // For the associated type, it will be schema.class.TypeDefinition
+	        DotName typeName = (DotName) cd.getDotName().getParentName();
+	        typeName.addChild("TypeDefinition");
+	        td.setDotName(typeName);
+	        
 	        td.setDescription("This is an internally generated type to allow references to " + cd.getName() + " values.");
 	        td.setIsEnumType(false);
 	        td.setIsRefType(true);
@@ -1814,6 +1840,9 @@ public class SchemaManager implements DmcNameResolverIF {
      */
     public void addDefinition(DmsDefinition def) throws ResultException, DmcValueException {
     	
+    	if (def.getDotName() == null)
+    		DebugInfo.debug("NO DOT NAME");
+    	
     	if (def instanceof AttributeDefinition)
     		this.addAttribute((AttributeDefinition) def);
     	else if (def instanceof ClassDefinition)
@@ -1917,7 +1946,13 @@ public class SchemaManager implements DmcNameResolverIF {
 	        TypeDefinition td  = new TypeDefinition();
 	        td.setInternallyGenerated(true);
 	        td.setName(evd.getName());
-	        td.setDotName(evd.getDotName());
+	        
+	        // The name of an enum definition is schema.enum.EnumDefinition
+	        // For the associated type, it will be schema.enum.TypeDefinition
+	        DotName typeName = (DotName) evd.getDotName().getParentName();
+	        typeName.addChild("TypeDefinition");
+	        td.setDotName(typeName);
+
 	        td.setEnumName(evd.getName().getNameString());
 	        td.setDescription("This is an internally generated type to allow references to " + evd.getName() + " values.");
 	        td.setIsEnumType(true);

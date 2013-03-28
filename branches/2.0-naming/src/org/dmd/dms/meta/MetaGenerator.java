@@ -689,7 +689,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			}
 		}
 		else{
-			obj.addValue("dotName", "meta." + name);
+			obj.addValue("dotName", "meta." + name + "." + obj.getConstructionClass());
 		}
 
 		if (objClass.equals("TypeDefinition")) {
@@ -753,8 +753,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 	}
 
-	void createClassDefForRuleDef(DmcUncheckedObject uco)
-			throws ResultException {
+	void createClassDefForRuleDef(DmcUncheckedObject uco) throws ResultException {
 		ArrayList<String> objClasses = new ArrayList<String>();
 		objClasses.add("ClassDefinition");
 		DmcUncheckedObject classDef = new DmcUncheckedObject(objClasses, 0);
@@ -768,14 +767,12 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		}
 
 		classDef.addValue("name", name + "Data");
-		classDef.addValue("dotName", "meta." + name + "Data");
+		classDef.addValue("dotName", "meta." + name + "Data.ClassDefinition" );
 		classDef.addValue("classType", ctype);
 		classDef.addValue("derivedFrom", "RuleData");
 		classDef.addValue("dmdID", uco.getSV("dmdID"));
-		classDef.addValue("dmoImport", "org.dmd.dms.generated.dmo." + name
-				+ "DataDMO");
-		classDef.addValue("javaClass", "org.dmd.dms.generated.dmo." + name
-				+ "DataDMO");
+		classDef.addValue("dmoImport", "org.dmd.dms.generated.dmo." + name + "DataDMO");
+		classDef.addValue("javaClass", "org.dmd.dms.generated.dmo." + name + "DataDMO");
 		classDef.addValue("internallyGenerated", "true");
 		classDef.addValue("ruleDefinition", name);
 		classDef.addValue("must", "ruleTitle");
@@ -811,7 +808,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			objClasses.add("TypeDefinition");
 			DmcUncheckedObject typeDef = new DmcUncheckedObject(objClasses, 0);
 			typeDef.addValue("name", cn);
-			typeDef.addValue("dotName", "meta." + cn);
+			typeDef.addValue("dotName", "meta." + cn + ".TypeDefinition");
 			typeDef.addValue("typeClassName",
 					"org.dmd.dms.generated.types.DmcType" + cn);
 			typeDef.addValue("primitiveType", "org.dmd.dms.generated.types."
@@ -849,7 +846,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 				objClasses.add("TypeDefinition");
 				typeDef = new DmcUncheckedObject(objClasses, 0);
 				typeDef.addValue("name", cn + "REF");
-				typeDef.addValue("dotName", "meta." + cn + "REF");
+				typeDef.addValue("dotName", "meta." + cn + "REF.TypeDefinition");
 				typeDef.addValue("typeClassName",
 						"org.dmd.dms.generated.types.DmcType" + cn + "REF");
 				typeDef.addValue("wrapperClassName",
@@ -876,7 +873,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			objClasses.add("TypeDefinition");
 			DmcUncheckedObject typeDef = new DmcUncheckedObject(objClasses, 0);
 			typeDef.addValue("name", cn + "REF");
-			typeDef.addValue("dotName", "meta." + cn + "REF");
+			typeDef.addValue("dotName", "meta." + cn + "REF.TypeDefinition");
 			typeDef.addValue("enumName", cn);
 			typeDef.addValue("typeClassName",
 					"org.dmd.dms.generated.types.DmcType" + cn);

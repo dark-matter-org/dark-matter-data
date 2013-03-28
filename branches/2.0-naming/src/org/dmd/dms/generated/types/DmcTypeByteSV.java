@@ -24,7 +24,7 @@ import org.dmd.dmc.types.DmcTypeByte;    // DmcType import
  * The DmcTypeByteSV provides storage for a single-valued Byte
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1956)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1962)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:632)
  */
 @SuppressWarnings("serial")
@@ -49,14 +49,14 @@ public class DmcTypeByteSV extends DmcTypeByte implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1988)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1994)
     public DmcAttribute<Byte> cloneIt(){
         DmcTypeByteSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1999)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2005)
     public Byte getSVCopy(){
         if (value == null)
             return(null);
@@ -64,7 +64,7 @@ public class DmcTypeByteSV extends DmcTypeByte implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2011)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2017)
     public Byte set(Object v) throws DmcValueException {
         Byte rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
