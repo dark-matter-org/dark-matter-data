@@ -20,6 +20,16 @@ package org.dmd.dmc;
  * a name mapping for a set of DmcNameObjectIF instances and can find those instances
  * based on a DmcObjectName. This type of name resolver also allows for the names
  * of objects to overlap and, potentially, be resolved by a clash resolver.
+ * <p/>
+ * You might wonder in what circumstances you would have names that overlap. By their
+ * very nature, names are usually chosen to be unique; and that's fine, as along as
+ * you know before hand what names are going to be created. This mechanism is
+ * primarily used for managing definitions that have been created by different
+ * authors and, at some later point, used together for some reason. Flat, string
+ * based names are convenient, but in cases where the same name has been given to
+ * different components in different definition sets, you have to be able to distinguish
+ * between them. So, definitions are named by StringName, but also have a DotName
+ * that provides a fully qualified name for a definition. 
  */
 
 public interface DmcNameResolverWithClashSupportIF extends DmcNameResolverIF {
