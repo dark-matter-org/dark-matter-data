@@ -19,7 +19,7 @@ import java.util.Iterator;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.util.DmcUncheckedObject;
-import org.dmd.dmr.server.ldap.generated.DmrLdapSchemaAG;
+import org.dmd.dmr.server.ldap.generated.DmrldapSchemaAG;
 import org.dmd.dmr.server.ldap.generated.dmw.LDAPAttributeAUX;
 import org.dmd.dmr.server.ldap.generated.dmw.LDAPClassAUX;
 import org.dmd.dmr.server.ldap.generated.dmw.LDAPSchemaAUX;
@@ -49,7 +49,7 @@ public class LDAPSchemaExtension implements SchemaExtensionIF {
 	SchemaManager		manager;
 	
 	// Our own schema
-	DmrLdapSchemaAG		ourSchema;
+	DmrldapSchemaAG		ourSchema;
 	
 	SchemaDefinition	currSchema;
 	boolean				payAttention;
@@ -61,7 +61,7 @@ public class LDAPSchemaExtension implements SchemaExtensionIF {
 	public LDAPSchemaExtension(){
 		manager 	= null;
 		try {
-			ourSchema 	= new DmrLdapSchemaAG().getInstance();
+			ourSchema 	= new DmrldapSchemaAG().getInstance();
 		} catch (DmcValueException e) {
 			e.printStackTrace();
 		}
@@ -92,12 +92,12 @@ public class LDAPSchemaExtension implements SchemaExtensionIF {
 // NOTE: removed the check for PERSISTENT to allow for non-persistent objects in the hierarchy
 // However, we should check that persistent objects can only have persistent parents.
 //			if (def.getDataType() == DataTypeEnum.PERSISTENT){
-			if (def.getDerivedFrom() == DmrLdapSchemaAG._LDAPHierarchicObject){
+			if (def.getDerivedFrom() == DmrldapSchemaAG._LDAPHierarchicObject){
 //				DebugInfo.debug(def.toOIF(20));
 				if (!LDAPClassAUX.hasAux(def)){
 					// It doesn't have the aux class yet, add it
 					
-					def.addAux(DmrLdapSchemaAG._LDAPClassAUX);
+					def.addAux(DmrldapSchemaAG._LDAPClassAUX);
 //					LDAPClassAUX.addAux(def);
 				}
 				
@@ -188,7 +188,7 @@ public class LDAPSchemaExtension implements SchemaExtensionIF {
 			
 		}
 		else if (ccn.equals(MetaSchema._SchemaDefinition.getName())){
-			uco.addAux(DmrLdapSchemaAG._LDAPSchemaAUX.getName().getNameString());
+			uco.addAux(DmrldapSchemaAG._LDAPSchemaAUX.getName().getNameString());
 		}
 		
 	}
