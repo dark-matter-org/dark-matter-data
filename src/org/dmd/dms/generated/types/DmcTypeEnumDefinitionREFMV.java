@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeEnumDefinitionREFMV provides storage for a multi-valued EnumDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2300)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2306)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:584)
  */
 @SuppressWarnings("serial")
@@ -49,7 +49,7 @@ public class DmcTypeEnumDefinitionREFMV extends DmcTypeEnumDefinitionREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2331)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2337)
     public DmcAttribute<EnumDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeEnumDefinitionREFMV rc = getNew();
@@ -78,7 +78,7 @@ public class DmcTypeEnumDefinitionREFMV extends DmcTypeEnumDefinitionREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2364)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2370)
     public EnumDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
             EnumDefinitionREF rc = typeCheck(v);
@@ -90,7 +90,7 @@ public class DmcTypeEnumDefinitionREFMV extends DmcTypeEnumDefinitionREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2377)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2383)
     public EnumDefinitionREF del(Object v){
         synchronized(this){
             if (value == null)
@@ -114,7 +114,7 @@ public class DmcTypeEnumDefinitionREFMV extends DmcTypeEnumDefinitionREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2411)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2417)
     public Iterator<EnumDefinitionREF> getMV(){
         synchronized(this){
             if (value == null)
@@ -125,7 +125,7 @@ public class DmcTypeEnumDefinitionREFMV extends DmcTypeEnumDefinitionREF impleme
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2423)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2429)
     public ArrayList<EnumDefinitionREF> getMVCopy(){
         synchronized(this){
             if (value == null)
@@ -136,7 +136,7 @@ public class DmcTypeEnumDefinitionREFMV extends DmcTypeEnumDefinitionREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2435)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2441)
     public int getMVSize(){
         synchronized(this){
             if (getAttributeInfo().indexSize == 0){
@@ -150,7 +150,7 @@ public class DmcTypeEnumDefinitionREFMV extends DmcTypeEnumDefinitionREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2450)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2456)
     public EnumDefinitionREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -160,7 +160,7 @@ public class DmcTypeEnumDefinitionREFMV extends DmcTypeEnumDefinitionREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2461)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2467)
     public EnumDefinitionREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
@@ -187,7 +187,7 @@ public class DmcTypeEnumDefinitionREFMV extends DmcTypeEnumDefinitionREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2489)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2495)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -210,7 +210,7 @@ public class DmcTypeEnumDefinitionREFMV extends DmcTypeEnumDefinitionREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2513)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2519)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

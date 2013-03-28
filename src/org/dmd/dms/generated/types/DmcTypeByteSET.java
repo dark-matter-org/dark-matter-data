@@ -29,7 +29,7 @@ import org.dmd.dmc.types.DmcTypeByte;    // DmcType import
  * The DmcTypeByteSET provides storage for a set of Byte
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2596)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2602)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:641)
  */
 @SuppressWarnings("serial")
@@ -62,7 +62,7 @@ public class DmcTypeByteSET extends DmcTypeByte implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2637)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2643)
     public DmcAttribute<Byte> cloneIt(){
         synchronized(this){
             DmcTypeByteSET rc = getNew();
@@ -81,7 +81,7 @@ public class DmcTypeByteSET extends DmcTypeByte implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2660)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2666)
     public Byte add(Object v) throws DmcValueException {
         synchronized(this){
             Byte rc = typeCheck(v);
@@ -97,7 +97,7 @@ public class DmcTypeByteSET extends DmcTypeByte implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2677)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2683)
     public Byte del(Object v){
         synchronized(this){
             Byte rc = null;
@@ -121,7 +121,7 @@ public class DmcTypeByteSET extends DmcTypeByte implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2702)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2708)
     public Iterator<Byte> getMV(){
         synchronized(this){
             if (value == null)
@@ -134,7 +134,7 @@ public class DmcTypeByteSET extends DmcTypeByte implements Serializable {
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2716)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2722)
     public Set<Byte> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -153,7 +153,7 @@ public class DmcTypeByteSET extends DmcTypeByte implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2736)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2742)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -163,7 +163,7 @@ public class DmcTypeByteSET extends DmcTypeByte implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2747)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2753)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

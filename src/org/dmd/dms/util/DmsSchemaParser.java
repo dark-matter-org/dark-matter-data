@@ -346,11 +346,11 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
 				
 				if (schemaLoading == null){
 					if (uco.getSV(MetaDMSAG.__name.name) != null)
-						uco.addValue(MetaDMSAG.__dotName.name, uco.getSV(MetaDMSAG.__name.name));
+						uco.addValue(MetaDMSAG.__dotName.name, uco.getSV(MetaDMSAG.__name.name) + "." + uco.getConstructionClass());
 				}
 				else{
 					if (uco.getSV(MetaDMSAG.__name.name) != null)
-						uco.addValue(MetaDMSAG.__dotName.name, schemaLoading.getName() + "." + uco.getSV(MetaDMSAG.__name.name));
+						uco.addValue(MetaDMSAG.__dotName.name, schemaLoading.getName() + "." + uco.getSV(MetaDMSAG.__name.name) + "." + uco.getConstructionClass());
 				}
 
 				// More interesting hand waving to handle rule instances. For most of the 
