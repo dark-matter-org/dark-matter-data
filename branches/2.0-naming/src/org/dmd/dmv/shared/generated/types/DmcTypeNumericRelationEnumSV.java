@@ -24,7 +24,7 @@ import org.dmd.dmv.shared.generated.enums.NumericRelationEnum;    // DmcType imp
  * The DmcTypeNumericRelationEnumSV provides storage for a single-valued NumericRelationEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1955)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1962)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:360)
  */
 @SuppressWarnings("serial")
@@ -49,14 +49,14 @@ public class DmcTypeNumericRelationEnumSV extends DmcTypeNumericRelationEnum imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1994)
     public DmcAttribute<NumericRelationEnum> cloneIt(){
         DmcTypeNumericRelationEnumSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2005)
     public NumericRelationEnum getSVCopy(){
         if (value == null)
             return(null);
@@ -64,7 +64,7 @@ public class DmcTypeNumericRelationEnumSV extends DmcTypeNumericRelationEnum imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2010)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2017)
     public NumericRelationEnum set(Object v) throws DmcValueException {
         NumericRelationEnum rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

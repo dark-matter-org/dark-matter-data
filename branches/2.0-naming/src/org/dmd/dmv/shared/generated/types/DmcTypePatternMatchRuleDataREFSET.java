@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypePatternMatchRuleDataREFSET provides storage for a set of PatternMatchRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2602)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
@@ -61,7 +61,7 @@ public class DmcTypePatternMatchRuleDataREFSET extends DmcTypePatternMatchRuleDa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2643)
     public DmcAttribute<PatternMatchRuleDataREF> cloneIt(){
         synchronized(this){
             DmcTypePatternMatchRuleDataREFSET rc = getNew();
@@ -80,7 +80,7 @@ public class DmcTypePatternMatchRuleDataREFSET extends DmcTypePatternMatchRuleDa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2666)
     public PatternMatchRuleDataREF add(Object v) throws DmcValueException {
         synchronized(this){
             PatternMatchRuleDataREF rc = typeCheck(v);
@@ -96,7 +96,7 @@ public class DmcTypePatternMatchRuleDataREFSET extends DmcTypePatternMatchRuleDa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2683)
     public PatternMatchRuleDataREF del(Object v){
         synchronized(this){
             PatternMatchRuleDataREF rc = null;
@@ -120,7 +120,7 @@ public class DmcTypePatternMatchRuleDataREFSET extends DmcTypePatternMatchRuleDa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2708)
     public Iterator<PatternMatchRuleDataREF> getMV(){
         synchronized(this){
             if (value == null)
@@ -133,7 +133,7 @@ public class DmcTypePatternMatchRuleDataREFSET extends DmcTypePatternMatchRuleDa
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2722)
     public Set<PatternMatchRuleDataREF> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -152,7 +152,7 @@ public class DmcTypePatternMatchRuleDataREFSET extends DmcTypePatternMatchRuleDa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2742)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -162,7 +162,7 @@ public class DmcTypePatternMatchRuleDataREFSET extends DmcTypePatternMatchRuleDa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2753)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

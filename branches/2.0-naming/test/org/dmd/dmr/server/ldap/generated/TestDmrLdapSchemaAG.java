@@ -8,10 +8,10 @@ import org.junit.*;
 public class TestDmrLdapSchemaAG {
 
 	@Test
-	public void testSchemaLoading() throws ResultException, DmcValueException{
+	public void testSchemaLoading() throws ResultException, DmcValueException {
 		SchemaManager schema = new SchemaManager();
 		
-		schema.manageSchema((new DmrLdapSchemaAG()).getInstance());
+		schema.manageSchema((new DmrldapSchemaAG()).getInstance());
 		
 		System.out.println(schema.toString());
 	}

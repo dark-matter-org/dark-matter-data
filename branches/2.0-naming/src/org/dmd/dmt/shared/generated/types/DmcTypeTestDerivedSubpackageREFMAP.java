@@ -15,7 +15,7 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeTestDerivedSubpackageREFMAP provides storage for a map of TestDerivedSubpackageREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2828)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2835)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
@@ -58,7 +58,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2885)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2892)
     public DmcAttribute<TestDerivedSubpackageREF> cloneIt(){
         synchronized(this){
             DmcTypeTestDerivedSubpackageREFMAP rc = getNew();
@@ -77,7 +77,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2905)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2912)
     public TestDerivedSubpackageREF add(Object v) throws DmcValueException {
         synchronized(this){
             TestDerivedSubpackageREF newval = typeCheck(v);
@@ -97,7 +97,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2926)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2933)
     public TestDerivedSubpackageREF del(Object key){
         synchronized(this){
     
@@ -112,7 +112,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2942)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2949)
     public Iterator<TestDerivedSubpackageREF> getMV(){
         synchronized(this){
     
@@ -128,7 +128,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2959)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2966)
     public Map<StringName,TestDerivedSubpackageREF> getMVCopy(){
         synchronized(this){
             Map<StringName,TestDerivedSubpackageREF> clone = null;
@@ -148,7 +148,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2980)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2987)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -159,7 +159,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2992)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2999)
     public TestDerivedSubpackageREF getByKey(Object key){
         synchronized(this){
            if (value == null)
@@ -173,7 +173,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3007)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3014)
     public boolean contains(Object v){
         synchronized(this){
            if (value == null)
@@ -189,7 +189,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3024)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3031)
     public boolean containsKey(Object key){
         synchronized(this){
            if (value == null)
