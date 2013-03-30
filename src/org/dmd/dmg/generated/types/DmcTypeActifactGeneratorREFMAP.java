@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcMappedAttributeIF;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dmc.types.StringName;    // key type import
+import org.dmd.dmc.types.DefinitionName;    // key type import
 /**
  * The DmcTypeActifactGeneratorREFMAP provides storage for a map of ActifactGeneratorREF
  * <P>
@@ -34,12 +34,12 @@ import org.dmd.dmc.types.StringName;    // key type import
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeActifactGeneratorREFMAP extends DmcTypeActifactGeneratorREF<ActifactGeneratorREF,StringName> {
+// public class DmcTypeActifactGeneratorREFMAP extends DmcTypeActifactGeneratorREF<ActifactGeneratorREF,DefinitionName> {
 public class DmcTypeActifactGeneratorREFMAP extends DmcTypeActifactGeneratorREF implements Serializable {
     
-    private final static Iterator<ActifactGeneratorREF> emptyList = (new HashMap<StringName,ActifactGeneratorREF>()).values().iterator();
+    private final static Iterator<ActifactGeneratorREF> emptyList = (new HashMap<DefinitionName,ActifactGeneratorREF>()).values().iterator();
     
-    protected Map<StringName,ActifactGeneratorREF> value;
+    protected Map<DefinitionName,ActifactGeneratorREF> value;
     
     public DmcTypeActifactGeneratorREFMAP(){
         value = null;
@@ -52,16 +52,16 @@ public class DmcTypeActifactGeneratorREFMAP extends DmcTypeActifactGeneratorREF 
     
     void initValue(){
         if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
-            value = new HashMap<StringName,ActifactGeneratorREF>();
+            value = new HashMap<DefinitionName,ActifactGeneratorREF>();
         else
-            value = new TreeMap<StringName,ActifactGeneratorREF>();
+            value = new TreeMap<DefinitionName,ActifactGeneratorREF>();
     }
     
-    public StringName firstKey(){
+    public DefinitionName firstKey(){
         if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
-            TreeMap<StringName,ActifactGeneratorREF> map = (TreeMap<StringName,ActifactGeneratorREF>)value;
+            TreeMap<DefinitionName,ActifactGeneratorREF> map = (TreeMap<DefinitionName,ActifactGeneratorREF>)value;
             return(map.firstKey());
         }
         throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
@@ -98,7 +98,7 @@ public class DmcTypeActifactGeneratorREFMAP extends DmcTypeActifactGeneratorREF 
             ActifactGeneratorREF newval = typeCheck(v);
             if (value == null)
                 initValue();
-            StringName key = (StringName)((DmcMappedAttributeIF)newval).getKey();
+            DefinitionName key = (DefinitionName)((DmcMappedAttributeIF)newval).getKey();
             ActifactGeneratorREF oldval = value.put(key,newval);
             
             if (oldval != null){
@@ -119,7 +119,7 @@ public class DmcTypeActifactGeneratorREFMAP extends DmcTypeActifactGeneratorREF 
             if (value == null)
                 return(null);
     
-           if (key instanceof StringName)
+           if (key instanceof DefinitionName)
                 return(value.remove(key));
             else
                 throw(new IllegalStateException("Incompatible key type: " + key.getClass().getName() + " passed to del():" + getName()));
@@ -134,30 +134,30 @@ public class DmcTypeActifactGeneratorREFMAP extends DmcTypeActifactGeneratorREF 
             if (value == null)
                 return(emptyList);
     
-            Map<StringName,ActifactGeneratorREF> clone = null;
+            Map<DefinitionName,ActifactGeneratorREF> clone = null;
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
-                clone = new HashMap<StringName,ActifactGeneratorREF>(value);
+                clone = new HashMap<DefinitionName,ActifactGeneratorREF>(value);
             else
-                clone = new TreeMap<StringName,ActifactGeneratorREF>(value);
+                clone = new TreeMap<DefinitionName,ActifactGeneratorREF>(value);
             return(clone.values().iterator());
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2966)
-    public Map<StringName,ActifactGeneratorREF> getMVCopy(){
+    public Map<DefinitionName,ActifactGeneratorREF> getMVCopy(){
         synchronized(this){
-            Map<StringName,ActifactGeneratorREF> clone = null;
+            Map<DefinitionName,ActifactGeneratorREF> clone = null;
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED){
                 if (value == null)
-                    clone = new HashMap<StringName,ActifactGeneratorREF>();
+                    clone = new HashMap<DefinitionName,ActifactGeneratorREF>();
                 else
-                    clone = new HashMap<StringName,ActifactGeneratorREF>(value);
+                    clone = new HashMap<DefinitionName,ActifactGeneratorREF>(value);
             }
             else{
                 if (value == null)
-                    clone = new TreeMap<StringName,ActifactGeneratorREF>();
+                    clone = new TreeMap<DefinitionName,ActifactGeneratorREF>();
                 else
-                    clone = new TreeMap<StringName,ActifactGeneratorREF>(value);
+                    clone = new TreeMap<DefinitionName,ActifactGeneratorREF>(value);
             }
             return(clone);
         }
@@ -180,8 +180,8 @@ public class DmcTypeActifactGeneratorREFMAP extends DmcTypeActifactGeneratorREF 
            if (value == null)
                return(null);
     
-            if (key instanceof StringName)
-                return(value.get((StringName) key));
+            if (key instanceof DefinitionName)
+                return(value.get((DefinitionName) key));
             else
                 throw(new IllegalStateException("Incompatible type: " + key.getClass().getName() + " passed to del():" + getName()));
         }
@@ -210,7 +210,7 @@ public class DmcTypeActifactGeneratorREFMAP extends DmcTypeActifactGeneratorREF 
            if (value == null)
                return(false);
     
-           if (key instanceof StringName)
+           if (key instanceof DefinitionName)
                 return(value.containsKey(key));
             return(false);
         }

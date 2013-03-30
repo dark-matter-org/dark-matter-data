@@ -10,7 +10,7 @@ import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcMappedAttributeIF;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dmc.types.StringName;    // key type import
+import org.dmd.dmc.types.DefinitionName;    // key type import
 /**
  * The DmcTypeTestBasicNamedObjectFixedREFMAP provides storage for a map of TestBasicNamedObjectFixedREF
  * <P>
@@ -19,12 +19,12 @@ import org.dmd.dmc.types.StringName;    // key type import
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeTestBasicNamedObjectFixedREFMAP extends DmcTypeTestBasicNamedObjectFixedREF<TestBasicNamedObjectFixedREF,StringName> {
+// public class DmcTypeTestBasicNamedObjectFixedREFMAP extends DmcTypeTestBasicNamedObjectFixedREF<TestBasicNamedObjectFixedREF,DefinitionName> {
 public class DmcTypeTestBasicNamedObjectFixedREFMAP extends DmcTypeTestBasicNamedObjectFixedREF implements Serializable {
     
-    private final static Iterator<TestBasicNamedObjectFixedREF> emptyList = (new HashMap<StringName,TestBasicNamedObjectFixedREF>()).values().iterator();
+    private final static Iterator<TestBasicNamedObjectFixedREF> emptyList = (new HashMap<DefinitionName,TestBasicNamedObjectFixedREF>()).values().iterator();
     
-    protected Map<StringName,TestBasicNamedObjectFixedREF> value;
+    protected Map<DefinitionName,TestBasicNamedObjectFixedREF> value;
     
     public DmcTypeTestBasicNamedObjectFixedREFMAP(){
         value = null;
@@ -37,16 +37,16 @@ public class DmcTypeTestBasicNamedObjectFixedREFMAP extends DmcTypeTestBasicName
     
     void initValue(){
         if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
-            value = new HashMap<StringName,TestBasicNamedObjectFixedREF>();
+            value = new HashMap<DefinitionName,TestBasicNamedObjectFixedREF>();
         else
-            value = new TreeMap<StringName,TestBasicNamedObjectFixedREF>();
+            value = new TreeMap<DefinitionName,TestBasicNamedObjectFixedREF>();
     }
     
-    public StringName firstKey(){
+    public DefinitionName firstKey(){
         if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
-            TreeMap<StringName,TestBasicNamedObjectFixedREF> map = (TreeMap<StringName,TestBasicNamedObjectFixedREF>)value;
+            TreeMap<DefinitionName,TestBasicNamedObjectFixedREF> map = (TreeMap<DefinitionName,TestBasicNamedObjectFixedREF>)value;
             return(map.firstKey());
         }
         throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
@@ -83,7 +83,7 @@ public class DmcTypeTestBasicNamedObjectFixedREFMAP extends DmcTypeTestBasicName
             TestBasicNamedObjectFixedREF newval = typeCheck(v);
             if (value == null)
                 initValue();
-            StringName key = (StringName)((DmcMappedAttributeIF)newval).getKey();
+            DefinitionName key = (DefinitionName)((DmcMappedAttributeIF)newval).getKey();
             TestBasicNamedObjectFixedREF oldval = value.put(key,newval);
             
             if (oldval != null){
@@ -104,7 +104,7 @@ public class DmcTypeTestBasicNamedObjectFixedREFMAP extends DmcTypeTestBasicName
             if (value == null)
                 return(null);
     
-           if (key instanceof StringName)
+           if (key instanceof DefinitionName)
                 return(value.remove(key));
             else
                 throw(new IllegalStateException("Incompatible key type: " + key.getClass().getName() + " passed to del():" + getName()));
@@ -119,30 +119,30 @@ public class DmcTypeTestBasicNamedObjectFixedREFMAP extends DmcTypeTestBasicName
             if (value == null)
                 return(emptyList);
     
-            Map<StringName,TestBasicNamedObjectFixedREF> clone = null;
+            Map<DefinitionName,TestBasicNamedObjectFixedREF> clone = null;
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
-                clone = new HashMap<StringName,TestBasicNamedObjectFixedREF>(value);
+                clone = new HashMap<DefinitionName,TestBasicNamedObjectFixedREF>(value);
             else
-                clone = new TreeMap<StringName,TestBasicNamedObjectFixedREF>(value);
+                clone = new TreeMap<DefinitionName,TestBasicNamedObjectFixedREF>(value);
             return(clone.values().iterator());
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2966)
-    public Map<StringName,TestBasicNamedObjectFixedREF> getMVCopy(){
+    public Map<DefinitionName,TestBasicNamedObjectFixedREF> getMVCopy(){
         synchronized(this){
-            Map<StringName,TestBasicNamedObjectFixedREF> clone = null;
+            Map<DefinitionName,TestBasicNamedObjectFixedREF> clone = null;
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED){
                 if (value == null)
-                    clone = new HashMap<StringName,TestBasicNamedObjectFixedREF>();
+                    clone = new HashMap<DefinitionName,TestBasicNamedObjectFixedREF>();
                 else
-                    clone = new HashMap<StringName,TestBasicNamedObjectFixedREF>(value);
+                    clone = new HashMap<DefinitionName,TestBasicNamedObjectFixedREF>(value);
             }
             else{
                 if (value == null)
-                    clone = new TreeMap<StringName,TestBasicNamedObjectFixedREF>();
+                    clone = new TreeMap<DefinitionName,TestBasicNamedObjectFixedREF>();
                 else
-                    clone = new TreeMap<StringName,TestBasicNamedObjectFixedREF>(value);
+                    clone = new TreeMap<DefinitionName,TestBasicNamedObjectFixedREF>(value);
             }
             return(clone);
         }
@@ -165,8 +165,8 @@ public class DmcTypeTestBasicNamedObjectFixedREFMAP extends DmcTypeTestBasicName
            if (value == null)
                return(null);
     
-            if (key instanceof StringName)
-                return(value.get((StringName) key));
+            if (key instanceof DefinitionName)
+                return(value.get((DefinitionName) key));
             else
                 throw(new IllegalStateException("Incompatible type: " + key.getClass().getName() + " passed to del():" + getName()));
         }
@@ -195,7 +195,7 @@ public class DmcTypeTestBasicNamedObjectFixedREFMAP extends DmcTypeTestBasicName
            if (value == null)
                return(false);
     
-           if (key instanceof StringName)
+           if (key instanceof DefinitionName)
                 return(value.containsKey(key));
             return(false);
         }

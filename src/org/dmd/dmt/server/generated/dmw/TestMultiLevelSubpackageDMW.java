@@ -5,7 +5,7 @@ package org.dmd.dmt.server.generated.dmw;
 import java.util.ArrayList;                                                  // To support getMVCopy() - (BaseDMWGeneratorNewest.java:1050)
 import java.util.Iterator;                                                   // Support copy of MV objects - (BaseDMWGeneratorNewest.java:2105)
 import org.dmd.dmc.*;                                                        // If any attributes - (BaseDMWGeneratorNewest.java:956)
-import org.dmd.dmc.types.StringName;                                         // Is named by - (BaseDMWGeneratorNewest.java:935)
+import org.dmd.dmc.types.DefinitionName;                                     // Is named by - (BaseDMWGeneratorNewest.java:935)
 import org.dmd.dms.ClassDefinition;                                          // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:940)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                  // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:945)
 import org.dmd.dms.generated.dmw.StringIterableDMW;                          // For multi-valued String - (BaseDMWGeneratorNewest.java:1970)
@@ -65,7 +65,7 @@ public class TestMultiLevelSubpackageDMW extends DmwNamedObjectWrapper implement
     }
 
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1166)
-    public StringName getObjectName(){
+    public DefinitionName getObjectName(){
         return(((TestMultiLevelSubpackageDMO) core).getName());
     }
 
@@ -198,13 +198,13 @@ public class TestMultiLevelSubpackageDMW extends DmwNamedObjectWrapper implement
     }
 
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1343)
-    public StringName getName(){
+    public DefinitionName getName(){
         return(((TestMultiLevelSubpackageDMO) core).getName());
     }
 
     /**
      * Sets name to the specified value.
-     * @param value A value compatible with DmcTypeStringName
+     * @param value A value compatible with DmcTypeDefinitionName
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1453)
     public void setName(Object value) throws DmcValueException {
@@ -213,10 +213,10 @@ public class TestMultiLevelSubpackageDMW extends DmwNamedObjectWrapper implement
 
     /**
      * Sets name to the specified value.
-     * @param value StringName
+     * @param value DefinitionName
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1462)
-    public void setName(StringName value){
+    public void setName(DefinitionName value){
         ((TestMultiLevelSubpackageDMO) core).setName(value);
     }
 

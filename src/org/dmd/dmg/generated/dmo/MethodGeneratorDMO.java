@@ -23,7 +23,7 @@ import org.dmd.dmc.DmcObject;                                             // Str
 import org.dmd.dmc.DmcOmni;                                               // Lazy resolution - (GenUtility.java:317)
 import org.dmd.dmc.DmcSliceInfo;                                          // Required for object slicing - (GenUtility.java:226)
 import org.dmd.dmc.DmcValueException;                                     // Any attributes - (GenUtility.java:238)
-import org.dmd.dmc.types.StringName;                                      // Naming attribute type - (GenUtility.java:367)
+import org.dmd.dmc.types.DefinitionName;                                  // Naming attribute type - (GenUtility.java:367)
 import org.dmd.dmg.generated.dmo.GenerationContextDMO;                    // Type specific set/add - (GenUtility.java:304)
 import org.dmd.dmg.generated.types.DmcTypeGenerationContextREFSV;         // Reference type - (GenUtility.java:297)
 import org.dmd.dmg.generated.types.GenerationContextREF;                  // Helper class - (GenUtility.java:332)
@@ -31,8 +31,8 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;                               // Req
 import org.dmd.dms.generated.enums.BaseTypeEnum;                          // Primitive type and !auxiliary class - (GenUtility.java:268)
 import org.dmd.dms.generated.enums.ValueTypeEnum;                         // Primitive type and !auxiliary class - (GenUtility.java:268)
 import org.dmd.dms.generated.types.DmcTypeBaseTypeEnumSV;                 // Required type - (GenUtility.java:325)
+import org.dmd.dms.generated.types.DmcTypeDefinitionNameSV;               // Required type - (GenUtility.java:325)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                     // Required for MODREC constructor - (GenUtility.java:224)
-import org.dmd.dms.generated.types.DmcTypeStringNameSV;                   // Required type - (GenUtility.java:325)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                       // Required type - (GenUtility.java:325)
 import org.dmd.dms.generated.types.DmcTypeValueTypeEnumSV;                // Required type - (GenUtility.java:325)
 
@@ -91,10 +91,10 @@ public class MethodGeneratorDMO  extends DmcObject  implements DmcNamedObjectIF,
     }
 
     // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:744)
-    public StringName getObjectName(){
+    public DefinitionName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__name);
         if (name != null)
-            return((StringName)name.getSV());
+            return((DefinitionName)name.getSV());
     
         return(null);
     }
@@ -115,7 +115,7 @@ public class MethodGeneratorDMO  extends DmcObject  implements DmcNamedObjectIF,
 
     // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:776)
     public int hashCode(){
-        StringName objn = getObjectName();
+        DefinitionName objn = getObjectName();
         if (objn == null)
             return(0);
         
@@ -123,8 +123,8 @@ public class MethodGeneratorDMO  extends DmcObject  implements DmcNamedObjectIF,
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:781)
-    public StringName getName(){
-        DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
+    public DefinitionName getName(){
+        DmcTypeDefinitionNameSV attr = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
             return(null);
 
@@ -133,13 +133,13 @@ public class MethodGeneratorDMO  extends DmcObject  implements DmcNamedObjectIF,
 
     /**
      * Sets name to the specified value.
-     * @param value StringName
+     * @param value DefinitionName
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:821)
-    public void setName(StringName value) {
+    public void setName(DefinitionName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
-            attr = new DmcTypeStringNameSV(MetaDMSAG.__name);
+            attr = new DmcTypeDefinitionNameSV(MetaDMSAG.__name);
         
         try{
             attr.set(value);
@@ -152,13 +152,13 @@ public class MethodGeneratorDMO  extends DmcObject  implements DmcNamedObjectIF,
 
     /**
      * Sets name to the specified value.
-     * @param value A value compatible with DmcTypeStringNameSV
+     * @param value A value compatible with DmcTypeDefinitionNameSV
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:874)
     public void setName(Object value) throws DmcValueException {
-        DmcTypeStringNameSV attr  = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
+        DmcTypeDefinitionNameSV attr  = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
-            attr = new DmcTypeStringNameSV(MetaDMSAG.__name);
+            attr = new DmcTypeDefinitionNameSV(MetaDMSAG.__name);
         
         attr.set(value);
         set(MetaDMSAG.__name,attr);

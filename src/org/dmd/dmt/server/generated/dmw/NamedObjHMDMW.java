@@ -5,7 +5,7 @@ package org.dmd.dmt.server.generated.dmw;
 import java.util.HashMap;                                         // To support getMVCopy() - (BaseDMWGeneratorNewest.java:1055)
 import java.util.Iterator;                                        // Support MV object get() - (BaseDMWGeneratorNewest.java:2296)
 import org.dmd.dmc.*;                                             // If any attributes - (BaseDMWGeneratorNewest.java:956)
-import org.dmd.dmc.types.StringName;                              // Name type - (BaseDMWGeneratorNewest.java:2402)
+import org.dmd.dmc.types.DefinitionName;                          // Name type - (BaseDMWGeneratorNewest.java:2402)
 import org.dmd.dms.ClassDefinition;                               // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:940)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                       // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:945)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;             // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:944)
@@ -149,17 +149,17 @@ public class NamedObjHMDMW extends DmwWrapper {
      * @return A COPY of the collection of ObjWithRefs objects.
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2406)
-    public HashMap<StringName,ObjWithRefs> getHmNamedObjCopy(){
+    public HashMap<DefinitionName,ObjWithRefs> getHmNamedObjCopy(){
         DmcAttribute<?> attr = ((NamedObjHMDMO) core).get(DmtDMSAG.__hmNamedObj);
         if (attr == null)
-            return(new HashMap<StringName,ObjWithRefs>());
+            return(new HashMap<DefinitionName,ObjWithRefs>());
         
-        HashMap<StringName,ObjWithRefs> rc = new HashMap<StringName,ObjWithRefs>();
+        HashMap<DefinitionName,ObjWithRefs> rc = new HashMap<DefinitionName,ObjWithRefs>();
         
         ObjWithRefsIterableDMW it = getHmNamedObjIterable();
         while(it.hasNext()){
             ObjWithRefs obj = it.next();
-            rc.put((StringName) obj.getObjectName(),obj);
+            rc.put((DefinitionName) obj.getObjectName(),obj);
         }
         return(rc);
     }

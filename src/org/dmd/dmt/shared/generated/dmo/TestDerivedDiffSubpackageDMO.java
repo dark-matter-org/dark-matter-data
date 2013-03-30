@@ -7,11 +7,11 @@ import org.dmd.dmc.DmcAttribute;                                           // Na
 import org.dmd.dmc.DmcNamedObjectIF;                                       // Named object - (GenUtility.java:372)
 import org.dmd.dmc.DmcSliceInfo;                                           // Required for object slicing - (GenUtility.java:226)
 import org.dmd.dmc.DmcValueException;                                      // Any attributes - (GenUtility.java:238)
-import org.dmd.dmc.types.StringName;                                       // Naming attribute type - (GenUtility.java:367)
+import org.dmd.dmc.types.DefinitionName;                                   // Naming attribute type - (GenUtility.java:367)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                // Required for MODREC constructor - (GenUtility.java:225)
+import org.dmd.dms.generated.types.DmcTypeDefinitionNameSV;                // Required type - (GenUtility.java:325)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                      // Required for MODREC constructor - (GenUtility.java:224)
 import org.dmd.dms.generated.types.DmcTypeStringMV;                        // Required type - (GenUtility.java:325)
-import org.dmd.dms.generated.types.DmcTypeStringNameSV;                    // Required type - (GenUtility.java:325)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                        // Required type - (GenUtility.java:325)
 import org.dmd.dmt.shared.generated.dmo.TestOneLevelSubpackageDMO;         // Base class - (GenUtility.java:352)
 
@@ -68,10 +68,10 @@ public class TestDerivedDiffSubpackageDMO  extends TestOneLevelSubpackageDMO  im
     }
 
     // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:744)
-    public StringName getObjectName(){
+    public DefinitionName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__name);
         if (name != null)
-            return((StringName)name.getSV());
+            return((DefinitionName)name.getSV());
     
         return(null);
     }
@@ -92,7 +92,7 @@ public class TestDerivedDiffSubpackageDMO  extends TestOneLevelSubpackageDMO  im
 
     // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:776)
     public int hashCode(){
-        StringName objn = getObjectName();
+        DefinitionName objn = getObjectName();
         if (objn == null)
             return(0);
         
@@ -227,8 +227,8 @@ public class TestDerivedDiffSubpackageDMO  extends TestOneLevelSubpackageDMO  im
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:781)
-    public StringName getName(){
-        DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
+    public DefinitionName getName(){
+        DmcTypeDefinitionNameSV attr = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
             return(null);
 
@@ -237,13 +237,13 @@ public class TestDerivedDiffSubpackageDMO  extends TestOneLevelSubpackageDMO  im
 
     /**
      * Sets name to the specified value.
-     * @param value StringName
+     * @param value DefinitionName
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:821)
-    public void setName(StringName value) {
+    public void setName(DefinitionName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
-            attr = new DmcTypeStringNameSV(MetaDMSAG.__name);
+            attr = new DmcTypeDefinitionNameSV(MetaDMSAG.__name);
         
         try{
             attr.set(value);
@@ -256,13 +256,13 @@ public class TestDerivedDiffSubpackageDMO  extends TestOneLevelSubpackageDMO  im
 
     /**
      * Sets name to the specified value.
-     * @param value A value compatible with DmcTypeStringNameSV
+     * @param value A value compatible with DmcTypeDefinitionNameSV
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:874)
     public void setName(Object value) throws DmcValueException {
-        DmcTypeStringNameSV attr  = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
+        DmcTypeDefinitionNameSV attr  = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
-            attr = new DmcTypeStringNameSV(MetaDMSAG.__name);
+            attr = new DmcTypeDefinitionNameSV(MetaDMSAG.__name);
         
         attr.set(value);
         set(MetaDMSAG.__name,attr);

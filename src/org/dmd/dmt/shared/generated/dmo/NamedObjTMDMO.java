@@ -8,7 +8,7 @@ import org.dmd.dmc.DmcObject;                                               // S
 import org.dmd.dmc.DmcOmni;                                                 // Lazy resolution - (GenUtility.java:317)
 import org.dmd.dmc.DmcSliceInfo;                                            // Required for object slicing - (GenUtility.java:226)
 import org.dmd.dmc.DmcValueException;                                       // Any attributes - (GenUtility.java:238)
-import org.dmd.dmc.types.StringName;                                        // Name attribute type - (GenUtility.java:301)
+import org.dmd.dmc.types.DefinitionName;                                    // Name attribute type - (GenUtility.java:301)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                 // Required for MODREC constructor - (GenUtility.java:225)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                       // Required for MODREC constructor - (GenUtility.java:224)
 import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;                     // Type specific set/add - (GenUtility.java:304)
@@ -117,7 +117,7 @@ public class NamedObjTMDMO  extends DmcObject  implements Serializable  {
      * @return The first key of the map.
      */
     // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1489)
-    public StringName getTmNamedObjFirstKey(){
+    public DefinitionName getTmNamedObjFirstKey(){
         DmcTypeObjWithRefsREFMAP attr = (DmcTypeObjWithRefsREFMAP) get(DmtDMSAG.__tmNamedObj);
         if (attr == null)
             return(null);

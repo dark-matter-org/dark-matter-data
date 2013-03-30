@@ -3,12 +3,12 @@ package org.dmd.dmt.shared.generated.dmo;
 import java.io.Serializable;
 import org.dmd.dms.extended.ActionTriggerInfo;
 // Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:393)
-import org.dmd.dmc.DmcAttribute;                                // Any attributes - (GenUtility.java:237)
-import org.dmd.dmc.DmcValueException;                           // Any attributes - (GenUtility.java:238)
-import org.dmd.dmc.types.StringName;                            // Primitive type and !auxiliary class - (GenUtility.java:285)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                     // Attribute from meta schema - (GenUtility.java:138)
-import org.dmd.dms.generated.types.DmcTypeBooleanSV;            // Required type - (GenUtility.java:325)
-import org.dmd.dms.generated.types.DmcTypeStringNameSV;         // Required type - (GenUtility.java:325)
+import org.dmd.dmc.DmcAttribute;                                    // Any attributes - (GenUtility.java:237)
+import org.dmd.dmc.DmcValueException;                               // Any attributes - (GenUtility.java:238)
+import org.dmd.dmc.types.DefinitionName;                            // Primitive type and !auxiliary class - (GenUtility.java:285)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                         // Attribute from meta schema - (GenUtility.java:138)
+import org.dmd.dms.generated.types.DmcTypeBooleanSV;                // Required type - (GenUtility.java:325)
+import org.dmd.dms.generated.types.DmcTypeDefinitionNameSV;         // Required type - (GenUtility.java:325)
 
 
 /**
@@ -28,8 +28,8 @@ public class TestActionATI extends ActionTriggerInfo implements Serializable {
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:781)
-    public StringName getName(){
-        DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
+    public DefinitionName getName(){
+        DmcTypeDefinitionNameSV attr = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
             return(null);
 
@@ -38,13 +38,13 @@ public class TestActionATI extends ActionTriggerInfo implements Serializable {
 
     /**
      * Sets name to the specified value.
-     * @param value StringName
+     * @param value DefinitionName
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:821)
-    public void setName(StringName value) {
+    public void setName(DefinitionName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
-            attr = new DmcTypeStringNameSV(MetaDMSAG.__name);
+            attr = new DmcTypeDefinitionNameSV(MetaDMSAG.__name);
         
         try{
             attr.set(value);
@@ -57,13 +57,13 @@ public class TestActionATI extends ActionTriggerInfo implements Serializable {
 
     /**
      * Sets name to the specified value.
-     * @param value A value compatible with DmcTypeStringNameSV
+     * @param value A value compatible with DmcTypeDefinitionNameSV
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:874)
     public void setName(Object value) throws DmcValueException {
-        DmcTypeStringNameSV attr  = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
+        DmcTypeDefinitionNameSV attr  = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
-            attr = new DmcTypeStringNameSV(MetaDMSAG.__name);
+            attr = new DmcTypeDefinitionNameSV(MetaDMSAG.__name);
         
         attr.set(value);
         set(MetaDMSAG.__name,attr);

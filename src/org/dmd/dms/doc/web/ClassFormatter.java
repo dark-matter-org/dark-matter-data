@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
-import org.dmd.dmc.types.StringName;
+import org.dmd.dmc.types.DefinitionName;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaManager;
@@ -102,7 +102,7 @@ public class ClassFormatter {
 			out.write("      <td class=\"spacer\"> </td>\n");
 			out.write("      <td class=\"label\">Derived classes</td>\n");
 			out.write("      <td colspan=\"2\">\n");
-			TreeMap<StringName,ClassDefinition> sorted = new TreeMap<StringName,ClassDefinition>();
+			TreeMap<DefinitionName,ClassDefinition> sorted = new TreeMap<DefinitionName,ClassDefinition>();
 			for(ClassDefinition derived: cd.getDerivedClasses()){
 				sorted.put(derived.getName(), derived);
 			}
@@ -159,7 +159,7 @@ public class ClassFormatter {
 	}
 	
 	static void must(BufferedWriter out, ClassDefinition cd) throws IOException {
-	    TreeMap<StringName,AttributeDefinition> allMust = cd.getAllMust();
+	    TreeMap<DefinitionName,AttributeDefinition> allMust = cd.getAllMust();
 	    StringBuffer sb = new StringBuffer();
 
 		if (allMust.size() > 0){
@@ -312,7 +312,7 @@ public class ClassFormatter {
 //	}
 	
 	static void may(BufferedWriter out, ClassDefinition cd) throws IOException{
-	    TreeMap<StringName,AttributeDefinition> allMay = cd.getAllMay();
+	    TreeMap<DefinitionName,AttributeDefinition> allMay = cd.getAllMay();
 	    StringBuffer	may 		= new StringBuffer();
 	    StringBuffer	internal 	= new StringBuffer();
 

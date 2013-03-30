@@ -10,7 +10,7 @@ import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcMappedAttributeIF;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dmc.types.StringName;    // key type import
+import org.dmd.dmc.types.DefinitionName;    // key type import
 /**
  * The DmcTypeTestOneLevelSubpackageREFMAP provides storage for a map of TestOneLevelSubpackageREF
  * <P>
@@ -19,12 +19,12 @@ import org.dmd.dmc.types.StringName;    // key type import
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeTestOneLevelSubpackageREFMAP extends DmcTypeTestOneLevelSubpackageREF<TestOneLevelSubpackageREF,StringName> {
+// public class DmcTypeTestOneLevelSubpackageREFMAP extends DmcTypeTestOneLevelSubpackageREF<TestOneLevelSubpackageREF,DefinitionName> {
 public class DmcTypeTestOneLevelSubpackageREFMAP extends DmcTypeTestOneLevelSubpackageREF implements Serializable {
     
-    private final static Iterator<TestOneLevelSubpackageREF> emptyList = (new HashMap<StringName,TestOneLevelSubpackageREF>()).values().iterator();
+    private final static Iterator<TestOneLevelSubpackageREF> emptyList = (new HashMap<DefinitionName,TestOneLevelSubpackageREF>()).values().iterator();
     
-    protected Map<StringName,TestOneLevelSubpackageREF> value;
+    protected Map<DefinitionName,TestOneLevelSubpackageREF> value;
     
     public DmcTypeTestOneLevelSubpackageREFMAP(){
         value = null;
@@ -37,16 +37,16 @@ public class DmcTypeTestOneLevelSubpackageREFMAP extends DmcTypeTestOneLevelSubp
     
     void initValue(){
         if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
-            value = new HashMap<StringName,TestOneLevelSubpackageREF>();
+            value = new HashMap<DefinitionName,TestOneLevelSubpackageREF>();
         else
-            value = new TreeMap<StringName,TestOneLevelSubpackageREF>();
+            value = new TreeMap<DefinitionName,TestOneLevelSubpackageREF>();
     }
     
-    public StringName firstKey(){
+    public DefinitionName firstKey(){
         if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
-            TreeMap<StringName,TestOneLevelSubpackageREF> map = (TreeMap<StringName,TestOneLevelSubpackageREF>)value;
+            TreeMap<DefinitionName,TestOneLevelSubpackageREF> map = (TreeMap<DefinitionName,TestOneLevelSubpackageREF>)value;
             return(map.firstKey());
         }
         throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
@@ -83,7 +83,7 @@ public class DmcTypeTestOneLevelSubpackageREFMAP extends DmcTypeTestOneLevelSubp
             TestOneLevelSubpackageREF newval = typeCheck(v);
             if (value == null)
                 initValue();
-            StringName key = (StringName)((DmcMappedAttributeIF)newval).getKey();
+            DefinitionName key = (DefinitionName)((DmcMappedAttributeIF)newval).getKey();
             TestOneLevelSubpackageREF oldval = value.put(key,newval);
             
             if (oldval != null){
@@ -104,7 +104,7 @@ public class DmcTypeTestOneLevelSubpackageREFMAP extends DmcTypeTestOneLevelSubp
             if (value == null)
                 return(null);
     
-           if (key instanceof StringName)
+           if (key instanceof DefinitionName)
                 return(value.remove(key));
             else
                 throw(new IllegalStateException("Incompatible key type: " + key.getClass().getName() + " passed to del():" + getName()));
@@ -119,30 +119,30 @@ public class DmcTypeTestOneLevelSubpackageREFMAP extends DmcTypeTestOneLevelSubp
             if (value == null)
                 return(emptyList);
     
-            Map<StringName,TestOneLevelSubpackageREF> clone = null;
+            Map<DefinitionName,TestOneLevelSubpackageREF> clone = null;
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
-                clone = new HashMap<StringName,TestOneLevelSubpackageREF>(value);
+                clone = new HashMap<DefinitionName,TestOneLevelSubpackageREF>(value);
             else
-                clone = new TreeMap<StringName,TestOneLevelSubpackageREF>(value);
+                clone = new TreeMap<DefinitionName,TestOneLevelSubpackageREF>(value);
             return(clone.values().iterator());
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2966)
-    public Map<StringName,TestOneLevelSubpackageREF> getMVCopy(){
+    public Map<DefinitionName,TestOneLevelSubpackageREF> getMVCopy(){
         synchronized(this){
-            Map<StringName,TestOneLevelSubpackageREF> clone = null;
+            Map<DefinitionName,TestOneLevelSubpackageREF> clone = null;
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED){
                 if (value == null)
-                    clone = new HashMap<StringName,TestOneLevelSubpackageREF>();
+                    clone = new HashMap<DefinitionName,TestOneLevelSubpackageREF>();
                 else
-                    clone = new HashMap<StringName,TestOneLevelSubpackageREF>(value);
+                    clone = new HashMap<DefinitionName,TestOneLevelSubpackageREF>(value);
             }
             else{
                 if (value == null)
-                    clone = new TreeMap<StringName,TestOneLevelSubpackageREF>();
+                    clone = new TreeMap<DefinitionName,TestOneLevelSubpackageREF>();
                 else
-                    clone = new TreeMap<StringName,TestOneLevelSubpackageREF>(value);
+                    clone = new TreeMap<DefinitionName,TestOneLevelSubpackageREF>(value);
             }
             return(clone);
         }
@@ -165,8 +165,8 @@ public class DmcTypeTestOneLevelSubpackageREFMAP extends DmcTypeTestOneLevelSubp
            if (value == null)
                return(null);
     
-            if (key instanceof StringName)
-                return(value.get((StringName) key));
+            if (key instanceof DefinitionName)
+                return(value.get((DefinitionName) key));
             else
                 throw(new IllegalStateException("Incompatible type: " + key.getClass().getName() + " passed to del():" + getName()));
         }
@@ -195,7 +195,7 @@ public class DmcTypeTestOneLevelSubpackageREFMAP extends DmcTypeTestOneLevelSubp
            if (value == null)
                return(false);
     
-           if (key instanceof StringName)
+           if (key instanceof DefinitionName)
                 return(value.containsKey(key));
             return(false);
         }

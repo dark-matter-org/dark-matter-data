@@ -58,6 +58,7 @@ public class DmgSchemaAG extends SchemaDefinition {
             instance        = this;
             SchemaDefinitionDMO me = (SchemaDefinitionDMO) this.getDmcObject();
             me.setName("dmg");
+            me.setDotName("dmg");
             me.setSchemaPackage("org.dmd.dmg");
             me.setDmwPackage("org.dmd.dmg");
             me.setFile("/src/org/dmd/dmg/schema/v0dot1/dmg.dms");
@@ -74,7 +75,7 @@ public class DmgSchemaAG extends SchemaDefinition {
     }
 
     private void initClasses() throws DmcValueException {
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _DmgConfigOBJ = new ClassDefinitionDMO();
             _DmgConfig = new ClassDefinition(_DmgConfigOBJ,DmgDMSAG.__DmgConfig);
             _DmgConfigOBJ.setName("DmgConfig");
@@ -96,7 +97,7 @@ public class DmgSchemaAG extends SchemaDefinition {
             _DmgConfig.setDefinedIn(this);
             addClassDefList(_DmgConfig);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _GenerationContextOBJ = new ClassDefinitionDMO();
             _GenerationContext = new ClassDefinition(_GenerationContextOBJ,DmgDMSAG.__GenerationContext);
             _GenerationContextOBJ.setName("GenerationContext");
@@ -115,7 +116,7 @@ public class DmgSchemaAG extends SchemaDefinition {
             _GenerationContext.setDefinedIn(this);
             addClassDefList(_GenerationContext);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _WrapperGeneratorOBJ = new ClassDefinitionDMO();
             _WrapperGenerator = new ClassDefinition(_WrapperGeneratorOBJ,DmgDMSAG.__WrapperGenerator);
             _WrapperGeneratorOBJ.setName("WrapperGenerator");
@@ -137,7 +138,7 @@ public class DmgSchemaAG extends SchemaDefinition {
             _WrapperGenerator.setDefinedIn(this);
             addClassDefList(_WrapperGenerator);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _MethodGeneratorOBJ = new ClassDefinitionDMO();
             _MethodGenerator = new ClassDefinition(_MethodGeneratorOBJ,DmgDMSAG.__MethodGenerator);
             _MethodGeneratorOBJ.setName("MethodGenerator");
@@ -160,7 +161,7 @@ public class DmgSchemaAG extends SchemaDefinition {
             _MethodGenerator.setDefinedIn(this);
             addClassDefList(_MethodGenerator);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _ActifactGeneratorOBJ = new ClassDefinitionDMO();
             _ActifactGenerator = new ClassDefinition(_ActifactGeneratorOBJ,DmgDMSAG.__ActifactGenerator);
             _ActifactGeneratorOBJ.setName("ActifactGenerator");
@@ -182,7 +183,7 @@ public class DmgSchemaAG extends SchemaDefinition {
     }
 
     private void initAttributes1() throws DmcValueException {
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _generatorOBJ = new AttributeDefinitionDMO();
             _generator = new AttributeDefinition(_generatorOBJ);
             _generatorOBJ.setType("Generator");
@@ -196,7 +197,7 @@ public class DmgSchemaAG extends SchemaDefinition {
             _generatorOBJ.setLineNumber("9");
             addAttributeDefList(_generator);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _schemaToLoadOBJ = new AttributeDefinitionDMO();
             _schemaToLoad = new AttributeDefinition(_schemaToLoadOBJ);
             _schemaToLoadOBJ.setType("String");
@@ -209,7 +210,7 @@ public class DmgSchemaAG extends SchemaDefinition {
             _schemaToLoadOBJ.setLineNumber("15");
             addAttributeDefList(_schemaToLoad);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _configSuffixOBJ = new AttributeDefinitionDMO();
             _configSuffix = new AttributeDefinition(_configSuffixOBJ);
             _configSuffixOBJ.setType("String");
@@ -223,7 +224,7 @@ public class DmgSchemaAG extends SchemaDefinition {
             _configSuffixOBJ.setLineNumber("23");
             addAttributeDefList(_configSuffix);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _genPackageOBJ = new AttributeDefinitionDMO();
             _genPackage = new AttributeDefinition(_genPackageOBJ);
             _genPackageOBJ.setType("String");
@@ -236,7 +237,7 @@ public class DmgSchemaAG extends SchemaDefinition {
             _genPackageOBJ.setLineNumber("29");
             addAttributeDefList(_genPackage);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _upperConstantNameOBJ = new AttributeDefinitionDMO();
             _upperConstantName = new AttributeDefinition(_upperConstantNameOBJ);
             _upperConstantNameOBJ.setType("String");
@@ -249,7 +250,7 @@ public class DmgSchemaAG extends SchemaDefinition {
             _upperConstantNameOBJ.setLineNumber("41");
             addAttributeDefList(_upperConstantName);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _aliasOBJ = new AttributeDefinitionDMO();
             _alias = new AttributeDefinition(_aliasOBJ);
             _aliasOBJ.setType("String");
@@ -262,7 +263,7 @@ public class DmgSchemaAG extends SchemaDefinition {
             _aliasOBJ.setLineNumber("47");
             addAttributeDefList(_alias);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _genContextNameOBJ = new AttributeDefinitionDMO();
             _genContextName = new AttributeDefinition(_genContextNameOBJ);
             _genContextNameOBJ.setType("CamelCaseName");
@@ -275,7 +276,7 @@ public class DmgSchemaAG extends SchemaDefinition {
             _genContextNameOBJ.setLineNumber("53");
             addAttributeDefList(_genContextName);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _genContextOBJ = new AttributeDefinitionDMO();
             _genContext = new AttributeDefinition(_genContextOBJ);
             _genContextOBJ.setType("GenerationContext");
@@ -288,7 +289,7 @@ public class DmgSchemaAG extends SchemaDefinition {
             _genContextOBJ.setLineNumber("59");
             addAttributeDefList(_genContext);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _genClassOBJ = new AttributeDefinitionDMO();
             _genClass = new AttributeDefinition(_genClassOBJ);
             _genClassOBJ.setType("String");
@@ -304,7 +305,7 @@ public class DmgSchemaAG extends SchemaDefinition {
     }
 
     private void initTypes() throws DmcValueException {
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             TypeDefinitionDMO _GeneratorOBJ = new TypeDefinitionDMO();
             _Generator = new TypeDefinition(_GeneratorOBJ);
             _GeneratorOBJ.setName("Generator");

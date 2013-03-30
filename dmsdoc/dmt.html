@@ -23,7 +23,7 @@
 <!-- org.dmd.dms.doc.web.SchemaPage.writeClassSummary(SchemaPage.java:370) -->
 
     <div class="classList">
-    <h2> Classes (44)</h2>
+    <h2> Classes (46)</h2>
     <table>
       <tr>
       <td class="spacer"> </td>
@@ -37,6 +37,10 @@
       <tr>
       <td class="spacer"> </td>
       <td> <a class="deflink" href="#ClientCountFilterRequest"> ClientCountFilterRequest </a></td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#ComplexTypeTest"> ComplexTypeTest </a></td>
       </tr>
       <tr>
       <td class="spacer"> </td>
@@ -99,6 +103,10 @@
       <td class="spacer"> </td>
       <td> <a class="deflink" href="#ObjWithRefs"> ObjWithRefs </a></td>
       <td> name </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#ParseTest"> ParseTest </a></td>
       </tr>
       <tr>
       <td class="spacer"> </td>
@@ -220,6 +228,13 @@
     <ul>
       <li> <a class="deflink" href="#DmtStringName"> DmtStringName </a></li>
     </ul>
+    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeComplexTypeSummary(SchemaPage.java:432) -->
+
+    <div class="complextypeList">
+    <h2>Complex Types (1)</h2>
+    <ul>
+      <li> <a class="deflink" href="#MenuElementTypeAndComment"> MenuElementTypeAndComment </a></li>
+    </ul>
     </div><!-- org.dmd.dms.doc.web.SchemaPage.writeExtendedRefTypeSummary(SchemaPage.java:449) -->
 
     <div class="extendedreftypeList">
@@ -309,6 +324,9 @@
  characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
+
 </table>
       </td>
     </tr>
@@ -526,9 +544,51 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td> <a href="dmr.base.html#userName">userName</a> </td>
+      <td> <a href="dmrbase.html#userName">userName</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The name of a user.      </td>
+    </tr>
+
+  </table>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.dumpDetails(ClassFormatter.java:23) -->
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="ComplexTypeTest"> ComplexTypeTest </a> </td></tr>
+<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmt.html#mvComplex">mvComplex</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="dmt.html#MenuElementTypeAndComment">MenuElementTypeAndComment</a> </td>
+      <td>       </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmt.html#svComplex">svComplex</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="dmt.html#MenuElementTypeAndComment">MenuElementTypeAndComment</a> </td>
+      <td>       </td>
     </tr>
 
   </table>
@@ -1108,6 +1168,9 @@
  characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
+
 </table>
       </td>
     </tr>
@@ -1376,6 +1439,83 @@
       <td> <a href="dmt.html#transString">transString</a> </td>
       <td class="valueType"> T HS </td>      <td> <a href="meta.html#String">String</a> </td>
       <td>       </td>
+    </tr>
+
+  </table>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.dumpDetails(ClassFormatter.java:23) -->
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="ParseTest"> ParseTest </a> </td></tr>
+<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:54) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">Used to test the DmcUncheckedOIFParser in the creation of DmcUncheckedObjects within DmcUncheckedObjects.</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmt.html#mvIdxNamedObj">mvIdxNamedObj</a> </td>
+      <td class="valueType"> P MV[10] </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
+      <td> An indexed mv ObjWithRefs.      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmt.html#mvIdxUnnamedObj">mvIdxUnnamedObj</a> </td>
+      <td class="valueType"> P MV[10] </td>      <td> <a href="dmt.html#TestBasicObjectFixed">TestBasicObjectFixed</a> </td>
+      <td> An indexed mv TestBasicObjectFixed.      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmt.html#mvUnnamedObj">mvUnnamedObj</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="dmt.html#TestBasicObjectFixed">TestBasicObjectFixed</a> </td>
+      <td> An mv TestBasicObjectFixed.      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmt.html#svBoolean">svBoolean</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> A single valued Boolean.      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmt.html#svUnnamedObj">svUnnamedObj</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="dmt.html#TestBasicObjectFixed">TestBasicObjectFixed</a> </td>
+      <td> An sv TestBasicObjectFixed.      </td>
     </tr>
 
   </table>
@@ -1844,6 +1984,9 @@
  characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
+
 </table>
       </td>
     </tr>
@@ -1931,6 +2074,9 @@
  characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
+
 </table>
       </td>
     </tr>
@@ -1947,6 +2093,15 @@
     <tr>
       <td class="spacer"> </td>
       <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmt.html#mvIdxUnnamedObj">mvIdxUnnamedObj</a> </td>
+      <td class="valueType"> P MV[10] </td>      <td> <a href="dmt.html#TestBasicObjectFixed">TestBasicObjectFixed</a> </td>
+      <td> An indexed mv TestBasicObjectFixed.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2070,6 +2225,15 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="dmt.html#hsTestEnum">hsTestEnum</a> </td>
+      <td class="valueType"> P HS </td>      <td> <a href="dmt.html#DmtTestEnum">DmtTestEnum</a> </td>
+      <td>       </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#intToString">intToString</a> </td>
       <td class="valueType"> P HM </td>      <td> <a href="meta.html#IntegerToString">IntegerToString</a> </td>
       <td> A hash mapping of an integer to a string.      </td>
@@ -2109,6 +2273,15 @@
       <td> <a href="dmt.html#mvFloat">mvFloat</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#Float">Float</a> </td>
       <td> An mv Float.      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmt.html#mvIdxUnnamedObj">mvIdxUnnamedObj</a> </td>
+      <td class="valueType"> P MV[10] </td>      <td> <a href="dmt.html#TestBasicObjectFixed">TestBasicObjectFixed</a> </td>
+      <td> An indexed mv TestBasicObjectFixed.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2347,6 +2520,9 @@
  characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
+
 </table>
       </td>
     </tr>
@@ -2435,6 +2611,9 @@
  characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
+
 </table>
       </td>
     </tr>
@@ -2522,6 +2701,9 @@
  characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
+
 </table>
       </td>
     </tr>
@@ -2609,6 +2791,9 @@
  characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
+
 </table>
       </td>
     </tr>
@@ -2695,6 +2880,9 @@
  characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
+
 </table>
       </td>
     </tr>
@@ -3630,6 +3818,7 @@
         <table>
         <tr>
           <td> ObjWithRefs (<a href="dmt.html#ObjWithRefs">dmt</a>) </td>
+          <td> TestBasicObjectFixed (<a href="dmt.html#TestBasicObjectFixed">dmt</a>) </td>
         </tr>
         </table>
       </td>
@@ -3815,6 +4004,26 @@
     </tr>
 
 <!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="mvComplex"> mvComplex </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P MV </div> <div class="attrType"> <a href="dmt.html#MenuElementTypeAndComment">MenuElementTypeAndComment</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        <tr>
+          <td> ComplexTypeTest (<a href="dmt.html#ComplexTypeTest">dmt</a>) </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="mvDate"> mvDate </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -3988,6 +4197,7 @@
         <table>
         <tr>
           <td> NamedObjMVIDX (<a href="dmt.html#NamedObjMVIDX">dmt</a>) </td>
+          <td> ParseTest (<a href="dmt.html#ParseTest">dmt</a>) </td>
         </tr>
         </table>
       </td>
@@ -4040,6 +4250,10 @@
       <td class="label">Used in:</td>
       <td>
         <table>
+        <tr>
+          <td> ParseTest (<a href="dmt.html#ParseTest">dmt</a>) </td>
+          <td> TestBasicNamedObjectFixed (<a href="dmt.html#TestBasicNamedObjectFixed">dmt</a>) </td>
+          <td> TestBasicObjectFixed (<a href="dmt.html#TestBasicObjectFixed">dmt</a>) </td>
         <tr>
           <td> UnnamedObjMVIDX (<a href="dmt.html#UnnamedObjMVIDX">dmt</a>) </td>
         </tr>
@@ -4239,6 +4453,7 @@
       <td>
         <table>
         <tr>
+          <td> ParseTest (<a href="dmt.html#ParseTest">dmt</a>) </td>
           <td> UnnamedObjMV (<a href="dmt.html#UnnamedObjMV">dmt</a>) </td>
         </tr>
         </table>
@@ -4498,12 +4713,34 @@
         <table>
         <tr>
           <td> ObjWithRefs (<a href="dmt.html#ObjWithRefs">dmt</a>) </td>
+          <td> ParseTest (<a href="dmt.html#ParseTest">dmt</a>) </td>
           <td> TestBasicObjectFixed (<a href="dmt.html#TestBasicObjectFixed">dmt</a>) </td>
+        <tr>
           <td> UUIDNamedObject (<a href="dmt.html#UUIDNamedObject">dmt</a>) </td>
         </tr>
       <tr>
           <td> testAction (<a href="dmt.html#testAction">dmt</a>) </td>
       </tr>
+        </table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="svComplex"> svComplex </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="dmt.html#MenuElementTypeAndComment">MenuElementTypeAndComment</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        <tr>
+          <td> ComplexTypeTest (<a href="dmt.html#ComplexTypeTest">dmt</a>) </td>
+        </tr>
         </table>
       </td>
     </tr>
@@ -4833,6 +5070,7 @@ svInteger must be in the range 1-10
       <td>
         <table>
         <tr>
+          <td> ParseTest (<a href="dmt.html#ParseTest">dmt</a>) </td>
           <td> UnnamedObjSV (<a href="dmt.html#UnnamedObjSV">dmt</a>) </td>
         </tr>
         </table>
@@ -5217,6 +5455,61 @@ svInteger must be in the range 1-10
 
 </div> <!-- typeDetails -->
 
+<!-- org.dmd.dms.doc.web.SchemaPage.writeComplexTypes(SchemaPage.java:262) -->
+
+<div class="complexTypeDetails">
+
+<h2> Complex Type Details </h2>
+
+  <table>
+
+    <tr> <td class="typeName" colspan="5"> <a name="MenuElementTypeAndComment"> MenuElementTypeAndComment </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td colspan="4"> The MenuElementTypeAndComment type is used to indicate the strings that map to 
+ various menu and menu item implementations supported by a a particular menu implementation. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label" colspan="3">Field Separator: 
+<strong> :</strong></td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> Field 1</td>
+      <td> type </td>
+      <td class="attrType"> <a href="meta.html#String">String</a> </td>
+      <td> The name of this implementation. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> Field 2</td>
+      <td> comment </td>
+      <td class="attrType"> <a href="meta.html#String">String</a> </td>
+      <td> The class used to implement the required behaviour. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td colspan ="3">
+<table>
+  <tr>
+    <td> mvComplex (<a href="dmt.html#mvComplex">dmt</a>) </td>
+    <td> svComplex (<a href="dmt.html#svComplex">dmt</a>) </td>
+</tr>
+</table>
+      </td>
+    </tr>
+
+  </table>
+
+</div> <!-- typeDetails -->
+
 <!-- org.dmd.dms.doc.web.SchemaPage.writeExtendedReferenceTypes(SchemaPage.java:282) -->
 
 <div class="extendedReferenceTypeDetails">
@@ -5337,15 +5630,15 @@ svInteger must be in the range 1-10
 
 </div> <!-- enumDetails -->
 
-<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstanceDetails(RuleInstanceFormatter.java:48) -->
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstanceDetails(RuleInstanceFormatter.java:49) -->
 <div class="ruleInstances">
 
 <h2> Rule Instances </h2>
 
-<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstanceDetails(RuleInstanceFormatter.java:54) -->
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstanceDetails(RuleInstanceFormatter.java:55) -->
   <table>
 
-<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:86) -->
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:93) -->
     <tr> <td class="ruleDefName" colspan="4"> InitRule (CLASS)</td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5370,6 +5663,15 @@ svInteger must be in the range 1-10
     <tr>
       <td class="spacer"> </td>
       <td class="spacer"> </td>
+      <td> hsTestEnum </td>
+      <td>
+TEST1
+<br>TEST2
+      </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
       <td> svInteger </td>
       <td> 8</td>    </tr>
     <tr>
@@ -5386,7 +5688,7 @@ first value
 <br>second value
       </td>
     </tr>
-<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:86) -->
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:93) -->
     <tr> <td class="ruleDefName" colspan="4"> NumericRangeRule (ATTRIBUTE)</td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5470,8 +5772,8 @@ first value
     <div id="sidebar">
         <a class="navLink" href="dmg.html"> dmg</a>
         <a class="navLink" href="dmp.html"> dmp</a>
-        <a class="navLink" href="dmr.base.html"> dmr.base</a>
-        <a class="navLink" href="dmr.ldap.html"> dmr.ldap</a>
+        <a class="navLink" href="dmrbase.html"> dmrbase</a>
+        <a class="navLink" href="dmrldap.html"> dmrldap</a>
         <a class="navLink" href="dmt.html"> dmt</a>
         <a class="navLink" href="dmv.html"> dmv</a>
         <a class="navLink" href="map.html"> map</a>

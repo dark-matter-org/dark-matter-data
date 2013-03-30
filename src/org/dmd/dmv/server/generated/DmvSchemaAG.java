@@ -92,6 +92,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             instance        = this;
             SchemaDefinitionDMO me = (SchemaDefinitionDMO) this.getDmcObject();
             me.setName("dmv");
+            me.setDotName("dmv");
             me.setSchemaPackage("org.dmd.dmv.shared");
             me.setDmwPackage("org.dmd.dmv.server");
             me.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/dmv.dms");
@@ -108,7 +109,7 @@ public class DmvSchemaAG extends SchemaDefinition {
     }
 
     private void initClasses() throws DmcValueException {
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _AllowedAttributesRuleDataOBJ = new ClassDefinitionDMO();
             _AllowedAttributesRuleData = new ClassDefinition(_AllowedAttributesRuleDataOBJ,DmvDMSAG.__AllowedAttributesRuleData);
             _AllowedAttributesRuleDataOBJ.setName("AllowedAttributesRuleData");
@@ -131,7 +132,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _AllowedAttributesRuleData.setDefinedIn(this);
             addClassDefList(_AllowedAttributesRuleData);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _InitRuleDataOBJ = new ClassDefinitionDMO();
             _InitRuleData = new ClassDefinition(_InitRuleDataOBJ,DmvDMSAG.__InitRuleData);
             _InitRuleDataOBJ.setName("InitRuleData");
@@ -154,7 +155,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _InitRuleData.setDefinedIn(this);
             addClassDefList(_InitRuleData);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _NumericRangeRuleDataOBJ = new ClassDefinitionDMO();
             _NumericRangeRuleData = new ClassDefinition(_NumericRangeRuleDataOBJ,DmvDMSAG.__NumericRangeRuleData);
             _NumericRangeRuleDataOBJ.setName("NumericRangeRuleData");
@@ -180,7 +181,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _NumericRangeRuleData.setDefinedIn(this);
             addClassDefList(_NumericRangeRuleData);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _UCOAllowedAttributesRuleDataOBJ = new ClassDefinitionDMO();
             _UCOAllowedAttributesRuleData = new ClassDefinition(_UCOAllowedAttributesRuleDataOBJ,DmvDMSAG.__UCOAllowedAttributesRuleData);
             _UCOAllowedAttributesRuleDataOBJ.setName("UCOAllowedAttributesRuleData");
@@ -203,7 +204,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _UCOAllowedAttributesRuleData.setDefinedIn(this);
             addClassDefList(_UCOAllowedAttributesRuleData);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _RelatedNumbersRuleDataOBJ = new ClassDefinitionDMO();
             _RelatedNumbersRuleData = new ClassDefinition(_RelatedNumbersRuleDataOBJ,DmvDMSAG.__RelatedNumbersRuleData);
             _RelatedNumbersRuleDataOBJ.setName("RelatedNumbersRuleData");
@@ -229,7 +230,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _RelatedNumbersRuleData.setDefinedIn(this);
             addClassDefList(_RelatedNumbersRuleData);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _CheckAttributesBasedOnValueRuleDataOBJ = new ClassDefinitionDMO();
             _CheckAttributesBasedOnValueRuleData = new ClassDefinition(_CheckAttributesBasedOnValueRuleDataOBJ,DmvDMSAG.__CheckAttributesBasedOnValueRuleData);
             _CheckAttributesBasedOnValueRuleDataOBJ.setName("CheckAttributesBasedOnValueRuleData");
@@ -256,7 +257,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _CheckAttributesBasedOnValueRuleData.setDefinedIn(this);
             addClassDefList(_CheckAttributesBasedOnValueRuleData);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _OneOfTheseAttributesRequiredRuleDataOBJ = new ClassDefinitionDMO();
             _OneOfTheseAttributesRequiredRuleData = new ClassDefinition(_OneOfTheseAttributesRequiredRuleDataOBJ,DmvDMSAG.__OneOfTheseAttributesRequiredRuleData);
             _OneOfTheseAttributesRequiredRuleDataOBJ.setName("OneOfTheseAttributesRequiredRuleData");
@@ -281,7 +282,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _OneOfTheseAttributesRequiredRuleData.setDefinedIn(this);
             addClassDefList(_OneOfTheseAttributesRequiredRuleData);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _PatternMatchRuleDataOBJ = new ClassDefinitionDMO();
             _PatternMatchRuleData = new ClassDefinition(_PatternMatchRuleDataOBJ,DmvDMSAG.__PatternMatchRuleData);
             _PatternMatchRuleDataOBJ.setName("PatternMatchRuleData");
@@ -306,7 +307,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _PatternMatchRuleData.setDefinedIn(this);
             addClassDefList(_PatternMatchRuleData);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _ValueLengthRuleDataOBJ = new ClassDefinitionDMO();
             _ValueLengthRuleData = new ClassDefinition(_ValueLengthRuleDataOBJ,DmvDMSAG.__ValueLengthRuleData);
             _ValueLengthRuleDataOBJ.setName("ValueLengthRuleData");
@@ -314,7 +315,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ValueLengthRuleDataOBJ.setInternallyGenerated("true");
             _ValueLengthRuleDataOBJ.setClassType("STRUCTURAL");
             _ValueLengthRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _ValueLengthRuleDataOBJ.setLineNumber("284");
+            _ValueLengthRuleDataOBJ.setLineNumber("300");
             _ValueLengthRuleDataOBJ.setDescription("The ValueLengthRule allows you to indicate the maximum length,\n the minimum length or both the maximum and minimum length of the String form of\n a value associated with an attribute. It works for both single valued and\n multi-valued attributes.\n <p/>\n If you have added types via the TypeDefinition mechanisms,\n you should ensure that you have overloaded the toString() method \n <pre>\n ValueLengthRuleData\n ruleName         userNameLength\n ruleTitle        The user name must be between 6 and 20 characters\n applyToAttribute userNameString\n minLength        6\n maxLength        20\n </pre>\n Or, just a minimum length:\n <pre>\n ValueLengthRuleData\n ruleName         tagLength\n ruleTitle        Tag information must be 4 characters or more.\n applyToAttribute dataTag\n applyToClass     chunkOfData\n minLength        4\n </pre>\n Or, just a maximum length:\n <pre>\n ValueLengthRuleData\n ruleName         infoLength\n ruleTitle        The info must be less than or equal to 50 characters.\n applyToAttribute info\n applyToClass     chunkOfData\n maxLength        50\n </pre>\n NOTE: If you have added types via the TypeDefinition mechanisms, you should ensure\n that you have overloaded the toString() method of the primitiveType that\n you're using.");
             _ValueLengthRuleDataOBJ.setDerivedFrom("RuleData");
             _ValueLengthRuleDataOBJ.setIsNamedBy("ruleName");
@@ -332,7 +333,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ValueLengthRuleData.setDefinedIn(this);
             addClassDefList(_ValueLengthRuleData);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _ReferencedAttributeTypeRuleDataOBJ = new ClassDefinitionDMO();
             _ReferencedAttributeTypeRuleData = new ClassDefinition(_ReferencedAttributeTypeRuleDataOBJ,DmvDMSAG.__ReferencedAttributeTypeRuleData);
             _ReferencedAttributeTypeRuleDataOBJ.setName("ReferencedAttributeTypeRuleData");
@@ -340,7 +341,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ReferencedAttributeTypeRuleDataOBJ.setInternallyGenerated("true");
             _ReferencedAttributeTypeRuleDataOBJ.setClassType("STRUCTURAL");
             _ReferencedAttributeTypeRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _ReferencedAttributeTypeRuleDataOBJ.setLineNumber("350");
+            _ReferencedAttributeTypeRuleDataOBJ.setLineNumber("366");
             _ReferencedAttributeTypeRuleDataOBJ.setDescription("The ReferencedAttributeTypeRule allowes you to restrict the type of\n an attribute referred to by an AttributeDefinition reference. Some examples include:\n <pre>\n ReferencedAttributeTypeRuleData\n ruleName          dmvNRRApplyToAttribute\n ruleTitle         The applyToAttribute attribute in a NumericRangeRuleData instance must refer to an Integer, Long, Float or Double attribute\n applyToAttribute  applyToAttribute\n applyToClass      NumericRangeRuleData\n allowedType       Integer\n allowedType       Long\n allowedType       Float\n allowedType       Double\n </pre>\n In this case, we're restricting the applyToAttribute to be a numeric type, either Integer, Long Float or Double.\n <p/>\n You can also restrict the valueType of an attribute reference, for instance:\n <pre>\n ReferencedAttributeTypeRuleData\n ruleName          dmvLhs\n ruleTitle         The lhs attribute must be a single valued Integer, Long, Float or Double\n applyToAttribute  lhs\n applyToClass      RelatedNumbersRuleData\n allowedType       Integer\n allowedType       Long\n allowedType       Float\n allowedType       Double\n allowedValueType  SINGLE\n </pre>\n Here, we're indicating that the lhs (left hand side) attribute must be single valued.");
             _ReferencedAttributeTypeRuleDataOBJ.setDerivedFrom("RuleData");
             _ReferencedAttributeTypeRuleDataOBJ.setIsNamedBy("ruleName");
@@ -361,7 +362,7 @@ public class DmvSchemaAG extends SchemaDefinition {
     }
 
     private void initAttributes1() throws DmcValueException {
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _nrrMinimumOBJ = new AttributeDefinitionDMO();
             _nrrMinimum = new AttributeDefinition(_nrrMinimumOBJ);
             _nrrMinimumOBJ.setType("Double");
@@ -374,7 +375,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _nrrMinimumOBJ.setLineNumber("6");
             addAttributeDefList(_nrrMinimum);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _nrrMaximumOBJ = new AttributeDefinitionDMO();
             _nrrMaximum = new AttributeDefinition(_nrrMaximumOBJ);
             _nrrMaximumOBJ.setType("Double");
@@ -387,7 +388,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _nrrMaximumOBJ.setLineNumber("12");
             addAttributeDefList(_nrrMaximum);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _numericRelationOBJ = new AttributeDefinitionDMO();
             _numericRelation = new AttributeDefinition(_numericRelationOBJ);
             _numericRelationOBJ.setType("NumericRelationEnum");
@@ -400,7 +401,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _numericRelationOBJ.setLineNumber("18");
             addAttributeDefList(_numericRelation);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _lhsOBJ = new AttributeDefinitionDMO();
             _lhs = new AttributeDefinition(_lhsOBJ);
             _lhsOBJ.setType("AttributeDefinition");
@@ -413,7 +414,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _lhsOBJ.setLineNumber("26");
             addAttributeDefList(_lhs);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _rhsOBJ = new AttributeDefinitionDMO();
             _rhs = new AttributeDefinition(_rhsOBJ);
             _rhsOBJ.setType("AttributeDefinition");
@@ -426,7 +427,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _rhsOBJ.setLineNumber("34");
             addAttributeDefList(_rhs);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _allowedTypeOBJ = new AttributeDefinitionDMO();
             _allowedType = new AttributeDefinition(_allowedTypeOBJ);
             _allowedTypeOBJ.setType("TypeDefinition");
@@ -440,7 +441,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _allowedTypeOBJ.setLineNumber("42");
             addAttributeDefList(_allowedType);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _basedOnAttributeOBJ = new AttributeDefinitionDMO();
             _basedOnAttribute = new AttributeDefinition(_basedOnAttributeOBJ);
             _basedOnAttributeOBJ.setType("AttributeDefinition");
@@ -453,7 +454,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _basedOnAttributeOBJ.setLineNumber("49");
             addAttributeDefList(_basedOnAttribute);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _basedOnValueOBJ = new AttributeDefinitionDMO();
             _basedOnValue = new AttributeDefinition(_basedOnValueOBJ);
             _basedOnValueOBJ.setType("String");
@@ -467,7 +468,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _basedOnValueOBJ.setLineNumber("57");
             addAttributeDefList(_basedOnValue);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _excludeThisAttributeOBJ = new AttributeDefinitionDMO();
             _excludeThisAttribute = new AttributeDefinition(_excludeThisAttributeOBJ);
             _excludeThisAttributeOBJ.setType("AttributeDefinition");
@@ -481,7 +482,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _excludeThisAttributeOBJ.setLineNumber("65");
             addAttributeDefList(_excludeThisAttribute);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _includeThisAttributeOBJ = new AttributeDefinitionDMO();
             _includeThisAttribute = new AttributeDefinition(_includeThisAttributeOBJ);
             _includeThisAttributeOBJ.setType("AttributeDefinition");
@@ -495,7 +496,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _includeThisAttributeOBJ.setLineNumber("73");
             addAttributeDefList(_includeThisAttribute);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _onePossibilityOBJ = new AttributeDefinitionDMO();
             _onePossibility = new AttributeDefinition(_onePossibilityOBJ);
             _onePossibilityOBJ.setType("AttributeDefinition");
@@ -509,7 +510,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _onePossibilityOBJ.setLineNumber("81");
             addAttributeDefList(_onePossibility);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _andOnlyOneOBJ = new AttributeDefinitionDMO();
             _andOnlyOne = new AttributeDefinition(_andOnlyOneOBJ);
             _andOnlyOneOBJ.setType("Boolean");
@@ -522,7 +523,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _andOnlyOneOBJ.setLineNumber("88");
             addAttributeDefList(_andOnlyOne);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _matchesPatternOBJ = new AttributeDefinitionDMO();
             _matchesPattern = new AttributeDefinition(_matchesPatternOBJ);
             _matchesPatternOBJ.setType("String");
@@ -535,7 +536,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _matchesPatternOBJ.setLineNumber("95");
             addAttributeDefList(_matchesPattern);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _maxLengthOBJ = new AttributeDefinitionDMO();
             _maxLength = new AttributeDefinition(_maxLengthOBJ);
             _maxLengthOBJ.setType("Integer");
@@ -548,7 +549,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _maxLengthOBJ.setLineNumber("101");
             addAttributeDefList(_maxLength);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _minLengthOBJ = new AttributeDefinitionDMO();
             _minLength = new AttributeDefinition(_minLengthOBJ);
             _minLengthOBJ.setType("Integer");
@@ -561,7 +562,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _minLengthOBJ.setLineNumber("107");
             addAttributeDefList(_minLength);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _allowedValueTypeOBJ = new AttributeDefinitionDMO();
             _allowedValueType = new AttributeDefinition(_allowedValueTypeOBJ);
             _allowedValueTypeOBJ.setType("ValueTypeEnum");
@@ -586,7 +587,7 @@ public class DmvSchemaAG extends SchemaDefinition {
     }
 
     private void initEnums() throws DmcValueException {
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             EnumDefinitionDMO _NumericRelationEnumOBJ = new EnumDefinitionDMO();
             _NumericRelationEnum = new EnumDefinition(_NumericRelationEnumOBJ);
             _NumericRelationEnumOBJ.setName("NumericRelationEnum");
@@ -606,7 +607,7 @@ public class DmvSchemaAG extends SchemaDefinition {
     }
 
     private void initRules() throws DmcValueException {
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             RuleDefinitionDMO _AllowedAttributesRuleOBJ = new RuleDefinitionDMO();
             _AllowedAttributesRule = new RuleDefinition(_AllowedAttributesRuleOBJ);
             _AllowedAttributesRuleOBJ.addRuleCategory("ObjectValidation");
@@ -619,7 +620,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _AllowedAttributesRuleOBJ.setLineNumber("22");
             addRuleDefinitionList(_AllowedAttributesRule);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             RuleDefinitionDMO _InitRuleOBJ = new RuleDefinitionDMO();
             _InitRule = new RuleDefinition(_InitRuleOBJ);
             _InitRuleOBJ.addRuleCategory("Initialization");
@@ -633,7 +634,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _InitRuleOBJ.setLineNumber("54");
             addRuleDefinitionList(_InitRule);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             RuleDefinitionDMO _NumericRangeRuleOBJ = new RuleDefinitionDMO();
             _NumericRangeRule = new RuleDefinition(_NumericRangeRuleOBJ);
             _NumericRangeRuleOBJ.addRuleCategory("AttributeValidation");
@@ -648,7 +649,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _NumericRangeRuleOBJ.setLineNumber("80");
             addRuleDefinitionList(_NumericRangeRule);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             RuleDefinitionDMO _UCOAllowedAttributesRuleOBJ = new RuleDefinitionDMO();
             _UCOAllowedAttributesRule = new RuleDefinition(_UCOAllowedAttributesRuleOBJ);
             _UCOAllowedAttributesRuleOBJ.addRuleCategory("UCOValidation");
@@ -661,7 +662,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _UCOAllowedAttributesRuleOBJ.setLineNumber("90");
             addRuleDefinitionList(_UCOAllowedAttributesRule);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             RuleDefinitionDMO _RelatedNumbersRuleOBJ = new RuleDefinitionDMO();
             _RelatedNumbersRule = new RuleDefinition(_RelatedNumbersRuleOBJ);
             _RelatedNumbersRuleOBJ.addRuleCategory("ObjectValidation");
@@ -677,7 +678,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _RelatedNumbersRuleOBJ.setLineNumber("135");
             addRuleDefinitionList(_RelatedNumbersRule);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             RuleDefinitionDMO _CheckAttributesBasedOnValueRuleOBJ = new RuleDefinitionDMO();
             _CheckAttributesBasedOnValueRule = new RuleDefinition(_CheckAttributesBasedOnValueRuleOBJ);
             _CheckAttributesBasedOnValueRuleOBJ.addRuleCategory("ObjectValidation");
@@ -694,7 +695,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _CheckAttributesBasedOnValueRuleOBJ.setLineNumber("164");
             addRuleDefinitionList(_CheckAttributesBasedOnValueRule);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             RuleDefinitionDMO _OneOfTheseAttributesRequiredRuleOBJ = new RuleDefinitionDMO();
             _OneOfTheseAttributesRequiredRule = new RuleDefinition(_OneOfTheseAttributesRequiredRuleOBJ);
             _OneOfTheseAttributesRequiredRuleOBJ.addRuleCategory("ObjectValidation");
@@ -709,7 +710,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _OneOfTheseAttributesRequiredRuleOBJ.setLineNumber("199");
             addRuleDefinitionList(_OneOfTheseAttributesRequiredRule);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             RuleDefinitionDMO _PatternMatchRuleOBJ = new RuleDefinitionDMO();
             _PatternMatchRule = new RuleDefinition(_PatternMatchRuleOBJ);
             _PatternMatchRuleOBJ.addRuleCategory("AttributeValidation");
@@ -723,7 +724,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _PatternMatchRuleOBJ.setLineNumber("227");
             addRuleDefinitionList(_PatternMatchRule);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             RuleDefinitionDMO _ValueLengthRuleOBJ = new RuleDefinitionDMO();
             _ValueLengthRule = new RuleDefinition(_ValueLengthRuleOBJ);
             _ValueLengthRuleOBJ.addRuleCategory("AttributeValidation");
@@ -735,10 +736,10 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ValueLengthRuleOBJ.setDotName("dmv.ValueLengthRule.RuleDefinition");
             _ValueLengthRule.setDefinedIn(this);
             _ValueLengthRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _ValueLengthRuleOBJ.setLineNumber("284");
+            _ValueLengthRuleOBJ.setLineNumber("300");
             addRuleDefinitionList(_ValueLengthRule);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             RuleDefinitionDMO _ReferencedAttributeTypeRuleOBJ = new RuleDefinitionDMO();
             _ReferencedAttributeTypeRule = new RuleDefinition(_ReferencedAttributeTypeRuleOBJ);
             _ReferencedAttributeTypeRuleOBJ.addRuleCategory("AttributeValidation");
@@ -750,7 +751,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ReferencedAttributeTypeRuleOBJ.setDotName("dmv.ReferencedAttributeTypeRule.RuleDefinition");
             _ReferencedAttributeTypeRule.setDefinedIn(this);
             _ReferencedAttributeTypeRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _ReferencedAttributeTypeRuleOBJ.setLineNumber("350");
+            _ReferencedAttributeTypeRuleOBJ.setLineNumber("366");
             addRuleDefinitionList(_ReferencedAttributeTypeRule);
 
     }

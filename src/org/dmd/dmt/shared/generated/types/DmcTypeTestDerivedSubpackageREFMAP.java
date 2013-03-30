@@ -10,7 +10,7 @@ import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcMappedAttributeIF;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dmc.types.StringName;    // key type import
+import org.dmd.dmc.types.DefinitionName;    // key type import
 /**
  * The DmcTypeTestDerivedSubpackageREFMAP provides storage for a map of TestDerivedSubpackageREF
  * <P>
@@ -19,12 +19,12 @@ import org.dmd.dmc.types.StringName;    // key type import
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpackageREF<TestDerivedSubpackageREF,StringName> {
+// public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpackageREF<TestDerivedSubpackageREF,DefinitionName> {
 public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpackageREF implements Serializable {
     
-    private final static Iterator<TestDerivedSubpackageREF> emptyList = (new HashMap<StringName,TestDerivedSubpackageREF>()).values().iterator();
+    private final static Iterator<TestDerivedSubpackageREF> emptyList = (new HashMap<DefinitionName,TestDerivedSubpackageREF>()).values().iterator();
     
-    protected Map<StringName,TestDerivedSubpackageREF> value;
+    protected Map<DefinitionName,TestDerivedSubpackageREF> value;
     
     public DmcTypeTestDerivedSubpackageREFMAP(){
         value = null;
@@ -37,16 +37,16 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
     
     void initValue(){
         if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
-            value = new HashMap<StringName,TestDerivedSubpackageREF>();
+            value = new HashMap<DefinitionName,TestDerivedSubpackageREF>();
         else
-            value = new TreeMap<StringName,TestDerivedSubpackageREF>();
+            value = new TreeMap<DefinitionName,TestDerivedSubpackageREF>();
     }
     
-    public StringName firstKey(){
+    public DefinitionName firstKey(){
         if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
-            TreeMap<StringName,TestDerivedSubpackageREF> map = (TreeMap<StringName,TestDerivedSubpackageREF>)value;
+            TreeMap<DefinitionName,TestDerivedSubpackageREF> map = (TreeMap<DefinitionName,TestDerivedSubpackageREF>)value;
             return(map.firstKey());
         }
         throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
@@ -83,7 +83,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
             TestDerivedSubpackageREF newval = typeCheck(v);
             if (value == null)
                 initValue();
-            StringName key = (StringName)((DmcMappedAttributeIF)newval).getKey();
+            DefinitionName key = (DefinitionName)((DmcMappedAttributeIF)newval).getKey();
             TestDerivedSubpackageREF oldval = value.put(key,newval);
             
             if (oldval != null){
@@ -104,7 +104,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
             if (value == null)
                 return(null);
     
-           if (key instanceof StringName)
+           if (key instanceof DefinitionName)
                 return(value.remove(key));
             else
                 throw(new IllegalStateException("Incompatible key type: " + key.getClass().getName() + " passed to del():" + getName()));
@@ -119,30 +119,30 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
             if (value == null)
                 return(emptyList);
     
-            Map<StringName,TestDerivedSubpackageREF> clone = null;
+            Map<DefinitionName,TestDerivedSubpackageREF> clone = null;
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
-                clone = new HashMap<StringName,TestDerivedSubpackageREF>(value);
+                clone = new HashMap<DefinitionName,TestDerivedSubpackageREF>(value);
             else
-                clone = new TreeMap<StringName,TestDerivedSubpackageREF>(value);
+                clone = new TreeMap<DefinitionName,TestDerivedSubpackageREF>(value);
             return(clone.values().iterator());
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2966)
-    public Map<StringName,TestDerivedSubpackageREF> getMVCopy(){
+    public Map<DefinitionName,TestDerivedSubpackageREF> getMVCopy(){
         synchronized(this){
-            Map<StringName,TestDerivedSubpackageREF> clone = null;
+            Map<DefinitionName,TestDerivedSubpackageREF> clone = null;
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED){
                 if (value == null)
-                    clone = new HashMap<StringName,TestDerivedSubpackageREF>();
+                    clone = new HashMap<DefinitionName,TestDerivedSubpackageREF>();
                 else
-                    clone = new HashMap<StringName,TestDerivedSubpackageREF>(value);
+                    clone = new HashMap<DefinitionName,TestDerivedSubpackageREF>(value);
             }
             else{
                 if (value == null)
-                    clone = new TreeMap<StringName,TestDerivedSubpackageREF>();
+                    clone = new TreeMap<DefinitionName,TestDerivedSubpackageREF>();
                 else
-                    clone = new TreeMap<StringName,TestDerivedSubpackageREF>(value);
+                    clone = new TreeMap<DefinitionName,TestDerivedSubpackageREF>(value);
             }
             return(clone);
         }
@@ -165,8 +165,8 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
            if (value == null)
                return(null);
     
-            if (key instanceof StringName)
-                return(value.get((StringName) key));
+            if (key instanceof DefinitionName)
+                return(value.get((DefinitionName) key));
             else
                 throw(new IllegalStateException("Incompatible type: " + key.getClass().getName() + " passed to del():" + getName()));
         }
@@ -195,7 +195,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
            if (value == null)
                return(false);
     
-           if (key instanceof StringName)
+           if (key instanceof DefinitionName)
                 return(value.containsKey(key));
             return(false);
         }

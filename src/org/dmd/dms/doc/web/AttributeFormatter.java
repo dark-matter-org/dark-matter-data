@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcObject;
-import org.dmd.dmc.types.StringName;
+import org.dmd.dmc.types.DefinitionName;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
@@ -162,9 +162,9 @@ public class AttributeFormatter {
 		
 		// There's always one reference because the schema refers to its attributes
 		if ( (referring != null) && (referring.size() > 1) ){
-			TreeMap<StringName,ClassDefinition>	classes = new TreeMap<StringName, ClassDefinition>();
-			TreeMap<StringName,RuleDefinition>	rules = new TreeMap<StringName, RuleDefinition>();
-			TreeMap<StringName,ActionDefinition>	actions = new TreeMap<StringName, ActionDefinition>();
+			TreeMap<DefinitionName,ClassDefinition>	classes = new TreeMap<DefinitionName, ClassDefinition>();
+			TreeMap<DefinitionName,RuleDefinition>	rules = new TreeMap<DefinitionName, RuleDefinition>();
+			TreeMap<DefinitionName,ActionDefinition>	actions = new TreeMap<DefinitionName, ActionDefinition>();
 			
 			out.write("    <tr>\n");
 			out.write("      <td class=\"spacer\"> </td>\n");
@@ -193,7 +193,7 @@ public class AttributeFormatter {
 		}
 	}
 
-	static String formatUsage(TreeMap<StringName,ClassDefinition> cds, TreeMap<StringName,RuleDefinition> rds, TreeMap<StringName,ActionDefinition> ads){
+	static String formatUsage(TreeMap<DefinitionName,ClassDefinition> cds, TreeMap<DefinitionName,RuleDefinition> rds, TreeMap<DefinitionName,ActionDefinition> ads){
 		StringBuffer sb = new StringBuffer();
 		
 		sb.append("        <table>\n");

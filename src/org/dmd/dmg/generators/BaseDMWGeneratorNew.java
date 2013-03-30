@@ -25,7 +25,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.dmd.dmc.types.IntegerVar;
-import org.dmd.dmc.types.StringName;
+import org.dmd.dmc.types.DefinitionName;
 import org.dmd.dmg.DarkMatterGeneratorIF;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 import org.dmd.dmg.util.GeneratorUtils;
@@ -640,8 +640,8 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 	 */
 	public void getAttributesAndImports(ClassDefinition cd, ArrayList<AttributeDefinition> allAttr, StringBuffer sb){
 		IntegerVar		longestImport	= new IntegerVar();
-		TreeMap<StringName,TypeDefinition>	types = new TreeMap<StringName,TypeDefinition>();
-		TreeMap<StringName,TypeDefinition>	iterables = new TreeMap<StringName,TypeDefinition>();
+		TreeMap<DefinitionName,TypeDefinition>	types = new TreeMap<DefinitionName,TypeDefinition>();
+		TreeMap<DefinitionName,TypeDefinition>	iterables = new TreeMap<DefinitionName,TypeDefinition>();
 		TreeSet<String>						genericImports	= new TreeSet<String>();
 		TreeMap<String,TypeAndAttr>			typeAndAttr 	= new TreeMap<String,TypeAndAttr>();
 		boolean								needDmwOmni		= false;

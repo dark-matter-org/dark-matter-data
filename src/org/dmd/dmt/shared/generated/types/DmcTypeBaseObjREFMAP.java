@@ -10,7 +10,7 @@ import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcMappedAttributeIF;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dmc.types.StringName;    // key type import
+import org.dmd.dmc.types.DefinitionName;    // key type import
 /**
  * The DmcTypeBaseObjREFMAP provides storage for a map of BaseObjREF
  * <P>
@@ -19,12 +19,12 @@ import org.dmd.dmc.types.StringName;    // key type import
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeBaseObjREFMAP extends DmcTypeBaseObjREF<BaseObjREF,StringName> {
+// public class DmcTypeBaseObjREFMAP extends DmcTypeBaseObjREF<BaseObjREF,DefinitionName> {
 public class DmcTypeBaseObjREFMAP extends DmcTypeBaseObjREF implements Serializable {
     
-    private final static Iterator<BaseObjREF> emptyList = (new HashMap<StringName,BaseObjREF>()).values().iterator();
+    private final static Iterator<BaseObjREF> emptyList = (new HashMap<DefinitionName,BaseObjREF>()).values().iterator();
     
-    protected Map<StringName,BaseObjREF> value;
+    protected Map<DefinitionName,BaseObjREF> value;
     
     public DmcTypeBaseObjREFMAP(){
         value = null;
@@ -37,16 +37,16 @@ public class DmcTypeBaseObjREFMAP extends DmcTypeBaseObjREF implements Serializa
     
     void initValue(){
         if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
-            value = new HashMap<StringName,BaseObjREF>();
+            value = new HashMap<DefinitionName,BaseObjREF>();
         else
-            value = new TreeMap<StringName,BaseObjREF>();
+            value = new TreeMap<DefinitionName,BaseObjREF>();
     }
     
-    public StringName firstKey(){
+    public DefinitionName firstKey(){
         if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
-            TreeMap<StringName,BaseObjREF> map = (TreeMap<StringName,BaseObjREF>)value;
+            TreeMap<DefinitionName,BaseObjREF> map = (TreeMap<DefinitionName,BaseObjREF>)value;
             return(map.firstKey());
         }
         throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
@@ -83,7 +83,7 @@ public class DmcTypeBaseObjREFMAP extends DmcTypeBaseObjREF implements Serializa
             BaseObjREF newval = typeCheck(v);
             if (value == null)
                 initValue();
-            StringName key = (StringName)((DmcMappedAttributeIF)newval).getKey();
+            DefinitionName key = (DefinitionName)((DmcMappedAttributeIF)newval).getKey();
             BaseObjREF oldval = value.put(key,newval);
             
             if (oldval != null){
@@ -104,7 +104,7 @@ public class DmcTypeBaseObjREFMAP extends DmcTypeBaseObjREF implements Serializa
             if (value == null)
                 return(null);
     
-           if (key instanceof StringName)
+           if (key instanceof DefinitionName)
                 return(value.remove(key));
             else
                 throw(new IllegalStateException("Incompatible key type: " + key.getClass().getName() + " passed to del():" + getName()));
@@ -119,30 +119,30 @@ public class DmcTypeBaseObjREFMAP extends DmcTypeBaseObjREF implements Serializa
             if (value == null)
                 return(emptyList);
     
-            Map<StringName,BaseObjREF> clone = null;
+            Map<DefinitionName,BaseObjREF> clone = null;
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
-                clone = new HashMap<StringName,BaseObjREF>(value);
+                clone = new HashMap<DefinitionName,BaseObjREF>(value);
             else
-                clone = new TreeMap<StringName,BaseObjREF>(value);
+                clone = new TreeMap<DefinitionName,BaseObjREF>(value);
             return(clone.values().iterator());
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2966)
-    public Map<StringName,BaseObjREF> getMVCopy(){
+    public Map<DefinitionName,BaseObjREF> getMVCopy(){
         synchronized(this){
-            Map<StringName,BaseObjREF> clone = null;
+            Map<DefinitionName,BaseObjREF> clone = null;
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED){
                 if (value == null)
-                    clone = new HashMap<StringName,BaseObjREF>();
+                    clone = new HashMap<DefinitionName,BaseObjREF>();
                 else
-                    clone = new HashMap<StringName,BaseObjREF>(value);
+                    clone = new HashMap<DefinitionName,BaseObjREF>(value);
             }
             else{
                 if (value == null)
-                    clone = new TreeMap<StringName,BaseObjREF>();
+                    clone = new TreeMap<DefinitionName,BaseObjREF>();
                 else
-                    clone = new TreeMap<StringName,BaseObjREF>(value);
+                    clone = new TreeMap<DefinitionName,BaseObjREF>(value);
             }
             return(clone);
         }
@@ -165,8 +165,8 @@ public class DmcTypeBaseObjREFMAP extends DmcTypeBaseObjREF implements Serializa
            if (value == null)
                return(null);
     
-            if (key instanceof StringName)
-                return(value.get((StringName) key));
+            if (key instanceof DefinitionName)
+                return(value.get((DefinitionName) key));
             else
                 throw(new IllegalStateException("Incompatible type: " + key.getClass().getName() + " passed to del():" + getName()));
         }
@@ -195,7 +195,7 @@ public class DmcTypeBaseObjREFMAP extends DmcTypeBaseObjREF implements Serializa
            if (value == null)
                return(false);
     
-           if (key instanceof StringName)
+           if (key instanceof DefinitionName)
                 return(value.containsKey(key));
             return(false);
         }

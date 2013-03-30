@@ -3,7 +3,7 @@ package org.dmd.dmg.generated.dmw;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:351)
 import org.dmd.dmc.*;                                          // If any attributes - (BaseDMWGeneratorNewest.java:956)
-import org.dmd.dmc.types.StringName;                           // Is named by - (BaseDMWGeneratorNewest.java:935)
+import org.dmd.dmc.types.DefinitionName;                       // Is named by - (BaseDMWGeneratorNewest.java:935)
 import org.dmd.dmg.extended.ActifactGenerator;                 // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:949)
 import org.dmd.dmg.generated.dmo.ActifactGeneratorDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1121)
 import org.dmd.dms.ClassDefinition;                            // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:940)
@@ -61,7 +61,7 @@ public class ActifactGeneratorDMW extends DmwNamedObjectWrapper implements DmcNa
     }
 
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1166)
-    public StringName getObjectName(){
+    public DefinitionName getObjectName(){
         return(((ActifactGeneratorDMO) core).getName());
     }
 
@@ -112,13 +112,13 @@ public class ActifactGeneratorDMW extends DmwNamedObjectWrapper implements DmcNa
     }
 
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1343)
-    public StringName getName(){
+    public DefinitionName getName(){
         return(((ActifactGeneratorDMO) core).getName());
     }
 
     /**
      * Sets name to the specified value.
-     * @param value A value compatible with DmcTypeStringName
+     * @param value A value compatible with DmcTypeDefinitionName
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1453)
     public void setName(Object value) throws DmcValueException {
@@ -127,10 +127,10 @@ public class ActifactGeneratorDMW extends DmwNamedObjectWrapper implements DmcNa
 
     /**
      * Sets name to the specified value.
-     * @param value StringName
+     * @param value DefinitionName
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1462)
-    public void setName(StringName value){
+    public void setName(DefinitionName value){
         ((ActifactGeneratorDMO) core).setName(value);
     }
 

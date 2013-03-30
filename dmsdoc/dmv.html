@@ -102,10 +102,11 @@
     </div><!-- org.dmd.dms.doc.web.SchemaPage.writeRuleInstancesSummary(SchemaPage.java:534) -->
 
     <div class="ruledefs">
-    <h2> Rule Instances (15)</h2>
+    <h2> Rule Instances (16)</h2>
     <ul>
       <li> <a class="deflink" href="#dmvAllowedAttributes"> An object's attributes must conform to its schema. </a></li>
       <li> <a class="deflink" href="#dmvBasedOnAttribute"> The basedOnAttribute attribute must refer to a single-valued attribute </a></li>
+      <li> <a class="deflink" href="#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></li>
       <li> <a class="deflink" href="#dmvEnumDefinitionNameCheck"> An EnumDefinition's name must end with Enum </a></li>
       <li> <a class="deflink" href="#dmvIncludeOrExclude"> At least one of the excludeThisAttribute or includeThisAttribute attributes must be specified. </a></li>
       <li> <a class="deflink" href="#dmvLhs"> The lhs attribute must be a single valued Integer, Long, Float or Double </a></li>
@@ -2740,15 +2741,15 @@ The rhs attribute must be a single valued Integer, Long, Float or Double
 
 </div> <!-- enumDetails -->
 
-<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstanceDetails(RuleInstanceFormatter.java:48) -->
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstanceDetails(RuleInstanceFormatter.java:49) -->
 <div class="ruleInstances">
 
 <h2> Rule Instances </h2>
 
-<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstanceDetails(RuleInstanceFormatter.java:54) -->
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstanceDetails(RuleInstanceFormatter.java:55) -->
   <table>
 
-<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:86) -->
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:93) -->
     <tr> <td class="ruleDefName" colspan="4"> AllowedAttributesRule (CLASS)</td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -2765,7 +2766,7 @@ The rhs attribute must be a single valued Integer, Long, Float or Double
       <td> Ensures that must/may attribute rules are followed. For classes of
  type EXTENSIBLE, only the must have attributes are checked. </td>
     </tr>
-<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:86) -->
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:93) -->
     <tr> <td class="ruleDefName" colspan="4"> CheckAttributesBasedOnValueRule (CLASS)</td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -2815,7 +2816,7 @@ must
       <td class="spacer"> </td>
       <td> basedOnAttribute </td>
       <td> classType</td>    </tr>
-<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:86) -->
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:93) -->
     <tr> <td class="ruleDefName" colspan="4"> NumericRangeRule (ATTRIBUTE)</td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -2873,7 +2874,7 @@ must
       <td class="spacer"> </td>
       <td> nrrMinimum </td>
       <td> 1.0</td>    </tr>
-<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:86) -->
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:93) -->
     <tr> <td class="ruleDefName" colspan="4"> OneOfTheseAttributesRequiredRule (CLASS)</td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -2998,8 +2999,47 @@ allowedType
 <br>allowedValueType
       </td>
     </tr>
-<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:86) -->
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:93) -->
     <tr> <td class="ruleDefName" colspan="4"> PatternMatchRule (ATTRIBUTE)</td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="3" class="ruleDetailTitle">
+      <a name ="dmvDefinitionNameCheck">
+        The name attribute must start with a letter, followed by a mix of letters and numbers.
+      </a>
+      </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> Apply to attribute: </td>
+      <td> name </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> Description: </td>
+      <td> Although the name attribute is defined as type DotName, when
+ the value is used as the value for the name attribute, it must not contain the 
+ dot character. This is because we allow for references to definitions to be
+ either the flat name of the definition, or its fully qualified name that includes
+ the definition set name, for example, meta.must - which indicates the must attribute
+ from the meta schema.
+ <p/>
+ This allows for the convention of referring to definitions in the most general
+ way possible without having to fully qualify every reference. </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel"> Rule arguments </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> matchesPattern </td>
+      <td> [a-zA-Z][a-zA-Z0-9]*</td>    </tr>
     <tr>
       <td class="spacer"> </td>
       <td colspan="3" class="ruleDetailTitle">
@@ -3041,7 +3081,7 @@ allowedType
       <td class="spacer"> </td>
       <td> matchesPattern </td>
       <td> ^.*Enum</td>    </tr>
-<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:86) -->
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:93) -->
     <tr> <td class="ruleDefName" colspan="4"> ReferencedAttributeTypeRule (ATTRIBUTE)</td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -3238,7 +3278,7 @@ Integer
 <br>Double
       </td>
     </tr>
-<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:86) -->
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:93) -->
     <tr> <td class="ruleDefName" colspan="4"> RelatedNumbersRule (CLASS)</td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -3285,8 +3325,8 @@ Integer
     <div id="sidebar">
         <a class="navLink" href="dmg.html"> dmg</a>
         <a class="navLink" href="dmp.html"> dmp</a>
-        <a class="navLink" href="dmr.base.html"> dmr.base</a>
-        <a class="navLink" href="dmr.ldap.html"> dmr.ldap</a>
+        <a class="navLink" href="dmrbase.html"> dmrbase</a>
+        <a class="navLink" href="dmrldap.html"> dmrldap</a>
         <a class="navLink" href="dmt.html"> dmt</a>
         <a class="navLink" href="dmv.html"> dmv</a>
         <a class="navLink" href="map.html"> map</a>

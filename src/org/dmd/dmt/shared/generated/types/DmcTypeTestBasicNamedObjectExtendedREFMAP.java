@@ -10,7 +10,7 @@ import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcMappedAttributeIF;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dmc.types.StringName;    // key type import
+import org.dmd.dmc.types.DefinitionName;    // key type import
 /**
  * The DmcTypeTestBasicNamedObjectExtendedREFMAP provides storage for a map of TestBasicNamedObjectExtendedREF
  * <P>
@@ -19,12 +19,12 @@ import org.dmd.dmc.types.StringName;    // key type import
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicNamedObjectExtendedREF<TestBasicNamedObjectExtendedREF,StringName> {
+// public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicNamedObjectExtendedREF<TestBasicNamedObjectExtendedREF,DefinitionName> {
 public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicNamedObjectExtendedREF implements Serializable {
     
-    private final static Iterator<TestBasicNamedObjectExtendedREF> emptyList = (new HashMap<StringName,TestBasicNamedObjectExtendedREF>()).values().iterator();
+    private final static Iterator<TestBasicNamedObjectExtendedREF> emptyList = (new HashMap<DefinitionName,TestBasicNamedObjectExtendedREF>()).values().iterator();
     
-    protected Map<StringName,TestBasicNamedObjectExtendedREF> value;
+    protected Map<DefinitionName,TestBasicNamedObjectExtendedREF> value;
     
     public DmcTypeTestBasicNamedObjectExtendedREFMAP(){
         value = null;
@@ -37,16 +37,16 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicN
     
     void initValue(){
         if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
-            value = new HashMap<StringName,TestBasicNamedObjectExtendedREF>();
+            value = new HashMap<DefinitionName,TestBasicNamedObjectExtendedREF>();
         else
-            value = new TreeMap<StringName,TestBasicNamedObjectExtendedREF>();
+            value = new TreeMap<DefinitionName,TestBasicNamedObjectExtendedREF>();
     }
     
-    public StringName firstKey(){
+    public DefinitionName firstKey(){
         if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
-            TreeMap<StringName,TestBasicNamedObjectExtendedREF> map = (TreeMap<StringName,TestBasicNamedObjectExtendedREF>)value;
+            TreeMap<DefinitionName,TestBasicNamedObjectExtendedREF> map = (TreeMap<DefinitionName,TestBasicNamedObjectExtendedREF>)value;
             return(map.firstKey());
         }
         throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
@@ -83,7 +83,7 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicN
             TestBasicNamedObjectExtendedREF newval = typeCheck(v);
             if (value == null)
                 initValue();
-            StringName key = (StringName)((DmcMappedAttributeIF)newval).getKey();
+            DefinitionName key = (DefinitionName)((DmcMappedAttributeIF)newval).getKey();
             TestBasicNamedObjectExtendedREF oldval = value.put(key,newval);
             
             if (oldval != null){
@@ -104,7 +104,7 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicN
             if (value == null)
                 return(null);
     
-           if (key instanceof StringName)
+           if (key instanceof DefinitionName)
                 return(value.remove(key));
             else
                 throw(new IllegalStateException("Incompatible key type: " + key.getClass().getName() + " passed to del():" + getName()));
@@ -119,30 +119,30 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicN
             if (value == null)
                 return(emptyList);
     
-            Map<StringName,TestBasicNamedObjectExtendedREF> clone = null;
+            Map<DefinitionName,TestBasicNamedObjectExtendedREF> clone = null;
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
-                clone = new HashMap<StringName,TestBasicNamedObjectExtendedREF>(value);
+                clone = new HashMap<DefinitionName,TestBasicNamedObjectExtendedREF>(value);
             else
-                clone = new TreeMap<StringName,TestBasicNamedObjectExtendedREF>(value);
+                clone = new TreeMap<DefinitionName,TestBasicNamedObjectExtendedREF>(value);
             return(clone.values().iterator());
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2966)
-    public Map<StringName,TestBasicNamedObjectExtendedREF> getMVCopy(){
+    public Map<DefinitionName,TestBasicNamedObjectExtendedREF> getMVCopy(){
         synchronized(this){
-            Map<StringName,TestBasicNamedObjectExtendedREF> clone = null;
+            Map<DefinitionName,TestBasicNamedObjectExtendedREF> clone = null;
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED){
                 if (value == null)
-                    clone = new HashMap<StringName,TestBasicNamedObjectExtendedREF>();
+                    clone = new HashMap<DefinitionName,TestBasicNamedObjectExtendedREF>();
                 else
-                    clone = new HashMap<StringName,TestBasicNamedObjectExtendedREF>(value);
+                    clone = new HashMap<DefinitionName,TestBasicNamedObjectExtendedREF>(value);
             }
             else{
                 if (value == null)
-                    clone = new TreeMap<StringName,TestBasicNamedObjectExtendedREF>();
+                    clone = new TreeMap<DefinitionName,TestBasicNamedObjectExtendedREF>();
                 else
-                    clone = new TreeMap<StringName,TestBasicNamedObjectExtendedREF>(value);
+                    clone = new TreeMap<DefinitionName,TestBasicNamedObjectExtendedREF>(value);
             }
             return(clone);
         }
@@ -165,8 +165,8 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicN
            if (value == null)
                return(null);
     
-            if (key instanceof StringName)
-                return(value.get((StringName) key));
+            if (key instanceof DefinitionName)
+                return(value.get((DefinitionName) key));
             else
                 throw(new IllegalStateException("Incompatible type: " + key.getClass().getName() + " passed to del():" + getName()));
         }
@@ -195,7 +195,7 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicN
            if (value == null)
                return(false);
     
-           if (key instanceof StringName)
+           if (key instanceof DefinitionName)
                 return(value.containsKey(key));
             return(false);
         }

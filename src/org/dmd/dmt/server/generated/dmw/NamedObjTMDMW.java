@@ -5,7 +5,7 @@ package org.dmd.dmt.server.generated.dmw;
 import java.util.Iterator;                                        // Support MV object get() - (BaseDMWGeneratorNewest.java:2296)
 import java.util.TreeMap;                                         // To support getMVCopy() - (BaseDMWGeneratorNewest.java:1059)
 import org.dmd.dmc.*;                                             // If any attributes - (BaseDMWGeneratorNewest.java:956)
-import org.dmd.dmc.types.StringName;                              // Name type - (BaseDMWGeneratorNewest.java:2274)
+import org.dmd.dmc.types.DefinitionName;                          // Name type - (BaseDMWGeneratorNewest.java:2274)
 import org.dmd.dms.ClassDefinition;                               // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:940)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                       // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:945)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;             // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:944)
@@ -114,7 +114,7 @@ public class NamedObjTMDMW extends DmwWrapper {
      * @return the first key of the map.
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2280)
-    public StringName getTmNamedObjFirstKey(){
+    public DefinitionName getTmNamedObjFirstKey(){
         return(((NamedObjTMDMO) core).getTmNamedObjFirstKey());
     }
 
@@ -157,17 +157,17 @@ public class NamedObjTMDMW extends DmwWrapper {
      * @return A COPY of the collection of ObjWithRefs objects.
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2406)
-    public TreeMap<StringName,ObjWithRefs> getTmNamedObjCopy(){
+    public TreeMap<DefinitionName,ObjWithRefs> getTmNamedObjCopy(){
         DmcAttribute<?> attr = ((NamedObjTMDMO) core).get(DmtDMSAG.__tmNamedObj);
         if (attr == null)
-            return(new TreeMap<StringName,ObjWithRefs>());
+            return(new TreeMap<DefinitionName,ObjWithRefs>());
         
-        TreeMap<StringName,ObjWithRefs> rc = new TreeMap<StringName,ObjWithRefs>();
+        TreeMap<DefinitionName,ObjWithRefs> rc = new TreeMap<DefinitionName,ObjWithRefs>();
         
         ObjWithRefsIterableDMW it = getTmNamedObjIterable();
         while(it.hasNext()){
             ObjWithRefs obj = it.next();
-            rc.put((StringName) obj.getObjectName(),obj);
+            rc.put((DefinitionName) obj.getObjectName(),obj);
         }
         return(rc);
     }

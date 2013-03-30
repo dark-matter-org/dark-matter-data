@@ -6,17 +6,17 @@ import java.util.TreeMap;
 import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.types.DotName;
-import org.dmd.dmc.types.StringName;
+import org.dmd.dmc.types.DefinitionName;
 
 /**
  * The DmcDefinitionSet class provides a mechanism to store a set of definitions
- * with the possibility that the StringName of some of the definitions may clash.
+ * with the possibility that the DefinitionName of some of the definitions may clash.
  * @param <DEF> 
  */
 public class DmcDefinitionSet<DEF extends DmcDefinitionIF> {
 	
-	// The definitions keyed by StringName, there could be more than one definition with the same name
-	TreeMap<StringName,ArrayList<DEF>>	map;
+	// The definitions keyed by DefinitionName, there could be more than one definition with the same name
+	TreeMap<DefinitionName,ArrayList<DEF>>	map;
 	
 	// The dotnames of a set of definitions must be unique
 	TreeMap<DotName,DEF>	dotmap;
@@ -28,7 +28,7 @@ public class DmcDefinitionSet<DEF extends DmcDefinitionIF> {
 	 * Constructs a new definition set.
 	 */
 	public DmcDefinitionSet(){
-		map = new TreeMap<StringName, ArrayList<DEF>>();
+		map = new TreeMap<DefinitionName, ArrayList<DEF>>();
 		dotmap = new TreeMap<DotName, DEF>();
 	}
 	
@@ -55,7 +55,7 @@ public class DmcDefinitionSet<DEF extends DmcDefinitionIF> {
 	}
 	
 	/**
-	 * @return the length of the longest StringName
+	 * @return the length of the longest DefinitionName
 	 */
 	public int getLongestName(){
 		return(longestName);
