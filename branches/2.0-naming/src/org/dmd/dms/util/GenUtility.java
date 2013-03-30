@@ -26,7 +26,7 @@ import java.util.TreeSet;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.IntegerVar;
-import org.dmd.dmc.types.StringName;
+import org.dmd.dmc.types.DefinitionName;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
@@ -70,7 +70,7 @@ public class GenUtility {
 		boolean								anyAttributes	= false;
 		boolean								anyAttributesAtThisLevel = false;
 		IntegerVar							longestImport	= new IntegerVar();
-		TreeMap<StringName,TypeDefinition>	types 			= new TreeMap<StringName,TypeDefinition>();
+		TreeMap<DefinitionName,TypeDefinition>	types 			= new TreeMap<DefinitionName,TypeDefinition>();
 		TreeMap<String,TypeAndAttr>			typeAndAttr 	= new TreeMap<String,TypeAndAttr>();
 		TreeSet<String>						genericImports	= new TreeSet<String>();
 		
@@ -468,7 +468,7 @@ public class GenUtility {
 		ClassDefinition	cd 				= null;
 		boolean			needJavaUtil	= false;
 		boolean			anyAttributes	= false;
-		TreeMap<StringName,TypeDefinition>	types = new TreeMap<StringName,TypeDefinition>();
+		TreeMap<DefinitionName,TypeDefinition>	types = new TreeMap<DefinitionName,TypeDefinition>();
 		TreeSet<String>	genericImports	= new TreeSet<String>();
 		
 		anyMVAttributes.set(false);
@@ -558,7 +558,7 @@ public class GenUtility {
 		if (cd != null){
 			if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
 				try {
-					types.put(new StringName("String"), MetaSchema._String);
+					types.put(new DefinitionName("String"), MetaSchema._String);
 				} catch (DmcValueException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

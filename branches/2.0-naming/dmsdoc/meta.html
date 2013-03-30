@@ -263,6 +263,9 @@
  characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
+
 </table>
       </td>
     </tr>
@@ -294,6 +297,15 @@
  documentation for schema related definitions. The text provided should conform
  to XHTML concepts since it will be dumped in the context of the generated HTML
  documentation.      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dotName">dotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The dotName attribute is used to store dot separated names.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -420,7 +432,7 @@
  of information required to remotely trigger an action on an object. 
  Derivatives of this class are generated as part of the DMO generation
  process and have action specific interfaces to handle the parameters 
- required by an action.
+ required by an ActionDefinition.
  <p/>
  This mechanism is a replacement for the concept that ActionRequests were
  EXTENSIBLE objects. This way, the user can ask an object for the 
@@ -456,6 +468,9 @@
  characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
+
 </table>
       </td>
     </tr>
@@ -530,6 +545,9 @@
  characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
+
 </table>
       </td>
     </tr>
@@ -614,6 +632,15 @@
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The dmdID attribute is used to store a unique Dark Matter Definition ID for attributes.
  This is used as part of the serialization mechanisms built into Dark Matter Objects.      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dotName">dotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The dotName attribute is used to store dot separated names.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -851,6 +878,9 @@
  characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
+
 </table>
       </td>
     </tr>
@@ -935,6 +965,15 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="meta.html#dotName">dotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The dotName attribute is used to store dot separated names.      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#excludeFromContext">excludeFromContext</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The excludeFromContext attribute is used to indicate that
@@ -952,6 +991,34 @@
       <td> This attribute can be used on AUXILIARY classes to give a hint about their
  intended usage. For example, if you were extending schema definitions with some or your 
  own attributes for some purpose, your auxiliary class could have intendedToExtend ClassDefinition.      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#isDSDefinition">isDSDefinition</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> Indicates if the class defined by a ClassDefinition and its derivatives are part
+ of a domain specific set of definitions. For instance, the definitions associated with the meta schema are
+ considered a set of domain specific definitions for defining data objects; the dark-matter Model View
+ Whatever (MVW) definitions describe a set of domain specific concepts for defining aspects of a GWT
+ application.
+ <p/>
+ A domain specific definition must be named by name and must have dotName as an attribute because the 
+ generated class will implement the DmcDefinitionIF which assumes that these attributes exist. This
+ interface allows these definitions to be managed as part of a set of definitions.      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#isDSModule">isDSModule</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> Indicates if the class defined by a ClassDefinition is considered to be a 
+ module-level entity in terms of a set of domain specific definitions. The generated dark-matter wrapper
+ for the class will indicate that it implements the DmcModuleIF.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -1381,6 +1448,9 @@
  characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
+
 </table>
       </td>
     </tr>
@@ -1400,6 +1470,15 @@
  documentation for schema related definitions. The text provided should conform
  to XHTML concepts since it will be dumped in the context of the generated HTML
  documentation.      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dotName">dotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The dotName attribute is used to store dot separated names.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -1538,6 +1617,9 @@
  characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
+
 </table>
       </td>
     </tr>
@@ -1563,6 +1645,15 @@
       <td> <a href="meta.html#dependencies">dependencies</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#Dependency">Dependency</a> </td>
       <td> A set of references to Dependencies.      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dotName">dotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The dotName attribute is used to store dot separated names.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -1696,6 +1787,9 @@
  characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
+
 </table>
       </td>
     </tr>
@@ -1724,6 +1818,15 @@
  documentation for schema related definitions. The text provided should conform
  to XHTML concepts since it will be dumped in the context of the generated HTML
  documentation.      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dotName">dotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The dotName attribute is used to store dot separated names.      </td>
     </tr>
 
     <tr>
@@ -1826,8 +1929,25 @@
  characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
+
 </table>
       </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dotName">dotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The dotName attribute is used to store dot separated names.      </td>
     </tr>
 
     <tr>
@@ -1945,6 +2065,9 @@
 
 <table>
 <tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
+
+<tr> <td class="attributeRule">
 <a class="blackText" href="dmv.html#dmvEnumDefinitionNameCheck"> An EnumDefinition's name must end with Enum </a></td> </tr>
 
 </table>
@@ -1966,6 +2089,15 @@
  documentation for schema related definitions. The text provided should conform
  to XHTML concepts since it will be dumped in the context of the generated HTML
  documentation.      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dotName">dotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The dotName attribute is used to store dot separated names.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2104,6 +2236,9 @@
  characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
+
 </table>
       </td>
     </tr>
@@ -2123,6 +2258,15 @@
  documentation for schema related definitions. The text provided should conform
  to XHTML concepts since it will be dumped in the context of the generated HTML
  documentation.      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dotName">dotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The dotName attribute is used to store dot separated names.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2291,6 +2435,9 @@
  characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
+
 </table>
       </td>
     </tr>
@@ -2346,6 +2493,15 @@
       <td> Indicates how the DmcAttributeInfo should be extracted from one of the ruleParam values
  associated with a RuleCategory. If additional classes are required to support this access, you can specify ruleImport
  values as appropriate.      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dotName">dotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The dotName attribute is used to store dot separated names.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2663,6 +2819,9 @@
  characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
+
 </table>
       </td>
     </tr>
@@ -2688,6 +2847,15 @@
       <td> <a href="meta.html#dependency">dependency</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Dependency">Dependency</a> </td>
       <td> A reference to a single Dependency.      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dotName">dotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The dotName attribute is used to store dot separated names.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2823,6 +2991,9 @@
  characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
+
 </table>
       </td>
     </tr>
@@ -2842,6 +3013,15 @@
  documentation for schema related definitions. The text provided should conform
  to XHTML concepts since it will be dumped in the context of the generated HTML
  documentation.      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dotName">dotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The dotName attribute is used to store dot separated names.      </td>
     </tr>
 
     <tr>
@@ -2957,6 +3137,9 @@
  characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
+
 </table>
       </td>
     </tr>
@@ -3052,6 +3235,15 @@
  have to have this same attribute specified so that, if there were derived classes across
  schemas, the appropriate wrapper derivations could be determined. See the ClassDefintion.adjustClass()
  method to see how this is used.      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dotName">dotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The dotName attribute is used to store dot separated names.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -3298,6 +3490,9 @@
  characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
+
 </table>
       </td>
     </tr>
@@ -3327,6 +3522,15 @@
  documentation for schema related definitions. The text provided should conform
  to XHTML concepts since it will be dumped in the context of the generated HTML
  documentation.      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dotName">dotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The dotName attribute is used to store dot separated names.      </td>
     </tr>
 
     <tr>
@@ -3516,6 +3720,9 @@
  characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
+
 </table>
       </td>
     </tr>
@@ -3568,6 +3775,15 @@
  documentation for schema related definitions. The text provided should conform
  to XHTML concepts since it will be dumped in the context of the generated HTML
  documentation.      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dotName">dotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The dotName attribute is used to store dot separated names.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -3841,10 +4057,10 @@
         <table>
         <tr>
           <td> ActionRequest (<a href="dmp.html#ActionRequest">dmp</a>) </td>
-          <td> DotNamedObject (<a href="dmr.base.html#DotNamedObject">dmr.base</a>) </td>
-          <td> HierarchicObject (<a href="dmr.base.html#HierarchicObject">dmr.base</a>) </td>
+          <td> DotNamedObject (<a href="dmrbase.html#DotNamedObject">dmrbase</a>) </td>
+          <td> HierarchicObject (<a href="dmrbase.html#HierarchicObject">dmrbase</a>) </td>
         <tr>
-          <td> LDAPHierarchicObject (<a href="dmr.ldap.html#LDAPHierarchicObject">dmr.ldap</a>) </td>
+          <td> LDAPHierarchicObject (<a href="dmrldap.html#LDAPHierarchicObject">dmrldap</a>) </td>
         </tr>
         </table>
       </td>
@@ -5337,6 +5553,9 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       <td class="label">Used in:</td>
       <td>
         <table>
+        <tr>
+          <td> DmsDefinition (<a href="meta.html#DmsDefinition">meta</a>) </td>
+        </tr>
         </table>
       </td>
     </tr>
@@ -5659,7 +5878,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
         <table>
         <tr>
           <td> DmsDefinition (<a href="meta.html#DmsDefinition">meta</a>) </td>
-          <td> HierarchicObject (<a href="dmr.base.html#HierarchicObject">dmr.base</a>) </td>
+          <td> HierarchicObject (<a href="dmrbase.html#HierarchicObject">dmrbase</a>) </td>
           <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
         </tr>
         </table>
@@ -6107,6 +6326,70 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     </tr>
 
 <!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="isDSDefinition"> isDSDefinition </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#Boolean">Boolean</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>Indicates if the class defined by a ClassDefinition and its derivatives are part
+ of a domain specific set of definitions. For instance, the definitions associated with the meta schema are
+ considered a set of domain specific definitions for defining data objects; the dark-matter Model View
+ Whatever (MVW) definitions describe a set of domain specific concepts for defining aspects of a GWT
+ application.
+ <p/>
+ A domain specific definition must be named by name and must have dotName as an attribute because the 
+ generated class will implement the DmcDefinitionIF which assumes that these attributes exist. This
+ interface allows these definitions to be managed as part of a set of definitions.<p/>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        <tr>
+          <td> ClassDefinition (<a href="meta.html#ClassDefinition">meta</a>) </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="isDSModule"> isDSModule </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#Boolean">Boolean</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>Indicates if the class defined by a ClassDefinition is considered to be a 
+ module-level entity in terms of a set of domain specific definitions. The generated dark-matter wrapper
+ for the class will indicate that it implements the DmcModuleIF.<p/>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        <tr>
+          <td> ClassDefinition (<a href="meta.html#ClassDefinition">meta</a>) </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="isDefaultValue"> isDefaultValue </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6499,7 +6782,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
         <table>
         <tr>
           <td> DmsDefinition (<a href="meta.html#DmsDefinition">meta</a>) </td>
-          <td> HierarchicObject (<a href="dmr.base.html#HierarchicObject">dmr.base</a>) </td>
+          <td> HierarchicObject (<a href="dmrbase.html#HierarchicObject">dmrbase</a>) </td>
           <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
         </tr>
         </table>
@@ -6830,7 +7113,8 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       <td>The name attribute is used to store a single string token that represents a unique name
  for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
  characters are allowed. All names must start with a character.<p/>
-An EnumDefinition's name must end with Enum
+The name attribute must start with a letter, followed by a mix of letters and numbers.
+<p/>An EnumDefinition's name must end with Enum
 <p/>      </td>
     </tr>
 
@@ -6953,7 +7237,7 @@ An EnumDefinition's name must end with Enum
       <td>
         <table>
         <tr>
-          <td> LDAPClassAUX (<a href="dmr.ldap.html#LDAPClassAUX">dmr.ldap</a>) </td>
+          <td> LDAPClassAUX (<a href="dmrldap.html#LDAPClassAUX">dmrldap</a>) </td>
         </tr>
         </table>
       </td>
@@ -8107,41 +8391,45 @@ An EnumDefinition's name must end with Enum
 </tr>
   <tr>
     <td> internallyGenerated (<a href="meta.html#internallyGenerated">meta</a>) </td>
+    <td> isDSDefinition (<a href="meta.html#isDSDefinition">meta</a>) </td>
+    <td> isDSModule (<a href="meta.html#isDSModule">meta</a>) </td>
+</tr>
+  <tr>
     <td> isDefaultValue (<a href="meta.html#isDefaultValue">meta</a>) </td>
     <td> isEnumType (<a href="meta.html#isEnumType">meta</a>) </td>
+    <td> isExtendedRefType (<a href="meta.html#isExtendedRefType">meta</a>) </td>
 </tr>
   <tr>
-    <td> isExtendedRefType (<a href="meta.html#isExtendedRefType">meta</a>) </td>
     <td> isExtensible (<a href="meta.html#isExtensible">meta</a>) </td>
     <td> isFilterType (<a href="meta.html#isFilterType">meta</a>) </td>
+    <td> isGetAction (<a href="meta.html#isGetAction">meta</a>) </td>
 </tr>
   <tr>
-    <td> isGetAction (<a href="meta.html#isGetAction">meta</a>) </td>
     <td> isHierarchicName (<a href="meta.html#isHierarchicName">meta</a>) </td>
     <td> isNameType (<a href="meta.html#isNameType">meta</a>) </td>
+    <td> isRefType (<a href="meta.html#isRefType">meta</a>) </td>
 </tr>
   <tr>
-    <td> isRefType (<a href="meta.html#isRefType">meta</a>) </td>
     <td> isSchemaRtype (<a href="meta.html#isSchemaRtype">meta</a>) </td>
     <td> lastResponse (<a href="dmp.html#lastResponse">dmp</a>) </td>
+    <td> maySendProgress (<a href="meta.html#maySendProgress">meta</a>) </td>
 </tr>
   <tr>
-    <td> maySendProgress (<a href="meta.html#maySendProgress">meta</a>) </td>
     <td> mvBoolean (<a href="dmt.html#mvBoolean">dmt</a>) </td>
     <td> myOwnEvent (<a href="dmp.html#myOwnEvent">dmp</a>) </td>
+    <td> notifyOriginator (<a href="dmp.html#notifyOriginator">dmp</a>) </td>
 </tr>
   <tr>
-    <td> notifyOriginator (<a href="dmp.html#notifyOriginator">dmp</a>) </td>
     <td> onOff (<a href="dmt.html#onOff">dmt</a>) </td>
     <td> preserveNewlines (<a href="meta.html#preserveNewlines">meta</a>) </td>
+    <td> readableFormat (<a href="dmp.html#readableFormat">dmp</a>) </td>
 </tr>
   <tr>
-    <td> readableFormat (<a href="dmp.html#readableFormat">dmp</a>) </td>
     <td> registerForEvents (<a href="dmp.html#registerForEvents">dmp</a>) </td>
     <td> secure (<a href="meta.html#secure">meta</a>) </td>
+    <td> supportsBackrefTracking (<a href="meta.html#supportsBackrefTracking">meta</a>) </td>
 </tr>
   <tr>
-    <td> supportsBackrefTracking (<a href="meta.html#supportsBackrefTracking">meta</a>) </td>
     <td> svBoolean (<a href="dmt.html#svBoolean">dmt</a>) </td>
     <td> trackingEnabled (<a href="dmp.html#trackingEnabled">dmp</a>) </td>
 </tr>
@@ -9080,7 +9368,7 @@ An EnumDefinition's name must end with Enum
   <tr>
     <td> keyClass (<a href="meta.html#keyClass">meta</a>) </td>
     <td> keyImport (<a href="meta.html#keyImport">meta</a>) </td>
-    <td> ldapIdPrefix (<a href="dmr.ldap.html#ldapIdPrefix">dmr.ldap</a>) </td>
+    <td> ldapIdPrefix (<a href="dmrldap.html#ldapIdPrefix">dmrldap</a>) </td>
 </tr>
   <tr>
     <td> matchesPattern (<a href="dmv.html#matchesPattern">dmv</a>) </td>
@@ -9095,11 +9383,11 @@ An EnumDefinition's name must end with Enum
   <tr>
     <td> nullReturnValue (<a href="meta.html#nullReturnValue">meta</a>) </td>
     <td> obsoleteVersion (<a href="meta.html#obsoleteVersion">meta</a>) </td>
-    <td> password (<a href="dmr.base.html#password">dmr.base</a>) </td>
+    <td> password (<a href="dmrbase.html#password">dmrbase</a>) </td>
 </tr>
   <tr>
     <td> primitiveType (<a href="meta.html#primitiveType">meta</a>) </td>
-    <td> reposName (<a href="dmr.ldap.html#reposName">dmr.ldap</a>) </td>
+    <td> reposName (<a href="dmrldap.html#reposName">dmrldap</a>) </td>
     <td> requestRoot (<a href="dmp.html#requestRoot">dmp</a>) </td>
 </tr>
   <tr>
@@ -9129,7 +9417,7 @@ An EnumDefinition's name must end with Enum
 </tr>
   <tr>
     <td> userFQN (<a href="dmp.html#userFQN">dmp</a>) </td>
-    <td> userName (<a href="dmr.base.html#userName">dmr.base</a>) </td>
+    <td> userName (<a href="dmrbase.html#userName">dmrbase</a>) </td>
     <td> usesInterface (<a href="meta.html#usesInterface">meta</a>) </td>
 </tr>
   <tr>
@@ -10161,8 +10449,8 @@ SPACE</td>
     <div id="sidebar">
         <a class="navLink" href="dmg.html"> dmg</a>
         <a class="navLink" href="dmp.html"> dmp</a>
-        <a class="navLink" href="dmr.base.html"> dmr.base</a>
-        <a class="navLink" href="dmr.ldap.html"> dmr.ldap</a>
+        <a class="navLink" href="dmrbase.html"> dmrbase</a>
+        <a class="navLink" href="dmrldap.html"> dmrldap</a>
         <a class="navLink" href="dmt.html"> dmt</a>
         <a class="navLink" href="dmv.html"> dmv</a>
         <a class="navLink" href="map.html"> map</a>

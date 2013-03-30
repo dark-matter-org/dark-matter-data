@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcMappedAttributeIF;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dmc.types.StringName;    // key type import
+import org.dmd.dmc.types.DefinitionName;    // key type import
 /**
  * The DmcTypeWrapperGeneratorREFMAP provides storage for a map of WrapperGeneratorREF
  * <P>
@@ -34,12 +34,12 @@ import org.dmd.dmc.types.StringName;    // key type import
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeWrapperGeneratorREFMAP extends DmcTypeWrapperGeneratorREF<WrapperGeneratorREF,StringName> {
+// public class DmcTypeWrapperGeneratorREFMAP extends DmcTypeWrapperGeneratorREF<WrapperGeneratorREF,DefinitionName> {
 public class DmcTypeWrapperGeneratorREFMAP extends DmcTypeWrapperGeneratorREF implements Serializable {
     
-    private final static Iterator<WrapperGeneratorREF> emptyList = (new HashMap<StringName,WrapperGeneratorREF>()).values().iterator();
+    private final static Iterator<WrapperGeneratorREF> emptyList = (new HashMap<DefinitionName,WrapperGeneratorREF>()).values().iterator();
     
-    protected Map<StringName,WrapperGeneratorREF> value;
+    protected Map<DefinitionName,WrapperGeneratorREF> value;
     
     public DmcTypeWrapperGeneratorREFMAP(){
         value = null;
@@ -52,16 +52,16 @@ public class DmcTypeWrapperGeneratorREFMAP extends DmcTypeWrapperGeneratorREF im
     
     void initValue(){
         if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
-            value = new HashMap<StringName,WrapperGeneratorREF>();
+            value = new HashMap<DefinitionName,WrapperGeneratorREF>();
         else
-            value = new TreeMap<StringName,WrapperGeneratorREF>();
+            value = new TreeMap<DefinitionName,WrapperGeneratorREF>();
     }
     
-    public StringName firstKey(){
+    public DefinitionName firstKey(){
         if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
-            TreeMap<StringName,WrapperGeneratorREF> map = (TreeMap<StringName,WrapperGeneratorREF>)value;
+            TreeMap<DefinitionName,WrapperGeneratorREF> map = (TreeMap<DefinitionName,WrapperGeneratorREF>)value;
             return(map.firstKey());
         }
         throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
@@ -98,7 +98,7 @@ public class DmcTypeWrapperGeneratorREFMAP extends DmcTypeWrapperGeneratorREF im
             WrapperGeneratorREF newval = typeCheck(v);
             if (value == null)
                 initValue();
-            StringName key = (StringName)((DmcMappedAttributeIF)newval).getKey();
+            DefinitionName key = (DefinitionName)((DmcMappedAttributeIF)newval).getKey();
             WrapperGeneratorREF oldval = value.put(key,newval);
             
             if (oldval != null){
@@ -119,7 +119,7 @@ public class DmcTypeWrapperGeneratorREFMAP extends DmcTypeWrapperGeneratorREF im
             if (value == null)
                 return(null);
     
-           if (key instanceof StringName)
+           if (key instanceof DefinitionName)
                 return(value.remove(key));
             else
                 throw(new IllegalStateException("Incompatible key type: " + key.getClass().getName() + " passed to del():" + getName()));
@@ -134,30 +134,30 @@ public class DmcTypeWrapperGeneratorREFMAP extends DmcTypeWrapperGeneratorREF im
             if (value == null)
                 return(emptyList);
     
-            Map<StringName,WrapperGeneratorREF> clone = null;
+            Map<DefinitionName,WrapperGeneratorREF> clone = null;
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
-                clone = new HashMap<StringName,WrapperGeneratorREF>(value);
+                clone = new HashMap<DefinitionName,WrapperGeneratorREF>(value);
             else
-                clone = new TreeMap<StringName,WrapperGeneratorREF>(value);
+                clone = new TreeMap<DefinitionName,WrapperGeneratorREF>(value);
             return(clone.values().iterator());
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2966)
-    public Map<StringName,WrapperGeneratorREF> getMVCopy(){
+    public Map<DefinitionName,WrapperGeneratorREF> getMVCopy(){
         synchronized(this){
-            Map<StringName,WrapperGeneratorREF> clone = null;
+            Map<DefinitionName,WrapperGeneratorREF> clone = null;
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED){
                 if (value == null)
-                    clone = new HashMap<StringName,WrapperGeneratorREF>();
+                    clone = new HashMap<DefinitionName,WrapperGeneratorREF>();
                 else
-                    clone = new HashMap<StringName,WrapperGeneratorREF>(value);
+                    clone = new HashMap<DefinitionName,WrapperGeneratorREF>(value);
             }
             else{
                 if (value == null)
-                    clone = new TreeMap<StringName,WrapperGeneratorREF>();
+                    clone = new TreeMap<DefinitionName,WrapperGeneratorREF>();
                 else
-                    clone = new TreeMap<StringName,WrapperGeneratorREF>(value);
+                    clone = new TreeMap<DefinitionName,WrapperGeneratorREF>(value);
             }
             return(clone);
         }
@@ -180,8 +180,8 @@ public class DmcTypeWrapperGeneratorREFMAP extends DmcTypeWrapperGeneratorREF im
            if (value == null)
                return(null);
     
-            if (key instanceof StringName)
-                return(value.get((StringName) key));
+            if (key instanceof DefinitionName)
+                return(value.get((DefinitionName) key));
             else
                 throw(new IllegalStateException("Incompatible type: " + key.getClass().getName() + " passed to del():" + getName()));
         }
@@ -210,7 +210,7 @@ public class DmcTypeWrapperGeneratorREFMAP extends DmcTypeWrapperGeneratorREF im
            if (value == null)
                return(false);
     
-           if (key instanceof StringName)
+           if (key instanceof DefinitionName)
                 return(value.containsKey(key));
             return(false);
         }

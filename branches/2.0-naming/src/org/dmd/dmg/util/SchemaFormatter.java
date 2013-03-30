@@ -24,7 +24,7 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcObject;
-import org.dmd.dmc.types.StringName;
+import org.dmd.dmc.types.DefinitionName;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
@@ -78,7 +78,7 @@ public class SchemaFormatter {
 	// classes we need to this tree
 	// Key:   aux class name
 	// Value: aux class package
-	TreeMap<StringName,String>	auxImports;
+	TreeMap<DefinitionName,String>	auxImports;
 	
 	// The names of attributes that we don't dump as code - these are generated internally
 	// by the SchemaManager
@@ -123,7 +123,7 @@ public class SchemaFormatter {
 	public void dumpSchema(String genDir, String genPackage, SchemaDefinition schema, SchemaManager sm) throws IOException{
 		boolean	hasDependency = false;
 		
-		auxImports = new TreeMap<StringName, String>();
+		auxImports = new TreeMap<DefinitionName, String>();
 		
 		if (schema.getDependsOn() != null)
 			hasDependency = true;
@@ -158,7 +158,7 @@ public class SchemaFormatter {
         out.write("import org.dmd.dms.generated.dmo.*;\n");
         out.write("import " + schema.getSchemaPackage() + ".generated.dmo." + asagName + ";\n\n");
         
-        for(StringName key : auxImports.keySet()){
+        for(DefinitionName key : auxImports.keySet()){
         	out.write("import " + auxImports.get(key) + ";\n");
         }
         
@@ -202,6 +202,7 @@ public class SchemaFormatter {
         
         out.write("            SchemaDefinitionDMO me = (SchemaDefinitionDMO) this.getDmcObject();\n");
         out.write("            me.setName(\"" + 			schema.getName() + "\");\n");
+        out.write("            me.setDotName(\"" + 			schema.getName() + "\");\n");
         out.write("            me.setSchemaPackage(\"" + 	schema.getSchemaPackage() + "\");\n");
         out.write("            me.setDmwPackage(\"" + 		schema.getDmwPackage() + "\");\n");
         out.write("            me.setFile(\"" + 			schema.getFile() + "\");\n\n");

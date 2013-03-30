@@ -57,6 +57,7 @@ public class DmrbaseSchemaAG extends SchemaDefinition {
             instance        = this;
             SchemaDefinitionDMO me = (SchemaDefinitionDMO) this.getDmcObject();
             me.setName("dmrbase");
+            me.setDotName("dmrbase");
             me.setSchemaPackage("org.dmd.dmr.shared.base");
             me.setDmwPackage("org.dmd.dmr.server.base");
             me.setFile("/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/dmrbase.dms");
@@ -73,7 +74,7 @@ public class DmrbaseSchemaAG extends SchemaDefinition {
     }
 
     private void initClasses() throws DmcValueException {
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _HierarchicObjectOBJ = new ClassDefinitionDMO();
             _HierarchicObject = new ClassDefinition(_HierarchicObjectOBJ,DmrbaseDMSAG.__HierarchicObject);
             _HierarchicObjectOBJ.setName("HierarchicObject");
@@ -94,7 +95,7 @@ public class DmrbaseSchemaAG extends SchemaDefinition {
             _HierarchicObject.setDefinedIn(this);
             addClassDefList(_HierarchicObject);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _DotNamedObjectOBJ = new ClassDefinitionDMO();
             _DotNamedObject = new ClassDefinition(_DotNamedObjectOBJ,DmrbaseDMSAG.__DotNamedObject);
             _DotNamedObjectOBJ.setName("DotNamedObject");
@@ -117,7 +118,7 @@ public class DmrbaseSchemaAG extends SchemaDefinition {
     }
 
     private void initAttributes1() throws DmcValueException {
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _userNameOBJ = new AttributeDefinitionDMO();
             _userName = new AttributeDefinition(_userNameOBJ);
             _userNameOBJ.setType("String");
@@ -131,7 +132,7 @@ public class DmrbaseSchemaAG extends SchemaDefinition {
             _userNameOBJ.setLineNumber("47");
             addAttributeDefList(_userName);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _passwordOBJ = new AttributeDefinitionDMO();
             _password = new AttributeDefinition(_passwordOBJ);
             _passwordOBJ.setType("String");

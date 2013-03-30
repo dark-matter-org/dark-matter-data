@@ -17,7 +17,7 @@ package org.dmd.dmc.definitions;
 
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.types.DotName;
-import org.dmd.dmc.types.StringName;
+import org.dmd.dmc.types.DefinitionName;
 
 /**
  * The DmcDefinitionIF interface provides a common interface for definitions
@@ -28,7 +28,7 @@ import org.dmd.dmc.types.StringName;
  */
 public interface DmcDefinitionIF {
 
-	public StringName getName();
+	public DefinitionName getName();
 	
 	public DotName getDotName();
 	

@@ -16,12 +16,12 @@
 package org.dmd.dms.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1868)
-import java.io.Serializable;                  // Serializable marker interface - (MetaGenerator.java:1817)
-import java.util.*;                           // Attribute info support - (MetaGenerator.java:1819)
-import org.dmd.dmc.*;                         // Dark matter core - (MetaGenerator.java:1841)
-import org.dmd.dmc.types.*;                   // Basic type access - (MetaGenerator.java:1831)
-import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGenerator.java:1857)
+// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1867)
+import java.io.Serializable;                  // Serializable marker interface - (MetaGenerator.java:1816)
+import java.util.*;                           // Attribute info support - (MetaGenerator.java:1818)
+import org.dmd.dmc.*;                         // Dark matter core - (MetaGenerator.java:1840)
+import org.dmd.dmc.types.*;                   // Basic type access - (MetaGenerator.java:1830)
+import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGenerator.java:1856)
 
 
 /**
@@ -35,7 +35,7 @@ import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGe
  * particular action and have a well defined\n interface to specify the
  * parameters for the action.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1878)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1877)
  */
 @SuppressWarnings("serial")
 public class ActionTriggerInfoDMO extends DmcObject implements Serializable  {
@@ -87,13 +87,12 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable  {
 
     /**
      * The name attribute is used to store a single string token that represents
-     * a unique name\n for an object. A name should be composed of characters in
-     * the range, [a-z] [A-Z] [0-9]. No whitespace\n characters are allowed. All
-     * names must start with a character.
+     * a unique name\n for an object with the set of definitions of which it is a
+     * part. A name starts with a letter followed\n by letters and numbers.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2268)
-    public StringName getName(){
-        DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2267)
+    public DefinitionName getName(){
+        DmcTypeDefinitionNameSV attr = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
             return(null);
 
@@ -102,13 +101,13 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable  {
 
     /**
      * Sets name to the specified value.
-     * @param value A value compatible with DmcTypeStringNameSV
+     * @param value A value compatible with DmcTypeDefinitionNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2361)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2360)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
-            attr = new DmcTypeStringNameSV(MetaDMSAG.__name);
+            attr = new DmcTypeDefinitionNameSV(MetaDMSAG.__name);
         
         attr.set(value);
         set(MetaDMSAG.__name,attr);

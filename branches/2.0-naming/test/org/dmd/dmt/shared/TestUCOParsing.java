@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.types.StringName;
+import org.dmd.dmc.types.DefinitionName;
 import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;
 import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;
 import org.dmd.dmt.shared.generated.dmo.ParseTestDMO;
@@ -52,7 +52,7 @@ public class TestUCOParsing {
 		dmo.addMvUnnamedObj(tbof);
 		
 		ObjWithRefsDMO owr = new ObjWithRefsDMO();
-		owr.setName(new StringName("obj1"));
+		owr.setName(new DefinitionName("obj1"));
 		owr.setOnOff(true);
 		
 		dmo.setNthMvIdxNamedObj(2, owr);

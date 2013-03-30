@@ -30,7 +30,7 @@ import org.dmd.dmc.types.DmcTypeDouble;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2602)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:641)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:640)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDoubleSET extends DmcTypeDouble implements Serializable {

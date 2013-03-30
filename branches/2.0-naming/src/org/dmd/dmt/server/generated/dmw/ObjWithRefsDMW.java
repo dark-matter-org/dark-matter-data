@@ -12,9 +12,10 @@ import org.dmd.dmc.*;                                                           
 import org.dmd.dmc.DmcAttributeInfo;                                             // Alternative type for AttributeID values - (BaseDMWGeneratorNewest.java:1027)
 import org.dmd.dmc.DmcObjectName;                                                // Alternative type for NameContainer values - (BaseDMWGeneratorNewest.java:1027)
 import org.dmd.dmc.types.AttributeID;                                            // Primitive type - (BaseDMWGeneratorNewest.java:1019)
+import org.dmd.dmc.types.DefinitionName;                                         // Is named by - (BaseDMWGeneratorNewest.java:935)
 import org.dmd.dmc.types.IntegerToString;                                        // Primitive type - (BaseDMWGeneratorNewest.java:1019)
 import org.dmd.dmc.types.NameContainer;                                          // Primitive type - (BaseDMWGeneratorNewest.java:1019)
-import org.dmd.dmc.types.StringName;                                             // Is named by - (BaseDMWGeneratorNewest.java:935)
+import org.dmd.dmc.types.StringName;                                             // Primitive type - (BaseDMWGeneratorNewest.java:1019)
 import org.dmd.dms.ClassDefinition;                                              // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:940)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                      // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:945)
 import org.dmd.dms.generated.dmw.AttributeIDIterableDMW;                         // For multi-valued AttributeID - (BaseDMWGeneratorNewest.java:1970)
@@ -90,7 +91,7 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
     }
 
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1166)
-    public StringName getObjectName(){
+    public DefinitionName getObjectName(){
         return(((ObjWithRefsDMO) core).getName());
     }
 
@@ -1685,13 +1686,13 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
     }
 
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1343)
-    public StringName getName(){
+    public DefinitionName getName(){
         return(((ObjWithRefsDMO) core).getName());
     }
 
     /**
      * Sets name to the specified value.
-     * @param value A value compatible with DmcTypeStringName
+     * @param value A value compatible with DmcTypeDefinitionName
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1453)
     public void setName(Object value) throws DmcValueException {
@@ -1700,10 +1701,10 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
 
     /**
      * Sets name to the specified value.
-     * @param value StringName
+     * @param value DefinitionName
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1462)
-    public void setName(StringName value){
+    public void setName(DefinitionName value){
         ((ObjWithRefsDMO) core).setName(value);
     }
 
@@ -1956,17 +1957,17 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
      * @return A COPY of the collection of ObjWithRefs objects.
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2406)
-    public HashMap<StringName,ObjWithRefs> getObjRefHMCopy(){
+    public HashMap<DefinitionName,ObjWithRefs> getObjRefHMCopy(){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(DmtDMSAG.__objRefHM);
         if (attr == null)
-            return(new HashMap<StringName,ObjWithRefs>());
+            return(new HashMap<DefinitionName,ObjWithRefs>());
         
-        HashMap<StringName,ObjWithRefs> rc = new HashMap<StringName,ObjWithRefs>();
+        HashMap<DefinitionName,ObjWithRefs> rc = new HashMap<DefinitionName,ObjWithRefs>();
         
         ObjWithRefsIterableDMW it = getObjRefHMIterable();
         while(it.hasNext()){
             ObjWithRefs obj = it.next();
-            rc.put((StringName) obj.getObjectName(),obj);
+            rc.put((DefinitionName) obj.getObjectName(),obj);
         }
         return(rc);
     }

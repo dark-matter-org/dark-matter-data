@@ -134,6 +134,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             instance        = this;
             SchemaDefinitionDMO me = (SchemaDefinitionDMO) this.getDmcObject();
             me.setName("dmp");
+            me.setDotName("dmp");
             me.setSchemaPackage("org.dmd.dmp.shared");
             me.setDmwPackage("org.dmd.dmp.server");
             me.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/dmp.dms");
@@ -155,7 +156,7 @@ public class DmpSchemaAG extends SchemaDefinition {
     }
 
     private void initClasses() throws DmcValueException {
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _DMPMessageOBJ = new ClassDefinitionDMO();
             _DMPMessage = new ClassDefinition(_DMPMessageOBJ,DmpDMSAG.__DMPMessage);
             _DMPMessageOBJ.setName("DMPMessage");
@@ -178,7 +179,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DMPMessage.setDefinedIn(this);
             addClassDefList(_DMPMessage);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _RequestOBJ = new ClassDefinitionDMO();
             _Request = new ClassDefinition(_RequestOBJ,DmpDMSAG.__Request);
             _RequestOBJ.setName("Request");
@@ -204,7 +205,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _Request.setDefinedIn(this);
             addClassDefList(_Request);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _ResponseOBJ = new ClassDefinitionDMO();
             _Response = new ClassDefinition(_ResponseOBJ,DmpDMSAG.__Response);
             _ResponseOBJ.setName("Response");
@@ -228,7 +229,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _Response.setDefinedIn(this);
             addClassDefList(_Response);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _LoginRequestOBJ = new ClassDefinitionDMO();
             _LoginRequest = new ClassDefinition(_LoginRequestOBJ,DmpDMSAG.__LoginRequest);
             _LoginRequestOBJ.setName("LoginRequest");
@@ -248,7 +249,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _LoginRequest.setDefinedIn(this);
             addClassDefList(_LoginRequest);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _LoginResponseOBJ = new ClassDefinitionDMO();
             _LoginResponse = new ClassDefinition(_LoginResponseOBJ,DmpDMSAG.__LoginResponse);
             _LoginResponseOBJ.setName("LoginResponse");
@@ -270,7 +271,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _LoginResponse.setDefinedIn(this);
             addClassDefList(_LoginResponse);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _LogoutRequestOBJ = new ClassDefinitionDMO();
             _LogoutRequest = new ClassDefinition(_LogoutRequestOBJ,DmpDMSAG.__LogoutRequest);
             _LogoutRequestOBJ.setName("LogoutRequest");
@@ -290,7 +291,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _LogoutRequest.setDefinedIn(this);
             addClassDefList(_LogoutRequest);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _LogoutResponseOBJ = new ClassDefinitionDMO();
             _LogoutResponse = new ClassDefinition(_LogoutResponseOBJ,DmpDMSAG.__LogoutResponse);
             _LogoutResponseOBJ.setName("LogoutResponse");
@@ -309,7 +310,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _LogoutResponse.setDefinedIn(this);
             addClassDefList(_LogoutResponse);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _GetRequestOBJ = new ClassDefinitionDMO();
             _GetRequest = new ClassDefinition(_GetRequestOBJ,DmpDMSAG.__GetRequest);
             _GetRequestOBJ.setName("GetRequest");
@@ -337,7 +338,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _GetRequest.setDefinedIn(this);
             addClassDefList(_GetRequest);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _GetResponseOBJ = new ClassDefinitionDMO();
             _GetResponse = new ClassDefinition(_GetResponseOBJ,DmpDMSAG.__GetResponse);
             _GetResponseOBJ.setName("GetResponse");
@@ -360,7 +361,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _GetResponse.setDefinedIn(this);
             addClassDefList(_GetResponse);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _ActionRequestOBJ = new ClassDefinitionDMO();
             _ActionRequest = new ClassDefinition(_ActionRequestOBJ,DmpDMSAG.__ActionRequest);
             _ActionRequestOBJ.setName("ActionRequest");
@@ -383,7 +384,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ActionRequest.setDefinedIn(this);
             addClassDefList(_ActionRequest);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _ActionResponseOBJ = new ClassDefinitionDMO();
             _ActionResponse = new ClassDefinition(_ActionResponseOBJ,DmpDMSAG.__ActionResponse);
             _ActionResponseOBJ.setName("ActionResponse");
@@ -404,7 +405,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ActionResponse.setDefinedIn(this);
             addClassDefList(_ActionResponse);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _SetRequestOBJ = new ClassDefinitionDMO();
             _SetRequest = new ClassDefinition(_SetRequestOBJ,DmpDMSAG.__SetRequest);
             _SetRequestOBJ.setName("SetRequest");
@@ -425,7 +426,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _SetRequest.setDefinedIn(this);
             addClassDefList(_SetRequest);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _SetResponseOBJ = new ClassDefinitionDMO();
             _SetResponse = new ClassDefinition(_SetResponseOBJ,DmpDMSAG.__SetResponse);
             _SetResponseOBJ.setName("SetResponse");
@@ -446,7 +447,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _SetResponse.setDefinedIn(this);
             addClassDefList(_SetResponse);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _CreateRequestOBJ = new ClassDefinitionDMO();
             _CreateRequest = new ClassDefinition(_CreateRequestOBJ,DmpDMSAG.__CreateRequest);
             _CreateRequestOBJ.setName("CreateRequest");
@@ -467,7 +468,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _CreateRequest.setDefinedIn(this);
             addClassDefList(_CreateRequest);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _CreateResponseOBJ = new ClassDefinitionDMO();
             _CreateResponse = new ClassDefinition(_CreateResponseOBJ,DmpDMSAG.__CreateResponse);
             _CreateResponseOBJ.setName("CreateResponse");
@@ -486,7 +487,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _CreateResponse.setDefinedIn(this);
             addClassDefList(_CreateResponse);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _DeleteRequestOBJ = new ClassDefinitionDMO();
             _DeleteRequest = new ClassDefinition(_DeleteRequestOBJ,DmpDMSAG.__DeleteRequest);
             _DeleteRequestOBJ.setName("DeleteRequest");
@@ -506,7 +507,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DeleteRequest.setDefinedIn(this);
             addClassDefList(_DeleteRequest);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _DeleteResponseOBJ = new ClassDefinitionDMO();
             _DeleteResponse = new ClassDefinition(_DeleteResponseOBJ,DmpDMSAG.__DeleteResponse);
             _DeleteResponseOBJ.setName("DeleteResponse");
@@ -525,7 +526,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DeleteResponse.setDefinedIn(this);
             addClassDefList(_DeleteResponse);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _DMPEventOBJ = new ClassDefinitionDMO();
             _DMPEvent = new ClassDefinition(_DMPEventOBJ,DmpDMSAG.__DMPEvent);
             _DMPEventOBJ.setName("DMPEvent");
@@ -555,7 +556,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DMPEvent.setDefinedIn(this);
             addClassDefList(_DMPEvent);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _NotifyRequestOBJ = new ClassDefinitionDMO();
             _NotifyRequest = new ClassDefinition(_NotifyRequestOBJ,DmpDMSAG.__NotifyRequest);
             _NotifyRequestOBJ.setName("NotifyRequest");
@@ -576,7 +577,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _NotifyRequest.setDefinedIn(this);
             addClassDefList(_NotifyRequest);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _NotifyResponseOBJ = new ClassDefinitionDMO();
             _NotifyResponse = new ClassDefinition(_NotifyResponseOBJ,DmpDMSAG.__NotifyResponse);
             _NotifyResponseOBJ.setName("NotifyResponse");
@@ -594,7 +595,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _NotifyResponse.setDefinedIn(this);
             addClassDefList(_NotifyResponse);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _DenotifyRequestOBJ = new ClassDefinitionDMO();
             _DenotifyRequest = new ClassDefinition(_DenotifyRequestOBJ,DmpDMSAG.__DenotifyRequest);
             _DenotifyRequestOBJ.setName("DenotifyRequest");
@@ -616,7 +617,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DenotifyRequest.setDefinedIn(this);
             addClassDefList(_DenotifyRequest);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _DenotifyResponseOBJ = new ClassDefinitionDMO();
             _DenotifyResponse = new ClassDefinition(_DenotifyResponseOBJ,DmpDMSAG.__DenotifyResponse);
             _DenotifyResponseOBJ.setName("DenotifyResponse");
@@ -637,7 +638,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DenotifyResponse.setDefinedIn(this);
             addClassDefList(_DenotifyResponse);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _PreAuthRequestOBJ = new ClassDefinitionDMO();
             _PreAuthRequest = new ClassDefinition(_PreAuthRequestOBJ,DmpDMSAG.__PreAuthRequest);
             _PreAuthRequestOBJ.setName("PreAuthRequest");
@@ -655,7 +656,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _PreAuthRequest.setDefinedIn(this);
             addClassDefList(_PreAuthRequest);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _PreAuthResponseOBJ = new ClassDefinitionDMO();
             _PreAuthResponse = new ClassDefinition(_PreAuthResponseOBJ,DmpDMSAG.__PreAuthResponse);
             _PreAuthResponseOBJ.setName("PreAuthResponse");
@@ -678,7 +679,7 @@ public class DmpSchemaAG extends SchemaDefinition {
     }
 
     private void initAttributes1() throws DmcValueException {
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _requestIDOBJ = new AttributeDefinitionDMO();
             _requestID = new AttributeDefinition(_requestIDOBJ);
             _requestIDOBJ.setType("Integer");
@@ -692,7 +693,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _requestIDOBJ.setLineNumber("9");
             addAttributeDefList(_requestID);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _sessionIDOBJ = new AttributeDefinitionDMO();
             _sessionID = new AttributeDefinition(_sessionIDOBJ);
             _sessionIDOBJ.setType("String");
@@ -705,7 +706,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _sessionIDOBJ.setLineNumber("15");
             addAttributeDefList(_sessionID);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _requestRootOBJ = new AttributeDefinitionDMO();
             _requestRoot = new AttributeDefinition(_requestRootOBJ);
             _requestRootOBJ.setType("String");
@@ -718,7 +719,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _requestRootOBJ.setLineNumber("22");
             addAttributeDefList(_requestRoot);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _responseTypeOBJ = new AttributeDefinitionDMO();
             _responseType = new AttributeDefinition(_responseTypeOBJ);
             _responseTypeOBJ.setType("ResponseTypeEnum");
@@ -731,7 +732,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _responseTypeOBJ.setLineNumber("28");
             addAttributeDefList(_responseType);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _responseCategoryOBJ = new AttributeDefinitionDMO();
             _responseCategory = new AttributeDefinition(_responseCategoryOBJ);
             _responseCategoryOBJ.setType("ResponseCategoryEnum");
@@ -744,7 +745,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _responseCategoryOBJ.setLineNumber("34");
             addAttributeDefList(_responseCategory);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _responseTextOBJ = new AttributeDefinitionDMO();
             _responseText = new AttributeDefinition(_responseTextOBJ);
             _responseTextOBJ.setType("String");
@@ -757,7 +758,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _responseTextOBJ.setLineNumber("40");
             addAttributeDefList(_responseText);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _FQNListOBJ = new AttributeDefinitionDMO();
             _FQNList = new AttributeDefinition(_FQNListOBJ);
             _FQNListOBJ.setType("String");
@@ -771,7 +772,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _FQNListOBJ.setLineNumber("63");
             addAttributeDefList(_FQNList);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _targetOBJ = new AttributeDefinitionDMO();
             _target = new AttributeDefinition(_targetOBJ);
             _targetOBJ.setType("NameContainer");
@@ -784,7 +785,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _targetOBJ.setLineNumber("69");
             addAttributeDefList(_target);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _sourceObjectClassOBJ = new AttributeDefinitionDMO();
             _sourceObjectClass = new AttributeDefinition(_sourceObjectClassOBJ);
             _sourceObjectClassOBJ.setType("ClassDefinition");
@@ -797,7 +798,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _sourceObjectClassOBJ.setLineNumber("75");
             addAttributeDefList(_sourceObjectClass);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _lastResponseOBJ = new AttributeDefinitionDMO();
             _lastResponse = new AttributeDefinition(_lastResponseOBJ);
             _lastResponseOBJ.setType("Boolean");
@@ -811,7 +812,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _lastResponseOBJ.setLineNumber("83");
             addAttributeDefList(_lastResponse);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _scopeOBJ = new AttributeDefinitionDMO();
             _scope = new AttributeDefinition(_scopeOBJ);
             _scopeOBJ.setType("ScopeEnum");
@@ -824,7 +825,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _scopeOBJ.setLineNumber("89");
             addAttributeDefList(_scope);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _objectListOBJ = new AttributeDefinitionDMO();
             _objectList = new AttributeDefinition(_objectListOBJ);
             _objectListOBJ.setType("DmcObject");
@@ -838,7 +839,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _objectListOBJ.setLineNumber("96");
             addAttributeDefList(_objectList);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _newObjectOBJ = new AttributeDefinitionDMO();
             _newObject = new AttributeDefinition(_newObjectOBJ);
             _newObjectOBJ.setType("DmcObject");
@@ -851,7 +852,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _newObjectOBJ.setLineNumber("102");
             addAttributeDefList(_newObject);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _sourceObjectOBJ = new AttributeDefinitionDMO();
             _sourceObject = new AttributeDefinition(_sourceObjectOBJ);
             _sourceObjectOBJ.setType("DmcObject");
@@ -864,7 +865,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _sourceObjectOBJ.setLineNumber("109");
             addAttributeDefList(_sourceObject);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _actionNameOBJ = new AttributeDefinitionDMO();
             _actionName = new AttributeDefinition(_actionNameOBJ);
             _actionNameOBJ.setType("String");
@@ -877,7 +878,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _actionNameOBJ.setLineNumber("115");
             addAttributeDefList(_actionName);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _responseFormatOBJ = new AttributeDefinitionDMO();
             _responseFormat = new AttributeDefinition(_responseFormatOBJ);
             _responseFormatOBJ.setType("ResponseFormatEnum");
@@ -890,7 +891,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _responseFormatOBJ.setLineNumber("129");
             addAttributeDefList(_responseFormat);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _readableFormatOBJ = new AttributeDefinitionDMO();
             _readableFormat = new AttributeDefinition(_readableFormatOBJ);
             _readableFormatOBJ.setType("Boolean");
@@ -903,7 +904,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _readableFormatOBJ.setLineNumber("137");
             addAttributeDefList(_readableFormat);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _timeMSOBJ = new AttributeDefinitionDMO();
             _timeMS = new AttributeDefinition(_timeMSOBJ);
             _timeMSOBJ.setType("Long");
@@ -916,7 +917,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _timeMSOBJ.setLineNumber("143");
             addAttributeDefList(_timeMS);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _blockingFactorOBJ = new AttributeDefinitionDMO();
             _blockingFactor = new AttributeDefinition(_blockingFactorOBJ);
             _blockingFactorOBJ.setType("Integer");
@@ -929,7 +930,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _blockingFactorOBJ.setLineNumber("150");
             addAttributeDefList(_blockingFactor);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _filterOBJ = new AttributeDefinitionDMO();
             _filter = new AttributeDefinition(_filterOBJ);
             _filterOBJ.setType("String");
@@ -942,7 +943,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _filterOBJ.setLineNumber("156");
             addAttributeDefList(_filter);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _filterByClassOBJ = new AttributeDefinitionDMO();
             _filterByClass = new AttributeDefinition(_filterByClassOBJ);
             _filterByClassOBJ.setType("ClassDefinition");
@@ -955,7 +956,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _filterByClassOBJ.setLineNumber("162");
             addAttributeDefList(_filterByClass);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _eventTypeDMPOBJ = new AttributeDefinitionDMO();
             _eventTypeDMP = new AttributeDefinition(_eventTypeDMPOBJ);
             _eventTypeDMPOBJ.setType("DMPEventTypeEnum");
@@ -968,7 +969,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _eventTypeDMPOBJ.setLineNumber("175");
             addAttributeDefList(_eventTypeDMP);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _userFQNOBJ = new AttributeDefinitionDMO();
             _userFQN = new AttributeDefinition(_userFQNOBJ);
             _userFQNOBJ.setType("String");
@@ -981,7 +982,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _userFQNOBJ.setLineNumber("181");
             addAttributeDefList(_userFQN);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _actionTriggerOBJ = new AttributeDefinitionDMO();
             _actionTrigger = new AttributeDefinition(_actionTriggerOBJ);
             _actionTriggerOBJ.setType("DmcObject");
@@ -994,7 +995,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _actionTriggerOBJ.setLineNumber("187");
             addAttributeDefList(_actionTrigger);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _originatorIDOBJ = new AttributeDefinitionDMO();
             _originatorID = new AttributeDefinition(_originatorIDOBJ);
             _originatorIDOBJ.setType("Integer");
@@ -1007,7 +1008,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _originatorIDOBJ.setLineNumber("193");
             addAttributeDefList(_originatorID);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _notifyOriginatorOBJ = new AttributeDefinitionDMO();
             _notifyOriginator = new AttributeDefinition(_notifyOriginatorOBJ);
             _notifyOriginatorOBJ.setType("Boolean");
@@ -1020,7 +1021,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _notifyOriginatorOBJ.setLineNumber("199");
             addAttributeDefList(_notifyOriginator);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _parentNameOBJ = new AttributeDefinitionDMO();
             _parentName = new AttributeDefinition(_parentNameOBJ);
             _parentNameOBJ.setType("NameContainer");
@@ -1033,7 +1034,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _parentNameOBJ.setLineNumber("214");
             addAttributeDefList(_parentName);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _registerForEventsOBJ = new AttributeDefinitionDMO();
             _registerForEvents = new AttributeDefinition(_registerForEventsOBJ);
             _registerForEventsOBJ.setType("Boolean");
@@ -1046,7 +1047,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _registerForEventsOBJ.setLineNumber("225");
             addAttributeDefList(_registerForEvents);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _handlerIDOBJ = new AttributeDefinitionDMO();
             _handlerID = new AttributeDefinition(_handlerIDOBJ);
             _handlerIDOBJ.setType("Integer");
@@ -1059,7 +1060,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _handlerIDOBJ.setLineNumber("233");
             addAttributeDefList(_handlerID);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _sourceOBJ = new AttributeDefinitionDMO();
             _source = new AttributeDefinition(_sourceOBJ);
             _sourceOBJ.setType("NameContainer");
@@ -1072,7 +1073,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _sourceOBJ.setLineNumber("239");
             addAttributeDefList(_source);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _attributeSelectorOBJ = new AttributeDefinitionDMO();
             _attributeSelector = new AttributeDefinition(_attributeSelectorOBJ);
             _attributeSelectorOBJ.setType("AttributeID");
@@ -1086,7 +1087,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _attributeSelectorOBJ.setLineNumber("247");
             addAttributeDefList(_attributeSelector);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _cacheResponseOBJ = new AttributeDefinitionDMO();
             _cacheResponse = new AttributeDefinition(_cacheResponseOBJ);
             _cacheResponseOBJ.setType("Boolean");
@@ -1099,7 +1100,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _cacheResponseOBJ.setLineNumber("257");
             addAttributeDefList(_cacheResponse);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _sliceOBJ = new AttributeDefinitionDMO();
             _slice = new AttributeDefinition(_sliceOBJ);
             _sliceOBJ.setType("String");
@@ -1112,7 +1113,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _sliceOBJ.setLineNumber("265");
             addAttributeDefList(_slice);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _targetObjectClassOBJ = new AttributeDefinitionDMO();
             _targetObjectClass = new AttributeDefinition(_targetObjectClassOBJ);
             _targetObjectClassOBJ.setType("ClassDefinition");
@@ -1125,7 +1126,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _targetObjectClassOBJ.setLineNumber("273");
             addAttributeDefList(_targetObjectClass);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _targetsOBJ = new AttributeDefinitionDMO();
             _targets = new AttributeDefinition(_targetsOBJ);
             _targetsOBJ.setType("NameContainer");
@@ -1139,7 +1140,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _targetsOBJ.setLineNumber("280");
             addAttributeDefList(_targets);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _listenerIDOBJ = new AttributeDefinitionDMO();
             _listenerID = new AttributeDefinition(_listenerIDOBJ);
             _listenerIDOBJ.setType("Long");
@@ -1152,7 +1153,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _listenerIDOBJ.setLineNumber("286");
             addAttributeDefList(_listenerID);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _trackingEnabledOBJ = new AttributeDefinitionDMO();
             _trackingEnabled = new AttributeDefinition(_trackingEnabledOBJ);
             _trackingEnabledOBJ.setType("Boolean");
@@ -1165,7 +1166,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _trackingEnabledOBJ.setLineNumber("292");
             addAttributeDefList(_trackingEnabled);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _timeoutSecondsOBJ = new AttributeDefinitionDMO();
             _timeoutSeconds = new AttributeDefinition(_timeoutSecondsOBJ);
             _timeoutSecondsOBJ.setType("Integer");
@@ -1179,7 +1180,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _timeoutSecondsOBJ.setLineNumber("299");
             addAttributeDefList(_timeoutSeconds);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _applicationNameOBJ = new AttributeDefinitionDMO();
             _applicationName = new AttributeDefinition(_applicationNameOBJ);
             _applicationNameOBJ.setType("String");
@@ -1192,7 +1193,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _applicationNameOBJ.setLineNumber("305");
             addAttributeDefList(_applicationName);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _applicationVersionOBJ = new AttributeDefinitionDMO();
             _applicationVersion = new AttributeDefinition(_applicationVersionOBJ);
             _applicationVersionOBJ.setType("String");
@@ -1205,7 +1206,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _applicationVersionOBJ.setLineNumber("311");
             addAttributeDefList(_applicationVersion);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _myOwnEventOBJ = new AttributeDefinitionDMO();
             _myOwnEvent = new AttributeDefinition(_myOwnEventOBJ);
             _myOwnEventOBJ.setType("Boolean");
@@ -1218,7 +1219,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _myOwnEventOBJ.setLineNumber("320");
             addAttributeDefList(_myOwnEvent);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _objectsToComeOBJ = new AttributeDefinitionDMO();
             _objectsToCome = new AttributeDefinition(_objectsToComeOBJ);
             _objectsToComeOBJ.setType("Long");
@@ -1232,7 +1233,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _objectsToComeOBJ.setLineNumber("331");
             addAttributeDefList(_objectsToCome);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _eventChannelReadyOBJ = new AttributeDefinitionDMO();
             _eventChannelReady = new AttributeDefinition(_eventChannelReadyOBJ);
             _eventChannelReadyOBJ.setType("Boolean");
@@ -1254,7 +1255,7 @@ public class DmpSchemaAG extends SchemaDefinition {
     }
 
     private void initActions() throws DmcValueException {
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ActionDefinitionDMO _primeEventChannelOBJ = new ActionDefinitionDMO();
             _primeEventChannel = new ActionDefinition(_primeEventChannelOBJ);
             _primeEventChannelOBJ.setName("primeEventChannel");
@@ -1269,7 +1270,7 @@ public class DmpSchemaAG extends SchemaDefinition {
     }
 
     private void initEnums() throws DmcValueException {
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             EnumDefinitionDMO _ScopeEnumOBJ = new EnumDefinitionDMO();
             _ScopeEnum = new EnumDefinition(_ScopeEnumOBJ);
             _ScopeEnumOBJ.setName("ScopeEnum");
@@ -1284,7 +1285,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ScopeEnumOBJ.setLineNumber("12");
             addEnumDefList(_ScopeEnum);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             EnumDefinitionDMO _DMPEventTypeEnumOBJ = new EnumDefinitionDMO();
             _DMPEventTypeEnum = new EnumDefinition(_DMPEventTypeEnumOBJ);
             _DMPEventTypeEnumOBJ.setName("DMPEventTypeEnum");
@@ -1299,7 +1300,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DMPEventTypeEnumOBJ.setLineNumber("21");
             addEnumDefList(_DMPEventTypeEnum);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             EnumDefinitionDMO _FileModeEnumOBJ = new EnumDefinitionDMO();
             _FileModeEnum = new EnumDefinition(_FileModeEnumOBJ);
             _FileModeEnumOBJ.setName("FileModeEnum");
@@ -1312,7 +1313,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _FileModeEnumOBJ.setLineNumber("30");
             addEnumDefList(_FileModeEnum);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             EnumDefinitionDMO _ResponseTypeEnumOBJ = new EnumDefinitionDMO();
             _ResponseTypeEnum = new EnumDefinition(_ResponseTypeEnumOBJ);
             _ResponseTypeEnumOBJ.setName("ResponseTypeEnum");
@@ -1329,7 +1330,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ResponseTypeEnumOBJ.setLineNumber("45");
             addEnumDefList(_ResponseTypeEnum);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             EnumDefinitionDMO _ResponseCategoryEnumOBJ = new EnumDefinitionDMO();
             _ResponseCategoryEnum = new EnumDefinition(_ResponseCategoryEnumOBJ);
             _ResponseCategoryEnumOBJ.setName("ResponseCategoryEnum");
@@ -1346,7 +1347,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ResponseCategoryEnumOBJ.setLineNumber("55");
             addEnumDefList(_ResponseCategoryEnum);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             EnumDefinitionDMO _ResponseFormatEnumOBJ = new EnumDefinitionDMO();
             _ResponseFormatEnum = new EnumDefinition(_ResponseFormatEnumOBJ);
             _ResponseFormatEnumOBJ.setName("ResponseFormatEnum");

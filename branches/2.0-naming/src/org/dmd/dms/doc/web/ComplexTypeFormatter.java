@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.types.StringName;
+import org.dmd.dmc.types.DefinitionName;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ComplexTypeDefinition;
 import org.dmd.dms.SchemaManager;
@@ -65,7 +65,7 @@ public class ComplexTypeFormatter {
 			TypeDefinition fieldType = sm.tdef(field.getType().getObjectName().getNameString());
 			if (fieldType == null){
 				try {
-					fieldType = sm.findInternalType(new StringName(field.getType().getObjectName().getNameString()));
+					fieldType = sm.findInternalType(new DefinitionName(field.getType().getObjectName().getNameString()));
 				} catch (DmcValueException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -93,7 +93,7 @@ public class ComplexTypeFormatter {
 		// There's always one reference because the schema refers to its complex types
 		if ( (referring != null) && (referring.size() > 1) ){
 //		if (referring != null){
-			TreeMap<StringName,AttributeDefinition>	attributes = new TreeMap<StringName, AttributeDefinition>();
+			TreeMap<DefinitionName,AttributeDefinition>	attributes = new TreeMap<DefinitionName, AttributeDefinition>();
 			
 			for(DmwWrapper wrapper: referring){
 				if (wrapper instanceof AttributeDefinition){
@@ -116,7 +116,7 @@ public class ComplexTypeFormatter {
 		}
 	}
 
-	static String formatUsage(TreeMap<StringName,AttributeDefinition> ads){
+	static String formatUsage(TreeMap<DefinitionName,AttributeDefinition> ads){
 		StringBuffer sb = new StringBuffer();
 		
 		sb.append("<table>\n");

@@ -5,7 +5,7 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
-import org.dmd.dmc.types.StringName;
+import org.dmd.dmc.types.DefinitionName;
 
 import org.dmd.dmt.shared.generated.types.TestOneLevelSubpackageREF;
 
@@ -20,7 +20,7 @@ import org.dmd.dmt.shared.generated.dmo.TestOneLevelSubpackageDMO;
  * Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREFHelperType(DmoTypeFormatter.java:585)
  */
 @SuppressWarnings("serial")
-abstract public class DmcTypeTestOneLevelSubpackageREF extends DmcTypeNamedObjectREF<TestOneLevelSubpackageREF, StringName> {
+abstract public class DmcTypeTestOneLevelSubpackageREF extends DmcTypeNamedObjectREF<TestOneLevelSubpackageREF, DefinitionName> {
 
     public DmcTypeTestOneLevelSubpackageREF(){
     
@@ -36,8 +36,8 @@ abstract public class DmcTypeTestOneLevelSubpackageREF extends DmcTypeNamedObjec
     }
 
     @Override
-    protected StringName getNewName(){
-        return(new StringName());
+    protected DefinitionName getNewName(){
+        return(new DefinitionName());
     }
 
     @Override
@@ -60,8 +60,8 @@ abstract public class DmcTypeTestOneLevelSubpackageREF extends DmcTypeNamedObjec
             rc = (TestOneLevelSubpackageREF)value;
         else if (value instanceof TestOneLevelSubpackageDMO)
             rc = new TestOneLevelSubpackageREF((TestOneLevelSubpackageDMO)value);
-        else if (value instanceof StringName)
-            rc = new TestOneLevelSubpackageREF((StringName)value);
+        else if (value instanceof DefinitionName)
+            rc = new TestOneLevelSubpackageREF((DefinitionName)value);
         else if (value instanceof String)
             rc = new TestOneLevelSubpackageREF((String)value);
         else

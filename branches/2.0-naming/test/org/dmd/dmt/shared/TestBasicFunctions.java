@@ -152,7 +152,7 @@ public class TestBasicFunctions {
 		
 		ObjWithRefsDMO	obj = new ObjWithRefsDMO();
 		
-		obj.setName("object 1");
+		obj.setName("object1");
 		obj.setSvString("one value");
 		obj.addMvString("value1");
 		obj.addMvString("value2");
@@ -173,7 +173,7 @@ public class TestBasicFunctions {
 		
 		ObjWithRefs	obj = new ObjWithRefs();
 		
-		obj.setName("object 1");
+		obj.setName("object1");
 		obj.setSvString("one value");
 		obj.addMvString("value1");
 		obj.addMvString("value2");

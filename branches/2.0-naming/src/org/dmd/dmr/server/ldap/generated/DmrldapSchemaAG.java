@@ -61,6 +61,7 @@ public class DmrldapSchemaAG extends SchemaDefinition {
             instance        = this;
             SchemaDefinitionDMO me = (SchemaDefinitionDMO) this.getDmcObject();
             me.setName("dmrldap");
+            me.setDotName("dmrldap");
             me.setSchemaPackage("org.dmd.dmr.shared.ldap");
             me.setDmwPackage("org.dmd.dmr.server.ldap");
             me.setFile("/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/dmrldap.dms");
@@ -82,7 +83,7 @@ public class DmrldapSchemaAG extends SchemaDefinition {
     }
 
     private void initClasses() throws DmcValueException {
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _LDAPSchemaAUXOBJ = new ClassDefinitionDMO();
             _LDAPSchemaAUX = new ClassDefinition(_LDAPSchemaAUXOBJ,DmrldapDMSAG.__LDAPSchemaAUX);
             _LDAPSchemaAUXOBJ.setName("LDAPSchemaAUX");
@@ -104,7 +105,7 @@ public class DmrldapSchemaAG extends SchemaDefinition {
             _LDAPSchemaAUX.setDefinedIn(this);
             addClassDefList(_LDAPSchemaAUX);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _LDAPClassAUXOBJ = new ClassDefinitionDMO();
             _LDAPClassAUX = new ClassDefinition(_LDAPClassAUXOBJ,DmrldapDMSAG.__LDAPClassAUX);
             _LDAPClassAUXOBJ.setName("LDAPClassAUX");
@@ -127,7 +128,7 @@ public class DmrldapSchemaAG extends SchemaDefinition {
             _LDAPClassAUX.setDefinedIn(this);
             addClassDefList(_LDAPClassAUX);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _LDAPAttributeAUXOBJ = new ClassDefinitionDMO();
             _LDAPAttributeAUX = new ClassDefinition(_LDAPAttributeAUXOBJ,DmrldapDMSAG.__LDAPAttributeAUX);
             _LDAPAttributeAUXOBJ.setName("LDAPAttributeAUX");
@@ -149,7 +150,7 @@ public class DmrldapSchemaAG extends SchemaDefinition {
             _LDAPAttributeAUX.setDefinedIn(this);
             addClassDefList(_LDAPAttributeAUX);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             ClassDefinitionDMO _LDAPHierarchicObjectOBJ = new ClassDefinitionDMO();
             _LDAPHierarchicObject = new ClassDefinition(_LDAPHierarchicObjectOBJ,DmrldapDMSAG.__LDAPHierarchicObject);
             _LDAPHierarchicObjectOBJ.setName("LDAPHierarchicObject");
@@ -173,7 +174,7 @@ public class DmrldapSchemaAG extends SchemaDefinition {
     }
 
     private void initAttributes1() throws DmcValueException {
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _ldapIdPrefixOBJ = new AttributeDefinitionDMO();
             _ldapIdPrefix = new AttributeDefinition(_ldapIdPrefixOBJ);
             _ldapIdPrefixOBJ.setType("String");
@@ -186,7 +187,7 @@ public class DmrldapSchemaAG extends SchemaDefinition {
             _ldapIdPrefixOBJ.setLineNumber("10");
             addAttributeDefList(_ldapIdPrefix);
 
-// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:548)
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
             AttributeDefinitionDMO _reposNameOBJ = new AttributeDefinitionDMO();
             _reposName = new AttributeDefinition(_reposNameOBJ);
             _reposNameOBJ.setType("String");

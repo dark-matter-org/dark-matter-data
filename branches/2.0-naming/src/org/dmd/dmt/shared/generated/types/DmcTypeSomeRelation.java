@@ -6,8 +6,8 @@ import org.dmd.dmc.DmcAttributeInfo;                            // Standard attr
 import org.dmd.dmc.DmcInputStreamIF;                            // Serialization support - (GenUtility.java:3187)
 import org.dmd.dmc.DmcOutputStreamIF;                           // Serialization support - (GenUtility.java:3188)
 import org.dmd.dmc.DmcValueException;                           // Value exceptions - (GenUtility.java:3191)
+import org.dmd.dmc.types.DefinitionName;                        // Name type - (GenUtility.java:3196)
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;                 // The class we extend - (GenUtility.java:3192)
-import org.dmd.dmc.types.StringName;                            // Name type - (GenUtility.java:3196)
 import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;         // The class we refer to - (GenUtility.java:3194)
 
 
@@ -18,7 +18,7 @@ import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;         // The class we 
  * Generated from: org.dmd.dms.util.GenUtility.dumpExtendedReferenceTypeDmcType(GenUtility.java:3225)
  *    Called from: Called from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:465)
  */
-abstract public class DmcTypeSomeRelation extends DmcTypeNamedObjectREF<SomeRelation, StringName> {
+abstract public class DmcTypeSomeRelation extends DmcTypeNamedObjectREF<SomeRelation, DefinitionName> {
 
     /**
      * Default constructor.
@@ -39,8 +39,8 @@ abstract public class DmcTypeSomeRelation extends DmcTypeNamedObjectREF<SomeRela
     }
 
     @Override
-    protected StringName getNewName(){
-        return(new StringName());
+    protected DefinitionName getNewName(){
+        return(new DefinitionName());
     }
 
     @Override

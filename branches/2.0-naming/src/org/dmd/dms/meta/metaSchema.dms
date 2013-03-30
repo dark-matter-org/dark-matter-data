@@ -160,6 +160,13 @@ isNameType		true
 description		The StringName is the simplest naming mechanism available; it's just a String.
 
 TypeDefinition
+name			DefinitionName
+typeClassName	org.dmd.dmc.types.DmcTypeDefinitionName
+primitiveType	org.dmd.dmc.types.DefinitionName
+isNameType		true
+description		The DefinitionName provides naming of dark-matter definitions.
+
+TypeDefinition
 name			CamelCaseName
 typeClassName	org.dmd.dmc.types.DmcTypeCamelCaseName
 primitiveType	org.dmd.dmc.types.CamelCaseName
@@ -610,11 +617,11 @@ description				Rules in this category are used to validate DmcUncheckedObjects (
 AttributeDefinition
 name                name
 dmdID				2
-type                StringName
+type                DefinitionName
 designatedNameAttribute true
 description    The name attribute is used to store a single string token that represents a unique name
- for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All names must start with a character.
+ for an object with the set of definitions of which it is a part. A name starts with a letter followed
+ by letters and numbers.
 
 AttributeDefinition
 name                dmdID
@@ -1808,6 +1815,14 @@ description    				Indicates if the class defined by a ClassDefinition is consid
  module-level entity in terms of a set of domain specific definitions. The generated dark-matter wrapper
  for the class will indicate that it implements the DmcModuleIF.  
 
+AttributeDefinition
+name                stringName
+dmdID				160
+type                StringName
+designatedNameAttribute true
+description    The stringName attribute is used to store a simple name for something. It starts
+ with a letter followed letters or numbers.
+
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
 AttributeDefinition
@@ -1846,9 +1861,56 @@ description		The ActionTriggerInfo class simply provides a common base for the b
  interface to specify the parameters for the action.
 
 ClassDefinition
-name			DmsDefinition
+name			DMDefinition
 classType     	ABSTRACT
 dmdID			1
+useWrapperType	EXTENDED
+javaClass    	org.dmd.dms.DMDefinition
+dmoImport		org.dmd.dms.generated.dmo.DMDefinitionDMO
+isNamedBy       name
+must         	name
+// Auto generated/set
+may           	definedIn
+description		The dark-matter definition forms the basis for all domain specific definitions
+ that use dark-matter as their basis. The initial dark-matter mechanisms were focussed only on 
+ schema for data objects, but, as the project developed, other, domain specific sets of definitions
+ were added. Eventually, a pattern emerged in terms of these various sets of definitions and
+ some additional higher order concepts were introduced to make the creation of new, domain specific
+ definition sets easier and to allow them to build on and use each others' definitions in a 
+ coherent manner.
+ <p/>
+ For instance, the Model View Whatever (MVW) framework, builds on the dark-matter schema 
+ concepts and introduces definitions that align with the Google Web Toolkit (GWT) conceptual model
+ of the elements that comprise GWT applications and the various relationships that exist between
+ them. The infrastructure needed to parse, manage and use those definitions to generate code
+ and documentation are very similar to those used in the base dark-matter schema mechanisms, but
+ they had to be hand built for the domain.
+ <p/>
+ Other kinds of domain specific definitions started to emerge, Google Protocol Buffer (GPB),
+ Simple Network Management Protocol (SNMP) etc. Having to build the infrastructure for these 
+ definitions each time was tedious and, in the spirit of the rest of dark-matter, lent themselves
+ to being defined, generated and extended to make the process the easier.
+ <p/>
+ Likewise, the code generation mechanisms originally employed have evolved and the more generic
+ concept of artifact generation, based on definition sets, was introduced to allow for more rapid
+ creation of utilities that generate code or documentation or other types of specifications.
+
+ClassDefinition
+name			DMDefinitionModule
+classType     	ABSTRACT
+dmdID			2
+useWrapperType	EXTENDED
+javaClass    	org.dmd.dms.DMDefinitionModule
+dmoImport		org.dmd.dms.generated.dmo.DMDefinitionModuleDMO
+isNamedBy       name
+must         	name
+// Auto generated/set
+may           	definedIn
+
+ClassDefinition
+name			DmsDefinition
+classType     	ABSTRACT
+dmdID			3
 useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.DmsDefinition
 dmoImport		org.dmd.dms.generated.dmo.DmsDefinitionDMO
@@ -1864,7 +1926,7 @@ description     The DmsDefinition class provides a common base for all definitio
 ClassDefinition
 name           	ClassDefinition
 classType     	STRUCTURAL
-dmdID			2
+dmdID			4
 useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.ClassDefinition
 dmoImport		org.dmd.dms.generated.dmo.ClassDefinitionDMO
@@ -1920,7 +1982,7 @@ description    This class provides the basic mechanism to define new classes for
 ClassDefinition
 name         	EnumDefinition
 classType      	STRUCTURAL
-dmdID			3
+dmdID			5
 useWrapperType	EXTENDED
 javaClass     	org.dmd.dms.EnumDefinition
 dmoImport		org.dmd.dms.generated.dmo.EnumDefinitionDMO
@@ -1939,7 +2001,7 @@ description    The EnumDefinition allows for the definition of real Java enums t
 ClassDefinition
 name         	TypeDefinition
 classType      	STRUCTURAL
-dmdID			4
+dmdID			6
 useWrapperType	EXTENDED
 javaClass     	org.dmd.dms.TypeDefinition
 dmoImport		org.dmd.dms.generated.dmo.TypeDefinitionDMO
@@ -2065,7 +2127,7 @@ description     The <code> TypeDefinition </code> is used to define the types of
 ClassDefinition
 name			ComplexTypeDefinition
 classType		STRUCTURAL
-dmdID			5
+dmdID			7
 useWrapperType	EXTENDED
 javaClass     	org.dmd.dms.ComplexTypeDefinition
 dmoImport		org.dmd.dms.generated.dmo.ComplexTypeDefinitionDMO
@@ -2105,7 +2167,7 @@ description		The ComplexTypeDefinition provides a mechanism for defining the str
 ClassDefinition
 name			ExtendedReferenceTypeDefinition
 classType		STRUCTURAL
-dmdID			6
+dmdID			8
 useWrapperType	EXTENDED
 javaClass     	org.dmd.dms.ExtendedReferenceTypeDefinition
 dmoImport		org.dmd.dms.generated.dmo.ExtendedReferenceTypeDefinitionDMO
@@ -2122,7 +2184,7 @@ description		The ExtendedReferenceTypeDefinition provides a mechanism for extend
 ClassDefinition
 name         	AttributeDefinition
 classType     	STRUCTURAL
-dmdID			7
+dmdID			9
 useWrapperType	EXTENDED
 javaClass      	org.dmd.dms.AttributeDefinition
 dmoImport		org.dmd.dms.generated.dmo.AttributeDefinitionDMO
@@ -2153,7 +2215,7 @@ ClassDefinition
 name			SliceDefinition
 isNamedBy		name
 classType     	STRUCTURAL
-dmdID			8
+dmdID			10
 useWrapperType	EXTENDED
 javaClass      	org.dmd.dms.SliceDefinition
 dmoImport		org.dmd.dms.generated.dmo.SliceDefinitionDMO
@@ -2165,36 +2227,6 @@ may				description
 description		The SliceDefinition class is used to define a named set of attributes
  that are used to retrieve a slice of an object i.e. an abbreviated set of
  values. These are used in the generation of static, named DmcSliceInfo instances.
- 
-//ClassDefinition
-//name			ObjectValidatorDefinition
-//isNamedBy		name
-//classType		STRUCTURAL
-//dmdID			9
-//javaClass      	org.dmd.dms.ObjectValidatorDefinition
-//dmoImport		org.dmd.dms.generated.dmo.ObjectValidatorDefinitionDMO
-//derivedFrom     DmsDefinition
-//must			name
-//must            validatorClass
-//may				opContext
-//may				description
-//description		The ObjectValidatorDefinition allows for the the definition of object
-// level validation logic.
-
-//ClassDefinition
-//name			AttributeValidatorDefinition
-//isNamedBy		name
-//classType		STRUCTURAL
-//dmdID			10
-//javaClass      	org.dmd.dms.AttributeValidatorDefinition
-//dmoImport		org.dmd.dms.generated.dmo.AttributeValidatorDefinitionDMO
-//derivedFrom     DmsDefinition
-//must			name
-//must            validatorClass
-//may				opContext
-//may				description
-//description		The AttributeValidatorDefinition allows for the the definition of attribute
-// level validation logic.
 
 ClassDefinition
 name        	ActionDefinition

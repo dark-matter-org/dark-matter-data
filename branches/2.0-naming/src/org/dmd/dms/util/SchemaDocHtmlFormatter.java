@@ -18,7 +18,7 @@ package org.dmd.dms.util;
 import java.util.*;
 import java.io.*;
 
-import org.dmd.dmc.types.StringName;
+import org.dmd.dmc.types.DefinitionName;
 import org.dmd.dms.*;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.util.exceptions.ResultSet;
@@ -40,33 +40,33 @@ public class SchemaDocHtmlFormatter {
      * Key: String
      * Data: ClassDefinition
      */
-    TreeMap<StringName,ClassDefinition> classes;
+    TreeMap<DefinitionName,ClassDefinition> classes;
 
     /**
      * The schema's types sorted by name.
      * Key: String
      * Data: TypeDefinition
      */
-    TreeMap<StringName,TypeDefinition> types;
+    TreeMap<DefinitionName,TypeDefinition> types;
 
     /**
      * The schema's attributes sorted by name.
      * Key: String
      * Data: AttributeDefinition
      */
-    TreeMap<StringName,AttributeDefinition> attrs;
+    TreeMap<DefinitionName,AttributeDefinition> attrs;
 
     /**
      * The schema's actions sorted by name.
      * Key: String
      * Data: ActionDefinition
      */
-    TreeMap<StringName, ActionDefinition> actions;
+    TreeMap<DefinitionName, ActionDefinition> actions;
 
     /**
      * A treemap used to sort various definitions.
      */
-    TreeMap<StringName,DmsDefinition> util;
+    TreeMap<DefinitionName,DmsDefinition> util;
 
     /**
      * The global index of all definitions.
@@ -113,11 +113,11 @@ public class SchemaDocHtmlFormatter {
      * Constructs a new IMD HTML formatter.
      */
     public SchemaDocHtmlFormatter(String org, String user, String email){
-        classes = new TreeMap<StringName,ClassDefinition>();
-        types   = new TreeMap<StringName,TypeDefinition>();
-        attrs   = new TreeMap<StringName,AttributeDefinition>();
-        actions = new TreeMap<StringName,ActionDefinition>();
-        util    = new TreeMap<StringName,DmsDefinition>();
+        classes = new TreeMap<DefinitionName,ClassDefinition>();
+        types   = new TreeMap<DefinitionName,TypeDefinition>();
+        attrs   = new TreeMap<DefinitionName,AttributeDefinition>();
+        actions = new TreeMap<DefinitionName,ActionDefinition>();
+        util    = new TreeMap<DefinitionName,DmsDefinition>();
         schema  = null;
         
         organization = org;
@@ -194,7 +194,7 @@ public class SchemaDocHtmlFormatter {
         TypeDefinition          td      = null;
         AttributeDefinition     ad      = null;
         ActionDefinition        acd     = null;
-        Iterator<StringName>            entries = null;
+        Iterator<DefinitionName>            entries = null;
 
         classes.clear();
         attrs.clear();
@@ -364,7 +364,7 @@ public class SchemaDocHtmlFormatter {
      */
     @SuppressWarnings({ "unchecked", "rawtypes" })
 	private void formatClasses(SchemaDefinition currSchema, BufferedWriter out){
-        Iterator<StringName>	entries = classes.keySet().iterator();
+        Iterator<DefinitionName>	entries = classes.keySet().iterator();
         ClassDefinition		cd      = null;
         Iterator            it      = null;
 //        AttributeDefinition     ad;
@@ -489,7 +489,7 @@ public class SchemaDocHtmlFormatter {
      * Formats each attribute definition.
      */
 	private void formatAttributes(SchemaDefinition currSchema, BufferedWriter out){
-        Iterator<StringName>            entries = attrs.keySet().iterator();
+        Iterator<DefinitionName>            entries = attrs.keySet().iterator();
         AttributeDefinition     ad      = null;
 
         try{
@@ -567,7 +567,7 @@ public class SchemaDocHtmlFormatter {
      */
     @SuppressWarnings({ "unchecked", "rawtypes" })
 	private void formatActions(SchemaDefinition currSchema, BufferedWriter out){
-        Iterator<StringName>	entries = actions.keySet().iterator();
+        Iterator<DefinitionName>	entries = actions.keySet().iterator();
         ActionDefinition    	ad      = null;
         Iterator        it      = null;
 
@@ -629,7 +629,7 @@ public class SchemaDocHtmlFormatter {
      * Formats each type definition.
      */
 	private void formatTypes(SchemaDefinition currSchema, BufferedWriter out){
-        Iterator<StringName>        entries = types.keySet().iterator();
+        Iterator<DefinitionName>        entries = types.keySet().iterator();
         TypeDefinition      td      = null;
 
         try{
@@ -685,7 +685,7 @@ public class SchemaDocHtmlFormatter {
      * Sorts generic objects - schema definitions on the basis of their names.
      */
     public Iterator<DmsDefinition> sort(Iterator<DmsDefinition> it){
-        util = new TreeMap<StringName,DmsDefinition>();
+        util = new TreeMap<DefinitionName,DmsDefinition>();
         while(it.hasNext()){
         	
         	DmsDefinition    go = (DmsDefinition)it.next();
@@ -730,13 +730,13 @@ public class SchemaDocHtmlFormatter {
     }
 
 	public void generateIndex(String dir){
-        Iterator<StringName>        it  = null;
+        Iterator<DefinitionName>        it  = null;
         StringBuffer    sb  = new StringBuffer();
         initIndex();
 
         it = schema.allDefs.keySet().iterator();
         while(it.hasNext()){
-            StringName  key         = it.next();
+            DefinitionName  key         = it.next();
             String  firstChar   = key.getNameString().substring(0,1).toUpperCase();
             TreeMap<String,Token> charTree    = index.get(firstChar);
 

@@ -33,7 +33,7 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.DotName;
 import org.dmd.dmc.types.RuleName;
-import org.dmd.dmc.types.StringName;
+import org.dmd.dmc.types.DefinitionName;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmc.util.NamedStringArray;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
@@ -68,38 +68,38 @@ public class SchemaManager implements DmcNameResolverIF {
     /**
      * This map contains all type, attribute, class and schema definitions keyed on
      * their respective name attributes.
-     * Key: StringName
+     * Key: DefinitionName
      * Value: TypeDefinition, ClassDefinition, AttributeDefinition, ActionDefinition, SchemaDefinition, EnumDefinition
      */
-    public HashMap<StringName,DmsDefinition>    	allDefs;
+    public HashMap<DefinitionName,DmsDefinition>    	allDefs;
     
     public HashMap<DotName, DmsDefinition>			allDefsDOT;
 
     /**
      * This map contains all enum  definitions keyed on their respective name attributes.
-     * Key: StringName
+     * Key: DefinitionName
      * Value: DmdEnumValueDef
      */
-    public HashMap<StringName,EnumDefinition>     	enumDefs;
+    public HashMap<DefinitionName,EnumDefinition>     	enumDefs;
     public int  longestEnumName;
 
     /**
      * This map contains all type definitions keyed on their respective name attributes.
-     * Key: StringName
+     * Key: DefinitionName
      * Value: TypeDefinition
      */
-    public HashMap<StringName,TypeDefinition>     	typeDefs;
+    public HashMap<DefinitionName,TypeDefinition>     	typeDefs;
     public int  longestTypeName;
 
     // Internally generated types for classes
-    public HashMap<StringName,TypeDefinition>     	internalTypeDefs;
+    public HashMap<DefinitionName,TypeDefinition>     	internalTypeDefs;
     
     /**
      * This map contains all attribute definitions keyed on their respective name attributes.
-     * Key: StringName
+     * Key: DefinitionName
      * Value: AttributeDefinition
      */
-    public HashMap<StringName,AttributeDefinition>	attrDefs;
+    public HashMap<DefinitionName,AttributeDefinition>	attrDefs;
     public int  longestAttrName;
     
     public TreeMap<Integer,ClassDefinition>			classesByID;
@@ -112,65 +112,65 @@ public class SchemaManager implements DmcNameResolverIF {
 
     /**
      * This map contains all action definitions keyed on their respective name attributes.
-     * Key: StringName
+     * Key: DefinitionName
      * Value: ActionDefinition
      */
-    public HashMap<StringName,ActionDefinition>     		actionDefs;
+    public HashMap<DefinitionName,ActionDefinition>     		actionDefs;
     public int  longestActionName;
 
     /**
      * This map contains all class definitions keyed on their respective name attributes.
-     * Key: StringName
+     * Key: DefinitionName
      * Value: ClassDefinition
      */
-    public HashMap<StringName,ClassDefinition>     			classDefs;
+    public HashMap<DefinitionName,ClassDefinition>     			classDefs;
     public int  longestClassName;
 
-    // Key: StringName
+    // Key: DefinitionName
     // Value: ComplexTypeDefinition
-    public HashMap<StringName,ComplexTypeDefinition>     	complexTypeDefs;
+    public HashMap<DefinitionName,ComplexTypeDefinition>     	complexTypeDefs;
     public int  longestComplexTypeName;
 
-    // Key: StringName
+    // Key: DefinitionName
     // Value: ExtendedReferenceTypeDefinition
-    public HashMap<StringName,ExtendedReferenceTypeDefinition>	extendedReferenceTypeDefs;
+    public HashMap<DefinitionName,ExtendedReferenceTypeDefinition>	extendedReferenceTypeDefs;
     public int  longestExtendedReferenceTypeName;
 
-    // Key: StringName
+    // Key: DefinitionName
     // Value: SliceDefinition
-    public HashMap<StringName,SliceDefinition>     			sliceDefs;
+    public HashMap<DefinitionName,SliceDefinition>     			sliceDefs;
     public int  longestSliceName;
 
-    // Key: StringName
+    // Key: DefinitionName
     // Value: RuleCategory
-    public HashMap<StringName,RuleCategory>     			ruleCategoryDefs;
+    public HashMap<DefinitionName,RuleCategory>     			ruleCategoryDefs;
     public int  											longestRuleCategoryName;
     public TreeMap<Integer,RuleCategory>					ruleCategoriesByID;
 
     public TreeMap<RuleName,RuleData>						ruleData;
 
 
-    // Key: StringName
+    // Key: DefinitionName
     // Value: RuleDefinition
-    public HashMap<StringName,RuleDefinition>     			ruleDefs;
+    public HashMap<DefinitionName,RuleDefinition>     			ruleDefs;
     public int  longestRuleName;
     
     // The top level hierarchic objects i.e. ones that don't have allowedParents
-    TreeMap<StringName,ClassDefinition>						hierarchicObjects;
+    TreeMap<DefinitionName,ClassDefinition>						hierarchicObjects;
 
     /**
      * This map contains all class abbreviations.
-     * Key:   StringName
+     * Key:   DefinitionName
      * Value: ClassDefinition
      */
-    public HashMap<StringName,ClassDefinition>     			classAbbrevs;
+    public HashMap<DefinitionName,ClassDefinition>     			classAbbrevs;
 
     /**
      * This map contains all attribute abbreviations.
-     * Key:   StringName
+     * Key:   DefinitionName
      * Value: ClassDefinition
      */
-    public HashMap<StringName,AttributeDefinition>			attrAbbrevs;
+    public HashMap<DefinitionName,AttributeDefinition>			attrAbbrevs;
 
 //    /**
 //     * This map contains all repository names.
@@ -184,7 +184,7 @@ public class SchemaManager implements DmcNameResolverIF {
      * Key:   String (schema name)
      * Value: SchemaDefinition
      */
-    TreeMap<StringName,SchemaDefinition>     		schemaDefs;
+    TreeMap<DefinitionName,SchemaDefinition>     		schemaDefs;
     public int  longestSchemaName;
 
     /**
@@ -232,28 +232,28 @@ public class SchemaManager implements DmcNameResolverIF {
     
     void init() throws ResultException, DmcValueException{
         // Create our various hashmaps
-        allDefs     				= new HashMap<StringName,DmsDefinition>();
+        allDefs     				= new HashMap<DefinitionName,DmsDefinition>();
         allDefsDOT     				= new HashMap<DotName,DmsDefinition>();
         
-        enumDefs 					= new HashMap<StringName,EnumDefinition>();
-        typeDefs    				= new HashMap<StringName,TypeDefinition>();
-        internalTypeDefs    		= new HashMap<StringName,TypeDefinition>();
-        attrDefs    				= new HashMap<StringName,AttributeDefinition>();
+        enumDefs 					= new HashMap<DefinitionName,EnumDefinition>();
+        typeDefs    				= new HashMap<DefinitionName,TypeDefinition>();
+        internalTypeDefs    		= new HashMap<DefinitionName,TypeDefinition>();
+        attrDefs    				= new HashMap<DefinitionName,AttributeDefinition>();
         attrByID					= new TreeMap<Integer, AttributeDefinition>();
         classesByID					= new TreeMap<Integer, ClassDefinition>();
         classesByJavaClass			= new TreeMap<String, ClassDefinition>();
-        actionDefs  				= new HashMap<StringName,ActionDefinition>();
-        classDefs   				= new HashMap<StringName,ClassDefinition>();
-        complexTypeDefs   			= new HashMap<StringName,ComplexTypeDefinition>();
-        extendedReferenceTypeDefs   = new HashMap<StringName,ExtendedReferenceTypeDefinition>();
-        sliceDefs   				= new HashMap<StringName,SliceDefinition>();
-        ruleCategoryDefs   			= new HashMap<StringName,RuleCategory>();
+        actionDefs  				= new HashMap<DefinitionName,ActionDefinition>();
+        classDefs   				= new HashMap<DefinitionName,ClassDefinition>();
+        complexTypeDefs   			= new HashMap<DefinitionName,ComplexTypeDefinition>();
+        extendedReferenceTypeDefs   = new HashMap<DefinitionName,ExtendedReferenceTypeDefinition>();
+        sliceDefs   				= new HashMap<DefinitionName,SliceDefinition>();
+        ruleCategoryDefs   			= new HashMap<DefinitionName,RuleCategory>();
         ruleCategoriesByID			= new TreeMap<Integer, RuleCategory>();
-        ruleDefs   					= new HashMap<StringName,RuleDefinition>();
+        ruleDefs   					= new HashMap<DefinitionName,RuleDefinition>();
         ruleData					= new TreeMap<RuleName, RuleData>();
-        schemaDefs  				= new TreeMap<StringName,SchemaDefinition>();
-        classAbbrevs				= new HashMap<StringName,ClassDefinition>();
-        attrAbbrevs 				= new HashMap<StringName,AttributeDefinition>();
+        schemaDefs  				= new TreeMap<DefinitionName,SchemaDefinition>();
+        classAbbrevs				= new HashMap<DefinitionName,ClassDefinition>();
+        attrAbbrevs 				= new HashMap<DefinitionName,AttributeDefinition>();
         hierarchicObjects			= null;
         
 //        reposNames  = new HashMap<String,DmsDefinition>();
@@ -262,7 +262,7 @@ public class SchemaManager implements DmcNameResolverIF {
         
         performIDChecks = true;
         
-//        nameKey = new StringName();
+//        nameKey = new DefinitionName();
         
         // Create the global metaschema
         if (MetaSchema._metaSchema == null){
@@ -303,9 +303,9 @@ public class SchemaManager implements DmcNameResolverIF {
     	listeners.add(listener);
     }
     
-    public TreeMap<StringName, ClassDefinition> getHierarchicObjects(){
+    public TreeMap<DefinitionName, ClassDefinition> getHierarchicObjects(){
     	if (hierarchicObjects == null){
-    		hierarchicObjects = new TreeMap<StringName, ClassDefinition>();
+    		hierarchicObjects = new TreeMap<DefinitionName, ClassDefinition>();
     		
     		for(ClassDefinition cd: classDefs.values()){
     			if (cd.getIsNamedBy() != null){
@@ -399,7 +399,7 @@ public class SchemaManager implements DmcNameResolverIF {
      * @param name the name of the type
      * @return the type definition or null if it's not found.
      */
-    public TypeDefinition findInternalType(StringName name){
+    public TypeDefinition findInternalType(DefinitionName name){
     	return(internalTypeDefs.get(name));
     }
     
@@ -896,9 +896,9 @@ public class SchemaManager implements DmcNameResolverIF {
      * @return If the name is a type, its TypeDefinition is returned; otherwise null is returned.
      */
     public TypeDefinition isType(String name){
-    	StringName nameKey = null;
+    	DefinitionName nameKey = null;
 		try {
-			nameKey = new StringName(name);
+			nameKey = new DefinitionName(name);
 		} catch (DmcValueException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -912,9 +912,9 @@ public class SchemaManager implements DmcNameResolverIF {
      * @return If the name is an attribute, its AttributeDefinition is returned; otherwise null is returned.
      */
     public AttributeDefinition isAttribute(String name){
-    	StringName nameKey = null;
+    	DefinitionName nameKey = null;
 		try {
-			nameKey = new StringName(name);
+			nameKey = new DefinitionName(name);
 		} catch (DmcValueException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -923,9 +923,9 @@ public class SchemaManager implements DmcNameResolverIF {
     }
     
     public EnumDefinition isEnum(String name){
-    	StringName nameKey = null;
+    	DefinitionName nameKey = null;
 		try {
-			nameKey = new StringName(name);
+			nameKey = new DefinitionName(name);
 		} catch (DmcValueException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -966,9 +966,9 @@ public class SchemaManager implements DmcNameResolverIF {
      * @return If the name is an action, its ActionDefinition is returned; otherwise null is returned.
      */
     public ActionDefinition isAction(String name){
-    	StringName nameKey = null;
+    	DefinitionName nameKey = null;
 		try {
-			nameKey = new StringName(name);
+			nameKey = new DefinitionName(name);
 		} catch (DmcValueException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -982,9 +982,9 @@ public class SchemaManager implements DmcNameResolverIF {
      * @return If the name is a class, its ClassDefinition is returned; otherwise null is returned.
      */
     public ClassDefinition isClass(String name){
-    	StringName nameKey = null;
+    	DefinitionName nameKey = null;
 		try {
-			nameKey = new StringName(name);
+			nameKey = new DefinitionName(name);
 		} catch (DmcValueException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -998,9 +998,9 @@ public class SchemaManager implements DmcNameResolverIF {
      * @return If the name is a schema, its SchemaDefinition is returned; otherwise null is returned.
      */
     public SchemaDefinition isSchema(String name){
-    	StringName nameKey = null;
+    	DefinitionName nameKey = null;
 		try {
-			nameKey = new StringName(name);
+			nameKey = new DefinitionName(name);
 		} catch (DmcValueException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1016,7 +1016,7 @@ public class SchemaManager implements DmcNameResolverIF {
      * returned as a generic object; otherwise null is returned.
      */
 //    public DmsDefinition isDefinition(String name){
-//    	StringName nameKey = new StringName(name);
+//    	DefinitionName nameKey = new DefinitionName(name);
 ////    	try {
 ////			nameKey.setNameString(name);
 ////		} catch (DmcValueException e) {
@@ -1267,7 +1267,7 @@ public class SchemaManager implements DmcNameResolverIF {
 			throw(ex);
 		}
     	
-    	StringName ruleClassName = new StringName(rd.getName().getNameString() + "Data");
+    	DefinitionName ruleClassName = new DefinitionName(rd.getName().getNameString() + "Data");
     	
         if (checkAndAdd(rd.getObjectName(),rd,ruleDefs) == false){
         	ResultException ex = new ResultException();
@@ -1400,7 +1400,7 @@ public class SchemaManager implements DmcNameResolverIF {
         if (cd.getAbbrev() != null){
             // We have an abbreviation - so it must also be unique and
             // added to the appropriate maps
-        	StringName abbrevName = new StringName(cd.getAbbrev());
+        	DefinitionName abbrevName = new DefinitionName(cd.getAbbrev());
             if (checkAndAdd(abbrevName,cd,classDefs) == false){
             	ResultException ex = new ResultException();
             	ex.addError(clashMsg(abbrevName,cd,classDefs,"class abbreviations"));
@@ -1418,7 +1418,7 @@ public class SchemaManager implements DmcNameResolverIF {
             DotName dotAbbrevName = new DotName(cd.getDefinedIn().getName() + "." + cd.getAbbrev());
             
             if (checkAndAddDOT(dotAbbrevName,cd,allDefsDOT) == false){
-                StringName errName = new StringName(cd.getDefinedIn().getName() + "." + cd.getAbbrev());
+                DefinitionName errName = new DefinitionName(cd.getDefinedIn().getName() + "." + cd.getAbbrev());
             	ResultException ex = new ResultException();
             	ex.addError(clashMsgDOT(errName,cd,allDefsDOT,"definition names"));
                 throw(ex);
@@ -1732,7 +1732,7 @@ public class SchemaManager implements DmcNameResolverIF {
         if (ad.getAbbrev() != null){
             // We have an abbreviation - so it must also be unique and
             // added to the appropriate maps
-        	StringName abbrevName = new StringName(ad.getAbbrev());
+        	DefinitionName abbrevName = new DefinitionName(ad.getAbbrev());
             if (checkAndAdd(abbrevName,ad,attrDefs) == false){
             	ResultException ex = new ResultException();
             	ex.addError(clashMsg(ad.getObjectName(),ad,attrDefs,"attribute abbreviation"));
@@ -1748,7 +1748,7 @@ public class SchemaManager implements DmcNameResolverIF {
             
             DotName dotAbbrevName = new DotName(ad.getDefinedIn().getName() + "." + ad.getAbbrev());
             if (checkAndAddDOT(dotAbbrevName,ad,allDefsDOT) == false){
-            	StringName errName = new StringName(ad.getDefinedIn().getName() + "." + ad.getAbbrev());
+            	DefinitionName errName = new DefinitionName(ad.getDefinedIn().getName() + "." + ad.getAbbrev());
             	ResultException ex = new ResultException();
             	ex.addError(clashMsgDOT(errName,ad,allDefsDOT,"definition names"));
             	throw(ex);
@@ -2080,7 +2080,7 @@ public class SchemaManager implements DmcNameResolverIF {
      */
 //    private boolean checkAndAdd(Object key, Object obj, HashMap map){
     @SuppressWarnings({ "unchecked", "rawtypes" })
-	private boolean checkAndAdd(StringName key, DmsDefinition obj, HashMap map){
+	private boolean checkAndAdd(DefinitionName key, DmsDefinition obj, HashMap map){
         if (map.containsKey(key))
             return(false);
         else
@@ -2135,7 +2135,7 @@ public class SchemaManager implements DmcNameResolverIF {
         format = new PrintfFormat("%-" + longestStr + "s ");
 
         sb.append("*** Attributes\n");
-        TreeMap<StringName,AttributeDefinition> sattrs = new TreeMap<StringName, AttributeDefinition>();
+        TreeMap<DefinitionName,AttributeDefinition> sattrs = new TreeMap<DefinitionName, AttributeDefinition>();
         
         for(AttributeDefinition ad : attrDefs.values())
         	sattrs.put(ad.getName(), ad);
@@ -2145,7 +2145,7 @@ public class SchemaManager implements DmcNameResolverIF {
         
 
         sb.append("*** Classes\n");
-        TreeMap<StringName,ClassDefinition> scdefs = new TreeMap<StringName, ClassDefinition>();
+        TreeMap<DefinitionName,ClassDefinition> scdefs = new TreeMap<DefinitionName, ClassDefinition>();
         
         for(ClassDefinition cd : classDefs.values())
         	scdefs.put(cd.getName(), cd);
@@ -2275,9 +2275,9 @@ public class SchemaManager implements DmcNameResolverIF {
      */
     public DmcNamedObjectIF findNamedObject(String name){
 //    	DebugInfo.debug("Looking for: " + name);
-    	StringName key = null;
+    	DefinitionName key = null;
 		try {
-			key = new StringName(name);
+			key = new DefinitionName(name);
 		} catch (DmcValueException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -2309,13 +2309,13 @@ public class SchemaManager implements DmcNameResolverIF {
      */
     public Dictionary getDict(){
         if (dict == null){
-            Iterator<StringName>    it  = allDefs.keySet().iterator();
+            Iterator<DefinitionName>    it  = allDefs.keySet().iterator();
             int         id = Token.CUSTOM+1;
-            StringName  key = null;
+            DefinitionName  key = null;
 
             dict = new Dictionary();
             while(it.hasNext()){
-                key = (StringName)it.next();
+                key = (DefinitionName)it.next();
                 dict.add(new Token(key.getNameString(),id++,allDefs.get(key)));
             }
         }
@@ -2325,7 +2325,7 @@ public class SchemaManager implements DmcNameResolverIF {
     /**
      * Returns a nice error message for a clashing definition name.
      */
-    String clashMsg(StringName defName, DmsDefinition newDef, HashMap<StringName, ? extends DmsDefinition> defMap, String defType){
+    String clashMsg(DefinitionName defName, DmsDefinition newDef, HashMap<DefinitionName, ? extends DmsDefinition> defMap, String defType){
         DmsDefinition    existing = defMap.get(defName);
         SchemaDefinition ga1      = existing.getDefinedIn();
         SchemaDefinition ga2      = newDef.getDefinedIn();
@@ -2338,7 +2338,7 @@ public class SchemaManager implements DmcNameResolverIF {
 
     // TODO: NEW NAMING
     
-    String clashMsgDOT(StringName defName, DmsDefinition newDef, HashMap<DotName, ? extends DmsDefinition> defMap, String defType){
+    String clashMsgDOT(DefinitionName defName, DmsDefinition newDef, HashMap<DotName, ? extends DmsDefinition> defMap, String defType){
         DmsDefinition    existing = defMap.get(defName);
         SchemaDefinition ga1      = existing.getDefinedIn();
         SchemaDefinition ga2      = newDef.getDefinedIn();
@@ -2352,7 +2352,7 @@ public class SchemaManager implements DmcNameResolverIF {
     /**
      * Returns a nice error message for a clashing definition name.
      */
-    String clashMsg(StringName defName, DmsDefinition newDef, TreeMap<StringName, ? extends DmsDefinition> defMap, String defType){
+    String clashMsg(DefinitionName defName, DmsDefinition newDef, TreeMap<DefinitionName, ? extends DmsDefinition> defMap, String defType){
     	DmsDefinition    existing = defMap.get(defName);
     	SchemaDefinition ga1      = existing.getDefinedIn();
     	SchemaDefinition ga2      = newDef.getDefinedIn();

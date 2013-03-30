@@ -37,7 +37,7 @@ public class DmcTypeStringNameSTATIC implements DmcNameBuilderIF {
     public static DmcTypeStringNameSTATIC instance;
     static DmcTypeStringNameSV typeHelper;
     static String    nameClass = "StringName";
-    static final int attrID    = 2;
+    static final int attrID    = 160;
     
     static {
         instance = new DmcTypeStringNameSTATIC();

@@ -236,6 +236,22 @@ description			This is really just a convention, but the generation of
  the enum can be imported in the static implementation. The dumpSTATICType()
  method in GenUtility checks to see if the type ends with Enum and adds
  the appropriate import if that's the case.
+
+PatternMatchRuleData
+ruleName			dmvDefinitionNameCheck
+ruleTitle			The name attribute must start with a letter, followed by a mix of letters and numbers.
+matchesPattern		[a-zA-Z][a-zA-Z0-9]*
+applyToAttribute	name
+description			Although the name attribute is defined as type DotName, when
+ the value is used as the value for the name attribute, it must not contain the 
+ dot character. This is because we allow for references to definitions to be
+ either the flat name of the definition, or its fully qualified name that includes
+ the definition set name, for example, meta.must - which indicates the must attribute
+ from the meta schema.
+ <p/>
+ This allows for the convention of referring to definitions in the most general
+ way possible without having to fully qualify every reference. 
+
  
 ///////////////////////////////////////////////////////////////////////////////
 

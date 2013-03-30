@@ -10,7 +10,7 @@ import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcMappedAttributeIF;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dmc.types.StringName;    // key type import
+import org.dmd.dmc.types.DefinitionName;    // key type import
 /**
  * The DmcTypeObjWithRefsREFMAP provides storage for a map of ObjWithRefsREF
  * <P>
@@ -19,12 +19,12 @@ import org.dmd.dmc.types.StringName;    // key type import
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeObjWithRefsREFMAP extends DmcTypeObjWithRefsREF<ObjWithRefsREF,StringName> {
+// public class DmcTypeObjWithRefsREFMAP extends DmcTypeObjWithRefsREF<ObjWithRefsREF,DefinitionName> {
 public class DmcTypeObjWithRefsREFMAP extends DmcTypeObjWithRefsREF implements Serializable {
     
-    private final static Iterator<ObjWithRefsREF> emptyList = (new HashMap<StringName,ObjWithRefsREF>()).values().iterator();
+    private final static Iterator<ObjWithRefsREF> emptyList = (new HashMap<DefinitionName,ObjWithRefsREF>()).values().iterator();
     
-    protected Map<StringName,ObjWithRefsREF> value;
+    protected Map<DefinitionName,ObjWithRefsREF> value;
     
     public DmcTypeObjWithRefsREFMAP(){
         value = null;
@@ -37,16 +37,16 @@ public class DmcTypeObjWithRefsREFMAP extends DmcTypeObjWithRefsREF implements S
     
     void initValue(){
         if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
-            value = new HashMap<StringName,ObjWithRefsREF>();
+            value = new HashMap<DefinitionName,ObjWithRefsREF>();
         else
-            value = new TreeMap<StringName,ObjWithRefsREF>();
+            value = new TreeMap<DefinitionName,ObjWithRefsREF>();
     }
     
-    public StringName firstKey(){
+    public DefinitionName firstKey(){
         if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
-            TreeMap<StringName,ObjWithRefsREF> map = (TreeMap<StringName,ObjWithRefsREF>)value;
+            TreeMap<DefinitionName,ObjWithRefsREF> map = (TreeMap<DefinitionName,ObjWithRefsREF>)value;
             return(map.firstKey());
         }
         throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
@@ -83,7 +83,7 @@ public class DmcTypeObjWithRefsREFMAP extends DmcTypeObjWithRefsREF implements S
             ObjWithRefsREF newval = typeCheck(v);
             if (value == null)
                 initValue();
-            StringName key = (StringName)((DmcMappedAttributeIF)newval).getKey();
+            DefinitionName key = (DefinitionName)((DmcMappedAttributeIF)newval).getKey();
             ObjWithRefsREF oldval = value.put(key,newval);
             
             if (oldval != null){
@@ -104,7 +104,7 @@ public class DmcTypeObjWithRefsREFMAP extends DmcTypeObjWithRefsREF implements S
             if (value == null)
                 return(null);
     
-           if (key instanceof StringName)
+           if (key instanceof DefinitionName)
                 return(value.remove(key));
             else
                 throw(new IllegalStateException("Incompatible key type: " + key.getClass().getName() + " passed to del():" + getName()));
@@ -119,30 +119,30 @@ public class DmcTypeObjWithRefsREFMAP extends DmcTypeObjWithRefsREF implements S
             if (value == null)
                 return(emptyList);
     
-            Map<StringName,ObjWithRefsREF> clone = null;
+            Map<DefinitionName,ObjWithRefsREF> clone = null;
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
-                clone = new HashMap<StringName,ObjWithRefsREF>(value);
+                clone = new HashMap<DefinitionName,ObjWithRefsREF>(value);
             else
-                clone = new TreeMap<StringName,ObjWithRefsREF>(value);
+                clone = new TreeMap<DefinitionName,ObjWithRefsREF>(value);
             return(clone.values().iterator());
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2966)
-    public Map<StringName,ObjWithRefsREF> getMVCopy(){
+    public Map<DefinitionName,ObjWithRefsREF> getMVCopy(){
         synchronized(this){
-            Map<StringName,ObjWithRefsREF> clone = null;
+            Map<DefinitionName,ObjWithRefsREF> clone = null;
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED){
                 if (value == null)
-                    clone = new HashMap<StringName,ObjWithRefsREF>();
+                    clone = new HashMap<DefinitionName,ObjWithRefsREF>();
                 else
-                    clone = new HashMap<StringName,ObjWithRefsREF>(value);
+                    clone = new HashMap<DefinitionName,ObjWithRefsREF>(value);
             }
             else{
                 if (value == null)
-                    clone = new TreeMap<StringName,ObjWithRefsREF>();
+                    clone = new TreeMap<DefinitionName,ObjWithRefsREF>();
                 else
-                    clone = new TreeMap<StringName,ObjWithRefsREF>(value);
+                    clone = new TreeMap<DefinitionName,ObjWithRefsREF>(value);
             }
             return(clone);
         }
@@ -165,8 +165,8 @@ public class DmcTypeObjWithRefsREFMAP extends DmcTypeObjWithRefsREF implements S
            if (value == null)
                return(null);
     
-            if (key instanceof StringName)
-                return(value.get((StringName) key));
+            if (key instanceof DefinitionName)
+                return(value.get((DefinitionName) key));
             else
                 throw(new IllegalStateException("Incompatible type: " + key.getClass().getName() + " passed to del():" + getName()));
         }
@@ -195,7 +195,7 @@ public class DmcTypeObjWithRefsREFMAP extends DmcTypeObjWithRefsREF implements S
            if (value == null)
                return(false);
     
-           if (key instanceof StringName)
+           if (key instanceof DefinitionName)
                 return(value.containsKey(key));
             return(false);
         }

@@ -29,7 +29,7 @@ import org.dmd.dmc.types.DmcTypeComplexTypeWithRefs;
 import org.dmd.dmc.types.DmcTypeModifier;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
 import org.dmd.dmc.types.Modifier;
-import org.dmd.dmc.types.StringName;
+import org.dmd.dmc.types.DefinitionName;
 import org.dmd.dms.generated.dmo.ClassDefinitionDMO;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.DataTypeEnum;
@@ -159,7 +159,7 @@ abstract public class DmcObject implements Serializable {
 		// entry in their objectClass attribute.
         DmcAttribute<?> attr = new DmcTypeClassDefinitionREFMV(__objectClass);
         try {
-            attr.add(new StringName(oc));
+            attr.add(new DefinitionName(oc));
 			add(__objectClass,attr);
 		} catch (DmcValueException e) {
 			throw(new IllegalStateException("Setting the objectClass using a String shouldn't ever croak!", e));

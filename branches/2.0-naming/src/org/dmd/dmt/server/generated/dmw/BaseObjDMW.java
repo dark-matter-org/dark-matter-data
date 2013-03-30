@@ -4,7 +4,7 @@ package org.dmd.dmt.server.generated.dmw;
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:351)
 import java.util.Date;                                      // Primitive type - (BaseDMWGeneratorNewest.java:1019)
 import org.dmd.dmc.*;                                       // If any attributes - (BaseDMWGeneratorNewest.java:956)
-import org.dmd.dmc.types.StringName;                        // Is named by - (BaseDMWGeneratorNewest.java:935)
+import org.dmd.dmc.types.DefinitionName;                    // Is named by - (BaseDMWGeneratorNewest.java:935)
 import org.dmd.dms.ClassDefinition;                         // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:940)
 import org.dmd.dmt.shared.generated.dmo.BaseObjDMO;         // Abstract class - (BaseDMWGeneratorNewest.java:1099)
 import org.dmd.dmw.DmwNamedObjectWrapper;                   // Named object wrapper - (BaseDMWGeneratorNewest.java:1111)
@@ -36,7 +36,7 @@ abstract public class BaseObjDMW extends DmwNamedObjectWrapper implements DmcNam
     }
 
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1166)
-    public StringName getObjectName(){
+    public DefinitionName getObjectName(){
         return(((BaseObjDMO) core).getName());
     }
 
@@ -56,13 +56,13 @@ abstract public class BaseObjDMW extends DmwNamedObjectWrapper implements DmcNam
     }
 
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1343)
-    public StringName getName(){
+    public DefinitionName getName(){
         return(((BaseObjDMO) core).getName());
     }
 
     /**
      * Sets name to the specified value.
-     * @param value A value compatible with DmcTypeStringName
+     * @param value A value compatible with DmcTypeDefinitionName
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1453)
     public void setName(Object value) throws DmcValueException {
@@ -71,10 +71,10 @@ abstract public class BaseObjDMW extends DmwNamedObjectWrapper implements DmcNam
 
     /**
      * Sets name to the specified value.
-     * @param value StringName
+     * @param value DefinitionName
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1462)
-    public void setName(StringName value){
+    public void setName(DefinitionName value){
         ((BaseObjDMO) core).setName(value);
     }
 
