@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms;
 
-import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
+import org.dmd.dms.generated.dmo.DMDefinitionDMO;
 
 /**
  * The SchemaDefinitionListenerIF should be implemented by objects that are interested
@@ -23,5 +23,5 @@ import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
  */
 public interface SchemaDefinitionListenerIF {
 
-	public void definitionAdded(DmsDefinitionDMO def);
+	public void definitionAdded(DMDefinitionDMO def);
 }

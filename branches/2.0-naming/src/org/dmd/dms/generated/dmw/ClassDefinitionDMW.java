@@ -592,26 +592,6 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition implements Dmc
     }
 
     /**
-     * Indicates if the class defined by a ClassDefinition is considered to be a
-     * \n module-level entity in terms of a set of domain specific definitions.
-     * The generated dark-matter wrapper\n for the class will indicate that it
-     * implements the DmcModuleIF.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2321)
-    public Boolean getIsDSModule(){
-        return(mycore.getIsDSModule());
-    }
-
-    /**
-     * Sets isDSModule to the specified value.
-     * @param value A value compatible with DmcTypeBooleanSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2394)
-    public void setIsDSModule(Object value) throws DmcValueException {
-        mycore.setIsDSModule(value);
-    }
-
-    /**
      * This flag indicates if the associated definition was internally
      * generated.\n This is the case for TypeDefinitions generated for
      * ClassDefinitions and EnumDefinitions\n that allow for references to these

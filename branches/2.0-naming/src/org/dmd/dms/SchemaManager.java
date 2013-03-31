@@ -71,9 +71,9 @@ public class SchemaManager implements DmcNameResolverIF {
      * Key: DefinitionName
      * Value: TypeDefinition, ClassDefinition, AttributeDefinition, ActionDefinition, SchemaDefinition, EnumDefinition
      */
-    public HashMap<DefinitionName,DmsDefinition>    	allDefs;
+    public HashMap<DefinitionName,DMDefinition>    	allDefs;
     
-    public HashMap<DotName, DmsDefinition>			allDefsDOT;
+    public HashMap<DotName, DMDefinition>			allDefsDOT;
 
     /**
      * This map contains all enum  definitions keyed on their respective name attributes.
@@ -177,7 +177,7 @@ public class SchemaManager implements DmcNameResolverIF {
 //     * Key:   String
 //     * Value: AttributeDefinition
 //     */
-//    public HashMap<String,DmsDefinition>     	reposNames;
+//    public HashMap<String,DMDefinition>     	reposNames;
 
     /**
      * This map contains all schema definitions keyed on their respective name attributes.
@@ -232,8 +232,8 @@ public class SchemaManager implements DmcNameResolverIF {
     
     void init() throws ResultException, DmcValueException{
         // Create our various hashmaps
-        allDefs     				= new HashMap<DefinitionName,DmsDefinition>();
-        allDefsDOT     				= new HashMap<DotName,DmsDefinition>();
+        allDefs     				= new HashMap<DefinitionName,DMDefinition>();
+        allDefsDOT     				= new HashMap<DotName,DMDefinition>();
         
         enumDefs 					= new HashMap<DefinitionName,EnumDefinition>();
         typeDefs    				= new HashMap<DefinitionName,TypeDefinition>();
@@ -256,7 +256,7 @@ public class SchemaManager implements DmcNameResolverIF {
         attrAbbrevs 				= new HashMap<DefinitionName,AttributeDefinition>();
         hierarchicObjects			= null;
         
-//        reposNames  = new HashMap<String,DmsDefinition>();
+//        reposNames  = new HashMap<String,DMDefinition>();
         dict        			= null;
         extensions				= new TreeMap<String, SchemaExtensionIF>();
         
@@ -833,7 +833,7 @@ public class SchemaManager implements DmcNameResolverIF {
     	
     	
 //        // Iterator it = schemaDefs.values().iterator();
-//        Iterator<DmsDefinition> it = allDefs.values().iterator();
+//        Iterator<DMDefinition> it = allDefs.values().iterator();
 //
 //  //System.out.println("SchemaManager.resolveRefs() ==>");
 //        while(it.hasNext()){
@@ -1015,7 +1015,7 @@ public class SchemaManager implements DmcNameResolverIF {
      * @return If the name is that of any kind of definition, the definition is
      * returned as a generic object; otherwise null is returned.
      */
-//    public DmsDefinition isDefinition(String name){
+//    public DMDefinition isDefinition(String name){
 //    	DefinitionName nameKey = new DefinitionName(name);
 ////    	try {
 ////			nameKey.setNameString(name);
@@ -1838,7 +1838,7 @@ public class SchemaManager implements DmcNameResolverIF {
      * @throws DmcValueException 
      * @throws DmcValueExceptionSet 
      */
-    public void addDefinition(DmsDefinition def) throws ResultException, DmcValueException {
+    public void addDefinition(DMDefinition def) throws ResultException, DmcValueException {
     	
     	if (def.getDotName() == null)
     		DebugInfo.debug("NO DOT NAME");
@@ -1868,7 +1868,7 @@ public class SchemaManager implements DmcNameResolverIF {
     		this.addSchema((SchemaDefinition) def);
         else{
         	ResultException ex = new ResultException();
-        	ex.addError("The specified object is not a DmsDefinition object: \n" + def.toOIF());
+        	ex.addError("The specified object is not a DMDefinition object: \n" + def.toOIF());
         	throw(ex);
         }
 
@@ -1906,7 +1906,7 @@ public class SchemaManager implements DmcNameResolverIF {
      * being added e.g. "types names".
      * @throws ResultException
      */
-//    void addDefinition(DmsDefinition def, HashMap<String,? extends DmsDefinition> defmap, String mapName, IntegerVar longest) throws ResultException {
+//    void addDefinition(DMDefinition def, HashMap<String,? extends DMDefinition> defmap, String mapName, IntegerVar longest) throws ResultException {
 //        if (checkAndAdd(def.getObjectName(),def,defmap) == false){
 //        	ResultException ex = new ResultException();
 //            ex.addError(clashMsg(def.getObjectName(),def,defmap,mapName));
@@ -2080,7 +2080,7 @@ public class SchemaManager implements DmcNameResolverIF {
      */
 //    private boolean checkAndAdd(Object key, Object obj, HashMap map){
     @SuppressWarnings({ "unchecked", "rawtypes" })
-	private boolean checkAndAdd(DefinitionName key, DmsDefinition obj, HashMap map){
+	private boolean checkAndAdd(DefinitionName key, DMDefinition obj, HashMap map){
         if (map.containsKey(key))
             return(false);
         else
@@ -2089,7 +2089,7 @@ public class SchemaManager implements DmcNameResolverIF {
         return(true);
     }
 
-	private boolean checkAndAddDOT(DotName key, DmsDefinition obj, HashMap<DotName,DmsDefinition> map){
+	private boolean checkAndAddDOT(DotName key, DMDefinition obj, HashMap<DotName,DMDefinition> map){
         if (map.containsKey(key))
             return(false);
         else
@@ -2264,7 +2264,7 @@ public class SchemaManager implements DmcNameResolverIF {
     	// If we can't find it in allDefs, we'll look in allDefsDOT because it might be
     	// a fully qualified name.
 
-		DmsDefinition def = allDefs.get(name);
+		DMDefinition def = allDefs.get(name);
 		if (def == null)
 			return(null);
 		return(def.getDmcObject());
@@ -2325,8 +2325,8 @@ public class SchemaManager implements DmcNameResolverIF {
     /**
      * Returns a nice error message for a clashing definition name.
      */
-    String clashMsg(DefinitionName defName, DmsDefinition newDef, HashMap<DefinitionName, ? extends DmsDefinition> defMap, String defType){
-        DmsDefinition    existing = defMap.get(defName);
+    String clashMsg(DefinitionName defName, DMDefinition newDef, HashMap<DefinitionName, ? extends DMDefinition> defMap, String defType){
+        DMDefinition    existing = defMap.get(defName);
         SchemaDefinition ga1      = existing.getDefinedIn();
         SchemaDefinition ga2      = newDef.getDefinedIn();
 
@@ -2338,8 +2338,8 @@ public class SchemaManager implements DmcNameResolverIF {
 
     // TODO: NEW NAMING
     
-    String clashMsgDOT(DefinitionName defName, DmsDefinition newDef, HashMap<DotName, ? extends DmsDefinition> defMap, String defType){
-        DmsDefinition    existing = defMap.get(defName);
+    String clashMsgDOT(DefinitionName defName, DMDefinition newDef, HashMap<DotName, ? extends DMDefinition> defMap, String defType){
+        DMDefinition    existing = defMap.get(defName);
         SchemaDefinition ga1      = existing.getDefinedIn();
         SchemaDefinition ga2      = newDef.getDefinedIn();
 
@@ -2352,8 +2352,8 @@ public class SchemaManager implements DmcNameResolverIF {
     /**
      * Returns a nice error message for a clashing definition name.
      */
-    String clashMsg(DefinitionName defName, DmsDefinition newDef, TreeMap<DefinitionName, ? extends DmsDefinition> defMap, String defType){
-    	DmsDefinition    existing = defMap.get(defName);
+    String clashMsg(DefinitionName defName, DMDefinition newDef, TreeMap<DefinitionName, ? extends DMDefinition> defMap, String defType){
+    	DMDefinition    existing = defMap.get(defName);
     	SchemaDefinition ga1      = existing.getDefinedIn();
     	SchemaDefinition ga2      = newDef.getDefinedIn();
 
@@ -2371,8 +2371,8 @@ public class SchemaManager implements DmcNameResolverIF {
     /**
      * Returns a nice error message for a clashing definition identifier.
      */
-    String clashMsg(Integer defID, DmsDefinition newDef, TreeMap<Integer, ? extends DmsDefinition> defMap, String defType){
-    	DmsDefinition    existing = defMap.get(defID);
+    String clashMsg(Integer defID, DMDefinition newDef, TreeMap<Integer, ? extends DMDefinition> defMap, String defType){
+    	DMDefinition    existing = defMap.get(defID);
     	SchemaDefinition ga1      = existing.getDefinedIn();
     	SchemaDefinition ga2      = newDef.getDefinedIn();
     	
@@ -3055,5 +3055,6 @@ public class SchemaManager implements DmcNameResolverIF {
     public Iterator<ExtendedReferenceTypeDefinition> getExtendedReferenceTypes(){
     	return(extendedReferenceTypeDefs.values().iterator());
     }
+
 }
 

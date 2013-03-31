@@ -19,8 +19,6 @@ import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.definitions.DmcDefinitionIF;
-import org.dmd.dmc.definitions.DmcDefinitionSet;
 import org.dmd.dmc.rules.DynamicInitIF;
 import org.dmd.dmc.rules.RuleIF;
 import org.dmd.dmc.types.RuleName;
@@ -79,7 +77,8 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     }
 
 	protected SchemaDefinition(String mn) throws DmcValueException {
-		super(mn);
+//		super(mn);
+		getDMO().setName(mn);
     	dependsOnSchemaClasses = new TreeMap<String, String>();
     	generatedSchema = false;
 	}
@@ -269,7 +268,7 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
      * only used by code that reads schemas such at the DmsSchemaParser.
      * @throws DmcValueException 
      */
-    public void addDefinition(DmsDefinition def) throws ResultException, DmcValueException {
+    public void addDefinition(DMDefinition def) throws ResultException, DmcValueException {
     	
     	if (def instanceof AttributeDefinition)
     		this.addAttributeDefList((AttributeDefinition) def);
@@ -402,16 +401,16 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     	return(rc);
     }
 
-	@Override
-	public Iterator<DmcDefinitionIF> getDefinitions() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Iterator<DmcDefinitionSet<?>> getDefinitionSets() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public Iterator<DmcDefinitionIF> getDefinitions() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public Iterator<DmcDefinitionSet<?>> getDefinitionSets() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 }
 

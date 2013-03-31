@@ -32,7 +32,7 @@ import org.dmd.dms.*;
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1573)
  */
 @SuppressWarnings("unused")
-public abstract class DmsDefinitionDMW extends DmwNamedObjectWrapper {
+public abstract class DmsDefinitionDMW extends org.dmd.dms.DMDefinition {
 
     private DmsDefinitionDMO mycore;
 
@@ -75,78 +75,6 @@ public abstract class DmsDefinitionDMW extends DmwNamedObjectWrapper {
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2394)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
-    }
-
-    /**
-     * Indicates the schema in which a type, attribute or class is defined.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2321)
-    public SchemaDefinition getDefinedIn(){
-        DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) mycore.get(MetaDMSAG.__definedIn);
-        if (attr == null)
-            return(null);
-        SchemaDefinitionDMO obj = attr.getSV().getObject();
-        return((SchemaDefinition)obj.getContainer());
-    }
-
-    /**
-     * Sets definedIn to the specified value.
-     * @param value A value compatible with SchemaDefinition
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2381)
-    public void setDefinedIn(SchemaDefinition value) throws DmcValueException {
-        mycore.setDefinedIn(value.getDmcObject());
-    }
-
-    /**
-     * Indicates the file from which a definition was loaded.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2321)
-    public String getFile(){
-        return(mycore.getFile());
-    }
-
-    /**
-     * Sets file to the specified value.
-     * @param value A value compatible with DmcTypeStringSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2394)
-    public void setFile(Object value) throws DmcValueException {
-        mycore.setFile(value);
-    }
-
-    /**
-     * Indicates the line number of the file from which a definition was loaded.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2321)
-    public Integer getLineNumber(){
-        return(mycore.getLineNumber());
-    }
-
-    /**
-     * Sets lineNumber to the specified value.
-     * @param value A value compatible with DmcTypeIntegerSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2394)
-    public void setLineNumber(Object value) throws DmcValueException {
-        mycore.setLineNumber(value);
-    }
-
-    /**
-     * The dotName attribute is used to store dot separated names.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2321)
-    public DotName getDotName(){
-        return(mycore.getDotName());
-    }
-
-    /**
-     * Sets dotName to the specified value.
-     * @param value A value compatible with DmcTypeDotNameSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2394)
-    public void setDotName(Object value) throws DmcValueException {
-        mycore.setDotName(value);
     }
 
 

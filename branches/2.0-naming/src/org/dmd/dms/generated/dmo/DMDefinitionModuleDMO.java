@@ -30,7 +30,7 @@ import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGe
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1877)
  */
 @SuppressWarnings("serial")
-public class DMDefinitionModuleDMO extends DmcObject implements DmcNamedObjectIF, Serializable  {
+public class DMDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DMDefinitionDMO implements Serializable  {
 
 
 
@@ -43,10 +43,18 @@ public class DMDefinitionModuleDMO extends DmcObject implements DmcNamedObjectIF
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
         _ImAp.put(MetaDMSAG.__name.id,MetaDMSAG.__name);
         _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
+        _ImAp.put(MetaDMSAG.__dotName.id,MetaDMSAG.__dotName);
+        _ImAp.put(MetaDMSAG.__exampleUsage.id,MetaDMSAG.__exampleUsage);
+        _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
+        _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(MetaDMSAG.__name.name,MetaDMSAG.__name);
         _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
+        _SmAp.put(MetaDMSAG.__dotName.name,MetaDMSAG.__dotName);
+        _SmAp.put(MetaDMSAG.__exampleUsage.name,MetaDMSAG.__exampleUsage);
+        _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
+        _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
     }
 
 
@@ -131,6 +139,113 @@ public class DMDefinitionModuleDMO extends DmcObject implements DmcNamedObjectIF
         
         attr.set(value);
         set(MetaDMSAG.__definedIn,attr);
+    }
+
+    /**
+     * The dotName attribute is used to store dot separated names.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2267)
+    public DotName getDotName(){
+        DmcTypeDotNameSV attr = (DmcTypeDotNameSV) get(MetaDMSAG.__dotName);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets dotName to the specified value.
+     * @param value A value compatible with DmcTypeDotNameSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2360)
+    public void setDotName(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__dotName);
+        if (attr == null)
+            attr = new DmcTypeDotNameSV(MetaDMSAG.__dotName);
+        
+        attr.set(value);
+        set(MetaDMSAG.__dotName,attr);
+    }
+
+    /**
+     * The exampleUsage attribute is used to provide additional\n examples of how
+     * some defined thing is to be used.
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2465)
+    public Iterator<String> getExampleUsage(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__exampleUsage);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another exampleUsage value.
+     * @param value A value compatible with DmcTypeStringMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2520)
+    public DmcAttribute<?> addExampleUsage(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__exampleUsage);
+        if (attr == null)
+            attr = new DmcTypeStringMV(MetaDMSAG.__exampleUsage);
+        
+        attr.add(value);
+        add(MetaDMSAG.__exampleUsage,attr);
+        return(attr);
+    }
+
+    /**
+     * Indicates the file from which a definition was loaded.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2267)
+    public String getFile(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__file);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets file to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2360)
+    public void setFile(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__file);
+        if (attr == null)
+            attr = new DmcTypeStringSV(MetaDMSAG.__file);
+        
+        attr.set(value);
+        set(MetaDMSAG.__file,attr);
+    }
+
+    /**
+     * Indicates the line number of the file from which a definition was loaded.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2267)
+    public Integer getLineNumber(){
+        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaDMSAG.__lineNumber);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets lineNumber to the specified value.
+     * @param value A value compatible with DmcTypeIntegerSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2360)
+    public void setLineNumber(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__lineNumber);
+        if (attr == null)
+            attr = new DmcTypeIntegerSV(MetaDMSAG.__lineNumber);
+        
+        attr.set(value);
+        set(MetaDMSAG.__lineNumber,attr);
     }
 
 

@@ -102,6 +102,40 @@ public abstract class DMDefinitionDMW extends DmwNamedObjectWrapper {
     }
 
     /**
+     * The exampleUsage attribute is used to provide additional\n examples of how
+     * some defined thing is to be used.
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2500)
+    public Iterator<String> getExampleUsage(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__exampleUsage);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another exampleUsage value.
+     * @param value A value compatible with DmcTypeStringMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2555)
+    public DmcAttribute<?> addExampleUsage(Object value) throws DmcValueException {
+        return(mycore.addExampleUsage(value));
+    }
+
+    /**
+     * Returns the number of exampleUsage values.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2567)
+    public int getExampleUsageSize(){
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__exampleUsage);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
+    /**
      * Indicates the schema in which a type, attribute or class is defined.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2321)
@@ -120,6 +154,57 @@ public abstract class DMDefinitionDMW extends DmwNamedObjectWrapper {
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2381)
     public void setDefinedIn(SchemaDefinition value) throws DmcValueException {
         mycore.setDefinedIn(value.getDmcObject());
+    }
+
+    /**
+     * Indicates the file from which a definition was loaded.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2321)
+    public String getFile(){
+        return(mycore.getFile());
+    }
+
+    /**
+     * Sets file to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2394)
+    public void setFile(Object value) throws DmcValueException {
+        mycore.setFile(value);
+    }
+
+    /**
+     * Indicates the line number of the file from which a definition was loaded.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2321)
+    public Integer getLineNumber(){
+        return(mycore.getLineNumber());
+    }
+
+    /**
+     * Sets lineNumber to the specified value.
+     * @param value A value compatible with DmcTypeIntegerSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2394)
+    public void setLineNumber(Object value) throws DmcValueException {
+        mycore.setLineNumber(value);
+    }
+
+    /**
+     * The dotName attribute is used to store dot separated names.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2321)
+    public DotName getDotName(){
+        return(mycore.getDotName());
+    }
+
+    /**
+     * Sets dotName to the specified value.
+     * @param value A value compatible with DmcTypeDotNameSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2394)
+    public void setDotName(Object value) throws DmcValueException {
+        mycore.setDotName(value);
     }
 
 
