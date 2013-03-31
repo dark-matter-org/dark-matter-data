@@ -1086,7 +1086,14 @@ valueType			MULTI
 description Indicates the classes of object that may be parents of the
  current class when objects are created in an instance hierarchy.
 
-// 63
+AttributeDefinition
+name            	exampleUsage
+dmdID				63
+preserveNewlines	true
+type                String
+valueType			MULTI
+description    		The exampleUsage attribute is used to provide additional
+ examples of how some defined thing is to be used.
 
 AttributeDefinition
 name       			namingAttribute
@@ -1807,13 +1814,13 @@ description    				Indicates if the class defined by a ClassDefinition and its d
  generated class will implement the DmcDefinitionIF which assumes that these attributes exist. This
  interface allows these definitions to be managed as part of a set of definitions.
 
-AttributeDefinition
-name                		isDSModule
-dmdID						159
-type                		Boolean
-description    				Indicates if the class defined by a ClassDefinition is considered to be a 
- module-level entity in terms of a set of domain specific definitions. The generated dark-matter wrapper
- for the class will indicate that it implements the DmcModuleIF.  
+//AttributeDefinition
+//name                		isDSModule
+//dmdID						159
+//type                		Boolean
+//description    				Indicates if the class defined by a ClassDefinition is considered to be a 
+// module-level entity in terms of a set of domain specific definitions. The generated dark-matter wrapper
+// for the class will indicate that it implements the DmcModuleIF.  
 
 AttributeDefinition
 name                stringName
@@ -1869,8 +1876,12 @@ javaClass    	org.dmd.dms.DMDefinition
 dmoImport		org.dmd.dms.generated.dmo.DMDefinitionDMO
 isNamedBy       name
 must         	name
+may				exampleUsage
 // Auto generated/set
 may           	definedIn
+may          	file
+may        		lineNumber
+may				dotName
 description		The dark-matter definition forms the basis for all domain specific definitions
  that use dark-matter as their basis. The initial dark-matter mechanisms were focussed only on 
  schema for data objects, but, as the project developed, other, domain specific sets of definitions
@@ -1898,6 +1909,7 @@ description		The dark-matter definition forms the basis for all domain specific 
 ClassDefinition
 name			DMDefinitionModule
 classType     	ABSTRACT
+derivedFrom     DMDefinition
 dmdID			2
 useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.DMDefinitionModule
@@ -1910,6 +1922,7 @@ may           	definedIn
 ClassDefinition
 name			DmsDefinition
 classType     	ABSTRACT
+derivedFrom     DMDefinition
 dmdID			3
 useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.DmsDefinition
@@ -1917,10 +1930,10 @@ dmoImport		org.dmd.dms.generated.dmo.DmsDefinitionDMO
 isNamedBy       name
 must         	name
 // Auto generated/set
-may           	definedIn
-may          	file
-may        		lineNumber
-may				dotName
+//may           	definedIn
+//may          	file
+//may        		lineNumber
+//may				dotName
 description     The DmsDefinition class provides a common base for all definition classes.
 
 ClassDefinition
@@ -1955,7 +1968,7 @@ may				excludeFromContext
 may           	abbrev
 may         	obsoleteVersion
 may				isDSDefinition
-may				isDSModule
+//may				isDSModule
 // Auto generated/set
 may             internallyGenerated
 may				ruleDefinition
@@ -2264,9 +2277,10 @@ useWrapperType	EXTENDED
 //dataType      	TRANSIENT
 javaClass    	org.dmd.dms.SchemaDefinition
 dmoImport		org.dmd.dms.generated.dmo.SchemaDefinitionDMO
-derivedFrom     DmsDefinition
+//derivedFrom     DmsDefinition
+derivedFrom     DMDefinitionModule
 isNamedBy       name
-isDSModule		true
+//isDSModule		true
 must        	name
 must        	description
 must          	schemaPackage

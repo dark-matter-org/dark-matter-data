@@ -27,14 +27,15 @@ import org.dmd.dmc.rules.SourceInfo;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
-import org.dmd.dms.DmsDefinition;
+import org.dmd.dms.DMDefinition;
+import org.dmd.dms.DMDefinition;
 import org.dmd.dms.MetaSchema;
 import org.dmd.dms.MetaSchemaAG;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaDefinitionListenerIF;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;
-import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
+import org.dmd.dms.generated.dmo.DMDefinitionDMO;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dmv.server.DmvDynamicRuleManager;
 import org.dmd.dmv.shared.DmvRuleManager;
@@ -307,7 +308,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
     public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException, DmcRuleExceptionSet {
         ClassDefinition     cd                  = null;
         boolean             isSchema            = false;
-        DmsDefinition    	newDef              = null;
+        DMDefinition    	newDef              = null;
         Iterator<String>    dependsOnSchemas    = null;
         Iterator<String>    defFiles            = null;
         SchemaDefinition    currSchema          = null;
@@ -382,7 +383,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
         		DmwWrapper newObj = dmwfactory.createWrapper(uco);
         		newDef 		= null;
 
-    			newDef = (DmsDefinition) newObj;
+    			newDef = (DMDefinition) newObj;
     			newDef.setFile(srcFile);
     			newDef.setLineNumber(lineNumber);
 				
@@ -566,7 +567,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
     }
 
 	@Override
-	public void definitionAdded(DmsDefinitionDMO def) {
+	public void definitionAdded(DMDefinitionDMO def) {
 		if (def instanceof AttributeDefinitionDMO){
 			AttributeDefinitionDMO attr = (AttributeDefinitionDMO) def;
 			if (attr.getPreserveNewlines()){

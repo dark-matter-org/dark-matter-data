@@ -71,13 +71,13 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         _ImAp.put(MetaDMSAG.__dmwIteratorImport.id,MetaDMSAG.__dmwIteratorImport);
         _ImAp.put(MetaDMSAG.__dmwWrapperType.id,MetaDMSAG.__dmwWrapperType);
         _ImAp.put(MetaDMSAG.__dotName.id,MetaDMSAG.__dotName);
+        _ImAp.put(MetaDMSAG.__exampleUsage.id,MetaDMSAG.__exampleUsage);
         _ImAp.put(MetaDMSAG.__excludeFromContext.id,MetaDMSAG.__excludeFromContext);
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
         _ImAp.put(MetaDMSAG.__intendedToExtend.id,MetaDMSAG.__intendedToExtend);
         _ImAp.put(MetaDMSAG.__internalTypeRef.id,MetaDMSAG.__internalTypeRef);
         _ImAp.put(MetaDMSAG.__internallyGenerated.id,MetaDMSAG.__internallyGenerated);
         _ImAp.put(MetaDMSAG.__isDSDefinition.id,MetaDMSAG.__isDSDefinition);
-        _ImAp.put(MetaDMSAG.__isDSModule.id,MetaDMSAG.__isDSModule);
         _ImAp.put(MetaDMSAG.__isNamedBy.id,MetaDMSAG.__isNamedBy);
         _ImAp.put(MetaDMSAG.__javaClass.id,MetaDMSAG.__javaClass);
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
@@ -119,13 +119,13 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         _SmAp.put(MetaDMSAG.__dmwIteratorImport.name,MetaDMSAG.__dmwIteratorImport);
         _SmAp.put(MetaDMSAG.__dmwWrapperType.name,MetaDMSAG.__dmwWrapperType);
         _SmAp.put(MetaDMSAG.__dotName.name,MetaDMSAG.__dotName);
+        _SmAp.put(MetaDMSAG.__exampleUsage.name,MetaDMSAG.__exampleUsage);
         _SmAp.put(MetaDMSAG.__excludeFromContext.name,MetaDMSAG.__excludeFromContext);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
         _SmAp.put(MetaDMSAG.__intendedToExtend.name,MetaDMSAG.__intendedToExtend);
         _SmAp.put(MetaDMSAG.__internalTypeRef.name,MetaDMSAG.__internalTypeRef);
         _SmAp.put(MetaDMSAG.__internallyGenerated.name,MetaDMSAG.__internallyGenerated);
         _SmAp.put(MetaDMSAG.__isDSDefinition.name,MetaDMSAG.__isDSDefinition);
-        _SmAp.put(MetaDMSAG.__isDSModule.name,MetaDMSAG.__isDSModule);
         _SmAp.put(MetaDMSAG.__isNamedBy.name,MetaDMSAG.__isNamedBy);
         _SmAp.put(MetaDMSAG.__javaClass.name,MetaDMSAG.__javaClass);
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
@@ -941,6 +941,35 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     }
 
     /**
+     * The exampleUsage attribute is used to provide additional\n examples of how
+     * some defined thing is to be used.
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2465)
+    public Iterator<String> getExampleUsage(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__exampleUsage);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another exampleUsage value.
+     * @param value A value compatible with DmcTypeStringMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2520)
+    public DmcAttribute<?> addExampleUsage(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__exampleUsage);
+        if (attr == null)
+            attr = new DmcTypeStringMV(MetaDMSAG.__exampleUsage);
+        
+        attr.add(value);
+        add(MetaDMSAG.__exampleUsage,attr);
+        return(attr);
+    }
+
+    /**
      * The excludeFromContext attribute is used to indicate that\n a class of
      * object (and all of its derivatives) should be excluded from the wrapper\n
      * generation for the specified context. An example usage is in the Dark
@@ -1119,35 +1148,6 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         
         attr.set(value);
         set(MetaDMSAG.__isDSDefinition,attr);
-    }
-
-    /**
-     * Indicates if the class defined by a ClassDefinition is considered to be a
-     * \n module-level entity in terms of a set of domain specific definitions.
-     * The generated dark-matter wrapper\n for the class will indicate that it
-     * implements the DmcModuleIF.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2267)
-    public Boolean getIsDSModule(){
-        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaDMSAG.__isDSModule);
-        if (attr == null)
-            return(false);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets isDSModule to the specified value.
-     * @param value A value compatible with DmcTypeBooleanSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2360)
-    public void setIsDSModule(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(MetaDMSAG.__isDSModule);
-        if (attr == null)
-            attr = new DmcTypeBooleanSV(MetaDMSAG.__isDSModule);
-        
-        attr.set(value);
-        set(MetaDMSAG.__isDSModule,attr);
     }
 
     /**

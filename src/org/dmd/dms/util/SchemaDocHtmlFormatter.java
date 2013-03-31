@@ -854,7 +854,7 @@ public class SchemaDocHtmlFormatter {
 
                     while(defsIt.hasNext()){
                         Token               t  = (Token)defsIt.next();
-                        DmsDefinition    go = (DmsDefinition) t.getUserData();
+                        DMDefinition    go = (DMDefinition) t.getUserData();
 
                         out.write("<tr> <TD VALIGN=TOP>\n");
 
@@ -1338,7 +1338,7 @@ public class SchemaDocHtmlFormatter {
      * @param alias An alternate name for the definition; if provided, this is
      * used as the string in the reference.
      */
-    String defLink(DmsDefinition go, String alias){
+    String defLink(DMDefinition go, String alias){
     	DmsDefinition def = (DmsDefinition)go;
     	SchemaDefinition sd = def.getDefinedIn();
 

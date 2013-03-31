@@ -61,6 +61,7 @@ public class DependencyDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
         _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
         _ImAp.put(MetaDMSAG.__dependencies.id,MetaDMSAG.__dependencies);
         _ImAp.put(MetaDMSAG.__dotName.id,MetaDMSAG.__dotName);
+        _ImAp.put(MetaDMSAG.__exampleUsage.id,MetaDMSAG.__exampleUsage);
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
         _ImAp.put(MetaDMSAG.__instantiation.id,MetaDMSAG.__instantiation);
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
@@ -71,6 +72,7 @@ public class DependencyDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
         _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
         _SmAp.put(MetaDMSAG.__dependencies.name,MetaDMSAG.__dependencies);
         _SmAp.put(MetaDMSAG.__dotName.name,MetaDMSAG.__dotName);
+        _SmAp.put(MetaDMSAG.__exampleUsage.name,MetaDMSAG.__exampleUsage);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
         _SmAp.put(MetaDMSAG.__instantiation.name,MetaDMSAG.__instantiation);
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
@@ -239,6 +241,35 @@ public class DependencyDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
         
         attr.set(value);
         set(MetaDMSAG.__dotName,attr);
+    }
+
+    /**
+     * The exampleUsage attribute is used to provide additional\n examples of how
+     * some defined thing is to be used.
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2465)
+    public Iterator<String> getExampleUsage(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__exampleUsage);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another exampleUsage value.
+     * @param value A value compatible with DmcTypeStringMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2520)
+    public DmcAttribute<?> addExampleUsage(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__exampleUsage);
+        if (attr == null)
+            attr = new DmcTypeStringMV(MetaDMSAG.__exampleUsage);
+        
+        attr.add(value);
+        add(MetaDMSAG.__exampleUsage,attr);
+        return(attr);
     }
 
     /**

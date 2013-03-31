@@ -9,7 +9,7 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueExceptionSet;
-import org.dmd.dms.DmsDefinition;
+import org.dmd.dms.DMDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.dmo.RuleDataDMO;
@@ -21,7 +21,7 @@ public class Summarizer {
 	
 	TreeMap<String,SchemaDefinition>				allSchemasByName;
 
-	TreeMap<String,TreeMap<String,DmsDefinition>>	definitionsByLetter;
+	TreeMap<String,TreeMap<String,DMDefinition>>	definitionsByLetter;
 	
 	String 				outDir;
 	
@@ -36,7 +36,7 @@ public class Summarizer {
     public Summarizer(SchemaManager sm, String od){
 		allSchemasByID 		= new TreeMap<Integer, SchemaDefinition>();
 		allSchemasByName 	= new TreeMap<String, SchemaDefinition>();
-		definitionsByLetter = new TreeMap<String, TreeMap<String,DmsDefinition>>();
+		definitionsByLetter = new TreeMap<String, TreeMap<String,DMDefinition>>();
 		outDir 				= od;
 		sidebar				= new StringBuffer();
 		idSummary			= new StringBuffer();
@@ -60,11 +60,11 @@ public class Summarizer {
 		DmcOmni.instance().setTrackSchemaReferences(true);
 		DmcOmni.instance().backRefTracking(true);		
 
-		for(DmsDefinition def: sm.allDefs.values()){
+		for(DMDefinition def: sm.allDefs.values()){
 			def.getDMO().clearReferenceInfo();
 		}
 		
-		for(DmsDefinition def: sm.allDefs.values()){
+		for(DMDefinition def: sm.allDefs.values()){
 			addDefinition(def);
 			try {
 				def.resolveReferences(sm);
@@ -140,13 +140,13 @@ public class Summarizer {
 		
 	}
 	
-	void addDefinition(DmsDefinition def){
+	void addDefinition(DMDefinition def){
 		String firstLetter = Character.toUpperCase(def.getName().getNameString().charAt(0)) + "";
 		
-		TreeMap<String,DmsDefinition> startingWith = definitionsByLetter.get(firstLetter);
+		TreeMap<String,DMDefinition> startingWith = definitionsByLetter.get(firstLetter);
 		
 		if (startingWith == null){
-			startingWith = new TreeMap<String,DmsDefinition>();
+			startingWith = new TreeMap<String,DMDefinition>();
 			definitionsByLetter.put(firstLetter, startingWith);
 		}
 		
@@ -155,10 +155,10 @@ public class Summarizer {
 	
 	public void dumpTextSummary(){
 		for(String firstLetter: definitionsByLetter.keySet()){
-			TreeMap<String,DmsDefinition> startingWith = definitionsByLetter.get(firstLetter);
+			TreeMap<String,DMDefinition> startingWith = definitionsByLetter.get(firstLetter);
 			
 			System.out.println("---------- " + firstLetter + " ----------  (" + startingWith.size()+ ")");
-			for(DmsDefinition def: startingWith.values()){
+			for(DMDefinition def: startingWith.values()){
 				System.out.println("    " + def.getName().getNameString() + " (" + def.getDMO().referenceCount() + ")");
 			}
 		}

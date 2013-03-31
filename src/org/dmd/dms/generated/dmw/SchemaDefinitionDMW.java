@@ -25,7 +25,6 @@ import org.dmd.dms.generated.enums.*;
 import org.dmd.dms.generated.types.*;
 import org.dmd.util.exceptions.*;
 import org.dmd.dms.*;
-import org.dmd.dmc.definitions.DmcModuleIF;
 
 /**
  * This class is used to define a schema as a discrete, nameable entity.
@@ -33,7 +32,7 @@ import org.dmd.dmc.definitions.DmcModuleIF;
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1573)
  */
 @SuppressWarnings("unused")
-public abstract class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcModuleIF {
+public abstract class SchemaDefinitionDMW extends org.dmd.dms.DMDefinitionModule {
 
     private SchemaDefinitionDMO mycore;
 
@@ -57,18 +56,6 @@ public abstract class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition impl
 
     public  SchemaDefinitionDMO getDMO() {
         return(mycore);
-    }
-
-    protected SchemaDefinitionDMW(ClassDefinition cd) {
-        super(cd);
-    }
-
-    protected SchemaDefinitionDMW(String mn) throws DmcValueException {
-        super(new SchemaDefinitionDMO());
-        mycore = (SchemaDefinitionDMO) core;
-        mycore.setContainer(this);
-        mycore.setName(mn);
-        metaname = mn;
     }
 
     /**

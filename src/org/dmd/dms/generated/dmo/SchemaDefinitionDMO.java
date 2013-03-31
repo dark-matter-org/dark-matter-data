@@ -30,7 +30,7 @@ import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGe
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1877)
  */
 @SuppressWarnings("serial")
-public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO implements Serializable  {
+public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DMDefinitionModuleDMO implements Serializable  {
 
 
 
@@ -59,6 +59,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         _ImAp.put(MetaDMSAG.__dmwTypeToPackage.id,MetaDMSAG.__dmwTypeToPackage);
         _ImAp.put(MetaDMSAG.__dotName.id,MetaDMSAG.__dotName);
         _ImAp.put(MetaDMSAG.__enumDefList.id,MetaDMSAG.__enumDefList);
+        _ImAp.put(MetaDMSAG.__exampleUsage.id,MetaDMSAG.__exampleUsage);
         _ImAp.put(MetaDMSAG.__extendedReferenceTypeDefList.id,MetaDMSAG.__extendedReferenceTypeDefList);
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
         _ImAp.put(MetaDMSAG.__generatedFileHeader.id,MetaDMSAG.__generatedFileHeader);
@@ -90,6 +91,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         _SmAp.put(MetaDMSAG.__dmwTypeToPackage.name,MetaDMSAG.__dmwTypeToPackage);
         _SmAp.put(MetaDMSAG.__dotName.name,MetaDMSAG.__dotName);
         _SmAp.put(MetaDMSAG.__enumDefList.name,MetaDMSAG.__enumDefList);
+        _SmAp.put(MetaDMSAG.__exampleUsage.name,MetaDMSAG.__exampleUsage);
         _SmAp.put(MetaDMSAG.__extendedReferenceTypeDefList.name,MetaDMSAG.__extendedReferenceTypeDefList);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
         _SmAp.put(MetaDMSAG.__generatedFileHeader.name,MetaDMSAG.__generatedFileHeader);
@@ -650,6 +652,35 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         
         attr.add(value);
         add(MetaDMSAG.__enumDefList,attr);
+        return(attr);
+    }
+
+    /**
+     * The exampleUsage attribute is used to provide additional\n examples of how
+     * some defined thing is to be used.
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2465)
+    public Iterator<String> getExampleUsage(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__exampleUsage);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another exampleUsage value.
+     * @param value A value compatible with DmcTypeStringMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2520)
+    public DmcAttribute<?> addExampleUsage(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__exampleUsage);
+        if (attr == null)
+            attr = new DmcTypeStringMV(MetaDMSAG.__exampleUsage);
+        
+        attr.add(value);
+        add(MetaDMSAG.__exampleUsage,attr);
         return(attr);
     }
 
