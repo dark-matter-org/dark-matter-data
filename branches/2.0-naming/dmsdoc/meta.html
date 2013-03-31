@@ -23,7 +23,7 @@
 <!-- org.dmd.dms.doc.web.SchemaPage.writeClassSummary(SchemaPage.java:370) -->
 
     <div class="classList">
-    <h2> Classes (17)</h2>
+    <h2> Classes (19)</h2>
     <table>
       <tr>
       <td class="spacer"> </td>
@@ -47,6 +47,16 @@
       <tr>
       <td class="spacer"> </td>
       <td> <a class="deflink" href="#ComplexTypeDefinition"> ComplexTypeDefinition </a></td>
+      <td> name </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#DMDefinition"> DMDefinition </a></td>
+      <td> name </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#DMDefinitionModule"> DMDefinitionModule </a></td>
       <td> name </td>
       </tr>
       <tr>
@@ -113,7 +123,7 @@
     </div><!-- org.dmd.dms.doc.web.SchemaPage.writeTypeSummary(SchemaPage.java:412) -->
 
     <div class="typeList">
-    <h2>Types (32)</h2>
+    <h2>Types (33)</h2>
     <ul>
       <li> <a class="deflink" href="#AttributeID"> AttributeID </a></li>
       <li> <a class="deflink" href="#Boolean"> Boolean </a></li>
@@ -122,6 +132,7 @@
       <li> <a class="deflink" href="#ClassFilter"> ClassFilter </a></li>
       <li> <a class="deflink" href="#ClassInfoRef"> ClassInfoRef </a></li>
       <li> <a class="deflink" href="#Date"> Date </a></li>
+      <li> <a class="deflink" href="#DefinitionName"> DefinitionName </a></li>
       <li> <a class="deflink" href="#DmcObject"> DmcObject </a></li>
       <li> <a class="deflink" href="#DotName"> DotName </a></li>
       <li> <a class="deflink" href="#Double"> Double </a></li>
@@ -257,10 +268,10 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
- for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+ for an object with the set of definitions of which it is a part. A name starts with a letter followed
+ by letters and numbers.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
 <tr> <td class="attributeRule">
@@ -462,10 +473,10 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
- for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+ for an object with the set of definitions of which it is a part. A name starts with a letter followed
+ by letters and numbers.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
 <tr> <td class="attributeRule">
@@ -539,10 +550,10 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
- for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+ for an object with the set of definitions of which it is a part. A name starts with a letter followed
+ by letters and numbers.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
 <tr> <td class="attributeRule">
@@ -872,10 +883,10 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
- for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+ for an object with the set of definitions of which it is a part. A name starts with a letter followed
+ by letters and numbers.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
 <tr> <td class="attributeRule">
@@ -1442,10 +1453,10 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
- for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+ for an object with the set of definitions of which it is a part. A name starts with a letter followed
+ by letters and numbers.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
 <tr> <td class="attributeRule">
@@ -1540,6 +1551,180 @@
 
   <table>
 
+    <tr> <td class="className" colspan="4"> <a name="DMDefinition"> DMDefinition </a> </td></tr>
+<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:54) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The dark-matter definition forms the basis for all domain specific definitions
+ that use dark-matter as their basis. The initial dark-matter mechanisms were focussed only on 
+ schema for data objects, but, as the project developed, other, domain specific sets of definitions
+ were added. Eventually, a pattern emerged in terms of these various sets of definitions and
+ some additional higher order concepts were introduced to make the creation of new, domain specific
+ definition sets easier and to allow them to build on and use each others' definitions in a 
+ coherent manner.
+ <p/>
+ For instance, the Model View Whatever (MVW) framework, builds on the dark-matter schema 
+ concepts and introduces definitions that align with the Google Web Toolkit (GWT) conceptual model
+ of the elements that comprise GWT applications and the various relationships that exist between
+ them. The infrastructure needed to parse, manage and use those definitions to generate code
+ and documentation are very similar to those used in the base dark-matter schema mechanisms, but
+ they had to be hand built for the domain.
+ <p/>
+ Other kinds of domain specific definitions started to emerge, Google Protocol Buffer (GPB),
+ Simple Network Management Protocol (SNMP) etc. Having to build the infrastructure for these 
+ definitions each time was tedious and, in the spirit of the rest of dark-matter, lent themselves
+ to being defined, generated and extended to make the process the easier.
+ <p/>
+ Likewise, the code generation mechanisms originally employed have evolved and the more generic
+ concept of artifact generation, based on definition sets, was introduced to allow for more rapid
+ creation of utilities that generate code or documentation or other types of specifications.</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">ABSTRACT</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.wrapper(ClassFormatter.java:137) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:151) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="meta.html#name">name</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name
+ for an object with the set of definitions of which it is a part. A name starts with a letter followed
+ by letters and numbers.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+
+<table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
+
+</table>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#definedIn">definedIn</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </td>
+      <td> Indicates the schema in which a type, attribute or class is defined.      </td>
+    </tr>
+
+  </table>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.dumpDetails(ClassFormatter.java:23) -->
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="DMDefinitionModule"> DMDefinitionModule </a> </td></tr>
+<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">ABSTRACT</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.wrapper(ClassFormatter.java:137) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:151) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="meta.html#name">name</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name
+ for an object with the set of definitions of which it is a part. A name starts with a letter followed
+ by letters and numbers.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+
+<table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
+
+</table>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#definedIn">definedIn</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </td>
+      <td> Indicates the schema in which a type, attribute or class is defined.      </td>
+    </tr>
+
+  </table>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.dumpDetails(ClassFormatter.java:23) -->
+
+  <table>
+
     <tr> <td class="className" colspan="4"> <a name="Dependency"> Dependency </a> </td></tr>
 <!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:54) -->
 
@@ -1611,10 +1796,10 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
- for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+ for an object with the set of definitions of which it is a part. A name starts with a letter followed
+ by letters and numbers.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
 <tr> <td class="attributeRule">
@@ -1781,10 +1966,10 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
- for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+ for an object with the set of definitions of which it is a part. A name starts with a letter followed
+ by letters and numbers.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
 <tr> <td class="attributeRule">
@@ -1923,10 +2108,10 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
- for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+ for an object with the set of definitions of which it is a part. A name starts with a letter followed
+ by letters and numbers.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
 <tr> <td class="attributeRule">
@@ -2058,10 +2243,10 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
- for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+ for an object with the set of definitions of which it is a part. A name starts with a letter followed
+ by letters and numbers.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
 <tr> <td class="attributeRule">
@@ -2230,10 +2415,10 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
- for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+ for an object with the set of definitions of which it is a part. A name starts with a letter followed
+ by letters and numbers.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
 <tr> <td class="attributeRule">
@@ -2429,10 +2614,10 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
- for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+ for an object with the set of definitions of which it is a part. A name starts with a letter followed
+ by letters and numbers.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
 <tr> <td class="attributeRule">
@@ -2813,10 +2998,10 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
- for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+ for an object with the set of definitions of which it is a part. A name starts with a letter followed
+ by letters and numbers.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
 <tr> <td class="attributeRule">
@@ -2985,10 +3170,10 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
- for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+ for an object with the set of definitions of which it is a part. A name starts with a letter followed
+ by letters and numbers.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
 <tr> <td class="attributeRule">
@@ -3131,10 +3316,10 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
- for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+ for an object with the set of definitions of which it is a part. A name starts with a letter followed
+ by letters and numbers.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
 <tr> <td class="attributeRule">
@@ -3484,10 +3669,10 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
- for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+ for an object with the set of definitions of which it is a part. A name starts with a letter followed
+ by letters and numbers.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
 <tr> <td class="attributeRule">
@@ -3714,10 +3899,10 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
- for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+ for an object with the set of definitions of which it is a part. A name starts with a letter followed
+ by letters and numbers.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
 <tr> <td class="attributeRule">
@@ -4683,7 +4868,10 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       <td>
         <table>
         <tr>
+          <td> DMDefinition (<a href="meta.html#DMDefinition">meta</a>) </td>
+          <td> DMDefinitionModule (<a href="meta.html#DMDefinitionModule">meta</a>) </td>
           <td> DmsDefinition (<a href="meta.html#DmsDefinition">meta</a>) </td>
+        <tr>
           <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
         </tr>
         </table>
@@ -7103,7 +7291,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr> <td class="className" colspan="3"> <a name="name"> name </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#StringName">StringName</a> </div> (designated naming attribute)
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#DefinitionName">DefinitionName</a> </div> (designated naming attribute)
       </td>
     </tr>
 
@@ -7111,8 +7299,8 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>The name attribute is used to store a single string token that represents a unique name
- for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All names must start with a character.<p/>
+ for an object with the set of definitions of which it is a part. A name starts with a letter followed
+ by letters and numbers.<p/>
 The name attribute must start with a letter, followed by a mix of letters and numbers.
 <p/>An EnumDefinition's name must end with Enum
 <p/>      </td>
@@ -7134,40 +7322,42 @@ The name attribute must start with a letter, followed by a mix of letters and nu
         </tr>
         <tr>
           <td> ComplexTypeDefinition (<a href="meta.html#ComplexTypeDefinition">meta</a>) </td>
+          <td> DMDefinition (<a href="meta.html#DMDefinition">meta</a>) </td>
+          <td> DMDefinitionModule (<a href="meta.html#DMDefinitionModule">meta</a>) </td>
+        </tr>
+        <tr>
           <td> Dependency (<a href="meta.html#Dependency">meta</a>) </td>
           <td> DependencyImplementation (<a href="meta.html#DependencyImplementation">meta</a>) </td>
+          <td> DmsDefinition (<a href="meta.html#DmsDefinition">meta</a>) </td>
         </tr>
         <tr>
-          <td> DmsDefinition (<a href="meta.html#DmsDefinition">meta</a>) </td>
           <td> EnumDefinition (<a href="meta.html#EnumDefinition">meta</a>) </td>
           <td> ExtendedReferenceTypeDefinition (<a href="meta.html#ExtendedReferenceTypeDefinition">meta</a>) </td>
+          <td> MethodGenerator (<a href="dmg.html#MethodGenerator">dmg</a>) </td>
         </tr>
         <tr>
-          <td> MethodGenerator (<a href="dmg.html#MethodGenerator">dmg</a>) </td>
           <td> ObjWithRefs (<a href="dmt.html#ObjWithRefs">dmt</a>) </td>
           <td> RuleCategory (<a href="meta.html#RuleCategory">meta</a>) </td>
+          <td> RuleDefinition (<a href="meta.html#RuleDefinition">meta</a>) </td>
         </tr>
         <tr>
-          <td> RuleDefinition (<a href="meta.html#RuleDefinition">meta</a>) </td>
           <td> RunContext (<a href="meta.html#RunContext">meta</a>) </td>
           <td> SchemaDefinition (<a href="meta.html#SchemaDefinition">meta</a>) </td>
+          <td> SliceDefinition (<a href="meta.html#SliceDefinition">meta</a>) </td>
         </tr>
         <tr>
-          <td> SliceDefinition (<a href="meta.html#SliceDefinition">meta</a>) </td>
           <td> TestBasicNamedObjectExtended (<a href="dmt.html#TestBasicNamedObjectExtended">dmt</a>) </td>
           <td> TestBasicNamedObjectFixed (<a href="dmt.html#TestBasicNamedObjectFixed">dmt</a>) </td>
+          <td> TestDerivedDiffSubpackage (<a href="dmt.html#TestDerivedDiffSubpackage">dmt</a>) </td>
         </tr>
         <tr>
-          <td> TestDerivedDiffSubpackage (<a href="dmt.html#TestDerivedDiffSubpackage">dmt</a>) </td>
           <td> TestDerivedSubpackage (<a href="dmt.html#TestDerivedSubpackage">dmt</a>) </td>
           <td> TestMultiLevelSubpackage (<a href="dmt.html#TestMultiLevelSubpackage">dmt</a>) </td>
+          <td> TestOneLevelSubpackage (<a href="dmt.html#TestOneLevelSubpackage">dmt</a>) </td>
         </tr>
         <tr>
-          <td> TestOneLevelSubpackage (<a href="dmt.html#TestOneLevelSubpackage">dmt</a>) </td>
           <td> TestOneLevelSubpackageExtended (<a href="dmt.html#TestOneLevelSubpackageExtended">dmt</a>) </td>
           <td> TypeDefinition (<a href="meta.html#TypeDefinition">meta</a>) </td>
-        </tr>
-        <tr>
           <td> WrapperGenerator (<a href="dmg.html#WrapperGenerator">dmg</a>) </td>
         </tr>
       <tr>
@@ -7992,6 +8182,31 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     </tr>
 
 <!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="stringName"> stringName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#StringName">StringName</a> </div> (designated naming attribute)
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The stringName attribute is used to store a simple name for something. It starts
+ with a letter followed letters or numbers.<p/>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        </table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="subpackage"> subpackage </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8579,6 +8794,49 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <td> svDate (<a href="dmt.html#svDate">dmt</a>) </td>
   <tr>
     <td> tsDate (<a href="dmt.html#tsDate">dmt</a>) </td>
+</tr>
+</table>
+      </td>
+    </tr>
+
+    <tr> <td class="typeName" colspan="3"> <a name="DefinitionName"> DefinitionName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td> The DefinitionName provides naming of dark-matter definitions. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Name type</td>
+      <td> Flat </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Name attribute</td>
+      <td> <a href="meta.html#name"> name </a> </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type class</td>
+      <td>org.dmd.dmc.types.DmcTypeDefinitionName</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Primitive type</td>
+      <td>org.dmd.dmc.types.DefinitionName</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+<table>
+  <tr>
+    <td> name (<a href="meta.html#name">meta</a>) </td>
 </tr>
 </table>
       </td>
@@ -9443,7 +9701,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Name attribute</td>
-      <td> <a href="meta.html#name"> name </a> </td>
+      <td> <a href="meta.html#stringName"> stringName </a> </td>
     </tr>
 
     <tr>
@@ -9465,7 +9723,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
 <table>
   <tr>
     <td> hsStringName (<a href="dmt.html#hsStringName">dmt</a>) </td>
-    <td> name (<a href="meta.html#name">meta</a>) </td>
+    <td> stringName (<a href="meta.html#stringName">meta</a>) </td>
 </tr>
 </table>
       </td>
