@@ -94,6 +94,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
     public final static ReferencedAttributeTypeRule __dmvBasedOnAttribute;
     public final static PatternMatchRule __dmvDefinitionNameCheck;
     public final static PatternMatchRule __dmvEnumDefinitionNameCheck;
+    public final static PatternMatchRule __dmvFileExtensionCheck;
     public final static OneOfTheseAttributesRequiredRule __dmvIncludeOrExclude;
     public final static ReferencedAttributeTypeRule __dmvLhs;
     public final static OneOfTheseAttributesRequiredRule __dmvMaxOrMin;
@@ -303,6 +304,20 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             __dmvEnumDefinitionNameCheck = new PatternMatchRule(_dmvEnumDefinitionNameCheckData);
 
             _RmAp.add(__dmvEnumDefinitionNameCheck);
+
+            PatternMatchRuleDataDMO _dmvFileExtensionCheckData = new PatternMatchRuleDataDMO();
+            _dmvFileExtensionCheckData   .setApplyToAttribute("fileExtension");
+            _dmvFileExtensionCheckData   .setDefinedIn("dmv");
+            _dmvFileExtensionCheckData   .setDescription("Didn't want to be too restrictive with this. Definitely didn't want special characters.");
+            _dmvFileExtensionCheckData   .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
+            _dmvFileExtensionCheckData   .setLineNumber("438");
+            _dmvFileExtensionCheckData   .setMatchesPattern("[a-zA-Z][a-zA-Z0-9]*");
+            _dmvFileExtensionCheckData   .setRuleName("dmvFileExtensionCheck");
+            _dmvFileExtensionCheckData   .setRuleTitle("A file extension should be comprised of alpha-numeric characters.");
+
+            __dmvFileExtensionCheck = new PatternMatchRule(_dmvFileExtensionCheckData);
+
+            _RmAp.add(__dmvFileExtensionCheck);
 
             OneOfTheseAttributesRequiredRuleDataDMO _dmvIncludeOrExcludeData = new OneOfTheseAttributesRequiredRuleDataDMO();
             _dmvIncludeOrExcludeData     .setApplyToClass("CheckAttributesBasedOnValueRuleData");
