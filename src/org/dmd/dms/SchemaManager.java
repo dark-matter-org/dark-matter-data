@@ -22,7 +22,8 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
-import org.dmd.dmc.DmcNameResolverIF;
+import org.dmd.dmc.DmcNameClashResolverIF;
+import org.dmd.dmc.DmcNameResolverWithClashSupportIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcNamedObjectREF;
 import org.dmd.dmc.DmcObject;
@@ -31,9 +32,9 @@ import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dmc.types.DefinitionName;
 import org.dmd.dmc.types.DotName;
 import org.dmd.dmc.types.RuleName;
-import org.dmd.dmc.types.DefinitionName;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmc.util.NamedStringArray;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
@@ -58,7 +59,7 @@ import org.dmd.util.parsing.Token;
  * classes and schemas themselves.
  */
 
-public class SchemaManager implements DmcNameResolverIF {
+public class SchemaManager implements DmcNameResolverWithClashSupportIF {
 
     /**
      * The schema of classes that are used to describe schemas.
@@ -1085,8 +1086,8 @@ public class SchemaManager implements DmcNameResolverIF {
         td.setInternallyGenerated(true);
         td.setName(ctd.getName());
         
-        // The name of a rule definition is schema.complextype.ComplexTypeDefinition
-        // For the associated class, it will be schema.complextype.TypeDefinition
+        // The name of a complex type definition is schema.complextype.ComplexTypeDefinition
+        // For the associated type, it will be schema.complextype.TypeDefinition
         DotName typeName = (DotName) ctd.getDotName().getParentName();
         typeName.addChild("TypeDefinition");
         td.setDotName(typeName);
@@ -2090,10 +2091,22 @@ public class SchemaManager implements DmcNameResolverIF {
     }
 
 	private boolean checkAndAddDOT(DotName key, DMDefinition obj, HashMap<DotName,DMDefinition> map){
+		DebugInfo.debug("Adding: " + key);
+		if (key == null){
+			DebugInfo.debug(obj.toOIF());
+		}
         if (map.containsKey(key))
             return(false);
-        else
+        else{
             map.put(key,obj);
+        	if (obj instanceof SchemaDefinition){
+        		
+        	}
+        	else{
+        		
+        	}
+            map.put(key,obj);
+        }
 
         return(true);
     }
@@ -3055,6 +3068,21 @@ public class SchemaManager implements DmcNameResolverIF {
     public Iterator<ExtendedReferenceTypeDefinition> getExtendedReferenceTypes(){
     	return(extendedReferenceTypeDefs.values().iterator());
     }
+
+	@Override
+	public DmcNamedObjectIF findNamedObjectMayClash(DmcObject object, DmcObjectName name, DmcNameClashResolverIF resolver, DmcAttributeInfo ai) throws DmcValueExceptionSet {
+		try {
+			DefinitionName dn = new DefinitionName(name.getNameString() + "." + ai.type);
+			
+			DebugInfo.debug("DN = " + dn);
+			
+		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 
 }
 
