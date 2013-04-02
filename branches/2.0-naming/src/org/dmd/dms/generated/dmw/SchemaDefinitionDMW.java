@@ -32,7 +32,7 @@ import org.dmd.dms.*;
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1573)
  */
 @SuppressWarnings("unused")
-public abstract class SchemaDefinitionDMW extends org.dmd.dms.DMDefinitionModule {
+public abstract class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     private SchemaDefinitionDMO mycore;
 
@@ -56,6 +56,18 @@ public abstract class SchemaDefinitionDMW extends org.dmd.dms.DMDefinitionModule
 
     public  SchemaDefinitionDMO getDMO() {
         return(mycore);
+    }
+
+    protected SchemaDefinitionDMW(ClassDefinition cd) {
+        super(cd);
+    }
+
+    protected SchemaDefinitionDMW(String mn) throws DmcValueException {
+        super(new SchemaDefinitionDMO());
+        mycore = (SchemaDefinitionDMO) core;
+        mycore.setContainer(this);
+        mycore.setName(mn);
+        metaname = mn;
     }
 
     /**

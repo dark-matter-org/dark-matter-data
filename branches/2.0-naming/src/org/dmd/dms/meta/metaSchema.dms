@@ -1830,6 +1830,25 @@ designatedNameAttribute true
 description    The stringName attribute is used to store a simple name for something. It starts
  with a letter followed letters or numbers.
 
+AttributeDefinition
+name                fileExtension
+dmdID				161
+type                String
+description    		Indicates the extension of files of a particular type.
+
+AttributeDefinition
+name                baseDefinition
+dmdID				162
+type                DMDefinition
+description    		A reference to the DMDefinition derived class that is the common
+ base class for a related set of definitions.
+
+AttributeDefinition
+name                moduleClassName
+dmdID				163
+type                String
+description    		The name of the class that will be generated as a result of a DMDefinitionModule definition.
+
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
 AttributeDefinition
@@ -1907,34 +1926,47 @@ description		The dark-matter definition forms the basis for all domain specific 
  creation of utilities that generate code or documentation or other types of specifications.
 
 ClassDefinition
-name			DMDefinitionModule
-classType     	ABSTRACT
-derivedFrom     DMDefinition
-dmdID			2
-useWrapperType	EXTENDED
-javaClass    	org.dmd.dms.DMDefinitionModule
-dmoImport		org.dmd.dms.generated.dmo.DMDefinitionModuleDMO
-isNamedBy       name
-must         	name
-// Auto generated/set
-may           	definedIn
-
-ClassDefinition
 name			DmsDefinition
 classType     	ABSTRACT
 derivedFrom     DMDefinition
-dmdID			3
+dmdID			2
 useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.DmsDefinition
 dmoImport		org.dmd.dms.generated.dmo.DmsDefinitionDMO
 isNamedBy       name
 must         	name
+description     The DmsDefinition class provides a common base for all dark-matter schema (DMS) definition classes.
+
+ClassDefinition
+name			DMDefinitionModule
+classType     	STRUCTURAL
+derivedFrom     DmsDefinition
+dmdID			3
+useWrapperType	EXTENDED
+javaClass    	org.dmd.dms.DMDefinitionModule
+dmoImport		org.dmd.dms.generated.dmo.DMDefinitionModuleDMO
+isNamedBy       name
+must         	name
+must			fileExtension
+must			baseDefinition
+must			dmdID
+must			moduleClassName
 // Auto generated/set
-//may           	definedIn
-//may          	file
-//may        		lineNumber
-//may				dotName
-description     The DmsDefinition class provides a common base for all definition classes.
+may           	definedIn
+description		The DMDefinitionModule is a definition that defines a collection of definitions
+ and provides a basis for the generation of various artifacts that allow for parsing and
+ management of that set of definitions.
+ <p/>
+ The specific of a definition module will result in the generation of a ClassDefinition for
+ the specified module type and thus, the dmdID associated with it must be unique across the
+ set of classes that comprise the definitions encompassed by the module.
+
+DMDefinitionModule
+name			DMS
+fileExtension	dms
+baseDefinition	DmsDefinition
+dmdID			21
+moduleClassName	DmSchema
 
 ClassDefinition
 name           	ClassDefinition
@@ -2269,6 +2301,8 @@ description       This class is used to define the actions that may be triggered
  an object.
 //label     		Attribute
 
+
+
 ClassDefinition
 name           	SchemaDefinition
 classType      	STRUCTURAL
@@ -2278,9 +2312,9 @@ useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.SchemaDefinition
 dmoImport		org.dmd.dms.generated.dmo.SchemaDefinitionDMO
 //derivedFrom     DmsDefinition
-derivedFrom     DMDefinitionModule
+derivedFrom     DmsDefinition
 isNamedBy       name
-//isDSModule		true
+// module attribute
 must        	name
 must        	description
 must          	schemaPackage

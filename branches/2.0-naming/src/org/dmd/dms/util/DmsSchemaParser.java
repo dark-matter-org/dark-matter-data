@@ -28,7 +28,6 @@ import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.DMDefinition;
-import org.dmd.dms.DMDefinition;
 import org.dmd.dms.MetaSchema;
 import org.dmd.dms.MetaSchemaAG;
 import org.dmd.dms.SchemaDefinition;

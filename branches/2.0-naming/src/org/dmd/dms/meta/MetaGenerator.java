@@ -108,6 +108,9 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	// Rule category definitions
 	TreeMap<String, DmcUncheckedObject> ruleCategoryDefs;
 
+	// Module definitions
+	TreeMap<String, DmcUncheckedObject> dmModuleDefs;
+
 	// Rule instances
 	ArrayList<DmcUncheckedObject> ruleInstances;
 
@@ -139,6 +142,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		ovDefs = new TreeMap<String, DmcUncheckedObject>();
 		ruleDefs = new TreeMap<String, DmcUncheckedObject>();
 		ruleCategoryDefs = new TreeMap<String, DmcUncheckedObject>();
+		dmModuleDefs = new TreeMap<String, DmcUncheckedObject>();
 
 		ruleInstances = new ArrayList<DmcUncheckedObject>();
 
@@ -229,6 +233,10 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		} catch (ResultException ex) {
 			System.err.println(ex);
 		}
+	}
+	
+	void createClassesFromDMDefinitionModules(){
+		
 	}
 	
 	///////////////////////////////////////////////////////////////////////////
@@ -741,6 +749,9 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			createClassDefForRuleDef(obj);
 		} else if (objClass.equals("RuleCategory")) {
 			ruleCategoryDefs.put(name, obj);
+			origOrderCategories.add(name);
+		} else if (objClass.equals("DMDefinitionModule")) {
+			dmModuleDefs.put(name, obj);
 			origOrderCategories.add(name);
 		} else {
 			ResultException ex = new ResultException(

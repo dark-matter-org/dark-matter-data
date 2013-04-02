@@ -25,12 +25,14 @@ import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGe
 
 
 /**
- * null
+ * The DMDefinitionModule is a definition that defines a collection of
+ * definitions\n and provides a basis for the generation of various artifacts
+ * that allow for parsing and\n management of that set of definitions.
  * @author Auto Generated
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1877)
  */
 @SuppressWarnings("serial")
-public class DMDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DMDefinitionDMO implements Serializable  {
+public class DMDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO implements Serializable  {
 
 
 
@@ -41,6 +43,8 @@ public class DMDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DMDefinitio
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
+        _ImAp.put(MetaDMSAG.__baseDefinition.id,MetaDMSAG.__baseDefinition);
+        _ImAp.put(MetaDMSAG.__fileExtension.id,MetaDMSAG.__fileExtension);
         _ImAp.put(MetaDMSAG.__name.id,MetaDMSAG.__name);
         _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
         _ImAp.put(MetaDMSAG.__dotName.id,MetaDMSAG.__dotName);
@@ -49,6 +53,8 @@ public class DMDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DMDefinitio
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
+        _SmAp.put(MetaDMSAG.__baseDefinition.name,MetaDMSAG.__baseDefinition);
+        _SmAp.put(MetaDMSAG.__fileExtension.name,MetaDMSAG.__fileExtension);
         _SmAp.put(MetaDMSAG.__name.name,MetaDMSAG.__name);
         _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
         _SmAp.put(MetaDMSAG.__dotName.name,MetaDMSAG.__dotName);
@@ -85,6 +91,59 @@ public class DMDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DMDefinitio
         DMDefinitionModuleDMO rc = new DMDefinitionModuleDMO();
         populateSlice(rc,info);
         return(rc);
+    }
+
+    /**
+     * A reference to the DMDefinition derived class that is the common\n base
+     * class for a related set of definitions.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2267)
+    public DMDefinitionREF getBaseDefinition(){
+        DmcTypeDMDefinitionREFSV attr = (DmcTypeDMDefinitionREFSV) get(MetaDMSAG.__baseDefinition);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets baseDefinition to the specified value.
+     * @param value A value compatible with DmcTypeDMDefinitionREFSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2360)
+    public void setBaseDefinition(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__baseDefinition);
+        if (attr == null)
+            attr = new DmcTypeDMDefinitionREFSV(MetaDMSAG.__baseDefinition);
+        
+        attr.set(value);
+        set(MetaDMSAG.__baseDefinition,attr);
+    }
+
+    /**
+     * Indicates the extension of files of a particular type.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2267)
+    public String getFileExtension(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__fileExtension);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets fileExtension to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2360)
+    public void setFileExtension(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__fileExtension);
+        if (attr == null)
+            attr = new DmcTypeStringSV(MetaDMSAG.__fileExtension);
+        
+        attr.set(value);
+        set(MetaDMSAG.__fileExtension,attr);
     }
 
     /**
