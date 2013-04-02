@@ -430,3 +430,9 @@ onePossibility		nrrMaximum
 description The NumericRangeRule can operate with one or both of the minimum
  and maximum values.
 
+PatternMatchRuleData
+ruleName			dmvFileExtensionCheck
+ruleTitle			A file extension should be comprised of alpha-numeric characters.
+matchesPattern		[a-zA-Z][a-zA-Z0-9]*
+applyToAttribute	fileExtension
+description			Didn't want to be too restrictive with this. Definitely didn't want special characters.

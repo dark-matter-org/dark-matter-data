@@ -27,7 +27,8 @@ import org.dmd.util.exceptions.*;
 import org.dmd.dms.*;
 
 /**
- * The DmsDefinition class provides a common base for all definition classes.
+ * The DmsDefinition class provides a common base for all dark-matter schema
+ * (DMS) definition classes.
  * @author Auto Generated
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1573)
  */

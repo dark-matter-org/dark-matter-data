@@ -30,7 +30,7 @@ import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGe
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1877)
  */
 @SuppressWarnings("serial")
-public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DMDefinitionModuleDMO implements Serializable  {
+public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO implements Serializable  {
 
 
 

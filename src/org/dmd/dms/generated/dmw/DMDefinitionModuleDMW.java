@@ -27,12 +27,14 @@ import org.dmd.util.exceptions.*;
 import org.dmd.dms.*;
 
 /**
- * null
+ * The DMDefinitionModule is a definition that defines a collection of
+ * definitions\n and provides a basis for the generation of various artifacts
+ * that allow for parsing and\n management of that set of definitions.
  * @author Auto Generated
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1573)
  */
 @SuppressWarnings("unused")
-public abstract class DMDefinitionModuleDMW extends org.dmd.dms.DMDefinition {
+public class DMDefinitionModuleDMW extends org.dmd.dms.DmsDefinition {
 
     private DMDefinitionModuleDMO mycore;
 
@@ -58,6 +60,18 @@ public abstract class DMDefinitionModuleDMW extends org.dmd.dms.DMDefinition {
         return(mycore);
     }
 
+    protected DMDefinitionModuleDMW(ClassDefinition cd) {
+        super(cd);
+    }
+
+    protected DMDefinitionModuleDMW(String mn) throws DmcValueException {
+        super(new DMDefinitionModuleDMO());
+        mycore = (DMDefinitionModuleDMO) core;
+        mycore.setContainer(this);
+        mycore.setName(mn);
+        metaname = mn;
+    }
+
     /**
      * The name attribute is used to store a single string token that represents
      * a unique name\n for an object with the set of definitions of which it is a
@@ -75,6 +89,45 @@ public abstract class DMDefinitionModuleDMW extends org.dmd.dms.DMDefinition {
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2394)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
+    }
+
+    /**
+     * Indicates the extension of files of a particular type.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2321)
+    public String getFileExtension(){
+        return(mycore.getFileExtension());
+    }
+
+    /**
+     * Sets fileExtension to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2394)
+    public void setFileExtension(Object value) throws DmcValueException {
+        mycore.setFileExtension(value);
+    }
+
+    /**
+     * A reference to the DMDefinition derived class that is the common\n base
+     * class for a related set of definitions.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2321)
+    public DMDefinition getBaseDefinition(){
+        DmcTypeDMDefinitionREFSV attr = (DmcTypeDMDefinitionREFSV) mycore.get(MetaDMSAG.__baseDefinition);
+        if (attr == null)
+            return(null);
+        DMDefinitionDMO obj = attr.getSV().getObject();
+        return((DMDefinition)obj.getContainer());
+    }
+
+    /**
+     * Sets baseDefinition to the specified value.
+     * @param value A value compatible with DMDefinition
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2381)
+    public void setBaseDefinition(DMDefinition value) throws DmcValueException {
+        mycore.setBaseDefinition(value.getDmcObject());
     }
 
     /**
