@@ -136,6 +136,25 @@ public class DotName extends DmcHierarchicObjectName implements Serializable {
 		}
 		return(rc);
 	}
+	
+	/**
+	 * Takes a name of the form x.y.z and trims the root component so that you get y.z
+	 * If the name doesn't contain any dots, you get an empty name string.
+	 * @return this name with the root trimmed
+	 */
+	public DotName trimRoot(){
+		DotName rc = new DotName();
+		
+		int dotPos = name.indexOf(".");
+		if (dotPos == -1){
+			rc.name = "";
+		}
+		else{
+			rc.name = name.substring(dotPos+1);
+		}
+		
+		return(rc);
+	}
 
 	public boolean isParent(DmcHierarchicObjectName n) {
 		boolean rc = false;

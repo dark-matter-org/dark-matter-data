@@ -25,7 +25,7 @@ import org.dmd.dms.generated.enums.GPBScalarTypeEnum;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1962)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:558)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:567)
  */
 @SuppressWarnings("serial")
 public class DmcTypeGPBScalarTypeEnumSV extends DmcTypeGPBScalarTypeEnum implements Serializable {

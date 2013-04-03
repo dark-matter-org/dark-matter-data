@@ -29,9 +29,13 @@ import org.dmd.dms.*;
 /**
  * The DMDefinitionModule is a definition that defines a collection of
  * definitions\n and provides a basis for the generation of various artifacts
- * that allow for parsing and\n management of that set of definitions.
+ * that allow for parsing and\n management of that set of definitions.\n
+ * <p/>\n The specific of a definition module will result in the generation
+ * of a ClassDefinition for\n the specified module type and thus, the dmdID
+ * associated with it must be unique across the\n set of classes that
+ * comprise the definitions encompassed by the module.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1573)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1585)
  */
 @SuppressWarnings("unused")
 public class DMDefinitionModuleDMW extends org.dmd.dms.DmsDefinition {
@@ -77,7 +81,7 @@ public class DMDefinitionModuleDMW extends org.dmd.dms.DmsDefinition {
      * a unique name\n for an object with the set of definitions of which it is a
      * part. A name starts with a letter followed\n by letters and numbers.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2321)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2333)
     public DefinitionName getName(){
         return(mycore.getName());
     }
@@ -86,7 +90,7 @@ public class DMDefinitionModuleDMW extends org.dmd.dms.DmsDefinition {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2394)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2406)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
@@ -94,7 +98,7 @@ public class DMDefinitionModuleDMW extends org.dmd.dms.DmsDefinition {
     /**
      * Indicates the extension of files of a particular type.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2321)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2333)
     public String getFileExtension(){
         return(mycore.getFileExtension());
     }
@@ -103,7 +107,7 @@ public class DMDefinitionModuleDMW extends org.dmd.dms.DmsDefinition {
      * Sets fileExtension to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2394)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2406)
     public void setFileExtension(Object value) throws DmcValueException {
         mycore.setFileExtension(value);
     }
@@ -112,7 +116,7 @@ public class DMDefinitionModuleDMW extends org.dmd.dms.DmsDefinition {
      * A reference to the DMDefinition derived class that is the common\n base
      * class for a related set of definitions.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2321)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2333)
     public DMDefinition getBaseDefinition(){
         DmcTypeDMDefinitionREFSV attr = (DmcTypeDMDefinitionREFSV) mycore.get(MetaDMSAG.__baseDefinition);
         if (attr == null)
@@ -125,15 +129,52 @@ public class DMDefinitionModuleDMW extends org.dmd.dms.DmsDefinition {
      * Sets baseDefinition to the specified value.
      * @param value A value compatible with DMDefinition
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2381)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2393)
     public void setBaseDefinition(DMDefinition value) throws DmcValueException {
         mycore.setBaseDefinition(value.getDmcObject());
     }
 
     /**
+     * The dmdID attribute is used to store a unique Dark Matter Definition ID
+     * for attributes.\n This is used as part of the serialization mechanisms
+     * built into Dark Matter Objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2333)
+    public Integer getDmdID(){
+        return(mycore.getDmdID());
+    }
+
+    /**
+     * Sets dmdID to the specified value.
+     * @param value A value compatible with DmcTypeIntegerSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2406)
+    public void setDmdID(Object value) throws DmcValueException {
+        mycore.setDmdID(value);
+    }
+
+    /**
+     * The name of the class that will be generated as a result of a
+     * DMDefinitionModule definition.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2333)
+    public String getModuleClassName(){
+        return(mycore.getModuleClassName());
+    }
+
+    /**
+     * Sets moduleClassName to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2406)
+    public void setModuleClassName(Object value) throws DmcValueException {
+        mycore.setModuleClassName(value);
+    }
+
+    /**
      * Indicates the schema in which a type, attribute or class is defined.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2321)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2333)
     public SchemaDefinition getDefinedIn(){
         DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) mycore.get(MetaDMSAG.__definedIn);
         if (attr == null)
@@ -146,7 +187,7 @@ public class DMDefinitionModuleDMW extends org.dmd.dms.DmsDefinition {
      * Sets definedIn to the specified value.
      * @param value A value compatible with SchemaDefinition
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2381)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2393)
     public void setDefinedIn(SchemaDefinition value) throws DmcValueException {
         mycore.setDefinedIn(value.getDmcObject());
     }
@@ -154,7 +195,7 @@ public class DMDefinitionModuleDMW extends org.dmd.dms.DmsDefinition {
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1736)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1748)
 
     /**
      * @return The name of this object from the name attribute.

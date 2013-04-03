@@ -135,6 +135,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __mayReturn = new DmcAttributeInfo("mayReturn",31,"AttributeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __maySendProgress = new DmcAttributeInfo("maySendProgress",76,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __modify = new DmcAttributeInfo("modify",85,"Modifier",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __moduleClassName = new DmcAttributeInfo("moduleClassName",163,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __msgKey = new DmcAttributeInfo("msgKey",23,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __msgParam = new DmcAttributeInfo("msgParam",52,"String",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __must = new DmcAttributeInfo("must",26,"AttributeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
@@ -411,6 +412,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__mayReturn.id,__mayReturn);
         _SmAp.put(__maySendProgress.id,__maySendProgress);
         _SmAp.put(__modify.id,__modify);
+        _SmAp.put(__moduleClassName.id,__moduleClassName);
         _SmAp.put(__msgKey.id,__msgKey);
         _SmAp.put(__msgParam.id,__msgParam);
         _SmAp.put(__must.id,__must);
@@ -584,7 +586,9 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __DMDefinition.addMay(__lineNumber);
 
         __DMDefinitionModule.addMust(__baseDefinition);
+        __DMDefinitionModule.addMust(__dmdID);
         __DMDefinitionModule.addMust(__fileExtension);
+        __DMDefinitionModule.addMust(__moduleClassName);
         __DMDefinitionModule.addMust(__name);
         __DMDefinitionModule.addMay(__definedIn);
         __DMDefinitionModule.addMay(__dotName);

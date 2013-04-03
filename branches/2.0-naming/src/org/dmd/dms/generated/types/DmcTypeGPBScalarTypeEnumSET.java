@@ -30,7 +30,7 @@ import org.dmd.dms.generated.enums.GPBScalarTypeEnum;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2602)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:565)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:574)
  */
 @SuppressWarnings("serial")
 public class DmcTypeGPBScalarTypeEnumSET extends DmcTypeGPBScalarTypeEnum implements Serializable {

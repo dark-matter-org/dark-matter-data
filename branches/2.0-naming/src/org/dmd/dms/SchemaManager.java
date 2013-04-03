@@ -72,9 +72,13 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF {
      * Key: DefinitionName
      * Value: TypeDefinition, ClassDefinition, AttributeDefinition, ActionDefinition, SchemaDefinition, EnumDefinition
      */
-    public HashMap<DefinitionName,DMDefinition>    	allDefs;
+    public HashMap<DefinitionName,DMDefinition>    		allDefs;
     
-    public HashMap<DotName, DMDefinition>			allDefsDOT;
+    public HashMap<DotName, DMDefinition>				allDefsDOT;
+    
+    // Key: DotNames of the form definition_name.definition_type - these keys could potentially clash
+    //      across schemas, so we maintain an array list of the defs at this level
+    public HashMap<DotName, ArrayList<DMDefinition>>	defsByTypeDOT;
 
     /**
      * This map contains all enum  definitions keyed on their respective name attributes.
@@ -235,6 +239,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF {
         // Create our various hashmaps
         allDefs     				= new HashMap<DefinitionName,DMDefinition>();
         allDefsDOT     				= new HashMap<DotName,DMDefinition>();
+        defsByTypeDOT				= new HashMap<DotName, ArrayList<DMDefinition>>();
         
         enumDefs 					= new HashMap<DefinitionName,EnumDefinition>();
         typeDefs    				= new HashMap<DefinitionName,TypeDefinition>();
@@ -273,7 +278,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF {
         else
             meta = MetaSchema._metaSchema;
 
-        ((MetaSchema)meta).setSchemaManager(this);
+//        ((MetaSchema)meta).setSchemaManager(this);
 
 //        ((MetaSchema)meta).traceLog.setDebugLevels(MetaSchema._DEBUGE.getIntToStringMap().size(),MetaSchema._DEBUGE.getIntToStringMap().values().iterator());
 
@@ -1654,6 +1659,13 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF {
 	        cd.getDefinedIn().addInternalTypeDefList(td);
 	        
 	        internalTypeDefs.put(td.getName(), td);
+	        
+	        if (checkAndAddDOT(td.getDotName(),td,allDefsDOT) == false){
+	        	ResultException ex = new ResultException();
+	        	ex.addError(clashMsgDOT(td.getObjectName(),td,allDefsDOT,"definition names"));
+	        	throw(ex);
+	        }
+
         }
 
         if (extensions.size() > 0){
@@ -1935,6 +1947,11 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF {
             throw(ex);
         }
         
+        if (checkAndAddDOT(evd.getDotName(),evd,allDefsDOT) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsgDOT(evd.getObjectName(),evd,allDefsDOT,"definition names"));
+        	throw(ex);
+        }
 //        DebugInfo.debug(evd.getName().toString());
         
 //        if (evd.getDefinedIn() == MetaSchemaAG._metaSchema){
@@ -2091,21 +2108,36 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF {
     }
 
 	private boolean checkAndAddDOT(DotName key, DMDefinition obj, HashMap<DotName,DMDefinition> map){
+//		defsByTypeDOT
 		DebugInfo.debug("Adding: " + key);
-		if (key == null){
-			DebugInfo.debug(obj.toOIF());
+		
+		if (key.getNameString().contains("TypeDefinition.TypeDefinition")){
+			DebugInfo.debugWithTrace(key.getNameString());
 		}
         if (map.containsKey(key))
             return(false);
         else{
             map.put(key,obj);
-        	if (obj instanceof SchemaDefinition){
-        		
-        	}
-        	else{
-        		
-        	}
-            map.put(key,obj);
+            
+            DotName defAndType 	= key.trimRoot();
+//            boolean isModule	= false;
+            if (obj instanceof SchemaDefinition){
+            	defAndType = (DotName) key.getParentName();
+//            	isModule = true;
+            }
+            
+            ArrayList<DMDefinition>	defs = defsByTypeDOT.get(key);
+            
+    		DebugInfo.debug("Adding: " + defAndType + "\n\n");
+            if (defs == null){
+            	defs = new ArrayList<DMDefinition>();
+            	defs.add(obj);
+            	defsByTypeDOT.put(defAndType, defs);
+            }
+            else{
+            	defs.add(obj);
+            }
+            
         }
 
         return(true);

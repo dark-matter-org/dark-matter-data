@@ -284,6 +284,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		out.write("            _metaSchema = this;\n");
 		out.write("            staticRefName = new String(\"MetaSchema._\");\n\n");
 		out.write("            this.setDescription(\"The meta schema defines the elements used to define schemas.\");\n");
+		out.write("            this.setDotName(\"meta.SchemaDefinition\");\n");
 
 		// Set the prefix for the generated output directory and the generated
 		// package prefixes
