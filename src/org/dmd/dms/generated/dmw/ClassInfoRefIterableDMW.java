@@ -25,7 +25,7 @@ import org.dmd.dmc.types.ClassInfoRef;
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1748)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpTypeIterables(MetaGenerator.java:661)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpTypeIterables(MetaGenerator.java:670)
  */
 public class ClassInfoRefIterableDMW extends DmwMVIterator<ClassInfoRef> {
 
