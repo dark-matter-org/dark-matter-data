@@ -1654,8 +1654,8 @@ abstract public class DmcObject implements Serializable {
 	 * or other sets of definitions. The concept here is that it's convenient to use simple strings
 	 * as names for things and only use fully qualified names when it's necessary to distinguish
 	 * between ambiguous/clashing names. 
-	 * @param rx
-	 * @param ncr
+	 * @param rx the name resolver
+	 * @param ncr the clash resolver
 	 * @throws DmcValueExceptionSet
 	 */
 	public void resolveReferences(DmcNameResolverWithClashSupportIF rx, DmcNameClashResolverIF ncr) throws DmcValueExceptionSet {
