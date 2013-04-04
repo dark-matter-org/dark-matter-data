@@ -1093,8 +1093,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF {
         
         // The name of a complex type definition is schema.complextype.ComplexTypeDefinition
         // For the associated type, it will be schema.complextype.TypeDefinition
-        DotName typeName = (DotName) ctd.getDotName().getParentName();
-        typeName.addChild("TypeDefinition");
+        DotName typeName = new DotName((DotName) ctd.getDotName().getParentName(),"TypeDefinition");
         td.setDotName(typeName);
 
         td.setDescription("This is an internally generated type to represent complex type " + ctd.getName() + " values.");
@@ -1140,8 +1139,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF {
         
         // The name of an extended reference definition is schema.extreftype.ExtendedReferenceTypeDefinition
         // For the associated class, it will be schema.extreftype.TypeDefinition
-        DotName typeName = (DotName) ertd.getDotName().getParentName();
-        typeName.addChild("TypeDefinition");
+        DotName typeName = new DotName((DotName) ertd.getDotName().getParentName(),"TypeDefinition");
         td.setDotName(typeName);
 
         td.setDescription("This is an internally generated type to represent extendedreference type " + ertd.getName() + " values.");
@@ -1344,8 +1342,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF {
         
         // The name of a rule definition is schema.ruledef.RuleDefinition
         // For the associated class, it will be schema.ruledef.ClassDefinition
-        DotName className = (DotName) rd.getDotName().getParentName();
-        className.addChild("ClassDefinition");
+        DotName className = new DotName((DotName) rd.getDotName().getParentName(),"ClassDefinition");
         cd.setDotName(className);
 
         cd.addMust(MetaSchemaAG._ruleName);
@@ -1609,8 +1606,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF {
 	        
 	        // The name of a class definition is schema.class.ClassDefinition
 	        // For the associated type, it will be schema.class.TypeDefinition
-	        DotName typeName = (DotName) cd.getDotName().getParentName();
-	        typeName.addChild("TypeDefinition");
+	        DotName typeName = new DotName((DotName) cd.getDotName().getParentName(),"TypeDefinition");
 	        td.setDotName(typeName);
 	        
 	        td.setDescription("This is an internally generated type to allow references to " + cd.getName() + " values.");
@@ -1967,8 +1963,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF {
 	        
 	        // The name of an enum definition is schema.enum.EnumDefinition
 	        // For the associated type, it will be schema.enum.TypeDefinition
-	        DotName typeName = (DotName) evd.getDotName().getParentName();
-	        typeName.addChild("TypeDefinition");
+	        DotName typeName = new DotName((DotName) evd.getDotName().getParentName(),"TypeDefinition");
 	        td.setDotName(typeName);
 
 	        td.setEnumName(evd.getName().getNameString());

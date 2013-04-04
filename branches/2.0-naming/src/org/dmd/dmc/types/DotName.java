@@ -48,11 +48,30 @@ public class DotName extends DmcHierarchicObjectName implements Serializable {
 		if (n.matches(dotCase))
 			name = n;
 		else
-			throw(new DmcValueException("The String: " + n + " does not conform to dot name format."));
+			throw(new DmcValueException("The string: " + n + " does not conform to dot name format."));
 	}
 
+	/**
+	 * Creates a clone of the specified DotName.
+	 * @param dotName the original name
+	 */
 	public DotName(DotName dotName) {
 		name = new String(dotName.name);
+	}
+
+	/**
+	 * Creates a child name 
+	 * @param p the parent name
+	 * @param child the child portion to be added; this must be straight alphanumerics
+	 * @throws DmcValueException
+	 */
+	public DotName(DotName p, String child) throws DmcValueException {
+		if (child.matches(nameCase)){
+			name = new String(p.name + "." + child);
+			parent = p;
+		}
+		else
+			throw(new DmcValueException("The string: " + child + " does not conform to dot name format."));
 	}
 
 	@Override
@@ -60,6 +79,7 @@ public class DotName extends DmcHierarchicObjectName implements Serializable {
 		return(name);
 	}
 	
+	@Override
 	public void setNameString(String n) throws DmcValueException {
 		if (n.matches(dotCase))
 			name = n;
@@ -119,14 +139,14 @@ public class DotName extends DmcHierarchicObjectName implements Serializable {
 		return(parent);
 	}
 	
-	public void addChild(String c) throws DmcValueException {
-		if (c.matches(nameCase)){
-			name = name + "." + c;
-		}
-		else{
-			throw(new DmcValueException("The string: " + c + " must start with an alpha character followed by alphanumerics."));			
-		}
-	}
+//	public void addChild(String c) throws DmcValueException {
+//		if (c.matches(nameCase)){
+//			name = name + "." + c;
+//		}
+//		else{
+//			throw(new DmcValueException("The string: " + c + " must start with an alpha character followed by alphanumerics."));			
+//		}
+//	}
 
 	public boolean isChild(DmcHierarchicObjectName n) {
 		boolean rc = false;
