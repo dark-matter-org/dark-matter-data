@@ -20,6 +20,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Stack;
 
+import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcNameClashException;
+import org.dmd.dmc.DmcNameClashResolverIF;
+import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
@@ -55,7 +59,7 @@ import org.dmd.util.parsing.DmcUncheckedOIFParser;
  * (IMD) schema and stores them in an SchemaManager.
  */
 
-public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefinitionListenerIF {
+public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefinitionListenerIF, DmcNameClashResolverIF {
 
     // Schema manager that recognizes the DMS schema.
     SchemaManager    		dmsSchema;
@@ -275,7 +279,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
             allSchema.addDefinition(currSchema);
             
             // And now check to see if everything is resolved
-            allSchema.resolveReferences(currSchema);
+            allSchema.resolveReferences(currSchema,this);
             
             Iterator<AttributeDefinition> adl = currSchema.getAttributeDefList();
             if (adl != null){
@@ -575,6 +579,12 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
 			}
 		}
 		
+	}
+
+	@Override
+	public DmcObject resolveClash(DmcObject obj, DmcAttribute<?> attr, DmcNameClashException ex) throws DmcValueException {
+		DebugInfo.debug("HERE HERE HERE");
+		return null;
 	}
 
 
