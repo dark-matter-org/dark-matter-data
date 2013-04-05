@@ -1394,8 +1394,9 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         }
         
         // TODO: NEW NAMING
-        
-        if (checkAndAddDOT(cd.getDotName(),cd,globallyUniqueMAP,null) == false){
+        DotName refName 	= new DotName((DotName) cd.getDotName().getParentName(),"ClassDefinitionREF");
+                
+        if (checkAndAddDOT(cd.getDotName(),cd,globallyUniqueMAP,refName) == false){
         	ResultException ex = new ResultException();
         	ex.addError(clashMsgDOT(cd.getObjectName(),cd,globallyUniqueMAP,"definition names"));
             throw(ex);
@@ -1609,8 +1610,6 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 	        // For the associated type, it will be schema.class.TypeDefinition
 	        DotName typeName 	= new DotName((DotName) cd.getDotName().getParentName(),"TypeDefinition");
 	        
-	        DotName refName 	= new DotName((DotName) cd.getDotName().getParentName(),"ClassDefinitionREF");
-	        
 	        td.setDotName(typeName);
 	        
 	        td.setDescription("This is an internally generated type to allow references to " + cd.getName() + " values.");
@@ -1660,7 +1659,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 	        
 	        internalTypeDefs.put(td.getName(), td);
 	        
-	        if (checkAndAddDOT(td.getDotName(),td,globallyUniqueMAP,refName) == false){
+	        if (checkAndAddDOT(td.getDotName(),td,globallyUniqueMAP,null) == false){
 	        	ResultException ex = new ResultException();
 	        	ex.addError(clashMsgDOT(td.getObjectName(),td,globallyUniqueMAP,"definition names"));
 	        	throw(ex);
@@ -3141,10 +3140,10 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 
 	@Override
 	public DmcNamedObjectIF findNamedObjectMayClash(DmcObject object, DmcObjectName name, DmcNameClashResolverIF resolver, DmcAttributeInfo ai) throws DmcValueExceptionSet {
+		DmcNamedObjectIF rc = null;
 		try {
-			DmcNamedObjectIF rc = null;
 			
-			DefinitionName dn = new DefinitionName(name.getNameString() + "." + ai.type);
+			DotName dn = new DotName(name.getNameString() + "." + ai.type);
 			
 			// We hunt for the definition in the possibly clashing map first. If we find it
 			// and there's only one entry (the usual case) we're done. Otherwise, we'll have 
@@ -3179,7 +3178,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 			e.printStackTrace();
 		}
 		
-		return null;
+		return(rc);
 	}
 
 	/**
