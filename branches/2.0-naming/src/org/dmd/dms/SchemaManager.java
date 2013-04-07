@@ -2753,39 +2753,40 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     		while(ctdl.hasNext()){
     			ComplexTypeDefinition ctd = ctdl.next();
     			
-    			// The usual resolution mechanisms don't work for the fields, we have to 
-    			// handle that manually.
-    			Iterator<Field> fields = ctd.getField();
-    			while(fields.hasNext()){
-    				Field field = fields.next();
-    				DmcNamedObjectREF ref = (DmcNamedObjectREF)field.getType();
-    				
-        			// It might be a "real" type, so try that first
-        			TypeDefinition td = tdef(ref.getObjectName().getNameString());
-        			
-        			if( td == null){
-        				ClassDefinition cd = cdef(ref.getObjectName().getNameString());
-        				if (cd == null){
-        					ResultException ex = new ResultException();
-        					ex.addError("The type: " + ref.getObjectName() + " referred to in ComplexTypeDefinition " + ctd.getName() + " is invalid.");
-        					ex.result.lastResult().fileName(ctd.getFile());
-        					ex.result.lastResult().lineNumber(ctd.getLineNumber());
-        					throw(ex);
-        				}
-        				else{
-            				ref.setObject((DmcNamedObjectIF) cd.getInternalTypeRef().getDmcObject());
-        				}
-        			}
-        			else{
-        				ref.setObject((DmcNamedObjectIF) td.getDmcObject());
-        			}
-
-    			}
+//    			// The usual resolution mechanisms don't work for the fields, we have to 
+//    			// handle that manually.
+//    			Iterator<Field> fields = ctd.getField();
+//    			while(fields.hasNext()){
+//    				Field field = fields.next();
+//    				DmcNamedObjectREF ref = (DmcNamedObjectREF)field.getType();
+//    				
+//        			// It might be a "real" type, so try that first
+//        			TypeDefinition td = tdef(ref.getObjectName().getNameString());
+//        			
+//        			if( td == null){
+//        				ClassDefinition cd = cdef(ref.getObjectName().getNameString());
+//        				if (cd == null){
+//        					ResultException ex = new ResultException();
+//        					ex.addError("The type: " + ref.getObjectName() + " referred to in ComplexTypeDefinition " + ctd.getName() + " is invalid.");
+//        					ex.result.lastResult().fileName(ctd.getFile());
+//        					ex.result.lastResult().lineNumber(ctd.getLineNumber());
+//        					throw(ex);
+//        				}
+//        				else{
+//            				ref.setObject((DmcNamedObjectIF) cd.getInternalTypeRef().getDmcObject());
+//        				}
+//        			}
+//        			else{
+//        				ref.setObject((DmcNamedObjectIF) td.getDmcObject());
+//        			}
+//
+//    			}
     			
     			// And finally, the complex type def has to have it object class resolved so that
     			// we don't run into problems later when generating the DMW schema
     			try {
-					ctd.resolveReferences(this);
+					ctd.resolveReferences(this,clashResolver);
+//					ctd.resolveReferences(this);
 				} catch (DmcValueExceptionSet e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -2985,7 +2986,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     		while(edl.hasNext()){
     			EnumDefinition d = edl.next();
     			try {
-					d.resolveReferences(this);
+    				d.resolveReferences(this,clashResolver);
+//					d.resolveReferences(this);
 				} catch (DmcValueExceptionSet e) {
 					ResultException ex = new ResultException();
 					ex.addError("Unresolved references in EnumDefinition: " + d.getName());
@@ -3004,7 +3006,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     		while(tdl.hasNext()){
     			TypeDefinition d = tdl.next();
     			try {
-					d.resolveReferences(this);
+    				d.resolveReferences(this,clashResolver);
+//					d.resolveReferences(this);
 				} catch (DmcValueExceptionSet e) {
 					ResultException ex = new ResultException();
 					ex.addError("Unresolved references in TypeDefinition: " + d.getName());
@@ -3042,7 +3045,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     		while(sdl.hasNext()){
     			SliceDefinition s = sdl.next();
     			try {
-					s.resolveReferences(this);
+    				s.resolveReferences(this,clashResolver);
+//					s.resolveReferences(this);
 				} catch (DmcValueExceptionSet e) {
 					ResultException ex = new ResultException();
 					ex.addError("Unresolved references in SliceDefinition: " + s.getName());

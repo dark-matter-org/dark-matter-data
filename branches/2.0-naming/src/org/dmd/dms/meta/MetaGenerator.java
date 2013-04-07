@@ -3071,10 +3071,16 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		out.write("import org.dmd.dmc.types.IntegerVar;\n");
 
 		if (hasRefs) {
+			out.write("import org.dmd.dmc.DmcNameResolverWithClashSupportIF;\n");
+			out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
+			out.write("import org.dmd.dmc.DmcNameClashResolverIF;\n");
 			out.write("import org.dmd.dmc.DmcNameResolverIF;\n");
 			out.write("import org.dmd.dmc.DmcNamedObjectIF;\n");
 			out.write("import org.dmd.dmc.DmcNamedObjectREF;\n");
 			out.write("import org.dmd.dmc.DmcContainerIF;\n");
+			out.write("import org.dmd.dmc.DmcObject;\n");
+			out.write("import org.dmd.dmc.DmcObjectName;\n");
+			out.write("import org.dmd.dmc.DmcValueExceptionSet;\n\n");
 		}
 
 		// out.write("import org.dmd.dmc.DmcAttribute;\n");
@@ -3234,6 +3240,33 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			}
 
 			out.write("    }\n\n");
+			
+			
+			out.write("    @SuppressWarnings({\"unchecked\", \"rawtypes\"})\n");
+			out.write("    public void resolve(DmcNameResolverWithClashSupportIF resolver, DmcObject object, DmcNameClashResolverIF ncr, DmcAttributeInfo ai) throws DmcValueException, DmcValueExceptionSet {\n");
+			out.write("        DmcNamedObjectIF  obj = null;\n\n");
+
+			for (String fn : refFields) {
+				out.write("        if (!" + fn + ".isResolved()){\n");
+				out.write("            obj = resolver.findNamedObjectMayClash(object, " + fn + ".getObjectName(), ncr, ai);\n");
+				out.write("            if (obj == null)\n");
+				out.write("                throw(new DmcValueException(\"Could not resolve reference to: \" + "
+						+ fn
+						+ ".getObjectName() + \" via attribute: \" + ai.name));\n");
+				out.write("        \n");
+				out.write("            if (obj instanceof DmcContainerIF)\n");
+				out.write("                ((DmcNamedObjectREF)"
+						+ fn
+						+ ").setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());\n");
+				out.write("            else\n");
+				out.write("                ((DmcNamedObjectREF)" + fn
+						+ ").setObject(obj);\n");
+				out.write("        }\n");
+				out.write("        \n");
+			}
+
+			out.write("    }\n\n");
+
 		}
 
 		///////////////////////////////////////////////////////////////////////

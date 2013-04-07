@@ -1844,8 +1844,14 @@ abstract public class DmcObject implements Serializable {
 				}
 				else if (attr instanceof DmcTypeComplexTypeWithRefs){
 					try {
-						// TODO name resolution for complex types
-						((DmcTypeComplexTypeWithRefs)attr).resolve(rx, attr.getName());
+						if (ncr == null)
+							((DmcTypeComplexTypeWithRefs)attr).resolve(rx, attr.getName());
+						else{
+							((DmcTypeComplexTypeWithRefs)attr).resolve((DmcNameResolverWithClashSupportIF)rx, this, ncr, attr.attrInfo);				
+						}
+						
+//						// TODO name resolution for complex types
+//						((DmcTypeComplexTypeWithRefs)attr).resolve(rx, attr.getName());
 					} catch (DmcValueException e) {
 						if (errors == null)
 							errors = new DmcValueExceptionSet();

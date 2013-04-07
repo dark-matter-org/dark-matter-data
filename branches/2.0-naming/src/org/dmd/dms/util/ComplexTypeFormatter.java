@@ -81,6 +81,13 @@ public class ComplexTypeFormatter {
     		imports.addImport("org.dmd.dmc.DmcNamedObjectIF", "To support object references");
     		imports.addImport("org.dmd.dmc.DmcNamedObjectREF", "To support object references");
     		imports.addImport("org.dmd.dmc.DmcContainerIF", "To support object references");
+    		
+    		imports.addImport("org.dmd.dmc.DmcNameResolverWithClashSupportIF", "To support possible clashing object references");
+    		imports.addImport("org.dmd.dmc.DmcAttributeInfo", "To support possible clashing object references");
+    		imports.addImport("org.dmd.dmc.DmcNameClashResolverIF", "To support possible clashing object references");
+    		imports.addImport("org.dmd.dmc.DmcObject", "To support possible clashing object references");
+    		imports.addImport("org.dmd.dmc.DmcObjectName", "To support possible clashing object references");
+    		imports.addImport("org.dmd.dmc.DmcValueExceptionSet", "To support possible clashing object references");
 
 //    		out.write("import org.dmd.dmc.DmcNameResolverIF;\n");
 //          	out.write("import org.dmd.dmc.DmcNamedObjectIF;\n");
@@ -285,6 +292,28 @@ public class ComplexTypeFormatter {
             }
 
         	out.write("    }\n\n");
+        	
+        	
+        	
+        	
+        	out.write("    @SuppressWarnings({\"unchecked\", \"rawtypes\"})\n");
+            out.write("    public void resolve(DmcNameResolverWithClashSupportIF resolver, DmcObject object, DmcObjectName name, DmcNameClashResolverIF ncr, DmcAttributeInfo ai) throws DmcValueException, DmcValueExceptionSet {\n");
+        	out.write("        DmcNamedObjectIF  obj = null;\n\n");
+            
+            for(String fn: refFields){
+            	out.write("        obj = resolver.findNamedObjectMayClash(object, " + fn + ".getObjectName(), ncr, ai);\n");
+            	out.write("        if (obj == null)\n");
+            	out.write("            throw(new DmcValueException(\"Could not resolve reference to: \" + " + fn + ".getObjectName() + \" via attribute: \" + ai.name));\n");
+            	out.write("        \n");
+            	out.write("        if (obj instanceof DmcContainerIF)\n");
+            	out.write("            ((DmcNamedObjectREF)" + fn + ").setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());\n");
+            	out.write("        else\n");
+            	out.write("            ((DmcNamedObjectREF)" + fn + ").setObject(obj);\n");
+            	out.write("        \n");
+            }
+
+        	out.write("    }\n\n");
+
         }
     	
         if (whiteSpaceSeparator){
