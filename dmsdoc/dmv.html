@@ -102,12 +102,13 @@
     </div><!-- org.dmd.dms.doc.web.SchemaPage.writeRuleInstancesSummary(SchemaPage.java:534) -->
 
     <div class="ruledefs">
-    <h2> Rule Instances (16)</h2>
+    <h2> Rule Instances (17)</h2>
     <ul>
       <li> <a class="deflink" href="#dmvAllowedAttributes"> An object's attributes must conform to its schema. </a></li>
       <li> <a class="deflink" href="#dmvBasedOnAttribute"> The basedOnAttribute attribute must refer to a single-valued attribute </a></li>
       <li> <a class="deflink" href="#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></li>
       <li> <a class="deflink" href="#dmvEnumDefinitionNameCheck"> An EnumDefinition's name must end with Enum </a></li>
+      <li> <a class="deflink" href="#dmvFileExtensionCheck"> A file extension should be comprised of alpha-numeric characters. </a></li>
       <li> <a class="deflink" href="#dmvIncludeOrExclude"> At least one of the excludeThisAttribute or includeThisAttribute attributes must be specified. </a></li>
       <li> <a class="deflink" href="#dmvLhs"> The lhs attribute must be a single valued Integer, Long, Float or Double </a></li>
       <li> <a class="deflink" href="#dmvMaxOrMin"> At least one of the maxLength or minLength attributes must be specified. </a></li>
@@ -3081,6 +3082,37 @@ allowedType
       <td class="spacer"> </td>
       <td> matchesPattern </td>
       <td> ^.*Enum</td>    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="3" class="ruleDetailTitle">
+      <a name ="dmvFileExtensionCheck">
+        A file extension should be comprised of alpha-numeric characters.
+      </a>
+      </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> Apply to attribute: </td>
+      <td> fileExtension </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> Description: </td>
+      <td> Didn't want to be too restrictive with this. Definitely didn't want special characters. </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel"> Rule arguments </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> matchesPattern </td>
+      <td> [a-zA-Z][a-zA-Z0-9]*</td>    </tr>
 <!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:93) -->
     <tr> <td class="ruleDefName" colspan="4"> ReferencedAttributeTypeRule (ATTRIBUTE)</td></tr>
     <tr>

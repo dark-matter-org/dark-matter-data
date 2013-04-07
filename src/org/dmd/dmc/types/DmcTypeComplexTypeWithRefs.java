@@ -4,8 +4,12 @@ import java.util.Iterator;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
+import org.dmd.dmc.DmcNameClashResolverIF;
 import org.dmd.dmc.DmcNameResolverIF;
+import org.dmd.dmc.DmcNameResolverWithClashSupportIF;
+import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.DmcValueExceptionSet;
 
 /**
  * The DmcTypeComplexTypeWithRefs type is a marker type that allows for resolution of references
@@ -27,6 +31,8 @@ abstract public class DmcTypeComplexTypeWithRefs<VALUE> extends DmcAttribute<VAL
 	
 	abstract public void resolveValue(DmcNameResolverIF resolver, VALUE value, String attrName) throws DmcValueException;
 	
+	abstract public void resolveValue(DmcNameResolverWithClashSupportIF resolver, VALUE value, DmcObject object, DmcNameClashResolverIF ncr, DmcAttributeInfo ai) throws DmcValueException, DmcValueExceptionSet;
+	
 	public void resolve(DmcNameResolverIF resolver, String attrName) throws DmcValueException {
 		if (getMVSize() == 0){
 			resolveValue(resolver, getSV(), attrName);
@@ -35,6 +41,18 @@ abstract public class DmcTypeComplexTypeWithRefs<VALUE> extends DmcAttribute<VAL
 			Iterator<VALUE> it = getMV();
 			while(it.hasNext()){
 				resolveValue(resolver, it.next(), attrName);
+			}
+		}
+	}
+	
+	public void resolve(DmcNameResolverWithClashSupportIF resolver, DmcObject object, DmcNameClashResolverIF ncr, DmcAttributeInfo ai) throws DmcValueException, DmcValueExceptionSet {
+		if (getMVSize() == 0){
+			resolveValue(resolver, getSV(), object, ncr, ai);
+		}
+		else{
+			Iterator<VALUE> it = getMV();
+			while(it.hasNext()){
+				resolveValue(resolver, it.next(), object, ncr, ai);
 			}
 		}
 	}

@@ -3074,6 +3074,12 @@ public class GenUtility {
       	if (containsRefs){
           	out.write("import org.dmd.dmc.types.DmcTypeComplexTypeWithRefs;\n");
           	out.write("import org.dmd.dmc.DmcNameResolverIF;\n");
+          	
+			out.write("import org.dmd.dmc.DmcNameResolverWithClashSupportIF;\n");
+			out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
+			out.write("import org.dmd.dmc.DmcNameClashResolverIF;\n");
+			out.write("import org.dmd.dmc.DmcObject;\n");
+			out.write("import org.dmd.dmc.DmcValueExceptionSet;\n\n");
       	}
       	else
           	out.write("import org.dmd.dmc.DmcAttribute;\n");
@@ -3159,6 +3165,15 @@ public class GenUtility {
 	  		out.write("    public void resolveValue(DmcNameResolverIF resolver, " + cn + " value, String attrName) throws DmcValueException {\n");
 	  		out.write("        value.resolve(resolver,attrName);\n");
 	  		out.write("    }\n\n");
+	  		
+	  		out.write("    /**\n");
+	  		out.write("     * Resolves a " + cn + ".\n");
+	  		out.write("     */\n");
+	  		out.write("    @Override\n");
+	  		out.write("    public void resolveValue(DmcNameResolverWithClashSupportIF resolver, " + cn + " value, DmcObject object, DmcNameClashResolverIF ncr, DmcAttributeInfo ai) throws DmcValueException, DmcValueExceptionSet {\n");
+	  		out.write("        value.resolve(resolver,object,ncr,ai);\n");
+	  		out.write("    }\n\n");
+
       	}
 
   	        		
