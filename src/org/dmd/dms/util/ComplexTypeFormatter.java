@@ -71,10 +71,9 @@ public class ComplexTypeFormatter {
 		imports.addImport("org.dmd.dmc.DmcInputStreamIF", "Standard serialization techniques");
 		imports.addImport("org.dmd.dmc.DmcOutputStreamIF", "Standard serialization techniques");
 		imports.addImport("org.dmd.dmc.types.IntegerVar", "To support getNextField()");
-//		out.write("import java.io.Serializable;\n");
-//        out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
-//        out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
-//        out.write("import org.dmd.dmc.types.IntegerVar;\n");
+		imports.addImport("org.dmd.dms.generated.enums.DataTypeEnum","For fake DmcAttributeInfo");
+		imports.addImport("org.dmd.dms.generated.enums.ValueTypeEnum","For fake DmcAttributeInfo");
+		imports.addImport("org.dmd.dmc.DmcAttributeInfo","For fake DmcAttributeInfo");
         
         if (hasRefs){
     		imports.addImport("org.dmd.dmc.DmcNameResolverIF", "To support object references");
@@ -86,7 +85,6 @@ public class ComplexTypeFormatter {
     		imports.addImport("org.dmd.dmc.DmcAttributeInfo", "To support possible clashing object references");
     		imports.addImport("org.dmd.dmc.DmcNameClashResolverIF", "To support possible clashing object references");
     		imports.addImport("org.dmd.dmc.DmcObject", "To support possible clashing object references");
-    		imports.addImport("org.dmd.dmc.DmcObjectName", "To support possible clashing object references");
     		imports.addImport("org.dmd.dmc.DmcValueExceptionSet", "To support possible clashing object references");
 
 //    		out.write("import org.dmd.dmc.DmcNameResolverIF;\n");
@@ -105,7 +103,7 @@ public class ComplexTypeFormatter {
 		getComplexTypeImports(ctd, imports);
 //        out.write(getComplexTypeImports(ctd));
 		
-		out.write(imports.getFormattedImports());
+		out.write(imports.getFormattedImports() + "\n\n");
         
         out.write("@SuppressWarnings(\"serial\")\n");
 
@@ -245,6 +243,7 @@ public class ComplexTypeFormatter {
     	
         out.write("    /**\n");
         out.write("     * String form.\n");
+        out.write("     * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("     */\n");
         out.write("    public String toString(){\n");
         fnum = 1;
@@ -276,6 +275,7 @@ public class ComplexTypeFormatter {
         
         if (hasRefs){
         	out.write("    @SuppressWarnings({\"unchecked\", \"rawtypes\"})\n");
+            out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
             out.write("    public void resolve(DmcNameResolverIF resolver, String attrName) throws DmcValueException {\n");
         	out.write("        DmcNamedObjectIF  obj = null;\n\n");
             
@@ -297,11 +297,12 @@ public class ComplexTypeFormatter {
         	
         	
         	out.write("    @SuppressWarnings({\"unchecked\", \"rawtypes\"})\n");
-            out.write("    public void resolve(DmcNameResolverWithClashSupportIF resolver, DmcObject object, DmcObjectName name, DmcNameClashResolverIF ncr, DmcAttributeInfo ai) throws DmcValueException, DmcValueExceptionSet {\n");
+            out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+            out.write("    public void resolve(DmcNameResolverWithClashSupportIF resolver, DmcObject object, DmcNameClashResolverIF ncr, DmcAttributeInfo ai) throws DmcValueException, DmcValueExceptionSet {\n");
         	out.write("        DmcNamedObjectIF  obj = null;\n\n");
             
             for(String fn: refFields){
-            	out.write("        obj = resolver.findNamedObjectMayClash(object, " + fn + ".getObjectName(), ncr, ai);\n");
+            	out.write("        obj = resolver.findNamedObjectMayClash(object, " + fn + ".getObjectName(), ncr, " + fn + "AI);\n");
             	out.write("        if (obj == null)\n");
             	out.write("            throw(new DmcValueException(\"Could not resolve reference to: \" + " + fn + ".getObjectName() + \" via attribute: \" + ai.name));\n");
             	out.write("        \n");
@@ -317,6 +318,7 @@ public class ComplexTypeFormatter {
         }
     	
         if (whiteSpaceSeparator){
+            out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 	    	out.write("    String getNextField(String input, IntegerVar seppos, String fn, boolean last) throws DmcValueException {\n");
 	    	out.write("    	   String rc = null;\n");
 	    	out.write("    	   int start = seppos.intValue();\n");
@@ -353,6 +355,7 @@ public class ComplexTypeFormatter {
 	    	out.write("    }\n\n");
         }
         else{
+            out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			out.write("    String getNextField(String input, IntegerVar seppos, String fn, boolean last) throws DmcValueException {\n");
 			out.write("    	   String rc = null;\n");
 			out.write("    	   int start = seppos.intValue();\n");
@@ -417,6 +420,8 @@ public class ComplexTypeFormatter {
         		sb.append("    " + field.getType().getObjectName() + "REF " + field.getName() + ";\n\n");
     		else
     			sb.append("    " + field.getType().getObjectName() + " " + field.getName() + ";\n\n");
+    		
+    		sb.append("    final static DmcAttributeInfo " + field.getName() + "AI = new DmcAttributeInfo(\""+ field.getName() + "\",0,\"" + field.getType().getObjectName() + "\",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN);\n\n");
     	}
     	
     	return(sb.toString());

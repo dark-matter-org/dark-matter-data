@@ -3062,28 +3062,29 @@ public class GenUtility {
     	if (header != null)
     		out.write(header);
     	
+    	ImportManager imports = new ImportManager();
+    	
     	out.write("package " + basePackage + ".generated.types;\n\n");
       
-    	out.write("import java.io.Serializable;\n");
-    	out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
-      	out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
+		imports.addImport("java.io.Serializable","Marker interface for serialization");
+		imports.addImport("org.dmd.dmc.DmcInputStreamIF","To support serialization");
+		imports.addImport("org.dmd.dmc.DmcOutputStreamIF","To support serialization");
 
-      	out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
-      	out.write("import org.dmd.dmc.DmcValueException;\n");
+		imports.addImport("org.dmd.dmc.DmcAttributeInfo","Constructor support");
+		imports.addImport("org.dmd.dmc.DmcValueException","Type checking");
       	
       	if (containsRefs){
-          	out.write("import org.dmd.dmc.types.DmcTypeComplexTypeWithRefs;\n");
-          	out.write("import org.dmd.dmc.DmcNameResolverIF;\n");
-          	
-			out.write("import org.dmd.dmc.DmcNameResolverWithClashSupportIF;\n");
-			out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
-			out.write("import org.dmd.dmc.DmcNameClashResolverIF;\n");
-			out.write("import org.dmd.dmc.DmcObject;\n");
-			out.write("import org.dmd.dmc.DmcValueExceptionSet;\n\n");
+			imports.addImport("org.dmd.dmc.types.DmcTypeComplexTypeWithRefs","Derivation base");
+			imports.addImport("org.dmd.dmc.DmcNameResolverWithClashSupportIF","Ambiguous reference resolution");
+			imports.addImport("org.dmd.dmc.DmcNameClashResolverIF","Ambiguous reference resolution");
+			imports.addImport("org.dmd.dmc.DmcNameResolverIF","Reference resolution");
+			imports.addImport("org.dmd.dmc.DmcObject","Ambiguous reference resolution");
+			imports.addImport("org.dmd.dmc.DmcValueExceptionSet","Ambiguous reference resolution");
       	}
       	else
-          	out.write("import org.dmd.dmc.DmcAttribute;\n");
+			imports.addImport("org.dmd.dmc.DmcAttribute","Derivation base");
 
+      	out.write(imports.getFormattedImports() + "\n\n");
 
   		out.write("@SuppressWarnings(\"serial\")\n");
 

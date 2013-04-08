@@ -3022,8 +3022,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 	}
 
-	void dumpComplexType(String od, DmcUncheckedObject ct) throws IOException,
-			ResultException {
+	void dumpComplexType(String od, DmcUncheckedObject ct) throws IOException, ResultException {
 		String ctn = ct.getSV("name");
 		String fieldSeparator = ct.getSV("fieldSeparator");
 		boolean	whiteSpaceSeparator = false;
@@ -3065,29 +3064,32 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		out.write(LGPL.toString());
 		out.write("package org.dmd.dms.generated.types;\n\n");
 
-		out.write("import java.io.Serializable;\n");
-		out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
-		out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
-		out.write("import org.dmd.dmc.types.IntegerVar;\n");
+		ImportManager imports = new ImportManager();
+		
+		imports.addImport("java.io.Serializable","Marker interface for serialization");
+		imports.addImport("org.dmd.dmc.DmcInputStreamIF","To support serialization");
+		imports.addImport("org.dmd.dmc.DmcOutputStreamIF","To support serialization");
+		imports.addImport("org.dmd.dmc.types.IntegerVar","For getNextField()");
+		imports.addImport("org.dmd.dms.generated.enums.DataTypeEnum","For fake DmcAttributeInfo");
+		imports.addImport("org.dmd.dms.generated.enums.ValueTypeEnum","For fake DmcAttributeInfo");
+		imports.addImport("org.dmd.dmc.DmcAttributeInfo","For fake DmcAttributeInfo");
 
 		if (hasRefs) {
-			out.write("import org.dmd.dmc.DmcNameResolverWithClashSupportIF;\n");
-			out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
-			out.write("import org.dmd.dmc.DmcNameClashResolverIF;\n");
-			out.write("import org.dmd.dmc.DmcNameResolverIF;\n");
-			out.write("import org.dmd.dmc.DmcNamedObjectIF;\n");
-			out.write("import org.dmd.dmc.DmcNamedObjectREF;\n");
-			out.write("import org.dmd.dmc.DmcContainerIF;\n");
-			out.write("import org.dmd.dmc.DmcObject;\n");
-			out.write("import org.dmd.dmc.DmcObjectName;\n");
-			out.write("import org.dmd.dmc.DmcValueExceptionSet;\n\n");
+			imports.addImport("org.dmd.dmc.DmcNameResolverWithClashSupportIF","Ambiguous reference resolution");
+			imports.addImport("org.dmd.dmc.DmcNameClashResolverIF","Ambiguous reference resolution");
+			imports.addImport("org.dmd.dmc.DmcNameResolverIF","Reference resolution");
+			imports.addImport("org.dmd.dmc.DmcNamedObjectIF","Reference resolution");
+			imports.addImport("org.dmd.dmc.DmcNamedObjectREF","Reference resolution");
+			imports.addImport("org.dmd.dmc.DmcContainerIF","Reference resolution");
+			imports.addImport("org.dmd.dmc.DmcObject","Ambiguous reference resolution");
+			imports.addImport("org.dmd.dmc.DmcValueExceptionSet","Ambiguous reference resolution");
 		}
 
-		// out.write("import org.dmd.dmc.DmcAttribute;\n");
-		// out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
-		out.write("import org.dmd.dmc.DmcValueException;\n\n");
+		imports.addImport("org.dmd.dmc.DmcValueException","For type checking");
 
-		out.write(getComplexTypeImports(fields));
+		getComplexTypeImports(imports, fields);
+				
+		out.write(imports.getFormattedImports() + "\n\n");
 
 		out.write("@SuppressWarnings(\"serial\")\n");
 
@@ -3248,7 +3250,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 			for (String fn : refFields) {
 				out.write("        if (!" + fn + ".isResolved()){\n");
-				out.write("            obj = resolver.findNamedObjectMayClash(object, " + fn + ".getObjectName(), ncr, ai);\n");
+				out.write("            obj = resolver.findNamedObjectMayClash(object, " + fn + ".getObjectName(), ncr, " + fn + "AI);\n");
 				out.write("            if (obj == null)\n");
 				out.write("                throw(new DmcValueException(\"Could not resolve reference to: \" + "
 						+ fn
@@ -3365,10 +3367,9 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 	}
 
-	String getComplexTypeImports(ArrayList<Field> fields)
-			throws ResultException {
-		StringBuffer sb = new StringBuffer();
-		TreeMap<String, String> uniqueImports = new TreeMap<String, String>();
+	void getComplexTypeImports(ImportManager imports, ArrayList<Field> fields) throws ResultException {
+//		StringBuffer sb = new StringBuffer();
+//		TreeMap<String, String> uniqueImports = new TreeMap<String, String>();
 
 		for (Field field : fields) {
 			// DebugInfo.debug("field type = " + field.type);
@@ -3379,23 +3380,26 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 				typeDef = enumDefs.get(field.type);
 				if (typeDef != null) {
 					String imp = "org.dmd.dms.generated.enums." + field.type;
-					uniqueImports.put(imp, imp);
+//					uniqueImports.put(imp, imp);
+					imports.addImport(imp, "Type for field: " + field.name);
 				} else {
 					typeDef = typeDefs.get(field.type + "REF");
 					String primitiveType = typeDef.getSV("primitiveType");
 
-					if (primitiveType != null)
-						uniqueImports.put(primitiveType, primitiveType);
+					if (primitiveType != null){
+//						uniqueImports.put(primitiveType, primitiveType);
+						imports.addImport(primitiveType, "Type for field: " + field.name);
+					}
 				}
 			}
 
 		}
 
-		for (String importStr : uniqueImports.values()) {
-			sb.append("import " + importStr + ";\n");
-		}
+//		for (String importStr : uniqueImports.values()) {
+//			sb.append("import " + importStr + ";\n");
+//		}
 
-		return (sb.toString());
+//		return (sb.toString());
 	}
 
 	String getComplexTypeFieldInstances(ArrayList<Field> fields) {
@@ -3403,7 +3407,12 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 		for (Field field : fields) {
 			sb.append("    // " + field.descr + "\n");
-			sb.append("    " + field.type + " " + field.name + ";\n\n");
+			sb.append("    " + field.type + " " + field.name + ";\n");
+//			DmcAttributeInfo("type",19,"TypeDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+			
+			String type = field.type;
+			type = type.replaceAll("REF", "");
+			sb.append("    final static DmcAttributeInfo " + field.name + "AI = new DmcAttributeInfo(\""+ field.name + "\",0,\"" + type + "\",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN);\n\n");
 		}
 
 		return (sb.toString());

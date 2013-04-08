@@ -5,3 +5,12 @@ field String type    The name of this implementation.
 field String comment The class used to implement the required behaviour.
 description The MenuElementTypeAndComment type is used to indicate the strings that map to 
  various menu and menu item implementations supported by a a particular menu implementation.
+
+ComplexTypeDefinition
+name			DmtField
+// fieldSeparator - no separator, so space is used
+field			TypeDefinition		type        The type of the field
+field			String         		name        The name of the field
+field			String         	description The description of the field
+description     The DmtField complex type is used to test generation of 
+ complex types that contain object references.
