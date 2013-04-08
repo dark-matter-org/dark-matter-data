@@ -152,6 +152,7 @@ public class DmtSchemaAG extends SchemaDefinition {
     public static TypeDefinition _SomeRelation;
 
     public static ComplexTypeDefinition _MenuElementTypeAndComment;
+    public static ComplexTypeDefinition _DmtField;
 
     public static ActionDefinition _testAction;
 
@@ -2230,8 +2231,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _SomeRelationOBJ.setDescription("This is an internally generated type to represent extendedreference type SomeRelation values.");
             _SomeRelationOBJ.setOriginalClass("ObjWithRefs");
             _SomeRelationOBJ.setDmwIteratorClass("SomeRelationIterableDMW");
-            _SomeRelation.setDefinedIn(this);
             _SomeRelationOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.SomeRelationIterableDMW");
+            _SomeRelation.setDefinedIn(this);
             addTypeDefList(_SomeRelation);
 
     }
@@ -2246,10 +2247,24 @@ public class DmtSchemaAG extends SchemaDefinition {
             _MenuElementTypeAndComment.setDefinedIn(this);
             _MenuElementTypeAndCommentOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/complex.dmd");
             _MenuElementTypeAndCommentOBJ.setFieldSeparator(":");
-            _MenuElementTypeAndCommentOBJ.setLineNumber("7");
+            _MenuElementTypeAndCommentOBJ.setLineNumber("8");
             _MenuElementTypeAndCommentOBJ.addField("String type The name of this implementation.");
             _MenuElementTypeAndCommentOBJ.addField("String comment The class used to implement the required behaviour.");
             addComplexTypeDefList(_MenuElementTypeAndComment);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:549)
+            ComplexTypeDefinitionDMO _DmtFieldOBJ = new ComplexTypeDefinitionDMO();
+            _DmtField = new ComplexTypeDefinition(_DmtFieldOBJ);
+            _DmtFieldOBJ.setName("DmtField");
+            _DmtFieldOBJ.setDescription("The DmtField complex type is used to test generation of \n complex types that contain object references.");
+            _DmtFieldOBJ.setDotName("dmt.DmtField.ComplexTypeDefinition");
+            _DmtField.setDefinedIn(this);
+            _DmtFieldOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/complex.dmd");
+            _DmtFieldOBJ.setLineNumber("16");
+            _DmtFieldOBJ.addField("TypeDefinition type The type of the field");
+            _DmtFieldOBJ.addField("String name The name of the field");
+            _DmtFieldOBJ.addField("String description The description of the field");
+            addComplexTypeDefList(_DmtField);
 
     }
 
