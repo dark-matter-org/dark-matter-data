@@ -15,13 +15,25 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.util;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 import org.dmd.dmc.types.DefinitionName;
-import org.dmd.dms.*;
+import org.dmd.dms.ActionDefinition;
+import org.dmd.dms.AttributeDefinition;
+import org.dmd.dms.ClassDefinition;
+import org.dmd.dms.DMDefinition;
+import org.dmd.dms.DmsDefinition;
+import org.dmd.dms.EnumDefinition;
+import org.dmd.dms.SchemaDefinition;
+import org.dmd.dms.SchemaManager;
+import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
-import org.dmd.util.exceptions.ResultSet;
 import org.dmd.util.parsing.Token;
 
 /**
@@ -135,32 +147,9 @@ public class SchemaDocHtmlFormatter {
      * @param jd The javadoc diretory on the webserver.
      */
     public void dumpHtml(SchemaManager sd, String src, String dir, String jd){
-//        public void dumpHtml(SchemaManager sd, PmfRuleManager r, String src, String dir, String jd){
-        ResultSet   rs = new ResultSet();
         Iterator<SchemaDefinition>    it = null;
 
         schema  = sd;
-
-        /**
-         * TODO put rules back in
-         */
-//        rules   = r;
-//        rules.initRules(rs);
-
-        // Ensure that the schema references are resolved
-        if (!schema.resolveSchemaRefs(rs)){
-            System.out.println(rs);
-        }
-
-//        if (!rules.loadAllRules(rs,src)){
-//            System.out.println(rs);
-//        }
-//
-//        it = rules.allRules.values().iterator();
-//        while(it.hasNext()){
-//            BrfRule rule = (BrfRule)it.next();
-//            System.out.println(rule.getRuleTitle() + "   " + rule.loadedFrom());
-//        }
 
         javaDir = jd;
 
