@@ -128,7 +128,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _AllowedAttributesRuleDataOBJ.addMust("ruleName");
             _AllowedAttributesRuleDataOBJ.addMust("ruleTitle");
             _AllowedAttributesRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.AllowedAttributesRuleDataIterableDMW");
-            _AllowedAttributesRuleDataOBJ.setDotName("dmv.AllowedAttributesRule.ClassDefinition");
+            _AllowedAttributesRuleDataOBJ.setDotName("dmv.AllowedAttributesRuleData.ClassDefinition");
             _AllowedAttributesRuleData.setDefinedIn(this);
             addClassDefList(_AllowedAttributesRuleData);
 
@@ -151,7 +151,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _InitRuleDataOBJ.addMust("ruleName");
             _InitRuleDataOBJ.addMust("ruleTitle");
             _InitRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.InitRuleDataIterableDMW");
-            _InitRuleDataOBJ.setDotName("dmv.InitRule.ClassDefinition");
+            _InitRuleDataOBJ.setDotName("dmv.InitRuleData.ClassDefinition");
             _InitRuleData.setDefinedIn(this);
             addClassDefList(_InitRuleData);
 
@@ -177,7 +177,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _NumericRangeRuleDataOBJ.addMust("ruleTitle");
             _NumericRangeRuleDataOBJ.addMust("applyToAttribute");
             _NumericRangeRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.NumericRangeRuleDataIterableDMW");
-            _NumericRangeRuleDataOBJ.setDotName("dmv.NumericRangeRule.ClassDefinition");
+            _NumericRangeRuleDataOBJ.setDotName("dmv.NumericRangeRuleData.ClassDefinition");
             _NumericRangeRuleData.setDefinedIn(this);
             addClassDefList(_NumericRangeRuleData);
 
@@ -200,7 +200,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _UCOAllowedAttributesRuleDataOBJ.addMust("ruleName");
             _UCOAllowedAttributesRuleDataOBJ.addMust("ruleTitle");
             _UCOAllowedAttributesRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.UCOAllowedAttributesRuleDataIterableDMW");
-            _UCOAllowedAttributesRuleDataOBJ.setDotName("dmv.UCOAllowedAttributesRule.ClassDefinition");
+            _UCOAllowedAttributesRuleDataOBJ.setDotName("dmv.UCOAllowedAttributesRuleData.ClassDefinition");
             _UCOAllowedAttributesRuleData.setDefinedIn(this);
             addClassDefList(_UCOAllowedAttributesRuleData);
 
@@ -226,7 +226,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _RelatedNumbersRuleDataOBJ.addMust("rhs");
             _RelatedNumbersRuleDataOBJ.addMust("numericRelation");
             _RelatedNumbersRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.RelatedNumbersRuleDataIterableDMW");
-            _RelatedNumbersRuleDataOBJ.setDotName("dmv.RelatedNumbersRule.ClassDefinition");
+            _RelatedNumbersRuleDataOBJ.setDotName("dmv.RelatedNumbersRuleData.ClassDefinition");
             _RelatedNumbersRuleData.setDefinedIn(this);
             addClassDefList(_RelatedNumbersRuleData);
 
@@ -253,7 +253,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _CheckAttributesBasedOnValueRuleDataOBJ.addMust("basedOnAttribute");
             _CheckAttributesBasedOnValueRuleDataOBJ.addMust("basedOnValue");
             _CheckAttributesBasedOnValueRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.CheckAttributesBasedOnValueRuleDataIterableDMW");
-            _CheckAttributesBasedOnValueRuleDataOBJ.setDotName("dmv.CheckAttributesBasedOnValueRule.ClassDefinition");
+            _CheckAttributesBasedOnValueRuleDataOBJ.setDotName("dmv.CheckAttributesBasedOnValueRuleData.ClassDefinition");
             _CheckAttributesBasedOnValueRuleData.setDefinedIn(this);
             addClassDefList(_CheckAttributesBasedOnValueRuleData);
 
@@ -278,7 +278,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _OneOfTheseAttributesRequiredRuleDataOBJ.addMust("ruleTitle");
             _OneOfTheseAttributesRequiredRuleDataOBJ.addMust("onePossibility");
             _OneOfTheseAttributesRequiredRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.OneOfTheseAttributesRequiredRuleDataIterableDMW");
-            _OneOfTheseAttributesRequiredRuleDataOBJ.setDotName("dmv.OneOfTheseAttributesRequiredRule.ClassDefinition");
+            _OneOfTheseAttributesRequiredRuleDataOBJ.setDotName("dmv.OneOfTheseAttributesRequiredRuleData.ClassDefinition");
             _OneOfTheseAttributesRequiredRuleData.setDefinedIn(this);
             addClassDefList(_OneOfTheseAttributesRequiredRuleData);
 
@@ -303,7 +303,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _PatternMatchRuleDataOBJ.addMust("applyToAttribute");
             _PatternMatchRuleDataOBJ.addMust("matchesPattern");
             _PatternMatchRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.PatternMatchRuleDataIterableDMW");
-            _PatternMatchRuleDataOBJ.setDotName("dmv.PatternMatchRule.ClassDefinition");
+            _PatternMatchRuleDataOBJ.setDotName("dmv.PatternMatchRuleData.ClassDefinition");
             _PatternMatchRuleData.setDefinedIn(this);
             addClassDefList(_PatternMatchRuleData);
 
@@ -329,7 +329,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ValueLengthRuleDataOBJ.addMust("ruleTitle");
             _ValueLengthRuleDataOBJ.addMust("applyToAttribute");
             _ValueLengthRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.ValueLengthRuleDataIterableDMW");
-            _ValueLengthRuleDataOBJ.setDotName("dmv.ValueLengthRule.ClassDefinition");
+            _ValueLengthRuleDataOBJ.setDotName("dmv.ValueLengthRuleData.ClassDefinition");
             _ValueLengthRuleData.setDefinedIn(this);
             addClassDefList(_ValueLengthRuleData);
 
@@ -355,7 +355,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ReferencedAttributeTypeRuleDataOBJ.addMust("ruleTitle");
             _ReferencedAttributeTypeRuleDataOBJ.addMust("applyToAttribute");
             _ReferencedAttributeTypeRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.ReferencedAttributeTypeRuleDataIterableDMW");
-            _ReferencedAttributeTypeRuleDataOBJ.setDotName("dmv.ReferencedAttributeTypeRule.ClassDefinition");
+            _ReferencedAttributeTypeRuleDataOBJ.setDotName("dmv.ReferencedAttributeTypeRuleData.ClassDefinition");
             _ReferencedAttributeTypeRuleData.setDefinedIn(this);
             addClassDefList(_ReferencedAttributeTypeRuleData);
 
