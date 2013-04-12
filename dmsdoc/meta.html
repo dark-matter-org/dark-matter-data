@@ -1629,7 +1629,7 @@
       <td class="spacer"> </td>
       <td class="label">Derived classes</td>
       <td colspan="2">
-      <div class="derived"> <a href="meta.html#DmsDefinition">DmsDefinition</a> </div>      </td>
+      <div class="derived"> <a href="meta.html#DMDefinitionModule">DMDefinitionModule</a> </div>      <div class="derived"> <a href="meta.html#DmsDefinition">DmsDefinition</a> </div>      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.wrapper(ClassFormatter.java:137) -->
@@ -1678,6 +1678,18 @@
     <tr>
       <td class="spacer"> </td>
       <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -1766,8 +1778,7 @@
       <td class="spacer"> </td>
       <td>Derived from</td>
       <td colspan="2">
-      <a href="meta.html#DMDefinition">DMDefinition</a> <br />
-      <a href="meta.html#DmsDefinition">DmsDefinition</a>
+      <a href="meta.html#DMDefinition">DMDefinition</a>
       </td>
     </tr>
 
@@ -1794,16 +1805,6 @@
     <tr>
       <td class="spacer"> </td>
       <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> <a href="meta.html#baseDefinition">baseDefinition</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DMDefinition">DMDefinition</a> </td>
-      <td> A reference to the DMDefinition derived class that is the common
- base class for a related set of definitions.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -1859,9 +1860,31 @@
       </td>
     </tr>
 
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#usesDefinition">usesDefinition</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#DMDefinition">DMDefinition</a> </td>
+      <td> A reference to the DMDefinition derived class that is part of
+ the abstract syntax of a dark-matter definition module.      </td>
+    </tr>
+
     <tr>
       <td class="spacer"> </td>
       <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2027,6 +2050,18 @@
       <td> <a href="meta.html#dependencies">dependencies</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#Dependency">Dependency</a> </td>
       <td> A set of references to Dependencies.      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2303,7 +2338,7 @@
       <td class="spacer"> </td>
       <td class="label">Derived classes</td>
       <td colspan="2">
-      <div class="derived"> <a href="meta.html#ActionDefinition">ActionDefinition</a> </div>      <div class="derived"> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </div>      <div class="derived"> <a href="meta.html#ClassDefinition">ClassDefinition</a> </div>      <div class="derived"> <a href="meta.html#ComplexTypeDefinition">ComplexTypeDefinition</a> </div>      <div class="derived"> <a href="meta.html#DMDefinitionModule">DMDefinitionModule</a> </div>      <div class="derived"> <a href="meta.html#Dependency">Dependency</a> </div>      <div class="derived"> <a href="meta.html#DependencyImplementation">DependencyImplementation</a> </div>      <div class="derived"> <a href="meta.html#EnumDefinition">EnumDefinition</a> </div>      <div class="derived"> <a href="meta.html#RuleCategory">RuleCategory</a> </div>      <div class="derived"> <a href="meta.html#RuleDefinition">RuleDefinition</a> </div>      <div class="derived"> <a href="meta.html#RunContext">RunContext</a> </div>      <div class="derived"> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </div>      <div class="derived"> <a href="meta.html#SliceDefinition">SliceDefinition</a> </div>      <div class="derived"> <a href="meta.html#TypeDefinition">TypeDefinition</a> </div>      </td>
+      <div class="derived"> <a href="meta.html#ActionDefinition">ActionDefinition</a> </div>      <div class="derived"> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </div>      <div class="derived"> <a href="meta.html#ClassDefinition">ClassDefinition</a> </div>      <div class="derived"> <a href="meta.html#ComplexTypeDefinition">ComplexTypeDefinition</a> </div>      <div class="derived"> <a href="meta.html#Dependency">Dependency</a> </div>      <div class="derived"> <a href="meta.html#DependencyImplementation">DependencyImplementation</a> </div>      <div class="derived"> <a href="meta.html#EnumDefinition">EnumDefinition</a> </div>      <div class="derived"> <a href="meta.html#RuleCategory">RuleCategory</a> </div>      <div class="derived"> <a href="meta.html#RuleDefinition">RuleDefinition</a> </div>      <div class="derived"> <a href="meta.html#RunContext">RunContext</a> </div>      <div class="derived"> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </div>      <div class="derived"> <a href="meta.html#SliceDefinition">SliceDefinition</a> </div>      <div class="derived"> <a href="meta.html#TypeDefinition">TypeDefinition</a> </div>      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.wrapper(ClassFormatter.java:137) -->
@@ -2352,6 +2387,18 @@
     <tr>
       <td class="spacer"> </td>
       <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2862,18 +2909,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td> <a href="meta.html#description">description</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive
- documentation for schema related definitions. The text provided should conform
- to XHTML concepts since it will be dumped in the context of the generated HTML
- documentation.      </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
@@ -2939,6 +2974,18 @@
       <td> Indicates how the DmcAttributeInfo should be extracted from one of the ruleParam values
  associated with a RuleCategory. If additional classes are required to support this access, you can specify ruleImport
  values as appropriate.      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -3247,18 +3294,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td> <a href="meta.html#description">description</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive
- documentation for schema related definitions. The text provided should conform
- to XHTML concepts since it will be dumped in the context of the generated HTML
- documentation.      </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
       <td> <a href="meta.html#dmdID">dmdID</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The dmdID attribute is used to store a unique Dark Matter Definition ID for attributes.
@@ -3304,6 +3339,18 @@
       <td> <a href="meta.html#dependency">dependency</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Dependency">Dependency</a> </td>
       <td> A reference to a single Dependency.      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -3597,18 +3644,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td> <a href="meta.html#description">description</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive
- documentation for schema related definitions. The text provided should conform
- to XHTML concepts since it will be dumped in the context of the generated HTML
- documentation.      </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
@@ -3688,6 +3723,18 @@
       <td> <a href="meta.html#dependsOn">dependsOn</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A list of schema names.      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -4894,34 +4941,6 @@ The applyToAttribute attribute in a NumericRangeRuleData instance must refer to 
     </tr>
 
 <!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
-    <tr> <td class="className" colspan="3"> <a name="baseDefinition"> baseDefinition </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#DMDefinition">DMDefinition</a> </div> 
-      </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Description</td>
-      <td>A reference to the DMDefinition derived class that is the common
- base class for a related set of definitions.<p/>
-      </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Used in:</td>
-      <td>
-        <table>
-        <tr>
-          <td> DMDefinitionModule (<a href="meta.html#DMDefinitionModule">meta</a>) </td>
-        </tr>
-        </table>
-      </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="baseType"> baseType </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5443,33 +5462,31 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
           <td> ComplexTypeDefinition (<a href="meta.html#ComplexTypeDefinition">meta</a>) </td>
         </tr>
         <tr>
+          <td> DMDefinition (<a href="meta.html#DMDefinition">meta</a>) </td>
           <td> DependencyImplementation (<a href="meta.html#DependencyImplementation">meta</a>) </td>
           <td> DmgConfig (<a href="dmg.html#DmgConfig">dmg</a>) </td>
-          <td> EnumDefinition (<a href="meta.html#EnumDefinition">meta</a>) </td>
         </tr>
         <tr>
+          <td> EnumDefinition (<a href="meta.html#EnumDefinition">meta</a>) </td>
           <td> InitRuleData (<a href="dmv.html#InitRuleData">dmv</a>) </td>
           <td> NumericRangeRuleData (<a href="dmv.html#NumericRangeRuleData">dmv</a>) </td>
-          <td> OneOfTheseAttributesRequiredRuleData (<a href="dmv.html#OneOfTheseAttributesRequiredRuleData">dmv</a>) </td>
         </tr>
         <tr>
+          <td> OneOfTheseAttributesRequiredRuleData (<a href="dmv.html#OneOfTheseAttributesRequiredRuleData">dmv</a>) </td>
           <td> PatternMatchRuleData (<a href="dmv.html#PatternMatchRuleData">dmv</a>) </td>
           <td> ReferencedAttributeTypeRuleData (<a href="dmv.html#ReferencedAttributeTypeRuleData">dmv</a>) </td>
+        </tr>
+        <tr>
           <td> RelatedNumbersRuleData (<a href="dmv.html#RelatedNumbersRuleData">dmv</a>) </td>
-        </tr>
-        <tr>
-          <td> RuleCategory (<a href="meta.html#RuleCategory">meta</a>) </td>
           <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
-          <td> RuleDefinition (<a href="meta.html#RuleDefinition">meta</a>) </td>
-        </tr>
-        <tr>
           <td> RunContext (<a href="meta.html#RunContext">meta</a>) </td>
-          <td> SchemaDefinition (<a href="meta.html#SchemaDefinition">meta</a>) </td>
-          <td> SliceDefinition (<a href="meta.html#SliceDefinition">meta</a>) </td>
         </tr>
         <tr>
+          <td> SliceDefinition (<a href="meta.html#SliceDefinition">meta</a>) </td>
           <td> TypeDefinition (<a href="meta.html#TypeDefinition">meta</a>) </td>
           <td> UCOAllowedAttributesRuleData (<a href="dmv.html#UCOAllowedAttributesRuleData">dmv</a>) </td>
+        </tr>
+        <tr>
           <td> ValueLengthRuleData (<a href="dmv.html#ValueLengthRuleData">dmv</a>) </td>
         </tr>
         </table>
@@ -8813,6 +8830,34 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     </tr>
 
 <!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="usesDefinition"> usesDefinition </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P MV </div> <div class="attrType"> <a href="meta.html#DMDefinition">DMDefinition</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>A reference to the DMDefinition derived class that is part of
+ the abstract syntax of a dark-matter definition module.<p/>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        <tr>
+          <td> DMDefinitionModule (<a href="meta.html#DMDefinitionModule">meta</a>) </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="usesInterface"> usesInterface </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -11115,7 +11160,7 @@ SPACE</td>
 
     </div>
 
-<!-- org.dmd.dms.doc.web.Summarizer.buildSidebar(Summarizer.java:98) -->
+<!-- org.dmd.dms.doc.web.Summarizer.buildSidebar(Summarizer.java:117) -->
     <div id="sidebar">
         <a class="navLink" href="dmg.html"> dmg</a>
         <a class="navLink" href="dmp.html"> dmp</a>

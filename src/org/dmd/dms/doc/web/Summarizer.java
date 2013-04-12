@@ -74,6 +74,8 @@ public class Summarizer {
 			} catch (DmcValueExceptionSet e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				
+				DebugInfo.debug("While resolving:\n\n" + def.toOIF() + "\n\n");
 			}
 		}
 
@@ -97,7 +99,7 @@ public class Summarizer {
 			while(rules.hasNext()){
 				RuleDataDMO rule = rules.next();
 				try {
-					rule.resolveReferences(sm);
+					rule.resolveReferences(sm,sm);
 				} catch (DmcValueExceptionSet e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
