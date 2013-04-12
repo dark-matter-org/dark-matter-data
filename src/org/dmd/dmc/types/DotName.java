@@ -44,6 +44,20 @@ public class DotName extends DmcHierarchicObjectName implements Serializable {
 
 	}
 	
+	/**
+	 * This is a specialized constructor that's used when constructing DmcAttributeInfo instances.
+	 * It is meant to construct qualified names for attributes 
+	 * @param schema the name of the schema
+	 * @param attribute the name of the attribute
+	 */
+	public DotName(String schema, String attribute){
+		if (schema.matches(nameCase) && attribute.matches(nameCase)){
+			name = schema + "." + attribute;
+		}
+		else
+			throw(new IllegalStateException("One of these strings doesn't match the DotName character set: " + schema + "  " + attribute));
+	}
+	
 	public DotName(String n) throws DmcValueException {
 		if (n.matches(dotCase))
 			name = n;

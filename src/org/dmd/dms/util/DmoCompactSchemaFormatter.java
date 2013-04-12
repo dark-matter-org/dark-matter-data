@@ -146,7 +146,8 @@ public class DmoCompactSchemaFormatter {
         for(AttributeDefinition ad: attributes.values()){
 			//     public final static DmcAttributeInfo __monitoredBy = new DmcAttributeInfo("monitoredBy",2202,"DashboardPrefs",ValueTypeEnum.MULTI,false);
 			out.write("    public final static DmcAttributeInfo __" + ad.getName().getNameString() + " = new DmcAttributeInfo(");
-			out.write("\"" + ad.getName().getNameString() + "\"");
+			out.write("\"" + ad.getDefinedIn().getName() + "\"");
+			out.write(", \"" + ad.getName().getNameString() + "\"");
 			out.write(", " + ad.getDmdID());
 			out.write(", \"" + ad.getType().getName().getNameString() + "\"");
 			out.write(", ValueTypeEnum." + ad.getValueType());
@@ -902,6 +903,7 @@ public class DmoCompactSchemaFormatter {
 	 */
     void writeAttributeInfoMETA(BufferedWriter out, String n, String ID, String t, String mv, String opt) throws IOException {
     	out.write("    public final static DmcAttributeInfo __" + n + " = new DmcAttributeInfo(");
+    	out.write("\"meta\",");
     	out.write("\"" + n + "\",");
     	out.write(ID + ",");
     	out.write("\"" + t + "\",");
