@@ -158,7 +158,7 @@ public class DmvDynamicRuleManager extends DmcRuleManager {
 							continue;
 						
 						try{
-							ruledata.resolveReferences(sm);
+							ruledata.resolveReferences(sm,sm);
 						}
 						catch(DmcValueExceptionSet ex){
 							System.err.println(ex.toString() + "\nFile: " + ruledata.getFile() + "  Line: " + ruledata.getLineNumber());

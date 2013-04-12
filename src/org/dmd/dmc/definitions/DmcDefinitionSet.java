@@ -1,6 +1,7 @@
 package org.dmd.dmc.definitions;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcNameClashException;
@@ -67,6 +68,13 @@ public class DmcDefinitionSet<DEF extends DmcDefinitionIF> {
 	 */
 	public DEF getDefinition(DotName name){
 		return(dotmap.get(name));
+	}
+	
+	/**
+	 * @return the set of definition in this set.
+	 */
+	public Collection<DEF> values(){
+		return(dotmap.values());
 	}
 	
 	/**

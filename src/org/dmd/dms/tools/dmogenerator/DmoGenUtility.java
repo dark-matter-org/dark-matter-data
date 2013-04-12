@@ -289,6 +289,10 @@ public class DmoGenUtility {
 						
 						FileUpdateManager.instance().generationComplete();
 						
+						if ((sd != null) && checkRules.booleanValue()){
+							parser.checkRules(sd);
+						}
+						
 					} catch (ResultException e) {
 						System.err.println(e.toString());
 					} catch (DmcValueException e) {

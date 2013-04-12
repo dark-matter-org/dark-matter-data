@@ -38,7 +38,7 @@ import org.dmd.dms.*;
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1585)
  */
 @SuppressWarnings("unused")
-public class DMDefinitionModuleDMW extends org.dmd.dms.DmsDefinition {
+public class DMDefinitionModuleDMW extends org.dmd.dms.DMDefinition {
 
     private DMDefinitionModuleDMO mycore;
 
@@ -62,18 +62,6 @@ public class DMDefinitionModuleDMW extends org.dmd.dms.DmsDefinition {
 
     public  DMDefinitionModuleDMO getDMO() {
         return(mycore);
-    }
-
-    protected DMDefinitionModuleDMW(ClassDefinition cd) {
-        super(cd);
-    }
-
-    protected DMDefinitionModuleDMW(String mn) throws DmcValueException {
-        super(new DMDefinitionModuleDMO());
-        mycore = (DMDefinitionModuleDMO) core;
-        mycore.setContainer(this);
-        mycore.setName(mn);
-        metaname = mn;
     }
 
     /**
@@ -113,28 +101,6 @@ public class DMDefinitionModuleDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * A reference to the DMDefinition derived class that is the common\n base
-     * class for a related set of definitions.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2333)
-    public DMDefinition getBaseDefinition(){
-        DmcTypeDMDefinitionREFSV attr = (DmcTypeDMDefinitionREFSV) mycore.get(MetaDMSAG.__baseDefinition);
-        if (attr == null)
-            return(null);
-        DMDefinitionDMO obj = attr.getSV().getObject();
-        return((DMDefinition)obj.getContainer());
-    }
-
-    /**
-     * Sets baseDefinition to the specified value.
-     * @param value A value compatible with DMDefinition
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2393)
-    public void setBaseDefinition(DMDefinition value) throws DmcValueException {
-        mycore.setBaseDefinition(value.getDmcObject());
-    }
-
-    /**
      * The dmdID attribute is used to store a unique Dark Matter Definition ID
      * for attributes.\n This is used as part of the serialization mechanisms
      * built into Dark Matter Objects.
@@ -169,6 +135,41 @@ public class DMDefinitionModuleDMW extends org.dmd.dms.DmsDefinition {
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2406)
     public void setModuleClassName(Object value) throws DmcValueException {
         mycore.setModuleClassName(value);
+    }
+
+    /**
+     * A reference to the DMDefinition derived class that is part of\n the
+     * abstract syntax of a dark-matter definition module.
+     * @return An Iterator of DMDefinition objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2494)
+    public DMDefinitionIterableDMW getUsesDefinition(){
+        DmcTypeDMDefinitionREFMV attr = (DmcTypeDMDefinitionREFMV) mycore.get(MetaDMSAG.__usesDefinition);
+        if (attr == null)
+            return(DMDefinitionIterableDMW.emptyList);
+
+        return(new DMDefinitionIterableDMW(attr.getMV()));
+    }
+
+    /**
+     * Adds another usesDefinition value.
+     * @param value A value compatible with DMDefinition
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2553)
+    public DmcAttribute<?> addUsesDefinition(DMDefinition value) throws DmcValueException {
+        DmcAttribute<?> attr = mycore.addUsesDefinition(value.getDmcObject());
+        return(attr);
+    }
+
+    /**
+     * Returns the number of usesDefinition values.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2579)
+    public int getUsesDefinitionSize(){
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__usesDefinition);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
     }
 
     /**
