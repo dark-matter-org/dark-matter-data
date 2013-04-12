@@ -994,6 +994,13 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         	throw(ex);
         }
         
+        if (checkAndAddDOT(ctd.getDotName(),ctd,globallyUniqueMAP,null) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsgDOT(ctd.getObjectName(),ctd,globallyUniqueMAP,"definition names"));
+            currentSchema = null;
+        	throw(ex);
+        }        
+        
         TypeDefinition td  = new TypeDefinition();
         td.setInternallyGenerated(true);
         td.setName(ctd.getName());
@@ -1038,6 +1045,13 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         	ex.addError(clashMsg(ertd.getObjectName(),ertd,extendedReferenceTypeDefs,"extended reference type names"));
         	throw(ex);
         }
+        
+        if (checkAndAddDOT(ertd.getDotName(),ertd,globallyUniqueMAP,null) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsgDOT(ertd.getObjectName(),ertd,globallyUniqueMAP,"definition names"));
+            currentSchema = null;
+        	throw(ex);
+        }        
         
         TypeDefinition td  = new TypeDefinition();
         td.setInternallyGenerated(true);
