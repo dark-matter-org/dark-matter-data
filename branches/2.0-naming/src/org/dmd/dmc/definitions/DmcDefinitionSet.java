@@ -8,6 +8,7 @@ import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.types.DotName;
 import org.dmd.dmc.types.DefinitionName;
+import org.dmd.util.exceptions.DebugInfo;
 
 /**
  * The DmcDefinitionSet class provides a mechanism to store a set of definitions
@@ -41,9 +42,14 @@ public class DmcDefinitionSet<DEF extends DmcDefinitionIF> {
 	public void add(DEF def){
 		ArrayList<DEF> existing = map.get(def.getName());
 		
+		DebugInfo.debug(def.getName() + "    " + def.getDotName().getNameString());
+		
 		if (existing == null){
 			existing = new ArrayList<DEF>(1);
 			map.put(def.getName(), existing);
+		}
+		else{
+			DebugInfo.debug("CLASHING: " + def.getName());
 		}
 		existing.add(def);
 		
