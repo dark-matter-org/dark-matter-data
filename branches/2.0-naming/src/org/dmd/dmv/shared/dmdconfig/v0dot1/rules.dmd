@@ -240,7 +240,7 @@ description			This is really just a convention, but the generation of
 PatternMatchRuleData
 ruleName			dmvDefinitionNameCheck
 ruleTitle			The name attribute must start with a letter, followed by a mix of letters and numbers.
-matchesPattern		[a-zA-Z][a-zA-Z0-9]*
+matchesPattern		[a-zA-Z][a-zA-Z0-9_]*
 applyToAttribute	name
 description			Although the name attribute is defined as type DotName, when
  the value is used as the value for the name attribute, it must not contain the 

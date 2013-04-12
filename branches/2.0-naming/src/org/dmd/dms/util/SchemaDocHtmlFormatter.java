@@ -34,6 +34,7 @@ import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.parsing.Token;
 
 /**
@@ -723,14 +724,15 @@ public class SchemaDocHtmlFormatter {
         StringBuffer    sb  = new StringBuffer();
         initIndex();
 
-        it = schema.allDefs.keySet().iterator();
-        while(it.hasNext()){
-            DefinitionName  key         = it.next();
-            String  firstChar   = key.getNameString().substring(0,1).toUpperCase();
-            TreeMap<String,Token> charTree    = index.get(firstChar);
-
-            charTree.put(key.getNameString().toUpperCase(), new Token(key.getNameString(),0,schema.allDefs.get(key)));
-        }
+        DebugInfo.debugWithTrace("\n\n*** NEED TO USE THE SCHEMA'S GLOBAL INDEX ***\n\n");
+//        it = schema.allDefs.keySet().iterator();
+//        while(it.hasNext()){
+//            DefinitionName  key         = it.next();
+//            String  firstChar   = key.getNameString().substring(0,1).toUpperCase();
+//            TreeMap<String,Token> charTree    = index.get(firstChar);
+//
+//            charTree.put(key.getNameString().toUpperCase(), new Token(key.getNameString(),0,schema.allDefs.get(key)));
+//        }
 
         // Generate the index reference header in HTML format - this will be
         // placed at the top of each index page.

@@ -58,22 +58,39 @@ public class Summarizer {
 		buildIDSummary();
 		
 		DmcOmni.instance().setTrackSchemaReferences(true);
-		DmcOmni.instance().backRefTracking(true);		
-
-		for(DMDefinition def: sm.allDefs.values()){
+		DmcOmni.instance().backRefTracking(true);	
+		
+		DebugInfo.debug("\n\nCHANGED REFERENCE RESOLUTION STUFF!!!\n\n");
+		
+		for(DMDefinition def: sm.globallyUniqueMAP.values()){
 			def.getDMO().clearReferenceInfo();
 		}
-		
-		for(DMDefinition def: sm.allDefs.values()){
+
+		for(DMDefinition def: sm.globallyUniqueMAP.values()){
 			addDefinition(def);
 			try {
-				def.resolveReferences(sm);
+				def.resolveReferences(sm,sm);
 				
 			} catch (DmcValueExceptionSet e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
+
+//		for(DMDefinition def: sm.allDefs.values()){
+//			def.getDMO().clearReferenceInfo();
+//		}
+//		
+//		for(DMDefinition def: sm.allDefs.values()){
+//			addDefinition(def);
+//			try {
+//				def.resolveReferences(sm);
+//				
+//			} catch (DmcValueExceptionSet e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
 		
 		for(SchemaDefinition sd: allSchemasByName.values()){
 			Iterator<RuleDataDMO> rules = sd.getParsedRulesDMOs(sm);

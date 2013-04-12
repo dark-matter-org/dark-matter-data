@@ -34,8 +34,8 @@ public class DotName extends DmcHierarchicObjectName implements Serializable {
 	
 	public final static String className = "DotName";
 	
-	final static String dotCase = "[a-zA-Z][a-zA-Z0-9.]*";
-	final static String nameCase = "[a-zA-Z][a-zA-Z0-9]*";
+	final static String dotCase = "[a-zA-Z][a-zA-Z0-9_.]*";
+	final static String nameCase = "[a-zA-Z][a-zA-Z0-9_]*";
 
 	String name;
 	transient DotName parent;

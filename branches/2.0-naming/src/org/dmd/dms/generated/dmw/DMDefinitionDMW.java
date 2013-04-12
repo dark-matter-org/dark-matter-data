@@ -102,6 +102,30 @@ public abstract class DMDefinitionDMW extends DmwNamedObjectWrapper {
     }
 
     /**
+     * The description attribute is used to provide descriptive\n documentation
+     * for schema related definitions. The text provided should conform\n to
+     * XHTML concepts since it will be dumped in the context of the generated
+     * HTML\n documentation.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2333)
+    public String getDescription(){
+        return(mycore.getDescription());
+    }
+
+    public String getDescriptionWithNewlines(){
+        return(mycore.getDescriptionWithNewlines());
+    }
+
+    /**
+     * Sets description to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2406)
+    public void setDescription(Object value) throws DmcValueException {
+        mycore.setDescription(value);
+    }
+
+    /**
      * The exampleUsage attribute is used to provide additional\n examples of how
      * some defined thing is to be used.
      * @return An Iterator of String objects.

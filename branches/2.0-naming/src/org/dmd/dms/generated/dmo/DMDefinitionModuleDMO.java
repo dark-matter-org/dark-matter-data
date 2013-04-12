@@ -36,7 +36,7 @@ import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGe
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1889)
  */
 @SuppressWarnings("serial")
-public class DMDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO implements Serializable  {
+public class DMDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DMDefinitionDMO implements Serializable  {
 
 
 
@@ -47,24 +47,26 @@ public class DMDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
-        _ImAp.put(MetaDMSAG.__baseDefinition.id,MetaDMSAG.__baseDefinition);
         _ImAp.put(MetaDMSAG.__dmdID.id,MetaDMSAG.__dmdID);
         _ImAp.put(MetaDMSAG.__fileExtension.id,MetaDMSAG.__fileExtension);
         _ImAp.put(MetaDMSAG.__moduleClassName.id,MetaDMSAG.__moduleClassName);
         _ImAp.put(MetaDMSAG.__name.id,MetaDMSAG.__name);
+        _ImAp.put(MetaDMSAG.__usesDefinition.id,MetaDMSAG.__usesDefinition);
         _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
+        _ImAp.put(MetaDMSAG.__description.id,MetaDMSAG.__description);
         _ImAp.put(MetaDMSAG.__dotName.id,MetaDMSAG.__dotName);
         _ImAp.put(MetaDMSAG.__exampleUsage.id,MetaDMSAG.__exampleUsage);
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
-        _SmAp.put(MetaDMSAG.__baseDefinition.name,MetaDMSAG.__baseDefinition);
         _SmAp.put(MetaDMSAG.__dmdID.name,MetaDMSAG.__dmdID);
         _SmAp.put(MetaDMSAG.__fileExtension.name,MetaDMSAG.__fileExtension);
         _SmAp.put(MetaDMSAG.__moduleClassName.name,MetaDMSAG.__moduleClassName);
         _SmAp.put(MetaDMSAG.__name.name,MetaDMSAG.__name);
+        _SmAp.put(MetaDMSAG.__usesDefinition.name,MetaDMSAG.__usesDefinition);
         _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
+        _SmAp.put(MetaDMSAG.__description.name,MetaDMSAG.__description);
         _SmAp.put(MetaDMSAG.__dotName.name,MetaDMSAG.__dotName);
         _SmAp.put(MetaDMSAG.__exampleUsage.name,MetaDMSAG.__exampleUsage);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
@@ -99,33 +101,6 @@ public class DMDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
         DMDefinitionModuleDMO rc = new DMDefinitionModuleDMO();
         populateSlice(rc,info);
         return(rc);
-    }
-
-    /**
-     * A reference to the DMDefinition derived class that is the common\n base
-     * class for a related set of definitions.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2279)
-    public DMDefinitionREF getBaseDefinition(){
-        DmcTypeDMDefinitionREFSV attr = (DmcTypeDMDefinitionREFSV) get(MetaDMSAG.__baseDefinition);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets baseDefinition to the specified value.
-     * @param value A value compatible with DmcTypeDMDefinitionREFSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2372)
-    public void setBaseDefinition(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(MetaDMSAG.__baseDefinition);
-        if (attr == null)
-            attr = new DmcTypeDMDefinitionREFSV(MetaDMSAG.__baseDefinition);
-        
-        attr.set(value);
-        set(MetaDMSAG.__baseDefinition,attr);
     }
 
     /**
@@ -238,6 +213,35 @@ public class DMDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
     }
 
     /**
+     * A reference to the DMDefinition derived class that is part of\n the
+     * abstract syntax of a dark-matter definition module.
+     * @return An Iterator of DMDefinitionDMO objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2470)
+    public Iterator<DMDefinitionREF> getUsesDefinition(){
+        DmcTypeDMDefinitionREFMV attr = (DmcTypeDMDefinitionREFMV) get(MetaDMSAG.__usesDefinition);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another usesDefinition value.
+     * @param value A value compatible with DmcTypeDMDefinitionREFMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2532)
+    public DmcAttribute<?> addUsesDefinition(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__usesDefinition);
+        if (attr == null)
+            attr = new DmcTypeDMDefinitionREFMV(MetaDMSAG.__usesDefinition);
+        
+        attr.add(value);
+        add(MetaDMSAG.__usesDefinition,attr);
+        return(attr);
+    }
+
+    /**
      * Indicates the schema in which a type, attribute or class is defined.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2279)
@@ -261,6 +265,44 @@ public class DMDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
         
         attr.set(value);
         set(MetaDMSAG.__definedIn,attr);
+    }
+
+    /**
+     * The description attribute is used to provide descriptive\n documentation
+     * for schema related definitions. The text provided should conform\n to
+     * XHTML concepts since it will be dumped in the context of the generated
+     * HTML\n documentation.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2279)
+    public String getDescription(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__description);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2312)
+    public String getDescriptionWithNewlines(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__description);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV().replaceAll("\\\\n","\\\n"));
+    }
+
+    /**
+     * Sets description to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2372)
+    public void setDescription(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__description);
+        if (attr == null)
+            attr = new DmcTypeStringSV(MetaDMSAG.__description);
+        
+        attr.set(value);
+        set(MetaDMSAG.__description,attr);
     }
 
     /**

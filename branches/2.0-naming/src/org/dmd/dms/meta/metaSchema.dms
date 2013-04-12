@@ -1837,11 +1837,12 @@ type                String
 description    		Indicates the extension of files of a particular type.
 
 AttributeDefinition
-name                baseDefinition
+name                usesDefinition
 dmdID				162
 type                DMDefinition
-description    		A reference to the DMDefinition derived class that is the common
- base class for a related set of definitions.
+valueType			MULTI
+description    		A reference to the DMDefinition derived class that is part of
+ the abstract syntax of a dark-matter definition module.
 
 AttributeDefinition
 name                moduleClassName
@@ -1867,7 +1868,6 @@ description    Used to indicate the classes that an object instance supports.
 // Class Definitions
 //
 
- 
 ClassDefinition
 name			ActionTriggerInfo
 classType		ABSTRACT
@@ -1895,6 +1895,7 @@ javaClass    	org.dmd.dms.DMDefinition
 dmoImport		org.dmd.dms.generated.dmo.DMDefinitionDMO
 isNamedBy       name
 must         	name
+may				description
 may				exampleUsage
 // Auto generated/set
 may           	definedIn
@@ -1940,7 +1941,7 @@ description     The DmsDefinition class provides a common base for all dark-matt
 ClassDefinition
 name			DMDefinitionModule
 classType     	STRUCTURAL
-derivedFrom     DmsDefinition
+derivedFrom     DMDefinition
 dmdID			3
 useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.DMDefinitionModule
@@ -1948,9 +1949,9 @@ dmoImport		org.dmd.dms.generated.dmo.DMDefinitionModuleDMO
 isNamedBy       name
 must         	name
 must			fileExtension
-must			baseDefinition
 must			dmdID
 must			moduleClassName
+must			usesDefinition
 // Auto generated/set
 may           	definedIn
 description		The DMDefinitionModule is a definition that defines a collection of definitions
@@ -1967,6 +1968,19 @@ fileExtension	dms
 baseDefinition	DmsDefinition
 dmdID			21
 moduleClassName	DmSchema
+usesDefinition	ActionDefinition
+usesDefinition	AttributeDefinition
+usesDefinition	ClassDefinition
+usesDefinition	ComplexTypeDefinition
+usesDefinition	EnumDefinition
+usesDefinition	ExtendedReferenceTypeDefinition
+usesDefinition	RuleCategory
+usesDefinition	RuleDefinition
+usesDefinition	SchemaDefinition
+usesDefinition	SliceDefinition
+usesDefinition	TypeDefinition
+description		The DMS definition module defines the base schema modelling language
+ associated with dark-matter.
 
 ClassDefinition
 name           	ClassDefinition
@@ -2056,31 +2070,34 @@ isNamedBy       name
 must          	name
 must            typeClassName
 may            	description
+may             primitiveType
 may             nullReturnValue
+may				altType
+may				altTypeImport
+// These must be specified if you want to use this type in TREEMAPPED or HASHMAPPED attributes
+may				keyClass
+may				keyImport
 // Auto generated/set
 // wrapperClass is used for internal types and refers to the original
 // class definition's javaClass
 may             wrapperClassName
-may             primitiveType
 may             internallyGenerated
-may             isEnumType
-may				enumName
-may				isRefType
 may				helperClassName
-may				originalClass
 may				dmwIteratorImport
 may				dmwIteratorClass
-may				genericArgs
+// 
+may             isEnumType
 may				isNameType
-may				isFilterType
 may				isHierarchicName
-may				keyClass
-may				keyImport
+may				isFilterType
+may				isExtendedRefType
+may				isRefType
+may				enumName
+may				originalClass
 may				nameAttributeDef
 may				filterAttributeDef
-may				altType
-may				altTypeImport
-may				isExtendedRefType
+// generic args may be obsolete
+may				genericArgs
 description     The <code> TypeDefinition </code> is used to define the types of attributes that can be used
  as the basis for attribute values. The name of the type definition should be the same as the
  actual Java class that is used to store the value of an attribute e.g. the name of the type
@@ -2316,7 +2333,7 @@ derivedFrom     DmsDefinition
 isNamedBy       name
 // module attribute
 must        	name
-must        	description
+//must        	description
 must          	schemaPackage
 must			schemaBaseID
 must			schemaIDRange
@@ -2369,7 +2386,7 @@ may				ruleImport
 must            ruleParam
 must            classInfoFromParam
 may             attributeInfoFromParam
-must			description
+//must			description
 description		The RuleCategory allows for the definition of categories of rules to be applied
  to various objects and indicates the expected interface to be implemented by a rule instance.
  A RuleDefinition may belong to multiple categories. 
@@ -2407,7 +2424,7 @@ must        	name
 //must			ruleType
 must			ruleCategory
 must			dmdID
-must			description
+//must			description
 may           	must
 may            	may
 may				isExtensible

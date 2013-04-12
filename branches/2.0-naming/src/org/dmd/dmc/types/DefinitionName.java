@@ -40,7 +40,7 @@ public class DefinitionName extends DmcObjectName implements DmcObjectNameIF, Se
 	
 	public final static String className = "DefinitionName";
 	
-	final static String camelCase = "[a-zA-Z][a-zA-Z0-9.]*";
+	final static String camelCase = "[a-zA-Z][a-zA-Z0-9_.]*";
 
 	String name;
 	

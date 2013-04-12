@@ -60,6 +60,7 @@ public class DependencyDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
         _ImAp.put(MetaDMSAG.__useInterface.id,MetaDMSAG.__useInterface);
         _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
         _ImAp.put(MetaDMSAG.__dependencies.id,MetaDMSAG.__dependencies);
+        _ImAp.put(MetaDMSAG.__description.id,MetaDMSAG.__description);
         _ImAp.put(MetaDMSAG.__dotName.id,MetaDMSAG.__dotName);
         _ImAp.put(MetaDMSAG.__exampleUsage.id,MetaDMSAG.__exampleUsage);
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
@@ -71,6 +72,7 @@ public class DependencyDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
         _SmAp.put(MetaDMSAG.__useInterface.name,MetaDMSAG.__useInterface);
         _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
         _SmAp.put(MetaDMSAG.__dependencies.name,MetaDMSAG.__dependencies);
+        _SmAp.put(MetaDMSAG.__description.name,MetaDMSAG.__description);
         _SmAp.put(MetaDMSAG.__dotName.name,MetaDMSAG.__dotName);
         _SmAp.put(MetaDMSAG.__exampleUsage.name,MetaDMSAG.__exampleUsage);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
@@ -215,6 +217,44 @@ public class DependencyDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
         attr.add(value);
         add(MetaDMSAG.__dependencies,attr);
         return(attr);
+    }
+
+    /**
+     * The description attribute is used to provide descriptive\n documentation
+     * for schema related definitions. The text provided should conform\n to
+     * XHTML concepts since it will be dumped in the context of the generated
+     * HTML\n documentation.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2279)
+    public String getDescription(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__description);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2312)
+    public String getDescriptionWithNewlines(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__description);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV().replaceAll("\\\\n","\\\n"));
+    }
+
+    /**
+     * Sets description to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2372)
+    public void setDescription(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__description);
+        if (attr == null)
+            attr = new DmcTypeStringSV(MetaDMSAG.__description);
+        
+        attr.set(value);
+        set(MetaDMSAG.__description,attr);
     }
 
     /**

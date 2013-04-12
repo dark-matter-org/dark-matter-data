@@ -282,7 +282,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvDefinitionNameCheckData  .setDescription("Although the name attribute is defined as type DotName, when\n the value is used as the value for the name attribute, it must not contain the \n dot character. This is because we allow for references to definitions to be\n either the flat name of the definition, or its fully qualified name that includes\n the definition set name, for example, meta.must - which indicates the must attribute\n from the meta schema.\n <p/>\n This allows for the convention of referring to definitions in the most general\n way possible without having to fully qualify every reference.");
             _dmvDefinitionNameCheckData  .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _dmvDefinitionNameCheckData  .setLineNumber("254");
-            _dmvDefinitionNameCheckData  .setMatchesPattern("[a-zA-Z][a-zA-Z0-9]*");
+            _dmvDefinitionNameCheckData  .setMatchesPattern("[a-zA-Z][a-zA-Z0-9_]*");
             _dmvDefinitionNameCheckData  .setRuleName("dmvDefinitionNameCheck");
             _dmvDefinitionNameCheckData  .setRuleTitle("The name attribute must start with a letter, followed by a mix of letters and numbers.");
 
