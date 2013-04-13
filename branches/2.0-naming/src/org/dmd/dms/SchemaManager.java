@@ -22,7 +22,7 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
-import org.dmd.dmc.DmcNameClashException;
+import org.dmd.dmc.DmcNameClashObjectSet;
 import org.dmd.dmc.DmcNameClashResolverIF;
 import org.dmd.dmc.DmcNameResolverWithClashSupportIF;
 import org.dmd.dmc.DmcNamedObjectIF;
@@ -68,6 +68,11 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     // Key: DotNames of the form definition_name.definition_type - these keys could potentially clash
     //      across schemas, so we maintain an array list of the defs at this level
     public HashMap<DotName, ArrayList<DMDefinition>>	clashMAP;
+    
+    // When definitions are being added via the schema parser, it will attempt to
+    // to resolve clashes. If we're loading generated schemas, the SchemaManager will
+    // act as the clash resolver.
+    DmcNameClashResolverIF	currentResolver;
 
     /**
      * This map contains all enum  definitions keyed on their respective name attributes.
@@ -217,6 +222,9 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         // Create our various hashmaps
         globallyUniqueMAP     				= new HashMap<DotName,DMDefinition>();
         clashMAP				= new HashMap<DotName, ArrayList<DMDefinition>>();
+        
+        // We default to use ourselves as the clash resolver
+        currentResolver				= this;
         
         enumDefs 					= new HashMap<DefinitionName,EnumDefinition>();
         typeDefs    				= new HashMap<DefinitionName,TypeDefinition>();
@@ -986,7 +994,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     	// Again, some trickiness, we have to resolve the rule so that we can access and use the must/may
     	// attributes that are defined for it and add them to the class definition we create
         try {
-			rd.resolveReferences(this,this);
+			rd.resolveReferences(this,currentResolver);
 		} catch (DmcValueExceptionSet e) {			
 			ResultException ex = new ResultException();
 			ex.addError("Unresolved references in RuleDefinition: " + rd.getName());
@@ -1193,7 +1201,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         // the ClassDefinition - which should be okay, because classes are the last things
         // that're loaded.
         try {
-			cd.resolveReferences(this,this);
+			cd.resolveReferences(this,currentResolver);
 		} catch (DmcValueExceptionSet e) {			
 			ResultException ex = new ResultException();
 			ex.addError("Unresolved references in ClassDefinition: " + cd.getName());
@@ -1473,13 +1481,28 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         }
     }
     
+    
     /**
      * Attempts to add the specified definition. If the definition clashes with
      * any existing definition, we throw an exception.
      * @throws DmcValueException 
      * @throws DmcValueExceptionSet 
      */
-    public void addDefinition(DMDefinition def) throws ResultException, DmcValueException {
+    public void addDefinition(DMDefinition def, DmcNameClashResolverIF clashResolver) throws ResultException, DmcValueException {
+    	currentResolver = clashResolver;
+    	
+    	addDefinition(def);
+    	
+    	currentResolver = this;
+    }
+    
+    /**
+     * Attempts to add the specified definition. If the definition clashes with
+     * any existing definition, we throw an exception.
+     * @throws DmcValueException 
+     * @throws DmcValueExceptionSet 
+     */
+    void addDefinition(DMDefinition def) throws ResultException, DmcValueException {
     	
     	if (def.getDotName() == null)
     		DebugInfo.debug("NO DOT NAME");
@@ -1606,7 +1629,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     	// references that it contains. This should be okay because the attributes
     	// should have been loaded first
     	try {
-			actd.resolveReferences(this,this);
+			actd.resolveReferences(this,currentResolver);
 		} catch (DmcValueExceptionSet e) {
 			e.printStackTrace();
 		}
@@ -2476,7 +2499,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     }
 
 	@Override
-	public DmcNamedObjectIF findNamedObjectMayClash(DmcObject object, DmcObjectName name, DmcNameClashResolverIF resolver, DmcAttributeInfo ai) throws DmcValueExceptionSet {
+	public DmcNamedObjectIF findNamedObjectMayClash(DmcObject object, DmcObjectName name, DmcNameClashResolverIF resolver, DmcAttributeInfo ai) throws DmcValueException {
 		DmcNamedObjectIF rc = null;
 		DotName dn = null;
 		try {
@@ -2522,7 +2545,9 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 					rc = defs.get(0);
 				}
 				else{
-					DebugInfo.debug("HAVE TO CALL NAME RESOLVER");
+					DmcNameClashObjectSet<DMDefinition> nce = new DmcNameClashObjectSet<DMDefinition>(defs);
+					
+					rc = resolver.resolveClash(object, ai, nce);
 				}
 			}
 		} catch (DmcValueException e) {
@@ -2548,7 +2573,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 	 * @throws DmcValueException
 	 */
 	@Override
-	public DmcObject resolveClash(DmcObject obj, DmcAttribute<?> attr, DmcNameClashException ex) throws DmcValueException {
+	public DmcNamedObjectIF resolveClash(DmcObject obj, DmcAttributeInfo ai, DmcNameClashObjectSet<?> ncos) throws DmcValueException {
 		DebugInfo.debug("NOT IMPLEMENTED YET");
 		return null;
 	}

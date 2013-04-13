@@ -460,7 +460,7 @@ public class DMPEvent extends DMPEventDMW {
 					Modifier mod = mods.getMVnth(i);
 					DmcAttributeInfo modai = mod.getAttributeInfo();
 					if (modai == null)
-						throw(new IllegalStateException("Couldn't get attriute info for: " + mod.getAttributeName()));
+						throw(new IllegalStateException("Couldn't get attribute info for: " + mod.getAttributeName()));
 					if (modai.id == ai.id)
 						return(true);
 				}

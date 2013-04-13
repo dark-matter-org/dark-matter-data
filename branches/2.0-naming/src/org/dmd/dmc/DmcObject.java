@@ -1696,7 +1696,14 @@ abstract public class DmcObject implements Serializable {
 						if (ncr == null)
 							obj = rx.findNamedObject(ref.getObjectName(),attr.ID);
 						else{
-							obj = ((DmcNameResolverWithClashSupportIF)rx).findNamedObjectMayClash(this, ref.getObjectName(), ncr, attr.attrInfo);
+							try {
+								obj = ((DmcNameResolverWithClashSupportIF)rx).findNamedObjectMayClash(this, ref.getObjectName(), ncr, attr.attrInfo);
+							} catch (DmcValueException ex) {
+								if (errors == null)
+									errors = new DmcValueExceptionSet();
+								errors.add(ex);
+								continue;
+							}
 						}
 						DmcObject 			resolvedObject 	= null;
 						
@@ -1759,7 +1766,14 @@ abstract public class DmcObject implements Serializable {
 								if (ncr == null)
 									obj = rx.findNamedObject(ref.getObjectName(),attr.ID);
 								else{
-									obj = ((DmcNameResolverWithClashSupportIF)rx).findNamedObjectMayClash(this, ref.getObjectName(), ncr, attr.attrInfo);									
+									try {
+										obj = ((DmcNameResolverWithClashSupportIF)rx).findNamedObjectMayClash(this, ref.getObjectName(), ncr, attr.attrInfo);
+									} catch (DmcValueException ex) {
+										if (errors == null)
+											errors = new DmcValueExceptionSet();
+										errors.add(ex);
+										continue;
+									}									
 								}
 								DmcObject 			resolvedObject 	= null;
 								

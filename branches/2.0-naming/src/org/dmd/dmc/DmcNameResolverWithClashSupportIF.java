@@ -28,8 +28,8 @@ package org.dmd.dmc;
  * authors and, at some later point, used together for some reason. Flat, string
  * based names are convenient, but in cases where the same name has been given to
  * different components in different definition sets, you have to be able to distinguish
- * between them. So, definitions are named by StringName, but also have a DotName
- * that provides a fully qualified name for a definition. 
+ * between them. So, definitions are named by DefinitionName, but also have a DotName
+ * that provides a fully qualified name for a definition.
  */
 
 public interface DmcNameResolverWithClashSupportIF extends DmcNameResolverIF {
@@ -49,7 +49,7 @@ public interface DmcNameResolverWithClashSupportIF extends DmcNameResolverIF {
      * @param resolver the entity that may resolve clashes if they occur
      * @param ai the attribute being resolved
      */
-    public DmcNamedObjectIF findNamedObjectMayClash(DmcObject object, DmcObjectName name, DmcNameClashResolverIF resolver, DmcAttributeInfo ai) throws DmcValueExceptionSet;
+    public DmcNamedObjectIF findNamedObjectMayClash(DmcObject object, DmcObjectName name, DmcNameClashResolverIF resolver, DmcAttributeInfo ai) throws DmcValueException;
 
 }
  
