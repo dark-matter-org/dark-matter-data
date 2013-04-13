@@ -17,13 +17,12 @@ public interface DmcNameClashResolverIF {
 	/**
 	 * The clash resolver will overload this method to attempt to resolve the name clash.
 	 * @param obj the object on which resolveReferences() has been called
-	 * @param attr the attribute being resolved
-	 * @param ex the clash exception thrown from the name resolver. This will contain the
-	 * set of objects with the given name. 
+	 * @param ai the info for the attribute being resolved
+	 * @param ncos the objects whose names clash
 	 * @return the appropriate object
 	 * @throws DmcValueException if the appropriate can't be determined
 	 */
-	public DmcObject resolveClash(DmcObject obj, DmcAttribute<?> attr, DmcNameClashException ex) throws DmcValueException;
+	public DmcNamedObjectIF resolveClash(DmcObject obj, DmcAttributeInfo ai, DmcNameClashObjectSet<?> ncos) throws DmcValueException;
 	
 	
 }

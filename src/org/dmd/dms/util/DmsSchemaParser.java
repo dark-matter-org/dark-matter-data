@@ -20,9 +20,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Stack;
 
-import org.dmd.dmc.DmcAttribute;
-import org.dmd.dmc.DmcNameClashException;
+import org.dmd.dmc.DmcAttributeInfo;
+import org.dmd.dmc.DmcNameClashObjectSet;
 import org.dmd.dmc.DmcNameClashResolverIF;
+import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
@@ -276,7 +277,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
             loadedFiles.remove(currFile);
             loadedFiles.put(currFile,currSchema);
             
-            allSchema.addDefinition(currSchema);
+            allSchema.addDefinition(currSchema,this);
             
             // And now check to see if everything is resolved
             allSchema.resolveReferences(currSchema,this);
@@ -560,7 +561,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
 //            		}
 //            		else{
                 		newDef.setDefinedIn(schemaLoading);
-                    	allSchema.addDefinition(newDef);
+                    	allSchema.addDefinition(newDef,this);
                 		schemaLoading.addDefinition(newDef);
 //            		}                		
                 }
@@ -582,10 +583,54 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
 	}
 
 	@Override
-	public DmcObject resolveClash(DmcObject obj, DmcAttribute<?> attr, DmcNameClashException ex) throws DmcValueException {
-		DebugInfo.debug("HERE HERE HERE");
-		return null;
+	public DmcNamedObjectIF resolveClash(DmcObject obj, DmcAttributeInfo ai, DmcNameClashObjectSet<?> ncos) throws DmcValueException {
+		DmcNamedObjectIF rc = null;
+		
+		Iterator<DmcNamedObjectIF> it = ncos.getMatches();
+		while(it.hasNext()){
+			try{
+				DMDefinition def = (DMDefinition) it.next();
+				
+				// We get the source of the definition from the DMO, we don't know if these objects have been resolved as yet
+				if (def.getDMO().getDefinedIn() == null){
+					// This shouldn't happen, but if it does, just continue
+					continue;
+				}
+				
+				// If one of the definitions is in the schema we're currently loading, we're going
+				// to choose that definition
+				if (schemaLoading.getName().equals(def.getDMO().getDefinedIn().getObjectName().getNameString())){
+					rc = def;
+					break;
+				}
+				
+			}
+			catch(ClassCastException e){
+				// We could wind up here if someone is using the schema parser in an incorrect context
+				// Complain!
+				throw(new IllegalStateException("The DmsSchemaParser can only be used to resolve references to DMDefinition objects!"));
+			}
+		}
+		
+		if (rc == null){
+			// None of the definitions are in the schema we're loading, so the user is
+			// going to have qualify the name of the thing they're referring to i.e.
+			// instead of just defName, they'll have to specify schema.defName.
+			StringBuffer sb = new StringBuffer();
+			sb.append("You must qualify the name of the object you're referring to: ");
+			it = ncos.getMatches();
+			while(it.hasNext()){
+				DMDefinition def = (DMDefinition) it.next();
+				sb.append(def.getDMO().getDefinedIn().getObjectName() + "." + def.getName() + "  ");
+			}
+
+			DmcValueException ex = new DmcValueException(sb.toString());
+			throw(ex);
+		}
+		
+		return(rc);
 	}
+
 
 
 }
