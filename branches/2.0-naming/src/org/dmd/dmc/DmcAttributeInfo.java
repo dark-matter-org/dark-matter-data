@@ -71,15 +71,15 @@ public class DmcAttributeInfo implements Comparable<DmcAttributeInfo> {
 		indexSize		= 0;
 	}
 	
-	public DmcAttributeInfo(String n, int i, String t, ValueTypeEnum at, DataTypeEnum dte, int is){
-		qualifiedName	= new DotName("NOT_SET",n);;
-		name 			= n;
-		id				= i;
-		type			= t;
-		valueType		= at;
-		dataType		= dte;
-		indexSize		= is;
-	}
+//	public DmcAttributeInfo(String n, int i, String t, ValueTypeEnum at, DataTypeEnum dte, int is){
+//		qualifiedName	= new DotName("NOT_SET",n);;
+//		name 			= n;
+//		id				= i;
+//		type			= t;
+//		valueType		= at;
+//		dataType		= dte;
+//		indexSize		= is;
+//	}
 	
 	public DmcAttributeInfo(String schema, String n, int i, String t, ValueTypeEnum at, DataTypeEnum dte, int is){
 		qualifiedName = new DotName(schema,n);

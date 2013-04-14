@@ -30,7 +30,6 @@ import org.dmd.dms.generated.dmw.SchemaDefinitionDMW;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.util.DmoObjectFactory;
 import org.dmd.dms.util.DynamicCompactSchema;
-import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
 public class SchemaDefinition extends SchemaDefinitionDMW {
@@ -67,6 +66,9 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     TreeMap<RuleName,RuleDataDMO>			parsedRulesDMOs;
     
     TreeMap<RuleName,RuleIF>				ruleInstances;
+    
+    // These are rules that have been instantiated and resolved by the schema manager
+    TreeMap<RuleName,RuleIF>				resolvedRules;
     
     /**
      * Default constructor.
@@ -322,10 +324,10 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
         		DmoObjectFactory	dmofactory = new DmoObjectFactory(sm);
     			for(DmcUncheckedObject uco: parsedRules.values()){
     				try {
-    					String ruleName = uco.getSV("ruleName");
-    					if ( (ruleName != null) && (ruleName.equals("dmvIncludeOrExclude")) ){
-    						DebugInfo.debug("HERE");
-    					}
+//    					String ruleName = uco.getSV("ruleName");
+//    					if ( (ruleName != null) && (ruleName.equals("dmvIncludeOrExclude")) ){
+//    						DebugInfo.debug("HERE");
+//    					}
     					
 						ClassDefinition ruleDataCD 	= sm.cdef(uco.getConstructionClass());
 						RuleDataDMO 	dmo 		= (RuleDataDMO) dmofactory.createObject(uco);
@@ -350,6 +352,23 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     		}
     	}
     	return(parsedRulesDMOs.values().iterator());
+    }
+    
+    /**
+     * Called when resolveReferences is performed on a schema manager being used by the
+     * DmsSchemaParser.
+     * @param rr
+     */
+    public void setResolvedRules(TreeMap<RuleName,RuleIF> rr){
+    	resolvedRules = rr;
+    }
+    
+    /**
+     * Called when we're formatting the compact schema rule data.
+     * @return
+     */
+    public TreeMap<RuleName,RuleIF> getResolvedRules(){
+    	return(resolvedRules);
     }
     
     public TreeMap<RuleName,RuleIF> getRuleInstances(SchemaManager sm){

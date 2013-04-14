@@ -10,8 +10,8 @@ import org.dmd.dmt.shared.generated.types.DmtField;    // base type import
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:2137)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2052)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:2141)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2056)
  */
 public class DmcTypeDmtFieldSTATIC {
     

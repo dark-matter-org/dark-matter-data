@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeCheckAttributesBasedOnValueRuleDataREFSET provides storage for a set of CheckAttributesBasedOnValueRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2602)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2606)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
@@ -61,7 +61,7 @@ public class DmcTypeCheckAttributesBasedOnValueRuleDataREFSET extends DmcTypeChe
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2643)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2647)
     public DmcAttribute<CheckAttributesBasedOnValueRuleDataREF> cloneIt(){
         synchronized(this){
             DmcTypeCheckAttributesBasedOnValueRuleDataREFSET rc = getNew();
@@ -80,7 +80,7 @@ public class DmcTypeCheckAttributesBasedOnValueRuleDataREFSET extends DmcTypeChe
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2666)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2670)
     public CheckAttributesBasedOnValueRuleDataREF add(Object v) throws DmcValueException {
         synchronized(this){
             CheckAttributesBasedOnValueRuleDataREF rc = typeCheck(v);
@@ -96,7 +96,7 @@ public class DmcTypeCheckAttributesBasedOnValueRuleDataREFSET extends DmcTypeChe
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2683)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2687)
     public CheckAttributesBasedOnValueRuleDataREF del(Object v){
         synchronized(this){
             CheckAttributesBasedOnValueRuleDataREF rc = null;
@@ -120,7 +120,7 @@ public class DmcTypeCheckAttributesBasedOnValueRuleDataREFSET extends DmcTypeChe
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2708)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2712)
     public Iterator<CheckAttributesBasedOnValueRuleDataREF> getMV(){
         synchronized(this){
             if (value == null)
@@ -133,7 +133,7 @@ public class DmcTypeCheckAttributesBasedOnValueRuleDataREFSET extends DmcTypeChe
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2722)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2726)
     public Set<CheckAttributesBasedOnValueRuleDataREF> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -152,7 +152,7 @@ public class DmcTypeCheckAttributesBasedOnValueRuleDataREFSET extends DmcTypeChe
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2742)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -162,7 +162,7 @@ public class DmcTypeCheckAttributesBasedOnValueRuleDataREFSET extends DmcTypeChe
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2753)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2757)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

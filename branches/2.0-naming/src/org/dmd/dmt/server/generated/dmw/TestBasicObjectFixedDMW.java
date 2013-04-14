@@ -2781,5 +2781,36 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
         ((TestBasicObjectFixedDMO) core).remTsString();
     }
 
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1343)
+    public String getUserName(){
+        return(((TestBasicObjectFixedDMO) core).getUserName());
+    }
+
+    /**
+     * Sets userName to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1453)
+    public void setUserName(Object value) throws DmcValueException {
+        ((TestBasicObjectFixedDMO) core).setUserName(value);
+    }
+
+    /**
+     * Sets userName to the specified value.
+     * @param value String
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1462)
+    public void setUserName(String value){
+        ((TestBasicObjectFixedDMO) core).setUserName(value);
+    }
+
+    /**
+     * Removes the userName attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1488)
+    public void remUserName(){
+        ((TestBasicObjectFixedDMO) core).remUserName();
+    }
+
 
 }

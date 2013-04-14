@@ -25,7 +25,9 @@ import java.util.TreeSet;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.rules.RuleIF;
 import org.dmd.dmc.types.DefinitionName;
+import org.dmd.dmc.types.RuleName;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmc.util.NamedStringArray;
 import org.dmd.dmg.util.GeneratorUtils;
@@ -37,6 +39,7 @@ import org.dmd.dms.SchemaManager;
 import org.dmd.dms.SliceDefinition;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
+import org.dmd.dms.generated.dmo.RuleDataDMO;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
@@ -322,32 +325,58 @@ public class DmoCompactSchemaFormatter {
 			}
 		}
 		
-		rules = sd.getParsedRules();
-		if (rules != null){
+		DebugInfo.debug("\n\n\n*** NEW RULE INSTANCE FORMATTING ***\n\n\n");
+		TreeMap<RuleName,RuleIF> resolvedRules = sd.getResolvedRules();
+		
+		if ((resolvedRules != null) && (resolvedRules.size()>0) ){
 			out.write("\n");
 			PrintfFormat pf = new PrintfFormat("%-28s");
 			out.write("        // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 			out.write("        try{\n");
 			
-			while(rules.hasNext()){
-				DmcUncheckedObject ruleData = rules.next();
-
-				String dataName 	= ruleData.getConstructionClass();
-				int dataPos 		= dataName.indexOf("Data");
-				String ruleClass 	= dataName.substring(0, dataPos);
-				String ruleName		= ruleData.getSV("ruleName");
+			for(RuleIF rule: resolvedRules.values()){
+				RuleDataDMO rd = rule.getRuleDataDMO();
+				int dataPos 		= rd.getConstructionClassName().lastIndexOf("Data");
+				String ruleClass 	= rd.getConstructionClassName().substring(0, dataPos);
 				
-				out.write("            " + dataName + "DMO _" + ruleName + "Data = new " + dataName + "DMO();\n");
+				out.write("            " + rd.getConstructionClassName() + "DMO _" + rd.getRuleName() + "Data = new " + rd.getConstructionClassName() + "DMO();\n");
 				
-				setAttributeValues(out, sm, ruleData, pf);
+				setAttributeValues(out, sm, rd, pf);
 
-				out.write("            __" + ruleName + " = new " + ruleClass + "(_" + ruleName + "Data);\n\n");
-				out.write("            _RmAp.add(__" + ruleName + ");\n\n");
+				out.write("            __" + rd.getRuleName() + " = new " + ruleClass + "(_" + rd.getRuleName() + "Data);\n\n");
+				out.write("            _RmAp.add(__" + rd.getRuleName() + ");\n\n");
 			}
 			out.write("        } catch(DmcValueException ex){\n");
 			out.write("            throw(new IllegalStateException(ex));\n");
 			out.write("        }\n");
 		}
+		
+//		rules = sd.getParsedRules();
+//		if (rules != null){
+//			out.write("\n");
+//			PrintfFormat pf = new PrintfFormat("%-28s");
+//			out.write("        // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+//			out.write("        try{\n");
+//			
+//			while(rules.hasNext()){
+//				DmcUncheckedObject ruleData = rules.next();
+//
+//				String dataName 	= ruleData.getConstructionClass();
+//				int dataPos 		= dataName.indexOf("Data");
+//				String ruleClass 	= dataName.substring(0, dataPos);
+//				String ruleName		= ruleData.getSV("ruleName");
+//				
+//				out.write("            " + dataName + "DMO _" + ruleName + "Data = new " + dataName + "DMO();\n");
+//				
+//				setAttributeValues(out, sm, ruleData, pf);
+//
+//				out.write("            __" + ruleName + " = new " + ruleClass + "(_" + ruleName + "Data);\n\n");
+//				out.write("            _RmAp.add(__" + ruleName + ");\n\n");
+//			}
+//			out.write("        } catch(DmcValueException ex){\n");
+//			out.write("            throw(new IllegalStateException(ex));\n");
+//			out.write("        }\n");
+//		}
 		
 
 		
@@ -362,6 +391,66 @@ public class DmoCompactSchemaFormatter {
 		out.close();
 	}
 	
+	private void setAttributeValues(BufferedWriter out, SchemaManager sm, RuleDataDMO rd, PrintfFormat pf) throws IllegalArgumentException, IOException, ResultException {
+		String          	objName		= rd.getRuleName().getNameString() + "Data";
+		ClassDefinition		cd			= sm.isClass(rd.getConstructionClassName());
+		AttributeDefinition	attrDef		= null;
+				
+		Iterator<DmcAttribute<?>> attributes = rd.getAttributeIterator();
+		while(attributes.hasNext()){
+			DmcAttribute<?> attr = attributes.next();
+			attrDef = sm.isAttribute(attr.getID());
+			
+			// Skip the object class
+			if (attr.getAttributeInfo().id == MetaDMSAG.__objectClass.id)
+				continue;
+			
+			DefinitionName adn = getDefinitionName(rd.getConstructionClassName(), attr.getName());
+			
+			if (cd.isAllowedAttribute(adn)){
+				String attrNameCapped = GenUtility.capTheName(attr.getName());
+				if (attr.getAttributeInfo().valueType == ValueTypeEnum.SINGLE){
+		            out.write("            _" + pf.sprintf(objName));
+					out.write(".set" + attrNameCapped + "(");
+					out.write("\"" + attr.getSV().toString() + "\");\n");
+				}
+				else{
+					Iterator<?> vals = attr.getMV();
+					while(vals.hasNext()){
+						Object val = vals.next();
+			            out.write("            _" + pf.sprintf(objName));
+						out.write(".add" + attrNameCapped + "(");
+						out.write("\"" + val.toString() + "\");\n");
+					}
+				}
+			}
+			else{
+//				DebugInfo.debug("Extra attribute: " + attrName);
+				out.write(attrDef.getValueModificationStatement(uniqueNum,"            ","            _" + objName, attr));
+				uniqueNum++;
+			}
+		}
+				
+		
+		out.write("\n");
+		
+	}
+	
+	DefinitionName getDefinitionName(String cn, String dn) throws ResultException{
+		DefinitionName rc = null;
+		
+		try {
+			rc = new DefinitionName(dn);
+		} catch (DmcValueException e) {
+			ResultException ex = new ResultException("This is not a legal attribute name: " + dn);
+			ex.moreMessages("DefinitionNames must begin with an alpha character and contain only leters and numbers.");
+			ex.moreMessages("This occurred while formatting the compact schema for class: " + cn);
+			throw(ex);
+		}
+		
+		return(rc);
+	}
+
 	/**
 	 * For all AttributeDefinitions in the schema, this method dumps a [schema]ASAG
 	 * to the DMO subdirectory. THIS METHOD IS FOR THE METAGENERATOR.
@@ -1235,115 +1324,115 @@ public class DmoCompactSchemaFormatter {
 	}
 	
     
-	private void setAttributeValues(BufferedWriter out, SchemaManager sm, DmcUncheckedObject obj, PrintfFormat pf) throws IOException, ResultException {
-		String				attrName	= null;
-		String          	objName		= null;
-		ClassDefinition		cd			= null;
-		AttributeDefinition	attrDef		= null;
-//		TypeDefinition		typeDef		= null;
-//		String          	typeName    = null;
-//		boolean				multiValued	= false;
-//		boolean         	isReference = false;
-//		boolean         	isEnumType  = false;
-		
-		objName = obj.getSV("ruleName") + "Data";
-		
-		cd = sm.isClass(obj.getConstructionClass());
-		if (cd == null){
-			ResultException ex = new ResultException();
-			ex.addError("Unknown rule data class: \n" + obj.toOIF());
-			throw(ex);
-		}
-		
-//		if (cd.getClassType() == ClassTypeEnum.EXTENSIBLE){
-//			DebugInfo.debug("DmoCompactSchemaFormatter.setAttributeValues() " + cd.getName() + " is extensible");
+//	private void setAttributeValues(BufferedWriter out, SchemaManager sm, DmcUncheckedObject obj, PrintfFormat pf) throws IOException, ResultException {
+//		String				attrName	= null;
+//		String          	objName		= null;
+//		ClassDefinition		cd			= null;
+//		AttributeDefinition	attrDef		= null;
+////		TypeDefinition		typeDef		= null;
+////		String          	typeName    = null;
+////		boolean				multiValued	= false;
+////		boolean         	isReference = false;
+////		boolean         	isEnumType  = false;
+//		
+//		objName = obj.getSV("ruleName") + "Data";
+//		
+//		cd = sm.isClass(obj.getConstructionClass());
+//		if (cd == null){
+//			ResultException ex = new ResultException();
+//			ex.addError("Unknown rule data class: \n" + obj.toOIF());
+//			throw(ex);
 //		}
-		
-		Iterator<String> attributeNames = obj.getAttributeNames();
-		while(attributeNames.hasNext()){
-			NamedStringArray attr = obj.get(attributeNames.next());
-			attrName = attr.getName();
-			if (attrName == null){
-				DebugInfo.debugWithTrace("Attr name null");
-				continue;
-			}
-			attrDef  = sm.isAttribute(attrName);
-			
-			if (attrDef == null){
-				ResultException ex = new ResultException();
-				ex.addError("Unknown attribute: " + attrName);
-				ex.result.lastResult().fileName(obj.getSV(MetaDMSAG.__file.name));
-				ex.result.lastResult().lineNumber(obj.lineNumber);
-				throw(ex);
-			}
-			
-	    	StringBuffer 	attrNameCapped 	= new StringBuffer();
-	    	attrNameCapped.append(attrName);
-	    	attrNameCapped.setCharAt(0,Character.toUpperCase(attrNameCapped.charAt(0)));
-	    	
-	    	DefinitionName allowed = null;
-	    	try {
-				allowed = new DefinitionName(attrName);
-			} catch (DmcValueException e) {
-				ResultException ex = new ResultException("This is not a legal attribute name: " + attrName);
-				ex.moreMessages("DefinitionNames must begin with an alpha character and contain only leters and numbers.");
-				ex.moreMessages("This occurred while formatting the compact schema for class: " + cd.getName().getNameString());
-				throw(ex);
-			}
-
-	    	if (cd.isAllowedAttribute(allowed)){
-				if (attrDef.getValueType() == ValueTypeEnum.SINGLE){
-					String value = obj.getSV(attrName);
-		            out.write("            _" + pf.sprintf(objName));
-					out.write(".set" + attrNameCapped + "(");
-					out.write("\"" + value + "\");\n");
-				}
-				else{
-					for(String value: attr){
-			            out.write("            _" + pf.sprintf(objName));
-						out.write(".add" + attrNameCapped + "(");
-						out.write("\"" + value + "\");\n");
-					}
-				}
-			}
-			else{
-//				DebugInfo.debug("Extra attribute: " + attrName);
-				out.write(attrDef.getValueModificationStatement(uniqueNum,"            ","            _" + objName, obj.get(attr.getName())));
-				uniqueNum++;
-			}
-			
-//			if (attrDef.getValueType() == ValueTypeEnum.SINGLE)
-//				multiValued = false;
-//			else
-//				multiValued = true;
+//		
+////		if (cd.getClassType() == ClassTypeEnum.EXTENSIBLE){
+////			DebugInfo.debug("DmoCompactSchemaFormatter.setAttributeValues() " + cd.getName() + " is extensible");
+////		}
+//		
+//		Iterator<String> attributeNames = obj.getAttributeNames();
+//		while(attributeNames.hasNext()){
+//			NamedStringArray attr = obj.get(attributeNames.next());
+//			attrName = attr.getName();
+//			if (attrName == null){
+//				DebugInfo.debugWithTrace("Attr name null");
+//				continue;
+//			}
+//			attrDef  = sm.isAttribute(attrName);
 //			
-//			if (attrDef.getType().getIsRefType())
-//				isReference	= true;
-//			else
-//				isReference	= false;
+//			if (attrDef == null){
+//				ResultException ex = new ResultException();
+//				ex.addError("Unknown attribute: " + attrName);
+//				ex.result.lastResult().fileName(obj.getSV(MetaDMSAG.__file.name));
+//				ex.result.lastResult().lineNumber(obj.lineNumber);
+//				throw(ex);
+//			}
 //			
-//			if (attrDef.getType().getIsEnumType())
-//				isEnumType	= true;
-//			else
-//				isReference	= false;
-//			
-//			if (obj.getConstructionClass().equals("InitRuleData")){
-//				if (attrName.equals(MetaDMSAG.__ruleName.name) || attrName.equals(MetaDMSAG.__ruleTitle.name) || attrName.equals(MetaDMSAG.__description.name) || attrName.equals(MetaDMSAG.__applyToClass.name)){
-//					// Just keep going
+//	    	StringBuffer 	attrNameCapped 	= new StringBuffer();
+//	    	attrNameCapped.append(attrName);
+//	    	attrNameCapped.setCharAt(0,Character.toUpperCase(attrNameCapped.charAt(0)));
+//	    	
+//	    	DefinitionName allowed = null;
+//	    	try {
+//				allowed = new DefinitionName(attrName);
+//			} catch (DmcValueException e) {
+//				ResultException ex = new ResultException("This is not a legal attribute name: " + attrName);
+//				ex.moreMessages("DefinitionNames must begin with an alpha character and contain only leters and numbers.");
+//				ex.moreMessages("This occurred while formatting the compact schema for class: " + cd.getName().getNameString());
+//				throw(ex);
+//			}
+//
+//	    	if (cd.isAllowedAttribute(allowed)){
+//				if (attrDef.getValueType() == ValueTypeEnum.SINGLE){
+//					String value = obj.getSV(attrName);
+//		            out.write("            _" + pf.sprintf(objName));
+//					out.write(".set" + attrNameCapped + "(");
+//					out.write("\"" + value + "\");\n");
 //				}
 //				else{
-////					formatOtherAttribute(out,pf,typeDefs,attrDef);
-//					continue;
+//					for(String value: attr){
+//			            out.write("            _" + pf.sprintf(objName));
+//						out.write(".add" + attrNameCapped + "(");
+//						out.write("\"" + value + "\");\n");
+//					}
 //				}
 //			}
-//						
-//			typeDef = attrDef.getType();
-			
-		}
-		
-		out.write("\n");
-		
-	}
+//			else{
+////				DebugInfo.debug("Extra attribute: " + attrName);
+//				out.write(attrDef.getValueModificationStatement(uniqueNum,"            ","            _" + objName, obj.get(attr.getName())));
+//				uniqueNum++;
+//			}
+//			
+////			if (attrDef.getValueType() == ValueTypeEnum.SINGLE)
+////				multiValued = false;
+////			else
+////				multiValued = true;
+////			
+////			if (attrDef.getType().getIsRefType())
+////				isReference	= true;
+////			else
+////				isReference	= false;
+////			
+////			if (attrDef.getType().getIsEnumType())
+////				isEnumType	= true;
+////			else
+////				isReference	= false;
+////			
+////			if (obj.getConstructionClass().equals("InitRuleData")){
+////				if (attrName.equals(MetaDMSAG.__ruleName.name) || attrName.equals(MetaDMSAG.__ruleTitle.name) || attrName.equals(MetaDMSAG.__description.name) || attrName.equals(MetaDMSAG.__applyToClass.name)){
+////					// Just keep going
+////				}
+////				else{
+//////					formatOtherAttribute(out,pf,typeDefs,attrDef);
+////					continue;
+////				}
+////			}
+////						
+////			typeDef = attrDef.getType();
+//			
+//		}
+//		
+//		out.write("\n");
+//		
+//	}
 	
 
 	private void formatOtherAttribute(BufferedWriter out, PrintfFormat pf, TreeMap<String,DmcUncheckedObject>	typeDefs, DmcUncheckedObject attribute) throws IOException, ResultException{
