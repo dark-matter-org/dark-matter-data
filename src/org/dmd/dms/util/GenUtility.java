@@ -1701,6 +1701,10 @@ public class GenUtility {
 		
 	}
 
+	/**
+	 * @param value the string who first letter should be capitalized.
+	 * @return take a string like hello and return Hello
+	 */
 	static public String capTheName(String value){
     	StringBuffer 	name 	= new StringBuffer();
     	name.append(value);

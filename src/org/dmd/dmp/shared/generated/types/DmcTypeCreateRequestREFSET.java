@@ -29,7 +29,7 @@ import org.dmd.dmp.shared.generated.dmo.CreateRequestDMO;    // DmcType import
  * The DmcTypeCreateRequestREFSET provides storage for a set of CreateRequestDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2602)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2606)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
  */
 @SuppressWarnings("serial")
@@ -62,7 +62,7 @@ public class DmcTypeCreateRequestREFSET extends DmcTypeCreateRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2643)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2647)
     public DmcAttribute<CreateRequestDMO> cloneIt(){
         synchronized(this){
             DmcTypeCreateRequestREFSET rc = getNew();
@@ -81,7 +81,7 @@ public class DmcTypeCreateRequestREFSET extends DmcTypeCreateRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2666)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2670)
     public CreateRequestDMO add(Object v) throws DmcValueException {
         synchronized(this){
             CreateRequestDMO rc = typeCheck(v);
@@ -97,7 +97,7 @@ public class DmcTypeCreateRequestREFSET extends DmcTypeCreateRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2683)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2687)
     public CreateRequestDMO del(Object v){
         synchronized(this){
             CreateRequestDMO rc = null;
@@ -121,7 +121,7 @@ public class DmcTypeCreateRequestREFSET extends DmcTypeCreateRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2708)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2712)
     public Iterator<CreateRequestDMO> getMV(){
         synchronized(this){
             if (value == null)
@@ -134,7 +134,7 @@ public class DmcTypeCreateRequestREFSET extends DmcTypeCreateRequestREF implemen
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2722)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2726)
     public Set<CreateRequestDMO> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -153,7 +153,7 @@ public class DmcTypeCreateRequestREFSET extends DmcTypeCreateRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2742)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -163,7 +163,7 @@ public class DmcTypeCreateRequestREFSET extends DmcTypeCreateRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2753)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2757)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

@@ -33,6 +33,7 @@ import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.definitions.DmcDefinitionSet;
+import org.dmd.dmc.rules.RuleIF;
 import org.dmd.dmc.types.DefinitionName;
 import org.dmd.dmc.types.DotName;
 import org.dmd.dmc.types.RuleName;
@@ -2414,7 +2415,24 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 					throw(ex);
 				}
     		}
-    	}    	
+    	}
+    	
+    	TreeMap<RuleName,RuleIF> theRules = sd.getRuleInstances(this);
+    	for(RuleIF rule: theRules.values()){
+    		try {
+				rule.getRuleDataDMO().resolveReferences(this, clashResolver);
+			} catch (DmcValueExceptionSet e) {
+				ResultException ex = new ResultException();
+				ex.addError("Unresolved references in rule data: " + rule.getRuleDataDMO().getRuleName());
+//				ex.setLocationInfo(s.getFile(), s.getLineNumber());
+				
+				for(DmcValueException dve : e.getExceptions()){
+					ex.moreMessages(dve.getMessage());
+				}
+				throw(ex);
+			}
+    	}
+    	sd.setResolvedRules(theRules);
     	
     }
 
