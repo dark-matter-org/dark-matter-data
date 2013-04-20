@@ -15,28 +15,34 @@ import org.dmd.dms.generated.enums.DataTypeEnum;
 public class DmcClassInfo implements Comparable<DmcClassInfo>{
 
 	// The string name of the class
-	final public String 		name;
+	final public String 						name;
 	
 	// The fully qualified name of the DMO
-	final public String			dmoImport;
+	final public String							dmoImport;
 	
 	// The DMD identifier of this attribute. This is used to look up the attribute's 
 	// information when deserializing an attribute. We look up the information so
 	// that we can instantiate the correct DmcAttribute derivative to hold the attribute value.
-	final public int 			id;
+	final public int 							id;
 	
 	// The type of the class
-	final public ClassTypeEnum	classType;
+	final public ClassTypeEnum					classType;
 	
 	// Indicates if an attribute is transient or persistent
-	final public DataTypeEnum	dataType;
+	final public DataTypeEnum					dataType;
 	
 	// The class from which this class is derived
-	final public DmcClassInfo	derivedFrom;
+	final public DmcClassInfo					derivedFrom;
 	
 	final TreeMap<Integer,DmcAttributeInfoRef>	byID;
 	
-	final public DmcAttributeInfo	nameAttribute;
+	// This map allows us to look up attributes in the context of an object based
+	// on just the attribute name. This mechanism was added with the shift to using
+	// dot names to fully qualify the names of definitions.
+	// Key: Attribute name
+	final TreeMap<String,DmcAttributeInfoRef>	byName;
+	
+	final public DmcAttributeInfo				nameAttribute;
 	
 	// This is populated when the class is managed as part of the DmcOmni
 	transient TreeMap<String,DmcClassInfo>	derivedClasses;
@@ -49,6 +55,7 @@ public class DmcClassInfo implements Comparable<DmcClassInfo>{
 		dataType		= dt;
 		derivedFrom		= bc;
 		byID			= new TreeMap<Integer,DmcAttributeInfoRef>();
+		byName			= new TreeMap<String,DmcAttributeInfoRef>();
 		nameAttribute	= na;
 		derivedClasses	= null;
 	}
@@ -61,16 +68,21 @@ public class DmcClassInfo implements Comparable<DmcClassInfo>{
 		dataType		= dt;
 		derivedFrom		= bc;
 		byID			= new TreeMap<Integer,DmcAttributeInfoRef>();
+		byName			= new TreeMap<String,DmcAttributeInfoRef>();
 		nameAttribute	= na;
 		derivedClasses	= null;
 	}
 	
 	public void addMust(DmcAttributeInfo info){
-		byID.put(info.id, new DmcAttributeInfoRef(info, true));
+		DmcAttributeInfoRef air = new DmcAttributeInfoRef(info, true);
+		byID.put(info.id, air);
+		byName.put(info.name, air);
 	}
 	
 	public void addMay(DmcAttributeInfo info){
-		byID.put(info.id, new DmcAttributeInfoRef(info, false));
+		DmcAttributeInfoRef air = new DmcAttributeInfoRef(info, false);
+		byID.put(info.id, air);
+		byName.put(info.name, air);
 	}
 	
 	public Map<Integer,DmcAttributeInfoRef>	getIdToAttr(){
@@ -126,6 +138,19 @@ public class DmcClassInfo implements Comparable<DmcClassInfo>{
 		else
 			rc = air.info;
 		return(rc);
+	}
+	
+	/**
+	 * @param an the attribute name
+	 * @return the attribute info if the class has the attribute and null otherwise
+	 */
+	public DmcAttributeInfo getAttributeInfo(String an){
+		DmcAttributeInfoRef air = byName.get(an);
+		
+		if (air == null)
+			return(null);
+		
+		return(air.info);
 	}
 	
 	/**
