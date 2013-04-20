@@ -592,12 +592,22 @@ abstract public class DmcObject implements Serializable {
 	 * @return The attribute info or null.
 	 */
 	public DmcAttributeInfo getAttributeInfo(String an){
-//		DmcAttributeInfo rc = getStringToAttrInfo().get(an);
-		DmcAttributeInfo rc = DmcOmni.instance().getAttributeInfo(an);
+		
+		DmcAttributeInfo rc = getConstructionClassInfo().getAttributeInfo(an);
 		
 		if (rc == null){
 			if (an.equals(__objectClass.name))
 				rc = __objectClass;
+		}
+		
+		if (rc == null){
+			// Fall back to check the auxiliary classes
+			DmcTypeClassDefinitionREFMV objClass = (DmcTypeClassDefinitionREFMV) attributes.get(__objectClass.id);
+			for(int i=0; i<objClass.getMVSize(); i++){
+				rc = objClass.getMVnth(i).getClassInfo().getAttributeInfo(an);
+				if (rc != null)
+					break;
+			}
 		}
 		
 		return(rc);
@@ -611,13 +621,7 @@ abstract public class DmcObject implements Serializable {
 	 */
 	public DmcAttributeInfo getAttributeInfo(Integer id){
 		DmcAttributeInfo rc = null;
-//		
-//		if (getIdTo AttrInfo() != null)
-//			return(getIdToAttrInfo().get(id));
-//		
-//		return(rc);
-//		
-				
+
 		if (id == __objectClass.id)
 			return(__objectClass);
 		
