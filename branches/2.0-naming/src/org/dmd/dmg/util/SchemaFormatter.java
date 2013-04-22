@@ -23,19 +23,24 @@ import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcNamedObjectIF;
+import org.dmd.dmc.DmcNamedObjectREF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.types.DefinitionName;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.ComplexTypeDefinition;
+import org.dmd.dms.DMDefinition;
 import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.EnumDefinition;
 import org.dmd.dms.RuleDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
+import org.dmd.dms.generated.dmo.DMDefinitionDMO;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
+import org.dmd.dms.generated.dmo.SchemaDefinitionDMO;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.DebugInfo;
@@ -556,6 +561,7 @@ public class SchemaFormatter {
 
 		for (DmcAttribute<?> attr : var.def.getDmcObject().getAttributes().values()){
 			String an = GeneratorUtils.dotNameToCamelCase(attr.getName());
+			String prefix = "";
 			
 			if (skip.get(attr.getName()) != null)
 				continue;
@@ -563,15 +569,40 @@ public class SchemaFormatter {
 			AttributeDefinition ad = schemaManager.isAttribute(attr.getName());
 			ClassDefinition aux = isAuxAttribute(var.def, ad);
 			
+			TypeDefinition td = ad.getType();
+			
 			if (aux == null){
 				if (attr.getMVSize() > 0){
 					// Multi-value attribute
 					Iterator<?> vals = attr.getMV();
 					while(vals.hasNext()){
-						sb.append(indent + obj + ".add" + an + "(\"" + vals.next().toString() + "\");\n");
+						prefix = "";
+						Object val = vals.next();
+						if (td.getIsRefType()){
+							DmcNamedObjectREF<?> ref = (DmcNamedObjectREF<?>) val;
+							if (ref.getObject() instanceof DMDefinitionDMO){
+								if ( !(ref.getObject() instanceof SchemaDefinitionDMO)){
+									DMDefinitionDMO def = (DMDefinitionDMO) ref.getObject();
+									if (!val.toString().contains("."))
+										prefix =  def.getDefinedIn().getObjectName().getNameString() + ".";
+								}
+							}
+						}
+						sb.append(indent + obj + ".add" + an + "(\"" + prefix + val.toString() + "\");\n");
 					}
 				}
 				else{
+					prefix = "";
+					if (td.getIsRefType()){
+						DmcNamedObjectREF<?> ref = (DmcNamedObjectREF<?>) attr.getSV();
+						if (ref.getObject() instanceof DMDefinitionDMO){
+							if ( !(ref.getObject() instanceof SchemaDefinitionDMO)){
+								DMDefinitionDMO def = (DMDefinitionDMO) ref.getObject();
+								if (!attr.getSV().toString().contains("."))
+									prefix = def.getDefinedIn().getObjectName().getNameString() + ".";
+							}
+						}
+					}
 					// HACK HACK HACK
 					// In order to handle the concept of the empty string as a nullReturn value, we have to check
 					// to see if the nullReturnValue attribute is "" because if we don't, we wind up with
@@ -591,7 +622,7 @@ public class SchemaFormatter {
 						if (doubleQuotes)
 							sb.append(indent + obj + ".set" + an + "(" + attr.getSV().toString() + ");\n");
 						else
-							sb.append(indent + obj + ".set" + an + "(\"" + attr.getSV().toString() + "\");\n");
+							sb.append(indent + obj + ".set" + an + "(\"" + prefix + attr.getSV().toString() + "\");\n");
 					}
 				}
 			}

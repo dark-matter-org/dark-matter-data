@@ -8,7 +8,6 @@ import java.util.Iterator;                                               // For 
 import org.dmd.dmc.*;                                                    // Basic DMC stuff - (DmoCompactSchemaFormatter.java:887)
 import org.dmd.dmc.rules.RuleIF;                                         // For rule info - (DmoCompactSchemaFormatter.java:888)
 import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;                        // Required attribute from DmpDMSAG - (DmoCompactSchemaFormatter.java:904)
-import org.dmd.dmr.shared.base.generated.dmo.DmrbaseDMSAG;               // Optional attribute from DmrbaseDMSAG - (DmoCompactSchemaFormatter.java:908)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                              // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:904)
 import org.dmd.dms.generated.enums.ClassTypeEnum;                        // Have class definitions - (DmoCompactSchemaFormatter.java:892)
 import org.dmd.dms.generated.enums.DataTypeEnum;                         // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:893)
@@ -123,6 +122,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __tsNamedObj = new DmcAttributeInfo("dmt", "tsNamedObj", 10247, "ObjWithRefs", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __tsString = new DmcAttributeInfo("dmt", "tsString", 10147, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __tsUnnamedObj = new DmcAttributeInfo("dmt", "tsUnnamedObj", 10347, "TestBasicObjectFixed", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __userName = new DmcAttributeInfo("dmt", "userName", 11000, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
 
     // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:167)
     public final static DmcTypeInfo __type_BaseObj = new DmcTypeInfo("BaseObj", OriginalTypeEnum.REFERENCE);
@@ -351,6 +351,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__tsNamedObj.id,__tsNamedObj);
         _SmAp.put(__tsString.id,__tsString);
         _SmAp.put(__tsUnnamedObj.id,__tsUnnamedObj);
+        _SmAp.put(__userName.id,__userName);
         _CmAp.put(__BaseObj.id,__BaseObj);
         _CmAp.put(__ClientCountFilter.id,__ClientCountFilter);
         _CmAp.put(__ClientCountFilterRequest.id,__ClientCountFilterRequest);
@@ -447,7 +448,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         __TestBasicObjectFixed.addMay(__svTestBasicNamedObjectFixed);
         __TestBasicObjectFixed.addMay(__hsTestEnum);
         __TestBasicObjectFixed.addMay(__mvIdxUnnamedObj);
-        __TestBasicObjectFixed.addMay(DmrbaseDMSAG.__userName);
+        __TestBasicObjectFixed.addMay(__userName);
 
         __TestBasicNamedObjectFixed.addMust(MetaDMSAG.__name);
         __TestBasicNamedObjectFixed.addMust(__svString);

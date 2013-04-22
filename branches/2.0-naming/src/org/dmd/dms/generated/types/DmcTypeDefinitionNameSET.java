@@ -30,8 +30,8 @@ import org.dmd.dmc.types.DmcTypeDefinitionName;    // DmcType import
  * The DmcTypeDefinitionNameSET provides storage for a set of DefinitionName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2602)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:649)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2606)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:665)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDefinitionNameSET extends DmcTypeDefinitionName implements Serializable {
@@ -63,7 +63,7 @@ public class DmcTypeDefinitionNameSET extends DmcTypeDefinitionName implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2643)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2647)
     public DmcAttribute<DefinitionName> cloneIt(){
         synchronized(this){
             DmcTypeDefinitionNameSET rc = getNew();
@@ -82,7 +82,7 @@ public class DmcTypeDefinitionNameSET extends DmcTypeDefinitionName implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2666)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2670)
     public DefinitionName add(Object v) throws DmcValueException {
         synchronized(this){
             DefinitionName rc = typeCheck(v);
@@ -98,7 +98,7 @@ public class DmcTypeDefinitionNameSET extends DmcTypeDefinitionName implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2683)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2687)
     public DefinitionName del(Object v){
         synchronized(this){
             DefinitionName rc = null;
@@ -122,7 +122,7 @@ public class DmcTypeDefinitionNameSET extends DmcTypeDefinitionName implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2708)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2712)
     public Iterator<DefinitionName> getMV(){
         synchronized(this){
             if (value == null)
@@ -135,7 +135,7 @@ public class DmcTypeDefinitionNameSET extends DmcTypeDefinitionName implements S
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2722)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2726)
     public Set<DefinitionName> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -154,7 +154,7 @@ public class DmcTypeDefinitionNameSET extends DmcTypeDefinitionName implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2742)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -164,7 +164,7 @@ public class DmcTypeDefinitionNameSET extends DmcTypeDefinitionName implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2753)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2757)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

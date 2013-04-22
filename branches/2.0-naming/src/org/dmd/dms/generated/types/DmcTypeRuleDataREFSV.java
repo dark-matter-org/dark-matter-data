@@ -23,8 +23,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeRuleDataREFSV provides storage for a single-valued RuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1962)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:589)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1966)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:605)
  */
 @SuppressWarnings("serial")
 public class DmcTypeRuleDataREFSV extends DmcTypeRuleDataREF implements Serializable {
@@ -48,14 +48,14 @@ public class DmcTypeRuleDataREFSV extends DmcTypeRuleDataREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1994)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
     public DmcAttribute<RuleDataREF> cloneIt(){
         DmcTypeRuleDataREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2005)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2009)
     public RuleDataREF getSVCopy(){
         if (value == null)
             return(null);
@@ -63,7 +63,7 @@ public class DmcTypeRuleDataREFSV extends DmcTypeRuleDataREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2017)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2021)
     public RuleDataREF set(Object v) throws DmcValueException {
         RuleDataREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

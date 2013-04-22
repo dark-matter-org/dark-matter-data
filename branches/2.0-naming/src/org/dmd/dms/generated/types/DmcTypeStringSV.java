@@ -24,8 +24,8 @@ import org.dmd.dmc.types.DmcTypeString;    // DmcType import
  * The DmcTypeStringSV provides storage for a single-valued String
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1962)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:640)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1966)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:656)
  */
 @SuppressWarnings("serial")
 public class DmcTypeStringSV extends DmcTypeString implements Serializable {
@@ -49,14 +49,14 @@ public class DmcTypeStringSV extends DmcTypeString implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1994)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
     public DmcAttribute<String> cloneIt(){
         DmcTypeStringSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2005)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2009)
     public String getSVCopy(){
         if (value == null)
             return(null);
@@ -64,7 +64,7 @@ public class DmcTypeStringSV extends DmcTypeString implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2017)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2021)
     public String set(Object v) throws DmcValueException {
         String rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

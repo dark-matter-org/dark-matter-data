@@ -24,8 +24,8 @@ import org.dmd.dms.generated.enums.GPBScalarTypeEnum;    // DmcType import
  * The DmcTypeGPBScalarTypeEnumSV provides storage for a single-valued GPBScalarTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1962)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:567)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1966)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:583)
  */
 @SuppressWarnings("serial")
 public class DmcTypeGPBScalarTypeEnumSV extends DmcTypeGPBScalarTypeEnum implements Serializable {
@@ -49,14 +49,14 @@ public class DmcTypeGPBScalarTypeEnumSV extends DmcTypeGPBScalarTypeEnum impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1994)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
     public DmcAttribute<GPBScalarTypeEnum> cloneIt(){
         DmcTypeGPBScalarTypeEnumSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2005)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2009)
     public GPBScalarTypeEnum getSVCopy(){
         if (value == null)
             return(null);
@@ -64,7 +64,7 @@ public class DmcTypeGPBScalarTypeEnumSV extends DmcTypeGPBScalarTypeEnum impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2017)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2021)
     public GPBScalarTypeEnum set(Object v) throws DmcValueException {
         GPBScalarTypeEnum rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
