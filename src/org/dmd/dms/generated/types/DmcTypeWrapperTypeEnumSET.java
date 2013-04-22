@@ -29,8 +29,8 @@ import org.dmd.dms.generated.enums.WrapperTypeEnum;    // DmcType import
  * The DmcTypeWrapperTypeEnumSET provides storage for a set of WrapperTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2602)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:574)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2606)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:590)
  */
 @SuppressWarnings("serial")
 public class DmcTypeWrapperTypeEnumSET extends DmcTypeWrapperTypeEnum implements Serializable {
@@ -62,7 +62,7 @@ public class DmcTypeWrapperTypeEnumSET extends DmcTypeWrapperTypeEnum implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2643)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2647)
     public DmcAttribute<WrapperTypeEnum> cloneIt(){
         synchronized(this){
             DmcTypeWrapperTypeEnumSET rc = getNew();
@@ -81,7 +81,7 @@ public class DmcTypeWrapperTypeEnumSET extends DmcTypeWrapperTypeEnum implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2666)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2670)
     public WrapperTypeEnum add(Object v) throws DmcValueException {
         synchronized(this){
             WrapperTypeEnum rc = typeCheck(v);
@@ -97,7 +97,7 @@ public class DmcTypeWrapperTypeEnumSET extends DmcTypeWrapperTypeEnum implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2683)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2687)
     public WrapperTypeEnum del(Object v){
         synchronized(this){
             WrapperTypeEnum rc = null;
@@ -121,7 +121,7 @@ public class DmcTypeWrapperTypeEnumSET extends DmcTypeWrapperTypeEnum implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2708)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2712)
     public Iterator<WrapperTypeEnum> getMV(){
         synchronized(this){
             if (value == null)
@@ -134,7 +134,7 @@ public class DmcTypeWrapperTypeEnumSET extends DmcTypeWrapperTypeEnum implements
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2722)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2726)
     public Set<WrapperTypeEnum> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -153,7 +153,7 @@ public class DmcTypeWrapperTypeEnumSET extends DmcTypeWrapperTypeEnum implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2742)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -163,7 +163,7 @@ public class DmcTypeWrapperTypeEnumSET extends DmcTypeWrapperTypeEnum implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2753)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2757)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

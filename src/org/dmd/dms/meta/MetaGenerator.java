@@ -509,6 +509,15 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			String				valueType	= attrDef.getSV("valueType");
 			boolean				sv			= true;
 			
+			String				type		= attrDef.getSV("type") + "REF";
+			DmcUncheckedObject	typeDef 	= typeDefs.get(type);
+			boolean				isReference	= false;
+			if (typeDef != null){
+				String isRefType = typeDef.getSV("isRefType");
+				if (isRefType != null)
+					isReference = true;
+			}
+			
 			if ( (valueType != null) && (valueType.equals("MULTI")) )
 				sv = false;
 			
@@ -517,13 +526,20 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 					String fixed = obj.getSV(an).replaceAll("\n", "\\\\n");
 					out.write(prefix + dmoName + ".set" + anCapped + "(\"" + fixed + "\");\n");
 				}
-				else
-					out.write(prefix + dmoName + ".set" + anCapped + "(\"" + obj.getSV(an) + "\");\n");
+				else{
+					if (isReference)
+						out.write(prefix + dmoName + ".set" + anCapped + "(\"meta." + obj.getSV(an) + "\");\n");
+					else
+						out.write(prefix + dmoName + ".set" + anCapped + "(\"" + obj.getSV(an) + "\");\n");
+				}
 			}
 			else{
 				NamedStringArray values = obj.get(an);
 				for(String value: values){
-					out.write(prefix + dmoName + ".add" + anCapped + "(\"" + value + "\");\n");
+					if (isReference)
+						out.write(prefix + dmoName + ".add" + anCapped + "(\"meta." + value + "\");\n");
+					else
+						out.write(prefix + dmoName + ".add" + anCapped + "(\"" + value + "\");\n");
 				}
 			}
 		}

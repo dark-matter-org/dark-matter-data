@@ -25,8 +25,8 @@ import org.dmd.dmc.types.DmcTypeCamelCaseName;    // DmcType import
  * The DmcTypeCamelCaseNameSV provides storage for a single-valued CamelCaseName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1962)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:640)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1966)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:656)
  */
 @SuppressWarnings("serial")
 public class DmcTypeCamelCaseNameSV extends DmcTypeCamelCaseName implements Serializable {
@@ -50,14 +50,14 @@ public class DmcTypeCamelCaseNameSV extends DmcTypeCamelCaseName implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1994)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
     public DmcAttribute<CamelCaseName> cloneIt(){
         DmcTypeCamelCaseNameSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2005)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2009)
     public CamelCaseName getSVCopy(){
         if (value == null)
             return(null);
@@ -65,7 +65,7 @@ public class DmcTypeCamelCaseNameSV extends DmcTypeCamelCaseName implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2017)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2021)
     public CamelCaseName set(Object v) throws DmcValueException {
         CamelCaseName rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

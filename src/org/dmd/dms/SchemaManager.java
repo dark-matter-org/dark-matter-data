@@ -39,6 +39,7 @@ import org.dmd.dmc.types.DotName;
 import org.dmd.dmc.types.RuleName;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmc.util.NamedStringArray;
+import org.dmd.dms.generated.dmo.DMDefinitionDMO;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.RuleTypeEnum;
@@ -2524,7 +2525,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 			
 			dn = new DotName(name.getNameString() + "." + ai.type);
 			
-//			DebugInfo.debug("LOOKING FOR: *" + dn + "*" + "   clashMap: " + System.identityHashCode(clashMAP));
+			DebugInfo.debug("LOOKING FOR: *" + dn + "*" + "   clashMap: " + System.identityHashCode(clashMAP));
 			
 	    	if (dn.getNameString().equals("ClassDefinition.ClassDefinitionREF")){
 		    	// HACK HACK HACK
@@ -2550,10 +2551,10 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 				// to get the fully qualified name - so now search for that.
 				rc = globallyUniqueMAP.get(dn);
 				
-//				if (rc != null)
-//					DebugInfo.debug("FOUND IN GLOBAL MAP = " + dn);
-//				else
-//					DebugInfo.debug("NOT FOUND IN GLOBAL MAP = " + dn);
+				if (rc != null)
+					DebugInfo.debug("FOUND IN GLOBAL MAP = " + dn);
+				else
+					DebugInfo.debug("NOT FOUND IN GLOBAL MAP = " + dn);
 				
 				// If rc is null at this point, that's fine, it's an unresolved reference
 			}
@@ -2581,7 +2582,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 
 	/**
 	 * We implement this because we need to pass in a clash resolver when we resolve
-	 * schema references on autom-generated schemas. There shouldn't be clashes, but
+	 * schema references on auto-generated schemas. There shouldn't be clashes, but
 	 * there could be if someone is combining schemas that have been generated in
 	 * entirely different environments.
 	 * @param obj
@@ -2592,8 +2593,40 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 	 */
 	@Override
 	public DmcNamedObjectIF resolveClash(DmcObject obj, DmcAttributeInfo ai, DmcNameClashObjectSet<?> ncos) throws DmcValueException {
-		DebugInfo.debug("NOT IMPLEMENTED YET");
-		return null;
+		DmcNamedObjectIF rc = null;
+		Iterator<DmcNamedObjectIF> matches = ncos.getMatches();
+		
+		DebugInfo.debug("\nResolving " + ai.name + " in:\n\n" + obj.toOIF() + "\n");
+		
+		obj.getConstructionClassInfo().getAttributeInfo(ai.name);
+		
+		if (obj instanceof DMDefinitionDMO){
+			// We're resolving references within a set of definitions, if we aren't, there's not much we can do
+			DMDefinitionDMO defObj = (DMDefinitionDMO) obj;
+			
+			while(matches.hasNext()){
+				DmcNamedObjectIF objif = matches.next();
+				
+				DebugInfo.debug(objif.toString());
+				if (objif instanceof DMDefinitionDMO){
+					DMDefinitionDMO matchDef = (DMDefinitionDMO) objif;
+					if (defObj.getDefinedIn().getObjectName().getNameString().equals(matchDef.getDefinedIn().getObjectName().getNameString())){
+						rc = matchDef;
+						break;
+					}
+					
+				}
+				else if (objif instanceof DMDefinition){
+					DMDefinition matchDef = (DMDefinition) objif;
+					
+					if (defObj.getDefinedIn().getObjectName().getNameString().equals(matchDef.getDefinedIn().getName().getNameString())){
+						rc = matchDef;
+						break;
+					}
+				}
+			}
+		}
+		return(rc);
 	}
 
 }

@@ -53,7 +53,7 @@ import org.dmd.dms.*;
  * introduced to allow for more rapid\n creation of utilities that generate
  * code or documentation or other types of specifications.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1585)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1601)
  */
 @SuppressWarnings("unused")
 public abstract class DMDefinitionDMW extends DmwNamedObjectWrapper {
@@ -87,7 +87,7 @@ public abstract class DMDefinitionDMW extends DmwNamedObjectWrapper {
      * a unique name\n for an object with the set of definitions of which it is a
      * part. A name starts with a letter followed\n by letters and numbers.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2333)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
     public DefinitionName getName(){
         return(mycore.getName());
     }
@@ -96,7 +96,7 @@ public abstract class DMDefinitionDMW extends DmwNamedObjectWrapper {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2406)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
@@ -107,7 +107,7 @@ public abstract class DMDefinitionDMW extends DmwNamedObjectWrapper {
      * XHTML concepts since it will be dumped in the context of the generated
      * HTML\n documentation.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2333)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
     public String getDescription(){
         return(mycore.getDescription());
     }
@@ -120,7 +120,7 @@ public abstract class DMDefinitionDMW extends DmwNamedObjectWrapper {
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2406)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
     public void setDescription(Object value) throws DmcValueException {
         mycore.setDescription(value);
     }
@@ -130,7 +130,7 @@ public abstract class DMDefinitionDMW extends DmwNamedObjectWrapper {
      * some defined thing is to be used.
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2512)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2528)
     public Iterator<String> getExampleUsage(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__exampleUsage);
         if (attr == null)
@@ -143,7 +143,7 @@ public abstract class DMDefinitionDMW extends DmwNamedObjectWrapper {
      * Adds another exampleUsage value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2567)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2583)
     public DmcAttribute<?> addExampleUsage(Object value) throws DmcValueException {
         return(mycore.addExampleUsage(value));
     }
@@ -151,7 +151,7 @@ public abstract class DMDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Returns the number of exampleUsage values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2579)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2595)
     public int getExampleUsageSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__exampleUsage);
         if (attr == null)
@@ -162,7 +162,7 @@ public abstract class DMDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Indicates the schema in which a type, attribute or class is defined.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2333)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
     public SchemaDefinition getDefinedIn(){
         DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) mycore.get(MetaDMSAG.__definedIn);
         if (attr == null)
@@ -175,7 +175,7 @@ public abstract class DMDefinitionDMW extends DmwNamedObjectWrapper {
      * Sets definedIn to the specified value.
      * @param value A value compatible with SchemaDefinition
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2393)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2409)
     public void setDefinedIn(SchemaDefinition value) throws DmcValueException {
         mycore.setDefinedIn(value.getDmcObject());
     }
@@ -183,7 +183,7 @@ public abstract class DMDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Indicates the file from which a definition was loaded.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2333)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
     public String getFile(){
         return(mycore.getFile());
     }
@@ -192,7 +192,7 @@ public abstract class DMDefinitionDMW extends DmwNamedObjectWrapper {
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2406)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
     public void setFile(Object value) throws DmcValueException {
         mycore.setFile(value);
     }
@@ -200,7 +200,7 @@ public abstract class DMDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Indicates the line number of the file from which a definition was loaded.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2333)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
     public Integer getLineNumber(){
         return(mycore.getLineNumber());
     }
@@ -209,7 +209,7 @@ public abstract class DMDefinitionDMW extends DmwNamedObjectWrapper {
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2406)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
     public void setLineNumber(Object value) throws DmcValueException {
         mycore.setLineNumber(value);
     }
@@ -217,7 +217,7 @@ public abstract class DMDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * The dotName attribute is used to store dot separated names.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2333)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
     public DotName getDotName(){
         return(mycore.getDotName());
     }
@@ -226,7 +226,7 @@ public abstract class DMDefinitionDMW extends DmwNamedObjectWrapper {
      * Sets dotName to the specified value.
      * @param value A value compatible with DmcTypeDotNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2406)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
     public void setDotName(Object value) throws DmcValueException {
         mycore.setDotName(value);
     }
@@ -234,7 +234,7 @@ public abstract class DMDefinitionDMW extends DmwNamedObjectWrapper {
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1748)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1764)
 
     /**
      * @return The name of this object from the name attribute.

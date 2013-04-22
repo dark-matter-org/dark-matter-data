@@ -25,8 +25,8 @@ import org.dmd.dms.types.DmcTypeEnumValue;    // DmcType import
  * The DmcTypeEnumValueSV provides storage for a single-valued EnumValue
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1962)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:640)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1966)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:656)
  */
 @SuppressWarnings("serial")
 public class DmcTypeEnumValueSV extends DmcTypeEnumValue implements Serializable {
@@ -50,14 +50,14 @@ public class DmcTypeEnumValueSV extends DmcTypeEnumValue implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1994)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
     public DmcAttribute<EnumValue> cloneIt(){
         DmcTypeEnumValueSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2005)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2009)
     public EnumValue getSVCopy(){
         if (value == null)
             return(null);
@@ -65,7 +65,7 @@ public class DmcTypeEnumValueSV extends DmcTypeEnumValue implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2017)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2021)
     public EnumValue set(Object v) throws DmcValueException {
         EnumValue rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

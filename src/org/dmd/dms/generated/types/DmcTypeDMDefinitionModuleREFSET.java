@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeDMDefinitionModuleREFSET provides storage for a set of DMDefinitionModuleREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2602)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:596)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2606)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:612)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDMDefinitionModuleREFSET extends DmcTypeDMDefinitionModuleREF implements Serializable {
@@ -61,7 +61,7 @@ public class DmcTypeDMDefinitionModuleREFSET extends DmcTypeDMDefinitionModuleRE
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2643)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2647)
     public DmcAttribute<DMDefinitionModuleREF> cloneIt(){
         synchronized(this){
             DmcTypeDMDefinitionModuleREFSET rc = getNew();
@@ -80,7 +80,7 @@ public class DmcTypeDMDefinitionModuleREFSET extends DmcTypeDMDefinitionModuleRE
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2666)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2670)
     public DMDefinitionModuleREF add(Object v) throws DmcValueException {
         synchronized(this){
             DMDefinitionModuleREF rc = typeCheck(v);
@@ -96,7 +96,7 @@ public class DmcTypeDMDefinitionModuleREFSET extends DmcTypeDMDefinitionModuleRE
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2683)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2687)
     public DMDefinitionModuleREF del(Object v){
         synchronized(this){
             DMDefinitionModuleREF rc = null;
@@ -120,7 +120,7 @@ public class DmcTypeDMDefinitionModuleREFSET extends DmcTypeDMDefinitionModuleRE
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2708)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2712)
     public Iterator<DMDefinitionModuleREF> getMV(){
         synchronized(this){
             if (value == null)
@@ -133,7 +133,7 @@ public class DmcTypeDMDefinitionModuleREFSET extends DmcTypeDMDefinitionModuleRE
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2722)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2726)
     public Set<DMDefinitionModuleREF> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -152,7 +152,7 @@ public class DmcTypeDMDefinitionModuleREFSET extends DmcTypeDMDefinitionModuleRE
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2742)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -162,7 +162,7 @@ public class DmcTypeDMDefinitionModuleREFSET extends DmcTypeDMDefinitionModuleRE
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2753)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2757)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)
