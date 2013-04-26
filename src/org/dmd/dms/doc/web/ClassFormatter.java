@@ -281,7 +281,10 @@ public class ClassFormatter {
 			while(rules.hasNext()){
 				RuleDataDMO rd = rules.next();
 				
-				ClassDefinition atc = schema.cdef(rd.getApplyToClass().getObjectName().getNameString());
+				DebugInfo.debug("APPLY TO CLASS: " + rd.getApplyToClass().getObjectName().getNameString());
+//				ClassDefinition atc = schema.cdef(rd.getApplyToClass().getObjectName().getNameString());
+				// HACK FOR NOW
+				ClassDefinition atc = (ClassDefinition) rd.getApplyToClass().getObject().getContainer();
 				
 				if (cd.isInstanceOfThis(atc)){
 					// We only display the rule if it's applicable to this class or

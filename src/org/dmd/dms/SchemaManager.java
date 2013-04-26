@@ -2146,6 +2146,19 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * given name.
      */
     public ClassDefinition cdef(String n){
+    	if (n.contains(".")){
+    		try {
+				DefinitionName dn = new DefinitionName(n);
+	    		DMDefinition def = globallyUniqueMAP.get(dn);
+	    		if (def instanceof ClassDefinition)
+	    			return (ClassDefinition) (def);
+	    		return(null);
+			} catch (DmcValueException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    	}
+    	
         ClassDefinition rc = isClass(n);
         if (rc == null){
             return(null);
