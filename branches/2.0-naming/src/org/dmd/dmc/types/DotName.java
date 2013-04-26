@@ -87,6 +87,22 @@ public class DotName extends DmcHierarchicObjectName implements Serializable {
 		else
 			throw(new DmcValueException("The string: " + child + " does not conform to dot name format."));
 	}
+	
+	/**
+	 * @return the depth of the hierarchy implied by the number of dots in the name. A name with no dots
+	 * is considered depth 1.
+	 */
+	public int getDepth(){
+		int rc = 1;
+		
+		StringBuffer sb = new StringBuffer(name);
+		for(int i=0; i<sb.length(); i++){
+			if (sb.charAt(i) == '.')
+				rc++;
+		}
+		
+		return(rc);
+	}
 
 	@Override
 	public String getNameString() {

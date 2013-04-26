@@ -7,12 +7,21 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcNamedObjectIF;
+import org.dmd.dmc.DmcNamedObjectREF;
+import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcOmni;
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dmc.types.DmcTypeNamedObjectREF;
 import org.dmd.dms.DMDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
+import org.dmd.dms.generated.dmo.DMDefinitionDMO;
 import org.dmd.dms.generated.dmo.RuleDataDMO;
+import org.dmd.dms.generated.dmw.DMDefinitionDMW;
+import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.util.exceptions.DebugInfo;
 
 public class Summarizer {
@@ -63,8 +72,20 @@ public class Summarizer {
 		DebugInfo.debug("\n\nCHANGED REFERENCE RESOLUTION STUFF!!!\n\n");
 		
 		for(DMDefinition def: sm.globallyUniqueMAP.values()){
+			unambignify(def.getDmcObject());
+			
 			def.getDMO().clearReferenceInfo();
 		}
+		
+		for(SchemaDefinition sd: allSchemasByName.values()){
+			Iterator<RuleDataDMO> rules = sd.getParsedRulesDMOs(sm);
+			while(rules.hasNext()){
+				RuleDataDMO rule = rules.next();
+				unambignify(rule);
+				rule.clearReferenceInfo();
+			}
+		}
+
 
 		for(DMDefinition def: sm.globallyUniqueMAP.values()){
 			addDefinition(def);
@@ -94,6 +115,22 @@ public class Summarizer {
 //			}
 //		}
 		
+//		for(SchemaDefinition sd: allSchemasByName.values()){
+//			Iterator<RuleDataDMO> rules = sd.getParsedRulesDMOs(sm);
+//			while(rules.hasNext()){
+//				RuleDataDMO rule = rules.next();
+//				unambignify(rule);
+//				rule.clearReferenceInfo();
+//				
+//				try {
+//					rule.resolveReferences(sm,sm);
+//				} catch (DmcValueExceptionSet e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//			}
+//		}
+		
 		for(SchemaDefinition sd: allSchemasByName.values()){
 			Iterator<RuleDataDMO> rules = sd.getParsedRulesDMOs(sm);
 			while(rules.hasNext()){
@@ -108,6 +145,70 @@ public class Summarizer {
 		}
 		
 	}
+    
+    void unambignify(DmcObject obj){
+    	if (obj instanceof DmcNamedObjectIF)
+    		DebugInfo.debug("UNAMBIGNIFYING: " + ((DmcNamedObjectIF)obj).getObjectName().getNameString());
+    	
+    	for(DmcAttribute<?> attr: obj.getAttributes().values()){
+    		if (attr instanceof DmcTypeNamedObjectREF){
+    			if (attr.getAttributeInfo().valueType == ValueTypeEnum.SINGLE){
+    				DmcNamedObjectREF<?> ref = (DmcNamedObjectREF<?>) attr.getSV();
+    				DMDefinitionDMO dmo = null;
+    				
+    				if (ref.getObject() instanceof DMDefinitionDMO)
+    					dmo = (DMDefinitionDMO) ref.getObject();
+    				else if (ref.getObject() instanceof DMDefinitionDMW)
+    					dmo = ((DMDefinitionDMW)ref.getObject()).getDMO();
+    				
+    				if (dmo != null){
+    					DebugInfo.debug("SV Ref name: " + ref.getObjectName().getNameString() + "  Obj name: " + dmo.getDotName().getNameString() + "  Depth: " + dmo.getDotName().getDepth());
+    					try {
+							ref.setName(dmo.getDotName().getParentName());
+						} catch (DmcValueException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+    				}
+    				else{
+    					if (ref.getObject() == null)
+        					DebugInfo.debug("MV Reference to non-definition: " + ref.getObjectName().getNameString() + "  NULL object");
+    					else
+    						DebugInfo.debug("MV Reference to non-definition: " + ref.getObjectName().getNameString() + "  Class: " + ref.getObject().getClass().getName());
+    				}
+    			}
+    			else{
+    				Iterator<?> refs = attr.getMV();
+    				while(refs.hasNext()){
+    					DmcNamedObjectREF<?> ref = (DmcNamedObjectREF<?>) refs.next();
+        				DMDefinitionDMO dmo = null;    					
+        				
+        				if (ref.getObject() instanceof DMDefinitionDMO)
+        					dmo = (DMDefinitionDMO) ref.getObject();
+        				else if (ref.getObject() instanceof DMDefinitionDMW)
+        					dmo = ((DMDefinitionDMW)ref.getObject()).getDMO();
+        				
+
+        				if (dmo != null){
+        					DebugInfo.debug("MV Ref name: " + ref.getObjectName().getNameString() + "  Obj name: " + dmo.getDotName().getNameString() + "  Depth: " + dmo.getDotName().getDepth());
+        					try {
+    							ref.setName(dmo.getDotName().getParentName());
+    						} catch (DmcValueException e) {
+    							// TODO Auto-generated catch block
+    							e.printStackTrace();
+    						}
+        				}
+        				else{
+        					if (ref.getObject() == null)
+            					DebugInfo.debug("MV Reference to non-definition: " + ref.getObjectName().getNameString() + "  NULL object");
+        					else
+        						DebugInfo.debug("MV Reference to non-definition: " + ref.getObjectName().getNameString() + "  Class: " + ref.getObject().getClass().getName());
+        				}
+    				}
+    			}
+    		}
+    	}
+    }
 	
 	public String getSideBar(){
 		return(sidebar.toString());

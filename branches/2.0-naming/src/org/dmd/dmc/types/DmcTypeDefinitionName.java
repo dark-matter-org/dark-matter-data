@@ -49,6 +49,11 @@ abstract public class DmcTypeDefinitionName extends DmcTypeDmcObjectName<Definit
 		else if (value instanceof String){
 			rc =  new DefinitionName((String) value);
 		}
+		else if (value instanceof DotName){
+			// This a small hack to allow for resetting the object name in
+			// an object reference when generating documentation.
+			rc =  new DefinitionName(((DotName) value).getNameString());
+		}
         else{
             throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with DefinitionName or String expected."));
         }
