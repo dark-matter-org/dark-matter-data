@@ -8,7 +8,6 @@ import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
-import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcNamedObjectREF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcOmni;
@@ -146,9 +145,18 @@ public class Summarizer {
 		
 	}
     
+    /**
+     * As schema definitions are read from definition files or from internalized schemas, we have the
+     * context in which definitions are being added/resolved. However, once we clear reference info on
+     * all of the objects, we've lost our context and we can't resolve properly.
+     * <p/>
+     * This method will reset the reference attribute values to have a fully qualified name for the 
+     * thing to which they are resolved so that we can rerun the resolution.
+     * @param obj
+     */
     void unambignify(DmcObject obj){
-    	if (obj instanceof DmcNamedObjectIF)
-    		DebugInfo.debug("UNAMBIGNIFYING: " + ((DmcNamedObjectIF)obj).getObjectName().getNameString());
+//    	if (obj instanceof DmcNamedObjectIF)
+//    		DebugInfo.debug("UNAMBIGNIFYING: " + ((DmcNamedObjectIF)obj).getObjectName().getNameString());
     	
     	for(DmcAttribute<?> attr: obj.getAttributes().values()){
     		if (attr instanceof DmcTypeNamedObjectREF){
@@ -162,7 +170,7 @@ public class Summarizer {
     					dmo = ((DMDefinitionDMW)ref.getObject()).getDMO();
     				
     				if (dmo != null){
-    					DebugInfo.debug("SV Ref name: " + ref.getObjectName().getNameString() + "  Obj name: " + dmo.getDotName().getNameString() + "  Depth: " + dmo.getDotName().getDepth());
+//    					DebugInfo.debug("SV Ref name: " + ref.getObjectName().getNameString() + "  Obj name: " + dmo.getDotName().getNameString() + "  Depth: " + dmo.getDotName().getDepth());
     					try {
 							ref.setName(dmo.getDotName().getParentName());
 						} catch (DmcValueException e) {
@@ -171,10 +179,10 @@ public class Summarizer {
 						}
     				}
     				else{
-    					if (ref.getObject() == null)
-        					DebugInfo.debug("MV Reference to non-definition: " + ref.getObjectName().getNameString() + "  NULL object");
-    					else
-    						DebugInfo.debug("MV Reference to non-definition: " + ref.getObjectName().getNameString() + "  Class: " + ref.getObject().getClass().getName());
+//    					if (ref.getObject() == null)
+//        					DebugInfo.debug("MV Reference to non-definition: " + ref.getObjectName().getNameString() + "  NULL object");
+//    					else
+//    						DebugInfo.debug("MV Reference to non-definition: " + ref.getObjectName().getNameString() + "  Class: " + ref.getObject().getClass().getName());
     				}
     			}
     			else{
@@ -190,7 +198,7 @@ public class Summarizer {
         				
 
         				if (dmo != null){
-        					DebugInfo.debug("MV Ref name: " + ref.getObjectName().getNameString() + "  Obj name: " + dmo.getDotName().getNameString() + "  Depth: " + dmo.getDotName().getDepth());
+//        					DebugInfo.debug("MV Ref name: " + ref.getObjectName().getNameString() + "  Obj name: " + dmo.getDotName().getNameString() + "  Depth: " + dmo.getDotName().getDepth());
         					try {
     							ref.setName(dmo.getDotName().getParentName());
     						} catch (DmcValueException e) {
@@ -199,10 +207,10 @@ public class Summarizer {
     						}
         				}
         				else{
-        					if (ref.getObject() == null)
-            					DebugInfo.debug("MV Reference to non-definition: " + ref.getObjectName().getNameString() + "  NULL object");
-        					else
-        						DebugInfo.debug("MV Reference to non-definition: " + ref.getObjectName().getNameString() + "  Class: " + ref.getObject().getClass().getName());
+//        					if (ref.getObject() == null)
+//            					DebugInfo.debug("MV Reference to non-definition: " + ref.getObjectName().getNameString() + "  NULL object");
+//        					else
+//        						DebugInfo.debug("MV Reference to non-definition: " + ref.getObjectName().getNameString() + "  Class: " + ref.getObject().getClass().getName());
         				}
     				}
     			}

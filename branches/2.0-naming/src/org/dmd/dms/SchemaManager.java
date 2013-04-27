@@ -155,6 +155,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     // Key: DefinitionName
     // Value: RuleDefinition
     public HashMap<DefinitionName,RuleDefinition>     			ruleDefs;
+    public HashMap<DotName,RuleDefinition>     				ruleDefsByDot;
     public int  longestRuleName;
     
     // The top level hierarchic objects i.e. ones that don't have allowedParents
@@ -245,6 +246,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         ruleCategoryDefs   			= new HashMap<DefinitionName,RuleCategory>();
         ruleCategoriesByID			= new TreeMap<Integer, RuleCategory>();
         ruleDefs   					= new HashMap<DefinitionName,RuleDefinition>();
+        ruleDefsByDot   			= new HashMap<DotName, RuleDefinition>();
         ruleData					= new TreeMap<RuleName, RuleData>();
         schemaDefs  				= new TreeMap<DefinitionName,SchemaDefinition>();
         classAbbrevs				= new HashMap<DefinitionName,ClassDefinition>();
@@ -1014,6 +1016,9 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         	ex.addError(clashMsg(rd.getObjectName(),rd,ruleDefs,"rule definitions"));
         	throw(ex);
         }
+        
+        // dot name is current schema.ruledef.RuleDefinition. We want just schema.ruledef
+        ruleDefsByDot.put((DotName) rd.getDotName().getParentName(), rd);
         
         if (checkAndAddDOT(rd.getDotName(),rd,globallyUniqueMAP,null) == false){
         	ResultException ex = new ResultException();
@@ -2538,7 +2543,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 			
 			dn = new DotName(name.getNameString() + "." + ai.type);
 			
-			DebugInfo.debug("LOOKING FOR: *" + dn + "*" + "   clashMap: " + System.identityHashCode(clashMAP));
+//			DebugInfo.debug("LOOKING FOR: *" + dn + "*" + "   clashMap: " + System.identityHashCode(clashMAP));
 			
 	    	if (dn.getNameString().equals("ClassDefinition.ClassDefinitionREF")){
 		    	// HACK HACK HACK
@@ -2564,10 +2569,10 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 				// to get the fully qualified name - so now search for that.
 				rc = globallyUniqueMAP.get(dn);
 				
-				if (rc != null)
-					DebugInfo.debug("FOUND IN GLOBAL MAP = " + dn);
-				else
-					DebugInfo.debug("NOT FOUND IN GLOBAL MAP = " + dn);
+//				if (rc != null)
+//					DebugInfo.debug("FOUND IN GLOBAL MAP = " + dn);
+//				else
+//					DebugInfo.debug("NOT FOUND IN GLOBAL MAP = " + dn);
 				
 				// If rc is null at this point, that's fine, it's an unresolved reference
 			}
@@ -2587,8 +2592,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 			e.printStackTrace();
 		}
 		
-		if (rc == null)
-			DebugInfo.debugWithTrace("    Couldn't find: " + dn + "\n");
+//		if (rc == null)
+//			DebugInfo.debugWithTrace("    Couldn't find: " + dn + "\n");
 		
 		return(rc);
 	}

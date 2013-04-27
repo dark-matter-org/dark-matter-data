@@ -8,6 +8,7 @@ import java.util.Iterator;                                               // For 
 import org.dmd.dmc.*;                                                    // Basic DMC stuff - (DmoCompactSchemaFormatter.java:887)
 import org.dmd.dmc.rules.RuleIF;                                         // For rule info - (DmoCompactSchemaFormatter.java:888)
 import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;                        // Required attribute from DmpDMSAG - (DmoCompactSchemaFormatter.java:904)
+import org.dmd.dmr.shared.base.generated.dmo.DmrbaseDMSAG;               // Optional attribute from DmrbaseDMSAG - (DmoCompactSchemaFormatter.java:908)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                              // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:904)
 import org.dmd.dms.generated.enums.ClassTypeEnum;                        // Have class definitions - (DmoCompactSchemaFormatter.java:892)
 import org.dmd.dms.generated.enums.DataTypeEnum;                         // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:893)
@@ -448,7 +449,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         __TestBasicObjectFixed.addMay(__svTestBasicNamedObjectFixed);
         __TestBasicObjectFixed.addMay(__hsTestEnum);
         __TestBasicObjectFixed.addMay(__mvIdxUnnamedObj);
-        __TestBasicObjectFixed.addMay(__userName);
+        __TestBasicObjectFixed.addMay(DmrbaseDMSAG.__userName);
 
         __TestBasicNamedObjectFixed.addMust(MetaDMSAG.__name);
         __TestBasicNamedObjectFixed.addMust(__svString);
