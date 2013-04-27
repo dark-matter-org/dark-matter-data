@@ -11,7 +11,7 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.rules.RuleIF;
-import org.dmd.dmc.types.DefinitionName;
+import org.dmd.dmc.types.DotName;
 import org.dmd.dms.RuleDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
@@ -71,14 +71,17 @@ public class RuleInstanceFormatter {
 			for(String key: sortedRules.keySet()){
 				ArrayList<RuleIF> ruleset = sortedRules.get(key);
 				String base = key.substring(0, key.length()-4);
-				DefinitionName rdn = null;
+				DotName rdn = null;
 				try {
-					rdn = new DefinitionName(base);
+					rdn = new DotName(base);
+					
+					DebugInfo.debug("LOOKING FOR RULE DEFINITION: " + rdn);
 				} catch (DmcValueException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				RuleDefinition rd = sm.ruleDefs.get(rdn);
+//				RuleDefinition rd = sm.ruleDefs.get(rdn);
+				RuleDefinition rd = (RuleDefinition) sm.ruleDefsByDot.get(rdn);
 				dumpRuleInstances(out, rd, ruleset);
 			}
 			

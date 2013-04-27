@@ -23,7 +23,6 @@ import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
-import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcNamedObjectREF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.types.DefinitionName;
@@ -31,7 +30,6 @@ import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.ComplexTypeDefinition;
-import org.dmd.dms.DMDefinition;
 import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.EnumDefinition;
 import org.dmd.dms.RuleDefinition;
