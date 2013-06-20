@@ -345,8 +345,6 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 		
 		// The access functions may add additional required imports
 		String accessFunctions = getAccessFunctions(cd, imports);
-		
-		getAdditionalWrapperImports(config, loc, f, sm, cd, imports);
         
         out.write(imports.getFormattedImports() + "\n\n");
         
@@ -423,8 +421,6 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
         }
         
         out.write("\n");
-        
-        dumpAdditionalWrapperDefinitions(config, loc, f, sm, cd, out);
         
         // All dark matter wrappers have to have a standard constructor that takes no
         // arguments and constructs the appropriate DMO for the wrapper.	
@@ -550,57 +546,10 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 	        
         out.write(accessFunctions);
         
-        dumpAdditionalWrapperFunctions(config, loc, f, sm, cd, out);
-        
         out.write("\n");
         out.write("}\n");
 		
         out.close();
-	}
-	
-	/**
-	 * At this level, we do nothing. Derived classes can overload this to insert additional required
-	 * imports into a generated wrapper.
-	 * @param config
-	 * @param loc
-	 * @param f
-	 * @param sm
-	 * @param cd
-	 * @param imports
-	 * @throws IOException
-	 */
-	public void getAdditionalWrapperImports(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm, ClassDefinition cd, ImportManager imports) throws IOException {
-		
-	}
-	
-	/**
-	 * At this level, we do nothing. Derived classes can overload this to insert additional definitions
-	 * and properties in the wrapper.
-	 * @param config
-	 * @param loc
-	 * @param f
-	 * @param sm
-	 * @param cd
-	 * @param out
-	 * @throws IOException
-	 */
-	public void dumpAdditionalWrapperDefinitions(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm, ClassDefinition cd, BufferedWriter out) throws IOException {
-		
-	}
-	
-	/**
-	 * At this level, we do nothing. Derived classes can overload this to insert additional behaviour
-	 * in individual class wrappers.
-	 * @param config
-	 * @param loc
-	 * @param f
-	 * @param sm
-	 * @param cd
-	 * @param out
-	 * @throws IOException
-	 */
-	public void dumpAdditionalWrapperFunctions(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm, ClassDefinition cd, BufferedWriter out) throws IOException {
-		
 	}
 	
 	/**

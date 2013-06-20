@@ -1836,7 +1836,6 @@ must         	name
 may           	definedIn
 may          	file
 may        		lineNumber
-may				dotName
 description     The DmsDefinition class provides a common base for all definition classes.
 
 ClassDefinition
