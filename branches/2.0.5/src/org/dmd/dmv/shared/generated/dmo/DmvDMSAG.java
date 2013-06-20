@@ -1,34 +1,34 @@
 package org.dmd.dmv.shared.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:860)
-import java.util.ArrayList;                                                              // For storage of schema info - (DmoCompactSchemaFormatter.java:794)
-import java.util.HashMap;                                                                // For storage of schema info - (DmoCompactSchemaFormatter.java:793)
-import java.util.Iterator;                                                               // For access of schema info - (DmoCompactSchemaFormatter.java:795)
-import org.dmd.dmc.*;                                                                    // Basic DMC stuff - (DmoCompactSchemaFormatter.java:796)
-import org.dmd.dmc.rules.RuleIF;                                                         // For rule info - (DmoCompactSchemaFormatter.java:797)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                              // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:813)
-import org.dmd.dms.generated.enums.ClassTypeEnum;                                        // Have class definitions - (DmoCompactSchemaFormatter.java:801)
-import org.dmd.dms.generated.enums.DataTypeEnum;                                         // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:802)
-import org.dmd.dms.generated.enums.OriginalTypeEnum;                                     // Have type/internal type definitions - (DmoCompactSchemaFormatter.java:807)
-import org.dmd.dms.generated.enums.ValueTypeEnum;                                        // Have attribute definitions - (DmoCompactSchemaFormatter.java:828)
-import org.dmd.dmv.shared.extended.rulesdmo.AllowedAttributesRule;                       // To support instantiations of AllowedAttributesRule - (DmoCompactSchemaFormatter.java:837)
-import org.dmd.dmv.shared.extended.rulesdmo.CheckAttributesBasedOnValueRule;             // To support instantiations of CheckAttributesBasedOnValueRule - (DmoCompactSchemaFormatter.java:837)
-import org.dmd.dmv.shared.extended.rulesdmo.InitRule;                                    // To support instantiations of InitRule - (DmoCompactSchemaFormatter.java:837)
-import org.dmd.dmv.shared.extended.rulesdmo.NumericRangeRule;                            // To support instantiations of NumericRangeRule - (DmoCompactSchemaFormatter.java:837)
-import org.dmd.dmv.shared.extended.rulesdmo.OneOfTheseAttributesRequiredRule;            // To support instantiations of OneOfTheseAttributesRequiredRule - (DmoCompactSchemaFormatter.java:837)
-import org.dmd.dmv.shared.extended.rulesdmo.PatternMatchRule;                            // To support instantiations of PatternMatchRule - (DmoCompactSchemaFormatter.java:837)
-import org.dmd.dmv.shared.extended.rulesdmo.ReferencedAttributeTypeRule;                 // To support instantiations of ReferencedAttributeTypeRule - (DmoCompactSchemaFormatter.java:837)
-import org.dmd.dmv.shared.extended.rulesdmo.RelatedNumbersRule;                          // To support instantiations of RelatedNumbersRule - (DmoCompactSchemaFormatter.java:837)
-import org.dmd.dmv.shared.extended.rulesdmo.UCOAllowedAttributesRule;                    // To support instantiations of UCOAllowedAttributesRule - (DmoCompactSchemaFormatter.java:837)
-import org.dmd.dmv.shared.extended.rulesdmo.ValueLengthRule;                             // To support instantiations of ValueLengthRule - (DmoCompactSchemaFormatter.java:837)
-import org.dmd.dmv.shared.generated.dmo.AllowedAttributesRuleDataDMO;                    // To instantiate AllowedAttributesRuleData rule data - (DmoCompactSchemaFormatter.java:853)
-import org.dmd.dmv.shared.generated.dmo.CheckAttributesBasedOnValueRuleDataDMO;          // To instantiate CheckAttributesBasedOnValueRuleData rule data - (DmoCompactSchemaFormatter.java:853)
-import org.dmd.dmv.shared.generated.dmo.NumericRangeRuleDataDMO;                         // To instantiate NumericRangeRuleData rule data - (DmoCompactSchemaFormatter.java:853)
-import org.dmd.dmv.shared.generated.dmo.OneOfTheseAttributesRequiredRuleDataDMO;         // To instantiate OneOfTheseAttributesRequiredRuleData rule data - (DmoCompactSchemaFormatter.java:853)
-import org.dmd.dmv.shared.generated.dmo.PatternMatchRuleDataDMO;                         // To instantiate PatternMatchRuleData rule data - (DmoCompactSchemaFormatter.java:853)
-import org.dmd.dmv.shared.generated.dmo.ReferencedAttributeTypeRuleDataDMO;              // To instantiate ReferencedAttributeTypeRuleData rule data - (DmoCompactSchemaFormatter.java:853)
-import org.dmd.dmv.shared.generated.dmo.RelatedNumbersRuleDataDMO;                       // To instantiate RelatedNumbersRuleData rule data - (DmoCompactSchemaFormatter.java:853)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:872)
+import java.util.ArrayList;                                                              // For storage of schema info - (DmoCompactSchemaFormatter.java:806)
+import java.util.HashMap;                                                                // For storage of schema info - (DmoCompactSchemaFormatter.java:805)
+import java.util.Iterator;                                                               // For access of schema info - (DmoCompactSchemaFormatter.java:807)
+import org.dmd.dmc.*;                                                                    // Basic DMC stuff - (DmoCompactSchemaFormatter.java:808)
+import org.dmd.dmc.rules.RuleIF;                                                         // For rule info - (DmoCompactSchemaFormatter.java:809)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                              // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:825)
+import org.dmd.dms.generated.enums.ClassTypeEnum;                                        // Have class definitions - (DmoCompactSchemaFormatter.java:813)
+import org.dmd.dms.generated.enums.DataTypeEnum;                                         // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:814)
+import org.dmd.dms.generated.enums.OriginalTypeEnum;                                     // Have type/internal type definitions - (DmoCompactSchemaFormatter.java:819)
+import org.dmd.dms.generated.enums.ValueTypeEnum;                                        // Have attribute definitions - (DmoCompactSchemaFormatter.java:840)
+import org.dmd.dmv.shared.extended.rulesdmo.AllowedAttributesRule;                       // To support instantiations of AllowedAttributesRule - (DmoCompactSchemaFormatter.java:849)
+import org.dmd.dmv.shared.extended.rulesdmo.CheckAttributesBasedOnValueRule;             // To support instantiations of CheckAttributesBasedOnValueRule - (DmoCompactSchemaFormatter.java:849)
+import org.dmd.dmv.shared.extended.rulesdmo.InitRule;                                    // To support instantiations of InitRule - (DmoCompactSchemaFormatter.java:849)
+import org.dmd.dmv.shared.extended.rulesdmo.NumericRangeRule;                            // To support instantiations of NumericRangeRule - (DmoCompactSchemaFormatter.java:849)
+import org.dmd.dmv.shared.extended.rulesdmo.OneOfTheseAttributesRequiredRule;            // To support instantiations of OneOfTheseAttributesRequiredRule - (DmoCompactSchemaFormatter.java:849)
+import org.dmd.dmv.shared.extended.rulesdmo.PatternMatchRule;                            // To support instantiations of PatternMatchRule - (DmoCompactSchemaFormatter.java:849)
+import org.dmd.dmv.shared.extended.rulesdmo.ReferencedAttributeTypeRule;                 // To support instantiations of ReferencedAttributeTypeRule - (DmoCompactSchemaFormatter.java:849)
+import org.dmd.dmv.shared.extended.rulesdmo.RelatedNumbersRule;                          // To support instantiations of RelatedNumbersRule - (DmoCompactSchemaFormatter.java:849)
+import org.dmd.dmv.shared.extended.rulesdmo.UCOAllowedAttributesRule;                    // To support instantiations of UCOAllowedAttributesRule - (DmoCompactSchemaFormatter.java:849)
+import org.dmd.dmv.shared.extended.rulesdmo.ValueLengthRule;                             // To support instantiations of ValueLengthRule - (DmoCompactSchemaFormatter.java:849)
+import org.dmd.dmv.shared.generated.dmo.AllowedAttributesRuleDataDMO;                    // To instantiate AllowedAttributesRuleData rule data - (DmoCompactSchemaFormatter.java:865)
+import org.dmd.dmv.shared.generated.dmo.CheckAttributesBasedOnValueRuleDataDMO;          // To instantiate CheckAttributesBasedOnValueRuleData rule data - (DmoCompactSchemaFormatter.java:865)
+import org.dmd.dmv.shared.generated.dmo.NumericRangeRuleDataDMO;                         // To instantiate NumericRangeRuleData rule data - (DmoCompactSchemaFormatter.java:865)
+import org.dmd.dmv.shared.generated.dmo.OneOfTheseAttributesRequiredRuleDataDMO;         // To instantiate OneOfTheseAttributesRequiredRuleData rule data - (DmoCompactSchemaFormatter.java:865)
+import org.dmd.dmv.shared.generated.dmo.PatternMatchRuleDataDMO;                         // To instantiate PatternMatchRuleData rule data - (DmoCompactSchemaFormatter.java:865)
+import org.dmd.dmv.shared.generated.dmo.ReferencedAttributeTypeRuleDataDMO;              // To instantiate ReferencedAttributeTypeRuleData rule data - (DmoCompactSchemaFormatter.java:865)
+import org.dmd.dmv.shared.generated.dmo.RelatedNumbersRuleDataDMO;                       // To instantiate RelatedNumbersRuleData rule data - (DmoCompactSchemaFormatter.java:865)
 
 
 
@@ -151,6 +151,11 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__numericRelation.id,__numericRelation);
         _SmAp.put(__onePossibility.id,__onePossibility);
         _SmAp.put(__rhs.id,__rhs);
+    }
+
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:269)
+    static {
+
         _CmAp.put(__AllowedAttributesRuleData.id,__AllowedAttributesRuleData);
         _CmAp.put(__CheckAttributesBasedOnValueRuleData.id,__CheckAttributesBasedOnValueRuleData);
         _CmAp.put(__InitRuleData.id,__InitRuleData);
@@ -161,6 +166,11 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
         _CmAp.put(__RelatedNumbersRuleData.id,__RelatedNumbersRuleData);
         _CmAp.put(__UCOAllowedAttributesRuleData.id,__UCOAllowedAttributesRuleData);
         _CmAp.put(__ValueLengthRuleData.id,__ValueLengthRuleData);
+    }
+
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:280)
+    static {
+
 
         __AllowedAttributesRuleData.addMust(MetaDMSAG.__ruleName);
         __AllowedAttributesRuleData.addMust(MetaDMSAG.__ruleTitle);
@@ -222,7 +232,12 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
         __ReferencedAttributeTypeRuleData.addMay(__allowedType);
         __ReferencedAttributeTypeRuleData.addMay(__allowedValueType);
 
-        // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:314)
+    }
+
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:322)
+    static {
+
+        // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:326)
         // These instantiations are merely meant to ensure that you've overloaded
         // the base rule implementations
         @SuppressWarnings("unused")
@@ -246,7 +261,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
         @SuppressWarnings("unused")
         ReferencedAttributeTypeRule ReferencedAttributeTypeRuleInstance = new ReferencedAttributeTypeRule(new ReferencedAttributeTypeRuleDataDMO());
 
-        // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:327)
+        // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:339)
         try{
             AllowedAttributesRuleDataDMO _dmvAllowedAttributesData = new AllowedAttributesRuleDataDMO();
             _dmvAllowedAttributesData    .setDefinedIn("dmv");
