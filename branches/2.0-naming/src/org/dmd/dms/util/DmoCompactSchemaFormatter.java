@@ -270,6 +270,10 @@ public class DmoCompactSchemaFormatter {
 			out.write("        _SmAp.put(__" + ad.getName().getNameString() + ".id,__" + ad.getName().getNameString() + ");\n");
 		}
         
+		out.write("    }\n\n");
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    static {\n\n");
+
         for(ClassDefinition cd: classes.values()){
             // _SmAp.put(__jobName.name,__jobName);
 			out.write("        _CmAp.put(__" + cd.getName().getNameString() + ".id,__" + cd.getName().getNameString() + ");\n");
@@ -277,6 +281,10 @@ public class DmoCompactSchemaFormatter {
         
         out.write(nameBuilders.toString());
         
+		out.write("    }\n\n");
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    static {\n\n");
+
         for(SliceDefinition slice: sd.getSliceDefList()){
 	        out.write("\n");
             // _SmAp.put(__jobName.name,__jobName);
@@ -315,6 +323,10 @@ public class DmoCompactSchemaFormatter {
 			
 		}
 		
+		out.write("    }\n\n");
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    static {\n\n");
+
 		if (sd.getRuleDefinitionListSize() > 0){
 			out.write("        // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 			out.write("        // These instantiations are merely meant to ensure that you've overloaded\n");
