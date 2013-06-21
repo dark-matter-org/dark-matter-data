@@ -1,18 +1,18 @@
 package org.dmd.dmp.shared.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:951)
-import java.util.ArrayList;                                        // For storage of schema info - (DmoCompactSchemaFormatter.java:885)
-import java.util.HashMap;                                          // For storage of schema info - (DmoCompactSchemaFormatter.java:884)
-import java.util.Iterator;                                         // For access of schema info - (DmoCompactSchemaFormatter.java:886)
-import org.dmd.dmc.*;                                              // Basic DMC stuff - (DmoCompactSchemaFormatter.java:887)
-import org.dmd.dmc.rules.RuleIF;                                   // For rule info - (DmoCompactSchemaFormatter.java:888)
-import org.dmd.dmr.shared.base.generated.dmo.DmrbaseDMSAG;         // Optional attribute from DmrbaseDMSAG - (DmoCompactSchemaFormatter.java:908)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                        // Optional attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:908)
-import org.dmd.dms.generated.enums.ClassTypeEnum;                  // Have class definitions - (DmoCompactSchemaFormatter.java:892)
-import org.dmd.dms.generated.enums.DataTypeEnum;                   // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:893)
-import org.dmd.dms.generated.enums.OriginalTypeEnum;               // Have type/internal type definitions - (DmoCompactSchemaFormatter.java:898)
-import org.dmd.dms.generated.enums.ValueTypeEnum;                  // Have attribute definitions - (DmoCompactSchemaFormatter.java:919)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:963)
+import java.util.ArrayList;                                        // For storage of schema info - (DmoCompactSchemaFormatter.java:897)
+import java.util.HashMap;                                          // For storage of schema info - (DmoCompactSchemaFormatter.java:896)
+import java.util.Iterator;                                         // For access of schema info - (DmoCompactSchemaFormatter.java:898)
+import org.dmd.dmc.*;                                              // Basic DMC stuff - (DmoCompactSchemaFormatter.java:899)
+import org.dmd.dmc.rules.RuleIF;                                   // For rule info - (DmoCompactSchemaFormatter.java:900)
+import org.dmd.dmr.shared.base.generated.dmo.DmrbaseDMSAG;         // Optional attribute from DmrbaseDMSAG - (DmoCompactSchemaFormatter.java:920)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                        // Optional attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:920)
+import org.dmd.dms.generated.enums.ClassTypeEnum;                  // Have class definitions - (DmoCompactSchemaFormatter.java:904)
+import org.dmd.dms.generated.enums.DataTypeEnum;                   // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:905)
+import org.dmd.dms.generated.enums.OriginalTypeEnum;               // Have type/internal type definitions - (DmoCompactSchemaFormatter.java:910)
+import org.dmd.dms.generated.enums.ValueTypeEnum;                  // Have attribute definitions - (DmoCompactSchemaFormatter.java:931)
 
 
 
@@ -205,6 +205,11 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__timeoutSeconds.id,__timeoutSeconds);
         _SmAp.put(__trackingEnabled.id,__trackingEnabled);
         _SmAp.put(__userFQN.id,__userFQN);
+    }
+
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:274)
+    static {
+
         _CmAp.put(__ActionRequest.id,__ActionRequest);
         _CmAp.put(__ActionResponse.id,__ActionResponse);
         _CmAp.put(__CreateRequest.id,__CreateRequest);
@@ -229,6 +234,11 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
         _CmAp.put(__Response.id,__Response);
         _CmAp.put(__SetRequest.id,__SetRequest);
         _CmAp.put(__SetResponse.id,__SetResponse);
+    }
+
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:285)
+    static {
+
 
         __DMPMessage.addMust(__requestID);
         __DMPMessage.addMay(__timeMS);
@@ -337,6 +347,11 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
 
         __PreAuthResponse.addMay(__applicationName);
         __PreAuthResponse.addMay(__applicationVersion);
+
+    }
+
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:327)
+    static {
 
 
     }
