@@ -1,18 +1,18 @@
 package org.dmd.dmr.shared.ldap.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:951)
-import java.util.ArrayList;                                        // For storage of schema info - (DmoCompactSchemaFormatter.java:885)
-import java.util.HashMap;                                          // For storage of schema info - (DmoCompactSchemaFormatter.java:884)
-import java.util.Iterator;                                         // For access of schema info - (DmoCompactSchemaFormatter.java:886)
-import org.dmd.dmc.*;                                              // Basic DMC stuff - (DmoCompactSchemaFormatter.java:887)
-import org.dmd.dmc.rules.RuleIF;                                   // For rule info - (DmoCompactSchemaFormatter.java:888)
-import org.dmd.dmr.shared.base.generated.dmo.DmrbaseDMSAG;         // Base class from DmrbaseDMSAG - (DmoCompactSchemaFormatter.java:912)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                        // Optional attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:908)
-import org.dmd.dms.generated.enums.ClassTypeEnum;                  // Have class definitions - (DmoCompactSchemaFormatter.java:892)
-import org.dmd.dms.generated.enums.DataTypeEnum;                   // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:893)
-import org.dmd.dms.generated.enums.OriginalTypeEnum;               // Have type/internal type definitions - (DmoCompactSchemaFormatter.java:898)
-import org.dmd.dms.generated.enums.ValueTypeEnum;                  // Have attribute definitions - (DmoCompactSchemaFormatter.java:919)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:963)
+import java.util.ArrayList;                                        // For storage of schema info - (DmoCompactSchemaFormatter.java:897)
+import java.util.HashMap;                                          // For storage of schema info - (DmoCompactSchemaFormatter.java:896)
+import java.util.Iterator;                                         // For access of schema info - (DmoCompactSchemaFormatter.java:898)
+import org.dmd.dmc.*;                                              // Basic DMC stuff - (DmoCompactSchemaFormatter.java:899)
+import org.dmd.dmc.rules.RuleIF;                                   // For rule info - (DmoCompactSchemaFormatter.java:900)
+import org.dmd.dmr.shared.base.generated.dmo.DmrbaseDMSAG;         // Base class from DmrbaseDMSAG - (DmoCompactSchemaFormatter.java:924)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                        // Optional attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:920)
+import org.dmd.dms.generated.enums.ClassTypeEnum;                  // Have class definitions - (DmoCompactSchemaFormatter.java:904)
+import org.dmd.dms.generated.enums.DataTypeEnum;                   // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:905)
+import org.dmd.dms.generated.enums.OriginalTypeEnum;               // Have type/internal type definitions - (DmoCompactSchemaFormatter.java:910)
+import org.dmd.dms.generated.enums.ValueTypeEnum;                  // Have attribute definitions - (DmoCompactSchemaFormatter.java:931)
 
 
 
@@ -74,10 +74,20 @@ public class DmrldapDMSAG implements DmcCompactSchemaIF {
 
         _SmAp.put(__ldapIdPrefix.id,__ldapIdPrefix);
         _SmAp.put(__reposName.id,__reposName);
+    }
+
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:274)
+    static {
+
         _CmAp.put(__LDAPAttributeAUX.id,__LDAPAttributeAUX);
         _CmAp.put(__LDAPClassAUX.id,__LDAPClassAUX);
         _CmAp.put(__LDAPHierarchicObject.id,__LDAPHierarchicObject);
         _CmAp.put(__LDAPSchemaAUX.id,__LDAPSchemaAUX);
+    }
+
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:285)
+    static {
+
 
         __LDAPSchemaAUX.addMay(__ldapIdPrefix);
 
@@ -87,6 +97,11 @@ public class DmrldapDMSAG implements DmcCompactSchemaIF {
         __LDAPAttributeAUX.addMay(__reposName);
 
         __LDAPHierarchicObject.addMust(MetaDMSAG.__FQN);
+
+    }
+
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:327)
+    static {
 
 
     }
