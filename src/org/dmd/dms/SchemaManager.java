@@ -182,6 +182,9 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      */
     TreeMap<DefinitionName,SchemaDefinition>     		schemaDefs;
     public int  longestSchemaName;
+    
+    
+    TreeMap<DefinitionName,DMDefinitionModule>			definitionModuleDefs;
 
     /**
      * The schema that we're in the process of managing.
@@ -249,6 +252,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         ruleDefsByDot   			= new HashMap<DotName, RuleDefinition>();
         ruleData					= new TreeMap<RuleName, RuleData>();
         schemaDefs  				= new TreeMap<DefinitionName,SchemaDefinition>();
+        definitionModuleDefs  		= new TreeMap<DefinitionName,DMDefinitionModule>();
         classAbbrevs				= new HashMap<DefinitionName,ClassDefinition>();
         attrAbbrevs 				= new HashMap<DefinitionName,AttributeDefinition>();
         hierarchicObjects			= null;
@@ -818,6 +822,18 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         		ext.addSchema(sd);
         	}
         }
+
+    }
+    
+    void addDefinitionModule(DMDefinitionModule ddm) throws ResultException {
+        if (checkAndAdd(ddm.getObjectName(),ddm,definitionModuleDefs) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsg(ddm.getObjectName(),ddm,definitionModuleDefs,"DMDefinitionModule names"));
+            currentSchema = null;
+        	throw(ex);
+        }
+        
+        // And now we generate a class that represents the module
 
     }
     
@@ -1537,6 +1553,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     		this.addComplexType((ComplexTypeDefinition) def);
     	else if (def instanceof SchemaDefinition)
     		this.addSchema((SchemaDefinition) def);
+    	else if (def instanceof DMDefinitionModule)
+    		this.addDefinitionModule((DMDefinitionModule) def);
         else{
         	ResultException ex = new ResultException();
         	ex.addError("The specified object is not a DMDefinition object: \n" + def.toOIF());
