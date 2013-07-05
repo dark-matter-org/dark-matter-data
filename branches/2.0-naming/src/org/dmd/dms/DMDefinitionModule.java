@@ -3,8 +3,12 @@ package org.dmd.dms;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dms.generated.dmw.DMDefinitionModuleDMW;
 
-abstract public class DMDefinitionModule extends DMDefinitionModuleDMW {
+public class DMDefinitionModule extends DMDefinitionModuleDMW {
 
+	public DMDefinitionModule(){
+		
+	}
+	
 	protected DMDefinitionModule(DmcObject obj){
 		super(obj);
 	}
