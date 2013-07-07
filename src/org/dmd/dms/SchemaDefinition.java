@@ -290,6 +290,9 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     		this.addComplexTypeDefList((ComplexTypeDefinition) def);
     	else if (def instanceof RuleDefinition)
     		this.addRuleDefinitionList((RuleDefinition)def);
+    	else if (def instanceof DSDefinitionModule){
+    		System.err.println("\n\n*** add definition modules to schema ***\n\n");
+    	}
         else{
         	ResultException ex = new ResultException();
         	ex.addError("The specified object is not a DMD object: \n" + def.toOIF());
