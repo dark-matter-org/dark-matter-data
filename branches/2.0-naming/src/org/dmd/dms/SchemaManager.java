@@ -184,7 +184,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     public int  longestSchemaName;
     
     
-    TreeMap<DefinitionName,DMDefinitionModule>			definitionModuleDefs;
+    TreeMap<DefinitionName,DSDefinitionModule>			definitionModuleDefs;
 
     /**
      * The schema that we're in the process of managing.
@@ -252,7 +252,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         ruleDefsByDot   			= new HashMap<DotName, RuleDefinition>();
         ruleData					= new TreeMap<RuleName, RuleData>();
         schemaDefs  				= new TreeMap<DefinitionName,SchemaDefinition>();
-        definitionModuleDefs  		= new TreeMap<DefinitionName,DMDefinitionModule>();
+        definitionModuleDefs  		= new TreeMap<DefinitionName,DSDefinitionModule>();
         classAbbrevs				= new HashMap<DefinitionName,ClassDefinition>();
         attrAbbrevs 				= new HashMap<DefinitionName,AttributeDefinition>();
         hierarchicObjects			= null;
@@ -825,10 +825,10 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 
     }
     
-    void addDefinitionModule(DMDefinitionModule ddm) throws ResultException {
+    void addDefinitionModule(DSDefinitionModule ddm) throws ResultException {
         if (checkAndAdd(ddm.getObjectName(),ddm,definitionModuleDefs) == false){
         	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(ddm.getObjectName(),ddm,definitionModuleDefs,"DMDefinitionModule names"));
+        	ex.addError(clashMsg(ddm.getObjectName(),ddm,definitionModuleDefs,"DSDefinitionModule names"));
             currentSchema = null;
         	throw(ex);
         }
@@ -1553,8 +1553,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     		this.addComplexType((ComplexTypeDefinition) def);
     	else if (def instanceof SchemaDefinition)
     		this.addSchema((SchemaDefinition) def);
-    	else if (def instanceof DMDefinitionModule)
-    		this.addDefinitionModule((DMDefinitionModule) def);
+    	else if (def instanceof DSDefinitionModule)
+    		this.addDefinitionModule((DSDefinitionModule) def);
         else{
         	ResultException ex = new ResultException();
         	ex.addError("The specified object is not a DMDefinition object: \n" + def.toOIF());

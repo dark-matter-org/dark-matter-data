@@ -27,7 +27,7 @@ import org.dmd.util.exceptions.*;
 import org.dmd.dms.*;
 
 /**
- * The DMDefinitionModule is a definition that defines a collection of
+ * The DSDefinitionModule is a definition that defines a collection of
  * definitions\n and provides a basis for the generation of various artifacts
  * that allow for parsing and\n management of that set of definitions.\n
  * <p/>\n The specific of a definition module will result in the generation
@@ -38,29 +38,29 @@ import org.dmd.dms.*;
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1601)
  */
 @SuppressWarnings("unused")
-public class DMDefinitionModuleDMW extends org.dmd.dms.DMDefinition {
+public class DSDefinitionModuleDMW extends org.dmd.dms.DMDefinition {
 
-    private DMDefinitionModuleDMO mycore;
+    private DSDefinitionModuleDMO mycore;
 
-    protected DMDefinitionModuleDMW() {
-        super(new DMDefinitionModuleDMO());
-        mycore = (DMDefinitionModuleDMO) core;
+    protected DSDefinitionModuleDMW() {
+        super(new DSDefinitionModuleDMO());
+        mycore = (DSDefinitionModuleDMO) core;
         mycore.setContainer(this);
     }
 
-    protected DMDefinitionModuleDMW(DmcObject obj) {
+    protected DSDefinitionModuleDMW(DmcObject obj) {
         super(obj);
-        mycore = (DMDefinitionModuleDMO) core;
+        mycore = (DSDefinitionModuleDMO) core;
         mycore.setContainer(this);
     }
 
-    protected DMDefinitionModuleDMW(DmcObject obj, ClassDefinition cd) {
+    protected DSDefinitionModuleDMW(DmcObject obj, ClassDefinition cd) {
         super(obj,cd);
-        mycore = (DMDefinitionModuleDMO) core;
+        mycore = (DSDefinitionModuleDMO) core;
         mycore.setContainer(this);
     }
 
-    public  DMDefinitionModuleDMO getDMO() {
+    public  DSDefinitionModuleDMO getDMO() {
         return(mycore);
     }
 
@@ -135,6 +135,28 @@ public class DMDefinitionModuleDMW extends org.dmd.dms.DMDefinition {
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
     public void setModuleClassName(Object value) throws DmcValueException {
         mycore.setModuleClassName(value);
+    }
+
+    /**
+     * A reference to the DMDefinition derived class that is the base class for a
+     * \n set of definition classes.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    public DMDefinition getBaseDefinition(){
+        DmcTypeDMDefinitionREFSV attr = (DmcTypeDMDefinitionREFSV) mycore.get(MetaDMSAG.__baseDefinition);
+        if (attr == null)
+            return(null);
+        DMDefinitionDMO obj = attr.getSV().getObject();
+        return((DMDefinition)obj.getContainer());
+    }
+
+    /**
+     * Sets baseDefinition to the specified value.
+     * @param value A value compatible with DMDefinition
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2409)
+    public void setBaseDefinition(DMDefinition value) throws DmcValueException {
+        mycore.setBaseDefinition(value.getDmcObject());
     }
 
     /**
