@@ -369,7 +369,6 @@ public class GenUtility {
 					addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcHierarchicNamedObjectIF", "Named object");
 				
 				addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcNamedObjectIF", "Named object");
-				addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcAttribute", "Named object");
 			}
 		}
 
