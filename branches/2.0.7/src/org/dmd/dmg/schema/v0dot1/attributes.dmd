@@ -1,0 +1,66 @@
+AttributeDefinition
+name			generator
+dmdID			0
+type			Generator
+valueType		MULTI
+description 	The fully qualified name of a class that that implements the
+ DarkMatterGeneratorIF interface. The DMG Generator utility will call
+ on this object to generate code.
+ 
+AttributeDefinition
+name			schemaToLoad
+dmdID			1
+type			String
+description     The name of schema for which code will be generated.
+
+AttributeDefinition
+name			configSuffix
+dmdID			2
+type			String
+valueType		MULTI
+description     The suffix of an additional configuration files that are
+ required by any of the specified generators. For example .mvc
+
+AttributeDefinition
+name			genPackage
+dmdID			3
+type			String
+description     The package name to be prepended to any generated code.
+
+//AttributeDefinition
+//name			camelCaseName
+//dmdID			4
+//type			String
+//description		The name of something in camel case e.g. ThisIsInCamelCase
+
+AttributeDefinition
+name			upperConstantName
+dmdID			5
+type			String
+description		The name of something in upper case with underscores e.g. THIS_IS_UPPER_CONSTANT.
+
+AttributeDefinition
+name			alias
+dmdID			6
+type			String
+description		An alternative name for something.
+
+AttributeDefinition
+name                		genContextName
+dmdID						7
+type                		CamelCaseName
+description    				The name of a code generation context.
+
+AttributeDefinition
+name                		genContext
+dmdID						8
+type                		GenerationContext
+description    				The generation context to which a code generation object belongs.
+
+AttributeDefinition
+name                		genClass
+dmdID						9
+type                		String
+description    				The fully qualified Java class name of a code generation component.
+
+
