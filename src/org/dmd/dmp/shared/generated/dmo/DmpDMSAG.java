@@ -1,22 +1,22 @@
 package org.dmd.dmp.shared.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:860)
-import java.util.ArrayList;                                        // For storage of schema info - (DmoCompactSchemaFormatter.java:794)
-import java.util.HashMap;                                          // For storage of schema info - (DmoCompactSchemaFormatter.java:793)
-import java.util.Iterator;                                         // For access of schema info - (DmoCompactSchemaFormatter.java:795)
-import org.dmd.dmc.*;                                              // Basic DMC stuff - (DmoCompactSchemaFormatter.java:796)
-import org.dmd.dmc.rules.RuleIF;                                   // For rule info - (DmoCompactSchemaFormatter.java:797)
-import org.dmd.dmr.shared.base.generated.dmo.DmrBaseDMSAG;         // Optional attribute from DmrBaseDMSAG - (DmoCompactSchemaFormatter.java:817)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                        // Optional attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:817)
-import org.dmd.dms.generated.enums.ClassTypeEnum;                  // Have class definitions - (DmoCompactSchemaFormatter.java:801)
-import org.dmd.dms.generated.enums.DataTypeEnum;                   // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:802)
-import org.dmd.dms.generated.enums.OriginalTypeEnum;               // Have type/internal type definitions - (DmoCompactSchemaFormatter.java:807)
-import org.dmd.dms.generated.enums.ValueTypeEnum;                  // Have attribute definitions - (DmoCompactSchemaFormatter.java:828)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:969)
+import java.util.ArrayList;                                        // For storage of schema info - (DmoCompactSchemaFormatter.java:903)
+import java.util.HashMap;                                          // For storage of schema info - (DmoCompactSchemaFormatter.java:902)
+import java.util.Iterator;                                         // For access of schema info - (DmoCompactSchemaFormatter.java:904)
+import org.dmd.dmc.*;                                              // Basic DMC stuff - (DmoCompactSchemaFormatter.java:905)
+import org.dmd.dmc.rules.RuleIF;                                   // For rule info - (DmoCompactSchemaFormatter.java:906)
+import org.dmd.dmr.shared.base.generated.dmo.DmrBaseDMSAG;         // Optional attribute from DmrBaseDMSAG - (DmoCompactSchemaFormatter.java:926)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                        // Optional attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:926)
+import org.dmd.dms.generated.enums.ClassTypeEnum;                  // Have class definitions - (DmoCompactSchemaFormatter.java:910)
+import org.dmd.dms.generated.enums.DataTypeEnum;                   // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:911)
+import org.dmd.dms.generated.enums.OriginalTypeEnum;               // Have type/internal type definitions - (DmoCompactSchemaFormatter.java:916)
+import org.dmd.dms.generated.enums.ValueTypeEnum;                  // Have attribute definitions - (DmoCompactSchemaFormatter.java:937)
 
 
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:124)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:129)
 public class DmpDMSAG implements DmcCompactSchemaIF {
 
 
@@ -75,7 +75,7 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __trackingEnabled = new DmcAttributeInfo("trackingEnabled", 539, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __userFQN = new DmcAttributeInfo("userFQN", 524, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
 
-    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:162)
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:167)
     public final static DmcTypeInfo __type_ActionRequest = new DmcTypeInfo("ActionRequest", OriginalTypeEnum.OBJECT);
     public final static DmcTypeInfo __type_ActionResponse = new DmcTypeInfo("ActionResponse", OriginalTypeEnum.OBJECT);
     public final static DmcTypeInfo __type_CreateRequest = new DmcTypeInfo("CreateRequest", OriginalTypeEnum.OBJECT);
@@ -107,7 +107,7 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
     public final static DmcTypeInfo __type_SetRequest = new DmcTypeInfo("SetRequest", OriginalTypeEnum.OBJECT);
     public final static DmcTypeInfo __type_SetResponse = new DmcTypeInfo("SetResponse", OriginalTypeEnum.OBJECT);
 
-    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:203)
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:208)
     public final static DmcClassInfo __DMPMessage = new DmcClassInfo("DMPMessage","org.dmd.dmp.shared.generated.dmo.DMPMessageDMO", 501, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null,null);
     public final static DmcClassInfo __DMPEvent = new DmcClassInfo("DMPEvent","org.dmd.dmp.shared.generated.dmo.DMPEventDMO", 518, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__DMPMessage,null);
     public final static DmcClassInfo __Request = new DmcClassInfo("Request","org.dmd.dmp.shared.generated.dmo.RequestDMO", 502, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,__DMPMessage,null);
@@ -162,73 +162,15 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
 
         _RmAp = new ArrayList<RuleIF>();
 
-        _SmAp.put(__FQNList.id,__FQNList);
-        _SmAp.put(__actionName.id,__actionName);
-        _SmAp.put(__actionTrigger.id,__actionTrigger);
-        _SmAp.put(__applicationName.id,__applicationName);
-        _SmAp.put(__applicationVersion.id,__applicationVersion);
-        _SmAp.put(__attributeSelector.id,__attributeSelector);
-        _SmAp.put(__blockingFactor.id,__blockingFactor);
-        _SmAp.put(__cacheResponse.id,__cacheResponse);
-        _SmAp.put(__eventChannelReady.id,__eventChannelReady);
-        _SmAp.put(__eventTypeDMP.id,__eventTypeDMP);
-        _SmAp.put(__filter.id,__filter);
-        _SmAp.put(__filterByClass.id,__filterByClass);
-        _SmAp.put(__handlerID.id,__handlerID);
-        _SmAp.put(__lastResponse.id,__lastResponse);
-        _SmAp.put(__listenerID.id,__listenerID);
-        _SmAp.put(__myOwnEvent.id,__myOwnEvent);
-        _SmAp.put(__newObject.id,__newObject);
-        _SmAp.put(__notifyOriginator.id,__notifyOriginator);
-        _SmAp.put(__objectList.id,__objectList);
-        _SmAp.put(__objectsToCome.id,__objectsToCome);
-        _SmAp.put(__originatorID.id,__originatorID);
-        _SmAp.put(__parentName.id,__parentName);
-        _SmAp.put(__readableFormat.id,__readableFormat);
-        _SmAp.put(__registerForEvents.id,__registerForEvents);
-        _SmAp.put(__requestID.id,__requestID);
-        _SmAp.put(__requestRoot.id,__requestRoot);
-        _SmAp.put(__responseCategory.id,__responseCategory);
-        _SmAp.put(__responseFormat.id,__responseFormat);
-        _SmAp.put(__responseText.id,__responseText);
-        _SmAp.put(__responseType.id,__responseType);
-        _SmAp.put(__scope.id,__scope);
-        _SmAp.put(__sessionID.id,__sessionID);
-        _SmAp.put(__slice.id,__slice);
-        _SmAp.put(__source.id,__source);
-        _SmAp.put(__sourceObject.id,__sourceObject);
-        _SmAp.put(__sourceObjectClass.id,__sourceObjectClass);
-        _SmAp.put(__target.id,__target);
-        _SmAp.put(__targetObjectClass.id,__targetObjectClass);
-        _SmAp.put(__targets.id,__targets);
-        _SmAp.put(__timeMS.id,__timeMS);
-        _SmAp.put(__timeoutSeconds.id,__timeoutSeconds);
-        _SmAp.put(__trackingEnabled.id,__trackingEnabled);
-        _SmAp.put(__userFQN.id,__userFQN);
-        _CmAp.put(__ActionRequest.id,__ActionRequest);
-        _CmAp.put(__ActionResponse.id,__ActionResponse);
-        _CmAp.put(__CreateRequest.id,__CreateRequest);
-        _CmAp.put(__CreateResponse.id,__CreateResponse);
-        _CmAp.put(__DMPEvent.id,__DMPEvent);
-        _CmAp.put(__DMPMessage.id,__DMPMessage);
-        _CmAp.put(__DeleteRequest.id,__DeleteRequest);
-        _CmAp.put(__DeleteResponse.id,__DeleteResponse);
-        _CmAp.put(__DenotifyRequest.id,__DenotifyRequest);
-        _CmAp.put(__DenotifyResponse.id,__DenotifyResponse);
-        _CmAp.put(__GetRequest.id,__GetRequest);
-        _CmAp.put(__GetResponse.id,__GetResponse);
-        _CmAp.put(__LoginRequest.id,__LoginRequest);
-        _CmAp.put(__LoginResponse.id,__LoginResponse);
-        _CmAp.put(__LogoutRequest.id,__LogoutRequest);
-        _CmAp.put(__LogoutResponse.id,__LogoutResponse);
-        _CmAp.put(__NotifyRequest.id,__NotifyRequest);
-        _CmAp.put(__NotifyResponse.id,__NotifyResponse);
-        _CmAp.put(__PreAuthRequest.id,__PreAuthRequest);
-        _CmAp.put(__PreAuthResponse.id,__PreAuthResponse);
-        _CmAp.put(__Request.id,__Request);
-        _CmAp.put(__Response.id,__Response);
-        _CmAp.put(__SetRequest.id,__SetRequest);
-        _CmAp.put(__SetResponse.id,__SetResponse);
+        DmpDMSAGAMAP.initSmAp(_SmAp);
+
+        DmpDMSAGCMAP.initCmAp(_CmAp);
+
+    }
+
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:291)
+    static {
+
 
         __DMPMessage.addMust(__requestID);
         __DMPMessage.addMay(__timeMS);
@@ -337,6 +279,11 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
 
         __PreAuthResponse.addMay(__applicationName);
         __PreAuthResponse.addMay(__applicationVersion);
+
+    }
+
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:335)
+    static {
 
 
     }
