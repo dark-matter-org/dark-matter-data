@@ -97,7 +97,7 @@
         <borderColor>10470904</borderColor>
         <color>16777215</color>
         <size>10</size>
-        <text>DMW%0AB</text>
+        <text>DMW%0AC</text>
       </controlProperties>
     </control>
     <control controlID="45" controlTypeID="com.balsamiq.mockups::Arrow" x="714" y="337" w="133" h="69" measuredW="150" measuredH="100" zOrder="10" locked="false" isInGroup="-1">
