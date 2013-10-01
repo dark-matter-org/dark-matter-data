@@ -122,7 +122,12 @@ public class DmoCompactSchemaFormatter {
 			}
 		}
 		
-			
+        // Dump the separate class that initializes the _SmAp
+        dumpAttributeMapInitializer(sd, dmodir, attributes);
+        
+        // Dump the separate class that initializes the _CmAp;
+        dumpClassMapInitializer(sd, dmodir, classes);
+		
         out.write("\n");
 
 		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
@@ -265,25 +270,33 @@ public class DmoCompactSchemaFormatter {
         
         // Inside the static initializer
         
-        for(AttributeDefinition ad: attributes.values()){
-            // _SmAp.put(__jobName.name,__jobName);
-			out.write("        _SmAp.put(__" + ad.getName().getNameString() + ".id,__" + ad.getName().getNameString() + ");\n");
-		}
+		out.write("        " + schemaName + "AMAP.initSmAp(_SmAp);\n\n");
         
-		out.write("    }\n\n");
-		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-		out.write("    static {\n\n");
+        out.write("        " + schemaName + "CMAP.initCmAp(_CmAp);\n\n");
+        
+//        for(AttributeDefinition ad: attributes.values()){
+//            // _SmAp.put(__jobName.name,__jobName);
+//			out.write("        _SmAp.put(__" + ad.getName().getNameString() + ".id,__" + ad.getName().getNameString() + ");\n");
+//		}
+        
+//		out.write("    }\n\n");
+//		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+//		out.write("    static {\n\n");
 
-        for(ClassDefinition cd: classes.values()){
-            // _SmAp.put(__jobName.name,__jobName);
-			out.write("        _CmAp.put(__" + cd.getName().getNameString() + ".id,__" + cd.getName().getNameString() + ");\n");
-		}
+//        for(ClassDefinition cd: classes.values()){
+//            // _SmAp.put(__jobName.name,__jobName);
+//			out.write("        _CmAp.put(__" + cd.getName().getNameString() + ".id,__" + cd.getName().getNameString() + ");\n");
+//		}
         
-        out.write(nameBuilders.toString());
-        
+//        out.write(nameBuilders.toString());
+//        
 		out.write("    }\n\n");
+		
+		
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("    static {\n\n");
+		
+		out.write(nameBuilders.toString());
 
         for(SliceDefinition slice: sd.getSliceDefList()){
 	        out.write("\n");
@@ -401,6 +414,90 @@ public class DmoCompactSchemaFormatter {
 		out.write("}\n\n");
 		
 		out.close();
+	}
+	
+	/**
+	 * Generally, it's good to break your schemas down into functional areas, but, when schemas grow too large,
+	 * they result in the creation of very large static initialization methods that can cause problems in
+	 * some SDEs, for example, Eclipse. This method was added to split the initialization of the attribute map
+	 * into a separate class.
+	 * <p/>
+	 * Although having separate static initialization functions is possible, the Java compiler gathers all 
+	 * static initializations into a single method and when that method exceeds a size threshold, we run into problems.
+	 * @param sd the schema definition
+	 * @param dmodir the generation location
+	 * @param attributes 
+	 * @throws IOException
+	 * @throws ResultException
+	 */
+	void dumpAttributeMapInitializer(SchemaDefinition sd, String dmodir, TreeMap<String, AttributeDefinition> attributes) throws IOException, ResultException {
+		String schemaName = GeneratorUtils.dotNameToCamelCase(sd.getName().getNameString()) + "DMSAG";
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmodir, schemaName + "AMAP.java");
+        
+        out.write("package " + sd.getSchemaPackage() + ".generated.dmo;\n\n");
+
+    	ImportManager manager = new ImportManager();
+
+    	manager.addImport("java.util.HashMap","For storage of schema info");
+    	manager.addImport("org.dmd.dmc.*","Basic DMC stuff");
+    	
+		out.write(manager.getFormattedImports());
+
+		out.write("\n\n");
+		
+		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write("public class " + schemaName + "AMAP {\n\n");
+        
+        out.write("    static protected void initSmAp(HashMap<Integer, DmcAttributeInfo> _SmAp){\n");
+        
+		for(AttributeDefinition ad: attributes.values()){
+			out.write("        _SmAp.put(" + schemaName+ ".__" + ad.getName().getNameString() + ".id," + schemaName+ ".__" + ad.getName().getNameString() + ");\n");
+		}
+
+		out.write("    }\n\n");
+		
+		out.write("}\n\n");
+		
+        out.close();
+	}
+	
+	/**
+	 * Similar to the attribute map initializer, but for the class map.
+	 * @param sd the schema definition
+	 * @param dmodir the output directory
+	 * @param classes the set of classes in the schema
+	 * @throws IOException
+	 * @throws ResultException
+	 */
+	void dumpClassMapInitializer(SchemaDefinition sd, String dmodir, TreeMap<String, ClassDefinition> classes) throws IOException, ResultException {
+		String schemaName = GeneratorUtils.dotNameToCamelCase(sd.getName().getNameString()) + "DMSAG";
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmodir, schemaName + "CMAP.java");
+        
+        out.write("package " + sd.getSchemaPackage() + ".generated.dmo;\n\n");
+
+    	ImportManager manager = new ImportManager();
+
+    	manager.addImport("java.util.HashMap","For storage of schema info");
+    	manager.addImport("org.dmd.dmc.*","Basic DMC stuff");
+    	
+		out.write(manager.getFormattedImports());
+
+		out.write("\n\n");
+		
+		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write("public class " + schemaName + "CMAP {\n\n");
+        
+        out.write("    static protected void initCmAp(HashMap<Integer, DmcClassInfo> _CmAp){\n");
+        
+		for(ClassDefinition cd: classes.values()){
+			out.write("        _CmAp.put(" + schemaName+ ".__" + cd.getName().getNameString() + ".id," + schemaName+ ".__" + cd.getName().getNameString() + ");\n");
+		}
+
+		out.write("    }\n\n");
+		
+		out.write("}\n\n");
+		
+        out.close();
 	}
 	
 	private void setAttributeValues(BufferedWriter out, SchemaManager sm, RuleDataDMO rd, PrintfFormat pf) throws IllegalArgumentException, IOException, ResultException {
