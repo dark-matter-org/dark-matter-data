@@ -303,4 +303,19 @@ public abstract class DmwWrapper extends DmcContainer {
 		
 		return(resolved);
 	}
+		
+    @Override
+    public boolean equals(Object obj){
+    	if (this == obj)
+    		return(true);
+    	if (obj == null)
+    		return(false);
+    	
+    	if (obj instanceof DmwWrapper){
+    		DmwWrapper other = (DmwWrapper) obj;
+    		return(this.getDmcObject().equals(other.getDmcObject()));
+    	}
+    	return(false);
+    }
+	
 }
