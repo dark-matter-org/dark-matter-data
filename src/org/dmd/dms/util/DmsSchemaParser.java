@@ -343,15 +343,6 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
 					srcFile = infile.substring(srcloc);
 				else
 					srcFile = infile;
-				
-				if (schemaLoading == null){
-					if (uco.getSV(MetaDMSAG.__name.name) != null)
-						uco.addValue(MetaDMSAG.__dotName.name, uco.getSV(MetaDMSAG.__name.name));
-				}
-				else{
-					if (uco.getSV(MetaDMSAG.__name.name) != null)
-						uco.addValue(MetaDMSAG.__dotName.name, schemaLoading.getName() + "." + uco.getSV(MetaDMSAG.__name.name));
-				}
 
 				// More interesting hand waving to handle rule instances. For most of the 
         		// objects that are found in schema definitions everything can be handled
