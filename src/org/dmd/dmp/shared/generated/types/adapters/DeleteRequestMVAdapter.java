@@ -14,7 +14,7 @@ public class DeleteRequestMVAdapter extends DmcTypeDeleteRequestREFMV implements
     transient DmcTypeDeleteRequestREFMV existingValue;
 
     public DeleteRequestMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

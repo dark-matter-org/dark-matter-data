@@ -14,7 +14,7 @@ public class UsingIndexedAttributesMVAdapter extends DmcTypeUsingIndexedAttribut
     transient DmcTypeUsingIndexedAttributesREFMV existingValue;
 
     public UsingIndexedAttributesMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

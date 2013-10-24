@@ -14,7 +14,7 @@ public class DotNamedObjectREFMAPAdapter extends DmcTypeDotNamedObjectREFMAP imp
     transient DmcTypeDotNamedObjectREFMAP existingValue;
 
     public DotNamedObjectREFMAPAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

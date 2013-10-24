@@ -14,7 +14,7 @@ public class ExtendedRefHSSETAdapter extends DmcTypeExtendedRefHSREFSET implemen
     transient DmcTypeExtendedRefHSREFSET existingValue;
 
     public ExtendedRefHSSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

@@ -6,12 +6,10 @@ schemaPackage 		org.dmd.dmt.shared
 dmwPackage    		org.dmd.dmt.server
 dmwTypeToPackage	gxt org.dmd.dmt.client
 dependsOn			dmp
-dependsOn			dmv
 defFiles			types.dmd
 defFiles    		attributes.dmd
 defFiles			classes.dmd
 defFiles			slices.dmd
 defFiles			actions.dmd
 defFiles			extendedRefs.dmd
-defFiles			complex.dmd
 description			The dmt schema defines a sets of definitions for Dark Matter Testing purposes.

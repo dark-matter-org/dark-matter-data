@@ -14,7 +14,7 @@ public class PrimitiveMVIDXSVAdapter extends DmcTypePrimitiveMVIDXREFSV implemen
     transient DmcTypePrimitiveMVIDXREFSV existingValue;
 
     public PrimitiveMVIDXSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

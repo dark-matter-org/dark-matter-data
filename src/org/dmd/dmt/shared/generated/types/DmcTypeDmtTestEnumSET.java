@@ -14,7 +14,7 @@ import org.dmd.dmt.shared.generated.enums.DmtTestEnum;    // DmcType import
  * The DmcTypeDmtTestEnumSET provides storage for a set of DmtTestEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2602)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:362)
  */
 @SuppressWarnings("serial")
@@ -35,7 +35,7 @@ public class DmcTypeDmtTestEnumSET extends DmcTypeDmtTestEnum implements Seriali
     }
     
     void initValue(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<DmtTestEnum>();
         else
             value = new TreeSet<DmtTestEnum>();
@@ -43,11 +43,11 @@ public class DmcTypeDmtTestEnumSET extends DmcTypeDmtTestEnum implements Seriali
     
     @Override
     public DmcTypeDmtTestEnumSET getNew(){
-        return(new DmcTypeDmtTestEnumSET(getAttributeInfo()));
+        return(new DmcTypeDmtTestEnumSET(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2643)
     public DmcAttribute<DmtTestEnum> cloneIt(){
         synchronized(this){
             DmcTypeDmtTestEnumSET rc = getNew();
@@ -66,7 +66,7 @@ public class DmcTypeDmtTestEnumSET extends DmcTypeDmtTestEnum implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2666)
     public DmtTestEnum add(Object v) throws DmcValueException {
         synchronized(this){
             DmtTestEnum rc = typeCheck(v);
@@ -82,7 +82,7 @@ public class DmcTypeDmtTestEnumSET extends DmcTypeDmtTestEnum implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2683)
     public DmtTestEnum del(Object v){
         synchronized(this){
             DmtTestEnum rc = null;
@@ -106,23 +106,23 @@ public class DmcTypeDmtTestEnumSET extends DmcTypeDmtTestEnum implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2708)
     public Iterator<DmtTestEnum> getMV(){
         synchronized(this){
             if (value == null)
                 return(emptyList);
 
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<DmtTestEnum>(value)).iterator() );
             else
                 return( (new TreeSet<DmtTestEnum>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2722)
     public Set<DmtTestEnum> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET){
                 if (value == null)
                     return(new HashSet<DmtTestEnum>());
                 else
@@ -138,7 +138,7 @@ public class DmcTypeDmtTestEnumSET extends DmcTypeDmtTestEnum implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2742)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -148,7 +148,7 @@ public class DmcTypeDmtTestEnumSET extends DmcTypeDmtTestEnum implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2753)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

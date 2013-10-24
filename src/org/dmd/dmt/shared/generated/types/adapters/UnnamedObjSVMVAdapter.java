@@ -14,7 +14,7 @@ public class UnnamedObjSVMVAdapter extends DmcTypeUnnamedObjSVREFMV implements D
     transient DmcTypeUnnamedObjSVREFMV existingValue;
 
     public UnnamedObjSVMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

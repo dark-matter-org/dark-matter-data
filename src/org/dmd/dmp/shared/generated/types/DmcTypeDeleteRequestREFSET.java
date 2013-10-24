@@ -29,7 +29,7 @@ import org.dmd.dmp.shared.generated.dmo.DeleteRequestDMO;    // DmcType import
  * The DmcTypeDeleteRequestREFSET provides storage for a set of DeleteRequestDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2602)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
  */
 @SuppressWarnings("serial")
@@ -50,7 +50,7 @@ public class DmcTypeDeleteRequestREFSET extends DmcTypeDeleteRequestREF implemen
     }
     
     void initValue(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<DeleteRequestDMO>();
         else
             value = new TreeSet<DeleteRequestDMO>();
@@ -58,11 +58,11 @@ public class DmcTypeDeleteRequestREFSET extends DmcTypeDeleteRequestREF implemen
     
     @Override
     public DmcTypeDeleteRequestREFSET getNew(){
-        return(new DmcTypeDeleteRequestREFSET(getAttributeInfo()));
+        return(new DmcTypeDeleteRequestREFSET(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2643)
     public DmcAttribute<DeleteRequestDMO> cloneIt(){
         synchronized(this){
             DmcTypeDeleteRequestREFSET rc = getNew();
@@ -81,7 +81,7 @@ public class DmcTypeDeleteRequestREFSET extends DmcTypeDeleteRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2666)
     public DeleteRequestDMO add(Object v) throws DmcValueException {
         synchronized(this){
             DeleteRequestDMO rc = typeCheck(v);
@@ -97,7 +97,7 @@ public class DmcTypeDeleteRequestREFSET extends DmcTypeDeleteRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2683)
     public DeleteRequestDMO del(Object v){
         synchronized(this){
             DeleteRequestDMO rc = null;
@@ -121,23 +121,23 @@ public class DmcTypeDeleteRequestREFSET extends DmcTypeDeleteRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2708)
     public Iterator<DeleteRequestDMO> getMV(){
         synchronized(this){
             if (value == null)
                 return(emptyList);
 
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<DeleteRequestDMO>(value)).iterator() );
             else
                 return( (new TreeSet<DeleteRequestDMO>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2722)
     public Set<DeleteRequestDMO> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET){
                 if (value == null)
                     return(new HashSet<DeleteRequestDMO>());
                 else
@@ -153,7 +153,7 @@ public class DmcTypeDeleteRequestREFSET extends DmcTypeDeleteRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2742)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -163,7 +163,7 @@ public class DmcTypeDeleteRequestREFSET extends DmcTypeDeleteRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2753)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

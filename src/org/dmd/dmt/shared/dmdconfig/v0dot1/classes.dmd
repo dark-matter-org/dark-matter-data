@@ -59,37 +59,9 @@ may				mvString
 may				hsString
 may				tsString
 may				svTestBasicNamedObjectFixed
-may				hsTestEnum
 may				mvIdxUnnamedObj
 description     The TestBasicObjectFixed class provides a test bed for all types of basic
  attribute values.
-
-InitRuleData
-ruleName  		dmtInitTestBasicObjectFixed
-ruleTitle 		Initialize TestBasicObjectFixed
-applyToClass	TestBasicObjectFixed
-svString		the single valued string
-mvString		first value
-mvString		second value
-svInteger		8
-hsTestEnum		TEST1
-hsTestEnum		TEST2
-
-NumericRangeRuleData
-ruleName 			dmtSvIntegerNumericRange
-ruleTitle			svInteger must be in the range 1-10
-applyToAttribute	svInteger
-applyToClass		TestBasicObjectFixed
-nrrMinimum			1
-nrrMaximum			10
-
-NumericRangeRuleData
-ruleName 			dmtSvFloatNumericRange
-ruleTitle			svFloat must be in the range 1.5 - 2.5
-applyToAttribute	svFloat
-applyToClass		TestBasicObjectFixed
-nrrMinimum			1.5
-nrrMaximum			2.5
 
 ClassDefinition
 name            TestBasicNamedObjectFixed
@@ -473,20 +445,3 @@ classType       STRUCTURAL
 dmdID			407
 may				tsExtendedRef
 
-ClassDefinition
-name			ParseTest
-classType       STRUCTURAL
-dmdID			408
-may				svUnnamedObj
-may				mvUnnamedObj
-may				svBoolean
-may				mvIdxNamedObj
-may				mvIdxUnnamedObj
-description		Used to test the DmcUncheckedOIFParser in the creation of DmcUncheckedObjects within DmcUncheckedObjects.
-
-ClassDefinition
-name 			ComplexTypeTest
-classType		STRUCTURAL
-dmdID			409
-may				svComplex
-may				mvComplex

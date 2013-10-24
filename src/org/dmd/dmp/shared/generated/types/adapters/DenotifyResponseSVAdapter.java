@@ -14,7 +14,7 @@ public class DenotifyResponseSVAdapter extends DmcTypeDenotifyResponseREFSV impl
     transient DmcTypeDenotifyResponseREFSV existingValue;
 
     public DenotifyResponseSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

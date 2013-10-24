@@ -21,21 +21,17 @@ import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
-import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcClassInfo;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.StringName;
-import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dms.generated.dmo.ClassDefinitionDMO;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
-import org.dmd.dms.generated.dmo.RuleDataDMO;
 import org.dmd.dms.generated.dmw.ClassDefinitionDMW;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
 import org.dmd.dms.generated.types.DmwTypeToWrapperType;
 import org.dmd.dmw.DmwWrapper;
-import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
@@ -169,10 +165,6 @@ public class ClassDefinition extends ClassDefinitionDMW {
     
     // This is initialized in the SchemaAG for a class so that we can easily access it
     DmcClassInfo	classInfo;
-    
-    // Rules applied to this attribute within the scope of a particular class
-    ArrayList<RuleDataDMO>		classRules;
-    
 
     /**
      * Default constructor.
@@ -200,35 +192,6 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * part of the SchemaAG.
      */
     public DmcClassInfo getClassInfo(){
-    	return(classInfo);
-    }
-    
-    /**
-     * @return the DmcClassInfo that was associated with this definition when it was constructed as
-     * part of the SchemaAG.
-     */
-    public DmcClassInfo getDynamicClassInfo(){
-    	if (classInfo == null){
-    		DmcAttributeInfo na = null;
-    		if (this.getIsNamedBy() != null){
-    			na = this.getIsNamedBy().getAttributeInfo();
-    		}
-    		
-    		if (getDerivedFrom() == null)
-        		classInfo = new DmcClassInfo(getName().getNameString(), getDmoImport(), getDmdID(), getClassType(), getDataType(), null, na);
-    		else
-    			classInfo = new DmcClassInfo(getName().getNameString(), getDmoImport(), getDmdID(), getClassType(), getDataType(), getDerivedFrom().getDynamicClassInfo(), na);
-
-    		if (getMaySize() > 0){
-    			for(AttributeDefinition ad: getMay())
-    				classInfo.addMay(ad.getAttributeInfo());
-    		}
-
-    		if (getMustSize() > 0){
-    			for(AttributeDefinition ad: getMust())
-    				classInfo.addMust(ad.getAttributeInfo());
-    		}
-    	}
     	return(classInfo);
     }
     
@@ -299,14 +262,6 @@ public class ClassDefinition extends ClassDefinitionDMW {
     		return(false);
     	else
     		return(true);
-    }
-    
-    public boolean isAllowedAttribute(StringName name){
-    	if (fullAttrMap == null)
-    		getFullAttrMap();
-    	if (fullAttrMap.get(name) == null)
-    		return(false);
-    	return(true);
     }
     
     private void initAttrMap(){
@@ -561,9 +516,6 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * classes that derive from this class
      */
     public TreeMap<StringName,ClassDefinition> getAllDerived() {
-    	if (allDerived == null)
-    		updateAllDerived(this);
-    	
         return allDerived;
     } 
 
@@ -686,31 +638,6 @@ public class ClassDefinition extends ClassDefinitionDMW {
 
         return(rc);
     }
-    
-    /**
-     * @param cd the class against which we're testing
-     * @return true if we are the specific class or we're derived from it.
-     */
-    public boolean isInstanceOfThis(ClassDefinition cd){
-    	boolean rc = false;
-    	
-    	if (this.getObjectName().getNameString().equals(cd.getName().getNameString()))
-    		rc = true;
-    	else{
-    		ArrayList<ClassDefinition> classes = getBaseClasses();
-    		
-    		if (classes != null){
-	    		for(ClassDefinition cdef: classes){
-	    			if (this.getObjectName().getNameString().equals(cdef.getName().getNameString())){
-	    				rc = true;
-	    				break;
-	    			}
-	    		}
-    		}
-    	}
-    	
-    	return(rc);
-    }
 
     /**
      * Returns the complete set of base classes from which this class is derived.
@@ -821,11 +748,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
 		}
 		else if (getUseWrapperType() == WrapperTypeEnum.EXTENDED){
 			try {
-				if (getDefinedIn().getName().getNameString().equals(MetaDMSAG.instance().getSchemaName())){
-					setJavaClass(genPackage + "." + getName());
-					setDmeImport(genPackage + "." + getName());
-				}
-				else if (getSubpackage() != null){
+				if (getSubpackage() != null){
 					setJavaClass(genPackage + ".extended." + getSubpackage() + "." + getName());
 					setDmeImport(genPackage + ".extended." + getSubpackage() + "." + getName());
 				}
@@ -924,103 +847,5 @@ public class ClassDefinition extends ClassDefinitionDMW {
         return(shortest);
     }    
     
-    ///////////////////////////////////////////////////////////////////////////
-    
-    /**
-     * This method is used in conjunction with the rule instantiation mechanisms.
-     * It will determine whether or not additional type imports are required for
-     * an extensible rule class, for example, the InitRule. These imports are
-     * required because we have to use the basic DmcObject mechanisms to add the
-     * values for the attributes to the extensible object.
-     * <p/>
-     * This method also provides basic must/may checking of the specified attributes
-     * and will throw an exception for unknown attributes on a structural class.
-     * @param imports where we'll add the required imports.
-     * @param uco the rule data object.
-     * @throws ResultException 
-     */
-    public void addImportsForAdditionalAttributes(SchemaManager sm, ImportManager imports, DmcUncheckedObject uco) throws ResultException{
-    	ResultException ex = null;
-    	
-    	Iterator<String> attrNames = uco.getAttributeNames();
-    	if (attrNames != null){
-    		while(attrNames.hasNext()){
-    			String		name = attrNames.next();
-    			StringName 	attr = new StringName(name);
-    			if (!isAllowedAttribute(attr)){
-    				if (getClassType() == ClassTypeEnum.EXTENSIBLE){
-    					// Add the appropriate import for the attribute's type
-    					AttributeDefinition ad = sm.isAttribute(name);
-    					
-    					if (ad == null){
-        					if (ex == null)
-        						ex = new ResultException();
-        					ex.addError("The " + attr + " attribute is not defined, but used in " + uco.getConstructionClass());
-        					setExceptionLocation(ex,uco);
-    					}
-    					else
-    						imports.addImport(ad.getTypeImport(), "Support for addition of " + name + " values to the extensible " + uco.getConstructionClass() + " class");
-    				}
-    				else{
-    					if (ex == null)
-    						ex = new ResultException();
-    					ex.addError("The " + attr + " attribute is not valid for class " + uco.getConstructionClass());
-    					setExceptionLocation(ex,uco);
-    				}
-    			}
-    		}
-    	}
-    	
-    	if (ex != null)
-    		throw(ex);
-    }
-    
-    void setExceptionLocation(ResultException ex, DmcUncheckedObject uco){
-    	try {
-			int ln = Integer.parseInt(uco.getSV(MetaDMSAG.__lineNumber.name));
-			String file = uco.getSV(MetaDMSAG.__file.name);
-			ex.setLocationInfo(file, ln);
-		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    }
-    
-    public boolean hasRules(){
-    	if (classRules == null)
-    		getClassRules();
-    	if (classRules.size() > 0)
-    		return(true);
-    	return(false);
-    }    
-
-    public Iterator<RuleDataDMO> getClassRules(){
-    	if (classRules == null){
-  
-    		classRules = new ArrayList<RuleDataDMO>();
-    		
-    		// Get any objects that are referring to us via the applyToClass attribute
-			ArrayList<DmcObject> referring = getDMO().getReferringObjectsViaAttribute(MetaDMSAG.__applyToClass);
-			
-			DebugInfo.debug("\n" +getDMO().getBackRefs());
-			
-			if (this.getName().getNameString().equals("ValueLengthRuleData")){
-				DebugInfo.debug("HERE");
-			}
-			
-			if (referring != null){
-				for(DmcObject obj: referring){
-					if (obj instanceof RuleDataDMO){
-						RuleDataDMO rd = (RuleDataDMO) obj;
-						
-						if (rd.get(MetaDMSAG.__applyToAttribute) == null)
-							classRules.add(rd);
-					}
-				}
-			}
-    	}
-    	
-    	return(classRules.iterator());
-    }
 
 }

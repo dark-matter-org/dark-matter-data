@@ -14,7 +14,7 @@ public class LogoutRequestSVAdapter extends DmcTypeLogoutRequestREFSV implements
     transient DmcTypeLogoutRequestREFSV existingValue;
 
     public LogoutRequestSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

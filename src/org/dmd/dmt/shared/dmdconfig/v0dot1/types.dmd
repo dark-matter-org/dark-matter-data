@@ -2,6 +2,7 @@ TypeDefinition
 name			DmtStringName
 typeClassName	org.dmd.dmt.shared.types.DmcTypeDmtStringName
 primitiveType	org.dmd.dmt.shared.types.DmtStringName
+nameType		STRUCTURAL
 isNameType		true
 description		The DmtStringName type was created to test the definition of name types.
 

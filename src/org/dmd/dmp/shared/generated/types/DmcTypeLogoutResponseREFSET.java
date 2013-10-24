@@ -29,7 +29,7 @@ import org.dmd.dmp.shared.generated.dmo.LogoutResponseDMO;    // DmcType import
  * The DmcTypeLogoutResponseREFSET provides storage for a set of LogoutResponseDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2602)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
  */
 @SuppressWarnings("serial")
@@ -50,7 +50,7 @@ public class DmcTypeLogoutResponseREFSET extends DmcTypeLogoutResponseREF implem
     }
     
     void initValue(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<LogoutResponseDMO>();
         else
             value = new TreeSet<LogoutResponseDMO>();
@@ -58,11 +58,11 @@ public class DmcTypeLogoutResponseREFSET extends DmcTypeLogoutResponseREF implem
     
     @Override
     public DmcTypeLogoutResponseREFSET getNew(){
-        return(new DmcTypeLogoutResponseREFSET(getAttributeInfo()));
+        return(new DmcTypeLogoutResponseREFSET(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2643)
     public DmcAttribute<LogoutResponseDMO> cloneIt(){
         synchronized(this){
             DmcTypeLogoutResponseREFSET rc = getNew();
@@ -81,7 +81,7 @@ public class DmcTypeLogoutResponseREFSET extends DmcTypeLogoutResponseREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2666)
     public LogoutResponseDMO add(Object v) throws DmcValueException {
         synchronized(this){
             LogoutResponseDMO rc = typeCheck(v);
@@ -97,7 +97,7 @@ public class DmcTypeLogoutResponseREFSET extends DmcTypeLogoutResponseREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2683)
     public LogoutResponseDMO del(Object v){
         synchronized(this){
             LogoutResponseDMO rc = null;
@@ -121,23 +121,23 @@ public class DmcTypeLogoutResponseREFSET extends DmcTypeLogoutResponseREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2708)
     public Iterator<LogoutResponseDMO> getMV(){
         synchronized(this){
             if (value == null)
                 return(emptyList);
 
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<LogoutResponseDMO>(value)).iterator() );
             else
                 return( (new TreeSet<LogoutResponseDMO>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2722)
     public Set<LogoutResponseDMO> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET){
                 if (value == null)
                     return(new HashSet<LogoutResponseDMO>());
                 else
@@ -153,7 +153,7 @@ public class DmcTypeLogoutResponseREFSET extends DmcTypeLogoutResponseREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2742)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -163,7 +163,7 @@ public class DmcTypeLogoutResponseREFSET extends DmcTypeLogoutResponseREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2753)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

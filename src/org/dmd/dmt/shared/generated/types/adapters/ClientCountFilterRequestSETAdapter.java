@@ -14,7 +14,7 @@ public class ClientCountFilterRequestSETAdapter extends DmcTypeClientCountFilter
     transient DmcTypeClientCountFilterRequestREFSET existingValue;
 
     public ClientCountFilterRequestSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

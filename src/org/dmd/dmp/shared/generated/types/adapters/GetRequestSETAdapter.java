@@ -14,7 +14,7 @@ public class GetRequestSETAdapter extends DmcTypeGetRequestREFSET implements Dmc
     transient DmcTypeGetRequestREFSET existingValue;
 
     public GetRequestSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

@@ -29,7 +29,7 @@ import org.dmd.map.generated.enums.MapZoomEnum;    // DmcType import
  * The DmcTypeMapZoomEnumSET provides storage for a set of MapZoomEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2602)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:362)
  */
 @SuppressWarnings("serial")
@@ -50,7 +50,7 @@ public class DmcTypeMapZoomEnumSET extends DmcTypeMapZoomEnum implements Seriali
     }
     
     void initValue(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<MapZoomEnum>();
         else
             value = new TreeSet<MapZoomEnum>();
@@ -58,11 +58,11 @@ public class DmcTypeMapZoomEnumSET extends DmcTypeMapZoomEnum implements Seriali
     
     @Override
     public DmcTypeMapZoomEnumSET getNew(){
-        return(new DmcTypeMapZoomEnumSET(getAttributeInfo()));
+        return(new DmcTypeMapZoomEnumSET(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2643)
     public DmcAttribute<MapZoomEnum> cloneIt(){
         synchronized(this){
             DmcTypeMapZoomEnumSET rc = getNew();
@@ -81,7 +81,7 @@ public class DmcTypeMapZoomEnumSET extends DmcTypeMapZoomEnum implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2666)
     public MapZoomEnum add(Object v) throws DmcValueException {
         synchronized(this){
             MapZoomEnum rc = typeCheck(v);
@@ -97,7 +97,7 @@ public class DmcTypeMapZoomEnumSET extends DmcTypeMapZoomEnum implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2683)
     public MapZoomEnum del(Object v){
         synchronized(this){
             MapZoomEnum rc = null;
@@ -121,23 +121,23 @@ public class DmcTypeMapZoomEnumSET extends DmcTypeMapZoomEnum implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2708)
     public Iterator<MapZoomEnum> getMV(){
         synchronized(this){
             if (value == null)
                 return(emptyList);
 
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<MapZoomEnum>(value)).iterator() );
             else
                 return( (new TreeSet<MapZoomEnum>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2722)
     public Set<MapZoomEnum> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET){
                 if (value == null)
                     return(new HashSet<MapZoomEnum>());
                 else
@@ -153,7 +153,7 @@ public class DmcTypeMapZoomEnumSET extends DmcTypeMapZoomEnum implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2742)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -163,7 +163,7 @@ public class DmcTypeMapZoomEnumSET extends DmcTypeMapZoomEnum implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2753)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

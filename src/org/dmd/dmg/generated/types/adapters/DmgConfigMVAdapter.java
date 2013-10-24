@@ -14,7 +14,7 @@ public class DmgConfigMVAdapter extends DmcTypeDmgConfigREFMV implements DmcAdap
     transient DmcTypeDmgConfigREFMV existingValue;
 
     public DmgConfigMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

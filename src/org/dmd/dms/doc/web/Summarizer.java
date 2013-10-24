@@ -1,19 +1,12 @@
 package org.dmd.dms.doc.web;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Iterator;
 import java.util.TreeMap;
 
-import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
-import org.dmd.dms.generated.dmo.RuleDataDMO;
-import org.dmd.util.exceptions.DebugInfo;
 
 public class Summarizer {
 
@@ -23,25 +16,20 @@ public class Summarizer {
 
 	TreeMap<String,TreeMap<String,DmsDefinition>>	definitionsByLetter;
 	
-	String 				outDir;
+	String 			outDir;
 	
 	// The content of the navigation sidebar
-	StringBuffer		sidebar;
+	StringBuffer	sidebar;
 	
-	StringBuffer		idSummary;
+	StringBuffer	idSummary;
 	
-//    DmoObjectFactory	dmofactory;
-//    DmwObjectFactory	dmwFactory;
-
-    public Summarizer(SchemaManager sm, String od){
+	public Summarizer(SchemaManager sm, String od){
 		allSchemasByID 		= new TreeMap<Integer, SchemaDefinition>();
 		allSchemasByName 	= new TreeMap<String, SchemaDefinition>();
 		definitionsByLetter = new TreeMap<String, TreeMap<String,DmsDefinition>>();
 		outDir 				= od;
 		sidebar				= new StringBuffer();
 		idSummary			= new StringBuffer();
-//        dmofactory			= new DmoObjectFactory(sm);
-//        dmwFactory			= new DmwObjectFactory(sm);
 		
 		Iterator<SchemaDefinition> sdit = sm.getSchemas();
 		if (sdit != null){
@@ -57,8 +45,7 @@ public class Summarizer {
 		
 		buildIDSummary();
 		
-		DmcOmni.instance().setTrackSchemaReferences(true);
-		DmcOmni.instance().backRefTracking(true);		
+		
 
 		for(DmsDefinition def: sm.allDefs.values()){
 			def.getDMO().clearReferenceInfo();
@@ -74,20 +61,6 @@ public class Summarizer {
 				e.printStackTrace();
 			}
 		}
-		
-		for(SchemaDefinition sd: allSchemasByName.values()){
-			Iterator<RuleDataDMO> rules = sd.getParsedRulesDMOs(sm);
-			while(rules.hasNext()){
-				RuleDataDMO rule = rules.next();
-				try {
-					rule.resolveReferences(sm);
-				} catch (DmcValueExceptionSet e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		}
-		
 	}
 	
 	public String getSideBar(){
@@ -95,16 +68,12 @@ public class Summarizer {
 	}
 	
 	void buildSidebar(){
-		sidebar.append("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n");
 		sidebar.append("    <div id=\"sidebar\">\n");
 		
 		for(SchemaDefinition sd: allSchemasByName.values()){
 			String name = sd.getName().getNameString();
 			sidebar.append("        <a class=\"navLink\" href=\"" + name + ".html\"> " + name + "</a>\n");
 		}
-		
-		sidebar.append("        <a class=\"navLink\" href=\"SchemaSummaryPage.html\"> Summary </a>\n");
-		
 		
 		sidebar.append("    </div>\n");
 	}
@@ -120,15 +89,15 @@ public class Summarizer {
 			int end = sd.getSchemaBaseID() + sd.getSchemaIDRange();
 			String name = sd.getName().getNameString();
 			idSummary.append("    <tr>\n");
-			idSummary.append("      <td>\n");
+			idSummary.append("    <td>\n");
+			idSummary.append("    </td>\n");
 			idSummary.append("    " + name + "\n");
-			idSummary.append("      </td>\n");
-			idSummary.append("      <td>\n");
-			idSummary.append("      " + sd.getSchemaBaseID() + "\n");
-			idSummary.append("      </td>\n");
-			idSummary.append("      <td>\n");
-			idSummary.append("      " + end + "\n");
-			idSummary.append("      </td>\n");
+			idSummary.append("    <td>\n");
+			idSummary.append("    " + sd.getSchemaBaseID() + "\n");
+			idSummary.append("    </td>\n");
+			idSummary.append("    <td>\n");
+			idSummary.append("    " + end + "\n");
+			idSummary.append("    </td>\n");
 			idSummary.append("    </tr>\n");
 		}
 		
@@ -136,7 +105,7 @@ public class Summarizer {
 
 		idSummary.append("</div> <!-- idSummary -->\n\n");
 
-//		idSummary.append("<table>\n");
+		idSummary.append("<table>\n");
 		
 	}
 	
@@ -164,23 +133,8 @@ public class Summarizer {
 		}
 	}
 	
-	public void dumpSchemaSummaryPage(String outdir) throws IOException{
-		String ofn = outdir + File.separator + "SchemaSummaryPage.html";
-		BufferedWriter out = new BufferedWriter( new FileWriter(ofn) );
+	static public void dumpSchemaSummaryPage(String outdir){
 		
-		StandardParts.writePageHeader(out, "Schema Summary");
-		
-		StandardParts.writeContentStart(out);
-		
-		out.write(idSummary.toString());
-		
-		StandardParts.writeContentEnd(out);
-
-		out.write(this.getSideBar());
-		
-		StandardParts.writePageFooter(out);
-		
-		out.close();
 	}
 	
 }

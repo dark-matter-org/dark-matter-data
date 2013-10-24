@@ -29,7 +29,7 @@ import org.dmd.dmp.shared.generated.enums.ResponseFormatEnum;    // DmcType impo
  * The DmcTypeResponseFormatEnumSET provides storage for a set of ResponseFormatEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2602)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:362)
  */
 @SuppressWarnings("serial")
@@ -50,7 +50,7 @@ public class DmcTypeResponseFormatEnumSET extends DmcTypeResponseFormatEnum impl
     }
     
     void initValue(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<ResponseFormatEnum>();
         else
             value = new TreeSet<ResponseFormatEnum>();
@@ -58,11 +58,11 @@ public class DmcTypeResponseFormatEnumSET extends DmcTypeResponseFormatEnum impl
     
     @Override
     public DmcTypeResponseFormatEnumSET getNew(){
-        return(new DmcTypeResponseFormatEnumSET(getAttributeInfo()));
+        return(new DmcTypeResponseFormatEnumSET(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2643)
     public DmcAttribute<ResponseFormatEnum> cloneIt(){
         synchronized(this){
             DmcTypeResponseFormatEnumSET rc = getNew();
@@ -81,7 +81,7 @@ public class DmcTypeResponseFormatEnumSET extends DmcTypeResponseFormatEnum impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2666)
     public ResponseFormatEnum add(Object v) throws DmcValueException {
         synchronized(this){
             ResponseFormatEnum rc = typeCheck(v);
@@ -97,7 +97,7 @@ public class DmcTypeResponseFormatEnumSET extends DmcTypeResponseFormatEnum impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2683)
     public ResponseFormatEnum del(Object v){
         synchronized(this){
             ResponseFormatEnum rc = null;
@@ -121,23 +121,23 @@ public class DmcTypeResponseFormatEnumSET extends DmcTypeResponseFormatEnum impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2708)
     public Iterator<ResponseFormatEnum> getMV(){
         synchronized(this){
             if (value == null)
                 return(emptyList);
 
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<ResponseFormatEnum>(value)).iterator() );
             else
                 return( (new TreeSet<ResponseFormatEnum>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2722)
     public Set<ResponseFormatEnum> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET){
                 if (value == null)
                     return(new HashSet<ResponseFormatEnum>());
                 else
@@ -153,7 +153,7 @@ public class DmcTypeResponseFormatEnumSET extends DmcTypeResponseFormatEnum impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2742)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -163,7 +163,7 @@ public class DmcTypeResponseFormatEnumSET extends DmcTypeResponseFormatEnum impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2753)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

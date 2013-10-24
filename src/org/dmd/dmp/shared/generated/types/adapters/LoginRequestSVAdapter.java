@@ -14,7 +14,7 @@ public class LoginRequestSVAdapter extends DmcTypeLoginRequestREFSV implements D
     transient DmcTypeLoginRequestREFSV existingValue;
 
     public LoginRequestSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

@@ -14,7 +14,7 @@ public class UnnamedObjMVIDXSVAdapter extends DmcTypeUnnamedObjMVIDXREFSV implem
     transient DmcTypeUnnamedObjMVIDXREFSV existingValue;
 
     public UnnamedObjMVIDXSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

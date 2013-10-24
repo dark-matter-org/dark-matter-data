@@ -21,7 +21,6 @@ import org.junit.*;
 import static org.junit.Assert.assertNotNull;
 
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.util.exceptions.ResultException;
@@ -48,7 +47,7 @@ public class TestDmsSchemaParser {
 	}
 	
 	@Test
-	public void testParseDMPSchema() throws ResultException, DmcValueException, DmcRuleExceptionSet{
+	public void testParseDMPSchema() throws ResultException, DmcValueException{
 		DmsSchemaParser parser = new DmsSchemaParser(dmsSchema, finder);
 		SchemaDefinition dmp	= null;
 		
@@ -58,7 +57,7 @@ public class TestDmsSchemaParser {
 	}
 	
 	@Test(expected=ResultException.class)
-	public void testParseUnknownSchema() throws ResultException, DmcValueException, DmcRuleExceptionSet{
+	public void testParseUnknownSchema() throws ResultException, DmcValueException{
 		DmsSchemaParser parser = new DmsSchemaParser(dmsSchema, finder);
 		
 		parser.parseSchema(readSchemas, "unknown", true);

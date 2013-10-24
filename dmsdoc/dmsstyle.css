@@ -74,10 +74,6 @@ a:active {
 	text-decoration:underline;
 }
 
-a.blackText:link {
-	color: black;
-}
-	
 td {
   vertical-align: top;
   padding-bottom: 8px;
@@ -88,30 +84,8 @@ td {
 	width: 120px;
 }
 
-.attributeSectionLabel {
-	margin-top: 30px;
-	padding-bottom: 5px;	
-	border-top-style: solid;
-	border-color: black;
-	border-width: 1px;
-	background-color: #EEEEEE;
-}
-
 .className {
 	font-weight: bold;
-	font-size: larger;
-	padding-top: 50px;
-}
-
-.ruleDefName {
-	font-weight: bold;
-	font-size: larger;
-	padding-top: 50px;
-}
-
-.ruleDetailTitle {
-	font-weight: bold;
-	padding-top: 30px;
 }
 
 .attributeName {
@@ -124,10 +98,6 @@ td {
 
 .sliceName {
 	font-weight: bold;
-}
-
-.attributeRule {
-	background-color: #C3E3CA;
 }
 
 .valueType {
@@ -182,9 +152,8 @@ td {
 
 
 
-.codeFragment {
-	font-family: monospace;
-}
+
+
 
 
 .schemaName {

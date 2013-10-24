@@ -14,7 +14,7 @@ public class ActionResponseSVAdapter extends DmcTypeActionResponseREFSV implemen
     transient DmcTypeActionResponseREFSV existingValue;
 
     public ActionResponseSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

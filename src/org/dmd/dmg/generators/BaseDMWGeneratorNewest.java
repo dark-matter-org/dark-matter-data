@@ -688,7 +688,7 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 	 * required for the DMO.
 	 * @param cd        The class definition of the object.
 	 * @param allAttr   An array that will be populated with all attribute definitions of the class.
-	 * @param imports   The import manager where we accumulate required imports.
+	 * @param sb        The buffer where the import statements are accumulated.
 	 */
 	public void getAttributesAndImports(ClassDefinition cd, ArrayList<AttributeDefinition> allAttr, ImportManager imports){
 //		IntegerVar		longestImport	= new IntegerVar();
@@ -935,10 +935,8 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 			imports.addImport(nameAttributeType, "Is named by");
 		}
 			
-		if (useWrappedObjectRefs){
-//			imports.addImport("org.dmd.dms.*", "Always 2");
-			imports.addImport("org.dmd.dms.ClassDefinition", "Passing derived class def up the hierarchy");
-		}
+		if (useWrappedObjectRefs)
+			imports.addImport("org.dmd.dms.*", "Always 2");
 		
 		if ( (cd.getClassType() != ClassTypeEnum.ABSTRACT) && (cd.getClassType() != ClassTypeEnum.AUXILIARY)){
 			imports.addImport("org.dmd.dms.generated.types.DmcTypeModifierMV", "Required for MODREC constructor");
@@ -1277,10 +1275,6 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 				sb.append("    }\n\n");
     		}
     		else{
-//    			if (ad.getType().getName().equals("AttributeDefinition")){
-//    				DebugInfo.debugWithTrace("HERE");
-//    			}
-    			
     			String suffix = "";
     			if (ad.getType().getOriginalClass().getDmwWrapperType(genContext) == WrapperTypeEnum.EXTENDED)
     				suffix = "";

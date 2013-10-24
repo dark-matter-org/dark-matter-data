@@ -14,7 +14,7 @@ public class LoginResponseMVAdapter extends DmcTypeLoginResponseREFMV implements
     transient DmcTypeLoginResponseREFMV existingValue;
 
     public LoginResponseMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

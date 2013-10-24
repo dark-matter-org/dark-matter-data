@@ -14,7 +14,7 @@ public class SetResponseSVAdapter extends DmcTypeSetResponseREFSV implements Dmc
     transient DmcTypeSetResponseREFSV existingValue;
 
     public SetResponseSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

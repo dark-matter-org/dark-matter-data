@@ -1,119 +1,28 @@
 AttributeDefinition
-name   			nrrMinimum
-dmdID			1
-type        	Double
-description		The minimum numeric value.
-
-AttributeDefinition
-name   			nrrMaximum
-dmdID			2
-type        	Double
-description		The maximum numeric value.
-
-AttributeDefinition
-name   			numericRelation
-dmdID			3
-type        	NumericRelationEnum
-description		The relationship between numeric values.
-
-AttributeDefinition
-name   			lhs
-dmdID			4
-type        	AttributeDefinition
-description		The attribute to be used as the left hand side of some relationship. The
- type of the attribute referred to may differ from one rule to the next depending on
- the relationship being tested.
-
-AttributeDefinition
-name   			rhs
-dmdID			5
-type        	AttributeDefinition
-description		The attribute to be used as the right hand side of some relationship. The
- type of the attribute referred to may differ from one rule to the next depending on
- the relationship being tested.
-
-AttributeDefinition
-name   			allowedType
-dmdID			6
-type        	TypeDefinition
-valueType		MULTI
-description		The allowedType indicates a collection of defined types to which something,
- usually and attribute, must conform.
-
-AttributeDefinition
-name   			basedOnAttribute
-dmdID			7
-type        	AttributeDefinition
-description		The basedOnAttribute allows for the specification of an attribute on which
- some type of a decision is made.
-
-AttributeDefinition
-name   			basedOnValue
-dmdID			8
-type        	String
-valueType		HASHSET
-description		The basedOnValue attribute allows for the specification of values for some
- aspect of a rule.
-
-AttributeDefinition
-name   			excludeThisAttribute
-dmdID			9
-type        	AttributeDefinition
-valueType		MULTI
-description		The excludeThisAttribute indicates an optional attribute that must be
- excluded from an object under certain conditions.
- 
-AttributeDefinition
-name   			includeThisAttribute
-dmdID			10
-type        	AttributeDefinition
-valueType		MULTI
-description		The includeThisAttribute indicates an optional attribute that must be
- present under certain conditions.
-
-AttributeDefinition
-name   			onePossibility
-dmdID			11
-type        	AttributeDefinition
-valueType		MULTI
-description		The onePossibility attribute indicates an attribute that is one possiblity among
- many. 
-
-AttributeDefinition
-name   			andOnlyOne
-dmdID			12
-type        	Boolean
-description		The andOnlyOne attribute indicates that only one of a set of possibilities is
- allowed.
- 
-AttributeDefinition
-name			matchesPattern
-dmdID			13
+name			ruleTitle
+dmdID			0
 type			String
-description		The matchesPattern attribute indicates a regular expression that conforms
- to the 
+description		The description title of a rule.
 
 AttributeDefinition
-name			maxLength
-dmdID			14
-type			Integer
-description		The maxLength attribute indicates the maximum length of something.
+name			loadedFrom
+dmdID			1
+type			String
+description		The place from which a rule was loaded. This may be a file
+ or an indication that the rule was instantiated and loaded internally.
 
 AttributeDefinition
-name			minLength
-dmdID			15
-type			Integer
-description		The minLength attribute indicates the minimum length of something.
-
+name			applyToClass
+dmdID			2
+type			ClassDefinition
+description		A reference to the definition of an class to which a 
+ rule should be applied.
+ 
 AttributeDefinition
-name   			allowedValueType
-dmdID			16
-type        	ValueTypeEnum
-description		The allowedValueType indicates the allowed cardinality of an attribute.
-
-//AttributeDefinition
-//name   			referringAttribute
-//dmdID			17
-//type        	AttributeDefinition
-//description		The referringAttribute indicates the attribute that refers to another attribute.
+name			applyToAttribute
+dmdID			3
+type			AttributeDefinition
+description		A reference to the definition of an attribute to which a 
+ rule should be applied.
+ 
 

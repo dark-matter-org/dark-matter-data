@@ -14,7 +14,7 @@ import org.dmd.dmt.shared.generated.dmo.NamedObjHSDMO;    // DmcType import
  * The DmcTypeNamedObjHSREFSET provides storage for a set of NamedObjHSDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2602)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
  */
 @SuppressWarnings("serial")
@@ -35,7 +35,7 @@ public class DmcTypeNamedObjHSREFSET extends DmcTypeNamedObjHSREF implements Ser
     }
     
     void initValue(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<NamedObjHSDMO>();
         else
             value = new TreeSet<NamedObjHSDMO>();
@@ -43,11 +43,11 @@ public class DmcTypeNamedObjHSREFSET extends DmcTypeNamedObjHSREF implements Ser
     
     @Override
     public DmcTypeNamedObjHSREFSET getNew(){
-        return(new DmcTypeNamedObjHSREFSET(getAttributeInfo()));
+        return(new DmcTypeNamedObjHSREFSET(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2643)
     public DmcAttribute<NamedObjHSDMO> cloneIt(){
         synchronized(this){
             DmcTypeNamedObjHSREFSET rc = getNew();
@@ -66,7 +66,7 @@ public class DmcTypeNamedObjHSREFSET extends DmcTypeNamedObjHSREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2666)
     public NamedObjHSDMO add(Object v) throws DmcValueException {
         synchronized(this){
             NamedObjHSDMO rc = typeCheck(v);
@@ -82,7 +82,7 @@ public class DmcTypeNamedObjHSREFSET extends DmcTypeNamedObjHSREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2683)
     public NamedObjHSDMO del(Object v){
         synchronized(this){
             NamedObjHSDMO rc = null;
@@ -106,23 +106,23 @@ public class DmcTypeNamedObjHSREFSET extends DmcTypeNamedObjHSREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2708)
     public Iterator<NamedObjHSDMO> getMV(){
         synchronized(this){
             if (value == null)
                 return(emptyList);
 
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<NamedObjHSDMO>(value)).iterator() );
             else
                 return( (new TreeSet<NamedObjHSDMO>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2722)
     public Set<NamedObjHSDMO> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET){
                 if (value == null)
                     return(new HashSet<NamedObjHSDMO>());
                 else
@@ -138,7 +138,7 @@ public class DmcTypeNamedObjHSREFSET extends DmcTypeNamedObjHSREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2742)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -148,7 +148,7 @@ public class DmcTypeNamedObjHSREFSET extends DmcTypeNamedObjHSREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2753)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

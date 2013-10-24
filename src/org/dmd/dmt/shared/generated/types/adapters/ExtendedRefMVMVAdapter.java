@@ -14,7 +14,7 @@ public class ExtendedRefMVMVAdapter extends DmcTypeExtendedRefMVREFMV implements
     transient DmcTypeExtendedRefMVREFMV existingValue;
 
     public ExtendedRefMVMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

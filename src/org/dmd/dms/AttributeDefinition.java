@@ -16,18 +16,12 @@
 package org.dmd.dms;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
-import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.util.NamedStringArray;
 import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;
-import org.dmd.dms.generated.dmo.MetaDMSAG;
-import org.dmd.dms.generated.dmo.RuleDataDMO;
 import org.dmd.dms.generated.dmw.AttributeDefinitionDMW;
-import org.dmd.dms.generated.enums.ValueTypeEnum;
 
 public class AttributeDefinition extends AttributeDefinitionDMW {
 
@@ -37,18 +31,12 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
 	TypeDefinition	typeDef;
 	
     // Indicates the classes that include this attribute.
-    ArrayList<ClassDefinition>   usedByClasses;
+    public ArrayList<ClassDefinition>   usedByClasses;
 
     /**
      * Indicates the actions that include this attribute.
      */
-    ArrayList<ActionDefinition>   usedByActions;
-    
-    // Rules applied to this attribute within the scope of a particular class
-    ArrayList<RuleDataDMO>		classRules;
-    
-    // Global rules that apply to this attribute
-    ArrayList<RuleDataDMO>		globalRules;
+    public ArrayList<ActionDefinition>   usedByActions;
     
     // This is initialized when we call getAttributeInfo. This mechanism is used to
     // support auxiliary classes that are parsed from file of deserialized.
@@ -65,76 +53,6 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
     public AttributeDefinition(AttributeDefinitionDMO obj){
     	super(obj);
     	attrInfo = null;
-    }
-    
-    public int getUsedByActionsSize(){
-    	if (usedByActions == null)
-    		return(0);
-    		
-    	return(usedByActions.size());
-    }
-    
-    public ActionDefinition getUsedByActionsNth(int i){
-    	if (usedByActions == null)
-    		return(null);
-    	
-    	return(usedByActions.get(i));
-    }
-    
-    public int getUsedByClassesSize(){
-    	if (usedByClasses == null)
-    		return(0);
-    	return(usedByClasses.size());
-    }
-    
-    public ClassDefinition getUsedByClassesNth(int i){
-    	if (usedByClasses == null)
-    		return(null);
-    	
-    	return(usedByClasses.get(i));
-    }
-    
-    /**
-     * @return true if this attribute has any global or class specific rules.
-     */
-    public boolean hasRules(){
-    	if (classRules == null)
-    		getClassRules();
-    	if ( (classRules.size() > 0) || (globalRules.size() > 0))
-    		return(true);
-    	return(false);
-    }
-    
-    public Iterator<RuleDataDMO> getClassRules(){
-    	if (classRules == null){
-    		classRules = new ArrayList<RuleDataDMO>();
-    		globalRules = new ArrayList<RuleDataDMO>();
-			ArrayList<DmcObject> referring = getDMO().getReferringObjects();
-			if (referring != null){
-				for(DmcObject obj: referring){
-					if (obj instanceof RuleDataDMO){
-						RuleDataDMO rd = (RuleDataDMO) obj;
-						
-						// We only look at attribute rules - they will always have
-						// the applyToAttribute attribute.
-						if (rd.get(MetaDMSAG.__applyToAttribute) != null){
-							if (rd.getApplyToClass() == null)
-								globalRules.add(rd);
-							else
-								classRules.add(rd);
-						}
-					}
-				}
-			}
-    	}
-    	
-    	return(classRules.iterator());
-    }
-    
-    public Iterator<RuleDataDMO> getGlobalRules(){
-    	if (globalRules == null)
-    		getClassRules();
-    	return(globalRules.iterator());
     }
     
 	/**
@@ -234,52 +152,5 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
     	}
     	
     	return(getType().getName() + REF + suffix + "Adapter");
-    }
-    
-    /**
-     * @return the import statement for the appropriate type of this attribute e.g. org.dmd.dms.generated.types.DmcTypeStringSV.
-     */
-    public String getTypeImport(){
-    	return(getType().getTypeImport(this));
-    }
-    
-    /**
-     * @return the name of the container type for this attribute e.g. DmcTypeStringSV
-     */
-    public String getContainerType(){
-    	return(getType().getContainerType(this));
-    }
-    
-    /**
-     * This is used when formatting rule data in the compact schema. It is used to format attribute
-     * containers for attributes used on extensible classes, for instance, initialization rules.
-     * @param uniqueNum a unique numeric identifier appended to the attribute instance name so
-     * that we don't have clashing attribute value names.
-     * @param indent
-     * @param prepend
-     * @param values
-     * @return
-     */
-    public String getValueModificationStatement(int uniqueNum, String indent, String prepend, NamedStringArray values){
-    	StringBuffer sb = new StringBuffer();
-    	
-    	
-    	if (getValueType() == ValueTypeEnum.SINGLE){
-    		sb.append(indent + getContainerType() + " " + values.getName() + "Value" + uniqueNum + " = null;\n");
-    		for(String value: values){
-    			sb.append(indent + values.getName() + "Value" + uniqueNum + " = new " + getContainerType() + "(" + getDMSAGReference() + ");\n");
-    			sb.append(indent + values.getName() + "Value" + uniqueNum + ".set(\"" + value + "\");\n");
-    			sb.append(prepend + ".set(" + getDMSAGReference() + ", " + values.getName() + "Value" + uniqueNum + ");\n");
-    		}
-    	}
-    	else{
-    		sb.append(indent + getContainerType() + " " + values.getName() + "Value" + uniqueNum + " = new " + getContainerType() + "(" + getDMSAGReference() + ");\n");
-    		for(String value: values){
-    			sb.append(indent + values.getName() + "Value" + uniqueNum + ".add(\"" + value + "\");\n");
-    		}
-			sb.append(prepend + ".add(" + getDMSAGReference() + ", " + values.getName() + "Value" + uniqueNum + ");\n");
-    	}
-    	
-    	return(sb.toString());
     }
 }

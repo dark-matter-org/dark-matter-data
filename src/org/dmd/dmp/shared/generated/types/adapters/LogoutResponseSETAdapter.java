@@ -14,7 +14,7 @@ public class LogoutResponseSETAdapter extends DmcTypeLogoutResponseREFSET implem
     transient DmcTypeLogoutResponseREFSET existingValue;
 
     public LogoutResponseSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

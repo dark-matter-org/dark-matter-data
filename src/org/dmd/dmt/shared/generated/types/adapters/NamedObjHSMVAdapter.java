@@ -14,7 +14,7 @@ public class NamedObjHSMVAdapter extends DmcTypeNamedObjHSREFMV implements DmcAd
     transient DmcTypeNamedObjHSREFMV existingValue;
 
     public NamedObjHSMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

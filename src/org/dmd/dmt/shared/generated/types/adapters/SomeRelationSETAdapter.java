@@ -14,7 +14,7 @@ public class SomeRelationSETAdapter extends DmcTypeSomeRelationSET implements Dm
     transient DmcTypeSomeRelationSET existingValue;
 
     public SomeRelationSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

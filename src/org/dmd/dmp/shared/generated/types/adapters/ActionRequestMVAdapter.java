@@ -14,7 +14,7 @@ public class ActionRequestMVAdapter extends DmcTypeActionRequestREFMV implements
     transient DmcTypeActionRequestREFMV existingValue;
 
     public ActionRequestMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

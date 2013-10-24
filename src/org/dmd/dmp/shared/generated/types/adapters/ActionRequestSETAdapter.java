@@ -14,7 +14,7 @@ public class ActionRequestSETAdapter extends DmcTypeActionRequestREFSET implemen
     transient DmcTypeActionRequestREFSET existingValue;
 
     public ActionRequestSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

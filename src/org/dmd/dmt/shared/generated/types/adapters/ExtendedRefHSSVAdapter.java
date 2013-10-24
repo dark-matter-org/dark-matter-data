@@ -14,7 +14,7 @@ public class ExtendedRefHSSVAdapter extends DmcTypeExtendedRefHSREFSV implements
     transient DmcTypeExtendedRefHSREFSV existingValue;
 
     public ExtendedRefHSSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

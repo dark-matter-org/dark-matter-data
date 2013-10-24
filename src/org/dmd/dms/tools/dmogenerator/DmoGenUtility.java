@@ -22,7 +22,6 @@ import java.util.Iterator;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
-import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.doc.web.DmsHtmlDocGenerator;
@@ -78,9 +77,7 @@ public class DmoGenUtility {
 	StringBuffer	cfg			= new StringBuffer();
 	BooleanVar		debug 		= new BooleanVar();
 	StringBuffer	docdir		= new StringBuffer();
-	StringArrayList	jars 		= new StringArrayList();
-	BooleanVar		checkRules 	= new BooleanVar();
-	BooleanVar		checkOnly 	= new BooleanVar();
+	StringArrayList			jars 		= new StringArrayList();
 	
 	public DmoGenUtility(String[] args) throws ResultException, IOException, DmcValueException, DmcValueExceptionSet {
 		initHelp();
@@ -93,8 +90,6 @@ public class DmoGenUtility {
         cl.addOption("-docdir",   	docdir,     "The documentation directory.");
         cl.addOption("-debug",   	debug,     	"Dump debug information.");
         cl.addOption("-jars",   	jars,     	"The prefixs of jars to search for .dms config files.");
-        cl.addOption("-checkRules",	checkRules,	"Indicates if you want to dynamically instantiate and validate rule definitions.");
-        cl.addOption("-checkOnly",	checkOnly,	"Indicates if you want to only check rule definitions, not generate code.");
 		
 		cl.parseArgs(args);
 		
@@ -184,7 +179,7 @@ public class DmoGenUtility {
         help.append("\n");
 	}
 	
-	public void run() throws DmcValueExceptionSet, DmcRuleExceptionSet {
+	public void run() throws DmcValueExceptionSet {
         BufferedReader  in = new BufferedReader(new InputStreamReader(System.in));
         String          currLine    = null;
         TokenArrayList	tokens		= null;
@@ -315,13 +310,6 @@ public class DmoGenUtility {
     		// Parse the specified schema
 			SchemaDefinition sd = parser.parseSchema(readSchemas, location.getConfigName(), false);
 			
-			if ((sd != null) && checkRules.booleanValue()){
-				parser.checkRules(sd);
-			}
-			
-			if (checkOnly.booleanValue())
-				return;
-			
 			if (docdir.length() > 0){
 //				if (workspace.length() > 0)
 //					docGenerator.dumpSchemaDoc(workspace.toString() + "/" + docdir.toString(), readSchemas);
@@ -346,12 +334,8 @@ public class DmoGenUtility {
 			System.err.println(e.toString());
 			System.exit(1);
 		} catch (DmcValueException e) {
-			System.err.println(e.toString());
+			System.out.println(e.toString());
 			e.printStackTrace();
-			System.exit(1);
-		} catch (DmcRuleExceptionSet e) {
-			System.err.println(e.toString());
-//			e.printStackTrace();
 			System.exit(1);
 		} catch (IOException e) {
 			System.err.println(e.toString());

@@ -18,7 +18,6 @@ package org.dmd.dmp.server.extended;
 import java.util.Iterator;
 
 import org.dmd.dmc.DmcAttribute;
-import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectName;
@@ -172,108 +171,6 @@ public class DMPEvent extends DMPEventDMW {
 		
 		return(rc);
 	}
-	
-	/**
-	 * This method will return either, the current event (if all information is PERSISTENT)
-	 * or a trimmed down clone of the event with non-PERSISTENT information removed. 
-	 * <p/>
-	 * If none of the data is PERSISTENT, null is returned.
-	 * <p />
-	 * If the source object class is not PERSISTENT, we return null.
-	 * <p />
-	 * If it's a CREATED/LOADED event, we check to see if any of the attributes are non-PERSISTENT,
-	 * if so, we strip those attributes from the source object and return a clone of the event 
-	 * with the source object replaced with a new source object WITHOUT the non-PERSISTENT attributes.
-	 * <p />
-	 * If it's a DELETE event, we just return the event (since it only has the name of the object
-	 * being deleted).
-	 * <p />
-	 * If it's a MODIFIED event, we check the modify attribute. If it refers to any PERSISTENT
-	 * attribute, we return true.
-	 * @return a clone of the DMPEvent with only the PERSISTENT information and null if there's no
-	 * PERSISTENT data.
-	 */
-	public DMPEvent getPersistentForm(){
-		DMPEvent rc = null;
-		
-		if (getSourceObjectClass() == null)
-			throw(new IllegalStateException("Malformed DMPEvent. Missing source object class for a " + getEventTypeDMP() + " event."));
-		
-		if (getSourceObjectClass().getDataType() != DataTypeEnum.PERSISTENT)
-			return(rc);
-
-		try {
-			if ( (getEventTypeDMP() == DMPEventTypeEnum.CREATED) || (getEventTypeDMP() == DMPEventTypeEnum.LOADED)){
-				if (getSourceObject() == null)
-					throw(new IllegalStateException("Malformed DMPEvent. Missing source object for a CREATE event."));
-				
-				DmcObject clonedSourceObj = getSourceObject().getNew();
-					
-				int nonPersistentCount = 0;
-				for(DmcAttribute<?> attr: getSourceObject().getAttributes().values()){
-					if (attr.getID() == DmcObject.__objectClass.id)
-						continue;
-					if (attr.getAttributeInfo().dataType == DataTypeEnum.PERSISTENT){
-						clonedSourceObj.add(attr.getAttributeInfo(), attr.cloneIt());
-					}
-					else
-						nonPersistentCount++;
-				}
-				
-				if (nonPersistentCount > 0){
-					// If we stripped any non persistent attributes, replace the source object
-					// with the new one.
-					rc = clone();
-					rc.remSourceObject();
-					rc.setSourceObject(clonedSourceObj);
-				}
-				else{
-					// We didn't modify anything, so just return teh event as is
-					rc = this;
-				}
-
-			}
-			else if (getEventTypeDMP() == DMPEventTypeEnum.DELETED){
-				rc = this;
-			}
-			else if (getEventTypeDMP() == DMPEventTypeEnum.MODIFIED){
-				if (getModifyAttribute() == null)
-					throw(new IllegalStateException("Malformed DMPEvent. Missing modify attribute for a MODIFIED event."));
-				
-				// Create a new modifier collection to which we'll add the persistent
-				// attribute modifications.
-				DmcTypeModifierMV newModifier = new DmcTypeModifierMV(MetaDMSAG.__modify);
-				
-				Iterator<Modifier>	modifiers = getModifyAttribute().getMV();
-				if (modifiers != null){
-					while(modifiers.hasNext()){
-						Modifier mod = modifiers.next();
-						DmcAttributeInfo ai = mod.getAttributeInfo();
-						if (ai == null)
-							throw(new IllegalStateException("Unknown attribute in modify: " + mod.getAttributeName()));
-						if (ai.dataType == DataTypeEnum.PERSISTENT)
-							newModifier.add(new Modifier(mod));
-					}
-					
-					// If there are any PERSISTENT modifications, we'll returned an alterred clone
-					if (newModifier.getMVSize() > 0){
-						// There were non-persistent attributes in the modify, clone the event
-						// and replace the modify with alterred modify
-						rc = clone();
-						rc.remModify();
-						rc.getDMO().add(MetaDMSAG.__modify, newModifier);
-					}
-				}
-			}
-		}
-		catch(DmcValueException ex){
-			throw(new IllegalStateException("Shouldn't have value exceptions for attribute: " + ex.getAttributeName() + "\n" + ex.toString()));
-		}
-		
-		return(rc);
-	}
-	
-
 	
 	/**
 	 * A convenience constructor that creates a MODIFIED event based on the contents of
@@ -446,27 +343,5 @@ public class DMPEvent extends DMPEventDMW {
 		return(rc);
 	}
 		
-	/**
-	 * This convenience method can be used on MODIFIED events to determine whether
-	 * or not the specified attribute is alterred by the modifier.
-	 * @param ai
-	 * @return
-	 */
-	public boolean thisAttributeModified(DmcAttributeInfo ai){
-		if (getEventTypeDMP() == DMPEventTypeEnum.MODIFIED){
-			DmcTypeModifierMV mods = getModifyAttribute();
-			if (mods != null){
-				for(int i=0; i<mods.getMVSize(); i++){
-					Modifier mod = mods.getMVnth(i);
-					DmcAttributeInfo modai = mod.getAttributeInfo();
-					if (modai == null)
-						throw(new IllegalStateException("Couldn't get attriute info for: " + mod.getAttributeName()));
-					if (modai.id == ai.id)
-						return(true);
-				}
-			}
-		}
-		return(false);
-	}
 
 }

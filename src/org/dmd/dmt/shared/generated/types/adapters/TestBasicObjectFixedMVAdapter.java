@@ -14,7 +14,7 @@ public class TestBasicObjectFixedMVAdapter extends DmcTypeTestBasicObjectFixedRE
     transient DmcTypeTestBasicObjectFixedREFMV existingValue;
 
     public TestBasicObjectFixedMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

@@ -1,0 +1,12 @@
+SchemaDefinition
+name       			dmp.server
+schemaBaseID		700
+schemaIDRange		50
+dependsOn			dmr.base
+defFiles    		attributes.dmd
+defFiles    		classes.dmd
+generatedFileHeader LGPL.txt
+schemaPackage 		org.dmd.dmp.server.servlet
+dmwPackage			org.dmd.dmp.server.servlet
+description 		The DMP Server schema defines classes used to define plugins
+ for the reference implementation of the DMP based servlet.

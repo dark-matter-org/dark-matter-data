@@ -14,7 +14,7 @@ public class LogoutRequestMVAdapter extends DmcTypeLogoutRequestREFMV implements
     transient DmcTypeLogoutRequestREFMV existingValue;
 
     public LogoutRequestMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

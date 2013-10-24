@@ -14,7 +14,7 @@ public class LoginResponseSETAdapter extends DmcTypeLoginResponseREFSET implemen
     transient DmcTypeLoginResponseREFSET existingValue;
 
     public LoginResponseSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

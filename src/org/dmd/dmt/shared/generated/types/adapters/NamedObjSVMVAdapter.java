@@ -14,7 +14,7 @@ public class NamedObjSVMVAdapter extends DmcTypeNamedObjSVREFMV implements DmcAd
     transient DmcTypeNamedObjSVREFMV existingValue;
 
     public NamedObjSVMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

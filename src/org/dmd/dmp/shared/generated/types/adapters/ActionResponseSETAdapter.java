@@ -14,7 +14,7 @@ public class ActionResponseSETAdapter extends DmcTypeActionResponseREFSET implem
     transient DmcTypeActionResponseREFSET existingValue;
 
     public ActionResponseSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

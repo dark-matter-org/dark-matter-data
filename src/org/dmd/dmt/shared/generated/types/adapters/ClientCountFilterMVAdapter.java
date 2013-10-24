@@ -14,7 +14,7 @@ public class ClientCountFilterMVAdapter extends DmcTypeClientCountFilterREFMV im
     transient DmcTypeClientCountFilterREFMV existingValue;
 
     public ClientCountFilterMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

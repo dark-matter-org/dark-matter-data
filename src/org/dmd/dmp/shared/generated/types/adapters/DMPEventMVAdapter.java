@@ -14,7 +14,7 @@ public class DMPEventMVAdapter extends DmcTypeDMPEventREFMV implements DmcAdapte
     transient DmcTypeDMPEventREFMV existingValue;
 
     public DMPEventMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

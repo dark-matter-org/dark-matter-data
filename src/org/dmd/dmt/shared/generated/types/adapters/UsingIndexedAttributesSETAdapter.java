@@ -14,7 +14,7 @@ public class UsingIndexedAttributesSETAdapter extends DmcTypeUsingIndexedAttribu
     transient DmcTypeUsingIndexedAttributesREFSET existingValue;
 
     public UsingIndexedAttributesSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

@@ -63,7 +63,7 @@ public class AdapterFormatter {
         out.write("    transient " + baseClass + " existingValue;\n\n");
         
         out.write("    public " + className + "(DmcAttributeInfo ai){\n");
-        out.write("    	   super(ai);\n");
+        out.write("    	   attrInfo = ai;\n");
         out.write("    }\n\n");
     	
         out.write("    @Override\n");

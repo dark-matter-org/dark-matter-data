@@ -19,8 +19,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
-import org.dmd.dmc.rules.DmcRuleExceptionSet;
-import org.dmd.dmc.rules.RuleTracerIF;
 import org.dmd.dmc.types.DmcTypeDmcObjectName;
 import org.dmd.dmc.types.Modifier;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
@@ -58,12 +56,6 @@ public class DmcOmni implements DmcNameResolverIF {
 	
 	// The logger through which various log messages can be sent
 	DmcLoggerIF							logger;
-	
-	// Indicates if we want to tracker the execution of rules
-	boolean								traceRules;
-	
-	// You can specify a component to handle rule tracing information
-	RuleTracerIF						ruleTracer;
 	
 	// The set of things that can resolve object names for us. This allows for
 	// lazy resolution of object references at the DMO level.
@@ -104,10 +96,6 @@ public class DmcOmni implements DmcNameResolverIF {
 	// an object. 
 	TreeMap<String,DmcSliceInfo>		slices;
 	
-	// The set of recoginized types, either directly defined via type definitions
-	// of internally created.
-	TreeMap<String,DmcTypeInfo>			types;
-	
 //	TreeMap<String,DmcAttributeSchemaIF>	loadedSchemas;
 	
 	TreeMap<String,DmcCompactSchemaIF>	loadedCompactSchemas;
@@ -136,8 +124,6 @@ public class DmcOmni implements DmcNameResolverIF {
 		cleanUpDeadRefs			= false;
 		trackSchemaReferences	= false;
 		logger					= null;
-		traceRules				= false;
-		ruleTracer				= null;
 		resolvers				= null;
 		idToClass				= new TreeMap<Integer, DmcClassInfo>();
 		stringToClass			= new TreeMap<String, DmcClassInfo>();
@@ -146,7 +132,6 @@ public class DmcOmni implements DmcNameResolverIF {
 		nameBuilders			= new TreeMap<String, DmcNameBuilderIF>();
 		filterBuilders			= new TreeMap<String, DmcFilterBuilderIF>();
 		slices					= new TreeMap<String, DmcSliceInfo>();
-		types					= new TreeMap<String, DmcTypeInfo>();
 		cache					= null;
 //		loadedSchemas			= new TreeMap<String, DmcAttributeSchemaIF>();
 		loadedCompactSchemas	= new TreeMap<String, DmcCompactSchemaIF>();
@@ -344,10 +329,6 @@ public class DmcOmni implements DmcNameResolverIF {
 					throw(new IllegalStateException("Clashing class names: " + existing + "  <>  " + ci));
 				}
 				stringToClass.put(ci.name, ci);
-				
-				if (ci.derivedFrom != null){
-					ci.derivedFrom.addDerivedClass(ci);
-				}
 			}
 		}
 		
@@ -372,14 +353,6 @@ public class DmcOmni implements DmcNameResolverIF {
 			while(sliceIT.hasNext()){
 				DmcSliceInfo dsi = sliceIT.next();
 				slices.put(dsi.getName(), dsi);
-			}
-		}
-		
-		Iterator<DmcTypeInfo> typeIT = schema.getTypeInfo();
-		if (typeIT != null){
-			while(typeIT.hasNext()){
-				DmcTypeInfo dti = typeIT.next();
-				types.put(dti.name, dti);
 			}
 		}
 		
@@ -448,14 +421,6 @@ public class DmcOmni implements DmcNameResolverIF {
 	 */
 	public DmcClassInfo getClassInfo(Integer id){
 		return(idToClass.get(id));
-	}
-	
-	/**
-	 * @param tn the type name
-	 * @return the type info.
-	 */
-	public DmcTypeInfo getTypeInfo(String tn){
-		return(types.get(tn));
 	}
 	
 	/**
@@ -559,39 +524,4 @@ public class DmcOmni implements DmcNameResolverIF {
 		return(rc);
 	}
 	
-	///////////////////////////////////////////////////////////////////////////
-	
-	public boolean ruleTracing(){
-		return(traceRules);
-	}
-	
-	public void ruleTracing(boolean f){
-		traceRules = f;
-	}
-	
-	public void ruleTracer(RuleTracerIF t){
-		ruleTracer = t;
-	}
-	
-	public void ruleExecuted(String info){
-		if (traceRules){
-			if (ruleTracer != null)
-				ruleTracer.ruleExecuted(info);
-		}
-	}
-	
-	public void ruleAdded(String info){
-		if (traceRules){
-			if (ruleTracer != null)
-				ruleTracer.ruleAdded(info);
-		}
-	}
-	
-	public void ruleFailed(DmcRuleExceptionSet errors){
-		if (traceRules){
-			if (ruleTracer != null)
-				ruleTracer.ruleFailed(errors);
-		}
-	}
-
 }

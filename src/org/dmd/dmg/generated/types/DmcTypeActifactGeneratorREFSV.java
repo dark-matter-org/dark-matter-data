@@ -23,7 +23,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeActifactGeneratorREFSV provides storage for a single-valued ActifactGeneratorREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1955)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1926)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:530)
  */
 @SuppressWarnings("serial")
@@ -40,7 +40,7 @@ public class DmcTypeActifactGeneratorREFSV extends DmcTypeActifactGeneratorREF i
     }
     
     public DmcTypeActifactGeneratorREFSV getNew(){
-        return(new DmcTypeActifactGeneratorREFSV(getAttributeInfo()));
+        return(new DmcTypeActifactGeneratorREFSV(attrInfo));
     }
     
     public DmcTypeActifactGeneratorREFSV getNew(DmcAttributeInfo ai){
@@ -48,14 +48,14 @@ public class DmcTypeActifactGeneratorREFSV extends DmcTypeActifactGeneratorREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1958)
     public DmcAttribute<ActifactGeneratorREF> cloneIt(){
         DmcTypeActifactGeneratorREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1969)
     public ActifactGeneratorREF getSVCopy(){
         if (value == null)
             return(null);
@@ -63,7 +63,7 @@ public class DmcTypeActifactGeneratorREFSV extends DmcTypeActifactGeneratorREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2010)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1981)
     public ActifactGeneratorREF set(Object v) throws DmcValueException {
         ActifactGeneratorREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

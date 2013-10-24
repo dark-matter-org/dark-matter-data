@@ -14,7 +14,7 @@ public class NameContainerTestMVAdapter extends DmcTypeNameContainerTestREFMV im
     transient DmcTypeNameContainerTestREFMV existingValue;
 
     public NameContainerTestMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

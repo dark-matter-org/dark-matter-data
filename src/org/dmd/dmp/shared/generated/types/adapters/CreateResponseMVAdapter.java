@@ -14,7 +14,7 @@ public class CreateResponseMVAdapter extends DmcTypeCreateResponseREFMV implemen
     transient DmcTypeCreateResponseREFMV existingValue;
 
     public CreateResponseMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

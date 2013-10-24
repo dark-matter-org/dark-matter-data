@@ -14,7 +14,7 @@ public class UsingObjRefHMSETAdapter extends DmcTypeUsingObjRefHMREFSET implemen
     transient DmcTypeUsingObjRefHMREFSET existingValue;
 
     public UsingObjRefHMSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

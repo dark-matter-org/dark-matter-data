@@ -19,54 +19,36 @@ import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.rules.DynamicInitIF;
-import org.dmd.dmc.rules.RuleIF;
-import org.dmd.dmc.types.RuleName;
 import org.dmd.dmc.types.StringToString;
-import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmg.util.GeneratorUtils;
-import org.dmd.dms.generated.dmo.RuleDataDMO;
 import org.dmd.dms.generated.dmw.SchemaDefinitionDMW;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dms.util.DmoObjectFactory;
-import org.dmd.dms.util.DynamicCompactSchema;
-import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
 public class SchemaDefinition extends SchemaDefinitionDMW {
 
     // Stores the name of the schema as it would be referred to in a static
     // reference
-    protected String 						staticRefName;
+    protected String staticRefName;
 
     // Indicates if we've called initializeDefs() - we only do this once.
-    protected boolean 						defsCompleteV;
+    protected boolean defsCompleteV;
     
     // This will be set by the SchemaParser using information from the schema
     // location. If the schema isn't versioned, this will be unknown, otherwise
     // it will be the version of the schema e.g. 1.3
-    protected String 						version;
+    protected String version;
     
     // Auto generated schemas will populate this map
     // Key: schema name
     // Value: the fully  qualified name of the auto generated SchemaAG class
-    protected TreeMap<String,String> 		dependsOnSchemaClasses;
+    protected TreeMap<String,String> dependsOnSchemaClasses;
 
     // This value is set to true in SchemaAG instances. This allows us to distinguish
     // between schemas we've read on the fly and ones that have been blown into code.
-    protected boolean 						generatedSchema;
+    protected boolean generatedSchema;
     
-    TreeMap<String,StringToString>			dmwToPackageMapping;
-    
-    // When read by the DmsSchemaParser, this tree is populated with the
-    // rule instances that are read as part of the schema.
-    TreeMap<RuleName,DmcUncheckedObject>	parsedRules;
-    
-    // The rule data transformed into DMOs - this is primarily used by
-    // the documentation generation mechanisms
-    TreeMap<RuleName,RuleDataDMO>			parsedRulesDMOs;
-    
-    TreeMap<RuleName,RuleIF>				ruleInstances;
+    TreeMap<String,StringToString>	dmwToPackageMapping;
     
     /**
      * Default constructor.
@@ -285,119 +267,13 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     		this.addExtendedReferenceTypeDefList((ExtendedReferenceTypeDefinition) def);
     	else if (def instanceof ComplexTypeDefinition)
     		this.addComplexTypeDefList((ComplexTypeDefinition) def);
-    	else if (def instanceof RuleDefinition)
-    		this.addRuleDefinitionList((RuleDefinition)def);
         else{
         	ResultException ex = new ResultException();
         	ex.addError("The specified object is not a DMD object: \n" + def.toOIF());
         	throw(ex);
         }
-    }
-    
-    public Iterator<DmcUncheckedObject>	getParsedRules(){
-    	if (parsedRules == null)
-    		return(null);
-    	
-    	return(parsedRules.values().iterator());
-    }
-    
-    public boolean hasParsedRules(){
-    	if (parsedRules == null)
-    		return(false);
-    	return(true);
-    }
-    
-    /**
-     * This method will return the parsed rules translated into DMOs. 
-     * @param sm the schema manager used by our Dmo
-     * @return
-     */
-    public Iterator<RuleDataDMO> getParsedRulesDMOs(SchemaManager sm){
-    	if (parsedRulesDMOs == null){
-    		parsedRulesDMOs = new TreeMap<RuleName, RuleDataDMO>();
-    		ruleInstances = new TreeMap<RuleName, RuleIF>();
-    		
-    		if (parsedRules != null){
-        		DmoObjectFactory	dmofactory = new DmoObjectFactory(sm);
-    			for(DmcUncheckedObject uco: parsedRules.values()){
-    				try {
-    					String ruleName = uco.getSV("ruleName");
-    					if ( (ruleName != null) && (ruleName.equals("dmvIncludeOrExclude")) ){
-    						DebugInfo.debug("HERE");
-    					}
-    					
-						ClassDefinition ruleDataCD 	= sm.cdef(uco.getConstructionClass());
-						RuleDataDMO 	dmo 		= (RuleDataDMO) dmofactory.createObject(uco);
-						RuleDefinition	ruleDEF		= ruleDataCD.getRuleDefinition();
 
-						DynamicInitIF rule = (DynamicInitIF) ruleDEF.newRuleInstance();
-						rule.setRuleData(dmo);
-						
-						parsedRulesDMOs.put(dmo.getObjectName(), dmo);
-						ruleInstances.put(dmo.getObjectName(), (RuleIF) rule);
-					} catch (ResultException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (DmcValueException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (ClassNotFoundException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-    			}
-    		}
-    	}
-    	return(parsedRulesDMOs.values().iterator());
     }
     
-    public TreeMap<RuleName,RuleIF> getRuleInstances(SchemaManager sm){
-    	if (ruleInstances == null)
-    		getParsedRulesDMOs(sm);
-    	return(ruleInstances);
-    }
-    
-    public void addParsedRule(DmcUncheckedObject uco) throws ResultException, DmcValueException {
-    	String ruleName = uco.getSV("ruleName");
-    	
-    	if (ruleName == null){
-    		ResultException ex = new ResultException();
-    		ex.addError("The specified rule instance doesn't have a ruleName: \n" + uco.toOIF());
-    		throw(ex);
-    	}
-    	
-    	if (parsedRules == null)
-    		parsedRules = new TreeMap<RuleName, DmcUncheckedObject>();
-    	
-    	RuleName rn = new RuleName(ruleName);
-    	
-    	DmcUncheckedObject existing = parsedRules.get(rn);
-    	
-    	if (existing != null){
-    		ResultException ex = new ResultException();
-    		ex.addError("Clashing ruleNames: \n\n" + existing.toOIF() + "\n" + uco.toOIF());
-    		throw(ex);
-    	}
-    	
-    	parsedRules.put(rn, uco);
-    }
-        
-    public DynamicCompactSchema getCompactSchema(){
-    	DynamicCompactSchema rc = new DynamicCompactSchema(getName().getNameString());
-    	
-    	if (getAttributeDefListSize() > 0){
-    		for(AttributeDefinition def : getAttributeDefList()){
-    			rc.addAttrInfo(def.getAttributeInfo());
-    		}
-    	}
-    	
-    	if (getClassDefListSize() > 0){
-    		for(ClassDefinition cd: getClassDefList()){
-    			rc.addClassInfo(cd.getDynamicClassInfo());
-    		}
-    	}
-    	
-    	return(rc);
-    }
 }
 

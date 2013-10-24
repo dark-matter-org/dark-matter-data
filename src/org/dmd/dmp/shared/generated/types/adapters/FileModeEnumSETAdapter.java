@@ -14,7 +14,7 @@ public class FileModeEnumSETAdapter extends DmcTypeFileModeEnumSET implements Dm
     transient DmcTypeFileModeEnumSET existingValue;
 
     public FileModeEnumSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

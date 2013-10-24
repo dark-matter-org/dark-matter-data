@@ -14,7 +14,7 @@ public class DenotifyResponseSETAdapter extends DmcTypeDenotifyResponseREFSET im
     transient DmcTypeDenotifyResponseREFSET existingValue;
 
     public DenotifyResponseSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

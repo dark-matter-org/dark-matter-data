@@ -14,7 +14,7 @@ public class PrimitiveMVMVAdapter extends DmcTypePrimitiveMVREFMV implements Dmc
     transient DmcTypePrimitiveMVREFMV existingValue;
 
     public PrimitiveMVMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

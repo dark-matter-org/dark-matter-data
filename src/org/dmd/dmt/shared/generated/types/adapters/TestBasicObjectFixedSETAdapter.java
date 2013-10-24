@@ -14,7 +14,7 @@ public class TestBasicObjectFixedSETAdapter extends DmcTypeTestBasicObjectFixedR
     transient DmcTypeTestBasicObjectFixedREFSET existingValue;
 
     public TestBasicObjectFixedSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

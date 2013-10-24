@@ -14,7 +14,7 @@ public class DeleteResponseSETAdapter extends DmcTypeDeleteResponseREFSET implem
     transient DmcTypeDeleteResponseREFSET existingValue;
 
     public DeleteResponseSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

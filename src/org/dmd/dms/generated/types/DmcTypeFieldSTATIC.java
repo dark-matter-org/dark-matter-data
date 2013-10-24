@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -25,8 +25,8 @@ import org.dmd.dms.generated.types.Field;    // base type import
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:2130)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2045)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:2078)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1993)
  */
 public class DmcTypeFieldSTATIC {
     

@@ -9,7 +9,7 @@ import org.dmd.dmt.shared.generated.dmo.PrimitiveMVDMO;    // DmcType import
  * The DmcTypePrimitiveMVREFSV provides storage for a single-valued PrimitiveMV
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1955)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1926)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:254)
  */
 @SuppressWarnings("serial")
@@ -26,7 +26,7 @@ public class DmcTypePrimitiveMVREFSV extends DmcTypePrimitiveMVREF implements Se
     }
     
     public DmcTypePrimitiveMVREFSV getNew(){
-        return(new DmcTypePrimitiveMVREFSV(getAttributeInfo()));
+        return(new DmcTypePrimitiveMVREFSV(attrInfo));
     }
     
     public DmcTypePrimitiveMVREFSV getNew(DmcAttributeInfo ai){
@@ -34,14 +34,14 @@ public class DmcTypePrimitiveMVREFSV extends DmcTypePrimitiveMVREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1958)
     public DmcAttribute<PrimitiveMVDMO> cloneIt(){
         DmcTypePrimitiveMVREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1969)
     public PrimitiveMVDMO getSVCopy(){
         if (value == null)
             return(null);
@@ -49,7 +49,7 @@ public class DmcTypePrimitiveMVREFSV extends DmcTypePrimitiveMVREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2010)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1981)
     public PrimitiveMVDMO set(Object v) throws DmcValueException {
         PrimitiveMVDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

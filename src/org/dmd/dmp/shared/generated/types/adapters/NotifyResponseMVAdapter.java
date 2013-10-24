@@ -14,7 +14,7 @@ public class NotifyResponseMVAdapter extends DmcTypeNotifyResponseREFMV implemen
     transient DmcTypeNotifyResponseREFMV existingValue;
 
     public NotifyResponseMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override
