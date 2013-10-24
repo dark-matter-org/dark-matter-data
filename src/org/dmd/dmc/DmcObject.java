@@ -660,10 +660,12 @@ abstract public class DmcObject implements Serializable {
 	 * @return DmcAttribute
 	 */
 	public DmcAttribute<?> get(String name){
-		DmcAttributeInfo ai = getAttributeInfo(name);
-		if (ai == null)
-			return(null);
-		return (attributes.get(ai.id));
+		synchronized (attributes) {
+			DmcAttributeInfo ai = getAttributeInfo(name);
+			if (ai == null)
+				return(null);
+			return (attributes.get(ai.id));
+		}
 	}
 	
 	/**
@@ -673,7 +675,9 @@ abstract public class DmcObject implements Serializable {
 	 * @return DmcAttribute
 	 */
 	public DmcAttribute<?> get(Integer id){
-		return (attributes.get(id));
+		synchronized (attributes) {
+			return (attributes.get(id));
+		}
 	}
 	
 	/**
@@ -683,19 +687,21 @@ abstract public class DmcObject implements Serializable {
 	 * @return DmcAttribute
 	 */
 	public DmcAttribute<?> get(DmcAttributeInfo ai){
-		DmcAttribute<?> rc = attributes.get(ai.id);
-		
-		// If you ask for the attribute using its attribute info and we find it, we check to
-		// see if it's set on the attribute. If not, we set it. This may seem weird, but it's 
-		// because the link to the DmcAttributeInfo is lost when DMOs are transported over
-		// GWT's serialization mechanisms. However, when we use generated DMOs to access the 
-		// the attributes, THEY have the attribute info, and so we just set it back on the 
-		// attribute.
-		
-		if ( (rc != null) && (rc.getAttributeInfo() == null))
-			rc.setAttributeInfo(ai);
-		
-		return (rc);
+		synchronized (attributes) {
+			DmcAttribute<?> rc = attributes.get(ai.id);
+			
+			// If you ask for the attribute using its attribute info and we find it, we check to
+			// see if it's set on the attribute. If not, we set it. This may seem weird, but it's 
+			// because the link to the DmcAttributeInfo is lost when DMOs are transported over
+			// GWT's serialization mechanisms. However, when we use generated DMOs to access the 
+			// the attributes, THEY have the attribute info, and so we just set it back on the 
+			// attribute.
+			
+			if ( (rc != null) && (rc.getAttributeInfo() == null))
+				rc.setAttributeInfo(ai);
+			
+			return (rc);
+		}
 	}
 	
 	/**
