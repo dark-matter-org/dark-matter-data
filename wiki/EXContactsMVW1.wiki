@@ -6,7 +6,7 @@
 
 This tutorial assumes that:
 
-  * you have [http://http://www.eclipse.org/ Eclipse] installed
+  * you have [http://www.eclipse.org/ Eclipse] installed
   * you have the [https://developers.google.com/eclipse/ GWT Eclipse plugin]
   * you are using (or have available) the [http://code.google.com/p/google-web-toolkit/downloads/detail?name=gwt-2.2.0.zip GWT 2.2.0 SDK]. See the [EXContactsMVW1#Installing_a_GWT_SDK Installing a GWT SDK] section if you need a hand with this.
   * you have the Google Web Toolkit Developer Plugin for your browser. If you don't have it, you'll be prompted to install it as required.
