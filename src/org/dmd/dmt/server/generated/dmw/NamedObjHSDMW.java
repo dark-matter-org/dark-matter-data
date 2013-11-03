@@ -123,7 +123,7 @@ public class NamedObjHSDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of ObjWithRefs objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1754)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1756)
     public HashSet<ObjWithRefs> getHsNamedObjCopy(){
         DmcAttribute<?> attr = ((NamedObjHSDMO) core).get(DmtDMSAG.__hsNamedObj);
         if (attr == null)
@@ -142,7 +142,7 @@ public class NamedObjHSDMW extends DmwWrapper {
     /**
      * Removes the hsNamedObj attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2157)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2161)
     public void remHsNamedObj(){
         ((NamedObjHSDMO) core).remHsNamedObj();
     }

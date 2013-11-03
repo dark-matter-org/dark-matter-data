@@ -2,10 +2,10 @@ package org.dmd.dmt.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:351)
-import java.util.Iterator;                                        // Support MV object get() - (BaseDMWGeneratorNewest.java:2296)
+import java.util.Iterator;                                        // Support MV object get() - (BaseDMWGeneratorNewest.java:2300)
 import java.util.TreeMap;                                         // To support getMVCopy() - (BaseDMWGeneratorNewest.java:1059)
 import org.dmd.dmc.*;                                             // If any attributes - (BaseDMWGeneratorNewest.java:956)
-import org.dmd.dmc.types.DefinitionName;                          // Name type - (BaseDMWGeneratorNewest.java:2274)
+import org.dmd.dmc.types.DefinitionName;                          // Name type - (BaseDMWGeneratorNewest.java:2278)
 import org.dmd.dms.ClassDefinition;                               // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:940)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                       // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:945)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;             // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:944)
@@ -65,7 +65,7 @@ public class NamedObjTMDMW extends DmwWrapper {
     /**
      * @return The number of ObjWithRefsDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2209)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2213)
     public int getTmNamedObjSize(){
         DmcAttribute<?> attr = ((NamedObjTMDMO) core).get(DmtDMSAG.__tmNamedObj);
         if (attr == null)
@@ -77,7 +77,7 @@ public class NamedObjTMDMW extends DmwWrapper {
     /**
      * @return true if there are no ObjWithRefsDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2221)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2225)
     public boolean getTmNamedObjIsEmpty(){
         DmcAttribute<?> attr = ((NamedObjTMDMO) core).get(DmtDMSAG.__tmNamedObj);
         if (attr == null)
@@ -89,7 +89,7 @@ public class NamedObjTMDMW extends DmwWrapper {
     /**
      * @return true if there are any ObjWithRefsDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2233)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2237)
     public boolean getTmNamedObjHasValue(){
         DmcAttribute<?> attr = ((NamedObjTMDMO) core).get(DmtDMSAG.__tmNamedObj);
         if (attr == null)
@@ -101,7 +101,7 @@ public class NamedObjTMDMW extends DmwWrapper {
     /**
      * @return The keyed ObjWithRefs object if it's available and null otherwise.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2249)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2253)
     public ObjWithRefs getTmNamedObj(Object key){
         DmcAttribute<?> attr = ((NamedObjTMDMO) core).get(DmtDMSAG.__tmNamedObj);
         if (attr == null)
@@ -113,7 +113,7 @@ public class NamedObjTMDMW extends DmwWrapper {
     /**
      * @return the first key of the map.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2280)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2284)
     public DefinitionName getTmNamedObjFirstKey(){
         return(((NamedObjTMDMO) core).getTmNamedObjFirstKey());
     }
@@ -121,7 +121,7 @@ public class NamedObjTMDMW extends DmwWrapper {
     /**
      * @return An Iterable of ObjWithRefs objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2304)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2308)
     public ObjWithRefsIterableDMW getTmNamedObjIterable(){
         DmcAttribute<?> attr = ((NamedObjTMDMO) core).get(DmtDMSAG.__tmNamedObj);
         if (attr == null)
@@ -139,7 +139,7 @@ public class NamedObjTMDMW extends DmwWrapper {
      * Adds another tmNamedObj value.
      * @param value ObjWithRefsDMW
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2338)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2342)
     public DmcAttribute<?> addTmNamedObj(ObjWithRefs value) {
         return(((NamedObjTMDMO) core).addTmNamedObj(value.getDMO()));
     }
@@ -148,7 +148,7 @@ public class NamedObjTMDMW extends DmwWrapper {
      * Deletes a tmNamedObj value.
      * @param value The ObjWithRefs to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2362)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2366)
     public void delTmNamedObj(ObjWithRefs value){
         ((NamedObjTMDMO) core).delTmNamedObj(value.getDMO());
     }
@@ -156,7 +156,7 @@ public class NamedObjTMDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of ObjWithRefs objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2406)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2412)
     public TreeMap<DefinitionName,ObjWithRefs> getTmNamedObjCopy(){
         DmcAttribute<?> attr = ((NamedObjTMDMO) core).get(DmtDMSAG.__tmNamedObj);
         if (attr == null)
@@ -175,7 +175,7 @@ public class NamedObjTMDMW extends DmwWrapper {
     /**
      * Removes the tmNamedObj attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2560)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2568)
     public void remTmNamedObj(){
         ((NamedObjTMDMO) core).remTmNamedObj();
     }

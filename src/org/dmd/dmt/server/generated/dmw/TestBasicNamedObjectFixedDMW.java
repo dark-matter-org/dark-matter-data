@@ -3,19 +3,19 @@ package org.dmd.dmt.server.generated.dmw;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:351)
 import java.util.ArrayList;                                                           // To support getMVCopy() - (BaseDMWGeneratorNewest.java:1050)
-import java.util.Iterator;                                                            // Support copy of MV objects - (BaseDMWGeneratorNewest.java:2105)
+import java.util.Iterator;                                                            // Support copy of MV objects - (BaseDMWGeneratorNewest.java:2109)
 import org.dmd.dmc.*;                                                                 // If any attributes - (BaseDMWGeneratorNewest.java:956)
 import org.dmd.dmc.types.DefinitionName;                                              // Is named by - (BaseDMWGeneratorNewest.java:935)
 import org.dmd.dms.ClassDefinition;                                                   // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:940)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                           // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:945)
-import org.dmd.dms.generated.dmw.StringIterableDMW;                                   // For multi-valued String - (BaseDMWGeneratorNewest.java:1970)
+import org.dmd.dms.generated.dmw.StringIterableDMW;                                   // For multi-valued String - (BaseDMWGeneratorNewest.java:1972)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                                 // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:944)
 import org.dmd.dmt.server.generated.dmw.TestBasicNamedObjectFixedDMW;                 // Is reference type - (BaseDMWGeneratorNewest.java:976)
 import org.dmd.dmt.server.generated.dmw.TestBasicNamedObjectFixedIterableDMW;         // For multi-valued TestBasicNamedObjectFixed - (BaseDMWGeneratorNewest.java:1578)
 import org.dmd.dmt.server.generated.dmw.TestBasicObjectFixedDMW;                      // Is reference type - (BaseDMWGeneratorNewest.java:976)
 import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                                     // Attribute mvString from the dmt schema - (BaseDMWGeneratorNewest.java:771)
 import org.dmd.dmt.shared.generated.dmo.TestBasicNamedObjectFixedDMO;                 // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1121)
-import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;                      // For setNth of TestBasicObjectFixed - (BaseDMWGeneratorNewest.java:1781)
+import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;                      // For setNth of TestBasicObjectFixed - (BaseDMWGeneratorNewest.java:1783)
 import org.dmd.dmw.DmwNamedObjectWrapper;                                             // Named object wrapper - (BaseDMWGeneratorNewest.java:1111)
 
 
@@ -119,7 +119,7 @@ public class TestBasicNamedObjectFixedDMW extends DmwNamedObjectWrapper implemen
      * Sets the mvIdxUnnamedObj value at the specified index.
      * @param value A value compatible with TestBasicObjectFixed
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1798)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1800)
     public DmcAttribute<?> setNthMvIdxUnnamedObj(int index, TestBasicObjectFixedDMW value){
         if (value == null)
             return(((TestBasicNamedObjectFixedDMO) core).setNthMvIdxUnnamedObj(index, null));
@@ -130,7 +130,7 @@ public class TestBasicNamedObjectFixedDMW extends DmwNamedObjectWrapper implemen
     /**
      * @return The TestBasicObjectFixedDMW object at the specified index.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1842)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1844)
     public TestBasicObjectFixedDMW getNthMvIdxUnnamedObj(int index){
         TestBasicObjectFixedDMO dmo = ((TestBasicNamedObjectFixedDMO) core).getNthMvIdxUnnamedObj(index);
         if (dmo == null)
@@ -142,7 +142,7 @@ public class TestBasicNamedObjectFixedDMW extends DmwNamedObjectWrapper implemen
     /**
      * Removes the mvIdxUnnamedObj attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2157)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2161)
     public void remMvIdxUnnamedObj(){
         ((TestBasicNamedObjectFixedDMO) core).remMvIdxUnnamedObj();
     }
@@ -178,7 +178,7 @@ public class TestBasicNamedObjectFixedDMW extends DmwNamedObjectWrapper implemen
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1974)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1976)
     public StringIterableDMW getMvStringIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvString);
         if (attr == null)
@@ -191,7 +191,7 @@ public class TestBasicNamedObjectFixedDMW extends DmwNamedObjectWrapper implemen
      * Adds another mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2000)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2002)
     public void addMvString(Object value) throws DmcValueException {
         ((TestBasicNamedObjectFixedDMO) core).addMvString(value);
     }
@@ -200,7 +200,7 @@ public class TestBasicNamedObjectFixedDMW extends DmwNamedObjectWrapper implemen
      * Adds another mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2010)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2012)
     public void addMvString(String value){
         ((TestBasicNamedObjectFixedDMO) core).addMvString(value);
     }
@@ -209,7 +209,7 @@ public class TestBasicNamedObjectFixedDMW extends DmwNamedObjectWrapper implemen
      * Returns true if the collection contains the mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2067)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2069)
     public boolean mvStringContains(String value){
         return(((TestBasicNamedObjectFixedDMO) core).mvStringContains(value));
     }
@@ -217,7 +217,7 @@ public class TestBasicNamedObjectFixedDMW extends DmwNamedObjectWrapper implemen
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2109)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2113)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getMvStringCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvString);
@@ -238,7 +238,7 @@ public class TestBasicNamedObjectFixedDMW extends DmwNamedObjectWrapper implemen
      * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2136)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2140)
     public void delMvString(Object value) throws DmcValueException {
         ((TestBasicNamedObjectFixedDMO) core).delMvString(value);
     }
@@ -247,7 +247,7 @@ public class TestBasicNamedObjectFixedDMW extends DmwNamedObjectWrapper implemen
      * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2145)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2149)
     public void delMvString(String value){
         ((TestBasicNamedObjectFixedDMO) core).delMvString(value);
     }
@@ -255,7 +255,7 @@ public class TestBasicNamedObjectFixedDMW extends DmwNamedObjectWrapper implemen
     /**
      * Removes the mvString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2157)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2161)
     public void remMvString(){
         ((TestBasicNamedObjectFixedDMO) core).remMvString();
     }
@@ -322,7 +322,7 @@ public class TestBasicNamedObjectFixedDMW extends DmwNamedObjectWrapper implemen
     /**
      * @return A COPY of the collection of TestBasicNamedObjectFixed objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1754)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1756)
     public ArrayList<TestBasicNamedObjectFixedDMW> getMvTestBasicNamedObjectFixedCopy(){
         DmcAttribute<?> attr = ((TestBasicNamedObjectFixedDMO) core).get(DmtDMSAG.__mvTestBasicNamedObjectFixed);
         if (attr == null)
@@ -341,7 +341,7 @@ public class TestBasicNamedObjectFixedDMW extends DmwNamedObjectWrapper implemen
     /**
      * Removes the mvTestBasicNamedObjectFixed attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2157)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2161)
     public void remMvTestBasicNamedObjectFixed(){
         ((TestBasicNamedObjectFixedDMO) core).remMvTestBasicNamedObjectFixed();
     }

@@ -80,7 +80,7 @@ public class GenerationContextDMO  extends DmcObject  implements DmcNamedObjectI
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:744)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:750)
     public CamelCaseName getObjectName(){
         DmcAttribute<?> name = get(DmgDMSAG.__genContextName);
         if (name != null)
@@ -89,13 +89,13 @@ public class GenerationContextDMO  extends DmcObject  implements DmcNamedObjectI
         return(null);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:761)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:767)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(DmgDMSAG.__genContextName);
         return(name);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:774)
     public boolean equals(Object obj){
         if (obj instanceof GenerationContextDMO){
             return( getObjectName().equals( ((GenerationContextDMO) obj).getObjectName()) );
@@ -103,7 +103,7 @@ public class GenerationContextDMO  extends DmcObject  implements DmcNamedObjectI
         return(false);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:776)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:782)
     public int hashCode(){
         CamelCaseName objn = getObjectName();
         if (objn == null)

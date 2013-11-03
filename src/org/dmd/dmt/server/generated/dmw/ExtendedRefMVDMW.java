@@ -123,7 +123,7 @@ public class ExtendedRefMVDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of SomeRelation objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1754)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1756)
     public ArrayList<ObjWithRefs> getMvExtendedRefCopy(){
         DmcAttribute<?> attr = ((ExtendedRefMVDMO) core).get(DmtDMSAG.__mvExtendedRef);
         if (attr == null)
@@ -142,7 +142,7 @@ public class ExtendedRefMVDMW extends DmwWrapper {
     /**
      * Removes the mvExtendedRef attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2157)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2161)
     public void remMvExtendedRef(){
         ((ExtendedRefMVDMO) core).remMvExtendedRef();
     }

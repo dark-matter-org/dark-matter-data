@@ -181,7 +181,7 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
     /**
      * @return A COPY of the collection of TypeDefinition objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1754)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1756)
     public ArrayList<TypeDefinition> getAllowedTypeCopy(){
         DmcAttribute<?> attr = ((ReferencedAttributeTypeRuleDataDMO) core).get(DmvDMSAG.__allowedType);
         if (attr == null)
@@ -200,7 +200,7 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
     /**
      * Removes the allowedType attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2157)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2161)
     public void remAllowedType(){
         ((ReferencedAttributeTypeRuleDataDMO) core).remAllowedType();
     }

@@ -3,15 +3,15 @@ package org.dmd.dmg.generated.dmw;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:351)
 import java.util.ArrayList;                                    // To support getMVCopy() - (BaseDMWGeneratorNewest.java:1050)
-import java.util.Iterator;                                     // Support copy of MV objects - (BaseDMWGeneratorNewest.java:2105)
+import java.util.Iterator;                                     // Support copy of MV objects - (BaseDMWGeneratorNewest.java:2109)
 import org.dmd.dmc.*;                                          // If any attributes - (BaseDMWGeneratorNewest.java:956)
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;                 // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1121)
 import org.dmd.dmg.generated.dmo.DmgDMSAG;                     // Attribute configSuffix from the dmg schema - (BaseDMWGeneratorNewest.java:771)
-import org.dmd.dmg.generated.dmw.GeneratorIterableDMW;         // For multi-valued Generator - (BaseDMWGeneratorNewest.java:1970)
+import org.dmd.dmg.generated.dmw.GeneratorIterableDMW;         // For multi-valued Generator - (BaseDMWGeneratorNewest.java:1972)
 import org.dmd.dmg.types.Generator;                            // Primitive type - (BaseDMWGeneratorNewest.java:1019)
 import org.dmd.dms.ClassDefinition;                            // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:940)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                    // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:945)
-import org.dmd.dms.generated.dmw.StringIterableDMW;            // For multi-valued String - (BaseDMWGeneratorNewest.java:1970)
+import org.dmd.dms.generated.dmw.StringIterableDMW;            // For multi-valued String - (BaseDMWGeneratorNewest.java:1972)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;          // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:944)
 import org.dmd.dmw.DmwWrapper;                                 // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1104)
 
@@ -94,7 +94,7 @@ public class DmgConfigDMW extends DmwWrapper {
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1974)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1976)
     public StringIterableDMW getConfigSuffixIterable(){
         DmcAttribute<?> attr = core.get(DmgDMSAG.__configSuffix);
         if (attr == null)
@@ -107,7 +107,7 @@ public class DmgConfigDMW extends DmwWrapper {
      * Adds another configSuffix value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2000)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2002)
     public void addConfigSuffix(Object value) throws DmcValueException {
         ((DmgConfigDMO) core).addConfigSuffix(value);
     }
@@ -116,7 +116,7 @@ public class DmgConfigDMW extends DmwWrapper {
      * Adds another configSuffix value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2010)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2012)
     public void addConfigSuffix(String value){
         ((DmgConfigDMO) core).addConfigSuffix(value);
     }
@@ -125,7 +125,7 @@ public class DmgConfigDMW extends DmwWrapper {
      * Returns true if the collection contains the configSuffix value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2067)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2069)
     public boolean configSuffixContains(String value){
         return(((DmgConfigDMO) core).configSuffixContains(value));
     }
@@ -133,7 +133,7 @@ public class DmgConfigDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2109)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2113)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getConfigSuffixCopy(){
         DmcAttribute<?> attr = core.get(DmgDMSAG.__configSuffix);
@@ -154,7 +154,7 @@ public class DmgConfigDMW extends DmwWrapper {
      * Deletes a configSuffix value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2136)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2140)
     public void delConfigSuffix(Object value) throws DmcValueException {
         ((DmgConfigDMO) core).delConfigSuffix(value);
     }
@@ -163,7 +163,7 @@ public class DmgConfigDMW extends DmwWrapper {
      * Deletes a configSuffix value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2145)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2149)
     public void delConfigSuffix(String value){
         ((DmgConfigDMO) core).delConfigSuffix(value);
     }
@@ -171,7 +171,7 @@ public class DmgConfigDMW extends DmwWrapper {
     /**
      * Removes the configSuffix attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2157)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2161)
     public void remConfigSuffix(){
         ((DmgConfigDMO) core).remConfigSuffix();
     }
@@ -300,7 +300,7 @@ public class DmgConfigDMW extends DmwWrapper {
     /**
      * @return An Iterator of Generator objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1974)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1976)
     public GeneratorIterableDMW getGeneratorIterable(){
         DmcAttribute<?> attr = core.get(DmgDMSAG.__generator);
         if (attr == null)
@@ -313,7 +313,7 @@ public class DmgConfigDMW extends DmwWrapper {
      * Adds another generator value.
      * @param value A value compatible with Generator
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2000)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2002)
     public void addGenerator(Object value) throws DmcValueException {
         ((DmgConfigDMO) core).addGenerator(value);
     }
@@ -322,7 +322,7 @@ public class DmgConfigDMW extends DmwWrapper {
      * Adds another generator value.
      * @param value A value compatible with Generator
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2010)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2012)
     public void addGenerator(Generator value){
         ((DmgConfigDMO) core).addGenerator(value);
     }
@@ -331,7 +331,7 @@ public class DmgConfigDMW extends DmwWrapper {
      * Returns true if the collection contains the generator value.
      * @param value A value compatible with Generator
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2067)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2069)
     public boolean generatorContains(Generator value){
         return(((DmgConfigDMO) core).generatorContains(value));
     }
@@ -339,7 +339,7 @@ public class DmgConfigDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of Generator objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2109)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2113)
     @SuppressWarnings("unchecked")
     public ArrayList<Generator> getGeneratorCopy(){
         DmcAttribute<?> attr = core.get(DmgDMSAG.__generator);
@@ -360,7 +360,7 @@ public class DmgConfigDMW extends DmwWrapper {
      * Deletes a generator value.
      * @param value The Generator to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2136)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2140)
     public void delGenerator(Object value) throws DmcValueException {
         ((DmgConfigDMO) core).delGenerator(value);
     }
@@ -369,7 +369,7 @@ public class DmgConfigDMW extends DmwWrapper {
      * Deletes a generator value.
      * @param value The Generator to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2145)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2149)
     public void delGenerator(Generator value){
         ((DmgConfigDMO) core).delGenerator(value);
     }
@@ -377,7 +377,7 @@ public class DmgConfigDMW extends DmwWrapper {
     /**
      * Removes the generator attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2157)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2161)
     public void remGenerator(){
         ((DmgConfigDMO) core).remGenerator();
     }

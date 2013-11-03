@@ -233,7 +233,7 @@ public class OneOfTheseAttributesRequiredRuleDataDMW extends RuleData implements
     /**
      * @return A COPY of the collection of AttributeDefinition objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1754)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1756)
     public ArrayList<AttributeDefinition> getOnePossibilityCopy(){
         DmcAttribute<?> attr = ((OneOfTheseAttributesRequiredRuleDataDMO) core).get(DmvDMSAG.__onePossibility);
         if (attr == null)
@@ -252,7 +252,7 @@ public class OneOfTheseAttributesRequiredRuleDataDMW extends RuleData implements
     /**
      * Removes the onePossibility attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2157)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2161)
     public void remOnePossibility(){
         ((OneOfTheseAttributesRequiredRuleDataDMO) core).remOnePossibility();
     }

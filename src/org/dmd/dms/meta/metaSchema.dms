@@ -419,7 +419,7 @@ enumValue		3 TREEMAPPED Indicates that the attribute values implement the DmcMap
  and are stored in a TreeMap.
 enumValue		4 HASHSET Indicates that the attribute values are stored in a HashSet.
 enumValue		5 TREESET Indicates that the attribute values are stored in a TreeSet.
-enumValue		6 INDEXED Indicates that the attribute is multi-valued and indexed i.e. it has predefined slots for a fix number of values.
+//enumValue		6 INDEXED Indicates that the attribute is multi-valued and indexed i.e. it has predefined slots for a fix number of values.
 description		The ValueTypeEnum indicates the cardinality of an attribute as
  well as the type of Map to be used if the attribute is keyed. This is an extension
  to original concept of single-valued versus multi-valued. Hashsets are also supported.

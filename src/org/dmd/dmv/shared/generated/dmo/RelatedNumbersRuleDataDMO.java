@@ -99,7 +99,7 @@ public class RelatedNumbersRuleDataDMO  extends RuleDataDMO  implements DmcNamed
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:744)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:750)
     public RuleName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__ruleName);
         if (name != null)
@@ -108,13 +108,13 @@ public class RelatedNumbersRuleDataDMO  extends RuleDataDMO  implements DmcNamed
         return(null);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:761)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:767)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__ruleName);
         return(name);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:774)
     public boolean equals(Object obj){
         if (obj instanceof RelatedNumbersRuleDataDMO){
             return( getObjectName().equals( ((RelatedNumbersRuleDataDMO) obj).getObjectName()) );
@@ -122,7 +122,7 @@ public class RelatedNumbersRuleDataDMO  extends RuleDataDMO  implements DmcNamed
         return(false);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:776)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:782)
     public int hashCode(){
         RuleName objn = getObjectName();
         if (objn == null)

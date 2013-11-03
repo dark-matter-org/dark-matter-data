@@ -8,7 +8,7 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;                       // Required fo
 import org.dmd.dms.generated.types.DmcTypeModifierMV;             // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:944)
 import org.dmd.dmt.server.extended.ObjWithRefs;                   // Is reference type - (BaseDMWGeneratorNewest.java:976)
 import org.dmd.dmt.shared.generated.dmo.NamedObjMVIDXDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1121)
-import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;           // For setNth of ObjWithRefs - (BaseDMWGeneratorNewest.java:1781)
+import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;           // For setNth of ObjWithRefs - (BaseDMWGeneratorNewest.java:1783)
 import org.dmd.dmt.shared.generated.types.ObjWithRefsREF;         // To support getMVCopy() for REFs ObjWithRefs-MULTI - (BaseDMWGeneratorNewest.java:995)
 import org.dmd.dmw.DmwWrapper;                                    // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1104)
 
@@ -91,7 +91,7 @@ public class NamedObjMVIDXDMW extends DmwWrapper {
      * Sets the mvIdxNamedObj value at the specified index.
      * @param value A value compatible with ObjWithRefs
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1798)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1800)
     public DmcAttribute<?> setNthMvIdxNamedObj(int index, ObjWithRefs value){
         if (value == null)
             return(((NamedObjMVIDXDMO) core).setNthMvIdxNamedObj(index, null));
@@ -102,7 +102,7 @@ public class NamedObjMVIDXDMW extends DmwWrapper {
     /**
      * @return The ObjWithRefs object at the specified index.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1894)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1896)
     public ObjWithRefs getNthMvIdxNamedObj(int index){
         ObjWithRefsREF ref = ((NamedObjMVIDXDMO) core).getNthMvIdxNamedObj(index);
         if (ref == null)
@@ -117,7 +117,7 @@ public class NamedObjMVIDXDMW extends DmwWrapper {
     /**
      * @return The reference to the ObjWithRefs object at the specified index.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1934)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1936)
     public ObjWithRefsREF getNthMvIdxNamedObjREF(int index){
         ObjWithRefsREF ref = ((NamedObjMVIDXDMO) core).getNthMvIdxNamedObjREF(index);
         return(ref);
@@ -126,7 +126,7 @@ public class NamedObjMVIDXDMW extends DmwWrapper {
     /**
      * Removes the mvIdxNamedObj attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2157)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2161)
     public void remMvIdxNamedObj(){
         ((NamedObjMVIDXDMO) core).remMvIdxNamedObj();
     }

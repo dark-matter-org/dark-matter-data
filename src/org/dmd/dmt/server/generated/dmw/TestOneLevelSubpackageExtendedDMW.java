@@ -3,12 +3,12 @@ package org.dmd.dmt.server.generated.dmw;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:351)
 import java.util.ArrayList;                                                        // To support getMVCopy() - (BaseDMWGeneratorNewest.java:1050)
-import java.util.Iterator;                                                         // Support copy of MV objects - (BaseDMWGeneratorNewest.java:2105)
+import java.util.Iterator;                                                         // Support copy of MV objects - (BaseDMWGeneratorNewest.java:2109)
 import org.dmd.dmc.*;                                                              // If any attributes - (BaseDMWGeneratorNewest.java:956)
 import org.dmd.dmc.types.DefinitionName;                                           // Is named by - (BaseDMWGeneratorNewest.java:935)
 import org.dmd.dms.ClassDefinition;                                                // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:940)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                        // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:945)
-import org.dmd.dms.generated.dmw.StringIterableDMW;                                // For multi-valued String - (BaseDMWGeneratorNewest.java:1970)
+import org.dmd.dms.generated.dmw.StringIterableDMW;                                // For multi-valued String - (BaseDMWGeneratorNewest.java:1972)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                              // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:944)
 import org.dmd.dmt.server.extended.subpack.TestOneLevelSubpackageExtended;         // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:949)
 import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                                  // Attribute mvString from the dmt schema - (BaseDMWGeneratorNewest.java:771)
@@ -116,7 +116,7 @@ public class TestOneLevelSubpackageExtendedDMW extends DmwNamedObjectWrapper imp
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1974)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1976)
     public StringIterableDMW getMvStringIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvString);
         if (attr == null)
@@ -129,7 +129,7 @@ public class TestOneLevelSubpackageExtendedDMW extends DmwNamedObjectWrapper imp
      * Adds another mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2000)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2002)
     public void addMvString(Object value) throws DmcValueException {
         ((TestOneLevelSubpackageExtendedDMO) core).addMvString(value);
     }
@@ -138,7 +138,7 @@ public class TestOneLevelSubpackageExtendedDMW extends DmwNamedObjectWrapper imp
      * Adds another mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2010)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2012)
     public void addMvString(String value){
         ((TestOneLevelSubpackageExtendedDMO) core).addMvString(value);
     }
@@ -147,7 +147,7 @@ public class TestOneLevelSubpackageExtendedDMW extends DmwNamedObjectWrapper imp
      * Returns true if the collection contains the mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2067)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2069)
     public boolean mvStringContains(String value){
         return(((TestOneLevelSubpackageExtendedDMO) core).mvStringContains(value));
     }
@@ -155,7 +155,7 @@ public class TestOneLevelSubpackageExtendedDMW extends DmwNamedObjectWrapper imp
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2109)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2113)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getMvStringCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvString);
@@ -176,7 +176,7 @@ public class TestOneLevelSubpackageExtendedDMW extends DmwNamedObjectWrapper imp
      * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2136)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2140)
     public void delMvString(Object value) throws DmcValueException {
         ((TestOneLevelSubpackageExtendedDMO) core).delMvString(value);
     }
@@ -185,7 +185,7 @@ public class TestOneLevelSubpackageExtendedDMW extends DmwNamedObjectWrapper imp
      * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2145)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2149)
     public void delMvString(String value){
         ((TestOneLevelSubpackageExtendedDMO) core).delMvString(value);
     }
@@ -193,7 +193,7 @@ public class TestOneLevelSubpackageExtendedDMW extends DmwNamedObjectWrapper imp
     /**
      * Removes the mvString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2157)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2161)
     public void remMvString(){
         ((TestOneLevelSubpackageExtendedDMO) core).remMvString();
     }

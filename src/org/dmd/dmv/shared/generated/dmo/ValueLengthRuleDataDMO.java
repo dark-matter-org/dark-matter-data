@@ -102,7 +102,7 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:744)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:750)
     public RuleName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__ruleName);
         if (name != null)
@@ -111,13 +111,13 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
         return(null);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:761)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:767)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__ruleName);
         return(name);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:774)
     public boolean equals(Object obj){
         if (obj instanceof ValueLengthRuleDataDMO){
             return( getObjectName().equals( ((ValueLengthRuleDataDMO) obj).getObjectName()) );
@@ -125,7 +125,7 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
         return(false);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:776)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:782)
     public int hashCode(){
         RuleName objn = getObjectName();
         if (objn == null)

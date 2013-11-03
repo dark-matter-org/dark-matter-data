@@ -695,6 +695,12 @@ public class DmoFormatter {
 		case STRUCTURAL:
 			sb.append("public class ");
 			break;
+		case INTERFACE:
+			// Not currently using this - may get rid of it
+			break;
+		case UNKNOWN:
+			// Shouldn't ever happen
+			break;
 		}
 		
 		sb.append(cd.getName() + "DMO ");
@@ -817,9 +823,10 @@ public class DmoFormatter {
 				formatMVAUX(ad,sb);
 				break;
 			case HASHMAPPED:
-				break;
 			case TREEMAPPED:
-				break;
+			case HASHSET:
+			case TREESET:
+				throw(new IllegalStateException("Mapped and Set attributes aren't currently supported on AUXILIARY classes. Occurred with:\n" + cd.toOIF()));
 			}
 		}
 		
