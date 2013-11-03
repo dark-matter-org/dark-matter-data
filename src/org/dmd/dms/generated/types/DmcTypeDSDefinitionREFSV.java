@@ -20,43 +20,43 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 /**
- * The DmcTypeDMDefinitionREFSV provides storage for a single-valued DMDefinitionREF
+ * The DmcTypeDSDefinitionREFSV provides storage for a single-valued DSDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1966)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:605)
  */
 @SuppressWarnings("serial")
-public class DmcTypeDMDefinitionREFSV extends DmcTypeDMDefinitionREF implements Serializable {
+public class DmcTypeDSDefinitionREFSV extends DmcTypeDSDefinitionREF implements Serializable {
     
-    protected DMDefinitionREF value;
+    protected DSDefinitionREF value;
     
-    public DmcTypeDMDefinitionREFSV(){
+    public DmcTypeDSDefinitionREFSV(){
     
     }
     
-    public DmcTypeDMDefinitionREFSV(DmcAttributeInfo ai){
+    public DmcTypeDSDefinitionREFSV(DmcAttributeInfo ai){
         super(ai);
     }
     
-    public DmcTypeDMDefinitionREFSV getNew(){
-        return(new DmcTypeDMDefinitionREFSV(getAttributeInfo()));
+    public DmcTypeDSDefinitionREFSV getNew(){
+        return(new DmcTypeDSDefinitionREFSV(getAttributeInfo()));
     }
     
-    public DmcTypeDMDefinitionREFSV getNew(DmcAttributeInfo ai){
-        return(new DmcTypeDMDefinitionREFSV(ai));
+    public DmcTypeDSDefinitionREFSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeDSDefinitionREFSV(ai));
     }
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
-    public DmcAttribute<DMDefinitionREF> cloneIt(){
-        DmcTypeDMDefinitionREFSV rc = getNew();
+    public DmcAttribute<DSDefinitionREF> cloneIt(){
+        DmcTypeDSDefinitionREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2009)
-    public DMDefinitionREF getSVCopy(){
+    public DSDefinitionREF getSVCopy(){
         if (value == null)
             return(null);
         return(cloneValue(value));
@@ -64,8 +64,8 @@ public class DmcTypeDMDefinitionREFSV extends DmcTypeDMDefinitionREF implements 
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2021)
-    public DMDefinitionREF set(Object v) throws DmcValueException {
-        DMDefinitionREF rc = typeCheck(v);
+    public DSDefinitionREF set(Object v) throws DmcValueException {
+        DSDefinitionREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
         // the applyModifier() mechanism on DmcObject where we only return true
         // if something changed as a result of the modifier
@@ -81,7 +81,7 @@ public class DmcTypeDMDefinitionREFSV extends DmcTypeDMDefinitionREF implements 
     }
     
     @Override
-    public DMDefinitionREF getSV(){
+    public DSDefinitionREF getSV(){
         return(value);
     }
     

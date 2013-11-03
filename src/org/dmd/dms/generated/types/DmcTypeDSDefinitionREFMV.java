@@ -22,43 +22,43 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 /**
- * The DmcTypeDMDefinitionModuleREFMV provides storage for a multi-valued DMDefinitionModuleREF
+ * The DmcTypeDSDefinitionREFMV provides storage for a multi-valued DSDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2310)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:609)
  */
 @SuppressWarnings("serial")
-public class DmcTypeDMDefinitionModuleREFMV extends DmcTypeDMDefinitionModuleREF implements Serializable {
+public class DmcTypeDSDefinitionREFMV extends DmcTypeDSDefinitionREF implements Serializable {
     
-    private final static Iterator<DMDefinitionModuleREF> emptyList = (new ArrayList<DMDefinitionModuleREF>()).iterator();
+    private final static Iterator<DSDefinitionREF> emptyList = (new ArrayList<DSDefinitionREF>()).iterator();
     
-    protected ArrayList<DMDefinitionModuleREF> value;
+    protected ArrayList<DSDefinitionREF> value;
     
-    public DmcTypeDMDefinitionModuleREFMV(){
+    public DmcTypeDSDefinitionREFMV(){
     
     }
     
-    public DmcTypeDMDefinitionModuleREFMV(DmcAttributeInfo ai){
+    public DmcTypeDSDefinitionREFMV(DmcAttributeInfo ai){
         super(ai);
     }
     
     @Override
-    public DmcTypeDMDefinitionModuleREFMV getNew(){
-        return(new DmcTypeDMDefinitionModuleREFMV(getAttributeInfo()));
+    public DmcTypeDSDefinitionREFMV getNew(){
+        return(new DmcTypeDSDefinitionREFMV(getAttributeInfo()));
     }
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2341)
-    public DmcAttribute<DMDefinitionModuleREF> cloneIt(){
+    public DmcAttribute<DSDefinitionREF> cloneIt(){
         synchronized(this){
-            DmcTypeDMDefinitionModuleREFMV rc = getNew();
+            DmcTypeDSDefinitionREFMV rc = getNew();
     
             if (value == null)
                 return(rc);
     
             if (getAttributeInfo().indexSize == 0){
-                for(DMDefinitionModuleREF val: value)
+                for(DSDefinitionREF val: value)
                 try {
                     rc.add(val);
                 } catch (DmcValueException e) {
@@ -79,11 +79,11 @@ public class DmcTypeDMDefinitionModuleREFMV extends DmcTypeDMDefinitionModuleREF
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2374)
-    public DMDefinitionModuleREF add(Object v) throws DmcValueException {
+    public DSDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
-            DMDefinitionModuleREF rc = typeCheck(v);
+            DSDefinitionREF rc = typeCheck(v);
             if (value == null)
-                value = new ArrayList<DMDefinitionModuleREF>();
+                value = new ArrayList<DSDefinitionREF>();
             value.add(rc);
             return(rc);
         }
@@ -91,13 +91,13 @@ public class DmcTypeDMDefinitionModuleREFMV extends DmcTypeDMDefinitionModuleREF
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2387)
-    public DMDefinitionModuleREF del(Object v){
+    public DSDefinitionREF del(Object v){
         synchronized(this){
             if (value == null)
                 return(null);
     
-            DMDefinitionModuleREF key = null;
-            DMDefinitionModuleREF rc = null;
+            DSDefinitionREF key = null;
+            DSDefinitionREF rc = null;
             try {
                 key = typeCheck(v);
             } catch (DmcValueException e) {
@@ -115,23 +115,23 @@ public class DmcTypeDMDefinitionModuleREFMV extends DmcTypeDMDefinitionModuleREF
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2421)
-    public Iterator<DMDefinitionModuleREF> getMV(){
+    public Iterator<DSDefinitionREF> getMV(){
         synchronized(this){
             if (value == null)
                 return(emptyList);
     
-            ArrayList<DMDefinitionModuleREF> clone = new ArrayList<DMDefinitionModuleREF>(value);
+            ArrayList<DSDefinitionREF> clone = new ArrayList<DSDefinitionREF>(value);
             return(clone.iterator());
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2433)
-    public ArrayList<DMDefinitionModuleREF> getMVCopy(){
+    public ArrayList<DSDefinitionREF> getMVCopy(){
         synchronized(this){
             if (value == null)
-                return(new ArrayList<DMDefinitionModuleREF>());
+                return(new ArrayList<DSDefinitionREF>());
             else 
-                return(new ArrayList<DMDefinitionModuleREF>(value));
+                return(new ArrayList<DSDefinitionREF>(value));
         }
     }
     
@@ -151,7 +151,7 @@ public class DmcTypeDMDefinitionModuleREFMV extends DmcTypeDMDefinitionModuleREF
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
-    public DMDefinitionModuleREF getMVnth(int index){
+    public DSDefinitionREF getMVnth(int index){
         synchronized(this){
             if (value == null)
                 return(null);
@@ -161,7 +161,7 @@ public class DmcTypeDMDefinitionModuleREFMV extends DmcTypeDMDefinitionModuleREF
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2471)
-    public DMDefinitionModuleREF setMVnth(int index, Object v) throws DmcValueException {
+    public DSDefinitionREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
                 throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
@@ -169,13 +169,13 @@ public class DmcTypeDMDefinitionModuleREFMV extends DmcTypeDMDefinitionModuleREF
             if ( (index < 0) || (index >= getAttributeInfo().indexSize))
                 throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
             
-            DMDefinitionModuleREF rc = null;
+            DSDefinitionREF rc = null;
             
             if (v != null)
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<DMDefinitionModuleREF>(getAttributeInfo().indexSize);
+                value = new ArrayList<DSDefinitionREF>(getAttributeInfo().indexSize);
                 for(int i=0;i<getAttributeInfo().indexSize;i++)
                     value.add(null);
             }
@@ -217,7 +217,7 @@ public class DmcTypeDMDefinitionModuleREFMV extends DmcTypeDMDefinitionModuleREF
                 return(false);
 
             try {
-                DMDefinitionModuleREF val = typeCheck(v);
+                DSDefinitionREF val = typeCheck(v);
                 return(value.contains(val));
             } catch (DmcValueException e) {
                 return(false);

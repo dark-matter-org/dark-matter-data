@@ -25,7 +25,7 @@ import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGe
 
 
 /**
- * The dark-matter definition forms the basis for all domain specific
+ * The domain specific definition (DSDefinition) forms the basis for all
  * definitions\n that use dark-matter as their basis. The initial dark-matter
  * mechanisms were focussed only on \n schema for data objects, but, as the
  * project developed, other, domain specific sets of definitions\n were
@@ -54,7 +54,7 @@ import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGe
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1905)
  */
 @SuppressWarnings("serial")
-public class DMDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Serializable  {
+public class DSDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Serializable  {
 
 
 
@@ -84,11 +84,11 @@ public class DMDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Seri
     }
 
 
-    public DMDefinitionDMO(){
-        super("DMDefinition");
+    public DSDefinitionDMO(){
+        super("DSDefinition");
     }
 
-    public DMDefinitionDMO(String oc){
+    public DSDefinitionDMO(String oc){
         super(oc);
     }
 
@@ -101,14 +101,14 @@ public class DMDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Seri
     }
 
     @Override
-    public DMDefinitionDMO getNew(){
-        DMDefinitionDMO rc = new DMDefinitionDMO();
+    public DSDefinitionDMO getNew(){
+        DSDefinitionDMO rc = new DSDefinitionDMO();
         return(rc);
     }
 
     @Override
-    public DMDefinitionDMO getSlice(DmcSliceInfo info){
-        DMDefinitionDMO rc = new DMDefinitionDMO();
+    public DSDefinitionDMO getSlice(DmcSliceInfo info){
+        DSDefinitionDMO rc = new DSDefinitionDMO();
         populateSlice(rc,info);
         return(rc);
     }

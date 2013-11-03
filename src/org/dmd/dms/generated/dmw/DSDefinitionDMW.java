@@ -27,7 +27,7 @@ import org.dmd.util.exceptions.*;
 import org.dmd.dms.*;
 
 /**
- * The dark-matter definition forms the basis for all domain specific
+ * The domain specific definition (DSDefinition) forms the basis for all
  * definitions\n that use dark-matter as their basis. The initial dark-matter
  * mechanisms were focussed only on \n schema for data objects, but, as the
  * project developed, other, domain specific sets of definitions\n were
@@ -56,29 +56,29 @@ import org.dmd.dms.*;
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1601)
  */
 @SuppressWarnings("unused")
-public abstract class DMDefinitionDMW extends DmwNamedObjectWrapper {
+public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
 
-    private DMDefinitionDMO mycore;
+    private DSDefinitionDMO mycore;
 
-    protected DMDefinitionDMW() {
-        super(new DMDefinitionDMO());
-        mycore = (DMDefinitionDMO) core;
+    protected DSDefinitionDMW() {
+        super(new DSDefinitionDMO());
+        mycore = (DSDefinitionDMO) core;
         mycore.setContainer(this);
     }
 
-    protected DMDefinitionDMW(DmcObject obj) {
+    protected DSDefinitionDMW(DmcObject obj) {
         super(obj);
-        mycore = (DMDefinitionDMO) core;
+        mycore = (DSDefinitionDMO) core;
         mycore.setContainer(this);
     }
 
-    protected DMDefinitionDMW(DmcObject obj, ClassDefinition cd) {
+    protected DSDefinitionDMW(DmcObject obj, ClassDefinition cd) {
         super(obj,cd);
-        mycore = (DMDefinitionDMO) core;
+        mycore = (DSDefinitionDMO) core;
         mycore.setContainer(this);
     }
 
-    public  DMDefinitionDMO getDMO() {
+    public  DSDefinitionDMO getDMO() {
         return(mycore);
     }
 

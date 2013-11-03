@@ -25,51 +25,51 @@ import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 /**
- * The DmcTypeDMDefinitionModuleREFSET provides storage for a set of DMDefinitionModuleREF
+ * The DmcTypeDSDefinitionREFSET provides storage for a set of DSDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2606)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:612)
  */
 @SuppressWarnings("serial")
-public class DmcTypeDMDefinitionModuleREFSET extends DmcTypeDMDefinitionModuleREF implements Serializable {
+public class DmcTypeDSDefinitionREFSET extends DmcTypeDSDefinitionREF implements Serializable {
     
-     private final static Iterator<DMDefinitionModuleREF> emptyList =  (new HashSet<DMDefinitionModuleREF>()).iterator();
+     private final static Iterator<DSDefinitionREF> emptyList =  (new HashSet<DSDefinitionREF>()).iterator();
     
     
-    protected Set<DMDefinitionModuleREF> value;
+    protected Set<DSDefinitionREF> value;
     
-    public DmcTypeDMDefinitionModuleREFSET(){
+    public DmcTypeDSDefinitionREFSET(){
         value = null;
     }
     
-    public DmcTypeDMDefinitionModuleREFSET(DmcAttributeInfo ai){
+    public DmcTypeDSDefinitionREFSET(DmcAttributeInfo ai){
         super(ai);
         initValue();
     }
     
     void initValue(){
         if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-            value = new HashSet<DMDefinitionModuleREF>();
+            value = new HashSet<DSDefinitionREF>();
         else
-            value = new TreeSet<DMDefinitionModuleREF>();
+            value = new TreeSet<DSDefinitionREF>();
     }
     
     @Override
-    public DmcTypeDMDefinitionModuleREFSET getNew(){
-        return(new DmcTypeDMDefinitionModuleREFSET(getAttributeInfo()));
+    public DmcTypeDSDefinitionREFSET getNew(){
+        return(new DmcTypeDSDefinitionREFSET(getAttributeInfo()));
     }
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2647)
-    public DmcAttribute<DMDefinitionModuleREF> cloneIt(){
+    public DmcAttribute<DSDefinitionREF> cloneIt(){
         synchronized(this){
-            DmcTypeDMDefinitionModuleREFSET rc = getNew();
+            DmcTypeDSDefinitionREFSET rc = getNew();
     
             if (value == null)
                 return(rc);
     
-            for(DMDefinitionModuleREF val: value)
+            for(DSDefinitionREF val: value)
             try {
                 rc.add(val);
             } catch (DmcValueException e) {
@@ -81,9 +81,9 @@ public class DmcTypeDMDefinitionModuleREFSET extends DmcTypeDMDefinitionModuleRE
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2670)
-    public DMDefinitionModuleREF add(Object v) throws DmcValueException {
+    public DSDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
-            DMDefinitionModuleREF rc = typeCheck(v);
+            DSDefinitionREF rc = typeCheck(v);
             if (value == null)
                 initValue();
         
@@ -97,9 +97,9 @@ public class DmcTypeDMDefinitionModuleREFSET extends DmcTypeDMDefinitionModuleRE
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2687)
-    public DMDefinitionModuleREF del(Object v){
+    public DSDefinitionREF del(Object v){
         synchronized(this){
-            DMDefinitionModuleREF rc = null;
+            DSDefinitionREF rc = null;
             if (value == null)
                 return(rc);
             
@@ -121,32 +121,32 @@ public class DmcTypeDMDefinitionModuleREFSET extends DmcTypeDMDefinitionModuleRE
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2712)
-    public Iterator<DMDefinitionModuleREF> getMV(){
+    public Iterator<DSDefinitionREF> getMV(){
         synchronized(this){
             if (value == null)
                 return(emptyList);
 
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-                return( (new HashSet<DMDefinitionModuleREF>(value)).iterator() );
+                return( (new HashSet<DSDefinitionREF>(value)).iterator() );
             else
-                return( (new TreeSet<DMDefinitionModuleREF>(value)).iterator() );
+                return( (new TreeSet<DSDefinitionREF>(value)).iterator() );
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2726)
-    public Set<DMDefinitionModuleREF> getMVCopy(){
+    public Set<DSDefinitionREF> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
                 if (value == null)
-                    return(new HashSet<DMDefinitionModuleREF>());
+                    return(new HashSet<DSDefinitionREF>());
                 else
-                    return(new HashSet<DMDefinitionModuleREF>(value));
+                    return(new HashSet<DSDefinitionREF>(value));
             }
             else{
                 if (value == null)
-                    return(new TreeSet<DMDefinitionModuleREF>(value));
+                    return(new TreeSet<DSDefinitionREF>(value));
                 else
-                    return(new TreeSet<DMDefinitionModuleREF>(value));
+                    return(new TreeSet<DSDefinitionREF>(value));
             }
         }
     }
@@ -169,7 +169,7 @@ public class DmcTypeDMDefinitionModuleREFSET extends DmcTypeDMDefinitionModuleRE
                 return(false);
             
             try {
-                DMDefinitionModuleREF val = typeCheck(v);
+                DSDefinitionREF val = typeCheck(v);
                 return(value.contains(val));
             } catch (DmcValueException e) {
                 return(false);

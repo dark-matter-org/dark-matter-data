@@ -27,7 +27,6 @@ import org.dmd.dmc.types.DefinitionName;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
-import org.dmd.dms.DMDefinition;
 import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.EnumDefinition;
 import org.dmd.dms.SchemaDefinition;
@@ -845,7 +844,7 @@ public class SchemaDocHtmlFormatter {
 
                     while(defsIt.hasNext()){
                         Token               t  = (Token)defsIt.next();
-                        DMDefinition    go = (DMDefinition) t.getUserData();
+                        DmsDefinition    go = (DmsDefinition) t.getUserData();
 
                         out.write("<tr> <TD VALIGN=TOP>\n");
 
@@ -1329,7 +1328,7 @@ public class SchemaDocHtmlFormatter {
      * @param alias An alternate name for the definition; if provided, this is
      * used as the string in the reference.
      */
-    String defLink(DMDefinition go, String alias){
+    String defLink(DmsDefinition go, String alias){
     	DmsDefinition def = (DmsDefinition)go;
     	SchemaDefinition sd = def.getDefinedIn();
 

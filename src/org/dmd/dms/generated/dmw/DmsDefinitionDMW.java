@@ -33,7 +33,7 @@ import org.dmd.dms.*;
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1601)
  */
 @SuppressWarnings("unused")
-public abstract class DmsDefinitionDMW extends org.dmd.dms.DMDefinition {
+public abstract class DmsDefinitionDMW extends org.dmd.dms.DSDefinition {
 
     private DmsDefinitionDMO mycore;
 

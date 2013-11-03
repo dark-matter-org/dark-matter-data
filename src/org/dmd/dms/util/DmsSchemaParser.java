@@ -32,14 +32,14 @@ import org.dmd.dmc.rules.SourceInfo;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
-import org.dmd.dms.DMDefinition;
+import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.MetaSchema;
 import org.dmd.dms.MetaSchemaAG;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaDefinitionListenerIF;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;
-import org.dmd.dms.generated.dmo.DMDefinitionDMO;
+import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dmv.server.DmvDynamicRuleManager;
 import org.dmd.dmv.shared.DmvRuleManager;
@@ -312,7 +312,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
     public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException, DmcRuleExceptionSet {
         ClassDefinition     cd                  = null;
         boolean             isSchema            = false;
-        DMDefinition    	newDef              = null;
+        DmsDefinition    	newDef              = null;
         Iterator<String>    dependsOnSchemas    = null;
         Iterator<String>    defFiles            = null;
         SchemaDefinition    currSchema          = null;
@@ -387,7 +387,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
         		DmwWrapper newObj = dmwfactory.createWrapper(uco);
         		newDef 		= null;
 
-    			newDef = (DMDefinition) newObj;
+    			newDef = (DmsDefinition) newObj;
     			newDef.setFile(srcFile);
     			newDef.setLineNumber(lineNumber);
 				
@@ -571,7 +571,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
     }
 
 	@Override
-	public void definitionAdded(DMDefinitionDMO def) {
+	public void definitionAdded(DmsDefinitionDMO def) {
 		if (def instanceof AttributeDefinitionDMO){
 			AttributeDefinitionDMO attr = (AttributeDefinitionDMO) def;
 			if (attr.getPreserveNewlines()){
@@ -589,7 +589,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
 		Iterator<DmcNamedObjectIF> it = ncos.getMatches();
 		while(it.hasNext()){
 			try{
-				DMDefinition def = (DMDefinition) it.next();
+				DmsDefinition def = (DmsDefinition) it.next();
 				
 				// We get the source of the definition from the DMO, we don't know if these objects have been resolved as yet
 				if (def.getDMO().getDefinedIn() == null){
@@ -608,7 +608,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
 			catch(ClassCastException e){
 				// We could wind up here if someone is using the schema parser in an incorrect context
 				// Complain!
-				throw(new IllegalStateException("The DmsSchemaParser can only be used to resolve references to DMDefinition objects!"));
+				throw(new IllegalStateException("The DmsSchemaParser can only be used to resolve references to DmsDefinition objects!"));
 			}
 		}
 		
@@ -620,7 +620,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
 			sb.append("You must qualify the name of the object you're referring to: ");
 			it = ncos.getMatches();
 			while(it.hasNext()){
-				DMDefinition def = (DMDefinition) it.next();
+				DmsDefinition def = (DmsDefinition) it.next();
 				sb.append(def.getDMO().getDefinedIn().getObjectName() + "." + def.getName() + "  ");
 			}
 

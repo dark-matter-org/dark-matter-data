@@ -36,7 +36,7 @@ import org.dmd.dms.RuleDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
-import org.dmd.dms.generated.dmo.DMDefinitionDMO;
+import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.dmo.SchemaDefinitionDMO;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
@@ -578,9 +578,9 @@ public class SchemaFormatter {
 						Object val = vals.next();
 						if (td.getIsRefType()){
 							DmcNamedObjectREF<?> ref = (DmcNamedObjectREF<?>) val;
-							if (ref.getObject() instanceof DMDefinitionDMO){
+							if (ref.getObject() instanceof DmsDefinitionDMO){
 								if ( !(ref.getObject() instanceof SchemaDefinitionDMO)){
-									DMDefinitionDMO def = (DMDefinitionDMO) ref.getObject();
+									DmsDefinitionDMO def = (DmsDefinitionDMO) ref.getObject();
 									if (!val.toString().contains("."))
 										prefix =  def.getDefinedIn().getObjectName().getNameString() + ".";
 								}
@@ -593,9 +593,9 @@ public class SchemaFormatter {
 					prefix = "";
 					if (td.getIsRefType()){
 						DmcNamedObjectREF<?> ref = (DmcNamedObjectREF<?>) attr.getSV();
-						if (ref.getObject() instanceof DMDefinitionDMO){
+						if (ref.getObject() instanceof DmsDefinitionDMO){
 							if ( !(ref.getObject() instanceof SchemaDefinitionDMO)){
-								DMDefinitionDMO def = (DMDefinitionDMO) ref.getObject();
+								DmsDefinitionDMO def = (DmsDefinitionDMO) ref.getObject();
 								if (!attr.getSV().toString().contains("."))
 									prefix = def.getDefinedIn().getObjectName().getNameString() + ".";
 							}

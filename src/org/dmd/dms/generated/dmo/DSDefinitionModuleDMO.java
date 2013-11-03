@@ -36,7 +36,7 @@ import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGe
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1905)
  */
 @SuppressWarnings("serial")
-public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DMDefinitionDMO implements Serializable  {
+public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO implements Serializable  {
 
 
 
@@ -106,12 +106,12 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DMDefinitio
     }
 
     /**
-     * A reference to the DMDefinition derived class that is the base class for a
+     * A reference to the DSDefinition derived class that is the base class for a
      * \n set of definition classes.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2295)
-    public DMDefinitionREF getBaseDefinition(){
-        DmcTypeDMDefinitionREFSV attr = (DmcTypeDMDefinitionREFSV) get(MetaDMSAG.__baseDefinition);
+    public DSDefinitionREF getBaseDefinition(){
+        DmcTypeDSDefinitionREFSV attr = (DmcTypeDSDefinitionREFSV) get(MetaDMSAG.__baseDefinition);
         if (attr == null)
             return(null);
 
@@ -120,13 +120,13 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DMDefinitio
 
     /**
      * Sets baseDefinition to the specified value.
-     * @param value A value compatible with DmcTypeDMDefinitionREFSV
+     * @param value A value compatible with DmcTypeDSDefinitionREFSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2388)
     public void setBaseDefinition(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__baseDefinition);
         if (attr == null)
-            attr = new DmcTypeDMDefinitionREFSV(MetaDMSAG.__baseDefinition);
+            attr = new DmcTypeDSDefinitionREFSV(MetaDMSAG.__baseDefinition);
         
         attr.set(value);
         set(MetaDMSAG.__baseDefinition,attr);
@@ -188,7 +188,7 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DMDefinitio
 
     /**
      * The name of the class that will be generated as a result of a
-     * DMDefinitionModule definition.
+     * DSDefinitionModule definition.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2295)
     public String getModuleClassName(){
@@ -242,13 +242,13 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DMDefinitio
     }
 
     /**
-     * A reference to the DMDefinition derived class that is part of\n the
+     * A reference to the DSDefinition derived class that is part of\n the
      * abstract syntax of a dark-matter definition module.
-     * @return An Iterator of DMDefinitionDMO objects.
+     * @return An Iterator of DSDefinitionDMO objects.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2486)
-    public Iterator<DMDefinitionREF> getUsesDefinition(){
-        DmcTypeDMDefinitionREFMV attr = (DmcTypeDMDefinitionREFMV) get(MetaDMSAG.__usesDefinition);
+    public Iterator<DSDefinitionREF> getUsesDefinition(){
+        DmcTypeDSDefinitionREFMV attr = (DmcTypeDSDefinitionREFMV) get(MetaDMSAG.__usesDefinition);
         if (attr == null)
             return(null);
 
@@ -257,13 +257,13 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DMDefinitio
 
     /**
      * Adds another usesDefinition value.
-     * @param value A value compatible with DmcTypeDMDefinitionREFMV
+     * @param value A value compatible with DmcTypeDSDefinitionREFMV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2548)
     public DmcAttribute<?> addUsesDefinition(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__usesDefinition);
         if (attr == null)
-            attr = new DmcTypeDMDefinitionREFMV(MetaDMSAG.__usesDefinition);
+            attr = new DmcTypeDSDefinitionREFMV(MetaDMSAG.__usesDefinition);
         
         attr.add(value);
         add(MetaDMSAG.__usesDefinition,attr);

@@ -38,7 +38,7 @@ import org.dmd.dms.*;
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1601)
  */
 @SuppressWarnings("unused")
-public class DSDefinitionModuleDMW extends org.dmd.dms.DMDefinition {
+public class DSDefinitionModuleDMW extends org.dmd.dms.DmsDefinition {
 
     private DSDefinitionModuleDMO mycore;
 
@@ -62,6 +62,18 @@ public class DSDefinitionModuleDMW extends org.dmd.dms.DMDefinition {
 
     public  DSDefinitionModuleDMO getDMO() {
         return(mycore);
+    }
+
+    protected DSDefinitionModuleDMW(ClassDefinition cd) {
+        super(cd);
+    }
+
+    protected DSDefinitionModuleDMW(String mn) throws DmcValueException {
+        super(new DSDefinitionModuleDMO());
+        mycore = (DSDefinitionModuleDMO) core;
+        mycore.setContainer(this);
+        mycore.setName(mn);
+        metaname = mn;
     }
 
     /**
@@ -121,7 +133,7 @@ public class DSDefinitionModuleDMW extends org.dmd.dms.DMDefinition {
 
     /**
      * The name of the class that will be generated as a result of a
-     * DMDefinitionModule definition.
+     * DSDefinitionModule definition.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
     public String getModuleClassName(){
@@ -138,47 +150,47 @@ public class DSDefinitionModuleDMW extends org.dmd.dms.DMDefinition {
     }
 
     /**
-     * A reference to the DMDefinition derived class that is the base class for a
+     * A reference to the DSDefinition derived class that is the base class for a
      * \n set of definition classes.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
-    public DMDefinition getBaseDefinition(){
-        DmcTypeDMDefinitionREFSV attr = (DmcTypeDMDefinitionREFSV) mycore.get(MetaDMSAG.__baseDefinition);
+    public DSDefinition getBaseDefinition(){
+        DmcTypeDSDefinitionREFSV attr = (DmcTypeDSDefinitionREFSV) mycore.get(MetaDMSAG.__baseDefinition);
         if (attr == null)
             return(null);
-        DMDefinitionDMO obj = attr.getSV().getObject();
-        return((DMDefinition)obj.getContainer());
+        DSDefinitionDMO obj = attr.getSV().getObject();
+        return((DSDefinition)obj.getContainer());
     }
 
     /**
      * Sets baseDefinition to the specified value.
-     * @param value A value compatible with DMDefinition
+     * @param value A value compatible with DSDefinition
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2409)
-    public void setBaseDefinition(DMDefinition value) throws DmcValueException {
+    public void setBaseDefinition(DSDefinition value) throws DmcValueException {
         mycore.setBaseDefinition(value.getDmcObject());
     }
 
     /**
-     * A reference to the DMDefinition derived class that is part of\n the
+     * A reference to the DSDefinition derived class that is part of\n the
      * abstract syntax of a dark-matter definition module.
-     * @return An Iterator of DMDefinition objects.
+     * @return An Iterator of DSDefinition objects.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2510)
-    public DMDefinitionIterableDMW getUsesDefinition(){
-        DmcTypeDMDefinitionREFMV attr = (DmcTypeDMDefinitionREFMV) mycore.get(MetaDMSAG.__usesDefinition);
+    public DSDefinitionIterableDMW getUsesDefinition(){
+        DmcTypeDSDefinitionREFMV attr = (DmcTypeDSDefinitionREFMV) mycore.get(MetaDMSAG.__usesDefinition);
         if (attr == null)
-            return(DMDefinitionIterableDMW.emptyList);
+            return(DSDefinitionIterableDMW.emptyList);
 
-        return(new DMDefinitionIterableDMW(attr.getMV()));
+        return(new DSDefinitionIterableDMW(attr.getMV()));
     }
 
     /**
      * Adds another usesDefinition value.
-     * @param value A value compatible with DMDefinition
+     * @param value A value compatible with DSDefinition
      */
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2569)
-    public DmcAttribute<?> addUsesDefinition(DMDefinition value) throws DmcValueException {
+    public DmcAttribute<?> addUsesDefinition(DSDefinition value) throws DmcValueException {
         DmcAttribute<?> attr = mycore.addUsesDefinition(value.getDmcObject());
         return(attr);
     }
