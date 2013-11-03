@@ -49,6 +49,8 @@ public class DMWGenerator extends BaseDMWGeneratorNewest {
 		sformatter.setProgressStream(progress);
 		SchemaDefinition sd = sm.isSchema(config.getSchemaToLoad());
 		sformatter.dumpSchema(gendir, config.getGenPackage(), sd, sm);
+		
+		
 	}
 
 	////////////////////////////////////////////////////////////////////////////////

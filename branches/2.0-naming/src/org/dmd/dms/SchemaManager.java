@@ -183,7 +183,11 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     TreeMap<DefinitionName,SchemaDefinition>     		schemaDefs;
     public int  longestSchemaName;
     
-    
+    /**
+     * This map contains all Domain Specific Definition Modules. 
+     * Key:   DefinitionName
+     * Value: DSDefinitionModule
+     */
     TreeMap<DefinitionName,DSDefinitionModule>			definitionModuleDefs;
 
     /**
@@ -825,7 +829,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 
     }
     
-    void addDefinitionModule(DSDefinitionModule ddm) throws ResultException {
+    void addDefinitionModule(DSDefinitionModule ddm) throws ResultException, DmcValueException {
         if (checkAndAdd(ddm.getObjectName(),ddm,definitionModuleDefs) == false){
         	ResultException ex = new ResultException();
         	ex.addError(clashMsg(ddm.getObjectName(),ddm,definitionModuleDefs,"DSDefinitionModule names"));
@@ -833,7 +837,45 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         	throw(ex);
         }
         
-        // And now we generate a class that represents the module
+        
+        
+    	DefinitionName moduleClassName = new DefinitionName(ddm.getModuleClassName());
+
+    	// And now we generate a class that represents the module
+        ClassDefinition cd = new ClassDefinition();
+        cd.setName(moduleClassName);
+        cd.setClassType(ClassTypeEnum.STRUCTURAL);
+        cd.setDmdID(ddm.getDmdID());
+        cd.setIsNamedBy(MetaSchemaAG._name);
+        cd.setInternallyGenerated(true);
+        
+        // The name of a domain specific definition module is schema.dsdmodulename.DSDefinitionModule
+        // For the associated class, it will be schema.dsdmodulename.ClassDefinition
+        DotName className = new DotName(((DotName) ddm.getDotName().getParentName()).getNameString() + ".ClassDefinition");
+        cd.setDotName(className);
+
+        cd.addMust(MetaSchemaAG._name);
+        cd.addMay(MetaSchemaAG._description);
+
+        cd.setFile(ddm);
+        cd.setLineNumber(ddm.getLineNumber());
+        cd.setDefinedIn(ddm.getDefinedIn());
+        
+        if (ddm.getDescription() != null)
+        	cd.setDescription(ddm.getDescription());
+        
+        for(AttributeDefinition ad: ddm.getMay()){
+        	cd.addMay(ad);
+        }
+        
+        for(AttributeDefinition ad: ddm.getMust()){
+        	cd.addMust(ad);
+        }
+        
+        addClass(cd);
+        
+        // We add the new class to the schema's list of classes
+        ddm.getDefinedIn().addClassDefList(cd);
 
     }
     
@@ -1136,7 +1178,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         	throw(ex);
         }
         
-        // This name is used identify references to the class
+        // This name is used to identify references to the class
         DotName refName 	= new DotName((DotName) cd.getDotName().getParentName(),"ClassDefinitionREF");
                
         DebugInfo.debug("Adding class: " + cd.getDotName() + "   " + refName);

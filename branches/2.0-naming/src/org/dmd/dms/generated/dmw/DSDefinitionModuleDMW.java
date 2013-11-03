@@ -33,7 +33,9 @@ import org.dmd.dms.*;
  * <p/>\n The specific of a definition module will result in the generation
  * of a ClassDefinition for\n the specified module type and thus, the dmdID
  * associated with it must be unique across the\n set of classes that
- * comprise the definitions encompassed by the module.
+ * comprise the definitions encompassed by the module.\n <p/>\n The
+ * ClassDefinition will be named by name and will have the may and must
+ * attributes specified\n as part of the DSDefinitionModule.
  * @author Auto Generated
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1601)
  */
@@ -201,6 +203,76 @@ public class DSDefinitionModuleDMW extends org.dmd.dms.DmsDefinition {
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2595)
     public int getUsesDefinitionSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__usesDefinition);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Indicates the set of attributes that an instance of a class MAY\n have.
+     * When accessed in Java, this is a set of references to
+     * AttributeDefinition\n objects.
+     * @return An Iterator of AttributeDefinition objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2510)
+    public AttributeDefinitionIterableDMW getMay(){
+        DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaDMSAG.__may);
+        if (attr == null)
+            return(AttributeDefinitionIterableDMW.emptyList);
+
+        return(new AttributeDefinitionIterableDMW(attr.getMV()));
+    }
+
+    /**
+     * Adds another may value.
+     * @param value A value compatible with AttributeDefinition
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2569)
+    public DmcAttribute<?> addMay(AttributeDefinition value) throws DmcValueException {
+        DmcAttribute<?> attr = mycore.addMay(value.getDmcObject());
+        return(attr);
+    }
+
+    /**
+     * Returns the number of may values.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2595)
+    public int getMaySize(){
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__may);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Indicates the set of attributes that an instance of a class MUST have.
+     * @return An Iterator of AttributeDefinition objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2510)
+    public AttributeDefinitionIterableDMW getMust(){
+        DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaDMSAG.__must);
+        if (attr == null)
+            return(AttributeDefinitionIterableDMW.emptyList);
+
+        return(new AttributeDefinitionIterableDMW(attr.getMV()));
+    }
+
+    /**
+     * Adds another must value.
+     * @param value A value compatible with AttributeDefinition
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2569)
+    public DmcAttribute<?> addMust(AttributeDefinition value) throws DmcValueException {
+        DmcAttribute<?> attr = mycore.addMust(value.getDmcObject());
+        return(attr);
+    }
+
+    /**
+     * Returns the number of must values.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2595)
+    public int getMustSize(){
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__must);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
