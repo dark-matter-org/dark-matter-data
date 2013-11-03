@@ -31,7 +31,9 @@ import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGe
  * <p/>\n The specific of a definition module will result in the generation
  * of a ClassDefinition for\n the specified module type and thus, the dmdID
  * associated with it must be unique across the\n set of classes that
- * comprise the definitions encompassed by the module.
+ * comprise the definitions encompassed by the module.\n <p/>\n The
+ * ClassDefinition will be named by name and will have the may and must
+ * attributes specified\n as part of the DSDefinitionModule.
  * @author Auto Generated
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1905)
  */
@@ -59,6 +61,8 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
         _ImAp.put(MetaDMSAG.__exampleUsage.id,MetaDMSAG.__exampleUsage);
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
+        _ImAp.put(MetaDMSAG.__may.id,MetaDMSAG.__may);
+        _ImAp.put(MetaDMSAG.__must.id,MetaDMSAG.__must);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(MetaDMSAG.__baseDefinition.name,MetaDMSAG.__baseDefinition);
@@ -73,6 +77,8 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
         _SmAp.put(MetaDMSAG.__exampleUsage.name,MetaDMSAG.__exampleUsage);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
+        _SmAp.put(MetaDMSAG.__may.name,MetaDMSAG.__may);
+        _SmAp.put(MetaDMSAG.__must.name,MetaDMSAG.__must);
     }
 
 
@@ -439,6 +445,64 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
         
         attr.set(value);
         set(MetaDMSAG.__lineNumber,attr);
+    }
+
+    /**
+     * Indicates the set of attributes that an instance of a class MAY\n have.
+     * When accessed in Java, this is a set of references to
+     * AttributeDefinition\n objects.
+     * @return An Iterator of AttributeDefinitionDMO objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2486)
+    public Iterator<AttributeDefinitionREF> getMay(){
+        DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) get(MetaDMSAG.__may);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another may value.
+     * @param value A value compatible with DmcTypeAttributeDefinitionREFMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2548)
+    public DmcAttribute<?> addMay(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__may);
+        if (attr == null)
+            attr = new DmcTypeAttributeDefinitionREFMV(MetaDMSAG.__may);
+        
+        attr.add(value);
+        add(MetaDMSAG.__may,attr);
+        return(attr);
+    }
+
+    /**
+     * Indicates the set of attributes that an instance of a class MUST have.
+     * @return An Iterator of AttributeDefinitionDMO objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2486)
+    public Iterator<AttributeDefinitionREF> getMust(){
+        DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) get(MetaDMSAG.__must);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another must value.
+     * @param value A value compatible with DmcTypeAttributeDefinitionREFMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2548)
+    public DmcAttribute<?> addMust(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__must);
+        if (attr == null)
+            attr = new DmcTypeAttributeDefinitionREFMV(MetaDMSAG.__must);
+        
+        attr.add(value);
+        add(MetaDMSAG.__must,attr);
+        return(attr);
     }
 
 
