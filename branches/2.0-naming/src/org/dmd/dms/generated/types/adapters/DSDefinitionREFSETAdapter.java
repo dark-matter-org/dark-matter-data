@@ -4,16 +4,16 @@ import org.dmd.dmc.presentation.DmcAdapterIF;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
-import org.dmd.dms.generated.types.DmcTypeDMDefinitionREFSV;
+import org.dmd.dms.generated.types.DmcTypeDSDefinitionREFSET;
 
 @SuppressWarnings("serial")
 // org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:59)
-// Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
-public class DMDefinitionREFSVAdapter extends DmcTypeDMDefinitionREFSV implements DmcAdapterIF {
+// Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
+public class DSDefinitionREFSETAdapter extends DmcTypeDSDefinitionREFSET implements DmcAdapterIF {
 
-    transient DmcTypeDMDefinitionREFSV existingValue;
+    transient DmcTypeDSDefinitionREFSET existingValue;
 
-    public DMDefinitionREFSVAdapter(DmcAttributeInfo ai){
+    public DSDefinitionREFSETAdapter(DmcAttributeInfo ai){
     	   super(ai);
     }
 
@@ -34,24 +34,24 @@ public class DMDefinitionREFSVAdapter extends DmcTypeDMDefinitionREFSV implement
     	if (existingValue == null)
     		value = null;
     	else
-    		value = existingValue.getSVCopy();
+    		value = existingValue.getMVCopy();
     }
 
     @Override
     public void setExisting(DmcAttribute<?> attr) {
-    	existingValue = (DmcTypeDMDefinitionREFSV) attr;
+    	existingValue = (DmcTypeDSDefinitionREFSET) attr;
     	if (existingValue != null)
-    		value = existingValue.getSVCopy();
+    		value = existingValue.getMVCopy();
     }
 
     @Override
     public boolean valueChanged(){
-    	   return(valueChangedSV(existingValue, this));
+    	   return(valueChangedMV(existingValue, this));
     }
 
     @Override
     public void addMods(DmcTypeModifierMV mods){
-    	   addModsSV(mods, existingValue, this);
+    	   addModsMV(mods, existingValue, this);
     }
 
     @Override

@@ -270,7 +270,7 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
      * only used by code that reads schemas such at the DmsSchemaParser.
      * @throws DmcValueException 
      */
-    public void addDefinition(DMDefinition def) throws ResultException, DmcValueException {
+    public void addDefinition(DmsDefinition def) throws ResultException, DmcValueException {
     	
     	if (def instanceof AttributeDefinition)
     		this.addAttributeDefList((AttributeDefinition) def);

@@ -14,12 +14,12 @@ import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
-import org.dmd.dms.DMDefinition;
+import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
-import org.dmd.dms.generated.dmo.DMDefinitionDMO;
+import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
 import org.dmd.dms.generated.dmo.RuleDataDMO;
-import org.dmd.dms.generated.dmw.DMDefinitionDMW;
+import org.dmd.dms.generated.dmw.DmsDefinitionDMW;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.util.exceptions.DebugInfo;
 
@@ -29,7 +29,7 @@ public class Summarizer {
 	
 	TreeMap<String,SchemaDefinition>				allSchemasByName;
 
-	TreeMap<String,TreeMap<String,DMDefinition>>	definitionsByLetter;
+	TreeMap<String,TreeMap<String,DmsDefinition>>	definitionsByLetter;
 	
 	String 				outDir;
 	
@@ -44,7 +44,7 @@ public class Summarizer {
     public Summarizer(SchemaManager sm, String od){
 		allSchemasByID 		= new TreeMap<Integer, SchemaDefinition>();
 		allSchemasByName 	= new TreeMap<String, SchemaDefinition>();
-		definitionsByLetter = new TreeMap<String, TreeMap<String,DMDefinition>>();
+		definitionsByLetter = new TreeMap<String, TreeMap<String,DmsDefinition>>();
 		outDir 				= od;
 		sidebar				= new StringBuffer();
 		idSummary			= new StringBuffer();
@@ -70,7 +70,7 @@ public class Summarizer {
 		
 		DebugInfo.debug("\n\nCHANGED REFERENCE RESOLUTION STUFF!!!\n\n");
 		
-		for(DMDefinition def: sm.globallyUniqueMAP.values()){
+		for(DmsDefinition def: sm.globallyUniqueMAP.values()){
 			unambignify(def.getDmcObject());
 			
 			def.getDMO().clearReferenceInfo();
@@ -86,7 +86,7 @@ public class Summarizer {
 		}
 
 
-		for(DMDefinition def: sm.globallyUniqueMAP.values()){
+		for(DmsDefinition def: sm.globallyUniqueMAP.values()){
 			addDefinition(def);
 			try {
 				def.resolveReferences(sm,sm);
@@ -99,11 +99,11 @@ public class Summarizer {
 			}
 		}
 
-//		for(DMDefinition def: sm.allDefs.values()){
+//		for(DmsDefinition def: sm.allDefs.values()){
 //			def.getDMO().clearReferenceInfo();
 //		}
 //		
-//		for(DMDefinition def: sm.allDefs.values()){
+//		for(DmsDefinition def: sm.allDefs.values()){
 //			addDefinition(def);
 //			try {
 //				def.resolveReferences(sm);
@@ -162,12 +162,12 @@ public class Summarizer {
     		if (attr instanceof DmcTypeNamedObjectREF){
     			if (attr.getAttributeInfo().valueType == ValueTypeEnum.SINGLE){
     				DmcNamedObjectREF<?> ref = (DmcNamedObjectREF<?>) attr.getSV();
-    				DMDefinitionDMO dmo = null;
+    				DmsDefinitionDMO dmo = null;
     				
-    				if (ref.getObject() instanceof DMDefinitionDMO)
-    					dmo = (DMDefinitionDMO) ref.getObject();
-    				else if (ref.getObject() instanceof DMDefinitionDMW)
-    					dmo = ((DMDefinitionDMW)ref.getObject()).getDMO();
+    				if (ref.getObject() instanceof DmsDefinitionDMO)
+    					dmo = (DmsDefinitionDMO) ref.getObject();
+    				else if (ref.getObject() instanceof DmsDefinitionDMW)
+    					dmo = ((DmsDefinitionDMW)ref.getObject()).getDMO();
     				
     				if (dmo != null){
 //    					DebugInfo.debug("SV Ref name: " + ref.getObjectName().getNameString() + "  Obj name: " + dmo.getDotName().getNameString() + "  Depth: " + dmo.getDotName().getDepth());
@@ -189,12 +189,12 @@ public class Summarizer {
     				Iterator<?> refs = attr.getMV();
     				while(refs.hasNext()){
     					DmcNamedObjectREF<?> ref = (DmcNamedObjectREF<?>) refs.next();
-        				DMDefinitionDMO dmo = null;    					
+        				DmsDefinitionDMO dmo = null;    					
         				
-        				if (ref.getObject() instanceof DMDefinitionDMO)
-        					dmo = (DMDefinitionDMO) ref.getObject();
-        				else if (ref.getObject() instanceof DMDefinitionDMW)
-        					dmo = ((DMDefinitionDMW)ref.getObject()).getDMO();
+        				if (ref.getObject() instanceof DmsDefinitionDMO)
+        					dmo = (DmsDefinitionDMO) ref.getObject();
+        				else if (ref.getObject() instanceof DmsDefinitionDMW)
+        					dmo = ((DmsDefinitionDMW)ref.getObject()).getDMO();
         				
 
         				if (dmo != null){
@@ -268,13 +268,13 @@ public class Summarizer {
 		
 	}
 	
-	void addDefinition(DMDefinition def){
+	void addDefinition(DmsDefinition def){
 		String firstLetter = Character.toUpperCase(def.getName().getNameString().charAt(0)) + "";
 		
-		TreeMap<String,DMDefinition> startingWith = definitionsByLetter.get(firstLetter);
+		TreeMap<String,DmsDefinition> startingWith = definitionsByLetter.get(firstLetter);
 		
 		if (startingWith == null){
-			startingWith = new TreeMap<String,DMDefinition>();
+			startingWith = new TreeMap<String,DmsDefinition>();
 			definitionsByLetter.put(firstLetter, startingWith);
 		}
 		
@@ -283,10 +283,10 @@ public class Summarizer {
 	
 	public void dumpTextSummary(){
 		for(String firstLetter: definitionsByLetter.keySet()){
-			TreeMap<String,DMDefinition> startingWith = definitionsByLetter.get(firstLetter);
+			TreeMap<String,DmsDefinition> startingWith = definitionsByLetter.get(firstLetter);
 			
 			System.out.println("---------- " + firstLetter + " ----------  (" + startingWith.size()+ ")");
-			for(DMDefinition def: startingWith.values()){
+			for(DmsDefinition def: startingWith.values()){
 				System.out.println("    " + def.getName().getNameString() + " (" + def.getDMO().referenceCount() + ")");
 			}
 		}

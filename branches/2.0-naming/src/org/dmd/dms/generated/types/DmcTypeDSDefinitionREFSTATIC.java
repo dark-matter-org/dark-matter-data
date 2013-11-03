@@ -20,39 +20,39 @@ import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
 
 /**
- * The DmcTypeDMDefinitionREFSTATIC provides static access to functions used to manage values of type DMDefinitionREF
+ * The DmcTypeDSDefinitionREFSTATIC provides static access to functions used to manage values of type DSDefinitionREF
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:2141)
  *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2056)
  */
-public class DmcTypeDMDefinitionREFSTATIC {
+public class DmcTypeDSDefinitionREFSTATIC {
     
-    public static DmcTypeDMDefinitionREFSTATIC instance;
-    static DmcTypeDMDefinitionREFSV typeHelper;
+    public static DmcTypeDSDefinitionREFSTATIC instance;
+    static DmcTypeDSDefinitionREFSV typeHelper;
     
     static {
-        instance = new DmcTypeDMDefinitionREFSTATIC();
+        instance = new DmcTypeDSDefinitionREFSTATIC();
     }
     
-    protected DmcTypeDMDefinitionREFSTATIC() {
-        typeHelper = new DmcTypeDMDefinitionREFSV();
+    protected DmcTypeDSDefinitionREFSTATIC() {
+        typeHelper = new DmcTypeDSDefinitionREFSV();
     }
     
-    public DMDefinitionREF typeCheck(Object value) throws DmcValueException {
+    public DSDefinitionREF typeCheck(Object value) throws DmcValueException {
     	   return(typeHelper.typeCheck(value));
     }
     
-    public DMDefinitionREF cloneValue(DMDefinitionREF value) throws DmcValueException {
+    public DSDefinitionREF cloneValue(DSDefinitionREF value) throws DmcValueException {
     	   return(typeHelper.cloneValue(value));
     }
     
-    public void serializeValue(DmcOutputStreamIF dos, DMDefinitionREF value) throws Exception {
+    public void serializeValue(DmcOutputStreamIF dos, DSDefinitionREF value) throws Exception {
     	   typeHelper.serializeValue(dos, value);
     }
     
-    public DMDefinitionREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+    public DSDefinitionREF deserializeValue(DmcInputStreamIF dis) throws Exception {
     	   return(typeHelper.deserializeValue(dis));
     }
     

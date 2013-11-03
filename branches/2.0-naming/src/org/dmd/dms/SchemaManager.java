@@ -39,7 +39,7 @@ import org.dmd.dmc.types.DotName;
 import org.dmd.dmc.types.RuleName;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmc.util.NamedStringArray;
-import org.dmd.dms.generated.dmo.DMDefinitionDMO;
+import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.RuleTypeEnum;
@@ -65,11 +65,11 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     SchemaDefinition  								meta;
     
     // Key: the fully qualified dotname of a definition i.e. schema.defname.type
-    public HashMap<DotName, DMDefinition>				globallyUniqueMAP;
+    public HashMap<DotName, DmsDefinition>				globallyUniqueMAP;
     
     // Key: DotNames of the form definition_name.definition_type - these keys could potentially clash
     //      across schemas, so we maintain an array list of the defs at this level
-    public HashMap<DotName, ArrayList<DMDefinition>>	clashMAP;
+    public HashMap<DotName, ArrayList<DmsDefinition>>	clashMAP;
     
     // When definitions are being added via the schema parser, it will attempt to
     // to resolve clashes. If we're loading generated schemas, the SchemaManager will
@@ -226,8 +226,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     
     void init() throws ResultException, DmcValueException{
         // Create our various hashmaps
-        globallyUniqueMAP     				= new HashMap<DotName,DMDefinition>();
-        clashMAP				= new HashMap<DotName, ArrayList<DMDefinition>>();
+        globallyUniqueMAP     				= new HashMap<DotName,DmsDefinition>();
+        clashMAP				= new HashMap<DotName, ArrayList<DmsDefinition>>();
         
         // We default to use ourselves as the clash resolver
         currentResolver				= this;
@@ -713,14 +713,14 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 		DotName dn;
 		try {
 			dn = new DotName(name + "." + MetaDMSAG.__AttributeDefinition.name);
-			ArrayList<DMDefinition> defs = clashMAP.get(dn);
+			ArrayList<DmsDefinition> defs = clashMAP.get(dn);
 			if (defs == null)
 				return(rc);
 			if (defs.size() == 1)
 				rc = (AttributeDefinition) (defs.get(0));
 			else{
 				StringBuffer sb = new StringBuffer();
-				for(DMDefinition def : defs){
+				for(DmsDefinition def : defs){
 					sb.append(def.getDotName().getNameString() + " ");
 				}
 				throw(new IllegalStateException("Looking for attribute: " + name + " resulted in multiple definitions: " + sb.toString()));
@@ -1511,7 +1511,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * @throws DmcValueException 
      * @throws DmcValueExceptionSet 
      */
-    public void addDefinition(DMDefinition def, DmcNameClashResolverIF clashResolver) throws ResultException, DmcValueException {
+    public void addDefinition(DmsDefinition def, DmcNameClashResolverIF clashResolver) throws ResultException, DmcValueException {
     	currentResolver = clashResolver;
     	
     	addDefinition(def);
@@ -1525,7 +1525,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * @throws DmcValueException 
      * @throws DmcValueExceptionSet 
      */
-    void addDefinition(DMDefinition def) throws ResultException, DmcValueException {
+    void addDefinition(DmsDefinition def) throws ResultException, DmcValueException {
     	
     	if (def.getDotName() == null)
     		DebugInfo.debug("NO DOT NAME");
@@ -1557,7 +1557,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     		this.addDefinitionModule((DSDefinitionModule) def);
         else{
         	ResultException ex = new ResultException();
-        	ex.addError("The specified object is not a DMDefinition object: \n" + def.toOIF());
+        	ex.addError("The specified object is not a DmsDefinition object: \n" + def.toOIF());
         	throw(ex);
         }
 
@@ -1714,7 +1714,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * @returns false if the key already exists and true otherwise
      */
     @SuppressWarnings({ "unchecked", "rawtypes" })
-	private boolean checkAndAdd(DefinitionName key, DMDefinition obj, HashMap map){
+	private boolean checkAndAdd(DefinitionName key, DmsDefinition obj, HashMap map){
         if (map.containsKey(key))
             return(false);
         else
@@ -1731,7 +1731,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * @param refName specified in the case of class definitions
      * @return
      */
-	private boolean checkAndAddDOT(DotName key, DMDefinition obj, HashMap<DotName,DMDefinition> map, DotName refName){
+	private boolean checkAndAddDOT(DotName key, DmsDefinition obj, HashMap<DotName,DmsDefinition> map, DotName refName){
 //		defsByTypeDOT
 //		DebugInfo.debug("Adding: " + key);
 		
@@ -1759,11 +1759,11 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
             	defAndType = (DotName) key.getParentName();
             }
             
-            ArrayList<DMDefinition>	defs = clashMAP.get(defAndType);
+            ArrayList<DmsDefinition>	defs = clashMAP.get(defAndType);
             
 //    		DebugInfo.debug("Adding to clashMAP - " + obj.getConstructionClassName() + ": " + defAndType + "\n\n");
             if (defs == null){
-            	defs = new ArrayList<DMDefinition>(1);
+            	defs = new ArrayList<DmsDefinition>(1);
             	defs.add(obj);
             	clashMAP.put(defAndType, defs);
             }
@@ -1779,7 +1779,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 
                 defs = clashMAP.get(classRefKey);            	
                 if (defs == null){
-                	defs = new ArrayList<DMDefinition>(1);
+                	defs = new ArrayList<DmsDefinition>(1);
                 	defs.add(obj);
                 	
                 	clashMAP.put(classRefKey, defs);
@@ -1935,8 +1935,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     /**
      * Returns a nice error message for a clashing definition name.
      */
-    String clashMsg(DefinitionName defName, DMDefinition newDef, HashMap<DefinitionName, ? extends DMDefinition> defMap, String defType){
-        DMDefinition    existing = defMap.get(defName);
+    String clashMsg(DefinitionName defName, DmsDefinition newDef, HashMap<DefinitionName, ? extends DmsDefinition> defMap, String defType){
+        DmsDefinition    existing = defMap.get(defName);
         SchemaDefinition ga1      = existing.getDefinedIn();
         SchemaDefinition ga2      = newDef.getDefinedIn();
 
@@ -1946,8 +1946,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
             return(new String("Clashing " + defType + ": " + defName + " - Initially defined as part of " + ga1.getObjectName() + " - Redefined in " + ga2.getObjectName()));
     }
 
-    String clashMsgDOT(DefinitionName defName, DMDefinition newDef, HashMap<DotName, ? extends DMDefinition> defMap, String defType){
-        DMDefinition    existing = defMap.get(defName);
+    String clashMsgDOT(DefinitionName defName, DmsDefinition newDef, HashMap<DotName, ? extends DmsDefinition> defMap, String defType){
+        DmsDefinition    existing = defMap.get(defName);
         SchemaDefinition ga1      = existing.getDefinedIn();
         SchemaDefinition ga2      = newDef.getDefinedIn();
 
@@ -1960,8 +1960,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     /**
      * Returns a nice error message for a clashing definition name.
      */
-    String clashMsg(DefinitionName defName, DMDefinition newDef, TreeMap<DefinitionName, ? extends DMDefinition> defMap, String defType){
-    	DMDefinition    existing = defMap.get(defName);
+    String clashMsg(DefinitionName defName, DmsDefinition newDef, TreeMap<DefinitionName, ? extends DmsDefinition> defMap, String defType){
+    	DmsDefinition    existing = defMap.get(defName);
     	SchemaDefinition ga1      = existing.getDefinedIn();
     	SchemaDefinition ga2      = newDef.getDefinedIn();
 
@@ -1979,8 +1979,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     /**
      * Returns a nice error message for a clashing definition identifier.
      */
-    String clashingIDsMsg(Integer defID, DMDefinition newDef, TreeMap<Integer, ? extends DMDefinition> defMap, String defType){
-    	DMDefinition    existing = defMap.get(defID);
+    String clashingIDsMsg(Integer defID, DmsDefinition newDef, TreeMap<Integer, ? extends DmsDefinition> defMap, String defType){
+    	DmsDefinition    existing = defMap.get(defID);
     	SchemaDefinition ga1      = existing.getDefinedIn();
     	SchemaDefinition ga2      = newDef.getDefinedIn();
     	
@@ -2172,7 +2172,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     	if (n.contains(".")){
     		try {
 				DefinitionName dn = new DefinitionName(n);
-	    		DMDefinition def = globallyUniqueMAP.get(dn);
+	    		DmsDefinition def = globallyUniqueMAP.get(dn);
 	    		if (def instanceof ClassDefinition)
 	    			return (ClassDefinition) (def);
 	    		return(null);
@@ -2580,7 +2580,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 			// We hunt for the definition in the possibly clashing map first. If we find it
 			// and there's only one entry (the usual case) we're done. Otherwise, we'll have 
 			// to call on the clash resolver.
-			ArrayList<DMDefinition> defs = clashMAP.get(dn);
+			ArrayList<DmsDefinition> defs = clashMAP.get(dn);
 			if (defs == null){
 				// We couldn't find the definition based on just definition.type, so it may 
 				// have been specified as module.definition (to which we've added the type)
@@ -2600,7 +2600,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 					rc = defs.get(0);
 				}
 				else{
-					DmcNameClashObjectSet<DMDefinition> nce = new DmcNameClashObjectSet<DMDefinition>(defs);
+					DmcNameClashObjectSet<DmsDefinition> nce = new DmcNameClashObjectSet<DmsDefinition>(defs);
 					
 					rc = resolver.resolveClash(object, ai, nce);
 				}
@@ -2636,24 +2636,24 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 		
 		obj.getConstructionClassInfo().getAttributeInfo(ai.name);
 		
-		if (obj instanceof DMDefinitionDMO){
+		if (obj instanceof DmsDefinitionDMO){
 			// We're resolving references within a set of definitions, if we aren't, there's not much we can do
-			DMDefinitionDMO defObj = (DMDefinitionDMO) obj;
+			DmsDefinitionDMO defObj = (DmsDefinitionDMO) obj;
 			
 			while(matches.hasNext()){
 				DmcNamedObjectIF objif = matches.next();
 				
 				DebugInfo.debug(objif.toString());
-				if (objif instanceof DMDefinitionDMO){
-					DMDefinitionDMO matchDef = (DMDefinitionDMO) objif;
+				if (objif instanceof DmsDefinitionDMO){
+					DmsDefinitionDMO matchDef = (DmsDefinitionDMO) objif;
 					if (defObj.getDefinedIn().getObjectName().getNameString().equals(matchDef.getDefinedIn().getObjectName().getNameString())){
 						rc = matchDef;
 						break;
 					}
 					
 				}
-				else if (objif instanceof DMDefinition){
-					DMDefinition matchDef = (DMDefinition) objif;
+				else if (objif instanceof DmsDefinition){
+					DmsDefinition matchDef = (DmsDefinition) objif;
 					
 					if (defObj.getDefinedIn().getObjectName().getNameString().equals(matchDef.getDefinedIn().getName().getNameString())){
 						rc = matchDef;

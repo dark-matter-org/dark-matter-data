@@ -1839,22 +1839,22 @@ description    		Indicates the extension of files of a particular type.
 AttributeDefinition
 name                usesDefinition
 dmdID				162
-type                DMDefinition
+type                DSDefinition
 valueType			MULTI
-description    		A reference to the DMDefinition derived class that is part of
+description    		A reference to the DSDefinition derived class that is part of
  the abstract syntax of a dark-matter definition module.
 
 AttributeDefinition
 name                moduleClassName
 dmdID				163
 type                String
-description    		The name of the class that will be generated as a result of a DMDefinitionModule definition.
+description    		The name of the class that will be generated as a result of a DSDefinitionModule definition.
 
 AttributeDefinition
 name                baseDefinition
 dmdID				164
-type                DMDefinition
-description    		A reference to the DMDefinition derived class that is the base class for a 
+type                DSDefinition
+description    		A reference to the DSDefinition derived class that is the base class for a 
  set of definition classes.
 
 * NOTE: this definition has to come here to prevent problems when instantiating
@@ -1948,7 +1948,7 @@ description     The DmsDefinition class provides a common base for all dark-matt
 ClassDefinition
 name			DSDefinitionModule
 classType     	STRUCTURAL
-derivedFrom     DMDefinition
+derivedFrom     DmsDefinition
 dmdID			3
 useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.DSDefinitionModule
@@ -1980,6 +1980,7 @@ usesDefinition	ActionDefinition
 usesDefinition	AttributeDefinition
 usesDefinition	ClassDefinition
 usesDefinition	ComplexTypeDefinition
+usesDefinition	DSDefinitionModule
 usesDefinition	EnumDefinition
 usesDefinition	ExtendedReferenceTypeDefinition
 usesDefinition	RuleCategory
