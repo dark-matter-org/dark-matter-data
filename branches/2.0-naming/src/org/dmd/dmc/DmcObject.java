@@ -2201,6 +2201,8 @@ abstract public class DmcObject implements Serializable {
 					if (rem(mod.getAttributeName()) != null)
 						anyChange = true;
 					break;
+				case NONE:
+					break;
 				}
 			}
 			
@@ -2449,6 +2451,9 @@ abstract public class DmcObject implements Serializable {
 	    									}
 	    								}
 	    								break;
+									case SINGLE:
+										// We never get here - just covering the cases
+										break;
 	    							}
 	    						}
 	    					}
@@ -2484,9 +2489,7 @@ abstract public class DmcObject implements Serializable {
 				else{
 					Iterator<DmcNamedObjectREF<?>> refs = reference.getMV();
 					if (refs != null){
-						int currIndex = -1;
 						while(refs.hasNext()){
-							currIndex++;
 							DmcNamedObjectREF<?> ref = refs.next();
 							if (ref != null){
 								ref.setObject(null);

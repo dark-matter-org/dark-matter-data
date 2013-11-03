@@ -123,7 +123,7 @@ public class NamedObjMVDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of ObjWithRefs objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1754)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1756)
     public ArrayList<ObjWithRefs> getMvNamedObjCopy(){
         DmcAttribute<?> attr = ((NamedObjMVDMO) core).get(DmtDMSAG.__mvNamedObj);
         if (attr == null)
@@ -142,7 +142,7 @@ public class NamedObjMVDMW extends DmwWrapper {
     /**
      * Removes the mvNamedObj attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2157)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2161)
     public void remMvNamedObj(){
         ((NamedObjMVDMO) core).remMvNamedObj();
     }

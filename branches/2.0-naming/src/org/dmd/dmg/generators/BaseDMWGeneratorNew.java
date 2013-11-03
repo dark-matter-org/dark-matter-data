@@ -1479,6 +1479,8 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 					case TREESET:
 						collectionClass = "TreeSet";
 						break;
+					default:
+						throw(new IllegalStateException("Mapped attributes not supported here: " + cd.getName() + " " + ad.getName()));
 					}
 					
 					if (useWrappedObjectRefs){
@@ -1840,6 +1842,8 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 			case TREESET:
 				collectionClass = "TreeSet";
 				break;
+			default:
+				throw(new IllegalStateException("Mapped attributes not supported here: " + cd.getName() + " " + ad.getName()));
 			}
 			
 	    	sb.append("    /**\n");
@@ -2131,6 +2135,8 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 				case TREEMAPPED:
 					collectionClass = "TreeMap";
 					break;
+				default:
+					throw(new IllegalStateException("Single valued and set attriutes not handled here: " + cd.getName() + " " + ad.getName()));
 				}
 				
 				if (useWrappedObjectRefs){
@@ -2239,6 +2245,8 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 			case TREEMAPPED:
 				collectionClass = "TreeMap";
 				break;
+			default:
+				throw(new IllegalStateException("Single valued and set attriutes not handled here: " + cd.getName() + " " + ad.getName()));
 			}
 			
 			if (useWrappedObjectRefs){
@@ -2370,9 +2378,10 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 				formatAUXMV(cd,ad,sb);
 				break;
 			case HASHMAPPED:
-				break;
 			case TREEMAPPED:
-				break;
+			case HASHSET:
+			case TREESET:
+				throw(new IllegalStateException("Mapped and Set attributes aren't currently supported on AUXILIARY classes. Occurred with:\n" + cd.toOIF()));
 			}
 		}
 		

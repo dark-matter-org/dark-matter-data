@@ -123,7 +123,7 @@ public class ExtendedRefHSDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of SomeRelation objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1754)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1756)
     public HashSet<ObjWithRefs> getHsExtendedRefCopy(){
         DmcAttribute<?> attr = ((ExtendedRefHSDMO) core).get(DmtDMSAG.__hsExtendedRef);
         if (attr == null)
@@ -142,7 +142,7 @@ public class ExtendedRefHSDMW extends DmwWrapper {
     /**
      * Removes the hsExtendedRef attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2157)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2161)
     public void remHsExtendedRef(){
         ((ExtendedRefHSDMO) core).remHsExtendedRef();
     }

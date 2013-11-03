@@ -122,7 +122,7 @@ public class UnnamedObjHSDMW extends DmwWrapper {
     /**
      * Removes the hsUnnamedObj attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2157)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2161)
     public void remHsUnnamedObj(){
         ((UnnamedObjHSDMO) core).remHsUnnamedObj();
     }

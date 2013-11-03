@@ -122,7 +122,7 @@ public class UnnamedObjTSDMW extends DmwWrapper {
     /**
      * Removes the tsUnnamedObj attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2157)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2161)
     public void remTsUnnamedObj(){
         ((UnnamedObjTSDMO) core).remTsUnnamedObj();
     }

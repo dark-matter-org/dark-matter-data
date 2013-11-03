@@ -8,7 +8,7 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;                          // Required
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:944)
 import org.dmd.dmt.server.extended.ObjWithRefs;                      // Is reference type - (BaseDMWGeneratorNewest.java:976)
 import org.dmd.dmt.shared.generated.dmo.ExtendedRefMVIDXDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1121)
-import org.dmd.dmt.shared.generated.types.SomeRelation;              // For setNth of SomeRelation - (BaseDMWGeneratorNewest.java:1781)
+import org.dmd.dmt.shared.generated.types.SomeRelation;              // For setNth of SomeRelation - (BaseDMWGeneratorNewest.java:1783)
 import org.dmd.dmw.DmwWrapper;                                       // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1104)
 
 
@@ -90,7 +90,7 @@ public class ExtendedRefMVIDXDMW extends DmwWrapper {
      * Sets the mvIdxExtendedRef value at the specified index.
      * @param value A value compatible with SomeRelation
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1788)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1790)
     public DmcAttribute<?> setNthMvIdxExtendedRef(int index, SomeRelation value){
         return(((ExtendedRefMVIDXDMO) core).setNthMvIdxExtendedRef(index, value));
     }
@@ -98,7 +98,7 @@ public class ExtendedRefMVIDXDMW extends DmwWrapper {
     /**
      * @return The SomeRelation object at the specified index.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1878)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1880)
     public ObjWithRefs getNthMvIdxExtendedRef(int index){
         SomeRelation ref = ((ExtendedRefMVIDXDMO) core).getNthMvIdxExtendedRef(index);
         if (ref == null)
@@ -113,7 +113,7 @@ public class ExtendedRefMVIDXDMW extends DmwWrapper {
     /**
      * @return The reference to the SomeRelation object at the specified index.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1924)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1926)
     public SomeRelation getNthMvIdxExtendedRefREF(int index){
         SomeRelation ref = ((ExtendedRefMVIDXDMO) core).getNthMvIdxExtendedRefREF(index);
         return(ref);
@@ -122,7 +122,7 @@ public class ExtendedRefMVIDXDMW extends DmwWrapper {
     /**
      * Removes the mvIdxExtendedRef attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2157)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2161)
     public void remMvIdxExtendedRef(){
         ((ExtendedRefMVIDXDMO) core).remMvIdxExtendedRef();
     }

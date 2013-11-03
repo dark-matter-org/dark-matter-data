@@ -173,12 +173,12 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 			// Read the license header
 			LGPL = new StringBuffer();
-			LineNumberReader in = new LineNumberReader(new FileReader(sourceDir
-					+ "/LGPL.txt"));
+			LineNumberReader in = new LineNumberReader(new FileReader(sourceDir + "/LGPL.txt"));
 			String str;
 			while ((str = in.readLine()) != null) {
 				LGPL.append(str + "\n");
 			}
+			in.close();
 
 			parser.parseFile(sourceDir + "/metaSchema.dms");
 

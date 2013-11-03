@@ -154,6 +154,10 @@ public class GeneratorUtils {
 					break;
 				case TREEMAPPED:
 					break;
+				case HASHSET:
+					break;
+				case TREESET:
+					break;
 				}
 				
 //				if (ad.getIsMultiValued())
@@ -179,6 +183,10 @@ public class GeneratorUtils {
 				case HASHMAPPED:
 					break;
 				case TREEMAPPED:
+					break;
+				case HASHSET:
+					break;
+				case TREESET:
 					break;
 				}
 

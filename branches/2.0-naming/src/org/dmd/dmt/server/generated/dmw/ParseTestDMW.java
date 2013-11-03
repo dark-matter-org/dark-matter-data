@@ -10,7 +10,7 @@ import org.dmd.dmt.server.extended.ObjWithRefs;                                 
 import org.dmd.dmt.server.generated.dmw.TestBasicObjectFixedDMW;                 // Is reference type - (BaseDMWGeneratorNewest.java:976)
 import org.dmd.dmt.server.generated.dmw.TestBasicObjectFixedIterableDMW;         // For multi-valued TestBasicObjectFixed - (BaseDMWGeneratorNewest.java:1578)
 import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                                // Attribute mvUnnamedObj from the dmt schema - (BaseDMWGeneratorNewest.java:771)
-import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;                          // For setNth of ObjWithRefs - (BaseDMWGeneratorNewest.java:1781)
+import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;                          // For setNth of ObjWithRefs - (BaseDMWGeneratorNewest.java:1783)
 import org.dmd.dmt.shared.generated.dmo.ParseTestDMO;                            // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1121)
 import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;                 // Reference to unnamed object - (BaseDMWGeneratorNewest.java:981)
 import org.dmd.dmt.shared.generated.types.ObjWithRefsREF;                        // To support getMVCopy() for REFs ObjWithRefs-MULTI - (BaseDMWGeneratorNewest.java:995)
@@ -96,7 +96,7 @@ public class ParseTestDMW extends DmwWrapper {
      * Sets the mvIdxNamedObj value at the specified index.
      * @param value A value compatible with ObjWithRefs
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1798)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1800)
     public DmcAttribute<?> setNthMvIdxNamedObj(int index, ObjWithRefs value){
         if (value == null)
             return(((ParseTestDMO) core).setNthMvIdxNamedObj(index, null));
@@ -107,7 +107,7 @@ public class ParseTestDMW extends DmwWrapper {
     /**
      * @return The ObjWithRefs object at the specified index.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1894)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1896)
     public ObjWithRefs getNthMvIdxNamedObj(int index){
         ObjWithRefsREF ref = ((ParseTestDMO) core).getNthMvIdxNamedObj(index);
         if (ref == null)
@@ -122,7 +122,7 @@ public class ParseTestDMW extends DmwWrapper {
     /**
      * @return The reference to the ObjWithRefs object at the specified index.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1934)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1936)
     public ObjWithRefsREF getNthMvIdxNamedObjREF(int index){
         ObjWithRefsREF ref = ((ParseTestDMO) core).getNthMvIdxNamedObjREF(index);
         return(ref);
@@ -131,7 +131,7 @@ public class ParseTestDMW extends DmwWrapper {
     /**
      * Removes the mvIdxNamedObj attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2157)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2161)
     public void remMvIdxNamedObj(){
         ((ParseTestDMO) core).remMvIdxNamedObj();
     }
@@ -168,7 +168,7 @@ public class ParseTestDMW extends DmwWrapper {
      * Sets the mvIdxUnnamedObj value at the specified index.
      * @param value A value compatible with TestBasicObjectFixed
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1798)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1800)
     public DmcAttribute<?> setNthMvIdxUnnamedObj(int index, TestBasicObjectFixedDMW value){
         if (value == null)
             return(((ParseTestDMO) core).setNthMvIdxUnnamedObj(index, null));
@@ -179,7 +179,7 @@ public class ParseTestDMW extends DmwWrapper {
     /**
      * @return The TestBasicObjectFixedDMW object at the specified index.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1842)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1844)
     public TestBasicObjectFixedDMW getNthMvIdxUnnamedObj(int index){
         TestBasicObjectFixedDMO dmo = ((ParseTestDMO) core).getNthMvIdxUnnamedObj(index);
         if (dmo == null)
@@ -191,7 +191,7 @@ public class ParseTestDMW extends DmwWrapper {
     /**
      * Removes the mvIdxUnnamedObj attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2157)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2161)
     public void remMvIdxUnnamedObj(){
         ((ParseTestDMO) core).remMvIdxUnnamedObj();
     }
@@ -258,7 +258,7 @@ public class ParseTestDMW extends DmwWrapper {
     /**
      * Removes the mvUnnamedObj attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2157)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2161)
     public void remMvUnnamedObj(){
         ((ParseTestDMO) core).remMvUnnamedObj();
     }

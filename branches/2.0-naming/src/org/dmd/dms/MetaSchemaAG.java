@@ -3392,7 +3392,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ValueTypeEnumOBJ.addEnumValue("3 TREEMAPPED Indicates that the attribute values implement the DmcMappedAttributeIF interface and are stored in a TreeMap.");
         _ValueTypeEnumOBJ.addEnumValue("4 HASHSET Indicates that the attribute values are stored in a HashSet.");
         _ValueTypeEnumOBJ.addEnumValue("5 TREESET Indicates that the attribute values are stored in a TreeSet.");
-        _ValueTypeEnumOBJ.addEnumValue("6 INDEXED Indicates that the attribute is multi-valued and indexed i.e. it has predefined slots for a fix number of values.");
         _ValueTypeEnumOBJ.setFile("metaSchema.dms");
         _ValueTypeEnumOBJ.setLineNumber("426");
         _ValueTypeEnumOBJ.setName("ValueTypeEnum");

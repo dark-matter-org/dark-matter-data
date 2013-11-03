@@ -98,7 +98,7 @@ public class LDAPClassAUXDMO  {
     /**
      * Removes the reposName attribute from the object.
      */
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:859)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:866)
     static public DmcAttribute<?> remReposName(DmcObject core){
         if (core == null)
             return(null);
@@ -107,7 +107,7 @@ public class LDAPClassAUXDMO  {
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:892)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:899)
     static public String getReposName(DmcObject core){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(core, DmrldapDMSAG.__reposName);
         if (attr == null)
@@ -120,7 +120,7 @@ public class LDAPClassAUXDMO  {
      * Sets reposName to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:914)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:921)
     static public void setReposName(DmcObject core, Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(core, DmrldapDMSAG.__reposName);
         if (attr == null)
@@ -134,7 +134,7 @@ public class LDAPClassAUXDMO  {
      * Sets reposName to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:949)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:956)
     static public void setReposName(DmcObject core, String value){
         DmcAttribute<?> attr = get(core, DmrldapDMSAG.__reposName);
         if (attr == null)
@@ -151,7 +151,7 @@ public class LDAPClassAUXDMO  {
     /**
      * Removes the namingAttribute attribute from the object.
      */
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:859)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:866)
     static public DmcAttribute<?> remNamingAttribute(DmcObject core){
         if (core == null)
             return(null);
@@ -160,7 +160,7 @@ public class LDAPClassAUXDMO  {
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:877)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:884)
     static public AttributeDefinitionREF getNamingAttribute(DmcObject core){
         DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) get(core, MetaDMSAG.__namingAttribute);
         if (attr == null)
@@ -173,7 +173,7 @@ public class LDAPClassAUXDMO  {
      * Sets namingAttribute to the specified value.
      * @param value A value compatible with DmcTypeAttributeDefinitionREFSV
      */
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:914)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:921)
     static public void setNamingAttribute(DmcObject core, Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(core, MetaDMSAG.__namingAttribute);
         if (attr == null)
@@ -187,7 +187,7 @@ public class LDAPClassAUXDMO  {
      * Sets namingAttribute to the specified value.
      * @param value A value compatible with DmcTypeAttributeDefinitionREFSV
      */
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:930)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:937)
     static public void setNamingAttribute(DmcObject core, AttributeDefinitionDMO value){
         DmcAttribute<?> attr = get(core, MetaDMSAG.__namingAttribute);
         if (attr == null)
