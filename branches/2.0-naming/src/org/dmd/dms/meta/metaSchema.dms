@@ -1857,6 +1857,26 @@ type                DSDefinition
 description    		A reference to the DSDefinition derived class that is the base class for a 
  set of definition classes.
 
+AttributeDefinition
+name                moduleDependenceAttribute
+dmdID				165
+type                AttributeDefinition
+description    		The name of the attribute in a DSDefinitionModule that
+ indicates a dependence on another module of the same type. For example, in
+ dark-matter schemas, the SchemaDefinition uses the dependsOn attribute to
+ refer to oher schemas.
+
+AttributeDefinition
+name                usesDefsFromModule
+dmdID				166
+type                DSDefinitionModule
+description    		A reference to another DSDefinitionModule from which the current
+ module makes use of definitions. For instance, the Model View Whatever DSD includes references
+ to schema related definitions. As a result of specifying this, the module
+ class that's generated for the DSDefinitionModule will include the moduleDependenceAttribute
+ of the module from which definitions are used. Likewise, the generated parser
+ will be primed with the schema of required definition module.
+
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
 AttributeDefinition
@@ -1958,8 +1978,10 @@ must         	name
 must			fileExtension
 must			dmdID
 must			moduleClassName
+must			moduleDependenceAttribute
 must			baseDefinition
 must			usesDefinition
+may				usesDefsFromModule
 may				may
 may				must
 // Auto generated/set
@@ -1981,6 +2003,7 @@ fileExtension	dms
 baseDefinition	DmsDefinition
 dmdID			21
 moduleClassName	DmSchema
+moduleDependenceAttribute dependsOn
 usesDefinition	ActionDefinition
 usesDefinition	AttributeDefinition
 usesDefinition	ClassDefinition

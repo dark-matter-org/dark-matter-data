@@ -136,6 +136,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __maySendProgress = new DmcAttributeInfo("meta","maySendProgress",76,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __modify = new DmcAttributeInfo("meta","modify",85,"Modifier",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __moduleClassName = new DmcAttributeInfo("meta","moduleClassName",163,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __moduleDependenceAttribute = new DmcAttributeInfo("meta","moduleDependenceAttribute",165,"AttributeDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __msgKey = new DmcAttributeInfo("meta","msgKey",23,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __msgParam = new DmcAttributeInfo("meta","msgParam",52,"String",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __must = new DmcAttributeInfo("meta","must",26,"AttributeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
@@ -179,6 +180,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __useInterface = new DmcAttributeInfo("meta","useInterface",150,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __useWrapperType = new DmcAttributeInfo("meta","useWrapperType",82,"WrapperTypeEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __usesDefinition = new DmcAttributeInfo("meta","usesDefinition",162,"DSDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __usesDefsFromModule = new DmcAttributeInfo("meta","usesDefsFromModule",166,"DSDefinitionModule",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __usesInterface = new DmcAttributeInfo("meta","usesInterface",24,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __uuidName = new DmcAttributeInfo("meta","uuidName",101,"UUIDName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __valueType = new DmcAttributeInfo("meta","valueType",12,"ValueTypeEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
@@ -414,6 +416,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__maySendProgress.id,__maySendProgress);
         _SmAp.put(__modify.id,__modify);
         _SmAp.put(__moduleClassName.id,__moduleClassName);
+        _SmAp.put(__moduleDependenceAttribute.id,__moduleDependenceAttribute);
         _SmAp.put(__msgKey.id,__msgKey);
         _SmAp.put(__msgParam.id,__msgParam);
         _SmAp.put(__must.id,__must);
@@ -457,6 +460,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__useInterface.id,__useInterface);
         _SmAp.put(__useWrapperType.id,__useWrapperType);
         _SmAp.put(__usesDefinition.id,__usesDefinition);
+        _SmAp.put(__usesDefsFromModule.id,__usesDefsFromModule);
         _SmAp.put(__usesInterface.id,__usesInterface);
         _SmAp.put(__uuidName.id,__uuidName);
         _SmAp.put(__valueType.id,__valueType);
@@ -592,6 +596,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __DSDefinitionModule.addMust(__dmdID);
         __DSDefinitionModule.addMust(__fileExtension);
         __DSDefinitionModule.addMust(__moduleClassName);
+        __DSDefinitionModule.addMust(__moduleDependenceAttribute);
         __DSDefinitionModule.addMust(__name);
         __DSDefinitionModule.addMust(__usesDefinition);
         __DSDefinitionModule.addMay(__definedIn);
@@ -602,6 +607,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __DSDefinitionModule.addMay(__lineNumber);
         __DSDefinitionModule.addMay(__may);
         __DSDefinitionModule.addMay(__must);
+        __DSDefinitionModule.addMay(__usesDefsFromModule);
 
         __Dependency.addMust(__name);
         __Dependency.addMust(__useInterface);
