@@ -864,6 +864,9 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         if (ddm.getDescription() != null)
         	cd.setDescription(ddm.getDescription());
         
+        // Add the attribute that lets us refer to other modules of this kind
+//        cd.addMay(ddm.getModuleDependenceAttribute());
+        
         for(AttributeDefinition ad: ddm.getMay()){
         	cd.addMay(ad);
         }

@@ -152,6 +152,30 @@ public class DSDefinitionModuleDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * The name of the attribute in a DSDefinitionModule that\n indicates a
+     * dependence on another module of the same type. For example, in\n
+     * dark-matter schemas, the SchemaDefinition uses the dependsOn attribute
+     * to\n refer to oher schemas.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    public AttributeDefinition getModuleDependenceAttribute(){
+        DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) mycore.get(MetaDMSAG.__moduleDependenceAttribute);
+        if (attr == null)
+            return(null);
+        AttributeDefinitionDMO obj = attr.getSV().getObject();
+        return((AttributeDefinition)obj.getContainer());
+    }
+
+    /**
+     * Sets moduleDependenceAttribute to the specified value.
+     * @param value A value compatible with AttributeDefinition
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2409)
+    public void setModuleDependenceAttribute(AttributeDefinition value) throws DmcValueException {
+        mycore.setModuleDependenceAttribute(value.getDmcObject());
+    }
+
+    /**
      * A reference to the DSDefinition derived class that is the base class for a
      * \n set of definition classes.
      */
@@ -206,6 +230,33 @@ public class DSDefinitionModuleDMW extends org.dmd.dms.DmsDefinition {
         if (attr == null)
             return(0);
         return(attr.getMVSize());
+    }
+
+    /**
+     * A reference to another DSDefinitionModule from which the current\n module
+     * makes use of definitions. For instance, the Model View Whatever DSD
+     * includes references\n to schema related definitions. As a result of
+     * specifying this, the module\n class that's generated for the
+     * DSDefinitionModule will include the moduleDependenceAttribute\n of the
+     * module from which definitions are used. Likewise, the generated parser\n
+     * will be primed with the schema of required definition module.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    public DSDefinitionModule getUsesDefsFromModule(){
+        DmcTypeDSDefinitionModuleREFSV attr = (DmcTypeDSDefinitionModuleREFSV) mycore.get(MetaDMSAG.__usesDefsFromModule);
+        if (attr == null)
+            return(null);
+        DSDefinitionModuleDMO obj = attr.getSV().getObject();
+        return((DSDefinitionModule)obj.getContainer());
+    }
+
+    /**
+     * Sets usesDefsFromModule to the specified value.
+     * @param value A value compatible with DSDefinitionModule
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2409)
+    public void setUsesDefsFromModule(DSDefinitionModule value) throws DmcValueException {
+        mycore.setUsesDefsFromModule(value.getDmcObject());
     }
 
     /**

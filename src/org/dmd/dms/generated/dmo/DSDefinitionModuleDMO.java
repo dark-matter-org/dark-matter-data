@@ -53,6 +53,7 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
         _ImAp.put(MetaDMSAG.__dmdID.id,MetaDMSAG.__dmdID);
         _ImAp.put(MetaDMSAG.__fileExtension.id,MetaDMSAG.__fileExtension);
         _ImAp.put(MetaDMSAG.__moduleClassName.id,MetaDMSAG.__moduleClassName);
+        _ImAp.put(MetaDMSAG.__moduleDependenceAttribute.id,MetaDMSAG.__moduleDependenceAttribute);
         _ImAp.put(MetaDMSAG.__name.id,MetaDMSAG.__name);
         _ImAp.put(MetaDMSAG.__usesDefinition.id,MetaDMSAG.__usesDefinition);
         _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
@@ -63,12 +64,14 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
         _ImAp.put(MetaDMSAG.__may.id,MetaDMSAG.__may);
         _ImAp.put(MetaDMSAG.__must.id,MetaDMSAG.__must);
+        _ImAp.put(MetaDMSAG.__usesDefsFromModule.id,MetaDMSAG.__usesDefsFromModule);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(MetaDMSAG.__baseDefinition.name,MetaDMSAG.__baseDefinition);
         _SmAp.put(MetaDMSAG.__dmdID.name,MetaDMSAG.__dmdID);
         _SmAp.put(MetaDMSAG.__fileExtension.name,MetaDMSAG.__fileExtension);
         _SmAp.put(MetaDMSAG.__moduleClassName.name,MetaDMSAG.__moduleClassName);
+        _SmAp.put(MetaDMSAG.__moduleDependenceAttribute.name,MetaDMSAG.__moduleDependenceAttribute);
         _SmAp.put(MetaDMSAG.__name.name,MetaDMSAG.__name);
         _SmAp.put(MetaDMSAG.__usesDefinition.name,MetaDMSAG.__usesDefinition);
         _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
@@ -79,6 +82,7 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
         _SmAp.put(MetaDMSAG.__may.name,MetaDMSAG.__may);
         _SmAp.put(MetaDMSAG.__must.name,MetaDMSAG.__must);
+        _SmAp.put(MetaDMSAG.__usesDefsFromModule.name,MetaDMSAG.__usesDefsFromModule);
     }
 
 
@@ -217,6 +221,35 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
         
         attr.set(value);
         set(MetaDMSAG.__moduleClassName,attr);
+    }
+
+    /**
+     * The name of the attribute in a DSDefinitionModule that\n indicates a
+     * dependence on another module of the same type. For example, in\n
+     * dark-matter schemas, the SchemaDefinition uses the dependsOn attribute
+     * to\n refer to oher schemas.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2295)
+    public AttributeDefinitionREF getModuleDependenceAttribute(){
+        DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) get(MetaDMSAG.__moduleDependenceAttribute);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets moduleDependenceAttribute to the specified value.
+     * @param value A value compatible with DmcTypeAttributeDefinitionREFSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2388)
+    public void setModuleDependenceAttribute(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__moduleDependenceAttribute);
+        if (attr == null)
+            attr = new DmcTypeAttributeDefinitionREFSV(MetaDMSAG.__moduleDependenceAttribute);
+        
+        attr.set(value);
+        set(MetaDMSAG.__moduleDependenceAttribute,attr);
     }
 
     /**
@@ -503,6 +536,38 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
         attr.add(value);
         add(MetaDMSAG.__must,attr);
         return(attr);
+    }
+
+    /**
+     * A reference to another DSDefinitionModule from which the current\n module
+     * makes use of definitions. For instance, the Model View Whatever DSD
+     * includes references\n to schema related definitions. As a result of
+     * specifying this, the module\n class that's generated for the
+     * DSDefinitionModule will include the moduleDependenceAttribute\n of the
+     * module from which definitions are used. Likewise, the generated parser\n
+     * will be primed with the schema of required definition module.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2295)
+    public DSDefinitionModuleREF getUsesDefsFromModule(){
+        DmcTypeDSDefinitionModuleREFSV attr = (DmcTypeDSDefinitionModuleREFSV) get(MetaDMSAG.__usesDefsFromModule);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets usesDefsFromModule to the specified value.
+     * @param value A value compatible with DmcTypeDSDefinitionModuleREFSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2388)
+    public void setUsesDefsFromModule(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__usesDefsFromModule);
+        if (attr == null)
+            attr = new DmcTypeDSDefinitionModuleREFSV(MetaDMSAG.__usesDefsFromModule);
+        
+        attr.set(value);
+        set(MetaDMSAG.__usesDefsFromModule,attr);
     }
 
 
