@@ -830,6 +830,21 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     }
     
     void addDefinitionModule(DSDefinitionModule ddm) throws ResultException, DmcValueException {
+
+    	// Again, some trickiness, we have to resolve the module so that we can access and use the must/may
+    	// attributes that are defined for it and add them to the class definition we create
+//        try {
+//        	ddm.resolveReferences(this,currentResolver);
+//		} catch (DmcValueExceptionSet e) {			
+//			ResultException ex = new ResultException();
+//			ex.addError("Unresolved references in DSDefinitionModule: " + ddm.getName());
+//			
+//			for(DmcValueException dve : e.getExceptions()){
+//				ex.moreMessages(dve.getMessage());
+//			}
+//			throw(ex);
+//		}
+
         if (checkAndAdd(ddm.getObjectName(),ddm,definitionModuleDefs) == false){
         	ResultException ex = new ResultException();
         	ex.addError(clashMsg(ddm.getObjectName(),ddm,definitionModuleDefs,"DSDefinitionModule names"));
