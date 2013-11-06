@@ -16,9 +16,7 @@
 package org.dmd.util.parsing;
 
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.LineNumberReader;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Iterator;
@@ -73,8 +71,8 @@ public class ConfigFinder {
 	String fsep;
 	
 	// The preferences file we attempt to read
-	String 	prefName;
-	boolean	prefsAvailable;
+//	String 	prefName;
+//	boolean	prefsAvailable;
 	
 	// The length of the longest schema name we found
 	int	longest;
@@ -83,7 +81,7 @@ public class ConfigFinder {
 	
 	public ConfigFinder(){
 		init();
-		loadPreferences();
+//		loadPreferences();
 	}
 	
 	/**
@@ -96,7 +94,7 @@ public class ConfigFinder {
 		while(srcdirs.hasNext()){
 			sourceDirs.add(srcdirs.next());
 		}
-		prefsAvailable = true;
+//		prefsAvailable = true;
 	}
 	
 	public void debug(boolean db){
@@ -118,16 +116,16 @@ public class ConfigFinder {
 		configs			= new ArrayList<ConfigLocation>();
 		versions		= new TreeMap<String, ConfigVersion>();
 		fsep 			= File.separator;
-		prefsAvailable 	= false;
+//		prefsAvailable 	= false;
 		classPaths 		= new ArrayList<String>();
 	}
 	
-	/**
-	 * @return The name of the file where additional source paths are indicated.
-	 */
-	public String getPrefName(){
-		return(prefName);
-	}
+//	/**
+//	 * @return The name of the file where additional source paths are indicated.
+//	 */
+//	public String getPrefName(){
+//		return(prefName);
+//	}
 	
 	/**
 	 * Adds a suffix to hunt for. Generally of the form ".xxx".
@@ -214,18 +212,26 @@ public class ConfigFinder {
 	public String getSearchInfo(){
 		StringBuffer sb = new StringBuffer();
 		
-		if (prefName == null)
-			sb.append("Source directory preferences from -srcdir option:\n");
-		else
-			sb.append("Source directory preferences: " + prefName + "\n");
+//		if (prefName == null)
+//			sb.append("Source directory preferences from -srcdir option:\n");
+//		else
+//			sb.append("Source directory preferences: " + prefName + "\n");
+//		
+//		if (prefsAvailable){
+//			for(String f : sourceDirs){
+//				sb.append("    " + f + "\n");
+//			}
+//		}
+//		else
+//			sb.append("No preferences specified");
+//		sb.append("\n");
 		
-		if (prefsAvailable){
-			for(String f : sourceDirs){
-				sb.append("    " + f + "\n");
-			}
+		sb.append("Source directory preferences from -srcdir option or added via addSourceDirectory():\n");
+		
+		for(String f : sourceDirs){
+			sb.append("    " + f + "\n");
 		}
-		else
-			sb.append("No preferences specified");
+
 		sb.append("\n");
 		
 		sb.append("Checked the following locations on your class path:\n");
@@ -252,48 +258,48 @@ public class ConfigFinder {
 		return(sb.toString());
 	}
 	
-	/**
-	 * This method will check to see if the user has created a sourcedirs.txt
-	 * in user_home/.darkmatter
-	 */
-	void loadPreferences(){
-		
-		String userHome = System.getProperty("user.home");
-		File darkMatterFolder = new File(userHome + fsep + ".darkmatter");
-		
-		debugMessage("loadPreferences() - " + userHome + fsep + ".darkmatter");
-		
-		// Create the preferences folder if it doesn't exist
-		if (!darkMatterFolder.exists()){
-			darkMatterFolder.mkdir();
-		}
-		
-		prefName = userHome + fsep + ".darkmatter" + fsep + "sourcedirs.txt";
-		File prefFile = new File(prefName);
-		
-		if (prefFile.exists()){
-			prefsAvailable = true;
-            try {
-            	LineNumberReader in = new LineNumberReader(new FileReader(prefName));
-                String str;
-                while ((str = in.readLine()) != null) {
-                	String line = str.trim();
-                	
-                	if (line.startsWith("//"))
-                		continue;
-                	
-//                	if (line.endsWith(".jar"))
-//                		jarPrefixes.add(line);
-//                	else
-                		sourceDirs.add(line);
-                }
-                
-				in.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-	}
+//	/**
+//	 * This method will check to see if the user has created a sourcedirs.txt
+//	 * in user_home/.darkmatter
+//	 */
+//	void loadPreferences(){
+//		
+//		String userHome = System.getProperty("user.home");
+//		File darkMatterFolder = new File(userHome + fsep + ".darkmatter");
+//		
+//		debugMessage("loadPreferences() - " + userHome + fsep + ".darkmatter");
+//		
+//		// Create the preferences folder if it doesn't exist
+//		if (!darkMatterFolder.exists()){
+//			darkMatterFolder.mkdir();
+//		}
+//		
+//		prefName = userHome + fsep + ".darkmatter" + fsep + "sourcedirs.txt";
+//		File prefFile = new File(prefName);
+//		
+//		if (prefFile.exists()){
+//			prefsAvailable = true;
+//            try {
+//            	LineNumberReader in = new LineNumberReader(new FileReader(prefName));
+//                String str;
+//                while ((str = in.readLine()) != null) {
+//                	String line = str.trim();
+//                	
+//                	if (line.startsWith("//"))
+//                		continue;
+//                	
+////                	if (line.endsWith(".jar"))
+////                		jarPrefixes.add(line);
+////                	else
+//                		sourceDirs.add(line);
+//                }
+//                
+//				in.close();
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//	}
 	
 	/**
 	 * Recursively descends through the directory structure looking for files
