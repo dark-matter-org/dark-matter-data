@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.util;
 
+import java.io.File;
 import java.io.IOException;
 
 import org.junit.*;
@@ -39,12 +40,20 @@ public class TestDmsSchemaParser {
 	public void initialize() throws ResultException, IOException, DmcValueException{
 		dmsSchema = new SchemaManager();
 		readSchemas	= new SchemaManager();
+
+        File curr = new File(".");
+        String runDir;
+		runDir = curr.getCanonicalPath();
+		System.out.println("*** Running from: " + runDir);
 		
 		finder = new ConfigFinder();
+		finder.addSourceDirectory(runDir + "/src");
+		finder.debug(true);
 		finder.addSuffix(".dms");
 //		finder.addJarEnding("DMSchema.jar");
 		finder.findConfigs();
 
+		
 	}
 	
 	@Test
