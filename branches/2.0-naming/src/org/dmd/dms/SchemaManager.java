@@ -22,6 +22,7 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
+import org.dmd.dmc.DmcClassInfo;
 import org.dmd.dmc.DmcNameClashObjectSet;
 import org.dmd.dmc.DmcNameClashResolverIF;
 import org.dmd.dmc.DmcNameResolverWithClashSupportIF;
@@ -833,17 +834,17 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 
     	// Again, some trickiness, we have to resolve the module so that we can access and use the must/may
     	// attributes that are defined for it and add them to the class definition we create
-//        try {
-//        	ddm.resolveReferences(this,currentResolver);
-//		} catch (DmcValueExceptionSet e) {			
-//			ResultException ex = new ResultException();
-//			ex.addError("Unresolved references in DSDefinitionModule: " + ddm.getName());
-//			
-//			for(DmcValueException dve : e.getExceptions()){
-//				ex.moreMessages(dve.getMessage());
-//			}
-//			throw(ex);
-//		}
+        try {
+        	ddm.resolveReferences(this,currentResolver);
+		} catch (DmcValueExceptionSet e) {			
+			ResultException ex = new ResultException();
+			ex.addError("Unresolved references in DSDefinitionModule: " + ddm.getName());
+			
+			for(DmcValueException dve : e.getExceptions()){
+				ex.moreMessages(dve.getMessage());
+			}
+			throw(ex);
+		}
 
         if (checkAndAdd(ddm.getObjectName(),ddm,definitionModuleDefs) == false){
         	ResultException ex = new ResultException();
@@ -1821,16 +1822,29 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
             
             ArrayList<DmsDefinition>	defs = clashMAP.get(defAndType);
             
-//    		DebugInfo.debug("Adding to clashMAP - " + obj.getConstructionClassName() + ": " + defAndType + "\n\n");
+    		DebugInfo.debug("Adding to clashMAP - " + obj.getConstructionClassName() + ": " + defAndType + "\n\n");
             if (defs == null){
             	defs = new ArrayList<DmsDefinition>(1);
             	defs.add(obj);
             	clashMAP.put(defAndType, defs);
+            	
+            	// When creating new domain specific definition modules, we need genericity when
+            	// it comes to defining the modules and indicating which definitions are part
+            	// of the module. The usesDefinition attribute is of type DSDefinition, but
+            	// when a new ClassDefinition is added (which indicates new kind of domain related 
+            	// definition, it's added as definition.ClassDefinition. However, when we try to 
+            	// resolve a reference via the usesDefinition attribute, it's expecting to refer
+            	// to definition.DSDefinition - so, we add these variants here.
+            	if (obj.getConstructionClassInfo() == MetaDMSAG.__ClassDefinition){
+            		addBaseClassVariants(obj, obj.getConstructionClassInfo().derivedFrom, map);
+            	}
             }
             else{
             	DebugInfo.debug("CLASHING definition");
             	defs.add(obj);
             }
+            
+            //
             
             if (refName != null){
                 DotName classRefKey 	= refName.trimRoot();
@@ -1854,6 +1868,39 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 
         return(true);
     }
+	
+	/**
+	 * 
+	 * @param obj the definition being added
+	 * @param ci the class info for the variant being added
+	 * @param map the map to which we're adding the definition
+	 */
+	void addBaseClassVariants(DmsDefinition obj, DmcClassInfo ci, HashMap<DotName,DmsDefinition> map){
+		
+		if (ci != null){
+			try {
+				DotName dn = new DotName(obj.getName() + "." + ci.name);				
+	            ArrayList<DmsDefinition>	defs = clashMAP.get(dn);
+	            
+	    		DebugInfo.debug("Adding to VARIANT clashMAP - " + obj.getConstructionClassName() + ": " + dn + "\n\n");
+	            if (defs == null){
+	            	defs = new ArrayList<DmsDefinition>(1);
+	            	defs.add(obj);
+	            	clashMAP.put(dn, defs);
+	            }
+	            else{
+	            	DebugInfo.debug("CLASHING definition");
+	            	defs.add(obj);
+	            }
+			} catch (DmcValueException e) {
+				throw(new IllegalStateException("Couldn't construct a DotName from \"" + obj.getName() + "." + ci.name + "\""));
+			}
+		}
+		
+		if (ci.derivedFrom != null){
+			addBaseClassVariants(obj, ci.derivedFrom, map);
+		}
+	}
 
     /**
      * This function checks to see whether the specified key exists in the hashmap. If not,
@@ -2621,9 +2668,15 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 			
 			dn = new DotName(name.getNameString() + "." + ai.type);
 			
-//			DebugInfo.debug("LOOKING FOR: *" + dn + "*" + "   clashMap: " + System.identityHashCode(clashMAP));
+			DebugInfo.debug("LOOKING FOR: *" + dn + "*" + "   clashMap: " + System.identityHashCode(clashMAP));
 			
-	    	if (dn.getNameString().equals("ClassDefinition.ClassDefinitionREF")){
+			// TODO: this may never triggered because the ai.type for this would be ClassDefinition, not ClassDefinitionREF
+			
+//	    	if (dn.getNameString().equals("ClassDefinition.ClassDefinitionREF")){
+		    if (dn.getNameString().equals("ClassDefinition.ClassDefinition")){
+	    		
+//	    		DebugInfo.debug("\n\nHACK HACK HACK\n\n");
+//	    		DebugInfo.debug(DebugInfo.getCurrentStack());
 		    	// HACK HACK HACK
 		    	// When we added actual support for the __objectClass attribute in DmcObject, we
 		    	// got into a bit of trouble with the meta schema. We needed to resolve the objectClass,
