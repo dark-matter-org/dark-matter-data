@@ -316,17 +316,17 @@ field           String         description     A description of the parameter
 description The RuleParam type is used to succintly describe a parameter
  to be supplied to a rule when it is executed.
  
-ComplexTypeDefinition
-name			GPBField
-field			GPBFieldTypeEnum	fieldType       The type of GPB field
-field			AttributeDefinition	attribute		The attribute to be stored in this field. The attribute type must specify the gpbFieldType .
-field			Integer				fieldTag		Unique field ID excluding values 19000 to 19999 which are reserved.
-description		The GPBField type is used to specify a mapping between the attributes
- of an object and a Google Protocol Buffer field. An example might be:
- <pre>
- gpbField STRING firstName 1
- </pre>
- This mechanism allows for generation of GPB compatible dark-matter objects.
+//ComplexTypeDefinition
+//name			GPBField
+//field			GPBFieldTypeEnum	fieldType       The type of GPB field
+//field			AttributeDefinition	attribute		The attribute to be stored in this field. The attribute type must specify the gpbFieldType .
+//field			Integer				fieldTag		Unique field ID excluding values 19000 to 19999 which are reserved.
+//description		The GPBField type is used to specify a mapping between the attributes
+// of an object and a Google Protocol Buffer field. An example might be:
+// <pre>
+// gpbField STRING firstName 1
+// </pre>
+// This mechanism allows for generation of GPB compatible dark-matter objects.
 
 ///////////////////////////////////////////////////////////////////////////////
 // Enumeration Definitions
