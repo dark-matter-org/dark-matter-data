@@ -26,7 +26,7 @@ import org.dmd.dmp.server.extended.SetRequest;  // wrapper type import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1806)
- *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:79)
+ *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:84)
  */
 public class SetRequestIterableDMW extends DmwObjectIterator<SetRequest, SetRequestDMO> {
 

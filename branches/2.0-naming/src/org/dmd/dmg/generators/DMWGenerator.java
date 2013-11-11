@@ -21,6 +21,8 @@ import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
 
 public class DMWGenerator extends BaseDMWGeneratorNewest {
+	
+	DSDArtifactFormatter dsdFormatter;
 
 	public DMWGenerator(){
 		genContext				= "dmw";
@@ -29,6 +31,7 @@ public class DMWGenerator extends BaseDMWGeneratorNewest {
 		namedWrapperImport		= "org.dmd.dmw.DmwNamedObjectWrapper";
 		hierarchicWrapperImport	= "org.dmd.dmw.DmwHierarchicObjectWrapper";
 		fullJavaEnvironment		= true;
+		dsdFormatter			= new DSDArtifactFormatter();
 	}
 	
 	@Override
@@ -50,7 +53,7 @@ public class DMWGenerator extends BaseDMWGeneratorNewest {
 		SchemaDefinition sd = sm.isSchema(config.getSchemaToLoad());
 		sformatter.dumpSchema(gendir, config.getGenPackage(), sd, sm);
 		
-		
+		dsdFormatter.generateCode(config, loc, f, sm);
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
