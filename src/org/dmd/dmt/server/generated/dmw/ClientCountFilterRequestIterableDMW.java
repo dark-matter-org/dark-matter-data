@@ -11,7 +11,7 @@ import org.dmd.dmt.server.extended.ClientCountFilterRequest;  // wrapper type im
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1806)
- *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:79)
+ *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:84)
  */
 public class ClientCountFilterRequestIterableDMW extends DmwObjectIterator<ClientCountFilterRequest, ClientCountFilterRequestDMO> {
 

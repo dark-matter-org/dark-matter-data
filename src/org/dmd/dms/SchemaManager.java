@@ -873,7 +873,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         cd.addMust(MetaSchemaAG._name);
         cd.addMay(MetaSchemaAG._description);
 
-        cd.setFile(ddm);
+        cd.setFile(ddm.getFile());
         cd.setLineNumber(ddm.getLineNumber());
         cd.setDefinedIn(ddm.getDefinedIn());
         
