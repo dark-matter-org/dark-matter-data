@@ -71,6 +71,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     // Key: DotNames of the form definition_name.definition_type - these keys could potentially clash
     //      across schemas, so we maintain an array list of the defs at this level
     public HashMap<DotName, ArrayList<DmsDefinition>>	clashMAP;
+    boolean	debugClashmap = false;
     
     // When definitions are being added via the schema parser, it will attempt to
     // to resolve clashes. If we're loading generated schemas, the SchemaManager will
@@ -215,6 +216,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      */
     public SchemaManager() throws ResultException, DmcValueException {
     	init();
+    	
+    	debugClashmap = false;
     }
     
     /**
@@ -1822,7 +1825,9 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
             
             ArrayList<DmsDefinition>	defs = clashMAP.get(defAndType);
             
-    		DebugInfo.debug("Adding to clashMAP - " + obj.getConstructionClassName() + ": " + defAndType + "\n\n");
+            if (debugClashmap)
+            	DebugInfo.debug("Adding to clashMAP - " + obj.getConstructionClassName() + ": " + defAndType + "\n\n");
+    		
             if (defs == null){
             	defs = new ArrayList<DmsDefinition>(1);
             	defs.add(obj);
@@ -1840,7 +1845,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
             	}
             }
             else{
-            	DebugInfo.debug("CLASHING definition");
+            	if (debugClashmap)
+            		DebugInfo.debug("CLASHING definition");
             	defs.add(obj);
             }
             
@@ -1849,7 +1855,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
             if (refName != null){
                 DotName classRefKey 	= refName.trimRoot();
                 
-    			DebugInfo.debug("Adding REF Type: " + refName + "    *" + classRefKey + "*" + "   clashMap: " + System.identityHashCode(clashMAP));
+            	if (debugClashmap)
+            		DebugInfo.debug("Adding REF Type: " + refName + "    *" + classRefKey + "*" + "   clashMap: " + System.identityHashCode(clashMAP));
 
                 defs = clashMAP.get(classRefKey);            	
                 if (defs == null){
@@ -1859,7 +1866,9 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
                 	clashMAP.put(classRefKey, defs);
                 }
                 else{
-                	DebugInfo.debug("CLASHING CLASSREF definition");
+                	if (debugClashmap)
+                		DebugInfo.debug("CLASHING CLASSREF definition");
+                	
                 	defs.add(obj);
                 }
             }
@@ -2679,10 +2688,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 			
 			dn = new DotName(name.getNameString() + "." + ai.type);
 			
-			DebugInfo.debug("LOOKING FOR: *" + dn + "*" + "   clashMap: " + System.identityHashCode(clashMAP));
-			
-			// TODO: this may never triggered because the ai.type for this would be ClassDefinition, not ClassDefinitionREF
-			
+//			DebugInfo.debug("LOOKING FOR: *" + dn + "*" + "   clashMap: " + System.identityHashCode(clashMAP));
+						
 //	    	if (dn.getNameString().equals("ClassDefinition.ClassDefinitionREF")){
 		    if (dn.getNameString().equals("ClassDefinition.ClassDefinition")){
 	    		

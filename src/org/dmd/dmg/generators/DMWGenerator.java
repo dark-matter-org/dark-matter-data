@@ -53,6 +53,8 @@ public class DMWGenerator extends BaseDMWGeneratorNewest {
 		SchemaDefinition sd = sm.isSchema(config.getSchemaToLoad());
 		sformatter.dumpSchema(gendir, config.getGenPackage(), sd, sm);
 		
+		dsdFormatter.setFileHeader(fileHeader);
+		dsdFormatter.setProgressStream(progress);
 		dsdFormatter.generateCode(config, loc, f, sm);
 	}
 
