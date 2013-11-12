@@ -1,5 +1,21 @@
+//	---------------------------------------------------------------------------
+//	dark-matter-data
+//	Copyright (c) 2013 dark-matter-data committers
+//	---------------------------------------------------------------------------
+//	This program is free software; you can redistribute it and/or modify it
+//	under the terms of the GNU Lesser General Public License as published by the
+//	Free Software Foundation; either version 3 of the License, or (at your
+//	option) any later version.
+//	This program is distributed in the hope that it will be useful, but WITHOUT
+//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
+//	more details.
+//	You should have received a copy of the GNU Lesser General Public License along
+//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
+//	---------------------------------------------------------------------------
 package org.dmd.dmg.generators;
 
+import java.io.PrintStream;
 import java.util.Iterator;
 
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
@@ -15,6 +31,9 @@ import org.dmd.util.parsing.ConfigLocation;
  */
 public class DSDArtifactFormatter {
 
+	String						fileHeader;
+	PrintStream					progress;
+	
 	public DSDArtifactFormatter(){
 		
 	}
@@ -32,6 +51,7 @@ public class DSDArtifactFormatter {
 		DebugInfo.debug(loc.toString());
 		
 		if (sm.getDSDefinitionModulesCount() > 0){
+			
 			Iterator<DSDefinitionModule> it =  sm.getDSDefinitionModules();
 			while(it.hasNext()){
 				
@@ -39,4 +59,23 @@ public class DSDArtifactFormatter {
 		}
 	}
 	
+	
+	
+	/**
+	 * Set the stream where we'll report progress.
+	 * @param ps the stream.
+	 */
+	public void setProgressStream(PrintStream ps) {
+		progress = ps;
+	}
+	
+	/**
+	 * sets the standard header information to be included on generated files.
+	 * @param fh the header info.
+	 */
+	public void setFileHeader(String fh) {
+		fileHeader = fh;
+	}
+
+
 }
