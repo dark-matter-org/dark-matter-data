@@ -2652,6 +2652,17 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     public Iterator<ComplexTypeDefinition> getComplexTypes(){
     	return(complexTypeDefs.values().iterator());
     }
+    
+    /**
+     * @return the domain specific definition modules
+     */
+    public Iterator<DSDefinitionModule> getDSDefinitionModules(){
+    	return(definitionModuleDefs.values().iterator());
+    }
+    
+    public int getDSDefinitionModulesCount(){
+    	return(definitionModuleDefs.size());
+    }
 
     /**
      * @return the defined extended references.

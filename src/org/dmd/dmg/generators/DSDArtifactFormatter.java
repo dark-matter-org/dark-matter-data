@@ -1,6 +1,9 @@
 package org.dmd.dmg.generators;
 
+import java.util.Iterator;
+
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
+import org.dmd.dms.DSDefinitionModule;
 import org.dmd.dms.SchemaManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.parsing.ConfigFinder;
@@ -27,6 +30,13 @@ public class DSDArtifactFormatter {
 	 */
 	public void generateCode(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm){
 		DebugInfo.debug(loc.toString());
+		
+		if (sm.getDSDefinitionModulesCount() > 0){
+			Iterator<DSDefinitionModule> it =  sm.getDSDefinitionModules();
+			while(it.hasNext()){
+				
+			}
+		}
 	}
 	
 }
