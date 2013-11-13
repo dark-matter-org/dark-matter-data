@@ -17,6 +17,8 @@ import org.dmd.util.exceptions.DebugInfo;
  */
 public class DmcDefinitionSet<DEF extends DmcDefinitionIF> {
 	
+	static boolean debug = false;
+	
 	// The definitions keyed by DefinitionName, there could be more than one definition with the same name
 	TreeMap<DefinitionName,ArrayList<DEF>>	map;
 	
@@ -34,6 +36,10 @@ public class DmcDefinitionSet<DEF extends DmcDefinitionIF> {
 		dotmap = new TreeMap<DotName, DEF>();
 	}
 	
+	static public void debug(boolean f){
+		debug = f;
+	}
+	
 	/**
 	 * Adds the specified definition. If the dotname of the definition already exists, an IllegalState
 	 * exception is thrown.
@@ -42,14 +48,16 @@ public class DmcDefinitionSet<DEF extends DmcDefinitionIF> {
 	public void add(DEF def){
 		ArrayList<DEF> existing = map.get(def.getName());
 		
-		DebugInfo.debug(def.getName() + "    " + def.getDotName().getNameString());
+		if (debug)
+			DebugInfo.debug(def.getName() + "    " + def.getDotName().getNameString());
 		
 		if (existing == null){
 			existing = new ArrayList<DEF>(1);
 			map.put(def.getName(), existing);
 		}
 		else{
-			DebugInfo.debug("CLASHING: " + def.getName());
+			if (debug)
+				DebugInfo.debug("CLASHING: " + def.getName());
 		}
 		existing.add(def);
 		

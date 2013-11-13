@@ -701,7 +701,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
     		
     		if (classes != null){
 	    		for(ClassDefinition cdef: classes){
-	    			if (this.getObjectName().getNameString().equals(cdef.getName().getNameString())){
+	    			if (cd.getObjectName().getNameString().equals(cdef.getName().getNameString())){
 	    				rc = true;
 	    				break;
 	    			}
