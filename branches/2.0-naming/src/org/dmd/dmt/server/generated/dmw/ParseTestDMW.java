@@ -1,20 +1,35 @@
+//	---------------------------------------------------------------------------
+//	dark-matter-data
+//	Copyright (c) 2013 dark-matter-data committers
+//	---------------------------------------------------------------------------
+//	This program is free software; you can redistribute it and/or modify it
+//	under the terms of the GNU Lesser General Public License as published by the
+//	Free Software Foundation; either version 3 of the License, or (at your
+//	option) any later version.
+//	This program is distributed in the hope that it will be useful, but WITHOUT
+//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
+//	more details.
+//	You should have received a copy of the GNU Lesser General Public License along
+//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
+//	---------------------------------------------------------------------------
 package org.dmd.dmt.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:351)
-import org.dmd.dmc.*;                                                            // If any attributes - (BaseDMWGeneratorNewest.java:956)
-import org.dmd.dms.ClassDefinition;                                              // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:940)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                      // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:945)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                            // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:944)
-import org.dmd.dmt.server.extended.ObjWithRefs;                                  // Is reference type - (BaseDMWGeneratorNewest.java:976)
-import org.dmd.dmt.server.generated.dmw.TestBasicObjectFixedDMW;                 // Is reference type - (BaseDMWGeneratorNewest.java:976)
-import org.dmd.dmt.server.generated.dmw.TestBasicObjectFixedIterableDMW;         // For multi-valued TestBasicObjectFixed - (BaseDMWGeneratorNewest.java:1578)
-import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                                // Attribute mvUnnamedObj from the dmt schema - (BaseDMWGeneratorNewest.java:771)
-import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;                          // For setNth of ObjWithRefs - (BaseDMWGeneratorNewest.java:1783)
-import org.dmd.dmt.shared.generated.dmo.ParseTestDMO;                            // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1121)
-import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;                 // Reference to unnamed object - (BaseDMWGeneratorNewest.java:981)
-import org.dmd.dmt.shared.generated.types.ObjWithRefsREF;                        // To support getMVCopy() for REFs ObjWithRefs-MULTI - (BaseDMWGeneratorNewest.java:995)
-import org.dmd.dmw.DmwWrapper;                                                   // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1104)
+// Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:365)
+import org.dmd.dmc.*;                                                            // If any attributes - (BaseDMWGeneratorNewest.java:979)
+import org.dmd.dms.ClassDefinition;                                              // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:963)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                      // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:968)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                            // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:967)
+import org.dmd.dmt.server.extended.ObjWithRefs;                                  // Is reference type - (BaseDMWGeneratorNewest.java:999)
+import org.dmd.dmt.server.generated.dmw.TestBasicObjectFixedDMW;                 // Is reference type - (BaseDMWGeneratorNewest.java:999)
+import org.dmd.dmt.server.generated.dmw.TestBasicObjectFixedIterableDMW;         // For multi-valued TestBasicObjectFixed - (BaseDMWGeneratorNewest.java:1601)
+import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                                // Attribute mvUnnamedObj from the dmt schema - (BaseDMWGeneratorNewest.java:794)
+import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;                          // For setNth of ObjWithRefs - (BaseDMWGeneratorNewest.java:1806)
+import org.dmd.dmt.shared.generated.dmo.ParseTestDMO;                            // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1144)
+import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;                 // Reference to unnamed object - (BaseDMWGeneratorNewest.java:1004)
+import org.dmd.dmt.shared.generated.types.ObjWithRefsREF;                        // To support getMVCopy() for REFs ObjWithRefs-MULTI - (BaseDMWGeneratorNewest.java:1018)
+import org.dmd.dmw.DmwWrapper;                                                   // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1127)
 
 
 /**
@@ -24,27 +39,27 @@ import org.dmd.dmw.DmwWrapper;                                                  
  * Generated from the dmt schema at version 0.1
  * <P>
  * This code was auto-generated by the dmggenerator utility and shouldn't be alterred manually!
- * Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:368)
+ * Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:391)
  */
-public class ParseTestDMW extends DmwWrapper {
+public class ParseTestDMW extends DmwWrapper  {
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:447)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:470)
     public ParseTestDMW() {
         super(new ParseTestDMO(), org.dmd.dmt.server.generated.DmtSchemaAG._ParseTest);
     }
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:453)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:476)
     public ParseTestDMW(DmcTypeModifierMV mods) {
         super(new ParseTestDMO(mods), org.dmd.dmt.server.generated.DmtSchemaAG._ParseTest);
     }
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:482)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:505)
     public ParseTestDMW getModificationRecorder(){
         ParseTestDMW rc = new ParseTestDMW(new DmcTypeModifierMV(MetaDMSAG.__modify));
         return(rc);
     }
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:516)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:539)
     public ParseTestDMW(ParseTestDMO obj) {
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._ParseTest);
     }
@@ -59,7 +74,7 @@ public class ParseTestDMW extends DmwWrapper {
         return((ParseTestDMO) core);
     }
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:531)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:554)
     protected ParseTestDMW(ParseTestDMO obj, ClassDefinition cd) {
         super(obj,cd);
     }
@@ -67,7 +82,7 @@ public class ParseTestDMW extends DmwWrapper {
     /**
      * @return The number of ObjWithRefs items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1540)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1563)
     public int getMvIdxNamedObjSize(){
         return(((ParseTestDMO) core).getMvIdxNamedObjSize());
     }
@@ -75,7 +90,7 @@ public class ParseTestDMW extends DmwWrapper {
     /**
      * @return true if there are no ObjWithRefsDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1548)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1571)
     public boolean getMvIdxNamedObjIsEmpty(){
         if (((ParseTestDMO) core).getMvIdxNamedObjSize() == 0)
             return(true);
@@ -85,7 +100,7 @@ public class ParseTestDMW extends DmwWrapper {
     /**
      * @return true if there are any ObjWithRefsDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1558)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1581)
     public boolean getMvIdxNamedObjHasValue(){
         if (((ParseTestDMO) core).getMvIdxNamedObjSize() == 0)
             return(false);
@@ -96,7 +111,7 @@ public class ParseTestDMW extends DmwWrapper {
      * Sets the mvIdxNamedObj value at the specified index.
      * @param value A value compatible with ObjWithRefs
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1800)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1823)
     public DmcAttribute<?> setNthMvIdxNamedObj(int index, ObjWithRefs value){
         if (value == null)
             return(((ParseTestDMO) core).setNthMvIdxNamedObj(index, null));
@@ -107,7 +122,7 @@ public class ParseTestDMW extends DmwWrapper {
     /**
      * @return The ObjWithRefs object at the specified index.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1896)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1919)
     public ObjWithRefs getNthMvIdxNamedObj(int index){
         ObjWithRefsREF ref = ((ParseTestDMO) core).getNthMvIdxNamedObj(index);
         if (ref == null)
@@ -122,7 +137,7 @@ public class ParseTestDMW extends DmwWrapper {
     /**
      * @return The reference to the ObjWithRefs object at the specified index.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1936)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1959)
     public ObjWithRefsREF getNthMvIdxNamedObjREF(int index){
         ObjWithRefsREF ref = ((ParseTestDMO) core).getNthMvIdxNamedObjREF(index);
         return(ref);
@@ -131,7 +146,7 @@ public class ParseTestDMW extends DmwWrapper {
     /**
      * Removes the mvIdxNamedObj attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2161)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2184)
     public void remMvIdxNamedObj(){
         ((ParseTestDMO) core).remMvIdxNamedObj();
     }
@@ -139,7 +154,7 @@ public class ParseTestDMW extends DmwWrapper {
     /**
      * @return The number of TestBasicObjectFixed items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1540)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1563)
     public int getMvIdxUnnamedObjSize(){
         return(((ParseTestDMO) core).getMvIdxUnnamedObjSize());
     }
@@ -147,7 +162,7 @@ public class ParseTestDMW extends DmwWrapper {
     /**
      * @return true if there are no TestBasicObjectFixedDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1548)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1571)
     public boolean getMvIdxUnnamedObjIsEmpty(){
         if (((ParseTestDMO) core).getMvIdxUnnamedObjSize() == 0)
             return(true);
@@ -157,7 +172,7 @@ public class ParseTestDMW extends DmwWrapper {
     /**
      * @return true if there are any TestBasicObjectFixedDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1558)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1581)
     public boolean getMvIdxUnnamedObjHasValue(){
         if (((ParseTestDMO) core).getMvIdxUnnamedObjSize() == 0)
             return(false);
@@ -168,7 +183,7 @@ public class ParseTestDMW extends DmwWrapper {
      * Sets the mvIdxUnnamedObj value at the specified index.
      * @param value A value compatible with TestBasicObjectFixed
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1800)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1823)
     public DmcAttribute<?> setNthMvIdxUnnamedObj(int index, TestBasicObjectFixedDMW value){
         if (value == null)
             return(((ParseTestDMO) core).setNthMvIdxUnnamedObj(index, null));
@@ -179,7 +194,7 @@ public class ParseTestDMW extends DmwWrapper {
     /**
      * @return The TestBasicObjectFixedDMW object at the specified index.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1844)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1867)
     public TestBasicObjectFixedDMW getNthMvIdxUnnamedObj(int index){
         TestBasicObjectFixedDMO dmo = ((ParseTestDMO) core).getNthMvIdxUnnamedObj(index);
         if (dmo == null)
@@ -191,7 +206,7 @@ public class ParseTestDMW extends DmwWrapper {
     /**
      * Removes the mvIdxUnnamedObj attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2161)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2184)
     public void remMvIdxUnnamedObj(){
         ((ParseTestDMO) core).remMvIdxUnnamedObj();
     }
@@ -199,7 +214,7 @@ public class ParseTestDMW extends DmwWrapper {
     /**
      * @return The number of TestBasicObjectFixed items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1540)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1563)
     public int getMvUnnamedObjSize(){
         return(((ParseTestDMO) core).getMvUnnamedObjSize());
     }
@@ -207,7 +222,7 @@ public class ParseTestDMW extends DmwWrapper {
     /**
      * @return true if there are no TestBasicObjectFixedDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1548)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1571)
     public boolean getMvUnnamedObjIsEmpty(){
         if (((ParseTestDMO) core).getMvUnnamedObjSize() == 0)
             return(true);
@@ -217,7 +232,7 @@ public class ParseTestDMW extends DmwWrapper {
     /**
      * @return true if there are any TestBasicObjectFixedDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1558)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1581)
     public boolean getMvUnnamedObjHasValue(){
         if (((ParseTestDMO) core).getMvUnnamedObjSize() == 0)
             return(false);
@@ -227,7 +242,7 @@ public class ParseTestDMW extends DmwWrapper {
     /**
      * @return An Iterator of TestBasicObjectFixedDMO objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1585)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1608)
     public TestBasicObjectFixedIterableDMW getMvUnnamedObjIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvUnnamedObj);
         if (attr == null)
@@ -240,7 +255,7 @@ public class ParseTestDMW extends DmwWrapper {
      * Adds another mvUnnamedObj value.
      * @param value A value compatible with TestBasicObjectFixed
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1642)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1665)
     public DmcAttribute<?> addMvUnnamedObj(TestBasicObjectFixedDMW value){
         DmcAttribute<?> attr = ((ParseTestDMO) core).addMvUnnamedObj(((TestBasicObjectFixedDMO)value.getDmcObject()));
         return(attr);
@@ -250,7 +265,7 @@ public class ParseTestDMW extends DmwWrapper {
      * Deletes a mvUnnamedObj value.
      * @param value The TestBasicObjectFixed to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1692)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1715)
     public void delMvUnnamedObj(TestBasicObjectFixedDMW value){
         ((ParseTestDMO) core).delMvUnnamedObj(value.getDMO());
     }
@@ -258,12 +273,12 @@ public class ParseTestDMW extends DmwWrapper {
     /**
      * Removes the mvUnnamedObj attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2161)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2184)
     public void remMvUnnamedObj(){
         ((ParseTestDMO) core).remMvUnnamedObj();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1343)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
     public Boolean isSvBoolean(){
         return(((ParseTestDMO) core).isSvBoolean());
     }
@@ -272,7 +287,7 @@ public class ParseTestDMW extends DmwWrapper {
      * Sets svBoolean to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1476)
     public void setSvBoolean(Object value) throws DmcValueException {
         ((ParseTestDMO) core).setSvBoolean(value);
     }
@@ -281,7 +296,7 @@ public class ParseTestDMW extends DmwWrapper {
      * Sets svBoolean to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1462)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1485)
     public void setSvBoolean(Boolean value){
         ((ParseTestDMO) core).setSvBoolean(value);
     }
@@ -289,7 +304,7 @@ public class ParseTestDMW extends DmwWrapper {
     /**
      * Removes the svBoolean attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1488)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1511)
     public void remSvBoolean(){
         ((ParseTestDMO) core).remSvBoolean();
     }
@@ -297,7 +312,7 @@ public class ParseTestDMW extends DmwWrapper {
     /**
      * @return A TestBasicObjectFixedDMW object.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1270)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1293)
     public TestBasicObjectFixedDMW getSvUnnamedObj(){
         TestBasicObjectFixedDMO dmo = ((ParseTestDMO) core).getSvUnnamedObj();
         if (dmo == null)
@@ -310,7 +325,7 @@ public class ParseTestDMW extends DmwWrapper {
      * Sets the svUnnamedObj to the specified value.
      * @param value A value compatible with TestBasicObjectFixedREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1388)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
     public void setSvUnnamedObj(TestBasicObjectFixedDMW value) {
         ((ParseTestDMO) core).setSvUnnamedObj(value.getDMO());
     }
@@ -319,7 +334,7 @@ public class ParseTestDMW extends DmwWrapper {
      * Sets the svUnnamedObj to the specified value.
      * @param value A value compatible with TestBasicObjectFixedREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1397)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1420)
     public void setSvUnnamedObj(Object value) throws DmcValueException {
         ((ParseTestDMO) core).setSvUnnamedObj(value);
     }
@@ -327,7 +342,7 @@ public class ParseTestDMW extends DmwWrapper {
     /**
      * Removes the svUnnamedObj attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1488)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1511)
     public void remSvUnnamedObj(){
         ((ParseTestDMO) core).remSvUnnamedObj();
     }

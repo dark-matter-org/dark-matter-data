@@ -17,11 +17,15 @@ package org.dmd.dmc.definitions;
 
 import java.util.Iterator;
 
+import org.dmd.dmc.types.DefinitionName;
+
 /**
  * The DmcModuleIF is an extension of a DmcDefinitionIF that provides access to
  * a collection of definitions. 
  */
 public interface DmcModuleIF extends DmcDefinitionIF {
+	
+	public DefinitionName getName();
 
 	public Iterator<DmcDefinitionIF> 		getDefinitions();
 	

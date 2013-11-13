@@ -32,6 +32,7 @@ import org.dmd.dmg.util.SchemaFormatter;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.ExtendedReferenceTypeDefinition;
+import org.dmd.dms.MetaSchemaAG;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
@@ -325,6 +326,17 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 
 	}
 	
+	boolean isDefinition(ClassDefinition cd, ImportManager imports){
+		boolean rc = false;
+		
+		if (cd.isInstanceOfThis(MetaSchemaAG._DSDefinition)){
+			rc = true;
+			imports.addImport("org.dmd.dmc.definitions.DmcDefinitionIF", "The object is a domain specific definition");
+		}
+		
+		return(rc);
+	}
+	
 	void dumpWrapper(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm, ClassDefinition cd) throws IOException {
 		attributeInfo = new StringBuffer();
 		
@@ -347,6 +359,8 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 		String accessFunctions = getAccessFunctions(cd, imports);
 		
 		getAdditionalWrapperImports(config, loc, f, sm, cd, imports);
+		
+		boolean isDefinition = isDefinition(cd, imports);
         
         out.write(imports.getFormattedImports() + "\n\n");
         
@@ -354,10 +368,19 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
         
         if (cd.getIsNamedBy() != null){
         	if (cd.getIsNamedBy().getType().getIsHierarchicName())
-            	impl = "implements DmcHierarchicNamedObjectIF ";
+            	impl = "implements DmcHierarchicNamedObjectIF";
         	else
-        		impl = "implements DmcNamedObjectIF ";
+        		impl = "implements DmcNamedObjectIF";
         }
+        
+        if (isDefinition){
+        	if (impl.length() > 0)
+        		impl = impl + ", DmcDefinitionIF ";
+        	else
+        		impl = "implements DmcDefinitionIF ";
+        }
+        else
+        	impl = impl + " ";
         
         out.write("/**\n");
         CodeFormatter.dumpCodeComment(cd.getDescription(),out," * ");

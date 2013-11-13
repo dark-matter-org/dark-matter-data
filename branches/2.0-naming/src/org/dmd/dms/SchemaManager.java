@@ -129,6 +129,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      */
     public HashMap<DefinitionName,ClassDefinition>     			classDefs;
     public int  longestClassName;
+    boolean debugClassAdditions;
 
     // Key: DefinitionName
     // Value: ComplexTypeDefinition
@@ -218,6 +219,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     	init();
     	
     	debugClashmap = false;
+    	debugClassAdditions = false;
     }
     
     /**
@@ -1203,7 +1205,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         // This name is used to identify references to the class
         DotName refName 	= new DotName((DotName) cd.getDotName().getParentName(),"ClassDefinitionREF");
                
-        DebugInfo.debug("Adding class: " + cd.getDotName() + "   " + refName);
+        if (debugClassAdditions)
+        	DebugInfo.debug("Adding class: " + cd.getDotName() + "   " + refName);
         
         if (checkAndAddDOT(cd.getDotName(),cd,globallyUniqueMAP,refName) == false){
         	ResultException ex = new ResultException();
@@ -1891,14 +1894,18 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 				DotName dn = new DotName(obj.getName() + "." + ci.name);				
 	            ArrayList<DmsDefinition>	defs = clashMAP.get(dn);
 	            
-	    		DebugInfo.debug("Adding to VARIANT clashMAP - " + obj.getConstructionClassName() + ": " + dn + "\n\n");
+	            if (debugClassAdditions)
+	            	DebugInfo.debug("Adding to VARIANT clashMAP - " + obj.getConstructionClassName() + ": " + dn + "\n\n");
+	            
 	            if (defs == null){
 	            	defs = new ArrayList<DmsDefinition>(1);
 	            	defs.add(obj);
 	            	clashMAP.put(dn, defs);
 	            }
 	            else{
-	            	DebugInfo.debug("CLASHING definition");
+	                if (debugClassAdditions)
+	                	DebugInfo.debug("CLASHING definition");
+	                
 	            	defs.add(obj);
 	            }
 			} catch (DmcValueException e) {
