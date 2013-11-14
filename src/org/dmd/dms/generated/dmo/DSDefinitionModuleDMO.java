@@ -515,28 +515,30 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
      * DSDefinitionModule will include the moduleDependenceAttribute\n of the
      * module from which definitions are used. Likewise, the generated parser\n
      * will be primed with the schema of required definition module.
+     * @return An Iterator of DSDefinitionModuleDMO objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2295)
-    public DSDefinitionModuleREF getRefersToDefsFromDSD(){
-        DmcTypeDSDefinitionModuleREFSV attr = (DmcTypeDSDefinitionModuleREFSV) get(MetaDMSAG.__refersToDefsFromDSD);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2486)
+    public Iterator<DSDefinitionModuleREF> getRefersToDefsFromDSD(){
+        DmcTypeDSDefinitionModuleREFMV attr = (DmcTypeDSDefinitionModuleREFMV) get(MetaDMSAG.__refersToDefsFromDSD);
         if (attr == null)
             return(null);
 
-        return(attr.getSV());
+        return(attr.getMV());
     }
 
     /**
-     * Sets refersToDefsFromDSD to the specified value.
-     * @param value A value compatible with DmcTypeDSDefinitionModuleREFSV
+     * Adds another refersToDefsFromDSD value.
+     * @param value A value compatible with DmcTypeDSDefinitionModuleREFMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2388)
-    public void setRefersToDefsFromDSD(Object value) throws DmcValueException {
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2548)
+    public DmcAttribute<?> addRefersToDefsFromDSD(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__refersToDefsFromDSD);
         if (attr == null)
-            attr = new DmcTypeDSDefinitionModuleREFSV(MetaDMSAG.__refersToDefsFromDSD);
+            attr = new DmcTypeDSDefinitionModuleREFMV(MetaDMSAG.__refersToDefsFromDSD);
         
-        attr.set(value);
-        set(MetaDMSAG.__refersToDefsFromDSD,attr);
+        attr.add(value);
+        add(MetaDMSAG.__refersToDefsFromDSD,attr);
+        return(attr);
     }
 
 

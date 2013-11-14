@@ -5,3 +5,4 @@ dmdID						1
 moduleClassName				ModuleB
 moduleDependenceAttribute 	dependsOnModuleB
 baseDefinition				BConceptBase
+refersToDefsFromDSD			ModuleA

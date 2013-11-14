@@ -1,17 +1,36 @@
+//	---------------------------------------------------------------------------
+//	dark-matter-data
+//	Copyright (c) 2013 dark-matter-data committers
+//	---------------------------------------------------------------------------
+//	This program is free software; you can redistribute it and/or modify it
+//	under the terms of the GNU Lesser General Public License as published by the
+//	Free Software Foundation; either version 3 of the License, or (at your
+//	option) any later version.
+//	This program is distributed in the hope that it will be useful, but WITHOUT
+//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
+//	more details.
+//	You should have received a copy of the GNU Lesser General Public License along
+//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
+//	---------------------------------------------------------------------------
 package org.dmd.dmt.dsd.dsda.shared.generated.dmo;
 
 // Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:393)
-import java.io.Serializable;                                        // Always required - (GenUtility.java:221)
-import org.dmd.dmc.DmcAttribute;                                    // Named object - (GenUtility.java:373)
-import org.dmd.dmc.DmcNamedObjectIF;                                // Named object - (GenUtility.java:372)
-import org.dmd.dmc.DmcObject;                                       // Structural class - (GenUtility.java:348)
-import org.dmd.dmc.DmcSliceInfo;                                    // Required for object slicing - (GenUtility.java:226)
-import org.dmd.dmc.DmcValueException;                               // Any attributes - (GenUtility.java:238)
-import org.dmd.dmc.types.DefinitionName;                            // Naming attribute type - (GenUtility.java:367)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                         // Required for MODREC constructor - (GenUtility.java:225)
-import org.dmd.dms.generated.types.DmcTypeDefinitionNameSV;         // Required type - (GenUtility.java:325)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;               // Required for MODREC constructor - (GenUtility.java:224)
-import org.dmd.dms.generated.types.DmcTypeStringSV;                 // Required type - (GenUtility.java:325)
+import java.io.Serializable;                                                    // Always required - (GenUtility.java:221)
+import org.dmd.dmc.DmcAttribute;                                                // Named object - (GenUtility.java:373)
+import org.dmd.dmc.DmcNamedObjectIF;                                            // Named object - (GenUtility.java:372)
+import org.dmd.dmc.DmcObject;                                                   // Structural class - (GenUtility.java:348)
+import org.dmd.dmc.DmcOmni;                                                     // Lazy resolution - (GenUtility.java:317)
+import org.dmd.dmc.DmcSliceInfo;                                                // Required for object slicing - (GenUtility.java:226)
+import org.dmd.dmc.DmcValueException;                                           // Any attributes - (GenUtility.java:238)
+import org.dmd.dmc.types.DefinitionName;                                        // Naming attribute type - (GenUtility.java:367)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                     // Required for MODREC constructor - (GenUtility.java:225)
+import org.dmd.dms.generated.types.DmcTypeDefinitionNameSV;                     // Required type - (GenUtility.java:325)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                           // Required for MODREC constructor - (GenUtility.java:224)
+import org.dmd.dms.generated.types.DmcTypeStringSV;                             // Required type - (GenUtility.java:325)
+import org.dmd.dmt.dsd.dsda.shared.generated.dmo.ModuleADMO;                    // Type specific set/add - (GenUtility.java:304)
+import org.dmd.dmt.dsd.dsda.shared.generated.types.DmcTypeModuleAREFSV;         // Reference type - (GenUtility.java:297)
+import org.dmd.dmt.dsd.dsda.shared.generated.types.ModuleAREF;                  // Helper class - (GenUtility.java:332)
 
 /**
  * null
@@ -145,6 +164,78 @@ public class ModuleADMO  extends DmcObject  implements DmcNamedObjectIF, Seriali
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:894)
     public void remDescription(){
          rem(MetaDMSAG.__description);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:652)
+    public ModuleAREF getDependsOnModuleA(){
+        DmcTypeModuleAREFSV attr = (DmcTypeModuleAREFSV) get(DsdADMSAG.__dependsOnModuleA);
+        if (attr == null)
+            return(null);
+
+        if (DmcOmni.instance().lazyResolution()){
+            if (attr.doLazyResolution(this)){
+                rem(attr.getAttributeInfo());
+                return(null);
+            }
+        }
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Returns the reference to ModuleA without attempting lazy resolution (if turned on).
+     */
+    public ModuleAREF getDependsOnModuleAREF(){
+        DmcTypeModuleAREFSV attr = (DmcTypeModuleAREFSV) get(DsdADMSAG.__dependsOnModuleA);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets dependsOnModuleA to the specified value.
+     * @param value ModuleADMO
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:706)
+    public void setDependsOnModuleA(ModuleADMO value) {
+        DmcAttribute<?> attr = get(DsdADMSAG.__dependsOnModuleA);
+        if (attr == null)
+            attr = new DmcTypeModuleAREFSV(DsdADMSAG.__dependsOnModuleA);
+        else
+            ((DmcTypeModuleAREFSV)attr).removeBackReferences();
+        
+        try{
+            attr.set(value);
+            set(DsdADMSAG.__dependsOnModuleA,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets dependsOnModuleA to the specified value.
+     * @param value A value compatible with DmcTypeModuleAREFSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:874)
+    public void setDependsOnModuleA(Object value) throws DmcValueException {
+        DmcTypeModuleAREFSV attr  = (DmcTypeModuleAREFSV) get(DsdADMSAG.__dependsOnModuleA);
+        if (attr == null)
+            attr = new DmcTypeModuleAREFSV(DsdADMSAG.__dependsOnModuleA);
+        else
+            attr.removeBackReferences();
+        
+        attr.set(value);
+        set(DsdADMSAG.__dependsOnModuleA,attr);
+    }
+
+    /**
+     * Removes the dependsOnModuleA attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:894)
+    public void remDependsOnModuleA(){
+         rem(DsdADMSAG.__dependsOnModuleA);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:781)

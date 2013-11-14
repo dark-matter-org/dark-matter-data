@@ -152,7 +152,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __originalClass = new DmcAttributeInfo("meta","originalClass",83,"ClassDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __preserveNewlines = new DmcAttributeInfo("meta","preserveNewlines",51,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __primitiveType = new DmcAttributeInfo("meta","primitiveType",8,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __refersToDefsFromDSD = new DmcAttributeInfo("meta","refersToDefsFromDSD",166,"DSDefinitionModule",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __refersToDefsFromDSD = new DmcAttributeInfo("meta","refersToDefsFromDSD",166,"DSDefinitionModule",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleCategory = new DmcAttributeInfo("meta","ruleCategory",139,"RuleCategory",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleCategoryID = new DmcAttributeInfo("meta","ruleCategoryID",140,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleCategoryList = new DmcAttributeInfo("meta","ruleCategoryList",143,"RuleCategory",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);

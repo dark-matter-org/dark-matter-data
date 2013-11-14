@@ -16,19 +16,25 @@
 package org.dmd.dmt.dsd.dsdb.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:94)
-import org.dmd.dmc.definitions.DmcDefinitionSet;                  // Our base to provide definition set storage - (DSDArtifactFormatter.java:92)
-import org.dmd.dmt.dsd.dsdb.server.extended.BConceptBase;         // A definition from the ModuleB Module - (DSDArtifactFormatter.java:117)
-import org.dmd.dmt.dsd.dsdb.server.extended.BConceptX;            // A definition from the ModuleB Module - (DSDArtifactFormatter.java:120)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:105)
+import org.dmd.dmc.definitions.DmcDefinitionSet;                  // Our base to provide definition set storage - (DSDArtifactFormatter.java:103)
+import org.dmd.dmt.dsd.dsda.server.extended.AConceptBase;         // A definition from the ModuleA Module - (DSDArtifactFormatter.java:135)
+import org.dmd.dmt.dsd.dsda.server.extended.AConceptX;            // A definition from the ModuleA Module - (DSDArtifactFormatter.java:138)
+import org.dmd.dmt.dsd.dsdb.server.extended.BConceptBase;         // A definition from the ModuleB Module - (DSDArtifactFormatter.java:135)
+import org.dmd.dmt.dsd.dsdb.server.extended.BConceptX;            // A definition from the ModuleB Module - (DSDArtifactFormatter.java:138)
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:98)
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:109)
 public class ModuleBDefinitionManager {
 
+    DmcDefinitionSet<AConceptBase> AConceptBaseDefs;
+    DmcDefinitionSet<AConceptX> AConceptXDefs;
     DmcDefinitionSet<BConceptBase> BConceptBaseDefs;
     DmcDefinitionSet<BConceptX> BConceptXDefs;
 
     ModuleBDefinitionManager(){
 
+        AConceptBaseDefs = new DmcDefinitionSet<AConceptBase>();
+        AConceptXDefs = new DmcDefinitionSet<AConceptX>();
         BConceptBaseDefs = new DmcDefinitionSet<BConceptBase>();
         BConceptXDefs = new DmcDefinitionSet<BConceptX>();
 

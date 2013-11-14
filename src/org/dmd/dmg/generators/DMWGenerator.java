@@ -55,7 +55,7 @@ public class DMWGenerator extends BaseDMWGeneratorNewest {
 		
 		dsdFormatter.setFileHeader(fileHeader);
 		dsdFormatter.setProgressStream(progress);
-		dsdFormatter.generateCode(config, loc, f, sm);
+		dsdFormatter.generateCode(config, loc, f, sd, sm);
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
