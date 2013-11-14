@@ -205,23 +205,36 @@ public class DSDefinitionModuleDMW extends org.dmd.dms.DmsDefinition {
      * DSDefinitionModule will include the moduleDependenceAttribute\n of the
      * module from which definitions are used. Likewise, the generated parser\n
      * will be primed with the schema of required definition module.
+     * @return An Iterator of DSDefinitionModule objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
-    public DSDefinitionModule getRefersToDefsFromDSD(){
-        DmcTypeDSDefinitionModuleREFSV attr = (DmcTypeDSDefinitionModuleREFSV) mycore.get(MetaDMSAG.__refersToDefsFromDSD);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2510)
+    public DSDefinitionModuleIterableDMW getRefersToDefsFromDSD(){
+        DmcTypeDSDefinitionModuleREFMV attr = (DmcTypeDSDefinitionModuleREFMV) mycore.get(MetaDMSAG.__refersToDefsFromDSD);
         if (attr == null)
-            return(null);
-        DSDefinitionModuleDMO obj = attr.getSV().getObject();
-        return((DSDefinitionModule)obj.getContainer());
+            return(DSDefinitionModuleIterableDMW.emptyList);
+
+        return(new DSDefinitionModuleIterableDMW(attr.getMV()));
     }
 
     /**
-     * Sets refersToDefsFromDSD to the specified value.
+     * Adds another refersToDefsFromDSD value.
      * @param value A value compatible with DSDefinitionModule
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2409)
-    public void setRefersToDefsFromDSD(DSDefinitionModule value) throws DmcValueException {
-        mycore.setRefersToDefsFromDSD(value.getDmcObject());
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2569)
+    public DmcAttribute<?> addRefersToDefsFromDSD(DSDefinitionModule value) throws DmcValueException {
+        DmcAttribute<?> attr = mycore.addRefersToDefsFromDSD(value.getDmcObject());
+        return(attr);
+    }
+
+    /**
+     * Returns the number of refersToDefsFromDSD values.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2595)
+    public int getRefersToDefsFromDSDSize(){
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__refersToDefsFromDSD);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
     }
 
     /**

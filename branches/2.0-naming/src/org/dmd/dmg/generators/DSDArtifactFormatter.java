@@ -19,11 +19,14 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Iterator;
+import java.util.TreeMap;
 
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.DSDefinitionModule;
+import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
+import org.dmd.dms.generated.dmw.DSDefinitionModuleIterableDMW;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.ManagedFileWriter;
 import org.dmd.util.codegen.ImportManager;
@@ -51,10 +54,11 @@ public class DSDArtifactFormatter {
 	 * @param config
 	 * @param loc
 	 * @param f
+	 * @param sd the schema to load from the DMG config
 	 * @param sm
 	 * @throws IOException  
 	 */
-	public void generateCode(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm) throws IOException {
+	public void generateCode(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaDefinition sd, SchemaManager sm) throws IOException {
 		DebugInfo.debug(loc.toString());
 		
 		DebugInfo.debug(config.toOIF());
@@ -68,9 +72,12 @@ public class DSDArtifactFormatter {
 				DSDefinitionModule module = it.next();
 				DebugInfo.debug("DSDMODULE " + module.getName().getNameString());
 				
-				generateDefinitionManager(config, dirname, module);
-				
-				generateParser(config, dirname, module);
+				// We only generate code for modules defined in the schema that
+				// was specified as part of the DMG config
+				if (module.getDefinedIn().getName().equals(sd.getName())){
+					generateDefinitionManager(config, dirname, module);
+					generateParser(config, dirname, module);
+				}
 			}
 		}
 	}
@@ -85,7 +92,11 @@ public class DSDArtifactFormatter {
 		
 		ImportManager imports = new ImportManager();
 		
-		getImportsForDefinitions(imports, ddm);
+		// When we build up the set of imports we'll need, we also build the complete set of
+		// modules from which we'll need definitions.
+		TreeMap<String,DSDefinitionModule> includedModules = new TreeMap<String, DSDefinitionModule>();
+		
+		getImportsForDefinitions(imports, ddm, includedModules);
 		
 		out.write("package " + config.getGenPackage() + ".generated.dsd;\n\n");
 		
@@ -98,11 +109,11 @@ public class DSDArtifactFormatter {
 		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("public class " + ddm.getName() + "DefinitionManager {\n\n");
 		
-		dumpDefinitionManagerMembers(out,ddm);
+		dumpDefinitionManagerMembers(out, includedModules);
 		
 		out.write("    " + ddm.getName() + "DefinitionManager(){\n\n");
 		
-		initializeDefinitionManagerMembers(out, ddm);
+		initializeDefinitionManagerMembers(out, includedModules);
 		
 		out.write("    }\n\n");
 		
@@ -111,35 +122,56 @@ public class DSDArtifactFormatter {
 		out.close();
 	}
 	
-	void getImportsForDefinitions(ImportManager imports, DSDefinitionModule ddm){
+	/**
+	 * This method will call itself recursively until we've progressed through all
+	 * dependencies of a given DSD module via the refersToDefsFromDSD attribute.
+	 * @param imports place to gather imports
+	 * @param ddm the definition for which we're gathering imports
+	 * @param includedModules the names of modules from which we've already gathered import info
+	 */
+	void getImportsForDefinitions(ImportManager imports, DSDefinitionModule ddm, TreeMap<String, DSDefinitionModule> includedModules){
 		ClassDefinition dsd = (ClassDefinition) ddm.getBaseDefinition();
 		
 		imports.addImport(dsd.getDmeImport(), "A definition from the " + ddm.getName() + " Module");
 		
 		for(ClassDefinition cd : dsd.getDerivedClasses()){
 			imports.addImport(cd.getDmeImport(), "A definition from the " + ddm.getName() + " Module");
-			
+		}
+		
+		includedModules.put(ddm.getName().getNameString(),ddm);
+		
+		if (ddm.getRefersToDefsFromDSDSize() > 0){
+			DSDefinitionModuleIterableDMW it = ddm.getRefersToDefsFromDSD();
+			while(it.hasNext()){
+				DSDefinitionModule module = it.next();
+				if (includedModules.get(module.getName().getNameString()) == null)
+					getImportsForDefinitions(imports, module, includedModules);
+			}
 		}
 	}
 	
-	void dumpDefinitionManagerMembers(ManagedFileWriter out, DSDefinitionModule ddm) throws IOException {
-		ClassDefinition dsd = (ClassDefinition) ddm.getBaseDefinition();
-		
-		out.write("    DmcDefinitionSet<" + dsd.getName() + "> " + dsd.getName() + "Defs;\n");
-		
-		for(ClassDefinition cd : dsd.getDerivedClasses()){
-			out.write("    DmcDefinitionSet<" + cd.getName() + "> " + cd.getName() + "Defs;\n");			
+	void dumpDefinitionManagerMembers(ManagedFileWriter out, TreeMap<String,DSDefinitionModule> modules) throws IOException {
+		for(DSDefinitionModule ddm : modules.values()){
+			ClassDefinition dsd = (ClassDefinition) ddm.getBaseDefinition();
+			
+			out.write("    DmcDefinitionSet<" + dsd.getName() + "> " + dsd.getName() + "Defs;\n");
+			
+			for(ClassDefinition cd : dsd.getDerivedClasses()){
+				out.write("    DmcDefinitionSet<" + cd.getName() + "> " + cd.getName() + "Defs;\n");			
+			}
 		}
 		out.write("\n");
 	}
 	
-	void initializeDefinitionManagerMembers(ManagedFileWriter out, DSDefinitionModule ddm) throws IOException {
-		ClassDefinition dsd = (ClassDefinition) ddm.getBaseDefinition();
-		
-		out.write("        " + dsd.getName() + "Defs = new DmcDefinitionSet<" + dsd.getName() + ">();\n");
-		
-		for(ClassDefinition cd : dsd.getDerivedClasses()){
-			out.write("        " + cd.getName() + "Defs = new DmcDefinitionSet<" + cd.getName() + ">();\n");
+	void initializeDefinitionManagerMembers(ManagedFileWriter out, TreeMap<String,DSDefinitionModule> modules) throws IOException {
+		for(DSDefinitionModule ddm : modules.values()){
+			ClassDefinition dsd = (ClassDefinition) ddm.getBaseDefinition();
+			
+			out.write("        " + dsd.getName() + "Defs = new DmcDefinitionSet<" + dsd.getName() + ">();\n");
+			
+			for(ClassDefinition cd : dsd.getDerivedClasses()){
+				out.write("        " + cd.getName() + "Defs = new DmcDefinitionSet<" + cd.getName() + ">();\n");
+			}
 		}
 		out.write("\n");
 	}

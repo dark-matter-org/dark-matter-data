@@ -65,6 +65,8 @@ public class DsdCSchemaAG extends SchemaDefinition {
         generatedSchema = true;
         staticRefName   = "org.dmd.dmt.dsd.dsdc.server.generated.DsdCSchemaAG";
 
+        dependsOnSchemaClasses.put("dsdB","org.dmd.dmt.dsd.dsdb.server.generated.DsdBSchemaAG");
+
     }
 
     private void initialize() throws DmcValueException {
@@ -76,6 +78,11 @@ public class DsdCSchemaAG extends SchemaDefinition {
             me.setSchemaPackage("org.dmd.dmt.dsd.dsdc.shared");
             me.setDmwPackage("org.dmd.dmt.dsd.dsdc.server");
             me.setFile("/src/org/dmd/dmt/dsd/dsdc/shared/dmdconfig/dsdC.dms");
+
+
+            me.addDependsOn("dsdB");
+            dependsOnSchemaClasses.put("dsdB","org.dmd.dmt.dsd.dsdb.server.generated.DsdBSchemaAG");
+
 
             initClasses();
             initAttributes1();
@@ -138,11 +145,13 @@ public class DsdCSchemaAG extends SchemaDefinition {
             _ModuleCOBJ.setInternallyGenerated("true");
             _ModuleCOBJ.setClassType("STRUCTURAL");
             _ModuleCOBJ.setFile("/src/org/dmd/dmt/dsd/dsdc/shared/dmdconfig/module.dmd");
-            _ModuleCOBJ.setLineNumber("7");
+            _ModuleCOBJ.setLineNumber("9");
             _ModuleCOBJ.setIsNamedBy("meta.name");
             _ModuleCOBJ.setDmtREFImport("org.dmd.dmt.dsd.dsdc.shared.generated.types.ModuleCREF");
             _ModuleCOBJ.setDmwIteratorClass("ModuleCIterableDMW");
             _ModuleCOBJ.addMay("meta.description");
+            _ModuleCOBJ.addMay("dsdC.dependsOnModuleC");
+            _ModuleCOBJ.addMay("dsdA.dependsOnModuleA");
             _ModuleCOBJ.addMust("meta.name");
             _ModuleCOBJ.setDmwIteratorImport("org.dmd.dmt.dsd.dsdc.server.generated.dmw.ModuleCIterableDMW");
             _ModuleCOBJ.setDotName("dsdC.ModuleC.ClassDefinition");

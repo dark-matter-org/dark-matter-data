@@ -1870,6 +1870,7 @@ AttributeDefinition
 name                refersToDefsFromDSD
 dmdID				166
 type                DSDefinitionModule
+valueType			MULTI
 description    		A reference to another DSDefinitionModule from which the current
  module makes use of definitions. For instance, the Model View Whatever DSD includes references
  to schema related definitions. As a result of specifying this, the module

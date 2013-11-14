@@ -2,16 +2,17 @@ package org.dmd.dmt.dsd.dsdc.shared.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:1060)
-import java.util.ArrayList;                                  // For storage of schema info - (DmoCompactSchemaFormatter.java:994)
-import java.util.HashMap;                                    // For storage of schema info - (DmoCompactSchemaFormatter.java:993)
-import java.util.Iterator;                                   // For access of schema info - (DmoCompactSchemaFormatter.java:995)
-import org.dmd.dmc.*;                                        // Basic DMC stuff - (DmoCompactSchemaFormatter.java:996)
-import org.dmd.dmc.rules.RuleIF;                             // For rule info - (DmoCompactSchemaFormatter.java:997)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                  // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:1013)
-import org.dmd.dms.generated.enums.ClassTypeEnum;            // Have class definitions - (DmoCompactSchemaFormatter.java:1001)
-import org.dmd.dms.generated.enums.DataTypeEnum;             // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:1002)
-import org.dmd.dms.generated.enums.OriginalTypeEnum;         // Have type/internal type definitions - (DmoCompactSchemaFormatter.java:1007)
-import org.dmd.dms.generated.enums.ValueTypeEnum;            // Have attribute definitions - (DmoCompactSchemaFormatter.java:1028)
+import java.util.ArrayList;                                         // For storage of schema info - (DmoCompactSchemaFormatter.java:994)
+import java.util.HashMap;                                           // For storage of schema info - (DmoCompactSchemaFormatter.java:993)
+import java.util.Iterator;                                          // For access of schema info - (DmoCompactSchemaFormatter.java:995)
+import org.dmd.dmc.*;                                               // Basic DMC stuff - (DmoCompactSchemaFormatter.java:996)
+import org.dmd.dmc.rules.RuleIF;                                    // For rule info - (DmoCompactSchemaFormatter.java:997)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                         // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:1013)
+import org.dmd.dms.generated.enums.ClassTypeEnum;                   // Have class definitions - (DmoCompactSchemaFormatter.java:1001)
+import org.dmd.dms.generated.enums.DataTypeEnum;                    // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:1002)
+import org.dmd.dms.generated.enums.OriginalTypeEnum;                // Have type/internal type definitions - (DmoCompactSchemaFormatter.java:1007)
+import org.dmd.dms.generated.enums.ValueTypeEnum;                   // Have attribute definitions - (DmoCompactSchemaFormatter.java:1028)
+import org.dmd.dmt.dsd.dsda.shared.generated.dmo.DsdADMSAG;         // Optional attribute from DsdADMSAG - (DmoCompactSchemaFormatter.java:1017)
 
 
 
@@ -90,6 +91,8 @@ public class DsdCDMSAG implements DmcCompactSchemaIF {
 
         __ModuleC.addMust(MetaDMSAG.__name);
         __ModuleC.addMay(MetaDMSAG.__description);
+        __ModuleC.addMay(__dependsOnModuleC);
+        __ModuleC.addMay(DsdADMSAG.__dependsOnModuleA);
 
     }
 

@@ -2,6 +2,7 @@ SchemaDefinition
 name       			dsdC
 schemaBaseID		-500150
 schemaIDRange		50
+dependsOn			dsdB
 defFiles    		attributes.dmd
 defFiles    		classes.dmd
 defFiles			module.dmd

@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
@@ -42,6 +43,7 @@ import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmc.util.NamedStringArray;
 import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
+import org.dmd.dms.generated.dmw.DSDefinitionModuleIterableDMW;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.RuleTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
@@ -858,7 +860,13 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         	throw(ex);
         }
         
+        if (checkAndAddDOT(ddm.getDotName(),ddm,globallyUniqueMAP,null) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsgDOT(ddm.getObjectName(),ddm,globallyUniqueMAP,"definition names"));
+            throw(ex);
+        }
         
+        ///////////////////////////////////////////////////////////////////////
         
     	DefinitionName moduleClassName = new DefinitionName(ddm.getModuleClassName());
 
@@ -896,6 +904,9 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         	cd.addMust(ad);
         }
         
+        // Add the required attributes that indicate dependence on other modules
+        addDependenceAttributes(cd, ddm, new TreeSet<String>());
+        
         addClass(cd);
         
         // We add the new class to the schema's list of classes
@@ -903,6 +914,27 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 
     }
     
+    /**
+     * We recursively add the required dependence attribute to the class definition.
+     * @param cd the class that represents the DSD module being added
+     * @param module the current module
+     * @param modules the set of modules for which we've already added the dependence attribute
+     * @throws DmcValueException  
+     */
+    void addDependenceAttributes(ClassDefinition cd, DSDefinitionModule module, TreeSet<String> modules) throws DmcValueException {
+    	cd.addMay(module.getModuleDependenceAttribute());
+    	modules.add(module.getName().getNameString());
+    	
+		if (module.getRefersToDefsFromDSDSize() > 0){
+			DSDefinitionModuleIterableDMW it = module.getRefersToDefsFromDSD();
+			while(it.hasNext()){
+				DSDefinitionModule mod = it.next();
+				if (!modules.contains(mod.getName().getNameString()))
+					addDependenceAttributes(cd, mod, modules);
+			}
+		}
+
+    }
 
     /**
      * Adds the specified slice definition to the schema if it doesn't already exist.
