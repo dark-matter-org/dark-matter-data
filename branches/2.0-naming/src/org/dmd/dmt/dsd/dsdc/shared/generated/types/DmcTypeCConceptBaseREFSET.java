@@ -1,0 +1,166 @@
+package org.dmd.dmt.dsd.dsdc.shared.generated.types;
+
+import java.io.Serializable;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.TreeSet;
+import java.util.Iterator;
+import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcAttributeInfo;
+import org.dmd.dmc.DmcValueException;
+import org.dmd.dms.generated.enums.ValueTypeEnum;
+/**
+ * The DmcTypeCConceptBaseREFSET provides storage for a set of CConceptBaseREF
+ * <P>
+ * This code was auto-generated and shouldn't be altered manually!
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2606)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
+ */
+@SuppressWarnings("serial")
+public class DmcTypeCConceptBaseREFSET extends DmcTypeCConceptBaseREF implements Serializable {
+    
+     private final static Iterator<CConceptBaseREF> emptyList =  (new HashSet<CConceptBaseREF>()).iterator();
+    
+    
+    protected Set<CConceptBaseREF> value;
+    
+    public DmcTypeCConceptBaseREFSET(){
+        value = null;
+    }
+    
+    public DmcTypeCConceptBaseREFSET(DmcAttributeInfo ai){
+        super(ai);
+        initValue();
+    }
+    
+    void initValue(){
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            value = new HashSet<CConceptBaseREF>();
+        else
+            value = new TreeSet<CConceptBaseREF>();
+    }
+    
+    @Override
+    public DmcTypeCConceptBaseREFSET getNew(){
+        return(new DmcTypeCConceptBaseREFSET(getAttributeInfo()));
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2647)
+    public DmcAttribute<CConceptBaseREF> cloneIt(){
+        synchronized(this){
+            DmcTypeCConceptBaseREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
+            for(CConceptBaseREF val: value)
+            try {
+                rc.add(val);
+            } catch (DmcValueException e) {
+                throw(new IllegalStateException("typeCheck() should never fail here!",e));
+            }
+            return(rc);
+       }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2670)
+    public CConceptBaseREF add(Object v) throws DmcValueException {
+        synchronized(this){
+            CConceptBaseREF rc = typeCheck(v);
+            if (value == null)
+                initValue();
+        
+            // If false is returned, we didn't modify the set, so return null
+            if (!value.add(rc))
+                rc = null;
+        
+            return(rc);
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2687)
+    public CConceptBaseREF del(Object v){
+        synchronized(this){
+            CConceptBaseREF rc = null;
+            if (value == null)
+                return(rc);
+            
+            try {
+                rc = typeCheck(v);
+            } catch (DmcValueException e) {
+                throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
+            }
+            if (value.contains(rc)){
+                value.remove(rc);
+                if (value.size() == 0)
+                    value = null;
+            }
+            else
+                rc = null;
+            return(rc);
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2712)
+    public Iterator<CConceptBaseREF> getMV(){
+        synchronized(this){
+            if (value == null)
+                return(emptyList);
+
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+                return( (new HashSet<CConceptBaseREF>(value)).iterator() );
+            else
+                return( (new TreeSet<CConceptBaseREF>(value)).iterator() );
+        }
+    }
+    
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2726)
+    public Set<CConceptBaseREF> getMVCopy(){
+        synchronized(this){
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<CConceptBaseREF>());
+                else
+                    return(new HashSet<CConceptBaseREF>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<CConceptBaseREF>(value));
+                else
+                    return(new TreeSet<CConceptBaseREF>(value));
+            }
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
+    public int getMVSize(){
+        synchronized(this){
+            if (value == null)
+                return(0);
+            return(value.size());
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2757)
+    public boolean contains(Object v){
+        synchronized(this){
+            if (value == null)
+                return(false);
+            
+            try {
+                CConceptBaseREF val = typeCheck(v);
+                return(value.contains(val));
+            } catch (DmcValueException e) {
+                return(false);
+            }
+        }
+    }
+    
+}
+

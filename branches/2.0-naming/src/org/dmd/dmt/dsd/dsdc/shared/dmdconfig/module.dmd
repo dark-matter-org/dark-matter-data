@@ -1,0 +1,7 @@
+DSDefinitionModule
+name						ModuleC
+fileExtension				tma
+dmdID						1
+moduleClassName				ModuleC
+moduleDependenceAttribute 	dependsOnModuleC
+baseDefinition				CConceptBase
