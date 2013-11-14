@@ -1,0 +1,11 @@
+SchemaDefinition
+name       			dsdC
+schemaBaseID		-500150
+schemaIDRange		50
+defFiles    		attributes.dmd
+defFiles    		classes.dmd
+defFiles			module.dmd
+schemaPackage 		org.dmd.dmt.dsd.dsdc.shared
+dmwPackage 			org.dmd.dmt.dsd.dsdc.server
+generatedFileHeader LGPL.txt
+description			A domain specific definition schema for test purposes. 

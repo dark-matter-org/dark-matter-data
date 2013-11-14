@@ -152,6 +152,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __originalClass = new DmcAttributeInfo("meta","originalClass",83,"ClassDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __preserveNewlines = new DmcAttributeInfo("meta","preserveNewlines",51,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __primitiveType = new DmcAttributeInfo("meta","primitiveType",8,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __refersToDefsFromDSD = new DmcAttributeInfo("meta","refersToDefsFromDSD",166,"DSDefinitionModule",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleCategory = new DmcAttributeInfo("meta","ruleCategory",139,"RuleCategory",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleCategoryID = new DmcAttributeInfo("meta","ruleCategoryID",140,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleCategoryList = new DmcAttributeInfo("meta","ruleCategoryList",143,"RuleCategory",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
@@ -179,8 +180,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __typeDefList = new DmcAttributeInfo("meta","typeDefList",56,"TypeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __useInterface = new DmcAttributeInfo("meta","useInterface",150,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __useWrapperType = new DmcAttributeInfo("meta","useWrapperType",82,"WrapperTypeEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __usesDefinition = new DmcAttributeInfo("meta","usesDefinition",162,"DSDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __usesDefsFromModule = new DmcAttributeInfo("meta","usesDefsFromModule",166,"DSDefinitionModule",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __usesInterface = new DmcAttributeInfo("meta","usesInterface",24,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __uuidName = new DmcAttributeInfo("meta","uuidName",101,"UUIDName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __valueType = new DmcAttributeInfo("meta","valueType",12,"ValueTypeEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
@@ -220,7 +219,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcTypeInfo __type_FilterTypeEnumREF = new DmcTypeInfo("FilterTypeEnumREF", OriginalTypeEnum.ENUM);
     public final static DmcTypeInfo __type_Float = new DmcTypeInfo("Float", OriginalTypeEnum.TYPE);
     public final static DmcTypeInfo __type_FullyQualifiedName = new DmcTypeInfo("FullyQualifiedName", OriginalTypeEnum.NAMETYPE);
-    public final static DmcTypeInfo __type_GPBField = new DmcTypeInfo("GPBField", OriginalTypeEnum.COMPLEXTYPE);
     public final static DmcTypeInfo __type_GPBFieldTypeEnumREF = new DmcTypeInfo("GPBFieldTypeEnumREF", OriginalTypeEnum.ENUM);
     public final static DmcTypeInfo __type_GPBScalarTypeEnumREF = new DmcTypeInfo("GPBScalarTypeEnumREF", OriginalTypeEnum.ENUM);
     public final static DmcTypeInfo __type_Integer = new DmcTypeInfo("Integer", OriginalTypeEnum.TYPE);
@@ -432,6 +430,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__originalClass.id,__originalClass);
         _SmAp.put(__preserveNewlines.id,__preserveNewlines);
         _SmAp.put(__primitiveType.id,__primitiveType);
+        _SmAp.put(__refersToDefsFromDSD.id,__refersToDefsFromDSD);
         _SmAp.put(__ruleCategory.id,__ruleCategory);
         _SmAp.put(__ruleCategoryID.id,__ruleCategoryID);
         _SmAp.put(__ruleCategoryList.id,__ruleCategoryList);
@@ -459,8 +458,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__typeDefList.id,__typeDefList);
         _SmAp.put(__useInterface.id,__useInterface);
         _SmAp.put(__useWrapperType.id,__useWrapperType);
-        _SmAp.put(__usesDefinition.id,__usesDefinition);
-        _SmAp.put(__usesDefsFromModule.id,__usesDefsFromModule);
         _SmAp.put(__usesInterface.id,__usesInterface);
         _SmAp.put(__uuidName.id,__uuidName);
         _SmAp.put(__valueType.id,__valueType);
@@ -598,7 +595,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __DSDefinitionModule.addMust(__moduleClassName);
         __DSDefinitionModule.addMust(__moduleDependenceAttribute);
         __DSDefinitionModule.addMust(__name);
-        __DSDefinitionModule.addMust(__usesDefinition);
         __DSDefinitionModule.addMay(__definedIn);
         __DSDefinitionModule.addMay(__description);
         __DSDefinitionModule.addMay(__dotName);
@@ -607,7 +603,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __DSDefinitionModule.addMay(__lineNumber);
         __DSDefinitionModule.addMay(__may);
         __DSDefinitionModule.addMay(__must);
-        __DSDefinitionModule.addMay(__usesDefsFromModule);
+        __DSDefinitionModule.addMay(__refersToDefsFromDSD);
 
         __Dependency.addMust(__name);
         __Dependency.addMust(__useInterface);

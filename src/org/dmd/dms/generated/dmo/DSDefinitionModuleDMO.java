@@ -55,7 +55,6 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
         _ImAp.put(MetaDMSAG.__moduleClassName.id,MetaDMSAG.__moduleClassName);
         _ImAp.put(MetaDMSAG.__moduleDependenceAttribute.id,MetaDMSAG.__moduleDependenceAttribute);
         _ImAp.put(MetaDMSAG.__name.id,MetaDMSAG.__name);
-        _ImAp.put(MetaDMSAG.__usesDefinition.id,MetaDMSAG.__usesDefinition);
         _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
         _ImAp.put(MetaDMSAG.__description.id,MetaDMSAG.__description);
         _ImAp.put(MetaDMSAG.__dotName.id,MetaDMSAG.__dotName);
@@ -64,7 +63,7 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
         _ImAp.put(MetaDMSAG.__may.id,MetaDMSAG.__may);
         _ImAp.put(MetaDMSAG.__must.id,MetaDMSAG.__must);
-        _ImAp.put(MetaDMSAG.__usesDefsFromModule.id,MetaDMSAG.__usesDefsFromModule);
+        _ImAp.put(MetaDMSAG.__refersToDefsFromDSD.id,MetaDMSAG.__refersToDefsFromDSD);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(MetaDMSAG.__baseDefinition.name,MetaDMSAG.__baseDefinition);
@@ -73,7 +72,6 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
         _SmAp.put(MetaDMSAG.__moduleClassName.name,MetaDMSAG.__moduleClassName);
         _SmAp.put(MetaDMSAG.__moduleDependenceAttribute.name,MetaDMSAG.__moduleDependenceAttribute);
         _SmAp.put(MetaDMSAG.__name.name,MetaDMSAG.__name);
-        _SmAp.put(MetaDMSAG.__usesDefinition.name,MetaDMSAG.__usesDefinition);
         _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
         _SmAp.put(MetaDMSAG.__description.name,MetaDMSAG.__description);
         _SmAp.put(MetaDMSAG.__dotName.name,MetaDMSAG.__dotName);
@@ -82,7 +80,7 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
         _SmAp.put(MetaDMSAG.__may.name,MetaDMSAG.__may);
         _SmAp.put(MetaDMSAG.__must.name,MetaDMSAG.__must);
-        _SmAp.put(MetaDMSAG.__usesDefsFromModule.name,MetaDMSAG.__usesDefsFromModule);
+        _SmAp.put(MetaDMSAG.__refersToDefsFromDSD.name,MetaDMSAG.__refersToDefsFromDSD);
     }
 
 
@@ -278,35 +276,6 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
         
         attr.set(value);
         set(MetaDMSAG.__name,attr);
-    }
-
-    /**
-     * A reference to the DSDefinition derived class that is part of\n the
-     * abstract syntax of a dark-matter definition module.
-     * @return An Iterator of DSDefinitionDMO objects.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2486)
-    public Iterator<DSDefinitionREF> getUsesDefinition(){
-        DmcTypeDSDefinitionREFMV attr = (DmcTypeDSDefinitionREFMV) get(MetaDMSAG.__usesDefinition);
-        if (attr == null)
-            return(null);
-
-        return(attr.getMV());
-    }
-
-    /**
-     * Adds another usesDefinition value.
-     * @param value A value compatible with DmcTypeDSDefinitionREFMV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2548)
-    public DmcAttribute<?> addUsesDefinition(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(MetaDMSAG.__usesDefinition);
-        if (attr == null)
-            attr = new DmcTypeDSDefinitionREFMV(MetaDMSAG.__usesDefinition);
-        
-        attr.add(value);
-        add(MetaDMSAG.__usesDefinition,attr);
-        return(attr);
     }
 
     /**
@@ -548,8 +517,8 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
      * will be primed with the schema of required definition module.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2295)
-    public DSDefinitionModuleREF getUsesDefsFromModule(){
-        DmcTypeDSDefinitionModuleREFSV attr = (DmcTypeDSDefinitionModuleREFSV) get(MetaDMSAG.__usesDefsFromModule);
+    public DSDefinitionModuleREF getRefersToDefsFromDSD(){
+        DmcTypeDSDefinitionModuleREFSV attr = (DmcTypeDSDefinitionModuleREFSV) get(MetaDMSAG.__refersToDefsFromDSD);
         if (attr == null)
             return(null);
 
@@ -557,17 +526,17 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
     }
 
     /**
-     * Sets usesDefsFromModule to the specified value.
+     * Sets refersToDefsFromDSD to the specified value.
      * @param value A value compatible with DmcTypeDSDefinitionModuleREFSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2388)
-    public void setUsesDefsFromModule(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(MetaDMSAG.__usesDefsFromModule);
+    public void setRefersToDefsFromDSD(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__refersToDefsFromDSD);
         if (attr == null)
-            attr = new DmcTypeDSDefinitionModuleREFSV(MetaDMSAG.__usesDefsFromModule);
+            attr = new DmcTypeDSDefinitionModuleREFSV(MetaDMSAG.__refersToDefsFromDSD);
         
         attr.set(value);
-        set(MetaDMSAG.__usesDefsFromModule,attr);
+        set(MetaDMSAG.__refersToDefsFromDSD,attr);
     }
 
 

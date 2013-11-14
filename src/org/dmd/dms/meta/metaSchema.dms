@@ -1836,13 +1836,13 @@ dmdID				161
 type                String
 description    		Indicates the extension of files of a particular type.
 
-AttributeDefinition
-name                usesDefinition
-dmdID				162
-type                DSDefinition
-valueType			MULTI
-description    		A reference to the DSDefinition derived class that is part of
- the abstract syntax of a dark-matter definition module.
+//AttributeDefinition
+//name                usesDefinition
+//dmdID				162
+//type                DSDefinition
+//valueType			MULTI
+//description    		A reference to the DSDefinition derived class that is part of
+// the abstract syntax of a dark-matter definition module.
 
 AttributeDefinition
 name                moduleClassName
@@ -1867,7 +1867,7 @@ description    		The name of the attribute in a DSDefinitionModule that
  refer to oher schemas.
 
 AttributeDefinition
-name                usesDefsFromModule
+name                refersToDefsFromDSD
 dmdID				166
 type                DSDefinitionModule
 description    		A reference to another DSDefinitionModule from which the current
@@ -1980,8 +1980,8 @@ must			dmdID
 must			moduleClassName
 must			moduleDependenceAttribute
 must			baseDefinition
-must			usesDefinition
-may				usesDefsFromModule
+//must			usesDefinition
+may				refersToDefsFromDSD
 may				may
 may				must
 // Auto generated/set
@@ -1998,24 +1998,24 @@ description		The DSDefinitionModule is a definition that defines a collection of
  as part of the DSDefinitionModule.
 
 DSDefinitionModule
-name			DMS
-fileExtension	dms
-baseDefinition	DmsDefinition
-dmdID			21
-moduleClassName	DmSchema
-moduleDependenceAttribute dependsOn
-usesDefinition	ActionDefinition
-usesDefinition	AttributeDefinition
-usesDefinition	ClassDefinition
-usesDefinition	ComplexTypeDefinition
-usesDefinition	DSDefinitionModule
-usesDefinition	EnumDefinition
-usesDefinition	ExtendedReferenceTypeDefinition
-usesDefinition	RuleCategory
-usesDefinition	RuleDefinition
-usesDefinition	SchemaDefinition
-usesDefinition	SliceDefinition
-usesDefinition	TypeDefinition
+name						DMS
+fileExtension				dms
+baseDefinition				DmsDefinition
+dmdID						21
+moduleClassName				DmSchema
+moduleDependenceAttribute 	dependsOn
+usesDefinition				ActionDefinition
+usesDefinition				AttributeDefinition
+usesDefinition				ClassDefinition
+usesDefinition				ComplexTypeDefinition
+usesDefinition				DSDefinitionModule
+usesDefinition				EnumDefinition
+usesDefinition				ExtendedReferenceTypeDefinition
+usesDefinition				RuleCategory
+usesDefinition				RuleDefinition
+usesDefinition				SchemaDefinition
+usesDefinition				SliceDefinition
+usesDefinition				TypeDefinition
 description		The DMS definition module defines the base schema modelling language
  associated with dark-matter.
 

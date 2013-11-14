@@ -251,18 +251,16 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _isDSDefinition;
     public static AttributeDefinition _stringName;
     public static AttributeDefinition _fileExtension;
-    public static AttributeDefinition _usesDefinition;
     public static AttributeDefinition _moduleClassName;
     public static AttributeDefinition _baseDefinition;
     public static AttributeDefinition _moduleDependenceAttribute;
-    public static AttributeDefinition _usesDefsFromModule;
+    public static AttributeDefinition _refersToDefsFromDSD;
     public static AttributeDefinition _objectClass;
 
     // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:360)
     public static ComplexTypeDefinition _Field;
     public static ComplexTypeDefinition _DmwTypeToWrapperType;
     public static ComplexTypeDefinition _RuleParam;
-    public static ComplexTypeDefinition _GPBField;
 
     // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:366)
     public static RuleCategory        _Initialization;
@@ -368,7 +366,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _DSDefinitionModuleOBJ.setIsNamedBy("meta.name");
         _DSDefinitionModuleOBJ.setJavaClass("org.dmd.dms.DSDefinitionModule");
         _DSDefinitionModuleOBJ.setLineNumber("1999");
-        _DSDefinitionModuleOBJ.addMay("meta.usesDefsFromModule");
+        _DSDefinitionModuleOBJ.addMay("meta.refersToDefsFromDSD");
         _DSDefinitionModuleOBJ.addMay("meta.may");
         _DSDefinitionModuleOBJ.addMay("meta.must");
         _DSDefinitionModuleOBJ.addMay("meta.definedIn");
@@ -378,7 +376,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _DSDefinitionModuleOBJ.addMust("meta.moduleClassName");
         _DSDefinitionModuleOBJ.addMust("meta.moduleDependenceAttribute");
         _DSDefinitionModuleOBJ.addMust("meta.baseDefinition");
-        _DSDefinitionModuleOBJ.addMust("meta.usesDefinition");
         _DSDefinitionModuleOBJ.setName("DSDefinitionModule");
         _DSDefinitionModuleOBJ.setUseWrapperType("EXTENDED");
         _DSDefinitionModule.setDefinedIn(this);
@@ -2392,6 +2389,18 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _primitiveType.setDefinedIn(this);
         addAttributeDefList(_primitiveType);
 
+        AttributeDefinitionDMO _refersToDefsFromDSDOBJ = new AttributeDefinitionDMO();
+        _refersToDefsFromDSD = new AttributeDefinition(_refersToDefsFromDSDOBJ);
+        _refersToDefsFromDSDOBJ.setDescription("A reference to another DSDefinitionModule from which the current\n module makes use of definitions. For instance, the Model View Whatever DSD includes references\n to schema related definitions. As a result of specifying this, the module\n class that's generated for the DSDefinitionModule will include the moduleDependenceAttribute\n of the module from which definitions are used. Likewise, the generated parser\n will be primed with the schema of required definition module.");
+        _refersToDefsFromDSDOBJ.setDmdID("166");
+        _refersToDefsFromDSDOBJ.setDotName("meta.refersToDefsFromDSD.AttributeDefinition");
+        _refersToDefsFromDSDOBJ.setFile("metaSchema.dms");
+        _refersToDefsFromDSDOBJ.setLineNumber("1879");
+        _refersToDefsFromDSDOBJ.setName("refersToDefsFromDSD");
+        _refersToDefsFromDSDOBJ.setType("meta.DSDefinitionModule");
+        _refersToDefsFromDSD.setDefinedIn(this);
+        addAttributeDefList(_refersToDefsFromDSD);
+
         AttributeDefinitionDMO _ruleCategoryOBJ = new AttributeDefinitionDMO();
         _ruleCategory = new AttributeDefinition(_ruleCategoryOBJ);
         _ruleCategoryOBJ.setDescription("The category of a rule.");
@@ -2731,31 +2740,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _useWrapperTypeOBJ.setType("meta.WrapperTypeEnum");
         _useWrapperType.setDefinedIn(this);
         addAttributeDefList(_useWrapperType);
-
-        AttributeDefinitionDMO _usesDefinitionOBJ = new AttributeDefinitionDMO();
-        _usesDefinition = new AttributeDefinition(_usesDefinitionOBJ);
-        _usesDefinitionOBJ.setDescription("A reference to the DSDefinition derived class that is part of\n the abstract syntax of a dark-matter definition module.");
-        _usesDefinitionOBJ.setDmdID("162");
-        _usesDefinitionOBJ.setDotName("meta.usesDefinition.AttributeDefinition");
-        _usesDefinitionOBJ.setFile("metaSchema.dms");
-        _usesDefinitionOBJ.setLineNumber("1846");
-        _usesDefinitionOBJ.setName("usesDefinition");
-        _usesDefinitionOBJ.setType("meta.DSDefinition");
-        _usesDefinitionOBJ.setValueType("MULTI");
-        _usesDefinition.setDefinedIn(this);
-        addAttributeDefList(_usesDefinition);
-
-        AttributeDefinitionDMO _usesDefsFromModuleOBJ = new AttributeDefinitionDMO();
-        _usesDefsFromModule = new AttributeDefinition(_usesDefsFromModuleOBJ);
-        _usesDefsFromModuleOBJ.setDescription("A reference to another DSDefinitionModule from which the current\n module makes use of definitions. For instance, the Model View Whatever DSD includes references\n to schema related definitions. As a result of specifying this, the module\n class that's generated for the DSDefinitionModule will include the moduleDependenceAttribute\n of the module from which definitions are used. Likewise, the generated parser\n will be primed with the schema of required definition module.");
-        _usesDefsFromModuleOBJ.setDmdID("166");
-        _usesDefsFromModuleOBJ.setDotName("meta.usesDefsFromModule.AttributeDefinition");
-        _usesDefsFromModuleOBJ.setFile("metaSchema.dms");
-        _usesDefsFromModuleOBJ.setLineNumber("1879");
-        _usesDefsFromModuleOBJ.setName("usesDefsFromModule");
-        _usesDefsFromModuleOBJ.setType("meta.DSDefinitionModule");
-        _usesDefsFromModule.setDefinedIn(this);
-        addAttributeDefList(_usesDefsFromModule);
 
         AttributeDefinitionDMO _usesInterfaceOBJ = new AttributeDefinitionDMO();
         _usesInterface = new AttributeDefinition(_usesInterfaceOBJ);
@@ -3538,19 +3522,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _FieldOBJ.setName("Field");
         _Field.setDefinedIn(this);
         addComplexTypeDefList(_Field);
-
-        ComplexTypeDefinitionDMO _GPBFieldOBJ = new ComplexTypeDefinitionDMO();
-        _GPBField = new ComplexTypeDefinition(_GPBFieldOBJ);
-        _GPBFieldOBJ.setDescription("The GPBField type is used to specify a mapping between the attributes\n of an object and a Google Protocol Buffer field. An example might be:\n <pre>\n gpbField STRING firstName 1\n </pre>\n This mechanism allows for generation of GPB compatible dark-matter objects.");
-        _GPBFieldOBJ.setDotName("meta.GPBField.ComplexTypeDefinition");
-        _GPBFieldOBJ.addField("GPBFieldTypeEnum	fieldType       The type of GPB field");
-        _GPBFieldOBJ.addField("AttributeDefinition	attribute		The attribute to be stored in this field. The attribute type must specify the gpbFieldType .");
-        _GPBFieldOBJ.addField("Integer				fieldTag		Unique field ID excluding values 19000 to 19999 which are reserved.");
-        _GPBFieldOBJ.setFile("metaSchema.dms");
-        _GPBFieldOBJ.setLineNumber("330");
-        _GPBFieldOBJ.setName("GPBField");
-        _GPBField.setDefinedIn(this);
-        addComplexTypeDefList(_GPBField);
 
         ComplexTypeDefinitionDMO _RuleParamOBJ = new ComplexTypeDefinitionDMO();
         _RuleParam = new ComplexTypeDefinition(_RuleParamOBJ);

@@ -198,41 +198,6 @@ public class DSDefinitionModuleDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * A reference to the DSDefinition derived class that is part of\n the
-     * abstract syntax of a dark-matter definition module.
-     * @return An Iterator of DSDefinition objects.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2510)
-    public DSDefinitionIterableDMW getUsesDefinition(){
-        DmcTypeDSDefinitionREFMV attr = (DmcTypeDSDefinitionREFMV) mycore.get(MetaDMSAG.__usesDefinition);
-        if (attr == null)
-            return(DSDefinitionIterableDMW.emptyList);
-
-        return(new DSDefinitionIterableDMW(attr.getMV()));
-    }
-
-    /**
-     * Adds another usesDefinition value.
-     * @param value A value compatible with DSDefinition
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2569)
-    public DmcAttribute<?> addUsesDefinition(DSDefinition value) throws DmcValueException {
-        DmcAttribute<?> attr = mycore.addUsesDefinition(value.getDmcObject());
-        return(attr);
-    }
-
-    /**
-     * Returns the number of usesDefinition values.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2595)
-    public int getUsesDefinitionSize(){
-        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__usesDefinition);
-        if (attr == null)
-            return(0);
-        return(attr.getMVSize());
-    }
-
-    /**
      * A reference to another DSDefinitionModule from which the current\n module
      * makes use of definitions. For instance, the Model View Whatever DSD
      * includes references\n to schema related definitions. As a result of
@@ -242,8 +207,8 @@ public class DSDefinitionModuleDMW extends org.dmd.dms.DmsDefinition {
      * will be primed with the schema of required definition module.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
-    public DSDefinitionModule getUsesDefsFromModule(){
-        DmcTypeDSDefinitionModuleREFSV attr = (DmcTypeDSDefinitionModuleREFSV) mycore.get(MetaDMSAG.__usesDefsFromModule);
+    public DSDefinitionModule getRefersToDefsFromDSD(){
+        DmcTypeDSDefinitionModuleREFSV attr = (DmcTypeDSDefinitionModuleREFSV) mycore.get(MetaDMSAG.__refersToDefsFromDSD);
         if (attr == null)
             return(null);
         DSDefinitionModuleDMO obj = attr.getSV().getObject();
@@ -251,12 +216,12 @@ public class DSDefinitionModuleDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * Sets usesDefsFromModule to the specified value.
+     * Sets refersToDefsFromDSD to the specified value.
      * @param value A value compatible with DSDefinitionModule
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2409)
-    public void setUsesDefsFromModule(DSDefinitionModule value) throws DmcValueException {
-        mycore.setUsesDefsFromModule(value.getDmcObject());
+    public void setRefersToDefsFromDSD(DSDefinitionModule value) throws DmcValueException {
+        mycore.setRefersToDefsFromDSD(value.getDmcObject());
     }
 
     /**
