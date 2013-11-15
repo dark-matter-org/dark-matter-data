@@ -145,7 +145,7 @@ public class DsdCSchemaAG extends SchemaDefinition {
             _ModuleCOBJ.setInternallyGenerated("true");
             _ModuleCOBJ.setClassType("STRUCTURAL");
             _ModuleCOBJ.setFile("/src/org/dmd/dmt/dsd/dsdc/shared/dmdconfig/module.dmd");
-            _ModuleCOBJ.setLineNumber("9");
+            _ModuleCOBJ.setLineNumber("10");
             _ModuleCOBJ.setIsNamedBy("meta.name");
             _ModuleCOBJ.setDmtREFImport("org.dmd.dmt.dsd.dsdc.shared.generated.types.ModuleCREF");
             _ModuleCOBJ.setDmwIteratorClass("ModuleCIterableDMW");

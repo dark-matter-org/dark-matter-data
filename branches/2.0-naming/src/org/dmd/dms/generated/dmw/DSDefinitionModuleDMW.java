@@ -238,6 +238,28 @@ public class DSDefinitionModuleDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * The name of the attribute that will be set on all definitions associated
+     * with a DSD\n to indicate the module from which a definition was loaded.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    public AttributeDefinition getDefinedInModuleAttribute(){
+        DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) mycore.get(MetaDMSAG.__definedInModuleAttribute);
+        if (attr == null)
+            return(null);
+        AttributeDefinitionDMO obj = attr.getSV().getObject();
+        return((AttributeDefinition)obj.getContainer());
+    }
+
+    /**
+     * Sets definedInModuleAttribute to the specified value.
+     * @param value A value compatible with AttributeDefinition
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2409)
+    public void setDefinedInModuleAttribute(AttributeDefinition value) throws DmcValueException {
+        mycore.setDefinedInModuleAttribute(value.getDmcObject());
+    }
+
+    /**
      * Indicates the set of attributes that an instance of a class MAY\n have.
      * When accessed in Java, this is a set of references to
      * AttributeDefinition\n objects.

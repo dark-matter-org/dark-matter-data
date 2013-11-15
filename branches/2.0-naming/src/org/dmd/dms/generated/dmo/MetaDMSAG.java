@@ -52,6 +52,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __dataType = new DmcAttributeInfo("meta","dataType",11,"DataTypeEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __defFiles = new DmcAttributeInfo("meta","defFiles",68,"String",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __definedIn = new DmcAttributeInfo("meta","definedIn",61,"SchemaDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __definedInModuleAttribute = new DmcAttributeInfo("meta","definedInModuleAttribute",167,"AttributeDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __dependencies = new DmcAttributeInfo("meta","dependencies",147,"Dependency",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __dependency = new DmcAttributeInfo("meta","dependency",146,"Dependency",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __dependsOn = new DmcAttributeInfo("meta","dependsOn",66,"String",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
@@ -330,6 +331,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__dataType.id,__dataType);
         _SmAp.put(__defFiles.id,__defFiles);
         _SmAp.put(__definedIn.id,__definedIn);
+        _SmAp.put(__definedInModuleAttribute.id,__definedInModuleAttribute);
         _SmAp.put(__dependencies.id,__dependencies);
         _SmAp.put(__dependency.id,__dependency);
         _SmAp.put(__dependsOn.id,__dependsOn);
@@ -596,6 +598,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __DSDefinitionModule.addMust(__moduleDependenceAttribute);
         __DSDefinitionModule.addMust(__name);
         __DSDefinitionModule.addMay(__definedIn);
+        __DSDefinitionModule.addMay(__definedInModuleAttribute);
         __DSDefinitionModule.addMay(__description);
         __DSDefinitionModule.addMay(__dotName);
         __DSDefinitionModule.addMay(__exampleUsage);
