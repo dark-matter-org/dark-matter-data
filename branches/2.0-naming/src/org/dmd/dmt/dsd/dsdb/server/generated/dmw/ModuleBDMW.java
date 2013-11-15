@@ -37,9 +37,9 @@ import org.dmd.dmc.types.DefinitionName;                               // Is nam
 import org.dmd.dms.ClassDefinition;                                    // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:963)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                            // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:968)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                  // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:967)
-import org.dmd.dmt.dsd.dsda.server.generated.dmw.ModuleADMW;           // Is reference type - (BaseDMWGeneratorNewest.java:999)
+import org.dmd.dmt.dsd.dsda.server.extended.ModuleA;                   // Is reference type - (BaseDMWGeneratorNewest.java:999)
 import org.dmd.dmt.dsd.dsda.shared.generated.types.ModuleAREF;         // Is reference type REF - (BaseDMWGeneratorNewest.java:1007)
-import org.dmd.dmt.dsd.dsdb.server.generated.dmw.ModuleBDMW;           // Is reference type - (BaseDMWGeneratorNewest.java:999)
+import org.dmd.dmt.dsd.dsdb.server.extended.ModuleB;                   // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:972)
 import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.ModuleBDMO;           // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1144)
 import org.dmd.dmt.dsd.dsdb.shared.generated.types.ModuleBREF;         // Is reference type REF - (BaseDMWGeneratorNewest.java:1007)
 import org.dmd.dmw.DmwNamedObjectWrapper;                              // Named object wrapper - (BaseDMWGeneratorNewest.java:1134)
@@ -65,9 +65,9 @@ public class ModuleBDMW extends DmwNamedObjectWrapper implements DmcNamedObjectI
         super(new ModuleBDMO(mods), org.dmd.dmt.dsd.dsdb.server.generated.DsdBSchemaAG._ModuleB);
     }
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:527)
-    public ModuleBDMW getModificationRecorder(){
-        ModuleBDMW rc = new ModuleBDMW();
+    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:518)
+    public ModuleB getModificationRecorder(){
+        ModuleB rc = new ModuleB();
         rc.setName(getName());
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
         return(rc);
@@ -78,8 +78,8 @@ public class ModuleBDMW extends DmwNamedObjectWrapper implements DmcNamedObjectI
         super(obj, org.dmd.dmt.dsd.dsdb.server.generated.DsdBSchemaAG._ModuleB);
     }
 
-    public ModuleBDMW cloneIt() {
-        ModuleBDMW rc = new ModuleBDMW();
+    public ModuleB cloneIt() {
+        ModuleB rc = new ModuleB();
         rc.setDmcObject(getDMO().cloneIt());
         return(rc);
     }
@@ -114,10 +114,10 @@ public class ModuleBDMW extends DmwNamedObjectWrapper implements DmcNamedObjectI
     }
 
     /**
-     * @return A ModuleADMW object.
+     * @return A ModuleA object.
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1326)
-    public ModuleADMW getDependsOnModuleA(){
+    public ModuleA getDependsOnModuleA(){
         ModuleAREF ref = ((ModuleBDMO) core).getDependsOnModuleA();
         if (ref == null)
             return(null);
@@ -125,7 +125,7 @@ public class ModuleBDMW extends DmwNamedObjectWrapper implements DmcNamedObjectI
         if (ref.getObject() == null)
             return(null);
         
-        return((ModuleADMW)ref.getObject().getContainer());
+        return((ModuleA)ref.getObject().getContainer());
     }
 
     /**
@@ -133,7 +133,7 @@ public class ModuleBDMW extends DmwNamedObjectWrapper implements DmcNamedObjectI
      * @param value A value compatible with ModuleAREF
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
-    public void setDependsOnModuleA(ModuleADMW value) {
+    public void setDependsOnModuleA(ModuleA value) {
         ((ModuleBDMO) core).setDependsOnModuleA(value.getDMO());
     }
 
@@ -155,10 +155,10 @@ public class ModuleBDMW extends DmwNamedObjectWrapper implements DmcNamedObjectI
     }
 
     /**
-     * @return A ModuleBDMW object.
+     * @return A ModuleB object.
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1326)
-    public ModuleBDMW getDependsOnModuleB(){
+    public ModuleB getDependsOnModuleB(){
         ModuleBREF ref = ((ModuleBDMO) core).getDependsOnModuleB();
         if (ref == null)
             return(null);
@@ -166,7 +166,7 @@ public class ModuleBDMW extends DmwNamedObjectWrapper implements DmcNamedObjectI
         if (ref.getObject() == null)
             return(null);
         
-        return((ModuleBDMW)ref.getObject().getContainer());
+        return((ModuleB)ref.getObject().getContainer());
     }
 
     /**
@@ -174,7 +174,7 @@ public class ModuleBDMW extends DmwNamedObjectWrapper implements DmcNamedObjectI
      * @param value A value compatible with ModuleBREF
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
-    public void setDependsOnModuleB(ModuleBDMW value) {
+    public void setDependsOnModuleB(ModuleB value) {
         ((ModuleBDMO) core).setDependsOnModuleB(value.getDMO());
     }
 

@@ -187,6 +187,7 @@ public class DSDArtifactFormatter {
 		imports.addImport("org.dmd.dms.SchemaManager", "Manages the schemas we use");
 		imports.addImport("org.dmd.util.parsing.ConfigFinder", "Used to find definition config files");
 		imports.addImport("org.dmd.util.parsing.DmcUncheckedOIFParser", "Basic parsing of objects");
+		imports.addImport("org.dmd.dmc.definitions.DsdParserInterface", "Standard parser interface");
 				
 		out.write("package " + config.getGenPackage() + ".generated.dsd;\n\n");
 		
@@ -194,7 +195,9 @@ public class DSDArtifactFormatter {
 		out.write("\n");
 		
 		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-		out.write("public class " + ddm.getName() + "Parser {\n\n");
+		out.write("public class " + ddm.getName() + "Parser implements DsdParserInterface {\n\n");
+		
+		out.write("    final static String fileExtension = \"" + ddm.getFileExtension() + "\";\n\n");
 		
 		out.write("    SchemaManager            schema;\n");
 		out.write("    ConfigFinder             finder;\n");
@@ -207,6 +210,12 @@ public class DSDArtifactFormatter {
 		
 		out.write("    " + ddm.getName() + "Parser(){\n\n");
 		out.write("    }\n\n");
+		
+		out.write("    public String getFileExtension(){\n");
+		out.write("        return(fileExtension);\n");
+		out.write("    }\n\n");
+		
+		out.write("\n");
 		
 		out.write("}\n\n");
 		

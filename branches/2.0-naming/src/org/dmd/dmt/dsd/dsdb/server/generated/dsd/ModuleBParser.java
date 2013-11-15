@@ -16,14 +16,17 @@
 package org.dmd.dmt.dsd.dsdb.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:193)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:194)
+import org.dmd.dmc.definitions.DsdParserInterface;         // Standard parser interface - (DSDArtifactFormatter.java:190)
 import org.dmd.dms.SchemaManager;                          // Manages the schemas we use - (DSDArtifactFormatter.java:187)
 import org.dmd.util.parsing.ConfigFinder;                  // Used to find definition config files - (DSDArtifactFormatter.java:188)
 import org.dmd.util.parsing.DmcUncheckedOIFParser;         // Basic parsing of objects - (DSDArtifactFormatter.java:189)
 
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:196)
-public class ModuleBParser {
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:197)
+public class ModuleBParser implements DsdParserInterface {
+
+    final static String fileExtension = "tmb";
 
     SchemaManager            schema;
     ConfigFinder             finder;
@@ -36,6 +39,11 @@ public class ModuleBParser {
     ModuleBParser(){
 
     }
+
+    public String getFileExtension(){
+        return(fileExtension);
+    }
+
 
 }
 
