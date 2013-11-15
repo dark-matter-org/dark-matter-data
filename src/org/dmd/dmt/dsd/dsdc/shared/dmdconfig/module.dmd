@@ -4,6 +4,7 @@ fileExtension				tma
 dmdID						1
 moduleClassName				ModuleC
 moduleDependenceAttribute 	dependsOnModuleC
+definedInModuleAttribute	definedInModuleC
 baseDefinition				CConceptBase
 refersToDefsFromDSD			ModuleA
 

@@ -1878,6 +1878,13 @@ description    		A reference to another DSDefinitionModule from which the curren
  of the module from which definitions are used. Likewise, the generated parser
  will be primed with the schema of required definition module.
 
+AttributeDefinition
+name                definedInModuleAttribute
+dmdID				167
+type                AttributeDefinition
+description    		The name of the attribute that will be set on all definitions associated with a DSD
+ to indicate the module from which a definition was loaded.
+
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
 AttributeDefinition
@@ -1983,6 +1990,7 @@ must			moduleDependenceAttribute
 must			baseDefinition
 //must			usesDefinition
 may				refersToDefsFromDSD
+may				definedInModuleAttribute
 may				may
 may				must
 // Auto generated/set
@@ -2005,6 +2013,7 @@ baseDefinition				DmsDefinition
 dmdID						21
 moduleClassName				DmSchema
 moduleDependenceAttribute 	dependsOn
+definedInModuleAttribute	definedIn
 usesDefinition				ActionDefinition
 usesDefinition				AttributeDefinition
 usesDefinition				ClassDefinition

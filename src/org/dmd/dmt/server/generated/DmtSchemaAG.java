@@ -1,3 +1,18 @@
+//	---------------------------------------------------------------------------
+//	dark-matter-data
+//	Copyright (c) 2013 dark-matter-data committers
+//	---------------------------------------------------------------------------
+//	This program is free software; you can redistribute it and/or modify it
+//	under the terms of the GNU Lesser General Public License as published by the
+//	Free Software Foundation; either version 3 of the License, or (at your
+//	option) any later version.
+//	This program is distributed in the hope that it will be useful, but WITHOUT
+//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
+//	more details.
+//	You should have received a copy of the GNU Lesser General Public License along
+//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
+//	---------------------------------------------------------------------------
 package org.dmd.dmt.server.generated;
 
 import org.dmd.dmc.DmcOmni;
@@ -224,7 +239,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestAbstractExtendedOBJ.setName("TestAbstractExtended");
             _TestAbstractExtendedOBJ.setDmdID("10002");
             _TestAbstractExtendedOBJ.setClassType("ABSTRACT");
-            _TestAbstractExtendedOBJ.setDotName("dmt.TestAbstractExtended.ClassDefinition");
             _TestAbstractExtendedOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _TestAbstractExtendedOBJ.setLineNumber("22");
             _TestAbstractExtendedOBJ.setDescription("The TestAbstract class just defines an abstract base class from which\n other test classes can be derived to tes this type of derivation.");
@@ -238,6 +252,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestAbstractExtendedOBJ.addMay("dmt.clientCountFilters");
             _TestAbstractExtendedOBJ.addMust("dmt.svString");
             _TestAbstractExtendedOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.TestAbstractExtendedIterableDMW");
+            _TestAbstractExtendedOBJ.setDotName("dmt.TestAbstractExtended.ClassDefinition");
             _TestAbstractExtended.setDefinedIn(this);
             addClassDefList(_TestAbstractExtended);
 
@@ -612,7 +627,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ClientCountFilterRequestOBJ.setName("ClientCountFilterRequest");
             _ClientCountFilterRequestOBJ.setDmdID("10018");
             _ClientCountFilterRequestOBJ.setClassType("STRUCTURAL");
-            _ClientCountFilterRequestOBJ.setDotName("dmt.ClientCountFilterRequest.ClassDefinition");
             _ClientCountFilterRequestOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _ClientCountFilterRequestOBJ.setLineNumber("279");
             _ClientCountFilterRequestOBJ.setDerivedFrom("dmp.Request");
@@ -622,6 +636,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ClientCountFilterRequestOBJ.addMay("dmt.clientCountFilter");
             _ClientCountFilterRequestOBJ.addMust("dmp.requestID");
             _ClientCountFilterRequestOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.ClientCountFilterRequestIterableDMW");
+            _ClientCountFilterRequestOBJ.setDotName("dmt.ClientCountFilterRequest.ClassDefinition");
             _ClientCountFilterRequest.setDefinedIn(this);
             addClassDefList(_ClientCountFilterRequest);
 
