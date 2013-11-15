@@ -13,21 +13,6 @@
 //	You should have received a copy of the GNU Lesser General Public License along
 //	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
 //	---------------------------------------------------------------------------
-//	---------------------------------------------------------------------------
-//	dark-matter-data
-//	Copyright (c) 2013 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
 package org.dmd.dmt.dsd.dsda.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
@@ -39,7 +24,7 @@ import org.dmd.dmc.types.DotName;                                         // Pri
 import org.dmd.dms.ClassDefinition;                                       // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:963)
 import org.dmd.dms.DSDefinition;                                          // Derived class - (BaseDMWGeneratorNewest.java:1140)
 import org.dmd.dmt.dsd.dsda.server.extended.AConceptBase;                 // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:972)
-import org.dmd.dmt.dsd.dsda.server.generated.dmw.ModuleADMW;              // Is reference type - (BaseDMWGeneratorNewest.java:999)
+import org.dmd.dmt.dsd.dsda.server.extended.ModuleA;                      // Is reference type - (BaseDMWGeneratorNewest.java:999)
 import org.dmd.dmt.dsd.dsda.shared.generated.dmo.AConceptBaseDMO;         // Abstract class - (BaseDMWGeneratorNewest.java:1122)
 import org.dmd.dmt.dsd.dsda.shared.generated.types.ModuleAREF;            // Is reference type REF - (BaseDMWGeneratorNewest.java:1007)
 
@@ -90,10 +75,10 @@ abstract public class AConceptBaseDMW extends DSDefinition implements DmcNamedOb
     }
 
     /**
-     * @return A ModuleADMW object.
+     * @return A ModuleA object.
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1326)
-    public ModuleADMW getDefinedInModuleA(){
+    public ModuleA getDefinedInModuleA(){
         ModuleAREF ref = ((AConceptBaseDMO) core).getDefinedInModuleA();
         if (ref == null)
             return(null);
@@ -101,7 +86,7 @@ abstract public class AConceptBaseDMW extends DSDefinition implements DmcNamedOb
         if (ref.getObject() == null)
             return(null);
         
-        return((ModuleADMW)ref.getObject().getContainer());
+        return((ModuleA)ref.getObject().getContainer());
     }
 
     /**
@@ -109,7 +94,7 @@ abstract public class AConceptBaseDMW extends DSDefinition implements DmcNamedOb
      * @param value A value compatible with ModuleAREF
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
-    public void setDefinedInModuleA(ModuleADMW value) {
+    public void setDefinedInModuleA(ModuleA value) {
         ((AConceptBaseDMO) core).setDefinedInModuleA(value.getDMO());
     }
 

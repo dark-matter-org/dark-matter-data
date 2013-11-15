@@ -39,7 +39,7 @@ import org.dmd.dmc.types.DotName;                                         // Pri
 import org.dmd.dms.ClassDefinition;                                       // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:963)
 import org.dmd.dms.DSDefinition;                                          // Derived class - (BaseDMWGeneratorNewest.java:1140)
 import org.dmd.dmt.dsd.dsdc.server.extended.CConceptBase;                 // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:972)
-import org.dmd.dmt.dsd.dsdc.server.generated.dmw.ModuleCDMW;              // Is reference type - (BaseDMWGeneratorNewest.java:999)
+import org.dmd.dmt.dsd.dsdc.server.extended.ModuleC;                      // Is reference type - (BaseDMWGeneratorNewest.java:999)
 import org.dmd.dmt.dsd.dsdc.shared.generated.dmo.CConceptBaseDMO;         // Abstract class - (BaseDMWGeneratorNewest.java:1122)
 import org.dmd.dmt.dsd.dsdc.shared.generated.types.ModuleCREF;            // Is reference type REF - (BaseDMWGeneratorNewest.java:1007)
 
@@ -90,10 +90,10 @@ abstract public class CConceptBaseDMW extends DSDefinition implements DmcNamedOb
     }
 
     /**
-     * @return A ModuleCDMW object.
+     * @return A ModuleC object.
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1326)
-    public ModuleCDMW getDefinedInModuleC(){
+    public ModuleC getDefinedInModuleC(){
         ModuleCREF ref = ((CConceptBaseDMO) core).getDefinedInModuleC();
         if (ref == null)
             return(null);
@@ -101,7 +101,7 @@ abstract public class CConceptBaseDMW extends DSDefinition implements DmcNamedOb
         if (ref.getObject() == null)
             return(null);
         
-        return((ModuleCDMW)ref.getObject().getContainer());
+        return((ModuleC)ref.getObject().getContainer());
     }
 
     /**
@@ -109,7 +109,7 @@ abstract public class CConceptBaseDMW extends DSDefinition implements DmcNamedOb
      * @param value A value compatible with ModuleCREF
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
-    public void setDefinedInModuleC(ModuleCDMW value) {
+    public void setDefinedInModuleC(ModuleC value) {
         ((CConceptBaseDMO) core).setDefinedInModuleC(value.getDMO());
     }
 

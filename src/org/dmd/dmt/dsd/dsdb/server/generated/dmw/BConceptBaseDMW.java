@@ -39,7 +39,7 @@ import org.dmd.dmc.types.DotName;                                         // Pri
 import org.dmd.dms.ClassDefinition;                                       // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:963)
 import org.dmd.dms.DSDefinition;                                          // Derived class - (BaseDMWGeneratorNewest.java:1140)
 import org.dmd.dmt.dsd.dsdb.server.extended.BConceptBase;                 // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:972)
-import org.dmd.dmt.dsd.dsdb.server.generated.dmw.ModuleBDMW;              // Is reference type - (BaseDMWGeneratorNewest.java:999)
+import org.dmd.dmt.dsd.dsdb.server.extended.ModuleB;                      // Is reference type - (BaseDMWGeneratorNewest.java:999)
 import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.BConceptBaseDMO;         // Abstract class - (BaseDMWGeneratorNewest.java:1122)
 import org.dmd.dmt.dsd.dsdb.shared.generated.types.ModuleBREF;            // Is reference type REF - (BaseDMWGeneratorNewest.java:1007)
 
@@ -90,10 +90,10 @@ abstract public class BConceptBaseDMW extends DSDefinition implements DmcNamedOb
     }
 
     /**
-     * @return A ModuleBDMW object.
+     * @return A ModuleB object.
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1326)
-    public ModuleBDMW getDefinedInModuleB(){
+    public ModuleB getDefinedInModuleB(){
         ModuleBREF ref = ((BConceptBaseDMO) core).getDefinedInModuleB();
         if (ref == null)
             return(null);
@@ -101,7 +101,7 @@ abstract public class BConceptBaseDMW extends DSDefinition implements DmcNamedOb
         if (ref.getObject() == null)
             return(null);
         
-        return((ModuleBDMW)ref.getObject().getContainer());
+        return((ModuleB)ref.getObject().getContainer());
     }
 
     /**
@@ -109,7 +109,7 @@ abstract public class BConceptBaseDMW extends DSDefinition implements DmcNamedOb
      * @param value A value compatible with ModuleBREF
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
-    public void setDefinedInModuleB(ModuleBDMW value) {
+    public void setDefinedInModuleB(ModuleB value) {
         ((BConceptBaseDMO) core).setDefinedInModuleB(value.getDMO());
     }
 

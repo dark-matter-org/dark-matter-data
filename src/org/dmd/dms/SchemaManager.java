@@ -889,6 +889,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         cd.setFile(ddm.getFile());
         cd.setLineNumber(ddm.getLineNumber());
         cd.setDefinedIn(ddm.getDefinedIn());
+        cd.setUseWrapperType(WrapperTypeEnum.EXTENDED);
         
         if (ddm.getDescription() != null)
         	cd.setDescription(ddm.getDescription());
