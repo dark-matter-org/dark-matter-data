@@ -15,6 +15,7 @@ import org.dmd.dmc.DmcValueExceptionSet;                      // Ambiguous refer
 import org.dmd.dmc.types.DmcTypeComplexTypeWithRefs;          // Derivation base - (GenUtility.java:3081)
 
 
+
 @SuppressWarnings("serial")
 /**
  * The DmcTypeDmtField class.

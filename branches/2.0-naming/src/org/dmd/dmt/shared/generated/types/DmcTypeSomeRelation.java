@@ -11,6 +11,7 @@ import org.dmd.dmc.types.DmcTypeNamedObjectREF;                 // The class we 
 import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;         // The class we refer to - (GenUtility.java:3214)
 
 
+
 @SuppressWarnings("serial")
 /**
  * The DmcTypeSomeRelation class.

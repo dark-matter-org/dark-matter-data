@@ -26,6 +26,7 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;                       // Required fo
 import org.dmd.dms.generated.types.DmcTypeModifierMV;             // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:967)
 
 
+
 /**
  * The LoginResponse is returned after a Login request is received. If the\n
  * login is successful, a session ID will be assigned and a request root will

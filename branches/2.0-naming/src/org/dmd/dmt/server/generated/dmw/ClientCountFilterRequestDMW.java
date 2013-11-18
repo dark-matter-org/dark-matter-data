@@ -17,6 +17,7 @@ import org.dmd.dmt.shared.generated.dmo.ClientCountFilterDMO;                // 
 import org.dmd.dmt.shared.generated.dmo.ClientCountFilterRequestDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1144)
 
 
+
 /**
  * null
  * <P>

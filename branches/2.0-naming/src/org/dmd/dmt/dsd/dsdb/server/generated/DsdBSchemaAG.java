@@ -146,6 +146,7 @@ public class DsdBSchemaAG extends SchemaDefinition {
             _ModuleBOBJ.setClassType("STRUCTURAL");
             _ModuleBOBJ.setFile("/src/org/dmd/dmt/dsd/dsdb/shared/dmdconfig/module.dmd");
             _ModuleBOBJ.setLineNumber("9");
+            _ModuleBOBJ.setDerivedFrom("dsdB.BConceptBase");
             _ModuleBOBJ.setIsNamedBy("meta.name");
             _ModuleBOBJ.setUseWrapperType("EXTENDED");
             _ModuleBOBJ.setDmtREFImport("org.dmd.dmt.dsd.dsdb.shared.generated.types.ModuleBREF");

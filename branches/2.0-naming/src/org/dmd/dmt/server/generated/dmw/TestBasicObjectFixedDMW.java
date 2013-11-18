@@ -31,6 +31,7 @@ import org.dmd.dmt.shared.generated.types.TestBasicNamedObjectFixedREF;         
 import org.dmd.dmw.DmwWrapper;                                                  // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1127)
 
 
+
 /**
  * The TestBasicObjectFixed class provides a test bed for all types of
  * basic\n attribute values.

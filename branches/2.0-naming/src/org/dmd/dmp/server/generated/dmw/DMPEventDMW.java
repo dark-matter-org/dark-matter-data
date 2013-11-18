@@ -35,6 +35,7 @@ import org.dmd.dms.generated.types.ClassDefinitionREF;              // Is refere
 import org.dmd.dms.generated.types.DmcTypeModifierMV;               // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:967)
 
 
+
 /**
  * The Event class allows for the asynchronous notification of noteworthy
  * system events.

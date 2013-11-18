@@ -11,6 +11,7 @@ import org.dmd.dmt.shared.generated.dmo.IntegerNamedObjectDMO;         // Class 
 import org.dmd.dmw.DmwNamedObjectWrapper;                              // Named object wrapper - (BaseDMWGeneratorNewest.java:1134)
 
 
+
 /**
  * null
  * <P>

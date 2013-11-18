@@ -25,6 +25,7 @@ import org.dmd.dms.generated.types.DmcTypeStringSV;         // Type in an auxili
 import org.dmd.dmw.DmwWrapper;                              // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1127)
 
 
+
 /**
  * The LDAPSchemaExtension class is used to extend the basic
  * SchemaDefinition\n class with information required to map objects onto an

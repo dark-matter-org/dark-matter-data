@@ -28,6 +28,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;                    // Requ
 import org.dmd.dmv.shared.generated.dmo.NumericRangeRuleDataDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1144)
 
 
+
 /**
  * The NumericRangeRule ensures that a numeric attribute has values\n that
  * fall within a given range. It can be used for both single-valued and

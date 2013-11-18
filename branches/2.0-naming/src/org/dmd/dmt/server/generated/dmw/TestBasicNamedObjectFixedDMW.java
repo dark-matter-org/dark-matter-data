@@ -19,6 +19,7 @@ import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;                
 import org.dmd.dmw.DmwNamedObjectWrapper;                                             // Named object wrapper - (BaseDMWGeneratorNewest.java:1134)
 
 
+
 /**
  * The TestBasicNamedObjectFixed class provides a test bed for a named object.
  * <P>

@@ -26,6 +26,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;            // Required for
 import org.dmd.dmv.shared.generated.dmo.InitRuleDataDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1144)
 
 
+
 /**
  * The InitRule allows you to specify attribute values for a \n newly created
  * object or an object read from file or received in a CreateRequest\n (for

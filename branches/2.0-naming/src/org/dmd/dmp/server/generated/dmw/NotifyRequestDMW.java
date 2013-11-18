@@ -29,6 +29,7 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;                       // Required fo
 import org.dmd.dms.generated.types.DmcTypeModifierMV;             // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:967)
 
 
+
 /**
  * The NotifyRequest allows you to register for events on an arbitrary object
  * or set\n of objects.

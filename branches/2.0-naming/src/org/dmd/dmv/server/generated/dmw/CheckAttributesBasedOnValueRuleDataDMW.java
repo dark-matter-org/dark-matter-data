@@ -35,6 +35,7 @@ import org.dmd.dmv.shared.generated.dmo.CheckAttributesBasedOnValueRuleDataDMO; 
 import org.dmd.dmv.shared.generated.dmo.DmvDMSAG;                                       // Attribute basedOnValue from the dmv schema - (BaseDMWGeneratorNewest.java:794)
 
 
+
 /**
  * The CheckAttributesBasedOnValueRule allows you to specify\n that certain
  * optional attributes must exist (or not exist) based on the value\n of

@@ -16,12 +16,14 @@
 package org.dmd.dmt.dsd.dsdb.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManagerInterface(DSDArtifactFormatter.java:246)
-import java.util.Iterator;                                        // To provide iterators over definitions - (DSDArtifactFormatter.java:243)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManagerInterface(DSDArtifactFormatter.java:247)
+import java.util.Iterator;                                        // To provide iterators over definitions - (DSDArtifactFormatter.java:244)
 import org.dmd.dmt.dsd.dsdb.server.extended.BConceptBase;         // A definition from the ModuleB Module - (DSDefinitionModule.java:68)
 import org.dmd.dmt.dsd.dsdb.server.extended.BConceptX;            // A definition from the ModuleB Module - (DSDefinitionModule.java:71)
+import org.dmd.dmt.dsd.dsdb.server.extended.ModuleB;              // A definition from the ModuleB Module - (DSDefinitionModule.java:71)
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManagerInterface(DSDArtifactFormatter.java:250)
+
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManagerInterface(DSDArtifactFormatter.java:251)
 public interface ModuleBDefinitionsInterface {
 
     public void addBConceptBase(BConceptBase def);
@@ -31,6 +33,10 @@ public interface ModuleBDefinitionsInterface {
     public void addBConceptX(BConceptX def);
     public int getBConceptXCount();
     public Iterator<BConceptX> getAllBConceptX();
+
+    public void addModuleB(ModuleB def);
+    public int getModuleBCount();
+    public Iterator<ModuleB> getAllModuleB();
 
 }
 

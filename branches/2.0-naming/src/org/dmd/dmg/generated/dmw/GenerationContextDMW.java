@@ -12,6 +12,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;          // Required for M
 import org.dmd.dmw.DmwNamedObjectWrapper;                      // Named object wrapper - (BaseDMWGeneratorNewest.java:1134)
 
 
+
 /**
  * The GenerationContext acts as a gathering point for a set of\n code
  * generation components.

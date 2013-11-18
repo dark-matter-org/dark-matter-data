@@ -26,6 +26,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;                           
 import org.dmd.dmv.shared.generated.dmo.UCOAllowedAttributesRuleDataDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1144)
 
 
+
 /**
  * The UCOAllowedAttributesRule will determine whether or not the \n
  * attributes of a DmcUncheckedObject conform to the must/may specification

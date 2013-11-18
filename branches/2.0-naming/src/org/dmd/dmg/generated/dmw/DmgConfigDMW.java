@@ -16,6 +16,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;          // Required for M
 import org.dmd.dmw.DmwWrapper;                                 // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1127)
 
 
+
 /**
  * The DmgConfig class is used to specify a set of schemas and a set of \n
  * code generators to be run when you want to generate various types of code.

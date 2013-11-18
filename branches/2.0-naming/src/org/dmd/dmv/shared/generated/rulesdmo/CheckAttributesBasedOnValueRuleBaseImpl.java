@@ -18,6 +18,7 @@ import org.dmd.dms.generated.rulesdmo.ObjectValidationIF;                       
 import org.dmd.dmv.shared.generated.dmo.CheckAttributesBasedOnValueRuleDataDMO;         // Rule parameters object - (RuleFormatter.java:507)
 
 
+
 // Generated from: org.dmd.dms.util.RuleFormatter.dumpBaseImplementations(RuleFormatter.java:524)
 abstract public class CheckAttributesBasedOnValueRuleBaseImpl implements RuleIF, DynamicInitIF,ObjectValidationIF {
 

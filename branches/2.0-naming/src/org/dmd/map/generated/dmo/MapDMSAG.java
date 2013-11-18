@@ -11,6 +11,7 @@ import org.dmd.dms.generated.enums.OriginalTypeEnum;         // Have type/intern
 
 
 
+
 // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:133)
 public class MapDMSAG implements DmcCompactSchemaIF {
 

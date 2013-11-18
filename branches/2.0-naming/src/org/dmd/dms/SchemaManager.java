@@ -878,6 +878,9 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         cd.setIsNamedBy(MetaSchemaAG._name);
         cd.setInternallyGenerated(true);
         
+        // We derive the module from the base definition class for the module!
+        cd.setDerivedFrom((ClassDefinition) ddm.getBaseDefinition());
+        
         // The name of a domain specific definition module is schema.dsdmodulename.DSDefinitionModule
         // For the associated class, it will be schema.dsdmodulename.ClassDefinition
         DotName className = new DotName(((DotName) ddm.getDotName().getParentName()).getNameString() + ".ClassDefinition");

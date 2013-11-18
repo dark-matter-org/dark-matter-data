@@ -28,6 +28,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;                    // Requ
 import org.dmd.dmv.shared.generated.dmo.PatternMatchRuleDataDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1144)
 
 
+
 /**
  * The PatternMatchRule allows you to validate that an attribute\n in an
  * object conforms to a regex pattern that you specify. If the pattern

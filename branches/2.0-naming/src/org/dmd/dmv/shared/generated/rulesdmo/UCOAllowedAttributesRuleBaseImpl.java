@@ -18,6 +18,7 @@ import org.dmd.dms.generated.rulesdmo.UCOValidationIF;                          
 import org.dmd.dmv.shared.generated.dmo.UCOAllowedAttributesRuleDataDMO;         // Rule parameters object - (RuleFormatter.java:507)
 
 
+
 // Generated from: org.dmd.dms.util.RuleFormatter.dumpBaseImplementations(RuleFormatter.java:524)
 abstract public class UCOAllowedAttributesRuleBaseImpl implements RuleIF, DynamicInitIF,UCOValidationIF {
 

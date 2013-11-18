@@ -27,6 +27,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;                     // Req
 import org.dmd.dmw.DmwNamedObjectWrapper;                                 // Named object wrapper - (BaseDMWGeneratorNewest.java:1134)
 
 
+
 /**
  * A HierarchicObject is meant to represent any object that can\n be
  * identified with a Fully Qualified Name (FQN) and exists in a containment\n

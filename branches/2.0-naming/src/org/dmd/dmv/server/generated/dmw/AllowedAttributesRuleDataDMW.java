@@ -26,6 +26,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;                         //
 import org.dmd.dmv.shared.generated.dmo.AllowedAttributesRuleDataDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1144)
 
 
+
 /**
  * The AllowedAttributesRule will determine whether or not the \n attributes
  * of a DMO conform to the must/may specification of its class definition.\n
