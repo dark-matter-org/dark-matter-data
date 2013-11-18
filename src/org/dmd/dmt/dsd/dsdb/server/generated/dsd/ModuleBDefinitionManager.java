@@ -16,22 +16,27 @@
 package org.dmd.dmt.dsd.dsdb.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:105)
-import org.dmd.dmc.definitions.DmcDefinitionSet;                  // Our base to provide definition set storage - (DSDArtifactFormatter.java:103)
-import org.dmd.dmt.dsd.dsda.server.extended.AConceptBase;         // A definition from the ModuleA Module - (DSDArtifactFormatter.java:135)
-import org.dmd.dmt.dsd.dsda.server.extended.AConceptX;            // A definition from the ModuleA Module - (DSDArtifactFormatter.java:138)
-import org.dmd.dmt.dsd.dsdb.server.extended.BConceptBase;         // A definition from the ModuleB Module - (DSDArtifactFormatter.java:135)
-import org.dmd.dmt.dsd.dsdb.server.extended.BConceptX;            // A definition from the ModuleB Module - (DSDArtifactFormatter.java:138)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:112)
+import java.util.Iterator;                                                            // To allow access to our definitions - (DSDArtifactFormatter.java:110)
+import org.dmd.dmc.definitions.DmcDefinitionSet;                                      // Our base to provide definition set storage - (DSDArtifactFormatter.java:109)
+import org.dmd.dmt.dsd.dsda.server.extended.AConceptBase;                             // A definition from the ModuleA Module - (DSDArtifactFormatter.java:147)
+import org.dmd.dmt.dsd.dsda.server.extended.AConceptX;                                // A definition from the ModuleA Module - (DSDArtifactFormatter.java:150)
+import org.dmd.dmt.dsd.dsda.server.generated.dsd.ModuleADefinitionsInterface;         // Interface for ModuleA definitions - (DSDArtifactFormatter.java:144)
+import org.dmd.dmt.dsd.dsdb.server.extended.BConceptBase;                             // A definition from the ModuleB Module - (DSDArtifactFormatter.java:147)
+import org.dmd.dmt.dsd.dsdb.server.extended.BConceptX;                                // A definition from the ModuleB Module - (DSDArtifactFormatter.java:150)
+import org.dmd.dmt.dsd.dsdb.server.generated.dsd.ModuleBDefinitionsInterface;         // Interface for ModuleB definitions - (DSDArtifactFormatter.java:144)
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:109)
-public class ModuleBDefinitionManager {
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:116)
+public class ModuleBDefinitionManager implements ModuleADefinitionsInterface, ModuleBDefinitionsInterface {
 
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionManagerMembers(DSDArtifactFormatter.java:169)
     DmcDefinitionSet<AConceptBase> AConceptBaseDefs;
     DmcDefinitionSet<AConceptX> AConceptXDefs;
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionManagerMembers(DSDArtifactFormatter.java:169)
     DmcDefinitionSet<BConceptBase> BConceptBaseDefs;
     DmcDefinitionSet<BConceptX> BConceptXDefs;
 
-    ModuleBDefinitionManager(){
+    public ModuleBDefinitionManager(){
 
         AConceptBaseDefs = new DmcDefinitionSet<AConceptBase>();
         AConceptXDefs = new DmcDefinitionSet<AConceptX>();
@@ -39,6 +44,55 @@ public class ModuleBDefinitionManager {
         BConceptXDefs = new DmcDefinitionSet<BConceptX>();
 
     }
+
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionInterfaceMethods(DSDArtifactFormatter.java:183)
+    public void addAConceptBase(AConceptBase def){
+    }
+
+    public int getAConceptBaseCount(){
+        return(AConceptBaseDefs.size());
+    }
+
+    public Iterator<AConceptBase> getAllAConceptBase(){
+        return(AConceptBaseDefs.values().iterator());
+    }
+
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionInterfaceMethods(DSDArtifactFormatter.java:196)
+    public void addAConceptX(AConceptX def){
+    }
+
+    public int getAConceptXCount(){
+        return(AConceptXDefs.size());
+    }
+
+    public Iterator<AConceptX> getAllAConceptX(){
+        return(AConceptXDefs.values().iterator());
+    }
+
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionInterfaceMethods(DSDArtifactFormatter.java:183)
+    public void addBConceptBase(BConceptBase def){
+    }
+
+    public int getBConceptBaseCount(){
+        return(BConceptBaseDefs.size());
+    }
+
+    public Iterator<BConceptBase> getAllBConceptBase(){
+        return(BConceptBaseDefs.values().iterator());
+    }
+
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionInterfaceMethods(DSDArtifactFormatter.java:196)
+    public void addBConceptX(BConceptX def){
+    }
+
+    public int getBConceptXCount(){
+        return(BConceptXDefs.size());
+    }
+
+    public Iterator<BConceptX> getAllBConceptX(){
+        return(BConceptXDefs.values().iterator());
+    }
+
 
 }
 

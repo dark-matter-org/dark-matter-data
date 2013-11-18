@@ -16,27 +16,28 @@
 package org.dmd.dmt.dsd.dsdc.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:194)
-import org.dmd.dmc.definitions.DsdParserInterface;         // Standard parser interface - (DSDArtifactFormatter.java:190)
-import org.dmd.dms.SchemaManager;                          // Manages the schemas we use - (DSDArtifactFormatter.java:187)
-import org.dmd.util.parsing.ConfigFinder;                  // Used to find definition config files - (DSDArtifactFormatter.java:188)
-import org.dmd.util.parsing.DmcUncheckedOIFParser;         // Basic parsing of objects - (DSDArtifactFormatter.java:189)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:283)
+import org.dmd.dmc.DmcValueException;                              // May be thrown by schema management - (DSDArtifactFormatter.java:280)
+import org.dmd.dmc.definitions.DsdParserInterface;                 // Standard parser interface - (DSDArtifactFormatter.java:273)
+import org.dmd.dms.SchemaManager;                                  // Manages the schemas we use - (DSDArtifactFormatter.java:270)
+import org.dmd.dmt.dsd.dsdc.server.generated.DsdCSchemaAG;         // The schema recognized by this parser - (DSDArtifactFormatter.java:279)
+import org.dmd.util.exceptions.ResultException;                    // May be thrown by schema management - (DSDArtifactFormatter.java:281)
 
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:197)
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:286)
 public class ModuleCParser implements DsdParserInterface {
 
     final static String fileExtension = "tma";
 
     SchemaManager            schema;
-    ConfigFinder             finder;
-    DmcUncheckedOIFParser    configParser;
-    DmcUncheckedOIFParser    defParser;
 
 
 
 
-    ModuleCParser(){
+    ModuleCParser() throws ResultException, DmcValueException {
+
+        schema = new SchemaManager();
+        schema.manageSchema(new DsdCSchemaAG());
 
     }
 

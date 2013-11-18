@@ -70,6 +70,13 @@ public class DmcDefinitionSet<DEF extends DmcDefinitionIF> {
 	}
 	
 	/**
+	 * @return the number of definitions in this set.
+	 */
+	public int size(){
+		return(dotmap.size());
+	}
+	
+	/**
 	 * @return the length of the longest DefinitionName
 	 */
 	public int getLongestName(){
