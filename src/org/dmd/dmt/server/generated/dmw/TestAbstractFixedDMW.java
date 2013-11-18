@@ -8,6 +8,7 @@ import org.dmd.dmt.shared.generated.dmo.TestAbstractFixedDMO;         // Abstrac
 import org.dmd.dmw.DmwWrapper;                                        // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1127)
 
 
+
 /**
  * The TestAbstract class just defines an abstract base class from which\n
  * other test classes can be derived to tes this type of derivation.

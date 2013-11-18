@@ -23,6 +23,7 @@ import org.dmd.dms.generated.types.DmcTypeTypeDefinitionREFSTATIC;         // In
 import org.dmd.dms.generated.types.TypeDefinitionREF;                      // Object reference - (ComplexTypeFormatter.java:457)
 
 
+
 @SuppressWarnings("serial")
 /**
  * The DmtField class.

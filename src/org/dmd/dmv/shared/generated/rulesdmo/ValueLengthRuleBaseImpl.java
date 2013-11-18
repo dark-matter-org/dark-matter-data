@@ -18,6 +18,7 @@ import org.dmd.dms.generated.rulesdmo.AttributeValidationIF;            // The i
 import org.dmd.dmv.shared.generated.dmo.ValueLengthRuleDataDMO;         // Rule parameters object - (RuleFormatter.java:507)
 
 
+
 // Generated from: org.dmd.dms.util.RuleFormatter.dumpBaseImplementations(RuleFormatter.java:524)
 abstract public class ValueLengthRuleBaseImpl implements RuleIF, DynamicInitIF,AttributeValidationIF {
 

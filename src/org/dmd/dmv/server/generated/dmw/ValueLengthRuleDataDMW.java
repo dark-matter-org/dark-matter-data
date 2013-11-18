@@ -28,6 +28,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;                   // Requi
 import org.dmd.dmv.shared.generated.dmo.ValueLengthRuleDataDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1144)
 
 
+
 /**
  * The ValueLengthRule allows you to indicate the maximum length,\n the
  * minimum length or both the maximum and minimum length of the String form

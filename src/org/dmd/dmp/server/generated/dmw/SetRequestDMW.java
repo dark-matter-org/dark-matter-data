@@ -33,6 +33,7 @@ import org.dmd.dms.generated.types.ClassDefinitionREF;         // Is reference t
 import org.dmd.dms.generated.types.DmcTypeModifierMV;          // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:967)
 
 
+
 /**
  * The SetRequest allows you to alter the attribute values associated\n with
  * an object. Like the get request, the set of attributes that can be

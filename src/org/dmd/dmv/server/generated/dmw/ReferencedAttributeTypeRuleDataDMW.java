@@ -34,6 +34,7 @@ import org.dmd.dmv.shared.generated.dmo.DmvDMSAG;                               
 import org.dmd.dmv.shared.generated.dmo.ReferencedAttributeTypeRuleDataDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1144)
 
 
+
 /**
  * The ReferencedAttributeTypeRule allowes you to restrict the type of\n an
  * attribute referred to by an AttributeDefinition reference. Some examples

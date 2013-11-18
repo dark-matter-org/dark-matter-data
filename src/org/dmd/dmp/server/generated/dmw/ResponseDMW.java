@@ -28,6 +28,7 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;                             // Requi
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                   // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:967)
 
 
+
 /**
  * The Response class serves as a common base for all response messages. It
  * used to be\n that the Response was abstract, but because we could receive

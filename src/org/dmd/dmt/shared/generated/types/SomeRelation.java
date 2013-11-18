@@ -15,6 +15,7 @@ import org.dmd.dms.generated.types.DmcTypeIntegerSTATIC;                // Stand
 import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;                 // Object based constructor - (ExtendedReferenceTypeFormatter.java:79)
 
 
+
 @SuppressWarnings("serial")
 /**
  * The SomeRelation class.

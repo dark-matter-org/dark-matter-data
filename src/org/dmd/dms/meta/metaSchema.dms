@@ -2014,18 +2014,18 @@ dmdID						21
 moduleClassName				DmSchema
 moduleDependenceAttribute 	dependsOn
 definedInModuleAttribute	definedIn
-usesDefinition				ActionDefinition
-usesDefinition				AttributeDefinition
-usesDefinition				ClassDefinition
-usesDefinition				ComplexTypeDefinition
-usesDefinition				DSDefinitionModule
-usesDefinition				EnumDefinition
-usesDefinition				ExtendedReferenceTypeDefinition
-usesDefinition				RuleCategory
-usesDefinition				RuleDefinition
-usesDefinition				SchemaDefinition
-usesDefinition				SliceDefinition
-usesDefinition				TypeDefinition
+//usesDefinition				ActionDefinition
+//usesDefinition				AttributeDefinition
+//usesDefinition				ClassDefinition
+//usesDefinition				ComplexTypeDefinition
+//usesDefinition				DSDefinitionModule
+//usesDefinition				EnumDefinition
+//usesDefinition				ExtendedReferenceTypeDefinition
+//usesDefinition				RuleCategory
+//usesDefinition				RuleDefinition
+//usesDefinition				SchemaDefinition
+//usesDefinition				SliceDefinition
+//usesDefinition				TypeDefinition
 description		The DMS definition module defines the base schema modelling language
  associated with dark-matter.
 

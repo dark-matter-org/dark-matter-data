@@ -39,6 +39,7 @@ import org.dmd.dms.generated.types.ClassDefinitionREF;             // Is referen
 import org.dmd.dms.generated.types.DmcTypeModifierMV;              // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:967)
 
 
+
 /**
  * The GetRequest is used to retrieve objects.
  * <P>

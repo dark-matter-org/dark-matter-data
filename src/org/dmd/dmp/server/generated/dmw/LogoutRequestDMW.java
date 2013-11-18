@@ -26,6 +26,7 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;                       // Required fo
 import org.dmd.dms.generated.types.DmcTypeModifierMV;             // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:967)
 
 
+
 /**
  * The LogoutRequest allows you to disconnect from your current session.
  * <P>

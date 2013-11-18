@@ -13,6 +13,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;               // For fake DmcA
 import org.dmd.dms.generated.types.DmcTypeStringSTATIC;         // Standard type - (ComplexTypeFormatter.java:494)
 
 
+
 @SuppressWarnings("serial")
 /**
  * The MenuElementTypeAndComment class.

@@ -15,6 +15,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;            // Have attribute d
 
 
 
+
 // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:133)
 public class DmrbaseDMSAG implements DmcCompactSchemaIF {
 

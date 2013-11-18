@@ -31,6 +31,7 @@ import org.dmd.dmv.shared.generated.dmo.DmvDMSAG;                               
 import org.dmd.dmv.shared.generated.dmo.OneOfTheseAttributesRequiredRuleDataDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1144)
 
 
+
 /**
  * The OneOfTheseAttributesRequiredRule allows you to specify\n that one of
  * the possible optional attributes specified must be present\n in the object

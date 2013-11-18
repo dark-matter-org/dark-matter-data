@@ -10,6 +10,7 @@ import org.dmd.dms.generated.types.DmcTypeStringSV;         // Type in an auxili
 import org.dmd.dmw.DmwWrapper;                              // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1127)
 
 
+
 /**
  * The TestBasicAuxiliary class allows us to test basic auxiliary class
  * functionality.

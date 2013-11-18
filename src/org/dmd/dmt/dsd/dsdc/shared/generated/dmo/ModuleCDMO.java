@@ -19,7 +19,6 @@ package org.dmd.dmt.dsd.dsdc.shared.generated.dmo;
 import java.io.Serializable;                                                    // Always required - (GenUtility.java:221)
 import org.dmd.dmc.DmcAttribute;                                                // Named object - (GenUtility.java:373)
 import org.dmd.dmc.DmcNamedObjectIF;                                            // Named object - (GenUtility.java:372)
-import org.dmd.dmc.DmcObject;                                                   // Structural class - (GenUtility.java:348)
 import org.dmd.dmc.DmcOmni;                                                     // Lazy resolution - (GenUtility.java:317)
 import org.dmd.dmc.DmcSliceInfo;                                                // Required for object slicing - (GenUtility.java:226)
 import org.dmd.dmc.DmcValueException;                                           // Any attributes - (GenUtility.java:238)
@@ -32,6 +31,7 @@ import org.dmd.dmt.dsd.dsda.shared.generated.dmo.DsdADMSAG;                     
 import org.dmd.dmt.dsd.dsda.shared.generated.dmo.ModuleADMO;                    // Type specific set/add - (GenUtility.java:304)
 import org.dmd.dmt.dsd.dsda.shared.generated.types.DmcTypeModuleAREFSV;         // Reference type - (GenUtility.java:297)
 import org.dmd.dmt.dsd.dsda.shared.generated.types.ModuleAREF;                  // Helper class - (GenUtility.java:332)
+import org.dmd.dmt.dsd.dsdc.shared.generated.dmo.CConceptBaseDMO;               // Base class - (GenUtility.java:352)
 import org.dmd.dmt.dsd.dsdc.shared.generated.dmo.ModuleCDMO;                    // Type specific set/add - (GenUtility.java:304)
 import org.dmd.dmt.dsd.dsdc.shared.generated.types.DmcTypeModuleCREFSV;         // Reference type - (GenUtility.java:297)
 import org.dmd.dmt.dsd.dsdc.shared.generated.types.ModuleCREF;                  // Helper class - (GenUtility.java:332)
@@ -45,7 +45,7 @@ import org.dmd.dmt.dsd.dsdc.shared.generated.types.ModuleCREF;                  
  * Generated from: org.dmd.dms.util.DmoFormatter.dumpDMO(DmoFormatter.java:133)
  */
 @SuppressWarnings("serial")
-public class ModuleCDMO  extends DmcObject  implements DmcNamedObjectIF, Serializable  {
+public class ModuleCDMO  extends CConceptBaseDMO  implements DmcNamedObjectIF, Serializable  {
 
     public final static String constructionClassName = "ModuleC";
 

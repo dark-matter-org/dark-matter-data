@@ -29,6 +29,7 @@ import org.dmd.dmt.dsd.dsda.shared.generated.dmo.AConceptBaseDMO;         // Abs
 import org.dmd.dmt.dsd.dsda.shared.generated.types.ModuleAREF;            // Is reference type REF - (BaseDMWGeneratorNewest.java:1007)
 
 
+
 /**
  * The base definition for this DSD module.
  * <P>

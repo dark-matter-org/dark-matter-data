@@ -26,6 +26,7 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;                      // Required for
 import org.dmd.dms.generated.types.DmcTypeModifierMV;            // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:967)
 
 
+
 /**
  * The LoginRequest allows you to connect to connect to something and\n pass
  * along credentials.

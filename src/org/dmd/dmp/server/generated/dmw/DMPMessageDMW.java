@@ -28,6 +28,7 @@ import org.dmd.dms.generated.dmw.IntegerIterableDMW;           // For multi-valu
 import org.dmd.dmw.DmwWrapper;                                 // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1127)
 
 
+
 /**
  * The DMPMessage class provides a common base for all messages that\n
  * comprise the Dark Matter Protocol (DMP).

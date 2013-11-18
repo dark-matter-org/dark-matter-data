@@ -6,6 +6,7 @@ import java.util.HashMap;         // For storage of schema info - (DmoCompactSch
 import org.dmd.dmc.*;             // Basic DMC stuff - (DmoCompactSchemaFormatter.java:442)
 
 
+
 // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpAttributeMapInitializer(DmoCompactSchemaFormatter.java:448)
 public class MapDMSAGAMAP {
 

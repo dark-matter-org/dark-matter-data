@@ -18,6 +18,7 @@ import org.dmd.dms.generated.rulesdmo.AttributeValidationIF;                    
 import org.dmd.dmv.shared.generated.dmo.ReferencedAttributeTypeRuleDataDMO;         // Rule parameters object - (RuleFormatter.java:507)
 
 
+
 // Generated from: org.dmd.dms.util.RuleFormatter.dumpBaseImplementations(RuleFormatter.java:524)
 abstract public class ReferencedAttributeTypeRuleBaseImpl implements RuleIF, DynamicInitIF,AttributeValidationIF {
 

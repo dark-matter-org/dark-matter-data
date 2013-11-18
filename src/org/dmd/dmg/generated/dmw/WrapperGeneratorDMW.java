@@ -15,6 +15,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;            // Required for
 import org.dmd.dmw.DmwNamedObjectWrapper;                        // Named object wrapper - (BaseDMWGeneratorNewest.java:1134)
 
 
+
 /**
  * The WrapperGenerator allows for the definition of a code generation\n
  * component that creates DMO wrappers for use in particular usage

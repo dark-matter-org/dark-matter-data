@@ -16,6 +16,7 @@ import org.dmd.dmt.dsd.dsda.shared.generated.dmo.DsdADMSAG;         // Optional 
 
 
 
+
 // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:133)
 public class DsdCDMSAG implements DmcCompactSchemaIF {
 
@@ -42,7 +43,7 @@ public class DsdCDMSAG implements DmcCompactSchemaIF {
     // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:213)
     public final static DmcClassInfo __CConceptBase = new DmcClassInfo("CConceptBase","org.dmd.dmt.dsd.dsdc.shared.generated.dmo.CConceptBaseDMO", -500148, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,MetaDMSAG.__DSDefinition,MetaDMSAG.__name);
     public final static DmcClassInfo __CConceptX = new DmcClassInfo("CConceptX","org.dmd.dmt.dsd.dsdc.shared.generated.dmo.CConceptXDMO", -500147, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__CConceptBase,MetaDMSAG.__name);
-    public final static DmcClassInfo __ModuleC = new DmcClassInfo("ModuleC","org.dmd.dmt.dsd.dsdc.shared.generated.dmo.ModuleCDMO", -500149, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
+    public final static DmcClassInfo __ModuleC = new DmcClassInfo("ModuleC","org.dmd.dmt.dsd.dsdc.shared.generated.dmo.ModuleCDMO", -500149, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__CConceptBase,MetaDMSAG.__name);
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;
 

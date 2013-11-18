@@ -25,6 +25,7 @@ import org.dmd.dmp.shared.generated.enums.ResponseFormatEnum;         // Primiti
 import org.dmd.dms.ClassDefinition;                                   // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:963)
 
 
+
 /**
  * The request class provides a common base for all request messages.
  * <P>

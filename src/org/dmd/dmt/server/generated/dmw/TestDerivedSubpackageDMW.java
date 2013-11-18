@@ -15,6 +15,7 @@ import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                            // 
 import org.dmd.dmt.shared.generated.dmo.TestDerivedSubpackageDMO;            // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1144)
 
 
+
 /**
  * The TestDerivedSubpackage tests derivation within the same subpackage.
  * <P>

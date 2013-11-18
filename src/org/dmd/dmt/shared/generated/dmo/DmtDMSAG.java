@@ -23,6 +23,7 @@ import org.dmd.dmv.shared.extended.rulesdmo.NumericRangeRule;            // To i
 import org.dmd.dmv.shared.generated.dmo.InitRuleDataDMO;                 // To instantiate InitRuleData rule data - (DmoCompactSchemaFormatter.java:1053)
 import org.dmd.dmv.shared.generated.dmo.NumericRangeRuleDataDMO;         // To instantiate NumericRangeRuleData rule data - (DmoCompactSchemaFormatter.java:1053)
 
+
 import org.dmd.dmt.shared.generated.types.*;
 
 

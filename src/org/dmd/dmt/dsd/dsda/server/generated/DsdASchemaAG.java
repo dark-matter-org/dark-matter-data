@@ -124,6 +124,7 @@ public class DsdASchemaAG extends SchemaDefinition {
             _ModuleAOBJ.setClassType("STRUCTURAL");
             _ModuleAOBJ.setFile("/src/org/dmd/dmt/dsd/dsda/shared/dmdconfig/module.dmd");
             _ModuleAOBJ.setLineNumber("8");
+            _ModuleAOBJ.setDerivedFrom("dsdA.AConceptBase");
             _ModuleAOBJ.setIsNamedBy("meta.name");
             _ModuleAOBJ.setUseWrapperType("EXTENDED");
             _ModuleAOBJ.setDmtREFImport("org.dmd.dmt.dsd.dsda.shared.generated.types.ModuleAREF");
