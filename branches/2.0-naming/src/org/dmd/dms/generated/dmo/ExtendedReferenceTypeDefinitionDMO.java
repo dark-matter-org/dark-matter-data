@@ -25,6 +25,7 @@ import org.dmd.dmc.types.*;                             // Basic type access - (
 import org.dmd.dms.generated.types.*;                   // Generated type access - (MetaGenerator.java:1884)
 
 
+
 /**
  * The ExtendedReferenceTypeDefinition provides a mechanism for extending \n
  * the automatically generated named object reference attribute types with

@@ -10,6 +10,7 @@ import org.dmd.dmc.rules.ClassRuleCollection;         // Class rule - (RuleForma
 import org.dmd.dmc.rules.DmcRuleExceptionSet;         // Rule type - (RuleFormatter.java:209)
 import org.dmd.dmc.rules.RuleIF;                      // All rules implement this - (RuleFormatter.java:210)
 
+
 public class ObjectValidationRuleCollection extends ClassRuleCollection<ObjectValidationIF> {
 
     public ObjectValidationRuleCollection(){

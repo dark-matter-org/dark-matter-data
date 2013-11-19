@@ -50,32 +50,52 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 		return(frontPart + "generated.dsd");
 	}
 	
-	public String getDefinitionsInterfaceImport(){
-		return(getGeneratedDsdPackage() + "." + getName() + "DefinitionsInterface");
+	public String getGlobalInterfaceImport(){
+		return(getGeneratedDsdPackage() + "." + getName() + "GlobalInterface");
 	}
 	
-	public String getDefinitionsInterfaceName(){
-		return(getName() + "DefinitionsInterface");
+	public String getGlobalInterfaceName(){
+		return(getName() + "GlobalInterface");
+	}
+	
+	public String getScopedInterfaceImport(){
+		return(getGeneratedDsdPackage() + "." + getName() + "ScopedInterface");
+	}
+	
+	public String getScopedInterfaceName(){
+		return(getName() + "ScopedInterface");
 	}
 	
 	/**
 	 * Populates the ImportManager with the definitions for just this DSD module.
 	 * @param imports the place to store the imports.
+	 * @param scoped indicates if the imports are for the scoped interface (which doesn't include the
+	 * module itself) or for the global interface
 	 */
-	public void getImportsForInterface(ImportManager imports){
+	public void getImportsForInterface(ImportManager imports, boolean scoped){
 		ClassDefinition dsd = (ClassDefinition) this.getBaseDefinition();
 		
 		imports.addImport(dsd.getDmeImport(), "A definition from the " + this.getName() + " Module");
 		
 		for(ClassDefinition cd : dsd.getDerivedClasses()){
+			if (scoped){
+				// If the class has the same name as this module definition, it's the 
+				// internally generated class to represent the module and we don't want
+				// that in the case of the scoped interface.
+				if (cd.getName().getNameString().equals(getName().getNameString()))
+					continue;
+			}
 			imports.addImport(cd.getDmeImport(), "A definition from the " + this.getName() + " Module");
 		}
 	}
 	
 	/**
+	 * @param scoped flag to indicate if the imports are for the global interface (implemented
+	 * by global definition managers) or the scoped interface (which is implemented by a module
+	 * to manage its own definitions)
 	 * @return the methods to be implemented on definitions interface for this module.
 	 */
-	public String getInterfaceMethods(){
+	public String getInterfaceMethods(boolean scoped){
 		ClassDefinition dsd = (ClassDefinition) this.getBaseDefinition();
 		StringBuffer sb = new StringBuffer();
 		
@@ -85,6 +105,13 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 		sb.append("    public Iterator<" + dsd.getName() + "> getAll" + dsd.getName() + "();\n\n");
 
 		for(ClassDefinition cd : dsd.getDerivedClasses()){
+			if (scoped){
+				// If the class has the same name as this module definition, it's the 
+				// internally generated class to represent the module and we don't want
+				// that in the case of the scoped interface.
+				if (cd.getName().getNameString().equals(getName().getNameString()))
+					continue;
+			}
 			sb.append("    public void add" + cd.getName() + "(" + cd.getName() +" def);\n");
 			sb.append("    public int get" + cd.getName() + "Count();\n");
 			sb.append("    public Iterator<" + cd.getName() + "> getAll" + cd.getName() + "();\n\n");

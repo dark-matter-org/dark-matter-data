@@ -8,6 +8,7 @@ import org.dmd.dmc.rules.DmcRuleExceptionSet;         // Rule type - (RuleFormat
 import org.dmd.dmc.rules.RuleIF;                      // All rules implement this - (RuleFormatter.java:210)
 
 
+
 // Generated from: org.dmd.dms.util.RuleFormatter.dumpRuleCategoryInterfaces(RuleFormatter.java:254)
 public interface AttributeValidationIF extends RuleIF {
 

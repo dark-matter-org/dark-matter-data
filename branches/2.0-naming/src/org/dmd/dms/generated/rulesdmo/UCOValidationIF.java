@@ -7,6 +7,7 @@ import org.dmd.dmc.rules.RuleIF;                      // All rules implement thi
 import org.dmd.dmc.util.DmcUncheckedObject;           // Required for obj - (RuleFormatter.java:221)
 
 
+
 // Generated from: org.dmd.dms.util.RuleFormatter.dumpRuleCategoryInterfaces(RuleFormatter.java:254)
 public interface UCOValidationIF extends RuleIF {
 

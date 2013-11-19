@@ -35,6 +35,7 @@ import org.dmd.dms.generated.enums.DataTypeEnum;              // For fake DmcAtt
 import org.dmd.dms.generated.enums.ValueTypeEnum;             // For fake DmcAttributeInfo - (MetaGenerator.java:3090)
 
 
+
 @SuppressWarnings("serial")
 /**
  * The Field class.

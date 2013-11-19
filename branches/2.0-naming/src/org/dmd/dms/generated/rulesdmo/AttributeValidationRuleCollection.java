@@ -12,6 +12,7 @@ import org.dmd.dmc.rules.AttributeRuleCollection;         // Attribute rule - (R
 import org.dmd.dmc.rules.DmcRuleExceptionSet;             // Rule type - (RuleFormatter.java:209)
 import org.dmd.dmc.rules.RuleIF;                          // All rules implement this - (RuleFormatter.java:210)
 
+
 public class AttributeValidationRuleCollection extends AttributeRuleCollection<AttributeValidationIF> {
 
     public AttributeValidationRuleCollection(){

@@ -26,6 +26,7 @@ import org.dmd.dms.generated.enums.*;                   // Has enum attributes -
 import org.dmd.dms.generated.types.*;                   // Generated type access - (MetaGenerator.java:1884)
 
 
+
 /**
  * The RuleCategory allows for the definition of categories of rules to be
  * applied\n to various objects and indicates the expected interface to be

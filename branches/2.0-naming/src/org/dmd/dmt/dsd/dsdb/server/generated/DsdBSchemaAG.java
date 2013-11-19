@@ -156,6 +156,7 @@ public class DsdBSchemaAG extends SchemaDefinition {
             _ModuleBOBJ.addMay("dsdA.dependsOnModuleA");
             _ModuleBOBJ.addMust("meta.name");
             _ModuleBOBJ.setDmwIteratorImport("org.dmd.dmt.dsd.dsdb.server.generated.dmw.ModuleBIterableDMW");
+            _ModuleBOBJ.setDsdModuleDefinition("dsdB.ModuleB");
             _ModuleBOBJ.setDotName("dsdB.ModuleB.ClassDefinition");
             _ModuleB.setDefinedIn(this);
             addClassDefList(_ModuleB);

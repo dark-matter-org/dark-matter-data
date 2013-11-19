@@ -16,15 +16,17 @@
 package org.dmd.dmt.dsd.dsdc.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManagerInterface(DSDArtifactFormatter.java:259)
-import java.util.Iterator;                                        // To provide iterators over definitions - (DSDArtifactFormatter.java:256)
-import org.dmd.dmt.dsd.dsdc.server.extended.CConceptBase;         // A definition from the ModuleC Module - (DSDefinitionModule.java:68)
-import org.dmd.dmt.dsd.dsdc.server.extended.CConceptX;            // A definition from the ModuleC Module - (DSDefinitionModule.java:71)
-import org.dmd.dmt.dsd.dsdc.server.extended.ModuleC;              // A definition from the ModuleC Module - (DSDefinitionModule.java:71)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateScopedInterface(DSDArtifactFormatter.java:295)
+import java.util.Iterator;                                        // To provide iterators over definitions - (DSDArtifactFormatter.java:292)
+import org.dmd.dmt.dsd.dsdc.server.extended.CConceptBase;         // A definition from the ModuleC Module - (DSDefinitionModule.java:78)
+import org.dmd.dmt.dsd.dsdc.server.extended.CConceptX;            // A definition from the ModuleC Module - (DSDefinitionModule.java:88)
 
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManagerInterface(DSDArtifactFormatter.java:263)
-public interface ModuleCDefinitionsInterface {
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateScopedInterface(DSDArtifactFormatter.java:299)
+/**
+ * This interface is implemented by the generated wrapper class for the ModuleC module.
+ */
+public interface ModuleCScopedInterface {
 
     public int getCConceptBaseCount();
     public Iterator<CConceptBase> getAllCConceptBase();
@@ -32,10 +34,6 @@ public interface ModuleCDefinitionsInterface {
     public void addCConceptX(CConceptX def);
     public int getCConceptXCount();
     public Iterator<CConceptX> getAllCConceptX();
-
-    public void addModuleC(ModuleC def);
-    public int getModuleCCount();
-    public Iterator<ModuleC> getAllModuleC();
 
 }
 

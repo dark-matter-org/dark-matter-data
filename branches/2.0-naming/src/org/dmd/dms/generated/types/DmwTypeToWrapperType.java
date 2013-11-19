@@ -28,6 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;           // For fake DmcAttri
 import org.dmd.dms.generated.enums.WrapperTypeEnum;         // Type for field: wrapperType - (MetaGenerator.java:3400)
 
 
+
 @SuppressWarnings("serial")
 /**
  * The DmwTypeToWrapperType class.

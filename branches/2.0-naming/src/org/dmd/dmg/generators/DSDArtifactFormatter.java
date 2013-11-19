@@ -81,7 +81,8 @@ public class DSDArtifactFormatter {
 				// was specified as part of the DMG config
 				if (module.getDefinedIn().getName().equals(sd.getName())){
 					generateDefinitionManager(config, dirname, module);
-					generateDefinitionManagerInterface(config, dirname, module);
+					generateGlobalInterface(config, dirname, module);
+					generateScopedInterface(config, dirname, module);
 					generateParser(config, dirname, module, sm);
 				}
 			}
@@ -142,8 +143,8 @@ public class DSDArtifactFormatter {
 	void getImportsForDefinitions(ImportManager imports, ImplementsManager impl, DSDefinitionModule ddm, TreeMap<String, DSDefinitionModule> includedModules){
 		ClassDefinition dsd = (ClassDefinition) ddm.getBaseDefinition();
 		
-		imports.addImport(ddm.getDefinitionsInterfaceImport(), "Interface for " + ddm.getName() + " definitions");
-		impl.addImplements(ddm.getDefinitionsInterfaceName());
+		imports.addImport(ddm.getGlobalInterfaceImport(), "Interface for " + ddm.getName() + " definitions");
+		impl.addImplements(ddm.getGlobalInterfaceName());
 		
 		imports.addImport(dsd.getDmeImport(), "A definition from the " + ddm.getName() + " Module");
 		
@@ -238,32 +239,70 @@ public class DSDArtifactFormatter {
 	///////////////////////////////////////////////////////////////////////////
 	
 	/**
-	 * Thus method generates an interface that has the methods required to store and retrieve
-	 * the definitions associated with a particular DSD module. This interface is implemented
-	 * by any definition manager that manages the definitions of a particular DSD module.
-	 * This approach allows for the injection of a definition manager into the type specific
-	 * DSD module parsers.
+	 * This method generates an interface that has the methods required to store and retrieve
+	 * the definitions associated with a particular DSD module, including the module type itself.
+	 * This interface is implemented by any definition manager that manages the definitions of a
+	 * particular DSD module. This approach allows for the injection of a definition manager
+	 * into the type specific DSD module parsers.
 	 * @param config
 	 * @param dir
 	 * @param ddm
 	 * @throws IOException  
 	 */
-	void generateDefinitionManagerInterface(DmgConfigDMO config, String dir, DSDefinitionModule ddm) throws IOException {
+	void generateGlobalInterface(DmgConfigDMO config, String dir, DSDefinitionModule ddm) throws IOException {
 		ImportManager imports = new ImportManager();
-		ManagedFileWriter out = FileUpdateManager.instance().getWriter(dir, ddm.getName() + "DefinitionsInterface.java");
+		ManagedFileWriter out = FileUpdateManager.instance().getWriter(dir, ddm.getName() + "GlobalInterface.java");
 		out.write("package " + config.getGenPackage() + ".generated.dsd;\n\n");
 		
 		imports.addImport("java.util.Iterator", "To provide iterators over definitions");
-		ddm.getImportsForInterface(imports);
+		ddm.getImportsForInterface(imports, false);
 		
 		out.write(imports.getFormattedImports());
 		
 		out.write("\n");
 		
 		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-		out.write("public interface " + ddm.getName() + "DefinitionsInterface {\n\n");
+		out.write("/**\n");
+		out.write(" * This interface is implemented by definition managers that store definitions from the " + ddm.getName() + " module.\n");
+		out.write(" */\n");
+		out.write("public interface " + ddm.getName() + "GlobalInterface {\n\n");
 		
-		out.write(ddm.getInterfaceMethods());
+		out.write(ddm.getInterfaceMethods(false));
+		
+		out.write("}\n\n");
+
+		out.close();
+	}
+	
+	/**
+	 * This method generates an interface that has the methods required to store and retrieve
+	 * just the definitions associated with a particular DSD module, NOT including the module
+	 * type itself. This interface is implemented by the module class so that we can, from 
+	 * a paticular module, access the definitions defined as part of that module.
+	 * @param config
+	 * @param dir
+	 * @param ddm
+	 * @throws IOException  
+	 */
+	void generateScopedInterface(DmgConfigDMO config, String dir, DSDefinitionModule ddm) throws IOException {
+		ImportManager imports = new ImportManager();
+		ManagedFileWriter out = FileUpdateManager.instance().getWriter(dir, ddm.getName() + "ScopedInterface.java");
+		out.write("package " + config.getGenPackage() + ".generated.dsd;\n\n");
+		
+		imports.addImport("java.util.Iterator", "To provide iterators over definitions");
+		ddm.getImportsForInterface(imports, true);
+		
+		out.write(imports.getFormattedImports());
+		
+		out.write("\n");
+		
+		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("/**\n");
+		out.write(" * This interface is implemented by the generated wrapper class for the " + ddm.getName() + " module.\n");
+		out.write(" */\n");
+		out.write("public interface " + ddm.getName() + "ScopedInterface {\n\n");
+		
+		out.write(ddm.getInterfaceMethods(true));
 		
 		out.write("}\n\n");
 
@@ -288,7 +327,7 @@ public class DSDArtifactFormatter {
 		imports.addImport("org.dmd.dmc.definitions.DsdParserInterface", "Standard parser interface");
 		imports.addImport("org.dmd.util.parsing.ConfigLocation", "Config file location info");
 		imports.addImport("org.dmd.dmw.DmwObjectFactory", "Constructs wrapped objects");
-		imports.addImport(ddm.getDefinitionsInterfaceImport(), "Interface to our definition storage");
+		imports.addImport(ddm.getGlobalInterfaceImport(), "Interface to our definition storage");
 				
 		out.write("package " + config.getGenPackage() + ".generated.dsd;\n\n");
 		
@@ -322,7 +361,7 @@ public class DSDArtifactFormatter {
 		members.addMember("SchemaManager",                   "schema", "new SchemaManager()", "Manages the schema for this DSD");
 		members.addMember("DmcUncheckedOIFParser",           "parser", "new DmcUncheckedOIFParser(this)", "Parses objects from the config file");
 		members.addMember("DmwObjectFactory",                "factory", "new DmwObjectFactory(schema)", "Instantiates wrapped objects");
-		members.addMember(ddm.getDefinitionsInterfaceName(), "definitions", "Place to store parsed definitions");
+		members.addMember(ddm.getGlobalInterfaceName(), "definitions", "Place to store parsed definitions");
 		members.addMember("DmvRuleManager", 				 "rules", "The overall rule manager");
 		members.addMember("ConfigLocation",					 "location", "The location of the config being parsed");
 		members.addMember(ddmClass.getName().getNameString(),"module", "The DDM module");
@@ -331,7 +370,7 @@ public class DSDArtifactFormatter {
 		out.write("\n");
 		
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-		out.write("    " + ddm.getName() + "Parser(" + ddm.getDefinitionsInterfaceName() + " d, DmvRuleManager r) throws ResultException, DmcValueException {\n");
+		out.write("    " + ddm.getName() + "Parser(" + ddm.getGlobalInterfaceName() + " d, DmvRuleManager r) throws ResultException, DmcValueException {\n");
 		out.write("        schema.manageSchema(new " + schemaName + "SchemaAG());\n");
 		out.write("        definitions  = d;\n");
 		out.write("        rules        = r;\n");
