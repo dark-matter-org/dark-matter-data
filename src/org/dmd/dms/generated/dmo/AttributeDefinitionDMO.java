@@ -26,6 +26,7 @@ import org.dmd.dms.generated.enums.*;                   // Has enum attributes -
 import org.dmd.dms.generated.types.*;                   // Generated type access - (MetaGenerator.java:1884)
 
 
+
 /**
  * This class is used to define attributes to be used\n as part of a class
  * definition.

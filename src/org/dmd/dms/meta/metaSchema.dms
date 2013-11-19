@@ -1885,6 +1885,14 @@ type                AttributeDefinition
 description    		The name of the attribute that will be set on all definitions associated with a DSD
  to indicate the module from which a definition was loaded.
 
+AttributeDefinition
+name                		dsdModuleDefinition
+dmdID						168
+type                		DSDefinitionModule
+internalUse					true
+description    				The DSDefinitionModule that resulted in the creation of an
+ internally generated ClassDefinition.
+
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
 AttributeDefinition
@@ -2065,6 +2073,7 @@ may				isDSDefinition
 // Auto generated/set
 may             internallyGenerated
 may				ruleDefinition
+may				dsdModuleDefinition
 may           	derivedClasses
 may           	actions
 may				internalTypeRef

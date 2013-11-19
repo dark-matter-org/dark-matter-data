@@ -26,6 +26,7 @@ import org.dmd.dms.generated.enums.*;                   // Has enum attributes -
 import org.dmd.dms.generated.types.*;                   // Generated type access - (MetaGenerator.java:1884)
 
 
+
 /**
  * This class provides the basic mechanism to define new classes for a schema.
  * @author Auto Generated
@@ -71,6 +72,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         _ImAp.put(MetaDMSAG.__dmwIteratorImport.id,MetaDMSAG.__dmwIteratorImport);
         _ImAp.put(MetaDMSAG.__dmwWrapperType.id,MetaDMSAG.__dmwWrapperType);
         _ImAp.put(MetaDMSAG.__dotName.id,MetaDMSAG.__dotName);
+        _ImAp.put(MetaDMSAG.__dsdModuleDefinition.id,MetaDMSAG.__dsdModuleDefinition);
         _ImAp.put(MetaDMSAG.__exampleUsage.id,MetaDMSAG.__exampleUsage);
         _ImAp.put(MetaDMSAG.__excludeFromContext.id,MetaDMSAG.__excludeFromContext);
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
@@ -119,6 +121,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         _SmAp.put(MetaDMSAG.__dmwIteratorImport.name,MetaDMSAG.__dmwIteratorImport);
         _SmAp.put(MetaDMSAG.__dmwWrapperType.name,MetaDMSAG.__dmwWrapperType);
         _SmAp.put(MetaDMSAG.__dotName.name,MetaDMSAG.__dotName);
+        _SmAp.put(MetaDMSAG.__dsdModuleDefinition.name,MetaDMSAG.__dsdModuleDefinition);
         _SmAp.put(MetaDMSAG.__exampleUsage.name,MetaDMSAG.__exampleUsage);
         _SmAp.put(MetaDMSAG.__excludeFromContext.name,MetaDMSAG.__excludeFromContext);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
@@ -938,6 +941,33 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         
         attr.set(value);
         set(MetaDMSAG.__dotName,attr);
+    }
+
+    /**
+     * The DSDefinitionModule that resulted in the creation of an\n internally
+     * generated ClassDefinition.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2295)
+    public DSDefinitionModuleREF getDsdModuleDefinition(){
+        DmcTypeDSDefinitionModuleREFSV attr = (DmcTypeDSDefinitionModuleREFSV) get(MetaDMSAG.__dsdModuleDefinition);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets dsdModuleDefinition to the specified value.
+     * @param value A value compatible with DmcTypeDSDefinitionModuleREFSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2388)
+    public void setDsdModuleDefinition(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__dsdModuleDefinition);
+        if (attr == null)
+            attr = new DmcTypeDSDefinitionModuleREFSV(MetaDMSAG.__dsdModuleDefinition);
+        
+        attr.set(value);
+        set(MetaDMSAG.__dsdModuleDefinition,attr);
     }
 
     /**

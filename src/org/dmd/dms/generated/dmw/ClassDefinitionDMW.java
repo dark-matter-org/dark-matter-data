@@ -634,6 +634,28 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition implements Dmc
     }
 
     /**
+     * The DSDefinitionModule that resulted in the creation of an\n internally
+     * generated ClassDefinition.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    public DSDefinitionModule getDsdModuleDefinition(){
+        DmcTypeDSDefinitionModuleREFSV attr = (DmcTypeDSDefinitionModuleREFSV) mycore.get(MetaDMSAG.__dsdModuleDefinition);
+        if (attr == null)
+            return(null);
+        DSDefinitionModuleDMO obj = attr.getSV().getObject();
+        return((DSDefinitionModule)obj.getContainer());
+    }
+
+    /**
+     * Sets dsdModuleDefinition to the specified value.
+     * @param value A value compatible with DSDefinitionModule
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2409)
+    public void setDsdModuleDefinition(DSDefinitionModule value) throws DmcValueException {
+        mycore.setDsdModuleDefinition(value.getDmcObject());
+    }
+
+    /**
      * Indicates the classes that are known to be derived from a class.
      * @return An Iterator of ClassDefinition objects.
      */

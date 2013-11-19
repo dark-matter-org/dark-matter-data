@@ -26,6 +26,7 @@ import org.dmd.dms.generated.types.*;                   // Generated type access
 import org.dmd.dms.types.*;                             // Enum support - (MetaGenerator.java:1876)
 
 
+
 /**
  * The EnumDefinition allows for the definition of real Java enums that
  * provide\n inherent mapping of the string and integer values of the enum

@@ -877,6 +877,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         cd.setDmdID(ddm.getDmdID());
         cd.setIsNamedBy(MetaSchemaAG._name);
         cd.setInternallyGenerated(true);
+        cd.setDsdModuleDefinition(ddm);
         
         // We derive the module from the base definition class for the module!
         cd.setDerivedFrom((ClassDefinition) ddm.getBaseDefinition());

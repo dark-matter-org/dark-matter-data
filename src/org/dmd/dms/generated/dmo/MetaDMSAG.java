@@ -83,6 +83,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __dmwTypeToPackage = new DmcAttributeInfo("meta","dmwTypeToPackage",123,"StringToString",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __dmwWrapperType = new DmcAttributeInfo("meta","dmwWrapperType",124,"DmwTypeToWrapperType",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __dotName = new DmcAttributeInfo("meta","dotName",107,"DotName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __dsdModuleDefinition = new DmcAttributeInfo("meta","dsdModuleDefinition",168,"DSDefinitionModule",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __enumDefList = new DmcAttributeInfo("meta","enumDefList",58,"EnumDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __enumInt = new DmcAttributeInfo("meta","enumInt",69,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __enumName = new DmcAttributeInfo("meta","enumName",99,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
@@ -362,6 +363,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__dmwTypeToPackage.id,__dmwTypeToPackage);
         _SmAp.put(__dmwWrapperType.id,__dmwWrapperType);
         _SmAp.put(__dotName.id,__dotName);
+        _SmAp.put(__dsdModuleDefinition.id,__dsdModuleDefinition);
         _SmAp.put(__enumDefList.id,__enumDefList);
         _SmAp.put(__enumInt.id,__enumInt);
         _SmAp.put(__enumName.id,__enumName);
@@ -553,6 +555,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __ClassDefinition.addMay(__dmwIteratorImport);
         __ClassDefinition.addMay(__dmwWrapperType);
         __ClassDefinition.addMay(__dotName);
+        __ClassDefinition.addMay(__dsdModuleDefinition);
         __ClassDefinition.addMay(__exampleUsage);
         __ClassDefinition.addMay(__excludeFromContext);
         __ClassDefinition.addMay(__file);

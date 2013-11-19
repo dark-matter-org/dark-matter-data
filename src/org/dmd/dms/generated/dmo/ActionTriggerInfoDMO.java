@@ -24,6 +24,7 @@ import org.dmd.dmc.types.*;                   // Basic type access - (MetaGenera
 import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGenerator.java:1884)
 
 
+
 /**
  * The ActionTriggerInfo class simply provides a common base for the bundle\n
  * of information required to remotely trigger an action on an object. \n

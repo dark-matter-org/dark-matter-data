@@ -25,6 +25,7 @@ import org.dmd.dmc.DmcOutputStreamIF;         // To support serialization - (Gen
 import org.dmd.dmc.DmcValueException;         // Type checking - (GenUtility.java:3078)
 
 
+
 @SuppressWarnings("serial")
 /**
  * The DmcTypeRuleParam class.

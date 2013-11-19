@@ -24,6 +24,7 @@ import org.dmd.dmc.types.*;                   // Basic type access - (MetaGenera
 import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGenerator.java:1884)
 
 
+
 /**
  * The DmsDefinition class provides a common base for all dark-matter schema
  * (DMS) definition classes.

@@ -16,15 +16,17 @@
 package org.dmd.dmt.dsd.dsdb.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManagerInterface(DSDArtifactFormatter.java:259)
-import java.util.Iterator;                                        // To provide iterators over definitions - (DSDArtifactFormatter.java:256)
-import org.dmd.dmt.dsd.dsdb.server.extended.BConceptBase;         // A definition from the ModuleB Module - (DSDefinitionModule.java:68)
-import org.dmd.dmt.dsd.dsdb.server.extended.BConceptX;            // A definition from the ModuleB Module - (DSDefinitionModule.java:71)
-import org.dmd.dmt.dsd.dsdb.server.extended.ModuleB;              // A definition from the ModuleB Module - (DSDefinitionModule.java:71)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateScopedInterface(DSDArtifactFormatter.java:295)
+import java.util.Iterator;                                        // To provide iterators over definitions - (DSDArtifactFormatter.java:292)
+import org.dmd.dmt.dsd.dsdb.server.extended.BConceptBase;         // A definition from the ModuleB Module - (DSDefinitionModule.java:78)
+import org.dmd.dmt.dsd.dsdb.server.extended.BConceptX;            // A definition from the ModuleB Module - (DSDefinitionModule.java:88)
 
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManagerInterface(DSDArtifactFormatter.java:263)
-public interface ModuleBDefinitionsInterface {
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateScopedInterface(DSDArtifactFormatter.java:299)
+/**
+ * This interface is implemented by the generated wrapper class for the ModuleB module.
+ */
+public interface ModuleBScopedInterface {
 
     public int getBConceptBaseCount();
     public Iterator<BConceptBase> getAllBConceptBase();
@@ -32,10 +34,6 @@ public interface ModuleBDefinitionsInterface {
     public void addBConceptX(BConceptX def);
     public int getBConceptXCount();
     public Iterator<BConceptX> getAllBConceptX();
-
-    public void addModuleB(ModuleB def);
-    public int getModuleBCount();
-    public Iterator<ModuleB> getAllModuleB();
 
 }
 

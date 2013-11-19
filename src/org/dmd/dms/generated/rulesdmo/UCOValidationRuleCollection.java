@@ -10,6 +10,7 @@ import org.dmd.dmc.rules.DmcRuleExceptionSet;         // Rule type - (RuleFormat
 import org.dmd.dmc.rules.RuleIF;                      // All rules implement this - (RuleFormatter.java:210)
 import org.dmd.dmc.util.DmcUncheckedObject;           // Required for obj - (RuleFormatter.java:221)
 
+
 public class UCOValidationRuleCollection extends ClassRuleCollection<UCOValidationIF> {
 
     public UCOValidationRuleCollection(){

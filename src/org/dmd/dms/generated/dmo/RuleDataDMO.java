@@ -24,6 +24,7 @@ import org.dmd.dmc.types.*;                   // Basic type access - (MetaGenera
 import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGenerator.java:1884)
 
 
+
 /**
  * The RuleData class serves as a common base for all ClassDefinitions\n that
  * are generated internally to represent the data associated with

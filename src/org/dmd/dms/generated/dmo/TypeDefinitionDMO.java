@@ -25,6 +25,7 @@ import org.dmd.dmc.types.*;                             // Basic type access - (
 import org.dmd.dms.generated.types.*;                   // Generated type access - (MetaGenerator.java:1884)
 
 
+
 /**
  * The <code> TypeDefinition </code> is used to define the types of
  * attributes that can be used\n as the basis for attribute values. The name

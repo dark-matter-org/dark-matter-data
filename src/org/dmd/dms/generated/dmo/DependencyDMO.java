@@ -25,6 +25,7 @@ import org.dmd.dmc.types.*;                             // Basic type access - (
 import org.dmd.dms.generated.types.*;                   // Generated type access - (MetaGenerator.java:1884)
 
 
+
 /**
  * The Dependency class allows for the definition of a named dependency\n on
  * something; usually an interface. In the current schema mechanisms, the

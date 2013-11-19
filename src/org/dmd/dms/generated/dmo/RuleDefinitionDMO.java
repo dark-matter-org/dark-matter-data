@@ -25,6 +25,7 @@ import org.dmd.dmc.types.*;                             // Basic type access - (
 import org.dmd.dms.generated.types.*;                   // Generated type access - (MetaGenerator.java:1884)
 
 
+
 /**
  * The RuleDefinition allows for the definition of rules that can\n be
  * applied to attributes or classes. Rules are not just for validation,

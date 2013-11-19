@@ -24,6 +24,7 @@ import org.dmd.dmc.types.*;                   // Basic type access - (MetaGenera
 import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGenerator.java:1884)
 
 
+
 /**
  * This class is used to define a schema as a discrete, nameable entity.
  * @author Auto Generated
