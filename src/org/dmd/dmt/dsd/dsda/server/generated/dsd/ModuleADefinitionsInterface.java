@@ -16,17 +16,16 @@
 package org.dmd.dmt.dsd.dsda.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManagerInterface(DSDArtifactFormatter.java:247)
-import java.util.Iterator;                                        // To provide iterators over definitions - (DSDArtifactFormatter.java:244)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManagerInterface(DSDArtifactFormatter.java:259)
+import java.util.Iterator;                                        // To provide iterators over definitions - (DSDArtifactFormatter.java:256)
 import org.dmd.dmt.dsd.dsda.server.extended.AConceptBase;         // A definition from the ModuleA Module - (DSDefinitionModule.java:68)
 import org.dmd.dmt.dsd.dsda.server.extended.AConceptX;            // A definition from the ModuleA Module - (DSDefinitionModule.java:71)
 import org.dmd.dmt.dsd.dsda.server.extended.ModuleA;              // A definition from the ModuleA Module - (DSDefinitionModule.java:71)
 
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManagerInterface(DSDArtifactFormatter.java:251)
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManagerInterface(DSDArtifactFormatter.java:263)
 public interface ModuleADefinitionsInterface {
 
-    public void addAConceptBase(AConceptBase def);
     public int getAConceptBaseCount();
     public Iterator<AConceptBase> getAllAConceptBase();
 
