@@ -177,12 +177,22 @@ public class DSDArtifactFormatter {
 		out.write("\n");
 	}
 	
+	/**
+	 * 
+	 * @param out
+	 * @param modules
+	 * @throws IOException
+	 */
 	void dumpDefinitionInterfaceMethods(ManagedFileWriter out, TreeMap<String,DSDefinitionModule> modules) throws IOException {
 		for(DSDefinitionModule ddm : modules.values()){
 			ClassDefinition dsd = (ClassDefinition) ddm.getBaseDefinition();
 			
 			out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-			out.write("    public void add" + dsd.getName() + "(" + dsd.getName() + " def){\n");
+			out.write("    /**\n");
+			out.write("     * All definitions are added to the base definition collection.\n");
+			out.write("     */\n");
+			out.write("    void add" + dsd.getName() + "(" + dsd.getName() + " def){\n");
+			out.write("        " + dsd.getName() + "Defs.add(def);\n");
 			out.write("    }\n\n");
 			
 			out.write("    public int get" + dsd.getName() + "Count(){\n");
@@ -196,6 +206,8 @@ public class DSDArtifactFormatter {
 			for(ClassDefinition cd : dsd.getDerivedClasses()){
 				out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 				out.write("    public void add" + cd.getName() + "(" + cd.getName() + " def){\n");
+				out.write("        " + cd.getName() + "Defs.add(def);\n");
+				out.write("        add" + dsd.getName() + "(def);\n");
 				out.write("    }\n\n");
 				
 				out.write("    public int get" + cd.getName() + "Count(){\n");
@@ -312,11 +324,13 @@ public class DSDArtifactFormatter {
 		members.addMember("DmwObjectFactory",                "factory", "new DmwObjectFactory(schema)", "Instantiates wrapped objects");
 		members.addMember(ddm.getDefinitionsInterfaceName(), "definitions", "Place to store parsed definitions");
 		members.addMember("DmvRuleManager", 				 "rules", "The overall rule manager");
+		members.addMember("ConfigLocation",					 "location", "The location of the config being parsed");
 		members.addMember(ddmClass.getName().getNameString(),"module", "The DDM module");
 		
 		out.write(members.getFormattedMembers());
 		out.write("\n");
 		
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("    " + ddm.getName() + "Parser(" + ddm.getDefinitionsInterfaceName() + " d, DmvRuleManager r) throws ResultException, DmcValueException {\n");
 		out.write("        schema.manageSchema(new " + schemaName + "SchemaAG());\n");
 		out.write("        definitions  = d;\n");
@@ -327,7 +341,9 @@ public class DSDArtifactFormatter {
 		out.write("        return(fileExtension);\n");
 		out.write("    }\n\n");
 		
-		out.write("    public void parseConfig(ConfigLocation location) throws ResultException, DmcValueException, DmcRuleExceptionSet {\n");
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    public void parseConfig(ConfigLocation l) throws ResultException, DmcValueException, DmcRuleExceptionSet {\n");
+		out.write("        location = l;\n");
 		out.write("\n");
 		out.write("        // We're starting to parse a new config. Reset the module to null so that we only parse one module per config.\n");
 		out.write("        module = null;\n");
@@ -348,6 +364,7 @@ public class DSDArtifactFormatter {
 		out.write("\n");
 		out.write("    }\n\n");
 		
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		ClassDefinition baseClass = (ClassDefinition) ddm.getBaseDefinition();
 		out.write("    @Override\n");
 		out.write("    public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException, DmcRuleExceptionSet {\n");
@@ -377,6 +394,11 @@ public class DSDArtifactFormatter {
 		out.write("        definition.setLineNumber(lineNumber);\n");
 		out.write("        definition.setFile(infile);\n");
 		out.write("\n");
+		out.write("        // Run the rules against the definition\n");
+		out.write("        rules.executeInitializers(definition.getDmcObject());\n");
+		out.write("        rules.executeAttributeValidation(definition.getDmcObject());\n");
+		out.write("        rules.executeObjectValidation(definition.getDmcObject());\n");
+		out.write("\n");
 		out.write("        // The first definition we expect is the module definition\n");
 		out.write("        if (module == null){\n");
 		out.write("            if (definition instanceof " + ddm.getName() + "){\n");
@@ -388,10 +410,27 @@ public class DSDArtifactFormatter {
 		out.write("                throw(ex);\n");
 		out.write("            }\n");
 		out.write("        }\n");
+		out.write("        else{\n");
+		out.write("            // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("            if (definition instanceof " + ddm.getName() + "){\n");
+		out.write("                ResultException ex = new ResultException(\"Multiple " + ddm.getName() + " definitions while parsing config: \" + location.getFileName());\n");
+		out.write("                ex.setLocationInfo(infile, lineNumber);\n");
+		out.write("                throw(ex);\n");
+		out.write("            }\n");
+		out.write("            \n");
+		
+		boolean first = true;
+		String condition = "if";
+		for(ClassDefinition cd: structuralDefs){
+			out.write("            " + condition + " (definition instanceof " + cd.getName() + "){\n");
+			out.write("                definitions.add" + cd.getName() + "((" + cd.getName() + ")definition);\n");
+			out.write("            }\n");
+			if (first)
+				condition = "else if";
+		}
 		out.write("\n");
-		out.write("\n");
-		out.write("\n");
-		out.write("\n");
+		
+		out.write("        }\n");
 		out.write("\n");
 		out.write("    }\n");
 		
@@ -415,8 +454,11 @@ public class DSDArtifactFormatter {
 		
 		for(ClassDefinition cd : dsd.getDerivedClasses()){
 			if (cd.getClassType() == ClassTypeEnum.STRUCTURAL){
-				imports.addImport(cd.getDmeImport(), "A definition from the " + ddm.getName() + " Module");
-				structuralDefs.add(cd);
+				// Add the structural classes except for the one that represents the module
+				if (!cd.getName().getNameString().equals(ddm.getName().getNameString())){
+					imports.addImport(cd.getDmeImport(), "A definition from the " + ddm.getName() + " Module");
+					structuralDefs.add(cd);
+				}
 			}
 		}
 				

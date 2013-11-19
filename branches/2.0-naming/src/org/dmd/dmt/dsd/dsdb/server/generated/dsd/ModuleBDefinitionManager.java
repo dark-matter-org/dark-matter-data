@@ -52,8 +52,12 @@ public class ModuleBDefinitionManager implements ModuleADefinitionsInterface, Mo
 
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionInterfaceMethods(DSDArtifactFormatter.java:184)
-    public void addAConceptBase(AConceptBase def){
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionInterfaceMethods(DSDArtifactFormatter.java:190)
+    /**
+     * All definitions are added to the base definition collection.
+     */
+    void addAConceptBase(AConceptBase def){
+        AConceptBaseDefs.add(def);
     }
 
     public int getAConceptBaseCount(){
@@ -64,8 +68,10 @@ public class ModuleBDefinitionManager implements ModuleADefinitionsInterface, Mo
         return(AConceptBaseDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionInterfaceMethods(DSDArtifactFormatter.java:197)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionInterfaceMethods(DSDArtifactFormatter.java:207)
     public void addAConceptX(AConceptX def){
+        AConceptXDefs.add(def);
+        addAConceptBase(def);
     }
 
     public int getAConceptXCount(){
@@ -76,8 +82,10 @@ public class ModuleBDefinitionManager implements ModuleADefinitionsInterface, Mo
         return(AConceptXDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionInterfaceMethods(DSDArtifactFormatter.java:197)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionInterfaceMethods(DSDArtifactFormatter.java:207)
     public void addModuleA(ModuleA def){
+        ModuleADefs.add(def);
+        addAConceptBase(def);
     }
 
     public int getModuleACount(){
@@ -88,8 +96,12 @@ public class ModuleBDefinitionManager implements ModuleADefinitionsInterface, Mo
         return(ModuleADefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionInterfaceMethods(DSDArtifactFormatter.java:184)
-    public void addBConceptBase(BConceptBase def){
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionInterfaceMethods(DSDArtifactFormatter.java:190)
+    /**
+     * All definitions are added to the base definition collection.
+     */
+    void addBConceptBase(BConceptBase def){
+        BConceptBaseDefs.add(def);
     }
 
     public int getBConceptBaseCount(){
@@ -100,8 +112,10 @@ public class ModuleBDefinitionManager implements ModuleADefinitionsInterface, Mo
         return(BConceptBaseDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionInterfaceMethods(DSDArtifactFormatter.java:197)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionInterfaceMethods(DSDArtifactFormatter.java:207)
     public void addBConceptX(BConceptX def){
+        BConceptXDefs.add(def);
+        addBConceptBase(def);
     }
 
     public int getBConceptXCount(){
@@ -112,8 +126,10 @@ public class ModuleBDefinitionManager implements ModuleADefinitionsInterface, Mo
         return(BConceptXDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionInterfaceMethods(DSDArtifactFormatter.java:197)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionInterfaceMethods(DSDArtifactFormatter.java:207)
     public void addModuleB(ModuleB def){
+        ModuleBDefs.add(def);
+        addBConceptBase(def);
     }
 
     public int getModuleBCount(){

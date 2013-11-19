@@ -79,7 +79,8 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 		ClassDefinition dsd = (ClassDefinition) this.getBaseDefinition();
 		StringBuffer sb = new StringBuffer();
 		
-		sb.append("    public void add" + dsd.getName() + "(" + dsd.getName() +" def);\n");
+		// We don't advertise adding to the base definition set
+//		sb.append("    public void add" + dsd.getName() + "(" + dsd.getName() +" def);\n");
 		sb.append("    public int get" + dsd.getName() + "Count();\n");
 		sb.append("    public Iterator<" + dsd.getName() + "> getAll" + dsd.getName() + "();\n\n");
 
