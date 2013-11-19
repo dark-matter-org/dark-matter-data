@@ -186,39 +186,40 @@ public class DSDArtifactFormatter {
 	 */
 	void dumpDefinitionInterfaceMethods(ManagedFileWriter out, TreeMap<String,DSDefinitionModule> modules) throws IOException {
 		for(DSDefinitionModule ddm : modules.values()){
-			ClassDefinition dsd = (ClassDefinition) ddm.getBaseDefinition();
-			
-			out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-			out.write("    /**\n");
-			out.write("     * All definitions are added to the base definition collection.\n");
-			out.write("     */\n");
-			out.write("    void add" + dsd.getName() + "(" + dsd.getName() + " def){\n");
-			out.write("        " + dsd.getName() + "Defs.add(def);\n");
-			out.write("    }\n\n");
-			
-			out.write("    public int get" + dsd.getName() + "Count(){\n");
-			out.write("        return(" + dsd.getName() + "Defs.size());\n");
-			out.write("    }\n\n");
-			
-			out.write("    public Iterator<" + dsd.getName() + "> getAll" + dsd.getName() + "(){\n");
-			out.write("        return(" + dsd.getName() + "Defs.values().iterator());\n");
-			out.write("    }\n\n");
-			
-			for(ClassDefinition cd : dsd.getDerivedClasses()){
-				out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-				out.write("    public void add" + cd.getName() + "(" + cd.getName() + " def){\n");
-				out.write("        " + cd.getName() + "Defs.add(def);\n");
-				out.write("        add" + dsd.getName() + "(def);\n");
-				out.write("    }\n\n");
-				
-				out.write("    public int get" + cd.getName() + "Count(){\n");
-				out.write("        return(" + cd.getName() + "Defs.size());\n");
-				out.write("    }\n\n");
-				
-				out.write("    public Iterator<" + cd.getName() + "> getAll" + cd.getName() + "(){\n");
-				out.write("        return(" + cd.getName() + "Defs.values().iterator());\n");
-				out.write("    }\n\n");
-			}
+			out.write(ddm.getInterfaceMethodsImplementations(false));
+//			ClassDefinition dsd = (ClassDefinition) ddm.getBaseDefinition();
+//			
+//			out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+//			out.write("    /**\n");
+//			out.write("     * All definitions are added to the base definition collection.\n");
+//			out.write("     */\n");
+//			out.write("    void add" + dsd.getName() + "(" + dsd.getName() + " def){\n");
+//			out.write("        " + dsd.getName() + "Defs.add(def);\n");
+//			out.write("    }\n\n");
+//			
+//			out.write("    public int get" + dsd.getName() + "Count(){\n");
+//			out.write("        return(" + dsd.getName() + "Defs.size());\n");
+//			out.write("    }\n\n");
+//			
+//			out.write("    public Iterator<" + dsd.getName() + "> getAll" + dsd.getName() + "(){\n");
+//			out.write("        return(" + dsd.getName() + "Defs.values().iterator());\n");
+//			out.write("    }\n\n");
+//			
+//			for(ClassDefinition cd : dsd.getDerivedClasses()){
+//				out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+//				out.write("    public void add" + cd.getName() + "(" + cd.getName() + " def){\n");
+//				out.write("        " + cd.getName() + "Defs.add(def);\n");
+//				out.write("        add" + dsd.getName() + "(def);\n");
+//				out.write("    }\n\n");
+//				
+//				out.write("    public int get" + cd.getName() + "Count(){\n");
+//				out.write("        return(" + cd.getName() + "Defs.size());\n");
+//				out.write("    }\n\n");
+//				
+//				out.write("    public Iterator<" + cd.getName() + "> getAll" + cd.getName() + "(){\n");
+//				out.write("        return(" + cd.getName() + "Defs.values().iterator());\n");
+//				out.write("    }\n\n");
+//			}
 		}
 		out.write("\n");
 	}	

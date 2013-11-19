@@ -41,7 +41,7 @@ public class ModuleADefinitionManager implements ModuleAGlobalInterface {
 
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionInterfaceMethods(DSDArtifactFormatter.java:191)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:148)
     /**
      * All definitions are added to the base definition collection.
      */
@@ -57,7 +57,7 @@ public class ModuleADefinitionManager implements ModuleAGlobalInterface {
         return(AConceptBaseDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionInterfaceMethods(DSDArtifactFormatter.java:208)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:172)
     public void addAConceptX(AConceptX def){
         AConceptXDefs.add(def);
         addAConceptBase(def);
@@ -71,7 +71,7 @@ public class ModuleADefinitionManager implements ModuleAGlobalInterface {
         return(AConceptXDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionInterfaceMethods(DSDArtifactFormatter.java:208)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:172)
     public void addModuleA(ModuleA def){
         ModuleADefs.add(def);
         addAConceptBase(def);
