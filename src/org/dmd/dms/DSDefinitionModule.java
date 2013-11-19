@@ -18,6 +18,8 @@ package org.dmd.dms;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dms.generated.dmw.DSDefinitionModuleDMW;
 import org.dmd.util.codegen.ImportManager;
+import org.dmd.util.codegen.MemberManager;
+import org.dmd.util.exceptions.DebugInfo;
 
 /**
  * The DSDefinitionModule is used to describe the base characteristics of a set
@@ -66,6 +68,21 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 		return(getName() + "ScopedInterface");
 	}
 	
+	public void getScopedInterfaceMembers(MemberManager members){
+		ClassDefinition dsd = (ClassDefinition) getBaseDefinition();
+		
+//		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+//		out.write("    DmcDefinitionSet<" + dsd.getName() + "> " + dsd.getName() + "Defs;\n");
+		
+		members.addMember("DmcDefinitionSet<" + dsd.getName() + "> ", dsd.getName() + "Defs", "new " + "DmcDefinitionSet<" + dsd.getName() + ">()", "All definitions associated with this module");
+		
+		for(ClassDefinition cd : dsd.getDerivedClasses()){
+//			out.write("    DmcDefinitionSet<" + cd.getName() + "> " + cd.getName() + "Defs;\n");			
+			members.addMember("DmcDefinitionSet<" + cd.getName() + "> ", cd.getName() + "Defs", "new " + "DmcDefinitionSet<" + cd.getName() + ">()", "All " + cd.getName() + " definitions");
+		}
+		
+	}
+	
 	/**
 	 * Populates the ImportManager with the definitions for just this DSD module.
 	 * @param imports the place to store the imports.
@@ -76,6 +93,7 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 		ClassDefinition dsd = (ClassDefinition) this.getBaseDefinition();
 		
 		imports.addImport(dsd.getDmeImport(), "A definition from the " + this.getName() + " Module");
+		imports.addImport("java.util.Iterator", "To allow access to our definitions");
 		
 		for(ClassDefinition cd : dsd.getDerivedClasses()){
 			if (scoped){
@@ -123,18 +141,48 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 	/**
 	 * @return the implementations of the definitions interface for this module.
 	 */
-	public String getInterfaceMethodsImplementations(){
+	public String getInterfaceMethodsImplementations(boolean scoped){
 		ClassDefinition dsd = (ClassDefinition) this.getBaseDefinition();
 		StringBuffer sb = new StringBuffer();
 		
-		sb.append("    public void add" + dsd.getName() + "(" + dsd.getName() +" def);\n");
-		sb.append("    public int get" + dsd.getName() + "Count();\n");
-		sb.append("    public Iterator<" + dsd.getName() + "> getAll" + dsd.getName() + "();\n\n");
+		sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		sb.append("    // " + DebugInfo.getWhereWeWereCalledFrom() + "\n");
+		sb.append("    /**\n");
+		sb.append("     * All definitions are added to the base definition collection.\n");
+		sb.append("     */\n");
+		sb.append("    void add" + dsd.getName() + "(" + dsd.getName() + " def){\n");
+		sb.append("        " + dsd.getName() + "Defs.add(def);\n");
+		sb.append("    }\n\n");
+		
+		sb.append("    public int get" + dsd.getName() + "Count(){\n");
+		sb.append("        return(" + dsd.getName() + "Defs.size());\n");
+		sb.append("    }\n\n");
+		
+		sb.append("    public Iterator<" + dsd.getName() + "> getAll" + dsd.getName() + "(){\n");
+		sb.append("        return(" + dsd.getName() + "Defs.values().iterator());\n");
+		sb.append("    }\n\n");
 
 		for(ClassDefinition cd : dsd.getDerivedClasses()){
-			sb.append("    public void add" + cd.getName() + "(" + cd.getName() +" def);\n");
-			sb.append("    public int get" + cd.getName() + "Count();\n");
-			sb.append("    public Iterator<" + cd.getName() + "> getAll" + cd.getName() + "();\n\n");
+			if (scoped){
+				// If the class has the same name as this module definition, it's the 
+				// internally generated class to represent the module and we don't want
+				// that in the case of the scoped interface.
+				if (cd.getName().getNameString().equals(getName().getNameString()))
+					continue;
+			}
+			sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+			sb.append("    public void add" + cd.getName() + "(" + cd.getName() + " def){\n");
+			sb.append("        " + cd.getName() + "Defs.add(def);\n");
+			sb.append("        add" + dsd.getName() + "(def);\n");
+			sb.append("    }\n\n");
+			
+			sb.append("    public int get" + cd.getName() + "Count(){\n");
+			sb.append("        return(" + cd.getName() + "Defs.size());\n");
+			sb.append("    }\n\n");
+			
+			sb.append("    public Iterator<" + cd.getName() + "> getAll" + cd.getName() + "(){\n");
+			sb.append("        return(" + cd.getName() + "Defs.values().iterator());\n");
+			sb.append("    }\n\n");
 		}
 		
 		return(sb.toString());

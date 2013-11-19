@@ -26,7 +26,7 @@ import org.dmd.dmt.server.generated.dmw.ExtendedRefMVIDXDMW;  // wrapper type im
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1806)
- *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:86)
+ *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:90)
  */
 public class ExtendedRefMVIDXIterableDMW extends DmwObjectIterator<ExtendedRefMVIDXDMW, ExtendedRefMVIDXDMO> {
 

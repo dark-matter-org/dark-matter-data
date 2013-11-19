@@ -43,6 +43,7 @@ import org.dmd.dms.generated.enums.WrapperTypeEnum;
 import org.dmd.dms.util.GenUtility;
 import org.dmd.dms.util.TypeAndAttr;
 import org.dmd.util.FileUpdateManager;
+import org.dmd.util.codegen.ImplementsManager;
 import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
@@ -364,16 +365,22 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
         
         out.write(imports.getFormattedImports() + "\n\n");
         
+        ImplementsManager implManager = new ImplementsManager();
         String impl = "";
         
         if (cd.getIsNamedBy() != null){
-        	if (cd.getIsNamedBy().getType().getIsHierarchicName())
+        	if (cd.getIsNamedBy().getType().getIsHierarchicName()){
+        		implManager.addImplements("DmcHierarchicNamedObjectIF");
             	impl = "implements DmcHierarchicNamedObjectIF";
-        	else
+        	}
+        	else{
+        		implManager.addImplements("DmcNamedObjectIF");
         		impl = "implements DmcNamedObjectIF";
+        	}
         }
         
         if (isDefinition){
+        	implManager.addImplements("DmcDefinitionIF");
         	if (impl.length() > 0)
         		impl = impl + ", DmcDefinitionIF ";
         	else
@@ -381,6 +388,11 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
         }
         else
         	impl = impl + " ";
+        
+        // Get any other required interface
+        getAdditionalWrapperInterfaces(config, loc, f, sm, cd, implManager);
+        
+        impl = implManager.getFormattedImplementations();
         
         out.write("/**\n");
         CodeFormatter.dumpCodeComment(cd.getDescription(),out," * ");
@@ -593,6 +605,21 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 	 * @throws IOException
 	 */
 	public void getAdditionalWrapperImports(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm, ClassDefinition cd, ImportManager imports) throws IOException {
+		
+	}
+	
+	/**
+	 * At this level, we do nothing. Derived classes can overload this to insert additional required
+	 * interfaces into the implements statement of a generated wrapper.
+	 * @param config
+	 * @param loc
+	 * @param f
+	 * @param sm
+	 * @param cd
+	 * @param imports
+	 * @throws IOException
+	 */
+	public void getAdditionalWrapperInterfaces(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm, ClassDefinition cd, ImplementsManager implManager) throws IOException {
 		
 	}
 	

@@ -41,7 +41,7 @@ import org.dmd.dmp.server.extended.LoginResponse;  // wrapper type import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1806)
- *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:86)
+ *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:90)
  */
 public class LoginResponseIterableDMW extends DmwObjectIterator<LoginResponse, LoginResponseDMO> {
 

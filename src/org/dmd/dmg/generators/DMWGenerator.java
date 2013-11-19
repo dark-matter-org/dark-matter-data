@@ -8,6 +8,7 @@ import java.util.Iterator;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.ComplexTypeDefinition;
+import org.dmd.dms.DSDefinitionModule;
 import org.dmd.dms.EnumDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
@@ -15,6 +16,9 @@ import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
 import org.dmd.dms.util.GenUtility;
+import org.dmd.util.codegen.ImplementsManager;
+import org.dmd.util.codegen.ImportManager;
+import org.dmd.util.codegen.MemberManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigFinder;
@@ -145,4 +149,51 @@ public class DMWGenerator extends BaseDMWGenerator {
 			}
 		}
 	}
+	
+	@Override
+	public void getAdditionalWrapperImports(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm, ClassDefinition cd, ImportManager imports) throws IOException {
+		if (cd.getDsdModuleDefinition() != null){
+			// We have a domain specific definition module, so, we're going
+			// to add the capability to manage the various definitions associated
+			// with it.
+			DSDefinitionModule dsdm = cd.getDsdModuleDefinition();
+			
+			imports.addImport(dsdm.getScopedInterfaceImport(), "Required to manage module definition");
+			imports.addImport("org.dmd.dmc.definitions.DmcDefinitionSet", "Our base to provide definition set storage");
+			
+			// We also add the imports for the sets of definition that we're going to manage
+			dsdm.getImportsForInterface(imports, true);
+		}
+	}
+	
+	@Override
+	public void getAdditionalWrapperInterfaces(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm, ClassDefinition cd, ImplementsManager implManager) throws IOException {
+		if (cd.getDsdModuleDefinition() != null){
+			DSDefinitionModule dsdm = cd.getDsdModuleDefinition();
+			
+			// Add the implements scoped interface 
+			implManager.addImplements(dsdm.getScopedInterfaceName());
+		}
+	}
+	
+	@Override
+	public void dumpAdditionalWrapperDefinitions(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm, ClassDefinition cd, BufferedWriter out) throws IOException {
+		if (cd.getDsdModuleDefinition() != null){
+			DSDefinitionModule dsdm = cd.getDsdModuleDefinition();
+			
+			MemberManager members = new MemberManager();
+			dsdm.getScopedInterfaceMembers(members);
+			
+			out.write(members.getFormattedMembers() + "\n");
+		}		
+	}
+
+	public void dumpAdditionalWrapperFunctions(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm, ClassDefinition cd, BufferedWriter out) throws IOException {
+		if (cd.getDsdModuleDefinition() != null){
+			DSDefinitionModule dsdm = cd.getDsdModuleDefinition();
+			
+			out.write(dsdm.getInterfaceMethodsImplementations(true));
+		}		
+	}
+
 }
