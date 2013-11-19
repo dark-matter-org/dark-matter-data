@@ -1,34 +1,19 @@
-//	---------------------------------------------------------------------------
-//	dark-matter-data
-//	Copyright (c) 2013 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
 package org.dmd.dmt.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:365)
-import java.util.ArrayList;                                                         // To support getMVCopy() - (BaseDMWGeneratorNewest.java:1073)
-import java.util.Iterator;                                                          // Support copy of MV objects - (BaseDMWGeneratorNewest.java:2132)
-import org.dmd.dmc.*;                                                               // If any attributes - (BaseDMWGeneratorNewest.java:979)
-import org.dmd.dmc.types.DefinitionName;                                            // Is named by - (BaseDMWGeneratorNewest.java:958)
-import org.dmd.dms.ClassDefinition;                                                 // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:963)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                         // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:968)
-import org.dmd.dms.generated.dmw.StringIterableDMW;                                 // For multi-valued String - (BaseDMWGeneratorNewest.java:1995)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                               // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:967)
-import org.dmd.dmt.server.extended.subpack.multi.TestDerivedDiffSubpackage;         // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:972)
-import org.dmd.dmt.server.generated.dmw.TestOneLevelSubpackageDMW;                  // Derived class - (BaseDMWGeneratorNewest.java:1140)
-import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                                   // Attribute mvString from the dmt schema - (BaseDMWGeneratorNewest.java:794)
-import org.dmd.dmt.shared.generated.dmo.TestDerivedDiffSubpackageDMO;               // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1144)
+// Called from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:365)
+import java.util.ArrayList;                                                         // To support getMVCopy() - (BaseDMWGenerator.java:1073)
+import java.util.Iterator;                                                          // Support copy of MV objects - (BaseDMWGenerator.java:2132)
+import org.dmd.dmc.*;                                                               // If any attributes - (BaseDMWGenerator.java:979)
+import org.dmd.dmc.types.DefinitionName;                                            // Is named by - (BaseDMWGenerator.java:958)
+import org.dmd.dms.ClassDefinition;                                                 // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:963)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                         // Required for MODREC constructor - (BaseDMWGenerator.java:968)
+import org.dmd.dms.generated.dmw.StringIterableDMW;                                 // For multi-valued String - (BaseDMWGenerator.java:1995)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                               // Required for MODREC constructor - (BaseDMWGenerator.java:967)
+import org.dmd.dmt.server.extended.subpack.multi.TestDerivedDiffSubpackage;         // Required for getModificationRecorder() - (BaseDMWGenerator.java:972)
+import org.dmd.dmt.server.generated.dmw.TestOneLevelSubpackageDMW;                  // Derived class - (BaseDMWGenerator.java:1140)
+import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                                   // Attribute mvString from the dmt schema - (BaseDMWGenerator.java:794)
+import org.dmd.dmt.shared.generated.dmo.TestDerivedDiffSubpackageDMO;               // Class not auxiliary or abstract - (BaseDMWGenerator.java:1144)
 
 
 
@@ -38,21 +23,21 @@ import org.dmd.dmt.shared.generated.dmo.TestDerivedDiffSubpackageDMO;           
  * Generated from the dmt schema at version 0.1
  * <P>
  * This code was auto-generated by the dmggenerator utility and shouldn't be alterred manually!
- * Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:391)
+ * Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:391)
  */
 public class TestDerivedDiffSubpackageDMW extends TestOneLevelSubpackageDMW implements DmcNamedObjectIF {
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:470)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:470)
     public TestDerivedDiffSubpackageDMW() {
         super(new TestDerivedDiffSubpackageDMO(), org.dmd.dmt.server.generated.DmtSchemaAG._TestDerivedDiffSubpackage);
     }
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:476)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:476)
     public TestDerivedDiffSubpackageDMW(DmcTypeModifierMV mods) {
         super(new TestDerivedDiffSubpackageDMO(mods), org.dmd.dmt.server.generated.DmtSchemaAG._TestDerivedDiffSubpackage);
     }
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:518)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:518)
     public TestDerivedDiffSubpackage getModificationRecorder(){
         TestDerivedDiffSubpackage rc = new TestDerivedDiffSubpackage();
         rc.setName(getName());
@@ -60,7 +45,7 @@ public class TestDerivedDiffSubpackageDMW extends TestOneLevelSubpackageDMW impl
         return(rc);
     }
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:539)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:539)
     public TestDerivedDiffSubpackageDMW(TestDerivedDiffSubpackageDMO obj) {
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._TestDerivedDiffSubpackage);
     }
@@ -75,12 +60,12 @@ public class TestDerivedDiffSubpackageDMW extends TestOneLevelSubpackageDMW impl
         return((TestDerivedDiffSubpackageDMO) core);
     }
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:554)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:554)
     protected TestDerivedDiffSubpackageDMW(TestDerivedDiffSubpackageDMO obj, ClassDefinition cd) {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGenerator.getAccessFunctions(BaseDMWGenerator.java:1189)
     public DefinitionName getObjectName(){
         return(((TestDerivedDiffSubpackageDMO) core).getName());
     }
@@ -103,7 +88,7 @@ public class TestDerivedDiffSubpackageDMW extends TestOneLevelSubpackageDMW impl
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1563)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1563)
     public int getMvStringSize(){
         return(((TestDerivedDiffSubpackageDMO) core).getMvStringSize());
     }
@@ -111,7 +96,7 @@ public class TestDerivedDiffSubpackageDMW extends TestOneLevelSubpackageDMW impl
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1571)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1571)
     public boolean getMvStringIsEmpty(){
         if (((TestDerivedDiffSubpackageDMO) core).getMvStringSize() == 0)
             return(true);
@@ -121,7 +106,7 @@ public class TestDerivedDiffSubpackageDMW extends TestOneLevelSubpackageDMW impl
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1581)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1581)
     public boolean getMvStringHasValue(){
         if (((TestDerivedDiffSubpackageDMO) core).getMvStringSize() == 0)
             return(false);
@@ -131,7 +116,7 @@ public class TestDerivedDiffSubpackageDMW extends TestOneLevelSubpackageDMW impl
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1999)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1999)
     public StringIterableDMW getMvStringIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvString);
         if (attr == null)
@@ -144,7 +129,7 @@ public class TestDerivedDiffSubpackageDMW extends TestOneLevelSubpackageDMW impl
      * Adds another mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2025)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2025)
     public void addMvString(Object value) throws DmcValueException {
         ((TestDerivedDiffSubpackageDMO) core).addMvString(value);
     }
@@ -153,7 +138,7 @@ public class TestDerivedDiffSubpackageDMW extends TestOneLevelSubpackageDMW impl
      * Adds another mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2035)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2035)
     public void addMvString(String value){
         ((TestDerivedDiffSubpackageDMO) core).addMvString(value);
     }
@@ -162,7 +147,7 @@ public class TestDerivedDiffSubpackageDMW extends TestOneLevelSubpackageDMW impl
      * Returns true if the collection contains the mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2092)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2092)
     public boolean mvStringContains(String value){
         return(((TestDerivedDiffSubpackageDMO) core).mvStringContains(value));
     }
@@ -170,7 +155,7 @@ public class TestDerivedDiffSubpackageDMW extends TestOneLevelSubpackageDMW impl
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2136)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2136)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getMvStringCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvString);
@@ -191,7 +176,7 @@ public class TestDerivedDiffSubpackageDMW extends TestOneLevelSubpackageDMW impl
      * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2163)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2163)
     public void delMvString(Object value) throws DmcValueException {
         ((TestDerivedDiffSubpackageDMO) core).delMvString(value);
     }
@@ -200,7 +185,7 @@ public class TestDerivedDiffSubpackageDMW extends TestOneLevelSubpackageDMW impl
      * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2172)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2172)
     public void delMvString(String value){
         ((TestDerivedDiffSubpackageDMO) core).delMvString(value);
     }
@@ -208,12 +193,12 @@ public class TestDerivedDiffSubpackageDMW extends TestOneLevelSubpackageDMW impl
     /**
      * Removes the mvString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2184)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2184)
     public void remMvString(){
         ((TestDerivedDiffSubpackageDMO) core).remMvString();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1366)
     public DefinitionName getName(){
         return(((TestDerivedDiffSubpackageDMO) core).getName());
     }
@@ -222,7 +207,7 @@ public class TestDerivedDiffSubpackageDMW extends TestOneLevelSubpackageDMW impl
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1476)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1476)
     public void setName(Object value) throws DmcValueException {
         ((TestDerivedDiffSubpackageDMO) core).setName(value);
     }
@@ -231,7 +216,7 @@ public class TestDerivedDiffSubpackageDMW extends TestOneLevelSubpackageDMW impl
      * Sets name to the specified value.
      * @param value DefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1485)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1485)
     public void setName(DefinitionName value){
         ((TestDerivedDiffSubpackageDMO) core).setName(value);
     }
@@ -239,12 +224,12 @@ public class TestDerivedDiffSubpackageDMW extends TestOneLevelSubpackageDMW impl
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1511)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1511)
     public void remName(){
         ((TestDerivedDiffSubpackageDMO) core).remName();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1366)
     public String getSvString(){
         return(((TestDerivedDiffSubpackageDMO) core).getSvString());
     }
@@ -253,7 +238,7 @@ public class TestDerivedDiffSubpackageDMW extends TestOneLevelSubpackageDMW impl
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1476)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1476)
     public void setSvString(Object value) throws DmcValueException {
         ((TestDerivedDiffSubpackageDMO) core).setSvString(value);
     }
@@ -262,7 +247,7 @@ public class TestDerivedDiffSubpackageDMW extends TestOneLevelSubpackageDMW impl
      * Sets svString to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1485)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1485)
     public void setSvString(String value){
         ((TestDerivedDiffSubpackageDMO) core).setSvString(value);
     }
@@ -270,7 +255,7 @@ public class TestDerivedDiffSubpackageDMW extends TestOneLevelSubpackageDMW impl
     /**
      * Removes the svString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1511)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1511)
     public void remSvString(){
         ((TestDerivedDiffSubpackageDMO) core).remSvString();
     }

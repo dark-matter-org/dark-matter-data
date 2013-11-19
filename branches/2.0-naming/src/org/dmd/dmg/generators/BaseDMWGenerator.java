@@ -50,7 +50,7 @@ import org.dmd.util.formatting.CodeFormatter;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
 
-abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
+abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 
 	protected	String 				gendir;
 //	protected	String 				auxwdir;
@@ -106,7 +106,7 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 	protected	String				hierarchicWrapperImport;
 	String							hierarchicWrapper;
 
-	public BaseDMWGeneratorNewest(){
+	public BaseDMWGenerator(){
 		sformatter = new SchemaFormatter();
 		useWrappedObjectRefs = true;
 	}

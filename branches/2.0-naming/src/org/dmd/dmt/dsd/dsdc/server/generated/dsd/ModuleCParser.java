@@ -133,7 +133,7 @@ public class ModuleCParser implements DsdParserInterface, DmcUncheckedOIFHandler
         else{
             // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:414)
             if (definition instanceof ModuleC){
-                ResultException ex = new ResultException("Multiple ModuleC module definitions while parsing config: " + location.getFileName());
+                ResultException ex = new ResultException("Multiple ModuleC definitions while parsing config: " + location.getFileName());
                 ex.setLocationInfo(infile, lineNumber);
                 throw(ex);
             }
