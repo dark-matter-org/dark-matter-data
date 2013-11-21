@@ -2,6 +2,7 @@ AttributeDefinition
 name			dependsOnModuleB
 dmdID			1
 type			ModuleB
+valueType		MULTI
 description		Indicates the ModuleB on which something depends.
 
 AttributeDefinition

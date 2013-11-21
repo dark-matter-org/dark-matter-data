@@ -539,9 +539,11 @@ public class DSDArtifactFormatter {
 		out.write("package " + config.getGenPackage() + ".generated.dsd;\n\n");
 		
 		imports.addImport("java.io.IOException", "If we run it to problems finding configs");
+		imports.addImport("java.util.Iterator", "To iterate over collections");
 		imports.addImport("java.util.ArrayList", "To handle lists of things");
 		imports.addImport("java.util.TreeMap", "To handle loaded configs");
 		
+		imports.addImport("org.dmd.dmc.types.DefinitionName", "Allows storage of parsed configs by name");
 		imports.addImport("org.dmd.dmc.DmcValueException", "To handle exceptions from value handling");
 		imports.addImport("org.dmd.util.exceptions.ResultException", "To handle processing exceptions");
 		imports.addImport("org.dmd.dmc.rules.DmcRuleExceptionSet", "In case we have rule failures");
@@ -559,12 +561,14 @@ public class DSDArtifactFormatter {
 		for(DSDefinitionModule mod: includedModules.values()){
 			ClassDefinition ddmClass = sm.isClass(mod.getName().getNameString());
 			imports.addImport(ddmClass.getDmeImport(), "One of the DDS modules we might load");
+			
+			imports.addImport(ddmClass.getDmtREFImport(), "To access references to " + ddm.getName());
 
 			imports.addImport(mod.getDefinitionParserImport(), "Required to parse " + mod.getName() + " definitions");
 			members.addMember(mod.getDefinitionParserName(), "parserFor" + mod.getName(), "Parser for " + mod.getName() + " definitions");
 			imports.addImport(mod.getDefinedIn().getDMSASGImport(),"To allow loading of rules from the " + mod.getDefinedIn().getName() + " schema");
 			members.addMember("ConfigFinder", "finderFor" + mod.getName(), "new ConfigFinder(\"" + mod.getFileExtension() + "\")", "Config finder for " + mod.getName() + " config files ending with ." + mod.getFileExtension());
-			members.addMember("TreeMap<String,ConfigLocation>", "loadedConfigsFor" + mod.getName(), "new TreeMap<String, ConfigLocation>()", "The names/location of the " + mod.getName() + " modules that have been loaded\n");
+			members.addMember("TreeMap<DefinitionName, " + mod.getName() + "Info>", "loaded" + mod.getName() + "Configs", "new TreeMap<DefinitionName, " + mod.getName() + "Info>()", "The names/location of the " + mod.getName() + " modules that have been loaded\n");
 		}
 		
 		out.write(imports.getFormattedImports());
@@ -591,6 +595,7 @@ public class DSDArtifactFormatter {
 		
 		out.write("    }\n\n");
 		out.write("\n");
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("    public void generateForConfig(String configName) throws ResultException, DmcValueException, DmcRuleExceptionSet {\n");
 		out.write("        ConfigVersion version = finderFor" + ddm.getName() + ".getConfig(configName);\n");
 		out.write("        \n");
@@ -602,11 +607,14 @@ public class DSDArtifactFormatter {
 		out.write("        ConfigLocation location = version.getLatestVersion();\n");
 		out.write("        \n");
 		out.write("        " + ddm.getName() + " loaded = parserFor" + ddm.getName() + ".parseConfig(location);\n");
-//		out.write("        loadedConfigsFor" + ddm.getName() + ".put\n");
+		out.write("        loaded" + ddm.getName() + "Configs.put(loaded.getName(), new " + ddm.getName() + "Info(loaded,location));\n");
 		out.write("\n");
+		out.write("        // We've loaded the base configuration file, now load any other modules on which it depends\n");
+		out.write("        \n");
 		out.write("\n");
 		out.write("    }\n\n");
 
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("    public void generateForAllConfigs(){\n");
 		out.write("\n");
 		out.write("\n");
@@ -614,6 +622,39 @@ public class DSDArtifactFormatter {
 		out.write("\n");
 		out.write("    }\n\n");
 		
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    void loadModuleDependencies(Object obj) throws ResultException {\n");
+		boolean first = true;
+		for(DSDefinitionModule mod: includedModules.values()){
+			Iterator<DSDefinitionModule> modit = mod.getDDMDependencies();
+			
+			if (first){
+				out.write("        if (obj instanceof " + mod.getName() + "){\n");
+				first = false;
+			}
+			else
+				out.write("        else if (obj instanceof " + mod.getName() + "){\n");
+			
+			out.write("            " + mod.getName() + " module = (" + mod.getName() + ")obj;\n");
+			
+			formatModuleLoadDependencies(mod, modit, out);
+
+			out.write("        }\n");
+		}
+		out.write("\n");
+		out.write("\n");
+		out.write("\n");
+		out.write("\n");
+		out.write("    }\n\n");
+		
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    void missingConfigError(String missing) throws ResultException {\n");
+		out.write("        ResultException ex = new ResultException(\"Could not find config: \" + missing);\n");
+		out.write("        throw(ex);\n");
+		out.write("    }\n\n");
+		
+		
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		for(DSDefinitionModule mod: includedModules.values()){
 			out.write("    class " + mod.getName() + "Info {\n");			
 			out.write("        " + mod.getName() + " module;\n");
@@ -632,7 +673,25 @@ public class DSDArtifactFormatter {
 		out.close();
 	}
 	
+	void formatModuleLoadDependencies(DSDefinitionModule module, Iterator<DSDefinitionModule> modit, ManagedFileWriter out) throws IOException {
+		while(modit.hasNext()){
+			DSDefinitionModule dependsOn = modit.next();
+			String getMethod = ".get" + GeneratorUtils.dotNameToCamelCase(dependsOn.getModuleDependenceAttribute().getName().getNameString() + "()");
+			String hasValueMethod = ".get" + GeneratorUtils.dotNameToCamelCase(dependsOn.getModuleDependenceAttribute().getName().getNameString() + "HasValue()");
 
+			out.write("            if (module" + hasValueMethod + "){\n");
+			out.write("                Iterator<" + dependsOn.getName() + "REF> it = module.getDMO()" + getMethod + ";\n");
+			out.write("                while(it.hasNext()){\n");
+			out.write("                    " + dependsOn.getName() + "REF ref = it.next();\n");
+			out.write("                    ConfigVersion version = finderFor" + dependsOn.getName() + ".getConfig(ref.toString());\n");
+			out.write("                    \n");
+			out.write("                    if (version == null)\n");
+			out.write("                        missingConfigError(ref.toString() + \"." + dependsOn.getFileExtension() + "\");\n");
+			out.write("            \n");
+			out.write("                }\n");
+			out.write("            }\n");
+		}
+	}
 	
 	
 	///////////////////////////////////////////////////////////////////////////

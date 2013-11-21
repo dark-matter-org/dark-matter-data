@@ -436,3 +436,20 @@ ruleTitle			A file extension should be comprised of alpha-numeric characters.
 matchesPattern		[a-zA-Z][a-zA-Z0-9]*
 applyToAttribute	fileExtension
 description			Didn't want to be too restrictive with this. Definitely didn't want special characters.
+
+// NOTE: tried to use this in the process of parsing and generating a new schema
+// and ran into the problem that the attribute being referenced by the moduleDependenceAttribute
+// has not been loaded into the the DmcOmni (which makes sense because we're parsing its schema!)
+// The rules have to be based on some sort of hybrid of schemas that have been loaded
+// and an "omin" that contains dynamically updated information. This is very 
+// particular to schema related rules.
+
+//ReferencedAttributeTypeRuleData
+//ruleName          dmvModuleDependenceAttribute
+//ruleTitle         The moduleDependenceAttribute attribute must be multi-valued.
+//applyToAttribute  moduleDependenceAttribute
+//applyToClass      DSDefinitionModule
+//allowedValueType  MULTI
+//description       We have sections of generated code that will access the module
+// dependence attribute of a DDM module instance and being able to assume that the
+// module dependence attribute is multi-valued just makes things easier.

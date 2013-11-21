@@ -43,13 +43,16 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;                                     
 import org.dmd.dms.generated.dmw.StringIterableDMW;                              // For multi-valued String - (BaseDMWGenerator.java:2022)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                            // Required for MODREC constructor - (BaseDMWGenerator.java:994)
 import org.dmd.dmt.dsd.dsda.server.extended.ModuleA;                             // Is reference type - (BaseDMWGenerator.java:1026)
-import org.dmd.dmt.dsd.dsda.shared.generated.types.ModuleAREF;                   // Is reference type REF - (BaseDMWGenerator.java:1034)
+import org.dmd.dmt.dsd.dsda.server.generated.dmw.ModuleAIterableDMW;             // For multi-valued ModuleA - (BaseDMWGenerator.java:1628)
+import org.dmd.dmt.dsd.dsda.shared.generated.dmo.DsdADMSAG;                      // Attribute dependsOnModuleA from the dsdA schema - (BaseDMWGenerator.java:821)
+import org.dmd.dmt.dsd.dsda.shared.generated.dmo.ModuleADMO;                     // For multi-valued adds of ModuleA - (BaseDMWGenerator.java:1686)
 import org.dmd.dmt.dsd.dsdb.server.extended.BConceptBase;                        // Derived class - (BaseDMWGenerator.java:1167)
-import org.dmd.dmt.dsd.dsdb.server.extended.BConceptX;                           // A definition from the ModuleB Module - (DSDefinitionModule.java:122)
+import org.dmd.dmt.dsd.dsdb.server.extended.BConceptX;                           // A definition from the ModuleB Module - (DSDefinitionModule.java:159)
 import org.dmd.dmt.dsd.dsdb.server.extended.ModuleB;                             // Required for getModificationRecorder() - (BaseDMWGenerator.java:999)
+import org.dmd.dmt.dsd.dsdb.server.generated.dmw.ModuleBIterableDMW;             // For multi-valued ModuleB - (BaseDMWGenerator.java:1628)
 import org.dmd.dmt.dsd.dsdb.server.generated.dsd.ModuleBScopedInterface;         // Required to manage module definition - (DMWGenerator.java:161)
+import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.DsdBDMSAG;                      // Attribute dependsOnModuleB from the dsdB schema - (BaseDMWGenerator.java:821)
 import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.ModuleBDMO;                     // Class not auxiliary or abstract - (BaseDMWGenerator.java:1171)
-import org.dmd.dmt.dsd.dsdb.shared.generated.types.ModuleBREF;                   // Is reference type REF - (BaseDMWGenerator.java:1034)
 
 
 
@@ -241,83 +244,173 @@ abstract public class ModuleBDMW extends BConceptBase implements DmcDefinitionIF
     }
 
     /**
-     * @return A ModuleA object.
+     * @return The number of ModuleA items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1353)
-    public ModuleA getDependsOnModuleA(){
-        ModuleAREF ref = ((ModuleBDMO) core).getDependsOnModuleA();
-        if (ref == null)
-            return(null);
-        
-        if (ref.getObject() == null)
-            return(null);
-        
-        return((ModuleA)ref.getObject().getContainer());
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1590)
+    public int getDependsOnModuleASize(){
+        return(((ModuleBDMO) core).getDependsOnModuleASize());
     }
 
     /**
-     * Sets the dependsOnModuleA to the specified value.
-     * @param value A value compatible with ModuleAREF
+     * @return true if there are no ModuleADMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1438)
-    public void setDependsOnModuleA(ModuleA value) {
-        ((ModuleBDMO) core).setDependsOnModuleA(value.getDMO());
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1598)
+    public boolean getDependsOnModuleAIsEmpty(){
+        if (((ModuleBDMO) core).getDependsOnModuleASize() == 0)
+            return(true);
+        return(false);
     }
 
     /**
-     * Sets the dependsOnModuleA to the specified value.
-     * @param value A value compatible with ModuleAREF
+     * @return true if there are any ModuleADMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1447)
-    public void setDependsOnModuleA(Object value) throws DmcValueException {
-        ((ModuleBDMO) core).setDependsOnModuleA(value);
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1608)
+    public boolean getDependsOnModuleAHasValue(){
+        if (((ModuleBDMO) core).getDependsOnModuleASize() == 0)
+            return(false);
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of ModuleADMO objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1635)
+    public ModuleAIterableDMW getDependsOnModuleAIterable(){
+        DmcAttribute<?> attr = core.get(DsdADMSAG.__dependsOnModuleA);
+        if (attr == null)
+            return(ModuleAIterableDMW.emptyList);
+        
+        return(new ModuleAIterableDMW(((ModuleBDMO) core).getDependsOnModuleA()));
+    }
+
+    /**
+     * Adds another dependsOnModuleA value.
+     * @param value A value compatible with ModuleA
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1692)
+    public DmcAttribute<?> addDependsOnModuleA(ModuleA value){
+        DmcAttribute<?> attr = ((ModuleBDMO) core).addDependsOnModuleA(((ModuleADMO)value.getDmcObject()));
+        return(attr);
+    }
+
+    /**
+     * Deletes a dependsOnModuleA value.
+     * @param value The ModuleA to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1742)
+    public void delDependsOnModuleA(ModuleA value){
+        ((ModuleBDMO) core).delDependsOnModuleA(value.getDMO());
+    }
+
+    /**
+     * @return A COPY of the collection of ModuleA objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1806)
+    public ArrayList<ModuleA> getDependsOnModuleACopy(){
+        DmcAttribute<?> attr = ((ModuleBDMO) core).get(DsdADMSAG.__dependsOnModuleA);
+        if (attr == null)
+            return(new ArrayList<ModuleA>());
+        
+        ArrayList<ModuleA> rc = new ArrayList<ModuleA>(attr.getMVSize());
+        
+        ModuleAIterableDMW it = getDependsOnModuleAIterable();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
     }
 
     /**
      * Removes the dependsOnModuleA attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1538)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2211)
     public void remDependsOnModuleA(){
         ((ModuleBDMO) core).remDependsOnModuleA();
     }
 
     /**
-     * @return A ModuleB object.
+     * @return The number of ModuleB items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1353)
-    public ModuleB getDependsOnModuleB(){
-        ModuleBREF ref = ((ModuleBDMO) core).getDependsOnModuleB();
-        if (ref == null)
-            return(null);
-        
-        if (ref.getObject() == null)
-            return(null);
-        
-        return((ModuleB)ref.getObject().getContainer());
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1590)
+    public int getDependsOnModuleBSize(){
+        return(((ModuleBDMO) core).getDependsOnModuleBSize());
     }
 
     /**
-     * Sets the dependsOnModuleB to the specified value.
-     * @param value A value compatible with ModuleBREF
+     * @return true if there are no ModuleBDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1438)
-    public void setDependsOnModuleB(ModuleB value) {
-        ((ModuleBDMO) core).setDependsOnModuleB(value.getDMO());
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1598)
+    public boolean getDependsOnModuleBIsEmpty(){
+        if (((ModuleBDMO) core).getDependsOnModuleBSize() == 0)
+            return(true);
+        return(false);
     }
 
     /**
-     * Sets the dependsOnModuleB to the specified value.
-     * @param value A value compatible with ModuleBREF
+     * @return true if there are any ModuleBDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1447)
-    public void setDependsOnModuleB(Object value) throws DmcValueException {
-        ((ModuleBDMO) core).setDependsOnModuleB(value);
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1608)
+    public boolean getDependsOnModuleBHasValue(){
+        if (((ModuleBDMO) core).getDependsOnModuleBSize() == 0)
+            return(false);
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of ModuleBDMO objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1635)
+    public ModuleBIterableDMW getDependsOnModuleBIterable(){
+        DmcAttribute<?> attr = core.get(DsdBDMSAG.__dependsOnModuleB);
+        if (attr == null)
+            return(ModuleBIterableDMW.emptyList);
+        
+        return(new ModuleBIterableDMW(((ModuleBDMO) core).getDependsOnModuleB()));
+    }
+
+    /**
+     * Adds another dependsOnModuleB value.
+     * @param value A value compatible with ModuleB
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1692)
+    public DmcAttribute<?> addDependsOnModuleB(ModuleB value){
+        DmcAttribute<?> attr = ((ModuleBDMO) core).addDependsOnModuleB(((ModuleBDMO)value.getDmcObject()));
+        return(attr);
+    }
+
+    /**
+     * Deletes a dependsOnModuleB value.
+     * @param value The ModuleB to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1742)
+    public void delDependsOnModuleB(ModuleB value){
+        ((ModuleBDMO) core).delDependsOnModuleB(value.getDMO());
+    }
+
+    /**
+     * @return A COPY of the collection of ModuleB objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1806)
+    public ArrayList<ModuleB> getDependsOnModuleBCopy(){
+        DmcAttribute<?> attr = ((ModuleBDMO) core).get(DsdBDMSAG.__dependsOnModuleB);
+        if (attr == null)
+            return(new ArrayList<ModuleB>());
+        
+        ArrayList<ModuleB> rc = new ArrayList<ModuleB>(attr.getMVSize());
+        
+        ModuleBIterableDMW it = getDependsOnModuleBIterable();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
     }
 
     /**
      * Removes the dependsOnModuleB attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1538)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2211)
     public void remDependsOnModuleB(){
         ((ModuleBDMO) core).remDependsOnModuleB();
     }
@@ -384,7 +477,7 @@ abstract public class ModuleBDMW extends BConceptBase implements DmcDefinitionIF
         ((ModuleBDMO) core).remName();
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:164)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:201)
     // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperFunctions(DMWGenerator.java:195)
     /**
      * All definitions are added to the base definition collection.
@@ -401,7 +494,7 @@ abstract public class ModuleBDMW extends BConceptBase implements DmcDefinitionIF
         return(BConceptBaseDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:189)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:226)
     public void addBConceptX(BConceptX def){
         BConceptXDefs.add(def);
         addBConceptBase(def);

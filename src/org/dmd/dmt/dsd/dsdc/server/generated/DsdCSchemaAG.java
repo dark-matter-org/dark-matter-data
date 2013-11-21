@@ -173,10 +173,11 @@ public class DsdCSchemaAG extends SchemaDefinition {
             _dependsOnModuleCOBJ.setName("dependsOnModuleC");
             _dependsOnModuleCOBJ.setDmdID("-500149");
             _dependsOnModuleCOBJ.setDescription("Indicates the ModuleC on which something depends.");
+            _dependsOnModuleCOBJ.setValueType("MULTI");
             _dependsOnModuleCOBJ.setDotName("dsdC.dependsOnModuleC.AttributeDefinition");
             _dependsOnModuleC.setDefinedIn(this);
             _dependsOnModuleCOBJ.setFile("/src/org/dmd/dmt/dsd/dsdc/shared/dmdconfig/attributes.dmd");
-            _dependsOnModuleCOBJ.setLineNumber("6");
+            _dependsOnModuleCOBJ.setLineNumber("7");
             addAttributeDefList(_dependsOnModuleC);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:552)
@@ -189,7 +190,7 @@ public class DsdCSchemaAG extends SchemaDefinition {
             _definedInModuleCOBJ.setDotName("dsdC.definedInModuleC.AttributeDefinition");
             _definedInModuleC.setDefinedIn(this);
             _definedInModuleCOBJ.setFile("/src/org/dmd/dmt/dsd/dsdc/shared/dmdconfig/attributes.dmd");
-            _definedInModuleCOBJ.setLineNumber("12");
+            _definedInModuleCOBJ.setLineNumber("13");
             addAttributeDefList(_definedInModuleC);
 
     }
