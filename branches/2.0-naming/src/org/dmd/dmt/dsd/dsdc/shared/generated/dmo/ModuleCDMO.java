@@ -17,6 +17,7 @@ package org.dmd.dmt.dsd.dsdc.shared.generated.dmo;
 
 // Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:393)
 import java.io.Serializable;                                                    // Always required - (GenUtility.java:221)
+import java.util.*;                                                             // Always required if we have any MV attributes - (GenUtility.java:216)
 import org.dmd.dmc.DmcAttribute;                                                // Named object - (GenUtility.java:373)
 import org.dmd.dmc.DmcNamedObjectIF;                                            // Named object - (GenUtility.java:372)
 import org.dmd.dmc.DmcOmni;                                                     // Lazy resolution - (GenUtility.java:317)
@@ -26,11 +27,16 @@ import org.dmd.dmc.types.DefinitionName;                                        
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                     // Required for MODREC constructor - (GenUtility.java:225)
 import org.dmd.dms.generated.types.DmcTypeDefinitionNameSV;                     // Required type - (GenUtility.java:325)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                           // Required for MODREC constructor - (GenUtility.java:224)
+import org.dmd.dms.generated.types.DmcTypeStringMV;                             // Required type - (GenUtility.java:325)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                             // Required type - (GenUtility.java:325)
 import org.dmd.dmt.dsd.dsda.shared.generated.dmo.DsdADMSAG;                     // Attribute from dsdA schema - (GenUtility.java:135)
 import org.dmd.dmt.dsd.dsda.shared.generated.dmo.ModuleADMO;                    // Type specific set/add - (GenUtility.java:304)
 import org.dmd.dmt.dsd.dsda.shared.generated.types.DmcTypeModuleAREFSV;         // Reference type - (GenUtility.java:297)
 import org.dmd.dmt.dsd.dsda.shared.generated.types.ModuleAREF;                  // Helper class - (GenUtility.java:332)
+import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.DsdBDMSAG;                     // Attribute from dsdB schema - (GenUtility.java:135)
+import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.ModuleBDMO;                    // Type specific set/add - (GenUtility.java:304)
+import org.dmd.dmt.dsd.dsdb.shared.generated.types.DmcTypeModuleBREFSV;         // Reference type - (GenUtility.java:297)
+import org.dmd.dmt.dsd.dsdb.shared.generated.types.ModuleBREF;                  // Helper class - (GenUtility.java:332)
 import org.dmd.dmt.dsd.dsdc.shared.generated.dmo.CConceptBaseDMO;               // Base class - (GenUtility.java:352)
 import org.dmd.dmt.dsd.dsdc.shared.generated.dmo.ModuleCDMO;                    // Type specific set/add - (GenUtility.java:304)
 import org.dmd.dmt.dsd.dsdc.shared.generated.types.DmcTypeModuleCREFSV;         // Reference type - (GenUtility.java:297)
@@ -170,6 +176,133 @@ public class ModuleCDMO  extends CConceptBaseDMO  implements DmcNamedObjectIF, S
          rem(MetaDMSAG.__description);
     }
 
+    /**
+     * @return An Iterator of String objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1109)
+    public Iterator<String> getDefFiles(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__defFiles);
+        if (attr == null)
+            return( ((List<String>) Collections.EMPTY_LIST).iterator());
+
+        return(attr.getMV());
+    }
+
+    /**
+     * @return The nth String value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1121)
+    public String getNthDefFiles(int i){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__defFiles);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMVnth(i));
+    }
+
+    /**
+     * Adds another defFiles to the specified value.
+     * @param value String
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1135)
+    public DmcAttribute<?> addDefFiles(String value) {
+        DmcAttribute<?> attr = get(MetaDMSAG.__defFiles);
+        if (attr == null)
+            attr = new DmcTypeStringMV(MetaDMSAG.__defFiles);
+        
+        try{
+            setLastValue(attr.add(value));
+            add(MetaDMSAG.__defFiles,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
+        }
+        return(attr);
+    }
+
+    /**
+     * Returns true if we contain a valued keyed by the specified String.
+     * @param value String
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1210)
+    public boolean defFilesContains(String value) {
+        DmcAttribute<?> attr = get(MetaDMSAG.__defFiles);
+        if (attr == null)
+            return(false);
+        return(attr.contains(value));
+    }
+
+    /**
+     * Adds another defFiles value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1242)
+    public DmcAttribute<?> addDefFiles(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__defFiles);
+        if (attr == null)
+            attr = new DmcTypeStringMV(MetaDMSAG.__defFiles);
+        
+        setLastValue(attr.add(value));
+        add(MetaDMSAG.__defFiles,attr);
+        return(attr);
+    }
+
+    /**
+     * Returns the number of values in defFiles
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1259)
+    public int getDefFilesSize(){
+        DmcAttribute<?> attr = get(MetaDMSAG.__defFiles);
+        if (attr == null){
+            if (MetaDMSAG.__defFiles.indexSize == 0)
+                return(0);
+            else
+                return(MetaDMSAG.__defFiles.indexSize);
+        }
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Deletes a defFiles value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1317)
+    public DmcAttribute<?> delDefFiles(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__defFiles);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeStringMV(MetaDMSAG.__defFiles), value);
+        else
+            attr = del(MetaDMSAG.__defFiles, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Deletes a defFiles from the specified value.
+     * @param value String
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1333)
+    public DmcAttribute<?> delDefFiles(String value) {
+        DmcAttribute<?> attr = get(MetaDMSAG.__defFiles);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeStringMV(MetaDMSAG.__defFiles), value);
+        else
+            attr = del(MetaDMSAG.__defFiles, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Removes the defFiles attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1352)
+    public void remDefFiles(){
+         rem(MetaDMSAG.__defFiles);
+    }
+
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:652)
     public ModuleCREF getDependsOnModuleC(){
         DmcTypeModuleCREFSV attr = (DmcTypeModuleCREFSV) get(DsdCDMSAG.__dependsOnModuleC);
@@ -240,6 +373,78 @@ public class ModuleCDMO  extends CConceptBaseDMO  implements DmcNamedObjectIF, S
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:894)
     public void remDependsOnModuleC(){
          rem(DsdCDMSAG.__dependsOnModuleC);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:652)
+    public ModuleBREF getDependsOnModuleB(){
+        DmcTypeModuleBREFSV attr = (DmcTypeModuleBREFSV) get(DsdBDMSAG.__dependsOnModuleB);
+        if (attr == null)
+            return(null);
+
+        if (DmcOmni.instance().lazyResolution()){
+            if (attr.doLazyResolution(this)){
+                rem(attr.getAttributeInfo());
+                return(null);
+            }
+        }
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Returns the reference to ModuleB without attempting lazy resolution (if turned on).
+     */
+    public ModuleBREF getDependsOnModuleBREF(){
+        DmcTypeModuleBREFSV attr = (DmcTypeModuleBREFSV) get(DsdBDMSAG.__dependsOnModuleB);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets dependsOnModuleB to the specified value.
+     * @param value ModuleBDMO
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:706)
+    public void setDependsOnModuleB(ModuleBDMO value) {
+        DmcAttribute<?> attr = get(DsdBDMSAG.__dependsOnModuleB);
+        if (attr == null)
+            attr = new DmcTypeModuleBREFSV(DsdBDMSAG.__dependsOnModuleB);
+        else
+            ((DmcTypeModuleBREFSV)attr).removeBackReferences();
+        
+        try{
+            attr.set(value);
+            set(DsdBDMSAG.__dependsOnModuleB,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets dependsOnModuleB to the specified value.
+     * @param value A value compatible with DmcTypeModuleBREFSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:874)
+    public void setDependsOnModuleB(Object value) throws DmcValueException {
+        DmcTypeModuleBREFSV attr  = (DmcTypeModuleBREFSV) get(DsdBDMSAG.__dependsOnModuleB);
+        if (attr == null)
+            attr = new DmcTypeModuleBREFSV(DsdBDMSAG.__dependsOnModuleB);
+        else
+            attr.removeBackReferences();
+        
+        attr.set(value);
+        set(DsdBDMSAG.__dependsOnModuleB,attr);
+    }
+
+    /**
+     * Removes the dependsOnModuleB attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:894)
+    public void remDependsOnModuleB(){
+         rem(DsdBDMSAG.__dependsOnModuleB);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:652)

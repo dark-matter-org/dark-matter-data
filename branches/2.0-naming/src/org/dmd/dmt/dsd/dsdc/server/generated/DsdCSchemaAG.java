@@ -152,7 +152,9 @@ public class DsdCSchemaAG extends SchemaDefinition {
             _ModuleCOBJ.setDmtREFImport("org.dmd.dmt.dsd.dsdc.shared.generated.types.ModuleCREF");
             _ModuleCOBJ.setDmwIteratorClass("ModuleCIterableDMW");
             _ModuleCOBJ.addMay("meta.description");
+            _ModuleCOBJ.addMay("meta.defFiles");
             _ModuleCOBJ.addMay("dsdC.dependsOnModuleC");
+            _ModuleCOBJ.addMay("dsdB.dependsOnModuleB");
             _ModuleCOBJ.addMay("dsdA.dependsOnModuleA");
             _ModuleCOBJ.addMust("meta.name");
             _ModuleCOBJ.setDmwIteratorImport("org.dmd.dmt.dsd.dsdc.server.generated.dmw.ModuleCIterableDMW");

@@ -92,6 +92,7 @@ public class DsdBDMSAG implements DmcCompactSchemaIF {
 
         __ModuleB.addMust(MetaDMSAG.__name);
         __ModuleB.addMay(MetaDMSAG.__description);
+        __ModuleB.addMay(MetaDMSAG.__defFiles);
         __ModuleB.addMay(__dependsOnModuleB);
         __ModuleB.addMay(DsdADMSAG.__dependsOnModuleA);
 

@@ -68,6 +68,22 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 		return(getName() + "ScopedInterface");
 	}
 	
+	public String getDefinitionManagerImport(){
+		return(getGeneratedDsdPackage() + "." + getName() + "DefinitionManager");
+	}
+	
+	public String getDefinitionManagerName(){
+		return(getName() + "DefinitionManager");
+	}
+	
+	public String getDefinitionParserImport(){
+		return(getGeneratedDsdPackage() + "." + getName() + "Parser");
+	}
+	
+	public String getDefinitionParserName(){
+		return(getName() + "Parser");
+	}
+	
 	public void getScopedInterfaceMembers(MemberManager members){
 		ClassDefinition dsd = (ClassDefinition) getBaseDefinition();
 		

@@ -32,16 +32,18 @@ package org.dmd.dmt.dsd.dsda.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:366)
-import java.util.Iterator;                                                       // To allow access to our definitions - (DSDefinitionModule.java:96)
+import java.util.ArrayList;                                                      // To support getMVCopy() - (BaseDMWGenerator.java:1100)
+import java.util.Iterator;                                                       // Support copy of MV objects - (BaseDMWGenerator.java:2159)
 import org.dmd.dmc.*;                                                            // If any attributes - (BaseDMWGenerator.java:1006)
 import org.dmd.dmc.definitions.DmcDefinitionIF;                                  // The object is a domain specific definition - (BaseDMWGenerator.java:335)
 import org.dmd.dmc.definitions.DmcDefinitionSet;                                 // Our base to provide definition set storage - (DMWGenerator.java:162)
 import org.dmd.dmc.types.DefinitionName;                                         // Is named by - (BaseDMWGenerator.java:985)
 import org.dmd.dms.ClassDefinition;                                              // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:990)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                      // Required for MODREC constructor - (BaseDMWGenerator.java:995)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                      // Attribute defFiles from the meta schema - (BaseDMWGenerator.java:821)
+import org.dmd.dms.generated.dmw.StringIterableDMW;                              // For multi-valued String - (BaseDMWGenerator.java:2022)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                            // Required for MODREC constructor - (BaseDMWGenerator.java:994)
 import org.dmd.dmt.dsd.dsda.server.extended.AConceptBase;                        // Derived class - (BaseDMWGenerator.java:1167)
-import org.dmd.dmt.dsd.dsda.server.extended.AConceptX;                           // A definition from the ModuleA Module - (DSDefinitionModule.java:106)
+import org.dmd.dmt.dsd.dsda.server.extended.AConceptX;                           // A definition from the ModuleA Module - (DSDefinitionModule.java:122)
 import org.dmd.dmt.dsd.dsda.server.extended.ModuleA;                             // Required for getModificationRecorder() - (BaseDMWGenerator.java:999)
 import org.dmd.dmt.dsd.dsda.server.generated.dsd.ModuleAScopedInterface;         // Required to manage module definition - (DMWGenerator.java:161)
 import org.dmd.dmt.dsd.dsda.shared.generated.dmo.ModuleADMO;                     // Class not auxiliary or abstract - (BaseDMWGenerator.java:1171)
@@ -121,6 +123,119 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
             return( getObjectName().equals( ((ModuleADMW) obj).getObjectName()) );
         }
         return(false);
+    }
+
+    /**
+     * @return The number of String items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1590)
+    public int getDefFilesSize(){
+        return(((ModuleADMO) core).getDefFilesSize());
+    }
+
+    /**
+     * @return true if there are no StringDMO items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1598)
+    public boolean getDefFilesIsEmpty(){
+        if (((ModuleADMO) core).getDefFilesSize() == 0)
+            return(true);
+        return(false);
+    }
+
+    /**
+     * @return true if there are any StringDMO items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1608)
+    public boolean getDefFilesHasValue(){
+        if (((ModuleADMO) core).getDefFilesSize() == 0)
+            return(false);
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
+    public StringIterableDMW getDefFilesIterable(){
+        DmcAttribute<?> attr = core.get(MetaDMSAG.__defFiles);
+        if (attr == null)
+            return(StringIterableDMW.emptyList);
+        
+        return(new StringIterableDMW(((ModuleADMO) core).getDefFiles()));
+    }
+
+    /**
+     * Adds another defFiles value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2052)
+    public void addDefFiles(Object value) throws DmcValueException {
+        ((ModuleADMO) core).addDefFiles(value);
+    }
+
+    /**
+     * Adds another defFiles value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2062)
+    public void addDefFiles(String value){
+        ((ModuleADMO) core).addDefFiles(value);
+    }
+
+    /**
+     * Returns true if the collection contains the defFiles value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2119)
+    public boolean defFilesContains(String value){
+        return(((ModuleADMO) core).defFilesContains(value));
+    }
+
+    /**
+     * @return A COPY of the collection of String objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2163)
+    @SuppressWarnings("unchecked")
+    public ArrayList<String> getDefFilesCopy(){
+        DmcAttribute<?> attr = core.get(MetaDMSAG.__defFiles);
+        if (attr == null)
+            return(new ArrayList<String>());
+        
+        ArrayList<String> rc = new ArrayList<String>(attr.getMVSize());
+        
+        Iterator<String> it = (Iterator<String>) attr.getMV();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
+    }
+
+    /**
+     * Deletes a defFiles value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2190)
+    public void delDefFiles(Object value) throws DmcValueException {
+        ((ModuleADMO) core).delDefFiles(value);
+    }
+
+    /**
+     * Deletes a defFiles value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2199)
+    public void delDefFiles(String value){
+        ((ModuleADMO) core).delDefFiles(value);
+    }
+
+    /**
+     * Removes the defFiles attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2211)
+    public void remDefFiles(){
+        ((ModuleADMO) core).remDefFiles();
     }
 
     /**
@@ -226,7 +341,8 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
         ((ModuleADMO) core).remName();
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:148)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:164)
+    // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperFunctions(DMWGenerator.java:195)
     /**
      * All definitions are added to the base definition collection.
      */
@@ -242,7 +358,7 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
         return(AConceptBaseDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:172)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:189)
     public void addAConceptX(AConceptX def){
         AConceptXDefs.add(def);
         addAConceptBase(def);
