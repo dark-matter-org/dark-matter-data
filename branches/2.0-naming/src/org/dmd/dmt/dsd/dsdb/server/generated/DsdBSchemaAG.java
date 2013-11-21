@@ -172,10 +172,11 @@ public class DsdBSchemaAG extends SchemaDefinition {
             _dependsOnModuleBOBJ.setName("dependsOnModuleB");
             _dependsOnModuleBOBJ.setDmdID("-500099");
             _dependsOnModuleBOBJ.setDescription("Indicates the ModuleB on which something depends.");
+            _dependsOnModuleBOBJ.setValueType("MULTI");
             _dependsOnModuleBOBJ.setDotName("dsdB.dependsOnModuleB.AttributeDefinition");
             _dependsOnModuleB.setDefinedIn(this);
             _dependsOnModuleBOBJ.setFile("/src/org/dmd/dmt/dsd/dsdb/shared/dmdconfig/attributes.dmd");
-            _dependsOnModuleBOBJ.setLineNumber("6");
+            _dependsOnModuleBOBJ.setLineNumber("7");
             addAttributeDefList(_dependsOnModuleB);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:552)
@@ -188,7 +189,7 @@ public class DsdBSchemaAG extends SchemaDefinition {
             _definedInModuleBOBJ.setDotName("dsdB.definedInModuleB.AttributeDefinition");
             _definedInModuleB.setDefinedIn(this);
             _definedInModuleBOBJ.setFile("/src/org/dmd/dmt/dsd/dsdb/shared/dmdconfig/attributes.dmd");
-            _definedInModuleBOBJ.setLineNumber("12");
+            _definedInModuleBOBJ.setLineNumber("13");
             addAttributeDefList(_definedInModuleB);
 
     }

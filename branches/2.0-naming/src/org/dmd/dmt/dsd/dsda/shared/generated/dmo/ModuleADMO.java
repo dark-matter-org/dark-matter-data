@@ -31,7 +31,7 @@ import org.dmd.dms.generated.types.DmcTypeStringMV;                             
 import org.dmd.dms.generated.types.DmcTypeStringSV;                             // Required type - (GenUtility.java:325)
 import org.dmd.dmt.dsd.dsda.shared.generated.dmo.AConceptBaseDMO;               // Base class - (GenUtility.java:352)
 import org.dmd.dmt.dsd.dsda.shared.generated.dmo.ModuleADMO;                    // Type specific set/add - (GenUtility.java:304)
-import org.dmd.dmt.dsd.dsda.shared.generated.types.DmcTypeModuleAREFSV;         // Reference type - (GenUtility.java:297)
+import org.dmd.dmt.dsd.dsda.shared.generated.types.DmcTypeModuleAREFMV;         // Reference type - (GenUtility.java:297)
 import org.dmd.dmt.dsd.dsda.shared.generated.types.ModuleAREF;                  // Helper class - (GenUtility.java:332)
 
 /**
@@ -295,74 +295,109 @@ public class ModuleADMO  extends AConceptBaseDMO  implements DmcNamedObjectIF, S
          rem(MetaDMSAG.__defFiles);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:652)
-    public ModuleAREF getDependsOnModuleA(){
-        DmcTypeModuleAREFSV attr = (DmcTypeModuleAREFSV) get(DsdADMSAG.__dependsOnModuleA);
+    /**
+     * @return An Iterator of ModuleADMO objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:967)
+    public Iterator<ModuleAREF> getDependsOnModuleA(){
+        DmcTypeModuleAREFMV attr = (DmcTypeModuleAREFMV) get(DsdADMSAG.__dependsOnModuleA);
         if (attr == null)
-            return(null);
+            return( ((List<ModuleAREF>) Collections.EMPTY_LIST).iterator() );
 
         if (DmcOmni.instance().lazyResolution()){
             if (attr.doLazyResolution(this)){
                 rem(attr.getAttributeInfo());
-                return(null);
+                return( ((List<ModuleAREF>) Collections.EMPTY_LIST).iterator() );
             }
         }
 
-        return(attr.getSV());
+        return(attr.getMV());
     }
 
     /**
-     * Returns the reference to ModuleA without attempting lazy resolution (if turned on).
+     * @return An Iterator of ModuleAREFs without attempting lazy resolution (if it's turned on).
      */
-    public ModuleAREF getDependsOnModuleAREF(){
-        DmcTypeModuleAREFSV attr = (DmcTypeModuleAREFSV) get(DsdADMSAG.__dependsOnModuleA);
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:987)
+    public Iterator<ModuleAREF> getDependsOnModuleAREFs(){
+        DmcTypeModuleAREFMV attr = (DmcTypeModuleAREFMV) get(DsdADMSAG.__dependsOnModuleA);
         if (attr == null)
-            return(null);
+            return( ((List<ModuleAREF>) Collections.EMPTY_LIST).iterator() );
 
-        return(attr.getSV());
+        return(attr.getMV());
     }
 
     /**
-     * Sets dependsOnModuleA to the specified value.
-     * @param value ModuleADMO
+     * Adds another dependsOnModuleA to the specified value.
+     * @param value ModuleA
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:706)
-    public void setDependsOnModuleA(ModuleADMO value) {
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1001)
+    public DmcAttribute<?> addDependsOnModuleA(ModuleADMO value) {
         DmcAttribute<?> attr = get(DsdADMSAG.__dependsOnModuleA);
         if (attr == null)
-            attr = new DmcTypeModuleAREFSV(DsdADMSAG.__dependsOnModuleA);
-        else
-            ((DmcTypeModuleAREFSV)attr).removeBackReferences();
+            attr = new DmcTypeModuleAREFMV(DsdADMSAG.__dependsOnModuleA);
         
         try{
-            attr.set(value);
-            set(DsdADMSAG.__dependsOnModuleA,attr);
+            setLastValue(attr.add(value));
+            add(DsdADMSAG.__dependsOnModuleA,attr);
         }
         catch(DmcValueException ex){
-            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
         }
+        return(attr);
     }
 
     /**
-     * Sets dependsOnModuleA to the specified value.
-     * @param value A value compatible with DmcTypeModuleAREFSV
+     * Adds another dependsOnModuleA value.
+     * @param value A value compatible with ModuleA
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:874)
-    public void setDependsOnModuleA(Object value) throws DmcValueException {
-        DmcTypeModuleAREFSV attr  = (DmcTypeModuleAREFSV) get(DsdADMSAG.__dependsOnModuleA);
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1242)
+    public DmcAttribute<?> addDependsOnModuleA(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(DsdADMSAG.__dependsOnModuleA);
         if (attr == null)
-            attr = new DmcTypeModuleAREFSV(DsdADMSAG.__dependsOnModuleA);
-        else
-            attr.removeBackReferences();
+            attr = new DmcTypeModuleAREFMV(DsdADMSAG.__dependsOnModuleA);
         
-        attr.set(value);
-        set(DsdADMSAG.__dependsOnModuleA,attr);
+        setLastValue(attr.add(value));
+        add(DsdADMSAG.__dependsOnModuleA,attr);
+        return(attr);
+    }
+
+    /**
+     * Returns the number of values in dependsOnModuleA
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1259)
+    public int getDependsOnModuleASize(){
+        DmcAttribute<?> attr = get(DsdADMSAG.__dependsOnModuleA);
+        if (attr == null){
+            if (DsdADMSAG.__dependsOnModuleA.indexSize == 0)
+                return(0);
+            else
+                return(DsdADMSAG.__dependsOnModuleA.indexSize);
+        }
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Deletes a dependsOnModuleA value.
+     * @param value The ModuleA to be deleted from set of attribute values.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1298)
+    public DmcAttribute<?> delDependsOnModuleA(Object value){
+        DmcAttribute<?> attr = get(DsdADMSAG.__dependsOnModuleA);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeModuleAREFMV(DsdADMSAG.__dependsOnModuleA), value);
+        else
+            attr = del(DsdADMSAG.__dependsOnModuleA, value);
+        
+        return(attr);
     }
 
     /**
      * Removes the dependsOnModuleA attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:894)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1352)
     public void remDependsOnModuleA(){
          rem(DsdADMSAG.__dependsOnModuleA);
     }

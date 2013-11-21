@@ -15,8 +15,13 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms;
 
+import java.util.Iterator;
+import java.util.TreeMap;
+
 import org.dmd.dmc.DmcObject;
+import org.dmd.dmc.types.DefinitionName;
 import org.dmd.dms.generated.dmw.DSDefinitionModuleDMW;
+import org.dmd.dms.generated.dmw.DSDefinitionModuleIterableDMW;
 import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.codegen.MemberManager;
 import org.dmd.util.exceptions.DebugInfo;
@@ -26,6 +31,8 @@ import org.dmd.util.exceptions.DebugInfo;
  * of Domain Specific Definitions (DSDs).
  */
 public class DSDefinitionModule extends DSDefinitionModuleDMW {
+	
+	TreeMap<DefinitionName,DSDefinitionModule>	ddmDependencies;
 	
 	public DSDefinitionModule(){
 		
@@ -37,6 +44,36 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 	
 	protected DSDefinitionModule (DmcObject obj, ClassDefinition cd){
 		super(obj,cd);
+	}
+	
+	/**
+	 * @return the set of module types on which this module may depend.
+	 */
+	public Iterator<DSDefinitionModule> getDDMDependencies(){
+		if (ddmDependencies == null){
+			ddmDependencies = new TreeMap<DefinitionName, DSDefinitionModule>();
+			determineDDMDependencies(this, ddmDependencies);
+		}
+		return(ddmDependencies.values().iterator());
+	}
+	
+	/**
+	 * This method will recurse over the set of module type dependencies via the refersToDefsFromDSD
+	 * attribute to build a complete set of module types to which a module may refer.
+	 * @param module the module at the current level
+	 * @param dep the complete set of dependencies
+	 */
+	void determineDDMDependencies(DSDefinitionModule module, TreeMap<DefinitionName, DSDefinitionModule> dep){
+		dep.put(module.getName(), module);
+		
+		if (module.getRefersToDefsFromDSDSize() > 0){
+			DSDefinitionModuleIterableDMW it = module.getRefersToDefsFromDSD();
+			while(it.hasNext()){
+				DSDefinitionModule ddm = it.next();
+				if (dep.get(ddm.getName()) == null)
+					determineDDMDependencies(ddm, dep);
+			}
+		}
 	}
 	
 	/**
