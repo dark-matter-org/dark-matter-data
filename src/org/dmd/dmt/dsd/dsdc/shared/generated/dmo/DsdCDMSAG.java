@@ -13,6 +13,7 @@ import org.dmd.dms.generated.enums.DataTypeEnum;                    // Have clas
 import org.dmd.dms.generated.enums.OriginalTypeEnum;                // Have type/internal type definitions - (DmoCompactSchemaFormatter.java:1007)
 import org.dmd.dms.generated.enums.ValueTypeEnum;                   // Have attribute definitions - (DmoCompactSchemaFormatter.java:1028)
 import org.dmd.dmt.dsd.dsda.shared.generated.dmo.DsdADMSAG;         // Optional attribute from DsdADMSAG - (DmoCompactSchemaFormatter.java:1017)
+import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.DsdBDMSAG;         // Optional attribute from DsdBDMSAG - (DmoCompactSchemaFormatter.java:1017)
 
 
 
@@ -92,7 +93,9 @@ public class DsdCDMSAG implements DmcCompactSchemaIF {
 
         __ModuleC.addMust(MetaDMSAG.__name);
         __ModuleC.addMay(MetaDMSAG.__description);
+        __ModuleC.addMay(MetaDMSAG.__defFiles);
         __ModuleC.addMay(__dependsOnModuleC);
+        __ModuleC.addMay(DsdBDMSAG.__dependsOnModuleB);
         __ModuleC.addMay(DsdADMSAG.__dependsOnModuleA);
 
     }

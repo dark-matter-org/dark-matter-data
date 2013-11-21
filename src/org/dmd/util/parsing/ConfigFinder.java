@@ -85,6 +85,29 @@ public class ConfigFinder {
 	}
 	
 	/**
+	 * Convenience constructor to create a finder with the specified file suffix
+	 * @param suffix
+	 */
+	public ConfigFinder(String suffix){
+		init();
+		suffixes.add(suffix);
+	}
+	
+	/**
+	 * A convenience function to add source and jar search preferences in one shot.
+	 * @param sd source directories to search
+	 * @param jars the prefixes of jars to search
+	 */
+	public void setSourceAndJarInfo(ArrayList<String> sd, ArrayList<String> jars){
+		for(String src: sd){
+			sourceDirs.add(src);
+		}
+		for(String jar: jars){
+			jarPrefixes.add(jar);
+		}
+	}
+	
+	/**
 	 * Constructs a new ConfigFinder that will search the specified folders for
 	 * configurations.
 	 * @param srcdirs source directories that have been specified on the commandline.

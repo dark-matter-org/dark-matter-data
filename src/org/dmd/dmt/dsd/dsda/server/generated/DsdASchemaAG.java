@@ -145,6 +145,7 @@ public class DsdASchemaAG extends SchemaDefinition {
             _ModuleAOBJ.setDmtREFImport("org.dmd.dmt.dsd.dsda.shared.generated.types.ModuleAREF");
             _ModuleAOBJ.setDmwIteratorClass("ModuleAIterableDMW");
             _ModuleAOBJ.addMay("meta.description");
+            _ModuleAOBJ.addMay("meta.defFiles");
             _ModuleAOBJ.addMay("dsdA.dependsOnModuleA");
             _ModuleAOBJ.addMust("meta.name");
             _ModuleAOBJ.setDmwIteratorImport("org.dmd.dmt.dsd.dsda.server.generated.dmw.ModuleAIterableDMW");

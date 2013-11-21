@@ -1,11 +1,11 @@
 DSDefinitionModule
 name						ModuleC
-fileExtension				tma
+fileExtension				tmc
 dmdID						1
 moduleClassName				ModuleC
 moduleDependenceAttribute 	dependsOnModuleC
 definedInModuleAttribute	definedInModuleC
 baseDefinition				CConceptBase
-refersToDefsFromDSD			ModuleA
+refersToDefsFromDSD			ModuleB
 
 

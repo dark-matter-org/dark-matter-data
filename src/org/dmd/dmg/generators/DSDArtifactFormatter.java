@@ -72,6 +72,12 @@ public class DSDArtifactFormatter {
 			
 			String dirname = checkOutputDirectory(loc);
 			
+			// The call to generateDefinitionManager will populate this map with the complete
+			// set of modules from which we'll need definitions. This is used later when we
+			// we build the generation coordinator
+			TreeMap<String,DSDefinitionModule> includedModules = new TreeMap<String, DSDefinitionModule>();
+
+			
 			Iterator<DSDefinitionModule> it =  sm.getDSDefinitionModules();
 			while(it.hasNext()){
 				DSDefinitionModule module = it.next();
@@ -80,9 +86,10 @@ public class DSDArtifactFormatter {
 				// We only generate code for modules defined in the schema that
 				// was specified as part of the DMG config
 				if (module.getDefinedIn().getName().equals(sd.getName())){
-					generateDefinitionManager(config, dirname, module);
+					generateDefinitionManager(config, dirname, module, includedModules);
 					generateGlobalInterface(config, dirname, module);
 					generateScopedInterface(config, dirname, module);
+					generateGenerationCoordinator(config, dirname, module, includedModules, sm);
 					generateParser(config, dirname, module, sm);
 				}
 			}
@@ -91,7 +98,7 @@ public class DSDArtifactFormatter {
 	
 	///////////////////////////////////////////////////////////////////////////
 	
-	void generateDefinitionManager(DmgConfigDMO config, String dir, DSDefinitionModule ddm) throws IOException {
+	void generateDefinitionManager(DmgConfigDMO config, String dir, DSDefinitionModule ddm, TreeMap<String, DSDefinitionModule> includedModules) throws IOException {
 		if (fileHeader != null)
 			FileUpdateManager.instance().fileHeader(fileHeader);
 		
@@ -100,9 +107,9 @@ public class DSDArtifactFormatter {
 		ImportManager imports = new ImportManager();
 		ImplementsManager impl = new ImplementsManager();
 		
-		// When we build up the set of imports we'll need, we also build the complete set of
-		// modules from which we'll need definitions.
-		TreeMap<String,DSDefinitionModule> includedModules = new TreeMap<String, DSDefinitionModule>();
+//		// When we build up the set of imports we'll need, we also build the complete set of
+//		// modules from which we'll need definitions.
+//		TreeMap<String,DSDefinitionModule> includedModules = new TreeMap<String, DSDefinitionModule>();
 		
 		getImportsForDefinitions(imports, impl, ddm, includedModules);
 		
@@ -275,6 +282,8 @@ public class DSDArtifactFormatter {
 		out.close();
 	}
 	
+	///////////////////////////////////////////////////////////////////////////
+	
 	/**
 	 * This method generates an interface that has the methods required to store and retrieve
 	 * just the definitions associated with a particular DSD module, NOT including the module
@@ -371,7 +380,7 @@ public class DSDArtifactFormatter {
 		out.write("\n");
 		
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-		out.write("    " + ddm.getName() + "Parser(" + ddm.getGlobalInterfaceName() + " d, DmvRuleManager r) throws ResultException, DmcValueException {\n");
+		out.write("    public " + ddm.getName() + "Parser(" + ddm.getGlobalInterfaceName() + " d, DmvRuleManager r) throws ResultException, DmcValueException {\n");
 		out.write("        schema.manageSchema(new " + schemaName + "SchemaAG());\n");
 		out.write("        definitions  = d;\n");
 		out.write("        rules        = r;\n");
@@ -382,7 +391,7 @@ public class DSDArtifactFormatter {
 		out.write("    }\n\n");
 		
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-		out.write("    public void parseConfig(ConfigLocation l) throws ResultException, DmcValueException, DmcRuleExceptionSet {\n");
+		out.write("    public " + ddm.getName() + " parseConfig(ConfigLocation l) throws ResultException, DmcValueException, DmcRuleExceptionSet {\n");
 		out.write("        location = l;\n");
 		out.write("\n");
 		out.write("        // We're starting to parse a new config. Reset the module to null so that we only parse one module per config.\n");
@@ -396,6 +405,8 @@ public class DSDArtifactFormatter {
 		out.write("            System.out.println(\"Reading: \" + location.getFileName());\n");
 		out.write("            parser.parseFile(location.getFileName());\n");
 		out.write("        }\n");
+		out.write("\n");
+		out.write("        return(module);\n");
 		out.write("    }\n\n");
 		
 		out.write("    void parseFile(String fn){\n");
@@ -403,6 +414,8 @@ public class DSDArtifactFormatter {
 		out.write("\n");
 		out.write("\n");
 		out.write("    }\n\n");
+		
+		String definedInModuleMethod = "set" + GeneratorUtils.dotNameToCamelCase(ddm.getDefinedInModuleAttribute().getName().getNameString());
 		
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		ClassDefinition baseClass = (ClassDefinition) ddm.getBaseDefinition();
@@ -443,6 +456,8 @@ public class DSDArtifactFormatter {
 		out.write("        if (module == null){\n");
 		out.write("            if (definition instanceof " + ddm.getName() + "){\n");
 		out.write("                module = (" + ddm.getName() + ")definition;\n");
+		out.write("                definitions.add" + ddm.getName() + "(module);\n");
+		out.write("                module." + definedInModuleMethod + "(module);\n");
 		out.write("            }\n");
 		out.write("            else{\n");
 		out.write("                ResultException ex = new ResultException(\"Expecting a " + ddm.getName() + " module definition\");\n");
@@ -458,12 +473,15 @@ public class DSDArtifactFormatter {
 		out.write("                throw(ex);\n");
 		out.write("            }\n");
 		out.write("            \n");
+		out.write("            definition." + definedInModuleMethod + "(module);\n");
+		out.write("            \n");
 		
 		boolean first = true;
 		String condition = "if";
 		for(ClassDefinition cd: structuralDefs){
 			out.write("            " + condition + " (definition instanceof " + cd.getName() + "){\n");
 			out.write("                definitions.add" + cd.getName() + "((" + cd.getName() + ")definition);\n");
+			out.write("                module.add" + cd.getName() + "((" + cd.getName() + ")definition);\n");
 			out.write("            }\n");
 			if (first)
 				condition = "else if";
@@ -503,6 +521,118 @@ public class DSDArtifactFormatter {
 		}
 				
 	}
+	
+	/**
+	 * This method generates the overall generation coordinator for a particular DSD module. The
+	 * generation coordinator will find all config files associated with a particular DSD type
+	 * on the basis of its file extension (and the file extensions of other DSDs on which the
+	 * base DSD depends). 
+	 * @param config
+	 * @param dir
+	 * @param ddm
+	 * @throws IOException  
+	 */
+	void generateGenerationCoordinator(DmgConfigDMO config, String dir, DSDefinitionModule ddm, TreeMap<String, DSDefinitionModule> includedModules, SchemaManager sm) throws IOException {
+		ImportManager 	imports = new ImportManager();
+		MemberManager	members	= new MemberManager();
+		ManagedFileWriter out = FileUpdateManager.instance().getWriter(dir, ddm.getName() + "GenerationCoordinator.java");
+		out.write("package " + config.getGenPackage() + ".generated.dsd;\n\n");
+		
+		imports.addImport("java.io.IOException", "If we run it to problems finding configs");
+		imports.addImport("java.util.ArrayList", "To handle lists of things");
+		imports.addImport("java.util.TreeMap", "To handle loaded configs");
+		
+		imports.addImport("org.dmd.dmc.DmcValueException", "To handle exceptions from value handling");
+		imports.addImport("org.dmd.util.exceptions.ResultException", "To handle processing exceptions");
+		imports.addImport("org.dmd.dmc.rules.DmcRuleExceptionSet", "In case we have rule failures");
+		
+		imports.addImport("org.dmd.util.parsing.ConfigFinder", "Finds configs we may need to parse");
+		imports.addImport("org.dmd.util.parsing.ConfigLocation", "Handle to a discovered configuration");
+		imports.addImport("org.dmd.util.parsing.ConfigVersion", "Handle to a particular config version");
+		
+		imports.addImport("org.dmd.dmv.shared.DmvRuleManager", "Allows for application of rules to our definitions");
+		members.addMember("DmvRuleManager", "rules", "new DmvRuleManager()", "Rule manager");
+		
+		imports.addImport(ddm.getDefinitionManagerImport(), "Maintains all parsed definitions");
+		members.addMember(ddm.getDefinitionManagerName(), "definitions", "new " + ddm.getDefinitionManagerName() + "()", "Maintains all parsed definitions");
+		
+		for(DSDefinitionModule mod: includedModules.values()){
+			ClassDefinition ddmClass = sm.isClass(mod.getName().getNameString());
+			imports.addImport(ddmClass.getDmeImport(), "One of the DDS modules we might load");
+
+			imports.addImport(mod.getDefinitionParserImport(), "Required to parse " + mod.getName() + " definitions");
+			members.addMember(mod.getDefinitionParserName(), "parserFor" + mod.getName(), "Parser for " + mod.getName() + " definitions");
+			imports.addImport(mod.getDefinedIn().getDMSASGImport(),"To allow loading of rules from the " + mod.getDefinedIn().getName() + " schema");
+			members.addMember("ConfigFinder", "finderFor" + mod.getName(), "new ConfigFinder(\"" + mod.getFileExtension() + "\")", "Config finder for " + mod.getName() + " config files ending with ." + mod.getFileExtension());
+			members.addMember("TreeMap<String,ConfigLocation>", "loadedConfigsFor" + mod.getName(), "new TreeMap<String, ConfigLocation>()", "The names/location of the " + mod.getName() + " modules that have been loaded\n");
+		}
+		
+		out.write(imports.getFormattedImports());
+		
+		out.write("\n");
+		
+		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("/**\n");
+		out.write(" * The generation coordinator will find all config files associated with the " + ddm.getName()+ " DSD\n");
+		out.write(" * and coordinate the parsing and artifact generation.\n");
+		out.write(" */\n");
+		out.write("public class " + ddm.getName() + "GenerationCoordinator {\n\n");
+		
+		out.write(members.getFormattedMembers() + "\n");
+		
+		out.write("    public " + ddm.getName() + "GenerationCoordinator(ArrayList<String> sourceDirs, ArrayList<String> jars) throws ResultException, DmcValueException, IOException {\n");
+		for(DSDefinitionModule mod: includedModules.values()){
+			out.write("        rules.loadRules(" + mod.getDefinedIn().getDMSASGName() + ".instance());\n");			
+			out.write("        parserFor" + mod.getName() + " = new " + mod.getDefinitionParserName() + "(definitions, rules);\n");		
+			out.write("        finderFor" + mod.getName() + ".setSourceAndJarInfo(sourceDirs,jars);\n");	
+			out.write("        finderFor" + mod.getName() + ".findConfigs();\n");	
+			out.write("\n");
+		}
+		
+		out.write("    }\n\n");
+		out.write("\n");
+		out.write("    public void generateForConfig(String configName) throws ResultException, DmcValueException, DmcRuleExceptionSet {\n");
+		out.write("        ConfigVersion version = finderFor" + ddm.getName() + ".getConfig(configName);\n");
+		out.write("        \n");
+		out.write("        if (version == null){\n");
+		out.write("            ResultException ex = new ResultException(\"Could not find the specified configuration file: \" + configName);\n");
+		out.write("            throw(ex);\n");
+		out.write("        }\n");
+		out.write("        \n");
+		out.write("        ConfigLocation location = version.getLatestVersion();\n");
+		out.write("        \n");
+		out.write("        " + ddm.getName() + " loaded = parserFor" + ddm.getName() + ".parseConfig(location);\n");
+//		out.write("        loadedConfigsFor" + ddm.getName() + ".put\n");
+		out.write("\n");
+		out.write("\n");
+		out.write("    }\n\n");
+
+		out.write("    public void generateForAllConfigs(){\n");
+		out.write("\n");
+		out.write("\n");
+		out.write("\n");
+		out.write("\n");
+		out.write("    }\n\n");
+		
+		for(DSDefinitionModule mod: includedModules.values()){
+			out.write("    class " + mod.getName() + "Info {\n");			
+			out.write("        " + mod.getName() + " module;\n");
+			out.write("        ConfigLocation location;\n");
+			out.write("\n");
+			out.write("        " + mod.getName() + "Info(" + mod.getName() + " m, ConfigLocation l){\n");
+			out.write("            module   = m;\n");
+			out.write("            location = l;\n");
+			out.write("        }\n");
+			out.write("    }\n");
+			out.write("\n");
+		}
+
+		out.write("}\n\n");
+
+		out.close();
+	}
+	
+
 	
 	
 	///////////////////////////////////////////////////////////////////////////
