@@ -349,6 +349,7 @@ public class DSDArtifactFormatter {
 		imports.addImport("org.dmd.util.exceptions.ResultException", "May be thrown by schema management");
 		imports.addImport("org.dmd.dmc.rules.DmcRuleExceptionSet", "May be thrown by rule manager");
 		imports.addImport("org.dmd.dmv.shared.DmvRuleManager", "The injected rule manager used for initializations");
+		imports.addImport("org.dmd.dms.generated.dmw.StringIterableDMW", "To iterate over defFiles");
 		
 		// Get the class that was generated for the module
 		ClassDefinition ddmClass = sm.isClass(ddm.getName().getNameString());
@@ -406,13 +407,19 @@ public class DSDArtifactFormatter {
 		out.write("            parser.parseFile(location.getFileName());\n");
 		out.write("        }\n");
 		out.write("\n");
+		out.write("        if (module.getDefFilesHasValue()){\n");
+		out.write("            StringIterableDMW it = module.getDefFilesIterable();\n");
+		out.write("            while(it.hasNext()){\n");
+		out.write("                String fn = location.getDirectory() + \"/\" + it.next();\n");
+		out.write("\n");
+		out.write("                if (location.isFromJAR())\n");
+		out.write("                    parser.parseFile(fn,true);\n");
+		out.write("                else\n");
+		out.write("                    parser.parseFile(fn);\n");
+		out.write("            }\n");
+		out.write("        }\n");
+		out.write("\n");
 		out.write("        return(module);\n");
-		out.write("    }\n\n");
-		
-		out.write("    void parseFile(String fn){\n");
-		out.write("\n");
-		out.write("\n");
-		out.write("\n");
 		out.write("    }\n\n");
 		
 		String definedInModuleMethod = "set" + GeneratorUtils.dotNameToCamelCase(ddm.getDefinedInModuleAttribute().getName().getNameString());
@@ -456,6 +463,9 @@ public class DSDArtifactFormatter {
 		out.write("        if (module == null){\n");
 		out.write("            if (definition instanceof " + ddm.getName() + "){\n");
 		out.write("                module = (" + ddm.getName() + ")definition;\n");
+		out.write("            \n");
+		out.write("                definition.setDotName(module.getName() + \".\" + definition.getConstructionClassName());\n");
+		out.write("            \n");
 		out.write("                definitions.add" + ddm.getName() + "(module);\n");
 		out.write("                module." + definedInModuleMethod + "(module);\n");
 		out.write("            }\n");
@@ -474,6 +484,7 @@ public class DSDArtifactFormatter {
 		out.write("            }\n");
 		out.write("            \n");
 		out.write("            definition." + definedInModuleMethod + "(module);\n");
+		out.write("            definition.setDotName(module.getName() + \".\" + definition.getName() + \".\" + definition.getConstructionClassName());\n");
 		out.write("            \n");
 		
 		boolean first = true;
@@ -610,6 +621,7 @@ public class DSDArtifactFormatter {
 		out.write("        loaded" + ddm.getName() + "Configs.put(loaded.getName(), new " + ddm.getName() + "Info(loaded,location));\n");
 		out.write("\n");
 		out.write("        // We've loaded the base configuration file, now load any other modules on which it depends\n");
+		out.write("        loadModuleDependencies(loaded);\n");
 		out.write("        \n");
 		out.write("\n");
 		out.write("    }\n\n");
