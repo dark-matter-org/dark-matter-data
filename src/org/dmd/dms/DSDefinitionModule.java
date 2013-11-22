@@ -205,6 +205,11 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 		sb.append("     */\n");
 		sb.append("    void add" + dsd.getName() + "(" + dsd.getName() + " def){\n");
 		sb.append("        " + dsd.getName() + "Defs.add(def);\n");
+		if (!scoped){
+			// We only add this hook for the overall definition manager so that we have access
+			// to a single definition set with all definitions
+			sb.append("        allDefinitions.add(def);\n");
+		}
 		sb.append("    }\n\n");
 		
 		sb.append("    public int get" + dsd.getName() + "Count(){\n");
