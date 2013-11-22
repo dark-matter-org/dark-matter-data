@@ -216,8 +216,8 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmwdir, cd.getName().getNameString() + "IterableDMW.java");
         
-        if (fileHeader != null)
-        	out.write(fileHeader);
+//        if (fileHeader != null)
+//        	out.write(fileHeader);
         
         String CAST = cd.getDmeClass();
         String REF 	= cd.getDmtClass();
@@ -270,8 +270,8 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 	void dumpExtendedReferenceIterable(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm, ClassDefinition cd, SchemaDefinition thisSchema, ExtendedReferenceTypeDefinition ertd) throws IOException {
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmwdir, ertd.getName().getNameString() + "IterableDMW.java");
         
-        if (fileHeader != null)
-        	out.write(fileHeader);
+//        if (fileHeader != null)
+//        	out.write(fileHeader);
         
         String CAST = cd.getDmeClass();
         String REF 	= ertd.getName().getNameString();
@@ -344,8 +344,8 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 		createIfRequired(dmwdir);
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmwdir, cd.getName().getNameString() + genSuffix + ".java");
         
-        if (fileHeader != null)
-        	out.write(fileHeader);
+//        if (fileHeader != null)
+//        	out.write(fileHeader);
         
         out.write("package " + cd.getDmwPackage(genContext) + ".generated." + genContext + ";\n\n");
         
@@ -680,8 +680,8 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 		
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, cd.getName().getNameString() + ".java");
         
-        if (fileHeader != null)
-        	out.write(fileHeader);
+//        if (fileHeader != null)
+//        	out.write(fileHeader);
 
         String tmp = GeneratorUtils.dotNameToCamelCase(cd.getDefinedIn().getName().getNameString());
         String schemaName = cd.getDefinedIn().getDmwPackage(genContext) + ".generated." + tmp + "SchemaAG";

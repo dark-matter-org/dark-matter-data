@@ -1,9 +1,10 @@
 package org.dmd.dms;
 
 import org.dmd.dmc.DmcObject;
+import org.dmd.dmc.definitions.DmcDefinitionIF;
 import org.dmd.dms.generated.dmw.DSDefinitionDMW;
 
-public class DSDefinition extends DSDefinitionDMW {
+public class DSDefinition extends DSDefinitionDMW implements DmcDefinitionIF {
 
 	protected DSDefinition(){
 		

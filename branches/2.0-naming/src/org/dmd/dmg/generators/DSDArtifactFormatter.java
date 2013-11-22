@@ -89,8 +89,10 @@ public class DSDArtifactFormatter {
 					generateDefinitionManager(config, dirname, module, includedModules);
 					generateGlobalInterface(config, dirname, module);
 					generateScopedInterface(config, dirname, module);
-					generateGenerationCoordinator(config, dirname, module, includedModules, sm);
+					generateParsingCoordinator(config, dirname, module, includedModules, sm);
 					generateParser(config, dirname, module, sm);
+					
+					generateBaseUtility(config, dirname, module, includedModules);
 				}
 			}
 		}
@@ -115,6 +117,7 @@ public class DSDArtifactFormatter {
 		
 		out.write("package " + config.getGenPackage() + ".generated.dsd;\n\n");
 		
+		imports.addImport("org.dmd.dms.DSDefinition", "The base of all definitions");
 		imports.addImport("org.dmd.dmc.definitions.DmcDefinitionSet", "Our base to provide definition set storage");
 		imports.addImport("java.util.Iterator", "To allow access to our definitions");
 		
@@ -125,10 +128,14 @@ public class DSDArtifactFormatter {
 		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("public class " + ddm.getName() + "DefinitionManager " + impl.getFormattedImplementations() + "{\n\n");
 		
+		out.write("    DmcDefinitionSet<DSDefinition>	allDefinitions;\n");
+		out.write("\n");
+		
 		dumpDefinitionManagerMembers(out, includedModules);
 		
 		out.write("    public " + ddm.getName() + "DefinitionManager(){\n\n");
 		
+		out.write("        allDefinitions = new DmcDefinitionSet<DSDefinition>();\n\n");
 		initializeDefinitionManagerMembers(out, includedModules);
 		
 		out.write("    }\n\n");
@@ -194,39 +201,6 @@ public class DSDArtifactFormatter {
 	void dumpDefinitionInterfaceMethods(ManagedFileWriter out, TreeMap<String,DSDefinitionModule> modules) throws IOException {
 		for(DSDefinitionModule ddm : modules.values()){
 			out.write(ddm.getInterfaceMethodsImplementations(false));
-//			ClassDefinition dsd = (ClassDefinition) ddm.getBaseDefinition();
-//			
-//			out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-//			out.write("    /**\n");
-//			out.write("     * All definitions are added to the base definition collection.\n");
-//			out.write("     */\n");
-//			out.write("    void add" + dsd.getName() + "(" + dsd.getName() + " def){\n");
-//			out.write("        " + dsd.getName() + "Defs.add(def);\n");
-//			out.write("    }\n\n");
-//			
-//			out.write("    public int get" + dsd.getName() + "Count(){\n");
-//			out.write("        return(" + dsd.getName() + "Defs.size());\n");
-//			out.write("    }\n\n");
-//			
-//			out.write("    public Iterator<" + dsd.getName() + "> getAll" + dsd.getName() + "(){\n");
-//			out.write("        return(" + dsd.getName() + "Defs.values().iterator());\n");
-//			out.write("    }\n\n");
-//			
-//			for(ClassDefinition cd : dsd.getDerivedClasses()){
-//				out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-//				out.write("    public void add" + cd.getName() + "(" + cd.getName() + " def){\n");
-//				out.write("        " + cd.getName() + "Defs.add(def);\n");
-//				out.write("        add" + dsd.getName() + "(def);\n");
-//				out.write("    }\n\n");
-//				
-//				out.write("    public int get" + cd.getName() + "Count(){\n");
-//				out.write("        return(" + cd.getName() + "Defs.size());\n");
-//				out.write("    }\n\n");
-//				
-//				out.write("    public Iterator<" + cd.getName() + "> getAll" + cd.getName() + "(){\n");
-//				out.write("        return(" + cd.getName() + "Defs.values().iterator());\n");
-//				out.write("    }\n\n");
-//			}
 		}
 		out.write("\n");
 	}	
@@ -543,10 +517,10 @@ public class DSDArtifactFormatter {
 	 * @param ddm
 	 * @throws IOException  
 	 */
-	void generateGenerationCoordinator(DmgConfigDMO config, String dir, DSDefinitionModule ddm, TreeMap<String, DSDefinitionModule> includedModules, SchemaManager sm) throws IOException {
+	void generateParsingCoordinator(DmgConfigDMO config, String dir, DSDefinitionModule ddm, TreeMap<String, DSDefinitionModule> includedModules, SchemaManager sm) throws IOException {
 		ImportManager 	imports = new ImportManager();
 		MemberManager	members	= new MemberManager();
-		ManagedFileWriter out = FileUpdateManager.instance().getWriter(dir, ddm.getName() + "GenerationCoordinator.java");
+		ManagedFileWriter out = FileUpdateManager.instance().getWriter(dir, ddm.getName() + "ParsingCoordinator.java");
 		out.write("package " + config.getGenPackage() + ".generated.dsd;\n\n");
 		
 		imports.addImport("java.io.IOException", "If we run it to problems finding configs");
@@ -589,13 +563,13 @@ public class DSDArtifactFormatter {
 		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("/**\n");
 		out.write(" * The generation coordinator will find all config files associated with the " + ddm.getName()+ " DSD\n");
-		out.write(" * and coordinate the parsing and artifact generation.\n");
+		out.write(" * and coordinate the parsing of the initial config file and all files on which it depends.\n");
 		out.write(" */\n");
-		out.write("public class " + ddm.getName() + "GenerationCoordinator {\n\n");
+		out.write("public class " + ddm.getName() + "ParsingCoordinator {\n\n");
 		
 		out.write(members.getFormattedMembers() + "\n");
 		
-		out.write("    public " + ddm.getName() + "GenerationCoordinator(ArrayList<String> sourceDirs, ArrayList<String> jars) throws ResultException, DmcValueException, IOException {\n");
+		out.write("    public " + ddm.getName() + "ParsingCoordinator(ArrayList<String> sourceDirs, ArrayList<String> jars) throws ResultException, DmcValueException, IOException {\n");
 		for(DSDefinitionModule mod: includedModules.values()){
 			out.write("        rules.loadRules(" + mod.getDefinedIn().getDMSASGName() + ".instance());\n");			
 			out.write("        parserFor" + mod.getName() + " = new " + mod.getDefinitionParserName() + "(definitions, rules);\n");		
@@ -685,6 +659,13 @@ public class DSDArtifactFormatter {
 		out.close();
 	}
 	
+	/**
+	 * 
+	 * @param module
+	 * @param modit
+	 * @param out
+	 * @throws IOException
+	 */
 	void formatModuleLoadDependencies(DSDefinitionModule module, Iterator<DSDefinitionModule> modit, ManagedFileWriter out) throws IOException {
 		while(modit.hasNext()){
 			DSDefinitionModule dependsOn = modit.next();
@@ -705,6 +686,42 @@ public class DSDArtifactFormatter {
 		}
 	}
 	
+	
+	///////////////////////////////////////////////////////////////////////////
+	
+	/**
+	 * Generates the base generation utility from which a tool builder can
+	 * derive and specialize.
+	 * @throws IOException 
+	 */
+	void generateBaseUtility(DmgConfigDMO config, String dir, DSDefinitionModule ddm, TreeMap<String, DSDefinitionModule> includedModules) throws IOException{
+		ImportManager 	imports = new ImportManager();
+		MemberManager	members	= new MemberManager();
+		ManagedFileWriter out = FileUpdateManager.instance().getWriter(dir, ddm.getName() + "GenUtility.java");
+		
+		imports.addImport(ddm.getGeneratedDsdPackage() + "." + ddm.getName() + "ParsingCoordinator", "Parses modules required for generation");
+		
+		
+		members.addMember(ddm.getName() + "ParsingCoordinator", "parser", "Module parser");
+		
+		
+		out.write("package " + config.getGenPackage() + ".generated.dsd;\n\n");
+		
+		out.write(imports.getFormattedImports() + "\n");
+
+		out.write("public class " + ddm.getName() + "GenUtility {\n\n");
+		
+		out.write(members.getFormattedMembers() + "\n");
+		
+		out.write("    protected " + ddm.getName() + "GenUtility() {\n");
+		out.write("    }\n");
+		
+		out.write("\n");
+		
+		out.write("}\n\n");
+		
+		out.close();
+	}
 	
 	///////////////////////////////////////////////////////////////////////////
 	
