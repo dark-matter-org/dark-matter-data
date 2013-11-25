@@ -16,24 +16,18 @@
 package org.dmd.dmt.dsd.dsda.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateScopedInterface(DSDArtifactFormatter.java:280)
-import java.util.Iterator;                                        // To provide iterators over definitions - (DSDArtifactFormatter.java:277)
-import org.dmd.dmt.dsd.dsda.server.extended.AConceptBase;         // A definition from the ModuleA Module - (DSDefinitionModule.java:152)
-import org.dmd.dmt.dsd.dsda.server.extended.AConceptX;            // A definition from the ModuleA Module - (DSDefinitionModule.java:163)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:764)
+import org.dmd.dmt.dsd.dsda.server.extended.ModuleA;                               // The base module for generation - (DSDArtifactFormatter.java:759)
+import org.dmd.dmt.dsd.dsda.server.generated.dsd.ModuleADefinitionManager;         // All parsed definition - (DSDArtifactFormatter.java:762)
+import org.dmd.util.parsing.ConfigLocation;                                        // Where the config was loaded from - (DSDArtifactFormatter.java:761)
 
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateScopedInterface(DSDArtifactFormatter.java:284)
-/**
- * This interface is implemented by the generated wrapper class for the ModuleA module.
- */
-public interface ModuleAScopedInterface {
+public interface ModuleAGeneratorInterface {
 
-    public int getAConceptBaseCount();
-    public Iterator<AConceptBase> getAllAConceptBase();
+    public void generate(ModuleA module, ConfigLocation location, ModuleADefinitionManager definitions);
 
-    public void addAConceptX(AConceptX def);
-    public int getAConceptXCount();
-    public Iterator<AConceptX> getAllAConceptX();
 
 }
+
+
 

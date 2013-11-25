@@ -109,6 +109,10 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 		return(getGeneratedDsdPackage() + "." + getName() + "DefinitionManager");
 	}
 	
+	public String getModuleImport(){
+		return(getGeneratedDsdPackage() + "." + getName());
+	}
+	
 	public String getDefinitionManagerName(){
 		return(getName() + "DefinitionManager");
 	}
