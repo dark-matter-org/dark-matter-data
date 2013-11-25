@@ -790,6 +790,40 @@ public abstract class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
         return(attr.getMVSize());
     }
 
+    /**
+     * The set of DSDefinitionModules defined in a schema.
+     * @return An Iterator of DSDefinitionModule objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2510)
+    public DSDefinitionModuleIterableDMW getDsdModuleList(){
+        DmcTypeDSDefinitionModuleREFMV attr = (DmcTypeDSDefinitionModuleREFMV) mycore.get(MetaDMSAG.__dsdModuleList);
+        if (attr == null)
+            return(DSDefinitionModuleIterableDMW.emptyList);
+
+        return(new DSDefinitionModuleIterableDMW(attr.getMV()));
+    }
+
+    /**
+     * Adds another dsdModuleList value.
+     * @param value A value compatible with DSDefinitionModule
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2569)
+    public DmcAttribute<?> addDsdModuleList(DSDefinitionModule value) throws DmcValueException {
+        DmcAttribute<?> attr = mycore.addDsdModuleList(value.getDmcObject());
+        return(attr);
+    }
+
+    /**
+     * Returns the number of dsdModuleList values.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2595)
+    public int getDsdModuleListSize(){
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__dsdModuleList);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation

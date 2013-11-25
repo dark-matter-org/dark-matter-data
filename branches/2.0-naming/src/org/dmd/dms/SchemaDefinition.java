@@ -291,7 +291,7 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     	else if (def instanceof RuleDefinition)
     		this.addRuleDefinitionList((RuleDefinition)def);
     	else if (def instanceof DSDefinitionModule){
-    		System.err.println("\n\n*** add definition modules to schema ***\n\n");
+    		this.addDsdModuleList((DSDefinitionModule) def);
     	}
         else{
         	ResultException ex = new ResultException();

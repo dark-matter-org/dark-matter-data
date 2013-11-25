@@ -1893,6 +1893,13 @@ internalUse					true
 description    				The DSDefinitionModule that resulted in the creation of an
  internally generated ClassDefinition.
 
+AttributeDefinition
+name                		dsdModuleList
+dmdID						169
+type                		DSDefinitionModule
+valueType					MULTI
+description    				The set of DSDefinitionModules defined in a schema.
+
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
 AttributeDefinition
@@ -2416,6 +2423,7 @@ may           	dependsOnRef
 may				ruleCategoryList
 may				ruleDefinitionList
 may				ruleDataList
+may				dsdModuleList
 // obsolete
 //must            genDirPrefix
 //must            genPackagePrefix
