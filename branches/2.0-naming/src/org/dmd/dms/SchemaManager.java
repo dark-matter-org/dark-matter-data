@@ -1333,6 +1333,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 		} catch (DmcValueExceptionSet e) {			
 			ResultException ex = new ResultException();
 			ex.addError("Unresolved references in ClassDefinition: " + cd.getName());
+			ex.addError(cd.toOIF());
 			
 			for(DmcValueException dve : e.getExceptions()){
 				ex.moreMessages(dve.getMessage());
