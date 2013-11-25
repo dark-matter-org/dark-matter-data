@@ -84,6 +84,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __dmwWrapperType = new DmcAttributeInfo("meta","dmwWrapperType",124,"DmwTypeToWrapperType",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __dotName = new DmcAttributeInfo("meta","dotName",107,"DotName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __dsdModuleDefinition = new DmcAttributeInfo("meta","dsdModuleDefinition",168,"DSDefinitionModule",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __dsdModuleList = new DmcAttributeInfo("meta","dsdModuleList",169,"DSDefinitionModule",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __enumDefList = new DmcAttributeInfo("meta","enumDefList",58,"EnumDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __enumInt = new DmcAttributeInfo("meta","enumInt",69,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __enumName = new DmcAttributeInfo("meta","enumName",99,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
@@ -364,6 +365,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__dmwWrapperType.id,__dmwWrapperType);
         _SmAp.put(__dotName.id,__dotName);
         _SmAp.put(__dsdModuleDefinition.id,__dsdModuleDefinition);
+        _SmAp.put(__dsdModuleList.id,__dsdModuleList);
         _SmAp.put(__enumDefList.id,__enumDefList);
         _SmAp.put(__enumInt.id,__enumInt);
         _SmAp.put(__enumName.id,__enumName);
@@ -729,6 +731,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __SchemaDefinition.addMay(__dmwPackage);
         __SchemaDefinition.addMay(__dmwTypeToPackage);
         __SchemaDefinition.addMay(__dotName);
+        __SchemaDefinition.addMay(__dsdModuleList);
         __SchemaDefinition.addMay(__enumDefList);
         __SchemaDefinition.addMay(__exampleUsage);
         __SchemaDefinition.addMay(__extendedReferenceTypeDefList);

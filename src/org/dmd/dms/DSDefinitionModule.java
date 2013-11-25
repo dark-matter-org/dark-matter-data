@@ -38,11 +38,11 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 		
 	}
 	
-	protected DSDefinitionModule(DmcObject obj){
+	public DSDefinitionModule(DmcObject obj){
 		super(obj);
 	}
 	
-	protected DSDefinitionModule (DmcObject obj, ClassDefinition cd){
+	public DSDefinitionModule (DmcObject obj, ClassDefinition cd){
 		super(obj,cd);
 	}
 	

@@ -605,6 +605,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         SliceDefinition 				slice		= null;
         RuleCategory 					category	= null;
         RuleDefinition 					rule		= null;
+        DSDefinitionModule 				dsdModule	= null;
         
         Iterator<ActionDefinition>					itACD  		= null;
         Iterator<AttributeDefinition>				itATD  		= null;
@@ -616,6 +617,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         Iterator<SliceDefinition>					sliceIT		= null;
         Iterator<RuleCategory>						categoryIT	= null;
         Iterator<RuleDefinition>					ruleIT		= null;
+        Iterator<DSDefinitionModule>				dsdModuleIT		= null;
 
         currentSchema       = sd;
         
@@ -665,6 +667,13 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
             while(ruleIT.hasNext()){
                 rule = ruleIT.next();
                 this.addRuleDefinition(rule);
+            }
+        }
+        
+        if ( (dsdModuleIT = sd.getDsdModuleList()) != null){
+            while(dsdModuleIT.hasNext()){
+            	dsdModule = dsdModuleIT.next();
+                this.addDefinitionModule(dsdModule, true);
             }
         }
         
@@ -837,21 +846,15 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 
     }
     
-    void addDefinitionModule(DSDefinitionModule ddm) throws ResultException, DmcValueException {
-
-    	// Again, some trickiness, we have to resolve the module so that we can access and use the must/may
-    	// attributes that are defined for it and add them to the class definition we create
-        try {
-        	ddm.resolveReferences(this,currentResolver);
-		} catch (DmcValueExceptionSet e) {			
-			ResultException ex = new ResultException();
-			ex.addError("Unresolved references in DSDefinitionModule: " + ddm.getName());
-			
-			for(DmcValueException dve : e.getExceptions()){
-				ex.moreMessages(dve.getMessage());
-			}
-			throw(ex);
-		}
+    /**
+     * Adds the definition module. If we're managing this as part of a loaded schema, we don't
+     * attempt to generate the internal class that represents the module.
+     * @param ddm the modulew being added 
+     * @param managingSchema whether we're managing a schema or parsing a schema
+     * @throws ResultException
+     * @throws DmcValueException
+     */
+    void addDefinitionModule(DSDefinitionModule ddm, boolean managingSchema) throws ResultException, DmcValueException {
 
         if (checkAndAdd(ddm.getObjectName(),ddm,definitionModuleDefs) == false){
         	ResultException ex = new ResultException();
@@ -866,8 +869,25 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
             throw(ex);
         }
         
+        if (managingSchema)
+        	return;
+        
         ///////////////////////////////////////////////////////////////////////
         
+    	// Again, some trickiness, we have to resolve the module so that we can access and use the must/may
+    	// attributes that are defined for it and add them to the class definition we create
+        try {
+        	ddm.resolveReferences(this,currentResolver);
+		} catch (DmcValueExceptionSet e) {			
+			ResultException ex = new ResultException();
+			ex.addError("Unresolved references in DSDefinitionModule: " + ddm.getName());
+			
+			for(DmcValueException dve : e.getExceptions()){
+				ex.moreMessages(dve.getMessage());
+			}
+			throw(ex);
+		}
+
     	DefinitionName moduleClassName = new DefinitionName(ddm.getModuleClassName());
 
     	// And now we generate a class that represents the module
@@ -1660,7 +1680,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     	else if (def instanceof SchemaDefinition)
     		this.addSchema((SchemaDefinition) def);
     	else if (def instanceof DSDefinitionModule)
-    		this.addDefinitionModule((DSDefinitionModule) def);
+    		this.addDefinitionModule((DSDefinitionModule) def, false);
         else{
         	ResultException ex = new ResultException();
         	ex.addError("The specified object is not a DmsDefinition object: \n" + def.toOIF());

@@ -30,6 +30,7 @@ import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.ComplexTypeDefinition;
+import org.dmd.dms.DSDefinitionModule;
 import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.EnumDefinition;
 import org.dmd.dms.RuleDefinition;
@@ -75,6 +76,8 @@ public class SchemaFormatter {
 	
 	ArrayList<VarToObject>		ruleVars;
 	
+	ArrayList<VarToObject>		dsdModuleVars;
+	
 	SchemaManager				schemaManager;
 	
 	// When we call getInstantiations() we also add the import for any AUX
@@ -98,6 +101,7 @@ public class SchemaFormatter {
 		actionVars 		= new ArrayList<VarToObject>();
 		enumVars 		= new ArrayList<VarToObject>();
 		ruleVars 		= new ArrayList<VarToObject>();
+		dsdModuleVars 	= new ArrayList<VarToObject>();
 		
 		skip = new TreeMap<String, String>();
 		skip.put(DmcObject.__objectClass.name, DmcObject.__objectClass.name);
@@ -199,6 +203,7 @@ public class SchemaFormatter {
 
         out.write("    }\n\n");
         
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    private void initialize() throws DmcValueException {\n");
         out.write("        if (instance == null){\n");
         out.write("            instance        = this;\n");
@@ -235,6 +240,7 @@ public class SchemaFormatter {
         out.write("            initActions();\n");
         out.write("            initEnums();\n");
         out.write("            initRules();\n");
+        out.write("            initDSDModules();\n");
        
         out.write("            DmcOmni.instance().addCompactSchema(" + asagName + ".instance());\n");
         
@@ -258,7 +264,10 @@ public class SchemaFormatter {
         
         dumpInitFunction(out,"initRules", ruleVars);
         
+        dumpInitFunction(out,"initDSDModules", dsdModuleVars);
+        
                 
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("\n");
         out.write("    @Override\n");
         out.write("    public synchronized " + schemaName + " getInstance() throws DmcValueException{\n");
@@ -299,6 +308,7 @@ public class SchemaFormatter {
 	}
 		
 	void dumpInitFunction(BufferedWriter out, String funcName, ArrayList<VarToObject> vars) throws IOException {
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    private void " + funcName + "() throws DmcValueException {\n");
         out.write(getInstantiations(vars));
         out.write("    }\n\n");
@@ -332,6 +342,7 @@ public class SchemaFormatter {
 	String getInstantiations(){
 		StringBuffer sb = new StringBuffer();
 		
+		sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		for(VarToObject var : allVars){
 			if (var.name.length() == 0){
 				sb.append("\n");
@@ -359,6 +370,9 @@ public class SchemaFormatter {
 				}
 				else if (var.type.equals("RuleDefinition")){
 					sb.append("            addRuleDefinitionList(" + var.name + ");\n");
+				}
+				else if (var.type.equals("DSDefinitionModule")){
+					sb.append("            addDsdModuleList(" + var.name + ");\n");
 				}
 				sb.append("\n");
 			}
@@ -404,6 +418,9 @@ public class SchemaFormatter {
 				}
 				else if (var.type.equals("RuleDefinition")){
 					sb.append("            addRuleDefinitionList(" + var.name + ");\n");
+				}
+				else if (var.type.equals("DSDefinitionModule")){
+					sb.append("            addDsdModuleList(" + var.name + ");\n");
 				}
 				sb.append("\n");
 			}
@@ -537,6 +554,20 @@ public class SchemaFormatter {
 				sb.append("    public static RuleDefinition _" + rd.getName() + ";\n");
 				allVars.add(new VarToObject("_" + rd.getName(), rd, "RuleDefinition"));
 				ruleVars.add(new VarToObject("_" + rd.getName(), rd, "RuleDefinition"));
+			}
+			sb.append("\n");
+			allVars.add(new VarToObject("", null, null));
+		}
+
+		Iterator<DSDefinitionModule> dsdModules = schema.getDsdModuleList();
+		if (dsdModules != null){
+			while(dsdModules.hasNext()){
+				DSDefinitionModule dsdm = dsdModules.next();
+				// NOTE: we append DSD to the module name to differentiate it from the
+				// the internally generated ClassDefinition of the same name.
+				sb.append("    public static DSDefinitionModule _" + dsdm.getName()  + "DSD;\n");
+				allVars.add(new VarToObject("_" + dsdm.getName() + "DSD", dsdm, "DSDefinitionModule"));
+				dsdModuleVars.add(new VarToObject("_" + dsdm.getName() + "DSD", dsdm, "DSDefinitionModule"));
 			}
 			sb.append("\n");
 			allVars.add(new VarToObject("", null, null));
