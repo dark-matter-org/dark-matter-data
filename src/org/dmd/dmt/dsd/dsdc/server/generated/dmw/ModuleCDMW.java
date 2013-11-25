@@ -36,7 +36,7 @@ import org.dmd.dmt.dsd.dsdb.server.generated.dmw.ModuleBIterableDMW;            
 import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.DsdBDMSAG;                      // Attribute dependsOnModuleB from the dsdB schema - (BaseDMWGenerator.java:821)
 import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.ModuleBDMO;                     // For multi-valued adds of ModuleB - (BaseDMWGenerator.java:1686)
 import org.dmd.dmt.dsd.dsdc.server.extended.CConceptBase;                        // Derived class - (BaseDMWGenerator.java:1167)
-import org.dmd.dmt.dsd.dsdc.server.extended.CConceptX;                           // A definition from the ModuleC Module - (DSDefinitionModule.java:163)
+import org.dmd.dmt.dsd.dsdc.server.extended.CConceptX;                           // A definition from the ModuleC Module - (DSDefinitionModule.java:171)
 import org.dmd.dmt.dsd.dsdc.server.extended.ModuleC;                             // Required for getModificationRecorder() - (BaseDMWGenerator.java:999)
 import org.dmd.dmt.dsd.dsdc.server.generated.dmw.ModuleCIterableDMW;             // For multi-valued ModuleC - (BaseDMWGenerator.java:1628)
 import org.dmd.dmt.dsd.dsdc.server.generated.dsd.ModuleCScopedInterface;         // Required to manage module definition - (DMWGenerator.java:161)
@@ -552,7 +552,7 @@ abstract public class ModuleCDMW extends CConceptBase implements DmcDefinitionIF
         ((ModuleCDMO) core).remName();
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:205)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:213)
     // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperFunctions(DMWGenerator.java:195)
     /**
      * All definitions are added to the base definition collection.
@@ -569,7 +569,7 @@ abstract public class ModuleCDMW extends CConceptBase implements DmcDefinitionIF
         return(CConceptBaseDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:235)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:243)
     public void addCConceptX(CConceptX def){
         CConceptXDefs.add(def);
         addCConceptBase(def);

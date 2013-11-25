@@ -97,6 +97,14 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 		return(getName() + "GlobalInterface");
 	}
 	
+	public String getGeneratorInterfaceImport(){
+		return(getGeneratedDsdPackage() + "." + getName() + "GeneratorInterface");
+	}
+	
+	public String getGeneratorInterfaceName(){
+		return(getName() + "GeneratorInterface");
+	}
+	
 	public String getScopedInterfaceImport(){
 		return(getGeneratedDsdPackage() + "." + getName() + "ScopedInterface");
 	}

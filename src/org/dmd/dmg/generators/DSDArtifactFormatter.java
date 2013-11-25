@@ -544,6 +544,9 @@ public class DSDArtifactFormatter {
 		imports.addImport(ddm.getDefinitionManagerImport(), "Maintains all parsed definitions");
 		members.addMember(ddm.getDefinitionManagerName(), "definitions", "new " + ddm.getDefinitionManagerName() + "()", "Maintains all parsed definitions");
 		
+		imports.addImport(ddm.getGeneratorInterfaceImport(), "The generator we call");
+		members.addMember(ddm.getGeneratorInterfaceName(), "generator", "Injected generator that we call when config loading is complete");
+		
 		for(DSDefinitionModule mod: includedModules.values()){
 			ClassDefinition ddmClass = sm.isClass(mod.getName().getNameString());
 			imports.addImport(ddmClass.getDmeImport(), "One of the DDS modules we might load");
@@ -570,7 +573,12 @@ public class DSDArtifactFormatter {
 		
 		out.write(members.getFormattedMembers() + "\n");
 		
-		out.write("    public " + ddm.getName() + "ParsingCoordinator(ArrayList<String> sourceDirs, ArrayList<String> jars) throws ResultException, DmcValueException, IOException {\n");
+		out.write("    public " + ddm.getName() + "ParsingCoordinator(" + ddm.getGeneratorInterfaceName() + " g, ArrayList<String> sourceDirs, ArrayList<String> jars) throws ResultException, DmcValueException, IOException {\n");
+
+		out.write("\n");
+		out.write("        generator = g;\n");
+		out.write("\n");
+		
 		for(DSDefinitionModule mod: includedModules.values()){
 			out.write("        rules.loadRules(" + mod.getDefinedIn().getDMSASGName() + ".instance());\n");			
 			out.write("        parserFor" + mod.getName() + " = new " + mod.getDefinitionParserName() + "(definitions, rules);\n");		
@@ -598,15 +606,26 @@ public class DSDArtifactFormatter {
 		out.write("        // We've loaded the base configuration file, now load any other modules on which it depends\n");
 		out.write("        loadModuleDependencies(loaded);\n");
 		out.write("        \n");
+		out.write("        generator.generate(loaded,location,definitions);\n");
+		out.write("        \n");
 		out.write("\n");
 		out.write("    }\n\n");
 
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-		out.write("    public void generateForAllConfigs(){\n");
+		out.write("    public void generateForAllConfigs() throws ResultException, DmcValueException, DmcRuleExceptionSet {\n");
 		out.write("\n");
+		out.write("        Iterator<ConfigLocation> it = finderFor" + ddm.getName() + ".getLocations();\n");
+		out.write("        while(it.hasNext()){\n");
+		out.write("            ConfigLocation location = it.next();\n");
+		out.write("            " + ddm.getName() + " loaded = parserFor" + ddm.getName() + ".parseConfig(location);\n");
+		out.write("            loaded" + ddm.getName() + "Configs.put(loaded.getName(), new " + ddm.getName() + "Info(loaded,location));\n");
 		out.write("\n");
+		out.write("            // We've loaded the base configuration file, now load any other modules on which it depends\n");
+		out.write("            loadModuleDependencies(loaded);\n");
 		out.write("\n");
+		out.write("            generator.generate(loaded,location,definitions);\n");
 		out.write("\n");
+		out.write("        }\n");
 		out.write("    }\n\n");
 		
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
@@ -701,9 +720,13 @@ public class DSDArtifactFormatter {
 		ManagedFileWriter out = FileUpdateManager.instance().getWriter(dir, ddm.getName() + "GenUtility.java");
 		
 		imports.addImport(ddm.getGeneratedDsdPackage() + "." + ddm.getName() + "ParsingCoordinator", "Parses modules required for generation");
+		imports.addImport(ddm.getGeneratedDsdPackage() + "." + ddm.getName() + "GeneratorInterface", "Called by the parsing coordinator as configs are read");
 		imports.addImport("org.dmd.util.parsing.CommandLine", "Commandline parsing");
 		imports.addImport("org.dmd.util.BooleanVar", "Commandline flags");
 		imports.addImport("org.dmd.util.parsing.StringArrayList", "Commandline string values");
+		imports.addImport("java.io.IOException", "In case we have problems opening/writin got files");
+		imports.addImport("org.dmd.util.exceptions.ResultException", "To handle parsing exceptions");
+		imports.addImport("org.dmd.dmc.DmcValueException", "To handle fundamental value errors");
 		
 		members.addMember(ddm.getName() + "ParsingCoordinator", "parser", "Module parser");
 		members.addMember("CommandLine", "commandLine", "new CommandLine()", "Commandline parser");
@@ -719,7 +742,7 @@ public class DSDArtifactFormatter {
 		
 		out.write(imports.getFormattedImports() + "\n");
 
-		out.write("public class " + ddm.getName() + "GenUtility {\n\n");
+		out.write("public abstract class " + ddm.getName() + "GenUtility implements " + ddm.getName() + "GeneratorInterface {\n\n");
 		
 		out.write(members.getFormattedMembers() + "\n");
 		
@@ -731,9 +754,19 @@ public class DSDArtifactFormatter {
 		out.write("        commandLine.addOption(\"-debug\",     debug,     \"Dump debug information.\");\n");
 		out.write("        commandLine.addOption(\"-jars\",      jars,     	\"The prefixs of jars to search for ." + ddm.getFileExtension() + " config files.\");\n");
 		out.write("\n");
-		out.write("    }\n");
+		out.write("    }\n\n");
 		
+		out.write("    /**\n");
+		out.write("     * Based on the command line arguments, we hunt for \n");
+		out.write("     *\n");
+		out.write("     * @param args the command line arguments\n");
+		out.write("     */\n");
+		out.write("    public void run(String[] args) throws ResultException, DmcValueException, IOException {\n");
 		out.write("\n");
+		out.write("        commandLine.parseArgs(args);\n");
+		out.write("\n");
+		out.write("        parser = new " + ddm.getName() + "ParsingCoordinator(this, srcdir,jars);\n");
+		out.write("    }\n\n");
 		
 		out.write("}\n\n");
 		
