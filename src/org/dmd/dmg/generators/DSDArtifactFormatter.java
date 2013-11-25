@@ -91,6 +91,7 @@ public class DSDArtifactFormatter {
 					generateScopedInterface(config, dirname, module);
 					generateParsingCoordinator(config, dirname, module, includedModules, sm);
 					generateParser(config, dirname, module, sm);
+					generateGeneratorInterface(config, dirname, module, sm);
 					
 					generateBaseUtility(config, dirname, module, includedModules);
 				}
@@ -700,10 +701,19 @@ public class DSDArtifactFormatter {
 		ManagedFileWriter out = FileUpdateManager.instance().getWriter(dir, ddm.getName() + "GenUtility.java");
 		
 		imports.addImport(ddm.getGeneratedDsdPackage() + "." + ddm.getName() + "ParsingCoordinator", "Parses modules required for generation");
-		
+		imports.addImport("org.dmd.util.parsing.CommandLine", "Commandline parsing");
+		imports.addImport("org.dmd.util.BooleanVar", "Commandline flags");
+		imports.addImport("org.dmd.util.parsing.StringArrayList", "Commandline string values");
 		
 		members.addMember(ddm.getName() + "ParsingCoordinator", "parser", "Module parser");
-		
+		members.addMember("CommandLine", "commandLine", "new CommandLine()", "Commandline parser");
+		members.addMember("BooleanVar", "helpFlag", "new BooleanVar()", "The help flag value");
+		members.addMember("StringArrayList", "srcdir", "new StringArrayList()", "The source directories we'll search");
+		members.addMember("StringBuffer", "workspace", "new StringBuffer()", "The workspace base directory, this is appended to all srcdir directories");
+// The standard behaviour should be to autogenerate
+//		members.addMember("BooleanVar", "autogen", "new BooleanVar()", "Indicates that you want to generate from all configs automatically.");
+		members.addMember("BooleanVar", "debug", "new BooleanVar()", "Dumps debug info if specified");
+		members.addMember("StringArrayList", "jars", "new StringArrayList()", "The jars that will be searched for ." + ddm.getFileExtension() + " config files");
 		
 		out.write("package " + config.getGenPackage() + ".generated.dsd;\n\n");
 		
@@ -714,11 +724,53 @@ public class DSDArtifactFormatter {
 		out.write(members.getFormattedMembers() + "\n");
 		
 		out.write("    protected " + ddm.getName() + "GenUtility() {\n");
+		out.write("\n");
+		out.write("        commandLine.addOption(\"-h\",         helpFlag,  \"Dumps the help message.\");\n");
+		out.write("        commandLine.addOption(\"-srcdir\",    srcdir,    \"The source directories to search.\");\n");
+		out.write("        commandLine.addOption(\"-workspace\", workspace, \"The workspace base directory, this is appended to all srcdir directories.\");\n");
+		out.write("        commandLine.addOption(\"-debug\",     debug,     \"Dump debug information.\");\n");
+		out.write("        commandLine.addOption(\"-jars\",      jars,     	\"The prefixs of jars to search for ." + ddm.getFileExtension() + " config files.\");\n");
+		out.write("\n");
 		out.write("    }\n");
 		
 		out.write("\n");
 		
 		out.write("}\n\n");
+		
+		out.close();
+	}
+	
+	///////////////////////////////////////////////////////////////////////////
+	
+	
+	/**
+	 * Generates the base generation utility from which a tool builder can
+	 * derive and specialize.
+	 * @param sm 
+	 * @throws IOException 
+	 */
+	void generateGeneratorInterface(DmgConfigDMO config, String dir, DSDefinitionModule ddm, SchemaManager sm) throws IOException{
+		ImportManager 	imports = new ImportManager();
+		ManagedFileWriter out = FileUpdateManager.instance().getWriter(dir, ddm.getName() + "GeneratorInterface.java");
+		
+		out.write("package " + config.getGenPackage() + ".generated.dsd;\n\n");
+		
+		ClassDefinition ddmClass = sm.isClass(ddm.getName().getNameString());
+		imports.addImport(ddmClass.getDmeImport(), "The base module for generation");
+
+		imports.addImport("org.dmd.util.parsing.ConfigLocation", "Where the config was loaded from");
+		imports.addImport(ddm.getDefinitionManagerImport(), "All parsed definition");
+		
+		out.write(imports.getFormattedImports() + "\n");
+		
+		out.write("public interface " +  ddm.getName() + "GeneratorInterface {\n");
+		out.write("\n");
+		out.write("    public void generate(" + ddm.getName() + " module, ConfigLocation location, " + ddm.getName() + "DefinitionManager definitions);\n\n");
+		out.write("\n");
+		out.write("}\n");
+		out.write("\n");
+		out.write("\n");
+		out.write("\n");
 		
 		out.close();
 	}

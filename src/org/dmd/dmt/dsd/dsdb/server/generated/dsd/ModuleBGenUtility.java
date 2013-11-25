@@ -16,17 +16,33 @@
 package org.dmd.dmt.dsd.dsdb.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateBaseUtility(DSDArtifactFormatter.java:710)
-import org.dmd.dmt.dsd.dsdb.server.generated.dsd.ModuleBParsingCoordinator;         // Parses modules required for generation - (DSDArtifactFormatter.java:702)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateBaseUtility(DSDArtifactFormatter.java:720)
+import org.dmd.dmt.dsd.dsdb.server.generated.dsd.ModuleBParsingCoordinator;         // Parses modules required for generation - (DSDArtifactFormatter.java:703)
+import org.dmd.util.BooleanVar;                                                     // Commandline flags - (DSDArtifactFormatter.java:705)
+import org.dmd.util.parsing.CommandLine;                                            // Commandline parsing - (DSDArtifactFormatter.java:704)
+import org.dmd.util.parsing.StringArrayList;                                        // Commandline string values - (DSDArtifactFormatter.java:706)
 
 
 public class ModuleBGenUtility {
 
     // Generated from: org.dmd.util.codegen.MemberManager.getFormattedMembers(MemberManager.java:59)
-    // Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateBaseUtility(DSDArtifactFormatter.java:714)
-    ModuleBParsingCoordinator    parser;         // Module parser
+    // Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateBaseUtility(DSDArtifactFormatter.java:724)
+    ModuleBParsingCoordinator    parser;                                   // Module parser
+    CommandLine                  commandLine    = new CommandLine();       // Commandline parser
+    BooleanVar                   helpFlag       = new BooleanVar();        // The help flag value
+    StringArrayList              srcdir         = new StringArrayList();   // The source directories we'll search
+    StringBuffer                 workspace      = new StringBuffer();      // The workspace base directory, this is appended to all srcdir directories
+    BooleanVar                   debug          = new BooleanVar();        // Dumps debug info if specified
+    StringArrayList              jars           = new StringArrayList();   // The jars that will be searched for .tmb config files
 
     protected ModuleBGenUtility() {
+
+        commandLine.addOption("-h",         helpFlag,  "Dumps the help message.");
+        commandLine.addOption("-srcdir",    srcdir,    "The source directories to search.");
+        commandLine.addOption("-workspace", workspace, "The workspace base directory, this is appended to all srcdir directories.");
+        commandLine.addOption("-debug",     debug,     "Dump debug information.");
+        commandLine.addOption("-jars",      jars,     	"The prefixs of jars to search for .tmb config files.");
+
     }
 
 }
