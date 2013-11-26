@@ -1,0 +1,43 @@
+Serialization
+-------------
+
+Move toward GPB approach of defining attribute identifiers within the context of the class.
+
+Have to have a migration mechanism that allows for shift from existing serialization mechanism
+to the new approach. This would include:
+- regenerating the ClassDefinitions to use the new attribute specification mechanism
+  that provides the identifier to be associated with attribute e.g.
+  
+  ClassDefinition
+  name X
+  must A
+  may  B
+  may  C
+  
+  ClassDefinition
+  name X
+  must A 1
+  may  B 2
+  may  B 3
+
+- 
+
+
+Classes will still require unique identifiers within a .dms - however, move towards a mechanism 
+that allows for dopplering of the identifier space i.e. be able to set the base identifier of
+a schema at run time. 
+
+-------------------------------------------------------------------------------
+
+Need to generate the schema handling infrastructure from the metaschema!
+
+May need a special mode for the DmwGenerator or something.
+
+--------------------------------------------------------------------------------
+
+Need rules for the DMW space - see dmv rule definitions file for problem
+
+
+
+
+

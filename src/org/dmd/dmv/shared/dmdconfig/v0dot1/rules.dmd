@@ -441,8 +441,30 @@ description			Didn't want to be too restrictive with this. Definitely didn't wan
 // and ran into the problem that the attribute being referenced by the moduleDependenceAttribute
 // has not been loaded into the the DmcOmni (which makes sense because we're parsing its schema!)
 // The rules have to be based on some sort of hybrid of schemas that have been loaded
-// and an "omin" that contains dynamically updated information. This is very 
+// and an "omni" that contains dynamically updated information. This is very 
 // particular to schema related rules.
+//
+// Or maybe the approach is to have an interface defined for a resolver that gets passed to the
+// rules instead of them access the DmcOmni. That way, we can pass in SchemaManager (for instance).
+
+
+///**
+// * The DmcUniqueNameResolver is implemented by any type of storage
+// * mechanism that maintains a set of objects using a naming mechanism that
+// * is "fully qualified" i.e. that all accessible objects have a guaranteed
+// * unique name of some type.
+// */
+//public interface DmcUniqueNameResolver {
+//
+//	/**
+//	 * Implementing classes should overload this interface to return the 
+//	 * object based on the specified name if they have such an object.
+//	 * @param name the fully qualified name
+//	 * @return the object or null if it's not found
+//	 */
+//	public DmcObject findUniqueObject(DmcObjectName name);
+//}
+
 
 //ReferencedAttributeTypeRuleData
 //ruleName          dmvModuleDependenceAttribute
