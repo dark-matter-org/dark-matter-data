@@ -22,7 +22,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
-import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 import org.dmd.dmg.util.GeneratorUtils;
 import org.dmd.dms.ClassDefinition;
