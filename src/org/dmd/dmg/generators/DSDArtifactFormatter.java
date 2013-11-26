@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 import org.dmd.dmg.util.GeneratorUtils;
 import org.dmd.dms.ClassDefinition;
@@ -727,6 +728,7 @@ public class DSDArtifactFormatter {
 		imports.addImport("java.io.IOException", "In case we have problems opening/writin got files");
 		imports.addImport("org.dmd.util.exceptions.ResultException", "To handle parsing exceptions");
 		imports.addImport("org.dmd.dmc.DmcValueException", "To handle fundamental value errors");
+		imports.addImport("org.dmd.dmc.rules.DmcRuleExceptionSet", "To handle rule errors");
 		
 		members.addMember(ddm.getName() + "ParsingCoordinator", "parser", "Module parser");
 		members.addMember("CommandLine", "commandLine", "new CommandLine()", "Commandline parser");
@@ -761,11 +763,13 @@ public class DSDArtifactFormatter {
 		out.write("     *\n");
 		out.write("     * @param args the command line arguments\n");
 		out.write("     */\n");
-		out.write("    public void run(String[] args) throws ResultException, DmcValueException, IOException {\n");
+		out.write("    public void run(String[] args) throws ResultException, DmcValueException, IOException, DmcRuleExceptionSet {\n");
 		out.write("\n");
 		out.write("        commandLine.parseArgs(args);\n");
 		out.write("\n");
 		out.write("        parser = new " + ddm.getName() + "ParsingCoordinator(this, srcdir,jars);\n");
+		out.write("\n");
+		out.write("        parser.generateForAllConfigs();\n");
 		out.write("    }\n\n");
 		
 		out.write("}\n\n");
