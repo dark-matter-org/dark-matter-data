@@ -103,6 +103,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
     public final static RelatedNumbersRule __dmvMinLessThanMax;
     public final static NumericRangeRule __dmvMinimumLength;
     public final static OneOfTheseAttributesRequiredRule __dmvMinimumOrMaximum;
+    public final static ReferencedAttributeTypeRule __dmvModuleDependenceAttribute;
     public final static ReferencedAttributeTypeRule __dmvNRRApplyToAttribute;
     public final static CheckAttributesBasedOnValueRule __dmvNoMustInExtensible;
     public final static ReferencedAttributeTypeRule __dmvRATRApplyToAttribute;
@@ -410,6 +411,21 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             __dmvMinimumOrMaximum = new OneOfTheseAttributesRequiredRule(_dmvMinimumOrMaximumData);
 
             _RmAp.add(__dmvMinimumOrMaximum);
+
+            ReferencedAttributeTypeRuleDataDMO _dmvModuleDependenceAttributeData = new ReferencedAttributeTypeRuleDataDMO();
+            _dmvModuleDependenceAttributeData.setRuleName("dmvModuleDependenceAttribute");
+            _dmvModuleDependenceAttributeData.setApplyToClass("DSDefinitionModule");
+            _dmvModuleDependenceAttributeData.setRuleTitle("The moduleDependenceAttribute attribute must be multi-valued.");
+            _dmvModuleDependenceAttributeData.setDescription("We have sections of generated code that will access the module\n dependence attribute of a DDM module instance and being able to assume that the\n module dependence attribute is multi-valued just makes things easier.");
+            _dmvModuleDependenceAttributeData.setApplyToAttribute("moduleDependenceAttribute");
+            _dmvModuleDependenceAttributeData.setAllowedValueType("MULTI");
+            _dmvModuleDependenceAttributeData.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
+            _dmvModuleDependenceAttributeData.setDefinedIn("dmv");
+            _dmvModuleDependenceAttributeData.setLineNumber("458");
+
+            __dmvModuleDependenceAttribute = new ReferencedAttributeTypeRule(_dmvModuleDependenceAttributeData);
+
+            _RmAp.add(__dmvModuleDependenceAttribute);
 
             ReferencedAttributeTypeRuleDataDMO _dmvNRRApplyToAttributeData = new ReferencedAttributeTypeRuleDataDMO();
             _dmvNRRApplyToAttributeData  .setRuleName("dmvNRRApplyToAttribute");

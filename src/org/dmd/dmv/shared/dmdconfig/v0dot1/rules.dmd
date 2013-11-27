@@ -447,31 +447,12 @@ description			Didn't want to be too restrictive with this. Definitely didn't wan
 // Or maybe the approach is to have an interface defined for a resolver that gets passed to the
 // rules instead of them access the DmcOmni. That way, we can pass in SchemaManager (for instance).
 
-
-///**
-// * The DmcUniqueNameResolver is implemented by any type of storage
-// * mechanism that maintains a set of objects using a naming mechanism that
-// * is "fully qualified" i.e. that all accessible objects have a guaranteed
-// * unique name of some type.
-// */
-//public interface DmcUniqueNameResolver {
-//
-//	/**
-//	 * Implementing classes should overload this interface to return the 
-//	 * object based on the specified name if they have such an object.
-//	 * @param name the fully qualified name
-//	 * @return the object or null if it's not found
-//	 */
-//	public DmcObject findUniqueObject(DmcObjectName name);
-//}
-
-
-//ReferencedAttributeTypeRuleData
-//ruleName          dmvModuleDependenceAttribute
-//ruleTitle         The moduleDependenceAttribute attribute must be multi-valued.
-//applyToAttribute  moduleDependenceAttribute
-//applyToClass      DSDefinitionModule
-//allowedValueType  MULTI
-//description       We have sections of generated code that will access the module
-// dependence attribute of a DDM module instance and being able to assume that the
-// module dependence attribute is multi-valued just makes things easier.
+ReferencedAttributeTypeRuleData
+ruleName          dmvModuleDependenceAttribute
+ruleTitle         The moduleDependenceAttribute attribute must be multi-valued.
+applyToAttribute  moduleDependenceAttribute
+applyToClass      DSDefinitionModule
+allowedValueType  MULTI
+description       We have sections of generated code that will access the module
+ dependence attribute of a DDM module instance and being able to assume that the
+ module dependence attribute is multi-valued just makes things easier.

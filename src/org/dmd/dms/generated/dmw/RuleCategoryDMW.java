@@ -128,7 +128,8 @@ public class RuleCategoryDMW extends org.dmd.dms.DmsDefinition implements DmcDef
     }
 
     /**
-     * The numeric ID of a rule category.
+     * The numeric ID of a rule category. Category IDs must be unique for all
+     * RuleDefinitions defined\n within a schema.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
     public Integer getRuleCategoryID(){

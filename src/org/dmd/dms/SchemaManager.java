@@ -32,6 +32,7 @@ import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcOmni;
+import org.dmd.dmc.DmcUniqueNameResolverIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.definitions.DmcDefinitionSet;
@@ -60,7 +61,7 @@ import org.dmd.util.formatting.PrintfFormat;
  * classes and schemas themselves.
  */
 
-public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcNameClashResolverIF {
+public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcNameClashResolverIF, DmcUniqueNameResolverIF {
 
     /**
      * The schema of classes that are used to describe schemas.
@@ -2860,6 +2861,12 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 			}
 		}
 		return(rc);
+	}
+
+	@Override
+	public DmcObject findUniqueObject(DmcObjectName name) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
