@@ -279,6 +279,13 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
             
             allSchema.addDefinition(currSchema,this);
             
+            // Some of our rules have to be run once we have the entire context, so we perform a final
+            // pass to ensure that those rules are followed. This is a bit of hack for now. Changes in
+            // definition loading, internal object creation and object resolution have to be studied.
+            for(DmsDefinition def : allSchema.globallyUniqueMAP.values()){
+            	ruleManager.executeAttributeValidation(def.getDmcObject());
+            }
+            
             // And now check to see if everything is resolved
             allSchema.resolveReferences(currSchema,this);
             

@@ -210,7 +210,8 @@ public class RuleCategoryDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO 
     }
 
     /**
-     * The numeric ID of a rule category.
+     * The numeric ID of a rule category. Category IDs must be unique for all
+     * RuleDefinitions defined\n within a schema.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2295)
     public Integer getRuleCategoryID(){
