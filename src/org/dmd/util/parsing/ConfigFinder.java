@@ -79,6 +79,8 @@ public class ConfigFinder {
 	
 	boolean	debug;
 	
+	boolean checkClassPath;
+	
 	public ConfigFinder(){
 		init();
 //		loadPreferences();
@@ -91,6 +93,21 @@ public class ConfigFinder {
 	public ConfigFinder(String suffix){
 		init();
 		suffixes.add(suffix);
+	}
+	
+	/**
+	 * Convenience constructor to create a finder with the specified file suffix
+	 * and source directories.
+	 * @param suffix the file suffix
+	 * @param sd the source directories to search
+	 */
+	public ConfigFinder(String suffix, ArrayList<String> sd, boolean cp){
+		init();
+		suffixes.add(suffix);
+		for(String src: sd){
+			sourceDirs.add(src);
+		}
+		checkClassPath = cp;
 	}
 	
 	/**
@@ -140,6 +157,7 @@ public class ConfigFinder {
 		versions		= new TreeMap<String, ConfigVersion>();
 		fsep 			= File.separator;
 //		prefsAvailable 	= false;
+		checkClassPath	= true;
 		classPaths 		= new ArrayList<String>();
 	}
 	
@@ -193,7 +211,8 @@ public class ConfigFinder {
 		for(String d : sourceDirs)
 			findConfigsRecursive(new File(d));
 		
-		findConfigsOnClassPath();
+		if (checkClassPath)
+			findConfigsOnClassPath();
 		
 		debugMessage("Config search complete: " + getSearchInfo() + "\n");		
 	}
