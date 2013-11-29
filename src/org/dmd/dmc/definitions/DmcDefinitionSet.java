@@ -67,6 +67,7 @@ public class DmcDefinitionSet<DEF extends DmcDefinitionIF> {
 		DEF existingDot = dotmap.get(def.getDotName());
 		if (existingDot != null)
 			throw(new IllegalStateException("The dotname of these definitions clash: \n" + existingDot.toOIF() + "\n\n" + def.toOIF()));
+		dotmap.put(def.getDotName(), def);
 	}
 	
 	/**

@@ -2446,8 +2446,11 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     			try {
 					ctd.resolveReferences(this,clashResolver);
 				} catch (DmcValueExceptionSet e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					ResultException ex = new ResultException();
+					ex.addError(e.toString());
+					ex.result.lastResult().fileName(ctd.getFile());
+					ex.result.lastResult().lineNumber(ctd.getLineNumber());
+					throw(ex);
 				}
     		}
     	}

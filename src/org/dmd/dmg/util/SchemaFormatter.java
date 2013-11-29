@@ -25,7 +25,9 @@ import java.util.TreeMap;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcNamedObjectREF;
 import org.dmd.dmc.DmcObject;
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.DefinitionName;
+import org.dmd.dmc.types.DotName;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
@@ -595,7 +597,18 @@ public class SchemaFormatter {
 			if (skip.get(attr.getName()) != null)
 				continue;
 			
-			AttributeDefinition ad = schemaManager.isAttribute(attr.getName());
+			DotName dn = null;
+			try {
+				dn = new DotName(attr.getAttributeInfo().qualifiedName + ".AttributeDefinition");
+			} catch (DmcValueException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+//			DebugInfo.debug("Identity hash: " + System.identityHashCode(schemaManager.attributeDefinitions));
+			
+			AttributeDefinition ad = schemaManager.attributeDefinitions.getDefinition(dn);
+//			AttributeDefinition ad = schemaManager.isAttribute(attr.getName());
 			ClassDefinition aux = isAuxAttribute(var.def, ad);
 			
 			TypeDefinition td = ad.getType();
