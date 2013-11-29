@@ -115,5 +115,18 @@ public class DmcDefinitionSet<DEF extends DmcDefinitionIF> {
 		DmcNameClashException mdce = new DmcNameClashException("",(ArrayList<DmcNamedObjectIF>) existing);
 		throw(mdce);
 	}
+	
+	/**
+	 * @return all the dot names for which we have a definition in the set
+	 */
+	public String getAllDotNames(){
+		StringBuffer sb = new StringBuffer();
+		
+		for(DotName dn : dotmap.keySet()){
+			sb.append(dn.toString() + "\n");
+		}
+		
+		return(sb.toString());
+	}
 
 }
