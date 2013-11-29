@@ -84,15 +84,16 @@ public class ConfigLocation {
 	}
 	
 	/**
-	 * Constructs a new DmsSchemaLocation.
-	 * @param n   The name of the schema file with the .dms extension 
+	 * Constructs a new config location.
+	 * @param n   The name of the config file with the suffix e.g. config.suffix
 	 * @param dir The directory where this file was found.
 	 * @param s  The config file suffix.
 	 */
 	public ConfigLocation(String n, String dir, String s){
 		int lastSlash = -1;
+		int dotpos = n.indexOf(".");
 		
-		configName 	= n.substring(0,n.length()-4);
+		configName 	= n.substring(0,dotpos);
 		directory	= dir;
 		fileName 	= directory + File.separatorChar + n;
 		suffix 		= s;
