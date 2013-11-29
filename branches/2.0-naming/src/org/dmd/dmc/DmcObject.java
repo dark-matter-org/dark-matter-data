@@ -1878,6 +1878,7 @@ abstract public class DmcObject implements Serializable {
 //						// TODO name resolution for complex types
 //						((DmcTypeComplexTypeWithRefs)attr).resolve(rx, attr.getName());
 					} catch (DmcValueException e) {
+						
 						if (errors == null)
 							errors = new DmcValueExceptionSet();
 						errors.add(e);
