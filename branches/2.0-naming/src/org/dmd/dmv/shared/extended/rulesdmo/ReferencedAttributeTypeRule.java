@@ -104,14 +104,14 @@ public class ReferencedAttributeTypeRule extends ReferencedAttributeTypeRuleBase
 			Iterator<TypeDefinitionREF> types = ruleDMO.getAllowedType();
 			while(types.hasNext()){
 				TypeDefinitionREF type = types.next();
-				if (type.getObjectName().getNameString().equals(ref.getObject().getValueType())){
+				if (type.getObjectName().getNameString().equals(ref.getObject().getType().getObjectName().getNameString())){
 					typeOkay = true;
 					break;
 				}
 			}
 			
 			if (!typeOkay){
-				DmcRuleException rex = new DmcRuleException(this.getRuleTitle() + "\n" + ref.getObjectName() + " isn't one of the expected types, it's of type: " + ref.getObject().getValueType(), this);
+				DmcRuleException rex = new DmcRuleException(this.getRuleTitle() + "\n" + ref.getObjectName() + " isn't one of the expected types, it's of type: " + ref.getObject().getType().getObjectName().getNameString(), this);
 				if (obj instanceof DSDefinitionDMO){
 					DSDefinitionDMO def = (DSDefinitionDMO) obj;
 					rex.source(new SourceInfo(def.getFile(), def.getLineNumber() + ""));

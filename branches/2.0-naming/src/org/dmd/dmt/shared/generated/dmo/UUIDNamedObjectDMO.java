@@ -23,7 +23,6 @@ import org.dmd.dms.generated.types.DmcTypeStringSV;           // Required type -
 import org.dmd.dms.generated.types.DmcTypeUUIDNameSV;         // Required type - (GenUtility.java:325)
 
 /**
- * null
  * <P>
  * Generated from the dmt schema at version 0.1
  * <P>

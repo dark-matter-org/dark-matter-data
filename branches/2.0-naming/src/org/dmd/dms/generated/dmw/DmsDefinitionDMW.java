@@ -28,9 +28,9 @@ import org.dmd.dms.*;
 
 /**
  * The DmsDefinition class provides a common base for all dark-matter schema
- * (DMS) definition classes.
+ * (DMS) definition classes. 
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1601)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1630)
  */
 @SuppressWarnings("unused")
 public abstract class DmsDefinitionDMW extends org.dmd.dms.DSDefinition {
@@ -62,9 +62,9 @@ public abstract class DmsDefinitionDMW extends org.dmd.dms.DSDefinition {
     /**
      * The name attribute is used to store a single string token that represents
      * a unique name\n for an object with the set of definitions of which it is a
-     * part. A name starts with a letter followed\n by letters and numbers.
+     * part. A name starts with a letter followed\n by letters and numbers. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public DefinitionName getName(){
         return(mycore.getName());
     }
@@ -73,7 +73,7 @@ public abstract class DmsDefinitionDMW extends org.dmd.dms.DSDefinition {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
@@ -81,7 +81,7 @@ public abstract class DmsDefinitionDMW extends org.dmd.dms.DSDefinition {
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1764)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1791)
 
     /**
      * @return The name of this object from the name attribute.

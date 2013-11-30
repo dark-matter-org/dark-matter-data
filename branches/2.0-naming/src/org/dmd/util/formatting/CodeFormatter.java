@@ -17,6 +17,7 @@ package org.dmd.util.formatting;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.util.Iterator;
 
 import org.dmd.util.exceptions.DebugInfo;
 
@@ -134,5 +135,71 @@ public class CodeFormatter {
 		sb.append(part + "\n");
 		
 		return(sb.toString());
+	}
+
+	public static void dumpCodeComment(Iterator<String> description, StringBuffer out, String indent) {
+   		StringBuffer sb = new StringBuffer();
+   		int             offset;
+   		
+   		if (description == null)
+   			return;
+
+   		while(description.hasNext()){
+   			String str = description.next();
+   			sb.append(str);
+   			if (description.hasNext())
+   				sb.append("\n");
+   		}
+
+   		while(sb.length() > 75){
+   			offset = 74;
+   			// Move back until we find a space
+   			while(sb.charAt(offset) != ' '){
+   				offset--;
+   			}
+		
+   			out.append(indent);
+   			for(int i=0;i<offset;i++){
+   				out.append(sb.charAt(i));
+   			}
+   			out.append("\n");
+   			// The subString(int,int) method seems to be missing
+   			// out.write(" * " + sb.subString(start,offset) + "\n");
+   			sb.delete(0,offset+1);
+   		}
+   		out.append(indent + sb + "\n");
+	}
+
+	public static void dumpCodeComment(Iterator<String> description, BufferedWriter out, String indent) throws IOException {
+	       StringBuffer sb = new StringBuffer();
+	       int             offset;
+
+	       if (description == null)
+	    	   return;
+	       
+	   		while(description.hasNext()){
+	   			String str = description.next();
+	   			sb.append(str);
+	   			if (description.hasNext())
+	   				sb.append("\n");
+	   		}
+
+	       while(sb.length() > 75){
+	           offset = 74;
+	           // Move back until we find a space
+	           while(sb.charAt(offset) != ' '){
+	               offset--;
+	           }
+
+	           out.write(indent);
+	           for(int i=0;i<offset;i++){
+	               out.write(sb.charAt(i));
+	           }
+	           out.write("\n");
+	           // The subString(int,int) method seems to be missing
+	           // out.write(" * " + sb.subString(start,offset) + "\n");
+	           sb.delete(0,offset+1);
+	       }
+	       out.write(indent + sb + "\n");
 	}
 }

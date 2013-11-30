@@ -1,18 +1,3 @@
-//	---------------------------------------------------------------------------
-//	dark-matter-data
-//	Copyright (c) 2013 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
 package org.dmd.dmt.dsd.dsda.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
@@ -38,7 +23,6 @@ import org.dmd.dmt.dsd.dsda.shared.generated.dmo.ModuleADMO;                    
 
 
 /**
- * null
  * <P>
  * Generated from the dsdA schema at version unknown
  * <P>
@@ -310,33 +294,115 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
         ((ModuleADMO) core).remDependsOnModuleA();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1393)
-    public String getDescription(){
-        return(((ModuleADMO) core).getDescription());
+    /**
+     * @return The number of String items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1590)
+    public int getDescriptionSize(){
+        return(((ModuleADMO) core).getDescriptionSize());
     }
 
     /**
-     * Sets description to the specified value.
-     * @param value A value compatible with DmcTypeString
+     * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1503)
-    public void setDescription(Object value) throws DmcValueException {
-        ((ModuleADMO) core).setDescription(value);
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1598)
+    public boolean getDescriptionIsEmpty(){
+        if (((ModuleADMO) core).getDescriptionSize() == 0)
+            return(true);
+        return(false);
     }
 
     /**
-     * Sets description to the specified value.
-     * @param value String
+     * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1512)
-    public void setDescription(String value){
-        ((ModuleADMO) core).setDescription(value);
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1608)
+    public boolean getDescriptionHasValue(){
+        if (((ModuleADMO) core).getDescriptionSize() == 0)
+            return(false);
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
+    public StringIterableDMW getDescriptionIterable(){
+        DmcAttribute<?> attr = core.get(MetaDMSAG.__description);
+        if (attr == null)
+            return(StringIterableDMW.emptyList);
+        
+        return(new StringIterableDMW(((ModuleADMO) core).getDescription()));
+    }
+
+    /**
+     * Adds another description value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2052)
+    public void addDescription(Object value) throws DmcValueException {
+        ((ModuleADMO) core).addDescription(value);
+    }
+
+    /**
+     * Adds another description value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2062)
+    public void addDescription(String value){
+        ((ModuleADMO) core).addDescription(value);
+    }
+
+    /**
+     * Returns true if the collection contains the description value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2119)
+    public boolean descriptionContains(String value){
+        return(((ModuleADMO) core).descriptionContains(value));
+    }
+
+    /**
+     * @return A COPY of the collection of String objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2163)
+    @SuppressWarnings("unchecked")
+    public ArrayList<String> getDescriptionCopy(){
+        DmcAttribute<?> attr = core.get(MetaDMSAG.__description);
+        if (attr == null)
+            return(new ArrayList<String>());
+        
+        ArrayList<String> rc = new ArrayList<String>(attr.getMVSize());
+        
+        Iterator<String> it = (Iterator<String>) attr.getMV();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
+    }
+
+    /**
+     * Deletes a description value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2190)
+    public void delDescription(Object value) throws DmcValueException {
+        ((ModuleADMO) core).delDescription(value);
+    }
+
+    /**
+     * Deletes a description value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2199)
+    public void delDescription(String value){
+        ((ModuleADMO) core).delDescription(value);
     }
 
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1538)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2211)
     public void remDescription(){
         ((ModuleADMO) core).remDescription();
     }

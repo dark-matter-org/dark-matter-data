@@ -14,7 +14,6 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;            // Required for
 import org.dmd.dms.generated.types.DmcTypeStringSV;              // Required type - (GenUtility.java:325)
 
 /**
- * null
  * <P>
  * Generated from the dmt schema at version 0.1
  * <P>

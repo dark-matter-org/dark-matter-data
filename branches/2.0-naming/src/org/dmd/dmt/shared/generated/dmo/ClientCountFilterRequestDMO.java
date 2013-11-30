@@ -15,7 +15,6 @@ import org.dmd.dmt.shared.generated.dmo.ClientCountFilterDMO;                   
 import org.dmd.dmt.shared.generated.types.DmcTypeClientCountFilterREFSV;         // Reference type - (GenUtility.java:297)
 
 /**
- * null
  * <P>
  * Generated from the dmt schema at version 0.1
  * <P>

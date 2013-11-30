@@ -14,7 +14,6 @@ import org.dmd.dmt.shared.generated.types.DmcTypeMenuElementTypeAndCommentSV;   
 import org.dmd.dmt.shared.generated.types.MenuElementTypeAndComment;                  // Primitive type and !auxiliary class - (GenUtility.java:268)
 
 /**
- * null
  * <P>
  * Generated from the dmt schema at version 0.1
  * <P>

@@ -227,7 +227,7 @@ public class SchemaDocHtmlFormatter {
             out.write("<tr>\n");
             out.write("<TD VALIGN=TOP CLASS=\"stronghead\"> Description </TD>\n");
             out.write("<TD CLASS=\"pagetextUnjust\">\n");
-            out.write(sd.getDescription());
+            out.write(getFormattedDescription(sd.getDescription()));
             out.write("</TD> </tr> \n");
 
             if (sd.getSchemaPackage() != null){
@@ -347,6 +347,21 @@ public class SchemaDocHtmlFormatter {
             System.out.println("IO Error:\n" + e);
         }
     }
+	
+	String getFormattedDescription(Iterator<String> description){
+		if (description == null)
+			return("");
+		
+		StringBuffer sb = new StringBuffer();
+		
+		while(description.hasNext()){
+			sb.append(description.next());
+			if (description.hasNext())
+				sb.append("</p>");
+		}
+		
+		return(sb.toString());
+	}
 
     /**
      * Formats each class definition.
@@ -792,7 +807,7 @@ public class SchemaDocHtmlFormatter {
                 out.write("<tr> <TD VALIGN=TOP CLASS=\"pagetextUnjust\">\n");
                 out.write(schemaLink(sd));
                 out.write("</TD> <TD CLASS=\"pagetextUnjust\">\n");
-                out.write(sd.getDescription());
+                out.write(getFormattedDescription(sd.getDescription()));
                 out.write("</TD> </tr>");
             }
 
@@ -1051,7 +1066,7 @@ public class SchemaDocHtmlFormatter {
             for(int i=0; i<size; i++){
                 ClassDefinition cd = (ClassDefinition)it.next();
 //                ga = cd.getAttr(MetaSchemaAG._description);
-                String description = cd.getDescription();
+                String description = getFormattedDescription(cd.getDescription());
 
                 if (cd.getClassType() == ClassTypeEnum.STRUCTURAL){
 //                    if (DmdClassTypeEnumAG.isSTRUCTURAL(cd.getClassType().intValue())){

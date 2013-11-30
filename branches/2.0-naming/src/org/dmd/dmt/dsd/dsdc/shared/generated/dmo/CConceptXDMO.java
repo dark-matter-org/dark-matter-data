@@ -28,7 +28,6 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;                     // Req
 import org.dmd.dmt.dsd.dsdc.shared.generated.dmo.CConceptBaseDMO;         // Base class - (GenUtility.java:352)
 
 /**
- * null
  * <P>
  * Generated from the dsdC schema at version unknown
  * <P>

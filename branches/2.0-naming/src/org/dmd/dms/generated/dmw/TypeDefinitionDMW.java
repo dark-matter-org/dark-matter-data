@@ -98,9 +98,9 @@ import org.dmd.dmc.definitions.DmcDefinitionIF;
  * org.dmd.dmc.types.NameContainer\n altType        DmcObjectName\n
  * altTypeImport  org.dmd.dmc.DmcObjectName\n description    The
  * NameContainer type allows for the storage of object names of different
- * types...\n </pre>
+ * types...\n </pre> 
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1601)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1630)
  */
 @SuppressWarnings("unused")
 public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcDefinitionIF {
@@ -144,9 +144,9 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
     /**
      * The name attribute is used to store a single string token that represents
      * a unique name\n for an object with the set of definitions of which it is a
-     * part. A name starts with a letter followed\n by letters and numbers.
+     * part. A name starts with a letter followed\n by letters and numbers. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public DefinitionName getName(){
         return(mycore.getName());
     }
@@ -155,7 +155,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
@@ -164,9 +164,9 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * This is the fully qualified name of the class derived from DmcAttribute
      * that provides management\n of a particular type of attribute value. For
      * instance, the type class that handles String attributes \n is
-     * org.dmd.dmc.types.DmcTypeString
+     * org.dmd.dmc.types.DmcTypeString 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public String getTypeClassName(){
         return(mycore.getTypeClassName());
     }
@@ -175,7 +175,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * Sets typeClassName to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setTypeClassName(Object value) throws DmcValueException {
         mycore.setTypeClassName(value);
     }
@@ -184,30 +184,61 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * The description attribute is used to provide descriptive\n documentation
      * for schema related definitions. The text provided should conform\n to
      * XHTML concepts since it will be dumped in the context of the generated
-     * HTML\n documentation.
+     * HTML\n documentation. 
+     * @return An Iterator of String objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
-    public String getDescription(){
-        return(mycore.getDescription());
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2578)
+    public Iterator<String> getDescription(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
     }
 
-    public String getDescriptionWithNewlines(){
-        return(mycore.getDescriptionWithNewlines());
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2592)
+    public Iterator<String> getDescriptionWithNewlines(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
+        if (attr == null)
+            return(null);
+
+        DmcTypeStringMV withNewLines = new DmcTypeStringMV();
+        Iterator<String> it = attr.getMV();
+        while(it.hasNext()){
+            try{
+                withNewLines.add(it.next().replaceAll("\\\\n","\\\n"));
+            } catch (DmcValueException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return(withNewLines.getMV());
     }
 
     /**
-     * Sets description to the specified value.
-     * @param value A value compatible with DmcTypeStringSV
+     * Adds another description value.
+     * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
-    public void setDescription(Object value) throws DmcValueException {
-        mycore.setDescription(value);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2658)
+    public void addDescription(Object value) throws DmcValueException {
+        mycore.addDescription(value);
     }
 
     /**
-     * The primitiveType indicates the underlying type of a DmcType.
+     * Returns the number of description values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2671)
+    public int getDescriptionSize(){
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__description);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
+    /**
+     * The primitiveType indicates the underlying type of a DmcType. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public String getPrimitiveType(){
         return(mycore.getPrimitiveType());
     }
@@ -216,7 +247,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * Sets primitiveType to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setPrimitiveType(Object value) throws DmcValueException {
         mycore.setPrimitiveType(value);
     }
@@ -226,9 +257,9 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * should be returned when\n an attribute of the specified type doesn't exist
      * in the object. For example, Boolean values are defined\n to return false
      * when they aren't actually set on an object. This just gives a convenient
-     * mechanism to\n provide a default value for non-existent attribute values.
+     * mechanism to\n provide a default value for non-existent attribute values. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public String getNullReturnValue(){
         return(mycore.getNullReturnValue());
     }
@@ -237,7 +268,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * Sets nullReturnValue to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setNullReturnValue(Object value) throws DmcValueException {
         mycore.setNullReturnValue(value);
     }
@@ -248,9 +279,9 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * NameContainer, but\n the secret sauce of NameContainers is that they also
      * take any DmcObjectName derivative.\n Specifying the altType on the
      * NameContainer TypeDefinition allows for generation of \n the DmcObjectName
-     * interface as well.
+     * interface as well. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public String getAltType(){
         return(mycore.getAltType());
     }
@@ -259,15 +290,15 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * Sets altType to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setAltType(Object value) throws DmcValueException {
         mycore.setAltType(value);
     }
 
     /**
-     * An additional import (if required) by the altType attribute value.
+     * An additional import (if required) by the altType attribute value. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public String getAltTypeImport(){
         return(mycore.getAltTypeImport());
     }
@@ -276,16 +307,16 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * Sets altTypeImport to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setAltTypeImport(Object value) throws DmcValueException {
         mycore.setAltTypeImport(value);
     }
 
     /**
      * This attribute indicates the class of the key used for types that
-     * support\n storage in a MAP.
+     * support\n storage in a MAP. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public String getKeyClass(){
         return(mycore.getKeyClass());
     }
@@ -294,16 +325,16 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * Sets keyClass to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setKeyClass(Object value) throws DmcValueException {
         mycore.setKeyClass(value);
     }
 
     /**
      * Indicates the import for a keyClass. this is required if the keyClass\n is
-     * NOT a primitive java type e.g. Integer, String etc.
+     * NOT a primitive java type e.g. Integer, String etc. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public String getKeyImport(){
         return(mycore.getKeyImport());
     }
@@ -312,7 +343,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * Sets keyImport to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setKeyImport(Object value) throws DmcValueException {
         mycore.setKeyImport(value);
     }
@@ -322,9 +353,9 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * DmcWrapperBase that\n wraps a DMO. This is used when generating object
      * reference classes associated with ClassDefinitions\n This actually aligns
      * to the javaClass of the ClassDefinition for which we're generating the
-     * reference\n classes.
+     * reference\n classes. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public String getWrapperClassName(){
         return(mycore.getWrapperClassName());
     }
@@ -333,7 +364,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * Sets wrapperClassName to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setWrapperClassName(Object value) throws DmcValueException {
         mycore.setWrapperClassName(value);
     }
@@ -342,9 +373,9 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * This flag indicates if the associated definition was internally
      * generated.\n This is the case for TypeDefinitions generated for
      * ClassDefinitions and EnumDefinitions\n that allow for references to these
-     * objects.
+     * objects. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public Boolean getInternallyGenerated(){
         return(mycore.getInternallyGenerated());
     }
@@ -353,7 +384,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * Sets internallyGenerated to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setInternallyGenerated(Object value) throws DmcValueException {
         mycore.setInternallyGenerated(value);
     }
@@ -362,9 +393,9 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * This attribute indicates the full name of the generated helper class for
      * \n object references i.e. if you had a ClassDefinition X, the framework
      * generates a \n types/XREF class which is subsequently used by the
-     * DmcTypeXREF class to store references\n to objects of the defined class.
+     * DmcTypeXREF class to store references\n to objects of the defined class. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public String getHelperClassName(){
         return(mycore.getHelperClassName());
     }
@@ -373,7 +404,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * Sets helperClassName to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setHelperClassName(Object value) throws DmcValueException {
         mycore.setHelperClassName(value);
     }
@@ -381,9 +412,9 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
     /**
      * This attribute indicates the full name of the DmcContainerIterator \n
      * derived class that allows us to iterate over a set of object references
-     * and get back\n the DMW wrapper object instead of the DMO.
+     * and get back\n the DMW wrapper object instead of the DMO. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public String getDmwIteratorImport(){
         return(mycore.getDmwIteratorImport());
     }
@@ -392,16 +423,16 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * Sets dmwIteratorImport to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setDmwIteratorImport(Object value) throws DmcValueException {
         mycore.setDmwIteratorImport(value);
     }
 
     /**
      * This attribute indicates just the DmcContainerIterator name for a\n class
-     * of object.
+     * of object. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public String getDmwIteratorClass(){
         return(mycore.getDmwIteratorClass());
     }
@@ -410,15 +441,15 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * Sets dmwIteratorClass to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setDmwIteratorClass(Object value) throws DmcValueException {
         mycore.setDmwIteratorClass(value);
     }
 
     /**
-     * This flag is set to true for type definitions that define enumerations.
+     * This flag is set to true for type definitions that define enumerations. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public Boolean getIsEnumType(){
         return(mycore.getIsEnumType());
     }
@@ -427,7 +458,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * Sets isEnumType to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setIsEnumType(Object value) throws DmcValueException {
         mycore.setIsEnumType(value);
     }
@@ -435,9 +466,9 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
     /**
      * This attribute indicates if a defined type is used for naming purposes.\n
      * This allows us to automatically add attributes of this type to the
-     * AttributeFactories.
+     * AttributeFactories. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public Boolean getIsNameType(){
         return(mycore.getIsNameType());
     }
@@ -446,15 +477,15 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * Sets isNameType to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setIsNameType(Object value) throws DmcValueException {
         mycore.setIsNameType(value);
     }
 
     /**
-     * Indicates if a name type is for hierarchic objects.
+     * Indicates if a name type is for hierarchic objects. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public Boolean getIsHierarchicName(){
         return(mycore.getIsHierarchicName());
     }
@@ -463,15 +494,15 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * Sets isHierarchicName to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setIsHierarchicName(Object value) throws DmcValueException {
         mycore.setIsHierarchicName(value);
     }
 
     /**
-     * Indicates that a type is derived from DmcFilter.
+     * Indicates that a type is derived from DmcFilter. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public Boolean getIsFilterType(){
         return(mycore.getIsFilterType());
     }
@@ -480,16 +511,16 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * Sets isFilterType to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setIsFilterType(Object value) throws DmcValueException {
         mycore.setIsFilterType(value);
     }
 
     /**
      * This flag is used to indicate taht an internally generated type\n is an
-     * extended reference type.
+     * extended reference type. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public Boolean getIsExtendedRefType(){
         return(mycore.getIsExtendedRefType());
     }
@@ -498,16 +529,16 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * Sets isExtendedRefType to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setIsExtendedRefType(Object value) throws DmcValueException {
         mycore.setIsExtendedRefType(value);
     }
 
     /**
      * This flag is set to true for type definitions that refer to other\n
-     * objects.
+     * objects. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public Boolean getIsRefType(){
         return(mycore.getIsRefType());
     }
@@ -516,16 +547,16 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * Sets isRefType to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setIsRefType(Object value) throws DmcValueException {
         mycore.setIsRefType(value);
     }
 
     /**
      * The original name of an enum as referred to in the internally generated
-     * type for enums.
+     * type for enums. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public String getEnumName(){
         return(mycore.getEnumName());
     }
@@ -534,15 +565,15 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * Sets enumName to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setEnumName(Object value) throws DmcValueException {
         mycore.setEnumName(value);
     }
 
     /**
-     * Refers to the class that an internally generated type represents.
+     * Refers to the class that an internally generated type represents. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public ClassDefinition getOriginalClass(){
         DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) mycore.get(MetaDMSAG.__originalClass);
         if (attr == null)
@@ -555,7 +586,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * Sets originalClass to the specified value.
      * @param value A value compatible with ClassDefinition
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2409)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2434)
     public void setOriginalClass(ClassDefinition value) throws DmcValueException {
         mycore.setOriginalClass(value.getDmcObject());
     }
@@ -563,9 +594,9 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
     /**
      * The nameAttributeDef is a reference to the attribute that is locked\n to a
      * TypeDefinition. This mechanism is used to create the correct type of
-     * DmcType[NAMETYPE]*\n derivative for a value of type DmcObjectName.
+     * DmcType[NAMETYPE]*\n derivative for a value of type DmcObjectName. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public AttributeDefinition getNameAttributeDef(){
         DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) mycore.get(MetaDMSAG.__nameAttributeDef);
         if (attr == null)
@@ -578,7 +609,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * Sets nameAttributeDef to the specified value.
      * @param value A value compatible with AttributeDefinition
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2409)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2434)
     public void setNameAttributeDef(AttributeDefinition value) throws DmcValueException {
         mycore.setNameAttributeDef(value.getDmcObject());
     }
@@ -587,9 +618,9 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * The filterAttributeDef is a reference to the attribute that is locked\n to
      * a TypeDefinition that is flagged as filterType. This mechanism is used to
      * create the\n correct type of DmcType[FILTERTYPE]SV derivative for a value
-     * of type DmcFilter.
+     * of type DmcFilter. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public AttributeDefinition getFilterAttributeDef(){
         DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) mycore.get(MetaDMSAG.__filterAttributeDef);
         if (attr == null)
@@ -602,16 +633,16 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * Sets filterAttributeDef to the specified value.
      * @param value A value compatible with AttributeDefinition
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2409)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2434)
     public void setFilterAttributeDef(AttributeDefinition value) throws DmcValueException {
         mycore.setFilterAttributeDef(value.getDmcObject());
     }
 
     /**
      * This attribute indicates the generic arguments to be supplied in the\n use
-     * of a class in an autogenerated Iterable.
+     * of a class in an autogenerated Iterable. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public String getGenericArgs(){
         return(mycore.getGenericArgs());
     }
@@ -620,7 +651,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * Sets genericArgs to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setGenericArgs(Object value) throws DmcValueException {
         mycore.setGenericArgs(value);
     }
@@ -628,7 +659,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1764)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1791)
 
     /**
      * @return The name of this object from the name attribute.

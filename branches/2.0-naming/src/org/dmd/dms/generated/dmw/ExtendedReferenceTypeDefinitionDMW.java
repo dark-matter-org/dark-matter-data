@@ -31,9 +31,9 @@ import org.dmd.dmc.definitions.DmcDefinitionIF;
  * The ExtendedReferenceTypeDefinition provides a mechanism for extending \n
  * the automatically generated named object reference attribute types with
  * additional\n information. This can be seen as adding additional
- * information to the relationship\n between two objects.
+ * information to the relationship\n between two objects. 
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1601)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1630)
  */
 @SuppressWarnings("unused")
 public class ExtendedReferenceTypeDefinitionDMW extends org.dmd.dms.ComplexTypeDefinition implements DmcDefinitionIF {
@@ -65,9 +65,9 @@ public class ExtendedReferenceTypeDefinitionDMW extends org.dmd.dms.ComplexTypeD
     /**
      * The name attribute is used to store a single string token that represents
      * a unique name\n for an object with the set of definitions of which it is a
-     * part. A name starts with a letter followed\n by letters and numbers.
+     * part. A name starts with a letter followed\n by letters and numbers. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public DefinitionName getName(){
         return(mycore.getName());
     }
@@ -76,16 +76,16 @@ public class ExtendedReferenceTypeDefinitionDMW extends org.dmd.dms.ComplexTypeD
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
 
     /**
      * Indicates the class of object to which an \n
-     * ExtendedReferenceTypeDefinition refers.
+     * ExtendedReferenceTypeDefinition refers. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public ClassDefinition getExtendedReferenceClass(){
         DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) mycore.get(MetaDMSAG.__extendedReferenceClass);
         if (attr == null)
@@ -98,7 +98,7 @@ public class ExtendedReferenceTypeDefinitionDMW extends org.dmd.dms.ComplexTypeD
      * Sets extendedReferenceClass to the specified value.
      * @param value A value compatible with ClassDefinition
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2409)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2434)
     public void setExtendedReferenceClass(ClassDefinition value) throws DmcValueException {
         mycore.setExtendedReferenceClass(value.getDmcObject());
     }
@@ -106,7 +106,7 @@ public class ExtendedReferenceTypeDefinitionDMW extends org.dmd.dms.ComplexTypeD
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1764)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1791)
 
     /**
      * @return The name of this object from the name attribute.

@@ -60,7 +60,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __dependsOnSchema = new DmcAttributeInfo("meta","dependsOnSchema",120,"String",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __derivedClasses = new DmcAttributeInfo("meta","derivedClasses",25,"ClassDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __derivedFrom = new DmcAttributeInfo("meta","derivedFrom",21,"ClassDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __description = new DmcAttributeInfo("meta","description",18,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __description = new DmcAttributeInfo("meta","description",18,"String",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __designatedFilterAttribute = new DmcAttributeInfo("meta","designatedFilterAttribute",126,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __designatedNameAttribute = new DmcAttributeInfo("meta","designatedNameAttribute",102,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __dmdID = new DmcAttributeInfo("meta","dmdID",3,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);

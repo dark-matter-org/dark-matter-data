@@ -1,18 +1,3 @@
-//	---------------------------------------------------------------------------
-//	dark-matter-data
-//	Copyright (c) 2013 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
 package org.dmd.dmv.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
@@ -26,7 +11,7 @@ import org.dmd.dms.AttributeDefinition;                                         
 import org.dmd.dms.ClassDefinition;                                                     // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:990)
 import org.dmd.dms.RuleData;                                                            // Derived class - (BaseDMWGenerator.java:1167)
 import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;                                // For multi-valued adds of AttributeDefinition - (BaseDMWGenerator.java:1686)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                             // Required for MODREC constructor - (BaseDMWGenerator.java:995)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                             // Attribute description from the meta schema - (BaseDMWGenerator.java:821)
 import org.dmd.dms.generated.dmw.AttributeDefinitionIterableDMW;                        // For multi-valued AttributeDefinition - (BaseDMWGenerator.java:1628)
 import org.dmd.dms.generated.dmw.StringIterableDMW;                                     // For multi-valued String - (BaseDMWGenerator.java:2022)
 import org.dmd.dms.generated.types.AttributeDefinitionREF;                              // Is reference type REF - (BaseDMWGenerator.java:1034)
@@ -37,20 +22,7 @@ import org.dmd.dmv.shared.generated.dmo.DmvDMSAG;                               
 
 
 /**
- * The CheckAttributesBasedOnValueRule allows you to specify\n that certain
- * optional attributes must exist (or not exist) based on the value\n of
- * another single valued attribute in an object. This allows for finer
- * control of must/may\n attributes based on other values in an object. An
- * example usage (from\n the dark-matter validation schema) looks like:\n
- * <pre>\n CheckAttributesBasedOnValueRuleData\n ruleName             
- * dmvNoMustInExtensible\n ruleTitle             If a ClassDefinition's
- * classType is AUXILIARY, it can't have mandatory attributes\n applyToClass 
- *         ClassDefinition\n basedOnAttribute      classType\n basedOnValue  
- *        AUXILIARY\n excludeThisAttribute  must\n description           An
- * AUXILIARY class can be added to an object dynamically and\n  we don't
- * allow mandatory attributes in such classes.\n </pre>\n If the
- * basedOnAttribute doesn't exist in the object being validated, the rule
- * does nothing.
+ * java.util.AbstractList$Itr@1c2c9103
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>
@@ -271,33 +243,115 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
         ((CheckAttributesBasedOnValueRuleDataDMO) core).remBasedOnValue();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1393)
-    public String getDescription(){
-        return(((CheckAttributesBasedOnValueRuleDataDMO) core).getDescription());
+    /**
+     * @return The number of String items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1590)
+    public int getDescriptionSize(){
+        return(((CheckAttributesBasedOnValueRuleDataDMO) core).getDescriptionSize());
     }
 
     /**
-     * Sets description to the specified value.
-     * @param value A value compatible with DmcTypeString
+     * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1503)
-    public void setDescription(Object value) throws DmcValueException {
-        ((CheckAttributesBasedOnValueRuleDataDMO) core).setDescription(value);
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1598)
+    public boolean getDescriptionIsEmpty(){
+        if (((CheckAttributesBasedOnValueRuleDataDMO) core).getDescriptionSize() == 0)
+            return(true);
+        return(false);
     }
 
     /**
-     * Sets description to the specified value.
-     * @param value String
+     * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1512)
-    public void setDescription(String value){
-        ((CheckAttributesBasedOnValueRuleDataDMO) core).setDescription(value);
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1608)
+    public boolean getDescriptionHasValue(){
+        if (((CheckAttributesBasedOnValueRuleDataDMO) core).getDescriptionSize() == 0)
+            return(false);
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
+    public StringIterableDMW getDescriptionIterable(){
+        DmcAttribute<?> attr = core.get(MetaDMSAG.__description);
+        if (attr == null)
+            return(StringIterableDMW.emptyList);
+        
+        return(new StringIterableDMW(((CheckAttributesBasedOnValueRuleDataDMO) core).getDescription()));
+    }
+
+    /**
+     * Adds another description value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2052)
+    public void addDescription(Object value) throws DmcValueException {
+        ((CheckAttributesBasedOnValueRuleDataDMO) core).addDescription(value);
+    }
+
+    /**
+     * Adds another description value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2062)
+    public void addDescription(String value){
+        ((CheckAttributesBasedOnValueRuleDataDMO) core).addDescription(value);
+    }
+
+    /**
+     * Returns true if the collection contains the description value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2119)
+    public boolean descriptionContains(String value){
+        return(((CheckAttributesBasedOnValueRuleDataDMO) core).descriptionContains(value));
+    }
+
+    /**
+     * @return A COPY of the collection of String objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2163)
+    @SuppressWarnings("unchecked")
+    public ArrayList<String> getDescriptionCopy(){
+        DmcAttribute<?> attr = core.get(MetaDMSAG.__description);
+        if (attr == null)
+            return(new ArrayList<String>());
+        
+        ArrayList<String> rc = new ArrayList<String>(attr.getMVSize());
+        
+        Iterator<String> it = (Iterator<String>) attr.getMV();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
+    }
+
+    /**
+     * Deletes a description value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2190)
+    public void delDescription(Object value) throws DmcValueException {
+        ((CheckAttributesBasedOnValueRuleDataDMO) core).delDescription(value);
+    }
+
+    /**
+     * Deletes a description value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2199)
+    public void delDescription(String value){
+        ((CheckAttributesBasedOnValueRuleDataDMO) core).delDescription(value);
     }
 
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1538)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2211)
     public void remDescription(){
         ((CheckAttributesBasedOnValueRuleDataDMO) core).remDescription();
     }

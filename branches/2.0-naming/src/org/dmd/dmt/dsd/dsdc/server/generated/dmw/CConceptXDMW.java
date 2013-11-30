@@ -30,7 +30,6 @@ import org.dmd.dmt.dsd.dsdc.shared.generated.dmo.CConceptXDMO;         // Class 
 
 
 /**
- * null
  * <P>
  * Generated from the dsdC schema at version unknown
  * <P>

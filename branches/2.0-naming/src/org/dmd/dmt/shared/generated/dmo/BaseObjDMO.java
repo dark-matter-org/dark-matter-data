@@ -13,7 +13,6 @@ import org.dmd.dms.generated.types.DmcTypeDateSV;                   // Required 
 import org.dmd.dms.generated.types.DmcTypeDefinitionNameSV;         // Required type - (GenUtility.java:325)
 
 /**
- * null
  * <P>
  * Generated from the dmt schema at version 0.1
  * <P>

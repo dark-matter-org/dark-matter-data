@@ -16,7 +16,6 @@ import org.dmd.dmt.shared.generated.types.DmcTypeObjWithRefsREFMAP;         // R
 import org.dmd.dmt.shared.generated.types.ObjWithRefsREF;                   // Helper class - (GenUtility.java:332)
 
 /**
- * null
  * <P>
  * Generated from the dmt schema at version 0.1
  * <P>

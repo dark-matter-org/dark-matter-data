@@ -109,7 +109,7 @@ public class DsdBSchemaAG extends SchemaDefinition {
             _BConceptBaseOBJ.setClassType("ABSTRACT");
             _BConceptBaseOBJ.setFile("/src/org/dmd/dmt/dsd/dsdb/shared/dmdconfig/classes.dmd");
             _BConceptBaseOBJ.setLineNumber("12");
-            _BConceptBaseOBJ.setDescription("The base definition for this DSD module.");
+            _BConceptBaseOBJ.addDescription("The base definition for this DSD module.");
             _BConceptBaseOBJ.setDerivedFrom("meta.DSDefinition");
             _BConceptBaseOBJ.setIsNamedBy("meta.name");
             _BConceptBaseOBJ.setUseWrapperType("EXTENDED");
@@ -176,7 +176,7 @@ public class DsdBSchemaAG extends SchemaDefinition {
             _dependsOnModuleBOBJ.setType("dsdB.ModuleB");
             _dependsOnModuleBOBJ.setName("dependsOnModuleB");
             _dependsOnModuleBOBJ.setDmdID("-500099");
-            _dependsOnModuleBOBJ.setDescription("Indicates the ModuleB on which something depends.");
+            _dependsOnModuleBOBJ.addDescription("Indicates the ModuleB on which something depends.");
             _dependsOnModuleBOBJ.setValueType("MULTI");
             _dependsOnModuleBOBJ.setDotName("dsdB.dependsOnModuleB.AttributeDefinition");
             _dependsOnModuleB.setDefinedIn(this);
@@ -190,7 +190,7 @@ public class DsdBSchemaAG extends SchemaDefinition {
             _definedInModuleBOBJ.setType("dsdB.ModuleB");
             _definedInModuleBOBJ.setName("definedInModuleB");
             _definedInModuleBOBJ.setDmdID("-500098");
-            _definedInModuleBOBJ.setDescription("Indicates the name of the ModuleB in which a definition is defined.");
+            _definedInModuleBOBJ.addDescription("Indicates the name of the ModuleB in which a definition is defined.");
             _definedInModuleBOBJ.setDotName("dsdB.definedInModuleB.AttributeDefinition");
             _definedInModuleB.setDefinedIn(this);
             _definedInModuleBOBJ.setFile("/src/org/dmd/dmt/dsd/dsdb/shared/dmdconfig/attributes.dmd");
