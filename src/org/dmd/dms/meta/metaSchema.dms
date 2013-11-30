@@ -750,6 +750,7 @@ name            	description
 dmdID				18
 preserveNewlines	true
 type                String
+valueType			MULTI
 description    		The description attribute is used to provide descriptive
  documentation for schema related definitions. The text provided should conform
  to XHTML concepts since it will be dumped in the context of the generated HTML

@@ -17,6 +17,7 @@ package org.dmd.dmv.shared.generated.dmo;
 
 // Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:393)
 import java.io.Serializable;                                  // Always required - (GenUtility.java:221)
+import java.util.*;                                           // Always required if we have any MV attributes - (GenUtility.java:216)
 import org.dmd.dmc.DmcAttribute;                              // Named object - (GenUtility.java:373)
 import org.dmd.dmc.DmcNamedObjectIF;                          // Named object - (GenUtility.java:372)
 import org.dmd.dmc.DmcSliceInfo;                              // Required for object slicing - (GenUtility.java:226)
@@ -26,22 +27,11 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;                   // Required for MO
 import org.dmd.dms.generated.dmo.RuleDataDMO;                 // Base class - (GenUtility.java:352)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor - (GenUtility.java:224)
 import org.dmd.dms.generated.types.DmcTypeRuleNameSV;         // Required type - (GenUtility.java:325)
+import org.dmd.dms.generated.types.DmcTypeStringMV;           // Required type - (GenUtility.java:325)
 import org.dmd.dms.generated.types.DmcTypeStringSV;           // Required type - (GenUtility.java:325)
 
 /**
- * The AllowedAttributesRule will determine whether or not the \n attributes
- * of a DMO conform to the must/may specification of its class definition.\n
- * For classes of type EXTENSIBLE, only the must have attributes are
- * checked.\n <p/>\n Regardless of the environment in which you are running,
- * you must ensure that the\n DmcOmni has been loaded with the appropriate
- * schema. If you are using the dark-matter\n Model View Whatever (MVW)
- * project for GWT, this aspect is taken care of automatically.\n <p/>\n
- * Since this is a GLOBAL class rule, there will only ever be a single
- * instance of\n this rule created as part of the dmv schema, as indicated
- * below:\n <pre>\n AllowedAttributesRuleData\n ruleName   
- * dmvAllowedAttributes\n ruleTitle 	 An object's attributes must conform to
- * its schema.\n description Ensures that must/may attribute rules are
- * followed.\n </pre>
+ * java.util.AbstractList$Itr@4e2f2295
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>
@@ -124,52 +114,129 @@ public class AllowedAttributesRuleDataDMO  extends RuleDataDMO  implements DmcNa
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:781)
-    public String getDescription(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__description);
+    /**
+     * @return An Iterator of String objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1109)
+    public Iterator<String> getDescription(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
+        if (attr == null)
+            return( ((List<String>) Collections.EMPTY_LIST).iterator());
+
+        return(attr.getMV());
+    }
+
+    /**
+     * @return The nth String value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1121)
+    public String getNthDescription(int i){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
         if (attr == null)
             return(null);
 
-        return(attr.getSV());
+        return(attr.getMVnth(i));
     }
 
     /**
-     * Sets description to the specified value.
+     * Adds another description to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:821)
-    public void setDescription(String value) {
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1135)
+    public DmcAttribute<?> addDescription(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
-            attr = new DmcTypeStringSV(MetaDMSAG.__description);
+            attr = new DmcTypeStringMV(MetaDMSAG.__description);
         
         try{
-            attr.set(value);
-            set(MetaDMSAG.__description,attr);
+            setLastValue(attr.add(value));
+            add(MetaDMSAG.__description,attr);
         }
         catch(DmcValueException ex){
-            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
         }
+        return(attr);
     }
 
     /**
-     * Sets description to the specified value.
-     * @param value A value compatible with DmcTypeStringSV
+     * Returns true if we contain a valued keyed by the specified String.
+     * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:874)
-    public void setDescription(Object value) throws DmcValueException {
-        DmcTypeStringSV attr  = (DmcTypeStringSV) get(MetaDMSAG.__description);
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1210)
+    public boolean descriptionContains(String value) {
+        DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
-            attr = new DmcTypeStringSV(MetaDMSAG.__description);
+            return(false);
+        return(attr.contains(value));
+    }
+
+    /**
+     * Adds another description value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1242)
+    public DmcAttribute<?> addDescription(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__description);
+        if (attr == null)
+            attr = new DmcTypeStringMV(MetaDMSAG.__description);
         
-        attr.set(value);
-        set(MetaDMSAG.__description,attr);
+        setLastValue(attr.add(value));
+        add(MetaDMSAG.__description,attr);
+        return(attr);
+    }
+
+    /**
+     * Returns the number of values in description
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1259)
+    public int getDescriptionSize(){
+        DmcAttribute<?> attr = get(MetaDMSAG.__description);
+        if (attr == null){
+            if (MetaDMSAG.__description.indexSize == 0)
+                return(0);
+            else
+                return(MetaDMSAG.__description.indexSize);
+        }
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Deletes a description value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1317)
+    public DmcAttribute<?> delDescription(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__description);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeStringMV(MetaDMSAG.__description), value);
+        else
+            attr = del(MetaDMSAG.__description, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Deletes a description from the specified value.
+     * @param value String
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1333)
+    public DmcAttribute<?> delDescription(String value) {
+        DmcAttribute<?> attr = get(MetaDMSAG.__description);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeStringMV(MetaDMSAG.__description), value);
+        else
+            attr = del(MetaDMSAG.__description, value);
+        
+        return(attr);
     }
 
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:894)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1352)
     public void remDescription(){
          rem(MetaDMSAG.__description);
     }

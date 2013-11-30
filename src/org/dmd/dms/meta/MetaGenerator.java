@@ -36,7 +36,6 @@ import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
-import org.dmd.util.formatting.PrintfFormat;
 import org.dmd.util.parsing.DmcUncheckedOIFHandlerIF;
 import org.dmd.util.parsing.DmcUncheckedOIFParser;
 
@@ -283,7 +282,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 		out.write("            _metaSchema = this;\n");
 		out.write("            staticRefName = new String(\"MetaSchema._\");\n\n");
-		out.write("            this.setDescription(\"The meta schema defines the elements used to define schemas.\");\n");
+		out.write("            this.addDescription(\"The meta schema defines the elements used to define schemas.\");\n");
 		out.write("            this.setDotName(\"meta.SchemaDefinition\");\n");
 
 		// Set the prefix for the generated output directory and the generated
@@ -1068,15 +1067,11 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	/**
 	 * This function dumps the description of a class as a code comment. Long
 	 * lines are folded to 75 characters.
-	 * 
-	 * @param comment
-	 *            The comment to be written
+	 * @param comment The comment to be written
 	 * @out The place to write the output
-	 * @indent A string that is written at the beginning of each line to indent
-	 *         it
+	 * @indent A string that is written at the beginning of each line to indent it
 	 */
-	private void dumpCodeComment(String comment, BufferedWriter out,
-			String indent) {
+	private void dumpCodeComment(String comment, BufferedWriter out, String indent) {
 		StringBuffer sb = new StringBuffer();
 		int offset;
 
@@ -1104,425 +1099,459 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		}
 	}
 
-	void dumpMetaSchema(String od) throws IOException, ResultException {
-		BufferedWriter out = null;
-		PrintfFormat pf = null;
+	private void dumpCodeComment(NamedStringArray namedStringArray, BufferedWriter out, String indent) {
+		StringBuffer sb = new StringBuffer();
+		int offset;
 
-		// out = new BufferedWriter(new FileWriter(od + "/MetaSchemaAG.java"));
-		out = FileUpdateManager.instance().getWriter(od, "MetaSchemaAG.java");
-
-		// Strip the nameAttribute from all name types so that we don't cause
-		// problems
-		// when loading the meta schema
-		for (DmcUncheckedObject type : typeDefs.values()) {
-			type.rem("nameAttributeDef");
-			type.rem("filterAttributeDef");
+		if (namedStringArray == null)
+			return;
+		
+		for(String str: namedStringArray){
+			sb.append(str + " ");
 		}
+		
+		try {
+			while (sb.length() > 75) {
+				offset = 74;
+				// Move back until we find a space
+				while (sb.charAt(offset) != ' ') {
+					offset--;
+				}
 
-		out.write(LGPL.toString());
-		out.write("package org.dmd.dms;\n\n");
-
-		out.write("import org.dmd.dmc.DmcValueException;\n");
-		out.write("import org.dmd.dms.generated.enums.*;\n");
-
-		out.write("\n");
-
-		out.write("/**\n");
-		out.write("  * This class creates the basic definitions that allow for the definition of schemas.\n");
-		out.write("  * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-		out.write("  */\n");
-
-		out.write("abstract public class MetaSchemaAG extends SchemaDefinition {\n");
-
-		out.write("    public static SchemaDefinition    _metaSchema;\n\n");
-
-		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
-				+ "\n");
-		for (int i = 0; i < origOrderClasses.size(); i++) {
-			out.write("    public static ClassDefinition     _"
-					+ origOrderClasses.get(i) + ";\n");
-		}
-		out.write("\n");
-
-		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
-				+ "\n");
-		for (int i = 0; i < origOrderEnums.size(); i++)
-			out.write("    public static EnumDefinition      _"
-					+ origOrderEnums.get(i) + ";\n");
-		out.write("\n");
-
-		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
-				+ "\n");
-		for (int i = 0; i < origOrderTypes.size(); i++)
-			out.write("    public static TypeDefinition      _"
-					+ origOrderTypes.get(i) + ";\n");
-		out.write("\n");
-
-		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
-				+ "\n");
-		for (int i = 0; i < origOrderAttrs.size(); i++)
-			out.write("    public static AttributeDefinition _"
-					+ origOrderAttrs.get(i) + ";\n");
-		out.write("\n");
-
-		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
-				+ "\n");
-		for (int i = 0; i < origOrderCategories.size(); i++)
-			out.write("    public static RuleCategory        _"
-					+ origOrderCategories.get(i) + ";\n");
-		out.write("\n");
-
-		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
-				+ "\n");
-		for (int i = 0; i < origOrderRules.size(); i++)
-			out.write("    public static RuleDefinition      _"
-					+ origOrderRules.get(i) + ";\n");
-		out.write("\n");
-
-		// METASCHEMA START
-		out.write("    public MetaSchemaAG() throws DmcValueException {\n\n");
-		// out.write("        super(\"metaSchema\");\n\n");
-		// DebugInfo.debug("META SCHEMA NAME CHANGE!!!!");
-		out.write("        super(\"meta\");\n\n");
-		out.write("        staticRefName = new String(\"MetaSchema._\");\n\n");
-
-		pf = new PrintfFormat("%-28s");
-
-		out.write("        // We only ever want to initialize the schema once, so check\n");
-		out.write("        // to see if we've initialized the first class definition\n");
-
-		// START INIT METASCHEMA
-		out.write("        if (_metaSchema == null){\n");
-
-		out.write("            try{\n");
-
-		out.write("            _metaSchema = this;\n");
-
-		out.write("            // Create the class definitions\n");
-		out.write("            // Generated from: "
-				+ DebugInfo.getWhereWeAreNow() + "\n");
-		for (int i = 0; i < origOrderClasses.size(); i++) {
-			String defn = origOrderClasses.get(i);
-			out.write("            _" + pf.sprintf(defn));
-			out.write("= new ClassDefinition(\"" + defn + "\");\n");
-		}
-		out.write("\n");
-
-		out.write("            // Create the enum definitions\n");
-		out.write("            // Generated from: "
-				+ DebugInfo.getWhereWeAreNow() + "\n");
-		for (int i = 0; i < origOrderEnums.size(); i++) {
-			String defn = origOrderEnums.get(i);
-			out.write("            _" + pf.sprintf(defn));
-			out.write("= new EnumDefinition(\"" + defn + "\");\n");
-		}
-		out.write("\n");
-
-		out.write("            // Create the type definitions\n");
-		out.write("            // Generated from: "
-				+ DebugInfo.getWhereWeAreNow() + "\n");
-		for (int i = 0; i < origOrderTypes.size(); i++) {
-			String defn = origOrderTypes.get(i);
-
-			String predefname = origOrderTypes.get(i);
-			if (predefname.indexOf("Enum") != -1) {
-				if (predefname.equals("EnumValue")
-						|| predefname.equals("EnumDefinitionREF")) {
-
-				} else
-					predefname = predefname.replace("REF", "");
-				// predefname = origOrderTypes.get(i) + "REF";
+				out.write(indent);
+				for (int i = 0; i < offset; i++) {
+					out.write(sb.charAt(i));
+				}
+				out.write("\n");
+				// The subString(int,int) method seems to be missing
+				// out.write(" * " + sb.subString(start,offset) + "\n");
+				sb.delete(0, offset + 1);
 			}
-
-			DmcUncheckedObject typeObj = typeDefs.get(defn);
-			String typeClassName = typeObj.getSV("typeClassName");
-			String wrapperClassName = typeObj.getSV("wrapperClassName");
-			out.write("            _" + pf.sprintf(defn));
-			if (wrapperClassName == null)
-				out.write("= new TypeDefinition(\"" + predefname + "\", "
-						+ typeClassName + ".class);\n");
-			else
-				out.write("= new TypeDefinition(\"" + predefname + "\", "
-						+ typeClassName + ".class, " + wrapperClassName
-						+ ".class);\n");
+			out.write(indent + sb + "\n");
+		} catch (IOException e) {
+			System.out.println("IO Error:\n" + e);
 		}
-		out.write("\n");
-
-		out.write("            // Create the attribute definitions\n");
-		out.write("            // Generated from: "
-				+ DebugInfo.getWhereWeAreNow() + "\n");
-		for (int i = 0; i < origOrderAttrs.size(); i++) {
-			String attrName = origOrderAttrs.get(i);
-			String mediatorName = null;
-
-			DmcUncheckedObject attrDef = attributeDefs.get(attrName);
-			String typeName = attrDef.getSV("type");
-			DmcUncheckedObject typeDef = typeDefs.get(typeName);
-
-			// If we couldn't find the type by its name, it's because its a
-			// reference
-			// to a class or enum, and the actual TypeDefinition name will be
-			// _<ClassName>Reference
-			if (typeDef == null) {
-				mediatorName = typeName + "REF";
-			} else {
-				mediatorName = typeName;
-			}
-
-			out.write("            _" + pf.sprintf(attrName));
-			out.write("= new AttributeDefinition(\"" + attrName + "\", _"
-					+ mediatorName + ");\n");
-		}
-		out.write("\n");
-
-		out.write("            // Create the rule category definitions\n");
-		out.write("            // Generated from: "
-				+ DebugInfo.getWhereWeAreNow() + "\n");
-		for (int i = 0; i < origOrderCategories.size(); i++) {
-			String defn = origOrderCategories.get(i);
-			out.write("            _" + pf.sprintf(defn));
-			out.write("= new RuleCategory(\"" + defn + "\");\n");
-		}
-		out.write("\n");
-
-		out.write("            // Create the rule definitions\n");
-		out.write("            // Generated from: "
-				+ DebugInfo.getWhereWeAreNow() + "\n");
-		for (int i = 0; i < origOrderRules.size(); i++) {
-			String defn = origOrderRules.get(i);
-			out.write("            _" + pf.sprintf(defn));
-			out.write("= new RuleDefinition(\"" + defn + "\");\n");
-		}
-		out.write("\n");
-
-		// Set the attribute values on all objects
-		out.write("            // Set attribute values on all objects\n");
-		out.write("            // Generated from: "
-				+ DebugInfo.getWhereWeAreNow() + "\n");
-
-		setAttributeValues(out, typeDefs, pf);
-
-		setAttributeValues(out, enumDefs, pf);
-
-		setAttributeValues(out, attributeDefs, pf);
-
-		setAttributeValues(out, classDefs, pf);
-
-		setAttributeValues(out, ruleCategoryDefs, pf);
-
-		setAttributeValues(out, ruleDefs, pf);
-
-		out.write("        // Add the definitions to the schema object\n");
-		out.write("        // Generated from: " + DebugInfo.getWhereWeAreNow()
-				+ "\n");
-		// Set class, type and attribute definition lists of this schema
-		// definition
-		for (int i = 0; i < origOrderClasses.size(); i++)
-			out.write("            this.addClassDefList(_"
-					+ origOrderClasses.get(i) + ");\n");
-
-		for (int i = 0; i < origOrderEnums.size(); i++)
-			out.write("            this.addEnumDefList(_"
-					+ origOrderEnums.get(i) + ");\n");
-
-		for (int i = 0; i < origOrderTypes.size(); i++)
-			out.write("            this.addTypeDefList(_"
-					+ origOrderTypes.get(i) + ");\n");
-
-		for (int i = 0; i < origOrderAttrs.size(); i++)
-			out.write("            this.addAttributeDefList(_"
-					+ origOrderAttrs.get(i) + ");\n");
-
-		for (int i = 0; i < origOrderCategories.size(); i++)
-			out.write("            this.addRuleCategoryList(_"
-					+ origOrderCategories.get(i) + ");\n");
-
-		for (int i = 0; i < origOrderRules.size(); i++)
-			out.write("            this.addRuleDefinitionList(_"
-					+ origOrderRules.get(i) + ");\n");
-
-		// Set the schema instances' name and description
-		// DebugInfo.debug("META SCHEMA NAME CHANGE!!!!");
-		// out.write("            this.setName(\"metaSchema\");\n");
-		out.write("            this.setName(\"meta\");\n");
-		out.write("            this.setDescription(\"The meta schema defines the elements used to define schemas.\");\n");
-
-		// Set the prefix for the generated output directory and the generated
-		// package prefixes
-		out.write("            this.setSchemaPackage(\"org.dmd.dms\");\n");
-		out.write("            this.setDmwPackage(\"org.dmd.dms\");\n");
-
-		out.write("            this.setSchemaBaseID(" + META_BASE_ID + ");\n");
-		out.write("            this.setSchemaIDRange(" + META_ID_RANGE + ");\n");
-
-		// Set the construction class of this valid object instance
-		// out.write("            this.addObjectClass(_SchemaDefinition);\n");
-
-		out.write("            }\n");
-		out.write("            catch(Exception ex){\n");
-		out.write("                ex.printStackTrace();\n");
-		out.write("            }\n");
-
-		// END INIT METASCHEMA
-		out.write("        }\n\n");
-
-		// METASCHEMA END
-		out.write("    }\n\n");
-
-		out.write("}\n\n");
-
-		out.close();
 	}
 
-	private void setAttributeValues(BufferedWriter out,
-			TreeMap<String, DmcUncheckedObject> objects, PrintfFormat pf)
-			throws IOException, ResultException {
-		String attrName = null;
-		String objName = null;
-		DmcUncheckedObject attrDef = null;
-		String typeName = null;
-		DmcUncheckedObject typeDef = null;
-		boolean multiValued = false;
-		boolean isReference = false;
-		boolean isEnumType = false;
+//	void dumpMetaSchema(String od) throws IOException, ResultException {
+//		BufferedWriter out = null;
+//		PrintfFormat pf = null;
+//
+//		// out = new BufferedWriter(new FileWriter(od + "/MetaSchemaAG.java"));
+//		out = FileUpdateManager.instance().getWriter(od, "MetaSchemaAG.java");
+//
+//		// Strip the nameAttribute from all name types so that we don't cause
+//		// problems
+//		// when loading the meta schema
+//		for (DmcUncheckedObject type : typeDefs.values()) {
+//			type.rem("nameAttributeDef");
+//			type.rem("filterAttributeDef");
+//		}
+//
+//		out.write(LGPL.toString());
+//		out.write("package org.dmd.dms;\n\n");
+//
+//		out.write("import org.dmd.dmc.DmcValueException;\n");
+//		out.write("import org.dmd.dms.generated.enums.*;\n");
+//
+//		out.write("\n");
+//
+//		out.write("/**\n");
+//		out.write("  * This class creates the basic definitions that allow for the definition of schemas.\n");
+//		out.write("  * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+//		out.write("  */\n");
+//
+//		out.write("abstract public class MetaSchemaAG extends SchemaDefinition {\n");
+//
+//		out.write("    public static SchemaDefinition    _metaSchema;\n\n");
+//
+//		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
+//				+ "\n");
+//		for (int i = 0; i < origOrderClasses.size(); i++) {
+//			out.write("    public static ClassDefinition     _"
+//					+ origOrderClasses.get(i) + ";\n");
+//		}
+//		out.write("\n");
+//
+//		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
+//				+ "\n");
+//		for (int i = 0; i < origOrderEnums.size(); i++)
+//			out.write("    public static EnumDefinition      _"
+//					+ origOrderEnums.get(i) + ";\n");
+//		out.write("\n");
+//
+//		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
+//				+ "\n");
+//		for (int i = 0; i < origOrderTypes.size(); i++)
+//			out.write("    public static TypeDefinition      _"
+//					+ origOrderTypes.get(i) + ";\n");
+//		out.write("\n");
+//
+//		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
+//				+ "\n");
+//		for (int i = 0; i < origOrderAttrs.size(); i++)
+//			out.write("    public static AttributeDefinition _"
+//					+ origOrderAttrs.get(i) + ";\n");
+//		out.write("\n");
+//
+//		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
+//				+ "\n");
+//		for (int i = 0; i < origOrderCategories.size(); i++)
+//			out.write("    public static RuleCategory        _"
+//					+ origOrderCategories.get(i) + ";\n");
+//		out.write("\n");
+//
+//		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
+//				+ "\n");
+//		for (int i = 0; i < origOrderRules.size(); i++)
+//			out.write("    public static RuleDefinition      _"
+//					+ origOrderRules.get(i) + ";\n");
+//		out.write("\n");
+//
+//		// METASCHEMA START
+//		out.write("    public MetaSchemaAG() throws DmcValueException {\n\n");
+//		// out.write("        super(\"metaSchema\");\n\n");
+//		// DebugInfo.debug("META SCHEMA NAME CHANGE!!!!");
+//		out.write("        super(\"meta\");\n\n");
+//		out.write("        staticRefName = new String(\"MetaSchema._\");\n\n");
+//
+//		pf = new PrintfFormat("%-28s");
+//
+//		out.write("        // We only ever want to initialize the schema once, so check\n");
+//		out.write("        // to see if we've initialized the first class definition\n");
+//
+//		// START INIT METASCHEMA
+//		out.write("        if (_metaSchema == null){\n");
+//
+//		out.write("            try{\n");
+//
+//		out.write("            _metaSchema = this;\n");
+//
+//		out.write("            // Create the class definitions\n");
+//		out.write("            // Generated from: "
+//				+ DebugInfo.getWhereWeAreNow() + "\n");
+//		for (int i = 0; i < origOrderClasses.size(); i++) {
+//			String defn = origOrderClasses.get(i);
+//			out.write("            _" + pf.sprintf(defn));
+//			out.write("= new ClassDefinition(\"" + defn + "\");\n");
+//		}
+//		out.write("\n");
+//
+//		out.write("            // Create the enum definitions\n");
+//		out.write("            // Generated from: "
+//				+ DebugInfo.getWhereWeAreNow() + "\n");
+//		for (int i = 0; i < origOrderEnums.size(); i++) {
+//			String defn = origOrderEnums.get(i);
+//			out.write("            _" + pf.sprintf(defn));
+//			out.write("= new EnumDefinition(\"" + defn + "\");\n");
+//		}
+//		out.write("\n");
+//
+//		out.write("            // Create the type definitions\n");
+//		out.write("            // Generated from: "
+//				+ DebugInfo.getWhereWeAreNow() + "\n");
+//		for (int i = 0; i < origOrderTypes.size(); i++) {
+//			String defn = origOrderTypes.get(i);
+//
+//			String predefname = origOrderTypes.get(i);
+//			if (predefname.indexOf("Enum") != -1) {
+//				if (predefname.equals("EnumValue")
+//						|| predefname.equals("EnumDefinitionREF")) {
+//
+//				} else
+//					predefname = predefname.replace("REF", "");
+//				// predefname = origOrderTypes.get(i) + "REF";
+//			}
+//
+//			DmcUncheckedObject typeObj = typeDefs.get(defn);
+//			String typeClassName = typeObj.getSV("typeClassName");
+//			String wrapperClassName = typeObj.getSV("wrapperClassName");
+//			out.write("            _" + pf.sprintf(defn));
+//			if (wrapperClassName == null)
+//				out.write("= new TypeDefinition(\"" + predefname + "\", "
+//						+ typeClassName + ".class);\n");
+//			else
+//				out.write("= new TypeDefinition(\"" + predefname + "\", "
+//						+ typeClassName + ".class, " + wrapperClassName
+//						+ ".class);\n");
+//		}
+//		out.write("\n");
+//
+//		out.write("            // Create the attribute definitions\n");
+//		out.write("            // Generated from: "
+//				+ DebugInfo.getWhereWeAreNow() + "\n");
+//		for (int i = 0; i < origOrderAttrs.size(); i++) {
+//			String attrName = origOrderAttrs.get(i);
+//			String mediatorName = null;
+//
+//			DmcUncheckedObject attrDef = attributeDefs.get(attrName);
+//			String typeName = attrDef.getSV("type");
+//			DmcUncheckedObject typeDef = typeDefs.get(typeName);
+//
+//			// If we couldn't find the type by its name, it's because its a
+//			// reference
+//			// to a class or enum, and the actual TypeDefinition name will be
+//			// _<ClassName>Reference
+//			if (typeDef == null) {
+//				mediatorName = typeName + "REF";
+//			} else {
+//				mediatorName = typeName;
+//			}
+//
+//			out.write("            _" + pf.sprintf(attrName));
+//			out.write("= new AttributeDefinition(\"" + attrName + "\", _"
+//					+ mediatorName + ");\n");
+//		}
+//		out.write("\n");
+//
+//		out.write("            // Create the rule category definitions\n");
+//		out.write("            // Generated from: "
+//				+ DebugInfo.getWhereWeAreNow() + "\n");
+//		for (int i = 0; i < origOrderCategories.size(); i++) {
+//			String defn = origOrderCategories.get(i);
+//			out.write("            _" + pf.sprintf(defn));
+//			out.write("= new RuleCategory(\"" + defn + "\");\n");
+//		}
+//		out.write("\n");
+//
+//		out.write("            // Create the rule definitions\n");
+//		out.write("            // Generated from: "
+//				+ DebugInfo.getWhereWeAreNow() + "\n");
+//		for (int i = 0; i < origOrderRules.size(); i++) {
+//			String defn = origOrderRules.get(i);
+//			out.write("            _" + pf.sprintf(defn));
+//			out.write("= new RuleDefinition(\"" + defn + "\");\n");
+//		}
+//		out.write("\n");
+//
+//		// Set the attribute values on all objects
+//		out.write("            // Set attribute values on all objects\n");
+//		out.write("            // Generated from: "
+//				+ DebugInfo.getWhereWeAreNow() + "\n");
+//
+//		setAttributeValues(out, typeDefs, pf);
+//
+//		setAttributeValues(out, enumDefs, pf);
+//
+//		setAttributeValues(out, attributeDefs, pf);
+//
+//		setAttributeValues(out, classDefs, pf);
+//
+//		setAttributeValues(out, ruleCategoryDefs, pf);
+//
+//		setAttributeValues(out, ruleDefs, pf);
+//
+//		out.write("        // Add the definitions to the schema object\n");
+//		out.write("        // Generated from: " + DebugInfo.getWhereWeAreNow()
+//				+ "\n");
+//		// Set class, type and attribute definition lists of this schema
+//		// definition
+//		for (int i = 0; i < origOrderClasses.size(); i++)
+//			out.write("            this.addClassDefList(_"
+//					+ origOrderClasses.get(i) + ");\n");
+//
+//		for (int i = 0; i < origOrderEnums.size(); i++)
+//			out.write("            this.addEnumDefList(_"
+//					+ origOrderEnums.get(i) + ");\n");
+//
+//		for (int i = 0; i < origOrderTypes.size(); i++)
+//			out.write("            this.addTypeDefList(_"
+//					+ origOrderTypes.get(i) + ");\n");
+//
+//		for (int i = 0; i < origOrderAttrs.size(); i++)
+//			out.write("            this.addAttributeDefList(_"
+//					+ origOrderAttrs.get(i) + ");\n");
+//
+//		for (int i = 0; i < origOrderCategories.size(); i++)
+//			out.write("            this.addRuleCategoryList(_"
+//					+ origOrderCategories.get(i) + ");\n");
+//
+//		for (int i = 0; i < origOrderRules.size(); i++)
+//			out.write("            this.addRuleDefinitionList(_"
+//					+ origOrderRules.get(i) + ");\n");
+//
+//		// Set the schema instances' name and description
+//		// DebugInfo.debug("META SCHEMA NAME CHANGE!!!!");
+//		// out.write("            this.setName(\"metaSchema\");\n");
+//		out.write("            this.setName(\"meta\");\n");
+//		out.write("            this.addDescription(\"The meta schema defines the elements used to define schemas.\");\n");
+//
+//		// Set the prefix for the generated output directory and the generated
+//		// package prefixes
+//		out.write("            this.setSchemaPackage(\"org.dmd.dms\");\n");
+//		out.write("            this.setDmwPackage(\"org.dmd.dms\");\n");
+//
+//		out.write("            this.setSchemaBaseID(" + META_BASE_ID + ");\n");
+//		out.write("            this.setSchemaIDRange(" + META_ID_RANGE + ");\n");
+//
+//		// Set the construction class of this valid object instance
+//		// out.write("            this.addObjectClass(_SchemaDefinition);\n");
+//
+//		out.write("            }\n");
+//		out.write("            catch(Exception ex){\n");
+//		out.write("                ex.printStackTrace();\n");
+//		out.write("            }\n");
+//
+//		// END INIT METASCHEMA
+//		out.write("        }\n\n");
+//
+//		// METASCHEMA END
+//		out.write("    }\n\n");
+//
+//		out.write("}\n\n");
+//
+//		out.close();
+//	}
 
-		Iterator<DmcUncheckedObject> it = objects.values().iterator();
-		while (it.hasNext()) {
-			DmcUncheckedObject obj = it.next();
-			objName = obj.getSV("name");
-
-			// // trickiness here to handle the fact that the actual rule
-			// definition object
-			// // has to be called RuleDEF since Rule is the name of the class
-			// definition that
-			// // is created to represent the Rule instance.
-			// if (obj.getConstructionClass().equals("RuleDefinition")){
-			// objName = objName + "DEF";
-			// }
-
-			Iterator<String> attributeNames = obj.getAttributeNames();
-			while (attributeNames.hasNext()) {
-				NamedStringArray attr = obj.get(attributeNames.next());
-				attrName = attr.getName();
-				if (attrName == null) {
-					DebugInfo.debug("Attr name null");
-					continue;
-				}
-				attrDef = attributeDefs.get(attrName);
-				multiValued = false;
-				isReference = false;
-				isEnumType = false;
-
-				if (attrDef == null) {
-					ResultException ex = new ResultException();
-					ex.addError("Unknown attribute: " + attrName);
-					ex.result.lastResult().fileName("metaSchema.dms");
-					ex.result.lastResult().lineNumber(obj.lineNumber);
-					throw (ex);
-				}
-
-				// MULTIVALUED 1
-				if (attrDef.getSV("valueType") != null)
-					multiValued = true;
-
-				typeName = attrDef.getSV("type");
-				typeDef = typeDefs.get(typeName);
-
-				if (typeDef == null) {
-					// If this is null, we need to look for an internally
-					// generated Reference type
-					typeDef = typeDefs.get(typeName + "REF");
-					isReference = true;
-
-					if (typeDef.getSV("isEnumType") != null)
-						isEnumType = true;
-				}
-
-				StringBuffer attrNameCapped = new StringBuffer();
-				attrNameCapped.append(attrName);
-				attrNameCapped.setCharAt(0,
-						Character.toUpperCase(attrNameCapped.charAt(0)));
-
-				if (attrName.equals("type")) {
-					// The type attribute has to be handled slightly differently
-					// than most attributes
-					// to adjust for the fact that we create those internal
-					// Reference types to handle
-					// references to definitions.
-					isReference = false;
-					isEnumType = false;
-					typeName = obj.getSV("type");
-					typeDef = typeDefs.get(typeName);
-
-					if (typeDef == null) {
-						// If this is null, we need to look for an internally
-						// generated Reference type
-						typeDef = typeDefs.get(typeName + "REF");
-						isReference = true;
-
-						if (typeDef.getSV("isEnumType") != null)
-							isEnumType = true;
-					}
-
-					out.write("            _" + pf.sprintf(objName));
-
-					out.write(".setType(");
-
-					if (isReference) {
-						out.write("_" + obj.getSV(attrName) + "REF);\n");
-					} else {
-						out.write("_" + obj.getSV(attrName) + ");\n");
-					}
-				} else {
-					if (multiValued) {
-
-						for (String attrVal : attr) {
-							out.write("            _" + pf.sprintf(objName));
-							out.write(".add" + attrNameCapped + "(");
-
-							if (isReference) {
-								if (isEnumType)
-									out.write(typeName + "." + attrVal + ");\n");
-								else
-									out.write("_" + attrVal + ");\n");
-							} else {
-								out.write("\"" + attrVal + "\");\n");
-							}
-						}
-					} else {
-						out.write("            _" + pf.sprintf(objName));
-						out.write(".set" + attrNameCapped + "(");
-
-						if (isReference) {
-							if (isEnumType)
-								out.write(typeName + "." + obj.getSV(attrName)
-										+ ");\n");
-							else
-								out.write("_" + obj.getSV(attrName) + ");\n");
-						} else {
-							String value = obj.getSV(attrName);
-
-							if (attrName.equals("name")) {
-								String val = obj.getSV(attrName);
-								if (val.endsWith("EnumREF")) {
-									// DebugInfo.debug("Enum name: " + val);
-									value = val.replaceFirst("REF", "");
-									// DebugInfo.debug("value = " + value);
-								}
-							}
-
-							out.write("\"" + value + "\");\n");
-						}
-					}
-				}
-
-			}
-			out.write("            _" + pf.sprintf(objName));
-			out.write(".setDefinedIn(this);\n");
-
-			out.write("\n");
-		}
-	}
+//	private void setAttributeValues(BufferedWriter out,
+//			TreeMap<String, DmcUncheckedObject> objects, PrintfFormat pf)
+//			throws IOException, ResultException {
+//		String attrName = null;
+//		String objName = null;
+//		DmcUncheckedObject attrDef = null;
+//		String typeName = null;
+//		DmcUncheckedObject typeDef = null;
+//		boolean multiValued = false;
+//		boolean isReference = false;
+//		boolean isEnumType = false;
+//
+//		Iterator<DmcUncheckedObject> it = objects.values().iterator();
+//		while (it.hasNext()) {
+//			DmcUncheckedObject obj = it.next();
+//			objName = obj.getSV("name");
+//
+//			// // trickiness here to handle the fact that the actual rule
+//			// definition object
+//			// // has to be called RuleDEF since Rule is the name of the class
+//			// definition that
+//			// // is created to represent the Rule instance.
+//			// if (obj.getConstructionClass().equals("RuleDefinition")){
+//			// objName = objName + "DEF";
+//			// }
+//
+//			Iterator<String> attributeNames = obj.getAttributeNames();
+//			while (attributeNames.hasNext()) {
+//				NamedStringArray attr = obj.get(attributeNames.next());
+//				attrName = attr.getName();
+//				if (attrName == null) {
+//					DebugInfo.debug("Attr name null");
+//					continue;
+//				}
+//				attrDef = attributeDefs.get(attrName);
+//				multiValued = false;
+//				isReference = false;
+//				isEnumType = false;
+//
+//				if (attrDef == null) {
+//					ResultException ex = new ResultException();
+//					ex.addError("Unknown attribute: " + attrName);
+//					ex.result.lastResult().fileName("metaSchema.dms");
+//					ex.result.lastResult().lineNumber(obj.lineNumber);
+//					throw (ex);
+//				}
+//
+//				// MULTIVALUED 1
+//				if (attrDef.getSV("valueType") != null)
+//					multiValued = true;
+//
+//				typeName = attrDef.getSV("type");
+//				typeDef = typeDefs.get(typeName);
+//
+//				if (typeDef == null) {
+//					// If this is null, we need to look for an internally
+//					// generated Reference type
+//					typeDef = typeDefs.get(typeName + "REF");
+//					isReference = true;
+//
+//					if (typeDef.getSV("isEnumType") != null)
+//						isEnumType = true;
+//				}
+//
+//				StringBuffer attrNameCapped = new StringBuffer();
+//				attrNameCapped.append(attrName);
+//				attrNameCapped.setCharAt(0,
+//						Character.toUpperCase(attrNameCapped.charAt(0)));
+//
+//				if (attrName.equals("type")) {
+//					// The type attribute has to be handled slightly differently
+//					// than most attributes
+//					// to adjust for the fact that we create those internal
+//					// Reference types to handle
+//					// references to definitions.
+//					isReference = false;
+//					isEnumType = false;
+//					typeName = obj.getSV("type");
+//					typeDef = typeDefs.get(typeName);
+//
+//					if (typeDef == null) {
+//						// If this is null, we need to look for an internally
+//						// generated Reference type
+//						typeDef = typeDefs.get(typeName + "REF");
+//						isReference = true;
+//
+//						if (typeDef.getSV("isEnumType") != null)
+//							isEnumType = true;
+//					}
+//
+//					out.write("            _" + pf.sprintf(objName));
+//
+//					out.write(".setType(");
+//
+//					if (isReference) {
+//						out.write("_" + obj.getSV(attrName) + "REF);\n");
+//					} else {
+//						out.write("_" + obj.getSV(attrName) + ");\n");
+//					}
+//				} else {
+//					if (multiValued) {
+//
+//						for (String attrVal : attr) {
+//							out.write("            _" + pf.sprintf(objName));
+//							out.write(".add" + attrNameCapped + "(");
+//
+//							if (isReference) {
+//								if (isEnumType)
+//									out.write(typeName + "." + attrVal + ");\n");
+//								else
+//									out.write("_" + attrVal + ");\n");
+//							} else {
+//								out.write("\"" + attrVal + "\");\n");
+//							}
+//						}
+//					} else {
+//						out.write("            _" + pf.sprintf(objName));
+//						out.write(".set" + attrNameCapped + "(");
+//
+//						if (isReference) {
+//							if (isEnumType)
+//								out.write(typeName + "." + obj.getSV(attrName)
+//										+ ");\n");
+//							else
+//								out.write("_" + obj.getSV(attrName) + ");\n");
+//						} else {
+//							String value = obj.getSV(attrName);
+//
+//							if (attrName.equals("name")) {
+//								String val = obj.getSV(attrName);
+//								if (val.endsWith("EnumREF")) {
+//									// DebugInfo.debug("Enum name: " + val);
+//									value = val.replaceFirst("REF", "");
+//									// DebugInfo.debug("value = " + value);
+//								}
+//							}
+//
+//							out.write("\"" + value + "\");\n");
+//						}
+//					}
+//				}
+//
+//			}
+//			out.write("            _" + pf.sprintf(objName));
+//			out.write(".setDefinedIn(this);\n");
+//
+//			out.write("\n");
+//		}
+//	}
 
 	private void dumpDMWClasses(String dmwdir) throws ResultException {
 		DmcUncheckedObject go;
@@ -1594,7 +1623,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 					out.write("\n");
 
 					out.write("/**\n");
-					dumpCodeComment(go.getSV("description"), out, " * ");
+					dumpCodeComment(go.get("description"), out, " * ");
 
 					out.write(" * @author Auto Generated\n");
 					out.write(" * Generated from: "
@@ -1739,12 +1768,10 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 						// MULTIVALUED 2
 						String multiValued = attrObj.getSV("valueType");
 
-						dumpCodeComment(attrObj.getSV("description"), out,
-								"     * ");
+						dumpCodeComment(attrObj.get("description"), out, "     * ");
 
 						if (multiValued != null) {
-							dumpMVAccessFunction(out, currAttr, false, cn
-									+ "DMO");
+							dumpMVAccessFunction(out, currAttr, false, cn + "DMO");
 						} else {
 							out.write("     */\n");
 							dumpSVAccessFunction(out, currAttr, false, cn
@@ -1898,7 +1925,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 					out.write("/**\n");
 
-					dumpCodeComment(go.getSV("description"), out, " * ");
+					dumpCodeComment(go.get("description"), out, " * ");
 
 					out.write(" * @author Auto Generated\n");
 					out.write(" * Generated from: "
@@ -2063,8 +2090,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 						// MULTIVALUED 5
 						String multiValued = attrObj.getSV("valueType");
 
-						dumpCodeComment(attrObj.getSV("description"), out,
-								"     * ");
+						dumpCodeComment(attrObj.get("description"), out, "     * ");
 
 						if (multiValued != null) {
 							dumpMVAccessFunction(out, currAttr, true, cn
@@ -2344,7 +2370,6 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 				out.write("        return(attr.getSV().replaceAll(\"\\\\\\\\n\",\"\\\\\\n\"));\n");
 				out.write("    }\n\n");
 			}
-
 		} else {
 			out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			if (isObjREF) {
@@ -2501,6 +2526,31 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			out.write("\n");
 			out.write("        return(attr.getMV());\n");
 			out.write("    }\n\n");
+			
+			String preserveNewlines = attributeDef.getSV("preserveNewlines");
+
+			if (preserveNewlines != null){
+				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				out.write("    public Iterator<" + typeName + "> get" + functionName + "WithNewlines(){\n");
+	
+				out.write("        " + attrType + " attr = (" + attrType + ") get(MetaDMSAG.__" + attrname + ");\n");
+				out.write("        if (attr == null)\n");
+				out.write("            return(null);\n");
+	
+				out.write("\n");
+				out.write("        " + attrType + " withNewLines = new " + attrType + "();\n");
+				out.write("        Iterator<" + typeName + "> it = attr.getMV();\n");
+				out.write("        while(it.hasNext()){\n");
+				out.write("            try{\n");
+				out.write("                withNewLines.add(it.next().replaceAll(\"\\\\\\\\n\",\"\\\\\\n\"));\n");
+				out.write("            } catch (DmcValueException e) {\n");
+				out.write("                e.printStackTrace();\n");
+				out.write("            }\n");
+				out.write("        }\n");
+				out.write("\n");
+				out.write("        return(withNewLines.getMV());\n");
+				out.write("    }\n\n");
+			}
 		} else {
 			if (isObjREF) {
 				out.write("     * @return An Iterator of " + typeName
@@ -2535,6 +2585,31 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 				out.write("\n");
 				out.write("        return(attr.getMV());\n");
 				out.write("    }\n\n");
+				
+				String preserveNewlines = attributeDef.getSV("preserveNewlines");
+
+				if (preserveNewlines != null){
+					out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+					out.write("    public Iterator<" + typeName + "> get" + functionName + "WithNewlines(){\n");
+		
+					out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(MetaDMSAG.__" + attrname + ");\n");
+					out.write("        if (attr == null)\n");
+					out.write("            return(null);\n");
+		
+					out.write("\n");
+					out.write("        " + attrType + " withNewLines = new " + attrType + "();\n");
+					out.write("        Iterator<" + typeName + "> it = attr.getMV();\n");
+					out.write("        while(it.hasNext()){\n");
+					out.write("            try{\n");
+					out.write("                withNewLines.add(it.next().replaceAll(\"\\\\\\\\n\",\"\\\\\\n\"));\n");
+					out.write("            } catch (DmcValueException e) {\n");
+					out.write("                e.printStackTrace();\n");
+					out.write("            }\n");
+					out.write("        }\n");
+					out.write("\n");
+					out.write("        return(withNewLines.getMV());\n");
+					out.write("    }\n\n");
+				}
 			}
 		}
 
@@ -2581,10 +2656,11 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 				out.write("     */\n");
 				// out.write("    @SuppressWarnings(\"unchecked\")\n");
 				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				out.write("    public DmcAttribute<?> add" + functionName
-						+ "(Object value) throws DmcValueException {\n");
-				out.write("        return(mycore.add" + functionName
-						+ "(value));\n");
+//				out.write("    public DmcAttribute<?> add" + functionName + "(Object value) throws DmcValueException {\n");
+//				out.write("        return(mycore.add" + functionName + "(value));\n");
+//				out.write("    }\n\n");
+				out.write("    public void add" + functionName + "(Object value) throws DmcValueException {\n");
+				out.write("        mycore.add" + functionName + "(value);\n");
 				out.write("    }\n\n");
 			}
 

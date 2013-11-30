@@ -32,24 +32,12 @@ import org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREFMV;         // R
 import org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREFSV;         // Reference type - (GenUtility.java:297)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                       // Required for MODREC constructor - (GenUtility.java:224)
 import org.dmd.dms.generated.types.DmcTypeRuleNameSV;                       // Required type - (GenUtility.java:325)
+import org.dmd.dms.generated.types.DmcTypeStringMV;                         // Required type - (GenUtility.java:325)
 import org.dmd.dms.generated.types.DmcTypeStringSET;                        // Required type - (GenUtility.java:325)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                         // Required type - (GenUtility.java:325)
 
 /**
- * The CheckAttributesBasedOnValueRule allows you to specify\n that certain
- * optional attributes must exist (or not exist) based on the value\n of
- * another single valued attribute in an object. This allows for finer
- * control of must/may\n attributes based on other values in an object. An
- * example usage (from\n the dark-matter validation schema) looks like:\n
- * <pre>\n CheckAttributesBasedOnValueRuleData\n ruleName             
- * dmvNoMustInExtensible\n ruleTitle             If a ClassDefinition's
- * classType is AUXILIARY, it can't have mandatory attributes\n applyToClass 
- *         ClassDefinition\n basedOnAttribute      classType\n basedOnValue  
- *        AUXILIARY\n excludeThisAttribute  must\n description           An
- * AUXILIARY class can be added to an object dynamically and\n  we don't
- * allow mandatory attributes in such classes.\n </pre>\n If the
- * basedOnAttribute doesn't exist in the object being validated, the rule
- * does nothing.
+ * java.util.AbstractList$Itr@343a9d95
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>
@@ -132,52 +120,129 @@ public class CheckAttributesBasedOnValueRuleDataDMO  extends RuleDataDMO  implem
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:781)
-    public String getDescription(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__description);
+    /**
+     * @return An Iterator of String objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1109)
+    public Iterator<String> getDescription(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
+        if (attr == null)
+            return( ((List<String>) Collections.EMPTY_LIST).iterator());
+
+        return(attr.getMV());
+    }
+
+    /**
+     * @return The nth String value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1121)
+    public String getNthDescription(int i){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
         if (attr == null)
             return(null);
 
-        return(attr.getSV());
+        return(attr.getMVnth(i));
     }
 
     /**
-     * Sets description to the specified value.
+     * Adds another description to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:821)
-    public void setDescription(String value) {
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1135)
+    public DmcAttribute<?> addDescription(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
-            attr = new DmcTypeStringSV(MetaDMSAG.__description);
+            attr = new DmcTypeStringMV(MetaDMSAG.__description);
         
         try{
-            attr.set(value);
-            set(MetaDMSAG.__description,attr);
+            setLastValue(attr.add(value));
+            add(MetaDMSAG.__description,attr);
         }
         catch(DmcValueException ex){
-            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
         }
+        return(attr);
     }
 
     /**
-     * Sets description to the specified value.
-     * @param value A value compatible with DmcTypeStringSV
+     * Returns true if we contain a valued keyed by the specified String.
+     * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:874)
-    public void setDescription(Object value) throws DmcValueException {
-        DmcTypeStringSV attr  = (DmcTypeStringSV) get(MetaDMSAG.__description);
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1210)
+    public boolean descriptionContains(String value) {
+        DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
-            attr = new DmcTypeStringSV(MetaDMSAG.__description);
+            return(false);
+        return(attr.contains(value));
+    }
+
+    /**
+     * Adds another description value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1242)
+    public DmcAttribute<?> addDescription(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__description);
+        if (attr == null)
+            attr = new DmcTypeStringMV(MetaDMSAG.__description);
         
-        attr.set(value);
-        set(MetaDMSAG.__description,attr);
+        setLastValue(attr.add(value));
+        add(MetaDMSAG.__description,attr);
+        return(attr);
+    }
+
+    /**
+     * Returns the number of values in description
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1259)
+    public int getDescriptionSize(){
+        DmcAttribute<?> attr = get(MetaDMSAG.__description);
+        if (attr == null){
+            if (MetaDMSAG.__description.indexSize == 0)
+                return(0);
+            else
+                return(MetaDMSAG.__description.indexSize);
+        }
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Deletes a description value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1317)
+    public DmcAttribute<?> delDescription(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__description);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeStringMV(MetaDMSAG.__description), value);
+        else
+            attr = del(MetaDMSAG.__description, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Deletes a description from the specified value.
+     * @param value String
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1333)
+    public DmcAttribute<?> delDescription(String value) {
+        DmcAttribute<?> attr = get(MetaDMSAG.__description);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeStringMV(MetaDMSAG.__description), value);
+        else
+            attr = del(MetaDMSAG.__description, value);
+        
+        return(attr);
     }
 
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:894)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1352)
     public void remDescription(){
          rem(MetaDMSAG.__description);
     }

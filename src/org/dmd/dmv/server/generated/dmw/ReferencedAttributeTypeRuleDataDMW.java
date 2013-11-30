@@ -1,31 +1,18 @@
-//	---------------------------------------------------------------------------
-//	dark-matter-data
-//	Copyright (c) 2013 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
 package org.dmd.dmv.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:366)
 import java.util.ArrayList;                                                         // To support getMVCopy() - (BaseDMWGenerator.java:1100)
+import java.util.Iterator;                                                          // Support copy of MV objects - (BaseDMWGenerator.java:2159)
 import org.dmd.dmc.*;                                                               // If any attributes - (BaseDMWGenerator.java:1006)
 import org.dmd.dmc.types.RuleName;                                                  // Is named by - (BaseDMWGenerator.java:985)
 import org.dmd.dms.AttributeDefinition;                                             // Is reference type - (BaseDMWGenerator.java:1026)
 import org.dmd.dms.ClassDefinition;                                                 // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:990)
 import org.dmd.dms.RuleData;                                                        // Derived class - (BaseDMWGenerator.java:1167)
 import org.dmd.dms.TypeDefinition;                                                  // Is reference type - (BaseDMWGenerator.java:1026)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                         // Required for MODREC constructor - (BaseDMWGenerator.java:995)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                         // Attribute description from the meta schema - (BaseDMWGenerator.java:821)
 import org.dmd.dms.generated.dmo.TypeDefinitionDMO;                                 // For multi-valued adds of TypeDefinition - (BaseDMWGenerator.java:1686)
+import org.dmd.dms.generated.dmw.StringIterableDMW;                                 // For multi-valued String - (BaseDMWGenerator.java:2022)
 import org.dmd.dms.generated.dmw.TypeDefinitionIterableDMW;                         // For multi-valued TypeDefinition - (BaseDMWGenerator.java:1628)
 import org.dmd.dms.generated.enums.ValueTypeEnum;                                   // Primitive type - (BaseDMWGenerator.java:1069)
 import org.dmd.dms.generated.types.AttributeDefinitionREF;                          // Is reference type REF - (BaseDMWGenerator.java:1034)
@@ -36,24 +23,7 @@ import org.dmd.dmv.shared.generated.dmo.ReferencedAttributeTypeRuleDataDMO;     
 
 
 /**
- * The ReferencedAttributeTypeRule allowes you to restrict the type of\n an
- * attribute referred to by an AttributeDefinition reference. Some examples
- * include:\n <pre>\n ReferencedAttributeTypeRuleData\n ruleName         
- * dmvNRRApplyToAttribute\n ruleTitle         The applyToAttribute attribute
- * in a NumericRangeRuleData instance must refer to an Integer, Long, Float
- * or Double attribute\n applyToAttribute  applyToAttribute\n applyToClass   
- *   NumericRangeRuleData\n allowedType       Integer\n allowedType      
- * Long\n allowedType       Float\n allowedType       Double\n </pre>\n In
- * this case, we're restricting the applyToAttribute to be a numeric type,
- * either Integer, Long Float or Double.\n <p/>\n You can also restrict the
- * valueType of an attribute reference, for instance:\n <pre>\n
- * ReferencedAttributeTypeRuleData\n ruleName          dmvLhs\n ruleTitle    
- *     The lhs attribute must be a single valued Integer, Long, Float or
- * Double\n applyToAttribute  lhs\n applyToClass     
- * RelatedNumbersRuleData\n allowedType       Integer\n allowedType      
- * Long\n allowedType       Float\n allowedType       Double\n
- * allowedValueType  SINGLE\n </pre>\n Here, we're indicating that the lhs
- * (left hand side) attribute must be single valued.
+ * java.util.AbstractList$Itr@7826f9e5
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>
@@ -278,33 +248,115 @@ public class ReferencedAttributeTypeRuleDataDMW extends RuleData implements DmcN
         ((ReferencedAttributeTypeRuleDataDMO) core).remApplyToAttribute();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1393)
-    public String getDescription(){
-        return(((ReferencedAttributeTypeRuleDataDMO) core).getDescription());
+    /**
+     * @return The number of String items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1590)
+    public int getDescriptionSize(){
+        return(((ReferencedAttributeTypeRuleDataDMO) core).getDescriptionSize());
     }
 
     /**
-     * Sets description to the specified value.
-     * @param value A value compatible with DmcTypeString
+     * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1503)
-    public void setDescription(Object value) throws DmcValueException {
-        ((ReferencedAttributeTypeRuleDataDMO) core).setDescription(value);
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1598)
+    public boolean getDescriptionIsEmpty(){
+        if (((ReferencedAttributeTypeRuleDataDMO) core).getDescriptionSize() == 0)
+            return(true);
+        return(false);
     }
 
     /**
-     * Sets description to the specified value.
-     * @param value String
+     * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1512)
-    public void setDescription(String value){
-        ((ReferencedAttributeTypeRuleDataDMO) core).setDescription(value);
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1608)
+    public boolean getDescriptionHasValue(){
+        if (((ReferencedAttributeTypeRuleDataDMO) core).getDescriptionSize() == 0)
+            return(false);
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
+    public StringIterableDMW getDescriptionIterable(){
+        DmcAttribute<?> attr = core.get(MetaDMSAG.__description);
+        if (attr == null)
+            return(StringIterableDMW.emptyList);
+        
+        return(new StringIterableDMW(((ReferencedAttributeTypeRuleDataDMO) core).getDescription()));
+    }
+
+    /**
+     * Adds another description value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2052)
+    public void addDescription(Object value) throws DmcValueException {
+        ((ReferencedAttributeTypeRuleDataDMO) core).addDescription(value);
+    }
+
+    /**
+     * Adds another description value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2062)
+    public void addDescription(String value){
+        ((ReferencedAttributeTypeRuleDataDMO) core).addDescription(value);
+    }
+
+    /**
+     * Returns true if the collection contains the description value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2119)
+    public boolean descriptionContains(String value){
+        return(((ReferencedAttributeTypeRuleDataDMO) core).descriptionContains(value));
+    }
+
+    /**
+     * @return A COPY of the collection of String objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2163)
+    @SuppressWarnings("unchecked")
+    public ArrayList<String> getDescriptionCopy(){
+        DmcAttribute<?> attr = core.get(MetaDMSAG.__description);
+        if (attr == null)
+            return(new ArrayList<String>());
+        
+        ArrayList<String> rc = new ArrayList<String>(attr.getMVSize());
+        
+        Iterator<String> it = (Iterator<String>) attr.getMV();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
+    }
+
+    /**
+     * Deletes a description value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2190)
+    public void delDescription(Object value) throws DmcValueException {
+        ((ReferencedAttributeTypeRuleDataDMO) core).delDescription(value);
+    }
+
+    /**
+     * Deletes a description value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2199)
+    public void delDescription(String value){
+        ((ReferencedAttributeTypeRuleDataDMO) core).delDescription(value);
     }
 
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1538)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2211)
     public void remDescription(){
         ((ReferencedAttributeTypeRuleDataDMO) core).remDescription();
     }

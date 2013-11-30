@@ -13,21 +13,6 @@
 //	You should have received a copy of the GNU Lesser General Public License along
 //	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
 //	---------------------------------------------------------------------------
-//	---------------------------------------------------------------------------
-//	dark-matter-data
-//	Copyright (c) 2013 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
 package org.dmd.dmt.dsd.dsda.server.generated;
 
 import org.dmd.dmc.DmcOmni;
@@ -102,7 +87,7 @@ public class DsdASchemaAG extends SchemaDefinition {
             _AConceptBaseOBJ.setClassType("ABSTRACT");
             _AConceptBaseOBJ.setFile("/src/org/dmd/dmt/dsd/dsda/shared/dmdconfig/classes.dmd");
             _AConceptBaseOBJ.setLineNumber("12");
-            _AConceptBaseOBJ.setDescription("The base definition for this DSD module.");
+            _AConceptBaseOBJ.addDescription("The base definition for this DSD module.");
             _AConceptBaseOBJ.setDerivedFrom("meta.DSDefinition");
             _AConceptBaseOBJ.setIsNamedBy("meta.name");
             _AConceptBaseOBJ.setUseWrapperType("EXTENDED");
@@ -168,7 +153,7 @@ public class DsdASchemaAG extends SchemaDefinition {
             _dependsOnModuleAOBJ.setType("dsdA.ModuleA");
             _dependsOnModuleAOBJ.setName("dependsOnModuleA");
             _dependsOnModuleAOBJ.setDmdID("-500049");
-            _dependsOnModuleAOBJ.setDescription("Indicates the ModuleA on which something depends.");
+            _dependsOnModuleAOBJ.addDescription("Indicates the ModuleA on which something depends.");
             _dependsOnModuleAOBJ.setValueType("MULTI");
             _dependsOnModuleAOBJ.setDotName("dsdA.dependsOnModuleA.AttributeDefinition");
             _dependsOnModuleA.setDefinedIn(this);
@@ -182,7 +167,7 @@ public class DsdASchemaAG extends SchemaDefinition {
             _definedInModuleAOBJ.setType("dsdA.ModuleA");
             _definedInModuleAOBJ.setName("definedInModuleA");
             _definedInModuleAOBJ.setDmdID("-500048");
-            _definedInModuleAOBJ.setDescription("Indicates the name of the ModuleA in which a definition is defined.");
+            _definedInModuleAOBJ.addDescription("Indicates the name of the ModuleA in which a definition is defined.");
             _definedInModuleAOBJ.setDotName("dsdA.definedInModuleA.AttributeDefinition");
             _definedInModuleA.setDefinedIn(this);
             _definedInModuleAOBJ.setFile("/src/org/dmd/dmt/dsd/dsda/shared/dmdconfig/attributes.dmd");

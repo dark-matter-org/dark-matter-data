@@ -1,20 +1,5 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2013 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
-//	---------------------------------------------------------------------------
-//	dark-matter-data
 //	Copyright (c) 2010 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
@@ -110,7 +95,7 @@ public class DmrldapSchemaAG extends SchemaDefinition {
             _LDAPSchemaAUXOBJ.setClassType("AUXILIARY");
             _LDAPSchemaAUXOBJ.setFile("/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/classes.dmd");
             _LDAPSchemaAUXOBJ.setLineNumber("9");
-            _LDAPSchemaAUXOBJ.setDescription("The LDAPSchemaExtension class is used to extend the basic SchemaDefinition\n class with information required to map objects onto an LDAP repository.");
+            _LDAPSchemaAUXOBJ.addDescription("The LDAPSchemaExtension class is used to extend the basic SchemaDefinition\n class with information required to map objects onto an LDAP repository.");
             _LDAPSchemaAUXOBJ.addIntendedToExtend("meta.SchemaDefinition");
             _LDAPSchemaAUXOBJ.setDmtREFImport("org.dmd.dmr.shared.ldap.generated.types.LDAPSchemaAUXREF");
             _LDAPSchemaAUXOBJ.setDmwIteratorClass("LDAPSchemaAUXIterableDMW");
@@ -132,7 +117,7 @@ public class DmrldapSchemaAG extends SchemaDefinition {
             _LDAPClassAUXOBJ.setClassType("AUXILIARY");
             _LDAPClassAUXOBJ.setFile("/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/classes.dmd");
             _LDAPClassAUXOBJ.setLineNumber("19");
-            _LDAPClassAUXOBJ.setDescription("The LDAPSchemaExtension class is used to extend the basic SchemaDefinition\n class with information required to map objects onto an LDAP repository.");
+            _LDAPClassAUXOBJ.addDescription("The LDAPSchemaExtension class is used to extend the basic SchemaDefinition\n class with information required to map objects onto an LDAP repository.");
             _LDAPClassAUXOBJ.addIntendedToExtend("meta.ClassDefinition");
             _LDAPClassAUXOBJ.setDmtREFImport("org.dmd.dmr.shared.ldap.generated.types.LDAPClassAUXREF");
             _LDAPClassAUXOBJ.setDmwIteratorClass("LDAPClassAUXIterableDMW");
@@ -155,7 +140,7 @@ public class DmrldapSchemaAG extends SchemaDefinition {
             _LDAPAttributeAUXOBJ.setClassType("AUXILIARY");
             _LDAPAttributeAUXOBJ.setFile("/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/classes.dmd");
             _LDAPAttributeAUXOBJ.setLineNumber("28");
-            _LDAPAttributeAUXOBJ.setDescription("The LDAPSchemaExtension class is used to extend the basic SchemaDefinition\n class with information required to map objects onto an LDAP repository.");
+            _LDAPAttributeAUXOBJ.addDescription("The LDAPSchemaExtension class is used to extend the basic SchemaDefinition\n class with information required to map objects onto an LDAP repository.");
             _LDAPAttributeAUXOBJ.addIntendedToExtend("meta.AttributeDefinition");
             _LDAPAttributeAUXOBJ.setDmtREFImport("org.dmd.dmr.shared.ldap.generated.types.LDAPAttributeAUXREF");
             _LDAPAttributeAUXOBJ.setDmwIteratorClass("LDAPAttributeAUXIterableDMW");
@@ -178,7 +163,7 @@ public class DmrldapSchemaAG extends SchemaDefinition {
             _LDAPHierarchicObjectOBJ.setDataType("PERSISTENT");
             _LDAPHierarchicObjectOBJ.setFile("/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/classes.dmd");
             _LDAPHierarchicObjectOBJ.setLineNumber("48");
-            _LDAPHierarchicObjectOBJ.setDescription("The LDAPHierarchicObject provides some additional structure and\n conventions to the HierarchicObject to make it usable in conjunction with an LDAP\n enabled directory server. Classes derived from LDAPHierarchicObject must be defined\n in a schema that has been extended with the LDAPSchemaExtension auxiliary class and\n must themselves be extended with the LDAPClassExtension auxiliary class; the class\n must have a defined naming attribute. Furthermore, naming attributes should be\n unique for each defined class.");
+            _LDAPHierarchicObjectOBJ.addDescription("The LDAPHierarchicObject provides some additional structure and\n conventions to the HierarchicObject to make it usable in conjunction with an LDAP\n enabled directory server. Classes derived from LDAPHierarchicObject must be defined\n in a schema that has been extended with the LDAPSchemaExtension auxiliary class and\n must themselves be extended with the LDAPClassExtension auxiliary class; the class\n must have a defined naming attribute. Furthermore, naming attributes should be\n unique for each defined class.");
             _LDAPHierarchicObjectOBJ.setDerivedFrom("dmrbase.HierarchicObject");
             _LDAPHierarchicObjectOBJ.setIsNamedBy("meta.FQN");
             _LDAPHierarchicObjectOBJ.setUseWrapperType("EXTENDED");
@@ -199,7 +184,7 @@ public class DmrldapSchemaAG extends SchemaDefinition {
             _ldapIdPrefixOBJ.setType("meta.String");
             _ldapIdPrefixOBJ.setName("ldapIdPrefix");
             _ldapIdPrefixOBJ.setDmdID("450");
-            _ldapIdPrefixOBJ.setDescription("The ldapIdPrefix is defined for use against an entire schema. It\n indicates the prefix that will be added to all class and attribute definitions\n that are loaded into the directory as schema. Having a prefix prevents possible\n collisions with existing schema definitions. The prefix should be short, 2 or 3\n characters.");
+            _ldapIdPrefixOBJ.addDescription("The ldapIdPrefix is defined for use against an entire schema. It\n indicates the prefix that will be added to all class and attribute definitions\n that are loaded into the directory as schema. Having a prefix prevents possible\n collisions with existing schema definitions. The prefix should be short, 2 or 3\n characters.");
             _ldapIdPrefixOBJ.setDotName("dmrldap.ldapIdPrefix.AttributeDefinition");
             _ldapIdPrefix.setDefinedIn(this);
             _ldapIdPrefixOBJ.setFile("/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/attributes.dmd");
@@ -212,7 +197,7 @@ public class DmrldapSchemaAG extends SchemaDefinition {
             _reposNameOBJ.setType("meta.String");
             _reposNameOBJ.setName("reposName");
             _reposNameOBJ.setDmdID("451");
-            _reposNameOBJ.setDescription("This attribute indicates the name of an attribute or class when\n it is stored in a repository and added to that repository's schema. Generally\n speaking, we will always use the standard prefix for all attribute and class\n names. Like all other name values, this one must be globally unique.");
+            _reposNameOBJ.addDescription("This attribute indicates the name of an attribute or class when\n it is stored in a repository and added to that repository's schema. Generally\n speaking, we will always use the standard prefix for all attribute and class\n names. Like all other name values, this one must be globally unique.");
             _reposNameOBJ.setDotName("dmrldap.reposName.AttributeDefinition");
             _reposName.setDefinedIn(this);
             _reposNameOBJ.setFile("/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/attributes.dmd");

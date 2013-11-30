@@ -1,20 +1,5 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2013 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
-//	---------------------------------------------------------------------------
-//	dark-matter-data
 //	Copyright (c) 2010 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
@@ -184,7 +169,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DMPMessageOBJ.addExcludeFromContext("gxt");
             _DMPMessageOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
             _DMPMessageOBJ.setLineNumber("16");
-            _DMPMessageOBJ.setDescription("The DMPMessage class provides a common base for all messages that\n comprise the Dark Matter Protocol (DMP).");
+            _DMPMessageOBJ.addDescription("The DMPMessage class provides a common base for all messages that\n comprise the Dark Matter Protocol (DMP).");
             _DMPMessageOBJ.setUseWrapperType("EXTENDED");
             _DMPMessageOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.DMPMessageREF");
             _DMPMessageOBJ.setUsesInterface("de.novanic.eventservice.client.event.Event");
@@ -206,7 +191,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _RequestOBJ.setClassType("ABSTRACT");
             _RequestOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
             _RequestOBJ.setLineNumber("32");
-            _RequestOBJ.setDescription("The request class provides a common base for all request messages.");
+            _RequestOBJ.addDescription("The request class provides a common base for all request messages.");
             _RequestOBJ.setDerivedFrom("dmp.DMPMessage");
             _RequestOBJ.setUseWrapperType("EXTENDED");
             _RequestOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.RequestREF");
@@ -232,7 +217,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ResponseOBJ.setClassType("STRUCTURAL");
             _ResponseOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
             _ResponseOBJ.setLineNumber("48");
-            _ResponseOBJ.setDescription("The Response class serves as a common base for all response messages. It used to be\n that the Response was abstract, but because we could receive a completely unknown request (for instance\n via a JSON/XML interface), we had to have the ability to return a generic error response.");
+            _ResponseOBJ.addDescription("The Response class serves as a common base for all response messages. It used to be\n that the Response was abstract, but because we could receive a completely unknown request (for instance\n via a JSON/XML interface), we had to have the ability to return a generic error response.");
             _ResponseOBJ.setDerivedFrom("dmp.DMPMessage");
             _ResponseOBJ.setUseWrapperType("EXTENDED");
             _ResponseOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.ResponseREF");
@@ -256,7 +241,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _LoginRequestOBJ.setClassType("STRUCTURAL");
             _LoginRequestOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
             _LoginRequestOBJ.setLineNumber("59");
-            _LoginRequestOBJ.setDescription("The LoginRequest allows you to connect to connect to something and\n pass along credentials.");
+            _LoginRequestOBJ.addDescription("The LoginRequest allows you to connect to connect to something and\n pass along credentials.");
             _LoginRequestOBJ.setDerivedFrom("dmp.Request");
             _LoginRequestOBJ.setUseWrapperType("EXTENDED");
             _LoginRequestOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.LoginRequestREF");
@@ -276,7 +261,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _LoginResponseOBJ.setClassType("STRUCTURAL");
             _LoginResponseOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
             _LoginResponseOBJ.setLineNumber("80");
-            _LoginResponseOBJ.setDescription("The LoginResponse is returned after a Login request is received. If the\n login is successful, a session ID will be assigned and a request root will be given. All\n subsequent requests must contain the session ID and all requests will be checked to ensure\n that they pertain to objects at or below the request root.\n <p/>\n The response may also have an originatorID that is a unique identifier assigned by the \n server. In some systems, this identifier will be stamped on all incoming requests and\n passed through to the events that are generated as a result of those requests. In this\n way, a client can tell whether the events it receives came from its own requests or from\n requests made by other clients.");
+            _LoginResponseOBJ.addDescription("The LoginResponse is returned after a Login request is received. If the\n login is successful, a session ID will be assigned and a request root will be given. All\n subsequent requests must contain the session ID and all requests will be checked to ensure\n that they pertain to objects at or below the request root.\n <p/>\n The response may also have an originatorID that is a unique identifier assigned by the \n server. In some systems, this identifier will be stamped on all incoming requests and\n passed through to the events that are generated as a result of those requests. In this\n way, a client can tell whether the events it receives came from its own requests or from\n requests made by other clients.");
             _LoginResponseOBJ.setDerivedFrom("dmp.Response");
             _LoginResponseOBJ.setUseWrapperType("EXTENDED");
             _LoginResponseOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.LoginResponseREF");
@@ -298,7 +283,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _LogoutRequestOBJ.setClassType("STRUCTURAL");
             _LogoutRequestOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
             _LogoutRequestOBJ.setLineNumber("90");
-            _LogoutRequestOBJ.setDescription("The LogoutRequest allows you to disconnect from your current session.");
+            _LogoutRequestOBJ.addDescription("The LogoutRequest allows you to disconnect from your current session.");
             _LogoutRequestOBJ.setDerivedFrom("dmp.Request");
             _LogoutRequestOBJ.setUseWrapperType("EXTENDED");
             _LogoutRequestOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.LogoutRequestREF");
@@ -318,7 +303,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _LogoutResponseOBJ.setClassType("STRUCTURAL");
             _LogoutResponseOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
             _LogoutResponseOBJ.setLineNumber("100");
-            _LogoutResponseOBJ.setDescription("The LogoutResponse will indicate that you have successfully terminated\n your current session.");
+            _LogoutResponseOBJ.addDescription("The LogoutResponse will indicate that you have successfully terminated\n your current session.");
             _LogoutResponseOBJ.setDerivedFrom("dmp.Response");
             _LogoutResponseOBJ.setUseWrapperType("EXTENDED");
             _LogoutResponseOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.LogoutResponseREF");
@@ -337,7 +322,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _GetRequestOBJ.setClassType("STRUCTURAL");
             _GetRequestOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
             _GetRequestOBJ.setLineNumber("118");
-            _GetRequestOBJ.setDescription("The GetRequest is used to retrieve objects.");
+            _GetRequestOBJ.addDescription("The GetRequest is used to retrieve objects.");
             _GetRequestOBJ.setDerivedFrom("dmp.Request");
             _GetRequestOBJ.setUseWrapperType("EXTENDED");
             _GetRequestOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.GetRequestREF");
@@ -365,7 +350,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _GetResponseOBJ.setClassType("STRUCTURAL");
             _GetResponseOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
             _GetResponseOBJ.setLineNumber("134");
-            _GetResponseOBJ.setDescription("The GetResponse returns a set of objects. If you had set registerForEvents\n to true in the GetRequest, the listenerID will be the identifier that you will need to\n specify in the DenotifyRequest in order to denotify for events on the objects you\n initially retrieved.");
+            _GetResponseOBJ.addDescription("The GetResponse returns a set of objects. If you had set registerForEvents\n to true in the GetRequest, the listenerID will be the identifier that you will need to\n specify in the DenotifyRequest in order to denotify for events on the objects you\n initially retrieved.");
             _GetResponseOBJ.setDerivedFrom("dmp.Response");
             _GetResponseOBJ.setUseWrapperType("EXTENDED");
             _GetResponseOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.GetResponseREF");
@@ -388,7 +373,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ActionRequestOBJ.setClassType("EXTENSIBLE");
             _ActionRequestOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
             _ActionRequestOBJ.setLineNumber("147");
-            _ActionRequestOBJ.setDescription("The ActionRequest is used to trigger behaviour on one or more objects.");
+            _ActionRequestOBJ.addDescription("The ActionRequest is used to trigger behaviour on one or more objects.");
             _ActionRequestOBJ.setDerivedFrom("dmp.Request");
             _ActionRequestOBJ.setUseWrapperType("EXTENDED");
             _ActionRequestOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.ActionRequestREF");
@@ -411,7 +396,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ActionResponseOBJ.setClassType("EXTENSIBLE");
             _ActionResponseOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
             _ActionResponseOBJ.setLineNumber("159");
-            _ActionResponseOBJ.setDescription("The ActionResponse returns the results of a particular ActionRequest. Exactly what is\n returned will depend on the efActionDef.");
+            _ActionResponseOBJ.addDescription("The ActionResponse returns the results of a particular ActionRequest. Exactly what is\n returned will depend on the efActionDef.");
             _ActionResponseOBJ.setDerivedFrom("dmp.Response");
             _ActionResponseOBJ.setUseWrapperType("EXTENDED");
             _ActionResponseOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.ActionResponseREF");
@@ -432,7 +417,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _SetRequestOBJ.setClassType("STRUCTURAL");
             _SetRequestOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
             _SetRequestOBJ.setLineNumber("172");
-            _SetRequestOBJ.setDescription("The SetRequest allows you to alter the attribute values associated\n with an object. Like the get request, the set of attributes that can be manipulated\n will depend on the object type that is specified.");
+            _SetRequestOBJ.addDescription("The SetRequest allows you to alter the attribute values associated\n with an object. Like the get request, the set of attributes that can be manipulated\n will depend on the object type that is specified.");
             _SetRequestOBJ.setDerivedFrom("dmp.Request");
             _SetRequestOBJ.setUseWrapperType("EXTENDED");
             _SetRequestOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.SetRequestREF");
@@ -453,7 +438,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _SetResponseOBJ.setClassType("EXTENSIBLE");
             _SetResponseOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
             _SetResponseOBJ.setLineNumber("184");
-            _SetResponseOBJ.setDescription("The SetResponse returns the results of a particular SetRequest. The objectList will contain\n the objects with the previously specified edits.");
+            _SetResponseOBJ.addDescription("The SetResponse returns the results of a particular SetRequest. The objectList will contain\n the objects with the previously specified edits.");
             _SetResponseOBJ.setDerivedFrom("dmp.Response");
             _SetResponseOBJ.setUseWrapperType("EXTENDED");
             _SetResponseOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.SetResponseREF");
@@ -474,7 +459,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _CreateRequestOBJ.setClassType("STRUCTURAL");
             _CreateRequestOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
             _CreateRequestOBJ.setLineNumber("196");
-            _CreateRequestOBJ.setDescription("The CreateRequest allows you to create a new object. If the parentName is specified,\n the object will be created beneath that parent object.");
+            _CreateRequestOBJ.addDescription("The CreateRequest allows you to create a new object. If the parentName is specified,\n the object will be created beneath that parent object.");
             _CreateRequestOBJ.setDerivedFrom("dmp.Request");
             _CreateRequestOBJ.setUseWrapperType("EXTENDED");
             _CreateRequestOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.CreateRequestREF");
@@ -495,7 +480,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _CreateResponseOBJ.setClassType("STRUCTURAL");
             _CreateResponseOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
             _CreateResponseOBJ.setLineNumber("207");
-            _CreateResponseOBJ.setDescription("The CreateResponse returns the results of a particular CreateRequest. The objectList\n contents will be implementation specific e.g. if there were problems with object creation there\n may be error indications.");
+            _CreateResponseOBJ.addDescription("The CreateResponse returns the results of a particular CreateRequest. The objectList\n contents will be implementation specific e.g. if there were problems with object creation there\n may be error indications.");
             _CreateResponseOBJ.setDerivedFrom("dmp.Response");
             _CreateResponseOBJ.setUseWrapperType("EXTENDED");
             _CreateResponseOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.CreateResponseREF");
@@ -514,7 +499,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DeleteRequestOBJ.setClassType("STRUCTURAL");
             _DeleteRequestOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
             _DeleteRequestOBJ.setLineNumber("219");
-            _DeleteRequestOBJ.setDescription("The DeleteRequest allows you to delete one or more objects. If no scope is specified,\n the scope is assumed to be BASE i.e. just the specific object indicated by the targets. The behaviour\n of this request is implementation specific.");
+            _DeleteRequestOBJ.addDescription("The DeleteRequest allows you to delete one or more objects. If no scope is specified,\n the scope is assumed to be BASE i.e. just the specific object indicated by the targets. The behaviour\n of this request is implementation specific.");
             _DeleteRequestOBJ.setDerivedFrom("dmp.Request");
             _DeleteRequestOBJ.setUseWrapperType("EXTENDED");
             _DeleteRequestOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.DeleteRequestREF");
@@ -534,7 +519,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DeleteResponseOBJ.setClassType("STRUCTURAL");
             _DeleteResponseOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
             _DeleteResponseOBJ.setLineNumber("230");
-            _DeleteResponseOBJ.setDescription("The DeleteResponse returns the results of a particular DeleteRequest. The objectList\n contents will be implementation specific e.g. if there were problems with object deletion there\n may be error indications.");
+            _DeleteResponseOBJ.addDescription("The DeleteResponse returns the results of a particular DeleteRequest. The objectList\n contents will be implementation specific e.g. if there were problems with object deletion there\n may be error indications.");
             _DeleteResponseOBJ.setDerivedFrom("dmp.Response");
             _DeleteResponseOBJ.setUseWrapperType("EXTENDED");
             _DeleteResponseOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.DeleteResponseREF");
@@ -553,7 +538,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DMPEventOBJ.setClassType("STRUCTURAL");
             _DMPEventOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
             _DMPEventOBJ.setLineNumber("250");
-            _DMPEventOBJ.setDescription("The Event class allows for the asynchronous notification of noteworthy system events.");
+            _DMPEventOBJ.addDescription("The Event class allows for the asynchronous notification of noteworthy system events.");
             _DMPEventOBJ.setDerivedFrom("dmp.DMPMessage");
             _DMPEventOBJ.setUseWrapperType("EXTENDED");
             _DMPEventOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.DMPEventREF");
@@ -583,7 +568,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _NotifyRequestOBJ.setClassType("STRUCTURAL");
             _NotifyRequestOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
             _NotifyRequestOBJ.setLineNumber("262");
-            _NotifyRequestOBJ.setDescription("The NotifyRequest allows you to register for events on an arbitrary object or set\n of objects.");
+            _NotifyRequestOBJ.addDescription("The NotifyRequest allows you to register for events on an arbitrary object or set\n of objects.");
             _NotifyRequestOBJ.setDerivedFrom("dmp.Request");
             _NotifyRequestOBJ.setUseWrapperType("EXTENDED");
             _NotifyRequestOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.NotifyRequestREF");
@@ -605,7 +590,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _NotifyResponseOBJ.setDotName("dmp.NotifyResponse.ClassDefinition");
             _NotifyResponseOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
             _NotifyResponseOBJ.setLineNumber("270");
-            _NotifyResponseOBJ.setDescription("The NotifyResponse is sent as the result of a NotifyRequest.");
+            _NotifyResponseOBJ.addDescription("The NotifyResponse is sent as the result of a NotifyRequest.");
             _NotifyResponseOBJ.setDerivedFrom("dmp.Response");
             _NotifyResponseOBJ.setUseWrapperType("EXTENDED");
             _NotifyResponseOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.NotifyResponseREF");
@@ -622,7 +607,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DenotifyRequestOBJ.setClassType("STRUCTURAL");
             _DenotifyRequestOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
             _DenotifyRequestOBJ.setLineNumber("283");
-            _DenotifyRequestOBJ.setDescription("The DenotifyRequest allows you to deregister for event notification on\n one or more objects.");
+            _DenotifyRequestOBJ.addDescription("The DenotifyRequest allows you to deregister for event notification on\n one or more objects.");
             _DenotifyRequestOBJ.setDerivedFrom("dmp.Request");
             _DenotifyRequestOBJ.setUseWrapperType("EXTENDED");
             _DenotifyRequestOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.DenotifyRequestREF");
@@ -644,7 +629,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DenotifyResponseOBJ.setClassType("STRUCTURAL");
             _DenotifyResponseOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
             _DenotifyResponseOBJ.setLineNumber("294");
-            _DenotifyResponseOBJ.setDescription("The DenotifyResponse is sent as a result of a DenotifyRequest.");
+            _DenotifyResponseOBJ.addDescription("The DenotifyResponse is sent as a result of a DenotifyRequest.");
             _DenotifyResponseOBJ.setDerivedFrom("dmp.Response");
             _DenotifyResponseOBJ.setUseWrapperType("EXTENDED");
             _DenotifyResponseOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.DenotifyResponseREF");
@@ -666,7 +651,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _PreAuthRequestOBJ.setDotName("dmp.PreAuthRequest.ClassDefinition");
             _PreAuthRequestOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
             _PreAuthRequestOBJ.setLineNumber("304");
-            _PreAuthRequestOBJ.setDescription("The PreAuthRequest allows for the retrieval of information from the\n servlet before a user has authenticated. Exactly what type of information can be \n retrieved is application specific.");
+            _PreAuthRequestOBJ.addDescription("The PreAuthRequest allows for the retrieval of information from the\n servlet before a user has authenticated. Exactly what type of information can be \n retrieved is application specific.");
             _PreAuthRequestOBJ.setDerivedFrom("dmp.Request");
             _PreAuthRequestOBJ.setUseWrapperType("EXTENDED");
             _PreAuthRequestOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.PreAuthRequestREF");
@@ -683,7 +668,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _PreAuthResponseOBJ.setClassType("STRUCTURAL");
             _PreAuthResponseOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
             _PreAuthResponseOBJ.setLineNumber("313");
-            _PreAuthResponseOBJ.setDescription("The PreAuthResponse is sent as a result of a PreAuthRequest.");
+            _PreAuthResponseOBJ.addDescription("The PreAuthResponse is sent as a result of a PreAuthRequest.");
             _PreAuthResponseOBJ.setDerivedFrom("dmp.Response");
             _PreAuthResponseOBJ.setUseWrapperType("EXTENDED");
             _PreAuthResponseOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.PreAuthResponseREF");
@@ -704,7 +689,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _requestIDOBJ.setType("meta.Integer");
             _requestIDOBJ.setName("requestID");
             _requestIDOBJ.setDmdID("501");
-            _requestIDOBJ.setDescription("A unique identifier that is generated on a client to distinguish the\n responses that are associated with a given request.");
+            _requestIDOBJ.addDescription("A unique identifier that is generated on a client to distinguish the\n responses that are associated with a given request.");
             _requestIDOBJ.setValueType("MULTI");
             _requestIDOBJ.setDotName("dmp.requestID.AttributeDefinition");
             _requestID.setDefinedIn(this);
@@ -718,7 +703,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _sessionIDOBJ.setType("meta.String");
             _sessionIDOBJ.setName("sessionID");
             _sessionIDOBJ.setDmdID("502");
-            _sessionIDOBJ.setDescription("A unique identifier that identifies a client session with the server.");
+            _sessionIDOBJ.addDescription("A unique identifier that identifies a client session with the server.");
             _sessionIDOBJ.setDotName("dmp.sessionID.AttributeDefinition");
             _sessionID.setDefinedIn(this);
             _sessionIDOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -731,7 +716,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _requestRootOBJ.setType("meta.String");
             _requestRootOBJ.setName("requestRoot");
             _requestRootOBJ.setDmdID("503");
-            _requestRootOBJ.setDescription("For a set of objects stored in a hierarchic name space, this will be\n prefix beneath which all objects managed through the interface will reside.");
+            _requestRootOBJ.addDescription("For a set of objects stored in a hierarchic name space, this will be\n prefix beneath which all objects managed through the interface will reside.");
             _requestRootOBJ.setDotName("dmp.requestRoot.AttributeDefinition");
             _requestRoot.setDefinedIn(this);
             _requestRootOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -744,7 +729,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _responseTypeOBJ.setType("dmp.ResponseTypeEnum");
             _responseTypeOBJ.setName("responseType");
             _responseTypeOBJ.setDmdID("504");
-            _responseTypeOBJ.setDescription("Indicates the category of response, success, failure, warning etc.");
+            _responseTypeOBJ.addDescription("Indicates the category of response, success, failure, warning etc.");
             _responseTypeOBJ.setDotName("dmp.responseType.AttributeDefinition");
             _responseType.setDefinedIn(this);
             _responseTypeOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -757,7 +742,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _responseCategoryOBJ.setType("dmp.ResponseCategoryEnum");
             _responseCategoryOBJ.setName("responseCategory");
             _responseCategoryOBJ.setDmdID("505");
-            _responseCategoryOBJ.setDescription("Indicates the category of a response.");
+            _responseCategoryOBJ.addDescription("Indicates the category of a response.");
             _responseCategoryOBJ.setDotName("dmp.responseCategory.AttributeDefinition");
             _responseCategory.setDefinedIn(this);
             _responseCategoryOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -770,7 +755,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _responseTextOBJ.setType("meta.String");
             _responseTextOBJ.setName("responseText");
             _responseTextOBJ.setDmdID("506");
-            _responseTextOBJ.setDescription("Textual information associated with a response.");
+            _responseTextOBJ.addDescription("Textual information associated with a response.");
             _responseTextOBJ.setDotName("dmp.responseText.AttributeDefinition");
             _responseText.setDefinedIn(this);
             _responseTextOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -783,7 +768,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _FQNListOBJ.setType("meta.String");
             _FQNListOBJ.setName("FQNList");
             _FQNListOBJ.setDmdID("507");
-            _FQNListOBJ.setDescription("A set of fully qualified names.");
+            _FQNListOBJ.addDescription("A set of fully qualified names.");
             _FQNListOBJ.setValueType("MULTI");
             _FQNListOBJ.setDotName("dmp.FQNList.AttributeDefinition");
             _FQNList.setDefinedIn(this);
@@ -797,7 +782,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _targetOBJ.setType("meta.NameContainer");
             _targetOBJ.setName("target");
             _targetOBJ.setDmdID("508");
-            _targetOBJ.setDescription("The target of a request. This is the contained name of the object.");
+            _targetOBJ.addDescription("The target of a request. This is the contained name of the object.");
             _targetOBJ.setDotName("dmp.target.AttributeDefinition");
             _target.setDefinedIn(this);
             _targetOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -810,7 +795,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _sourceObjectClassOBJ.setType("meta.ClassDefinition");
             _sourceObjectClassOBJ.setName("sourceObjectClass");
             _sourceObjectClassOBJ.setDmdID("509");
-            _sourceObjectClassOBJ.setDescription("The construction class name of the source of an event.");
+            _sourceObjectClassOBJ.addDescription("The construction class name of the source of an event.");
             _sourceObjectClassOBJ.setDotName("dmp.sourceObjectClass.AttributeDefinition");
             _sourceObjectClass.setDefinedIn(this);
             _sourceObjectClassOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -823,7 +808,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _lastResponseOBJ.setType("meta.Boolean");
             _lastResponseOBJ.setName("lastResponse");
             _lastResponseOBJ.setDmdID("510");
-            _lastResponseOBJ.setDescription("Flag that indicates if this is the last response to a request. NOTE: this defaults\n to true if not specified, since most requests result in a single response.");
+            _lastResponseOBJ.addDescription("Flag that indicates if this is the last response to a request. NOTE: this defaults\n to true if not specified, since most requests result in a single response.");
             _lastResponseOBJ.setNullReturnValue("true");
             _lastResponseOBJ.setDotName("dmp.lastResponse.AttributeDefinition");
             _lastResponse.setDefinedIn(this);
@@ -837,7 +822,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _scopeOBJ.setType("dmp.ScopeEnum");
             _scopeOBJ.setName("scope");
             _scopeOBJ.setDmdID("511");
-            _scopeOBJ.setDescription("Indicates the scope of an operation applied to a hierarchy of objects.");
+            _scopeOBJ.addDescription("Indicates the scope of an operation applied to a hierarchy of objects.");
             _scopeOBJ.setDotName("dmp.scope.AttributeDefinition");
             _scope.setDefinedIn(this);
             _scopeOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -850,7 +835,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _objectListOBJ.setType("meta.DmcObject");
             _objectListOBJ.setName("objectList");
             _objectListOBJ.setDmdID("512");
-            _objectListOBJ.setDescription("A set of objects returned from the server.");
+            _objectListOBJ.addDescription("A set of objects returned from the server.");
             _objectListOBJ.setValueType("MULTI");
             _objectListOBJ.setDotName("dmp.objectList.AttributeDefinition");
             _objectList.setDefinedIn(this);
@@ -864,7 +849,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _newObjectOBJ.setType("meta.DmcObject");
             _newObjectOBJ.setName("newObject");
             _newObjectOBJ.setDmdID("513");
-            _newObjectOBJ.setDescription("A new object to be created.");
+            _newObjectOBJ.addDescription("A new object to be created.");
             _newObjectOBJ.setDotName("dmp.newObject.AttributeDefinition");
             _newObject.setDefinedIn(this);
             _newObjectOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -877,7 +862,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _sourceObjectOBJ.setType("meta.DmcObject");
             _sourceObjectOBJ.setName("sourceObject");
             _sourceObjectOBJ.setDmdID("514");
-            _sourceObjectOBJ.setDescription("The object associated with an event. This is generally only seen in create events,\n but there's nothing to prevent you from sending it in other events.");
+            _sourceObjectOBJ.addDescription("The object associated with an event. This is generally only seen in create events,\n but there's nothing to prevent you from sending it in other events.");
             _sourceObjectOBJ.setDotName("dmp.sourceObject.AttributeDefinition");
             _sourceObject.setDefinedIn(this);
             _sourceObjectOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -890,7 +875,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _actionNameOBJ.setType("meta.String");
             _actionNameOBJ.setName("actionName");
             _actionNameOBJ.setDmdID("515");
-            _actionNameOBJ.setDescription("The name of an action to be triggered.");
+            _actionNameOBJ.addDescription("The name of an action to be triggered.");
             _actionNameOBJ.setDotName("dmp.actionName.AttributeDefinition");
             _actionName.setDefinedIn(this);
             _actionNameOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -903,7 +888,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _responseFormatOBJ.setType("dmp.ResponseFormatEnum");
             _responseFormatOBJ.setName("responseFormat");
             _responseFormatOBJ.setDmdID("516");
-            _responseFormatOBJ.setDescription("When the protocol is used for a JSON interface, the response format indicates\n whether the client wants the results as a flat set of objects (STANDARD) or as hierarchy of child\n objects embedded in arrays beneath their parents (DOM).");
+            _responseFormatOBJ.addDescription("When the protocol is used for a JSON interface, the response format indicates\n whether the client wants the results as a flat set of objects (STANDARD) or as hierarchy of child\n objects embedded in arrays beneath their parents (DOM).");
             _responseFormatOBJ.setDotName("dmp.responseFormat.AttributeDefinition");
             _responseFormat.setDefinedIn(this);
             _responseFormatOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -916,7 +901,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _readableFormatOBJ.setType("meta.Boolean");
             _readableFormatOBJ.setName("readableFormat");
             _readableFormatOBJ.setDmdID("517");
-            _readableFormatOBJ.setDescription("A flag that indicates if you want a response in a human readable format with \n formatting. The default is to use the most compact form - no additional whitespace and no\n newlines.");
+            _readableFormatOBJ.addDescription("A flag that indicates if you want a response in a human readable format with \n formatting. The default is to use the most compact form - no additional whitespace and no\n newlines.");
             _readableFormatOBJ.setDotName("dmp.readableFormat.AttributeDefinition");
             _readableFormat.setDefinedIn(this);
             _readableFormatOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -929,7 +914,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _timeMSOBJ.setType("meta.Long");
             _timeMSOBJ.setName("timeMS");
             _timeMSOBJ.setDmdID("518");
-            _timeMSOBJ.setDescription("A time stamp in milliseconds.");
+            _timeMSOBJ.addDescription("A time stamp in milliseconds.");
             _timeMSOBJ.setDotName("dmp.timeMS.AttributeDefinition");
             _timeMS.setDefinedIn(this);
             _timeMSOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -942,7 +927,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _blockingFactorOBJ.setType("meta.Integer");
             _blockingFactorOBJ.setName("blockingFactor");
             _blockingFactorOBJ.setDmdID("519");
-            _blockingFactorOBJ.setDescription("The number of objects to be returned in a block in a GetResponse. If not specified,\n the server will attempt to return all requested objects in a single response.");
+            _blockingFactorOBJ.addDescription("The number of objects to be returned in a block in a GetResponse. If not specified,\n the server will attempt to return all requested objects in a single response.");
             _blockingFactorOBJ.setDotName("dmp.blockingFactor.AttributeDefinition");
             _blockingFactor.setDefinedIn(this);
             _blockingFactorOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -955,7 +940,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _filterOBJ.setType("meta.String");
             _filterOBJ.setName("filter");
             _filterOBJ.setDmdID("520");
-            _filterOBJ.setDescription("Currently a place holder for the eventually filter implementation.");
+            _filterOBJ.addDescription("Currently a place holder for the eventually filter implementation.");
             _filterOBJ.setDotName("dmp.filter.AttributeDefinition");
             _filter.setDefinedIn(this);
             _filterOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -968,7 +953,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _filterByClassOBJ.setType("meta.ClassDefinition");
             _filterByClassOBJ.setName("filterByClass");
             _filterByClassOBJ.setDmdID("521");
-            _filterByClassOBJ.setDescription("Expedient way to ask for just objects of a particular class.");
+            _filterByClassOBJ.addDescription("Expedient way to ask for just objects of a particular class.");
             _filterByClassOBJ.setDotName("dmp.filterByClass.AttributeDefinition");
             _filterByClass.setDefinedIn(this);
             _filterByClassOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -981,7 +966,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _eventTypeDMPOBJ.setType("dmp.DMPEventTypeEnum");
             _eventTypeDMPOBJ.setName("eventTypeDMP");
             _eventTypeDMPOBJ.setDmdID("523");
-            _eventTypeDMPOBJ.setDescription("The eventTypeDMP indicates the nature of an event.");
+            _eventTypeDMPOBJ.addDescription("The eventTypeDMP indicates the nature of an event.");
             _eventTypeDMPOBJ.setDotName("dmp.eventTypeDMP.AttributeDefinition");
             _eventTypeDMP.setDefinedIn(this);
             _eventTypeDMPOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -994,7 +979,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _userFQNOBJ.setType("meta.String");
             _userFQNOBJ.setName("userFQN");
             _userFQNOBJ.setDmdID("524");
-            _userFQNOBJ.setDescription("The fully qualified name of a user.");
+            _userFQNOBJ.addDescription("The fully qualified name of a user.");
             _userFQNOBJ.setDotName("dmp.userFQN.AttributeDefinition");
             _userFQN.setDefinedIn(this);
             _userFQNOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -1007,7 +992,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _actionTriggerOBJ.setType("meta.DmcObject");
             _actionTriggerOBJ.setName("actionTrigger");
             _actionTriggerOBJ.setDmdID("525");
-            _actionTriggerOBJ.setDescription("The action trigger information i.e. an associated parameters for the action.");
+            _actionTriggerOBJ.addDescription("The action trigger information i.e. an associated parameters for the action.");
             _actionTriggerOBJ.setDotName("dmp.actionTrigger.AttributeDefinition");
             _actionTrigger.setDefinedIn(this);
             _actionTriggerOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -1020,7 +1005,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _originatorIDOBJ.setType("meta.Integer");
             _originatorIDOBJ.setName("originatorID");
             _originatorIDOBJ.setDmdID("526");
-            _originatorIDOBJ.setDescription("The thing that originated a request.");
+            _originatorIDOBJ.addDescription("The thing that originated a request.");
             _originatorIDOBJ.setDotName("dmp.originatorID.AttributeDefinition");
             _originatorID.setDefinedIn(this);
             _originatorIDOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -1033,7 +1018,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _notifyOriginatorOBJ.setType("meta.Boolean");
             _notifyOriginatorOBJ.setName("notifyOriginator");
             _notifyOriginatorOBJ.setDmdID("527");
-            _notifyOriginatorOBJ.setDescription("Indicates if an originator wants its own event.");
+            _notifyOriginatorOBJ.addDescription("Indicates if an originator wants its own event.");
             _notifyOriginatorOBJ.setDotName("dmp.notifyOriginator.AttributeDefinition");
             _notifyOriginator.setDefinedIn(this);
             _notifyOriginatorOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -1046,7 +1031,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _parentNameOBJ.setType("meta.NameContainer");
             _parentNameOBJ.setName("parentName");
             _parentNameOBJ.setDmdID("529");
-            _parentNameOBJ.setDescription("The name of the parent of an object.");
+            _parentNameOBJ.addDescription("The name of the parent of an object.");
             _parentNameOBJ.setDotName("dmp.parentName.AttributeDefinition");
             _parentName.setDefinedIn(this);
             _parentNameOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -1059,7 +1044,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _registerForEventsOBJ.setType("meta.Boolean");
             _registerForEventsOBJ.setName("registerForEvents");
             _registerForEventsOBJ.setDmdID("530");
-            _registerForEventsOBJ.setDescription("When the registerForEvents flag is set to true on a GetRequest, the\n client will be registered to receive events for the object(s) associated with the request.\n This mechanism ties object retrieval to event notification so that there's no possibility\n of missing events associated with the objects being retrieved. The system providing the\n GetResponses should ensure that any events associated with the objects are queued for \n delivery until after the GetResponse is complete.");
+            _registerForEventsOBJ.addDescription("When the registerForEvents flag is set to true on a GetRequest, the\n client will be registered to receive events for the object(s) associated with the request.\n This mechanism ties object retrieval to event notification so that there's no possibility\n of missing events associated with the objects being retrieved. The system providing the\n GetResponses should ensure that any events associated with the objects are queued for \n delivery until after the GetResponse is complete.");
             _registerForEventsOBJ.setDotName("dmp.registerForEvents.AttributeDefinition");
             _registerForEvents.setDefinedIn(this);
             _registerForEventsOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -1072,7 +1057,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _handlerIDOBJ.setType("meta.Integer");
             _handlerIDOBJ.setName("handlerID");
             _handlerIDOBJ.setDmdID("531");
-            _handlerIDOBJ.setDescription("The handlerID is a convenience attribute on requests that allows\n for routing of responses back to the appropriate response handler. This is used in\n the Dark Matter MVC framework.");
+            _handlerIDOBJ.addDescription("The handlerID is a convenience attribute on requests that allows\n for routing of responses back to the appropriate response handler. This is used in\n the Dark Matter MVC framework.");
             _handlerIDOBJ.setDotName("dmp.handlerID.AttributeDefinition");
             _handlerID.setDefinedIn(this);
             _handlerIDOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -1085,7 +1070,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _sourceOBJ.setType("meta.NameContainer");
             _sourceOBJ.setName("source");
             _sourceOBJ.setDmdID("532");
-            _sourceOBJ.setDescription("The source of an event. This is the contained name of the object.");
+            _sourceOBJ.addDescription("The source of an event. This is the contained name of the object.");
             _sourceOBJ.setDotName("dmp.source.AttributeDefinition");
             _source.setDefinedIn(this);
             _sourceOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -1098,7 +1083,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _attributeSelectorOBJ.setType("meta.AttributeID");
             _attributeSelectorOBJ.setName("attributeSelector");
             _attributeSelectorOBJ.setDmdID("533");
-            _attributeSelectorOBJ.setDescription("The attributeSelector allows you to specify a subset of an object's attributes\n to be returned in a GetResponse.");
+            _attributeSelectorOBJ.addDescription("The attributeSelector allows you to specify a subset of an object's attributes\n to be returned in a GetResponse.");
             _attributeSelectorOBJ.setValueType("HASHSET");
             _attributeSelectorOBJ.setDotName("dmp.attributeSelector.AttributeDefinition");
             _attributeSelector.setDefinedIn(this);
@@ -1112,7 +1097,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _cacheResponseOBJ.setType("meta.Boolean");
             _cacheResponseOBJ.setName("cacheResponse");
             _cacheResponseOBJ.setDmdID("534");
-            _cacheResponseOBJ.setDescription("The cacheResponse flag can be set on GetRequests and is reflected back\n in the GetResponse. If you are using a central response handler implementation (with caching)\n the handler can check to see if it should automatically cache the contents of a GetResponse\n or not. In cases where you are using Sliced objects, this is handy when you you retrieve the\n full object, but don't want to have it cached.");
+            _cacheResponseOBJ.addDescription("The cacheResponse flag can be set on GetRequests and is reflected back\n in the GetResponse. If you are using a central response handler implementation (with caching)\n the handler can check to see if it should automatically cache the contents of a GetResponse\n or not. In cases where you are using Sliced objects, this is handy when you you retrieve the\n full object, but don't want to have it cached.");
             _cacheResponseOBJ.setDotName("dmp.cacheResponse.AttributeDefinition");
             _cacheResponse.setDefinedIn(this);
             _cacheResponseOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -1125,7 +1110,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _sliceOBJ.setType("meta.String");
             _sliceOBJ.setName("slice");
             _sliceOBJ.setDmdID("535");
-            _sliceOBJ.setDescription("The name of a SliceDefinition. If specified, on a GetRequest, the set of\n attributes returned will be the specified slice of the object. For named objects, the object\n is always returned as well.");
+            _sliceOBJ.addDescription("The name of a SliceDefinition. If specified, on a GetRequest, the set of\n attributes returned will be the specified slice of the object. For named objects, the object\n is always returned as well.");
             _sliceOBJ.setDotName("dmp.slice.AttributeDefinition");
             _slice.setDefinedIn(this);
             _sliceOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -1138,7 +1123,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _targetObjectClassOBJ.setType("meta.ClassDefinition");
             _targetObjectClassOBJ.setName("targetObjectClass");
             _targetObjectClassOBJ.setDmdID("536");
-            _targetObjectClassOBJ.setDescription("The construction class of the target of SetRequest. This is a convenience\n attribute used to record the object class of an object being modified by a SetRequest so that\n it can be passed on in the sourceObjectClass of an event.");
+            _targetObjectClassOBJ.addDescription("The construction class of the target of SetRequest. This is a convenience\n attribute used to record the object class of an object being modified by a SetRequest so that\n it can be passed on in the sourceObjectClass of an event.");
             _targetObjectClassOBJ.setDotName("dmp.targetObjectClass.AttributeDefinition");
             _targetObjectClass.setDefinedIn(this);
             _targetObjectClassOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -1151,7 +1136,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _targetsOBJ.setType("meta.NameContainer");
             _targetsOBJ.setName("targets");
             _targetsOBJ.setDmdID("537");
-            _targetsOBJ.setDescription("The targets of a GetRequest. This is the contained name of the object.");
+            _targetsOBJ.addDescription("The targets of a GetRequest. This is the contained name of the object.");
             _targetsOBJ.setValueType("MULTI");
             _targetsOBJ.setDotName("dmp.targets.AttributeDefinition");
             _targets.setDefinedIn(this);
@@ -1165,7 +1150,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _listenerIDOBJ.setType("meta.Long");
             _listenerIDOBJ.setName("listenerID");
             _listenerIDOBJ.setDmdID("538");
-            _listenerIDOBJ.setDescription("The targets of a GetRequest. This is the contained name of the object.");
+            _listenerIDOBJ.addDescription("The targets of a GetRequest. This is the contained name of the object.");
             _listenerIDOBJ.setDotName("dmp.listenerID.AttributeDefinition");
             _listenerID.setDefinedIn(this);
             _listenerIDOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -1178,7 +1163,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _trackingEnabledOBJ.setType("meta.Boolean");
             _trackingEnabledOBJ.setName("trackingEnabled");
             _trackingEnabledOBJ.setDmdID("539");
-            _trackingEnabledOBJ.setDescription("A flag used for debug purposes to allow you to turn logging behaviour for a messages.");
+            _trackingEnabledOBJ.addDescription("A flag used for debug purposes to allow you to turn logging behaviour for a messages.");
             _trackingEnabledOBJ.setDotName("dmp.trackingEnabled.AttributeDefinition");
             _trackingEnabled.setDefinedIn(this);
             _trackingEnabledOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -1191,7 +1176,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _timeoutSecondsOBJ.setType("meta.Integer");
             _timeoutSecondsOBJ.setName("timeoutSeconds");
             _timeoutSecondsOBJ.setDmdID("540");
-            _timeoutSecondsOBJ.setDescription("A timeout flag that may be set on messages.");
+            _timeoutSecondsOBJ.addDescription("A timeout flag that may be set on messages.");
             _timeoutSecondsOBJ.setNullReturnValue("2");
             _timeoutSecondsOBJ.setDotName("dmp.timeoutSeconds.AttributeDefinition");
             _timeoutSeconds.setDefinedIn(this);
@@ -1205,7 +1190,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _applicationNameOBJ.setType("meta.String");
             _applicationNameOBJ.setName("applicationName");
             _applicationNameOBJ.setDmdID("541");
-            _applicationNameOBJ.setDescription("The name of an application.");
+            _applicationNameOBJ.addDescription("The name of an application.");
             _applicationNameOBJ.setDotName("dmp.applicationName.AttributeDefinition");
             _applicationName.setDefinedIn(this);
             _applicationNameOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -1218,7 +1203,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _applicationVersionOBJ.setType("meta.String");
             _applicationVersionOBJ.setName("applicationVersion");
             _applicationVersionOBJ.setDmdID("542");
-            _applicationVersionOBJ.setDescription("The version of an application.");
+            _applicationVersionOBJ.addDescription("The version of an application.");
             _applicationVersionOBJ.setDotName("dmp.applicationVersion.AttributeDefinition");
             _applicationVersion.setDefinedIn(this);
             _applicationVersionOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -1231,7 +1216,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _myOwnEventOBJ.setType("meta.Boolean");
             _myOwnEventOBJ.setName("myOwnEvent");
             _myOwnEventOBJ.setDmdID("543");
-            _myOwnEventOBJ.setDescription("This flag is set by the CommsController on events when they are received. If\n the originatorID on an event matches the originatorID returned in the LoginResponse, it means\n that the event occurred because of a request sent by you; so myOwnEvent will be true. If the event\n was caused by another client, it will be false.");
+            _myOwnEventOBJ.addDescription("This flag is set by the CommsController on events when they are received. If\n the originatorID on an event matches the originatorID returned in the LoginResponse, it means\n that the event occurred because of a request sent by you; so myOwnEvent will be true. If the event\n was caused by another client, it will be false.");
             _myOwnEventOBJ.setDotName("dmp.myOwnEvent.AttributeDefinition");
             _myOwnEvent.setDefinedIn(this);
             _myOwnEventOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -1244,7 +1229,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _objectsToComeOBJ.setType("meta.Long");
             _objectsToComeOBJ.setName("objectsToCome");
             _objectsToComeOBJ.setDmdID("544");
-            _objectsToComeOBJ.setDescription("This attribute indicates the number of objects that may be returned in later\n GetResponses. This allows for the implementation of progress indications for the retrieval of\n objects that may be broken into multiple reponses. For instance, when the initial GetRequest is\n received, you could return the number of objectsToCome and then base a progress bar on this\n number and the number of objects you've currently received.");
+            _objectsToComeOBJ.addDescription("This attribute indicates the number of objects that may be returned in later\n GetResponses. This allows for the implementation of progress indications for the retrieval of\n objects that may be broken into multiple reponses. For instance, when the initial GetRequest is\n received, you could return the number of objectsToCome and then base a progress bar on this\n number and the number of objects you've currently received.");
             _objectsToComeOBJ.setNullReturnValue("0L");
             _objectsToComeOBJ.setDotName("dmp.objectsToCome.AttributeDefinition");
             _objectsToCome.setDefinedIn(this);
@@ -1258,7 +1243,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _eventChannelReadyOBJ.setType("meta.Boolean");
             _eventChannelReadyOBJ.setName("eventChannelReady");
             _eventChannelReadyOBJ.setDmdID("545");
-            _eventChannelReadyOBJ.setDescription("Used in conjunction with the primeEventChannel action to indicate that the\n response has come via the event channel.");
+            _eventChannelReadyOBJ.addDescription("Used in conjunction with the primeEventChannel action to indicate that the\n response has come via the event channel.");
             _eventChannelReadyOBJ.setDotName("dmp.eventChannelReady.AttributeDefinition");
             _eventChannelReady.setDefinedIn(this);
             _eventChannelReadyOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
@@ -1281,7 +1266,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             ActionDefinitionDMO _primeEventChannelOBJ = new ActionDefinitionDMO();
             _primeEventChannel = new ActionDefinition(_primeEventChannelOBJ);
             _primeEventChannelOBJ.setName("primeEventChannel");
-            _primeEventChannelOBJ.setDescription("The primeEventChannel action is used in web related applications to\n ensure that the asynchronous event channel associated with a client's session\n is operational. Whatever communications mechanism you're using would repeatedly\n send an ActionRequest with this payload until it received an asynchronous\n response. This mechanism is required because the length of time required\n to establish the event channel is non-deterministic and varies widely from\n one browser to another e.g. in Firefox, the gwteventservice comes up in \n less than a second, while in Chrome it can take up to 3 seconds. Since\n much of the DMP communications mechanism depends on asynchronous messages,\n it is crucial that the event channel is operational before we start \n message handled associated with an application.\n <p/>\n An example of this mechanism can be seen in the Model View Whatever (MVW)\n CommManager and the dmpservletri reference implementation.");
+            _primeEventChannelOBJ.addDescription("The primeEventChannel action is used in web related applications to\n ensure that the asynchronous event channel associated with a client's session\n is operational. Whatever communications mechanism you're using would repeatedly\n send an ActionRequest with this payload until it received an asynchronous\n response. This mechanism is required because the length of time required\n to establish the event channel is non-deterministic and varies widely from\n one browser to another e.g. in Firefox, the gwteventservice comes up in \n less than a second, while in Chrome it can take up to 3 seconds. Since\n much of the DMP communications mechanism depends on asynchronous messages,\n it is crucial that the event channel is operational before we start \n message handled associated with an application.\n <p/>\n An example of this mechanism can be seen in the Model View Whatever (MVW)\n CommManager and the dmpservletri reference implementation.");
             _primeEventChannelOBJ.setDotName("dmp.primeEventChannel.ActionDefinition");
             _primeEventChannel.setDefinedIn(this);
             _primeEventChannelOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/actions.dmd");
@@ -1301,7 +1286,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ScopeEnumOBJ.addEnumValue("1 BASE Applies the operation only to the object named in the request.");
             _ScopeEnumOBJ.addEnumValue("2 NEXT Applies the operation to the children, or next layer, of objects below the target object.");
             _ScopeEnumOBJ.addEnumValue("3 ALL Applies the operation to the entire sub-tree of objects beneath the target object.");
-            _ScopeEnumOBJ.setDescription("The ScopeEnum indicates the scope of an operation when applied to\n a hierarchy of objects.");
+            _ScopeEnumOBJ.addDescription("The ScopeEnum indicates the scope of an operation when applied to\n a hierarchy of objects.");
             _ScopeEnumOBJ.setDotName("dmp.ScopeEnum.EnumDefinition");
             _ScopeEnum.setDefinedIn(this);
             _ScopeEnumOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/types.dmd");
@@ -1316,7 +1301,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DMPEventTypeEnumOBJ.addEnumValue("1 DELETED Indicates that an object was deleted.");
             _DMPEventTypeEnumOBJ.addEnumValue("2 MODIFIED Indicates that an object was modified.");
             _DMPEventTypeEnumOBJ.addEnumValue("3 LOADED Indicates that an object has been loaded in the cache.");
-            _DMPEventTypeEnumOBJ.setDescription("The ObjectEventEnum indicates the type of operation that caused \n an object event to be generated.");
+            _DMPEventTypeEnumOBJ.addDescription("The ObjectEventEnum indicates the type of operation that caused \n an object event to be generated.");
             _DMPEventTypeEnumOBJ.setDotName("dmp.DMPEventTypeEnum.EnumDefinition");
             _DMPEventTypeEnum.setDefinedIn(this);
             _DMPEventTypeEnumOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/types.dmd");
@@ -1329,7 +1314,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _FileModeEnumOBJ.setName("FileModeEnum");
             _FileModeEnumOBJ.addEnumValue("0 OPEN Causes a save to file operation to overwrite an existing file or create it if it doesn't exist.");
             _FileModeEnumOBJ.addEnumValue("1 APPEND Causes a save to file operation to append to an existing file or create it if it doesn't exist.");
-            _FileModeEnumOBJ.setDescription("The FileModeEnum is used to indicate the mode in which a file is opened for writing \n when the results of an operation are to be captured to a file.");
+            _FileModeEnumOBJ.addDescription("The FileModeEnum is used to indicate the mode in which a file is opened for writing \n when the results of an operation are to be captured to a file.");
             _FileModeEnumOBJ.setDotName("dmp.FileModeEnum.EnumDefinition");
             _FileModeEnum.setDefinedIn(this);
             _FileModeEnumOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/types.dmd");
@@ -1346,7 +1331,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ResponseTypeEnumOBJ.addEnumValue("3 ERROR Indicates that the request failed and that there is some descriptive text that indicates what happened.");
             _ResponseTypeEnumOBJ.addEnumValue("4 PROGRESSTEXT Indicates that the request is proceeding and that this is a textual update on the progress of the request.");
             _ResponseTypeEnumOBJ.addEnumValue("5 PROGRESSPERCENT Indicates that the request is proceeding and that this is the percentage of the processing that's complete.");
-            _ResponseTypeEnumOBJ.setDescription("The ResponseTypeEnum indicates the type of a response.");
+            _ResponseTypeEnumOBJ.addDescription("The ResponseTypeEnum indicates the type of a response.");
             _ResponseTypeEnumOBJ.setDotName("dmp.ResponseTypeEnum.EnumDefinition");
             _ResponseTypeEnum.setDefinedIn(this);
             _ResponseTypeEnumOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/types.dmd");
@@ -1363,7 +1348,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ResponseCategoryEnumOBJ.addEnumValue("3 REPOSITORY A response related to the repository.");
             _ResponseCategoryEnumOBJ.addEnumValue("4 COMMS A response related to communication.");
             _ResponseCategoryEnumOBJ.addEnumValue("5 OPERATIONAL A response related to an operation.");
-            _ResponseCategoryEnumOBJ.setDescription("The ResponseCategoryEnum indicates the category of an error response.");
+            _ResponseCategoryEnumOBJ.addDescription("The ResponseCategoryEnum indicates the category of an error response.");
             _ResponseCategoryEnumOBJ.setDotName("dmp.ResponseCategoryEnum.EnumDefinition");
             _ResponseCategoryEnum.setDefinedIn(this);
             _ResponseCategoryEnumOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/types.dmd");
@@ -1376,7 +1361,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ResponseFormatEnumOBJ.setName("ResponseFormatEnum");
             _ResponseFormatEnumOBJ.addEnumValue("0 STANDARD Indicates that the responses should be in standard flat format.");
             _ResponseFormatEnumOBJ.addEnumValue("1 DOM Indicates that the response should be in DOM format i.e. the hierarchic structure of the data should be reflected by indenting children in subarrays beneath an object.");
-            _ResponseFormatEnumOBJ.setDescription("The ResponseFormatEnum indicates how JSON responses are to be formatted.");
+            _ResponseFormatEnumOBJ.addDescription("The ResponseFormatEnum indicates how JSON responses are to be formatted.");
             _ResponseFormatEnumOBJ.setDotName("dmp.ResponseFormatEnum.EnumDefinition");
             _ResponseFormatEnum.setDefinedIn(this);
             _ResponseFormatEnumOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/types.dmd");

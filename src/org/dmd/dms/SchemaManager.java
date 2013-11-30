@@ -918,7 +918,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         cd.setUseWrapperType(WrapperTypeEnum.EXTENDED);
         
         if (ddm.getDescription() != null)
-        	cd.setDescription(ddm.getDescription());
+        	cd.addDescription(ddm.getDescription());
         
         // Add the attribute that lets us refer to other modules of this kind
 //        cd.addMay(ddm.getModuleDependenceAttribute());
@@ -991,7 +991,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         DotName typeName = new DotName((DotName) ctd.getDotName().getParentName(),"TypeDefinition");
         td.setDotName(typeName);
 
-        td.setDescription("This is an internally generated type to represent complex type " + ctd.getName() + " values.");
+        td.addDescription("This is an internally generated type to represent complex type " + ctd.getName() + " values.");
         td.setIsEnumType(false);
         td.setIsRefType(false);
         
@@ -1044,7 +1044,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         DotName typeName = new DotName((DotName) ertd.getDotName().getParentName(),"TypeDefinition");
         td.setDotName(typeName);
 
-        td.setDescription("This is an internally generated type to represent extendedreference type " + ertd.getName() + " values.");
+        td.addDescription("This is an internally generated type to represent extendedreference type " + ertd.getName() + " values.");
         td.setIsEnumType(false);
         td.setIsRefType(true);
         
@@ -1232,7 +1232,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         cd.setDefinedIn(rd.getDefinedIn());
         
         if (rd.getDescription() != null)
-        	cd.setDescription(rd.getDescription());
+        	cd.addDescription(rd.getDescription());
         
         for(AttributeDefinition ad: rd.getMay()){
         	cd.addMay(ad);
@@ -1455,7 +1455,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 	        
 	        td.setDotName(typeName);
 	        
-	        td.setDescription("This is an internally generated type to allow references to " + cd.getName() + " values.");
+	        td.addDescription("This is an internally generated type to allow references to " + cd.getName() + " values.");
 	        td.setIsEnumType(false);
 	        td.setIsRefType(true);
 	        
@@ -1741,7 +1741,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         td.setDotName(typeName);
 
         td.setEnumName(evd.getName().getNameString());
-        td.setDescription("This is an internally generated type to allow references to " + evd.getName() + " values.");
+        td.addDescription("This is an internally generated type to allow references to " + evd.getName() + " values.");
         td.setIsEnumType(true);
         td.setTypeClassName(evd.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + evd.getName());
         td.setPrimitiveType(evd.getDefinedIn().getSchemaPackage() + ".generated.enums." + evd.getName());

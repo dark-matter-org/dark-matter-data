@@ -47,7 +47,6 @@ import org.dmd.dmt.shared.generated.types.ObjWithRefsREF;                       
 import org.dmd.dmt.shared.generated.types.SomeRelation;                             // Extended reference type - (GenUtility.java:323)
 
 /**
- * null
  * <P>
  * Generated from the dmt schema at version 0.1
  * <P>

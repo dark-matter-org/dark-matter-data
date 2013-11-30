@@ -25,7 +25,7 @@ import org.dmd.dms.generated.enums.OriginalTypeEnum;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1966)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:583)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:582)
  */
 @SuppressWarnings("serial")
 public class DmcTypeOriginalTypeEnumSV extends DmcTypeOriginalTypeEnum implements Serializable {

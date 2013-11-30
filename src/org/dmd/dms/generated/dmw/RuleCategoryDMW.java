@@ -47,9 +47,9 @@ import org.dmd.dmc.definitions.DmcDefinitionIF;
  * For CLASS level rules, you must specify the classInfoFromParam attribute
  * to indicate how to \n get the DmcClassInfo from whatever object you are
  * passing to the rule. For ATTRIBUTE level rules,\n you must specify both
- * attributeInfoFromParam and classInfoFromParam.
+ * attributeInfoFromParam and classInfoFromParam. 
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1601)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1630)
  */
 @SuppressWarnings("unused")
 public class RuleCategoryDMW extends org.dmd.dms.DmsDefinition implements DmcDefinitionIF {
@@ -93,9 +93,9 @@ public class RuleCategoryDMW extends org.dmd.dms.DmsDefinition implements DmcDef
     /**
      * The name attribute is used to store a single string token that represents
      * a unique name\n for an object with the set of definitions of which it is a
-     * part. A name starts with a letter followed\n by letters and numbers.
+     * part. A name starts with a letter followed\n by letters and numbers. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public DefinitionName getName(){
         return(mycore.getName());
     }
@@ -104,16 +104,16 @@ public class RuleCategoryDMW extends org.dmd.dms.DmsDefinition implements DmcDef
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
 
     /**
      * Indicates the operational context for some component e.g. object or
-     * attribute\n validators.
+     * attribute\n validators. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public OperationalContextEnum getOpContext(){
         return(mycore.getOpContext());
     }
@@ -122,16 +122,16 @@ public class RuleCategoryDMW extends org.dmd.dms.DmsDefinition implements DmcDef
      * Sets opContext to the specified value.
      * @param value A value compatible with DmcTypeOperationalContextEnumSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setOpContext(Object value) throws DmcValueException {
         mycore.setOpContext(value);
     }
 
     /**
      * The numeric ID of a rule category. Category IDs must be unique for all
-     * RuleDefinitions defined\n within a schema.
+     * RuleDefinitions defined\n within a schema. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public Integer getRuleCategoryID(){
         return(mycore.getRuleCategoryID());
     }
@@ -140,15 +140,15 @@ public class RuleCategoryDMW extends org.dmd.dms.DmsDefinition implements DmcDef
      * Sets ruleCategoryID to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setRuleCategoryID(Object value) throws DmcValueException {
         mycore.setRuleCategoryID(value);
     }
 
     /**
-     * The type of a rule.
+     * The type of a rule. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public RuleTypeEnum getRuleType(){
         return(mycore.getRuleType());
     }
@@ -157,16 +157,16 @@ public class RuleCategoryDMW extends org.dmd.dms.DmsDefinition implements DmcDef
      * Sets ruleType to the specified value.
      * @param value A value compatible with DmcTypeRuleTypeEnumSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setRuleType(Object value) throws DmcValueException {
         mycore.setRuleType(value);
     }
 
     /**
-     * A parameter to be supplied to a rule when it is executed.
+     * A parameter to be supplied to a rule when it is executed. 
      * @return An Iterator of RuleParam objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2528)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2578)
     public Iterator<RuleParam> getRuleParam(){
         DmcTypeRuleParamMV attr = (DmcTypeRuleParamMV) mycore.get(MetaDMSAG.__ruleParam);
         if (attr == null)
@@ -179,15 +179,15 @@ public class RuleCategoryDMW extends org.dmd.dms.DmsDefinition implements DmcDef
      * Adds another ruleParam value.
      * @param value A value compatible with DmcTypeRuleParamMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2583)
-    public DmcAttribute<?> addRuleParam(Object value) throws DmcValueException {
-        return(mycore.addRuleParam(value));
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2658)
+    public void addRuleParam(Object value) throws DmcValueException {
+        mycore.addRuleParam(value);
     }
 
     /**
      * Returns the number of ruleParam values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2595)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2671)
     public int getRuleParamSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__ruleParam);
         if (attr == null)
@@ -199,9 +199,9 @@ public class RuleCategoryDMW extends org.dmd.dms.DmsDefinition implements DmcDef
      * Indicates how the DmcClassInfo should be extracted from one of the
      * ruleParam values\n associated with a RuleCategory. If additional classes
      * are required to support this access, you can specify ruleImport\n values
-     * as appropriate.
+     * as appropriate. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public String getClassInfoFromParam(){
         return(mycore.getClassInfoFromParam());
     }
@@ -210,17 +210,17 @@ public class RuleCategoryDMW extends org.dmd.dms.DmsDefinition implements DmcDef
      * Sets classInfoFromParam to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setClassInfoFromParam(Object value) throws DmcValueException {
         mycore.setClassInfoFromParam(value);
     }
 
     /**
      * An import required for generation of the rule collection associated with\n
-     * a RuleCategory.
+     * a RuleCategory. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2528)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2578)
     public Iterator<String> getRuleImport(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__ruleImport);
         if (attr == null)
@@ -233,15 +233,15 @@ public class RuleCategoryDMW extends org.dmd.dms.DmsDefinition implements DmcDef
      * Adds another ruleImport value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2583)
-    public DmcAttribute<?> addRuleImport(Object value) throws DmcValueException {
-        return(mycore.addRuleImport(value));
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2658)
+    public void addRuleImport(Object value) throws DmcValueException {
+        mycore.addRuleImport(value);
     }
 
     /**
      * Returns the number of ruleImport values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2595)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2671)
     public int getRuleImportSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__ruleImport);
         if (attr == null)
@@ -253,9 +253,9 @@ public class RuleCategoryDMW extends org.dmd.dms.DmsDefinition implements DmcDef
      * Indicates how the DmcAttributeInfo should be extracted from one of the
      * ruleParam values\n associated with a RuleCategory. If additional classes
      * are required to support this access, you can specify ruleImport\n values
-     * as appropriate.
+     * as appropriate. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2349)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
     public String getAttributeInfoFromParam(){
         return(mycore.getAttributeInfoFromParam());
     }
@@ -264,7 +264,7 @@ public class RuleCategoryDMW extends org.dmd.dms.DmsDefinition implements DmcDef
      * Sets attributeInfoFromParam to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2422)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setAttributeInfoFromParam(Object value) throws DmcValueException {
         mycore.setAttributeInfoFromParam(value);
     }
@@ -272,7 +272,7 @@ public class RuleCategoryDMW extends org.dmd.dms.DmsDefinition implements DmcDef
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1764)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1791)
 
     /**
      * @return The name of this object from the name attribute.
