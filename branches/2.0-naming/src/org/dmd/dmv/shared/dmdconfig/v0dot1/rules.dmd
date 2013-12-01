@@ -364,26 +364,26 @@ description			The ReferencedAttributeTypeRule allowes you to restrict the type o
  </pre>
  Here, we're indicating that the lhs (left hand side) attribute must be single valued.
 
-//ReferencedAttributeTypeRuleData
-//ruleName			dmvRATRApplyToAttribute
-//ruleTitle			The applyToAttribute attribute in a ReferencedAttributeTypeRuleData must refer to a single valued AttributeDefinition
-//applyToAttribute	applyToAttribute
-//applyToClass 		ReferencedAttributeTypeRuleData
-//allowedType 		AttributeDefinition
-//description         This might look a little funny, applying the rule to the applyToattribute, but
-// if you think about it, it makes sense. You might think, hey, applyToAttribute is an AttributeDefinition
-// so why validate that. However, it's not the applyToAttribute that we're validating, but the attribute
-// that it refers to. It just happens that we're 
+ReferencedAttributeTypeRuleData
+ruleName			dmvRATRApplyToAttribute
+ruleTitle			The applyToAttribute attribute in a ReferencedAttributeTypeRuleData must refer to a single valued AttributeDefinition
+applyToAttribute	applyToAttribute
+applyToClass 		ReferencedAttributeTypeRuleData
+allowedType 		AttributeDefinition
+description         This might look a little funny, applying the rule to the applyToattribute, but
+ if you think about it, it makes sense. You might think, hey, applyToAttribute is an AttributeDefinition
+ so why validate that. However, it's not the applyToAttribute that we're validating, but the attribute
+ that it refers to. It just happens that we're 
 
-//ReferencedAttributeTypeRuleData
-//ruleName			dmvNRRApplyToAttribute
-//ruleTitle			The applyToAttribute attribute in a NumericRangeRuleData instance must refer to an Integer, Long, Float or Double attribute
-//applyToAttribute	applyToAttribute
-//applyToClass 		NumericRangeRuleData
-//allowedType 		Integer
-//allowedType			Long
-//allowedType 		Float
-//allowedType 		Double
+ReferencedAttributeTypeRuleData
+ruleName			dmvNRRApplyToAttribute
+ruleTitle			The applyToAttribute attribute in a NumericRangeRuleData instance must refer to an Integer, Long, Float or Double attribute
+applyToAttribute	applyToAttribute
+applyToClass 		NumericRangeRuleData
+allowedType 		Integer
+allowedType			Long
+allowedType 		Float
+allowedType 		Double
 
 ReferencedAttributeTypeRuleData
 ruleName			dmvLhs
@@ -447,12 +447,12 @@ description			Didn't want to be too restrictive with this. Definitely didn't wan
 // Or maybe the approach is to have an interface defined for a resolver that gets passed to the
 // rules instead of them access the DmcOmni. That way, we can pass in SchemaManager (for instance).
 
-//ReferencedAttributeTypeRuleData
-//ruleName          dmvModuleDependenceAttribute
-//ruleTitle         The moduleDependenceAttribute attribute must be multi-valued.
-//applyToAttribute  moduleDependenceAttribute
-//applyToClass      DSDefinitionModule
-//allowedValueType  MULTI
-//description       We have sections of generated code that will access the module
-// dependence attribute of a DDM module instance and being able to assume that the
-// module dependence attribute is multi-valued just makes things easier.
+ReferencedAttributeTypeRuleData
+ruleName          dmvModuleDependenceAttribute
+ruleTitle         The moduleDependenceAttribute attribute must be multi-valued.
+applyToAttribute  moduleDependenceAttribute
+applyToClass      DSDefinitionModule
+allowedValueType  MULTI
+description       We have sections of generated code that will access the module
+ dependence attribute of a DDM module instance and being able to assume that the
+ module dependence attribute is multi-valued just makes things easier.

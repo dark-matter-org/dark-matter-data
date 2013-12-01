@@ -103,7 +103,10 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
     public final static RelatedNumbersRule __dmvMinLessThanMax;
     public final static NumericRangeRule __dmvMinimumLength;
     public final static OneOfTheseAttributesRequiredRule __dmvMinimumOrMaximum;
+    public final static ReferencedAttributeTypeRule __dmvModuleDependenceAttribute;
+    public final static ReferencedAttributeTypeRule __dmvNRRApplyToAttribute;
     public final static CheckAttributesBasedOnValueRule __dmvNoMustInExtensible;
+    public final static ReferencedAttributeTypeRule __dmvRATRApplyToAttribute;
     public final static ReferencedAttributeTypeRule __dmvRhs;
     public final static OneOfTheseAttributesRequiredRule __dmvValueorAttribute;
 
@@ -409,6 +412,38 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
 
             _RmAp.add(__dmvMinimumOrMaximum);
 
+            ReferencedAttributeTypeRuleDataDMO _dmvModuleDependenceAttributeData = new ReferencedAttributeTypeRuleDataDMO();
+            _dmvModuleDependenceAttributeData.setRuleName("dmvModuleDependenceAttribute");
+            _dmvModuleDependenceAttributeData.setApplyToClass("DSDefinitionModule");
+            _dmvModuleDependenceAttributeData.setRuleTitle("The moduleDependenceAttribute attribute must be multi-valued.");
+            _dmvModuleDependenceAttributeData.addDescription("We have sections of generated code that will access the module\n dependence attribute of a DDM module instance and being able to assume that the\n module dependence attribute is multi-valued just makes things easier.");
+            _dmvModuleDependenceAttributeData.setApplyToAttribute("moduleDependenceAttribute");
+            _dmvModuleDependenceAttributeData.setAllowedValueType("MULTI");
+            _dmvModuleDependenceAttributeData.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
+            _dmvModuleDependenceAttributeData.setDefinedIn("dmv");
+            _dmvModuleDependenceAttributeData.setLineNumber("458");
+
+            __dmvModuleDependenceAttribute = new ReferencedAttributeTypeRule(_dmvModuleDependenceAttributeData);
+
+            _RmAp.add(__dmvModuleDependenceAttribute);
+
+            ReferencedAttributeTypeRuleDataDMO _dmvNRRApplyToAttributeData = new ReferencedAttributeTypeRuleDataDMO();
+            _dmvNRRApplyToAttributeData  .setRuleName("dmvNRRApplyToAttribute");
+            _dmvNRRApplyToAttributeData  .setApplyToClass("NumericRangeRuleData");
+            _dmvNRRApplyToAttributeData  .setRuleTitle("The applyToAttribute attribute in a NumericRangeRuleData instance must refer to an Integer, Long, Float or Double attribute");
+            _dmvNRRApplyToAttributeData  .setApplyToAttribute("applyToAttribute");
+            _dmvNRRApplyToAttributeData  .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
+            _dmvNRRApplyToAttributeData  .setDefinedIn("dmv");
+            _dmvNRRApplyToAttributeData  .addAllowedType("Integer");
+            _dmvNRRApplyToAttributeData  .addAllowedType("Long");
+            _dmvNRRApplyToAttributeData  .addAllowedType("Float");
+            _dmvNRRApplyToAttributeData  .addAllowedType("Double");
+            _dmvNRRApplyToAttributeData  .setLineNumber("387");
+
+            __dmvNRRApplyToAttribute = new ReferencedAttributeTypeRule(_dmvNRRApplyToAttributeData);
+
+            _RmAp.add(__dmvNRRApplyToAttribute);
+
             CheckAttributesBasedOnValueRuleDataDMO _dmvNoMustInExtensibleData = new CheckAttributesBasedOnValueRuleDataDMO();
             _dmvNoMustInExtensibleData   .addBasedOnValue("AUXILIARY");
             _dmvNoMustInExtensibleData   .setRuleName("dmvNoMustInExtensible");
@@ -424,6 +459,21 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             __dmvNoMustInExtensible = new CheckAttributesBasedOnValueRule(_dmvNoMustInExtensibleData);
 
             _RmAp.add(__dmvNoMustInExtensible);
+
+            ReferencedAttributeTypeRuleDataDMO _dmvRATRApplyToAttributeData = new ReferencedAttributeTypeRuleDataDMO();
+            _dmvRATRApplyToAttributeData .setRuleName("dmvRATRApplyToAttribute");
+            _dmvRATRApplyToAttributeData .setApplyToClass("ReferencedAttributeTypeRuleData");
+            _dmvRATRApplyToAttributeData .setRuleTitle("The applyToAttribute attribute in a ReferencedAttributeTypeRuleData must refer to a single valued AttributeDefinition");
+            _dmvRATRApplyToAttributeData .addDescription("This might look a little funny, applying the rule to the applyToattribute, but\n if you think about it, it makes sense. You might think, hey, applyToAttribute is an AttributeDefinition\n so why validate that. However, it's not the applyToAttribute that we're validating, but the attribute\n that it refers to. It just happens that we're");
+            _dmvRATRApplyToAttributeData .setApplyToAttribute("applyToAttribute");
+            _dmvRATRApplyToAttributeData .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
+            _dmvRATRApplyToAttributeData .setDefinedIn("dmv");
+            _dmvRATRApplyToAttributeData .addAllowedType("AttributeDefinition");
+            _dmvRATRApplyToAttributeData .setLineNumber("377");
+
+            __dmvRATRApplyToAttribute = new ReferencedAttributeTypeRule(_dmvRATRApplyToAttributeData);
+
+            _RmAp.add(__dmvRATRApplyToAttribute);
 
             ReferencedAttributeTypeRuleDataDMO _dmvRhsData = new ReferencedAttributeTypeRuleDataDMO();
             _dmvRhsData                  .setRuleName("dmvRhs");
