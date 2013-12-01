@@ -86,6 +86,18 @@ public class ReferencedAttributeTypeRule extends ReferencedAttributeTypeRuleBase
 		if (ref.getObject() == null)
 			return;
 		
+		// Depending on whether or not references have been resolved via loaded schemas
+		// of schemas being parsed, the type of the attribute being referred to has to
+		// be retrieved in different ways. 
+		// 
+		// Doing ref.getObject().getType().getObjectName().getNameString() will, in some cases
+		// give us schema.type, when we actually want just the type.
+		// When possible, we use ref.getObject().getType().getObject().getName().getNameString()
+		String testType = ref.getObject().getType().getObjectName().getNameString();
+		if (ref.getObject().getType().getObject() != null){
+			testType = ref.getObject().getType().getObject().getName().getNameString();
+		}
+		
 		if (ruleDMO.getAllowedValueType() != null){
 			// Check the value type if it was specified
 			if (ruleDMO.getAllowedValueType() != ref.getObject().getValueType()){
@@ -100,18 +112,21 @@ public class ReferencedAttributeTypeRule extends ReferencedAttributeTypeRuleBase
 		}
 		
 		if (ruleDMO.getAllowedTypeSize() > 0){
+		
+			
 			boolean typeOkay = false;
 			Iterator<TypeDefinitionREF> types = ruleDMO.getAllowedType();
 			while(types.hasNext()){
 				TypeDefinitionREF type = types.next();
-				if (type.getObjectName().getNameString().equals(ref.getObject().getType().getObjectName().getNameString())){
+				if (type.getObjectName().getNameString().equals(testType)){
 					typeOkay = true;
 					break;
 				}
 			}
 			
 			if (!typeOkay){
-				DmcRuleException rex = new DmcRuleException(this.getRuleTitle() + "\n" + ref.getObjectName() + " isn't one of the expected types, it's of type: " + ref.getObject().getType().getObjectName().getNameString(), this);
+//				DmcRuleException rex = new DmcRuleException(this.getRuleTitle() + "\n" + ref.getObjectName() + " isn't one of the expected types, it's of type: " + ref.getObject().getType().getObjectName().getNameString(), this);
+				DmcRuleException rex = new DmcRuleException(this.getRuleTitle() + "\n" + ref.getObjectName() + " isn't one of the expected types, it's of type: " + testType, this);
 				if (obj instanceof DSDefinitionDMO){
 					DSDefinitionDMO def = (DSDefinitionDMO) obj;
 					rex.source(new SourceInfo(def.getFile(), def.getLineNumber() + ""));
