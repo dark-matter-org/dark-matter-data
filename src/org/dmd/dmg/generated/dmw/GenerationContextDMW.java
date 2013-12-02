@@ -1,30 +1,15 @@
-//	---------------------------------------------------------------------------
-//	dark-matter-data
-//	Copyright (c) 2013 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
 package org.dmd.dmg.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:366)
-import org.dmd.dmc.*;                                          // If any attributes - (BaseDMWGenerator.java:1006)
-import org.dmd.dmc.types.CamelCaseName;                        // Is named by - (BaseDMWGenerator.java:985)
-import org.dmd.dmg.extended.GenerationContext;                 // Required for getModificationRecorder() - (BaseDMWGenerator.java:999)
-import org.dmd.dmg.generated.dmo.GenerationContextDMO;         // Class not auxiliary or abstract - (BaseDMWGenerator.java:1171)
-import org.dmd.dms.ClassDefinition;                            // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:990)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                    // Required for MODREC constructor - (BaseDMWGenerator.java:995)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;          // Required for MODREC constructor - (BaseDMWGenerator.java:994)
-import org.dmd.dmw.DmwNamedObjectWrapper;                      // Named object wrapper - (BaseDMWGenerator.java:1161)
+import org.dmd.dmc.*;                                          // If any attributes - (BaseDMWGenerator.java:1011)
+import org.dmd.dmc.types.CamelCaseName;                        // Is named by - (BaseDMWGenerator.java:986)
+import org.dmd.dmg.extended.GenerationContext;                 // Required for getModificationRecorder() - (BaseDMWGenerator.java:1000)
+import org.dmd.dmg.generated.dmo.GenerationContextDMO;         // Class not auxiliary or abstract - (BaseDMWGenerator.java:1176)
+import org.dmd.dms.ClassDefinition;                            // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:991)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                    // Required for MODREC constructor - (BaseDMWGenerator.java:996)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;          // Required for MODREC constructor - (BaseDMWGenerator.java:995)
+import org.dmd.dmw.DmwNamedObjectWrapper;                      // Named object wrapper - (BaseDMWGenerator.java:1166)
 
 
 
@@ -77,7 +62,7 @@ public class GenerationContextDMW extends DmwNamedObjectWrapper implements DmcNa
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGenerator.getAccessFunctions(BaseDMWGenerator.java:1216)
+    // org.dmd.dmg.generators.BaseDMWGenerator.getAccessFunctions(BaseDMWGenerator.java:1221)
     public CamelCaseName getObjectName(){
         return(((GenerationContextDMO) core).getGenContextName());
     }
@@ -97,7 +82,7 @@ public class GenerationContextDMW extends DmwNamedObjectWrapper implements DmcNa
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1393)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1398)
     public CamelCaseName getGenContextName(){
         return(((GenerationContextDMO) core).getGenContextName());
     }
@@ -106,7 +91,7 @@ public class GenerationContextDMW extends DmwNamedObjectWrapper implements DmcNa
      * Sets genContextName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1503)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1508)
     public void setGenContextName(Object value) throws DmcValueException {
         ((GenerationContextDMO) core).setGenContextName(value);
     }
@@ -115,7 +100,7 @@ public class GenerationContextDMW extends DmwNamedObjectWrapper implements DmcNa
      * Sets genContextName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1512)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1517)
     public void setGenContextName(CamelCaseName value){
         ((GenerationContextDMO) core).setGenContextName(value);
     }
@@ -123,7 +108,7 @@ public class GenerationContextDMW extends DmwNamedObjectWrapper implements DmcNa
     /**
      * Removes the genContextName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1538)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1543)
     public void remGenContextName(){
         ((GenerationContextDMO) core).remGenContextName();
     }

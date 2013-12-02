@@ -1,29 +1,14 @@
-//	---------------------------------------------------------------------------
-//	dark-matter-data
-//	Copyright (c) 2013 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
 package org.dmd.dmt.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:366)
-import org.dmd.dmc.*;                                             // If any attributes - (BaseDMWGenerator.java:1006)
-import org.dmd.dms.ClassDefinition;                               // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:990)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                       // Required for MODREC constructor - (BaseDMWGenerator.java:995)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;             // Required for MODREC constructor - (BaseDMWGenerator.java:994)
-import org.dmd.dmt.shared.generated.dmo.ExtendedRefSVDMO;         // Class not auxiliary or abstract - (BaseDMWGenerator.java:1171)
-import org.dmd.dmt.shared.generated.types.SomeRelation;           // For get() of SomeRelation - (BaseDMWGenerator.java:1347)
-import org.dmd.dmw.DmwWrapper;                                    // Unnamed object wrapper - (BaseDMWGenerator.java:1154)
+import org.dmd.dmc.*;                                             // If any attributes - (BaseDMWGenerator.java:1011)
+import org.dmd.dms.ClassDefinition;                               // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:991)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                       // Required for MODREC constructor - (BaseDMWGenerator.java:996)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;             // Required for MODREC constructor - (BaseDMWGenerator.java:995)
+import org.dmd.dmt.shared.generated.dmo.ExtendedRefSVDMO;         // Class not auxiliary or abstract - (BaseDMWGenerator.java:1176)
+import org.dmd.dmt.shared.generated.types.SomeRelation;           // For get() of SomeRelation - (BaseDMWGenerator.java:1352)
+import org.dmd.dmw.DmwWrapper;                                    // Unnamed object wrapper - (BaseDMWGenerator.java:1159)
 
 
 
@@ -75,7 +60,7 @@ public class ExtendedRefSVDMW extends DmwWrapper {
     /**
      * @return A SomeRelation object.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1353)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1358)
     public SomeRelation getSvExtendedRef(){
         SomeRelation ref = ((ExtendedRefSVDMO) core).getSvExtendedRef();
         if (ref == null)
@@ -91,7 +76,7 @@ public class ExtendedRefSVDMW extends DmwWrapper {
      * Sets the svExtendedRef to the specified value.
      * @param value A value compatible with SomeRelation
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1419)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1424)
     public void setSvExtendedRef(SomeRelation value) {
         ((ExtendedRefSVDMO) core).setSvExtendedRef(value);
     }
@@ -100,7 +85,7 @@ public class ExtendedRefSVDMW extends DmwWrapper {
      * Sets the svExtendedRef to the specified value.
      * @param value A value compatible with SomeRelation
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1428)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1433)
     public void setSvExtendedRef(Object value) throws DmcValueException {
         ((ExtendedRefSVDMO) core).setSvExtendedRef(value);
     }
@@ -108,7 +93,7 @@ public class ExtendedRefSVDMW extends DmwWrapper {
     /**
      * Removes the svExtendedRef attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1538)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1543)
     public void remSvExtendedRef(){
         ((ExtendedRefSVDMO) core).remSvExtendedRef();
     }

@@ -1027,6 +1027,7 @@ public class DmoFormatter {
 		else{
 			sb.append("     * @return An Iterator of " + typeName + " objects.\n");
 			sb.append("     */\n");
+	    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    static public Iterator<" + typeName + "> get" + functionName + "(DmcObject core){\n");
 			sb.append("        " + attrType + " attr = (" + attrType + ") get(core, " + ad.getDMSAGReference() + ");\n");
@@ -1051,7 +1052,7 @@ public class DmoFormatter {
     	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
     	sb.append("        \n");
     	sb.append("        attr.add(value);\n");
-    	sb.append("        add(core, __" + ad.getName() + ",attr);\n");
+    	sb.append("        add(core, " + ad.getDMSAGReference() + ",attr);\n");
     	sb.append("        return(attr);\n");
 		sb.append("    }\n\n");
 

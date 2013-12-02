@@ -76,8 +76,8 @@ public class GenUtility {
 		
 		anyMVAttributes.set(false);
 		anySVAttributes.set(false);
-//		if ((cd != null) && cd.getName().getNameString().startsWith("ExtendedRefSV"))
-//			DebugInfo.debug("HERE");
+		if ((cd != null) && cd.getName().getNameString().startsWith("WifiStatsInfo"))
+			DebugInfo.debug("HERE");
 		
 //		boolean interested = false;
 //		String	theType = " ";
@@ -206,16 +206,19 @@ public class GenUtility {
 		if ( (cd != null) && (cd.getFullAttrMap().size() > 0) )
 			anyAttributes = true;
 		
-		if (cd == null){
-			if (anyMVAttributes.booleanValue())
-				addImport(uniqueImports, longestImport, "java.util.*", "Always required if we have any MV attributes");
-		}
-		else{
-			if (cd.getClassType() != ClassTypeEnum.AUXILIARY){
-				if (anyMVAttributes.booleanValue())
-					addImport(uniqueImports, longestImport, "java.util.*", "Always required if we have any MV attributes");
-			}
-		}
+//		if (cd == null){
+//			if (anyMVAttributes.booleanValue())
+//				addImport(uniqueImports, longestImport, "java.util.*", "Always required if we have any MV attributes");
+//		}
+//		else{
+//			if (cd.getClassType() != ClassTypeEnum.AUXILIARY){
+//				if (anyMVAttributes.booleanValue())
+//					addImport(uniqueImports, longestImport, "java.util.*", "Always required if we have any MV attributes");
+//			}
+//		}
+		
+		if (anyMVAttributes.booleanValue())
+			addImport(uniqueImports, longestImport, "java.util.*", "Always required if we have any MV attributes");
 			
 		if ( (cd != null) && (cd.getClassType() != ClassTypeEnum.AUXILIARY))
 			addImport(uniqueImports, longestImport, "java.io.Serializable", "Always required");

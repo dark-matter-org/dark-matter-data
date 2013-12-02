@@ -30,7 +30,7 @@ import org.dmd.dmc.types.DefinitionName;    // key type import
  * The DmcTypeAConceptBaseREFMAP provides storage for a map of AConceptBaseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2839)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2842)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
@@ -73,7 +73,7 @@ public class DmcTypeAConceptBaseREFMAP extends DmcTypeAConceptBaseREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2896)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2899)
     public DmcAttribute<AConceptBaseREF> cloneIt(){
         synchronized(this){
             DmcTypeAConceptBaseREFMAP rc = getNew();
@@ -92,7 +92,7 @@ public class DmcTypeAConceptBaseREFMAP extends DmcTypeAConceptBaseREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2916)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2919)
     public AConceptBaseREF add(Object v) throws DmcValueException {
         synchronized(this){
             AConceptBaseREF newval = typeCheck(v);
@@ -112,7 +112,7 @@ public class DmcTypeAConceptBaseREFMAP extends DmcTypeAConceptBaseREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2937)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2940)
     public AConceptBaseREF del(Object key){
         synchronized(this){
     
@@ -127,7 +127,7 @@ public class DmcTypeAConceptBaseREFMAP extends DmcTypeAConceptBaseREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2953)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2956)
     public Iterator<AConceptBaseREF> getMV(){
         synchronized(this){
     
@@ -143,7 +143,7 @@ public class DmcTypeAConceptBaseREFMAP extends DmcTypeAConceptBaseREF implements
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2970)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2973)
     public Map<DefinitionName,AConceptBaseREF> getMVCopy(){
         synchronized(this){
             Map<DefinitionName,AConceptBaseREF> clone = null;
@@ -163,7 +163,7 @@ public class DmcTypeAConceptBaseREFMAP extends DmcTypeAConceptBaseREF implements
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2991)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2994)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -174,7 +174,7 @@ public class DmcTypeAConceptBaseREFMAP extends DmcTypeAConceptBaseREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3003)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3006)
     public AConceptBaseREF getByKey(Object key){
         synchronized(this){
            if (value == null)
@@ -188,7 +188,7 @@ public class DmcTypeAConceptBaseREFMAP extends DmcTypeAConceptBaseREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3018)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3021)
     public boolean contains(Object v){
         synchronized(this){
            if (value == null)
@@ -204,7 +204,7 @@ public class DmcTypeAConceptBaseREFMAP extends DmcTypeAConceptBaseREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3035)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3038)
     public boolean containsKey(Object key){
         synchronized(this){
            if (value == null)

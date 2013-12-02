@@ -17,16 +17,16 @@ package org.dmd.dmt.dsd.dsdb.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:366)
-import org.dmd.dmc.*;                                                     // If any attributes - (BaseDMWGenerator.java:1006)
+import org.dmd.dmc.*;                                                     // If any attributes - (BaseDMWGenerator.java:1011)
 import org.dmd.dmc.definitions.DmcDefinitionIF;                           // The object is a domain specific definition - (BaseDMWGenerator.java:335)
-import org.dmd.dmc.types.DefinitionName;                                  // Is named by - (BaseDMWGenerator.java:985)
-import org.dmd.dmc.types.DotName;                                         // Primitive type - (BaseDMWGenerator.java:1069)
-import org.dmd.dms.ClassDefinition;                                       // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:990)
-import org.dmd.dms.DSDefinition;                                          // Derived class - (BaseDMWGenerator.java:1167)
-import org.dmd.dmt.dsd.dsdb.server.extended.BConceptBase;                 // Required for getModificationRecorder() - (BaseDMWGenerator.java:999)
-import org.dmd.dmt.dsd.dsdb.server.extended.ModuleB;                      // Is reference type - (BaseDMWGenerator.java:1026)
-import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.BConceptBaseDMO;         // Abstract class - (BaseDMWGenerator.java:1149)
-import org.dmd.dmt.dsd.dsdb.shared.generated.types.ModuleBREF;            // Is reference type REF - (BaseDMWGenerator.java:1034)
+import org.dmd.dmc.types.DefinitionName;                                  // Is named by - (BaseDMWGenerator.java:986)
+import org.dmd.dmc.types.DotName;                                         // Primitive type - (BaseDMWGenerator.java:1074)
+import org.dmd.dms.ClassDefinition;                                       // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:991)
+import org.dmd.dms.DSDefinition;                                          // Derived class - (BaseDMWGenerator.java:1172)
+import org.dmd.dmt.dsd.dsdb.server.extended.BConceptBase;                 // Required for getModificationRecorder() - (BaseDMWGenerator.java:1000)
+import org.dmd.dmt.dsd.dsdb.server.extended.ModuleB;                      // Is reference type - (BaseDMWGenerator.java:1031)
+import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.BConceptBaseDMO;         // Abstract class - (BaseDMWGenerator.java:1154)
+import org.dmd.dmt.dsd.dsdb.shared.generated.types.ModuleBREF;            // Is reference type REF - (BaseDMWGenerator.java:1039)
 
 
 
@@ -55,7 +55,7 @@ abstract public class BConceptBaseDMW extends DSDefinition implements DmcDefinit
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGenerator.getAccessFunctions(BaseDMWGenerator.java:1216)
+    // org.dmd.dmg.generators.BaseDMWGenerator.getAccessFunctions(BaseDMWGenerator.java:1221)
     public DefinitionName getObjectName(){
         return(((BConceptBaseDMO) core).getName());
     }
@@ -78,7 +78,7 @@ abstract public class BConceptBaseDMW extends DSDefinition implements DmcDefinit
     /**
      * @return A ModuleB object.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1353)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1358)
     public ModuleB getDefinedInModuleB(){
         ModuleBREF ref = ((BConceptBaseDMO) core).getDefinedInModuleB();
         if (ref == null)
@@ -94,7 +94,7 @@ abstract public class BConceptBaseDMW extends DSDefinition implements DmcDefinit
      * Sets the definedInModuleB to the specified value.
      * @param value A value compatible with ModuleBREF
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1438)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1443)
     public void setDefinedInModuleB(ModuleB value) {
         ((BConceptBaseDMO) core).setDefinedInModuleB(value.getDMO());
     }
@@ -103,7 +103,7 @@ abstract public class BConceptBaseDMW extends DSDefinition implements DmcDefinit
      * Sets the definedInModuleB to the specified value.
      * @param value A value compatible with ModuleBREF
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1447)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1452)
     public void setDefinedInModuleB(Object value) throws DmcValueException {
         ((BConceptBaseDMO) core).setDefinedInModuleB(value);
     }
@@ -111,12 +111,12 @@ abstract public class BConceptBaseDMW extends DSDefinition implements DmcDefinit
     /**
      * Removes the definedInModuleB attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1538)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1543)
     public void remDefinedInModuleB(){
         ((BConceptBaseDMO) core).remDefinedInModuleB();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1393)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1398)
     public DotName getDotName(){
         return(((BConceptBaseDMO) core).getDotName());
     }
@@ -125,7 +125,7 @@ abstract public class BConceptBaseDMW extends DSDefinition implements DmcDefinit
      * Sets dotName to the specified value.
      * @param value A value compatible with DmcTypeDotName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1503)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1508)
     public void setDotName(Object value) throws DmcValueException {
         ((BConceptBaseDMO) core).setDotName(value);
     }
@@ -134,7 +134,7 @@ abstract public class BConceptBaseDMW extends DSDefinition implements DmcDefinit
      * Sets dotName to the specified value.
      * @param value DotName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1512)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1517)
     public void setDotName(DotName value){
         ((BConceptBaseDMO) core).setDotName(value);
     }
@@ -142,12 +142,12 @@ abstract public class BConceptBaseDMW extends DSDefinition implements DmcDefinit
     /**
      * Removes the dotName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1538)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1543)
     public void remDotName(){
         ((BConceptBaseDMO) core).remDotName();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1393)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1398)
     public DefinitionName getName(){
         return(((BConceptBaseDMO) core).getName());
     }
@@ -156,7 +156,7 @@ abstract public class BConceptBaseDMW extends DSDefinition implements DmcDefinit
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1503)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1508)
     public void setName(Object value) throws DmcValueException {
         ((BConceptBaseDMO) core).setName(value);
     }
@@ -165,7 +165,7 @@ abstract public class BConceptBaseDMW extends DSDefinition implements DmcDefinit
      * Sets name to the specified value.
      * @param value DefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1512)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1517)
     public void setName(DefinitionName value){
         ((BConceptBaseDMO) core).setName(value);
     }
@@ -173,7 +173,7 @@ abstract public class BConceptBaseDMW extends DSDefinition implements DmcDefinit
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1538)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1543)
     public void remName(){
         ((BConceptBaseDMO) core).remName();
     }

@@ -817,7 +817,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 						// Don't import the schema of indexed, object refs
 					}
 					else{
-						if (useWrappedObjectRefs)
+						if (useWrappedObjectRefs && (cd.getClassType() != ClassTypeEnum.AUXILIARY))
 							imports.addImport(ad.getDefinedIn().getDMSASGImport(), "Attribute " + ad.getName() + " from the " + ad.getDefinedIn().getName() + " schema");
 						else{
 							if ( (ad.getValueType() == ValueTypeEnum.HASHMAPPED) || (ad.getValueType() == ValueTypeEnum.TREEMAPPED))
@@ -830,8 +830,9 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 //									}
 //								}
 							}
-							else
+							else if (cd.getClassType() != ClassTypeEnum.AUXILIARY){
 								imports.addImport(ad.getDefinedIn().getDMSASGImport(), "Attribute " + ad.getName() + " from the " + ad.getDefinedIn().getName() + " schema");
+							}
 						}
 					}
 				}
@@ -998,6 +999,10 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 		if (cd.getDmwWrapperType(genContext) == WrapperTypeEnum.EXTENDED){
 			imports.addImport(cd.getDmeImport(), "Required for getModificationRecorder()");
 		}
+		
+		if ( (cd.getClassType() == ClassTypeEnum.AUXILIARY) && anyMVAttributes){
+			imports.addImport("java.util.Iterator", "To iterate over MV attributes in an AUX class");
+		}
 			
 		if (needDmwOmni)
 			imports.addImport("org.dmd.dmw.DmwOmni", "Have DmcObjectName attributes");
@@ -1096,7 +1101,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 					if (td.getIsRefType() && (td.getOriginalClass().getIsNamedBy() == null)){
 						
 					}
-					else if (useWrappedObjectRefs)
+					else if (useWrappedObjectRefs && td.getIsRefType())
 						imports.addImport("java.util.ArrayList", "To support getMVCopy()");
 				}
 				break;
@@ -2986,12 +2991,16 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("    }\n\n");
 		}
 		else{
-	    	sb.append("    /**\n");
+//			String itClass = ad.getType().getDmwIteratorClass();
+
+			sb.append("    /**\n");
 			sb.append("     * @return An Iterator of " + typeName + " objects.\n");
 			sb.append("     */\n");
+			sb.append("     @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+//			sb.append("    static public " + itClass + " get" + functionName + "(" + baseWrapper + " corew){\n");
 			sb.append("    static public Iterator<" + typeName + "> get" + functionName + "(" + baseWrapper + " corew){\n");
-			sb.append("        return(corew.getDmcObject().get(__" + ad.getName() + ");\n");
+			sb.append("        return((Iterator<" + typeName + ">)corew.getDmcObject().get(__" + ad.getName() + "));\n");
 			sb.append("    }\n\n");
 			
 	    	////////////////////////////////////////////////////////////////////////////////
@@ -3003,7 +3012,19 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    static public void add" + functionName + "(" + baseWrapper + " corew, Object value) throws DmcValueException {\n");
-	    	sb.append("        corew.getDmcObject().add(__" + ad.getName() + "(, value);\n");
+			sb.append("        addAuxIfRequired(corew);\n");
+	    	sb.append("        DmcAttribute<?> attr = corew.getDmcObject().get(__" + ad.getName() + ");\n");
+	    	sb.append("        if (attr == null)\n");
+	    	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
+	    	sb.append("        \n");
+	    	sb.append("        try{\n");
+//	    	sb.append("            setLastValue(attr.add(value));\n");
+	    	sb.append("            corew.getDmcObject().add(__" + ad.getName() + ",attr);\n");
+	    	sb.append("        }\n");
+	    	sb.append("        catch(DmcValueException ex){\n");
+	    	sb.append("            throw(new IllegalStateException(\"The type specific add() method shouldn't throw exceptions!\",ex));\n");
+	    	sb.append("        }\n");
+//	    	sb.append("        corew.getDmcObject().add(__" + ad.getName() + ", value);\n");
 			sb.append("    }\n\n");
 			
 	    	////////////////////////////////////////////////////////////////////////////////
