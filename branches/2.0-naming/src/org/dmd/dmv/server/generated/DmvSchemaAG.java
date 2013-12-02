@@ -1,20 +1,5 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2013 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
-//	---------------------------------------------------------------------------
-//	dark-matter-data
 //	Copyright (c) 2010 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
@@ -137,7 +122,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _AllowedAttributesRuleDataOBJ.setClassType("STRUCTURAL");
             _AllowedAttributesRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _AllowedAttributesRuleDataOBJ.setLineNumber("22");
-            _AllowedAttributesRuleDataOBJ.addDescription("java.util.AbstractList$Itr@55f157b");
+            _AllowedAttributesRuleDataOBJ.addDescription("java.util.ArrayList$Itr@6117e6b6");
             _AllowedAttributesRuleDataOBJ.setDerivedFrom("meta.RuleData");
             _AllowedAttributesRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _AllowedAttributesRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.AllowedAttributesRuleDataREF");
@@ -160,7 +145,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _InitRuleDataOBJ.setClassType("EXTENSIBLE");
             _InitRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _InitRuleDataOBJ.setLineNumber("54");
-            _InitRuleDataOBJ.addDescription("java.util.AbstractList$Itr@257b40fe");
+            _InitRuleDataOBJ.addDescription("java.util.ArrayList$Itr@682be886");
             _InitRuleDataOBJ.setDerivedFrom("meta.RuleData");
             _InitRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _InitRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.InitRuleDataREF");
@@ -183,7 +168,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _NumericRangeRuleDataOBJ.setClassType("STRUCTURAL");
             _NumericRangeRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _NumericRangeRuleDataOBJ.setLineNumber("80");
-            _NumericRangeRuleDataOBJ.addDescription("java.util.AbstractList$Itr@3ee7f6eb");
+            _NumericRangeRuleDataOBJ.addDescription("java.util.ArrayList$Itr@1aaeead8");
             _NumericRangeRuleDataOBJ.setDerivedFrom("meta.RuleData");
             _NumericRangeRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _NumericRangeRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.NumericRangeRuleDataREF");
@@ -209,7 +194,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _UCOAllowedAttributesRuleDataOBJ.setClassType("STRUCTURAL");
             _UCOAllowedAttributesRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _UCOAllowedAttributesRuleDataOBJ.setLineNumber("90");
-            _UCOAllowedAttributesRuleDataOBJ.addDescription("java.util.AbstractList$Itr@6f03de90");
+            _UCOAllowedAttributesRuleDataOBJ.addDescription("java.util.ArrayList$Itr@51bc1897");
             _UCOAllowedAttributesRuleDataOBJ.setDerivedFrom("meta.RuleData");
             _UCOAllowedAttributesRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _UCOAllowedAttributesRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.UCOAllowedAttributesRuleDataREF");
@@ -232,7 +217,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _RelatedNumbersRuleDataOBJ.setClassType("STRUCTURAL");
             _RelatedNumbersRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _RelatedNumbersRuleDataOBJ.setLineNumber("135");
-            _RelatedNumbersRuleDataOBJ.addDescription("java.util.AbstractList$Itr@6708f8e0");
+            _RelatedNumbersRuleDataOBJ.addDescription("java.util.ArrayList$Itr@13f28b6d");
             _RelatedNumbersRuleDataOBJ.setDerivedFrom("meta.RuleData");
             _RelatedNumbersRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _RelatedNumbersRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.RelatedNumbersRuleDataREF");
@@ -258,7 +243,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _CheckAttributesBasedOnValueRuleDataOBJ.setClassType("STRUCTURAL");
             _CheckAttributesBasedOnValueRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _CheckAttributesBasedOnValueRuleDataOBJ.setLineNumber("164");
-            _CheckAttributesBasedOnValueRuleDataOBJ.addDescription("java.util.AbstractList$Itr@163b4b1e");
+            _CheckAttributesBasedOnValueRuleDataOBJ.addDescription("java.util.ArrayList$Itr@315351de");
             _CheckAttributesBasedOnValueRuleDataOBJ.setDerivedFrom("meta.RuleData");
             _CheckAttributesBasedOnValueRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _CheckAttributesBasedOnValueRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.CheckAttributesBasedOnValueRuleDataREF");
@@ -285,7 +270,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _OneOfTheseAttributesRequiredRuleDataOBJ.setClassType("STRUCTURAL");
             _OneOfTheseAttributesRequiredRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _OneOfTheseAttributesRequiredRuleDataOBJ.setLineNumber("199");
-            _OneOfTheseAttributesRequiredRuleDataOBJ.addDescription("java.util.AbstractList$Itr@ec0a9f9");
+            _OneOfTheseAttributesRequiredRuleDataOBJ.addDescription("java.util.ArrayList$Itr@5523df1e");
             _OneOfTheseAttributesRequiredRuleDataOBJ.setDerivedFrom("meta.RuleData");
             _OneOfTheseAttributesRequiredRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _OneOfTheseAttributesRequiredRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.OneOfTheseAttributesRequiredRuleDataREF");
@@ -310,7 +295,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _PatternMatchRuleDataOBJ.setClassType("STRUCTURAL");
             _PatternMatchRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _PatternMatchRuleDataOBJ.setLineNumber("227");
-            _PatternMatchRuleDataOBJ.addDescription("java.util.AbstractList$Itr@ad72200");
+            _PatternMatchRuleDataOBJ.addDescription("java.util.ArrayList$Itr@260d563d");
             _PatternMatchRuleDataOBJ.setDerivedFrom("meta.RuleData");
             _PatternMatchRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _PatternMatchRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.PatternMatchRuleDataREF");
@@ -335,7 +320,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ValueLengthRuleDataOBJ.setClassType("STRUCTURAL");
             _ValueLengthRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _ValueLengthRuleDataOBJ.setLineNumber("300");
-            _ValueLengthRuleDataOBJ.addDescription("java.util.AbstractList$Itr@31f9338f");
+            _ValueLengthRuleDataOBJ.addDescription("java.util.ArrayList$Itr@3598d24f");
             _ValueLengthRuleDataOBJ.setDerivedFrom("meta.RuleData");
             _ValueLengthRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _ValueLengthRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.ValueLengthRuleDataREF");
@@ -361,7 +346,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ReferencedAttributeTypeRuleDataOBJ.setClassType("STRUCTURAL");
             _ReferencedAttributeTypeRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _ReferencedAttributeTypeRuleDataOBJ.setLineNumber("366");
-            _ReferencedAttributeTypeRuleDataOBJ.addDescription("java.util.AbstractList$Itr@5fa80aea");
+            _ReferencedAttributeTypeRuleDataOBJ.addDescription("java.util.ArrayList$Itr@44175c06");
             _ReferencedAttributeTypeRuleDataOBJ.setDerivedFrom("meta.RuleData");
             _ReferencedAttributeTypeRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _ReferencedAttributeTypeRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.ReferencedAttributeTypeRuleDataREF");

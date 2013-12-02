@@ -1,30 +1,15 @@
-//	---------------------------------------------------------------------------
-//	dark-matter-data
-//	Copyright (c) 2013 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
 package org.dmd.dmt.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:366)
-import org.dmd.dmc.*;                                                    // If any attributes - (BaseDMWGenerator.java:1006)
-import org.dmd.dms.ClassDefinition;                                      // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:990)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                              // Required for MODREC constructor - (BaseDMWGenerator.java:995)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                    // Required for MODREC constructor - (BaseDMWGenerator.java:994)
-import org.dmd.dmt.server.generated.dmw.TestBasicObjectFixedDMW;         // Is reference type - (BaseDMWGenerator.java:1026)
-import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;         // For setNth of TestBasicObjectFixed - (BaseDMWGenerator.java:1833)
-import org.dmd.dmt.shared.generated.dmo.UnnamedObjMVIDXDMO;              // Class not auxiliary or abstract - (BaseDMWGenerator.java:1171)
-import org.dmd.dmw.DmwWrapper;                                           // Unnamed object wrapper - (BaseDMWGenerator.java:1154)
+import org.dmd.dmc.*;                                                    // If any attributes - (BaseDMWGenerator.java:1011)
+import org.dmd.dms.ClassDefinition;                                      // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:991)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                              // Required for MODREC constructor - (BaseDMWGenerator.java:996)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                    // Required for MODREC constructor - (BaseDMWGenerator.java:995)
+import org.dmd.dmt.server.generated.dmw.TestBasicObjectFixedDMW;         // Is reference type - (BaseDMWGenerator.java:1031)
+import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;         // For setNth of TestBasicObjectFixed - (BaseDMWGenerator.java:1838)
+import org.dmd.dmt.shared.generated.dmo.UnnamedObjMVIDXDMO;              // Class not auxiliary or abstract - (BaseDMWGenerator.java:1176)
+import org.dmd.dmw.DmwWrapper;                                           // Unnamed object wrapper - (BaseDMWGenerator.java:1159)
 
 
 
@@ -76,7 +61,7 @@ public class UnnamedObjMVIDXDMW extends DmwWrapper {
     /**
      * @return The number of TestBasicObjectFixed items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1590)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1595)
     public int getMvIdxUnnamedObjSize(){
         return(((UnnamedObjMVIDXDMO) core).getMvIdxUnnamedObjSize());
     }
@@ -84,7 +69,7 @@ public class UnnamedObjMVIDXDMW extends DmwWrapper {
     /**
      * @return true if there are no TestBasicObjectFixedDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1598)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1603)
     public boolean getMvIdxUnnamedObjIsEmpty(){
         if (((UnnamedObjMVIDXDMO) core).getMvIdxUnnamedObjSize() == 0)
             return(true);
@@ -94,7 +79,7 @@ public class UnnamedObjMVIDXDMW extends DmwWrapper {
     /**
      * @return true if there are any TestBasicObjectFixedDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1608)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1613)
     public boolean getMvIdxUnnamedObjHasValue(){
         if (((UnnamedObjMVIDXDMO) core).getMvIdxUnnamedObjSize() == 0)
             return(false);
@@ -105,7 +90,7 @@ public class UnnamedObjMVIDXDMW extends DmwWrapper {
      * Sets the mvIdxUnnamedObj value at the specified index.
      * @param value A value compatible with TestBasicObjectFixed
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1850)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1855)
     public DmcAttribute<?> setNthMvIdxUnnamedObj(int index, TestBasicObjectFixedDMW value){
         if (value == null)
             return(((UnnamedObjMVIDXDMO) core).setNthMvIdxUnnamedObj(index, null));
@@ -116,7 +101,7 @@ public class UnnamedObjMVIDXDMW extends DmwWrapper {
     /**
      * @return The TestBasicObjectFixedDMW object at the specified index.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1894)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1899)
     public TestBasicObjectFixedDMW getNthMvIdxUnnamedObj(int index){
         TestBasicObjectFixedDMO dmo = ((UnnamedObjMVIDXDMO) core).getNthMvIdxUnnamedObj(index);
         if (dmo == null)
@@ -128,7 +113,7 @@ public class UnnamedObjMVIDXDMW extends DmwWrapper {
     /**
      * Removes the mvIdxUnnamedObj attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2211)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2216)
     public void remMvIdxUnnamedObj(){
         ((UnnamedObjMVIDXDMO) core).remMvIdxUnnamedObj();
     }

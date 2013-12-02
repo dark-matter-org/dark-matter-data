@@ -15,7 +15,7 @@ import org.dmd.dmc.types.UUIDName;    // key type import
  * The DmcTypeUUIDNamedObjectREFMAP provides storage for a map of UUIDNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2839)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2842)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
@@ -58,7 +58,7 @@ public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2896)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2899)
     public DmcAttribute<UUIDNamedObjectREF> cloneIt(){
         synchronized(this){
             DmcTypeUUIDNamedObjectREFMAP rc = getNew();
@@ -77,7 +77,7 @@ public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2916)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2919)
     public UUIDNamedObjectREF add(Object v) throws DmcValueException {
         synchronized(this){
             UUIDNamedObjectREF newval = typeCheck(v);
@@ -97,7 +97,7 @@ public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2937)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2940)
     public UUIDNamedObjectREF del(Object key){
         synchronized(this){
     
@@ -112,7 +112,7 @@ public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2953)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2956)
     public Iterator<UUIDNamedObjectREF> getMV(){
         synchronized(this){
     
@@ -128,7 +128,7 @@ public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF impl
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2970)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2973)
     public Map<UUIDName,UUIDNamedObjectREF> getMVCopy(){
         synchronized(this){
             Map<UUIDName,UUIDNamedObjectREF> clone = null;
@@ -148,7 +148,7 @@ public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF impl
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2991)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2994)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -159,7 +159,7 @@ public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3003)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3006)
     public UUIDNamedObjectREF getByKey(Object key){
         synchronized(this){
            if (value == null)
@@ -173,7 +173,7 @@ public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3018)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3021)
     public boolean contains(Object v){
         synchronized(this){
            if (value == null)
@@ -189,7 +189,7 @@ public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3035)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3038)
     public boolean containsKey(Object key){
         synchronized(this){
            if (value == null)

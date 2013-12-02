@@ -9,7 +9,7 @@ import org.dmd.dmt.shared.generated.dmo.ExtendedRefMVIDXDMO;    // DmcType impor
  * The DmcTypeExtendedRefMVIDXREFSV provides storage for a single-valued ExtendedRefMVIDX
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1966)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1969)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:254)
  */
 @SuppressWarnings("serial")
@@ -34,14 +34,14 @@ public class DmcTypeExtendedRefMVIDXREFSV extends DmcTypeExtendedRefMVIDXREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2001)
     public DmcAttribute<ExtendedRefMVIDXDMO> cloneIt(){
         DmcTypeExtendedRefMVIDXREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2009)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2012)
     public ExtendedRefMVIDXDMO getSVCopy(){
         if (value == null)
             return(null);
@@ -49,7 +49,7 @@ public class DmcTypeExtendedRefMVIDXREFSV extends DmcTypeExtendedRefMVIDXREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2021)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2024)
     public ExtendedRefMVIDXDMO set(Object v) throws DmcValueException {
         ExtendedRefMVIDXDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

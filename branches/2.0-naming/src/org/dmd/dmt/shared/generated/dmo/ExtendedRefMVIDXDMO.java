@@ -1,16 +1,16 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:393)
-import java.io.Serializable;                                             // Always required - (GenUtility.java:221)
-import org.dmd.dmc.DmcAttribute;                                         // Any attributes - (GenUtility.java:237)
-import org.dmd.dmc.DmcObject;                                            // Structural class - (GenUtility.java:348)
-import org.dmd.dmc.DmcOmni;                                              // Lazy resolution - (GenUtility.java:329)
-import org.dmd.dmc.DmcSliceInfo;                                         // Required for object slicing - (GenUtility.java:226)
-import org.dmd.dmc.DmcValueException;                                    // Any attributes - (GenUtility.java:238)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                              // Required for MODREC constructor - (GenUtility.java:225)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                    // Required for MODREC constructor - (GenUtility.java:224)
-import org.dmd.dmt.shared.generated.types.DmcTypeSomeRelationMV;         // Required type - (GenUtility.java:325)
-import org.dmd.dmt.shared.generated.types.SomeRelation;                  // Extended reference type - (GenUtility.java:323)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:396)
+import java.io.Serializable;                                             // Always required - (GenUtility.java:224)
+import org.dmd.dmc.DmcAttribute;                                         // Any attributes - (GenUtility.java:240)
+import org.dmd.dmc.DmcObject;                                            // Structural class - (GenUtility.java:351)
+import org.dmd.dmc.DmcOmni;                                              // Lazy resolution - (GenUtility.java:332)
+import org.dmd.dmc.DmcSliceInfo;                                         // Required for object slicing - (GenUtility.java:229)
+import org.dmd.dmc.DmcValueException;                                    // Any attributes - (GenUtility.java:241)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                              // Required for MODREC constructor - (GenUtility.java:228)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                    // Required for MODREC constructor - (GenUtility.java:227)
+import org.dmd.dmt.shared.generated.types.DmcTypeSomeRelationMV;         // Required type - (GenUtility.java:328)
+import org.dmd.dmt.shared.generated.types.SomeRelation;                  // Extended reference type - (GenUtility.java:326)
 
 /**
  * <P>
@@ -65,7 +65,7 @@ public class ExtendedRefMVIDXDMO  extends DmcObject  implements Serializable  {
     /**
      * @return The nth SomeRelation value and attempt lazy resolution if it's on.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1035)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1038)
     public SomeRelation getNthMvIdxExtendedRef(int i){
         DmcTypeSomeRelationMV attr = (DmcTypeSomeRelationMV) get(DmtDMSAG.__mvIdxExtendedRef);
         if (attr == null)
@@ -84,7 +84,7 @@ public class ExtendedRefMVIDXDMO  extends DmcObject  implements Serializable  {
     /**
      * @return The nth SomeRelation value without attempting lazy resolution.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1054)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1057)
     public SomeRelation getNthMvIdxExtendedRefREF(int i){
         DmcTypeSomeRelationMV attr = (DmcTypeSomeRelationMV) get(DmtDMSAG.__mvIdxExtendedRef);
         if (attr == null)
@@ -97,7 +97,7 @@ public class ExtendedRefMVIDXDMO  extends DmcObject  implements Serializable  {
      * Sets the mvIdxExtendedRef value at the specified index.
      * @param value SomeRelation
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1068)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1071)
     public DmcAttribute<?> setNthMvIdxExtendedRef(int index, SomeRelation value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxExtendedRef);
         if (attr == null){
@@ -128,7 +128,7 @@ public class ExtendedRefMVIDXDMO  extends DmcObject  implements Serializable  {
      * Adds another mvIdxExtendedRef value.
      * @param value A value compatible with SomeRelation
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1242)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1245)
     public DmcAttribute<?> addMvIdxExtendedRef(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxExtendedRef);
         if (attr == null)
@@ -142,7 +142,7 @@ public class ExtendedRefMVIDXDMO  extends DmcObject  implements Serializable  {
     /**
      * Returns the number of values in mvIdxExtendedRef
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1259)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1262)
     public int getMvIdxExtendedRefSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxExtendedRef);
         if (attr == null){
@@ -158,7 +158,7 @@ public class ExtendedRefMVIDXDMO  extends DmcObject  implements Serializable  {
      * Deletes a mvIdxExtendedRef value.
      * @param value The SomeRelation to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1298)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1301)
     public DmcAttribute<?> delMvIdxExtendedRef(Object value){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxExtendedRef);
         
@@ -173,7 +173,7 @@ public class ExtendedRefMVIDXDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the mvIdxExtendedRef attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1352)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1355)
     public void remMvIdxExtendedRef(){
          rem(DmtDMSAG.__mvIdxExtendedRef);
     }
