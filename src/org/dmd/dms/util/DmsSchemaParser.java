@@ -21,6 +21,7 @@ import java.util.Iterator;
 import java.util.Stack;
 
 import org.dmd.dmc.DmcAttributeInfo;
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcNameClashObjectSet;
 import org.dmd.dmc.DmcNameClashResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
@@ -160,8 +161,9 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
      * NOTE: If WARNINGs are encountered, we still the schema - just check for the
      * presence of WARNINGs on the result set when parsing is complete.
      * @throws DmcRuleExceptionSet 
+     * @throws DmcNameClashException 
      */
-    public SchemaDefinition parseSchema(SchemaManager am, String schemaName, boolean terse) throws ResultException, DmcValueException, DmcRuleExceptionSet {
+    public SchemaDefinition parseSchema(SchemaManager am, String schemaName, boolean terse) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
         SchemaDefinition rc;
         
         allSchema = am;
@@ -183,7 +185,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
         return(rc);
     }
     
-    public void checkRules(SchemaDefinition sd) throws DmcRuleExceptionSet {
+    public void checkRules(SchemaDefinition sd) throws DmcRuleExceptionSet, DmcNameClashException, DmcValueException {
         // And finally, after everything has been parsed and resolved, we go back over the rule instances
         // and sanity check them. Well, it's not quite that simple. We are applying rules to the rules
         // themselves and we have to dynamically instantiate the rules and initialize them with rule data.
@@ -231,13 +233,14 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
      * @throws ResultException 
      * @throws DmcValueException 
      * @throws DmcRuleExceptionSet 
+     * @throws DmcNameClashException 
      * @throws DmcValueExceptionSet 
      * @returns The requested schema is returned if all goes well, otherwise
      * null is returned.
      * NOTE: If WARNINGs are encountered, we still the schema - just check for the
      * presence of WARNINGs on the result set when parsing is complete.
      */
-    SchemaDefinition parseSchemaInternal(String schemaName) throws ResultException, DmcValueException, DmcRuleExceptionSet {
+    SchemaDefinition parseSchemaInternal(String schemaName) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
 //    	DmsSchemaLocation	location	= finder.getLocation(schemaName);
     	ConfigVersion		config		= finder.getConfig(schemaName);
     	ConfigLocation		location	= null;
@@ -314,9 +317,10 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
      * @throws ResultException 
      * @throws DmcValueException 
      * @throws DmcRuleExceptionSet 
+     * @throws DmcNameClashException 
      * @throws DmcValueExceptionSet 
      */
-    public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException, DmcRuleExceptionSet {
+    public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
         ClassDefinition     cd                  = null;
         boolean             isSchema            = false;
         DmsDefinition    	newDef              = null;

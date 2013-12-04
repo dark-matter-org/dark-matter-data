@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcNamedObjectREF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcOmni;
@@ -41,7 +42,7 @@ public class Summarizer {
 //    DmoObjectFactory	dmofactory;
 //    DmwObjectFactory	dmwFactory;
 
-    public Summarizer(SchemaManager sm, String od){
+    public Summarizer(SchemaManager sm, String od) throws DmcNameClashException{
 		allSchemasByID 		= new TreeMap<Integer, SchemaDefinition>();
 		allSchemasByName 	= new TreeMap<String, SchemaDefinition>();
 		definitionsByLetter = new TreeMap<String, TreeMap<String,DmsDefinition>>();

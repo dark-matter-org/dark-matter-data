@@ -8,6 +8,7 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcCompactSchemaIF;
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
@@ -82,7 +83,7 @@ public class DmvDynamicRuleManager extends DmcRuleManager {
 		return(rc);
 	}
 	
-	public void loadAndCheckRules(SchemaManager sm, SchemaDefinition sd) throws DmcRuleExceptionSet {
+	public void loadAndCheckRules(SchemaManager sm, SchemaDefinition sd) throws DmcRuleExceptionSet, DmcNameClashException, DmcValueException {
 		DmcRuleExceptionSet		rc 			= null;
 	    DmoObjectFactory 		dmofactory 	= new DmoObjectFactory(sm);
 	    ArrayList<RuleDataDMO>	allRuleData = new ArrayList<RuleDataDMO>();

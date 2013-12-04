@@ -22,6 +22,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import org.dmd.dmc.DmcNameClashException;
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 import org.dmd.dmg.util.GeneratorUtils;
 import org.dmd.dms.ClassDefinition;
@@ -62,8 +64,10 @@ public class DSDArtifactFormatter {
 	 * @param sd the schema to load from the DMG config
 	 * @param sm
 	 * @throws IOException  
+	 * @throws DmcNameClashException 
+	 * @throws DmcValueException 
 	 */
-	public void generateCode(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaDefinition sd, SchemaManager sm) throws IOException {
+	public void generateCode(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaDefinition sd, SchemaManager sm) throws IOException, DmcNameClashException, DmcValueException {
 		DebugInfo.debug(loc.toString());
 		
 		DebugInfo.debug(config.toOIF());
@@ -299,7 +303,7 @@ public class DSDArtifactFormatter {
 	///////////////////////////////////////////////////////////////////////////
 	
 	
-	void generateParser(DmgConfigDMO config, String dir, DSDefinitionModule ddm, SchemaManager sm) throws IOException {
+	void generateParser(DmgConfigDMO config, String dir, DSDefinitionModule ddm, SchemaManager sm) throws IOException, DmcNameClashException, DmcValueException {
 		ManagedFileWriter out = FileUpdateManager.instance().getWriter(dir, ddm.getName() + "Parser.java");
 		
 		ImportManager imports = new ImportManager();
@@ -320,7 +324,8 @@ public class DSDArtifactFormatter {
 		String schemaName = GeneratorUtils.dotNameToCamelCase(sd.getName().getNameString());
 		
 		imports.addImport(sd.getDmwPackage() + ".generated." + schemaName + "SchemaAG", "The schema recognized by this parser");
-		imports.addImport("org.dmd.dmc.DmcValueException", "May be thrown by schema management");
+		imports.addImport("org.dmd.dmc.DmcValueException", "May be thrown when parsing objects");
+		imports.addImport("org.dmd.dmc.DmcNameClashException", "May be thrown when instantiating objects");
 		imports.addImport("org.dmd.util.exceptions.ResultException", "May be thrown by schema management");
 		imports.addImport("org.dmd.dmc.rules.DmcRuleExceptionSet", "May be thrown by rule manager");
 		imports.addImport("org.dmd.dmv.shared.DmvRuleManager", "The injected rule manager used for initializations");
@@ -344,7 +349,7 @@ public class DSDArtifactFormatter {
 		out.write("    final static String fileExtension = \"" + ddm.getFileExtension() + "\";\n\n");
 		
 		MemberManager members = new MemberManager();
-		members.addMember("SchemaManager",                   "schema", "new SchemaManager()", "Manages the schema for this DSD");
+		members.addMember("SchemaManager",                   "schema", "Manages the schema for this DSD");
 		members.addMember("DmcUncheckedOIFParser",           "parser", "new DmcUncheckedOIFParser(this)", "Parses objects from the config file");
 		members.addMember("DmwObjectFactory",                "factory", "new DmwObjectFactory(schema)", "Instantiates wrapped objects");
 		members.addMember(ddm.getGlobalInterfaceName(), "definitions", "Place to store parsed definitions");
@@ -356,7 +361,8 @@ public class DSDArtifactFormatter {
 		out.write("\n");
 		
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-		out.write("    public " + ddm.getName() + "Parser(" + ddm.getGlobalInterfaceName() + " d, DmvRuleManager r) throws ResultException, DmcValueException {\n");
+		out.write("    public " + ddm.getName() + "Parser(" + ddm.getGlobalInterfaceName() + " d, DmvRuleManager r) throws ResultException, DmcValueException, DmcNameClashException {\n");
+		out.write("        schema = new SchemaManager();\n");
 		out.write("        schema.manageSchema(new " + schemaName + "SchemaAG());\n");
 		out.write("        definitions  = d;\n");
 		out.write("        rules        = r;\n");
@@ -367,7 +373,7 @@ public class DSDArtifactFormatter {
 		out.write("    }\n\n");
 		
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-		out.write("    public " + ddm.getName() + " parseConfig(ConfigLocation l) throws ResultException, DmcValueException, DmcRuleExceptionSet {\n");
+		out.write("    public " + ddm.getName() + " parseConfig(ConfigLocation l) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {\n");
 		out.write("        location = l;\n");
 		out.write("\n");
 		out.write("        // We're starting to parse a new config. Reset the module to null so that we only parse one module per config.\n");
@@ -402,7 +408,7 @@ public class DSDArtifactFormatter {
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		ClassDefinition baseClass = (ClassDefinition) ddm.getBaseDefinition();
 		out.write("    @Override\n");
-		out.write("    public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException, DmcRuleExceptionSet {\n");
+		out.write("    public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {\n");
 		out.write("        " + baseClass.getName() + " definition = null;\n");
 		out.write("\n");
 		out.write("        try{\n");
@@ -517,8 +523,10 @@ public class DSDArtifactFormatter {
 	 * @param dir
 	 * @param ddm
 	 * @throws IOException  
+	 * @throws DmcNameClashException 
+	 * @throws DmcValueException 
 	 */
-	void generateParsingCoordinator(DmgConfigDMO config, String dir, DSDefinitionModule ddm, TreeMap<String, DSDefinitionModule> includedModules, SchemaManager sm) throws IOException {
+	void generateParsingCoordinator(DmgConfigDMO config, String dir, DSDefinitionModule ddm, TreeMap<String, DSDefinitionModule> includedModules, SchemaManager sm) throws IOException, DmcNameClashException, DmcValueException {
 		ImportManager 	imports = new ImportManager();
 		MemberManager	members	= new MemberManager();
 		ManagedFileWriter out = FileUpdateManager.instance().getWriter(dir, ddm.getName() + "ParsingCoordinator.java");
@@ -531,6 +539,7 @@ public class DSDArtifactFormatter {
 		
 		imports.addImport("org.dmd.dmc.types.DefinitionName", "Allows storage of parsed configs by name");
 		imports.addImport("org.dmd.dmc.DmcValueException", "To handle exceptions from value handling");
+		imports.addImport("org.dmd.dmc.DmcNameClashException", "To handle exceptions from parsing objects");
 		imports.addImport("org.dmd.util.exceptions.ResultException", "To handle processing exceptions");
 		imports.addImport("org.dmd.dmc.rules.DmcRuleExceptionSet", "In case we have rule failures");
 		
@@ -573,7 +582,8 @@ public class DSDArtifactFormatter {
 		
 		out.write(members.getFormattedMembers() + "\n");
 		
-		out.write("    public " + ddm.getName() + "ParsingCoordinator(" + ddm.getGeneratorInterfaceName() + " g, ArrayList<String> sourceDirs, ArrayList<String> jars) throws ResultException, DmcValueException, IOException {\n");
+		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    public " + ddm.getName() + "ParsingCoordinator(" + ddm.getGeneratorInterfaceName() + " g, ArrayList<String> sourceDirs, ArrayList<String> jars) throws ResultException, DmcValueException, DmcNameClashException, IOException {\n");
 
 		out.write("\n");
 		out.write("        generator = g;\n");
@@ -590,7 +600,7 @@ public class DSDArtifactFormatter {
 		out.write("    }\n\n");
 		out.write("\n");
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-		out.write("    public void generateForConfig(String configName) throws ResultException, DmcValueException, DmcRuleExceptionSet {\n");
+		out.write("    public void generateForConfig(String configName) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {\n");
 		out.write("        ConfigVersion version = finderFor" + ddm.getName() + ".getConfig(configName);\n");
 		out.write("        \n");
 		out.write("        if (version == null){\n");
@@ -612,7 +622,7 @@ public class DSDArtifactFormatter {
 		out.write("    }\n\n");
 
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-		out.write("    public void generateForAllConfigs() throws ResultException, DmcValueException, DmcRuleExceptionSet {\n");
+		out.write("    public void generateForAllConfigs() throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {\n");
 		out.write("\n");
 		out.write("        Iterator<ConfigLocation> it = finderFor" + ddm.getName() + ".getLocations();\n");
 		out.write("        while(it.hasNext()){\n");
@@ -727,6 +737,7 @@ public class DSDArtifactFormatter {
 		imports.addImport("java.io.IOException", "In case we have problems opening/writin got files");
 		imports.addImport("org.dmd.util.exceptions.ResultException", "To handle parsing exceptions");
 		imports.addImport("org.dmd.dmc.DmcValueException", "To handle fundamental value errors");
+		imports.addImport("org.dmd.dmc.DmcNameClashException", "To handle parsing errors");
 		imports.addImport("org.dmd.dmc.rules.DmcRuleExceptionSet", "To handle rule errors");
 		
 		members.addMember(ddm.getName() + "ParsingCoordinator", "parser", "Module parser");
@@ -762,7 +773,7 @@ public class DSDArtifactFormatter {
 		out.write("     *\n");
 		out.write("     * @param args the command line arguments\n");
 		out.write("     */\n");
-		out.write("    public void run(String[] args) throws ResultException, DmcValueException, IOException, DmcRuleExceptionSet {\n");
+		out.write("    public void run(String[] args) throws ResultException, DmcValueException, IOException, DmcRuleExceptionSet, DmcNameClashException {\n");
 		out.write("\n");
 		out.write("        commandLine.parseArgs(args);\n");
 		out.write("\n");
@@ -784,8 +795,10 @@ public class DSDArtifactFormatter {
 	 * derive and specialize.
 	 * @param sm 
 	 * @throws IOException 
+	 * @throws DmcNameClashException 
+	 * @throws DmcValueException 
 	 */
-	void generateGeneratorInterface(DmgConfigDMO config, String dir, DSDefinitionModule ddm, SchemaManager sm) throws IOException{
+	void generateGeneratorInterface(DmgConfigDMO config, String dir, DSDefinitionModule ddm, SchemaManager sm) throws IOException, DmcNameClashException, DmcValueException {
 		ImportManager 	imports = new ImportManager();
 		ManagedFileWriter out = FileUpdateManager.instance().getWriter(dir, ddm.getName() + "GeneratorInterface.java");
 		

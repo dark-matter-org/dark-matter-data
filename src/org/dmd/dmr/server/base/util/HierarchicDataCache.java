@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcHierarchicObjectName;
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
@@ -103,7 +104,7 @@ public class HierarchicDataCache implements DmcNameResolverIF {
 		return(data.get(name));
 	}	
 	
-	public void loadData(SchemaManager sm, String fn) throws ResultException, DmcValueException, DmcRuleExceptionSet {
+	public void loadData(SchemaManager sm, String fn) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
 		HierarchyParser parser = new HierarchyParser(sm, this);
 		
 		parser.readHierarchy(fn);

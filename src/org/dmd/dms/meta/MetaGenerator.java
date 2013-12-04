@@ -24,6 +24,7 @@ import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmc.util.DmcUncheckedObject;
@@ -159,7 +160,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		parser.addPreserveNewlinesAttribute("description");
 	}
 
-	public void run(String[] args) throws DmcValueException, DmcRuleExceptionSet {
+	public void run(String[] args) throws DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
 
 		try {
 			FileUpdateManager.instance().generationStarting();

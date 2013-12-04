@@ -19,6 +19,7 @@ import java.util.Iterator;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectName;
@@ -331,8 +332,10 @@ public class DMPEvent extends DMPEventDMW {
 	 * If the event object has generated/extended DMW code, this method will return the 
 	 * DMO wrapped in its associated DMW object.
 	 * @return The wrapped DMO.
+	 * @throws DmcNameClashException 
+	 * @throws DmcValueException  
 	 */
-	public DmwWrapper getSourceObjectWrapped(){
+	public DmwWrapper getSourceObjectWrapped() throws DmcNameClashException, DmcValueException {
 		if (getSourceObject() == null)
 			return(null);
 		return(DmwOmni.instance().wrapIt(getSourceObject()));

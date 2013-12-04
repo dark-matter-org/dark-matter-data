@@ -1,10 +1,12 @@
 package org.dmd.dmw;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcOmni;
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dmw.DmwWrapper;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
@@ -74,8 +76,10 @@ public class DmwOmni extends DmcOmni {
 	 * A convenience function that will attempt to wrap the specified DMO.
 	 * @param dmo
 	 * @return The DMO inside its wrapper.
+	 * @throws DmcNameClashException  
+	 * @throws DmcValueException 
 	 */
-	public DmwWrapper wrapIt(DmcObject dmo){
+	public DmwWrapper wrapIt(DmcObject dmo) throws DmcNameClashException, DmcValueException {
 		// BIG NOTE: this method is often called when dealing with events as a convenience 
 		// mechanism to get back a wrapped object. However, if the object is already wrapped,
 		// we DON'T WANT TO RECREATE THE WRAPPER!!!!

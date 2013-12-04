@@ -19,6 +19,7 @@ import java.util.Iterator;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
@@ -60,8 +61,9 @@ public class DmwObjectFactory {
 	 * @throws ResultException 
 	 * @throws DmcValueException 
 	 * @throws ClassNotFoundException  
+	 * @throws DmcNameClashException 
 	 */
-	public DmwWrapper createWrapper(DmcUncheckedObject uco) throws ResultException, DmcValueException, ClassNotFoundException {
+	public DmwWrapper createWrapper(DmcUncheckedObject uco) throws ResultException, DmcValueException, ClassNotFoundException, DmcNameClashException {
 		DmwWrapper 			rc = null;
 		DmcObject			dmo	= null;
 		ClassDefinition		cd	= null;

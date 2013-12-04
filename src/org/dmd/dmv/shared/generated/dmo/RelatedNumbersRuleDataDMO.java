@@ -37,7 +37,7 @@ import org.dmd.dmv.shared.generated.enums.NumericRelationEnum;                  
 import org.dmd.dmv.shared.generated.types.DmcTypeNumericRelationEnumSV;         // Required type - (GenUtility.java:328)
 
 /**
- * java.util.ArrayList$Itr@2fe07ce4
+ * java.util.AbstractList$Itr@368b1a4f
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>

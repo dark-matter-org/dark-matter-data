@@ -14,13 +14,13 @@
 
     <div id="content">
 
-<!-- org.dmd.dms.doc.web.SchemaPage.writeSchemaSummary(SchemaPage.java:335) -->
+<!-- org.dmd.dms.doc.web.SchemaPage.writeSchemaSummary(SchemaPage.java:336) -->
 
   <div class="schemaName"> meta </div>
 
   <div class="summary">
 
-<!-- org.dmd.dms.doc.web.SchemaPage.writeClassSummary(SchemaPage.java:370) -->
+<!-- org.dmd.dms.doc.web.SchemaPage.writeClassSummary(SchemaPage.java:371) -->
 
     <div class="classList">
     <h2> Classes (19)</h2>
@@ -120,7 +120,7 @@
       <td> name </td>
       </tr>
     </table>
-    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeTypeSummary(SchemaPage.java:412) -->
+    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeTypeSummary(SchemaPage.java:413) -->
 
     <div class="typeList">
     <h2>Types (33)</h2>
@@ -159,7 +159,7 @@
       <li> <a class="deflink" href="#UUIDLite"> UUIDLite </a></li>
       <li> <a class="deflink" href="#UUIDName"> UUIDName </a></li>
     </ul>
-    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeComplexTypeSummary(SchemaPage.java:432) -->
+    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeComplexTypeSummary(SchemaPage.java:433) -->
 
     <div class="complextypeList">
     <h2>Complex Types (3)</h2>
@@ -168,7 +168,7 @@
       <li> <a class="deflink" href="#Field"> Field </a></li>
       <li> <a class="deflink" href="#RuleParam"> RuleParam </a></li>
     </ul>
-    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeEnumSummary(SchemaPage.java:466) -->
+    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeEnumSummary(SchemaPage.java:467) -->
 
     <div class="enumList">
     <h2>Enums (13)</h2>
@@ -187,7 +187,7 @@
       <li> <a class="deflink" href="#ValueTypeEnum"> ValueTypeEnum </a></li>
       <li> <a class="deflink" href="#WrapperTypeEnum"> WrapperTypeEnum </a></li>
     </ul>
-    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeRuleCategorySummary(SchemaPage.java:500) -->
+    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeRuleCategorySummary(SchemaPage.java:501) -->
 
     <div class="categories">
     <h2> Rule Categories (5)</h2>
@@ -200,7 +200,7 @@
     </ul>
     </div>  </div> <!--  summary -->
 
-<!-- org.dmd.dms.doc.web.SchemaPage.writeClasses(SchemaPage.java:202) -->
+<!-- org.dmd.dms.doc.web.SchemaPage.writeClasses(SchemaPage.java:203) -->
 
 <div class="classDetails">
 
@@ -1989,6 +1989,13 @@
  indicates a dependence on another module of the same type. For example, in
  dark-matter schemas, the SchemaDefinition uses the dependsOn attribute to
  refer to oher schemas.
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+
+<table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvModuleDependenceAttribute"> The moduleDependenceAttribute attribute must be multi-valued. </a></td> </tr>
+
+</table>
       </td>
     </tr>
 
@@ -4961,7 +4968,7 @@
 
 </div> <!-- classDetails -->
 
-<!-- org.dmd.dms.doc.web.SchemaPage.writeAttributes(SchemaPage.java:222) -->
+<!-- org.dmd.dms.doc.web.SchemaPage.writeAttributes(SchemaPage.java:223) -->
 
 <div class="attributeDetails">
 
@@ -4969,7 +4976,7 @@
 
   <table>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="FQN"> FQN </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4980,7 +4987,10 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@120540c<p/>
+      <td>
+The fully qualified name of a hierarchic object. The exact form of
+ the fqn is application specific.
+<p/>
       </td>
     </tr>
 
@@ -5000,7 +5010,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="abbrev"> abbrev </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5011,7 +5021,11 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@716de067<p/>
+      <td>
+This attribute stores an abbreviated form of the name of an attribute or class. This
+ concept is borrowed from directory technology where shortened name forms are often
+ used as part of distinguished names (DNs).
+<p/>
       </td>
     </tr>
 
@@ -5028,7 +5042,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="actionDefList"> actionDefList </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5039,7 +5053,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@64a7c45e<p/>
+      <td>
+A list of action definition references.
+<p/>
       </td>
     </tr>
 
@@ -5055,7 +5071,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="actions"> actions </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5066,7 +5082,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@424d2af2<p/>
+      <td>
+Indicates the set of actions that are supported by a class of objects.
+<p/>
       </td>
     </tr>
 
@@ -5082,7 +5100,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="allowedParents"> allowedParents </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5093,7 +5111,10 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@583e97df<p/>
+      <td>
+Indicates the classes of object that may be parents of the
+ current class when objects are created in an instance hierarchy.
+<p/>
       </td>
     </tr>
 
@@ -5109,7 +5130,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="altType"> altType </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5120,7 +5141,13 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@7564debb<p/>
+      <td>
+The altType indicates an alternate type for a value. For instance
+ when dealing with NameContainers, the value interface is obviously NameContainer, but
+ the secret sauce of NameContainers is that they also take any DmcObjectName derivative.
+ Specifying the altType on the NameContainer TypeDefinition allows for generation of 
+ the DmcObjectName interface as well.
+<p/>
       </td>
     </tr>
 
@@ -5136,7 +5163,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="altTypeImport"> altTypeImport </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5147,7 +5174,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@315b0333<p/>
+      <td>
+An additional import (if required) by the altType attribute value.
+<p/>
       </td>
     </tr>
 
@@ -5163,7 +5192,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="applyToAttribute"> applyToAttribute </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5174,8 +5203,12 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@4e2f2295<p/>
-      </td>
+      <td>
+Indicates the attribute to which an ATTRIBUTE type rule is applied.
+<p/>
+The applyToAttribute attribute in a NumericRangeRuleData instance must refer to an Integer, Long, Float or Double attribute
+<p/>The applyToAttribute attribute in a ReferencedAttributeTypeRuleData must refer to a single valued AttributeDefinition
+<p/>      </td>
     </tr>
 
     <tr>
@@ -5194,7 +5227,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="applyToClass"> applyToClass </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5205,7 +5238,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@78878c4c<p/>
+      <td>
+The class to which a rule should be applied.
+<p/>
       </td>
     </tr>
 
@@ -5221,7 +5256,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="attachToClass"> attachToClass </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5232,7 +5267,12 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@b0c0f66<p/>
+      <td>
+Indicates the classes of object to which an action is to be attached.
+ This mechanism allows for the extension of a class's behaviour without having
+ to alter the schema of the class involved. This can be viewed as the auxiliary
+ class equivalent for behaviour.
+<p/>
       </td>
     </tr>
 
@@ -5248,7 +5288,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="attributeDefList"> attributeDefList </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5259,7 +5299,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@44c6f734<p/>
+      <td>
+A list of attribute definition references.
+<p/>
       </td>
     </tr>
 
@@ -5275,7 +5317,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="attributeInfoFromParam"> attributeInfoFromParam </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5286,7 +5328,11 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@628f9a32<p/>
+      <td>
+Indicates how the DmcAttributeInfo should be extracted from one of the ruleParam values
+ associated with a RuleCategory. If additional classes are required to support this access, you can specify ruleImport
+ values as appropriate.
+<p/>
       </td>
     </tr>
 
@@ -5302,7 +5348,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="baseDefinition"> baseDefinition </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5313,7 +5359,10 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@41d47b2b<p/>
+      <td>
+A reference to the DSDefinition derived class that is the base class for a 
+ set of definition classes.
+<p/>
       </td>
     </tr>
 
@@ -5329,7 +5378,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="baseType"> baseType </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5340,7 +5389,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@64e265d0<p/>
+      <td>
+The broad base type of the data.
+<p/>
       </td>
     </tr>
 
@@ -5356,7 +5407,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="camelCaseName"> camelCaseName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5367,7 +5418,11 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@4b8a6e6e<p/>
+      <td>
+The camelCaseName attribute is used to store a single camelCase format name for something.
+ The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or 
+ other characters are allowed.
+<p/>
       </td>
     </tr>
 
@@ -5380,7 +5435,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="classDefList"> classDefList </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5391,7 +5446,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@6d581e80<p/>
+      <td>
+A list of class definition references.
+<p/>
       </td>
     </tr>
 
@@ -5407,7 +5464,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="classFilter"> classFilter </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5418,7 +5475,10 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@343a9d95<p/>
+      <td>
+The classFilter is used to performing matching of objects based on
+ their class or auxiliary classes.
+<p/>
       </td>
     </tr>
 
@@ -5434,7 +5494,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="classInfoFromParam"> classInfoFromParam </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5445,7 +5505,11 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@743fbbfc<p/>
+      <td>
+Indicates how the DmcClassInfo should be extracted from one of the ruleParam values
+ associated with a RuleCategory. If additional classes are required to support this access, you can specify ruleImport
+ values as appropriate.
+<p/>
       </td>
     </tr>
 
@@ -5461,7 +5525,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="classType"> classType </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5472,7 +5536,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@44ed904<p/>
+      <td>
+This attribute indicates the type of a class definition.
+<p/>
 If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attributes
 <p/>      </td>
     </tr>
@@ -5490,7 +5556,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="complexTypeDefList"> complexTypeDefList </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5501,7 +5567,9 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@548997d1<p/>
+      <td>
+A list of complex type definition references.
+<p/>
       </td>
     </tr>
 
@@ -5517,7 +5585,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="createAttributeFactory"> createAttributeFactory </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5528,7 +5596,12 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@154e45b3<p/>
+      <td>
+When specified as true on a SchemaDefinition, the DMO generation
+ utility will create a free standing AttributeFactory for the schema. This allows for
+ the creation of attributes taht can then be embedded in complex objects and properly
+ serialized/deserialized.
+<p/>
       </td>
     </tr>
 
@@ -5544,7 +5617,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="dataType"> dataType </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5555,7 +5628,10 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@45c1f5b2<p/>
+      <td>
+This attribute indicates the persistence characteristics of an attribute or
+ class of object. How this information is used is application dependent.
+<p/>
       </td>
     </tr>
 
@@ -5572,7 +5648,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="defFiles"> defFiles </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5583,7 +5659,10 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@40e99ce5<p/>
+      <td>
+A list of files that contain the class, attribute and type definitions
+ that comprise a schema.
+<p/>
       </td>
     </tr>
 
@@ -5603,7 +5682,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="definedIn"> definedIn </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5614,7 +5693,9 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@293b9fae<p/>
+      <td>
+Indicates the schema in which a type, attribute or class is defined.
+<p/>
       </td>
     </tr>
 
@@ -5632,7 +5713,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="definedInModuleAttribute"> definedInModuleAttribute </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5643,7 +5724,10 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@9706da8<p/>
+      <td>
+The name of the attribute that will be set on all definitions associated with a DSD
+ to indicate the module from which a definition was loaded.
+<p/>
       </td>
     </tr>
 
@@ -5659,7 +5743,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="dependencies"> dependencies </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5670,7 +5754,9 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@342f356f<p/>
+      <td>
+A set of references to Dependencies.
+<p/>
       </td>
     </tr>
 
@@ -5687,7 +5773,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="dependency"> dependency </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5698,7 +5784,9 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@75d252d<p/>
+      <td>
+A reference to a single Dependency.
+<p/>
       </td>
     </tr>
 
@@ -5715,7 +5803,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="dependsOn"> dependsOn </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5726,7 +5814,9 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@7433b121<p/>
+      <td>
+A list of schema names.
+<p/>
       </td>
     </tr>
 
@@ -5742,7 +5832,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="dependsOnRef"> dependsOnRef </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5753,7 +5843,10 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@6db22920<p/>
+      <td>
+A list of schema references that are based on the contents of the dependsOn
+ attribute.
+<p/>
       </td>
     </tr>
 
@@ -5769,7 +5862,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="dependsOnSchema"> dependsOnSchema </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5780,11 +5873,13 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@4baa2c23<p/>
+      <td>
+Indicates the schema(s) on which something depends.
+<p/>
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="derivedClasses"> derivedClasses </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5795,7 +5890,9 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@1137d4a4<p/>
+      <td>
+Indicates the classes that are known to be derived from a class.
+<p/>
       </td>
     </tr>
 
@@ -5811,7 +5908,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="derivedFrom"> derivedFrom </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5822,7 +5919,9 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@686963d0<p/>
+      <td>
+Indicates the abstract or structural class from which this class is derived.
+<p/>
       </td>
     </tr>
 
@@ -5838,7 +5937,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="description"> description </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5849,7 +5948,12 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@5f18223d<p/>
+      <td>
+The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation.
+<p/>
       </td>
     </tr>
 
@@ -5904,7 +6008,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="designatedFilterAttribute"> designatedFilterAttribute </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5915,7 +6019,12 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@29700391<p/>
+      <td>
+The designatedFilterAttribute flag is used to identify the attribute
+ designated as the standard wrapper for filters of a particular type. 
+ One, and only one, attribute definition can be the designatedFilterAttribute for a 
+ TypeDefinition that is identified as isFilterType.
+<p/>
       </td>
     </tr>
 
@@ -5931,7 +6040,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="designatedNameAttribute"> designatedNameAttribute </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5942,7 +6051,12 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@78fa39d7<p/>
+      <td>
+The designatedNameAttribute flag is used to identify the attribute
+ designated as the standard wrapper for names of a particular type. One, and only one,
+ attribute definition can be the designatedNameAttribute for a TypeDefinition that has
+ isNameType true.
+<p/>
       </td>
     </tr>
 
@@ -5958,7 +6072,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="dmdID"> dmdID </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5969,7 +6083,10 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@73eb904d<p/>
+      <td>
+The dmdID attribute is used to store a unique Dark Matter Definition ID for attributes.
+ This is used as part of the serialization mechanisms built into Dark Matter Objects.
+<p/>
       </td>
     </tr>
 
@@ -5989,7 +6106,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="dmeClass"> dmeClass </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6000,7 +6117,9 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@6e4eeaaf<p/>
+      <td>
+This attribute indicates just the Dark Matter Extended (DME) class name.
+<p/>
       </td>
     </tr>
 
@@ -6016,7 +6135,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="dmeImport"> dmeImport </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6027,7 +6146,10 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@7f11bfbc<p/>
+      <td>
+This attribute indicates the full name of the class that extends a DMW class.
+ Dark Matter Extended (DME).
+<p/>
       </td>
     </tr>
 
@@ -6043,7 +6165,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="dmoAuxClass"> dmoAuxClass </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6054,7 +6176,9 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@664310d0<p/>
+      <td>
+This attribute indicates just the DMO class name e.g. MyClassAUXDMO
+<p/>
       </td>
     </tr>
 
@@ -6070,7 +6194,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="dmoAuxClassImport"> dmoAuxClassImport </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6081,7 +6205,9 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@3d04fc23<p/>
+      <td>
+This attribute indicates the full name of the MyClassAUXDMO class
+<p/>
       </td>
     </tr>
 
@@ -6097,7 +6223,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="dmoClass"> dmoClass </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6108,7 +6234,9 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@12457d21<p/>
+      <td>
+This attribute indicates just the DMO class name e.g. MyClassDMO
+<p/>
       </td>
     </tr>
 
@@ -6124,7 +6252,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="dmoImport"> dmoImport </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6135,7 +6263,11 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@101a0ae6<p/>
+      <td>
+This attribute indicates the full name of the generated Dark Matter Object (DMO)
+ class (including package) that is generated for this class. The class will always have DmcObject
+ at the top of its derivation hierarchy.
+<p/>
       </td>
     </tr>
 
@@ -6151,7 +6283,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="dmtClass"> dmtClass </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6162,7 +6294,9 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@1dc18a4c<p/>
+      <td>
+This attribute indicates just the DmcType class name.
+<p/>
       </td>
     </tr>
 
@@ -6178,7 +6312,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="dmtImport"> dmtImport </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6189,7 +6323,10 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@d5e92d7<p/>
+      <td>
+This attribute indicates the full name of the DmcType class used to reference
+ a class. These types are auto generated and named DmcType<classname>REF.
+<p/>
       </td>
     </tr>
 
@@ -6205,7 +6342,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="dmtREFImport"> dmtREFImport </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6216,7 +6353,10 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@3bfa681c<p/>
+      <td>
+This attribute indicates the full name of the class used to reference
+ a class. These types are auto generated and named <classname>REF.
+<p/>
       </td>
     </tr>
 
@@ -6232,7 +6372,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="dmwAuxClass"> dmwAuxClass </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6243,7 +6383,9 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@34c92507<p/>
+      <td>
+This attribute indicates just the DMO class name e.g. MyClassAUX
+<p/>
       </td>
     </tr>
 
@@ -6259,7 +6401,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="dmwAuxClassImport"> dmwAuxClassImport </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6270,7 +6412,9 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@19e09a4<p/>
+      <td>
+This attribute indicates the full name of the MyClassAUX class
+<p/>
       </td>
     </tr>
 
@@ -6286,7 +6430,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="dmwClass"> dmwClass </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6297,7 +6441,9 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@2e8aeed0<p/>
+      <td>
+This attribute indicates just the DMW class name, eg MyClassDMW
+<p/>
       </td>
     </tr>
 
@@ -6313,7 +6459,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="dmwImport"> dmwImport </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6324,7 +6470,11 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@2344b18f<p/>
+      <td>
+This attribute indicates the full name of the generated Dark Matter Wrapper (DMW)
+ class (including package) that is wrapped by this class. The class will always be a derived class of
+ DmwWrapperBase.
+<p/>
       </td>
     </tr>
 
@@ -6340,7 +6490,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="dmwIteratorClass"> dmwIteratorClass </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6351,7 +6501,10 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@72e5355f<p/>
+      <td>
+This attribute indicates just the DmcContainerIterator name for a
+ class of object.
+<p/>
       </td>
     </tr>
 
@@ -6368,7 +6521,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="dmwIteratorImport"> dmwIteratorImport </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6379,7 +6532,11 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@26132ae7<p/>
+      <td>
+This attribute indicates the full name of the DmcContainerIterator 
+ derived class that allows us to iterate over a set of object references and get back
+ the DMW wrapper object instead of the DMO.
+<p/>
       </td>
     </tr>
 
@@ -6396,7 +6553,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="dmwPackage"> dmwPackage </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6407,7 +6564,11 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@3465b738<p/>
+      <td>
+Indicates the package where server related Dark Matter Wrapper classes 
+ were generated for this schema. This is used when we're generating derived wrapper
+ classes.
+<p/>
       </td>
     </tr>
 
@@ -6423,7 +6584,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="dmwTypeToPackage"> dmwTypeToPackage </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6434,7 +6595,15 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@1dfd868<p/>
+      <td>
+The dmwTypeToPackage attribute is used to indicate alternative generation
+ packages for the Dark Matter Wrapper (DMW) code generation mechanisms. For instance, if we 
+ want to generate GXT wrappers for use with Sencha's GXT model classes, we could specify
+ dmwTypeToPackage gxt com.example.client. Each of schemas that's loaded for generation would
+ have to have this same attribute specified so that, if there were derived classes across
+ schemas, the appropriate wrapper derivations could be determined. See the ClassDefintion.adjustClass()
+ method to see how this is used.
+<p/>
       </td>
     </tr>
 
@@ -6450,7 +6619,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="dmwWrapperType"> dmwWrapperType </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6461,7 +6630,10 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@ef894ce<p/>
+      <td>
+The dmwWrapperType is used to indicate whether or not you want extended wrappers
+ when the wrappers are generated for an object in a particular generation context.
+<p/>
       </td>
     </tr>
 
@@ -6477,7 +6649,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="dotName"> dotName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6488,7 +6660,9 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@61f1680f<p/>
+      <td>
+The dotName attribute is used to store dot separated names.
+<p/>
       </td>
     </tr>
 
@@ -6508,7 +6682,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="dsdModuleDefinition"> dsdModuleDefinition </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6519,7 +6693,10 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@2fe6e305<p/>
+      <td>
+The DSDefinitionModule that resulted in the creation of an
+ internally generated ClassDefinition.
+<p/>
       </td>
     </tr>
 
@@ -6535,7 +6712,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="dsdModuleList"> dsdModuleList </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6546,7 +6723,9 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@5f4275d4<p/>
+      <td>
+The set of DSDefinitionModules defined in a schema.
+<p/>
       </td>
     </tr>
 
@@ -6562,7 +6741,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="enumDefList"> enumDefList </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6573,7 +6752,9 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@445e228<p/>
+      <td>
+A list of EnumDefinitions.
+<p/>
       </td>
     </tr>
 
@@ -6589,7 +6770,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="enumInt"> enumInt </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6600,11 +6781,13 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@802b249<p/>
+      <td>
+The integer value associated with an enumeration value.
+<p/>
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="enumName"> enumName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6615,7 +6798,9 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@6906daba<p/>
+      <td>
+The original name of an enum as referred to in the internally generated type for enums.
+<p/>
       </td>
     </tr>
 
@@ -6631,7 +6816,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="enumString"> enumString </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6642,11 +6827,13 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@41021f34<p/>
+      <td>
+The string value associated with an enumeration value.
+<p/>
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="enumValue"> enumValue </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6657,7 +6844,10 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@724eb043<p/>
+      <td>
+Indicates the set of enum values associated with an enumeration type
+ definition.
+<p/>
       </td>
     </tr>
 
@@ -6673,7 +6863,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="exampleUsage"> exampleUsage </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6684,7 +6874,10 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@c163956<p/>
+      <td>
+The exampleUsage attribute is used to provide additional
+ examples of how some defined thing is to be used.
+<p/>
       </td>
     </tr>
 
@@ -6700,7 +6893,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="excludeFromContext"> excludeFromContext </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6711,7 +6904,12 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@70e434d<p/>
+      <td>
+The excludeFromContext attribute is used to indicate that
+ a class of object (and all of its derivatives) should be excluded from the wrapper
+ generation for the specified context. An example usage is in the Dark Matter Protocol
+ where we don't want to generate wrappers for the message objects in a GXT context.
+<p/>
       </td>
     </tr>
 
@@ -6727,7 +6925,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="extendedClass"> extendedClass </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6738,7 +6936,10 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@396477d9<p/>
+      <td>
+The extendedClass indicates the fully qualified name of the class
+ that is derived from the generated ComplexType to provide additional behaviour.
+<p/>
       </td>
     </tr>
 
@@ -6754,7 +6955,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="extendedReferenceClass"> extendedReferenceClass </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6765,7 +6966,10 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@72f864fe<p/>
+      <td>
+Indicates the class of object to which an 
+ ExtendedReferenceTypeDefinition refers.
+<p/>
       </td>
     </tr>
 
@@ -6781,7 +6985,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="extendedReferenceTypeDefList"> extendedReferenceTypeDefList </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6792,7 +6996,9 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@11ae9aaa<p/>
+      <td>
+A list of extended reference type definition references.
+<p/>
       </td>
     </tr>
 
@@ -6808,7 +7014,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="extendsInterface"> extendsInterface </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6819,11 +7025,13 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@5e2c17f7<p/>
+      <td>
+Indicates the fully qualifed name of an interface that an interface extends.
+<p/>
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="field"> field </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6834,7 +7042,9 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@20d9896e<p/>
+      <td>
+The field indicates a type and name for a field in a ComplexType.
+<p/>
       </td>
     </tr>
 
@@ -6850,7 +7060,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="fieldSeparator"> fieldSeparator </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6861,7 +7071,11 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@29cda59b<p/>
+      <td>
+The fieldSeparator is used to indicate the separation character used
+ when a ComplexType is represented as a String. If a fieldSeparator isn't specified, it is
+ assumed to be a space.
+<p/>
       </td>
     </tr>
 
@@ -6877,7 +7091,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="file"> file </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6888,7 +7102,9 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@7c33788d<p/>
+      <td>
+Indicates the file from which a definition was loaded.
+<p/>
       </td>
     </tr>
 
@@ -6906,7 +7122,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="fileExtension"> fileExtension </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6917,7 +7133,9 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@172fb0af<p/>
+      <td>
+Indicates the extension of files of a particular type.
+<p/>
 A file extension should be comprised of alpha-numeric characters.
 <p/>      </td>
     </tr>
@@ -6934,7 +7152,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="filterAttributeDef"> filterAttributeDef </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6945,7 +7163,11 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@3bf8bd0d<p/>
+      <td>
+The filterAttributeDef is a reference to the attribute that is locked
+ to a TypeDefinition that is flagged as filterType. This mechanism is used to create the
+ correct type of DmcType[FILTERTYPE]SV derivative for a value of type DmcFilter.
+<p/>
       </td>
     </tr>
 
@@ -6961,7 +7183,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="generatedFileHeader"> generatedFileHeader </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6972,7 +7194,11 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@4743bf3d<p/>
+      <td>
+The name of file that coresides with the schema.dms file that
+ contains a common header to be applied to all generated code. For instance, you
+ might want a common licensing comment at the top of your generated files.
+<p/>
       </td>
     </tr>
 
@@ -6989,7 +7215,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="genericArgs"> genericArgs </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7000,7 +7226,10 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@30c06258<p/>
+      <td>
+This attribute indicates the generic arguments to be supplied in the
+ use of a class in an autogenerated Iterable.
+<p/>
       </td>
     </tr>
 
@@ -7017,7 +7246,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="genericArgsImport"> genericArgsImport </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7028,7 +7257,10 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@26789869<p/>
+      <td>
+Indicates the import required to support a genericArgs specification i.e. if you're
+ not specifying something like <?>, an additional import may be required.
+<p/>
       </td>
     </tr>
 
@@ -7044,7 +7276,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="getMethod"> getMethod </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7055,11 +7287,14 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@375e293a<p/>
+      <td>
+If you want to return a value other than the native value class, use the appropriate
+ getType and specify the method you need to call on the DmdValue derived class to return it.
+<p/>
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="getType"> getType </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7070,11 +7305,15 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@6e4bb3c<p/>
+      <td>
+Indicates the type of value that will be returned when an attribute value
+ is returned for a type definition; a type definition defines only one get type.
+ This must be a Java class reference and not a primitive type e.g. int.
+<p/>
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="helperClassName"> helperClassName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7085,7 +7324,12 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@12c063ad<p/>
+      <td>
+This attribute indicates the full name of the generated helper class for 
+ object references i.e. if you had a ClassDefinition X, the framework generates a 
+ types/XREF class which is subsequently used by the DmcTypeXREF class to store references
+ to objects of the defined class.
+<p/>
       </td>
     </tr>
 
@@ -7101,7 +7345,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="immediateHalt"> immediateHalt </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7112,7 +7356,12 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@14cffc79<p/>
+      <td>
+The immediateHalt flag is used to indicate that no further
+ rule processing should occur if a rule fails. It is an optional attribute on rule instance
+ objects. In somes cases, there is no point in continuing with the application of a set 
+ of rules, so this flag gives the option of halting further processing.
+<p/>
       </td>
     </tr>
 
@@ -7128,7 +7377,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="indexSize"> indexSize </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7139,7 +7388,14 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@62c8769b<p/>
+      <td>
+The indexSize is used in conjunction with the MULTI valueType to
+ indicate that the attribute may have the specified number of values and is integer indexed.
+ Indexed attributes may be thought of as having a predetermined number of slots into which
+ values may be stored. When indexed, an attribute has values added to it using the setMVnth()
+ interface, not the usual add() interface. If you attempt to use add() with an indexed attribute,
+ an exception will be thrown.
+<p/>
       </td>
     </tr>
 
@@ -7155,7 +7411,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="instantiation"> instantiation </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7166,7 +7422,9 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@56e2ecc7<p/>
+      <td>
+The instantiation attribute specifies how something is to be instantiated.
+<p/>
       </td>
     </tr>
 
@@ -7183,7 +7441,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="integerName"> integerName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7194,7 +7452,9 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@4c272961<p/>
+      <td>
+The object name for objects uniquely identified with an integer.
+<p/>
       </td>
     </tr>
 
@@ -7210,7 +7470,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="intendedToExtend"> intendedToExtend </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7221,7 +7481,11 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@1f0dc656<p/>
+      <td>
+This attribute can be used on AUXILIARY classes to give a hint about their
+ intended usage. For example, if you were extending schema definitions with some or your 
+ own attributes for some purpose, your auxiliary class could have intendedToExtend ClassDefinition.
+<p/>
       </td>
     </tr>
 
@@ -7237,7 +7501,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="internalTypeDefList"> internalTypeDefList </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7248,7 +7512,10 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@41584807<p/>
+      <td>
+A list of type definitions that were generated internally to represent
+ enums and object references.
+<p/>
       </td>
     </tr>
 
@@ -7264,7 +7531,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="internalTypeRef"> internalTypeRef </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7275,7 +7542,10 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@ae0e515<p/>
+      <td>
+Indicates the internal type that's generated for all ClassDefinitions. This
+ is set automatically on ClassDefinitions as they are parsed.
+<p/>
       </td>
     </tr>
 
@@ -7291,7 +7561,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="internalUse"> internalUse </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7302,7 +7572,11 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@32dfcb47<p/>
+      <td>
+Indicates if an attribute is used and set within the Dark Matter Data
+ code generation mechanisms. In the documentation generation code, attributes marked as
+ internalUse WILL NOT be displayed unless you set the -internalUse flag is indicated.
+<p/>
       </td>
     </tr>
 
@@ -7318,7 +7592,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="internallyGenerated"> internallyGenerated </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7329,7 +7603,11 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@29abc69<p/>
+      <td>
+This flag indicates if the associated definition was internally generated.
+ This is the case for TypeDefinitions generated for ClassDefinitions and EnumDefinitions
+ that allow for references to these objects.
+<p/>
       </td>
     </tr>
 
@@ -7346,7 +7624,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="isDSDefinition"> isDSDefinition </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7357,7 +7635,17 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@7cc792d4<p/>
+      <td>
+Indicates if the class defined by a ClassDefinition and its derivatives are part
+ of a domain specific set of definitions. For instance, the definitions associated with the meta schema are
+ considered a set of domain specific definitions for defining data objects; the dark-matter Model View
+ Whatever (MVW) definitions describe a set of domain specific concepts for defining aspects of a GWT
+ application.
+ <p/>
+ A domain specific definition must be named by name and must have dotName as an attribute because the 
+ generated class will implement the DmcDefinitionIF which assumes that these attributes exist. This
+ interface allows these definitions to be managed as part of a set of definitions.
+<p/>
       </td>
     </tr>
 
@@ -7373,7 +7661,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="isDefaultValue"> isDefaultValue </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7384,11 +7672,13 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@1278dc4c<p/>
+      <td>
+This flag is set to true to indicate the default value for a type (e.g. an enum).
+<p/>
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="isEnumType"> isEnumType </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7399,7 +7689,9 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@3cc70b0d<p/>
+      <td>
+This flag is set to true for type definitions that define enumerations.
+<p/>
       </td>
     </tr>
 
@@ -7415,7 +7707,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="isExtendedRefType"> isExtendedRefType </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7426,7 +7718,10 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@2fa6a1a7<p/>
+      <td>
+This flag is used to indicate taht an internally generated type
+ is an extended reference type.
+<p/>
       </td>
     </tr>
 
@@ -7442,7 +7737,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="isExtensible"> isExtensible </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7453,7 +7748,11 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@64bef361<p/>
+      <td>
+Indicates whether or not the ClassDefinition associated with a RuleDefinition has classType EXTENSIBLE
+ or not. This mechanism is useful in situations where the exact set of attributes associated with a rule must be flexible.
+ The best example is the InitRule where any set of attributes can be specified as value for the rule.
+<p/>
       </td>
     </tr>
 
@@ -7469,7 +7768,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="isFilterType"> isFilterType </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7480,7 +7779,9 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@345c98f3<p/>
+      <td>
+Indicates that a type is derived from DmcFilter.
+<p/>
       </td>
     </tr>
 
@@ -7496,7 +7797,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="isGetAction"> isGetAction </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7507,7 +7808,12 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@2b3d9460<p/>
+      <td>
+This flag indicates if an Action is merely a data retrieval (get) Action.
+ Actions that are flagged with this attribute set to true will be executable
+ even when the server is in a read-only mode because they don't actually
+ alter data.
+<p/>
       </td>
     </tr>
 
@@ -7523,7 +7829,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="isHierarchicName"> isHierarchicName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7534,7 +7840,9 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@57d840cd<p/>
+      <td>
+Indicates if a name type is for hierarchic objects.
+<p/>
       </td>
     </tr>
 
@@ -7550,7 +7858,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="isNameType"> isNameType </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7561,7 +7869,10 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@36867fc9<p/>
+      <td>
+This attribute indicates if a defined type is used for naming purposes.
+ This allows us to automatically add attributes of this type to the AttributeFactories.
+<p/>
       </td>
     </tr>
 
@@ -7577,7 +7888,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="isNamedBy"> isNamedBy </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7588,7 +7899,12 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@382f8116<p/>
+      <td>
+Indicates the attribute by which an object of some class is named.
+ When this attribute is supplied in a ClassDefinition, the generated DMO class will
+ indicate that it implements the DmcNamedObjectIF and its getObjectName() method
+ will return the value of the isNamedBy attribute.
+<p/>
       </td>
     </tr>
 
@@ -7604,7 +7920,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="isRefType"> isRefType </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7615,7 +7931,10 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@36c3e82b<p/>
+      <td>
+This flag is set to true for type definitions that refer to other
+ objects.
+<p/>
       </td>
     </tr>
 
@@ -7631,7 +7950,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="isSchemaRtype"> isSchemaRtype </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7642,11 +7961,14 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@77bf7b23<p/>
+      <td>
+This flag is set to true for type definitions that refer to other
+ schema-related definitions.
+<p/>
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="javaClass"> javaClass </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7657,7 +7979,12 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@3c2d7440<p/>
+      <td>
+This attribute indicates the full name of the class (including package)
+ that should be instantiated when an instance of an object is created via the
+ DmdClassDef.newInstance() function. The class must be a derived class of
+ DmdGenericObject.
+<p/>
       </td>
     </tr>
 
@@ -7673,7 +8000,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="keyClass"> keyClass </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7684,7 +8011,10 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@4c2b349d<p/>
+      <td>
+This attribute indicates the class of the key used for types that support
+ storage in a MAP.
+<p/>
       </td>
     </tr>
 
@@ -7700,7 +8030,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="keyImport"> keyImport </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7711,7 +8041,10 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@288b567c<p/>
+      <td>
+Indicates the import for a keyClass. this is required if the keyClass
+ is NOT a primitive java type e.g. Integer, String etc.
+<p/>
       </td>
     </tr>
 
@@ -7727,7 +8060,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="lineNumber"> lineNumber </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7738,7 +8071,9 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@53dafbaf<p/>
+      <td>
+Indicates the line number of the file from which a definition was loaded.
+<p/>
       </td>
     </tr>
 
@@ -7756,7 +8091,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="longName"> longName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7767,7 +8102,9 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@4dc1c92b<p/>
+      <td>
+The object name for objects uniquely identified with a long.
+<p/>
       </td>
     </tr>
 
@@ -7780,7 +8117,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="may"> may </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7791,7 +8128,11 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@6d7e4dee<p/>
+      <td>
+Indicates the set of attributes that an instance of a class MAY
+ have. When accessed in Java, this is a set of references to AttributeDefinition
+ objects.
+<p/>
       </td>
     </tr>
 
@@ -7809,7 +8150,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="mayParm"> mayParm </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7820,7 +8161,10 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@7f2e7c6a<p/>
+      <td>
+Indicates the set of parameters that an action MAY have. When accessed
+ in Java, this is a set of references to AttributeDefinition objects.
+<p/>
       </td>
     </tr>
 
@@ -7836,7 +8180,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="mayReturn"> mayReturn </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7847,7 +8191,10 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@44ea5461<p/>
+      <td>
+Indicates the set of return vals that may be returned as part of a
+ particular action response message.
+<p/>
       </td>
     </tr>
 
@@ -7863,7 +8210,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="maySendProgress"> maySendProgress </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7874,7 +8221,12 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@7449cf9f<p/>
+      <td>
+This flag is used to indicate if a particular request might
+ result in progress indications being sent. Although primarily intended as a
+ documentation aspect, this flag is used within the TL1 subsystem to allow for
+ the creation of a response handler for node requests that send progress text.
+<p/>
       </td>
     </tr>
 
@@ -7890,7 +8242,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="modify"> modify </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7901,7 +8253,9 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@19de0b5e<p/>
+      <td>
+A set of modifications to an object.
+<p/>
       </td>
     </tr>
 
@@ -7918,7 +8272,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="moduleClassName"> moduleClassName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7929,7 +8283,9 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@40bc5596<p/>
+      <td>
+The name of the class that will be generated as a result of a DSDefinitionModule definition.
+<p/>
       </td>
     </tr>
 
@@ -7945,7 +8301,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="moduleDependenceAttribute"> moduleDependenceAttribute </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7956,8 +8312,14 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@c970c0e<p/>
-      </td>
+      <td>
+The name of the attribute in a DSDefinitionModule that
+ indicates a dependence on another module of the same type. For example, in
+ dark-matter schemas, the SchemaDefinition uses the dependsOn attribute to
+ refer to oher schemas.
+<p/>
+The moduleDependenceAttribute attribute must be multi-valued.
+<p/>      </td>
     </tr>
 
     <tr>
@@ -7972,7 +8334,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="msgKey"> msgKey </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7983,7 +8345,11 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@10987197<p/>
+      <td>
+The msgKey may be specified on rule instances to indicate the key to be used
+ to look up translated messages. This is primarily a GWT mechanism, but should be applicable in
+ other contexts.
+<p/>
       </td>
     </tr>
 
@@ -7999,7 +8365,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="msgParam"> msgParam </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8010,7 +8376,10 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@8497904<p/>
+      <td>
+The msgParam allows for the specification of parameters to be substituted
+ into translated messages.
+<p/>
       </td>
     </tr>
 
@@ -8026,7 +8395,7 @@ A file extension should be comprised of alpha-numeric characters.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="must"> must </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8037,7 +8406,9 @@ A file extension should be comprised of alpha-numeric characters.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@fa7f9dc<p/>
+      <td>
+Indicates the set of attributes that an instance of a class MUST have.
+<p/>
 If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attributes
 <p/>      </td>
     </tr>
@@ -8056,7 +8427,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="mustParm"> mustParm </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8067,7 +8438,10 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@5d04e28b<p/>
+      <td>
+Indicates the set of parameters that an action MUST have. When
+ accessed in Java, this is a set of references to AttributeDefinition objects.
+<p/>
       </td>
     </tr>
 
@@ -8083,7 +8457,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="mustReturn"> mustReturn </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8094,7 +8468,10 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@6bb54362<p/>
+      <td>
+Indicates the set of return vals that must be returned as part of a
+ particular action response message.
+<p/>
       </td>
     </tr>
 
@@ -8110,7 +8487,7 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="name"> name </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8121,7 +8498,11 @@ If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attribute
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@495b0e2c<p/>
+      <td>
+The name attribute is used to store a single string token that represents a unique name
+ for an object with the set of definitions of which it is a part. A name starts with a letter followed
+ by letters and numbers.
+<p/>
 The name attribute must start with a letter, followed by a mix of letters and numbers.
 <p/>An EnumDefinition's name must end with Enum
 <p/>      </td>
@@ -8203,7 +8584,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="nameAttributeDef"> nameAttributeDef </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8214,7 +8595,11 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@78ff9053<p/>
+      <td>
+The nameAttributeDef is a reference to the attribute that is locked
+ to a TypeDefinition. This mechanism is used to create the correct type of DmcType[NAMETYPE]*
+ derivative for a value of type DmcObjectName.
+<p/>
       </td>
     </tr>
 
@@ -8230,7 +8615,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="namingAttribute"> namingAttribute </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8241,7 +8626,19 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@525c7734<p/>
+      <td>
+This attribute indicates the attribute that is used to name an object
+ instance. The exact manner in which the naming attribute is used is specific to
+ the implementation of the HierarchicObject derived class.
+ <p>
+ For instance, the DotNamedObject simply uses the value of the naming attribute
+ and separates the attribute values with periods e.g. grandparent.parent.child.
+ <p>
+ For LDAP objects when a hierarchic name is composed for an object, the class name
+ plus the value of the naming attribute (type:value) is used to create the
+ name of an object. It is best if the naming attribute value is created by
+ the application; it shouldn't be based on any user configurable value.
+<p/>
       </td>
     </tr>
 
@@ -8257,7 +8654,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="nullReturnValue"> nullReturnValue </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8268,7 +8665,12 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@3496212a<p/>
+      <td>
+This attribute is used in TypeDefinitions to indicate the value that should be returned when
+ an attribute of the specified type doesn't exist in the object. For example, Boolean values are defined
+ to return false when they aren't actually set on an object. This just gives a convenient mechanism to
+ provide a default value for non-existent attribute values.
+<p/>
       </td>
     </tr>
 
@@ -8286,7 +8688,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="objectClass"> objectClass </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8297,11 +8699,13 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@6c5b675e<p/>
+      <td>
+Used to indicate the classes that an object instance supports.
+<p/>
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="obsoleteVersion"> obsoleteVersion </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8312,7 +8716,12 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@64df83e5<p/>
+      <td>
+This indicates the version at which something became obsolete.
+ Generally speaking you shouldn't ever delete definitions for products that have
+ been released to the field, this may break backwards compatibility. Instead, you
+ should mark them as obsolete.
+<p/>
       </td>
     </tr>
 
@@ -8330,7 +8739,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="opContext"> opContext </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8341,7 +8750,10 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@e4c6320<p/>
+      <td>
+Indicates the operational context for some component e.g. object or attribute
+ validators.
+<p/>
       </td>
     </tr>
 
@@ -8357,7 +8769,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="originalClass"> originalClass </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8368,7 +8780,9 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@38ffd135<p/>
+      <td>
+Refers to the class that an internally generated type represents.
+<p/>
       </td>
     </tr>
 
@@ -8384,7 +8798,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="preserveNewlines"> preserveNewlines </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8395,7 +8809,13 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@23000bcf<p/>
+      <td>
+Indicates that newline characters should be preserved when an
+ attribute is parsed by the DmcUncheckedOIFParser. This is useful for certain attributes
+ when newlines are required to properly format the contents of the attribute at
+ a later time. For example, the description attribute is later dumped as part of 
+ HTML documentation and, if the newlines are stripped, it won't be properly formatted.
+<p/>
       </td>
     </tr>
 
@@ -8411,7 +8831,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="primitiveType"> primitiveType </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8422,7 +8842,9 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@580754fc<p/>
+      <td>
+The primitiveType indicates the underlying type of a DmcType.
+<p/>
       </td>
     </tr>
 
@@ -8438,7 +8860,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="refersToDefsFromDSD"> refersToDefsFromDSD </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8449,7 +8871,14 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@495c998a<p/>
+      <td>
+A reference to another DSDefinitionModule from which the current
+ module makes use of definitions. For instance, the Model View Whatever DSD includes references
+ to schema related definitions. As a result of specifying this, the module
+ class that's generated for the DSDefinitionModule will include the moduleDependenceAttribute
+ of the module from which definitions are used. Likewise, the generated parser
+ will be primed with the schema of required definition module.
+<p/>
       </td>
     </tr>
 
@@ -8465,7 +8894,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="ruleCategory"> ruleCategory </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8476,7 +8905,9 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@5e6458a6<p/>
+      <td>
+The category of a rule.
+<p/>
       </td>
     </tr>
 
@@ -8492,7 +8923,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="ruleCategoryID"> ruleCategoryID </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8503,7 +8934,10 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@df82ab4<p/>
+      <td>
+The numeric ID of a rule category. Category IDs must be unique for all RuleDefinitions defined
+ within a schema.
+<p/>
       </td>
     </tr>
 
@@ -8519,7 +8953,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="ruleCategoryList"> ruleCategoryList </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8530,7 +8964,9 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@1fbb9696<p/>
+      <td>
+The RuleCategories defined in a schema.
+<p/>
       </td>
     </tr>
 
@@ -8546,7 +8982,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="ruleDataList"> ruleDataList </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8557,7 +8993,9 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@549b6220<p/>
+      <td>
+The RuleData defined in a schema.
+<p/>
       </td>
     </tr>
 
@@ -8573,7 +9011,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="ruleDefinition"> ruleDefinition </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8584,7 +9022,10 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@25474e45<p/>
+      <td>
+The RuleDefinition that resulted in the creation of an
+ internally generated ClassDefinition.
+<p/>
       </td>
     </tr>
 
@@ -8600,7 +9041,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="ruleDefinitionList"> ruleDefinitionList </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8611,7 +9052,9 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@6c63a721<p/>
+      <td>
+The RuleDefinitions defined in a schema.
+<p/>
       </td>
     </tr>
 
@@ -8627,7 +9070,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="ruleImport"> ruleImport </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8638,7 +9081,10 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@2719f1f<p/>
+      <td>
+An import required for generation of the rule collection associated with
+ a RuleCategory.
+<p/>
       </td>
     </tr>
 
@@ -8654,7 +9100,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="ruleName"> ruleName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8665,7 +9111,11 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@7185ad79<p/>
+      <td>
+The ruleName attribute is used to store a single camelCase format name for a rule.
+ The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or 
+ other characters are allowed.
+<p/>
       </td>
     </tr>
 
@@ -8696,7 +9146,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="ruleParam"> ruleParam </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8707,7 +9157,9 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@7f401d28<p/>
+      <td>
+A parameter to be supplied to a rule when it is executed.
+<p/>
       </td>
     </tr>
 
@@ -8723,7 +9175,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="ruleTitle"> ruleTitle </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8734,7 +9186,9 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@4a3a6e5c<p/>
+      <td>
+The title of a rule.
+<p/>
       </td>
     </tr>
 
@@ -8765,7 +9219,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="ruleType"> ruleType </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8776,7 +9230,9 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@42238016<p/>
+      <td>
+The type of a rule.
+<p/>
       </td>
     </tr>
 
@@ -8792,7 +9248,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="runContext"> runContext </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8803,7 +9259,9 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@28ae4646<p/>
+      <td>
+A reference to a RunContext.
+<p/>
       </td>
     </tr>
 
@@ -8819,7 +9277,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="schemaBaseID"> schemaBaseID </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8830,7 +9288,11 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@4987b287<p/>
+      <td>
+The base identifier value for a schema. This value is added to each dmdID value
+ associated with the AttributeDefinitions defined by the schema. This allows for easy rebasing of
+ identifier values if required.
+<p/>
       </td>
     </tr>
 
@@ -8846,7 +9308,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="schemaExtension"> schemaExtension </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8857,7 +9319,11 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@6bd9e2c7<p/>
+      <td>
+The fully qualified name of a class that extends the schema management
+ capabilities of the SchemaManager. the class must have a zero arg constructor and implement
+ the SchemaExtensionIF.
+<p/>
       </td>
     </tr>
 
@@ -8873,7 +9339,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="schemaIDRange"> schemaIDRange </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8884,7 +9350,10 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@2db7ae22<p/>
+      <td>
+The maximum number of attribute definitions in a particular schema. This will provide
+ immediate feedback if you exceed the given ID range for your schema.
+<p/>
       </td>
     </tr>
 
@@ -8900,7 +9369,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="schemaPackage"> schemaPackage </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8911,7 +9380,10 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@760951a0<p/>
+      <td>
+Indicates the package that a schema will be part of when its code
+ is generated using DMO generator tool.
+<p/>
       </td>
     </tr>
 
@@ -8927,7 +9399,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="secure"> secure </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8938,7 +9410,11 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@5dce1bea<p/>
+      <td>
+This attribute indicates whether or not the attribute should
+ be encrypted before being transported over the wire or stored in a file or
+ repository
+<p/>
       </td>
     </tr>
 
@@ -8954,7 +9430,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="selectAttribute"> selectAttribute </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8965,7 +9441,10 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@68acfc3<p/>
+      <td>
+The selectAttribute indicates an attribute to be used in the definition
+ of a Slice.
+<p/>
       </td>
     </tr>
 
@@ -8981,7 +9460,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="sliceDefList"> sliceDefList </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8992,7 +9471,9 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@34e0e90<p/>
+      <td>
+A list of slice definition references.
+<p/>
       </td>
     </tr>
 
@@ -9008,7 +9489,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="stringName"> stringName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -9019,7 +9500,10 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@799e11a1<p/>
+      <td>
+The stringName attribute is used to store a simple name for something. It starts
+ with a letter followed letters or numbers.
+<p/>
       </td>
     </tr>
 
@@ -9032,7 +9516,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="subpackage"> subpackage </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -9043,7 +9527,12 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@78979f67<p/>
+      <td>
+The subpackage beneath extended where generated code will be written. This
+ allows for a hierarchic package structure for the classes generated by the dmg and mvc generator
+ utilities. The structure can contain other subpackages etc x.y.z but should not start or end
+ with a period.
+<p/>
       </td>
     </tr>
 
@@ -9059,7 +9548,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="supportsBackrefTracking"> supportsBackrefTracking </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -9070,7 +9559,11 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@2a62610b<p/>
+      <td>
+Indicates if a class of objects supports back reference tracking or not. The
+ default is that all objects support it, however, in places like the Dark Matter Protocol, we
+ don't want to track references in the messages.
+<p/>
       </td>
     </tr>
 
@@ -9086,7 +9579,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="type"> type </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -9097,7 +9590,10 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@20d12eea<p/>
+      <td>
+Indicates the type of an attribute. The value is the name of any
+ previously defined TypeDefinition, ClassDefinition, EnumDefinition or ComplexTypeDefinition.
+<p/>
       </td>
     </tr>
 
@@ -9113,7 +9609,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="typeClassName"> typeClassName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -9124,7 +9620,11 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@55f157b<p/>
+      <td>
+This is the fully qualified name of the class derived from DmcAttribute that provides management
+ of a particular type of attribute value. For instance, the type class that handles String attributes 
+ is org.dmd.dmc.types.DmcTypeString
+<p/>
       </td>
     </tr>
 
@@ -9140,7 +9640,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="typeDefList"> typeDefList </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -9151,7 +9651,9 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@257b40fe<p/>
+      <td>
+A list of type definition references.
+<p/>
       </td>
     </tr>
 
@@ -9167,7 +9669,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="useInterface"> useInterface </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -9178,7 +9680,9 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@3ee7f6eb<p/>
+      <td>
+The fully qualified name of a Java interface or base class that specifies a dependency.
+<p/>
       </td>
     </tr>
 
@@ -9194,7 +9698,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="useWrapperType"> useWrapperType </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -9205,7 +9709,10 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@6f03de90<p/>
+      <td>
+Indicates whether you want to use the generated DMW wrapper
+ or the extended wrapper you've created yourself.
+<p/>
       </td>
     </tr>
 
@@ -9221,7 +9728,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="usesInterface"> usesInterface </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -9232,7 +9739,11 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@6708f8e0<p/>
+      <td>
+This is a hack for now to allow for the inclusion of an 
+ interface on a class; it should be the fully qualified name of the interface.
+ The interface shouldn't require any method implementations.
+<p/>
       </td>
     </tr>
 
@@ -9248,7 +9759,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="uuidName"> uuidName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -9259,7 +9770,9 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@7e0b6ef8<p/>
+      <td>
+The object name for objects uniquely identified with a UUID.
+<p/>
       </td>
     </tr>
 
@@ -9275,7 +9788,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="valueType"> valueType </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -9286,7 +9799,10 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@20a29c6e<p/>
+      <td>
+This attribute indicates the cardinality and storage mechanism for an
+ attribute.
+<p/>
       </td>
     </tr>
 
@@ -9303,7 +9819,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
     <tr> <td class="className" colspan="3"> <a name="wrapperClassName"> wrapperClassName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -9314,7 +9830,12 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>java.util.AbstractList$Itr@13cc0a7f<p/>
+      <td>
+This is the fully qualified name of the wrapper class derived from DmcWrapperBase that
+ wraps a DMO. This is used when generating object reference classes associated with ClassDefinitions
+ This actually aligns to the javaClass of the ClassDefinition for which we're generating the reference
+ classes.
+<p/>
       </td>
     </tr>
 
@@ -9334,7 +9855,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
 
 </div> <!-- attributeDetails -->
 
-<!-- org.dmd.dms.doc.web.SchemaPage.writeTypes(SchemaPage.java:242) -->
+<!-- org.dmd.dms.doc.web.SchemaPage.writeTypes(SchemaPage.java:243) -->
 
 <div class="typeDetails">
 
@@ -9346,7 +9867,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@163b4b1e </td>
+      <td> java.util.AbstractList$Itr@168e4805 </td>
     </tr>
 
     <tr>
@@ -9378,7 +9899,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@ec0a9f9 </td>
+      <td> java.util.AbstractList$Itr@571a4bd4 </td>
     </tr>
 
     <tr>
@@ -9463,7 +9984,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@ad72200 </td>
+      <td> java.util.AbstractList$Itr@7f6877f8 </td>
     </tr>
 
     <tr>
@@ -9476,7 +9997,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@31f9338f </td>
+      <td> java.util.AbstractList$Itr@239c7c21 </td>
     </tr>
 
     <tr>
@@ -9520,7 +10041,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@5fa80aea </td>
+      <td> java.util.AbstractList$Itr@76996cca </td>
     </tr>
 
     <tr>
@@ -9551,7 +10072,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@1164b9b6 </td>
+      <td> java.util.AbstractList$Itr@52b57e9a </td>
     </tr>
 
     <tr>
@@ -9570,7 +10091,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@6bdc64a5 </td>
+      <td> java.util.AbstractList$Itr@98adae2 </td>
     </tr>
 
     <tr>
@@ -9605,7 +10126,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@5253c3f5 </td>
+      <td> java.util.AbstractList$Itr@7b283052 </td>
     </tr>
 
     <tr>
@@ -9648,7 +10169,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@7966340c </td>
+      <td> java.util.AbstractList$Itr@b7c96a9 </td>
     </tr>
 
     <tr>
@@ -9685,7 +10206,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@24e33e18 </td>
+      <td> java.util.AbstractList$Itr@20873723 </td>
     </tr>
 
     <tr>
@@ -9728,7 +10249,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@4301ac93 </td>
+      <td> java.util.AbstractList$Itr@d34eb84 </td>
     </tr>
 
     <tr>
@@ -9759,7 +10280,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@22e90943 </td>
+      <td> java.util.AbstractList$Itr@d522de2 </td>
     </tr>
 
     <tr>
@@ -9790,7 +10311,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@715f1f9c </td>
+      <td> java.util.AbstractList$Itr@e425743 </td>
     </tr>
 
     <tr>
@@ -9809,7 +10330,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@1c1474ea </td>
+      <td> java.util.AbstractList$Itr@256ef705 </td>
     </tr>
 
     <tr>
@@ -9875,7 +10396,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@307bd0d </td>
+      <td> java.util.AbstractList$Itr@181b7c76 </td>
     </tr>
 
     <tr>
@@ -9926,7 +10447,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@710ca208 </td>
+      <td> java.util.AbstractList$Itr@34883357 </td>
     </tr>
 
     <tr>
@@ -9969,7 +10490,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@7461f533 </td>
+      <td> java.util.AbstractList$Itr@59e2afb2 </td>
     </tr>
 
     <tr>
@@ -9994,7 +10515,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@4b2922f6 </td>
+      <td> java.util.AbstractList$Itr@317cfd38 </td>
     </tr>
 
     <tr>
@@ -10032,7 +10553,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@79b66b06 </td>
+      <td> java.util.AbstractList$Itr@4d480ea </td>
     </tr>
 
     <tr>
@@ -10057,7 +10578,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@372c9557 </td>
+      <td> java.util.AbstractList$Itr@1b5b8520 </td>
     </tr>
 
     <tr>
@@ -10076,7 +10597,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@50009f0d </td>
+      <td> java.util.AbstractList$Itr@158105e8 </td>
     </tr>
 
     <tr>
@@ -10110,7 +10631,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@58ca3783 </td>
+      <td> java.util.AbstractList$Itr@49aacd5f </td>
     </tr>
 
     <tr>
@@ -10153,7 +10674,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@4402a6ff </td>
+      <td> java.util.AbstractList$Itr@6c913dc1 </td>
     </tr>
 
     <tr>
@@ -10184,7 +10705,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@a21d23b </td>
+      <td> java.util.AbstractList$Itr@336d8196 </td>
     </tr>
 
     <tr>
@@ -10221,7 +10742,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@327124af </td>
+      <td> java.util.AbstractList$Itr@5a56b93a </td>
     </tr>
 
     <tr>
@@ -10264,7 +10785,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@221f7708 </td>
+      <td> java.util.AbstractList$Itr@739abd2b </td>
     </tr>
 
     <tr>
@@ -10277,7 +10798,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@3fbfbfb8 </td>
+      <td> java.util.AbstractList$Itr@33f98d58 </td>
     </tr>
 
     <tr>
@@ -10451,7 +10972,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@45c3e9ba </td>
+      <td> java.util.AbstractList$Itr@6aadae91 </td>
     </tr>
 
     <tr>
@@ -10495,7 +11016,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@4125d61e </td>
+      <td> java.util.AbstractList$Itr@309fe84e </td>
     </tr>
 
     <tr>
@@ -10534,7 +11055,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@1b0c6cfc </td>
+      <td> java.util.AbstractList$Itr@524c71d2 </td>
     </tr>
 
     <tr>
@@ -10553,7 +11074,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@4cc72243 </td>
+      <td> java.util.AbstractList$Itr@18c4bc34 </td>
     </tr>
 
     <tr>
@@ -10572,7 +11093,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@259a8416 </td>
+      <td> java.util.AbstractList$Itr@1c2006a0 </td>
     </tr>
 
     <tr>
@@ -10615,7 +11136,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
 
 </div> <!-- typeDetails -->
 
-<!-- org.dmd.dms.doc.web.SchemaPage.writeComplexTypes(SchemaPage.java:262) -->
+<!-- org.dmd.dms.doc.web.SchemaPage.writeComplexTypes(SchemaPage.java:263) -->
 
 <div class="complexTypeDetails">
 
@@ -10627,7 +11148,7 @@ The name attribute must start with a letter, followed by a mix of letters and nu
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td colspan="4"> java.util.AbstractList$Itr@37b994de </td>
+      <td colspan="4"> java.util.AbstractList$Itr@49198ff2 </td>
     </tr>
 
     <tr>
@@ -10668,7 +11189,7 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td colspan="4"> java.util.AbstractList$Itr@78dc9766 </td>
+      <td colspan="4"> java.util.AbstractList$Itr@2d397e5c </td>
     </tr>
 
     <tr>
@@ -10717,7 +11238,7 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td colspan="4"> java.util.AbstractList$Itr@5a57e787 </td>
+      <td colspan="4"> java.util.AbstractList$Itr@1996e136 </td>
     </tr>
 
     <tr>
@@ -10774,7 +11295,7 @@ SPACE</td>
 
 </div> <!-- typeDetails -->
 
-<!-- org.dmd.dms.doc.web.SchemaPage.writeEnums(SchemaPage.java:302) -->
+<!-- org.dmd.dms.doc.web.SchemaPage.writeEnums(SchemaPage.java:303) -->
 
 <div class="enumDetails">
 
@@ -10788,7 +11309,7 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>java.util.AbstractList$Itr@41217e67</td>
+      <td>java.util.AbstractList$Itr@9bad5a</td>
     </tr>
 
     <tr>
@@ -10832,7 +11353,7 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>java.util.AbstractList$Itr@7df1bd98</td>
+      <td>java.util.AbstractList$Itr@6c91f005</td>
     </tr>
 
     <tr>
@@ -10883,7 +11404,7 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>java.util.AbstractList$Itr@9d686c1</td>
+      <td>java.util.AbstractList$Itr@61250ff2</td>
     </tr>
 
     <tr>
@@ -10920,7 +11441,7 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>java.util.AbstractList$Itr@6328edf2</td>
+      <td>java.util.AbstractList$Itr@483a0ab1</td>
     </tr>
 
     <tr>
@@ -10950,7 +11471,7 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>java.util.AbstractList$Itr@141dddba</td>
+      <td>java.util.AbstractList$Itr@5a940f82</td>
     </tr>
 
     <tr>
@@ -11032,7 +11553,7 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>java.util.AbstractList$Itr@34c7e8a7</td>
+      <td>java.util.AbstractList$Itr@2e864e43</td>
     </tr>
 
     <tr>
@@ -11146,7 +11667,7 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>java.util.AbstractList$Itr@307b4703</td>
+      <td>java.util.AbstractList$Itr@737c2891</td>
     </tr>
 
     <tr>
@@ -11197,7 +11718,7 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>java.util.AbstractList$Itr@6d732ed2</td>
+      <td>java.util.AbstractList$Itr@5c4b82d2</td>
     </tr>
 
     <tr>
@@ -11220,7 +11741,7 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>java.util.AbstractList$Itr@25071521</td>
+      <td>java.util.AbstractList$Itr@6179d854</td>
     </tr>
 
     <tr>
@@ -11278,7 +11799,7 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>java.util.AbstractList$Itr@73fc3c84</td>
+      <td>java.util.AbstractList$Itr@669a4cb</td>
     </tr>
 
     <tr>
@@ -11301,7 +11822,7 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>java.util.AbstractList$Itr@34e93999</td>
+      <td>java.util.AbstractList$Itr@1c20eb7</td>
     </tr>
 
     <tr>
@@ -11352,7 +11873,7 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>java.util.AbstractList$Itr@3bc486f2</td>
+      <td>java.util.AbstractList$Itr@6b541147</td>
     </tr>
 
     <tr>
@@ -11382,7 +11903,7 @@ SPACE</td>
 
     </div>
 
-<!-- org.dmd.dms.doc.web.Summarizer.buildSidebar(Summarizer.java:226) -->
+<!-- org.dmd.dms.doc.web.Summarizer.buildSidebar(Summarizer.java:227) -->
     <div id="sidebar">
         <a class="navLink" href="dmg.html"> dmg</a>
         <a class="navLink" href="dmp.html"> dmp</a>

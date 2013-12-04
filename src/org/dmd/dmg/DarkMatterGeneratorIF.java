@@ -18,6 +18,8 @@ package org.dmd.dmg;
 import java.io.IOException;
 import java.io.PrintStream;
 
+import org.dmd.dmc.DmcNameClashException;
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 import org.dmd.dms.SchemaManager;
 import org.dmd.util.exceptions.ResultException;
@@ -54,8 +56,10 @@ public interface DarkMatterGeneratorIF {
 	 * were requested in the .dmg config file via the schemaToLoad attribute.
 	 * @throws IOException 
 	 * @throws ResultException 
+	 * @throws DmcNameClashException 
+	 * @throws DmcValueException 
 	 */
-	public void generateCode(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm) throws IOException, ResultException;
+	public void generateCode(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm) throws IOException, ResultException, DmcNameClashException, DmcValueException;
 	
 	/**
 	 * If the overall generation process wants you to provide feedback, this method will be

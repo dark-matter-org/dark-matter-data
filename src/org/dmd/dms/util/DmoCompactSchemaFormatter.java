@@ -24,6 +24,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.rules.RuleIF;
 import org.dmd.dmc.types.DefinitionName;
@@ -72,8 +73,11 @@ public class DmoCompactSchemaFormatter {
 	 * @throws IOException 
 	 * @throws IOException 
 	 * @throws ResultException 
+	 * @throws DmcNameClashException 
+	 * @throws DmcValueException 
+	 * @throws IllegalArgumentException 
 	 */
-	public void dumpSchema(SchemaManager sm, SchemaDefinition sd, String dmodir) throws IOException, ResultException {
+	public void dumpSchema(SchemaManager sm, SchemaDefinition sd, String dmodir) throws IOException, ResultException, DmcNameClashException, IllegalArgumentException, DmcValueException {
 		String schemaName = GeneratorUtils.dotNameToCamelCase(sd.getName().getNameString()) + "DMSAG";
 		
 		TreeMap<String,ClassDefinition> classes = new TreeMap<String, ClassDefinition>();
@@ -500,7 +504,7 @@ public class DmoCompactSchemaFormatter {
         out.close();
 	}
 	
-	private void setAttributeValues(BufferedWriter out, SchemaManager sm, RuleDataDMO rd, PrintfFormat pf) throws IllegalArgumentException, IOException, ResultException {
+	private void setAttributeValues(BufferedWriter out, SchemaManager sm, RuleDataDMO rd, PrintfFormat pf) throws IllegalArgumentException, IOException, ResultException, DmcNameClashException, DmcValueException {
 		String          	objName		= rd.getRuleName().getNameString() + "Data";
 		ClassDefinition		cd			= sm.isClass(rd.getConstructionClassName());
 		AttributeDefinition	attrDef		= null;
@@ -985,7 +989,7 @@ public class DmoCompactSchemaFormatter {
         
 	}
 	
-	void dumpHeaderDMSAG(BufferedWriter out, SchemaManager sm, String schemaPackage, SchemaDefinition sd, StringBuffer nameBuilders, StringBuffer filterBuilders) throws IOException, ResultException {
+	void dumpHeaderDMSAG(BufferedWriter out, SchemaManager sm, String schemaPackage, SchemaDefinition sd, StringBuffer nameBuilders, StringBuffer filterBuilders) throws IOException, ResultException, DmcNameClashException, DmcValueException {
         out.write("package " + schemaPackage + ".generated.dmo;\n\n");
 
     	ImportManager manager = new ImportManager();

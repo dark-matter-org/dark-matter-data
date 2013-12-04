@@ -23,6 +23,8 @@ import java.io.LineNumberReader;
 import java.io.PrintStream;
 import java.net.URL;
 
+import org.dmd.dmc.DmcNameClashException;
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.enums.OperationalContextEnum;
@@ -85,8 +87,11 @@ public class DmoGenerator {
 	 * @param sd The schema.
 	 * @throws IOException  
 	 * @throws ResultException 
+	 * @throws DmcNameClashException 
+	 * @throws DmcValueException 
+	 * @throws IllegalArgumentException 
 	 */
-	public void generateCode(SchemaManager sm, SchemaDefinition sd, ConfigLocation sl) throws IOException, ResultException {
+	public void generateCode(SchemaManager sm, SchemaDefinition sd, ConfigLocation sl) throws IOException, ResultException, DmcNameClashException, IllegalArgumentException, DmcValueException {
 		gendir 		= sl.getConfigParentDirectory() + File.separator + "generated";
 		dmodir 		= gendir + File.separator + "dmo";
 		// NOTE: on windows, you can't create a folder called "aux" - don't ask me why!

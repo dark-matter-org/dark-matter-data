@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
@@ -36,7 +37,7 @@ public class SchemaPage {
 	static TreeMap<String,RuleDefinition>					ruleDefinitions;
 	static TreeMap<String,DmcUncheckedObject>				parsedRules;
 
-	public static void dumpSchemaPage(String outdir, SchemaManager sm, SchemaDefinition sd, Summarizer summarizer) throws IOException {
+	public static void dumpSchemaPage(String outdir, SchemaManager sm, SchemaDefinition sd, Summarizer summarizer) throws IOException, DmcNameClashException {
 		String ofn = outdir + File.separator + sd.getName() + ".html";
 		BufferedWriter out = new BufferedWriter( new FileWriter(ofn) );
 		

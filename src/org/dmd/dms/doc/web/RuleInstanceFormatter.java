@@ -9,6 +9,7 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.rules.RuleIF;
 import org.dmd.dmc.types.DotName;
@@ -42,7 +43,7 @@ public class RuleInstanceFormatter {
 		skip.add(MetaDMSAG.__description);
 	}
 
-	static public void dumpRuleInstanceDetails(BufferedWriter out, SchemaManager sm, SchemaDefinition sd) throws IOException {
+	static public void dumpRuleInstanceDetails(BufferedWriter out, SchemaManager sm, SchemaDefinition sd) throws IOException, DmcNameClashException {
 		if (sd.hasParsedRules()){
 			TreeMap<String,ArrayList<RuleIF>>	sortedRules = new TreeMap<String, ArrayList<RuleIF>>();
 			
