@@ -10,6 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Iterator;
 
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
@@ -47,7 +48,7 @@ public class TestModifiers {
 	static private SchemaManager schema;
 	
 	@Before
-	public void initialize() throws ResultException, DmcValueException, IOException{
+	public void initialize() throws ResultException, DmcValueException, IOException, DmcNameClashException {
 		if (!initialized){
 			schema = new SchemaManager();
 			schema.manageSchema(new DmpSchemaAG());

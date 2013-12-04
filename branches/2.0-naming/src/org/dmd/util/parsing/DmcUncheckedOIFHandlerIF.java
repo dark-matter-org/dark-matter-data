@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.util.parsing;
 
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
@@ -35,9 +36,10 @@ public interface DmcUncheckedOIFHandlerIF {
      * @param infile Name of the file from which the object was loaded.
      * @param lineNumber The line in the file where the object ended.
      * @throws ResultException, DmcValueException 
+     * @throws DmcNameClashException 
      * @throws DmcValueExceptionSet 
      */
-    public void handleObject(DmcUncheckedObject obj, String infile, int lineNumber) throws ResultException, DmcValueException, DmcRuleExceptionSet;
+    public void handleObject(DmcUncheckedObject obj, String infile, int lineNumber) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException;
 
 }
  

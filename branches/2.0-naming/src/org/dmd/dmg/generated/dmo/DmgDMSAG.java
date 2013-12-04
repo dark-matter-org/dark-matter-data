@@ -1,22 +1,22 @@
 package org.dmd.dmg.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:1060)
-import java.util.ArrayList;                                  // For storage of schema info - (DmoCompactSchemaFormatter.java:994)
-import java.util.HashMap;                                    // For storage of schema info - (DmoCompactSchemaFormatter.java:993)
-import java.util.Iterator;                                   // For access of schema info - (DmoCompactSchemaFormatter.java:995)
-import org.dmd.dmc.*;                                        // Basic DMC stuff - (DmoCompactSchemaFormatter.java:996)
-import org.dmd.dmc.rules.RuleIF;                             // For rule info - (DmoCompactSchemaFormatter.java:997)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                  // Optional attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:1017)
-import org.dmd.dms.generated.enums.ClassTypeEnum;            // Have class definitions - (DmoCompactSchemaFormatter.java:1001)
-import org.dmd.dms.generated.enums.DataTypeEnum;             // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:1002)
-import org.dmd.dms.generated.enums.OriginalTypeEnum;         // Have type/internal type definitions - (DmoCompactSchemaFormatter.java:1007)
-import org.dmd.dms.generated.enums.ValueTypeEnum;            // Have attribute definitions - (DmoCompactSchemaFormatter.java:1028)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:1064)
+import java.util.ArrayList;                                  // For storage of schema info - (DmoCompactSchemaFormatter.java:998)
+import java.util.HashMap;                                    // For storage of schema info - (DmoCompactSchemaFormatter.java:997)
+import java.util.Iterator;                                   // For access of schema info - (DmoCompactSchemaFormatter.java:999)
+import org.dmd.dmc.*;                                        // Basic DMC stuff - (DmoCompactSchemaFormatter.java:1000)
+import org.dmd.dmc.rules.RuleIF;                             // For rule info - (DmoCompactSchemaFormatter.java:1001)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                  // Optional attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:1021)
+import org.dmd.dms.generated.enums.ClassTypeEnum;            // Have class definitions - (DmoCompactSchemaFormatter.java:1005)
+import org.dmd.dms.generated.enums.DataTypeEnum;             // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:1006)
+import org.dmd.dms.generated.enums.OriginalTypeEnum;         // Have type/internal type definitions - (DmoCompactSchemaFormatter.java:1011)
+import org.dmd.dms.generated.enums.ValueTypeEnum;            // Have attribute definitions - (DmoCompactSchemaFormatter.java:1032)
 
 
 
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:133)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:137)
 public class DmgDMSAG implements DmcCompactSchemaIF {
 
 
@@ -41,7 +41,7 @@ public class DmgDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __schemaToLoad = new DmcAttributeInfo("dmg", "schemaToLoad", 201, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __upperConstantName = new DmcAttributeInfo("dmg", "upperConstantName", 205, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
 
-    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:172)
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:176)
     public final static DmcTypeInfo __type_ActifactGenerator = new DmcTypeInfo("ActifactGenerator", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_DmgConfig = new DmcTypeInfo("DmgConfig", OriginalTypeEnum.OBJECT);
     public final static DmcTypeInfo __type_GenerationContext = new DmcTypeInfo("GenerationContext", OriginalTypeEnum.REFERENCE);
@@ -49,7 +49,7 @@ public class DmgDMSAG implements DmcCompactSchemaIF {
     public final static DmcTypeInfo __type_MethodGenerator = new DmcTypeInfo("MethodGenerator", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_WrapperGenerator = new DmcTypeInfo("WrapperGenerator", OriginalTypeEnum.REFERENCE);
 
-    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:213)
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:217)
     public final static DmcClassInfo __ActifactGenerator = new DmcClassInfo("ActifactGenerator","org.dmd.dmg.generated.dmo.ActifactGeneratorDMO", 205, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
     public final static DmcClassInfo __DmgConfig = new DmcClassInfo("DmgConfig","org.dmd.dmg.generated.dmo.DmgConfigDMO", 201, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
     public final static DmcClassInfo __GenerationContext = new DmcClassInfo("GenerationContext","org.dmd.dmg.generated.dmo.GenerationContextDMO", 202, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,DmgDMSAG.__genContextName);
@@ -91,7 +91,7 @@ public class DmgDMSAG implements DmcCompactSchemaIF {
 
     }
 
-    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:296)
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:300)
     static {
 
 
@@ -120,7 +120,7 @@ public class DmgDMSAG implements DmcCompactSchemaIF {
 
     }
 
-    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:340)
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:344)
     static {
 
 

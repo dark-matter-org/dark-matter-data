@@ -6,6 +6,7 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcNamedObjectIF;
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.DotName;
 import org.dmd.dmc.types.DefinitionName;
 import org.dmd.util.exceptions.DebugInfo;
@@ -105,9 +106,14 @@ public class DmcDefinitionSet<DEF extends DmcDefinitionIF> {
 	 * @return the definition or null if it doesn't exist
 	 * @throws DmcNameClashException if there's more than one definition with the specified
 	 * name, we throw an exception
+	 * @throws DmcValueException 
 	 */
-	public DEF getDefinition(String name) throws DmcNameClashException {
-		ArrayList<DEF> existing = map.get(name);
+	public DEF getDefinition(String name) throws DmcNameClashException, DmcValueException {
+		DefinitionName dn = new DefinitionName(name);
+		ArrayList<DEF> existing = map.get(dn);
+		
+		if (existing == null)
+			return(null);
 		
 		if (existing.size() == 1)
 			return(existing.get(0));

@@ -31,7 +31,7 @@ import org.dmd.dms.generated.types.DmcTypeStringMV;           // Required type -
 import org.dmd.dms.generated.types.DmcTypeStringSV;           // Required type - (GenUtility.java:328)
 
 /**
- * java.util.ArrayList$Itr@3e9782fc
+ * java.util.AbstractList$Itr@b05eb6f
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>

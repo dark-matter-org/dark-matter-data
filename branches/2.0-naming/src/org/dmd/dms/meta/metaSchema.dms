@@ -1918,6 +1918,17 @@ type                		DSDefinitionModule
 valueType					MULTI
 description    				The set of DSDefinitionModules defined in a schema.
 
+AttributeDefinition
+name                		sortName
+dmdID						170
+type                		DotName
+description    				The sortName is used in siutations where we need a name
+ for storage of a definition that is globally unique but can be sorted on the basis
+ of the definition name, not the module name. The dotName for a definition is
+ module.definition...type, whereas the sortName would be definition...module.type.
+ So, for things like documentation generation, the sortName provides a more 
+ natural ordering.
+
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
 AttributeDefinition
@@ -1970,6 +1981,7 @@ may           	definedIn
 may          	file
 may        		lineNumber
 may				dotName
+may				sortName
 description		The domain specific definition (DSDefinition) forms the basis for all definitions
  that use dark-matter as their basis. The initial dark-matter mechanisms were focussed only on 
  schema for data objects, but, as the project developed, other, domain specific sets of definitions

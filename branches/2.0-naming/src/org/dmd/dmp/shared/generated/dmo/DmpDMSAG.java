@@ -1,23 +1,23 @@
 package org.dmd.dmp.shared.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:1060)
-import java.util.ArrayList;                                        // For storage of schema info - (DmoCompactSchemaFormatter.java:994)
-import java.util.HashMap;                                          // For storage of schema info - (DmoCompactSchemaFormatter.java:993)
-import java.util.Iterator;                                         // For access of schema info - (DmoCompactSchemaFormatter.java:995)
-import org.dmd.dmc.*;                                              // Basic DMC stuff - (DmoCompactSchemaFormatter.java:996)
-import org.dmd.dmc.rules.RuleIF;                                   // For rule info - (DmoCompactSchemaFormatter.java:997)
-import org.dmd.dmr.shared.base.generated.dmo.DmrbaseDMSAG;         // Optional attribute from DmrbaseDMSAG - (DmoCompactSchemaFormatter.java:1017)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                        // Optional attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:1017)
-import org.dmd.dms.generated.enums.ClassTypeEnum;                  // Have class definitions - (DmoCompactSchemaFormatter.java:1001)
-import org.dmd.dms.generated.enums.DataTypeEnum;                   // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:1002)
-import org.dmd.dms.generated.enums.OriginalTypeEnum;               // Have type/internal type definitions - (DmoCompactSchemaFormatter.java:1007)
-import org.dmd.dms.generated.enums.ValueTypeEnum;                  // Have attribute definitions - (DmoCompactSchemaFormatter.java:1028)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:1064)
+import java.util.ArrayList;                                        // For storage of schema info - (DmoCompactSchemaFormatter.java:998)
+import java.util.HashMap;                                          // For storage of schema info - (DmoCompactSchemaFormatter.java:997)
+import java.util.Iterator;                                         // For access of schema info - (DmoCompactSchemaFormatter.java:999)
+import org.dmd.dmc.*;                                              // Basic DMC stuff - (DmoCompactSchemaFormatter.java:1000)
+import org.dmd.dmc.rules.RuleIF;                                   // For rule info - (DmoCompactSchemaFormatter.java:1001)
+import org.dmd.dmr.shared.base.generated.dmo.DmrbaseDMSAG;         // Optional attribute from DmrbaseDMSAG - (DmoCompactSchemaFormatter.java:1021)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                        // Optional attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:1021)
+import org.dmd.dms.generated.enums.ClassTypeEnum;                  // Have class definitions - (DmoCompactSchemaFormatter.java:1005)
+import org.dmd.dms.generated.enums.DataTypeEnum;                   // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:1006)
+import org.dmd.dms.generated.enums.OriginalTypeEnum;               // Have type/internal type definitions - (DmoCompactSchemaFormatter.java:1011)
+import org.dmd.dms.generated.enums.ValueTypeEnum;                  // Have attribute definitions - (DmoCompactSchemaFormatter.java:1032)
 
 
 
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:133)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:137)
 public class DmpDMSAG implements DmcCompactSchemaIF {
 
 
@@ -76,7 +76,7 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __trackingEnabled = new DmcAttributeInfo("dmp", "trackingEnabled", 539, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __userFQN = new DmcAttributeInfo("dmp", "userFQN", 524, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
 
-    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:172)
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:176)
     public final static DmcTypeInfo __type_ActionRequest = new DmcTypeInfo("ActionRequest", OriginalTypeEnum.OBJECT);
     public final static DmcTypeInfo __type_ActionResponse = new DmcTypeInfo("ActionResponse", OriginalTypeEnum.OBJECT);
     public final static DmcTypeInfo __type_CreateRequest = new DmcTypeInfo("CreateRequest", OriginalTypeEnum.OBJECT);
@@ -108,7 +108,7 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
     public final static DmcTypeInfo __type_SetRequest = new DmcTypeInfo("SetRequest", OriginalTypeEnum.OBJECT);
     public final static DmcTypeInfo __type_SetResponse = new DmcTypeInfo("SetResponse", OriginalTypeEnum.OBJECT);
 
-    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:213)
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:217)
     public final static DmcClassInfo __DMPMessage = new DmcClassInfo("DMPMessage","org.dmd.dmp.shared.generated.dmo.DMPMessageDMO", 501, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null,null);
     public final static DmcClassInfo __DMPEvent = new DmcClassInfo("DMPEvent","org.dmd.dmp.shared.generated.dmo.DMPEventDMO", 518, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__DMPMessage,null);
     public final static DmcClassInfo __Request = new DmcClassInfo("Request","org.dmd.dmp.shared.generated.dmo.RequestDMO", 502, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,__DMPMessage,null);
@@ -169,7 +169,7 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
 
     }
 
-    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:296)
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:300)
     static {
 
 
@@ -283,7 +283,7 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
 
     }
 
-    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:340)
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:344)
     static {
 
 

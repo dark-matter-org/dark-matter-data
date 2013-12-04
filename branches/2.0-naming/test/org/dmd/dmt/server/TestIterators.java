@@ -1,5 +1,6 @@
 package org.dmd.dmt.server;
 
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
@@ -14,7 +15,7 @@ public class TestIterators {
 	private SchemaManager schema;
 	
 	@Before
-	public void initialize() throws ResultException, DmcValueException{
+	public void initialize() throws ResultException, DmcValueException, DmcNameClashException {
 		schema = new SchemaManager();
 		schema.manageSchema(new DmtSchemaAG());
 	}

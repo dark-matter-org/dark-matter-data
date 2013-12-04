@@ -18,6 +18,7 @@ package org.dmd.dms;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.rules.DynamicInitIF;
 import org.dmd.dmc.rules.RuleIF;
@@ -317,8 +318,9 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
      * This method will return the parsed rules translated into DMOs. 
      * @param sm the schema manager used by our Dmo
      * @return
+     * @throws DmcNameClashException  
      */
-    public Iterator<RuleDataDMO> getParsedRulesDMOs(SchemaManager sm){
+    public Iterator<RuleDataDMO> getParsedRulesDMOs(SchemaManager sm) throws DmcNameClashException {
     	if (parsedRulesDMOs == null){
     		parsedRulesDMOs = new TreeMap<RuleName, RuleDataDMO>();
     		ruleInstances = new TreeMap<RuleName, RuleIF>();
@@ -374,7 +376,7 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     	return(resolvedRules);
     }
     
-    public TreeMap<RuleName,RuleIF> getRuleInstances(SchemaManager sm){
+    public TreeMap<RuleName,RuleIF> getRuleInstances(SchemaManager sm) throws DmcNameClashException {
     	if (ruleInstances == null)
     		getParsedRulesDMOs(sm);
     	return(ruleInstances);

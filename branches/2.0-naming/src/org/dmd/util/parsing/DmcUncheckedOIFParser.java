@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.StringTokenizer;
 
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmc.util.DmcUncheckedObject;
@@ -96,8 +97,9 @@ public class DmcUncheckedOIFParser {
      * @param fileName The file to be parsed.
      * @throws ResultException, DmcValueException 
      * @throws DmcRuleExceptionSet 
+     * @throws DmcNameClashException 
      */
-    public void parseFile(String fileName) throws ResultException, DmcValueException, DmcRuleExceptionSet {
+    public void parseFile(String fileName) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
     	parseFile(fileName,false);
     }
 
@@ -109,8 +111,9 @@ public class DmcUncheckedOIFParser {
      * we have to approach the opening of the file differently.
      * @throws ResultException, DmcValueException 
      * @throws DmcRuleExceptionSet 
+     * @throws DmcNameClashException 
      */
-    public void parseFile(String fileName, boolean isResource) throws ResultException, DmcValueException, DmcRuleExceptionSet {
+    public void parseFile(String fileName, boolean isResource) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
         boolean         	inObject    = false;
         String          	attrName    = null;
         DmcUncheckedObject  uco     = null;

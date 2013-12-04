@@ -138,38 +138,38 @@ public class SchemaDocHtmlFormatter {
 //        rules   = null;
     }
 
-    /**
-     * This dumps all the schema information in the specified schema manager to
-     * a set of files in the specified directory.
-     * @param sd The schema manager whose data is to be formatted.
-     * @param src The source directory.
-     * @param dir The directory to which we'll dump.
-     * @param jd The javadoc diretory on the webserver.
-     */
-    public void dumpHtml(SchemaManager sd, String src, String dir, String jd){
-        Iterator<SchemaDefinition>    it = null;
-
-        schema  = sd;
-
-        javaDir = jd;
-
-        generateIndex(dir);
-
-        // System.out.println("Dumping " + dir + File.separator + MetaSchemaAG.meta_metaSchema.getName() + ".shtml");
-        it = schema.getSchemas();
-        while(it.hasNext()){
-            SchemaDefinition    s = (SchemaDefinition)it.next();
-            System.out.println("Dumping " + dir + File.separator + s.getObjectName() + ".shtml");
-            dumpHtml(s,dir + File.separator + s.getObjectName() + ".shtml");
-        }
-
-        dumpClassHierarchy(dir);
-
-        dumpInstanceHierarchy(dir);
-
-        dumpClassListing(dir);
-
-    }
+//    /**
+//     * This dumps all the schema information in the specified schema manager to
+//     * a set of files in the specified directory.
+//     * @param sd The schema manager whose data is to be formatted.
+//     * @param src The source directory.
+//     * @param dir The directory to which we'll dump.
+//     * @param jd The javadoc diretory on the webserver.
+//     */
+//    public void dumpHtml(SchemaManager sd, String src, String dir, String jd){
+//        Iterator<SchemaDefinition>    it = null;
+//
+//        schema  = sd;
+//
+//        javaDir = jd;
+//
+//        generateIndex(dir);
+//
+//        // System.out.println("Dumping " + dir + File.separator + MetaSchemaAG.meta_metaSchema.getName() + ".shtml");
+//        it = schema.getSchemas();
+//        while(it.hasNext()){
+//            SchemaDefinition    s = (SchemaDefinition)it.next();
+//            System.out.println("Dumping " + dir + File.separator + s.getObjectName() + ".shtml");
+//            dumpHtml(s,dir + File.separator + s.getObjectName() + ".shtml");
+//        }
+//
+//        dumpClassHierarchy(dir);
+//
+//        dumpInstanceHierarchy(dir);
+//
+//        dumpClassListing(dir);
+//
+//    }
 
     /**
      * This dumps the specified schema definition in HTML format to the specified
@@ -933,127 +933,130 @@ public class SchemaDocHtmlFormatter {
         }
     }
 
-    /**
-     * This function dumps the class derivation hierarchy. Basically, if a
-     * class has derived classes (but no derivedFrom class) it will be
-     * dumped.
-     * @param dir The output directory.
-     */
-	void dumpClassHierarchy(String dir){
-        Iterator<ClassDefinition>            it      = null;
-        ClassDefinition         cd      = null;
+//    /**
+//     * This function dumps the class derivation hierarchy. Basically, if a
+//     * class has derived classes (but no derivedFrom class) it will be
+//     * dumped.
+//     * @param dir The output directory.
+//     */
+//	void dumpClassHierarchy(String dir){
+//        Iterator<ClassDefinition>            it      = null;
+//        ClassDefinition         cd      = null;
+//
+//        classes.clear();
+//
+//        try {
+//            BufferedWriter out = new BufferedWriter(new FileWriter(dir + "/classHierarchy.shtml"));
+//
+//            // System.out.println("The schema object:\n\n" + sd + "\n\n");
+//            out.write("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\"\n");
+//            out.write("        \"http://www.w3.org/TR/REC-html40\">\n");
+//            out.write("<HTML>\n");
+//            out.write("<HEAD>\n");
+//            out.write("<TITLE> " + organization + " - The Schema Class Derivation Hierarchy </TITLE>\n");
+//            out.write("<LINK href=\"/standard.css\" rel=\"stylesheet\" type=\"text/css\">\n");
+//            out.write("</HEAD>\n");
+//            out.write("<BODY BGCOLOR=\"FFFFFF\">\n\n");
+//
+//            // The whole page is in a table
+//            out.write("<TABLE WIDTH=600 CELLPADDING=10> <tr> \n");
+//
+//            out.write("<TD WIDTH=120 CLASS=\"sidebar2\" VALIGN=TOP>\n");
+////            out.write("<!--#include virtual=\"navLinks.html\" --> <P> </TD>\n");
+//            out.write("<TD>\n");
+//
+//            out.write("<CENTER> \n");
+//            out.write("<P CLASS=\"pagehead\"> The Schema Class Derivation Hierarchy \n");
+//            out.write("</CENTER> \n");
+//
+//            out.write(indexRefHTML);
+//
+//            it = schema.classDefs.values().iterator();
+//            while(it.hasNext()){
+//                cd = (ClassDefinition)it.next();
+//
+//                if (cd.getDerivedClasses() != null){
+//                    // We have derived classes, but are we the base class of
+//                    // the whole works?
+//                    if (cd.getDerivedFrom() == null){
+//                        // Ain't nothin' above us, so we are the base of the base!
+//                        classes.put(cd.getObjectName(),cd);
+//                    }
+//                }
+//            }
+//
+//            formatClassHierarchy(classes.values().iterator(),classes.size(),out);
+//
+//            out.write("</TD> </tr> </TABLE>");
+//            // out.write("</TABLE>\n\n");
+//            out.write("</BODY>\n");
+//            out.write("</HTML>\n");
+//
+//            out.close();
+//        } catch (IOException e) {
+//            System.out.println("IO Error:\n" + e);
+//        }
+//    }
 
-        classes.clear();
-
-        try {
-            BufferedWriter out = new BufferedWriter(new FileWriter(dir + "/classHierarchy.shtml"));
-
-            // System.out.println("The schema object:\n\n" + sd + "\n\n");
-            out.write("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\"\n");
-            out.write("        \"http://www.w3.org/TR/REC-html40\">\n");
-            out.write("<HTML>\n");
-            out.write("<HEAD>\n");
-            out.write("<TITLE> " + organization + " - The Schema Class Derivation Hierarchy </TITLE>\n");
-            out.write("<LINK href=\"/standard.css\" rel=\"stylesheet\" type=\"text/css\">\n");
-            out.write("</HEAD>\n");
-            out.write("<BODY BGCOLOR=\"FFFFFF\">\n\n");
-
-            // The whole page is in a table
-            out.write("<TABLE WIDTH=600 CELLPADDING=10> <tr> \n");
-
-            out.write("<TD WIDTH=120 CLASS=\"sidebar2\" VALIGN=TOP>\n");
-//            out.write("<!--#include virtual=\"navLinks.html\" --> <P> </TD>\n");
-            out.write("<TD>\n");
-
-            out.write("<CENTER> \n");
-            out.write("<P CLASS=\"pagehead\"> The Schema Class Derivation Hierarchy \n");
-            out.write("</CENTER> \n");
-
-            out.write(indexRefHTML);
-
-            it = schema.classDefs.values().iterator();
-            while(it.hasNext()){
-                cd = (ClassDefinition)it.next();
-
-                if (cd.getDerivedClasses() != null){
-                    // We have derived classes, but are we the base class of
-                    // the whole works?
-                    if (cd.getDerivedFrom() == null){
-                        // Ain't nothin' above us, so we are the base of the base!
-                        classes.put(cd.getObjectName(),cd);
-                    }
-                }
-            }
-
-            formatClassHierarchy(classes.values().iterator(),classes.size(),out);
-
-            out.write("</TD> </tr> </TABLE>");
-            // out.write("</TABLE>\n\n");
-            out.write("</BODY>\n");
-            out.write("</HTML>\n");
-
-            out.close();
-        } catch (IOException e) {
-            System.out.println("IO Error:\n" + e);
-        }
-    }
-
-    /**
-     * This function dumps all of the classes. if the class has a prodDescr
-     * attribute, it is dumped as well.
-     * @param dir The output directory.
-     */
-    void dumpClassListing(String dir){
-        Iterator<ClassDefinition>            it      = null;
-        ClassDefinition         cd      = null;
-
-        classes.clear();
-
-        try {
-            BufferedWriter out = new BufferedWriter(new FileWriter(dir + "/classListing.shtml"));
-
-            // System.out.println("The schema object:\n\n" + sd + "\n\n");
-            out.write("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\"\n");
-            out.write("        \"http://www.w3.org/TR/REC-html40\">\n");
-            out.write("<HTML>\n");
-            out.write("<HEAD>\n");
-            out.write("<TITLE> " + organization + " - Class Listing </TITLE>\n");
-            out.write("<LINK href=\"/standard.css\" rel=\"stylesheet\" type=\"text/css\">\n");
-            out.write("</HEAD>\n");
-            out.write("<BODY BGCOLOR=\"FFFFFF\">\n\n");
-
-            // The whole page is in a table
-            out.write("<TABLE WIDTH=600 CELLPADDING=10> <tr> \n");
-
-            out.write("<TD WIDTH=120 CLASS=\"sidebar2\" VALIGN=TOP>\n");
-//            out.write("<!--#include virtual=\"navLinks.html\" --> <P> </TD>\n");
-            out.write("<TD>\n");
-
-            out.write("<CENTER> \n");
-            out.write("<P CLASS=\"pagehead\"> Class Listing \n");
-            out.write("</CENTER> \n");
-
-            out.write(indexRefHTML);
-
-            it = schema.classDefs.values().iterator();
-            while(it.hasNext()){
-                cd = it.next();
-
-                classes.put(cd.getObjectName(),cd);
-            }
-
-            formatClassList(classes.values().iterator(),classes.size(),out);
-
-            out.write("</TD> </tr> </TABLE>");
-            // out.write("</TABLE>\n\n");
-            out.write("</BODY>\n");
-            out.write("</HTML>\n");
-
-            out.close();
-        } catch (IOException e) {
-            System.out.println("IO Error:\n" + e);
-        }
-    }
+	// TODO: probably not required anymore
+//    /**
+//     * This function dumps all of the classes. if the class has a prodDescr
+//     * attribute, it is dumped as well.
+//     * @param dir The output directory.
+//     */
+//    void dumpClassListing(String dir){
+//        Iterator<ClassDefinition>            it      = null;
+//        ClassDefinition         cd      = null;
+//
+//        classes.clear();
+//
+//        try {
+//            BufferedWriter out = new BufferedWriter(new FileWriter(dir + "/classListing.shtml"));
+//
+//            // System.out.println("The schema object:\n\n" + sd + "\n\n");
+//            out.write("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\"\n");
+//            out.write("        \"http://www.w3.org/TR/REC-html40\">\n");
+//            out.write("<HTML>\n");
+//            out.write("<HEAD>\n");
+//            out.write("<TITLE> " + organization + " - Class Listing </TITLE>\n");
+//            out.write("<LINK href=\"/standard.css\" rel=\"stylesheet\" type=\"text/css\">\n");
+//            out.write("</HEAD>\n");
+//            out.write("<BODY BGCOLOR=\"FFFFFF\">\n\n");
+//
+//            // The whole page is in a table
+//            out.write("<TABLE WIDTH=600 CELLPADDING=10> <tr> \n");
+//
+//            out.write("<TD WIDTH=120 CLASS=\"sidebar2\" VALIGN=TOP>\n");
+////            out.write("<!--#include virtual=\"navLinks.html\" --> <P> </TD>\n");
+//            out.write("<TD>\n");
+//
+//            out.write("<CENTER> \n");
+//            out.write("<P CLASS=\"pagehead\"> Class Listing \n");
+//            out.write("</CENTER> \n");
+//
+//            out.write(indexRefHTML);
+//            
+//            PriorityQueue<ClassDefinition> queue;
+//
+//            it = schema.classDefs.values().iterator();
+//            while(it.hasNext()){
+//                cd = it.next();
+//
+//                classes.put(cd.getObjectName(),cd);
+//            }
+//
+//            formatClassList(classes.values().iterator(),classes.size(),out);
+//
+//            out.write("</TD> </tr> </TABLE>");
+//            // out.write("</TABLE>\n\n");
+//            out.write("</BODY>\n");
+//            out.write("</HTML>\n");
+//
+//            out.close();
+//        } catch (IOException e) {
+//            System.out.println("IO Error:\n" + e);
+//        }
+//    }
 
     /**
      * Formats a nested set of derived classes

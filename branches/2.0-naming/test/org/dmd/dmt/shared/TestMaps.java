@@ -3,6 +3,7 @@ package org.dmd.dmt.shared;
 import java.util.TreeMap;
 import java.util.Vector;
 
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.IntegerToString;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
@@ -23,7 +24,7 @@ public class TestMaps {
 	private SchemaManager schema;
 
 	@Before
-	public void initialize() throws ResultException, DmcValueException{
+	public void initialize() throws ResultException, DmcValueException, DmcNameClashException {
 		schema = new SchemaManager();
 		schema.manageSchema(new DmpSchemaAG());
 		schema.manageSchema(new DmtSchemaAG());

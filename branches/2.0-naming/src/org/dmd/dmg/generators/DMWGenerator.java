@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
 
+import org.dmd.dmc.DmcNameClashException;
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.ComplexTypeDefinition;
@@ -39,7 +41,7 @@ public class DMWGenerator extends BaseDMWGenerator {
 	}
 	
 	@Override
-	public void generateCode(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm) throws IOException, ResultException {
+	public void generateCode(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm) throws IOException, ResultException, DmcNameClashException, DmcValueException {
 		gendir = loc.getConfigParentDirectory() + File.separator + "generated";
 		dmwdir = gendir + File.separator + "dmw";
 //		auxwdir = gendir + File.separator + "dmw";

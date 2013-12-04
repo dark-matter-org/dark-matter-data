@@ -24,6 +24,7 @@ import java.util.TreeSet;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcClassInfo;
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcNameClashObjectSet;
 import org.dmd.dmc.DmcNameClashResolverIF;
 import org.dmd.dmc.DmcNameResolverWithClashSupportIF;
@@ -130,7 +131,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * Key: DefinitionName
      * Value: ClassDefinition
      */
-    public HashMap<DefinitionName,ClassDefinition>     			classDefs;
+    DmcDefinitionSet<ClassDefinition>							classDefinitions;
+//    public HashMap<DefinitionName,ClassDefinition>     			classDefs;
     public int  longestClassName;
     boolean debugClassAdditions;
 
@@ -216,9 +218,10 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     /**
      * Creates a new SchemaManager.
      * @throws DmcValueException 
+     * @throws DmcNameClashException 
      * @throws DmcValueExceptionSet 
      */
-    public SchemaManager() throws ResultException, DmcValueException {
+    public SchemaManager() throws ResultException, DmcValueException, DmcNameClashException {
     	init();
     	
     	debugClashmap = false;
@@ -231,13 +234,14 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * @param sd The schema to be managed.
      * @throws ResultException
      * @throws DmcValueException
+     * @throws DmcNameClashException 
      */
-    public SchemaManager(SchemaDefinition sd) throws ResultException, DmcValueException {
+    public SchemaManager(SchemaDefinition sd) throws ResultException, DmcValueException, DmcNameClashException {
     	init();
     	manageSchema(sd);
     }
     
-    void init() throws ResultException, DmcValueException{
+    void init() throws ResultException, DmcValueException, DmcNameClashException {
         // Create our various hashmaps
         globallyUniqueMAP     				= new HashMap<DotName,DmsDefinition>();
         clashMAP				= new HashMap<DotName, ArrayList<DmsDefinition>>();
@@ -250,12 +254,13 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         internalTypeDefs    		= new HashMap<DefinitionName,TypeDefinition>();
         
         attributeDefinitions		= new DmcDefinitionSet<AttributeDefinition>();
+        classDefinitions			= new DmcDefinitionSet<ClassDefinition>();
         
         attrByID					= new TreeMap<Integer, AttributeDefinition>();
         classesByID					= new TreeMap<Integer, ClassDefinition>();
         classesByJavaClass			= new TreeMap<String, ClassDefinition>();
         actionDefs  				= new HashMap<DefinitionName,ActionDefinition>();
-        classDefs   				= new HashMap<DefinitionName,ClassDefinition>();
+//        classDefs   				= new HashMap<DefinitionName,ClassDefinition>();
         complexTypeDefs   			= new HashMap<DefinitionName,ComplexTypeDefinition>();
         extendedReferenceTypeDefs   = new HashMap<DefinitionName,ExtendedReferenceTypeDefinition>();
         sliceDefs   				= new HashMap<DefinitionName,SliceDefinition>();
@@ -303,7 +308,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     	if (hierarchicObjects == null){
     		hierarchicObjects = new TreeMap<DefinitionName, ClassDefinition>();
     		
-    		for(ClassDefinition cd: classDefs.values()){
+//    		for(ClassDefinition cd: classDefs.values()){
+        	for(ClassDefinition cd: classDefinitions.values()){
     			if (cd.getIsNamedBy() != null){
     				if (cd.getIsNamedBy().getType().getIsHierarchicName()){
     					if (cd.getAllowedParentsSize() == 0)
@@ -323,8 +329,10 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     /**
      * @param dmo the object to be wrapped.
      * @return the DMO wrapped with the appropriate wrapper type.
+     * @throws DmcNameClashException 
+     * @throws DmcValueException 
      */
-    public DmwWrapper wrapIt(DmcObject dmo){
+    public DmwWrapper wrapIt(DmcObject dmo) throws DmcNameClashException, DmcValueException {
     	ClassDefinition cd = isClass(dmo.getConstructionClassName());
     	if (cd == null){
     		throw(new IllegalStateException("Cannot create DmwWrapper for unknown class: " + dmo.getConstructionClassName()));
@@ -456,8 +464,9 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * @param sd The schema about to be loaded.
      * @throws ResultException  
      * @throws DmcValueException 
+     * @throws DmcNameClashException 
      */
-	public void schemaPreAdd(DmcUncheckedObject sd) throws ResultException, DmcValueException {
+	public void schemaPreAdd(DmcUncheckedObject sd) throws ResultException, DmcValueException, DmcNameClashException {
     	NamedStringArray attr = sd.get(MetaSchema._schemaExtension.getName().getNameString());
     	
      	if (attr != null){
@@ -512,8 +521,9 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * @param sd A SchemaDefinition.
      * @throws DmcValueException 
      * @throws ResultException 
+     * @throws DmcNameClashException 
      */
-	private void loadGeneratedSchema(SchemaDefinition sd) throws ResultException, DmcValueException {
+	private void loadGeneratedSchema(SchemaDefinition sd) throws ResultException, DmcValueException, DmcNameClashException {
     	
     	for(String schemaName : sd.dependsOnSchemaClasses.keySet()){
     		String schemaClassName = sd.dependsOnSchemaClasses.get(schemaName);
@@ -565,9 +575,10 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * This function integrates a new set of definitions into the schema manager.
      * @param sd The schema definition to be managed.
      * @throws DmcValueException 
+     * @throws DmcNameClashException 
      * @throws DmcValueExceptionSet 
      */
-    public void manageSchema(SchemaDefinition sd) throws ResultException, DmcValueException {
+    public void manageSchema(SchemaDefinition sd) throws ResultException, DmcValueException, DmcNameClashException {
     	
     	if (sd.generatedSchema)
     		performIDChecks = false;
@@ -585,7 +596,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     	
     }
     
-    public void manageSchemaInternal(SchemaDefinition sd, boolean checkIDs) throws ResultException, DmcValueException {
+    public void manageSchemaInternal(SchemaDefinition sd, boolean checkIDs) throws ResultException, DmcValueException, DmcNameClashException {
     	performIDChecks = checkIDs;
     	manageSchemaInternal(sd);
     }
@@ -593,9 +604,10 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * This function integrates a new set of definitions into the schema manager.
      * @param sd The schema definition to be managed.
      * @throws DmcValueException 
+    	 * @throws DmcNameClashException 
      * @throws DmcValueExceptionSet 
      */
-    public void manageSchemaInternal(SchemaDefinition sd) throws ResultException, DmcValueException {
+    public void manageSchemaInternal(SchemaDefinition sd) throws ResultException, DmcValueException, DmcNameClashException {
         ClassDefinition         		cd  		= null;
         EnumDefinition     				evd 		= null;
         TypeDefinition          		td  		= null;
@@ -799,9 +811,12 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * This function indicates if the specified string the name of a ClassDefinition.
      * @param name the name of a suspected class definition.
      * @return If the name is a class, its ClassDefinition is returned; otherwise null is returned.
+     * @throws DmcNameClashException  
+     * @throws DmcValueException 
      */
-    public ClassDefinition isClass(String name){
-        return((ClassDefinition)classDefs.get(getDefName(name)));
+    public ClassDefinition isClass(String name) throws DmcNameClashException, DmcValueException {
+    	return(classDefinitions.getDefinition(name));
+//        return((ClassDefinition)classDefs.get(getDefName(name)));
     }
 
     /**
@@ -1133,9 +1148,10 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * payload for the rule, so the name of the RuleDefinition will be changed to have DEF
      * added to it.
      * @throws DmcValueException 
+     * @throws DmcNameClashException 
      * @throws DmcValueExceptionSet 
      */
-    void addRuleDefinition(RuleDefinition rd) throws ResultException, DmcValueException {
+    void addRuleDefinition(RuleDefinition rd) throws ResultException, DmcValueException, DmcNameClashException {
     	// Again, some trickiness, we have to resolve the rule so that we can access and use the must/may
     	// attributes that are defined for it and add them to the class definition we create
         try {
@@ -1181,7 +1197,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 	        rd.setDmdID(base + current);
         }
         
-        ClassDefinition existing = classDefs.get(ruleClassName);
+//        ClassDefinition existing = classDefs.get(ruleClassName);
+        ClassDefinition existing = classDefinitions.getDefinition(ruleClassName.getNameString());
         if (existing != null){
         	// We have the class for this rule, just check that it's auto generated
         	if (existing.getInternallyGenerated()){
@@ -1255,11 +1272,13 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      */
     void addClass(ClassDefinition cd) throws ResultException, DmcValueException {
 
-        if (checkAndAdd(cd.getObjectName(),cd,classDefs) == false){
-        	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(cd.getObjectName(),cd,classDefs,"class names"));
-        	throw(ex);
-        }
+//        if (checkAndAdd(cd.getObjectName(),cd,classDefs) == false){
+//        	ResultException ex = new ResultException();
+//        	ex.addError(clashMsg(cd.getObjectName(),cd,classDefs,"class names"));
+//        	throw(ex);
+//        }
+        
+        classDefinitions.add(cd);
         
         // This name is used to identify references to the class
         DotName refName 	= new DotName((DotName) cd.getDotName().getParentName(),"ClassDefinitionREF");
@@ -1273,27 +1292,29 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
             throw(ex);
         }
 
-        if (cd.getAbbrev() != null){
-            // We have an abbreviation - so it must also be unique and
-            // added to the appropriate maps
-        	DefinitionName abbrevName = new DefinitionName(cd.getAbbrev());
-            if (checkAndAdd(abbrevName,cd,classDefs) == false){
-            	ResultException ex = new ResultException();
-            	ex.addError(clashMsg(abbrevName,cd,classDefs,"class abbreviations"));
-            	throw(ex);
-            }
-            
-            DotName dotAbbrevName = new DotName(cd.getDefinedIn().getName() + "." + cd.getAbbrev());
-            
-            if (checkAndAddDOT(dotAbbrevName,cd,globallyUniqueMAP,null) == false){
-                DefinitionName errName = new DefinitionName(cd.getDefinedIn().getName() + "." + cd.getAbbrev());
-            	ResultException ex = new ResultException();
-            	ex.addError(clashMsgDOT(errName,cd,globallyUniqueMAP,"definition names"));
-                throw(ex);
-            }
-            
-            classAbbrevs.put(abbrevName,cd);
-        }
+        // TODO: revisit abbreviations - this was originally required for LDAP naming, which, if
+        // it's ever done, should be handled in the LDAP mechanisms.
+//        if (cd.getAbbrev() != null){
+//            // We have an abbreviation - so it must also be unique and
+//            // added to the appropriate maps
+//        	DefinitionName abbrevName = new DefinitionName(cd.getAbbrev());
+//            if (checkAndAdd(abbrevName,cd,classDefs) == false){
+//            	ResultException ex = new ResultException();
+//            	ex.addError(clashMsg(abbrevName,cd,classDefs,"class abbreviations"));
+//            	throw(ex);
+//            }
+//            
+//            DotName dotAbbrevName = new DotName(cd.getDefinedIn().getName() + "." + cd.getAbbrev());
+//            
+//            if (checkAndAddDOT(dotAbbrevName,cd,globallyUniqueMAP,null) == false){
+//                DefinitionName errName = new DefinitionName(cd.getDefinedIn().getName() + "." + cd.getAbbrev());
+//            	ResultException ex = new ResultException();
+//            	ex.addError(clashMsgDOT(errName,cd,globallyUniqueMAP,"definition names"));
+//                throw(ex);
+//            }
+//            
+//            classAbbrevs.put(abbrevName,cd);
+//        }
         
         ///////////////////////////////////////////////////////////////////////
         
@@ -1636,9 +1657,10 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * Attempts to add the specified definition. If the definition clashes with
      * any existing definition, we throw an exception.
      * @throws DmcValueException 
+     * @throws DmcNameClashException 
      * @throws DmcValueExceptionSet 
      */
-    public void addDefinition(DmsDefinition def, DmcNameClashResolverIF clashResolver) throws ResultException, DmcValueException {
+    public void addDefinition(DmsDefinition def, DmcNameClashResolverIF clashResolver) throws ResultException, DmcValueException, DmcNameClashException {
     	currentResolver = clashResolver;
     	
     	addDefinition(def);
@@ -1650,9 +1672,10 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * Attempts to add the specified definition. If the definition clashes with
      * any existing definition, we throw an exception.
      * @throws DmcValueException 
+     * @throws DmcNameClashException 
      * @throws DmcValueExceptionSet 
      */
-    void addDefinition(DmsDefinition def) throws ResultException, DmcValueException {
+    void addDefinition(DmsDefinition def) throws ResultException, DmcValueException, DmcNameClashException {
     	
     	if (def.getDotName() == null)
     		DebugInfo.debug("NO DOT NAME");
@@ -2020,18 +2043,25 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
             sb.append(format.sprintf(ad.getObjectName()) + ad.getDefinedIn().getName() + "\n");
         
         sb.append("*** Classes\n");
-        TreeMap<DefinitionName,ClassDefinition> scdefs = new TreeMap<DefinitionName, ClassDefinition>();
-        
-        for(ClassDefinition cd : classDefs.values())
-        	scdefs.put(cd.getName(), cd);
-        
-        for(ClassDefinition cd : scdefs.values()){
-            sb.append(format.sprintf(cd.getObjectName()));
-            if (cd.getAbbrev() != null)
-                sb.append(" AB " + cd.getAbbrev());
-            sb.append(cd.getDefinedIn().getName() + "\n");
-        }
+//        TreeMap<DefinitionName,ClassDefinition> scdefs = new TreeMap<DefinitionName, ClassDefinition>();
+//        
+//        for(ClassDefinition cd : classDefs.values())
+//        	scdefs.put(cd.getName(), cd);
+//        
+//        for(ClassDefinition cd : scdefs.values()){
+//            sb.append(format.sprintf(cd.getObjectName()));
+//            if (cd.getAbbrev() != null)
+//                sb.append(" AB " + cd.getAbbrev());
+//            sb.append(cd.getDefinedIn().getName() + "\n");
+//        }
        
+        for(ClassDefinition cd : classDefinitions.values()){
+          sb.append(format.sprintf(cd.getObjectName()));
+          if (cd.getAbbrev() != null)
+              sb.append(" AB " + cd.getAbbrev());
+          sb.append(cd.getDefinedIn().getName() + "\n");
+        }
+        
         return(new String(sb.toString()));
     }
     
@@ -2350,8 +2380,10 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     /**
      * This function will return the class definition associated with the
      * given name.
+     * @throws DmcNameClashException 
+     * @throws DmcValueException  
      */
-    public ClassDefinition cdef(String n){
+    public ClassDefinition cdef(String n) throws DmcNameClashException, DmcValueException {
     	if (n.contains(".")){
     		try {
 				DefinitionName dn = new DefinitionName(n);
@@ -2419,9 +2451,10 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * be resolved.
      * @param sd The schema to be resolved.
      * @throws ResultException  
+     * @throws DmcNameClashException 
      * @throws DmcValueExceptionSet 
      */
-	public void resolveReferences(SchemaDefinition sd, DmcNameClashResolverIF clashResolver) throws ResultException {
+	public void resolveReferences(SchemaDefinition sd, DmcNameClashResolverIF clashResolver) throws ResultException, DmcNameClashException {
 
     	Iterator<AttributeDefinition> preadl = sd.getAttributeDefList();
     	if (preadl != null){
