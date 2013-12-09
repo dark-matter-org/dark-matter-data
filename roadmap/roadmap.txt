@@ -27,6 +27,14 @@ Classes will still require unique identifiers within a .dms - however, move towa
 that allows for dopplering of the identifier space i.e. be able to set the base identifier of
 a schema at run time. 
 
+To handle auxiliary classes, we'll encode each class in a separate chunk e.g.
+[number of classes] [class 1] [attributes for class1] [class2] [attributes for class2] etc.
+
+Internally, the DmcObject will maintain a separate hash of attributes for each class. this
+allows us to still use integers as the hash key. 
+
+This might make things tricky with rules for auxiliary extended objects?
+
 -------------------------------------------------------------------------------
 
 Need to generate the schema handling infrastructure from the metaschema!
@@ -41,3 +49,25 @@ Need rules for the DMW space - see dmv rule definitions file for problem
 
 
 
+-------------------------------------------------------------------------------
+
+Schema management
+
+- need to implement the doppler mechanisms so that the identifier space of a schema
+  can be shifted as required to prevent clashes
+  
+- generated schemas shouldn't need any "processing" to generate internal types, classes
+  or anything else. After all related schemas are loaded, they should only require
+  resolution
+  
+-------------------------------------------------------------------------------
+Repositories
+
+Mapping to:
+MySQL
+MongoDB
+Neo4J
+LDAP
+
+
+-------------------------------------------------------------------------------
