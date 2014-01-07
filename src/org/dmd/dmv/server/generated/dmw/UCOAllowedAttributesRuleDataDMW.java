@@ -31,7 +31,7 @@ import org.dmd.dmv.shared.generated.dmo.UCOAllowedAttributesRuleDataDMO;        
 
 
 /**
- * java.util.AbstractList$Itr@6ef2ea42
+ * java.util.AbstractList$Itr@99d12cc
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>
