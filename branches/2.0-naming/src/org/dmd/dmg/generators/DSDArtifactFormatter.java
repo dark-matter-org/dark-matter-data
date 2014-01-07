@@ -351,8 +351,8 @@ public class DSDArtifactFormatter {
 		MemberManager members = new MemberManager();
 		members.addMember("SchemaManager",                   "schema", "Manages the schema for this DSD");
 		members.addMember("DmcUncheckedOIFParser",           "parser", "new DmcUncheckedOIFParser(this)", "Parses objects from the config file");
-		members.addMember("DmwObjectFactory",                "factory", "new DmwObjectFactory(schema)", "Instantiates wrapped objects");
-		members.addMember(ddm.getGlobalInterfaceName(), "definitions", "Place to store parsed definitions");
+		members.addMember("DmwObjectFactory",                "factory", "Instantiates wrapped objects");
+		members.addMember(ddm.getGlobalInterfaceName(),      "definitions", "Place to store parsed definitions");
 		members.addMember("DmvRuleManager", 				 "rules", "The overall rule manager");
 		members.addMember("ConfigLocation",					 "location", "The location of the config being parsed");
 		members.addMember(ddmClass.getName().getNameString(),"module", "The DDM module");
@@ -364,6 +364,9 @@ public class DSDArtifactFormatter {
 		out.write("    public " + ddm.getName() + "Parser(" + ddm.getGlobalInterfaceName() + " d, DmvRuleManager r) throws ResultException, DmcValueException, DmcNameClashException {\n");
 		out.write("        schema = new SchemaManager();\n");
 		out.write("        schema.manageSchema(new " + schemaName + "SchemaAG());\n");
+		out.write("        \n");
+		out.write("        factory      = new DmwObjectFactory(schema);\n");
+		out.write("        \n");
 		out.write("        definitions  = d;\n");
 		out.write("        rules        = r;\n");
 		out.write("    }\n\n");

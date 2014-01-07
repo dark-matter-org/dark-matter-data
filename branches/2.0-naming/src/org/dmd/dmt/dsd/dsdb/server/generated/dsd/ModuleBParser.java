@@ -24,8 +24,8 @@ import org.dmd.dmc.rules.DmcRuleExceptionSet;                                   
 import org.dmd.dmc.util.DmcUncheckedObject;                                      // Basic parsing of objects - (DSDArtifactFormatter.java:315)
 import org.dmd.dms.SchemaManager;                                                // Manages the schemas we use - (DSDArtifactFormatter.java:311)
 import org.dmd.dms.generated.dmw.StringIterableDMW;                              // To iterate over defFiles - (DSDArtifactFormatter.java:332)
-import org.dmd.dmt.dsd.dsdb.server.extended.BConceptBase;                        // The base definition from the ModuleB Module - (DSDArtifactFormatter.java:503)
-import org.dmd.dmt.dsd.dsdb.server.extended.BConceptX;                           // A definition from the ModuleB Module - (DSDArtifactFormatter.java:509)
+import org.dmd.dmt.dsd.dsdb.server.extended.BConceptBase;                        // The base definition from the ModuleB Module - (DSDArtifactFormatter.java:506)
+import org.dmd.dmt.dsd.dsdb.server.extended.BConceptX;                           // A definition from the ModuleB Module - (DSDArtifactFormatter.java:512)
 import org.dmd.dmt.dsd.dsdb.server.extended.ModuleB;                             // The kind of DDM we're reading - (DSDArtifactFormatter.java:336)
 import org.dmd.dmt.dsd.dsdb.server.generated.DsdBSchemaAG;                       // The schema recognized by this parser - (DSDArtifactFormatter.java:326)
 import org.dmd.dmt.dsd.dsdb.server.generated.dsd.ModuleBGlobalInterface;         // Interface to our definition storage - (DSDArtifactFormatter.java:319)
@@ -47,7 +47,7 @@ public class ModuleBParser implements DsdParserInterface, DmcUncheckedOIFHandler
     // Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:360)
     SchemaManager             schema;                                             // Manages the schema for this DSD
     DmcUncheckedOIFParser     parser         = new DmcUncheckedOIFParser(this);   // Parses objects from the config file
-    DmwObjectFactory          factory        = new DmwObjectFactory(schema);      // Instantiates wrapped objects
+    DmwObjectFactory          factory;                                            // Instantiates wrapped objects
     ModuleBGlobalInterface    definitions;                                        // Place to store parsed definitions
     DmvRuleManager            rules;                                              // The overall rule manager
     ConfigLocation            location;                                           // The location of the config being parsed
@@ -57,6 +57,9 @@ public class ModuleBParser implements DsdParserInterface, DmcUncheckedOIFHandler
     public ModuleBParser(ModuleBGlobalInterface d, DmvRuleManager r) throws ResultException, DmcValueException, DmcNameClashException {
         schema = new SchemaManager();
         schema.manageSchema(new DsdBSchemaAG());
+        
+        factory      = new DmwObjectFactory(schema);
+        
         definitions  = d;
         rules        = r;
     }
@@ -65,7 +68,7 @@ public class ModuleBParser implements DsdParserInterface, DmcUncheckedOIFHandler
         return(fileExtension);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:375)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:378)
     public ModuleB parseConfig(ConfigLocation l) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
         location = l;
 
@@ -96,7 +99,7 @@ public class ModuleBParser implements DsdParserInterface, DmcUncheckedOIFHandler
         return(module);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:408)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:411)
     @Override
     public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
         BConceptBase definition = null;
@@ -147,7 +150,7 @@ public class ModuleBParser implements DsdParserInterface, DmcUncheckedOIFHandler
             }
         }
         else{
-            // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:460)
+            // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:463)
             if (definition instanceof ModuleB){
                 ResultException ex = new ResultException("Multiple ModuleB definitions while parsing config: " + location.getFileName());
                 ex.setLocationInfo(infile, lineNumber);
