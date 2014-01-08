@@ -50,11 +50,13 @@ public class Converter {
 		while(descriptionWithNewlines.hasNext()){
 			String rc = descriptionWithNewlines.next();
 			
-			rc = rc.replaceAll("<pre>", "{{{");
-			rc = rc.replaceAll("</pre>", "}}}");
-			
-			rc = rc.replaceAll("<code>", "`");
-			rc = rc.replaceAll("</code>", "`");
+			if (wiki){
+				rc = rc.replaceAll("<pre>", "{{{");
+				rc = rc.replaceAll("</pre>", "}}}");
+				
+				rc = rc.replaceAll("<code>", "`");
+				rc = rc.replaceAll("</code>", "`");
+			}
 			
 			sb.append(rc + "\n");
 		}

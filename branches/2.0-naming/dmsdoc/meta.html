@@ -1487,7 +1487,7 @@
  has all of the required methods automatically defined.
  <p/>
  An example definition is the RuleParam:
- {{{
+ <pre>
  ComplexTypeDefinition
  name			RuleParam
  fieldSeparator :
@@ -1497,9 +1497,9 @@
  field String description     A description of the parameter
  description The RuleParam type is used to succintly describe a parameter
   to be supplied to a rule when it is executed.
- }}}
+ </pre>
  In this case, the type has four fields, all of String type. An example of the String
- format of the field might be: {{{ org.dmc.DmcObject::obj:The object to be validated}}} In this
+ format of the field might be: <pre> org.dmc.DmcObject::obj:The object to be validated</pre> In this
  case, the generic args field isn't available and will be the empty string. When a field
  seperator is specified, all fields are, more or less optional, but the underlying type
  must be able to handle the empty string as a valid value. This wouldn't work with Integer.
@@ -4477,32 +4477,32 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The ` TypeDefinition ` is used to define the types of attributes that can be used
+      <td colspan="2">The <code> TypeDefinition </code> is used to define the types of attributes that can be used
  as the basis for attribute values. The name of the type definition should be the same as the
  actual Java class that is used to store the value of an attribute e.g. the name of the type
- used to store strings is String. The ` typeClassName ` is the fully qualified name of the class
- derived from `DmcAttribute` that stores this type of value; they are always, by convention,
- named `DmcTypeXXX`.
+ used to store strings is String. The <code> typeClassName </code> is the fully qualified name of the class
+ derived from <code>DmcAttribute</code> that stores this type of value; they are always, by convention,
+ named <code>DmcTypeXXX</code>.
  <p/>
- ` TypeDefinitions ` are automatically generated internally for `ClassDefinitions`, 
- `ComplexTypeDefinitions`, `ExtendedReferenceTypeDefinitions` and
- `EnumDefinitions` so that these objects can be referred to via the `type` attribute of ` AttributeDefinitions`.
- These definitions are marked as ` internallyGenerated `.
+ <code> TypeDefinitions </code> are automatically generated internally for <code>ClassDefinitions</code>, 
+ <code>ComplexTypeDefinitions</code>, <code>ExtendedReferenceTypeDefinitions</code> and
+ <code>EnumDefinitions</code> so that these objects can be referred to via the <code>type</code> attribute of <code> AttributeDefinitions</code>.
+ These definitions are marked as <code> internallyGenerated </code>.
  <p/>
- The simplest ` TypeDefinition ` would look something like:
- {{{
+ The simplest <code> TypeDefinition </code> would look something like:
+ <pre>
  TypeDefinition
  name           String
  typeClassName  org.dmd.dmc.types.DmcTypeString
  description    Provides support for String values.
- }}}
- This form would be used for attribute types whose base type originates in ` java.lang`.
+ </pre>
+ This form would be used for attribute types whose base type originates in <code> java.lang</code>.
  The dark-matter base types include: Boolean, Byte, Double, Float, Integer, Long, Short and String.
  <p/>
- `TypeDefinitions` also support the concept of specifying a ` nullReturnValue `
+ <code>TypeDefinitions</code> also support the concept of specifying a <code> nullReturnValue </code>
  for the entire type i.e. whenever an attribute of the specified type is accessed, it will return
- that value when the attribute doesn't exist in the object. An example of this is the ` Boolean ` type:
- {{{
+ that value when the attribute doesn't exist in the object. An example of this is the <code> Boolean </code> type:
+ <pre>
  TypeDefinition
  name            Boolean
  typeClassName   org.dmd.dmc.types.DmcTypeBoolean
@@ -4511,26 +4511,26 @@
                  nullReturnValue flag so that, even if there is no
                  value for an attribute of this type, a value of false will
                  be returned.
- }}}
+ </pre>
  <p/>
- The next most common form of ` TypeDefinition ` adds the ` primitiveType `
+ The next most common form of <code> TypeDefinition </code> adds the <code> primitiveType </code>
  attribute. This is required for code generation so that we can import the appropriate type for
- use in the various getter/setter methods. An example would be the ` Date ` type.
- {{{
+ use in the various getter/setter methods. An example would be the <code> Date </code> type.
+ <pre>
  TypeDefinition
  name           Date
  typeClassName  org.dmd.dmc.types.DmcTypeDate
  primitiveType  java.util.Date
  description    Provides support for Date values.
- }}}
- Another common form of `TypeDefinition` is the definition of a name type. Object
- naming is a fundamental aspect of DMOs, with all object names being based on the `DmcObjectName`.
+ </pre>
+ Another common form of <code>TypeDefinition</code> is the definition of a name type. Object
+ naming is a fundamental aspect of DMOs, with all object names being based on the <code>DmcObjectName</code>.
  Flagging a type as being a name type also implies the definition of a designated naming attribute
  associated with the type. This mechanism allows for the transport of names that are self
- describing in terms of their implementation type. This feature supports the `NameContainer`
- type that allows any name to be transported in things like dark-matter protocol `GetRequest`.
+ describing in terms of their implementation type. This feature supports the <code>NameContainer</code>
+ type that allows any name to be transported in things like dark-matter protocol <code>GetRequest</code>.
  An example of a naming type would be:
- {{{
+ <pre>
  TypeDefinition
  name           CamelCaseName
  typeClassName  org.dmd.dmc.types.DmcTypeCamelCaseName
@@ -4538,9 +4538,9 @@
  isNameType     true
  description    The CamelCaseName is a string based name that must start with
                 an alpha character which is followed by a mix of alphanumerics.
- }}}
+ </pre>
  And its associated designated naming attribute would be:
- {{{
+ <pre>
  AttributeDefinition
  name                     camelCaseName
  dmdID                    116
@@ -4550,12 +4550,12 @@
                           format name for something. The name starts with a single letter
                           and can be followed by a mix of letters and numbers. No spaces or 
                           other characters are allowed.
- }}}
+ </pre>
  The last form of type definition is one that includes some additional information to provide
  a convenient, alternate interface for the generation of member functions associated with
  a container type; this concept is pretty much limited to the meta-schema, so it is unlikely
  that non-contributors to dark-matter will make use of this concept. However, here is an example:
- {{{
+ <pre>
  TypeDefinition
  name           NameContainer
  typeClassName  org.dmd.dmc.types.DmcTypeNameContainer
@@ -4563,7 +4563,7 @@
  altType        DmcObjectName
  altTypeImport  org.dmd.dmc.DmcObjectName
  description    The NameContainer type allows for the storage of object names of different types...
- }}}
+ </pre>
 </td>
     </tr>
 
@@ -9867,7 +9867,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@168e4805 </td>
+      <td> java.util.AbstractList$Itr@a3468f4 </td>
     </tr>
 
     <tr>
@@ -9899,7 +9899,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@571a4bd4 </td>
+      <td> java.util.AbstractList$Itr@76d67067 </td>
     </tr>
 
     <tr>
@@ -9984,7 +9984,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@7f6877f8 </td>
+      <td> java.util.AbstractList$Itr@786db724 </td>
     </tr>
 
     <tr>
@@ -9997,7 +9997,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@239c7c21 </td>
+      <td> java.util.AbstractList$Itr@6b12da40 </td>
     </tr>
 
     <tr>
@@ -10041,7 +10041,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@76996cca </td>
+      <td> java.util.AbstractList$Itr@22b6d6ab </td>
     </tr>
 
     <tr>
@@ -10072,7 +10072,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@52b57e9a </td>
+      <td> java.util.AbstractList$Itr@11c7865b </td>
     </tr>
 
     <tr>
@@ -10091,7 +10091,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@98adae2 </td>
+      <td> java.util.AbstractList$Itr@4245c97b </td>
     </tr>
 
     <tr>
@@ -10126,7 +10126,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@7b283052 </td>
+      <td> java.util.AbstractList$Itr@73aecc3a </td>
     </tr>
 
     <tr>
@@ -10169,7 +10169,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@b7c96a9 </td>
+      <td> java.util.AbstractList$Itr@58e22f2b </td>
     </tr>
 
     <tr>
@@ -10206,7 +10206,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@20873723 </td>
+      <td> java.util.AbstractList$Itr@6986dda3 </td>
     </tr>
 
     <tr>
@@ -10249,7 +10249,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@d34eb84 </td>
+      <td> java.util.AbstractList$Itr@15412e75 </td>
     </tr>
 
     <tr>
@@ -10280,7 +10280,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@d522de2 </td>
+      <td> java.util.AbstractList$Itr@6a510e39 </td>
     </tr>
 
     <tr>
@@ -10311,7 +10311,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@e425743 </td>
+      <td> java.util.AbstractList$Itr@6f7cf6b6 </td>
     </tr>
 
     <tr>
@@ -10330,7 +10330,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@256ef705 </td>
+      <td> java.util.AbstractList$Itr@75295fe8 </td>
     </tr>
 
     <tr>
@@ -10396,7 +10396,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@181b7c76 </td>
+      <td> java.util.AbstractList$Itr@6f57b46f </td>
     </tr>
 
     <tr>
@@ -10447,7 +10447,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@34883357 </td>
+      <td> java.util.AbstractList$Itr@3e152f4 </td>
     </tr>
 
     <tr>
@@ -10490,7 +10490,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@59e2afb2 </td>
+      <td> java.util.AbstractList$Itr@3e0d1329 </td>
     </tr>
 
     <tr>
@@ -10515,7 +10515,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@317cfd38 </td>
+      <td> java.util.AbstractList$Itr@4c650892 </td>
     </tr>
 
     <tr>
@@ -10553,7 +10553,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@4d480ea </td>
+      <td> java.util.AbstractList$Itr@7d15d06c </td>
     </tr>
 
     <tr>
@@ -10578,7 +10578,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@1b5b8520 </td>
+      <td> java.util.AbstractList$Itr@2326a29c </td>
     </tr>
 
     <tr>
@@ -10597,7 +10597,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@158105e8 </td>
+      <td> java.util.AbstractList$Itr@3d7dc1cb </td>
     </tr>
 
     <tr>
@@ -10631,7 +10631,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@49aacd5f </td>
+      <td> java.util.AbstractList$Itr@b3e15f7 </td>
     </tr>
 
     <tr>
@@ -10674,7 +10674,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@6c913dc1 </td>
+      <td> java.util.AbstractList$Itr@191410e5 </td>
     </tr>
 
     <tr>
@@ -10705,7 +10705,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@336d8196 </td>
+      <td> java.util.AbstractList$Itr@7461373f </td>
     </tr>
 
     <tr>
@@ -10742,7 +10742,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@5a56b93a </td>
+      <td> java.util.AbstractList$Itr@1a7244ca </td>
     </tr>
 
     <tr>
@@ -10785,7 +10785,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@739abd2b </td>
+      <td> java.util.AbstractList$Itr@44023756 </td>
     </tr>
 
     <tr>
@@ -10798,7 +10798,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@33f98d58 </td>
+      <td> java.util.AbstractList$Itr@6d7f11fb </td>
     </tr>
 
     <tr>
@@ -10972,7 +10972,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@6aadae91 </td>
+      <td> java.util.AbstractList$Itr@3175ade6 </td>
     </tr>
 
     <tr>
@@ -11016,7 +11016,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@309fe84e </td>
+      <td> java.util.AbstractList$Itr@24ebf068 </td>
     </tr>
 
     <tr>
@@ -11055,7 +11055,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@524c71d2 </td>
+      <td> java.util.AbstractList$Itr@7df44ec7 </td>
     </tr>
 
     <tr>
@@ -11074,7 +11074,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@18c4bc34 </td>
+      <td> java.util.AbstractList$Itr@32602b6b </td>
     </tr>
 
     <tr>
@@ -11093,7 +11093,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@1c2006a0 </td>
+      <td> java.util.AbstractList$Itr@47c297a3 </td>
     </tr>
 
     <tr>
@@ -11148,7 +11148,7 @@ This is the fully qualified name of the wrapper class derived from DmcWrapperBas
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td colspan="4"> java.util.AbstractList$Itr@49198ff2 </td>
+      <td colspan="4"> java.util.AbstractList$Itr@203e1bc8 </td>
     </tr>
 
     <tr>
@@ -11189,7 +11189,7 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td colspan="4"> java.util.AbstractList$Itr@2d397e5c </td>
+      <td colspan="4"> java.util.AbstractList$Itr@4d91f801 </td>
     </tr>
 
     <tr>
@@ -11238,7 +11238,7 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td colspan="4"> java.util.AbstractList$Itr@1996e136 </td>
+      <td colspan="4"> java.util.AbstractList$Itr@2a313170 </td>
     </tr>
 
     <tr>
@@ -11309,7 +11309,7 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>java.util.AbstractList$Itr@9bad5a</td>
+      <td>java.util.AbstractList$Itr@3a4c5b4</td>
     </tr>
 
     <tr>
@@ -11353,7 +11353,7 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>java.util.AbstractList$Itr@6c91f005</td>
+      <td>java.util.AbstractList$Itr@36afae4a</td>
     </tr>
 
     <tr>
@@ -11404,7 +11404,7 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>java.util.AbstractList$Itr@61250ff2</td>
+      <td>java.util.AbstractList$Itr@47db9852</td>
     </tr>
 
     <tr>
@@ -11441,7 +11441,7 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>java.util.AbstractList$Itr@483a0ab1</td>
+      <td>java.util.AbstractList$Itr@21ed5459</td>
     </tr>
 
     <tr>
@@ -11471,7 +11471,7 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>java.util.AbstractList$Itr@5a940f82</td>
+      <td>java.util.AbstractList$Itr@643cb075</td>
     </tr>
 
     <tr>
@@ -11553,7 +11553,7 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>java.util.AbstractList$Itr@2e864e43</td>
+      <td>java.util.AbstractList$Itr@4c6504bc</td>
     </tr>
 
     <tr>
@@ -11667,7 +11667,7 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>java.util.AbstractList$Itr@737c2891</td>
+      <td>java.util.AbstractList$Itr@7c19f9d2</td>
     </tr>
 
     <tr>
@@ -11718,7 +11718,7 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>java.util.AbstractList$Itr@5c4b82d2</td>
+      <td>java.util.AbstractList$Itr@d6089a5</td>
     </tr>
 
     <tr>
@@ -11741,7 +11741,7 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>java.util.AbstractList$Itr@6179d854</td>
+      <td>java.util.AbstractList$Itr@3cecb67f</td>
     </tr>
 
     <tr>
@@ -11799,7 +11799,7 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>java.util.AbstractList$Itr@669a4cb</td>
+      <td>java.util.AbstractList$Itr@58c16b18</td>
     </tr>
 
     <tr>
@@ -11822,7 +11822,7 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>java.util.AbstractList$Itr@1c20eb7</td>
+      <td>java.util.AbstractList$Itr@25e222e</td>
     </tr>
 
     <tr>
@@ -11873,7 +11873,7 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>java.util.AbstractList$Itr@6b541147</td>
+      <td>java.util.AbstractList$Itr@7215fb38</td>
     </tr>
 
     <tr>

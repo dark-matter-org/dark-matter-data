@@ -39,6 +39,7 @@ import org.dmd.dms.MetaSchemaAG;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaDefinitionListenerIF;
 import org.dmd.dms.SchemaManager;
+import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;
 import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
@@ -295,6 +296,22 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
             Iterator<AttributeDefinition> adl = currSchema.getAttributeDefList();
             if (adl != null){
             	allSchema.resolveNameTypes(adl);
+            }
+            
+            // And now we have to check that any TypeDefinitions that have
+            // isNameType set to true have had their nameAttributeDef set
+            Iterator<TypeDefinition> tdl = currSchema.getTypeDefList();
+            if (tdl != null){
+            	while(tdl.hasNext()){
+            		TypeDefinition td = tdl.next();
+            		if (td.getIsNameType()){
+            			if (td.getNameAttributeDef() == null){
+            				ResultException ex = new ResultException("The " + td.getName() + " TypeDefinition is flagged as a name type but doesn't have a corresponding attribute of the same type with the designatedNameAttribute flag set to true.");
+            				ex.setLocationInfo(td.getFile(), td.getLineNumber());
+            				throw(ex);
+            			}
+            		}
+            	}
             }
             
         }
