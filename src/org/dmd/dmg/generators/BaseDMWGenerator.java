@@ -53,9 +53,16 @@ import org.dmd.util.parsing.ConfigLocation;
 
 abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 
+	// The base generation directory
 	protected	String 				gendir;
 //	protected	String 				auxwdir;
+	
+	// The directory where the wrappers are dumped
 	protected	String 				dmwdir;
+	
+	// The directory where extended class wrappers will be created
+	protected	String				extendedDir;
+	
 	protected	String				fileHeader;
 
 	protected	ArrayList<AttributeDefinition>	allAttr;
@@ -130,6 +137,75 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 	public void setFileHeader(String fh) {
 		fileHeader = fh;
 	}
+	
+	///////////////////////////////////////////////////////////////////////////
+	
+	/**
+	 * If a class has wrapperType EXTENDED, we'll generate the extended class if it isn't already there.
+	 */
+	protected void createExtendedWrapperClasses(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm) throws IOException, ResultException {
+		int lastdot = -1;
+		
+		lastdot = baseWrapperImport.lastIndexOf(".");
+		baseWrapper = baseWrapperImport.substring(lastdot+1);
+				
+		lastdot = namedWrapperImport.lastIndexOf(".");
+		namedWrapper = namedWrapperImport.substring(lastdot+1);
+				
+		lastdot = hierarchicWrapperImport.lastIndexOf(".");
+		hierarchicWrapper = hierarchicWrapperImport.substring(lastdot+1);
+				
+		SchemaDefinition sd = sm.isSchema(config.getSchemaToLoad());
+		
+		if (sd.getDmwPackage(genContext) == null){
+			System.err.println("The " + sd.getName() + " schema must define a dmwTypeToPackage mapping for this context: " + genContext);
+			System.err.println("You should do this for all other schemas on which this schema depends.\n");
+			System.err.println("Example: dmwTypeToPackage gxt com.example.client\n");
+			System.exit(1);
+		}
+		
+		Iterator<ClassDefinition> cdefs = sd.getClassDefList();
+		
+		if (cdefs != null){
+			while(cdefs.hasNext()){
+				ClassDefinition cd = cdefs.next();
+				
+				if (cd.getUseWrapperType() != WrapperTypeEnum.EXTENDED)
+					continue;
+				
+				
+				if (cd.generateWrapper(genContext) == false){
+//					DebugInfo.debug("Skipping " + cd.getName() + " for context " + genContext);
+					continue;
+				}
+				
+				cd.adjustJavaClass(genContext,genSuffix);
+				
+				if (cd.getClassType() != ClassTypeEnum.AUXILIARY){
+					if (cd.getJavaClass() == null){
+						ResultException ex = new ResultException();
+						ex.addError("The " + cd.getName() + " class must define the javaClass attribute to facilitate wrapper creation.");
+						ex.result.lastResult().fileName(cd.getFile());
+						ex.result.lastResult().lineNumber(cd.getLineNumber());
+						throw(ex);
+					}
+					
+					dumpExtendedClass(config, loc, f, sm, cd);
+				}
+			}
+		}
+		
+	}
+
+	/**
+	 * At this level, we do nothing. Derived classes can overload this to generate the
+	 * extended wrapper class if it doesn't already exist.
+	 * @throws IOException 
+	 */
+	protected void dumpExtendedClass(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm, ClassDefinition cd) throws IOException {
+		
+	}
+
 
 	////////////////////////////////////////////////////////////////////////////////
 	// Our functionality
@@ -3043,12 +3119,15 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 	}
 
 	/**
-	 * Creates the output directory structure for our code.
+	 * Creates the specified directory is it doesn't already exist.
 	 */
 	protected void createIfRequired(String outdir){
+		if (outdir == null)
+			return;
+		
 		File dir = new File(outdir);
 		if (!dir.exists())
-			dir.mkdir();
+			dir.mkdirs();
 	}
 
 }
