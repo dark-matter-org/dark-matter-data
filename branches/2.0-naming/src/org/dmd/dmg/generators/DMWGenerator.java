@@ -2,6 +2,7 @@ package org.dmd.dmg.generators;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Iterator;
 
@@ -42,7 +43,9 @@ public class DMWGenerator extends BaseDMWGenerator {
 	
 	@Override
 	public void generateCode(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm) throws IOException, ResultException, DmcNameClashException, DmcValueException {
-		gendir = loc.getConfigParentDirectory() + File.separator + "generated";
+		gendir 		= loc.getConfigParentDirectory() + File.separator + "generated";
+		extendedDir	= loc.getConfigParentDirectory() + File.separator + "extended";
+		
 		dmwdir = gendir + File.separator + "dmw";
 //		auxwdir = gendir + File.separator + "dmw";
 		
@@ -53,6 +56,8 @@ public class DMWGenerator extends BaseDMWGenerator {
 		createTypeIterables(config, loc, f, sm);
 		
 		createWrappers(config, loc, f, sm);
+		
+		createExtendedWrapperClasses(config, loc, f, sm);
 		
 		sformatter.setFileHeader(fileHeader);
 		sformatter.setProgressStream(progress);
@@ -196,6 +201,65 @@ public class DMWGenerator extends BaseDMWGenerator {
 			
 			out.write(dsdm.getInterfaceMethodsImplementations(true));
 		}		
+	}
+
+	@Override
+	public void dumpExtendedClass(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm, ClassDefinition cd) throws IOException {		
+		String subfolder = "";
+		String outdir = extendedDir;
+		
+		// The extended class has to go to a subfolder if we have a subpackage
+		if (cd.getSubpackage() != null){
+			subfolder = cd.getSubpackage().replaceAll("\\.", "/");
+			DebugInfo.debug("Subfolder = " + subfolder);
+			outdir = extendedDir + "/" + subfolder;
+		}
+		
+		createIfRequired(outdir);
+		
+		String outfn = outdir + "/" + cd.getName().getNameString() + ".java";
+		File file =  new File(outfn);
+		if (file.exists()){
+			// We never overwrite the extended file if it already exists!
+			return;
+		}
+		
+		// NOTE: WE DON'T USE THE FileUpdateManager WHEN WRITING THESE FILES - otherwise, we wind up
+		// with problems of removing files that were previously dumped to the output directory, which
+		// is not what we want. The FileUpdateManager is only used for directories where all content 
+		// is generated.
+		BufferedWriter 	out = new BufferedWriter(new FileWriter(outfn));
+		
+		String abstractClass = "";
+		
+		if (cd.getClassType() == ClassTypeEnum.ABSTRACT)
+			abstractClass = "abstract ";
+		
+		ImportManager imports = new ImportManager();
+		imports.addImport(cd.getDmwPackage(genContext) + ".generated." + genContext + "." + cd.getName() + genSuffix, "The wrapper we're extending");
+		imports.addImport(cd.getDmoImport(), "The wrapper we're extending");
+		imports.addImport("org.dmd.dms.ClassDefinition", "Used in derived constructors");
+		
+		int lastDot = cd.getDmeImport().lastIndexOf(".");
+		
+		out.write("package " + cd.getDmeImport().substring(0, lastDot) + ";\n\n");
+		
+		out.write(imports.getFormattedImports() + "\n");
+		
+		out.write(abstractClass + "public class " + cd.getName() + " extends " + cd.getName() + genSuffix + " {\n\n");
+
+		out.write("    public " + cd.getName() + "(){\n");
+		out.write("        super();\n");
+		out.write("    }\n\n");
+		
+		out.write("    public " + cd.getName() + "(" + cd.getName() + "DMO dmo, ClassDefinition cd){\n");
+		out.write("        super(dmo,cd);\n");
+		out.write("    }\n\n");
+		
+		out.write("}\n\n");
+		
+        out.close();
+		
 	}
 
 }
