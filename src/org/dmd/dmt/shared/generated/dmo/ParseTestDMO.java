@@ -18,6 +18,7 @@ import org.dmd.dmt.shared.generated.types.DmcTypeTestBasicObjectFixedREFMV;     
 import org.dmd.dmt.shared.generated.types.DmcTypeTestBasicObjectFixedREFSV;         // Reference type - (GenUtility.java:300)
 import org.dmd.dmt.shared.generated.types.ObjWithRefsREF;                           // Helper class - (GenUtility.java:335)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * Used to test the DmcUncheckedOIFParser in the creation of
  * DmcUncheckedObjects within DmcUncheckedObjects.

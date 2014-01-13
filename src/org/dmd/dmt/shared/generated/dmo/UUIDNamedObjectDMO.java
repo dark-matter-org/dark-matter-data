@@ -22,6 +22,7 @@ import org.dmd.dms.generated.types.DmcTypeStringMV;           // Required type -
 import org.dmd.dms.generated.types.DmcTypeStringSV;           // Required type - (GenUtility.java:328)
 import org.dmd.dms.generated.types.DmcTypeUUIDNameSV;         // Required type - (GenUtility.java:328)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * <P>
  * Generated from the dmt schema at version 0.1
@@ -73,7 +74,7 @@ public class UUIDNamedObjectDMO  extends DmcObject  implements DmcNamedObjectIF,
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:750)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:751)
     public UUIDName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__uuidName);
         if (name != null)
@@ -82,13 +83,13 @@ public class UUIDNamedObjectDMO  extends DmcObject  implements DmcNamedObjectIF,
         return(null);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:767)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__uuidName);
         return(name);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:774)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:775)
     public boolean equals(Object obj){
         if (obj instanceof UUIDNamedObjectDMO){
             return( getObjectName().equals( ((UUIDNamedObjectDMO) obj).getObjectName()) );
@@ -96,7 +97,7 @@ public class UUIDNamedObjectDMO  extends DmcObject  implements DmcNamedObjectIF,
         return(false);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:782)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:783)
     public int hashCode(){
         UUIDName objn = getObjectName();
         if (objn == null)

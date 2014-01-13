@@ -25,6 +25,7 @@ import org.dmd.dms.generated.types.DmcTypeBooleanSV;         // Required type - 
 import org.dmd.dms.generated.types.DmcTypeIntegerMV;         // Required type - (GenUtility.java:328)
 import org.dmd.dms.generated.types.DmcTypeLongSV;            // Required type - (GenUtility.java:328)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * The DMPMessage class provides a common base for all messages that\n
  * comprise the Dark Matter Protocol (DMP).

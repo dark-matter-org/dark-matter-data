@@ -36,8 +36,22 @@ import org.dmd.dms.generated.types.DmcTypeStringMV;                         // R
 import org.dmd.dms.generated.types.DmcTypeStringSET;                        // Required type - (GenUtility.java:328)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                         // Required type - (GenUtility.java:328)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
- * java.util.AbstractList$Itr@2db6235b
+ * The CheckAttributesBasedOnValueRule allows you to specify\n that certain
+ * optional attributes must exist (or not exist) based on the value\n of
+ * another single valued attribute in an object. This allows for finer
+ * control of must/may\n attributes based on other values in an object. An
+ * example usage (from\n the dark-matter validation schema) looks like:\n
+ * <pre>\n CheckAttributesBasedOnValueRuleData\n ruleName             
+ * dmvNoMustInExtensible\n ruleTitle             If a ClassDefinition's
+ * classType is AUXILIARY, it can't have mandatory attributes\n applyToClass 
+ *         ClassDefinition\n basedOnAttribute      classType\n basedOnValue  
+ *        AUXILIARY\n excludeThisAttribute  must\n description           An
+ * AUXILIARY class can be added to an object dynamically and\n  we don't
+ * allow mandatory attributes in such classes.\n </pre>\n If the
+ * basedOnAttribute doesn't exist in the object being validated, the rule
+ * does nothing.
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>
@@ -88,7 +102,7 @@ public class CheckAttributesBasedOnValueRuleDataDMO  extends RuleDataDMO  implem
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:750)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:751)
     public RuleName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__ruleName);
         if (name != null)
@@ -97,13 +111,13 @@ public class CheckAttributesBasedOnValueRuleDataDMO  extends RuleDataDMO  implem
         return(null);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:767)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__ruleName);
         return(name);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:774)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:775)
     public boolean equals(Object obj){
         if (obj instanceof CheckAttributesBasedOnValueRuleDataDMO){
             return( getObjectName().equals( ((CheckAttributesBasedOnValueRuleDataDMO) obj).getObjectName()) );
@@ -111,7 +125,7 @@ public class CheckAttributesBasedOnValueRuleDataDMO  extends RuleDataDMO  implem
         return(false);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:782)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:783)
     public int hashCode(){
         RuleName objn = getObjectName();
         if (objn == null)

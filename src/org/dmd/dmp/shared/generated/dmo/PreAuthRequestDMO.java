@@ -22,6 +22,7 @@ import org.dmd.dmp.shared.generated.dmo.RequestDMO;           // Base class - (G
 import org.dmd.dms.generated.dmo.MetaDMSAG;                   // Required for MODREC constructor - (GenUtility.java:228)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor - (GenUtility.java:227)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * The PreAuthRequest allows for the retrieval of information from the\n
  * servlet before a user has authenticated. Exactly what type of information

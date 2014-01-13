@@ -1,18 +1,3 @@
-//	---------------------------------------------------------------------------
-//	dark-matter-data
-//	Copyright (c) 2013 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
 package org.dmd.dmv.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
@@ -33,7 +18,17 @@ import org.dmd.dmv.shared.generated.dmo.NumericRangeRuleDataDMO;         // Clas
 
 
 /**
- * java.util.AbstractList$Itr@273d1402
+ * The NumericRangeRule ensures that a numeric attribute has values\n that
+ * fall within a given range. It can be used for both single-valued and
+ * multi-valued\n attributes. The nrrMinimum must be less than the
+ * nrrMaximum. An example usage\n might be:\n <p/>\n <pre>\n
+ * NumericRangeRuleData\n ruleName         rangeCheckY\n ruleTitle       
+ * Attribute Y in range 1-10\n applyToAttribute Y\n nrrMinimum       1\n
+ * nrrMaximum       10\n description      This constraint is required because
+ * blah, blah blah.\n </pre>\n NOTE: this rule works by implicitly converting
+ * the values of the attributes\n to type Double in order to be able to do
+ * the range comparison. However,\n if you are dealing with large numeric
+ * values you may run into issues.
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>

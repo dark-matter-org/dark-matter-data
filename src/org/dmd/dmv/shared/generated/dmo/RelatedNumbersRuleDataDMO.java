@@ -36,8 +36,22 @@ import org.dmd.dms.generated.types.DmcTypeStringSV;                             
 import org.dmd.dmv.shared.generated.enums.NumericRelationEnum;                  // Primitive type and !auxiliary class - (GenUtility.java:271)
 import org.dmd.dmv.shared.generated.types.DmcTypeNumericRelationEnumSV;         // Required type - (GenUtility.java:328)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
- * java.util.AbstractList$Itr@67148603
+ * The RelatedNumbersRule ensures that a particular numeric\n relationship
+ * exists between two single-valued, numeric values on an object.\n An
+ * example usage might be:\n <pre>\n RelatedNumbersRuleData\n ruleName       
+ * dmvHeightGirth\n ruleTitle       Your height must exceed your girth.\n
+ * applyToClass    Person\n lhs             height\n rhs             girth\n
+ * numericRelation GT\n description     If your girth exceeds your height,
+ * you're in trouble!\n </pre>\n The rule will only test the relationship if
+ * both attributes exist; if not,\n that's okay - the rule will pass.\n
+ * <p/>\n It's a good rule of thumb to indicate the relationship you expect
+ * in the\n title of the rule since this is what will be returned in the case
+ * that \n the relationship check fails.\n <p/>\n NOTE: this rule works by
+ * implicitly converting the values of the attributes\n to type Double in
+ * order to be able to compare apples to apples. However,\n if you are
+ * dealing with large numeric values you may run into issues.
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>
@@ -88,7 +102,7 @@ public class RelatedNumbersRuleDataDMO  extends RuleDataDMO  implements DmcNamed
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:750)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:751)
     public RuleName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__ruleName);
         if (name != null)
@@ -97,13 +111,13 @@ public class RelatedNumbersRuleDataDMO  extends RuleDataDMO  implements DmcNamed
         return(null);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:767)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__ruleName);
         return(name);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:774)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:775)
     public boolean equals(Object obj){
         if (obj instanceof RelatedNumbersRuleDataDMO){
             return( getObjectName().equals( ((RelatedNumbersRuleDataDMO) obj).getObjectName()) );
@@ -111,7 +125,7 @@ public class RelatedNumbersRuleDataDMO  extends RuleDataDMO  implements DmcNamed
         return(false);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:782)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:783)
     public int hashCode(){
         RuleName objn = getObjectName();
         if (objn == null)

@@ -1,20 +1,5 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2013 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
-//	---------------------------------------------------------------------------
-//	dark-matter-data
 //	Copyright (c) 2010 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
@@ -137,7 +122,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _AllowedAttributesRuleDataOBJ.setClassType("STRUCTURAL");
             _AllowedAttributesRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _AllowedAttributesRuleDataOBJ.setLineNumber("22");
-            _AllowedAttributesRuleDataOBJ.addDescription("java.util.AbstractList$Itr@46ed5d9d");
+            _AllowedAttributesRuleDataOBJ.addDescription("The AllowedAttributesRule will determine whether or not the \n attributes of a DMO conform to the must/may specification of its class definition.\n For classes of type EXTENSIBLE, only the must have attributes are checked.\n <p/>\n Regardless of the environment in which you are running, you must ensure that the\n DmcOmni has been loaded with the appropriate schema. If you are using the dark-matter\n Model View Whatever (MVW) project for GWT, this aspect is taken care of automatically.\n <p/>\n Since this is a GLOBAL class rule, there will only ever be a single instance of\n this rule created as part of the dmv schema, as indicated below:\n <pre>\n AllowedAttributesRuleData\n ruleName    dmvAllowedAttributes\n ruleTitle 	 An object's attributes must conform to its schema.\n description Ensures that must/may attribute rules are followed.\n </pre>");
             _AllowedAttributesRuleDataOBJ.setDerivedFrom("meta.RuleData");
             _AllowedAttributesRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _AllowedAttributesRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.AllowedAttributesRuleDataREF");
@@ -160,7 +145,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _InitRuleDataOBJ.setClassType("EXTENSIBLE");
             _InitRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _InitRuleDataOBJ.setLineNumber("54");
-            _InitRuleDataOBJ.addDescription("java.util.AbstractList$Itr@99d12cc");
+            _InitRuleDataOBJ.addDescription("The InitRule allows you to specify attribute values for a \n newly created object or an object read from file or received in a CreateRequest\n (for instance). The InitRule will only set the values of attributes that are\n missing from the object; existing attributes are not alterred. An example\n usage might be:\n <p/>\n <pre>\n InitRuleData\n ruleName     <schema>InitX\n ruleTitle    Initialize the X class\n applyToClass X\n attributeA   some value\n attributeB   42\n attributeC   something\n attributeC   something else\n description  This provides a good initial setup for X objects. Other setups\n  may be required in other circumstances.\n </pre>");
             _InitRuleDataOBJ.setDerivedFrom("meta.RuleData");
             _InitRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _InitRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.InitRuleDataREF");
@@ -183,7 +168,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _NumericRangeRuleDataOBJ.setClassType("STRUCTURAL");
             _NumericRangeRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _NumericRangeRuleDataOBJ.setLineNumber("80");
-            _NumericRangeRuleDataOBJ.addDescription("java.util.AbstractList$Itr@273d1402");
+            _NumericRangeRuleDataOBJ.addDescription("The NumericRangeRule ensures that a numeric attribute has values\n that fall within a given range. It can be used for both single-valued and multi-valued\n attributes. The nrrMinimum must be less than the nrrMaximum. An example usage\n might be:\n <p/>\n <pre>\n NumericRangeRuleData\n ruleName         rangeCheckY\n ruleTitle        Attribute Y in range 1-10\n applyToAttribute Y\n nrrMinimum       1\n nrrMaximum       10\n description      This constraint is required because blah, blah blah.\n </pre>\n NOTE: this rule works by implicitly converting the values of the attributes\n to type Double in order to be able to do the range comparison. However,\n if you are dealing with large numeric values you may run into issues.");
             _NumericRangeRuleDataOBJ.setDerivedFrom("meta.RuleData");
             _NumericRangeRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _NumericRangeRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.NumericRangeRuleDataREF");
@@ -209,7 +194,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _UCOAllowedAttributesRuleDataOBJ.setClassType("STRUCTURAL");
             _UCOAllowedAttributesRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _UCOAllowedAttributesRuleDataOBJ.setLineNumber("90");
-            _UCOAllowedAttributesRuleDataOBJ.addDescription("java.util.AbstractList$Itr@1aeca36e");
+            _UCOAllowedAttributesRuleDataOBJ.addDescription("The UCOAllowedAttributesRule will determine whether or not the \n attributes of a DmcUncheckedObject conform to the must/may specification of its\n class definition. For classes of type EXTENSIBLE only the must have attributes are checked.");
             _UCOAllowedAttributesRuleDataOBJ.setDerivedFrom("meta.RuleData");
             _UCOAllowedAttributesRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _UCOAllowedAttributesRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.UCOAllowedAttributesRuleDataREF");
@@ -232,7 +217,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _RelatedNumbersRuleDataOBJ.setClassType("STRUCTURAL");
             _RelatedNumbersRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _RelatedNumbersRuleDataOBJ.setLineNumber("135");
-            _RelatedNumbersRuleDataOBJ.addDescription("java.util.AbstractList$Itr@25dd9891");
+            _RelatedNumbersRuleDataOBJ.addDescription("The RelatedNumbersRule ensures that a particular numeric\n relationship exists between two single-valued, numeric values on an object.\n An example usage might be:\n <pre>\n RelatedNumbersRuleData\n ruleName        dmvHeightGirth\n ruleTitle       Your height must exceed your girth.\n applyToClass    Person\n lhs             height\n rhs             girth\n numericRelation GT\n description     If your girth exceeds your height, you're in trouble!\n </pre>\n The rule will only test the relationship if both attributes exist; if not,\n that's okay - the rule will pass.\n <p/>\n It's a good rule of thumb to indicate the relationship you expect in the\n title of the rule since this is what will be returned in the case that \n the relationship check fails.\n <p/>\n NOTE: this rule works by implicitly converting the values of the attributes\n to type Double in order to be able to compare apples to apples. However,\n if you are dealing with large numeric values you may run into issues.");
             _RelatedNumbersRuleDataOBJ.setDerivedFrom("meta.RuleData");
             _RelatedNumbersRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _RelatedNumbersRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.RelatedNumbersRuleDataREF");
@@ -258,7 +243,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _CheckAttributesBasedOnValueRuleDataOBJ.setClassType("STRUCTURAL");
             _CheckAttributesBasedOnValueRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _CheckAttributesBasedOnValueRuleDataOBJ.setLineNumber("164");
-            _CheckAttributesBasedOnValueRuleDataOBJ.addDescription("java.util.AbstractList$Itr@6e848ecc");
+            _CheckAttributesBasedOnValueRuleDataOBJ.addDescription("The CheckAttributesBasedOnValueRule allows you to specify\n that certain optional attributes must exist (or not exist) based on the value\n of another single valued attribute in an object. This allows for finer control of must/may\n attributes based on other values in an object. An example usage (from\n the dark-matter validation schema) looks like:\n <pre>\n CheckAttributesBasedOnValueRuleData\n ruleName              dmvNoMustInExtensible\n ruleTitle             If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attributes\n applyToClass          ClassDefinition\n basedOnAttribute      classType\n basedOnValue          AUXILIARY\n excludeThisAttribute  must\n description           An AUXILIARY class can be added to an object dynamically and\n  we don't allow mandatory attributes in such classes.\n </pre>\n If the basedOnAttribute doesn't exist in the object being validated, the rule does nothing.");
             _CheckAttributesBasedOnValueRuleDataOBJ.setDerivedFrom("meta.RuleData");
             _CheckAttributesBasedOnValueRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _CheckAttributesBasedOnValueRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.CheckAttributesBasedOnValueRuleDataREF");
@@ -285,7 +270,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _OneOfTheseAttributesRequiredRuleDataOBJ.setClassType("STRUCTURAL");
             _OneOfTheseAttributesRequiredRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _OneOfTheseAttributesRequiredRuleDataOBJ.setLineNumber("199");
-            _OneOfTheseAttributesRequiredRuleDataOBJ.addDescription("java.util.AbstractList$Itr@40bb2bc3");
+            _OneOfTheseAttributesRequiredRuleDataOBJ.addDescription("The OneOfTheseAttributesRequiredRule allows you to specify\n that one of the possible optional attributes specified must be present\n in the object being checked.\n <p/>\n If only one of the possibilities is allowed, you can specify the andOnlyOne\n flag and set it to true. In this case only one of the possibilities will be allowed.\n <p/>\n An example of this rule can be seen below.\n <pre>\n OneOfTheseAttributesRequiredRuleData\n ruleName			dmvIncludeOrExclude\n ruleTitle			At least one of the excludeThisAttribute or includeThisAttribute attributes must be specified.\n applyToClass		CheckAttributesBasedOnValueRuleData\n onePossibility		excludeThisAttribute\n onePossibility		includeThisAttribute\n </pre>");
             _OneOfTheseAttributesRequiredRuleDataOBJ.setDerivedFrom("meta.RuleData");
             _OneOfTheseAttributesRequiredRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _OneOfTheseAttributesRequiredRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.OneOfTheseAttributesRequiredRuleDataREF");
@@ -310,7 +295,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _PatternMatchRuleDataOBJ.setClassType("STRUCTURAL");
             _PatternMatchRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _PatternMatchRuleDataOBJ.setLineNumber("227");
-            _PatternMatchRuleDataOBJ.addDescription("java.util.AbstractList$Itr@40363068");
+            _PatternMatchRuleDataOBJ.addDescription("The PatternMatchRule allows you to validate that an attribute\n in an object conforms to a regex pattern that you specify. If the pattern match\n fails, the ruleTitle is used as the error message, so use a clear rule title to\n indicate the intent of the pattern match. For instance the following rule is \n applied to the names of EnumDefinitions:\n <pre>\n PatternMatchRuleData\n ruleName          dmvEnumDefinitionNameCheck\n ruleTitle         An EnumDefinition's name must end with Enum\n matchesPattern    ^.*Enum\n applyToAttribute  name\n applyToClass      EnumDefinition\n </pre>");
             _PatternMatchRuleDataOBJ.setDerivedFrom("meta.RuleData");
             _PatternMatchRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _PatternMatchRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.PatternMatchRuleDataREF");
@@ -335,7 +320,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ValueLengthRuleDataOBJ.setClassType("STRUCTURAL");
             _ValueLengthRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _ValueLengthRuleDataOBJ.setLineNumber("300");
-            _ValueLengthRuleDataOBJ.addDescription("java.util.AbstractList$Itr@25a41cc7");
+            _ValueLengthRuleDataOBJ.addDescription("The ValueLengthRule allows you to indicate the maximum length,\n the minimum length or both the maximum and minimum length of the String form of\n a value associated with an attribute. It works for both single valued and\n multi-valued attributes.\n <p/>\n If you have added types via the TypeDefinition mechanisms,\n you should ensure that you have overloaded the toString() method \n <pre>\n ValueLengthRuleData\n ruleName         userNameLength\n ruleTitle        The user name must be between 6 and 20 characters\n applyToAttribute userNameString\n minLength        6\n maxLength        20\n </pre>\n Or, just a minimum length:\n <pre>\n ValueLengthRuleData\n ruleName         tagLength\n ruleTitle        Tag information must be 4 characters or more.\n applyToAttribute dataTag\n applyToClass     chunkOfData\n minLength        4\n </pre>\n Or, just a maximum length:\n <pre>\n ValueLengthRuleData\n ruleName         infoLength\n ruleTitle        The info must be less than or equal to 50 characters.\n applyToAttribute info\n applyToClass     chunkOfData\n maxLength        50\n </pre>\n NOTE: If you have added types via the TypeDefinition mechanisms, you should ensure\n that you have overloaded the toString() method of the primitiveType that\n you're using.");
             _ValueLengthRuleDataOBJ.setDerivedFrom("meta.RuleData");
             _ValueLengthRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _ValueLengthRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.ValueLengthRuleDataREF");
@@ -361,7 +346,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ReferencedAttributeTypeRuleDataOBJ.setClassType("STRUCTURAL");
             _ReferencedAttributeTypeRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _ReferencedAttributeTypeRuleDataOBJ.setLineNumber("366");
-            _ReferencedAttributeTypeRuleDataOBJ.addDescription("java.util.AbstractList$Itr@395d601f");
+            _ReferencedAttributeTypeRuleDataOBJ.addDescription("The ReferencedAttributeTypeRule allowes you to restrict the type of\n an attribute referred to by an AttributeDefinition reference. Some examples include:\n <pre>\n ReferencedAttributeTypeRuleData\n ruleName          dmvNRRApplyToAttribute\n ruleTitle         The applyToAttribute attribute in a NumericRangeRuleData instance must refer to an Integer, Long, Float or Double attribute\n applyToAttribute  applyToAttribute\n applyToClass      NumericRangeRuleData\n allowedType       Integer\n allowedType       Long\n allowedType       Float\n allowedType       Double\n </pre>\n In this case, we're restricting the applyToAttribute to be a numeric type, either Integer, Long Float or Double.\n <p/>\n You can also restrict the valueType of an attribute reference, for instance:\n <pre>\n ReferencedAttributeTypeRuleData\n ruleName          dmvLhs\n ruleTitle         The lhs attribute must be a single valued Integer, Long, Float or Double\n applyToAttribute  lhs\n applyToClass      RelatedNumbersRuleData\n allowedType       Integer\n allowedType       Long\n allowedType       Float\n allowedType       Double\n allowedValueType  SINGLE\n </pre>\n Here, we're indicating that the lhs (left hand side) attribute must be single valued.");
             _ReferencedAttributeTypeRuleDataOBJ.setDerivedFrom("meta.RuleData");
             _ReferencedAttributeTypeRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _ReferencedAttributeTypeRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.ReferencedAttributeTypeRuleDataREF");

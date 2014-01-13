@@ -34,8 +34,17 @@ import org.dmd.dms.generated.types.DmcTypeRuleNameSV;                       // R
 import org.dmd.dms.generated.types.DmcTypeStringMV;                         // Required type - (GenUtility.java:328)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                         // Required type - (GenUtility.java:328)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
- * java.util.AbstractList$Itr@108f2ca6
+ * The PatternMatchRule allows you to validate that an attribute\n in an
+ * object conforms to a regex pattern that you specify. If the pattern
+ * match\n fails, the ruleTitle is used as the error message, so use a clear
+ * rule title to\n indicate the intent of the pattern match. For instance the
+ * following rule is \n applied to the names of EnumDefinitions:\n <pre>\n
+ * PatternMatchRuleData\n ruleName          dmvEnumDefinitionNameCheck\n
+ * ruleTitle         An EnumDefinition's name must end with Enum\n
+ * matchesPattern    ^.*Enum\n applyToAttribute  name\n applyToClass     
+ * EnumDefinition\n </pre>
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>
@@ -86,7 +95,7 @@ public class PatternMatchRuleDataDMO  extends RuleDataDMO  implements DmcNamedOb
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:750)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:751)
     public RuleName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__ruleName);
         if (name != null)
@@ -95,13 +104,13 @@ public class PatternMatchRuleDataDMO  extends RuleDataDMO  implements DmcNamedOb
         return(null);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:767)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__ruleName);
         return(name);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:774)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:775)
     public boolean equals(Object obj){
         if (obj instanceof PatternMatchRuleDataDMO){
             return( getObjectName().equals( ((PatternMatchRuleDataDMO) obj).getObjectName()) );
@@ -109,7 +118,7 @@ public class PatternMatchRuleDataDMO  extends RuleDataDMO  implements DmcNamedOb
         return(false);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:782)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:783)
     public int hashCode(){
         RuleName objn = getObjectName();
         if (objn == null)

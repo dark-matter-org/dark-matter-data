@@ -27,6 +27,7 @@ import org.dmd.dms.generated.types.DmcTypeBooleanSV;                           /
 import org.dmd.dms.generated.types.DmcTypeIntegerSV;                           // Required type - (GenUtility.java:328)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                            // Required type - (GenUtility.java:328)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * The request class provides a common base for all request messages.
  * <P>

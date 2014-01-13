@@ -30,8 +30,12 @@ import org.dmd.dms.generated.types.DmcTypeRuleNameSV;         // Required type -
 import org.dmd.dms.generated.types.DmcTypeStringMV;           // Required type - (GenUtility.java:328)
 import org.dmd.dms.generated.types.DmcTypeStringSV;           // Required type - (GenUtility.java:328)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
- * java.util.AbstractList$Itr@4ab9b8d0
+ * The UCOAllowedAttributesRule will determine whether or not the \n
+ * attributes of a DmcUncheckedObject conform to the must/may specification
+ * of its\n class definition. For classes of type EXTENSIBLE only the must
+ * have attributes are checked.
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>
@@ -82,7 +86,7 @@ public class UCOAllowedAttributesRuleDataDMO  extends RuleDataDMO  implements Dm
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:750)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:751)
     public RuleName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__ruleName);
         if (name != null)
@@ -91,13 +95,13 @@ public class UCOAllowedAttributesRuleDataDMO  extends RuleDataDMO  implements Dm
         return(null);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:767)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__ruleName);
         return(name);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:774)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:775)
     public boolean equals(Object obj){
         if (obj instanceof UCOAllowedAttributesRuleDataDMO){
             return( getObjectName().equals( ((UCOAllowedAttributesRuleDataDMO) obj).getObjectName()) );
@@ -105,7 +109,7 @@ public class UCOAllowedAttributesRuleDataDMO  extends RuleDataDMO  implements Dm
         return(false);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:782)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:783)
     public int hashCode(){
         RuleName objn = getObjectName();
         if (objn == null)

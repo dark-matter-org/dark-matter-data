@@ -33,6 +33,7 @@ import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFSV;         // Refer
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                   // Required type - (GenUtility.java:328)
 import org.dmd.dms.generated.types.DmcTypeNameContainerSV;              // Required type - (GenUtility.java:328)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * The SetRequest allows you to alter the attribute values associated\n with
  * an object. Like the get request, the set of attributes that can be

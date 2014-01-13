@@ -30,6 +30,7 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;                           // Require
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                 // Required for MODREC constructor - (GenUtility.java:227)
 import org.dmd.dms.generated.types.DmcTypeNameContainerMV;            // Required type - (GenUtility.java:328)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * The DeleteRequest allows you to delete one or more objects. If no scope is
  * specified,\n the scope is assumed to be BASE i.e. just the specific object

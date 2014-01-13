@@ -31,6 +31,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;                 // Require
 import org.dmd.dms.generated.types.DmcTypeNameContainerSV;            // Required type - (GenUtility.java:328)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                   // Required type - (GenUtility.java:328)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * The DenotifyRequest allows you to deregister for event notification on\n
  * one or more objects.

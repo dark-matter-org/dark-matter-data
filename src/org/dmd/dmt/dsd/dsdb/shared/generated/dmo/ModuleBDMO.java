@@ -37,6 +37,7 @@ import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.ModuleBDMO;                    
 import org.dmd.dmt.dsd.dsdb.shared.generated.types.DmcTypeModuleBREFMV;         // Reference type - (GenUtility.java:300)
 import org.dmd.dmt.dsd.dsdb.shared.generated.types.ModuleBREF;                  // Helper class - (GenUtility.java:335)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * <P>
  * Generated from the dsdB schema at version unknown
@@ -88,7 +89,7 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:750)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:751)
     public DefinitionName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__name);
         if (name != null)
@@ -97,13 +98,13 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
         return(null);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:767)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__name);
         return(name);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:774)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:775)
     public boolean equals(Object obj){
         if (obj instanceof ModuleBDMO){
             return( getObjectName().equals( ((ModuleBDMO) obj).getObjectName()) );
@@ -111,7 +112,7 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
         return(false);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:782)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:783)
     public int hashCode(){
         DefinitionName objn = getObjectName();
         if (objn == null)

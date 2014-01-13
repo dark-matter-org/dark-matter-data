@@ -30,8 +30,21 @@ import org.dmd.dms.generated.types.DmcTypeRuleNameSV;         // Required type -
 import org.dmd.dms.generated.types.DmcTypeStringMV;           // Required type - (GenUtility.java:328)
 import org.dmd.dms.generated.types.DmcTypeStringSV;           // Required type - (GenUtility.java:328)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
- * java.util.AbstractList$Itr@26c1186f
+ * The AllowedAttributesRule will determine whether or not the \n attributes
+ * of a DMO conform to the must/may specification of its class definition.\n
+ * For classes of type EXTENSIBLE, only the must have attributes are
+ * checked.\n <p/>\n Regardless of the environment in which you are running,
+ * you must ensure that the\n DmcOmni has been loaded with the appropriate
+ * schema. If you are using the dark-matter\n Model View Whatever (MVW)
+ * project for GWT, this aspect is taken care of automatically.\n <p/>\n
+ * Since this is a GLOBAL class rule, there will only ever be a single
+ * instance of\n this rule created as part of the dmv schema, as indicated
+ * below:\n <pre>\n AllowedAttributesRuleData\n ruleName   
+ * dmvAllowedAttributes\n ruleTitle 	 An object's attributes must conform to
+ * its schema.\n description Ensures that must/may attribute rules are
+ * followed.\n </pre>
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>
@@ -82,7 +95,7 @@ public class AllowedAttributesRuleDataDMO  extends RuleDataDMO  implements DmcNa
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:750)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:751)
     public RuleName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__ruleName);
         if (name != null)
@@ -91,13 +104,13 @@ public class AllowedAttributesRuleDataDMO  extends RuleDataDMO  implements DmcNa
         return(null);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:767)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__ruleName);
         return(name);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:774)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:775)
     public boolean equals(Object obj){
         if (obj instanceof AllowedAttributesRuleDataDMO){
             return( getObjectName().equals( ((AllowedAttributesRuleDataDMO) obj).getObjectName()) );
@@ -105,7 +118,7 @@ public class AllowedAttributesRuleDataDMO  extends RuleDataDMO  implements DmcNa
         return(false);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:782)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:783)
     public int hashCode(){
         RuleName objn = getObjectName();
         if (objn == null)

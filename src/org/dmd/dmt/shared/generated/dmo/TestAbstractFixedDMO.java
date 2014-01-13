@@ -7,6 +7,7 @@ import org.dmd.dmc.DmcObject;                               // Structural class 
 import org.dmd.dmc.DmcValueException;                       // Any attributes - (GenUtility.java:241)
 import org.dmd.dms.generated.types.DmcTypeStringSV;         // Required type - (GenUtility.java:328)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * The TestAbstract class just defines an abstract base class from which\n
  * other test classes can be derived to tes this type of derivation.

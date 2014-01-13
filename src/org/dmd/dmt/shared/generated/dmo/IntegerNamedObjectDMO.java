@@ -13,6 +13,7 @@ import org.dmd.dms.generated.types.DmcTypeIntegerNameSV;         // Required typ
 import org.dmd.dms.generated.types.DmcTypeModifierMV;            // Required for MODREC constructor - (GenUtility.java:227)
 import org.dmd.dms.generated.types.DmcTypeStringSV;              // Required type - (GenUtility.java:328)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * <P>
  * Generated from the dmt schema at version 0.1
@@ -64,7 +65,7 @@ public class IntegerNamedObjectDMO  extends DmcObject  implements DmcNamedObject
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:750)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:751)
     public IntegerName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__integerName);
         if (name != null)
@@ -73,13 +74,13 @@ public class IntegerNamedObjectDMO  extends DmcObject  implements DmcNamedObject
         return(null);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:767)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__integerName);
         return(name);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:774)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:775)
     public boolean equals(Object obj){
         if (obj instanceof IntegerNamedObjectDMO){
             return( getObjectName().equals( ((IntegerNamedObjectDMO) obj).getObjectName()) );
@@ -87,7 +88,7 @@ public class IntegerNamedObjectDMO  extends DmcObject  implements DmcNamedObject
         return(false);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:782)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:783)
     public int hashCode(){
         IntegerName objn = getObjectName();
         if (objn == null)

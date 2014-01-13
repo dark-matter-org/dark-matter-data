@@ -1,18 +1,3 @@
-//	---------------------------------------------------------------------------
-//	dark-matter-data
-//	Copyright (c) 2013 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
 package org.dmd.dmv.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
@@ -33,7 +18,24 @@ import org.dmd.dmv.shared.generated.dmo.ValueLengthRuleDataDMO;         // Class
 
 
 /**
- * java.util.AbstractList$Itr@25a41cc7
+ * The ValueLengthRule allows you to indicate the maximum length,\n the
+ * minimum length or both the maximum and minimum length of the String form
+ * of\n a value associated with an attribute. It works for both single valued
+ * and\n multi-valued attributes.\n <p/>\n If you have added types via the
+ * TypeDefinition mechanisms,\n you should ensure that you have overloaded
+ * the toString() method \n <pre>\n ValueLengthRuleData\n ruleName        
+ * userNameLength\n ruleTitle        The user name must be between 6 and 20
+ * characters\n applyToAttribute userNameString\n minLength        6\n
+ * maxLength        20\n </pre>\n Or, just a minimum length:\n <pre>\n
+ * ValueLengthRuleData\n ruleName         tagLength\n ruleTitle        Tag
+ * information must be 4 characters or more.\n applyToAttribute dataTag\n
+ * applyToClass     chunkOfData\n minLength        4\n </pre>\n Or, just a
+ * maximum length:\n <pre>\n ValueLengthRuleData\n ruleName        
+ * infoLength\n ruleTitle        The info must be less than or equal to 50
+ * characters.\n applyToAttribute info\n applyToClass     chunkOfData\n
+ * maxLength        50\n </pre>\n NOTE: If you have added types via the
+ * TypeDefinition mechanisms, you should ensure\n that you have overloaded
+ * the toString() method of the primitiveType that\n you're using.
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>

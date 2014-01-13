@@ -1,18 +1,3 @@
-//	---------------------------------------------------------------------------
-//	dark-matter-data
-//	Copyright (c) 2013 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
 package org.dmd.dmv.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
@@ -33,7 +18,15 @@ import org.dmd.dmv.shared.generated.dmo.PatternMatchRuleDataDMO;         // Clas
 
 
 /**
- * java.util.AbstractList$Itr@40363068
+ * The PatternMatchRule allows you to validate that an attribute\n in an
+ * object conforms to a regex pattern that you specify. If the pattern
+ * match\n fails, the ruleTitle is used as the error message, so use a clear
+ * rule title to\n indicate the intent of the pattern match. For instance the
+ * following rule is \n applied to the names of EnumDefinitions:\n <pre>\n
+ * PatternMatchRuleData\n ruleName          dmvEnumDefinitionNameCheck\n
+ * ruleTitle         An EnumDefinition's name must end with Enum\n
+ * matchesPattern    ^.*Enum\n applyToAttribute  name\n applyToClass     
+ * EnumDefinition\n </pre>
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>

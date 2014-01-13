@@ -31,6 +31,7 @@ import org.dmd.dms.generated.types.DmcTypeIntegerSV;                            
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                            // Required for MODREC constructor - (GenUtility.java:227)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                              // Required type - (GenUtility.java:328)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * The Response class serves as a common base for all response messages. It
  * used to be\n that the Response was abstract, but because we could receive

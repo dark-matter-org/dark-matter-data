@@ -31,6 +31,7 @@ import org.dmd.dms.generated.types.DmcTypeLongSV;                  // Required t
 import org.dmd.dms.generated.types.DmcTypeModifierMV;              // Required for MODREC constructor - (GenUtility.java:227)
 import org.dmd.dms.generated.types.DmcTypeNameContainerSV;         // Required type - (GenUtility.java:328)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * The SetResponse returns the results of a particular SetRequest. The
  * objectList will contain\n the objects with the previously specified edits.

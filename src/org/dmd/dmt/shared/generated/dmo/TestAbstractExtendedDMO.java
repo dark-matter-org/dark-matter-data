@@ -18,6 +18,7 @@ import org.dmd.dmt.shared.generated.types.DmcTypeSomeRelationMV;                
 import org.dmd.dmt.shared.generated.types.DmcTypeSomeRelationSV;                 // Required type - (GenUtility.java:328)
 import org.dmd.dmt.shared.generated.types.SomeRelation;                          // Extended reference type - (GenUtility.java:326)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * The TestAbstract class just defines an abstract base class from which\n
  * other test classes can be derived to tes this type of derivation.

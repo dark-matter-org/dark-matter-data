@@ -1,18 +1,3 @@
-//	---------------------------------------------------------------------------
-//	dark-matter-data
-//	Copyright (c) 2013 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
 package org.dmd.dmv.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
@@ -34,7 +19,20 @@ import org.dmd.dmv.shared.generated.enums.NumericRelationEnum;             // Pr
 
 
 /**
- * java.util.AbstractList$Itr@25dd9891
+ * The RelatedNumbersRule ensures that a particular numeric\n relationship
+ * exists between two single-valued, numeric values on an object.\n An
+ * example usage might be:\n <pre>\n RelatedNumbersRuleData\n ruleName       
+ * dmvHeightGirth\n ruleTitle       Your height must exceed your girth.\n
+ * applyToClass    Person\n lhs             height\n rhs             girth\n
+ * numericRelation GT\n description     If your girth exceeds your height,
+ * you're in trouble!\n </pre>\n The rule will only test the relationship if
+ * both attributes exist; if not,\n that's okay - the rule will pass.\n
+ * <p/>\n It's a good rule of thumb to indicate the relationship you expect
+ * in the\n title of the rule since this is what will be returned in the case
+ * that \n the relationship check fails.\n <p/>\n NOTE: this rule works by
+ * implicitly converting the values of the attributes\n to type Double in
+ * order to be able to compare apples to apples. However,\n if you are
+ * dealing with large numeric values you may run into issues.
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>

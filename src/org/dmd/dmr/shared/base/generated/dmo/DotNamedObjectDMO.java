@@ -27,6 +27,7 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;                               // Req
 import org.dmd.dms.generated.types.DmcTypeFullyQualifiedNameSV;           // Required type - (GenUtility.java:328)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                     // Required for MODREC constructor - (GenUtility.java:227)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * A DotNamedObject is a hierarchic object whose fully qualified\n name is
  * composed of naming attributes separated by periods. For example \n
@@ -86,7 +87,7 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:750)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:751)
     public FullyQualifiedName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__FQN);
         if (name != null)
@@ -95,13 +96,13 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
         return(null);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:767)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__FQN);
         return(name);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:774)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:775)
     public boolean equals(Object obj){
         if (obj instanceof DotNamedObjectDMO){
             return( getObjectName().equals( ((DotNamedObjectDMO) obj).getObjectName()) );
@@ -109,7 +110,7 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
         return(false);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:782)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:783)
     public int hashCode(){
         FullyQualifiedName objn = getObjectName();
         if (objn == null)

@@ -932,8 +932,12 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         cd.setDefinedIn(ddm.getDefinedIn());
         cd.setUseWrapperType(WrapperTypeEnum.EXTENDED);
         
-        if (ddm.getDescription() != null)
-        	cd.addDescription(ddm.getDescription());
+        if (ddm.getDescription() != null){
+	    	Iterator<String> it = ddm.getDescription();
+	    	while(it.hasNext()){
+	    		cd.addDescription(it.next());
+	    	}
+        }
         
         // Add the attribute that lets us refer to other modules of this kind
 //        cd.addMay(ddm.getModuleDependenceAttribute());
@@ -1248,8 +1252,12 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         cd.setLineNumber(rd.getLineNumber());
         cd.setDefinedIn(rd.getDefinedIn());
         
-        if (rd.getDescription() != null)
-        	cd.addDescription(rd.getDescription());
+        if (rd.getDescription() != null){
+        	Iterator<String> it = rd.getDescription();
+        	while(it.hasNext()){
+        		cd.addDescription(it.next());
+        	}
+        }
         
         for(AttributeDefinition ad: rd.getMay()){
         	cd.addMay(ad);
