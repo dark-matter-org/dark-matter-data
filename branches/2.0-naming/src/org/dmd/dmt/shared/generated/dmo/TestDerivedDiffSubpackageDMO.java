@@ -15,6 +15,7 @@ import org.dmd.dms.generated.types.DmcTypeStringMV;                        // Re
 import org.dmd.dms.generated.types.DmcTypeStringSV;                        // Required type - (GenUtility.java:328)
 import org.dmd.dmt.shared.generated.dmo.TestOneLevelSubpackageDMO;         // Base class - (GenUtility.java:355)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * The TestDerivedDiffSubpackage test derivation from a different subpackage.
  * <P>
@@ -67,7 +68,7 @@ public class TestDerivedDiffSubpackageDMO  extends TestOneLevelSubpackageDMO  im
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:750)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:751)
     public DefinitionName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__name);
         if (name != null)
@@ -76,13 +77,13 @@ public class TestDerivedDiffSubpackageDMO  extends TestOneLevelSubpackageDMO  im
         return(null);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:767)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__name);
         return(name);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:774)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:775)
     public boolean equals(Object obj){
         if (obj instanceof TestDerivedDiffSubpackageDMO){
             return( getObjectName().equals( ((TestDerivedDiffSubpackageDMO) obj).getObjectName()) );
@@ -90,7 +91,7 @@ public class TestDerivedDiffSubpackageDMO  extends TestOneLevelSubpackageDMO  im
         return(false);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:782)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:783)
     public int hashCode(){
         DefinitionName objn = getObjectName();
         if (objn == null)

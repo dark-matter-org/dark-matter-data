@@ -141,7 +141,22 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">java.util.AbstractList$Itr@478e4327
+      <td colspan="2">The AllowedAttributesRule will determine whether or not the 
+ attributes of a DMO conform to the must/may specification of its class definition.
+ For classes of type EXTENSIBLE, only the must have attributes are checked.
+ <p/>
+ Regardless of the environment in which you are running, you must ensure that the
+ DmcOmni has been loaded with the appropriate schema. If you are using the dark-matter
+ Model View Whatever (MVW) project for GWT, this aspect is taken care of automatically.
+ <p/>
+ Since this is a GLOBAL class rule, there will only ever be a single instance of
+ this rule created as part of the dmv schema, as indicated below:
+ <pre>
+ AllowedAttributesRuleData
+ ruleName    dmvAllowedAttributes
+ ruleTitle 	 An object's attributes must conform to its schema.
+ description Ensures that must/may attribute rules are followed.
+ </pre>
 </td>
     </tr>
 
@@ -313,7 +328,23 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">java.util.AbstractList$Itr@64d55986
+      <td colspan="2">The CheckAttributesBasedOnValueRule allows you to specify
+ that certain optional attributes must exist (or not exist) based on the value
+ of another single valued attribute in an object. This allows for finer control of must/may
+ attributes based on other values in an object. An example usage (from
+ the dark-matter validation schema) looks like:
+ <pre>
+ CheckAttributesBasedOnValueRuleData
+ ruleName              dmvNoMustInExtensible
+ ruleTitle             If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attributes
+ applyToClass          ClassDefinition
+ basedOnAttribute      classType
+ basedOnValue          AUXILIARY
+ excludeThisAttribute  must
+ description           An AUXILIARY class can be added to an object dynamically and
+  we don't allow mandatory attributes in such classes.
+ </pre>
+ If the basedOnAttribute doesn't exist in the object being validated, the rule does nothing.
 </td>
     </tr>
 
@@ -548,7 +579,24 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">java.util.AbstractList$Itr@4cdada24
+      <td colspan="2">The InitRule allows you to specify attribute values for a 
+ newly created object or an object read from file or received in a CreateRequest
+ (for instance). The InitRule will only set the values of attributes that are
+ missing from the object; existing attributes are not alterred. An example
+ usage might be:
+ <p/>
+ <pre>
+ InitRuleData
+ ruleName     <schema>InitX
+ ruleTitle    Initialize the X class
+ applyToClass X
+ attributeA   some value
+ attributeB   42
+ attributeC   something
+ attributeC   something else
+ description  This provides a good initial setup for X objects. Other setups
+  may be required in other circumstances.
+ </pre>
 </td>
     </tr>
 
@@ -720,7 +768,23 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">java.util.AbstractList$Itr@342798e7
+      <td colspan="2">The NumericRangeRule ensures that a numeric attribute has values
+ that fall within a given range. It can be used for both single-valued and multi-valued
+ attributes. The nrrMinimum must be less than the nrrMaximum. An example usage
+ might be:
+ <p/>
+ <pre>
+ NumericRangeRuleData
+ ruleName         rangeCheckY
+ ruleTitle        Attribute Y in range 1-10
+ applyToAttribute Y
+ nrrMinimum       1
+ nrrMaximum       10
+ description      This constraint is required because blah, blah blah.
+ </pre>
+ NOTE: this rule works by implicitly converting the values of the attributes
+ to type Double in order to be able to do the range comparison. However,
+ if you are dealing with large numeric values you may run into issues.
 </td>
     </tr>
 
@@ -941,7 +1005,22 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">java.util.AbstractList$Itr@72e8a021
+      <td colspan="2">The OneOfTheseAttributesRequiredRule allows you to specify
+ that one of the possible optional attributes specified must be present
+ in the object being checked.
+ <p/>
+ If only one of the possibilities is allowed, you can specify the andOnlyOne
+ flag and set it to true. In this case only one of the possibilities will be allowed.
+ <p/>
+ An example of this rule can be seen below.
+ <pre>
+ OneOfTheseAttributesRequiredRuleData
+ ruleName			dmvIncludeOrExclude
+ ruleTitle			At least one of the excludeThisAttribute or includeThisAttribute attributes must be specified.
+ applyToClass		CheckAttributesBasedOnValueRuleData
+ onePossibility		excludeThisAttribute
+ onePossibility		includeThisAttribute
+ </pre>
 </td>
     </tr>
 
@@ -1135,7 +1214,19 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">java.util.AbstractList$Itr@6691177
+      <td colspan="2">The PatternMatchRule allows you to validate that an attribute
+ in an object conforms to a regex pattern that you specify. If the pattern match
+ fails, the ruleTitle is used as the error message, so use a clear rule title to
+ indicate the intent of the pattern match. For instance the following rule is 
+ applied to the names of EnumDefinitions:
+ <pre>
+ PatternMatchRuleData
+ ruleName          dmvEnumDefinitionNameCheck
+ ruleTitle         An EnumDefinition's name must end with Enum
+ matchesPattern    ^.*Enum
+ applyToAttribute  name
+ applyToClass      EnumDefinition
+ </pre>
 </td>
     </tr>
 
@@ -1332,7 +1423,35 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">java.util.AbstractList$Itr@613043d2
+      <td colspan="2">The ReferencedAttributeTypeRule allowes you to restrict the type of
+ an attribute referred to by an AttributeDefinition reference. Some examples include:
+ <pre>
+ ReferencedAttributeTypeRuleData
+ ruleName          dmvNRRApplyToAttribute
+ ruleTitle         The applyToAttribute attribute in a NumericRangeRuleData instance must refer to an Integer, Long, Float or Double attribute
+ applyToAttribute  applyToAttribute
+ applyToClass      NumericRangeRuleData
+ allowedType       Integer
+ allowedType       Long
+ allowedType       Float
+ allowedType       Double
+ </pre>
+ In this case, we're restricting the applyToAttribute to be a numeric type, either Integer, Long Float or Double.
+ <p/>
+ You can also restrict the valueType of an attribute reference, for instance:
+ <pre>
+ ReferencedAttributeTypeRuleData
+ ruleName          dmvLhs
+ ruleTitle         The lhs attribute must be a single valued Integer, Long, Float or Double
+ applyToAttribute  lhs
+ applyToClass      RelatedNumbersRuleData
+ allowedType       Integer
+ allowedType       Long
+ allowedType       Float
+ allowedType       Double
+ allowedValueType  SINGLE
+ </pre>
+ Here, we're indicating that the lhs (left hand side) attribute must be single valued.
 </td>
     </tr>
 
@@ -1554,7 +1673,29 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">java.util.AbstractList$Itr@59e184cb
+      <td colspan="2">The RelatedNumbersRule ensures that a particular numeric
+ relationship exists between two single-valued, numeric values on an object.
+ An example usage might be:
+ <pre>
+ RelatedNumbersRuleData
+ ruleName        dmvHeightGirth
+ ruleTitle       Your height must exceed your girth.
+ applyToClass    Person
+ lhs             height
+ rhs             girth
+ numericRelation GT
+ description     If your girth exceeds your height, you're in trouble!
+ </pre>
+ The rule will only test the relationship if both attributes exist; if not,
+ that's okay - the rule will pass.
+ <p/>
+ It's a good rule of thumb to indicate the relationship you expect in the
+ title of the rule since this is what will be returned in the case that 
+ the relationship check fails.
+ <p/>
+ NOTE: this rule works by implicitly converting the values of the attributes
+ to type Double in order to be able to compare apples to apples. However,
+ if you are dealing with large numeric values you may run into issues.
 </td>
     </tr>
 
@@ -1774,7 +1915,9 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">java.util.AbstractList$Itr@13a78071
+      <td colspan="2">The UCOAllowedAttributesRule will determine whether or not the 
+ attributes of a DmcUncheckedObject conform to the must/may specification of its
+ class definition. For classes of type EXTENSIBLE only the must have attributes are checked.
 </td>
     </tr>
 
@@ -1946,7 +2089,42 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">java.util.AbstractList$Itr@5bf99eea
+      <td colspan="2">The ValueLengthRule allows you to indicate the maximum length,
+ the minimum length or both the maximum and minimum length of the String form of
+ a value associated with an attribute. It works for both single valued and
+ multi-valued attributes.
+ <p/>
+ If you have added types via the TypeDefinition mechanisms,
+ you should ensure that you have overloaded the toString() method 
+ <pre>
+ ValueLengthRuleData
+ ruleName         userNameLength
+ ruleTitle        The user name must be between 6 and 20 characters
+ applyToAttribute userNameString
+ minLength        6
+ maxLength        20
+ </pre>
+ Or, just a minimum length:
+ <pre>
+ ValueLengthRuleData
+ ruleName         tagLength
+ ruleTitle        Tag information must be 4 characters or more.
+ applyToAttribute dataTag
+ applyToClass     chunkOfData
+ minLength        4
+ </pre>
+ Or, just a maximum length:
+ <pre>
+ ValueLengthRuleData
+ ruleName         infoLength
+ ruleTitle        The info must be less than or equal to 50 characters.
+ applyToAttribute info
+ applyToClass     chunkOfData
+ maxLength        50
+ </pre>
+ NOTE: If you have added types via the TypeDefinition mechanisms, you should ensure
+ that you have overloaded the toString() method of the primitiveType that
+ you're using.
 </td>
     </tr>
 
@@ -2678,7 +2856,7 @@ The rhs attribute must be a single valued Integer, Long, Float or Double
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>java.util.AbstractList$Itr@ebf5555</td>
+      <td>java.util.AbstractList$Itr@2918958e</td>
     </tr>
 
     <tr>

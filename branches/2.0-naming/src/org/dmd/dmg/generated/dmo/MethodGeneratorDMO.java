@@ -36,6 +36,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;                     // Req
 import org.dmd.dms.generated.types.DmcTypeStringSV;                       // Required type - (GenUtility.java:328)
 import org.dmd.dms.generated.types.DmcTypeValueTypeEnumSV;                // Required type - (GenUtility.java:328)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * The MethodGenerator allows for the definition of a code generation\n
  * component that creates access methods for wrapper classes in different
@@ -90,7 +91,7 @@ public class MethodGeneratorDMO  extends DmcObject  implements DmcNamedObjectIF,
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:750)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:751)
     public DefinitionName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__name);
         if (name != null)
@@ -99,13 +100,13 @@ public class MethodGeneratorDMO  extends DmcObject  implements DmcNamedObjectIF,
         return(null);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:767)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__name);
         return(name);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:774)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:775)
     public boolean equals(Object obj){
         if (obj instanceof MethodGeneratorDMO){
             return( getObjectName().equals( ((MethodGeneratorDMO) obj).getObjectName()) );
@@ -113,7 +114,7 @@ public class MethodGeneratorDMO  extends DmcObject  implements DmcNamedObjectIF,
         return(false);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:782)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:783)
     public int hashCode(){
         DefinitionName objn = getObjectName();
         if (objn == null)

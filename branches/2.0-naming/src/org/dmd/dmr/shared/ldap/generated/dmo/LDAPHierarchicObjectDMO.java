@@ -27,6 +27,7 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;                               // Req
 import org.dmd.dms.generated.types.DmcTypeFullyQualifiedNameSV;           // Required type - (GenUtility.java:328)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                     // Required for MODREC constructor - (GenUtility.java:227)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * The LDAPHierarchicObject provides some additional structure and\n
  * conventions to the HierarchicObject to make it usable in conjunction with
@@ -86,7 +87,7 @@ public class LDAPHierarchicObjectDMO  extends HierarchicObjectDMO  implements Dm
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:750)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:751)
     public FullyQualifiedName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__FQN);
         if (name != null)
@@ -95,13 +96,13 @@ public class LDAPHierarchicObjectDMO  extends HierarchicObjectDMO  implements Dm
         return(null);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:767)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__FQN);
         return(name);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:774)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:775)
     public boolean equals(Object obj){
         if (obj instanceof LDAPHierarchicObjectDMO){
             return( getObjectName().equals( ((LDAPHierarchicObjectDMO) obj).getObjectName()) );
@@ -109,7 +110,7 @@ public class LDAPHierarchicObjectDMO  extends HierarchicObjectDMO  implements Dm
         return(false);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:782)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:783)
     public int hashCode(){
         FullyQualifiedName objn = getObjectName();
         if (objn == null)

@@ -29,6 +29,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;          // Required for M
 import org.dmd.dms.generated.types.DmcTypeStringMV;            // Required type - (GenUtility.java:328)
 import org.dmd.dms.generated.types.DmcTypeStringSV;            // Required type - (GenUtility.java:328)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * The DmgConfig class is used to specify a set of schemas and a set of \n
  * code generators to be run when you want to generate various types of code.

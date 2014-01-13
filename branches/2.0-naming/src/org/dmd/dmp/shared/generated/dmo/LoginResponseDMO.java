@@ -26,6 +26,7 @@ import org.dmd.dms.generated.types.DmcTypeIntegerSV;          // Required type -
 import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor - (GenUtility.java:227)
 import org.dmd.dms.generated.types.DmcTypeStringSV;           // Required type - (GenUtility.java:328)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * The LoginResponse is returned after a Login request is received. If the\n
  * login is successful, a session ID will be assigned and a request root will

@@ -42,6 +42,7 @@ import org.dmd.dmt.shared.generated.types.DmcTypeTestBasicNamedObjectFixedREFSV;
 import org.dmd.dmt.shared.generated.types.DmcTypeTestBasicObjectFixedREFMV;              // Reference type - (GenUtility.java:300)
 import org.dmd.dmt.shared.generated.types.TestBasicNamedObjectFixedREF;                  // Helper class - (GenUtility.java:335)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * The TestBasicObjectFixed class provides a test bed for all types of
  * basic\n attribute values.

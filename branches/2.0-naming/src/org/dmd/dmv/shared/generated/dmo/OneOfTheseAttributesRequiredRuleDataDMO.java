@@ -35,8 +35,19 @@ import org.dmd.dms.generated.types.DmcTypeRuleNameSV;                       // R
 import org.dmd.dms.generated.types.DmcTypeStringMV;                         // Required type - (GenUtility.java:328)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                         // Required type - (GenUtility.java:328)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
- * java.util.AbstractList$Itr@10cb42cf
+ * The OneOfTheseAttributesRequiredRule allows you to specify\n that one of
+ * the possible optional attributes specified must be present\n in the object
+ * being checked.\n <p/>\n If only one of the possibilities is allowed, you
+ * can specify the andOnlyOne\n flag and set it to true. In this case only
+ * one of the possibilities will be allowed.\n <p/>\n An example of this rule
+ * can be seen below.\n <pre>\n OneOfTheseAttributesRequiredRuleData\n
+ * ruleName			dmvIncludeOrExclude\n ruleTitle			At least one of the
+ * excludeThisAttribute or includeThisAttribute attributes must be
+ * specified.\n applyToClass		CheckAttributesBasedOnValueRuleData\n
+ * onePossibility		excludeThisAttribute\n
+ * onePossibility		includeThisAttribute\n </pre>
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>
@@ -87,7 +98,7 @@ public class OneOfTheseAttributesRequiredRuleDataDMO  extends RuleDataDMO  imple
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:750)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:751)
     public RuleName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__ruleName);
         if (name != null)
@@ -96,13 +107,13 @@ public class OneOfTheseAttributesRequiredRuleDataDMO  extends RuleDataDMO  imple
         return(null);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:767)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__ruleName);
         return(name);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:774)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:775)
     public boolean equals(Object obj){
         if (obj instanceof OneOfTheseAttributesRequiredRuleDataDMO){
             return( getObjectName().equals( ((OneOfTheseAttributesRequiredRuleDataDMO) obj).getObjectName()) );
@@ -110,7 +121,7 @@ public class OneOfTheseAttributesRequiredRuleDataDMO  extends RuleDataDMO  imple
         return(false);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:782)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:783)
     public int hashCode(){
         RuleName objn = getObjectName();
         if (objn == null)

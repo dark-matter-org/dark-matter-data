@@ -28,6 +28,7 @@ import org.dmd.dms.generated.types.DmcTypeDefinitionNameSV;         // Required 
 import org.dmd.dms.generated.types.DmcTypeModifierMV;               // Required for MODREC constructor - (GenUtility.java:227)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                 // Required type - (GenUtility.java:328)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * <P>
  * Generated from the dmg schema at version 0.1
@@ -79,7 +80,7 @@ public class ActifactGeneratorDMO  extends DmcObject  implements DmcNamedObjectI
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:750)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:751)
     public DefinitionName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__name);
         if (name != null)
@@ -88,13 +89,13 @@ public class ActifactGeneratorDMO  extends DmcObject  implements DmcNamedObjectI
         return(null);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:767)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__name);
         return(name);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:774)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:775)
     public boolean equals(Object obj){
         if (obj instanceof ActifactGeneratorDMO){
             return( getObjectName().equals( ((ActifactGeneratorDMO) obj).getObjectName()) );
@@ -102,7 +103,7 @@ public class ActifactGeneratorDMO  extends DmcObject  implements DmcNamedObjectI
         return(false);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:782)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:783)
     public int hashCode(){
         DefinitionName objn = getObjectName();
         if (objn == null)

@@ -31,6 +31,7 @@ import org.dmd.dms.generated.types.DmcTypeIntegerMV;               // Required t
 import org.dmd.dms.generated.types.DmcTypeModifierMV;              // Required for MODREC constructor - (GenUtility.java:227)
 import org.dmd.dms.generated.types.DmcTypeNameContainerSV;         // Required type - (GenUtility.java:328)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * The CreateRequest allows you to create a new object. If the parentName is
  * specified,\n the object will be created beneath that parent object.

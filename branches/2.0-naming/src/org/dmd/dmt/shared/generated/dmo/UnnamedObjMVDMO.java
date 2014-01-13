@@ -12,6 +12,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;                           
 import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;                    // Type specific set/add - (GenUtility.java:307)
 import org.dmd.dmt.shared.generated.types.DmcTypeTestBasicObjectFixedREFMV;         // Reference type - (GenUtility.java:300)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * <P>
  * Generated from the dmt schema at version 0.1

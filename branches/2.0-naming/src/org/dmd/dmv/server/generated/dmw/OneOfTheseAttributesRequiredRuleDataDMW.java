@@ -1,18 +1,3 @@
-//	---------------------------------------------------------------------------
-//	dark-matter-data
-//	Copyright (c) 2013 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
 package org.dmd.dmv.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
@@ -35,7 +20,17 @@ import org.dmd.dmv.shared.generated.dmo.OneOfTheseAttributesRequiredRuleDataDMO;
 
 
 /**
- * java.util.AbstractList$Itr@40bb2bc3
+ * The OneOfTheseAttributesRequiredRule allows you to specify\n that one of
+ * the possible optional attributes specified must be present\n in the object
+ * being checked.\n <p/>\n If only one of the possibilities is allowed, you
+ * can specify the andOnlyOne\n flag and set it to true. In this case only
+ * one of the possibilities will be allowed.\n <p/>\n An example of this rule
+ * can be seen below.\n <pre>\n OneOfTheseAttributesRequiredRuleData\n
+ * ruleName			dmvIncludeOrExclude\n ruleTitle			At least one of the
+ * excludeThisAttribute or includeThisAttribute attributes must be
+ * specified.\n applyToClass		CheckAttributesBasedOnValueRuleData\n
+ * onePossibility		excludeThisAttribute\n
+ * onePossibility		includeThisAttribute\n </pre>
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>

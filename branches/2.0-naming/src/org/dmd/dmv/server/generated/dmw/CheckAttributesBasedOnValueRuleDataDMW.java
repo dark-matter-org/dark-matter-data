@@ -1,18 +1,3 @@
-//	---------------------------------------------------------------------------
-//	dark-matter-data
-//	Copyright (c) 2013 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
 package org.dmd.dmv.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
@@ -37,7 +22,20 @@ import org.dmd.dmv.shared.generated.dmo.DmvDMSAG;                               
 
 
 /**
- * java.util.AbstractList$Itr@6e848ecc
+ * The CheckAttributesBasedOnValueRule allows you to specify\n that certain
+ * optional attributes must exist (or not exist) based on the value\n of
+ * another single valued attribute in an object. This allows for finer
+ * control of must/may\n attributes based on other values in an object. An
+ * example usage (from\n the dark-matter validation schema) looks like:\n
+ * <pre>\n CheckAttributesBasedOnValueRuleData\n ruleName             
+ * dmvNoMustInExtensible\n ruleTitle             If a ClassDefinition's
+ * classType is AUXILIARY, it can't have mandatory attributes\n applyToClass 
+ *         ClassDefinition\n basedOnAttribute      classType\n basedOnValue  
+ *        AUXILIARY\n excludeThisAttribute  must\n description           An
+ * AUXILIARY class can be added to an object dynamically and\n  we don't
+ * allow mandatory attributes in such classes.\n </pre>\n If the
+ * basedOnAttribute doesn't exist in the object being validated, the rule
+ * does nothing.
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>

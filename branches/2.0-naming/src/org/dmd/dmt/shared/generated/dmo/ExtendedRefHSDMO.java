@@ -13,6 +13,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;                     // Req
 import org.dmd.dmt.shared.generated.types.DmcTypeSomeRelationSET;         // Required type - (GenUtility.java:328)
 import org.dmd.dmt.shared.generated.types.SomeRelation;                   // Extended reference type - (GenUtility.java:326)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * <P>
  * Generated from the dmt schema at version 0.1

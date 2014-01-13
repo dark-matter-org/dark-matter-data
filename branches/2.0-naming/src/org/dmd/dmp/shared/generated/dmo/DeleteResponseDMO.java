@@ -27,6 +27,7 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;                    // Required for M
 import org.dmd.dms.generated.types.DmcTypeDmcObjectMV;         // Required type - (GenUtility.java:328)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;          // Required for MODREC constructor - (GenUtility.java:227)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * The DeleteResponse returns the results of a particular DeleteRequest. The
  * objectList\n contents will be implementation specific e.g. if there were

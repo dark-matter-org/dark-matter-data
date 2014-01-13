@@ -26,6 +26,7 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;                        // Required f
 import org.dmd.dms.generated.types.DmcTypeModifierMV;              // Required for MODREC constructor - (GenUtility.java:227)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                // Required type - (GenUtility.java:328)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * The LoginRequest allows you to connect to connect to something and\n pass
  * along credentials.

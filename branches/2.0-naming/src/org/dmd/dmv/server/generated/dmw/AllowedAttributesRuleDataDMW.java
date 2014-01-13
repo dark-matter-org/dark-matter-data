@@ -1,18 +1,3 @@
-//	---------------------------------------------------------------------------
-//	dark-matter-data
-//	Copyright (c) 2013 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
 package org.dmd.dmv.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
@@ -31,7 +16,19 @@ import org.dmd.dmv.shared.generated.dmo.AllowedAttributesRuleDataDMO;         //
 
 
 /**
- * java.util.AbstractList$Itr@46ed5d9d
+ * The AllowedAttributesRule will determine whether or not the \n attributes
+ * of a DMO conform to the must/may specification of its class definition.\n
+ * For classes of type EXTENSIBLE, only the must have attributes are
+ * checked.\n <p/>\n Regardless of the environment in which you are running,
+ * you must ensure that the\n DmcOmni has been loaded with the appropriate
+ * schema. If you are using the dark-matter\n Model View Whatever (MVW)
+ * project for GWT, this aspect is taken care of automatically.\n <p/>\n
+ * Since this is a GLOBAL class rule, there will only ever be a single
+ * instance of\n this rule created as part of the dmv schema, as indicated
+ * below:\n <pre>\n AllowedAttributesRuleData\n ruleName   
+ * dmvAllowedAttributes\n ruleTitle 	 An object's attributes must conform to
+ * its schema.\n description Ensures that must/may attribute rules are
+ * followed.\n </pre>
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>

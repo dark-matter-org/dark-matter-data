@@ -21,6 +21,7 @@ import org.dmd.dmt.shared.generated.types.DmcTypeTestBasicNamedObjectFixedREFMV;
 import org.dmd.dmt.shared.generated.types.DmcTypeTestBasicObjectFixedREFMV;              // Reference type - (GenUtility.java:300)
 import org.dmd.dmt.shared.generated.types.TestBasicNamedObjectFixedREF;                  // Helper class - (GenUtility.java:335)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * The TestBasicNamedObjectFixed class provides a test bed for a named object.
  * <P>
@@ -73,7 +74,7 @@ public class TestBasicNamedObjectFixedDMO  extends DmcObject  implements DmcName
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:750)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:751)
     public DefinitionName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__name);
         if (name != null)
@@ -82,13 +83,13 @@ public class TestBasicNamedObjectFixedDMO  extends DmcObject  implements DmcName
         return(null);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:767)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__name);
         return(name);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:774)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:775)
     public boolean equals(Object obj){
         if (obj instanceof TestBasicNamedObjectFixedDMO){
             return( getObjectName().equals( ((TestBasicNamedObjectFixedDMO) obj).getObjectName()) );
@@ -96,7 +97,7 @@ public class TestBasicNamedObjectFixedDMO  extends DmcObject  implements DmcName
         return(false);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:782)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:783)
     public int hashCode(){
         DefinitionName objn = getObjectName();
         if (objn == null)

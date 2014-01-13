@@ -42,6 +42,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;                   // Requi
 import org.dmd.dms.generated.types.DmcTypeNameContainerMV;              // Required type - (GenUtility.java:328)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                     // Required type - (GenUtility.java:328)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * The GetRequest is used to retrieve objects.
  * <P>

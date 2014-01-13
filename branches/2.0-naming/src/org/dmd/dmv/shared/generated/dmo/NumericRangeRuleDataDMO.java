@@ -35,8 +35,19 @@ import org.dmd.dms.generated.types.DmcTypeRuleNameSV;                       // R
 import org.dmd.dms.generated.types.DmcTypeStringMV;                         // Required type - (GenUtility.java:328)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                         // Required type - (GenUtility.java:328)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
- * java.util.AbstractList$Itr@1d34263a
+ * The NumericRangeRule ensures that a numeric attribute has values\n that
+ * fall within a given range. It can be used for both single-valued and
+ * multi-valued\n attributes. The nrrMinimum must be less than the
+ * nrrMaximum. An example usage\n might be:\n <p/>\n <pre>\n
+ * NumericRangeRuleData\n ruleName         rangeCheckY\n ruleTitle       
+ * Attribute Y in range 1-10\n applyToAttribute Y\n nrrMinimum       1\n
+ * nrrMaximum       10\n description      This constraint is required because
+ * blah, blah blah.\n </pre>\n NOTE: this rule works by implicitly converting
+ * the values of the attributes\n to type Double in order to be able to do
+ * the range comparison. However,\n if you are dealing with large numeric
+ * values you may run into issues.
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>
@@ -87,7 +98,7 @@ public class NumericRangeRuleDataDMO  extends RuleDataDMO  implements DmcNamedOb
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:750)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:751)
     public RuleName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__ruleName);
         if (name != null)
@@ -96,13 +107,13 @@ public class NumericRangeRuleDataDMO  extends RuleDataDMO  implements DmcNamedOb
         return(null);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:767)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__ruleName);
         return(name);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:774)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:775)
     public boolean equals(Object obj){
         if (obj instanceof NumericRangeRuleDataDMO){
             return( getObjectName().equals( ((NumericRangeRuleDataDMO) obj).getObjectName()) );
@@ -110,7 +121,7 @@ public class NumericRangeRuleDataDMO  extends RuleDataDMO  implements DmcNamedOb
         return(false);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:782)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:783)
     public int hashCode(){
         RuleName objn = getObjectName();
         if (objn == null)

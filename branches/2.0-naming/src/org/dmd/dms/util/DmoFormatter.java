@@ -674,6 +674,7 @@ public class DmoFormatter {
 	String getClassHeader(ClassDefinition cd, String where){
 		StringBuffer sb = new StringBuffer();
 		
+		sb.append("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("/**\n");
         CodeFormatter.dumpCodeComment(cd.getDescription(),sb," * ");
         sb.append(" * <P>\n");

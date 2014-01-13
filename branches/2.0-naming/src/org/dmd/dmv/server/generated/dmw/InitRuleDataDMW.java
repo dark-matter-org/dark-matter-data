@@ -1,18 +1,3 @@
-//	---------------------------------------------------------------------------
-//	dark-matter-data
-//	Copyright (c) 2013 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
 package org.dmd.dmv.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
@@ -31,7 +16,16 @@ import org.dmd.dmv.shared.generated.dmo.InitRuleDataDMO;         // Class not au
 
 
 /**
- * java.util.AbstractList$Itr@99d12cc
+ * The InitRule allows you to specify attribute values for a \n newly created
+ * object or an object read from file or received in a CreateRequest\n (for
+ * instance). The InitRule will only set the values of attributes that are\n
+ * missing from the object; existing attributes are not alterred. An
+ * example\n usage might be:\n <p/>\n <pre>\n InitRuleData\n ruleName    
+ * <schema>InitX\n ruleTitle    Initialize the X class\n applyToClass X\n
+ * attributeA   some value\n attributeB   42\n attributeC   something\n
+ * attributeC   something else\n description  This provides a good initial
+ * setup for X objects. Other setups\n  may be required in other
+ * circumstances.\n </pre>
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>

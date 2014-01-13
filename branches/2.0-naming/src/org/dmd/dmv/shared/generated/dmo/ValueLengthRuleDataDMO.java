@@ -35,8 +35,26 @@ import org.dmd.dms.generated.types.DmcTypeRuleNameSV;                       // R
 import org.dmd.dms.generated.types.DmcTypeStringMV;                         // Required type - (GenUtility.java:328)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                         // Required type - (GenUtility.java:328)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
- * java.util.AbstractList$Itr@27bc4ec8
+ * The ValueLengthRule allows you to indicate the maximum length,\n the
+ * minimum length or both the maximum and minimum length of the String form
+ * of\n a value associated with an attribute. It works for both single valued
+ * and\n multi-valued attributes.\n <p/>\n If you have added types via the
+ * TypeDefinition mechanisms,\n you should ensure that you have overloaded
+ * the toString() method \n <pre>\n ValueLengthRuleData\n ruleName        
+ * userNameLength\n ruleTitle        The user name must be between 6 and 20
+ * characters\n applyToAttribute userNameString\n minLength        6\n
+ * maxLength        20\n </pre>\n Or, just a minimum length:\n <pre>\n
+ * ValueLengthRuleData\n ruleName         tagLength\n ruleTitle        Tag
+ * information must be 4 characters or more.\n applyToAttribute dataTag\n
+ * applyToClass     chunkOfData\n minLength        4\n </pre>\n Or, just a
+ * maximum length:\n <pre>\n ValueLengthRuleData\n ruleName        
+ * infoLength\n ruleTitle        The info must be less than or equal to 50
+ * characters.\n applyToAttribute info\n applyToClass     chunkOfData\n
+ * maxLength        50\n </pre>\n NOTE: If you have added types via the
+ * TypeDefinition mechanisms, you should ensure\n that you have overloaded
+ * the toString() method of the primitiveType that\n you're using.
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>
@@ -87,7 +105,7 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:750)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:751)
     public RuleName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__ruleName);
         if (name != null)
@@ -96,13 +114,13 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
         return(null);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:767)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__ruleName);
         return(name);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:774)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:775)
     public boolean equals(Object obj){
         if (obj instanceof ValueLengthRuleDataDMO){
             return( getObjectName().equals( ((ValueLengthRuleDataDMO) obj).getObjectName()) );
@@ -110,7 +128,7 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
         return(false);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:782)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:783)
     public int hashCode(){
         RuleName objn = getObjectName();
         if (objn == null)

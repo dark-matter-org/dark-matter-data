@@ -39,8 +39,26 @@ import org.dmd.dms.generated.types.DmcTypeTypeDefinitionREFMV;              // R
 import org.dmd.dms.generated.types.DmcTypeValueTypeEnumSV;                  // Required type - (GenUtility.java:328)
 import org.dmd.dms.generated.types.TypeDefinitionREF;                       // Helper class - (GenUtility.java:335)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
- * java.util.AbstractList$Itr@3bd840d9
+ * The ReferencedAttributeTypeRule allowes you to restrict the type of\n an
+ * attribute referred to by an AttributeDefinition reference. Some examples
+ * include:\n <pre>\n ReferencedAttributeTypeRuleData\n ruleName         
+ * dmvNRRApplyToAttribute\n ruleTitle         The applyToAttribute attribute
+ * in a NumericRangeRuleData instance must refer to an Integer, Long, Float
+ * or Double attribute\n applyToAttribute  applyToAttribute\n applyToClass   
+ *   NumericRangeRuleData\n allowedType       Integer\n allowedType      
+ * Long\n allowedType       Float\n allowedType       Double\n </pre>\n In
+ * this case, we're restricting the applyToAttribute to be a numeric type,
+ * either Integer, Long Float or Double.\n <p/>\n You can also restrict the
+ * valueType of an attribute reference, for instance:\n <pre>\n
+ * ReferencedAttributeTypeRuleData\n ruleName          dmvLhs\n ruleTitle    
+ *     The lhs attribute must be a single valued Integer, Long, Float or
+ * Double\n applyToAttribute  lhs\n applyToClass     
+ * RelatedNumbersRuleData\n allowedType       Integer\n allowedType      
+ * Long\n allowedType       Float\n allowedType       Double\n
+ * allowedValueType  SINGLE\n </pre>\n Here, we're indicating that the lhs
+ * (left hand side) attribute must be single valued.
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>
@@ -91,7 +109,7 @@ public class ReferencedAttributeTypeRuleDataDMO  extends RuleDataDMO  implements
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:750)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:751)
     public RuleName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__ruleName);
         if (name != null)
@@ -100,13 +118,13 @@ public class ReferencedAttributeTypeRuleDataDMO  extends RuleDataDMO  implements
         return(null);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:767)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__ruleName);
         return(name);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:774)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:775)
     public boolean equals(Object obj){
         if (obj instanceof ReferencedAttributeTypeRuleDataDMO){
             return( getObjectName().equals( ((ReferencedAttributeTypeRuleDataDMO) obj).getObjectName()) );
@@ -114,7 +132,7 @@ public class ReferencedAttributeTypeRuleDataDMO  extends RuleDataDMO  implements
         return(false);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:782)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:783)
     public int hashCode(){
         RuleName objn = getObjectName();
         if (objn == null)

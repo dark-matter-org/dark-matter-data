@@ -29,6 +29,7 @@ import org.dmd.dms.generated.types.DmcTypeLongSV;              // Required type 
 import org.dmd.dms.generated.types.DmcTypeModifierMV;          // Required for MODREC constructor - (GenUtility.java:227)
 import org.dmd.dms.generated.types.DmcTypeStringSV;            // Required type - (GenUtility.java:328)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * The ActionResponse returns the results of a particular ActionRequest.
  * Exactly what is\n returned will depend on the efActionDef.

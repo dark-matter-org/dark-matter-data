@@ -25,6 +25,7 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;                   // Required for MO
 import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor - (GenUtility.java:227)
 import org.dmd.dms.generated.types.DmcTypeStringSV;           // Required type - (GenUtility.java:328)
 
+// Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
  * The PreAuthResponse is sent as a result of a PreAuthRequest.
  * <P>
