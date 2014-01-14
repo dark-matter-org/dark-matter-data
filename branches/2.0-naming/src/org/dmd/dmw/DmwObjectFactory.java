@@ -21,7 +21,7 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcObject;
-import org.dmd.dmc.DmcOmni;
+//import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmc.util.NamedStringArray;
@@ -96,7 +96,7 @@ public class DmwObjectFactory {
 			String n = names.next();
 			DmcAttributeInfo ai = dmo.getAttributeInfo(n);
 			
-			ad = schema.adef(n);
+			ad = schema.adef(ai.qualifiedName);
 			
 			if (ad == null){
 	        	ResultException ex = new ResultException();
@@ -104,17 +104,17 @@ public class DmwObjectFactory {
 	            throw(ex);
 			}
 			
-			// If the DMO doesn't directly support the attribute i.e. it's not in it
-			// attribute info map, the attribute must be associated with an auxiliary class.
-			// So, we have to get the DmcAttributeInfo from the attribute definition.
-			if (ai == null){
-				ai = DmcOmni.instance().getInfo(ad.getDmdID());
-				if (ai == null){
-		        	ResultException ex = new ResultException();
-		            ex.result.addResult(Result.ERROR,"Could not retrieve DmcAttributeInfo for: " + n);
-		            throw(ex);
-				}
-			}
+//			// If the DMO doesn't directly support the attribute i.e. it's not in it
+//			// attribute info map, the attribute must be associated with an auxiliary class.
+//			// So, we have to get the DmcAttributeInfo from the attribute definition.
+//			if (ai == null){
+//				ai = DmcOmni.instance().getInfo(ad.getDmdID());
+//				if (ai == null){
+//		        	ResultException ex = new ResultException();
+//		            ex.result.addResult(Result.ERROR,"Could not retrieve DmcAttributeInfo for: " + n);
+//		            throw(ex);
+//				}
+//			}
 			
 			NamedStringArray values = null;
 			
