@@ -35,6 +35,7 @@ public class DmcDefinitionSet<DEF extends DmcDefinitionIF> {
 	public DmcDefinitionSet(){
 		map = new TreeMap<DefinitionName, ArrayList<DEF>>();
 		dotmap = new TreeMap<DotName, DEF>();
+		debug = true;
 	}
 	
 	static public void debug(boolean f){

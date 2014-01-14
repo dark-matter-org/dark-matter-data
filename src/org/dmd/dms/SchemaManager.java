@@ -2385,6 +2385,10 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         }
     }
     
+    public AttributeDefinition adef(DotName dn){
+    	return(attributeDefinitions.getDefinition(dn));
+    }
+    
     /**
      * This function will return the class definition associated with the
      * given name.
