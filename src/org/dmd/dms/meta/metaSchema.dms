@@ -1936,6 +1936,27 @@ type                		Integer
 description    				The number of fields in a ComplexTypeDefinition that
  are considered mandatory. By default, all fields are considered mandatory.
 
+AttributeDefinition
+name                		supportDynamicSchemaLoading
+dmdID						172
+type                		Boolean
+description    				If this flag is set to true, the loadSchemaClass attribute
+ will be added to the generated domain specific module definition class so that additional schemas
+ (usually containg auxiliary classes) can be loaded dynamically. This allows the generated
+ module parser to handle auxiliary information on the domain specific definitions.
+
+AttributeDefinition
+name                		loadSchemaClass
+dmdID						173
+type                		String
+valueType					MULTI
+description    				The fully qualified name of a schema that is to 
+ be loaded dynamically as part of module definition. This is generally used
+ when auxiliary class information is used in conjunction with a set of
+ domain specific definitions.
+ <p/>
+ An example would be org.dmd.gpb.tools.generation.generated.GpbauxtestSchemaAG
+
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
 AttributeDefinition
@@ -2045,6 +2066,7 @@ may				refersToDefsFromDSD
 may				definedInModuleAttribute
 may				may
 may				must
+may				supportDynamicSchemaLoading
 // Auto generated/set
 may           	definedIn
 description		The DSDefinitionModule is a definition that defines a collection of definitions

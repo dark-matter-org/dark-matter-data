@@ -915,6 +915,11 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         cd.setInternallyGenerated(true);
         cd.setDsdModuleDefinition(ddm);
         
+        if (ddm.getSupportDynamicSchemaLoading()){
+        	// If the module supports dynamic schema loading, we add the loadSchemaClass attribute to the module
+        	cd.addMay(MetaSchema._loadSchemaClass);
+        }
+        
         // We derive the module from the base definition class for the module!
         cd.setDerivedFrom((ClassDefinition) ddm.getBaseDefinition());
         
