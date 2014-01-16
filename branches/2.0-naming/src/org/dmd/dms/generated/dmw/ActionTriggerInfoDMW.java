@@ -38,7 +38,7 @@ import org.dmd.dms.extended.ActionTriggerInfo;
  * particular action and have a well defined\n interface to specify the
  * parameters for the action. 
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1630)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1631)
  */
 @SuppressWarnings("unused")
 public abstract class ActionTriggerInfoDMW extends DmwWrapper {
@@ -72,7 +72,7 @@ public abstract class ActionTriggerInfoDMW extends DmwWrapper {
      * a unique name\n for an object with the set of definitions of which it is a
      * part. A name starts with a letter followed\n by letters and numbers. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2374)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2375)
     public DefinitionName getName(){
         return(mycore.getName());
     }
@@ -81,7 +81,7 @@ public abstract class ActionTriggerInfoDMW extends DmwWrapper {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2448)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }

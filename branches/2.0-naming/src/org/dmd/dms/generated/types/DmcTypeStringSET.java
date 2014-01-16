@@ -29,8 +29,8 @@ import org.dmd.dmc.types.DmcTypeString;    // DmcType import
  * The DmcTypeStringSET provides storage for a set of String
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2606)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:664)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2609)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:665)
  */
 @SuppressWarnings("serial")
 public class DmcTypeStringSET extends DmcTypeString implements Serializable {
@@ -62,7 +62,7 @@ public class DmcTypeStringSET extends DmcTypeString implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2647)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2650)
     public DmcAttribute<String> cloneIt(){
         synchronized(this){
             DmcTypeStringSET rc = getNew();
@@ -81,7 +81,7 @@ public class DmcTypeStringSET extends DmcTypeString implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2670)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2673)
     public String add(Object v) throws DmcValueException {
         synchronized(this){
             String rc = typeCheck(v);
@@ -97,7 +97,7 @@ public class DmcTypeStringSET extends DmcTypeString implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2687)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2690)
     public String del(Object v){
         synchronized(this){
             String rc = null;
@@ -121,7 +121,7 @@ public class DmcTypeStringSET extends DmcTypeString implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2712)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Iterator<String> getMV(){
         synchronized(this){
             if (value == null)
@@ -134,7 +134,7 @@ public class DmcTypeStringSET extends DmcTypeString implements Serializable {
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2726)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2729)
     public Set<String> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -153,7 +153,7 @@ public class DmcTypeStringSET extends DmcTypeString implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2749)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -163,7 +163,7 @@ public class DmcTypeStringSET extends DmcTypeString implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2757)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2760)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

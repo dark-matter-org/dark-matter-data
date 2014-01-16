@@ -23,8 +23,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeDSDefinitionREFSV provides storage for a single-valued DSDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1966)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:604)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1969)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:605)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDSDefinitionREFSV extends DmcTypeDSDefinitionREF implements Serializable {
@@ -48,14 +48,14 @@ public class DmcTypeDSDefinitionREFSV extends DmcTypeDSDefinitionREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2001)
     public DmcAttribute<DSDefinitionREF> cloneIt(){
         DmcTypeDSDefinitionREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2009)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2012)
     public DSDefinitionREF getSVCopy(){
         if (value == null)
             return(null);
@@ -63,7 +63,7 @@ public class DmcTypeDSDefinitionREFSV extends DmcTypeDSDefinitionREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2021)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2024)
     public DSDefinitionREF set(Object v) throws DmcValueException {
         DSDefinitionREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

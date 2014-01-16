@@ -18,9 +18,9 @@ import org.dmd.dmc.DmcValueExceptionSet;                                   // To
 import org.dmd.dmc.types.IntegerVar;                                       // To support getNextField() - (ComplexTypeFormatter.java:73)
 import org.dmd.dms.generated.enums.DataTypeEnum;                           // For fake DmcAttributeInfo - (ComplexTypeFormatter.java:74)
 import org.dmd.dms.generated.enums.ValueTypeEnum;                          // For fake DmcAttributeInfo - (ComplexTypeFormatter.java:75)
-import org.dmd.dms.generated.types.DmcTypeStringSTATIC;                    // Standard type - (ComplexTypeFormatter.java:494)
-import org.dmd.dms.generated.types.DmcTypeTypeDefinitionREFSTATIC;         // Internally generated type - (ComplexTypeFormatter.java:494)
-import org.dmd.dms.generated.types.TypeDefinitionREF;                      // Object reference - (ComplexTypeFormatter.java:457)
+import org.dmd.dms.generated.types.DmcTypeStringSTATIC;                    // Standard type - (ComplexTypeFormatter.java:616)
+import org.dmd.dms.generated.types.DmcTypeTypeDefinitionREFSTATIC;         // Internally generated type - (ComplexTypeFormatter.java:616)
+import org.dmd.dms.generated.types.TypeDefinitionREF;                      // Object reference - (ComplexTypeFormatter.java:579)
 
 
 
@@ -88,7 +88,7 @@ public class DmtField implements Serializable {
 
     /**
      * Serialization.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:212)
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:225)
      */
     public void serializeIt(DmcOutputStreamIF dos) throws Exception {
         DmcTypeTypeDefinitionREFSTATIC.instance.serializeValue(dos, type);
@@ -98,7 +98,7 @@ public class DmtField implements Serializable {
 
     /**
      * Deserialization.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:229)
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:242)
      */
     public void deserializeIt(DmcInputStreamIF dis) throws Exception {
         type = DmcTypeTypeDefinitionREFSTATIC.instance.deserializeValue(dis);
@@ -108,7 +108,7 @@ public class DmtField implements Serializable {
 
     /**
      * String form.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:246)
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:259)
      */
     public String toString(){
         return(type.toString() + " " + name.toString() + " " + description.toString());
@@ -127,7 +127,7 @@ public class DmtField implements Serializable {
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})
-    // org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:278)
+    // org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:291)
     public void resolve(DmcNameResolverIF resolver, String attrName) throws DmcValueException {
         DmcNamedObjectIF  obj = null;
 
@@ -143,7 +143,7 @@ public class DmtField implements Serializable {
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})
-    // org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:300)
+    // org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:313)
     public void resolve(DmcNameResolverWithClashSupportIF resolver, DmcObject object, DmcNameClashResolverIF ncr, DmcAttributeInfo ai) throws DmcValueException, DmcValueExceptionSet {
         DmcNamedObjectIF  obj = null;
 
@@ -158,13 +158,14 @@ public class DmtField implements Serializable {
         
     }
 
-    // org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:321)
+    // org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:334)
     String getNextField(String input, IntegerVar seppos, String fn, boolean last) throws DmcValueException {
     	   String rc = null;
     	   int start = seppos.intValue();
 
-    	   if ( (start+1) >= input.length())
-    		   throw (new DmcValueException("Missing value for field: " + fn + " in complex type: DmtField"));
+    	   if ( (start+1) >= input.length()){
+            throw (new DmcValueException("Missing value for field: " + fn + " in complex type: DmtField"));
+        }
 
     	   if (last){
     	       rc = input.substring(start+1);
@@ -176,8 +177,11 @@ public class DmtField implements Serializable {
     	       else
     		       pos = input.indexOf(" ");
 
-    	       if (pos == -1)
-    		       throw (new DmcValueException("Missing value for field: " + fn + " in complex type: DmtField"));
+    	       if (pos == -1){
+    		       rc = input.substring(start+1);
+                seppos.set(input.length());
+                return(rc);
+            }
 
     		   while(pos < (input.length()-1)){
     		       if ( input.charAt(pos+1) == ' ')

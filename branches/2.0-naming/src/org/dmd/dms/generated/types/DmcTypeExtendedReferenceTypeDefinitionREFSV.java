@@ -23,8 +23,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeExtendedReferenceTypeDefinitionREFSV provides storage for a single-valued ExtendedReferenceTypeDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1966)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:604)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1969)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:605)
  */
 @SuppressWarnings("serial")
 public class DmcTypeExtendedReferenceTypeDefinitionREFSV extends DmcTypeExtendedReferenceTypeDefinitionREF implements Serializable {
@@ -48,14 +48,14 @@ public class DmcTypeExtendedReferenceTypeDefinitionREFSV extends DmcTypeExtended
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2001)
     public DmcAttribute<ExtendedReferenceTypeDefinitionREF> cloneIt(){
         DmcTypeExtendedReferenceTypeDefinitionREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2009)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2012)
     public ExtendedReferenceTypeDefinitionREF getSVCopy(){
         if (value == null)
             return(null);
@@ -63,7 +63,7 @@ public class DmcTypeExtendedReferenceTypeDefinitionREFSV extends DmcTypeExtended
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2021)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2024)
     public ExtendedReferenceTypeDefinitionREF set(Object v) throws DmcValueException {
         ExtendedReferenceTypeDefinitionREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

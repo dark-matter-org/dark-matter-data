@@ -99,6 +99,20 @@ public class SourceInfo {
 		session		= null;
 	}
 	
+	/**
+	 * Used to create source information about an object that was defined at a known
+	 * location, but not much else is available. This can happen, for instance, with
+	 * rule objects that haven't yet been validated.
+	 * @param fn The file name
+	 * @param ln The line number.
+	 */
+	public SourceInfo(String fn, int ln){
+		fileName 	= fn;
+		lineNumber 	= ln + "";
+		objectName	= null;
+		session		= null;
+	}
+	
 	public String toString(){
 		StringBuffer sb = new StringBuffer();
 		

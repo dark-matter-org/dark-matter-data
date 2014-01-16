@@ -26,8 +26,8 @@ import org.dmd.dms.generated.enums.OriginalTypeEnum;    // DmcType import
  * The DmcTypeOriginalTypeEnumMV provides storage for a multi-valued OriginalTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2310)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:586)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2313)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:587)
  */
 @SuppressWarnings("serial")
 public class DmcTypeOriginalTypeEnumMV extends DmcTypeOriginalTypeEnum implements Serializable {
@@ -50,7 +50,7 @@ public class DmcTypeOriginalTypeEnumMV extends DmcTypeOriginalTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2341)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2344)
     public DmcAttribute<OriginalTypeEnum> cloneIt(){
         synchronized(this){
             DmcTypeOriginalTypeEnumMV rc = getNew();
@@ -79,7 +79,7 @@ public class DmcTypeOriginalTypeEnumMV extends DmcTypeOriginalTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2374)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2377)
     public OriginalTypeEnum add(Object v) throws DmcValueException {
         synchronized(this){
             OriginalTypeEnum rc = typeCheck(v);
@@ -91,7 +91,7 @@ public class DmcTypeOriginalTypeEnumMV extends DmcTypeOriginalTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2387)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2390)
     public OriginalTypeEnum del(Object v){
         synchronized(this){
             if (value == null)
@@ -115,7 +115,7 @@ public class DmcTypeOriginalTypeEnumMV extends DmcTypeOriginalTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2421)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2424)
     public Iterator<OriginalTypeEnum> getMV(){
         synchronized(this){
             if (value == null)
@@ -126,7 +126,7 @@ public class DmcTypeOriginalTypeEnumMV extends DmcTypeOriginalTypeEnum implement
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2433)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2436)
     public ArrayList<OriginalTypeEnum> getMVCopy(){
         synchronized(this){
             if (value == null)
@@ -137,7 +137,7 @@ public class DmcTypeOriginalTypeEnumMV extends DmcTypeOriginalTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2445)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2448)
     public int getMVSize(){
         synchronized(this){
             if (getAttributeInfo().indexSize == 0){
@@ -151,7 +151,7 @@ public class DmcTypeOriginalTypeEnumMV extends DmcTypeOriginalTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2463)
     public OriginalTypeEnum getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -161,7 +161,7 @@ public class DmcTypeOriginalTypeEnumMV extends DmcTypeOriginalTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2471)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2474)
     public OriginalTypeEnum setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
@@ -188,7 +188,7 @@ public class DmcTypeOriginalTypeEnumMV extends DmcTypeOriginalTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2499)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2502)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -211,7 +211,7 @@ public class DmcTypeOriginalTypeEnumMV extends DmcTypeOriginalTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2523)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2526)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)
