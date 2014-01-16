@@ -330,6 +330,27 @@ public class DSDefinitionModuleDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * If this flag is set to true, the loadSchemaClass attribute\n will be added
+     * to the generated domain specific module definition class so that
+     * additional schemas\n (usually containg auxiliary classes) can be loaded
+     * dynamically. This allows the generated\n module parser to handle auxiliary
+     * information on the domain specific definitions. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2375)
+    public Boolean getSupportDynamicSchemaLoading(){
+        return(mycore.getSupportDynamicSchemaLoading());
+    }
+
+    /**
+     * Sets supportDynamicSchemaLoading to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2448)
+    public void setSupportDynamicSchemaLoading(Object value) throws DmcValueException {
+        mycore.setSupportDynamicSchemaLoading(value);
+    }
+
+    /**
      * Indicates the schema in which a type, attribute or class is defined. 
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2375)

@@ -67,6 +67,7 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
         _ImAp.put(MetaDMSAG.__must.id,MetaDMSAG.__must);
         _ImAp.put(MetaDMSAG.__refersToDefsFromDSD.id,MetaDMSAG.__refersToDefsFromDSD);
         _ImAp.put(MetaDMSAG.__sortName.id,MetaDMSAG.__sortName);
+        _ImAp.put(MetaDMSAG.__supportDynamicSchemaLoading.id,MetaDMSAG.__supportDynamicSchemaLoading);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(MetaDMSAG.__baseDefinition.name,MetaDMSAG.__baseDefinition);
@@ -86,6 +87,7 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
         _SmAp.put(MetaDMSAG.__must.name,MetaDMSAG.__must);
         _SmAp.put(MetaDMSAG.__refersToDefsFromDSD.name,MetaDMSAG.__refersToDefsFromDSD);
         _SmAp.put(MetaDMSAG.__sortName.name,MetaDMSAG.__sortName);
+        _SmAp.put(MetaDMSAG.__supportDynamicSchemaLoading.name,MetaDMSAG.__supportDynamicSchemaLoading);
     }
 
 
@@ -633,6 +635,36 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
         
         attr.set(value);
         set(MetaDMSAG.__sortName,attr);
+    }
+
+    /**
+     * If this flag is set to true, the loadSchemaClass attribute\n will be added
+     * to the generated domain specific module definition class so that
+     * additional schemas\n (usually containg auxiliary classes) can be loaded
+     * dynamically. This allows the generated\n module parser to handle auxiliary
+     * information on the domain specific definitions. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2322)
+    public Boolean getSupportDynamicSchemaLoading(){
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaDMSAG.__supportDynamicSchemaLoading);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets supportDynamicSchemaLoading to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2414)
+    public void setSupportDynamicSchemaLoading(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__supportDynamicSchemaLoading);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(MetaDMSAG.__supportDynamicSchemaLoading);
+        
+        attr.set(value);
+        set(MetaDMSAG.__supportDynamicSchemaLoading,attr);
     }
 
 

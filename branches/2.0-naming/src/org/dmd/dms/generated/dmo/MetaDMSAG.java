@@ -132,6 +132,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __keyClass = new DmcAttributeInfo("meta","keyClass",96,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __keyImport = new DmcAttributeInfo("meta","keyImport",97,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("meta","lineNumber",75,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __loadSchemaClass = new DmcAttributeInfo("meta","loadSchemaClass",173,"String",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __longName = new DmcAttributeInfo("meta","longName",134,"LongName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __mandatoryFields = new DmcAttributeInfo("meta","mandatoryFields",171,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __may = new DmcAttributeInfo("meta","may",27,"AttributeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
@@ -179,6 +180,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __sortName = new DmcAttributeInfo("meta","sortName",170,"DotName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __stringName = new DmcAttributeInfo("meta","stringName",160,"StringName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __subpackage = new DmcAttributeInfo("meta","subpackage",88,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __supportDynamicSchemaLoading = new DmcAttributeInfo("meta","supportDynamicSchemaLoading",172,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __supportsBackrefTracking = new DmcAttributeInfo("meta","supportsBackrefTracking",118,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __type = new DmcAttributeInfo("meta","type",19,"TypeDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __typeClassName = new DmcAttributeInfo("meta","typeClassName",5,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
@@ -415,6 +417,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__keyClass.id,__keyClass);
         _SmAp.put(__keyImport.id,__keyImport);
         _SmAp.put(__lineNumber.id,__lineNumber);
+        _SmAp.put(__loadSchemaClass.id,__loadSchemaClass);
         _SmAp.put(__longName.id,__longName);
         _SmAp.put(__mandatoryFields.id,__mandatoryFields);
         _SmAp.put(__may.id,__may);
@@ -462,6 +465,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__sortName.id,__sortName);
         _SmAp.put(__stringName.id,__stringName);
         _SmAp.put(__subpackage.id,__subpackage);
+        _SmAp.put(__supportDynamicSchemaLoading.id,__supportDynamicSchemaLoading);
         _SmAp.put(__supportsBackrefTracking.id,__supportsBackrefTracking);
         _SmAp.put(__type.id,__type);
         _SmAp.put(__typeClassName.id,__typeClassName);
@@ -623,6 +627,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __DSDefinitionModule.addMay(__must);
         __DSDefinitionModule.addMay(__refersToDefsFromDSD);
         __DSDefinitionModule.addMay(__sortName);
+        __DSDefinitionModule.addMay(__supportDynamicSchemaLoading);
 
         __Dependency.addMust(__name);
         __Dependency.addMust(__useInterface);
