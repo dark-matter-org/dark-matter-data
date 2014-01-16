@@ -132,6 +132,8 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     public final static DmcTypeInfo __type_ClientCountFilterRequest = new DmcTypeInfo("ClientCountFilterRequest", OriginalTypeEnum.OBJECT);
     public final static DmcTypeInfo __type_ComplexTypeTest = new DmcTypeInfo("ComplexTypeTest", OriginalTypeEnum.OBJECT);
     public final static DmcTypeInfo __type_DmtField = new DmcTypeInfo("DmtField", OriginalTypeEnum.COMPLEXTYPE);
+    public final static DmcTypeInfo __type_DmtOptionalValueFieldWithColons = new DmcTypeInfo("DmtOptionalValueFieldWithColons", OriginalTypeEnum.COMPLEXTYPE);
+    public final static DmcTypeInfo __type_DmtOptionalValueFieldWithSpaces = new DmcTypeInfo("DmtOptionalValueFieldWithSpaces", OriginalTypeEnum.COMPLEXTYPE);
     public final static DmcTypeInfo __type_DmtStringName = new DmcTypeInfo("DmtStringName", OriginalTypeEnum.NAMETYPE);
     public final static DmcTypeInfo __type_DmtTestEnum = new DmcTypeInfo("DmtTestEnum", OriginalTypeEnum.ENUM);
     public final static DmcTypeInfo __type_ExtendedRefHS = new DmcTypeInfo("ExtendedRefHS", OriginalTypeEnum.OBJECT);
@@ -493,8 +495,8 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         try{
             InitRuleDataDMO _dmtInitTestBasicObjectFixedData = new InitRuleDataDMO();
             DmcTypeDmtTestEnumSET hsTestEnumValue1 = new DmcTypeDmtTestEnumSET(DmtDMSAG.__hsTestEnum);
-            hsTestEnumValue1.add("TEST1");
             hsTestEnumValue1.add("TEST2");
+            hsTestEnumValue1.add("TEST1");
             _dmtInitTestBasicObjectFixedData.add(DmtDMSAG.__hsTestEnum, hsTestEnumValue1);
             _dmtInitTestBasicObjectFixedData.setRuleName("dmtInitTestBasicObjectFixed");
             _dmtInitTestBasicObjectFixedData.setApplyToClass("TestBasicObjectFixed");

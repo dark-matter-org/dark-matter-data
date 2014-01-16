@@ -30,8 +30,8 @@ import org.dmd.dmc.types.DmcTypeClassFilter;    // DmcType import
  * The DmcTypeClassFilterSET provides storage for a set of ClassFilter
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2606)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:664)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2609)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:665)
  */
 @SuppressWarnings("serial")
 public class DmcTypeClassFilterSET extends DmcTypeClassFilter implements Serializable {
@@ -63,7 +63,7 @@ public class DmcTypeClassFilterSET extends DmcTypeClassFilter implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2647)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2650)
     public DmcAttribute<ClassFilter> cloneIt(){
         synchronized(this){
             DmcTypeClassFilterSET rc = getNew();
@@ -82,7 +82,7 @@ public class DmcTypeClassFilterSET extends DmcTypeClassFilter implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2670)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2673)
     public ClassFilter add(Object v) throws DmcValueException {
         synchronized(this){
             ClassFilter rc = typeCheck(v);
@@ -98,7 +98,7 @@ public class DmcTypeClassFilterSET extends DmcTypeClassFilter implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2687)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2690)
     public ClassFilter del(Object v){
         synchronized(this){
             ClassFilter rc = null;
@@ -122,7 +122,7 @@ public class DmcTypeClassFilterSET extends DmcTypeClassFilter implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2712)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Iterator<ClassFilter> getMV(){
         synchronized(this){
             if (value == null)
@@ -135,7 +135,7 @@ public class DmcTypeClassFilterSET extends DmcTypeClassFilter implements Seriali
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2726)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2729)
     public Set<ClassFilter> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -154,7 +154,7 @@ public class DmcTypeClassFilterSET extends DmcTypeClassFilter implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2749)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -164,7 +164,7 @@ public class DmcTypeClassFilterSET extends DmcTypeClassFilter implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2757)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2760)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

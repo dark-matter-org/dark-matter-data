@@ -16,20 +16,20 @@
 package org.dmd.dms;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchemaNew(MetaGenerator.java:264)
-import org.dmd.dmc.DmcValueException;         // To handle potential value exceptions. - (MetaGenerator.java:247)
-import org.dmd.dms.generated.dmo.*;           // Access to meta schema DMOs - (MetaGenerator.java:248)
+// Called from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchemaNew(MetaGenerator.java:265)
+import org.dmd.dmc.DmcValueException;         // To handle potential value exceptions. - (MetaGenerator.java:248)
+import org.dmd.dms.generated.dmo.*;           // Access to meta schema DMOs - (MetaGenerator.java:249)
 
 
 
 /**
   * This class creates the basic definitions that allow for the definition of schemas.
-  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchemaNew(MetaGenerator.java:268)
+  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchemaNew(MetaGenerator.java:269)
   */
 abstract public class MetaSchemaAG extends SchemaDefinition {
     public static SchemaDefinition    _metaSchema;
 
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:328)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:329)
     public static ClassDefinition     _ActionTriggerInfo;
     public static ClassDefinition     _DSDefinition;
     public static ClassDefinition     _DmsDefinition;
@@ -50,7 +50,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static ClassDefinition     _DependencyImplementation;
     public static ClassDefinition     _RunContext;
 
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:335)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:336)
     public static EnumDefinition      _ClassTypeEnum;
     public static EnumDefinition      _ModifyTypeEnum;
     public static EnumDefinition      _OperationalContextEnum;
@@ -65,7 +65,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static EnumDefinition      _GPBScalarTypeEnum;
     public static EnumDefinition      _GPBFieldTypeEnum;
 
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:341)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:342)
     public static TypeDefinition      _String;
     public static TypeDefinition      _DmcObject;
     public static TypeDefinition      _ClassInfoRef;
@@ -100,7 +100,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static TypeDefinition      _LabelledIntegerDataPoint;
     public static TypeDefinition      _TimeDoubleDataPoint;
 
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:353)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:354)
     public static AttributeDefinition _name;
     public static AttributeDefinition _dmdID;
     public static AttributeDefinition _schemaExtension;
@@ -259,21 +259,23 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _definedInModuleAttribute;
     public static AttributeDefinition _dsdModuleDefinition;
     public static AttributeDefinition _dsdModuleList;
+    public static AttributeDefinition _sortName;
+    public static AttributeDefinition _mandatoryFields;
     public static AttributeDefinition _objectClass;
 
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:359)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:360)
     public static ComplexTypeDefinition _Field;
     public static ComplexTypeDefinition _DmwTypeToWrapperType;
     public static ComplexTypeDefinition _RuleParam;
 
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:365)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:366)
     public static RuleCategory        _Initialization;
     public static RuleCategory        _ObjectValidation;
     public static RuleCategory        _AttributeValidation;
     public static RuleCategory        _AttributeValidationWithResolver;
     public static RuleCategory        _UCOValidation;
 
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:371)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:372)
 
     public MetaSchemaAG() throws DmcValueException {
 
@@ -300,7 +302,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         }
     }
 
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpInitClasses(MetaGenerator.java:379)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpInitClasses(MetaGenerator.java:380)
     private void initClasses() throws DmcValueException {
 
         ClassDefinitionDMO _ActionTriggerInfoOBJ = new ClassDefinitionDMO();
@@ -312,7 +314,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ActionTriggerInfoOBJ.setDotName("meta.ActionTriggerInfo.ClassDefinition");
         _ActionTriggerInfoOBJ.setFile("metaSchema.dms");
         _ActionTriggerInfoOBJ.setJavaClass("org.dmd.dms.extended.ActionTriggerInfo");
-        _ActionTriggerInfoOBJ.setLineNumber("1956");
+        _ActionTriggerInfoOBJ.setLineNumber("1974");
         _ActionTriggerInfoOBJ.addMust("meta.name");
         _ActionTriggerInfoOBJ.setName("ActionTriggerInfo");
         _ActionTriggerInfo.setDefinedIn(this);
@@ -328,13 +330,14 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _DSDefinitionOBJ.setFile("metaSchema.dms");
         _DSDefinitionOBJ.setIsNamedBy("meta.name");
         _DSDefinitionOBJ.setJavaClass("org.dmd.dms.DSDefinition");
-        _DSDefinitionOBJ.setLineNumber("1996");
+        _DSDefinitionOBJ.setLineNumber("2015");
         _DSDefinitionOBJ.addMay("meta.description");
         _DSDefinitionOBJ.addMay("meta.exampleUsage");
         _DSDefinitionOBJ.addMay("meta.definedIn");
         _DSDefinitionOBJ.addMay("meta.file");
         _DSDefinitionOBJ.addMay("meta.lineNumber");
         _DSDefinitionOBJ.addMay("meta.dotName");
+        _DSDefinitionOBJ.addMay("meta.sortName");
         _DSDefinitionOBJ.addMust("meta.name");
         _DSDefinitionOBJ.setName("DSDefinition");
         _DSDefinitionOBJ.setUseWrapperType("EXTENDED");
@@ -352,7 +355,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _DmsDefinitionOBJ.setFile("metaSchema.dms");
         _DmsDefinitionOBJ.setIsNamedBy("meta.name");
         _DmsDefinitionOBJ.setJavaClass("org.dmd.dms.DmsDefinition");
-        _DmsDefinitionOBJ.setLineNumber("2008");
+        _DmsDefinitionOBJ.setLineNumber("2027");
         _DmsDefinitionOBJ.addMust("meta.name");
         _DmsDefinitionOBJ.setName("DmsDefinition");
         _DmsDefinitionOBJ.setUseWrapperType("EXTENDED");
@@ -370,7 +373,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _DSDefinitionModuleOBJ.setFile("metaSchema.dms");
         _DSDefinitionModuleOBJ.setIsNamedBy("meta.name");
         _DSDefinitionModuleOBJ.setJavaClass("org.dmd.dms.DSDefinitionModule");
-        _DSDefinitionModuleOBJ.setLineNumber("2041");
+        _DSDefinitionModuleOBJ.setLineNumber("2060");
         _DSDefinitionModuleOBJ.addMay("meta.refersToDefsFromDSD");
         _DSDefinitionModuleOBJ.addMay("meta.definedInModuleAttribute");
         _DSDefinitionModuleOBJ.addMay("meta.may");
@@ -399,7 +402,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ClassDefinitionOBJ.setIsDSDefinition("true");
         _ClassDefinitionOBJ.setIsNamedBy("meta.name");
         _ClassDefinitionOBJ.setJavaClass("org.dmd.dms.ClassDefinition");
-        _ClassDefinitionOBJ.setLineNumber("2121");
+        _ClassDefinitionOBJ.setLineNumber("2140");
         _ClassDefinitionOBJ.addMay("meta.description");
         _ClassDefinitionOBJ.addMay("meta.derivedFrom");
         _ClassDefinitionOBJ.addMay("meta.must");
@@ -459,7 +462,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _EnumDefinitionOBJ.setIsDSDefinition("true");
         _EnumDefinitionOBJ.setIsNamedBy("meta.name");
         _EnumDefinitionOBJ.setJavaClass("org.dmd.dms.EnumDefinition");
-        _EnumDefinitionOBJ.setLineNumber("2140");
+        _EnumDefinitionOBJ.setLineNumber("2159");
         _EnumDefinitionOBJ.addMay("meta.description");
         _EnumDefinitionOBJ.addMay("meta.nullReturnValue");
         _EnumDefinitionOBJ.addMust("meta.name");
@@ -481,7 +484,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _TypeDefinitionOBJ.setIsDSDefinition("true");
         _TypeDefinitionOBJ.setIsNamedBy("meta.name");
         _TypeDefinitionOBJ.setJavaClass("org.dmd.dms.TypeDefinition");
-        _TypeDefinitionOBJ.setLineNumber("2269");
+        _TypeDefinitionOBJ.setLineNumber("2288");
         _TypeDefinitionOBJ.addMay("meta.description");
         _TypeDefinitionOBJ.addMay("meta.primitiveType");
         _TypeDefinitionOBJ.addMay("meta.nullReturnValue");
@@ -524,10 +527,11 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ComplexTypeDefinitionOBJ.setIsDSDefinition("true");
         _ComplexTypeDefinitionOBJ.setIsNamedBy("meta.name");
         _ComplexTypeDefinitionOBJ.setJavaClass("org.dmd.dms.ComplexTypeDefinition");
-        _ComplexTypeDefinitionOBJ.setLineNumber("2309");
+        _ComplexTypeDefinitionOBJ.setLineNumber("2329");
         _ComplexTypeDefinitionOBJ.addMay("meta.fieldSeparator");
         _ComplexTypeDefinitionOBJ.addMay("meta.extendedClass");
         _ComplexTypeDefinitionOBJ.addMay("meta.description");
+        _ComplexTypeDefinitionOBJ.addMay("meta.mandatoryFields");
         _ComplexTypeDefinitionOBJ.addMust("meta.name");
         _ComplexTypeDefinitionOBJ.addMust("meta.field");
         _ComplexTypeDefinitionOBJ.setName("ComplexTypeDefinition");
@@ -547,7 +551,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ExtendedReferenceTypeDefinitionOBJ.setIsDSDefinition("true");
         _ExtendedReferenceTypeDefinitionOBJ.setIsNamedBy("meta.name");
         _ExtendedReferenceTypeDefinitionOBJ.setJavaClass("org.dmd.dms.ExtendedReferenceTypeDefinition");
-        _ExtendedReferenceTypeDefinitionOBJ.setLineNumber("2326");
+        _ExtendedReferenceTypeDefinitionOBJ.setLineNumber("2346");
         _ExtendedReferenceTypeDefinitionOBJ.addMust("meta.name");
         _ExtendedReferenceTypeDefinitionOBJ.addMust("meta.extendedReferenceClass");
         _ExtendedReferenceTypeDefinitionOBJ.setName("ExtendedReferenceTypeDefinition");
@@ -567,7 +571,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _AttributeDefinitionOBJ.setIsDSDefinition("true");
         _AttributeDefinitionOBJ.setIsNamedBy("meta.name");
         _AttributeDefinitionOBJ.setJavaClass("org.dmd.dms.AttributeDefinition");
-        _AttributeDefinitionOBJ.setLineNumber("2356");
+        _AttributeDefinitionOBJ.setLineNumber("2376");
         _AttributeDefinitionOBJ.addMay("meta.description");
         _AttributeDefinitionOBJ.addMay("meta.valueType");
         _AttributeDefinitionOBJ.addMay("meta.nullReturnValue");
@@ -602,7 +606,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _SliceDefinitionOBJ.setIsDSDefinition("true");
         _SliceDefinitionOBJ.setIsNamedBy("meta.name");
         _SliceDefinitionOBJ.setJavaClass("org.dmd.dms.SliceDefinition");
-        _SliceDefinitionOBJ.setLineNumber("2373");
+        _SliceDefinitionOBJ.setLineNumber("2393");
         _SliceDefinitionOBJ.addMay("meta.description");
         _SliceDefinitionOBJ.addMust("meta.name");
         _SliceDefinitionOBJ.addMust("meta.selectAttribute");
@@ -623,7 +627,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ActionDefinitionOBJ.setIsDSDefinition("true");
         _ActionDefinitionOBJ.setIsNamedBy("meta.name");
         _ActionDefinitionOBJ.setJavaClass("org.dmd.dms.ActionDefinition");
-        _ActionDefinitionOBJ.setLineNumber("2401");
+        _ActionDefinitionOBJ.setLineNumber("2421");
         _ActionDefinitionOBJ.addMay("meta.description");
         _ActionDefinitionOBJ.addMay("meta.mustParm");
         _ActionDefinitionOBJ.addMay("meta.mayParm");
@@ -650,7 +654,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _SchemaDefinitionOBJ.setFile("metaSchema.dms");
         _SchemaDefinitionOBJ.setIsNamedBy("meta.name");
         _SchemaDefinitionOBJ.setJavaClass("org.dmd.dms.SchemaDefinition");
-        _SchemaDefinitionOBJ.setLineNumber("2450");
+        _SchemaDefinitionOBJ.setLineNumber("2470");
         _SchemaDefinitionOBJ.addMay("meta.dependsOn");
         _SchemaDefinitionOBJ.addMay("meta.defFiles");
         _SchemaDefinitionOBJ.addMay("meta.generatedFileHeader");
@@ -693,7 +697,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _RuleCategoryOBJ.setIsDSDefinition("true");
         _RuleCategoryOBJ.setIsNamedBy("meta.name");
         _RuleCategoryOBJ.setJavaClass("org.dmd.dms.RuleCategory");
-        _RuleCategoryOBJ.setLineNumber("2494");
+        _RuleCategoryOBJ.setLineNumber("2514");
         _RuleCategoryOBJ.addMay("meta.ruleImport");
         _RuleCategoryOBJ.addMay("meta.attributeInfoFromParam");
         _RuleCategoryOBJ.addMust("meta.name");
@@ -719,7 +723,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _RuleDefinitionOBJ.setIsDSDefinition("true");
         _RuleDefinitionOBJ.setIsNamedBy("meta.name");
         _RuleDefinitionOBJ.setJavaClass("org.dmd.dms.RuleDefinition");
-        _RuleDefinitionOBJ.setLineNumber("2528");
+        _RuleDefinitionOBJ.setLineNumber("2548");
         _RuleDefinitionOBJ.addMay("meta.must");
         _RuleDefinitionOBJ.addMay("meta.may");
         _RuleDefinitionOBJ.addMay("meta.isExtensible");
@@ -742,7 +746,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _RuleDataOBJ.setFile("metaSchema.dms");
         _RuleDataOBJ.setIsNamedBy("meta.ruleName");
         _RuleDataOBJ.setJavaClass("org.dmd.dms.RuleData");
-        _RuleDataOBJ.setLineNumber("2550");
+        _RuleDataOBJ.setLineNumber("2570");
         _RuleDataOBJ.addMay("meta.description");
         _RuleDataOBJ.addMay("meta.definedIn");
         _RuleDataOBJ.addMay("meta.file");
@@ -770,7 +774,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _DependencyOBJ.setIsDSDefinition("true");
         _DependencyOBJ.setIsNamedBy("meta.name");
         _DependencyOBJ.setJavaClass("org.dmd.dms.Dependency");
-        _DependencyOBJ.setLineNumber("2582");
+        _DependencyOBJ.setLineNumber("2602");
         _DependencyOBJ.addMay("meta.dependencies");
         _DependencyOBJ.addMay("meta.instantiation");
         _DependencyOBJ.addMust("meta.name");
@@ -792,7 +796,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _DependencyImplementationOBJ.setIsDSDefinition("true");
         _DependencyImplementationOBJ.setIsNamedBy("meta.name");
         _DependencyImplementationOBJ.setJavaClass("org.dmd.dms.DependencyImplementation");
-        _DependencyImplementationOBJ.setLineNumber("2602");
+        _DependencyImplementationOBJ.setLineNumber("2622");
         _DependencyImplementationOBJ.addMay("meta.description");
         _DependencyImplementationOBJ.addMust("meta.name");
         _DependencyImplementationOBJ.addMust("meta.dependency");
@@ -814,7 +818,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _RunContextOBJ.setIsDSDefinition("true");
         _RunContextOBJ.setIsNamedBy("meta.name");
         _RunContextOBJ.setJavaClass("org.dmd.dms.Dependency");
-        _RunContextOBJ.setLineNumber("2617");
+        _RunContextOBJ.setLineNumber("2637");
         _RunContextOBJ.addMay("meta.description");
         _RunContextOBJ.addMust("meta.name");
         _RunContextOBJ.addMust("meta.dependencies");
@@ -824,7 +828,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         addClassDefList(_RunContext);
 
     }
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpInitAttributes(MetaGenerator.java:400)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpInitAttributes(MetaGenerator.java:401)
     private void initAttributes() throws DmcValueException {
 
         AttributeDefinitionDMO _FQNOBJ = new AttributeDefinitionDMO();
@@ -2160,6 +2164,18 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _longName.setDefinedIn(this);
         addAttributeDefList(_longName);
 
+        AttributeDefinitionDMO _mandatoryFieldsOBJ = new AttributeDefinitionDMO();
+        _mandatoryFields = new AttributeDefinition(_mandatoryFieldsOBJ);
+        _mandatoryFieldsOBJ.addDescription("The number of fields in a ComplexTypeDefinition that\n are considered mandatory. By default, all fields are considered mandatory.");
+        _mandatoryFieldsOBJ.setDmdID("171");
+        _mandatoryFieldsOBJ.setDotName("meta.mandatoryFields.AttributeDefinition");
+        _mandatoryFieldsOBJ.setFile("metaSchema.dms");
+        _mandatoryFieldsOBJ.setLineNumber("1938");
+        _mandatoryFieldsOBJ.setName("mandatoryFields");
+        _mandatoryFieldsOBJ.setType("meta.Integer");
+        _mandatoryFields.setDefinedIn(this);
+        addAttributeDefList(_mandatoryFields);
+
         AttributeDefinitionDMO _mayOBJ = new AttributeDefinitionDMO();
         _may = new AttributeDefinition(_mayOBJ);
         _mayOBJ.addDescription("Indicates the set of attributes that an instance of a class MAY\n have. When accessed in Java, this is a set of references to AttributeDefinition\n objects.");
@@ -2368,7 +2384,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _objectClassOBJ.setDmdID("1");
         _objectClassOBJ.setDotName("meta.objectClass.AttributeDefinition");
         _objectClassOBJ.setFile("metaSchema.dms");
-        _objectClassOBJ.setLineNumber("1929");
+        _objectClassOBJ.setLineNumber("1947");
         _objectClassOBJ.setName("objectClass");
         _objectClassOBJ.setType("meta.ClassDefinition");
         _objectClassOBJ.setValueType("MULTI");
@@ -2689,6 +2705,18 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _sliceDefList.setDefinedIn(this);
         addAttributeDefList(_sliceDefList);
 
+        AttributeDefinitionDMO _sortNameOBJ = new AttributeDefinitionDMO();
+        _sortName = new AttributeDefinition(_sortNameOBJ);
+        _sortNameOBJ.addDescription("The sortName is used in siutations where we need a name\n for storage of a definition that is globally unique but can be sorted on the basis\n of the definition name, not the module name. The dotName for a definition is\n module.definition...type, whereas the sortName would be definition...module.type.\n So, for things like documentation generation, the sortName provides a more \n natural ordering.");
+        _sortNameOBJ.setDmdID("170");
+        _sortNameOBJ.setDotName("meta.sortName.AttributeDefinition");
+        _sortNameOBJ.setFile("metaSchema.dms");
+        _sortNameOBJ.setLineNumber("1931");
+        _sortNameOBJ.setName("sortName");
+        _sortNameOBJ.setType("meta.DotName");
+        _sortName.setDefinedIn(this);
+        addAttributeDefList(_sortName);
+
         AttributeDefinitionDMO _stringNameOBJ = new AttributeDefinitionDMO();
         _stringName = new AttributeDefinition(_stringNameOBJ);
         _stringNameOBJ.addDescription("The stringName attribute is used to store a simple name for something. It starts\n with a letter followed letters or numbers.");
@@ -2840,7 +2868,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         addAttributeDefList(_wrapperClassName);
 
     }
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpInitTypes(MetaGenerator.java:419)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpInitTypes(MetaGenerator.java:420)
     private void initTypes() throws DmcValueException {
 
         TypeDefinitionDMO _AttributeIDOBJ = new TypeDefinitionDMO();
@@ -3263,7 +3291,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         addTypeDefList(_UUIDName);
 
     }
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpInitEnums(MetaGenerator.java:443)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpInitEnums(MetaGenerator.java:444)
     private void initEnums() throws DmcValueException {
 
         EnumDefinitionDMO _BaseTypeEnumOBJ = new EnumDefinitionDMO();
@@ -3476,7 +3504,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         addEnumDefList(_WrapperTypeEnum);
 
     }
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpInitRuleCategories(MetaGenerator.java:462)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpInitRuleCategories(MetaGenerator.java:463)
     private void initRuleCategories() throws DmcValueException {
 
         RuleCategoryDMO _AttributeValidationOBJ = new RuleCategoryDMO();
@@ -3561,7 +3589,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         addRuleCategoryList(_UCOValidation);
 
     }
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpInitComplexTypes(MetaGenerator.java:481)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpInitComplexTypes(MetaGenerator.java:482)
     private void initComplexTypes() throws DmcValueException {
 
         ComplexTypeDefinitionDMO _DmwTypeToWrapperTypeOBJ = new ComplexTypeDefinitionDMO();

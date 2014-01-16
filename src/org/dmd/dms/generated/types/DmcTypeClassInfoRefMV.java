@@ -27,8 +27,8 @@ import org.dmd.dmc.types.DmcTypeClassInfoRef;    // DmcType import
  * The DmcTypeClassInfoRefMV provides storage for a multi-valued ClassInfoRef
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2310)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:660)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2313)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:661)
  */
 @SuppressWarnings("serial")
 public class DmcTypeClassInfoRefMV extends DmcTypeClassInfoRef implements Serializable {
@@ -51,7 +51,7 @@ public class DmcTypeClassInfoRefMV extends DmcTypeClassInfoRef implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2341)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2344)
     public DmcAttribute<ClassInfoRef> cloneIt(){
         synchronized(this){
             DmcTypeClassInfoRefMV rc = getNew();
@@ -80,7 +80,7 @@ public class DmcTypeClassInfoRefMV extends DmcTypeClassInfoRef implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2374)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2377)
     public ClassInfoRef add(Object v) throws DmcValueException {
         synchronized(this){
             ClassInfoRef rc = typeCheck(v);
@@ -92,7 +92,7 @@ public class DmcTypeClassInfoRefMV extends DmcTypeClassInfoRef implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2387)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2390)
     public ClassInfoRef del(Object v){
         synchronized(this){
             if (value == null)
@@ -116,7 +116,7 @@ public class DmcTypeClassInfoRefMV extends DmcTypeClassInfoRef implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2421)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2424)
     public Iterator<ClassInfoRef> getMV(){
         synchronized(this){
             if (value == null)
@@ -127,7 +127,7 @@ public class DmcTypeClassInfoRefMV extends DmcTypeClassInfoRef implements Serial
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2433)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2436)
     public ArrayList<ClassInfoRef> getMVCopy(){
         synchronized(this){
             if (value == null)
@@ -138,7 +138,7 @@ public class DmcTypeClassInfoRefMV extends DmcTypeClassInfoRef implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2445)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2448)
     public int getMVSize(){
         synchronized(this){
             if (getAttributeInfo().indexSize == 0){
@@ -152,7 +152,7 @@ public class DmcTypeClassInfoRefMV extends DmcTypeClassInfoRef implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2463)
     public ClassInfoRef getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -162,7 +162,7 @@ public class DmcTypeClassInfoRefMV extends DmcTypeClassInfoRef implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2471)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2474)
     public ClassInfoRef setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
@@ -189,7 +189,7 @@ public class DmcTypeClassInfoRefMV extends DmcTypeClassInfoRef implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2499)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2502)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -212,7 +212,7 @@ public class DmcTypeClassInfoRefMV extends DmcTypeClassInfoRef implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2523)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2526)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

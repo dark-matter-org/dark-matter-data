@@ -14,3 +14,23 @@ field			String         		name        The name of the field
 field			String         	description The description of the field
 description     The DmtField complex type is used to test generation of 
  complex types that contain object references.
+
+ComplexTypeDefinition
+name			DmtOptionalValueFieldWithSpaces
+// fieldSeparator - no separator, so space is used
+field			TypeDefinition		type        The type of the field
+field			String         		name        The name of the field
+field			String         	description The description of the field
+mandatoryFields 2
+description     The DmtOptionalValueFieldWithSpaces complex type is used to test generation of 
+ complex types that use spaces as separators and have optional values
+
+ComplexTypeDefinition
+name			DmtOptionalValueFieldWithColons
+fieldSeparator  :
+field			TypeDefinition		type        The type of the field
+field			String         		name        The name of the field
+field			String         	description The description of the field
+mandatoryFields 2
+description     The DmtOptionalValueFieldWithSpaces complex type is used to test generation of 
+ complex types that use spaces as separators and have optional values

@@ -24,8 +24,8 @@ import org.dmd.dmc.types.DmcTypeShort;    // DmcType import
  * The DmcTypeShortSV provides storage for a single-valued Short
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1966)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:655)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1969)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:656)
  */
 @SuppressWarnings("serial")
 public class DmcTypeShortSV extends DmcTypeShort implements Serializable {
@@ -49,14 +49,14 @@ public class DmcTypeShortSV extends DmcTypeShort implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2001)
     public DmcAttribute<Short> cloneIt(){
         DmcTypeShortSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2009)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2012)
     public Short getSVCopy(){
         if (value == null)
             return(null);
@@ -64,7 +64,7 @@ public class DmcTypeShortSV extends DmcTypeShort implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2021)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2024)
     public Short set(Object v) throws DmcValueException {
         Short rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

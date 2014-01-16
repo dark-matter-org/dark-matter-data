@@ -23,6 +23,7 @@ import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcObject;
 //import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.types.DotName;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmc.util.NamedStringArray;
 import org.dmd.dms.AttributeDefinition;
@@ -96,7 +97,15 @@ public class DmwObjectFactory {
 			String n = names.next();
 			DmcAttributeInfo ai = dmo.getAttributeInfo(n);
 			
-			ad = schema.adef(ai.qualifiedName);
+			if (ai == null){
+	        	ResultException ex = new ResultException();
+	            ex.result.addResult(Result.ERROR,"Unknown attribute: " + n + " in object:\n\n" + uco.toOIF());
+	            throw(ex);
+			}
+			
+			DotName dn = new DotName(ai.qualifiedName, "AttributeDefinition");
+//			ad = schema.adef(ai.qualifiedName);
+			ad = schema.adef(dn);
 			
 			if (ad == null){
 	        	ResultException ex = new ResultException();

@@ -1929,6 +1929,13 @@ description    				The sortName is used in siutations where we need a name
  So, for things like documentation generation, the sortName provides a more 
  natural ordering.
 
+AttributeDefinition
+name                		mandatoryFields
+dmdID						171
+type                		Integer
+description    				The number of fields in a ComplexTypeDefinition that
+ are considered mandatory. By default, all fields are considered mandatory.
+
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
 AttributeDefinition
@@ -2294,6 +2301,7 @@ must			field
 may				fieldSeparator
 may				extendedClass
 may             description
+may				mandatoryFields
 description		The ComplexTypeDefinition provides a mechanism for defining the structure of
  a complex type composed of other types. From this definition, a new DmcType is generated that
  has all of the required methods automatically defined.

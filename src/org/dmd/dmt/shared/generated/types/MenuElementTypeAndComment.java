@@ -10,7 +10,7 @@ import org.dmd.dmc.DmcValueException;                           // Standard valu
 import org.dmd.dmc.types.IntegerVar;                            // To support getNextField() - (ComplexTypeFormatter.java:73)
 import org.dmd.dms.generated.enums.DataTypeEnum;                // For fake DmcAttributeInfo - (ComplexTypeFormatter.java:74)
 import org.dmd.dms.generated.enums.ValueTypeEnum;               // For fake DmcAttributeInfo - (ComplexTypeFormatter.java:75)
-import org.dmd.dms.generated.types.DmcTypeStringSTATIC;         // Standard type - (ComplexTypeFormatter.java:494)
+import org.dmd.dms.generated.types.DmcTypeStringSTATIC;         // Standard type - (ComplexTypeFormatter.java:616)
 
 
 
@@ -69,7 +69,7 @@ public class MenuElementTypeAndComment implements Serializable {
 
     /**
      * Serialization.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:212)
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:225)
      */
     public void serializeIt(DmcOutputStreamIF dos) throws Exception {
         DmcTypeStringSTATIC.instance.serializeValue(dos, type);
@@ -78,7 +78,7 @@ public class MenuElementTypeAndComment implements Serializable {
 
     /**
      * Deserialization.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:229)
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:242)
      */
     public void deserializeIt(DmcInputStreamIF dis) throws Exception {
         type = DmcTypeStringSTATIC.instance.deserializeValue(dis);
@@ -87,7 +87,7 @@ public class MenuElementTypeAndComment implements Serializable {
 
     /**
      * String form.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:246)
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:259)
      */
     public String toString(){
         return(type.toString() + ":" + comment.toString());
@@ -101,7 +101,7 @@ public class MenuElementTypeAndComment implements Serializable {
         return(comment);
     }
 
-    // org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:358)
+    // org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:419)
     String getNextField(String input, IntegerVar seppos, String fn, boolean last) throws DmcValueException {
     	   String rc = null;
     	   int start = seppos.intValue();

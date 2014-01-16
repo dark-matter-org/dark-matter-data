@@ -147,8 +147,12 @@ public class DmcClassInfo implements Comparable<DmcClassInfo>{
 	public DmcAttributeInfo getAttributeInfo(String an){
 		DmcAttributeInfoRef air = byName.get(an);
 		
-		if (air == null)
-			return(null);
+		if (air == null){
+			if (derivedFrom != null)
+				return(derivedFrom.getAttributeInfo(an));
+			else
+				return(null);
+		}
 		
 		return(air.info);
 	}

@@ -330,6 +330,7 @@ public class DSDArtifactFormatter {
 		imports.addImport("org.dmd.dmc.rules.DmcRuleExceptionSet", "May be thrown by rule manager");
 		imports.addImport("org.dmd.dmv.shared.DmvRuleManager", "The injected rule manager used for initializations");
 		imports.addImport("org.dmd.dms.generated.dmw.StringIterableDMW", "To iterate over defFiles");
+		imports.addImport("org.dmd.dmc.rules.SourceInfo", "To indicate the source of rule problems");
 		
 		// Get the class that was generated for the module
 		ClassDefinition ddmClass = sm.isClass(ddm.getName().getNameString());
@@ -438,10 +439,16 @@ public class DSDArtifactFormatter {
 		out.write("        definition.setLineNumber(lineNumber);\n");
 		out.write("        definition.setFile(infile);\n");
 		out.write("\n");
-		out.write("        // Run the rules against the definition\n");
-		out.write("        rules.executeInitializers(definition.getDmcObject());\n");
-		out.write("        rules.executeAttributeValidation(definition.getDmcObject());\n");
-		out.write("        rules.executeObjectValidation(definition.getDmcObject());\n");
+		out.write("        try{\n");
+		out.write("            // Run the rules against the definition\n");
+		out.write("            rules.executeInitializers(definition.getDmcObject());\n");
+		out.write("            rules.executeAttributeValidation(definition.getDmcObject());\n");
+		out.write("            rules.executeObjectValidation(definition.getDmcObject());\n");
+		out.write("        }\n");
+		out.write("        catch(DmcRuleExceptionSet ex){\n");
+		out.write("            ex.source(new SourceInfo(infile, lineNumber));\n");
+		out.write("            throw(ex);\n");
+		out.write("        }\n");
 		out.write("\n");
 		out.write("        // The first definition we expect is the module definition\n");
 		out.write("        if (module == null){\n");

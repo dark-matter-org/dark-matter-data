@@ -16,13 +16,13 @@
 package org.dmd.dms.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1922)
-import java.io.Serializable;                            // Serializable marker interface - (MetaGenerator.java:1871)
-import java.util.*;                                     // Attribute info support - (MetaGenerator.java:1873)
-import org.dmd.dmc.*;                                   // Dark matter core - (MetaGenerator.java:1895)
-import org.dmd.dmc.definitions.DmcDefinitionIF;         // This is a domain specific definition - (MetaGenerator.java:1908)
-import org.dmd.dmc.types.*;                             // Basic type access - (MetaGenerator.java:1885)
-import org.dmd.dms.generated.types.*;                   // Generated type access - (MetaGenerator.java:1911)
+// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1923)
+import java.io.Serializable;                            // Serializable marker interface - (MetaGenerator.java:1872)
+import java.util.*;                                     // Attribute info support - (MetaGenerator.java:1874)
+import org.dmd.dmc.*;                                   // Dark matter core - (MetaGenerator.java:1896)
+import org.dmd.dmc.definitions.DmcDefinitionIF;         // This is a domain specific definition - (MetaGenerator.java:1909)
+import org.dmd.dmc.types.*;                             // Basic type access - (MetaGenerator.java:1886)
+import org.dmd.dms.generated.types.*;                   // Generated type access - (MetaGenerator.java:1912)
 
 
 
@@ -33,7 +33,7 @@ import org.dmd.dms.generated.types.*;                   // Generated type access
  * related DependencyImplementation,\n otherwise, we have no way to fulfill
  * the dependency. 
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1932)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1933)
  */
 @SuppressWarnings("serial")
 public class DependencyImplementationDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO implements Serializable, DmcDefinitionIF {
@@ -57,6 +57,7 @@ public class DependencyImplementationDMO extends org.dmd.dms.generated.dmo.DmsDe
         _ImAp.put(MetaDMSAG.__exampleUsage.id,MetaDMSAG.__exampleUsage);
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
+        _ImAp.put(MetaDMSAG.__sortName.id,MetaDMSAG.__sortName);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(MetaDMSAG.__dependency.name,MetaDMSAG.__dependency);
@@ -69,6 +70,7 @@ public class DependencyImplementationDMO extends org.dmd.dms.generated.dmo.DmsDe
         _SmAp.put(MetaDMSAG.__exampleUsage.name,MetaDMSAG.__exampleUsage);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
+        _SmAp.put(MetaDMSAG.__sortName.name,MetaDMSAG.__sortName);
     }
 
 
@@ -104,7 +106,7 @@ public class DependencyImplementationDMO extends org.dmd.dms.generated.dmo.DmsDe
     /**
      * A reference to a single Dependency. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2321)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2322)
     public DependencyREF getDependency(){
         DmcTypeDependencyREFSV attr = (DmcTypeDependencyREFSV) get(MetaDMSAG.__dependency);
         if (attr == null)
@@ -117,7 +119,7 @@ public class DependencyImplementationDMO extends org.dmd.dms.generated.dmo.DmsDe
      * Sets dependency to the specified value.
      * @param value A value compatible with DmcTypeDependencyREFSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2413)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2414)
     public void setDependency(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__dependency);
         if (attr == null)
@@ -130,7 +132,7 @@ public class DependencyImplementationDMO extends org.dmd.dms.generated.dmo.DmsDe
     /**
      * The instantiation attribute specifies how something is to be instantiated. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2321)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2322)
     public String getInstantiation(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__instantiation);
         if (attr == null)
@@ -143,7 +145,7 @@ public class DependencyImplementationDMO extends org.dmd.dms.generated.dmo.DmsDe
      * Sets instantiation to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2413)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2414)
     public void setInstantiation(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__instantiation);
         if (attr == null)
@@ -158,7 +160,7 @@ public class DependencyImplementationDMO extends org.dmd.dms.generated.dmo.DmsDe
      * a unique name\n for an object with the set of definitions of which it is a
      * part. A name starts with a letter followed\n by letters and numbers. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2321)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2322)
     public DefinitionName getName(){
         DmcTypeDefinitionNameSV attr = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -171,7 +173,7 @@ public class DependencyImplementationDMO extends org.dmd.dms.generated.dmo.DmsDe
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2413)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2414)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -184,7 +186,7 @@ public class DependencyImplementationDMO extends org.dmd.dms.generated.dmo.DmsDe
     /**
      * A reference to a RunContext. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2321)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2322)
     public RunContextREF getRunContext(){
         DmcTypeRunContextREFSV attr = (DmcTypeRunContextREFSV) get(MetaDMSAG.__runContext);
         if (attr == null)
@@ -197,7 +199,7 @@ public class DependencyImplementationDMO extends org.dmd.dms.generated.dmo.DmsDe
      * Sets runContext to the specified value.
      * @param value A value compatible with DmcTypeRunContextREFSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2413)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2414)
     public void setRunContext(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__runContext);
         if (attr == null)
@@ -210,7 +212,7 @@ public class DependencyImplementationDMO extends org.dmd.dms.generated.dmo.DmsDe
     /**
      * Indicates the schema in which a type, attribute or class is defined. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2321)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2322)
     public SchemaDefinitionREF getDefinedIn(){
         DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) get(MetaDMSAG.__definedIn);
         if (attr == null)
@@ -223,7 +225,7 @@ public class DependencyImplementationDMO extends org.dmd.dms.generated.dmo.DmsDe
      * Sets definedIn to the specified value.
      * @param value A value compatible with DmcTypeSchemaDefinitionREFSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2413)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2414)
     public void setDefinedIn(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__definedIn);
         if (attr == null)
@@ -240,7 +242,7 @@ public class DependencyImplementationDMO extends org.dmd.dms.generated.dmo.DmsDe
      * HTML\n documentation. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2518)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2519)
     public Iterator<String> getDescription(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -249,7 +251,7 @@ public class DependencyImplementationDMO extends org.dmd.dms.generated.dmo.DmsDe
         return(attr.getMV());
     }
 
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2533)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2534)
     public Iterator<String> getDescriptionWithNewlines(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -272,7 +274,7 @@ public class DependencyImplementationDMO extends org.dmd.dms.generated.dmo.DmsDe
      * Adds another description value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2623)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2624)
     public DmcAttribute<?> addDescription(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -286,7 +288,7 @@ public class DependencyImplementationDMO extends org.dmd.dms.generated.dmo.DmsDe
     /**
      * The dotName attribute is used to store dot separated names. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2321)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2322)
     public DotName getDotName(){
         DmcTypeDotNameSV attr = (DmcTypeDotNameSV) get(MetaDMSAG.__dotName);
         if (attr == null)
@@ -299,7 +301,7 @@ public class DependencyImplementationDMO extends org.dmd.dms.generated.dmo.DmsDe
      * Sets dotName to the specified value.
      * @param value A value compatible with DmcTypeDotNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2413)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2414)
     public void setDotName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__dotName);
         if (attr == null)
@@ -314,7 +316,7 @@ public class DependencyImplementationDMO extends org.dmd.dms.generated.dmo.DmsDe
      * some defined thing is to be used. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2518)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2519)
     public Iterator<String> getExampleUsage(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__exampleUsage);
         if (attr == null)
@@ -323,7 +325,7 @@ public class DependencyImplementationDMO extends org.dmd.dms.generated.dmo.DmsDe
         return(attr.getMV());
     }
 
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2533)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2534)
     public Iterator<String> getExampleUsageWithNewlines(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__exampleUsage);
         if (attr == null)
@@ -346,7 +348,7 @@ public class DependencyImplementationDMO extends org.dmd.dms.generated.dmo.DmsDe
      * Adds another exampleUsage value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2623)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2624)
     public DmcAttribute<?> addExampleUsage(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__exampleUsage);
         if (attr == null)
@@ -360,7 +362,7 @@ public class DependencyImplementationDMO extends org.dmd.dms.generated.dmo.DmsDe
     /**
      * Indicates the file from which a definition was loaded. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2321)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2322)
     public String getFile(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__file);
         if (attr == null)
@@ -373,7 +375,7 @@ public class DependencyImplementationDMO extends org.dmd.dms.generated.dmo.DmsDe
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2413)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2414)
     public void setFile(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__file);
         if (attr == null)
@@ -386,7 +388,7 @@ public class DependencyImplementationDMO extends org.dmd.dms.generated.dmo.DmsDe
     /**
      * Indicates the line number of the file from which a definition was loaded. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2321)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2322)
     public Integer getLineNumber(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaDMSAG.__lineNumber);
         if (attr == null)
@@ -399,7 +401,7 @@ public class DependencyImplementationDMO extends org.dmd.dms.generated.dmo.DmsDe
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2413)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2414)
     public void setLineNumber(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__lineNumber);
         if (attr == null)
@@ -409,10 +411,41 @@ public class DependencyImplementationDMO extends org.dmd.dms.generated.dmo.DmsDe
         set(MetaDMSAG.__lineNumber,attr);
     }
 
+    /**
+     * The sortName is used in siutations where we need a name\n for storage of a
+     * definition that is globally unique but can be sorted on the basis\n of the
+     * definition name, not the module name. The dotName for a definition is\n
+     * module.definition...type, whereas the sortName would be
+     * definition...module.type.\n So, for things like documentation generation,
+     * the sortName provides a more \n natural ordering. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2322)
+    public DotName getSortName(){
+        DmcTypeDotNameSV attr = (DmcTypeDotNameSV) get(MetaDMSAG.__sortName);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets sortName to the specified value.
+     * @param value A value compatible with DmcTypeDotNameSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2414)
+    public void setSortName(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__sortName);
+        if (attr == null)
+            attr = new DmcTypeDotNameSV(MetaDMSAG.__sortName);
+        
+        attr.set(value);
+        set(MetaDMSAG.__sortName,attr);
+    }
+
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:2115)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:2116)
 
     /**
      * @return The name of this object from the name attribute.
