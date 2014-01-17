@@ -317,6 +317,11 @@ public class DSDArtifactFormatter {
 		imports.addImport("org.dmd.util.parsing.ConfigLocation", "Config file location info");
 		imports.addImport("org.dmd.dmw.DmwObjectFactory", "Constructs wrapped objects");
 		imports.addImport(ddm.getGlobalInterfaceImport(), "Interface to our definition storage");
+		
+		if (ddm.getSupportDynamicSchemaLoading()){
+			imports.addImport("java.util.Iterator", "To iterate over collections");
+			imports.addImport("org.dmd.dms.SchemaDefinition", "To support dynamic loading of schemas");
+		}
 				
 		out.write("package " + config.getGenPackage() + ".generated.dsd;\n\n");
 		
@@ -459,6 +464,13 @@ public class DSDArtifactFormatter {
 		out.write("            \n");
 		out.write("                definitions.add" + ddm.getName() + "(module);\n");
 		out.write("                module." + definedInModuleMethod + "(module);\n");
+		
+		if (ddm.getSupportDynamicSchemaLoading()){
+			out.write("                if (module.getLoadSchemaClassHasValue()){\n");
+			out.write("                    loadSchemas(module);\n");
+			out.write("                }\n");
+		}
+
 		out.write("            }\n");
 		out.write("            else{\n");
 		out.write("                ResultException ex = new ResultException(\"Expecting a " + ddm.getName() + " module definition\");\n");
@@ -494,9 +506,65 @@ public class DSDArtifactFormatter {
 		out.write("\n");
 		out.write("    }\n");
 		
+		if (ddm.getSupportDynamicSchemaLoading()){
+			writeLoadSchemasFunction(out, ddm);
+		}
+		
 		out.write("}\n\n");
 		
 		out.close();		
+	}
+	
+	void writeLoadSchemasFunction(ManagedFileWriter out, DSDefinitionModule ddm) throws IOException {
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    void loadSchemas(GpbModule module) throws ResultException {\n");
+		out.write("    	   Class<?> schemaClass = null;\n");
+		out.write("    	   SchemaDefinition sd	= null;\n");
+		out.write("    	   Iterator<String> it = module.getDMO().getLoadSchemaClass();\n");
+		out.write("        while(it.hasNext()){\n");
+		out.write("		       String cn = it.next();\n");
+		out.write("		       try {\n");
+		out.write("			       schemaClass = Class.forName(cn);\n");
+		out.write("            } catch (ClassNotFoundException e) {\n");
+		out.write("                ResultException ex = new ResultException(e);\n");
+		out.write("                ex.addError(\"Couldn't load schema class: \" + cn);\n");
+		out.write("                ex.setLocationInfo(module.getFile(), module.getLineNumber());\n");
+		out.write("                throw(ex);\n");
+		out.write("            }\n");
+		out.write("\n");
+		out.write("            try {\n");
+		out.write("                Object obj = schemaClass.newInstance();\n");
+		out.write("\n");
+		out.write("                if (obj instanceof SchemaDefinition){\n");
+		out.write("                    sd = (SchemaDefinition) obj;\n");
+		out.write("                }\n");
+		out.write("                else{\n");
+		out.write("                    ResultException ex = new ResultException(\"The specified class is not a SchemaDefinition: \" + cn);\n");
+		out.write("                    ex.setLocationInfo(module.getFile(), module.getLineNumber());\n");
+		out.write("                    throw(ex);\n");
+		out.write("                }\n");
+		out.write("            } catch (Exception e) {\n");
+		out.write("                ResultException ex = new ResultException(e);\n");
+		out.write("                ex.addError(\"Couldn't instantiate schema class: \" + cn);\n");
+		out.write("                ex.setLocationInfo(module.getFile(), module.getLineNumber());\n");
+		out.write("                throw(ex);\n");
+		out.write("            }\n");
+		out.write("\n");
+		out.write("                try {\n");
+		out.write("                    if (schema.isSchema(sd.getInstance().getName().getNameString()) == null){\n");
+		out.write("                        schema.manageSchema(sd);\n");
+		out.write("                    }\n");
+		out.write("                } catch (DmcValueException e) {\n");
+		out.write("                    // TODO Auto-generated catch block\n");
+		out.write("                    e.printStackTrace();\n");
+		out.write("                } catch (DmcNameClashException e) {\n");
+		out.write("                    // TODO Auto-generated catch block\n");
+		out.write("                    e.printStackTrace();\n");
+		out.write("                }\n");
+		out.write("\n");
+		out.write("        }\n");
+		out.write("    }\n");
+		
 	}
 	
 	/**
