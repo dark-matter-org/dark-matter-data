@@ -208,8 +208,10 @@ public class ConfigFinder {
 			throw(ex);
 		}
 		
-		for(String d : sourceDirs)
+		for(String d : sourceDirs){
+			debugMessage("Source dir: " + d);
 			findConfigsRecursive(new File(d));
+		}
 		
 		if (checkClassPath)
 			findConfigsOnClassPath();
@@ -285,14 +287,14 @@ public class ConfigFinder {
 		sb.append("\n");
 		
 		if (jarPrefixes.size() > 0){
-			sb.append("    Checked JARs with the following prefixs:\n");
+			sb.append("    Checked JARs with the following prefixes:\n");
 			for(String j : jarPrefixes){
 				sb.append("    " + j + "\n");
 			}
 			sb.append("\n");
 		}
 		
-		sb.append("For config files with the following suffixs:\n");
+		sb.append("For config files with the following suffixes:\n");
 		for(String s : suffixes){
 			sb.append("    " + s + "\n");
 		}
@@ -352,6 +354,8 @@ public class ConfigFinder {
 	 */
 	void findConfigsRecursive(File dir) throws ResultException, IOException {
 		if (dir.exists()){
+			debugMessage("Searching for configs in: " + dir.getCanonicalPath());
+				
 			String[] files = dir.list();
 			
 			for(String f : files){

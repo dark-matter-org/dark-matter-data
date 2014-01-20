@@ -1894,7 +1894,7 @@ description    		A reference to another DSDefinitionModule from which the curren
  to schema related definitions. As a result of specifying this, the module
  class that's generated for the DSDefinitionModule will include the moduleDependenceAttribute
  of the module from which definitions are used. Likewise, the generated parser
- will be primed with the schema of required definition module.
+ will be primed with the schema of the required definition module.
 
 AttributeDefinition
 name                definedInModuleAttribute
@@ -1956,6 +1956,21 @@ description    				The fully qualified name of a schema that is to
  domain specific definitions.
  <p/>
  An example would be org.dmd.gpb.tools.generation.generated.GpbauxtestSchemaAG
+
+AttributeDefinition
+name                		requiredBaseModule
+dmdID						174
+type                		String
+valueType					MULTI
+description    				A set of base module files that should be loaded before
+ parsing of any other modules associated with the DSD being defined. For example,
+ the dmdgpb (augmented Googoe Protocol Buffer specifications) DSD always requires
+ that the gpbbase.gpb file is loaded because it defines the base types of the fields
+ that comprise messages. By specifying gpbbase.gpb as a requiredBaseModule, the
+ generated parsing coordinator will ensure that this module is loaded on start-up.
+ <p/>
+ You should specify just the name of the module file to be loaded, not the file extension.
+ The file extension is assumed to be fileExtension associated with the DSD.
 
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
@@ -2067,6 +2082,7 @@ may				definedInModuleAttribute
 may				may
 may				must
 may				supportDynamicSchemaLoading
+may				requiredBaseModule
 // Auto generated/set
 may           	definedIn
 description		The DSDefinitionModule is a definition that defines a collection of definitions

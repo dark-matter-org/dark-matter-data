@@ -66,6 +66,7 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
         _ImAp.put(MetaDMSAG.__may.id,MetaDMSAG.__may);
         _ImAp.put(MetaDMSAG.__must.id,MetaDMSAG.__must);
         _ImAp.put(MetaDMSAG.__refersToDefsFromDSD.id,MetaDMSAG.__refersToDefsFromDSD);
+        _ImAp.put(MetaDMSAG.__requiredBaseModule.id,MetaDMSAG.__requiredBaseModule);
         _ImAp.put(MetaDMSAG.__sortName.id,MetaDMSAG.__sortName);
         _ImAp.put(MetaDMSAG.__supportDynamicSchemaLoading.id,MetaDMSAG.__supportDynamicSchemaLoading);
 
@@ -86,6 +87,7 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
         _SmAp.put(MetaDMSAG.__may.name,MetaDMSAG.__may);
         _SmAp.put(MetaDMSAG.__must.name,MetaDMSAG.__must);
         _SmAp.put(MetaDMSAG.__refersToDefsFromDSD.name,MetaDMSAG.__refersToDefsFromDSD);
+        _SmAp.put(MetaDMSAG.__requiredBaseModule.name,MetaDMSAG.__requiredBaseModule);
         _SmAp.put(MetaDMSAG.__sortName.name,MetaDMSAG.__sortName);
         _SmAp.put(MetaDMSAG.__supportDynamicSchemaLoading.name,MetaDMSAG.__supportDynamicSchemaLoading);
     }
@@ -579,7 +581,7 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
      * specifying this, the module\n class that's generated for the
      * DSDefinitionModule will include the moduleDependenceAttribute\n of the
      * module from which definitions are used. Likewise, the generated parser\n
-     * will be primed with the schema of required definition module. 
+     * will be primed with the schema of the required definition module. 
      * @return An Iterator of DSDefinitionModuleDMO objects.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2512)
@@ -603,6 +605,42 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
         
         attr.add(value);
         add(MetaDMSAG.__refersToDefsFromDSD,attr);
+        return(attr);
+    }
+
+    /**
+     * A set of base module files that should be loaded before\n parsing of any
+     * other modules associated with the DSD being defined. For example,\n the
+     * dmdgpb (augmented Googoe Protocol Buffer specifications) DSD always
+     * requires\n that the gpbbase.gpb file is loaded because it defines the base
+     * types of the fields\n that comprise messages. By specifying gpbbase.gpb as
+     * a requiredBaseModule, the\n generated parsing coordinator will ensure that
+     * this module is loaded on start-up.\n <p/>\n You should specify just the
+     * name of the module file to be loaded, not the file extension.\n The file
+     * extension is assumed to be fileExtension associated with the DSD. 
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2519)
+    public Iterator<String> getRequiredBaseModule(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__requiredBaseModule);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another requiredBaseModule value.
+     * @param value A value compatible with DmcTypeStringMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2624)
+    public DmcAttribute<?> addRequiredBaseModule(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__requiredBaseModule);
+        if (attr == null)
+            attr = new DmcTypeStringMV(MetaDMSAG.__requiredBaseModule);
+        
+        attr.add(value);
+        add(MetaDMSAG.__requiredBaseModule,attr);
         return(attr);
     }
 

@@ -415,7 +415,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             ReferencedAttributeTypeRuleDataDMO _dmvModuleDependenceAttributeData = new ReferencedAttributeTypeRuleDataDMO();
             _dmvModuleDependenceAttributeData.setRuleName("dmvModuleDependenceAttribute");
             _dmvModuleDependenceAttributeData.setApplyToClass("DSDefinitionModule");
-            _dmvModuleDependenceAttributeData.setRuleTitle("The moduleDependenceAttribute attribute must be multi-valued.");
+            _dmvModuleDependenceAttributeData.setRuleTitle("The attribute referred to by the moduleDependenceAttribute attribute must be multi-valued.");
             _dmvModuleDependenceAttributeData.addDescription("We have sections of generated code that will access the module\n dependence attribute of a DDM module instance and being able to assume that the\n module dependence attribute is multi-valued just makes things easier.");
             _dmvModuleDependenceAttributeData.setApplyToAttribute("moduleDependenceAttribute");
             _dmvModuleDependenceAttributeData.setAllowedValueType("MULTI");

@@ -204,7 +204,7 @@ public class DSDefinitionModuleDMW extends org.dmd.dms.DmsDefinition {
      * specifying this, the module\n class that's generated for the
      * DSDefinitionModule will include the moduleDependenceAttribute\n of the
      * module from which definitions are used. Likewise, the generated parser\n
-     * will be primed with the schema of required definition module. 
+     * will be primed with the schema of the required definition module. 
      * @return An Iterator of DSDefinitionModule objects.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2561)
@@ -348,6 +348,47 @@ public class DSDefinitionModuleDMW extends org.dmd.dms.DmsDefinition {
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2448)
     public void setSupportDynamicSchemaLoading(Object value) throws DmcValueException {
         mycore.setSupportDynamicSchemaLoading(value);
+    }
+
+    /**
+     * A set of base module files that should be loaded before\n parsing of any
+     * other modules associated with the DSD being defined. For example,\n the
+     * dmdgpb (augmented Googoe Protocol Buffer specifications) DSD always
+     * requires\n that the gpbbase.gpb file is loaded because it defines the base
+     * types of the fields\n that comprise messages. By specifying gpbbase.gpb as
+     * a requiredBaseModule, the\n generated parsing coordinator will ensure that
+     * this module is loaded on start-up.\n <p/>\n You should specify just the
+     * name of the module file to be loaded, not the file extension.\n The file
+     * extension is assumed to be fileExtension associated with the DSD. 
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2579)
+    public Iterator<String> getRequiredBaseModule(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__requiredBaseModule);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another requiredBaseModule value.
+     * @param value A value compatible with DmcTypeStringMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2659)
+    public void addRequiredBaseModule(Object value) throws DmcValueException {
+        mycore.addRequiredBaseModule(value);
+    }
+
+    /**
+     * Returns the number of requiredBaseModule values.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2672)
+    public int getRequiredBaseModuleSize(){
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__requiredBaseModule);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
     }
 
     /**

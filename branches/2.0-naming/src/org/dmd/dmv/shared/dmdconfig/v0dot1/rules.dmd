@@ -449,7 +449,7 @@ description			Didn't want to be too restrictive with this. Definitely didn't wan
 
 ReferencedAttributeTypeRuleData
 ruleName          dmvModuleDependenceAttribute
-ruleTitle         The moduleDependenceAttribute attribute must be multi-valued.
+ruleTitle         The attribute referred to by the moduleDependenceAttribute attribute must be multi-valued.
 applyToAttribute  moduleDependenceAttribute
 applyToClass      DSDefinitionModule
 allowedValueType  MULTI

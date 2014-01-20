@@ -16,10 +16,10 @@
 package org.dmd.dmt.dsd.dsdb.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:891)
-import org.dmd.dmt.dsd.dsdb.server.extended.ModuleB;                               // The base module for generation - (DSDArtifactFormatter.java:886)
-import org.dmd.dmt.dsd.dsdb.server.generated.dsd.ModuleBDefinitionManager;         // All parsed definition - (DSDArtifactFormatter.java:889)
-import org.dmd.util.parsing.ConfigLocation;                                        // Where the config was loaded from - (DSDArtifactFormatter.java:888)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:961)
+import org.dmd.dmt.dsd.dsdb.server.extended.ModuleB;                               // The base module for generation - (DSDArtifactFormatter.java:956)
+import org.dmd.dmt.dsd.dsdb.server.generated.dsd.ModuleBDefinitionManager;         // All parsed definition - (DSDArtifactFormatter.java:959)
+import org.dmd.util.parsing.ConfigLocation;                                        // Where the config was loaded from - (DSDArtifactFormatter.java:958)
 
 
 public interface ModuleBGeneratorInterface {
