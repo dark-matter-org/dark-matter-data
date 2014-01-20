@@ -158,6 +158,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __preserveNewlines = new DmcAttributeInfo("meta","preserveNewlines",51,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __primitiveType = new DmcAttributeInfo("meta","primitiveType",8,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __refersToDefsFromDSD = new DmcAttributeInfo("meta","refersToDefsFromDSD",166,"DSDefinitionModule",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __requiredBaseModule = new DmcAttributeInfo("meta","requiredBaseModule",174,"String",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleCategory = new DmcAttributeInfo("meta","ruleCategory",139,"RuleCategory",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleCategoryID = new DmcAttributeInfo("meta","ruleCategoryID",140,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleCategoryList = new DmcAttributeInfo("meta","ruleCategoryList",143,"RuleCategory",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
@@ -443,6 +444,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__preserveNewlines.id,__preserveNewlines);
         _SmAp.put(__primitiveType.id,__primitiveType);
         _SmAp.put(__refersToDefsFromDSD.id,__refersToDefsFromDSD);
+        _SmAp.put(__requiredBaseModule.id,__requiredBaseModule);
         _SmAp.put(__ruleCategory.id,__ruleCategory);
         _SmAp.put(__ruleCategoryID.id,__ruleCategoryID);
         _SmAp.put(__ruleCategoryList.id,__ruleCategoryList);
@@ -626,6 +628,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __DSDefinitionModule.addMay(__may);
         __DSDefinitionModule.addMay(__must);
         __DSDefinitionModule.addMay(__refersToDefsFromDSD);
+        __DSDefinitionModule.addMay(__requiredBaseModule);
         __DSDefinitionModule.addMay(__sortName);
         __DSDefinitionModule.addMay(__supportDynamicSchemaLoading);
 
