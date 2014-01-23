@@ -38,7 +38,6 @@ import org.dmd.util.codegen.ImplementsManager;
 import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.codegen.MemberManager;
 import org.dmd.util.exceptions.DebugInfo;
-import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
 
@@ -617,6 +616,7 @@ public class DSDArtifactFormatter {
 		imports.addImport("java.util.TreeMap", "To handle loaded configs");
 		
 		imports.addImport("org.dmd.dmc.types.DefinitionName", "Allows storage of parsed configs by name");
+		imports.addImport("org.dmd.dms.DSDefinition", "The common base for all modules - so that we can get error location info");
 		imports.addImport("org.dmd.dmc.DmcValueException", "To handle exceptions from value handling");
 		imports.addImport("org.dmd.dmc.DmcNameClashException", "To handle exceptions from parsing objects");
 		imports.addImport("org.dmd.util.exceptions.ResultException", "To handle processing exceptions");
@@ -695,17 +695,7 @@ public class DSDArtifactFormatter {
 				baseModuleLoaderFunctions.append("        \n");
 				baseModuleLoaderFunctions.append("        ConfigLocation location = version.getLatestVersion();\n");
 				baseModuleLoaderFunctions.append("        \n");
-				baseModuleLoaderFunctions.append("        // If we've already loaded the file, skip it\n");
-				baseModuleLoaderFunctions.append("        if (loadedConfigs.get(location.getFileName()) != null)\n");
-				baseModuleLoaderFunctions.append("            return;\n");
-				baseModuleLoaderFunctions.append("        \n");
-				baseModuleLoaderFunctions.append("        " + ddm.getName() + " loaded = parserFor" + ddm.getName() + ".parseConfig(location);\n");
-				baseModuleLoaderFunctions.append("        " + ddm.getName() + "Info loadedInfo = new " + ddm.getName() + "Info(loaded,location);\n");
-				baseModuleLoaderFunctions.append("        loaded" + ddm.getName() + "Configs.put(loaded.getName(), loadedInfo);\n");
-				baseModuleLoaderFunctions.append("        loadedConfigs.put(location.getFileName(), loadedInfo);\n");
-				baseModuleLoaderFunctions.append("\n");
-				baseModuleLoaderFunctions.append("        // We've loaded the base configuration file, now load any other modules on which it depends\n");
-				baseModuleLoaderFunctions.append("        loadModuleDependencies(loaded);\n");
+				baseModuleLoaderFunctions.append("        load" + mod.getName() + "Module(location);\n");
 				baseModuleLoaderFunctions.append("    }\n\n");
 				
 				Iterator<String> bases = mod.getRequiredBaseModule();
@@ -735,13 +725,14 @@ public class DSDArtifactFormatter {
 		out.write("        \n");
 		out.write("        ConfigLocation location = version.getLatestVersion();\n");
 		out.write("        \n");
-		out.write("        " + ddm.getName() + " loaded = parserFor" + ddm.getName() + ".parseConfig(location);\n");
-		out.write("        " + ddm.getName() + "Info loadedInfo = new " + ddm.getName() + "Info(loaded,location);\n");
-		out.write("        loaded" + ddm.getName() + "Configs.put(loaded.getName(), loadedInfo);\n");
-		out.write("        loadedConfigs.put(location.getFileName(), loadedInfo);\n");
-		out.write("\n");
-		out.write("        // We've loaded the base configuration file, now load any other modules on which it depends\n");
-		out.write("        loadModuleDependencies(loaded);\n");
+		out.write("        " + ddm.getName() + " loaded = load" + ddm.getName() + "Module(location);\n");
+//		out.write("        " + ddm.getName() + " loaded = parserFor" + ddm.getName() + ".parseConfig(location);\n");
+//		out.write("        " + ddm.getName() + "Info loadedInfo = new " + ddm.getName() + "Info(loaded,location);\n");
+//		out.write("        loaded" + ddm.getName() + "Configs.put(loaded.getName(), loadedInfo);\n");
+//		out.write("        loadedConfigs.put(location.getFileName(), loadedInfo);\n");
+//		out.write("\n");
+//		out.write("        // We've loaded the base configuration file, now load any other modules on which it depends\n");
+//		out.write("        loadModuleDependencies(loadedInfo);\n");
 		out.write("        \n");
 		out.write("        if (location.isFromJAR()){\n");
 		out.write("            ResultException ex = new ResultException(\"We can't run generation for a config loaded from a JAR: \" + configName);\n");
@@ -764,13 +755,14 @@ public class DSDArtifactFormatter {
 		out.write("            loadedInfo = (" + ddm.getName() + "Info)loadedConfigs.get(location.getFileName());\n");
 		out.write("\n");
 		out.write("            if (loadedInfo == null){\n");
-		out.write("                loaded = parserFor" + ddm.getName() + ".parseConfig(location);\n");
-		out.write("                loadedInfo = new " + ddm.getName() + "Info(loaded,location);\n");
-		out.write("                loaded" + ddm.getName() + "Configs.put(loaded.getName(), loadedInfo);\n");
-		out.write("                loadedConfigs.put(location.getFileName(), loadedInfo);\n");
-		out.write("\n");
-		out.write("                // We've loaded the base configuration file, now load any other modules on which it depends\n");
-		out.write("                loadModuleDependencies(loaded);\n");
+		out.write("                loaded = load" + ddm.getName() + "Module(location);\n");
+//		out.write("                loaded = parserFor" + ddm.getName() + ".parseConfig(location);\n");
+//		out.write("                loadedInfo = new " + ddm.getName() + "Info(loaded,location);\n");
+//		out.write("                loaded" + ddm.getName() + "Configs.put(loaded.getName(), loadedInfo);\n");
+//		out.write("                loadedConfigs.put(location.getFileName(), loadedInfo);\n");
+//		out.write("\n");
+//		out.write("                // We've loaded the base configuration file, now load any other modules on which it depends\n");
+//		out.write("                loadModuleDependencies(loadedInfo);\n");
 		out.write("            }\n");
 		out.write("            else{\n");
 		out.write("                loaded = loadedInfo.module;\n");
@@ -782,23 +774,48 @@ public class DSDArtifactFormatter {
 		out.write("        }\n");
 		out.write("    }\n\n");
 		
+		
+		for(DSDefinitionModule mod: includedModules.values()){
+			out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+			out.write("    " + mod.getName() + " load" + mod.getName() + "Module(ConfigLocation location)  throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {\n");			
+			out.write("        // If we've already loaded the file, skip it\n");
+			out.write("        " + mod.getName() + "Info info = loaded" + mod.getName() + "Configs.get(new DefinitionName(location.getConfigName()));\n");
+			out.write("        if (info != null)\n");
+			out.write("            return(info.module);\n");
+			out.write("\n");
+			out.write("        " + mod.getName() + " loaded = parserFor" + mod.getName() + ".parseConfig(location);\n");
+			out.write("        " + mod.getName()+ "Info loadedInfo = new " + mod.getName() + "Info(loaded,location);\n");
+			out.write("        loaded" + mod.getName() + "Configs.put(loaded.getName(), loadedInfo);\n");
+			out.write("        loadedConfigs.put(location.getFileName(), loadedInfo);\n");
+			out.write("\n");
+			out.write("        loadModuleDependencies(loadedInfo);\n");
+			out.write("\n");
+			out.write("        return(loaded);\n");
+			out.write("    }\n\n");
+		}
+		
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-		out.write("    void loadModuleDependencies(Object obj) throws ResultException {\n");
+		out.write("    void loadModuleDependencies(ModuleInfoBase mi) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {\n");
+		out.write("\n");
+		out.write("        if (mi.dependenciesLoaded)\n");
+		out.write("            return;\n");
+		out.write("\n");
 		boolean first = true;
 		for(DSDefinitionModule mod: includedModules.values()){
 			Iterator<DSDefinitionModule> modit = mod.getDDMDependencies();
 			
 			if (first){
-				out.write("        if (obj instanceof " + mod.getName() + "){\n");
+				out.write("        if (mi instanceof " + mod.getName() + "Info){\n");
 				first = false;
 			}
 			else
-				out.write("        else if (obj instanceof " + mod.getName() + "){\n");
+				out.write("        else if (mi instanceof " + mod.getName() + "Info){\n");
 			
-			out.write("            " + mod.getName() + " module = (" + mod.getName() + ")obj;\n");
+			out.write("            " + mod.getName() + "Info info = (" + mod.getName() + "Info)mi;\n");
 			
 			formatModuleLoadDependencies(mod, modit, out);
 
+			out.write("            info.dependenciesLoaded = true;\n");
 			out.write("        }\n");
 		}
 		out.write("\n");
@@ -813,10 +830,18 @@ public class DSDArtifactFormatter {
 		out.write("        throw(ex);\n");
 		out.write("    }\n\n");
 		
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    void missingConfigError(DSDefinition module, String missing) throws ResultException {\n");
+		out.write("        ResultException ex = new ResultException(\"Could not find config: \" + missing);\n");
+		out.write("        ex.setLocationInfo(module.getFile(), module.getLineNumber());\n");
+		out.write("        throw(ex);\n");
+		out.write("    }\n\n");
+		
 		
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("    class ModuleInfoBase {\n");
 		out.write("        ConfigLocation location;\n");
+		out.write("        boolean        dependenciesLoaded;\n");
 		out.write("    }\n\n");
 		
 		for(DSDefinitionModule mod: includedModules.values()){
@@ -850,15 +875,16 @@ public class DSDArtifactFormatter {
 			String getMethod = ".get" + GeneratorUtils.dotNameToCamelCase(dependsOn.getModuleDependenceAttribute().getName().getNameString() + "()");
 			String hasValueMethod = ".get" + GeneratorUtils.dotNameToCamelCase(dependsOn.getModuleDependenceAttribute().getName().getNameString() + "HasValue()");
 
-			out.write("            if (module" + hasValueMethod + "){\n");
-			out.write("                Iterator<" + dependsOn.getName() + "REF> it = module.getDMO()" + getMethod + ";\n");
+			out.write("            if (info.module" + hasValueMethod + "){\n");
+			out.write("                Iterator<" + dependsOn.getName() + "REF> it = info.module.getDMO()" + getMethod + ";\n");
 			out.write("                while(it.hasNext()){\n");
 			out.write("                    " + dependsOn.getName() + "REF ref = it.next();\n");
 			out.write("                    ConfigVersion version = finderFor" + dependsOn.getName() + ".getConfig(ref.toString());\n");
 			out.write("                    \n");
 			out.write("                    if (version == null)\n");
-			out.write("                        missingConfigError(ref.toString() + \"." + dependsOn.getFileExtension() + "\");\n");
+			out.write("                        missingConfigError(info.module,ref.toString() + \"." + dependsOn.getFileExtension() + "\");\n");
 			out.write("            \n");
+			out.write("                    load" + dependsOn.getName() + "Module(version.getLatestVersion());\n");
 			out.write("                }\n");
 			out.write("            }\n");
 		}
@@ -925,6 +951,11 @@ public class DSDArtifactFormatter {
 		out.write("\n");
 		out.write("        commandLine.parseArgs(args);\n");
 		out.write("\n");
+		out.write("        if (helpFlag.booleanValue()){\n");
+		out.write("            displayHelp();\n");
+		out.write("            System.exit(0);\n");
+		out.write("        }\n");
+		out.write("\n");
 		out.write("        parser = new " + ddm.getName() + "ParsingCoordinator(this, srcdir,jars);\n");
 		out.write("\n");
 		out.write("        parser.generateForAllConfigs();\n");
@@ -960,9 +991,12 @@ public class DSDArtifactFormatter {
 		
 		out.write(imports.getFormattedImports() + "\n");
 		
+		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("public interface " +  ddm.getName() + "GeneratorInterface {\n");
 		out.write("\n");
-		out.write("    public void generate(" + ddm.getName() + " module, ConfigLocation location, " + ddm.getName() + "DefinitionManager definitions);\n\n");
+		out.write("    public void generate(" + ddm.getName() + " module, ConfigLocation location, " + ddm.getName() + "DefinitionManager definitions);\n");
+		out.write("\n");
+		out.write("    public void displayHelp();\n");
 		out.write("\n");
 		out.write("}\n");
 		out.write("\n");
