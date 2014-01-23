@@ -17,4 +17,9 @@ public class ModuleCGenerator extends ModuleCGenUtility {
 		DebugInfo.debug("Generating for module:\n\n" + module.toOIF());
 	}
 
+	@Override
+	public void displayHelp() {
+		System.out.println("\nHELP!\n\n");
+	}
+
 }

@@ -17,14 +17,15 @@ package org.dmd.dmt.dsd.dsdb.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:652)
-import java.io.IOException;                                                         // If we run it to problems finding configs - (DSDArtifactFormatter.java:614)
-import java.util.ArrayList;                                                         // To handle lists of things - (DSDArtifactFormatter.java:616)
-import java.util.Iterator;                                                          // To iterate over collections - (DSDArtifactFormatter.java:615)
-import java.util.TreeMap;                                                           // To handle loaded configs - (DSDArtifactFormatter.java:617)
+import java.io.IOException;                                                         // If we run it to problems finding configs - (DSDArtifactFormatter.java:613)
+import java.util.ArrayList;                                                         // To handle lists of things - (DSDArtifactFormatter.java:615)
+import java.util.Iterator;                                                          // To iterate over collections - (DSDArtifactFormatter.java:614)
+import java.util.TreeMap;                                                           // To handle loaded configs - (DSDArtifactFormatter.java:616)
 import org.dmd.dmc.DmcNameClashException;                                           // To handle exceptions from parsing objects - (DSDArtifactFormatter.java:621)
 import org.dmd.dmc.DmcValueException;                                               // To handle exceptions from value handling - (DSDArtifactFormatter.java:620)
 import org.dmd.dmc.rules.DmcRuleExceptionSet;                                       // In case we have rule failures - (DSDArtifactFormatter.java:623)
-import org.dmd.dmc.types.DefinitionName;                                            // Allows storage of parsed configs by name - (DSDArtifactFormatter.java:619)
+import org.dmd.dmc.types.DefinitionName;                                            // Allows storage of parsed configs by name - (DSDArtifactFormatter.java:618)
+import org.dmd.dms.DSDefinition;                                                    // The common base for all modules - so that we can get error location info - (DSDArtifactFormatter.java:619)
 import org.dmd.dmt.dsd.dsda.server.extended.ModuleA;                                // One of the DDS modules we might load - (DSDArtifactFormatter.java:641)
 import org.dmd.dmt.dsd.dsda.server.generated.dsd.ModuleAParser;                     // Required to parse ModuleA definitions - (DSDArtifactFormatter.java:645)
 import org.dmd.dmt.dsd.dsda.shared.generated.dmo.DsdADMSAG;                         // To allow loading of rules from the dsdA schema - (DSDArtifactFormatter.java:647)
@@ -82,7 +83,7 @@ public class ModuleBParsingCoordinator {
     }
 
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:727)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:717)
     public void generateForConfig(String configName) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
         ConfigVersion version = finderForModuleB.getConfig(configName);
         
@@ -93,13 +94,7 @@ public class ModuleBParsingCoordinator {
         
         ConfigLocation location = version.getLatestVersion();
         
-        ModuleB loaded = parserForModuleB.parseConfig(location);
-        ModuleBInfo loadedInfo = new ModuleBInfo(loaded,location);
-        loadedModuleBConfigs.put(loaded.getName(), loadedInfo);
-        loadedConfigs.put(location.getFileName(), loadedInfo);
-
-        // We've loaded the base configuration file, now load any other modules on which it depends
-        loadModuleDependencies(loaded);
+        ModuleB loaded = loadModuleBModule(location);
         
         if (location.isFromJAR()){
             ResultException ex = new ResultException("We can't run generation for a config loaded from a JAR: " + configName);
@@ -110,7 +105,7 @@ public class ModuleBParsingCoordinator {
         generator.generate(loaded,location,definitions);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:755)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:746)
     public void generateForAllConfigs() throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
         ModuleB loaded = null;
         ModuleBInfo loadedInfo = null;
@@ -122,13 +117,7 @@ public class ModuleBParsingCoordinator {
             loadedInfo = (ModuleBInfo)loadedConfigs.get(location.getFileName());
 
             if (loadedInfo == null){
-                loaded = parserForModuleB.parseConfig(location);
-                loadedInfo = new ModuleBInfo(loaded,location);
-                loadedModuleBConfigs.put(loaded.getName(), loadedInfo);
-                loadedConfigs.put(location.getFileName(), loadedInfo);
-
-                // We've loaded the base configuration file, now load any other modules on which it depends
-                loadModuleDependencies(loaded);
+                loaded = loadModuleBModule(location);
             }
             else{
                 loaded = loadedInfo.module;
@@ -140,46 +129,89 @@ public class ModuleBParsingCoordinator {
         }
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:785)
-    void loadModuleDependencies(Object obj) throws ResultException {
-        if (obj instanceof ModuleA){
-            ModuleA module = (ModuleA)obj;
-            if (module.getDependsOnModuleAHasValue()){
-                Iterator<ModuleAREF> it = module.getDMO().getDependsOnModuleA();
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:779)
+    ModuleA loadModuleAModule(ConfigLocation location)  throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
+        // If we've already loaded the file, skip it
+        ModuleAInfo info = loadedModuleAConfigs.get(new DefinitionName(location.getConfigName()));
+        if (info != null)
+            return(info.module);
+
+        ModuleA loaded = parserForModuleA.parseConfig(location);
+        ModuleAInfo loadedInfo = new ModuleAInfo(loaded,location);
+        loadedModuleAConfigs.put(loaded.getName(), loadedInfo);
+        loadedConfigs.put(location.getFileName(), loadedInfo);
+
+        loadModuleDependencies(loadedInfo);
+
+        return(loaded);
+    }
+
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:779)
+    ModuleB loadModuleBModule(ConfigLocation location)  throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
+        // If we've already loaded the file, skip it
+        ModuleBInfo info = loadedModuleBConfigs.get(new DefinitionName(location.getConfigName()));
+        if (info != null)
+            return(info.module);
+
+        ModuleB loaded = parserForModuleB.parseConfig(location);
+        ModuleBInfo loadedInfo = new ModuleBInfo(loaded,location);
+        loadedModuleBConfigs.put(loaded.getName(), loadedInfo);
+        loadedConfigs.put(location.getFileName(), loadedInfo);
+
+        loadModuleDependencies(loadedInfo);
+
+        return(loaded);
+    }
+
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:797)
+    void loadModuleDependencies(ModuleInfoBase mi) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
+
+        if (mi.dependenciesLoaded)
+            return;
+
+        if (mi instanceof ModuleAInfo){
+            ModuleAInfo info = (ModuleAInfo)mi;
+            if (info.module.getDependsOnModuleAHasValue()){
+                Iterator<ModuleAREF> it = info.module.getDMO().getDependsOnModuleA();
                 while(it.hasNext()){
                     ModuleAREF ref = it.next();
                     ConfigVersion version = finderForModuleA.getConfig(ref.toString());
                     
                     if (version == null)
-                        missingConfigError(ref.toString() + ".tma");
+                        missingConfigError(info.module,ref.toString() + ".tma");
             
+                    loadModuleAModule(version.getLatestVersion());
                 }
             }
+            info.dependenciesLoaded = true;
         }
-        else if (obj instanceof ModuleB){
-            ModuleB module = (ModuleB)obj;
-            if (module.getDependsOnModuleAHasValue()){
-                Iterator<ModuleAREF> it = module.getDMO().getDependsOnModuleA();
+        else if (mi instanceof ModuleBInfo){
+            ModuleBInfo info = (ModuleBInfo)mi;
+            if (info.module.getDependsOnModuleAHasValue()){
+                Iterator<ModuleAREF> it = info.module.getDMO().getDependsOnModuleA();
                 while(it.hasNext()){
                     ModuleAREF ref = it.next();
                     ConfigVersion version = finderForModuleA.getConfig(ref.toString());
                     
                     if (version == null)
-                        missingConfigError(ref.toString() + ".tma");
+                        missingConfigError(info.module,ref.toString() + ".tma");
             
+                    loadModuleAModule(version.getLatestVersion());
                 }
             }
-            if (module.getDependsOnModuleBHasValue()){
-                Iterator<ModuleBREF> it = module.getDMO().getDependsOnModuleB();
+            if (info.module.getDependsOnModuleBHasValue()){
+                Iterator<ModuleBREF> it = info.module.getDMO().getDependsOnModuleB();
                 while(it.hasNext()){
                     ModuleBREF ref = it.next();
                     ConfigVersion version = finderForModuleB.getConfig(ref.toString());
                     
                     if (version == null)
-                        missingConfigError(ref.toString() + ".tmb");
+                        missingConfigError(info.module,ref.toString() + ".tmb");
             
+                    loadModuleBModule(version.getLatestVersion());
                 }
             }
+            info.dependenciesLoaded = true;
         }
 
 
@@ -187,15 +219,23 @@ public class ModuleBParsingCoordinator {
 
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:810)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:827)
     void missingConfigError(String missing) throws ResultException {
         ResultException ex = new ResultException("Could not find config: " + missing);
         throw(ex);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:817)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:833)
+    void missingConfigError(DSDefinition module, String missing) throws ResultException {
+        ResultException ex = new ResultException("Could not find config: " + missing);
+        ex.setLocationInfo(module.getFile(), module.getLineNumber());
+        throw(ex);
+    }
+
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:841)
     class ModuleInfoBase {
         ConfigLocation location;
+        boolean        dependenciesLoaded;
     }
 
     class ModuleAInfo extends ModuleInfoBase {

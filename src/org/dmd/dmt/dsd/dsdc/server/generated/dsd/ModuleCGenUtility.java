@@ -16,23 +16,23 @@
 package org.dmd.dmt.dsd.dsdc.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateBaseUtility(DSDArtifactFormatter.java:903)
-import java.io.IOException;                                                         // In case we have problems opening/writin got files - (DSDArtifactFormatter.java:885)
-import org.dmd.dmc.DmcNameClashException;                                           // To handle parsing errors - (DSDArtifactFormatter.java:888)
-import org.dmd.dmc.DmcValueException;                                               // To handle fundamental value errors - (DSDArtifactFormatter.java:887)
-import org.dmd.dmc.rules.DmcRuleExceptionSet;                                       // To handle rule errors - (DSDArtifactFormatter.java:889)
-import org.dmd.dmt.dsd.dsdc.server.generated.dsd.ModuleCGeneratorInterface;         // Called by the parsing coordinator as configs are read - (DSDArtifactFormatter.java:881)
-import org.dmd.dmt.dsd.dsdc.server.generated.dsd.ModuleCParsingCoordinator;         // Parses modules required for generation - (DSDArtifactFormatter.java:880)
-import org.dmd.util.BooleanVar;                                                     // Commandline flags - (DSDArtifactFormatter.java:883)
-import org.dmd.util.exceptions.ResultException;                                     // To handle parsing exceptions - (DSDArtifactFormatter.java:886)
-import org.dmd.util.parsing.CommandLine;                                            // Commandline parsing - (DSDArtifactFormatter.java:882)
-import org.dmd.util.parsing.StringArrayList;                                        // Commandline string values - (DSDArtifactFormatter.java:884)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateBaseUtility(DSDArtifactFormatter.java:929)
+import java.io.IOException;                                                         // In case we have problems opening/writin got files - (DSDArtifactFormatter.java:911)
+import org.dmd.dmc.DmcNameClashException;                                           // To handle parsing errors - (DSDArtifactFormatter.java:914)
+import org.dmd.dmc.DmcValueException;                                               // To handle fundamental value errors - (DSDArtifactFormatter.java:913)
+import org.dmd.dmc.rules.DmcRuleExceptionSet;                                       // To handle rule errors - (DSDArtifactFormatter.java:915)
+import org.dmd.dmt.dsd.dsdc.server.generated.dsd.ModuleCGeneratorInterface;         // Called by the parsing coordinator as configs are read - (DSDArtifactFormatter.java:907)
+import org.dmd.dmt.dsd.dsdc.server.generated.dsd.ModuleCParsingCoordinator;         // Parses modules required for generation - (DSDArtifactFormatter.java:906)
+import org.dmd.util.BooleanVar;                                                     // Commandline flags - (DSDArtifactFormatter.java:909)
+import org.dmd.util.exceptions.ResultException;                                     // To handle parsing exceptions - (DSDArtifactFormatter.java:912)
+import org.dmd.util.parsing.CommandLine;                                            // Commandline parsing - (DSDArtifactFormatter.java:908)
+import org.dmd.util.parsing.StringArrayList;                                        // Commandline string values - (DSDArtifactFormatter.java:910)
 
 
 public abstract class ModuleCGenUtility implements ModuleCGeneratorInterface {
 
     // Generated from: org.dmd.util.codegen.MemberManager.getFormattedMembers(MemberManager.java:59)
-    // Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateBaseUtility(DSDArtifactFormatter.java:907)
+    // Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateBaseUtility(DSDArtifactFormatter.java:933)
     ModuleCParsingCoordinator    parser;                                   // Module parser
     CommandLine                  commandLine    = new CommandLine();       // Commandline parser
     BooleanVar                   helpFlag       = new BooleanVar();        // The help flag value
@@ -59,6 +59,11 @@ public abstract class ModuleCGenUtility implements ModuleCGeneratorInterface {
     public void run(String[] args) throws ResultException, DmcValueException, IOException, DmcRuleExceptionSet, DmcNameClashException {
 
         commandLine.parseArgs(args);
+
+        if (helpFlag.booleanValue()){
+            displayHelp();
+            System.exit(0);
+        }
 
         parser = new ModuleCParsingCoordinator(this, srcdir,jars);
 

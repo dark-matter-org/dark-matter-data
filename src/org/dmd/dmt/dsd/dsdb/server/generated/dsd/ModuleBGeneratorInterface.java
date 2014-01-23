@@ -16,16 +16,18 @@
 package org.dmd.dmt.dsd.dsdb.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:961)
-import org.dmd.dmt.dsd.dsdb.server.extended.ModuleB;                               // The base module for generation - (DSDArtifactFormatter.java:956)
-import org.dmd.dmt.dsd.dsdb.server.generated.dsd.ModuleBDefinitionManager;         // All parsed definition - (DSDArtifactFormatter.java:959)
-import org.dmd.util.parsing.ConfigLocation;                                        // Where the config was loaded from - (DSDArtifactFormatter.java:958)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:992)
+import org.dmd.dmt.dsd.dsdb.server.extended.ModuleB;                               // The base module for generation - (DSDArtifactFormatter.java:987)
+import org.dmd.dmt.dsd.dsdb.server.generated.dsd.ModuleBDefinitionManager;         // All parsed definition - (DSDArtifactFormatter.java:990)
+import org.dmd.util.parsing.ConfigLocation;                                        // Where the config was loaded from - (DSDArtifactFormatter.java:989)
 
 
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:994)
 public interface ModuleBGeneratorInterface {
 
     public void generate(ModuleB module, ConfigLocation location, ModuleBDefinitionManager definitions);
 
+    public void displayHelp();
 
 }
 
