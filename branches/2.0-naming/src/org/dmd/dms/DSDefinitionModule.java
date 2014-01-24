@@ -133,17 +133,18 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 		return(getName() + "Parser");
 	}
 	
-	public void getScopedInterfaceMembers(MemberManager members){
+	public void getScopedInterfaceMembers(MemberManager members, String module){
 		ClassDefinition dsd = (ClassDefinition) getBaseDefinition();
 		
 //		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 //		out.write("    DmcDefinitionSet<" + dsd.getName() + "> " + dsd.getName() + "Defs;\n");
 		
-		members.addMember("DmcDefinitionSet<" + dsd.getName() + "> ", dsd.getName() + "Defs", "new " + "DmcDefinitionSet<" + dsd.getName() + ">()", "All definitions associated with this module");
+		members.addMember("DmcDefinitionSet<" + dsd.getName() + "> ", dsd.getName() + "Defs", "new " + "DmcDefinitionSet<" + dsd.getName() + ">(\"" + module + "-allDefinitions\")", "All definitions associated with this module");
 		
-		for(ClassDefinition cd : dsd.getDerivedClasses()){
+		TreeMap<DefinitionName,ClassDefinition> allDerived = dsd.getAllDerived();
+		for(ClassDefinition cd : allDerived.values()){
 //			out.write("    DmcDefinitionSet<" + cd.getName() + "> " + cd.getName() + "Defs;\n");			
-			members.addMember("DmcDefinitionSet<" + cd.getName() + "> ", cd.getName() + "Defs", "new " + "DmcDefinitionSet<" + cd.getName() + ">()", "All " + cd.getName() + " definitions");
+			members.addMember("DmcDefinitionSet<" + cd.getName() + "> ", cd.getName() + "Defs", "new " + "DmcDefinitionSet<" + cd.getName() + ">(\"" + module + "-" + cd.getName() + "Defs\")", "All " + cd.getName() + " definitions");
 		}
 		
 	}
@@ -160,7 +161,8 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 		imports.addImport(dsd.getDmeImport(), "A definition from the " + this.getName() + " Module");
 		imports.addImport("java.util.Iterator", "To allow access to our definitions");
 		
-		for(ClassDefinition cd : dsd.getDerivedClasses()){
+		TreeMap<DefinitionName,ClassDefinition> allDerived = dsd.getAllDerived();
+		for(ClassDefinition cd : allDerived.values()){
 			if (scoped){
 				// If the class has the same name as this module definition, it's the 
 				// internally generated class to represent the module and we don't want
@@ -187,7 +189,8 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 		sb.append("    public int get" + dsd.getName() + "Count();\n");
 		sb.append("    public Iterator<" + dsd.getName() + "> getAll" + dsd.getName() + "();\n\n");
 
-		for(ClassDefinition cd : dsd.getDerivedClasses()){
+		TreeMap<DefinitionName,ClassDefinition> allDerived = dsd.getAllDerived();
+		for(ClassDefinition cd : allDerived.values()){
 			if (scoped){
 				// If the class has the same name as this module definition, it's the 
 				// internally generated class to represent the module and we don't want
@@ -232,7 +235,8 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 		sb.append("        return(" + dsd.getName() + "Defs.values().iterator());\n");
 		sb.append("    }\n\n");
 
-		for(ClassDefinition cd : dsd.getDerivedClasses()){
+		TreeMap<DefinitionName,ClassDefinition> allDerived = dsd.getAllDerived();
+		for(ClassDefinition cd : allDerived.values()){
 			if (scoped){
 				// If the class has the same name as this module definition, it's the 
 				// internally generated class to represent the module and we don't want
@@ -243,7 +247,8 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 			sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public void add" + cd.getName() + "(" + cd.getName() + " def){\n");
 			sb.append("        " + cd.getName() + "Defs.add(def);\n");
-			sb.append("        add" + dsd.getName() + "(def);\n");
+			getBaseClassAddCall(cd.getDerivedFrom(), sb);
+//			sb.append("        add" + dsd.getName() + "(def);\n");
 			sb.append("    }\n\n");
 			
 			sb.append("    public int get" + cd.getName() + "Count(){\n");
@@ -256,6 +261,19 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 		}
 		
 		return(sb.toString());
+	}
+	
+	/**
+	 * If we have a base class, we add this definition to its index as well. This allows us
+	 * to access all instances of any particular class type, even if it's abstract.
+	 * @param cd
+	 * @param sb
+	 */
+	void getBaseClassAddCall(ClassDefinition cd, StringBuffer sb){
+		if (cd == null)
+			return;
+		
+		sb.append("        add" + cd.getName() + "(def);\n");
 	}
 
 

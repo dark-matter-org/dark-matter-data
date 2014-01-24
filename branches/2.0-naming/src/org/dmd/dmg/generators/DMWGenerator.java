@@ -189,7 +189,7 @@ public class DMWGenerator extends BaseDMWGenerator {
 			DSDefinitionModule dsdm = cd.getDsdModuleDefinition();
 			
 			MemberManager members = new MemberManager();
-			dsdm.getScopedInterfaceMembers(members);
+			dsdm.getScopedInterfaceMembers(members,dsdm.getName().getNameString());
 			
 			out.write(members.getFormattedMembers() + "\n");
 		}		

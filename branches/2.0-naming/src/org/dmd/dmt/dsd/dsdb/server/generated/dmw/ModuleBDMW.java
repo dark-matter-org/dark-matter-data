@@ -32,7 +32,7 @@ import org.dmd.dmt.dsd.dsda.server.generated.dmw.ModuleAIterableDMW;            
 import org.dmd.dmt.dsd.dsda.shared.generated.dmo.DsdADMSAG;                      // Attribute dependsOnModuleA from the dsdA schema - (BaseDMWGenerator.java:897)
 import org.dmd.dmt.dsd.dsda.shared.generated.dmo.ModuleADMO;                     // For multi-valued adds of ModuleA - (BaseDMWGenerator.java:1767)
 import org.dmd.dmt.dsd.dsdb.server.extended.BConceptBase;                        // Derived class - (BaseDMWGenerator.java:1248)
-import org.dmd.dmt.dsd.dsdb.server.extended.BConceptX;                           // A definition from the ModuleB Module - (DSDefinitionModule.java:171)
+import org.dmd.dmt.dsd.dsdb.server.extended.BConceptX;                           // A definition from the ModuleB Module - (DSDefinitionModule.java:174)
 import org.dmd.dmt.dsd.dsdb.server.extended.ModuleB;                             // Required for getModificationRecorder() - (BaseDMWGenerator.java:1076)
 import org.dmd.dmt.dsd.dsdb.server.generated.dmw.ModuleBIterableDMW;             // For multi-valued ModuleB - (BaseDMWGenerator.java:1709)
 import org.dmd.dmt.dsd.dsdb.server.generated.dsd.ModuleBScopedInterface;         // Required to manage module definition - (DMWGenerator.java:168)
@@ -52,9 +52,9 @@ abstract public class ModuleBDMW extends BConceptBase implements DmcDefinitionIF
 
     // Generated from: org.dmd.util.codegen.MemberManager.getFormattedMembers(MemberManager.java:59)
     // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperDefinitions(DMWGenerator.java:194)
-    DmcDefinitionSet<BConceptBase>     BConceptBaseDefs    = new DmcDefinitionSet<BConceptBase>();   // All definitions associated with this module
-    DmcDefinitionSet<BConceptX>        BConceptXDefs       = new DmcDefinitionSet<BConceptX>();      // All BConceptX definitions
-    DmcDefinitionSet<ModuleB>          ModuleBDefs         = new DmcDefinitionSet<ModuleB>();        // All ModuleB definitions
+    DmcDefinitionSet<BConceptBase>     BConceptBaseDefs    = new DmcDefinitionSet<BConceptBase>("ModuleB-allDefinitions");   // All definitions associated with this module
+    DmcDefinitionSet<BConceptX>        BConceptXDefs       = new DmcDefinitionSet<BConceptX>("ModuleB-BConceptXDefs");       // All BConceptX definitions
+    DmcDefinitionSet<ModuleB>          ModuleBDefs         = new DmcDefinitionSet<ModuleB>("ModuleB-ModuleBDefs");           // All ModuleB definitions
 
     // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:558)
     public ModuleBDMW() {
@@ -543,7 +543,7 @@ abstract public class ModuleBDMW extends BConceptBase implements DmcDefinitionIF
         ((ModuleBDMO) core).remName();
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:213)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:217)
     // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperFunctions(DMWGenerator.java:202)
     /**
      * All definitions are added to the base definition collection.
@@ -560,7 +560,7 @@ abstract public class ModuleBDMW extends BConceptBase implements DmcDefinitionIF
         return(BConceptBaseDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:243)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:248)
     public void addBConceptX(BConceptX def){
         BConceptXDefs.add(def);
         addBConceptBase(def);

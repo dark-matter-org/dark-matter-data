@@ -29,12 +29,25 @@ public class DmcDefinitionSet<DEF extends DmcDefinitionIF> {
 	// In some cases, it's useful to know the longest name; usually when formatting code
 	int longestName;
 	
+	String setName;
+	
 	/**
 	 * Constructs a new definition set.
 	 */
 	public DmcDefinitionSet(){
 		map = new TreeMap<DefinitionName, ArrayList<DEF>>();
 		dotmap = new TreeMap<DotName, DEF>();
+		setName = null;
+	}
+	
+	/**
+	 * Constructs a new definition set.
+	 * @param sn the set name - so that we can see the name of this set when debugging
+	 */
+	public DmcDefinitionSet(String sn){
+		map = new TreeMap<DefinitionName, ArrayList<DEF>>();
+		dotmap = new TreeMap<DotName, DEF>();
+		setName = sn;
 	}
 	
 	static public void debug(boolean f){
@@ -49,16 +62,24 @@ public class DmcDefinitionSet<DEF extends DmcDefinitionIF> {
 	public void add(DEF def){
 		ArrayList<DEF> existing = map.get(def.getName());
 		
-		if (debug)
-			DebugInfo.debug(def.getName() + "    " + def.getDotName().getNameString());
+		if (debug){
+			if (setName == null)
+				DebugInfo.debug(def.getName() + "    " + def.getDotName().getNameString());
+			else
+				DebugInfo.debug(" to definition set: " + setName + "    " + def.getName() + "    " + def.getDotName().getNameString());
+		}
 		
 		if (existing == null){
 			existing = new ArrayList<DEF>(1);
 			map.put(def.getName(), existing);
 		}
 		else{
-			if (debug)
-				DebugInfo.debug("CLASHING: " + def.getName());
+			if (debug){
+				if (setName == null)
+					DebugInfo.debug("CLASHING: " + def.getName());
+				else
+					DebugInfo.debug("CLASHING in definition set: " + setName + "    : " + def.getName());
+			}
 		}
 		existing.add(def);
 		
