@@ -28,7 +28,7 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;                                     
 import org.dmd.dms.generated.dmw.StringIterableDMW;                              // For multi-valued String - (BaseDMWGenerator.java:2103)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                            // Required for MODREC constructor - (BaseDMWGenerator.java:1071)
 import org.dmd.dmt.dsd.dsda.server.extended.AConceptBase;                        // Derived class - (BaseDMWGenerator.java:1248)
-import org.dmd.dmt.dsd.dsda.server.extended.AConceptX;                           // A definition from the ModuleA Module - (DSDefinitionModule.java:171)
+import org.dmd.dmt.dsd.dsda.server.extended.AConceptX;                           // A definition from the ModuleA Module - (DSDefinitionModule.java:174)
 import org.dmd.dmt.dsd.dsda.server.extended.ModuleA;                             // Required for getModificationRecorder() - (BaseDMWGenerator.java:1076)
 import org.dmd.dmt.dsd.dsda.server.generated.dmw.ModuleAIterableDMW;             // For multi-valued ModuleA - (BaseDMWGenerator.java:1709)
 import org.dmd.dmt.dsd.dsda.server.generated.dsd.ModuleAScopedInterface;         // Required to manage module definition - (DMWGenerator.java:168)
@@ -48,9 +48,9 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
 
     // Generated from: org.dmd.util.codegen.MemberManager.getFormattedMembers(MemberManager.java:59)
     // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperDefinitions(DMWGenerator.java:194)
-    DmcDefinitionSet<AConceptBase>     AConceptBaseDefs    = new DmcDefinitionSet<AConceptBase>();   // All definitions associated with this module
-    DmcDefinitionSet<AConceptX>        AConceptXDefs       = new DmcDefinitionSet<AConceptX>();      // All AConceptX definitions
-    DmcDefinitionSet<ModuleA>          ModuleADefs         = new DmcDefinitionSet<ModuleA>();        // All ModuleA definitions
+    DmcDefinitionSet<AConceptBase>     AConceptBaseDefs    = new DmcDefinitionSet<AConceptBase>("ModuleA-allDefinitions");   // All definitions associated with this module
+    DmcDefinitionSet<AConceptX>        AConceptXDefs       = new DmcDefinitionSet<AConceptX>("ModuleA-AConceptXDefs");       // All AConceptX definitions
+    DmcDefinitionSet<ModuleA>          ModuleADefs         = new DmcDefinitionSet<ModuleA>("ModuleA-ModuleADefs");           // All ModuleA definitions
 
     // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:558)
     public ModuleADMW() {
@@ -453,7 +453,7 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
         ((ModuleADMO) core).remName();
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:213)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:217)
     // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperFunctions(DMWGenerator.java:202)
     /**
      * All definitions are added to the base definition collection.
@@ -470,7 +470,7 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
         return(AConceptBaseDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:243)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:248)
     public void addAConceptX(AConceptX def){
         AConceptXDefs.add(def);
         addAConceptBase(def);

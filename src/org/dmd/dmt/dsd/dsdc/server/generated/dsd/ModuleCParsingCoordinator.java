@@ -16,38 +16,38 @@
 package org.dmd.dmt.dsd.dsdc.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:652)
-import java.io.IOException;                                                         // If we run it to problems finding configs - (DSDArtifactFormatter.java:613)
-import java.util.ArrayList;                                                         // To handle lists of things - (DSDArtifactFormatter.java:615)
-import java.util.Iterator;                                                          // To iterate over collections - (DSDArtifactFormatter.java:614)
-import java.util.TreeMap;                                                           // To handle loaded configs - (DSDArtifactFormatter.java:616)
-import org.dmd.dmc.DmcNameClashException;                                           // To handle exceptions from parsing objects - (DSDArtifactFormatter.java:621)
-import org.dmd.dmc.DmcValueException;                                               // To handle exceptions from value handling - (DSDArtifactFormatter.java:620)
-import org.dmd.dmc.rules.DmcRuleExceptionSet;                                       // In case we have rule failures - (DSDArtifactFormatter.java:623)
-import org.dmd.dmc.types.DefinitionName;                                            // Allows storage of parsed configs by name - (DSDArtifactFormatter.java:618)
-import org.dmd.dms.DSDefinition;                                                    // The common base for all modules - so that we can get error location info - (DSDArtifactFormatter.java:619)
-import org.dmd.dmt.dsd.dsda.server.extended.ModuleA;                                // One of the DDS modules we might load - (DSDArtifactFormatter.java:641)
-import org.dmd.dmt.dsd.dsda.server.generated.dsd.ModuleAParser;                     // Required to parse ModuleA definitions - (DSDArtifactFormatter.java:645)
-import org.dmd.dmt.dsd.dsda.shared.generated.dmo.DsdADMSAG;                         // To allow loading of rules from the dsdA schema - (DSDArtifactFormatter.java:647)
-import org.dmd.dmt.dsd.dsda.shared.generated.types.ModuleAREF;                      // To access references to ModuleC - (DSDArtifactFormatter.java:643)
-import org.dmd.dmt.dsd.dsdb.server.extended.ModuleB;                                // One of the DDS modules we might load - (DSDArtifactFormatter.java:641)
-import org.dmd.dmt.dsd.dsdb.server.generated.dsd.ModuleBParser;                     // Required to parse ModuleB definitions - (DSDArtifactFormatter.java:645)
-import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.DsdBDMSAG;                         // To allow loading of rules from the dsdB schema - (DSDArtifactFormatter.java:647)
-import org.dmd.dmt.dsd.dsdb.shared.generated.types.ModuleBREF;                      // To access references to ModuleC - (DSDArtifactFormatter.java:643)
-import org.dmd.dmt.dsd.dsdc.server.extended.ModuleC;                                // One of the DDS modules we might load - (DSDArtifactFormatter.java:641)
-import org.dmd.dmt.dsd.dsdc.server.generated.dsd.ModuleCDefinitionManager;          // Maintains all parsed definitions - (DSDArtifactFormatter.java:632)
-import org.dmd.dmt.dsd.dsdc.server.generated.dsd.ModuleCGeneratorInterface;         // The generator we call - (DSDArtifactFormatter.java:635)
-import org.dmd.dmt.dsd.dsdc.server.generated.dsd.ModuleCParser;                     // Required to parse ModuleC definitions - (DSDArtifactFormatter.java:645)
-import org.dmd.dmt.dsd.dsdc.shared.generated.dmo.DsdCDMSAG;                         // To allow loading of rules from the dsdC schema - (DSDArtifactFormatter.java:647)
-import org.dmd.dmt.dsd.dsdc.shared.generated.types.ModuleCREF;                      // To access references to ModuleC - (DSDArtifactFormatter.java:643)
-import org.dmd.dmv.shared.DmvRuleManager;                                           // Allows for application of rules to our definitions - (DSDArtifactFormatter.java:629)
-import org.dmd.util.exceptions.ResultException;                                     // To handle processing exceptions - (DSDArtifactFormatter.java:622)
-import org.dmd.util.parsing.ConfigFinder;                                           // Finds configs we may need to parse - (DSDArtifactFormatter.java:625)
-import org.dmd.util.parsing.ConfigLocation;                                         // Handle to a discovered configuration - (DSDArtifactFormatter.java:626)
-import org.dmd.util.parsing.ConfigVersion;                                          // Handle to a particular config version - (DSDArtifactFormatter.java:627)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:660)
+import java.io.IOException;                                                         // If we run it to problems finding configs - (DSDArtifactFormatter.java:621)
+import java.util.ArrayList;                                                         // To handle lists of things - (DSDArtifactFormatter.java:623)
+import java.util.Iterator;                                                          // To iterate over collections - (DSDArtifactFormatter.java:622)
+import java.util.TreeMap;                                                           // To handle loaded configs - (DSDArtifactFormatter.java:624)
+import org.dmd.dmc.DmcNameClashException;                                           // To handle exceptions from parsing objects - (DSDArtifactFormatter.java:629)
+import org.dmd.dmc.DmcValueException;                                               // To handle exceptions from value handling - (DSDArtifactFormatter.java:628)
+import org.dmd.dmc.rules.DmcRuleExceptionSet;                                       // In case we have rule failures - (DSDArtifactFormatter.java:631)
+import org.dmd.dmc.types.DefinitionName;                                            // Allows storage of parsed configs by name - (DSDArtifactFormatter.java:626)
+import org.dmd.dms.DSDefinition;                                                    // The common base for all modules - so that we can get error location info - (DSDArtifactFormatter.java:627)
+import org.dmd.dmt.dsd.dsda.server.extended.ModuleA;                                // One of the DDS modules we might load - (DSDArtifactFormatter.java:649)
+import org.dmd.dmt.dsd.dsda.server.generated.dsd.ModuleAParser;                     // Required to parse ModuleA definitions - (DSDArtifactFormatter.java:653)
+import org.dmd.dmt.dsd.dsda.shared.generated.dmo.DsdADMSAG;                         // To allow loading of rules from the dsdA schema - (DSDArtifactFormatter.java:655)
+import org.dmd.dmt.dsd.dsda.shared.generated.types.ModuleAREF;                      // To access references to ModuleC - (DSDArtifactFormatter.java:651)
+import org.dmd.dmt.dsd.dsdb.server.extended.ModuleB;                                // One of the DDS modules we might load - (DSDArtifactFormatter.java:649)
+import org.dmd.dmt.dsd.dsdb.server.generated.dsd.ModuleBParser;                     // Required to parse ModuleB definitions - (DSDArtifactFormatter.java:653)
+import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.DsdBDMSAG;                         // To allow loading of rules from the dsdB schema - (DSDArtifactFormatter.java:655)
+import org.dmd.dmt.dsd.dsdb.shared.generated.types.ModuleBREF;                      // To access references to ModuleC - (DSDArtifactFormatter.java:651)
+import org.dmd.dmt.dsd.dsdc.server.extended.ModuleC;                                // One of the DDS modules we might load - (DSDArtifactFormatter.java:649)
+import org.dmd.dmt.dsd.dsdc.server.generated.dsd.ModuleCDefinitionManager;          // Maintains all parsed definitions - (DSDArtifactFormatter.java:640)
+import org.dmd.dmt.dsd.dsdc.server.generated.dsd.ModuleCGeneratorInterface;         // The generator we call - (DSDArtifactFormatter.java:643)
+import org.dmd.dmt.dsd.dsdc.server.generated.dsd.ModuleCParser;                     // Required to parse ModuleC definitions - (DSDArtifactFormatter.java:653)
+import org.dmd.dmt.dsd.dsdc.shared.generated.dmo.DsdCDMSAG;                         // To allow loading of rules from the dsdC schema - (DSDArtifactFormatter.java:655)
+import org.dmd.dmt.dsd.dsdc.shared.generated.types.ModuleCREF;                      // To access references to ModuleC - (DSDArtifactFormatter.java:651)
+import org.dmd.dmv.shared.DmvRuleManager;                                           // Allows for application of rules to our definitions - (DSDArtifactFormatter.java:637)
+import org.dmd.util.exceptions.ResultException;                                     // To handle processing exceptions - (DSDArtifactFormatter.java:630)
+import org.dmd.util.parsing.ConfigFinder;                                           // Finds configs we may need to parse - (DSDArtifactFormatter.java:633)
+import org.dmd.util.parsing.ConfigLocation;                                         // Handle to a discovered configuration - (DSDArtifactFormatter.java:634)
+import org.dmd.util.parsing.ConfigVersion;                                          // Handle to a particular config version - (DSDArtifactFormatter.java:635)
 
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:656)
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:664)
 /**
  * The parsing coordinator will find all config files associated with the ModuleC DSD
  * and coordinate the parsing of the initial config file and all files on which it depends.
@@ -55,7 +55,7 @@ import org.dmd.util.parsing.ConfigVersion;                                      
 public class ModuleCParsingCoordinator {
 
     // Generated from: org.dmd.util.codegen.MemberManager.getFormattedMembers(MemberManager.java:59)
-    // Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:663)
+    // Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:671)
     DmvRuleManager                          rules                   = new DmvRuleManager();                         // Rule manager
     ModuleCDefinitionManager                definitions             = new ModuleCDefinitionManager();               // Maintains all parsed definitions
     ModuleCGeneratorInterface               generator;                                                              // Injected generator that we call when config loading is complete
@@ -73,7 +73,7 @@ public class ModuleCParsingCoordinator {
     TreeMap<DefinitionName, ModuleCInfo>    loadedModuleCConfigs    = new TreeMap<DefinitionName, ModuleCInfo>();   // The names/location of the ModuleC modules that have been loaded
 
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:665)
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:673)
     public ModuleCParsingCoordinator(ModuleCGeneratorInterface g, ArrayList<String> sourceDirs, ArrayList<String> jars) throws ResultException, DmcValueException, DmcNameClashException, DmcRuleExceptionSet, IOException {
 
         generator = g;
@@ -98,7 +98,7 @@ public class ModuleCParsingCoordinator {
 
 
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:685)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:693)
     void loadBaseModuleModuleC(String config) throws ResultException, DmcValueException, DmcNameClashException, DmcRuleExceptionSet, IOException {
         ConfigVersion version = finderForModuleC.getConfig(config);
         
@@ -114,7 +114,7 @@ public class ModuleCParsingCoordinator {
         loadModuleCModule(location);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:717)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:725)
     public void generateForConfig(String configName) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
         ConfigVersion version = finderForModuleC.getConfig(configName);
         
@@ -133,10 +133,12 @@ public class ModuleCParsingCoordinator {
             throw(ex);
         }
         
+        generator.parsingComplete(loaded, location, definitions);
+        
         generator.generate(loaded,location,definitions);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:746)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:749)
     public void generateForAllConfigs() throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
         ModuleC loaded = null;
         ModuleCInfo loadedInfo = null;
@@ -154,13 +156,15 @@ public class ModuleCParsingCoordinator {
                 loaded = loadedInfo.module;
             }
 
+            generator.parsingComplete(loaded, location, definitions);
+
             if (!location.isFromJAR())
                 generator.generate(loaded,location,definitions);
 
         }
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:779)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:784)
     ModuleA loadModuleAModule(ConfigLocation location)  throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
         // If we've already loaded the file, skip it
         ModuleAInfo info = loadedModuleAConfigs.get(new DefinitionName(location.getConfigName()));
@@ -177,7 +181,7 @@ public class ModuleCParsingCoordinator {
         return(loaded);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:779)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:784)
     ModuleB loadModuleBModule(ConfigLocation location)  throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
         // If we've already loaded the file, skip it
         ModuleBInfo info = loadedModuleBConfigs.get(new DefinitionName(location.getConfigName()));
@@ -194,7 +198,7 @@ public class ModuleCParsingCoordinator {
         return(loaded);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:779)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:784)
     ModuleC loadModuleCModule(ConfigLocation location)  throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
         // If we've already loaded the file, skip it
         ModuleCInfo info = loadedModuleCConfigs.get(new DefinitionName(location.getConfigName()));
@@ -211,7 +215,7 @@ public class ModuleCParsingCoordinator {
         return(loaded);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:797)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:802)
     void loadModuleDependencies(ModuleInfoBase mi) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
 
         if (mi.dependenciesLoaded)
@@ -307,20 +311,20 @@ public class ModuleCParsingCoordinator {
 
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:827)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:832)
     void missingConfigError(String missing) throws ResultException {
         ResultException ex = new ResultException("Could not find config: " + missing);
         throw(ex);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:833)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:838)
     void missingConfigError(DSDefinition module, String missing) throws ResultException {
         ResultException ex = new ResultException("Could not find config: " + missing);
         ex.setLocationInfo(module.getFile(), module.getLineNumber());
         throw(ex);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:841)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:846)
     class ModuleInfoBase {
         ConfigLocation location;
         boolean        dependenciesLoaded;

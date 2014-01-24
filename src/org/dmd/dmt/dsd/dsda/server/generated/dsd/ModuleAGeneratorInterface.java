@@ -16,17 +16,37 @@
 package org.dmd.dmt.dsd.dsda.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:992)
-import org.dmd.dmt.dsd.dsda.server.extended.ModuleA;                               // The base module for generation - (DSDArtifactFormatter.java:987)
-import org.dmd.dmt.dsd.dsda.server.generated.dsd.ModuleADefinitionManager;         // All parsed definition - (DSDArtifactFormatter.java:990)
-import org.dmd.util.parsing.ConfigLocation;                                        // Where the config was loaded from - (DSDArtifactFormatter.java:989)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1004)
+import org.dmd.dmt.dsd.dsda.server.extended.ModuleA;                               // The base module for generation - (DSDArtifactFormatter.java:998)
+import org.dmd.dmt.dsd.dsda.server.generated.dsd.ModuleADefinitionManager;         // All parsed definition - (DSDArtifactFormatter.java:1002)
+import org.dmd.util.exceptions.ResultException;                                    // For problems found after parsing - (DSDArtifactFormatter.java:1001)
+import org.dmd.util.parsing.ConfigLocation;                                        // Where the config was loaded from - (DSDArtifactFormatter.java:1000)
 
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:994)
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1006)
 public interface ModuleAGeneratorInterface {
 
+    /**
+     * Called prior to generate() method so that derived classes can perform intermediate 
+     * processing such as generation of internal types, application of business logic not defined
+     * defined as part of rules etc.
+     * @param module the module that was just parsed
+     * @param location the module's location
+     * @param definitions the current set of definitions
+     */
+    public void parsingComplete(ModuleA module, ConfigLocation location, ModuleADefinitionManager definitions) throws ResultException;
+
+    /**
+     * Derived classes should overload this method to perform artifact generation.
+     * @param module the module for which generation is being performed
+     * @param location where the module was found
+     * @param definitions the current set of definitions
+     */
     public void generate(ModuleA module, ConfigLocation location, ModuleADefinitionManager definitions);
 
+    /**
+     * Called if the help flag is found anywhere on the commandline.
+     */
     public void displayHelp();
 
 }
