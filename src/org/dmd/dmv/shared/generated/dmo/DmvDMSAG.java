@@ -93,6 +93,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
     // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:246)
     public final static AllowedAttributesRule __dmvAllowedAttributes;
     public final static ReferencedAttributeTypeRule __dmvBasedOnAttribute;
+    public final static ReferencedAttributeTypeRule __dmvDefinedInModuleAttribute;
     public final static PatternMatchRule __dmvDefinitionNameCheck;
     public final static PatternMatchRule __dmvEnumDefinitionNameCheck;
     public final static PatternMatchRule __dmvFileExtensionCheck;
@@ -266,6 +267,21 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
 
             _RmAp.add(__dmvBasedOnAttribute);
 
+            ReferencedAttributeTypeRuleDataDMO _dmvDefinedInModuleAttributeData = new ReferencedAttributeTypeRuleDataDMO();
+            _dmvDefinedInModuleAttributeData.setRuleName("dmvDefinedInModuleAttribute");
+            _dmvDefinedInModuleAttributeData.setApplyToClass("DSDefinitionModule");
+            _dmvDefinedInModuleAttributeData.setRuleTitle("The attribute referred to by the definedInModuleAttribute attribute must be single-valued.");
+            _dmvDefinedInModuleAttributeData.addDescription("We have sections of generated code that will access the module\n dependence attribute of a DDM module instance and being able to assume that the\n module dependence attribute is multi-valued just makes things easier.");
+            _dmvDefinedInModuleAttributeData.setApplyToAttribute("definedInModuleAttribute");
+            _dmvDefinedInModuleAttributeData.setAllowedValueType("SINGLE");
+            _dmvDefinedInModuleAttributeData.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
+            _dmvDefinedInModuleAttributeData.setDefinedIn("dmv");
+            _dmvDefinedInModuleAttributeData.setLineNumber("468");
+
+            __dmvDefinedInModuleAttribute = new ReferencedAttributeTypeRule(_dmvDefinedInModuleAttributeData);
+
+            _RmAp.add(__dmvDefinedInModuleAttribute);
+
             PatternMatchRuleDataDMO _dmvDefinitionNameCheckData = new PatternMatchRuleDataDMO();
             _dmvDefinitionNameCheckData  .setRuleName("dmvDefinitionNameCheck");
             _dmvDefinitionNameCheckData  .setRuleTitle("The name attribute must start with a letter, followed by a mix of letters and numbers.");
@@ -421,7 +437,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvModuleDependenceAttributeData.setAllowedValueType("MULTI");
             _dmvModuleDependenceAttributeData.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _dmvModuleDependenceAttributeData.setDefinedIn("dmv");
-            _dmvModuleDependenceAttributeData.setLineNumber("458");
+            _dmvModuleDependenceAttributeData.setLineNumber("459");
 
             __dmvModuleDependenceAttribute = new ReferencedAttributeTypeRule(_dmvModuleDependenceAttributeData);
 

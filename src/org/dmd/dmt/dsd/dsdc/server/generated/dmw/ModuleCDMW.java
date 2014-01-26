@@ -23,6 +23,7 @@ import org.dmd.dmc.*;                                                           
 import org.dmd.dmc.definitions.DmcDefinitionIF;                                  // The object is a domain specific definition - (BaseDMWGenerator.java:411)
 import org.dmd.dmc.definitions.DmcDefinitionSet;                                 // Our base to provide definition set storage - (DMWGenerator.java:169)
 import org.dmd.dmc.types.DefinitionName;                                         // Is named by - (BaseDMWGenerator.java:1062)
+import org.dmd.dmc.types.DotName;                                                // To support the find method for definitions - (DSDefinitionModule.java:163)
 import org.dmd.dms.ClassDefinition;                                              // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:1067)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                      // Attribute defFiles from the meta schema - (BaseDMWGenerator.java:897)
 import org.dmd.dms.generated.dmw.StringIterableDMW;                              // For multi-valued String - (BaseDMWGenerator.java:2103)
@@ -633,7 +634,7 @@ abstract public class ModuleCDMW extends CConceptBase implements DmcDefinitionIF
         ((ModuleCDMO) core).remName();
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:217)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:219)
     // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperFunctions(DMWGenerator.java:202)
     /**
      * All definitions are added to the base definition collection.
@@ -646,11 +647,15 @@ abstract public class ModuleCDMW extends CConceptBase implements DmcDefinitionIF
         return(CConceptBaseDefs.size());
     }
 
+    public CConceptBase getCConceptBase(DotName name){
+        return(CConceptBaseDefs.getDefinition(name));
+    }
+
     public Iterator<CConceptBase> getAllCConceptBase(){
         return(CConceptBaseDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:248)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:254)
     public void addCConceptX(CConceptX def){
         CConceptXDefs.add(def);
         addCConceptBase(def);
@@ -658,6 +663,10 @@ abstract public class ModuleCDMW extends CConceptBase implements DmcDefinitionIF
 
     public int getCConceptXCount(){
         return(CConceptXDefs.size());
+    }
+
+    public CConceptX getCConceptX(DotName name){
+        return(CConceptXDefs.getDefinition(name));
     }
 
     public Iterator<CConceptX> getAllCConceptX(){

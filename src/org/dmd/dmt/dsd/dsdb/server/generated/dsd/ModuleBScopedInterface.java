@@ -16,23 +16,26 @@
 package org.dmd.dmt.dsd.dsdb.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateScopedInterface(DSDArtifactFormatter.java:290)
-import java.util.Iterator;                                        // To provide iterators over definitions - (DSDArtifactFormatter.java:287)
-import org.dmd.dmt.dsd.dsdb.server.extended.BConceptBase;         // A definition from the ModuleB Module - (DSDefinitionModule.java:162)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateScopedInterface(DSDArtifactFormatter.java:377)
+import java.util.Iterator;                                        // To provide iterators over definitions - (DSDArtifactFormatter.java:374)
+import org.dmd.dmc.types.DotName;                                 // To support the find method for definitions - (DSDefinitionModule.java:163)
+import org.dmd.dmt.dsd.dsdb.server.extended.BConceptBase;         // A definition from the ModuleB Module - (DSDefinitionModule.java:161)
 import org.dmd.dmt.dsd.dsdb.server.extended.BConceptX;            // A definition from the ModuleB Module - (DSDefinitionModule.java:174)
 
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateScopedInterface(DSDArtifactFormatter.java:294)
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateScopedInterface(DSDArtifactFormatter.java:381)
 /**
  * This interface is implemented by the generated wrapper class for the ModuleB module.
  */
 public interface ModuleBScopedInterface {
 
     public int getBConceptBaseCount();
+    public BConceptBase getBConceptBase(DotName name);
     public Iterator<BConceptBase> getAllBConceptBase();
 
     public void addBConceptX(BConceptX def);
     public int getBConceptXCount();
+    public BConceptX getBConceptX(DotName name);
     public Iterator<BConceptX> getAllBConceptX();
 
 }

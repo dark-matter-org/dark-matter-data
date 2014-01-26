@@ -456,3 +456,13 @@ allowedValueType  MULTI
 description       We have sections of generated code that will access the module
  dependence attribute of a DDM module instance and being able to assume that the
  module dependence attribute is multi-valued just makes things easier.
+
+ReferencedAttributeTypeRuleData
+ruleName          dmvDefinedInModuleAttribute
+ruleTitle         The attribute referred to by the definedInModuleAttribute attribute must be single-valued.
+applyToAttribute  definedInModuleAttribute
+applyToClass      DSDefinitionModule
+allowedValueType  SINGLE
+description       We have sections of generated code that will access the module
+ dependence attribute of a DDM module instance and being able to assume that the
+ module dependence attribute is multi-valued just makes things easier.

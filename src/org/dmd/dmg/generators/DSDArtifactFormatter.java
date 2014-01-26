@@ -121,11 +121,25 @@ public class DSDArtifactFormatter {
 		
 		getImportsForDefinitions(imports, impl, ddm, includedModules);
 		
+		impl.addImplements("DmcNameResolverWithClashSupportIF");
+		impl.addImplements("DmcNameClashResolverIF");
+		
 		out.write("package " + config.getGenPackage() + ".generated.dsd;\n\n");
 		
 		imports.addImport("org.dmd.dms.DSDefinition", "The base of all definitions");
 		imports.addImport("org.dmd.dmc.definitions.DmcDefinitionSet", "Our base to provide definition set storage");
 		imports.addImport("java.util.Iterator", "To allow access to our definitions");
+		imports.addImport("org.dmd.dmc.types.DotName", "To support the find method for definitions");
+		imports.addImport("org.dmd.dmc.DmcNameClashResolverIF", "To support object resolution");
+		imports.addImport("org.dmd.dmc.DmcNameResolverWithClashSupportIF", "To support object resolution");
+		imports.addImport("org.dmd.dmc.DmcNamedObjectIF", "To support object resolution");
+		imports.addImport("org.dmd.dmc.DmcObject", "To support object resolution");
+		imports.addImport("org.dmd.dmc.DmcObjectName", "To support object resolution");
+		imports.addImport("org.dmd.dmc.DmcValueExceptionSet", "Can be thrown when we try to resolve references");
+		imports.addImport("org.dmd.dmc.DmcValueException", "Can be thrown when we try to resolve references");
+		imports.addImport("org.dmd.dmc.DmcAttributeInfo", "Used when resolving clashes");
+		imports.addImport("org.dmd.dmc.DmcNameClashObjectSet", "Used when resolving clashes");
+		imports.addImport("org.dmd.dmc.DmcNameClashException", "Used when resolving clashes");
 		
 		out.write(imports.getFormattedImports());
 		
@@ -145,6 +159,79 @@ public class DSDArtifactFormatter {
 		initializeDefinitionManagerMembers(out, includedModules);
 		
 		out.write("    }\n\n");
+		
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    public void resolveReferences() throws DmcValueExceptionSet {\n");
+		out.write("        for(DSDefinition def: allDefinitions.values()){\n");
+		out.write("            def.resolveReferences(this,this);\n");
+		out.write("        }\n");
+		out.write("    }\n");
+		out.write("\n");
+		
+		out.write("    @Override\n");
+		out.write("    public DmcNamedObjectIF findNamedObject(DmcObjectName name) {\n");
+		out.write("        DSDefinition def = null;\n");
+    	out.write("        try {\n");
+    	out.write("    	       def = allDefinitions.getDefinition(name.toString());\n");
+    	out.write("        } catch (DmcNameClashException e) {\n");
+    	out.write("    	       // TODO Auto-generated catch block\n");
+    	out.write("    	       e.printStackTrace();\n");
+    	out.write("        } catch (DmcValueException e) {\n");
+    	out.write("    	       // TODO Auto-generated catch block\n");
+    	out.write("    	       e.printStackTrace();\n");
+    	out.write("        }\n");
+    	out.write("\n");
+    	out.write("        return(def);\n");
+		out.write("    }\n\n");
+
+		out.write("    @Override\n");
+		out.write("    public DmcNamedObjectIF findNamedObject(DmcObjectName name, int attributeID) {\n");
+		out.write("        throw(new IllegalStateException(\"This method is not supported on generated definition managers\"));\n");
+		out.write("    }\n\n");
+
+		out.write("    @Override\n");
+		out.write("    public DmcObject findNamedDMO(DmcObjectName name) {\n");
+		out.write("        DSDefinition def = null;\n");
+    	out.write("        try {\n");
+    	out.write("    	       def = allDefinitions.getDefinition(name.toString());\n");
+    	out.write("        } catch (DmcNameClashException e) {\n");
+    	out.write("    	       // TODO Auto-generated catch block\n");
+    	out.write("    	       e.printStackTrace();\n");
+    	out.write("        } catch (DmcValueException e) {\n");
+    	out.write("    	       // TODO Auto-generated catch block\n");
+    	out.write("    	       e.printStackTrace();\n");
+    	out.write("        }\n");
+    	out.write("\n");
+    	out.write("        if (def==null)\n");
+    	out.write("            return(null);\n");
+    	out.write("\n");
+    	out.write("        return(def.getDMO());\n");
+		out.write("    }\n\n");
+
+		out.write("    @Override\n");
+		out.write("    public DmcNamedObjectIF findNamedObjectMayClash(DmcObject object, DmcObjectName name, DmcNameClashResolverIF resolver, DmcAttributeInfo ai) throws DmcValueException {\n");
+		out.write("        DmcNamedObjectIF rc = null;\n");
+		out.write("        try{\n");
+		out.write("            rc = allDefinitions.getDefinition(name.getNameString());\n");
+		out.write("        } catch (DmcNameClashException e) {\n");
+		out.write("            rc = resolver.resolveClash(object, ai, e.getClashSet());\n");
+		out.write("        }\n");
+		out.write("    \n");
+		out.write("        return(rc);\n");
+		out.write("    }\n\n");
+		
+		out.write("    @Override\n");
+		out.write("    public DmcNamedObjectIF resolveClash(DmcObject obj, DmcAttributeInfo ai, DmcNameClashObjectSet<?> ncos) throws DmcValueException {\n");
+		out.write("        System.out.println(\"***********\\n\\n\");\n");
+		out.write("        Iterator<DmcNamedObjectIF> it = ncos.getMatches();\n");
+		out.write("        while(it.hasNext()){\n");
+		out.write("            DSDefinition def = (DSDefinition) it.next();\n");
+		out.write("            System.out.println(def.toOIF() + \"\\n\");\n");
+		out.write("        }\n");
+		out.write("        return null;\n");
+		out.write("    }\n\n");
+		
+		
 		
 		dumpDefinitionInterfaceMethods(out, includedModules);
 		
@@ -342,6 +429,7 @@ public class DSDArtifactFormatter {
 		imports.addImport("org.dmd.dmv.shared.DmvRuleManager", "The injected rule manager used for initializations");
 		imports.addImport("org.dmd.dms.generated.dmw.StringIterableDMW", "To iterate over defFiles");
 		imports.addImport("org.dmd.dmc.rules.SourceInfo", "To indicate the source of rule problems");
+		imports.addImport("org.dmd.dmw.DmwWrapper", "To handle factory created objects");
 		
 		// Get the class that was generated for the module
 		ClassDefinition ddmClass = sm.isClass(ddm.getName().getNameString());
@@ -425,9 +513,11 @@ public class DSDArtifactFormatter {
 		out.write("    @Override\n");
 		out.write("    public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {\n");
 		out.write("        " + baseClass.getName() + " definition = null;\n");
+		out.write("        DmwWrapper wrapper = null;\n");
 		out.write("\n");
 		out.write("        try{\n");
-		out.write("            definition = (" + baseClass.getName() + ") factory.createWrapper(uco);\n");
+		out.write("            wrapper = factory.createWrapper(uco);\n");
+		out.write("            definition = (" + baseClass.getName() + ") wrapper;\n");
 		out.write("        } catch (ClassNotFoundException e) {\n");
 		out.write("            ResultException ex = new ResultException(\"Unknown object class: \" + uco.classes.get(0));\n");
 		out.write("            ex.result.lastResult().fileName(infile);\n");
@@ -443,6 +533,12 @@ public class DSDArtifactFormatter {
 		out.write("            ex.addError(e.getMessage());\n");
 		out.write("            if (e.getAttributeName() != null)\n");
 		out.write("                ex.result.lastResult().moreMessages(\"Attribute: \" + e.getAttributeName());\n");
+		out.write("            ex.setLocationInfo(infile, lineNumber);\n");
+		out.write("            throw(ex);\n");
+		out.write("        }\n");
+		out.write("        catch(ClassCastException e){\n");
+		out.write("            ResultException ex = new ResultException();\n");
+		out.write("            ex.addError(\"The following object is not valid in a ." + ddm.getFileExtension() + " file:\\n\\n\" + wrapper.toOIF());\n");
 		out.write("            ex.setLocationInfo(infile, lineNumber);\n");
 		out.write("            throw(ex);\n");
 		out.write("        }\n");
@@ -633,6 +729,7 @@ public class DSDArtifactFormatter {
 		imports.addImport("org.dmd.util.parsing.ConfigFinder", "Finds configs we may need to parse");
 		imports.addImport("org.dmd.util.parsing.ConfigLocation", "Handle to a discovered configuration");
 		imports.addImport("org.dmd.util.parsing.ConfigVersion", "Handle to a particular config version");
+		imports.addImport("org.dmd.dmc.DmcValueExceptionSet", "May occur when resolving objects");
 		
 		imports.addImport("org.dmd.dmv.shared.DmvRuleManager", "Allows for application of rules to our definitions");
 		members.addMember("DmvRuleManager", "rules", "new DmvRuleManager()", "Rule manager");
@@ -723,7 +820,7 @@ public class DSDArtifactFormatter {
 		}
 		
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-		out.write("    public void generateForConfig(String configName) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {\n");
+		out.write("    public void generateForConfig(String configName) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException, DmcValueExceptionSet {\n");
 		out.write("        ConfigVersion version = finderFor" + ddm.getName() + ".getConfig(configName);\n");
 		out.write("        \n");
 		out.write("        if (version == null){\n");
@@ -742,6 +839,8 @@ public class DSDArtifactFormatter {
 		out.write("        }\n");
 		out.write("        \n");
 		out.write("        generator.parsingComplete(loaded, location, definitions);\n");
+		out.write("        \n");
+		out.write("        definitions.resolveReferences();\n");
 		out.write("        \n");
 		out.write("        generator.generate(loaded,location,definitions);\n");
 		out.write("    }\n\n");
@@ -918,6 +1017,7 @@ public class DSDArtifactFormatter {
 		imports.addImport("org.dmd.dmc.DmcValueException", "To handle fundamental value errors");
 		imports.addImport("org.dmd.dmc.DmcNameClashException", "To handle parsing errors");
 		imports.addImport("org.dmd.dmc.rules.DmcRuleExceptionSet", "To handle rule errors");
+		imports.addImport("org.dmd.dmc.DmcValueExceptionSet", "May occur when resolving objects");
 		
 		members.addMember(ddm.getName() + "ParsingCoordinator", "parser", "Module parser");
 		members.addMember("CommandLine", "commandLine", "new CommandLine()", "Commandline parser");
@@ -955,13 +1055,13 @@ public class DSDArtifactFormatter {
 		out.write("     *\n");
 		out.write("     * @param args the command line arguments\n");
 		out.write("     */\n");
-		out.write("    public void run(String[] args) throws ResultException, DmcValueException, IOException, DmcRuleExceptionSet, DmcNameClashException {\n");
+		out.write("    public void run(String[] args) throws ResultException, DmcValueException, IOException, DmcRuleExceptionSet, DmcNameClashException, DmcValueExceptionSet {\n");
 		out.write("\n");
 		out.write("        commandLine.parseArgs(args);\n");
 		out.write("\n");
 		out.write("        if (helpFlag.booleanValue()){\n");
 		out.write("            displayHelp();\n");
-		out.write("            System.exit(0);\n");
+		out.write("            return;\n");
 		out.write("        }\n");
 		out.write("\n");
 		out.write("        parser = new " + ddm.getName() + "ParsingCoordinator(this, srcdir,jars);\n");

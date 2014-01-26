@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmt.dsd.dsdc.server.extended.ModuleCGenerator;
 import org.dmd.util.exceptions.ResultException;
@@ -23,7 +24,7 @@ public class ModuleCGeneratorTest {
 	}
 	
 	@Test
-	public void testGenerator() throws ResultException, DmcValueException, IOException, DmcRuleExceptionSet, DmcNameClashException {
+	public void testGenerator() throws ResultException, DmcValueException, IOException, DmcRuleExceptionSet, DmcNameClashException, DmcValueExceptionSet {
 		ModuleCGenerator generator = new ModuleCGenerator();
 		
 		String[] args = { 	"-workspace", 	workingDir,
