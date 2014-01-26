@@ -18,4 +18,7 @@ public class DSDefinition extends DSDefinitionDMW implements DmcDefinitionIF {
 		super(obj,cd);
 	}
 	
+	public String getNameOfModuleWhereThisCameFrom(){
+		throw(new IllegalStateException("This method should have been overloaded during DMW wrapper generation"));
+	}
 }

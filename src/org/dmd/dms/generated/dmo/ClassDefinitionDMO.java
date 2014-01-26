@@ -87,6 +87,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         _ImAp.put(MetaDMSAG.__may.id,MetaDMSAG.__may);
         _ImAp.put(MetaDMSAG.__must.id,MetaDMSAG.__must);
         _ImAp.put(MetaDMSAG.__obsoleteVersion.id,MetaDMSAG.__obsoleteVersion);
+        _ImAp.put(MetaDMSAG.__partOfDefinitionModule.id,MetaDMSAG.__partOfDefinitionModule);
         _ImAp.put(MetaDMSAG.__ruleDefinition.id,MetaDMSAG.__ruleDefinition);
         _ImAp.put(MetaDMSAG.__sortName.id,MetaDMSAG.__sortName);
         _ImAp.put(MetaDMSAG.__subpackage.id,MetaDMSAG.__subpackage);
@@ -137,6 +138,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         _SmAp.put(MetaDMSAG.__may.name,MetaDMSAG.__may);
         _SmAp.put(MetaDMSAG.__must.name,MetaDMSAG.__must);
         _SmAp.put(MetaDMSAG.__obsoleteVersion.name,MetaDMSAG.__obsoleteVersion);
+        _SmAp.put(MetaDMSAG.__partOfDefinitionModule.name,MetaDMSAG.__partOfDefinitionModule);
         _SmAp.put(MetaDMSAG.__ruleDefinition.name,MetaDMSAG.__ruleDefinition);
         _SmAp.put(MetaDMSAG.__sortName.name,MetaDMSAG.__sortName);
         _SmAp.put(MetaDMSAG.__subpackage.name,MetaDMSAG.__subpackage);
@@ -1384,6 +1386,34 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         
         attr.set(value);
         set(MetaDMSAG.__obsoleteVersion,attr);
+    }
+
+    /**
+     * For classes that defined as part of a definition module,\n this indicates
+     * the module they belong to. This allows for generation of a standard\n
+     * method to get the name of the module from which they were loaded. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2322)
+    public DSDefinitionModuleREF getPartOfDefinitionModule(){
+        DmcTypeDSDefinitionModuleREFSV attr = (DmcTypeDSDefinitionModuleREFSV) get(MetaDMSAG.__partOfDefinitionModule);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets partOfDefinitionModule to the specified value.
+     * @param value A value compatible with DmcTypeDSDefinitionModuleREFSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2414)
+    public void setPartOfDefinitionModule(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__partOfDefinitionModule);
+        if (attr == null)
+            attr = new DmcTypeDSDefinitionModuleREFSV(MetaDMSAG.__partOfDefinitionModule);
+        
+        attr.set(value);
+        set(MetaDMSAG.__partOfDefinitionModule,attr);
     }
 
     /**

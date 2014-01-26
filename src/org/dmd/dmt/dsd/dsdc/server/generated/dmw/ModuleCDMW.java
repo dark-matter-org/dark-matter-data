@@ -21,7 +21,7 @@ import java.util.ArrayList;                                                     
 import java.util.Iterator;                                                       // Support copy of MV objects - (BaseDMWGenerator.java:2240)
 import org.dmd.dmc.*;                                                            // If any attributes - (BaseDMWGenerator.java:1087)
 import org.dmd.dmc.definitions.DmcDefinitionIF;                                  // The object is a domain specific definition - (BaseDMWGenerator.java:411)
-import org.dmd.dmc.definitions.DmcDefinitionSet;                                 // Our base to provide definition set storage - (DMWGenerator.java:169)
+import org.dmd.dmc.definitions.DmcDefinitionSet;                                 // Our base to provide definition set storage - (DMWGenerator.java:170)
 import org.dmd.dmc.types.DefinitionName;                                         // Is named by - (BaseDMWGenerator.java:1062)
 import org.dmd.dmc.types.DotName;                                                // To support the find method for definitions - (DSDefinitionModule.java:163)
 import org.dmd.dms.ClassDefinition;                                              // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:1067)
@@ -40,9 +40,10 @@ import org.dmd.dmt.dsd.dsdc.server.extended.CConceptBase;                       
 import org.dmd.dmt.dsd.dsdc.server.extended.CConceptX;                           // A definition from the ModuleC Module - (DSDefinitionModule.java:174)
 import org.dmd.dmt.dsd.dsdc.server.extended.ModuleC;                             // Required for getModificationRecorder() - (BaseDMWGenerator.java:1076)
 import org.dmd.dmt.dsd.dsdc.server.generated.dmw.ModuleCIterableDMW;             // For multi-valued ModuleC - (BaseDMWGenerator.java:1709)
-import org.dmd.dmt.dsd.dsdc.server.generated.dsd.ModuleCScopedInterface;         // Required to manage module definition - (DMWGenerator.java:168)
+import org.dmd.dmt.dsd.dsdc.server.generated.dsd.ModuleCScopedInterface;         // Required to manage module definition - (DMWGenerator.java:169)
 import org.dmd.dmt.dsd.dsdc.shared.generated.dmo.DsdCDMSAG;                      // Attribute dependsOnModuleC from the dsdC schema - (BaseDMWGenerator.java:897)
 import org.dmd.dmt.dsd.dsdc.shared.generated.dmo.ModuleCDMO;                     // Class not auxiliary or abstract - (BaseDMWGenerator.java:1252)
+import org.dmd.dmt.dsd.dsdc.shared.generated.types.ModuleCREF;                   // Required to access defined in module name - (DMWGenerator.java:180)
 
 
 
@@ -56,7 +57,7 @@ import org.dmd.dmt.dsd.dsdc.shared.generated.dmo.ModuleCDMO;                    
 abstract public class ModuleCDMW extends CConceptBase implements DmcDefinitionIF, DmcNamedObjectIF, ModuleCScopedInterface {
 
     // Generated from: org.dmd.util.codegen.MemberManager.getFormattedMembers(MemberManager.java:59)
-    // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperDefinitions(DMWGenerator.java:194)
+    // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperDefinitions(DMWGenerator.java:203)
     DmcDefinitionSet<CConceptBase>     CConceptBaseDefs    = new DmcDefinitionSet<CConceptBase>("ModuleC-allDefinitions");   // All definitions associated with this module
     DmcDefinitionSet<CConceptX>        CConceptXDefs       = new DmcDefinitionSet<CConceptX>("ModuleC-CConceptXDefs");       // All CConceptX definitions
     DmcDefinitionSet<ModuleC>          ModuleCDefs         = new DmcDefinitionSet<ModuleC>("ModuleC-ModuleCDefs");           // All ModuleC definitions
@@ -635,7 +636,7 @@ abstract public class ModuleCDMW extends CConceptBase implements DmcDefinitionIF
     }
 
     // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:219)
-    // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperFunctions(DMWGenerator.java:202)
+    // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperFunctions(DMWGenerator.java:211)
     /**
      * All definitions are added to the base definition collection.
      */
@@ -671,6 +672,16 @@ abstract public class ModuleCDMW extends CConceptBase implements DmcDefinitionIF
 
     public Iterator<CConceptX> getAllCConceptX(){
         return(CConceptXDefs.values().iterator());
+    }
+
+    // Generated from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperFunctions(DMWGenerator.java:221)
+    /**
+     * This method indicates the name of the module from which this definition was loaded.
+     */
+    @Override
+    public String getNameOfModuleWhereThisCameFrom(){
+        ModuleCREF ref = ((ModuleCDMO) core).getDefinedInModuleC();
+        return(ref.getName().getNameString());
     }
 
 

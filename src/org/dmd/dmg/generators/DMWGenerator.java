@@ -9,6 +9,7 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
+import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.ComplexTypeDefinition;
 import org.dmd.dms.DSDefinitionModule;
@@ -171,6 +172,14 @@ public class DMWGenerator extends BaseDMWGenerator {
 			// We also add the imports for the sets of definition that we're going to manage
 			dsdm.getImportsForInterface(imports, true);
 		}
+		
+		if (cd.getPartOfDefinitionModule() != null){
+			if (cd.getClassType() == ClassTypeEnum.STRUCTURAL){
+				AttributeDefinition attr = cd.getPartOfDefinitionModule().getDefinedInModuleAttribute();
+				TypeDefinition td = attr.getType();
+				imports.addImport(td.getOriginalClass().getDmtREFImport(), "Required to access defined in module name");
+			}
+		}
 	}
 	
 	@Override
@@ -200,7 +209,27 @@ public class DMWGenerator extends BaseDMWGenerator {
 			DSDefinitionModule dsdm = cd.getDsdModuleDefinition();
 			
 			out.write(dsdm.getInterfaceMethodsImplementations(true));
-		}		
+		}
+		if (cd.getPartOfDefinitionModule() != null){
+			// Any class that's part of a definition module has to have a standard
+			// method to get the string name of the module from which it was loaded.
+			// This abstract method is defined in DSDefinition. 
+			// Here we overload this method on strucutural classes
+			if (cd.getClassType() == ClassTypeEnum.STRUCTURAL){
+				AttributeDefinition attr = cd.getPartOfDefinitionModule().getDefinedInModuleAttribute();
+				String attrNamePart = GenUtility.capTheName(attr.getName().getNameString());
+				out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+				out.write("    /**\n");
+				out.write("     * This method indicates the name of the module from which this definition was loaded.\n");
+				out.write("     */\n");
+				out.write("    @Override\n");
+				out.write("    public String getNameOfModuleWhereThisCameFrom(){\n");
+				out.write("        " + cd.getPartOfDefinitionModule().getName() + "REF ref = ((" + cd.getName() + "DMO) core).get" + attrNamePart + "();\n");
+				out.write("        return(ref.getName().getNameString());\n");
+				out.write("    }\n\n");
+			}
+//			DebugInfo.debug(cd.toOIF());
+		}
 	}
 
 	@Override
