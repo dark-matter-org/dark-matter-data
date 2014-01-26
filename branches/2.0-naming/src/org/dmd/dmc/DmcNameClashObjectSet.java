@@ -26,6 +26,10 @@ public class DmcNameClashObjectSet<OBJ extends DmcNamedObjectIF> {
 
 	ArrayList<DmcNamedObjectIF>	matches;
 	
+	public DmcNameClashObjectSet(){
+		matches = new ArrayList<DmcNamedObjectIF>();
+	}
+	
 	@SuppressWarnings("unchecked")
 	public DmcNameClashObjectSet(ArrayList<OBJ> clash){
 		matches = (ArrayList<DmcNamedObjectIF>) clash.clone();

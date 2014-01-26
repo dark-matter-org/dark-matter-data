@@ -160,6 +160,7 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 		
 		imports.addImport(dsd.getDmeImport(), "A definition from the " + this.getName() + " Module");
 		imports.addImport("java.util.Iterator", "To allow access to our definitions");
+		imports.addImport("org.dmd.dmc.types.DotName", "To support the find method for definitions");
 		
 		TreeMap<DefinitionName,ClassDefinition> allDerived = dsd.getAllDerived();
 		for(ClassDefinition cd : allDerived.values()){
@@ -187,6 +188,7 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 		// We don't advertise adding to the base definition set
 //		sb.append("    public void add" + dsd.getName() + "(" + dsd.getName() +" def);\n");
 		sb.append("    public int get" + dsd.getName() + "Count();\n");
+		sb.append("    public " + dsd.getName() + " get" + dsd.getName() + "(DotName name);\n");
 		sb.append("    public Iterator<" + dsd.getName() + "> getAll" + dsd.getName() + "();\n\n");
 
 		TreeMap<DefinitionName,ClassDefinition> allDerived = dsd.getAllDerived();
@@ -200,6 +202,7 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 			}
 			sb.append("    public void add" + cd.getName() + "(" + cd.getName() +" def);\n");
 			sb.append("    public int get" + cd.getName() + "Count();\n");
+			sb.append("    public " + cd.getName() + " get" + cd.getName() + "(DotName name);\n");
 			sb.append("    public Iterator<" + cd.getName() + "> getAll" + cd.getName() + "();\n\n");
 		}
 		
@@ -231,6 +234,10 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 		sb.append("        return(" + dsd.getName() + "Defs.size());\n");
 		sb.append("    }\n\n");
 		
+		sb.append("    public " + dsd.getName() + " get" + dsd.getName() + "(DotName name){\n");
+		sb.append("        return(" + dsd.getName() + "Defs.getDefinition(name));\n");
+		sb.append("    }\n\n");
+		
 		sb.append("    public Iterator<" + dsd.getName() + "> getAll" + dsd.getName() + "(){\n");
 		sb.append("        return(" + dsd.getName() + "Defs.values().iterator());\n");
 		sb.append("    }\n\n");
@@ -253,6 +260,10 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 			
 			sb.append("    public int get" + cd.getName() + "Count(){\n");
 			sb.append("        return(" + cd.getName() + "Defs.size());\n");
+			sb.append("    }\n\n");
+			
+			sb.append("    public " + cd.getName() + " get" + cd.getName() + "(DotName name){\n");
+			sb.append("        return(" + cd.getName() + "Defs.getDefinition(name));\n");
 			sb.append("    }\n\n");
 			
 			sb.append("    public Iterator<" + cd.getName() + "> getAll" + cd.getName() + "(){\n");
