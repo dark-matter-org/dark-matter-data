@@ -625,6 +625,29 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition implements Dmc
     }
 
     /**
+     * For classes that defined as part of a definition module,\n this indicates
+     * the module they belong to. This allows for generation of a standard\n
+     * method to get the name of the module from which they were loaded. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2375)
+    public DSDefinitionModule getPartOfDefinitionModule(){
+        DmcTypeDSDefinitionModuleREFSV attr = (DmcTypeDSDefinitionModuleREFSV) mycore.get(MetaDMSAG.__partOfDefinitionModule);
+        if (attr == null)
+            return(null);
+        DSDefinitionModuleDMO obj = attr.getSV().getObject();
+        return((DSDefinitionModule)obj.getContainer());
+    }
+
+    /**
+     * Sets partOfDefinitionModule to the specified value.
+     * @param value A value compatible with DSDefinitionModule
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2435)
+    public void setPartOfDefinitionModule(DSDefinitionModule value) throws DmcValueException {
+        mycore.setPartOfDefinitionModule(value.getDmcObject());
+    }
+
+    /**
      * This flag indicates if the associated definition was internally
      * generated.\n This is the case for TypeDefinitions generated for
      * ClassDefinitions and EnumDefinitions\n that allow for references to these

@@ -888,6 +888,17 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         if (managingSchema)
         	return;
         
+        ////////////////////////////////////////////////////////////////////////
+        // Eventual rules
+        
+        if (ddm.getDmdID() != null){
+        	if (ddm.getDmdID() != 1){
+        		ResultException ex = new ResultException("The dmdID of a DSDefinitionModule must be 1");
+        		ex.setLocationInfo(ddm.getFile(), ddm.getLineNumber());
+        		throw(ex);
+        	}
+        }
+        
         ///////////////////////////////////////////////////////////////////////
         
     	// Again, some trickiness, we have to resolve the module so that we can access and use the must/may
@@ -2469,9 +2480,10 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * @param sd The schema to be resolved.
      * @throws ResultException  
      * @throws DmcNameClashException 
+     * @throws DmcValueException 
      * @throws DmcValueExceptionSet 
      */
-	public void resolveReferences(SchemaDefinition sd, DmcNameClashResolverIF clashResolver) throws ResultException, DmcNameClashException {
+	public void resolveReferences(SchemaDefinition sd, DmcNameClashResolverIF clashResolver) throws ResultException, DmcNameClashException, DmcValueException {
 
     	Iterator<AttributeDefinition> preadl = sd.getAttributeDefList();
     	if (preadl != null){
@@ -2706,6 +2718,32 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 			}
     	}
     	sd.setResolvedRules(theRules);
+    	
+    	///////////////////////////////////////////////////////////////////////
+    	// Some additional work required to allow for name clash resolution
+    	// mechanisms in auto generated definition managers. All structural 
+    	// DSDefinition derived classes must have a standard mechanism to get
+    	// the name of the  module from which they were loaded. In order to
+    	// do this, we have to know the DSDModule with which they are associated
+    	// so that we can get the definedInModuleAttribute. Tricky!
+    	// We find the base definition for the module and then add the partOfDefinitionModule
+    	// attribute so that we can use this information in the DMWGenerator later.
+    	cdl = sd.getClassDefList();
+    	if (cdl != null){
+    		while(cdl.hasNext()){
+    			ClassDefinition cd = cdl.next();
+    			if (cd.getDsdModuleDefinition() != null){
+    				// This is the base class definition that represents the module
+    				ClassDefinition base = (ClassDefinition) cd.getDsdModuleDefinition().getBaseDefinition();
+    				base.setPartOfDefinitionModule(cd.getDsdModuleDefinition());
+    				
+    				TreeMap<DefinitionName,ClassDefinition> derived = base.getAllDerived();
+    				for(ClassDefinition d: derived.values()){
+    					d.setPartOfDefinitionModule(cd.getDsdModuleDefinition());
+    				}
+    			}
+    		}
+    	}
     	
     }
 

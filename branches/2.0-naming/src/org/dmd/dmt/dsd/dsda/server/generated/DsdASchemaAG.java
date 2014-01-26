@@ -1,5 +1,20 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
+//	Copyright (c) 2014 dark-matter-data committers
+//	---------------------------------------------------------------------------
+//	This program is free software; you can redistribute it and/or modify it
+//	under the terms of the GNU Lesser General Public License as published by the
+//	Free Software Foundation; either version 3 of the License, or (at your
+//	option) any later version.
+//	This program is distributed in the hope that it will be useful, but WITHOUT
+//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
+//	more details.
+//	You should have received a copy of the GNU Lesser General Public License along
+//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
+//	---------------------------------------------------------------------------
+//	---------------------------------------------------------------------------
+//	dark-matter-data
 //	Copyright (c) 2013 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
@@ -97,6 +112,7 @@ public class DsdASchemaAG extends SchemaDefinition {
             _AConceptBaseOBJ.addMust("meta.dotName");
             _AConceptBaseOBJ.addMust("dsdA.definedInModuleA");
             _AConceptBaseOBJ.setDmwIteratorImport("org.dmd.dmt.dsd.dsda.server.generated.dmw.AConceptBaseIterableDMW");
+            _AConceptBaseOBJ.setPartOfDefinitionModule("dsdA.ModuleA");
             _AConceptBaseOBJ.setDotName("dsdA.AConceptBase.ClassDefinition");
             _AConceptBase.setDefinedIn(this);
             addClassDefList(_AConceptBase);
@@ -116,6 +132,7 @@ public class DsdASchemaAG extends SchemaDefinition {
             _AConceptXOBJ.setDmwIteratorClass("AConceptXIterableDMW");
             _AConceptXOBJ.addMust("meta.name");
             _AConceptXOBJ.setDmwIteratorImport("org.dmd.dmt.dsd.dsda.server.generated.dmw.AConceptXIterableDMW");
+            _AConceptXOBJ.setPartOfDefinitionModule("dsdA.ModuleA");
             _AConceptXOBJ.setDotName("dsdA.AConceptX.ClassDefinition");
             _AConceptX.setDefinedIn(this);
             addClassDefList(_AConceptX);
@@ -140,6 +157,7 @@ public class DsdASchemaAG extends SchemaDefinition {
             _ModuleAOBJ.addMust("meta.name");
             _ModuleAOBJ.setDmwIteratorImport("org.dmd.dmt.dsd.dsda.server.generated.dmw.ModuleAIterableDMW");
             _ModuleAOBJ.setDsdModuleDefinition("dsdA.ModuleA");
+            _ModuleAOBJ.setPartOfDefinitionModule("dsdA.ModuleA");
             _ModuleAOBJ.setDotName("dsdA.ModuleA.ClassDefinition");
             _ModuleA.setDefinedIn(this);
             addClassDefList(_ModuleA);

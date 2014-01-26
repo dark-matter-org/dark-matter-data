@@ -119,6 +119,7 @@ public class DsdBSchemaAG extends SchemaDefinition {
             _BConceptBaseOBJ.addMust("meta.dotName");
             _BConceptBaseOBJ.addMust("dsdB.definedInModuleB");
             _BConceptBaseOBJ.setDmwIteratorImport("org.dmd.dmt.dsd.dsdb.server.generated.dmw.BConceptBaseIterableDMW");
+            _BConceptBaseOBJ.setPartOfDefinitionModule("dsdB.ModuleB");
             _BConceptBaseOBJ.setDotName("dsdB.BConceptBase.ClassDefinition");
             _BConceptBase.setDefinedIn(this);
             addClassDefList(_BConceptBase);
@@ -138,6 +139,7 @@ public class DsdBSchemaAG extends SchemaDefinition {
             _BConceptXOBJ.setDmwIteratorClass("BConceptXIterableDMW");
             _BConceptXOBJ.addMust("meta.name");
             _BConceptXOBJ.setDmwIteratorImport("org.dmd.dmt.dsd.dsdb.server.generated.dmw.BConceptXIterableDMW");
+            _BConceptXOBJ.setPartOfDefinitionModule("dsdB.ModuleB");
             _BConceptXOBJ.setDotName("dsdB.BConceptX.ClassDefinition");
             _BConceptX.setDefinedIn(this);
             addClassDefList(_BConceptX);
@@ -163,6 +165,7 @@ public class DsdBSchemaAG extends SchemaDefinition {
             _ModuleBOBJ.addMust("meta.name");
             _ModuleBOBJ.setDmwIteratorImport("org.dmd.dmt.dsd.dsdb.server.generated.dmw.ModuleBIterableDMW");
             _ModuleBOBJ.setDsdModuleDefinition("dsdB.ModuleB");
+            _ModuleBOBJ.setPartOfDefinitionModule("dsdB.ModuleB");
             _ModuleBOBJ.setDotName("dsdB.ModuleB.ClassDefinition");
             _ModuleB.setDefinedIn(this);
             addClassDefList(_ModuleB);

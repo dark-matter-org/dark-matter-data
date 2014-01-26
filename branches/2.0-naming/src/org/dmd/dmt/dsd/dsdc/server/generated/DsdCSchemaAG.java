@@ -119,6 +119,7 @@ public class DsdCSchemaAG extends SchemaDefinition {
             _CConceptBaseOBJ.addMust("meta.dotName");
             _CConceptBaseOBJ.addMust("dsdC.definedInModuleC");
             _CConceptBaseOBJ.setDmwIteratorImport("org.dmd.dmt.dsd.dsdc.server.generated.dmw.CConceptBaseIterableDMW");
+            _CConceptBaseOBJ.setPartOfDefinitionModule("dsdC.ModuleC");
             _CConceptBaseOBJ.setDotName("dsdC.CConceptBase.ClassDefinition");
             _CConceptBase.setDefinedIn(this);
             addClassDefList(_CConceptBase);
@@ -138,6 +139,7 @@ public class DsdCSchemaAG extends SchemaDefinition {
             _CConceptXOBJ.setDmwIteratorClass("CConceptXIterableDMW");
             _CConceptXOBJ.addMust("meta.name");
             _CConceptXOBJ.setDmwIteratorImport("org.dmd.dmt.dsd.dsdc.server.generated.dmw.CConceptXIterableDMW");
+            _CConceptXOBJ.setPartOfDefinitionModule("dsdC.ModuleC");
             _CConceptXOBJ.setDotName("dsdC.CConceptX.ClassDefinition");
             _CConceptX.setDefinedIn(this);
             addClassDefList(_CConceptX);
@@ -164,6 +166,7 @@ public class DsdCSchemaAG extends SchemaDefinition {
             _ModuleCOBJ.addMust("meta.name");
             _ModuleCOBJ.setDmwIteratorImport("org.dmd.dmt.dsd.dsdc.server.generated.dmw.ModuleCIterableDMW");
             _ModuleCOBJ.setDsdModuleDefinition("dsdC.ModuleC");
+            _ModuleCOBJ.setPartOfDefinitionModule("dsdC.ModuleC");
             _ModuleCOBJ.setDotName("dsdC.ModuleC.ClassDefinition");
             _ModuleC.setDefinedIn(this);
             addClassDefList(_ModuleC);

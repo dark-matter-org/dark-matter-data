@@ -1972,6 +1972,14 @@ description    				A set of base module files that should be loaded before
  You should specify just the name of the module file to be loaded, not the file extension.
  The file extension is assumed to be fileExtension associated with the DSD.
 
+AttributeDefinition
+name                		partOfDefinitionModule
+dmdID						175
+type                		DSDefinitionModule
+description					For classes that defined as part of a definition module,
+ this indicates the module they belong to. This allows for generation of a standard
+ method to get the name of the module from which they were loaded.
+
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
 AttributeDefinition
@@ -2151,6 +2159,7 @@ may				excludeFromContext
 may           	abbrev
 may         	obsoleteVersion
 may				isDSDefinition
+may				partOfDefinitionModule
 //may				isDSModule
 // Auto generated/set
 may             internallyGenerated
