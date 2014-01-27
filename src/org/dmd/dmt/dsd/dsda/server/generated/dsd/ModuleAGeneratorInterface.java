@@ -16,14 +16,14 @@
 package org.dmd.dmt.dsd.dsda.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1104)
-import org.dmd.dmt.dsd.dsda.server.extended.ModuleA;                               // The base module for generation - (DSDArtifactFormatter.java:1098)
-import org.dmd.dmt.dsd.dsda.server.generated.dsd.ModuleADefinitionManager;         // All parsed definition - (DSDArtifactFormatter.java:1102)
-import org.dmd.util.exceptions.ResultException;                                    // For problems found after parsing - (DSDArtifactFormatter.java:1101)
-import org.dmd.util.parsing.ConfigLocation;                                        // Where the config was loaded from - (DSDArtifactFormatter.java:1100)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1122)
+import org.dmd.dmt.dsd.dsda.server.extended.ModuleA;                               // The base module for generation - (DSDArtifactFormatter.java:1116)
+import org.dmd.dmt.dsd.dsda.server.generated.dsd.ModuleADefinitionManager;         // All parsed definition - (DSDArtifactFormatter.java:1120)
+import org.dmd.util.exceptions.ResultException;                                    // For problems found after parsing - (DSDArtifactFormatter.java:1119)
+import org.dmd.util.parsing.ConfigLocation;                                        // Where the config was loaded from - (DSDArtifactFormatter.java:1118)
 
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1106)
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1124)
 public interface ModuleAGeneratorInterface {
 
     /**

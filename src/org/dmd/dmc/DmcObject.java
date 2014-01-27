@@ -1738,6 +1738,7 @@ abstract public class DmcObject implements Serializable {
 							}
 							catch(ClassCastException e){
 								DmcValueException ex = new DmcValueException("Attribute " + attr.getName() + " is of type: " + attr.getAttributeInfo().type + " and you've tried to set it to " + obj.getObjectName() + " which is of type " + resolvedObject.getConstructionClassName());
+								ex.addMoreInfo(this.toOIF());
 								if (errors == null)
 									errors = new DmcValueExceptionSet();
 								errors.add(ex);

@@ -168,6 +168,7 @@ public class DSDArtifactFormatter {
 		out.write("    }\n");
 		out.write("\n");
 		
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("    @Override\n");
 		out.write("    public DmcNamedObjectIF findNamedObject(DmcObjectName name) {\n");
 		out.write("        DSDefinition def = null;\n");
@@ -184,11 +185,13 @@ public class DSDArtifactFormatter {
     	out.write("        return(def);\n");
 		out.write("    }\n\n");
 
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("    @Override\n");
 		out.write("    public DmcNamedObjectIF findNamedObject(DmcObjectName name, int attributeID) {\n");
 		out.write("        throw(new IllegalStateException(\"This method is not supported on generated definition managers\"));\n");
 		out.write("    }\n\n");
 
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("    @Override\n");
 		out.write("    public DmcObject findNamedDMO(DmcObjectName name) {\n");
 		out.write("        DSDefinition def = null;\n");
@@ -208,18 +211,30 @@ public class DSDArtifactFormatter {
     	out.write("        return(def.getDMO());\n");
 		out.write("    }\n\n");
 
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("    @Override\n");
 		out.write("    public DmcNamedObjectIF findNamedObjectMayClash(DmcObject object, DmcObjectName name, DmcNameClashResolverIF resolver, DmcAttributeInfo ai) throws DmcValueException {\n");
 		out.write("        DmcNamedObjectIF rc = null;\n");
-		out.write("        try{\n");
-		out.write("            rc = allDefinitions.getDefinition(name.getNameString());\n");
-		out.write("        } catch (DmcNameClashException e) {\n");
-		out.write("            rc = resolver.resolveClash(object, ai, e.getClashSet());\n");
+		out.write("        DotName dn = new DotName(name.getNameString() + \".\" + ai.type);\n");
+		out.write("    \n");
+		out.write("        // The name might contain module.defname, in which case we'll try to look it up\n");
+		out.write("        // using a fully qualified DotName of the form module.defname.type. Otherwise,\n");
+		out.write("        // we use the getDefinitionByNameAndType() form of the lookup.\n");
+		out.write("        if (name.getNameString().indexOf(\".\") == -1){\n");
+		out.write("            try{\n");
+		out.write("                rc = allDefinitions.getDefinitionByNameAndType(dn);\n");
+		out.write("            } catch (DmcNameClashException e) {\n");
+		out.write("                rc = resolver.resolveClash(object, ai, e.getClashSet());\n");
+		out.write("            }\n");
+		out.write("        }\n");
+		out.write("        else{\n");
+		out.write("            rc = allDefinitions.getDefinition(dn);\n");
 		out.write("        }\n");
 		out.write("    \n");
 		out.write("        return(rc);\n");
 		out.write("    }\n\n");
 		
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("    @Override\n");
 		out.write("    public DmcNamedObjectIF resolveClash(DmcObject obj, DmcAttributeInfo ai, DmcNameClashObjectSet<?> ncos) throws DmcValueException {\n");
 		out.write("        System.out.println(\"***********\\n\\n\");\n");
@@ -563,6 +578,7 @@ public class DSDArtifactFormatter {
 		out.write("                module = (" + ddm.getName() + ")definition;\n");
 		out.write("            \n");
 		out.write("                definition.setDotName(module.getName() + \".\" + definition.getConstructionClassName());\n");
+		out.write("                definition.setNameAndTypeName(module.getName() + \".\" + definition.getConstructionClassName());\n");
 		out.write("            \n");
 		out.write("                definitions.add" + ddm.getName() + "(module);\n");
 		out.write("                module." + definedInModuleMethod + "(module);\n");
@@ -590,6 +606,7 @@ public class DSDArtifactFormatter {
 		out.write("            \n");
 		out.write("            definition." + definedInModuleMethod + "(module);\n");
 		out.write("            definition.setDotName(module.getName() + \".\" + definition.getName() + \".\" + definition.getConstructionClassName());\n");
+		out.write("            definition.setNameAndTypeName(definition.getName() + \".\" + definition.getConstructionClassName());\n");
 		out.write("            \n");
 		
 		boolean first = true;

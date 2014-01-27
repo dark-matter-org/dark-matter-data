@@ -30,7 +30,16 @@ public interface DmcDefinitionIF {
 
 	public DefinitionName getName();
 	
+	/**
+	 * @return the fully qualified dot name of the definition. This is usually
+	 * of the form module.defname.type.
+	 */
 	public DotName getDotName();
+	
+	/**
+	 * @return the partially qualified name of a definition that has the form defname.type
+	 */
+	public DotName getNameAndTypeName();
 	
 	public String toOIF();
 	

@@ -58,6 +58,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         _ImAp.put(MetaDMSAG.__maySendProgress.id,MetaDMSAG.__maySendProgress);
         _ImAp.put(MetaDMSAG.__mustParm.id,MetaDMSAG.__mustParm);
         _ImAp.put(MetaDMSAG.__mustReturn.id,MetaDMSAG.__mustReturn);
+        _ImAp.put(MetaDMSAG.__nameAndTypeName.id,MetaDMSAG.__nameAndTypeName);
         _ImAp.put(MetaDMSAG.__obsoleteVersion.id,MetaDMSAG.__obsoleteVersion);
         _ImAp.put(MetaDMSAG.__sortName.id,MetaDMSAG.__sortName);
 
@@ -76,6 +77,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         _SmAp.put(MetaDMSAG.__maySendProgress.name,MetaDMSAG.__maySendProgress);
         _SmAp.put(MetaDMSAG.__mustParm.name,MetaDMSAG.__mustParm);
         _SmAp.put(MetaDMSAG.__mustReturn.name,MetaDMSAG.__mustReturn);
+        _SmAp.put(MetaDMSAG.__nameAndTypeName.name,MetaDMSAG.__nameAndTypeName);
         _SmAp.put(MetaDMSAG.__obsoleteVersion.name,MetaDMSAG.__obsoleteVersion);
         _SmAp.put(MetaDMSAG.__sortName.name,MetaDMSAG.__sortName);
     }
@@ -544,6 +546,36 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         attr.add(value);
         add(MetaDMSAG.__mustReturn,attr);
         return(attr);
+    }
+
+    /**
+     * For a DSDefinition, this attribute holds just the \n defname.type of the
+     * definition. This is used to facilitate object resolution \n using the
+     * findNamedObjectMayClash mechanisms. In that case we have the name of \n
+     * and object and the attribute via which the reference is being made. These
+     * are\n concatenated to form the defname.type. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2322)
+    public DotName getNameAndTypeName(){
+        DmcTypeDotNameSV attr = (DmcTypeDotNameSV) get(MetaDMSAG.__nameAndTypeName);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets nameAndTypeName to the specified value.
+     * @param value A value compatible with DmcTypeDotNameSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2414)
+    public void setNameAndTypeName(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__nameAndTypeName);
+        if (attr == null)
+            attr = new DmcTypeDotNameSV(MetaDMSAG.__nameAndTypeName);
+        
+        attr.set(value);
+        set(MetaDMSAG.__nameAndTypeName,attr);
     }
 
     /**

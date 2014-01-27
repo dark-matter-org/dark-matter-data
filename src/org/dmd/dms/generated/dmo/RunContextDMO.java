@@ -50,6 +50,7 @@ public class RunContextDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
         _ImAp.put(MetaDMSAG.__exampleUsage.id,MetaDMSAG.__exampleUsage);
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
+        _ImAp.put(MetaDMSAG.__nameAndTypeName.id,MetaDMSAG.__nameAndTypeName);
         _ImAp.put(MetaDMSAG.__sortName.id,MetaDMSAG.__sortName);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
@@ -61,6 +62,7 @@ public class RunContextDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
         _SmAp.put(MetaDMSAG.__exampleUsage.name,MetaDMSAG.__exampleUsage);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
+        _SmAp.put(MetaDMSAG.__nameAndTypeName.name,MetaDMSAG.__nameAndTypeName);
         _SmAp.put(MetaDMSAG.__sortName.name,MetaDMSAG.__sortName);
     }
 
@@ -350,6 +352,36 @@ public class RunContextDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
         
         attr.set(value);
         set(MetaDMSAG.__lineNumber,attr);
+    }
+
+    /**
+     * For a DSDefinition, this attribute holds just the \n defname.type of the
+     * definition. This is used to facilitate object resolution \n using the
+     * findNamedObjectMayClash mechanisms. In that case we have the name of \n
+     * and object and the attribute via which the reference is being made. These
+     * are\n concatenated to form the defname.type. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2322)
+    public DotName getNameAndTypeName(){
+        DmcTypeDotNameSV attr = (DmcTypeDotNameSV) get(MetaDMSAG.__nameAndTypeName);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets nameAndTypeName to the specified value.
+     * @param value A value compatible with DmcTypeDotNameSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2414)
+    public void setNameAndTypeName(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__nameAndTypeName);
+        if (attr == null)
+            attr = new DmcTypeDotNameSV(MetaDMSAG.__nameAndTypeName);
+        
+        attr.set(value);
+        set(MetaDMSAG.__nameAndTypeName,attr);
     }
 
     /**
