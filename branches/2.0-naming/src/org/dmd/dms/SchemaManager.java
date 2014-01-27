@@ -2728,21 +2728,25 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     	// so that we can get the definedInModuleAttribute. Tricky!
     	// We find the base definition for the module and then add the partOfDefinitionModule
     	// attribute so that we can use this information in the DMWGenerator later.
-    	cdl = sd.getClassDefList();
-    	if (cdl != null){
-    		while(cdl.hasNext()){
-    			ClassDefinition cd = cdl.next();
-    			if (cd.getDsdModuleDefinition() != null){
-    				// This is the base class definition that represents the module
-    				ClassDefinition base = (ClassDefinition) cd.getDsdModuleDefinition().getBaseDefinition();
-    				base.setPartOfDefinitionModule(cd.getDsdModuleDefinition());
-    				
-    				TreeMap<DefinitionName,ClassDefinition> derived = base.getAllDerived();
-    				for(ClassDefinition d: derived.values()){
-    					d.setPartOfDefinitionModule(cd.getDsdModuleDefinition());
-    				}
-    			}
-    		}
+    	if (sd.isGeneratedSchema() == false){
+    		// TODO: the module definitions need to be added to the schema - boy I wish
+    		// I had the infrastructure for schemas that I do for other DSDs!
+	    	cdl = sd.getClassDefList();
+	    	if (cdl != null){
+	    		while(cdl.hasNext()){
+	    			ClassDefinition cd = cdl.next();
+	    			if (cd.getDsdModuleDefinition() != null){
+	    				// This is the base class definition that represents the module
+	    				ClassDefinition base = (ClassDefinition) cd.getDsdModuleDefinition().getBaseDefinition();
+	    				base.setPartOfDefinitionModule(cd.getDsdModuleDefinition());
+	    				
+	    				TreeMap<DefinitionName,ClassDefinition> derived = base.getAllDerived();
+	    				for(ClassDefinition d: derived.values()){
+	    					d.setPartOfDefinitionModule(cd.getDsdModuleDefinition());
+	    				}
+	    			}
+	    		}
+	    	}
     	}
     	
     }

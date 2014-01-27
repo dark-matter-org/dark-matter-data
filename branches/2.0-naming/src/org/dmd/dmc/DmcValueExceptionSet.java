@@ -36,6 +36,10 @@ public class DmcValueExceptionSet extends Exception {
 		exceptions = new ArrayList<DmcValueException>();
 	}
 	
+	public DmcValueException lastException(){
+		return(exceptions.get(exceptions.size()-1));
+	}
+	
 	/**
 	 * Adds another exception.
 	 * @param ex The exception.

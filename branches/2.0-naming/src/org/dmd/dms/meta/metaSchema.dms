@@ -1980,6 +1980,16 @@ description					For classes that defined as part of a definition module,
  this indicates the module they belong to. This allows for generation of a standard
  method to get the name of the module from which they were loaded.
 
+AttributeDefinition
+name                		nameAndTypeName
+dmdID						176
+type                		DotName
+description					For a DSDefinition, this attribute holds just the 
+ defname.type of the definition. This is used to facilitate object resolution 
+ using the findNamedObjectMayClash mechanisms. In that case we have the name of 
+ and object and the attribute via which the reference is being made. These are
+ concatenated to form the defname.type.
+
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
 AttributeDefinition
@@ -2032,6 +2042,7 @@ may           	definedIn
 may          	file
 may        		lineNumber
 may				dotName
+may				nameAndTypeName
 may				sortName
 description		The domain specific definition (DSDefinition) forms the basis for all definitions
  that use dark-matter as their basis. The initial dark-matter mechanisms were focussed only on 
