@@ -30,7 +30,7 @@ import org.dmd.dmc.types.DmcTypeString;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2609)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:665)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:666)
  */
 @SuppressWarnings("serial")
 public class DmcTypeStringSET extends DmcTypeString implements Serializable {

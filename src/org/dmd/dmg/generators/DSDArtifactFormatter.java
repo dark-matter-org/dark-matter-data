@@ -155,6 +155,7 @@ public class DSDArtifactFormatter {
 		
 		out.write("    public " + ddm.getName() + "DefinitionManager(){\n\n");
 		
+		out.write("        // This will be populated as a result of adding definitions to the definition sets for each definition type\n");
 		out.write("        allDefinitions = new DmcDefinitionSet<DSDefinition>(\"allDefinitions\");\n\n");
 		initializeDefinitionManagerMembers(out, includedModules);
 		
@@ -237,13 +238,18 @@ public class DSDArtifactFormatter {
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("    @Override\n");
 		out.write("    public DmcNamedObjectIF resolveClash(DmcObject obj, DmcAttributeInfo ai, DmcNameClashObjectSet<?> ncos) throws DmcValueException {\n");
-		out.write("        System.out.println(\"***********\\n\\n\");\n");
+		out.write("        DmcNamedObjectIF rc = null;\n");
+		out.write("        DSDefinition resolving = (DSDefinition) obj.getContainer();\n");
+		out.write("    \n");
 		out.write("        Iterator<DmcNamedObjectIF> it = ncos.getMatches();\n");
 		out.write("        while(it.hasNext()){\n");
 		out.write("            DSDefinition def = (DSDefinition) it.next();\n");
-		out.write("            System.out.println(def.toOIF() + \"\\n\");\n");
+		out.write("            if (resolving.getNameOfModuleWhereThisCameFrom().equals(def.getNameOfModuleWhereThisCameFrom())){\n");
+		out.write("                rc = def;\n");
+		out.write("                break;\n");
+		out.write("            }\n");
 		out.write("        }\n");
-		out.write("        return null;\n");
+		out.write("        return(rc);\n");
 		out.write("    }\n\n");
 		
 		
@@ -318,14 +324,15 @@ public class DSDArtifactFormatter {
 	}	
 	
 	void initializeDefinitionManagerMembers(ManagedFileWriter out, TreeMap<String,DSDefinitionModule> modules) throws IOException {
+		out.write("        // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		for(DSDefinitionModule ddm : modules.values()){
 			ClassDefinition dsd = (ClassDefinition) ddm.getBaseDefinition();
 			
-			out.write("        " + dsd.getName() + "Defs = new DmcDefinitionSet<" + dsd.getName() + ">(\"" + dsd.getName() + "Defs\");\n");
+			out.write("        " + dsd.getName() + "Defs = new DmcDefinitionSet<" + dsd.getName() + ">(\"" + dsd.getName() + "\", allDefinitions);\n");
 			
 			TreeMap<DefinitionName,ClassDefinition> allDerived = dsd.getAllDerived();
 			for(ClassDefinition cd : allDerived.values()){
-				out.write("        " + cd.getName() + "Defs = new DmcDefinitionSet<" + cd.getName() + ">(\"" + cd.getName() + "Defs\");\n");
+				out.write("        " + cd.getName() + "Defs = new DmcDefinitionSet<" + cd.getName() + ">(\"" + cd.getName() + "\", allDefinitions);\n");
 			}
 		}
 		out.write("\n");
@@ -580,8 +587,8 @@ public class DSDArtifactFormatter {
 		out.write("                definition.setDotName(module.getName() + \".\" + definition.getConstructionClassName());\n");
 		out.write("                definition.setNameAndTypeName(module.getName() + \".\" + definition.getConstructionClassName());\n");
 		out.write("            \n");
-		out.write("                definitions.add" + ddm.getName() + "(module);\n");
 		out.write("                module." + definedInModuleMethod + "(module);\n");
+		out.write("                definitions.add" + ddm.getName() + "(module);\n");
 		
 		if (ddm.getSupportDynamicSchemaLoading()){
 			out.write("                if (module.getLoadSchemaClassHasValue()){\n");

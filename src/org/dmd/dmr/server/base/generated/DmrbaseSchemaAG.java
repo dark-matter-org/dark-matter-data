@@ -111,6 +111,7 @@ public class DmrbaseSchemaAG extends SchemaDefinition {
             _HierarchicObjectOBJ.addMust("meta.FQN");
             _HierarchicObjectOBJ.setDmwIteratorImport("org.dmd.dmr.server.base.generated.dmw.HierarchicObjectIterableDMW");
             _HierarchicObjectOBJ.setDotName("dmrbase.HierarchicObject.ClassDefinition");
+            _HierarchicObjectOBJ.setNameAndTypeName("HierarchicObject.ClassDefinition");
             _HierarchicObject.setDefinedIn(this);
             addClassDefList(_HierarchicObject);
 
@@ -131,6 +132,7 @@ public class DmrbaseSchemaAG extends SchemaDefinition {
             _DotNamedObjectOBJ.addMust("meta.FQN");
             _DotNamedObjectOBJ.setDmwIteratorImport("org.dmd.dmr.server.base.generated.dmw.DotNamedObjectIterableDMW");
             _DotNamedObjectOBJ.setDotName("dmrbase.DotNamedObject.ClassDefinition");
+            _DotNamedObjectOBJ.setNameAndTypeName("DotNamedObject.ClassDefinition");
             _DotNamedObject.setDefinedIn(this);
             addClassDefList(_DotNamedObject);
 
@@ -144,6 +146,7 @@ public class DmrbaseSchemaAG extends SchemaDefinition {
             _userNameOBJ.setName("userName");
             _userNameOBJ.setDmdID("400");
             _userNameOBJ.addDescription("The name of a user.");
+            _userNameOBJ.setNameAndTypeName("userName.AttributeDefinition");
             _userNameOBJ.setDataType("PERSISTENT");
             _userNameOBJ.setDotName("dmrbase.userName.AttributeDefinition");
             _userName.setDefinedIn(this);
@@ -158,6 +161,7 @@ public class DmrbaseSchemaAG extends SchemaDefinition {
             _passwordOBJ.setName("password");
             _passwordOBJ.setDmdID("401");
             _passwordOBJ.addDescription("A user's password.");
+            _passwordOBJ.setNameAndTypeName("password.AttributeDefinition");
             _passwordOBJ.setDataType("PERSISTENT");
             _passwordOBJ.setDotName("dmrbase.password.AttributeDefinition");
             _password.setDefinedIn(this);
