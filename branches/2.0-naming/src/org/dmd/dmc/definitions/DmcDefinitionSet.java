@@ -9,14 +9,22 @@ import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.DotName;
 import org.dmd.dmc.types.DefinitionName;
+import org.dmd.dms.DSDefinition;
 import org.dmd.util.exceptions.DebugInfo;
 
 /**
  * The DmcDefinitionSet class provides a mechanism to store a set of definitions
  * with the possibility that the DefinitionName of some of the definitions may clash.
+ * <p/>
+ * The resulting class stores three different types of maps and, depending on
+ * the constructor used to create it, populates those maps in slightly different 
+ * ways. The subtleties of the population has to do with how definitions are named
+ * and references to them resolved.
+ * <p/>
+ * The nameMap for a given 
  * @param <DEF> 
  */
-public class DmcDefinitionSet<DEF extends DmcDefinitionIF> {
+public class DmcDefinitionSet<DEF extends DSDefinition> {
 	
 	static boolean debug = true;
 	
@@ -26,36 +34,74 @@ public class DmcDefinitionSet<DEF extends DmcDefinitionIF> {
 	
 	// The dotnames of a set of definitions must be unique. The dot name is
 	// of the form module.name.type
-	TreeMap<DotName,DEF>	fullDotNameMap;
+	TreeMap<DotName,DEF>					fullDotNameMap;
 	
 	// The name and type map may contain ambiguous entries, so it is similar to the 
 	// name map, however, the dot names are of the form name.type
-	TreeMap<DotName,ArrayList<DEF>>	nameAndTypeMap;
+	TreeMap<DotName,ArrayList<DEF>>			nameAndTypeMap;
 	
-	// In some cases, it's useful to know the longest name; usually when formatting code
-	int longestName;
+	// In some cases, it's useful to know the longest definition name; usually when formatting code
+	int 									longestName;
 	
-	String setName;
+	// The name of this definition set
+	String 									setName;
+	
+	// If className is set, the definition set works in a somewhat different way in order to
+	// allow for the maintenance of types derived from a base type. For
+	String 									className;
+	
+	// The global definition set. Any definitions added to a set that has a handle to the
+	// global definition set will be added to this as well.
+	DmcDefinitionSet<DSDefinition>			globalSet;
+	
+	// This is set to true if this set is a global set so that we can enforce addition
+	// to the set via internal mechanisms i.e. via the addGlobal() method.
+	boolean									isGlobalSet;
 	
 	/**
-	 * Constructs a new definition set.
+	 * Constructs a new global definition set. This type of set doesn't have a class
+	 * name and is used to store a global mapping of definitions of all types.
 	 */
 	public DmcDefinitionSet(){
-		nameMap = new TreeMap<DefinitionName, ArrayList<DEF>>();
-		fullDotNameMap = new TreeMap<DotName, DEF>();
-		nameAndTypeMap = new TreeMap<DotName, ArrayList<DEF>>();
-		setName = null;
+		nameMap 		= new TreeMap<DefinitionName, ArrayList<DEF>>();
+		fullDotNameMap 	= new TreeMap<DotName, DEF>();
+		nameAndTypeMap 	= new TreeMap<DotName, ArrayList<DEF>>();
+		setName 		= null;
+		className		= null;
+		globalSet		= null;
+		isGlobalSet		= false;
+	}
+	
+	/**
+	 * Constructs a new global definition set. This type of set doesn't have a class
+	 * name and is used to store a global mapping of definitions of all types.
+	 * This form of the constructor also allows you to give the definition a name
+	 * that can be useful for debugging purposes.
+	 * @param sn the set name - so that we can see the name of this set when debugging
+	 */
+	public DmcDefinitionSet(String sn){
+		nameMap 		= new TreeMap<DefinitionName, ArrayList<DEF>>();
+		fullDotNameMap 	= new TreeMap<DotName, DEF>();
+		nameAndTypeMap 	= new TreeMap<DotName, ArrayList<DEF>>();
+		setName 		= sn;
+		className		= null;
+		globalSet		= null;
+		isGlobalSet		= true;
 	}
 	
 	/**
 	 * Constructs a new definition set.
-	 * @param sn the set name - so that we can see the name of this set when debugging
+	 * @param cn the name of the class of definition being stored in this definition set
+	 * @param gs the global definition set
 	 */
-	public DmcDefinitionSet(String sn){
-		nameMap = new TreeMap<DefinitionName, ArrayList<DEF>>();
-		fullDotNameMap = new TreeMap<DotName, DEF>();
-		nameAndTypeMap = new TreeMap<DotName, ArrayList<DEF>>();
-		setName = sn;
+	public DmcDefinitionSet(String cn, DmcDefinitionSet<DSDefinition> gs){
+		nameMap 		= new TreeMap<DefinitionName, ArrayList<DEF>>();
+		fullDotNameMap 	= new TreeMap<DotName, DEF>();
+		nameAndTypeMap 	= new TreeMap<DotName, ArrayList<DEF>>();
+		setName 		= cn;
+		className		= cn;
+		globalSet		= gs;
+		isGlobalSet		= false;
 	}
 	
 	static public void debug(boolean f){
@@ -63,24 +109,46 @@ public class DmcDefinitionSet<DEF extends DmcDefinitionIF> {
 	}
 	
 	/**
-	 * Adds the specified definition. If the dotname of the definition already exists, an IllegalState
-	 * exception is thrown.
-	 * @param def the definition to be added.
+	 * This method is used to add definitions to the nameAndType map.
+	 * @param def
+	 * @param nameAndTypeName
 	 */
-	public void add(DEF def){
-		ArrayList<DEF> existingNameSet = nameMap.get(def.getName());
-		ArrayList<DEF> existingNameAndTypeSet = null;
-		
-		// This is a hack for now - we need to get the nameAndTypeNames in the meta schema
-		if (def.getNameAndTypeName() != null)
-			nameAndTypeMap.get(def.getNameAndTypeName());
-		
+	void addByNameAndType(DEF def, DotName nameAndTypeName){
 		if (debug){
 			if (setName == null)
-				DebugInfo.debug(def.getName() + "    " + def.getDotName().getNameString());
+				DebugInfo.debug(" : " + nameAndTypeName);
 			else
-				DebugInfo.debug(" to definition set: " + setName + "    " + def.getName() + "    " + def.getDotName().getNameString());
+				DebugInfo.debug(" - " + setName + " : " + nameAndTypeName);
 		}
+		ArrayList<DEF> existingNameAndTypeSet = nameAndTypeMap.get(nameAndTypeName);
+		
+		if (existingNameAndTypeSet == null){
+			existingNameAndTypeSet = new ArrayList<DEF>(1);
+			nameAndTypeMap.put(nameAndTypeName, existingNameAndTypeSet);
+		}
+		else{
+			if (debug){
+				if (setName == null)
+					DebugInfo.debug("NAME-TYPE CLASH: " + nameAndTypeName);
+				else
+					DebugInfo.debug("NAME-TYPE CLASH - " + setName + "    : " + nameAndTypeName);
+			}
+		}
+		existingNameAndTypeSet.add(def);
+	}
+	
+	/**
+	 * This method is used to add definitions to the nameMap.
+	 * @param def
+	 */
+	void addByName(DEF def){
+		if (debug){
+			if (setName == null)
+				DebugInfo.debug(" : " + def.getName());
+			else
+				DebugInfo.debug(" - " + setName + " : " + def.getName());
+		}
+		ArrayList<DEF> existingNameSet = nameMap.get(def.getName());
 		
 		if (existingNameSet == null){
 			existingNameSet = new ArrayList<DEF>(1);
@@ -89,37 +157,79 @@ public class DmcDefinitionSet<DEF extends DmcDefinitionIF> {
 		else{
 			if (debug){
 				if (setName == null)
-					DebugInfo.debug("CLASHING: " + def.getName());
+					DebugInfo.debug("NAMEMAP CLASH: " + def.getName());
 				else
-					DebugInfo.debug("CLASHING in definition set: " + setName + "    : " + def.getName());
+					DebugInfo.debug("NAMEMAP CLASH - " + setName + "    : " + def.getName());
 			}
 		}
 		existingNameSet.add(def);
+	}
+	
+	/**
+	 * This method is called on a global set to add an alias for a definition in the
+	 * case of derived definition types. 
+	 * @param def the definition.
+	 * @param fullName the definition's fully qualified name.
+	 * @param nameAndTypeName the definition's name and type name.
+	 */
+	void addGlobal(DEF def, DotName fullName, DotName nameAndTypeName){
+		if (!isGlobalSet)
+			throw(new IllegalStateException(""));
 		
-		if (def.getNameAndTypeName() != null){
-			if (existingNameAndTypeSet == null){
-				existingNameAndTypeSet = new ArrayList<DEF>(1);
-				nameAndTypeMap.put(def.getNameAndTypeName(), existingNameAndTypeSet);
+		if (debug){
+			if (setName == null)
+				DebugInfo.debug(" : " + fullName);
+			else
+				DebugInfo.debug(" - " + setName + " : " + fullName);
+		}
+//		addByName(def);
+		addByNameAndType(def, nameAndTypeName);
+		addByFullName(def, fullName);
+	}
+	
+	void addByFullName(DEF def, DotName fullName){
+		if (debug){
+			if (setName == null)
+				DebugInfo.debug(" : " + fullName);
+			else
+				DebugInfo.debug(" - " + setName + " : " + fullName);
+		}
+		if (fullDotNameMap.get(fullName) != null){
+			throw(new IllegalStateException("Clashing fully qualified name: " + fullName + " - in definition set: " + setName + " - For definition: \n\n" + def.toOIF()));
+		}
+		fullDotNameMap.put(fullName, def);			
+	}
+	
+	/**
+	 * Adds the specified definition. If the dotname of the definition already exists, an IllegalState
+	 * exception is thrown.
+	 * @param def the definition to be added.
+	 */
+	public void add(DEF def){
+		try {
+			if (className == null){
+				// TODO: This is here for backwards compatibility with the original usage of definition sets in the SchemaManager - eventually, this will be removed
+				DotName nameAndTypeName = new DotName(def.getName()+ "." + def.getConstructionClassName());
+				addByName(def);
+				addByNameAndType(def, nameAndTypeName);
+				addByFullName(def, def.getDotName());
 			}
 			else{
-				if (debug){
-					if (setName == null)
-						DebugInfo.debug("CLASHING: " + def.getNameAndTypeName());
-					else
-						DebugInfo.debug("CLASHING in definition set: " + setName + "    : " + def.getNameAndTypeName());
-				}
+				DotName nameAndTypeName = new DotName(def.getName()+ "." + className);
+				DotName fullName = new DotName(def.getNameOfModuleWhereThisCameFrom()+ "." + def.getName() + "." + className);
+				
+				addByName(def);
+				addByNameAndType(def,nameAndTypeName);
+				addByFullName(def, fullName);
+				
+				if (globalSet != null)
+					globalSet.addGlobal(def, fullName, nameAndTypeName);
 			}
-			existingNameAndTypeSet.add(def);
+		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
-		
-		if (def.getName().getNameString().length() > longestName)
-			longestName = def.getName().getNameString().length();
-		
-		DEF existingDot = fullDotNameMap.get(def.getDotName());
-		if (existingDot != null)
-			throw(new IllegalStateException("The dotname of these definitions clash: \n" + existingDot.toOIF() + "\n\n" + def.toOIF()));
-		fullDotNameMap.put(def.getDotName(), def);
 	}
 	
 	/**

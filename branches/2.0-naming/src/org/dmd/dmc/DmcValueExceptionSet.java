@@ -56,7 +56,7 @@ public class DmcValueExceptionSet extends Exception {
 	public String toString(){
         StringBuffer sb = new StringBuffer();
         for(DmcValueException ex : exceptions)
-        	sb.append(ex.getLocalizedMessage() + "\n");
+        	sb.append(ex.toString() + "\n");
         return(sb.toString());
 	}
 	

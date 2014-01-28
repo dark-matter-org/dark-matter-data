@@ -121,6 +121,7 @@ public class DsdCSchemaAG extends SchemaDefinition {
             _CConceptBaseOBJ.setDmwIteratorImport("org.dmd.dmt.dsd.dsdc.server.generated.dmw.CConceptBaseIterableDMW");
             _CConceptBaseOBJ.setPartOfDefinitionModule("dsdC.ModuleC");
             _CConceptBaseOBJ.setDotName("dsdC.CConceptBase.ClassDefinition");
+            _CConceptBaseOBJ.setNameAndTypeName("CConceptBase.ClassDefinition");
             _CConceptBase.setDefinedIn(this);
             addClassDefList(_CConceptBase);
 
@@ -141,6 +142,7 @@ public class DsdCSchemaAG extends SchemaDefinition {
             _CConceptXOBJ.setDmwIteratorImport("org.dmd.dmt.dsd.dsdc.server.generated.dmw.CConceptXIterableDMW");
             _CConceptXOBJ.setPartOfDefinitionModule("dsdC.ModuleC");
             _CConceptXOBJ.setDotName("dsdC.CConceptX.ClassDefinition");
+            _CConceptXOBJ.setNameAndTypeName("CConceptX.ClassDefinition");
             _CConceptX.setDefinedIn(this);
             addClassDefList(_CConceptX);
 
@@ -168,6 +170,7 @@ public class DsdCSchemaAG extends SchemaDefinition {
             _ModuleCOBJ.setDsdModuleDefinition("dsdC.ModuleC");
             _ModuleCOBJ.setPartOfDefinitionModule("dsdC.ModuleC");
             _ModuleCOBJ.setDotName("dsdC.ModuleC.ClassDefinition");
+            _ModuleCOBJ.setNameAndTypeName("ModuleC.ClassDefinition");
             _ModuleC.setDefinedIn(this);
             addClassDefList(_ModuleC);
 
@@ -181,6 +184,7 @@ public class DsdCSchemaAG extends SchemaDefinition {
             _dependsOnModuleCOBJ.setName("dependsOnModuleC");
             _dependsOnModuleCOBJ.setDmdID("-500149");
             _dependsOnModuleCOBJ.addDescription("Indicates the ModuleC on which something depends.");
+            _dependsOnModuleCOBJ.setNameAndTypeName("dependsOnModuleC.AttributeDefinition");
             _dependsOnModuleCOBJ.setValueType("MULTI");
             _dependsOnModuleCOBJ.setDotName("dsdC.dependsOnModuleC.AttributeDefinition");
             _dependsOnModuleC.setDefinedIn(this);
@@ -195,6 +199,7 @@ public class DsdCSchemaAG extends SchemaDefinition {
             _definedInModuleCOBJ.setName("definedInModuleC");
             _definedInModuleCOBJ.setDmdID("-500148");
             _definedInModuleCOBJ.addDescription("Indicates the name of the ModuleC in which a definition is defined.");
+            _definedInModuleCOBJ.setNameAndTypeName("definedInModuleC.AttributeDefinition");
             _definedInModuleCOBJ.setDotName("dsdC.definedInModuleC.AttributeDefinition");
             _definedInModuleC.setDefinedIn(this);
             _definedInModuleCOBJ.setFile("/src/org/dmd/dmt/dsd/dsdc/shared/dmdconfig/attributes.dmd");
@@ -238,8 +243,9 @@ public class DsdCSchemaAG extends SchemaDefinition {
             _ModuleCDSDOBJ.addRefersToDefsFromDSD("dsdB.ModuleB");
             _ModuleCDSDOBJ.setModuleDependenceAttribute("dsdC.dependsOnModuleC");
             _ModuleCDSDOBJ.setFile("/src/org/dmd/dmt/dsd/dsdc/shared/dmdconfig/module.dmd");
-            _ModuleCDSDOBJ.setBaseDefinition("dsdC.CConceptBase");
             _ModuleCDSDOBJ.setLineNumber("11");
+            _ModuleCDSDOBJ.setBaseDefinition("dsdC.CConceptBase");
+            _ModuleCDSDOBJ.setNameAndTypeName("ModuleC.DSDefinitionModule");
             _ModuleCDSD.setDefinedIn(this);
             addDsdModuleList(_ModuleCDSD);
 
