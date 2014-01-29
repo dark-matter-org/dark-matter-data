@@ -1720,6 +1720,7 @@ abstract public class DmcObject implements Serializable {
 						
 						if (obj == null){
 							DmcValueException ex = new DmcValueException("Could not resolve reference to: " + ref.getObjectName() + " via attribute: " + attr.getName());
+							ex.addMoreInfo(this.toOIF());
 							if (errors == null)
 								errors = new DmcValueExceptionSet();
 							errors.add(ex);

@@ -844,7 +844,7 @@ public class DSDArtifactFormatter {
 		}
 		
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-		out.write("    public void generateForConfig(String configName) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException, DmcValueExceptionSet {\n");
+		out.write("    public void generateForConfig(String configName) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException, DmcValueExceptionSet, IOException {\n");
 		out.write("        ConfigVersion version = finderFor" + ddm.getName() + ".getConfig(configName);\n");
 		out.write("        \n");
 		out.write("        if (version == null){\n");
@@ -870,7 +870,7 @@ public class DSDArtifactFormatter {
 		out.write("    }\n\n");
 
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-		out.write("    public void generateForAllConfigs() throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {\n");
+		out.write("    public void generateForAllConfigs() throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException, DmcValueExceptionSet, IOException {\n");
 		out.write("        " + ddm.getName() + " loaded = null;\n");
 		out.write("        " + ddm.getName() + "Info loadedInfo = null;\n");
 		out.write("\n");
@@ -895,6 +895,8 @@ public class DSDArtifactFormatter {
 		out.write("            }\n");
 		out.write("\n");
 		out.write("            generator.parsingComplete(loaded, location, definitions);\n");
+		out.write("\n");
+		out.write("            definitions.resolveReferences();\n");
 		out.write("\n");
 		out.write("            if (!location.isFromJAR())\n");
 		out.write("                generator.generate(loaded,location,definitions);\n");
@@ -1121,6 +1123,7 @@ public class DSDArtifactFormatter {
 		ClassDefinition ddmClass = sm.isClass(ddm.getName().getNameString());
 		imports.addImport(ddmClass.getDmeImport(), "The base module for generation");
 
+		imports.addImport("java.io.IOException", "May occur during artifact generation");
 		imports.addImport("org.dmd.util.parsing.ConfigLocation", "Where the config was loaded from");
 		imports.addImport("org.dmd.util.exceptions.ResultException", "For problems found after parsing");
 		imports.addImport(ddm.getDefinitionManagerImport(), "All parsed definition");
@@ -1146,7 +1149,7 @@ public class DSDArtifactFormatter {
 		out.write("     * @param location where the module was found\n");
 		out.write("     * @param definitions the current set of definitions\n");
 		out.write("     */\n");
-		out.write("    public void generate(" + ddm.getName() + " module, ConfigLocation location, " + ddm.getName() + "DefinitionManager definitions);\n");
+		out.write("    public void generate(" + ddm.getName() + " module, ConfigLocation location, " + ddm.getName() + "DefinitionManager definitions) throws IOException;\n");
 		out.write("\n");
 		out.write("    /**\n");
 		out.write("     * Called if the help flag is found anywhere on the commandline.\n");

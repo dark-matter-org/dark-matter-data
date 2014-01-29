@@ -157,8 +157,8 @@ public class ModuleCParser implements DsdParserInterface, DmcUncheckedOIFHandler
                 definition.setDotName(module.getName() + "." + definition.getConstructionClassName());
                 definition.setNameAndTypeName(module.getName() + "." + definition.getConstructionClassName());
             
-                definitions.addModuleC(module);
                 module.setDefinedInModuleC(module);
+                definitions.addModuleC(module);
             }
             else{
                 ResultException ex = new ResultException("Expecting a ModuleC module definition");

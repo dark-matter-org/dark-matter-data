@@ -16,14 +16,15 @@
 package org.dmd.dmt.dsd.dsdb.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1128)
-import org.dmd.dmt.dsd.dsdb.server.extended.ModuleB;                               // The base module for generation - (DSDArtifactFormatter.java:1122)
-import org.dmd.dmt.dsd.dsdb.server.generated.dsd.ModuleBDefinitionManager;         // All parsed definition - (DSDArtifactFormatter.java:1126)
-import org.dmd.util.exceptions.ResultException;                                    // For problems found after parsing - (DSDArtifactFormatter.java:1125)
-import org.dmd.util.parsing.ConfigLocation;                                        // Where the config was loaded from - (DSDArtifactFormatter.java:1124)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1131)
+import java.io.IOException;                                                        // May occur during artifact generation - (DSDArtifactFormatter.java:1126)
+import org.dmd.dmt.dsd.dsdb.server.extended.ModuleB;                               // The base module for generation - (DSDArtifactFormatter.java:1124)
+import org.dmd.dmt.dsd.dsdb.server.generated.dsd.ModuleBDefinitionManager;         // All parsed definition - (DSDArtifactFormatter.java:1129)
+import org.dmd.util.exceptions.ResultException;                                    // For problems found after parsing - (DSDArtifactFormatter.java:1128)
+import org.dmd.util.parsing.ConfigLocation;                                        // Where the config was loaded from - (DSDArtifactFormatter.java:1127)
 
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1130)
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1133)
 public interface ModuleBGeneratorInterface {
 
     /**
@@ -42,7 +43,7 @@ public interface ModuleBGeneratorInterface {
      * @param location where the module was found
      * @param definitions the current set of definitions
      */
-    public void generate(ModuleB module, ConfigLocation location, ModuleBDefinitionManager definitions);
+    public void generate(ModuleB module, ConfigLocation location, ModuleBDefinitionManager definitions) throws IOException;
 
     /**
      * Called if the help flag is found anywhere on the commandline.
