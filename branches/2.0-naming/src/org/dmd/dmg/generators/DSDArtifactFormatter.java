@@ -643,7 +643,7 @@ public class DSDArtifactFormatter {
 	
 	void writeLoadSchemasFunction(ManagedFileWriter out, DSDefinitionModule ddm) throws IOException {
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-		out.write("    void loadSchemas(GpbModule module) throws ResultException {\n");
+		out.write("    void loadSchemas(" + ddm.getName() + " module) throws ResultException {\n");
 		out.write("    	   Class<?> schemaClass = null;\n");
 		out.write("    	   SchemaDefinition sd	= null;\n");
 		out.write("    	   Iterator<String> it = module.getDMO().getLoadSchemaClass();\n");
