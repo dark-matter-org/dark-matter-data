@@ -5,9 +5,29 @@ import java.util.ArrayList;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.IntegerVar;
 
+/**
+ * The ComplexTypeSplitter is used to parse a micro-grammar in support of specifying complex type
+ * values. It allows for brevity in specifying values and also handles optional values via a
+ * name/value pair mechanism.
+ * <p/>
+ * In a complex type, you may have 3 value that always have to be specified and various optional
+ * parts. For example:
+ * <br/>
+ * name type id comment="various things" version=1.2.3.4
+ * <br/>
+ * The micro grammar doesn't know anything about what's required or optional (that's handled
+ * in higher level code), but for the input above, it will create a set of name/value pairs
+ * 
+ */
 public class ComplexTypeSplitter {
+	
+	static public boolean debug = false;
 
 	static public ArrayList<NameValuePair> parse(String initialInput) throws DmcValueException {
+		return(parse(initialInput,' '));
+	}
+
+	static public ArrayList<NameValuePair> parse(String initialInput, char separator) throws DmcValueException {
         if (initialInput == null){
         	throw(new DmcValueException("No content to parse!"));
         }
@@ -35,9 +55,18 @@ public class ComplexTypeSplitter {
         	}
 			else{
 				position.set(i);
-				rc.add(parsePart(input,position));
+				if ( (nvp = parsePart(input,position,separator)) != null)
+					rc.add(nvp);
         		i = position.intValue();
 			}
+        	
+        	if ( (i+1) == input.length()){
+        		// A funny edge condition, if we finish up with the last character being a separator,
+        		// it means that someone meant to have another value (after the separator) so we'l'
+        		// create the empty value
+        		if (input.charAt(i) == separator)
+        			rc.add(new NameValuePair());
+        	}
         }
 		
 		return(rc);
@@ -46,12 +75,21 @@ public class ComplexTypeSplitter {
 	static private NameValuePair parseQuotedText(String input, String namePart, IntegerVar position) throws DmcValueException {
 		NameValuePair rc = null;
 		
+		if (debug)
+			System.out.println("    -> parseQuoted i = " + position);
+		
 		if ((position.intValue() + 1) == input.length())
 			throw(new DmcValueException("Unmatched \"" + showErrorLocation(position.intValue()+1, input)));
 		
 		for(int i=position.intValue() + 1; i<input.length(); i++){
 			if (input.charAt(i) == '"'){
-				rc = new NameValuePair(namePart, input.substring(position.intValue() + 1, i));
+				String quotedPart = input.substring(position.intValue() + 1, i);
+				
+				// It's possible that we have nothing in the quotes, in which case the value would be null
+				if (quotedPart.length() == 0)
+					quotedPart = null;
+				
+				rc = new NameValuePair(namePart, quotedPart);
 				position.set(i);
 				break;
 			}
@@ -59,6 +97,9 @@ public class ComplexTypeSplitter {
 		
 		if (rc == null)
 			throw(new DmcValueException("Unmatched \"" + showErrorLocation(input.length(), input)));
+		
+		if (debug)
+			System.out.println("    <- parseQuoted = " + position + "  - '" + input.charAt(position.intValue()) + "'");
 		
 		return(rc);
 	}
@@ -75,18 +116,24 @@ public class ComplexTypeSplitter {
 	 * @return
 	 * @throws DmcValueException  
 	 */
-	static private NameValuePair parsePart(String input, IntegerVar position) throws DmcValueException {
+	static private NameValuePair parsePart(String input, IntegerVar position, char separator) throws DmcValueException {
 		NameValuePair 	rc				= null;
 		String 			namePart		= null;
 		boolean			haveEquals		= false;
 		int 			afterEqualsPos	= -1;
 		int 			startPos		= position.intValue();
 		
+		if (debug)
+			System.out.println("-> parsePart i = " + startPos);
+		
 		for(int i=startPos; i<input.length(); i++){
+			if (debug)
+				System.out.println("    i = " + i + "  - '" + input.charAt(i) + "'");
+			
 			if (input.charAt(i) == '"'){
 				if (namePart == null){
 					// We have something like - hey" - which is wrong
-					throw(new DmcValueException("Misplaced double quote, expecting part of a name or an equals sign." + showErrorLocation(i, input)));
+					throw(new DmcValueException("Misplaced double quote (or missing double quote), expecting part of a name or an equals sign." + showErrorLocation(i, input)));
 				}
 				else if (!haveEquals){
 					throw(new DmcValueException("Missing = for value assignment." + showErrorLocation(i, input)));
@@ -102,10 +149,48 @@ public class ComplexTypeSplitter {
 				afterEqualsPos = i+1;
 				namePart = input.substring(startPos, i);
 			}
-			else if (input.charAt(i) == ' '){
-				if (namePart == null){
-					// Okay, all we have is a single space delimited token, so that's a value - we're done
+			else if (input.charAt(i) == separator){
+				if (i == startPos){
+					if (debug)
+						System.out.println("    SEPARATOR AT START");
+					// Tricky - we could be in a situation where we had a quoted chunk followed 
+					// by a separator e.g. n="value" x="blort"
+					//                              ^
+					// Or we could be in a situation where we have value::value in which case,
+					//                                                   ^
+					// we have an empty value location. So we have to look back and see what the previous
+					// character was.
+					if (i == 0){
+						// It's the first character, it's a separator, so there's an empty value at the beginning
+						rc = new NameValuePair();
+						break;
+					}
+					else{
+						if (input.charAt(i-1) == separator){
+							// We have the separator followed by separator, which also means an empty value
+							rc = new NameValuePair();
+							break;
+						}
+						else{
+							// We just need to advance - let the top level loop take care of it
+							if (debug)
+								System.out.println("<- parsePart = " + position + "  - '" + input.charAt(position.intValue()) + "'  NULL");
+							return(null);
+						}
+					}
+				}
+				else if (namePart == null){
+					// Okay, all we have is a single separator delimited token, so that's a value - we're done
 					namePart = input.substring(startPos, i);
+					
+					// Now, it could be that we're using some character other than space as a separator, so we could
+					// have something like value1::value2:value3 - in which case the name part will be a zero length
+					// String. In that case, we'll actually set the value to null so that we can recognize a non existent
+					// value.
+					
+					if (namePart.length() == 0)
+						namePart = null;
+					
 					rc = new NameValuePair(namePart);
 					position.set(i);
 					break;
@@ -148,6 +233,13 @@ public class ComplexTypeSplitter {
 					}
 				}
 			}
+		}
+		
+		if (debug){
+			if (position.intValue() < input.length())
+				System.out.println("<- parsePart = " + position + "  - '" + input.charAt(position.intValue()) + "'");
+			else
+				System.out.println("<- parsePart = " + position + "  - <EOL>");
 		}
 
 		return(rc);

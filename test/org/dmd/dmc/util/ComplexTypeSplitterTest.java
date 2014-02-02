@@ -78,6 +78,22 @@ public class ComplexTypeSplitterTest {
 			System.out.println("Expected exception:\n\n" + ex.toString());
 		}
 		
+		try{
+			rc = ComplexTypeSplitter.parse("Integer tag version=1.1.2.3 comment=\"this is cool!");
+			assertEquals("Expected exception", true, false);
+		}
+		catch(DmcValueException ex){
+			System.out.println("Expected exception:\n\n" + ex.toString());
+		}
+		
+		try{
+			rc = ComplexTypeSplitter.parse("Integer tag version=1.1.2.3 comment=\"this is cool! obsolete=\"2.0.1.1\"");
+			assertEquals("Expected exception", true, false);
+		}
+		catch(DmcValueException ex){
+			System.out.println("Expected exception:\n\n" + ex.toString());
+		}
+		
 		rc = ComplexTypeSplitter.parse("Integer tag version=1.1.2.3 comment=\"this is cool!\"");
 		
 		assertEquals("Should be 4 values", 4, rc.size());
@@ -88,7 +104,69 @@ public class ComplexTypeSplitterTest {
 		assertEquals("Fourth value name should be comment", "comment", rc.get(3).name);
 		assertEquals("Fourth value should be \"this is cool!\"", "this is cool!", rc.get(3).value);
 		
+		rc = ComplexTypeSplitter.parse("Integer tag version=1.1.2.3 comment=\"\"");
 		
+		assertEquals("Should be 4 values", 4, rc.size());
+		assertEquals("First value should be Integer", "Integer", rc.get(0).value);
+		assertEquals("Second value should be tag", "tag", rc.get(1).value);
+		assertEquals("Third value name should be version", "version", rc.get(2).name);
+		assertEquals("Third value should be 1.1.2.3", "1.1.2.3", rc.get(2).value);
+		assertEquals("Fourth value name should be comment", "comment", rc.get(3).name);
+		assertEquals("Fourth value should be null", null, rc.get(3).value);
+		
+		rc = ComplexTypeSplitter.parse("   Integer tag version=1.1.2.3 	\t	comment=\"this 	is cool!\"");
+		
+		assertEquals("Should be 4 values", 4, rc.size());
+		assertEquals("First value should be Integer", "Integer", rc.get(0).value);
+		assertEquals("Second value should be tag", "tag", rc.get(1).value);
+		assertEquals("Third value name should be version", "version", rc.get(2).name);
+		assertEquals("Third value should be 1.1.2.3", "1.1.2.3", rc.get(2).value);
+		assertEquals("Fourth value name should be comment", "comment", rc.get(3).name);
+		assertEquals("Fourth value should be \"this is cool!\"", "this is cool!", rc.get(3).value);
+		
+		// OK
+		rc = ComplexTypeSplitter.parse("Integer:tag:version=1.1.2.3:comment=\"this is cool!\"",':');
+		
+		assertEquals("Should be 4 values", 4, rc.size());
+		assertEquals("First value should be Integer", "Integer", rc.get(0).value);
+		assertEquals("Second value should be tag", "tag", rc.get(1).value);
+		assertEquals("Third value name should be version", "version", rc.get(2).name);
+		assertEquals("Third value should be 1.1.2.3", "1.1.2.3", rc.get(2).value);
+		assertEquals("Fourth value name should be comment", "comment", rc.get(3).name);
+		assertEquals("Fourth value should be \"this is cool!\"", "this is cool!", rc.get(3).value);
+
+//		ComplexTypeSplitter.debug=true;
+		//OK
+		rc = ComplexTypeSplitter.parse("Integer::version=1.1.2.3:comment=\"this is cool!\"",':');
+		assertEquals("Should be 4 values", 4, rc.size());
+		assertEquals("First value should be Integer", "Integer", rc.get(0).value);
+		assertEquals("Second value should be null", null, rc.get(1).value);
+		assertEquals("Third value name should be version", "version", rc.get(2).name);
+		assertEquals("Third value should be 1.1.2.3", "1.1.2.3", rc.get(2).value);
+		assertEquals("Fourth value name should be comment", "comment", rc.get(3).name);
+		assertEquals("Fourth value should be \"this is cool!\"", "this is cool!", rc.get(3).value);
+		
+//		ComplexTypeSplitter.debug=true;
+		
+		rc = ComplexTypeSplitter.parse("name type id comment=\"various things\" version=1.2.3.4");
+		for(NameValuePair nvp: rc){
+			System.out.println(nvp.toString());
+		}
+		assertEquals("Should be 5 values", 5, rc.size());
+		
+		rc = ComplexTypeSplitter.parse("v1::v3",':');
+		assertEquals("Should be 3 values", 3, rc.size());
+		for(NameValuePair nvp: rc){
+			System.out.println(nvp.toString());
+		}
+		
+//		ComplexTypeSplitter.debug=true;
+
+		rc = ComplexTypeSplitter.parse("::",':');
+		assertEquals("Should be 3 values", 3, rc.size());
+		for(NameValuePair nvp: rc){
+			System.out.println(nvp.toString());
+		}
 	}
 
 }
