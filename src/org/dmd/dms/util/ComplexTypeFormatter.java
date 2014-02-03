@@ -34,11 +34,7 @@ public class ComplexTypeFormatter {
     		fieldSeparator = " ";
     	}
     	
-    	
-//        BufferedWriter out = new BufferedWriter(new FileWriter(od + "/" + ctn + ".java"));
         BufferedWriter out = FileUpdateManager.instance().getWriter(od, ctn + ".java");
-        
-//DebugInfo.debug("Generating: " + od + File.separator + ctn + ".java");
         
         fields = ctd.getField();
         
@@ -86,22 +82,11 @@ public class ComplexTypeFormatter {
     		imports.addImport("org.dmd.dmc.DmcNameClashResolverIF", "To support possible clashing object references");
     		imports.addImport("org.dmd.dmc.DmcObject", "To support possible clashing object references");
     		imports.addImport("org.dmd.dmc.DmcValueExceptionSet", "To support possible clashing object references");
-
-//    		out.write("import org.dmd.dmc.DmcNameResolverIF;\n");
-//          	out.write("import org.dmd.dmc.DmcNamedObjectIF;\n");
-//          	out.write("import org.dmd.dmc.DmcNamedObjectREF;\n");
-//          	out.write("import org.dmd.dmc.DmcContainerIF;\n");
         }
 
-//        out.write("import org.dmd.dmc.DmcAttribute;\n");
-//        out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
-        
 		imports.addImport("org.dmd.dmc.DmcValueException", "Standard value exception");
 
-//        out.write("import org.dmd.dmc.DmcValueException;\n\n");
-        
 		getComplexTypeImports(ctd, imports);
-//        out.write(getComplexTypeImports(ctd));
 		
 		out.write(imports.getFormattedImports() + "\n\n");
         
@@ -159,6 +144,7 @@ public class ComplexTypeFormatter {
         }
         
         out.write(") throws DmcValueException {\n");
+        
         fnum = 1;
         fields = ctd.getField();
         while(fields.hasNext()){
@@ -211,7 +197,6 @@ public class ComplexTypeFormatter {
 	            else
 	        		out.write("        if ((rc = getNextField(input,seppos,\"" + field.getName() + "\","  + fnum + ",false)) != null)\n");
 	        	
-//        		out.write("        if (rc != null)\n");
         		out.write("            " + field.getName() + " = DmcType" + field.getType().getObjectName() + REF + "STATIC.instance.typeCheck(rc);\n");
         		
         	}
@@ -465,16 +450,12 @@ public class ComplexTypeFormatter {
     			out.write("    	   int start = seppos.intValue();\n");
     			out.write("   	   \n");
     			out.write("    	   if (last){\n");
-//    			out.write("            if ( (start+1) >= input.length())\n");
-//    			out.write("                rc = \"\";\n");
     			out.write("            if ( (start+1) >= input.length())\n");
     			out.write("                rc = null;\n");
     			out.write("            else\n");
     			out.write("                rc = input.substring(start+1);\n");
     			out.write(" 	   }\n");
     			out.write("	       else{\n");
-//    			out.write("    	       if ( (start+1) >= input.length())\n");
-//    			out.write("        		   throw (new DmcValueException(\"Missing value for field: \" + fn + \" in complex type: RuleParam\"));\n");
     	    	out.write("    	       if ( (start+1) >= input.length()){\n");
     	    	out.write("                if (fnum > mandatoryFields)\n");
     	    	out.write("                    return(null);\n");
@@ -496,8 +477,6 @@ public class ComplexTypeFormatter {
     			out.write("	        	   return(\"\");\n");
     			out.write("	           }\n");
     			out.write("	       \n");
-//    			out.write("	           if (pos == -1)\n");
-//    			out.write("		           throw (new DmcValueException(\"Missing value for field: \" + fn + \" in complex type: RuleParam\"));\n");
     	    	out.write("    	       if (pos == -1){\n");
     	    	out.write("                rc = input.substring(start+1);\n");
     	    	out.write("                seppos.set(input.length());\n");
@@ -552,15 +531,10 @@ public class ComplexTypeFormatter {
 
     
     static void getComplexTypeImports(ComplexTypeDefinition ctd, ImportManager imports) throws ResultException{
-//    	StringBuffer sb = new StringBuffer();
     	Iterator<Field>	fields = ctd.getField();
-    	// Key:   import
-    	// Value: comment
-//    	TreeMap<String,String>	uniqueImports = new TreeMap<String, String>();
     	
     	while(fields.hasNext()){
     		Field field = fields.next();
-//    		DebugInfo.debug("field type = " + field.getType().getObjectName());
     		
         	TypeDefinition	type = (TypeDefinition) field.getType().getObject().getContainer();
         	
@@ -568,42 +542,24 @@ public class ComplexTypeFormatter {
         	
         	if (type.getInternallyGenerated()){
         		if (type.getIsEnumType()){
-//        			System.out.println(type);
-//        			DebugInfo.debug("Need enum code");
-//        			System.exit(1);
         		}
         		else{
-//        			System.out.println("ORIGINAL CLASS:\n" + type.getOriginalClass());
-        			
-//        			imports.addImport(type.getOriginalClass().getJavaClass(), "Object reference");
         			imports.addImport(type.getOriginalClass().getDmtREFImport(), "Object reference");
-        			
-//        			uniqueImports.put(type.getOriginalClass().getJavaClass(), "Object reference");
-//        			uniqueImports.put(type.getOriginalClass().getDmtREFImport(), "Object reference");
-        			
-        			
-//        			DebugInfo.debug("Need object reference code");
-//        			System.exit(1);
         		}
         	}
         	
-//        	DebugInfo.debug("\n" + type.toOIF());
-        	
         	if (primitiveType == null){
-//    			DebugInfo.debug("Couldn't get primitive type");
-//    			System.exit(1);
         	}
         	else{
         		if (!type.getIsRefType())
         			imports.addImport(primitiveType, "Primitive type");
-//        			uniqueImports.put(primitiveType, "Primitive type");
         	}
         	
         	if (type.getTypeClassName() != null){
         		String sp = type.getDefinedIn().getSchemaPackage();
         		String imp = null;
         		String comment = "";
-//        		String imp = sp + ".generated.types.DmcType" + type.getName() + "STATIC";
+
         		if (type.getInternallyGenerated()){
         			imp = type.getTypeClassName() + "STATIC";
         			comment = "Internally generated type";
@@ -614,27 +570,10 @@ public class ComplexTypeFormatter {
         		}
         		
     			imports.addImport(imp, comment);
-//        		uniqueImports.put(imp,comment);
         	}
         	
     	}
     	
-//    	int longest = 0;
-//    	for(String importStr: uniqueImports.keySet()){
-//    		if (importStr.length() > longest)
-//    			longest = importStr.length();
-//    	}
-//		int padding = longest+17;
-//		PrintfFormat format = new PrintfFormat("%-" + padding + "s");
-//    	
-//        for(String importStr: uniqueImports.keySet()){
-//    		String comment = uniqueImports.get(importStr);
-////    		sb.append("import " + importStr + "; // " + comment + "\n");
-//			sb.append(format.sprintf("import " + importStr + ";") + "// " + comment + "\n");
-//    	}
-//    	sb.append("\n");
-    	
-//    	return(sb.toString());
     }
     
 
