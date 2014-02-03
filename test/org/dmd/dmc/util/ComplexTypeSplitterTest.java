@@ -124,6 +124,18 @@ public class ComplexTypeSplitterTest {
 		assertEquals("Fourth value name should be comment", "comment", rc.get(3).name);
 		assertEquals("Fourth value should be \"this is cool!\"", "this is cool!", rc.get(3).value);
 		
+		// Using a mix of single tokens and quoted text
+		rc = ComplexTypeSplitter.parse("Integer tag 1.1.2.3 \"this 	is cool!\"");
+		
+		assertEquals("Should be 4 values", 4, rc.size());
+		assertEquals("First value should be Integer", "Integer", rc.get(0).value);
+		assertEquals("Second value should be tag", "tag", rc.get(1).value);
+		assertEquals("Third value should be 1.1.2.3", "1.1.2.3", rc.get(2).value);
+		assertEquals("Fourth value should be \"this is cool!\"", "this is cool!", rc.get(3).value);
+		for(NameValuePair nvp: rc){
+			System.out.println(nvp.toString());
+		}
+		
 		// OK
 		rc = ComplexTypeSplitter.parse("Integer:tag:version=1.1.2.3:comment=\"this is cool!\"",':');
 		
@@ -149,24 +161,24 @@ public class ComplexTypeSplitterTest {
 //		ComplexTypeSplitter.debug=true;
 		
 		rc = ComplexTypeSplitter.parse("name type id comment=\"various things\" version=1.2.3.4");
-		for(NameValuePair nvp: rc){
-			System.out.println(nvp.toString());
-		}
+//		for(NameValuePair nvp: rc){
+//			System.out.println(nvp.toString());
+//		}
 		assertEquals("Should be 5 values", 5, rc.size());
 		
 		rc = ComplexTypeSplitter.parse("v1::v3",':');
 		assertEquals("Should be 3 values", 3, rc.size());
-		for(NameValuePair nvp: rc){
-			System.out.println(nvp.toString());
-		}
+//		for(NameValuePair nvp: rc){
+//			System.out.println(nvp.toString());
+//		}
 		
 //		ComplexTypeSplitter.debug=true;
 
 		rc = ComplexTypeSplitter.parse("::",':');
 		assertEquals("Should be 3 values", 3, rc.size());
-		for(NameValuePair nvp: rc){
-			System.out.println(nvp.toString());
-		}
+//		for(NameValuePair nvp: rc){
+//			System.out.println(nvp.toString());
+//		}
 	}
 
 }

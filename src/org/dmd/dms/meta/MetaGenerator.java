@@ -76,7 +76,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 	private final static int META_ID_RANGE = 200;
 
-	private StringBuffer LGPL;
+	StringBuffer LGPL;
 
 	// All definitions of the metaschema
 	TreeMap<String, DmcUncheckedObject> allDefs;
@@ -505,6 +505,8 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		
 		while(names.hasNext()){
 			String 				an 			= names.next();
+if (an.equals("requiredPart"))
+	DebugInfo.debug("HERE");
 			String				anCapped	= GenUtility.capTheName(an);
 			DmcUncheckedObject	attrDef 	= attributeDefs.get(an);
 			String				valueType	= attrDef.getSV("valueType");
@@ -537,6 +539,10 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			else{
 				NamedStringArray values = obj.get(an);
 				for(String value: values){
+					if (value.indexOf("\"") != -1){
+						// We have embedded quotes, escape them
+						value = value.replaceAll("\"", "\\\\\"");
+					}
 					if (isReference)
 						out.write(prefix + dmoName + ".add" + anCapped + "(\"meta." + value + "\");\n");
 					else
@@ -548,7 +554,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	
 	///////////////////////////////////////////////////////////////////////////
 
-	void dumpComplexTypes(String typedir) throws ResultException, IOException {
+	void dumpComplexTypes(String typedir) throws ResultException, IOException, DmcValueException {
 		for (DmcUncheckedObject typedef : complexTypeDefs.values()) {
 			dumpComplexType(typedir, typedef);
 		}
@@ -3121,7 +3127,13 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 	}
 
-	void dumpComplexType(String od, DmcUncheckedObject ct) throws IOException, ResultException {
+	void dumpComplexType(String od, DmcUncheckedObject ct) throws IOException, ResultException, DmcValueException {
+		// If there are no fields, take the new approach
+		if (ct.get("field") == null){
+			MetaComplexTypeFormatter.dumpComplexType(od, ct, this);
+			return;
+		}
+		
 		String ctn = ct.getSV("name");
 		String fieldSeparator = ct.getSV("fieldSeparator");
 		boolean	whiteSpaceSeparator = false;

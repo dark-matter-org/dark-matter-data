@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcObject;
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1755)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpTypeIterables(MetaGenerator.java:687)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpTypeIterables(MetaGenerator.java:693)
  */
 public class DmcObjectIterableDMW extends DmwMVIterator<DmcObject> {
 
