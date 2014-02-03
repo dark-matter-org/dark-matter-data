@@ -299,6 +299,16 @@ description     The Field complex type is used to describe the fields of a Compl
  followed by the description.
 
 ComplexTypeDefinition
+name			Part
+// fieldSeparator - no separator, so space is used
+requiredPart	TypeDefinition	type        "The type of the Part"
+requiredPart	String			name        "The name of the Part"
+requiredPart	String			description "The description of the Part"  quoted=true
+//optionalPart	String			label 		"The label of the Part"			quoted=true
+optionalPart	Boolean			quoted 		"Indicates if the Part allows for a quoted value or if it's intended to be a single token"
+description     The Part complex type is used to describe the Parts of a ComplexTypeDefinition.
+
+ComplexTypeDefinition
 name			DmwTypeToWrapperType
 field           String          dmwType     The Dark Matter Wrapper type
 field           WrapperTypeEnum wrapperType The type of wrapper to be used in this context
@@ -1486,11 +1496,21 @@ valueType			MULTI
 internalUse			true
 description    		A list of slice definition references.
 
-// 112
+AttributeDefinition
+name             	requiredPart
+dmdID				112
+type				Part
+valueType			MULTI
+description			Indicates a required part of a complex type definition.
 
 // 113
 
-// 114
+AttributeDefinition
+name             	optionalPart
+dmdID				114
+type				Part
+valueType			MULTI
+description			Indicates an optional part of a complex type definition.
 
 AttributeDefinition
 name             	opContext
@@ -2356,6 +2376,8 @@ isDSDefinition	true
 isNamedBy       name
 must          	name
 must			field
+may				requiredPart
+may				optionalPart
 may				fieldSeparator
 may				extendedClass
 may             description

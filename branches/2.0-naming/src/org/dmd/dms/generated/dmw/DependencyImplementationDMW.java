@@ -34,7 +34,7 @@ import org.dmd.dmc.definitions.DmcDefinitionIF;
  * related DependencyImplementation,\n otherwise, we have no way to fulfill
  * the dependency. 
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1637)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1643)
  */
 @SuppressWarnings("unused")
 public class DependencyImplementationDMW extends org.dmd.dms.DmsDefinition implements DmcDefinitionIF {
@@ -80,7 +80,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.DmsDefinition imple
      * a unique name\n for an object with the set of definitions of which it is a
      * part. A name starts with a letter followed\n by letters and numbers. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2381)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2387)
     public DefinitionName getName(){
         return(mycore.getName());
     }
@@ -89,7 +89,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.DmsDefinition imple
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2454)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2460)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
@@ -97,7 +97,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.DmsDefinition imple
     /**
      * A reference to a single Dependency. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2381)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2387)
     public Dependency getDependency(){
         DmcTypeDependencyREFSV attr = (DmcTypeDependencyREFSV) mycore.get(MetaDMSAG.__dependency);
         if (attr == null)
@@ -110,7 +110,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.DmsDefinition imple
      * Sets dependency to the specified value.
      * @param value A value compatible with Dependency
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2441)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setDependency(Dependency value) throws DmcValueException {
         mycore.setDependency(value.getDmcObject());
     }
@@ -118,7 +118,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.DmsDefinition imple
     /**
      * A reference to a RunContext. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2381)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2387)
     public RunContext getRunContext(){
         DmcTypeRunContextREFSV attr = (DmcTypeRunContextREFSV) mycore.get(MetaDMSAG.__runContext);
         if (attr == null)
@@ -131,7 +131,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.DmsDefinition imple
      * Sets runContext to the specified value.
      * @param value A value compatible with RunContext
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2441)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
     public void setRunContext(RunContext value) throws DmcValueException {
         mycore.setRunContext(value.getDmcObject());
     }
@@ -139,7 +139,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.DmsDefinition imple
     /**
      * The instantiation attribute specifies how something is to be instantiated. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2381)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2387)
     public String getInstantiation(){
         return(mycore.getInstantiation());
     }
@@ -148,7 +148,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.DmsDefinition imple
      * Sets instantiation to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2454)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2460)
     public void setInstantiation(Object value) throws DmcValueException {
         mycore.setInstantiation(value);
     }
@@ -160,7 +160,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.DmsDefinition imple
      * HTML\n documentation. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2585)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2591)
     public Iterator<String> getDescription(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
         if (attr == null)
@@ -169,7 +169,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.DmsDefinition imple
         return(attr.getMV());
     }
 
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2599)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2605)
     public Iterator<String> getDescriptionWithNewlines(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
         if (attr == null)
@@ -192,7 +192,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.DmsDefinition imple
      * Adds another description value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2665)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2671)
     public void addDescription(Object value) throws DmcValueException {
         mycore.addDescription(value);
     }
@@ -200,7 +200,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.DmsDefinition imple
     /**
      * Returns the number of description values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2678)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2684)
     public int getDescriptionSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__description);
         if (attr == null)
@@ -211,7 +211,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.DmsDefinition imple
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1798)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1804)
 
     /**
      * @return The name of this object from the name attribute.
