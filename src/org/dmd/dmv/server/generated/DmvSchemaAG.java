@@ -1,20 +1,5 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2014 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
-//	---------------------------------------------------------------------------
-//	dark-matter-data
 //	Copyright (c) 2010 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
@@ -369,7 +354,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ReferencedAttributeTypeRuleDataOBJ.setInternallyGenerated("true");
             _ReferencedAttributeTypeRuleDataOBJ.setClassType("STRUCTURAL");
             _ReferencedAttributeTypeRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _ReferencedAttributeTypeRuleDataOBJ.setLineNumber("366");
+            _ReferencedAttributeTypeRuleDataOBJ.setLineNumber("374");
             _ReferencedAttributeTypeRuleDataOBJ.addDescription("The ReferencedAttributeTypeRule allowes you to restrict the type of\n an attribute referred to by an AttributeDefinition reference. Some examples include:\n <pre>\n ReferencedAttributeTypeRuleData\n ruleName          dmvNRRApplyToAttribute\n ruleTitle         The applyToAttribute attribute in a NumericRangeRuleData instance must refer to an Integer, Long, Float or Double attribute\n applyToAttribute  applyToAttribute\n applyToClass      NumericRangeRuleData\n allowedType       Integer\n allowedType       Long\n allowedType       Float\n allowedType       Double\n </pre>\n In this case, we're restricting the applyToAttribute to be a numeric type, either Integer, Long Float or Double.\n <p/>\n You can also restrict the valueType of an attribute reference, for instance:\n <pre>\n ReferencedAttributeTypeRuleData\n ruleName          dmvLhs\n ruleTitle         The lhs attribute must be a single valued Integer, Long, Float or Double\n applyToAttribute  lhs\n applyToClass      RelatedNumbersRuleData\n allowedType       Integer\n allowedType       Long\n allowedType       Float\n allowedType       Double\n allowedValueType  SINGLE\n </pre>\n Here, we're indicating that the lhs (left hand side) attribute must be single valued.");
             _ReferencedAttributeTypeRuleDataOBJ.setDerivedFrom("meta.RuleData");
             _ReferencedAttributeTypeRuleDataOBJ.setIsNamedBy("meta.ruleName");
@@ -812,7 +797,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ReferencedAttributeTypeRuleOBJ.setDotName("dmv.ReferencedAttributeTypeRule.RuleDefinition");
             _ReferencedAttributeTypeRule.setDefinedIn(this);
             _ReferencedAttributeTypeRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _ReferencedAttributeTypeRuleOBJ.setLineNumber("366");
+            _ReferencedAttributeTypeRuleOBJ.setLineNumber("374");
             addRuleDefinitionList(_ReferencedAttributeTypeRule);
 
     }

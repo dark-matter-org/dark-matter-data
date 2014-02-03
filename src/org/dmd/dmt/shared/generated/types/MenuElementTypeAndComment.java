@@ -1,16 +1,16 @@
 package org.dmd.dmt.shared.generated.types;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:106)
-import java.io.Serializable;                                    // To prevent serialization warnings - (ComplexTypeFormatter.java:70)
-import org.dmd.dmc.DmcAttributeInfo;                            // For fake DmcAttributeInfo - (ComplexTypeFormatter.java:76)
-import org.dmd.dmc.DmcInputStreamIF;                            // Standard serialization techniques - (ComplexTypeFormatter.java:71)
-import org.dmd.dmc.DmcOutputStreamIF;                           // Standard serialization techniques - (ComplexTypeFormatter.java:72)
-import org.dmd.dmc.DmcValueException;                           // Standard value exception - (ComplexTypeFormatter.java:99)
-import org.dmd.dmc.types.IntegerVar;                            // To support getNextField() - (ComplexTypeFormatter.java:73)
-import org.dmd.dms.generated.enums.DataTypeEnum;                // For fake DmcAttributeInfo - (ComplexTypeFormatter.java:74)
-import org.dmd.dms.generated.enums.ValueTypeEnum;               // For fake DmcAttributeInfo - (ComplexTypeFormatter.java:75)
-import org.dmd.dms.generated.types.DmcTypeStringSTATIC;         // Standard type - (ComplexTypeFormatter.java:616)
+// Called from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:100)
+import java.io.Serializable;                                    // To prevent serialization warnings - (ComplexTypeFormatter.java:75)
+import org.dmd.dmc.DmcAttributeInfo;                            // For fake DmcAttributeInfo - (ComplexTypeFormatter.java:81)
+import org.dmd.dmc.DmcInputStreamIF;                            // Standard serialization techniques - (ComplexTypeFormatter.java:76)
+import org.dmd.dmc.DmcOutputStreamIF;                           // Standard serialization techniques - (ComplexTypeFormatter.java:77)
+import org.dmd.dmc.DmcValueException;                           // Standard value exception - (ComplexTypeFormatter.java:96)
+import org.dmd.dmc.types.IntegerVar;                            // To support getNextField() - (ComplexTypeFormatter.java:78)
+import org.dmd.dms.generated.enums.DataTypeEnum;                // For fake DmcAttributeInfo - (ComplexTypeFormatter.java:79)
+import org.dmd.dms.generated.enums.ValueTypeEnum;               // For fake DmcAttributeInfo - (ComplexTypeFormatter.java:80)
+import org.dmd.dms.generated.types.DmcTypeStringSTATIC;         // Standard type - (ComplexTypeFormatter.java:581)
 
 
 
@@ -19,7 +19,7 @@ import org.dmd.dms.generated.types.DmcTypeStringSTATIC;         // Standard type
  * The MenuElementTypeAndComment class.
  * This code was auto-generated and shouldn't be alterred manually.
  * 
- * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:113)
+ * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:107)
  */
 public class MenuElementTypeAndComment implements Serializable {
 
@@ -49,7 +49,7 @@ public class MenuElementTypeAndComment implements Serializable {
 
     /**
      * All fields constructor.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:140)
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:134)
      */
     public MenuElementTypeAndComment(String f1, String f2) throws DmcValueException {
         type = DmcTypeStringSTATIC.instance.typeCheck(f1);
@@ -58,7 +58,7 @@ public class MenuElementTypeAndComment implements Serializable {
 
     /**
      * String based constructor.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:180)
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:175)
      */
     public MenuElementTypeAndComment(String initialInput) throws DmcValueException {
         IntegerVar seppos = new IntegerVar(-1);
@@ -69,7 +69,7 @@ public class MenuElementTypeAndComment implements Serializable {
 
     /**
      * Serialization.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:225)
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:219)
      */
     public void serializeIt(DmcOutputStreamIF dos) throws Exception {
         DmcTypeStringSTATIC.instance.serializeValue(dos, type);
@@ -78,7 +78,7 @@ public class MenuElementTypeAndComment implements Serializable {
 
     /**
      * Deserialization.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:242)
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:236)
      */
     public void deserializeIt(DmcInputStreamIF dis) throws Exception {
         type = DmcTypeStringSTATIC.instance.deserializeValue(dis);
@@ -87,7 +87,7 @@ public class MenuElementTypeAndComment implements Serializable {
 
     /**
      * String form.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:259)
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:253)
      */
     public String toString(){
         return(type.toString() + ":" + comment.toString());
@@ -101,7 +101,7 @@ public class MenuElementTypeAndComment implements Serializable {
         return(comment);
     }
 
-    // org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:419)
+    // org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:413)
     String getNextField(String input, IntegerVar seppos, String fn, boolean last) throws DmcValueException {
     	   String rc = null;
     	   int start = seppos.intValue();

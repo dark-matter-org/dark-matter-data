@@ -18,19 +18,20 @@ description     The DmtField complex type is used to test generation of
 ComplexTypeDefinition
 name			DmtOptionalValueFieldWithSpaces
 // fieldSeparator - no separator, so space is used
-field			TypeDefinition		type        The type of the field
-field			String         		name        The name of the field
-field			String         	description The description of the field
-mandatoryFields 2
+requiredPart	TypeDefinition		type        "The type of the field"
+requiredPart	String         		name        "The name of the field"
+optionalPart	String         	description 	"The description of the field" quoted=true
+optionalPart	TypeDefinition		otherType	"An optional object reference"
+//mandatoryFields 2
 description     The DmtOptionalValueFieldWithSpaces complex type is used to test generation of 
  complex types that use spaces as separators and have optional values
 
 ComplexTypeDefinition
 name			DmtOptionalValueFieldWithColons
 fieldSeparator  :
-field			TypeDefinition		type        The type of the field
-field			String         		name        The name of the field
-field			String         	description The description of the field
-mandatoryFields 2
+requiredPart	TypeDefinition		type        "The type of the field"
+requiredPart	String         		name        "The name of the field"
+optionalPart	String         	description     "The description of the field" quoted=true
+//mandatoryFields 2
 description     The DmtOptionalValueFieldWithSpaces complex type is used to test generation of 
  complex types that use spaces as separators and have optional values

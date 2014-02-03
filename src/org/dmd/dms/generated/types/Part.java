@@ -89,10 +89,11 @@ public class Part implements Serializable {
         type = DmcTypeTypeDefinitionREFSTATIC.instance.typeCheck(f1);
         name = DmcTypeStringSTATIC.instance.typeCheck(f2);
         description = DmcTypeStringSTATIC.instance.typeCheck(f3);
-        quoted = DmcTypeBooleanSTATIC.instance.typeCheck(f4);
+        if (f4 != null)
+            quoted = DmcTypeBooleanSTATIC.instance.typeCheck(f4);
     }
 
-    // Generated from: org.dmd.dms.meta.MetaComplexTypeFormatter.dumpComplexType(MetaComplexTypeFormatter.java:150)
+    // Generated from: org.dmd.dms.meta.MetaComplexTypeFormatter.dumpComplexType(MetaComplexTypeFormatter.java:155)
     /**
      * String based constructor.
      */
@@ -100,7 +101,7 @@ public class Part implements Serializable {
         initialize(initialInput);
     }
 
-    // Generated from: org.dmd.dms.meta.MetaComplexTypeFormatter.dumpComplexType(MetaComplexTypeFormatter.java:158)
+    // Generated from: org.dmd.dms.meta.MetaComplexTypeFormatter.dumpComplexType(MetaComplexTypeFormatter.java:163)
     void initialize(String initialInput) throws DmcValueException {
         ArrayList<NameValuePair> nvp = ComplexTypeSplitter.parse(initialInput);
 
@@ -113,6 +114,12 @@ public class Part implements Serializable {
 
         if (nvp.size() > requiredParts){
             for(int i=3; i<nvp.size(); i++){
+                if (nvp.get(i).getName() == null){
+                    if (nvp.get(i).getValue() == null)
+                        throw(new DmcValueException("Expecting a partname=\"some value\" in complex type: Part"));
+                    else
+                        throw(new DmcValueException("Expecting a partname=\"" + nvp.get(i).getValue() + "\" in complex type: Part"));
+                }
                 if (nvp.get(i).getName().equals("quoted"))
                     quoted = DmcTypeBooleanSTATIC.instance.typeCheck(nvp.get(i).getValue());
                 else{
@@ -175,7 +182,7 @@ public class Part implements Serializable {
     public void resolve(DmcNameResolverIF resolver, String attrName) throws DmcValueException {
         DmcNamedObjectIF  obj = null;
 
-        if (!type.isResolved()){
+        if ((type != null) && (!type.isResolved())){
             obj = resolver.findNamedObject(type.getObjectName());
             if (obj == null)
                 throw(new DmcValueException("Could not resolve reference to: " + type.getObjectName() + " via attribute: " + attrName));
@@ -192,7 +199,7 @@ public class Part implements Serializable {
     public void resolve(DmcNameResolverWithClashSupportIF resolver, DmcObject object, DmcNameClashResolverIF ncr, DmcAttributeInfo ai) throws DmcValueException, DmcValueExceptionSet {
         DmcNamedObjectIF  obj = null;
 
-        if (!type.isResolved()){
+        if ((type != null) && (!type.isResolved())){
             obj = resolver.findNamedObjectMayClash(object, type.getObjectName(), ncr, typeAI);
             if (obj == null)
                 throw(new DmcValueException("Could not resolve reference to: " + type.getObjectName() + " via attribute: " + ai.name));

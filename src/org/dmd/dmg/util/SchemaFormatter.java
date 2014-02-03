@@ -630,7 +630,11 @@ public class SchemaFormatter {
 								}
 							}
 						}
-						sb.append(indent + obj + ".add" + an + "(\"" + prefix + val.toString() + "\");\n");
+						String value = val.toString();
+						if (value.indexOf("\"") != -1){
+							value = value.replaceAll("\"", "\\\\\"");
+						}
+						sb.append(indent + obj + ".add" + an + "(\"" + prefix + value + "\");\n");
 					}
 				}
 				else{
@@ -663,8 +667,13 @@ public class SchemaFormatter {
 					else{
 						if (doubleQuotes)
 							sb.append(indent + obj + ".set" + an + "(" + attr.getSV().toString() + ");\n");
-						else
-							sb.append(indent + obj + ".set" + an + "(\"" + prefix + attr.getSV().toString() + "\");\n");
+						else{
+							String value = attr.getSV().toString();
+							if (value.indexOf("\"") != -1){
+								value = value.replaceAll("\"", "\\\"");
+							}
+							sb.append(indent + obj + ".set" + an + "(\"" + prefix + value + "\");\n");
+						}
 					}
 				}
 			}
@@ -681,7 +690,7 @@ public class SchemaFormatter {
 				}
 				else{
 					// HACK HACK HACK
-					// In order to handle the concept of teh empty string as a nullReturn value, we have to check
+					// In order to handle the concept of the empty string as a nullReturn value, we have to check
 					// to see if the nullReturnValue attribute is "" because if we don't, we wind up with
 					//             _ATTRDEF.setNullReturnValue("""");
 					boolean doubleQuotes = false;
@@ -693,8 +702,13 @@ public class SchemaFormatter {
 						
 					if (doubleQuotes)
 						sb.append(indent + aux.getDmwAuxClass() + ".set" + an + "(" + var.name + ", " + attr.getSV().toString() + ");\n");
-					else
-						sb.append(indent + aux.getDmwAuxClass() + ".set" + an + "(" + var.name + ", \"" + attr.getSV().toString() + "\");\n");
+					else{
+						String value = attr.getSV().toString();
+						if (value.indexOf("\"") != -1){
+							value = value.replaceAll("\"", "\\\"");
+						}
+						sb.append(indent + aux.getDmwAuxClass() + ".set" + an + "(" + var.name + ", \"" + value + "\");\n");
+					}
 //					sb.append(indent + aux.getDmoAuxClass() + ".set" + an + "(" + obj + ", \"" + attr.getSV().toString() + "\");\n");
 				}
 			}

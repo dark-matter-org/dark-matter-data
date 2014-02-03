@@ -299,24 +299,6 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition implemen
         return(attr.getMVSize());
     }
 
-    /**
-     * The number of fields in a ComplexTypeDefinition that\n are considered
-     * mandatory. By default, all fields are considered mandatory. 
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2387)
-    public Integer getMandatoryFields(){
-        return(mycore.getMandatoryFields());
-    }
-
-    /**
-     * Sets mandatoryFields to the specified value.
-     * @param value A value compatible with DmcTypeIntegerSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2460)
-    public void setMandatoryFields(Object value) throws DmcValueException {
-        mycore.setMandatoryFields(value);
-    }
-
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation

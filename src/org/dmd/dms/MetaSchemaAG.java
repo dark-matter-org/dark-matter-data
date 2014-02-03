@@ -262,7 +262,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _dsdModuleDefinition;
     public static AttributeDefinition _dsdModuleList;
     public static AttributeDefinition _sortName;
-    public static AttributeDefinition _mandatoryFields;
     public static AttributeDefinition _supportDynamicSchemaLoading;
     public static AttributeDefinition _loadSchemaClass;
     public static AttributeDefinition _requiredBaseModule;
@@ -548,14 +547,13 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ComplexTypeDefinitionOBJ.setIsNamedBy("meta.name");
         _ComplexTypeDefinitionOBJ.setJavaClass("org.dmd.dms.ComplexTypeDefinition");
         _ComplexTypeDefinitionOBJ.setLineNumber("2409");
+        _ComplexTypeDefinitionOBJ.addMay("meta.field");
         _ComplexTypeDefinitionOBJ.addMay("meta.requiredPart");
         _ComplexTypeDefinitionOBJ.addMay("meta.optionalPart");
         _ComplexTypeDefinitionOBJ.addMay("meta.fieldSeparator");
         _ComplexTypeDefinitionOBJ.addMay("meta.extendedClass");
         _ComplexTypeDefinitionOBJ.addMay("meta.description");
-        _ComplexTypeDefinitionOBJ.addMay("meta.mandatoryFields");
         _ComplexTypeDefinitionOBJ.addMust("meta.name");
-        _ComplexTypeDefinitionOBJ.addMust("meta.field");
         _ComplexTypeDefinitionOBJ.setName("ComplexTypeDefinition");
         _ComplexTypeDefinitionOBJ.setNameAndTypeName("ComplexTypeDefinition.ClassDefinition");
         _ComplexTypeDefinitionOBJ.setUseWrapperType("EXTENDED");
@@ -2316,19 +2314,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _longNameOBJ.setType("meta.LongName");
         _longName.setDefinedIn(this);
         addAttributeDefList(_longName);
-
-        AttributeDefinitionDMO _mandatoryFieldsOBJ = new AttributeDefinitionDMO();
-        _mandatoryFields = new AttributeDefinition(_mandatoryFieldsOBJ);
-        _mandatoryFieldsOBJ.addDescription("The number of fields in a ComplexTypeDefinition that\n are considered mandatory. By default, all fields are considered mandatory.");
-        _mandatoryFieldsOBJ.setDmdID("171");
-        _mandatoryFieldsOBJ.setDotName("meta.mandatoryFields.AttributeDefinition");
-        _mandatoryFieldsOBJ.setFile("metaSchema.dms");
-        _mandatoryFieldsOBJ.setLineNumber("1958");
-        _mandatoryFieldsOBJ.setName("mandatoryFields");
-        _mandatoryFieldsOBJ.setNameAndTypeName("mandatoryFields.AttributeDefinition");
-        _mandatoryFieldsOBJ.setType("meta.Integer");
-        _mandatoryFields.setDefinedIn(this);
-        addAttributeDefList(_mandatoryFields);
 
         AttributeDefinitionDMO _mayOBJ = new AttributeDefinitionDMO();
         _may = new AttributeDefinition(_mayOBJ);

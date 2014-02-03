@@ -47,17 +47,16 @@ public class ExtendedReferenceTypeDefinitionDMO extends org.dmd.dms.generated.dm
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
         _ImAp.put(MetaDMSAG.__extendedReferenceClass.id,MetaDMSAG.__extendedReferenceClass);
-        _ImAp.put(MetaDMSAG.__field.id,MetaDMSAG.__field);
         _ImAp.put(MetaDMSAG.__name.id,MetaDMSAG.__name);
         _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
         _ImAp.put(MetaDMSAG.__description.id,MetaDMSAG.__description);
         _ImAp.put(MetaDMSAG.__dotName.id,MetaDMSAG.__dotName);
         _ImAp.put(MetaDMSAG.__exampleUsage.id,MetaDMSAG.__exampleUsage);
         _ImAp.put(MetaDMSAG.__extendedClass.id,MetaDMSAG.__extendedClass);
+        _ImAp.put(MetaDMSAG.__field.id,MetaDMSAG.__field);
         _ImAp.put(MetaDMSAG.__fieldSeparator.id,MetaDMSAG.__fieldSeparator);
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
-        _ImAp.put(MetaDMSAG.__mandatoryFields.id,MetaDMSAG.__mandatoryFields);
         _ImAp.put(MetaDMSAG.__nameAndTypeName.id,MetaDMSAG.__nameAndTypeName);
         _ImAp.put(MetaDMSAG.__optionalPart.id,MetaDMSAG.__optionalPart);
         _ImAp.put(MetaDMSAG.__requiredPart.id,MetaDMSAG.__requiredPart);
@@ -65,17 +64,16 @@ public class ExtendedReferenceTypeDefinitionDMO extends org.dmd.dms.generated.dm
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(MetaDMSAG.__extendedReferenceClass.name,MetaDMSAG.__extendedReferenceClass);
-        _SmAp.put(MetaDMSAG.__field.name,MetaDMSAG.__field);
         _SmAp.put(MetaDMSAG.__name.name,MetaDMSAG.__name);
         _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
         _SmAp.put(MetaDMSAG.__description.name,MetaDMSAG.__description);
         _SmAp.put(MetaDMSAG.__dotName.name,MetaDMSAG.__dotName);
         _SmAp.put(MetaDMSAG.__exampleUsage.name,MetaDMSAG.__exampleUsage);
         _SmAp.put(MetaDMSAG.__extendedClass.name,MetaDMSAG.__extendedClass);
+        _SmAp.put(MetaDMSAG.__field.name,MetaDMSAG.__field);
         _SmAp.put(MetaDMSAG.__fieldSeparator.name,MetaDMSAG.__fieldSeparator);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
-        _SmAp.put(MetaDMSAG.__mandatoryFields.name,MetaDMSAG.__mandatoryFields);
         _SmAp.put(MetaDMSAG.__nameAndTypeName.name,MetaDMSAG.__nameAndTypeName);
         _SmAp.put(MetaDMSAG.__optionalPart.name,MetaDMSAG.__optionalPart);
         _SmAp.put(MetaDMSAG.__requiredPart.name,MetaDMSAG.__requiredPart);
@@ -137,34 +135,6 @@ public class ExtendedReferenceTypeDefinitionDMO extends org.dmd.dms.generated.dm
         
         attr.set(value);
         set(MetaDMSAG.__extendedReferenceClass,attr);
-    }
-
-    /**
-     * The field indicates a type and name for a field in a ComplexType. 
-     * @return An Iterator of Field objects.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2531)
-    public Iterator<Field> getField(){
-        DmcTypeFieldMV attr = (DmcTypeFieldMV) get(MetaDMSAG.__field);
-        if (attr == null)
-            return(null);
-
-        return(attr.getMV());
-    }
-
-    /**
-     * Adds another field value.
-     * @param value A value compatible with DmcTypeFieldMV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2636)
-    public DmcAttribute<?> addField(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(MetaDMSAG.__field);
-        if (attr == null)
-            attr = new DmcTypeFieldMV(MetaDMSAG.__field);
-        
-        attr.add(value);
-        add(MetaDMSAG.__field,attr);
-        return(attr);
     }
 
     /**
@@ -373,6 +343,34 @@ public class ExtendedReferenceTypeDefinitionDMO extends org.dmd.dms.generated.dm
     }
 
     /**
+     * The field indicates a type and name for a field in a ComplexType. 
+     * @return An Iterator of Field objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2531)
+    public Iterator<Field> getField(){
+        DmcTypeFieldMV attr = (DmcTypeFieldMV) get(MetaDMSAG.__field);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another field value.
+     * @param value A value compatible with DmcTypeFieldMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2636)
+    public DmcAttribute<?> addField(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__field);
+        if (attr == null)
+            attr = new DmcTypeFieldMV(MetaDMSAG.__field);
+        
+        attr.add(value);
+        add(MetaDMSAG.__field,attr);
+        return(attr);
+    }
+
+    /**
      * The fieldSeparator is used to indicate the separation character used\n
      * when a ComplexType is represented as a String. If a fieldSeparator isn't
      * specified, it is\n assumed to be a space. 
@@ -450,33 +448,6 @@ public class ExtendedReferenceTypeDefinitionDMO extends org.dmd.dms.generated.dm
         
         attr.set(value);
         set(MetaDMSAG.__lineNumber,attr);
-    }
-
-    /**
-     * The number of fields in a ComplexTypeDefinition that\n are considered
-     * mandatory. By default, all fields are considered mandatory. 
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2334)
-    public Integer getMandatoryFields(){
-        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaDMSAG.__mandatoryFields);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets mandatoryFields to the specified value.
-     * @param value A value compatible with DmcTypeIntegerSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2426)
-    public void setMandatoryFields(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(MetaDMSAG.__mandatoryFields);
-        if (attr == null)
-            attr = new DmcTypeIntegerSV(MetaDMSAG.__mandatoryFields);
-        
-        attr.set(value);
-        set(MetaDMSAG.__mandatoryFields,attr);
     }
 
     /**
