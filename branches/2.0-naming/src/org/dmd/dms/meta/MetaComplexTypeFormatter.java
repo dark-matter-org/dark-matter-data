@@ -141,8 +141,13 @@ public class MetaComplexTypeFormatter {
 		out.write(") throws DmcValueException {\n");
 		fnum = 1;
 		for (Part field : parts) {
-			out.write("        " + field.name + " = DmcType" + field.type
-					+ "STATIC.instance.typeCheck(f" + fnum + ");\n");
+			if (fnum > requiredCount){
+				out.write("        if (f" + fnum + " != null)\n");
+				out.write("            " + field.name + " = DmcType" + field.type + "STATIC.instance.typeCheck(f" + fnum + ");\n");				
+			}
+			else{
+				out.write("        " + field.name + " = DmcType" + field.type + "STATIC.instance.typeCheck(f" + fnum + ");\n");
+			}
 			fnum++;
 		}
 		out.write("    }\n\n");
@@ -184,6 +189,13 @@ public class MetaComplexTypeFormatter {
 					out.write("\n");
 					out.write("        if (nvp.size() > requiredParts){\n");
 					out.write("            for(int i=" + requiredCount + "; i<nvp.size(); i++){\n");
+					out.write("                if (nvp.get(i).getName() == null){\n");
+					out.write("                    if (nvp.get(i).getValue() == null)\n");
+					out.write("                        throw(new DmcValueException(\"Expecting a partname=\\\"some value\\\" in complex type: " + ctn + "\"));\n");
+					out.write("                    else\n");
+					out.write("                        throw(new DmcValueException(\"Expecting a partname=\\\"\" + nvp.get(i).getValue() + \"\\\" in complex type: " + ctn + "\"));\n");
+					out.write("                }\n");
+					
 					firstOptional = false;
 					out.write("                if (nvp.get(i).getName().equals(\"" + field.name + "\"))\n");
 				}
@@ -264,9 +276,7 @@ public class MetaComplexTypeFormatter {
 				}
 				out.write("        }\n\n");
 			}
-//			out.write(field.name + ".toString()");
-//			if (fnum < parts.size())
-//				out.write(" + \"" + fieldSeparator + "\" + ");
+
 			fnum++;
 		}
 		out.write("        return(sb.toString());\n");
@@ -288,21 +298,15 @@ public class MetaComplexTypeFormatter {
 			out.write("        DmcNamedObjectIF  obj = null;\n\n");
 
 			for (String fn : refFields) {
-				out.write("        if (!" + fn + ".isResolved()){\n");
-				out.write("            obj = resolver.findNamedObject(" + fn
-						+ ".getObjectName());\n");
+				out.write("        if ((" + fn + " != null) && (!" + fn + ".isResolved())){\n");
+				out.write("            obj = resolver.findNamedObject(" + fn + ".getObjectName());\n");
 				out.write("            if (obj == null)\n");
-				out.write("                throw(new DmcValueException(\"Could not resolve reference to: \" + "
-						+ fn
-						+ ".getObjectName() + \" via attribute: \" + attrName));\n");
+				out.write("                throw(new DmcValueException(\"Could not resolve reference to: \" + " + fn + ".getObjectName() + \" via attribute: \" + attrName));\n");
 				out.write("        \n");
 				out.write("            if (obj instanceof DmcContainerIF)\n");
-				out.write("                ((DmcNamedObjectREF)"
-						+ fn
-						+ ").setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());\n");
+				out.write("                ((DmcNamedObjectREF)" + fn + ").setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());\n");
 				out.write("            else\n");
-				out.write("                ((DmcNamedObjectREF)" + fn
-						+ ").setObject(obj);\n");
+				out.write("                ((DmcNamedObjectREF)" + fn + ").setObject(obj);\n");
 				out.write("        }\n");
 				out.write("        \n");
 			}
@@ -315,7 +319,7 @@ public class MetaComplexTypeFormatter {
 			out.write("        DmcNamedObjectIF  obj = null;\n\n");
 
 			for (String fn : refFields) {
-				out.write("        if (!" + fn + ".isResolved()){\n");
+				out.write("        if ((" + fn + " != null) && (!" + fn + ".isResolved())){\n");
 				out.write("            obj = resolver.findNamedObjectMayClash(object, " + fn + ".getObjectName(), ncr, " + fn + "AI);\n");
 				out.write("            if (obj == null)\n");
 				out.write("                throw(new DmcValueException(\"Could not resolve reference to: \" + "

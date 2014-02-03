@@ -305,6 +305,14 @@ applyToClass		ValueLengthRuleData
 onePossibility		maxLength
 onePossibility		minLength
 
+OneOfTheseAttributesRequiredRuleData
+ruleName			dmvComplexTypeAttributeCheck
+ruleTitle			At least one of the field or requiredPart/optionalPart attributes must be specified.
+applyToClass		ComplexTypeDefinition
+onePossibility		field
+onePossibility		requiredPart
+onePossibility		optionalPart
+
 RelatedNumbersRuleData
 ruleName        	dmvMinLessThanMax
 ruleTitle       	The minLength must be less than the maxLength.

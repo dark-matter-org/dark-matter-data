@@ -1,18 +1,3 @@
-//	---------------------------------------------------------------------------
-//	dark-matter-data
-//	Copyright (c) 2014 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
 package org.dmd.dmt.server.generated;
 
 import org.dmd.dmc.DmcOmni;
@@ -2440,34 +2425,32 @@ public class DmtSchemaAG extends SchemaDefinition {
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
             ComplexTypeDefinitionDMO _DmtOptionalValueFieldWithSpacesOBJ = new ComplexTypeDefinitionDMO();
             _DmtOptionalValueFieldWithSpaces = new ComplexTypeDefinition(_DmtOptionalValueFieldWithSpacesOBJ);
-            _DmtOptionalValueFieldWithSpacesOBJ.setMandatoryFields("2");
             _DmtOptionalValueFieldWithSpacesOBJ.setName("DmtOptionalValueFieldWithSpaces");
             _DmtOptionalValueFieldWithSpacesOBJ.addDescription("The DmtOptionalValueFieldWithSpaces complex type is used to test generation of \n complex types that use spaces as separators and have optional values");
+            _DmtOptionalValueFieldWithSpacesOBJ.addOptionalPart("String description \"The description of the field\" true");
+            _DmtOptionalValueFieldWithSpacesOBJ.addRequiredPart("TypeDefinition type \"The type of the field\"");
+            _DmtOptionalValueFieldWithSpacesOBJ.addRequiredPart("String name \"The name of the field\"");
             _DmtOptionalValueFieldWithSpacesOBJ.setNameAndTypeName("DmtOptionalValueFieldWithSpaces.ComplexTypeDefinition");
             _DmtOptionalValueFieldWithSpacesOBJ.setDotName("dmt.DmtOptionalValueFieldWithSpaces.ComplexTypeDefinition");
             _DmtOptionalValueFieldWithSpaces.setDefinedIn(this);
             _DmtOptionalValueFieldWithSpacesOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/complex.dmd");
             _DmtOptionalValueFieldWithSpacesOBJ.setLineNumber("27");
-            _DmtOptionalValueFieldWithSpacesOBJ.addField("TypeDefinition type The type of the field");
-            _DmtOptionalValueFieldWithSpacesOBJ.addField("String name The name of the field");
-            _DmtOptionalValueFieldWithSpacesOBJ.addField("String description The description of the field");
             addComplexTypeDefList(_DmtOptionalValueFieldWithSpaces);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
             ComplexTypeDefinitionDMO _DmtOptionalValueFieldWithColonsOBJ = new ComplexTypeDefinitionDMO();
             _DmtOptionalValueFieldWithColons = new ComplexTypeDefinition(_DmtOptionalValueFieldWithColonsOBJ);
-            _DmtOptionalValueFieldWithColonsOBJ.setMandatoryFields("2");
             _DmtOptionalValueFieldWithColonsOBJ.setName("DmtOptionalValueFieldWithColons");
             _DmtOptionalValueFieldWithColonsOBJ.addDescription("The DmtOptionalValueFieldWithSpaces complex type is used to test generation of \n complex types that use spaces as separators and have optional values");
+            _DmtOptionalValueFieldWithColonsOBJ.addOptionalPart("String description \"The description of the field\" true");
+            _DmtOptionalValueFieldWithColonsOBJ.addRequiredPart("TypeDefinition type \"The type of the field\"");
+            _DmtOptionalValueFieldWithColonsOBJ.addRequiredPart("String name \"The name of the field\"");
             _DmtOptionalValueFieldWithColonsOBJ.setNameAndTypeName("DmtOptionalValueFieldWithColons.ComplexTypeDefinition");
             _DmtOptionalValueFieldWithColonsOBJ.setDotName("dmt.DmtOptionalValueFieldWithColons.ComplexTypeDefinition");
             _DmtOptionalValueFieldWithColons.setDefinedIn(this);
             _DmtOptionalValueFieldWithColonsOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/complex.dmd");
             _DmtOptionalValueFieldWithColonsOBJ.setFieldSeparator(":");
             _DmtOptionalValueFieldWithColonsOBJ.setLineNumber("36");
-            _DmtOptionalValueFieldWithColonsOBJ.addField("TypeDefinition type The type of the field");
-            _DmtOptionalValueFieldWithColonsOBJ.addField("String name The name of the field");
-            _DmtOptionalValueFieldWithColonsOBJ.addField("String description The description of the field");
             addComplexTypeDefList(_DmtOptionalValueFieldWithColons);
 
     }

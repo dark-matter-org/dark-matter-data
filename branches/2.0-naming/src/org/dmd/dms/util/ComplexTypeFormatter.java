@@ -19,7 +19,16 @@ public class ComplexTypeFormatter {
 	
 	public static void dumpComplexTypes(String fileHeader, SchemaDefinition sd, String typedir) throws IOException, ResultException{
 		for(ComplexTypeDefinition ctd: sd.getComplexTypeDefList()){
-			dumpComplexType(fileHeader,typedir,ctd);
+			if ( (ctd.getRequiredPartSize() > 0) || (ctd.getOptionalPartSize() > 0)){
+				if (ctd.getFieldSize() > 0){
+					ResultException ex = new ResultException("Mixing field with requiredPart/optionalPart is not supported.");
+					ex.setLocationInfo(ctd.getFile(), ctd.getLineNumber());
+					throw(ex);
+				}
+				NewComplexTypeFormatter.dumpComplexType(fileHeader,typedir,ctd);
+			}
+			else
+				dumpComplexType(fileHeader,typedir,ctd);
 		}
 	}
 
@@ -167,8 +176,8 @@ public class ComplexTypeFormatter {
         out.write("     */\n");
         out.write("    public " + ctn + "(String initialInput) throws DmcValueException {\n");
         out.write("        IntegerVar seppos = new IntegerVar(-1);\n");
-        if (ctd.getMandatoryFields() != null)
-        	out.write("        Object rc = null;\n");
+//        if (ctd.getMandatoryFields() != null)
+//        	out.write("        Object rc = null;\n");
 		if (whiteSpaceSeparator){
 			out.write("        String input = initialInput.trim();\n");
 			out.write("        input = input.replaceAll(\"(\\\\s)+\", \" \");\n");
@@ -185,21 +194,21 @@ public class ComplexTypeFormatter {
         	if (type.getIsRefType())
         		REF = "REF";
         	
-        	if (ctd.getMandatoryFields() == null){
+//        	if (ctd.getMandatoryFields() == null){
 	        	if (fnum == ctd.getFieldSize())
 	            	out.write("        " + field.getName() + " = DmcType" + field.getType().getObjectName() + REF + "STATIC.instance.typeCheck(getNextField(input,seppos,\"" + field.getName() + "\",true));\n");
 	            else
 	        		out.write("        " + field.getName() + " = DmcType" + field.getType().getObjectName() + REF + "STATIC.instance.typeCheck(getNextField(input,seppos,\"" + field.getName() + "\",false));\n");
-        	}
-        	else{
-	        	if (fnum == ctd.getFieldSize())
-	            	out.write("        if ((rc = getNextField(input,seppos,\"" + field.getName() + "\","  + fnum + ",true)) != null)\n");
-	            else
-	        		out.write("        if ((rc = getNextField(input,seppos,\"" + field.getName() + "\","  + fnum + ",false)) != null)\n");
-	        	
-        		out.write("            " + field.getName() + " = DmcType" + field.getType().getObjectName() + REF + "STATIC.instance.typeCheck(rc);\n");
-        		
-        	}
+//        	}
+//        	else{
+//	        	if (fnum == ctd.getFieldSize())
+//	            	out.write("        if ((rc = getNextField(input,seppos,\"" + field.getName() + "\","  + fnum + ",true)) != null)\n");
+//	            else
+//	        		out.write("        if ((rc = getNextField(input,seppos,\"" + field.getName() + "\","  + fnum + ",false)) != null)\n");
+//	        	
+//        		out.write("            " + field.getName() + " = DmcType" + field.getType().getObjectName() + REF + "STATIC.instance.typeCheck(rc);\n");
+//        		
+//        	}
         	fnum++;
         }
     	out.write("    }\n\n");
@@ -317,7 +326,7 @@ public class ComplexTypeFormatter {
     	
         if (whiteSpaceSeparator){
             out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-            if (ctd.getMandatoryFields() == null){
+//            if (ctd.getMandatoryFields() == null){
             	out.write("    String getNextField(String input, IntegerVar seppos, String fn, boolean last) throws DmcValueException {\n");
     	    	out.write("    	   String rc = null;\n");
     	    	out.write("    	   int start = seppos.intValue();\n");
@@ -356,53 +365,53 @@ public class ComplexTypeFormatter {
     	    	out.write("\n");
     	    	out.write("        return(rc);\n");
     	    	out.write("    }\n\n");
-            }
-            else{
-            	out.write("    String getNextField(String input, IntegerVar seppos, String fn, int fnum, boolean last) throws DmcValueException {\n");
-    	    	out.write("    	   String rc = null;\n");
-    	    	out.write("    	   int start = seppos.intValue();\n");
-    	    	out.write("\n");
-    	    	out.write("    	   if ( (start+1) >= input.length()){\n");
-    	    	out.write("            if (fnum > mandatoryFields)\n");
-    	    	out.write("                return(null);\n");
-    		    out.write("            throw (new DmcValueException(\"Missing value for field: \" + fn + \" in complex type: " + ctn + "\"));\n");
-    	    	out.write("        }\n");
-    	    	out.write("\n");
-    	    	out.write("    	   if (last){\n");
-    		    out.write("    	       rc = input.substring(start+1);\n");
-    		    out.write("    	   }\n");
-    		    out.write("    	   else{\n");
-    	    	out.write("    	       int pos = -1;\n");
-    	    	out.write("    	       if (start > 0)\n");
-    	    	out.write("    		       pos = input.indexOf(\"" + fieldSeparator + "\", start+1);\n");
-    	    	out.write("    	       else\n");
-    	    	out.write("    		       pos = input.indexOf(\"" + fieldSeparator + "\");\n");
-    	    	out.write("\n");
-    	    	out.write("    	       if (pos == -1){\n");
-    	    	out.write("                rc = input.substring(start+1);\n");
-    	    	out.write("                seppos.set(input.length());\n");
-    	    	out.write("                return(rc);\n");
-    	    	out.write("            }\n");
-    	    	out.write("\n");
-    	    	out.write("    		   while(pos < (input.length()-1)){\n");
-    	    	out.write("    		       if ( input.charAt(pos+1) == '" + fieldSeparator + "')\n");
-    	    	out.write("    		           pos++;\n");
-    	    	out.write("    		       else\n");
-    	    	out.write("    		           break;\n");
-    	    	out.write("    		   }\n");
-    	    	out.write("\n");
-    	    	out.write("    	       rc = input.substring(start+1, pos).trim();\n");
-    	    	out.write("\n");
-    	    	out.write("    	       seppos.set(pos);\n");
-    	    	out.write("        }\n");
-    	    	out.write("\n");
-    	    	out.write("        return(rc);\n");
-    	    	out.write("    }\n\n");
-            }
+//            }
+//            else{
+//            	out.write("    String getNextField(String input, IntegerVar seppos, String fn, int fnum, boolean last) throws DmcValueException {\n");
+//    	    	out.write("    	   String rc = null;\n");
+//    	    	out.write("    	   int start = seppos.intValue();\n");
+//    	    	out.write("\n");
+//    	    	out.write("    	   if ( (start+1) >= input.length()){\n");
+//    	    	out.write("            if (fnum > mandatoryFields)\n");
+//    	    	out.write("                return(null);\n");
+//    		    out.write("            throw (new DmcValueException(\"Missing value for field: \" + fn + \" in complex type: " + ctn + "\"));\n");
+//    	    	out.write("        }\n");
+//    	    	out.write("\n");
+//    	    	out.write("    	   if (last){\n");
+//    		    out.write("    	       rc = input.substring(start+1);\n");
+//    		    out.write("    	   }\n");
+//    		    out.write("    	   else{\n");
+//    	    	out.write("    	       int pos = -1;\n");
+//    	    	out.write("    	       if (start > 0)\n");
+//    	    	out.write("    		       pos = input.indexOf(\"" + fieldSeparator + "\", start+1);\n");
+//    	    	out.write("    	       else\n");
+//    	    	out.write("    		       pos = input.indexOf(\"" + fieldSeparator + "\");\n");
+//    	    	out.write("\n");
+//    	    	out.write("    	       if (pos == -1){\n");
+//    	    	out.write("                rc = input.substring(start+1);\n");
+//    	    	out.write("                seppos.set(input.length());\n");
+//    	    	out.write("                return(rc);\n");
+//    	    	out.write("            }\n");
+//    	    	out.write("\n");
+//    	    	out.write("    		   while(pos < (input.length()-1)){\n");
+//    	    	out.write("    		       if ( input.charAt(pos+1) == '" + fieldSeparator + "')\n");
+//    	    	out.write("    		           pos++;\n");
+//    	    	out.write("    		       else\n");
+//    	    	out.write("    		           break;\n");
+//    	    	out.write("    		   }\n");
+//    	    	out.write("\n");
+//    	    	out.write("    	       rc = input.substring(start+1, pos).trim();\n");
+//    	    	out.write("\n");
+//    	    	out.write("    	       seppos.set(pos);\n");
+//    	    	out.write("        }\n");
+//    	    	out.write("\n");
+//    	    	out.write("        return(rc);\n");
+//    	    	out.write("    }\n\n");
+//            }
         }
         else{
             out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-            if (ctd.getMandatoryFields() == null){
+//            if (ctd.getMandatoryFields() == null){
             	out.write("    String getNextField(String input, IntegerVar seppos, String fn, boolean last) throws DmcValueException {\n");
     			out.write("    	   String rc = null;\n");
     			out.write("    	   int start = seppos.intValue();\n");
@@ -443,55 +452,55 @@ public class ComplexTypeFormatter {
     			out.write("        return(rc);\n");
     			out.write("    }\n");
     			out.write("\n");
-            }
-            else{
-            	out.write("    String getNextField(String input, IntegerVar seppos, String fn, int fnum, boolean last) throws DmcValueException {\n");
-    			out.write("    	   String rc = null;\n");
-    			out.write("    	   int start = seppos.intValue();\n");
-    			out.write("   	   \n");
-    			out.write("    	   if (last){\n");
-    			out.write("            if ( (start+1) >= input.length())\n");
-    			out.write("                rc = null;\n");
-    			out.write("            else\n");
-    			out.write("                rc = input.substring(start+1);\n");
-    			out.write(" 	   }\n");
-    			out.write("	       else{\n");
-    	    	out.write("    	       if ( (start+1) >= input.length()){\n");
-    	    	out.write("                if (fnum > mandatoryFields)\n");
-    	    	out.write("                    return(null);\n");
-    		    out.write("                throw (new DmcValueException(\"Missing value for field: \" + fn + \" in complex type: " + ctn + "\"));\n");
-    	    	out.write("            }\n");
-    			out.write("   		   \n");
-    			out.write("        	   int pos = -1;\n");
-    			out.write("	           if (start > -1){\n");
-    			out.write("	        	   start = start + 1;\n");
-    			out.write("	    	       pos = input.indexOf(\"" + fieldSeparator + "\", start);\n");
-    			out.write("	           }\n");
-    			out.write("	           else{\n");
-    			out.write("	        	   start = 0;\n");
-    			out.write("	    	       pos = input.indexOf(\"" + fieldSeparator + "\");\n");
-    			out.write("	           }\n");
-    			out.write("	       \n");
-    			out.write("	           if (pos == start){\n");
-    			out.write("	        	   seppos.set(pos);\n");
-    			out.write("	        	   return(\"\");\n");
-    			out.write("	           }\n");
-    			out.write("	       \n");
-    	    	out.write("    	       if (pos == -1){\n");
-    	    	out.write("                rc = input.substring(start+1);\n");
-    	    	out.write("                seppos.set(input.length());\n");
-    	    	out.write("                return(rc);\n");
-    	    	out.write("            }\n");
-    			out.write("		       \n");
-    			out.write("	           rc = input.substring(start, pos).trim();\n");
-    			out.write("	       \n");
-    			out.write("	           seppos.set(pos);\n");
-    			out.write("        }\n");
-    			out.write("    \n");
-    			out.write("        return(rc);\n");
-    			out.write("    }\n");
-    			out.write("\n");
-            }
+//            }
+//            else{
+//            	out.write("    String getNextField(String input, IntegerVar seppos, String fn, int fnum, boolean last) throws DmcValueException {\n");
+//    			out.write("    	   String rc = null;\n");
+//    			out.write("    	   int start = seppos.intValue();\n");
+//    			out.write("   	   \n");
+//    			out.write("    	   if (last){\n");
+//    			out.write("            if ( (start+1) >= input.length())\n");
+//    			out.write("                rc = null;\n");
+//    			out.write("            else\n");
+//    			out.write("                rc = input.substring(start+1);\n");
+//    			out.write(" 	   }\n");
+//    			out.write("	       else{\n");
+//    	    	out.write("    	       if ( (start+1) >= input.length()){\n");
+//    	    	out.write("                if (fnum > mandatoryFields)\n");
+//    	    	out.write("                    return(null);\n");
+//    		    out.write("                throw (new DmcValueException(\"Missing value for field: \" + fn + \" in complex type: " + ctn + "\"));\n");
+//    	    	out.write("            }\n");
+//    			out.write("   		   \n");
+//    			out.write("        	   int pos = -1;\n");
+//    			out.write("	           if (start > -1){\n");
+//    			out.write("	        	   start = start + 1;\n");
+//    			out.write("	    	       pos = input.indexOf(\"" + fieldSeparator + "\", start);\n");
+//    			out.write("	           }\n");
+//    			out.write("	           else{\n");
+//    			out.write("	        	   start = 0;\n");
+//    			out.write("	    	       pos = input.indexOf(\"" + fieldSeparator + "\");\n");
+//    			out.write("	           }\n");
+//    			out.write("	       \n");
+//    			out.write("	           if (pos == start){\n");
+//    			out.write("	        	   seppos.set(pos);\n");
+//    			out.write("	        	   return(\"\");\n");
+//    			out.write("	           }\n");
+//    			out.write("	       \n");
+//    	    	out.write("    	       if (pos == -1){\n");
+//    	    	out.write("                rc = input.substring(start+1);\n");
+//    	    	out.write("                seppos.set(input.length());\n");
+//    	    	out.write("                return(rc);\n");
+//    	    	out.write("            }\n");
+//    			out.write("		       \n");
+//    			out.write("	           rc = input.substring(start, pos).trim();\n");
+//    			out.write("	       \n");
+//    			out.write("	           seppos.set(pos);\n");
+//    			out.write("        }\n");
+//    			out.write("    \n");
+//    			out.write("        return(rc);\n");
+//    			out.write("    }\n");
+//    			out.write("\n");
+//            }
         }
 
         		            	
@@ -506,10 +515,10 @@ public class ComplexTypeFormatter {
     static String getComplexTypeFieldInstances(ComplexTypeDefinition ctd){
     	StringBuffer sb = new StringBuffer();
     	
-    	if (ctd.getMandatoryFields() != null){
-    		sb.append("    // Some fields are optional - this many are mandatory\n");
-    		sb.append("    static int mandatoryFields = " + ctd.getMandatoryFields() + ";\n\n");
-    	}
+//    	if (ctd.getMandatoryFields() != null){
+//    		sb.append("    // Some fields are optional - this many are mandatory\n");
+//    		sb.append("    static int mandatoryFields = " + ctd.getMandatoryFields() + ";\n\n");
+//    	}
     	
     	Iterator<Field> fields = ctd.getField();
     	while(fields.hasNext()){
