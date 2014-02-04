@@ -1120,7 +1120,8 @@ preserveNewlines	true
 type                String
 valueType			MULTI
 description    		The exampleUsage attribute is used to provide additional
- examples of how some defined thing is to be used.
+ examples of how some defined thing is to be used. The convention for this field
+ is to provide a title for the example followed by a colon.
 
 AttributeDefinition
 name       			namingAttribute

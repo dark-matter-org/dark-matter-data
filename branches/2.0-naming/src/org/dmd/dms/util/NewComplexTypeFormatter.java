@@ -22,6 +22,10 @@ public class NewComplexTypeFormatter {
 //			dumpComplexType(fileHeader,typedir,ctd);
 //		}
 //	}
+	
+	// Don't want to get in trouble if someone specifies a java keyword as a value
+	// name, so we put a standard suffix on all variables.
+	final static String valSuffix = "V";
 
     static void dumpComplexType(String header, String od, ComplexTypeDefinition ctd) throws IOException, ResultException {
     	String 			ctn 			= ctd.getName().getNameString();
@@ -128,7 +132,7 @@ public class NewComplexTypeFormatter {
         out.write("    public " + ctn + "(" + ctn + " original){\n");
         
         for(Part part: combinedParts){
-        	out.write("        " + part.getName() + " = original." + part.getName() + ";\n");
+        	out.write("        " + part.getName() + valSuffix + " = original." + part.getName() + valSuffix + ";\n");
         }
     	out.write("    }\n\n");
         
@@ -145,10 +149,10 @@ public class NewComplexTypeFormatter {
         	TypeDefinition	type = (TypeDefinition) part.getType().getObject().getContainer();
 
         	if (type.getIsRefType()){
-        		out.write(part.getType().getObjectName() + "REF f" + fnum);
+        		out.write(part.getType().getObjectName() + "REF " + part.getName() + "_");
         	}
         	else{
-        		out.write(part.getType().getObjectName() + " f" + fnum);
+        		out.write(part.getType().getObjectName() + " "  + part.getName() + "_");
         	}
 
         	fnum++;
@@ -163,14 +167,14 @@ public class NewComplexTypeFormatter {
         	TypeDefinition	type = (TypeDefinition) part.getType().getObject().getContainer();
         	String assignment = null;
         	if (type.getIsRefType()){
-        		assignment = "        " + part.getName() + " = DmcType" + part.getType().getObjectName() + "REFSTATIC.instance.typeCheck(f" + fnum + ");\n";
+        		assignment = "        " + part.getName() + valSuffix + " = DmcType" + part.getType().getObjectName() + "REFSTATIC.instance.typeCheck("  + part.getName() + "_" + ");\n";
         	}
         	else{
-        		assignment = "        " + part.getName() + " = DmcType" + part.getType().getObjectName() + "STATIC.instance.typeCheck(f" + fnum + ");\n";
+        		assignment = "        " + part.getName() + valSuffix + " = DmcType" + part.getType().getObjectName() + "STATIC.instance.typeCheck("  + part.getName() + "_" + ");\n";
         	}
         	
         	if (fnum > requiredCount){
-				out.write("        if (f" + fnum + " != null)\n");
+				out.write("        if ("  + part.getName() + "_" + " != null)\n");
         		out.write("    " + assignment);
         	}
         	else
@@ -208,7 +212,7 @@ public class NewComplexTypeFormatter {
 		out.write("            throw(new DmcValueException(\"Missing required values for complex type: " + ctn + "\"));\n");
 		out.write("\n");
 
-		fnum = 1;
+		fnum = 0;
 		boolean firstOptional = true;
         for(Part part: combinedParts){
 //        	Field field = fields.next();
@@ -217,7 +221,7 @@ public class NewComplexTypeFormatter {
         	if (type.getIsRefType())
         		REF = "REF";
 			if (fnum < requiredCount){
-				out.write("        " + part.getName() + " = DmcType" + part.getType().getObjectName() + REF + "STATIC.instance.typeCheck(nvp.get(" + fnum + ").getValue());\n");			}
+				out.write("        " + part.getName() + valSuffix + " = DmcType" + part.getType().getObjectName() + REF + "STATIC.instance.typeCheck(nvp.get(" + fnum + ").getValue());\n");			}
 			else{
 				if (firstOptional){
 					out.write("\n");
@@ -235,7 +239,7 @@ public class NewComplexTypeFormatter {
 				else{
 					out.write("                else if (nvp.get(i).getName().equals(\"" + part.getName() + "\"))\n");
 				}
-				out.write("                    " + part.getName() + " = DmcType" + part.getType().getObjectName() + REF + "STATIC.instance.typeCheck(nvp.get(i).getValue());\n");
+				out.write("                    " + part.getName() + valSuffix + " = DmcType" + part.getType().getObjectName() + REF + "STATIC.instance.typeCheck(nvp.get(i).getValue());\n");
 			}
         	fnum++;
         }
@@ -279,9 +283,9 @@ public class NewComplexTypeFormatter {
 		for (Part part : combinedParts) {
 			String appendStatement = null;
 			if ((part.getQuoted() == null) || (part.getQuoted() == false))
-				appendStatement = "        sb.append(\"\\\"\" + " + part.getName() + ".toString() + \"\\\"\");\n";
+				appendStatement = "        sb.append(\"\\\"\" + " + part.getName() + valSuffix + ".toString() + \"\\\"\");\n";
 			else
-				appendStatement = "        sb.append(" + part.getName() + ".toString());\n";
+				appendStatement = "        sb.append(" + part.getName() + valSuffix + ".toString());\n";
 			
 			if (fnum < requiredCount){
 				// Required field, no need to test existence
@@ -295,7 +299,7 @@ public class NewComplexTypeFormatter {
 				}
 			}
 			else{
-				out.write("        if (" + part.getName() + " != null){\n");
+				out.write("        if (" + part.getName() + valSuffix + " != null){\n");
 				if (fnum == 0){
 					out.write("    " + appendStatement);
 				}
@@ -323,7 +327,7 @@ public class NewComplexTypeFormatter {
         	else
         		out.write("    public " + part.getType().getObjectName() + " get" + GenUtility.capTheName(part.getName()) + "(){\n");
         	
-        	out.write("        return(" + part.getName() + ");\n");
+        	out.write("        return(" + part.getName() + valSuffix + ");\n");
         	out.write("    }\n\n");
         }
         
@@ -334,15 +338,15 @@ public class NewComplexTypeFormatter {
         	out.write("        DmcNamedObjectIF  obj = null;\n\n");
             
             for(String fn: refFields){
-            	out.write("        if ((" + fn + " != null) && (!" + fn + ".isResolved())){\n");
-            	out.write("            obj = resolver.findNamedObject(" + fn + ".getObjectName());\n");
+            	out.write("        if ((" + fn + valSuffix + " != null) && (!" + fn + valSuffix + ".isResolved())){\n");
+            	out.write("            obj = resolver.findNamedObject(" + fn + valSuffix + ".getObjectName());\n");
             	out.write("            if (obj == null)\n");
-            	out.write("                throw(new DmcValueException(\"Could not resolve reference to: \" + " + fn + ".getObjectName() + \" via attribute: \" + attrName));\n");
+            	out.write("                throw(new DmcValueException(\"Could not resolve reference to: \" + " + fn + valSuffix + ".getObjectName() + \" via attribute: \" + attrName));\n");
             	out.write("        \n");
             	out.write("            if (obj instanceof DmcContainerIF)\n");
-            	out.write("                ((DmcNamedObjectREF)" + fn + ").setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());\n");
+            	out.write("                ((DmcNamedObjectREF)" + fn + valSuffix + ").setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());\n");
             	out.write("            else\n");
-            	out.write("                ((DmcNamedObjectREF)" + fn + ").setObject(obj);\n");
+            	out.write("                ((DmcNamedObjectREF)" + fn + valSuffix + ").setObject(obj);\n");
             	out.write("        }\n");
             	out.write("        \n");
             }
@@ -358,15 +362,15 @@ public class NewComplexTypeFormatter {
         	out.write("        DmcNamedObjectIF  obj = null;\n\n");
             
             for(String fn: refFields){
-            	out.write("        if ((" + fn + " != null) && (!" + fn + ".isResolved())){\n");
-            	out.write("            obj = resolver.findNamedObjectMayClash(object, " + fn + ".getObjectName(), ncr, " + fn + "AI);\n");
+            	out.write("        if ((" + fn + valSuffix + " != null) && (!" + fn + valSuffix + ".isResolved())){\n");
+            	out.write("            obj = resolver.findNamedObjectMayClash(object, " + fn + valSuffix + ".getObjectName(), ncr, " + fn + "AI);\n");
             	out.write("            if (obj == null)\n");
-            	out.write("                throw(new DmcValueException(\"Could not resolve reference to: \" + " + fn + ".getObjectName() + \" via attribute: \" + ai.name));\n");
+            	out.write("                throw(new DmcValueException(\"Could not resolve reference to: \" + " + fn + valSuffix + ".getObjectName() + \" via attribute: \" + ai.name));\n");
             	out.write("        \n");
             	out.write("            if (obj instanceof DmcContainerIF)\n");
-            	out.write("                ((DmcNamedObjectREF)" + fn + ").setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());\n");
+            	out.write("                ((DmcNamedObjectREF)" + fn + valSuffix + ").setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());\n");
             	out.write("            else\n");
-            	out.write("                ((DmcNamedObjectREF)" + fn + ").setObject(obj);\n");
+            	out.write("                ((DmcNamedObjectREF)" + fn + valSuffix + ").setObject(obj);\n");
             	out.write("        }\n");
             	out.write("        \n");
             }
@@ -571,9 +575,9 @@ public class NewComplexTypeFormatter {
     		sb.append("    // " + part.getDescription() + "\n");
     		
     		if (type.getIsRefType())
-        		sb.append("    " + part.getType().getObjectName() + "REF " + part.getName() + ";\n\n");
+        		sb.append("    " + part.getType().getObjectName() + "REF " + part.getName() + valSuffix + ";\n\n");
     		else
-    			sb.append("    " + part.getType().getObjectName() + " " + part.getName() + ";\n\n");
+    			sb.append("    " + part.getType().getObjectName() + " " + part.getName() + valSuffix + ";\n\n");
     		
     		sb.append("    final static DmcAttributeInfo " + part.getName() + "AI = new DmcAttributeInfo(\""+ part.getName() + "\",0,\"" + part.getType().getObjectName() + "\",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN);\n\n");
     	}

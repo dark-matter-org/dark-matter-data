@@ -227,7 +227,8 @@ public class DmsDefinitionDMO extends org.dmd.dms.generated.dmo.DSDefinitionDMO 
 
     /**
      * The exampleUsage attribute is used to provide additional\n examples of how
-     * some defined thing is to be used. 
+     * some defined thing is to be used. The convention for this field\n is to
+     * provide a title for the example followed by a colon. 
      * @return An Iterator of String objects.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2531)
