@@ -146,6 +146,7 @@ public class Part implements Serializable {
 
     /**
      * String form.
+     * Generated from: org.dmd.dms.meta.MetaComplexTypeFormatter.dumpComplexType(MetaComplexTypeFormatter.java:245)
      */
     public String toString(){
         StringBuffer sb = new StringBuffer();
@@ -156,7 +157,7 @@ public class Part implements Serializable {
         sb.append("\"" + description.toString() + "\"");
         if (quoted != null){
             sb.append(' ');
-            sb.append(quoted.toString());
+            sb.append("quoted=" + quoted.toString());
         }
 
         return(sb.toString());

@@ -372,6 +372,31 @@ description			The ReferencedAttributeTypeRule allowes you to restrict the type o
  </pre>
  Here, we're indicating that the lhs (left hand side) attribute must be single valued.
 
+///////////////////////////////////////////////////////////////////////////////
+ 
+RuleDefinition
+name				OnlyOneOfTheseAttributesAllowedRule
+dmdID				12
+ruleCategory		ObjectValidation
+must				onePossibility
+description			The OnlyOneOfTheseAttributesAllowedRule allows you to specify
+ that only one of the possible attributes specified must be present
+ in the object being checked. This only makes sense where the attributes in
+ question are optional (may have) in the object.
+ <p/>
+ An example of this rule can be seen below.
+ <pre>
+ OnlyOneOfTheseAttributesAllowedRule
+ ruleName			dmvMoneySource
+ ruleTitle			Only 
+ applyToClass		PaymentMethod
+ onePossibility		creditCardNumber
+ onePossibility		payPalAccount
+ </pre>
+
+///////////////////////////////////////////////////////////////////////////////
+ 
+ 
 ReferencedAttributeTypeRuleData
 ruleName			dmvRATRApplyToAttribute
 ruleTitle			The applyToAttribute attribute in a ReferencedAttributeTypeRuleData must refer to a single valued AttributeDefinition

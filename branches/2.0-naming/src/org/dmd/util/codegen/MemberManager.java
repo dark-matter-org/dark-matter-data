@@ -39,6 +39,7 @@ public class MemberManager {
 	 * Adds a new member with construction information to the collection.
 	 * @param t the Java type of the member
 	 * @param n the name of the member
+	 * @param c the constructor for the member
 	 * @param r the reason for the member's existence
 	 */
 	public void addMember(String t, String n, String c, String r){

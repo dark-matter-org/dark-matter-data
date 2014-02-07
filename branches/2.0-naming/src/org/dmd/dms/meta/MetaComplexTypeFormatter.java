@@ -242,6 +242,7 @@ public class MetaComplexTypeFormatter {
 		
 		out.write("    /**\n");
 		out.write("     * String form.\n");
+        out.write("     * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("     */\n");
 		out.write("    public String toString(){\n");
 		out.write("        StringBuffer sb = new StringBuffer();\n");
@@ -266,6 +267,12 @@ public class MetaComplexTypeFormatter {
 				}
 			}
 			else{
+				// Optional fields always displayed as name=value
+				if (field.quoted)
+					appendStatement = "        sb.append(\"" + field.name + "=\" + \"\\\"\" + " + field.name + ".toString() + \"\\\"\");\n";
+				else
+					appendStatement = "        sb.append(\"" + field.name + "=\" + " + field.name + ".toString());\n";
+
 				out.write("        if (" + field.name + " != null){\n");
 				if (fnum == 0){
 					out.write("    " + appendStatement);

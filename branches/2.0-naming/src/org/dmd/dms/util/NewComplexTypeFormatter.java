@@ -42,14 +42,18 @@ public class NewComplexTypeFormatter {
     	
         BufferedWriter out = FileUpdateManager.instance().getWriter(od, ctn + ".java");
         
-        parts = ctd.getRequiredPart();
-        while(parts.hasNext()){
-        	combinedParts.add(parts.next());
+        if (ctd.getRequiredPartSize() > 0){
+	        parts = ctd.getRequiredPart();
+	        while(parts.hasNext()){
+	        	combinedParts.add(parts.next());
+	        }
         }
         
-        parts = ctd.getOptionalPart();
-        while(parts.hasNext()){
-        	combinedParts.add(parts.next());
+        if (ctd.getOptionalPartSize() > 0){
+	        parts = ctd.getOptionalPart();
+	        while(parts.hasNext()){
+	        	combinedParts.add(parts.next());
+	        }
         }
         
         // Determine if we have any reference fields
@@ -283,9 +287,9 @@ public class NewComplexTypeFormatter {
 		for (Part part : combinedParts) {
 			String appendStatement = null;
 			if ((part.getQuoted() == null) || (part.getQuoted() == false))
-				appendStatement = "        sb.append(\"\\\"\" + " + part.getName() + valSuffix + ".toString() + \"\\\"\");\n";
-			else
 				appendStatement = "        sb.append(" + part.getName() + valSuffix + ".toString());\n";
+			else
+				appendStatement = "        sb.append(\"\\\"\" + " + part.getName() + valSuffix + ".toString() + \"\\\"\");\n";
 			
 			if (fnum < requiredCount){
 				// Required field, no need to test existence
@@ -299,7 +303,14 @@ public class NewComplexTypeFormatter {
 				}
 			}
 			else{
+				// Optional fields always displayed as name=value
+				if ((part.getQuoted() == null) || (part.getQuoted() == false))
+					appendStatement = "        sb.append(\"" + part.getName() + "=\" + " + part.getName() + valSuffix + ".toString());\n";
+				else
+					appendStatement = "        sb.append(\"" + part.getName() + "=\" + \"\\\"\" + " + part.getName() + valSuffix + ".toString() + \"\\\"\");\n";
+				
 				out.write("        if (" + part.getName() + valSuffix + " != null){\n");
+				
 				if (fnum == 0){
 					out.write("    " + appendStatement);
 				}
