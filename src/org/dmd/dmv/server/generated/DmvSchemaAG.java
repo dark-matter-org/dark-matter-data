@@ -60,6 +60,7 @@ public class DmvSchemaAG extends SchemaDefinition {
     public static ClassDefinition _PatternMatchRuleData;
     public static ClassDefinition _ValueLengthRuleData;
     public static ClassDefinition _ReferencedAttributeTypeRuleData;
+    public static ClassDefinition _OnlyOneOfTheseAttributesAllowedRuleData;
 
     public static AttributeDefinition _nrrMinimum;
     public static AttributeDefinition _nrrMaximum;
@@ -93,6 +94,7 @@ public class DmvSchemaAG extends SchemaDefinition {
     public static RuleDefinition _PatternMatchRule;
     public static RuleDefinition _ValueLengthRule;
     public static RuleDefinition _ReferencedAttributeTypeRule;
+    public static RuleDefinition _OnlyOneOfTheseAttributesAllowedRule;
 
 
     static DmvSchemaAG instance;
@@ -387,6 +389,31 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ReferencedAttributeTypeRuleDataOBJ.setNameAndTypeName("ReferencedAttributeTypeRuleDataData.ClassDefinition");
             _ReferencedAttributeTypeRuleData.setDefinedIn(this);
             addClassDefList(_ReferencedAttributeTypeRuleData);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            ClassDefinitionDMO _OnlyOneOfTheseAttributesAllowedRuleDataOBJ = new ClassDefinitionDMO();
+            _OnlyOneOfTheseAttributesAllowedRuleData = new ClassDefinition(_OnlyOneOfTheseAttributesAllowedRuleDataOBJ,DmvDMSAG.__OnlyOneOfTheseAttributesAllowedRuleData);
+            _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setName("OnlyOneOfTheseAttributesAllowedRuleData");
+            _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setDmdID("-959988");
+            _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setInternallyGenerated("true");
+            _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setClassType("STRUCTURAL");
+            _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
+            _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setLineNumber("396");
+            _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.addDescription("The OnlyOneOfTheseAttributesAllowedRule allows you to specify\n that only one of the possible attributes specified must be present\n in the object being checked. This only makes sense where the attributes in\n question are optional (may have) in the object.\n <p/>\n An example of this rule can be seen below.\n <pre>\n OnlyOneOfTheseAttributesAllowedRule\n ruleName			dmvMoneySource\n ruleTitle			Only \n applyToClass		PaymentMethod\n onePossibility		creditCardNumber\n onePossibility		payPalAccount\n </pre>");
+            _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setDerivedFrom("meta.RuleData");
+            _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setIsNamedBy("meta.ruleName");
+            _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.OnlyOneOfTheseAttributesAllowedRuleDataREF");
+            _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setRuleDefinition("dmv.OnlyOneOfTheseAttributesAllowedRule");
+            _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setDmwIteratorClass("OnlyOneOfTheseAttributesAllowedRuleDataIterableDMW");
+            _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.addMay("meta.description");
+            _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.addMust("meta.ruleName");
+            _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.addMust("meta.ruleTitle");
+            _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.addMust("dmv.onePossibility");
+            _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.OnlyOneOfTheseAttributesAllowedRuleDataIterableDMW");
+            _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setDotName("dmv.OnlyOneOfTheseAttributesAllowedRuleData.ClassDefinition");
+            _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setNameAndTypeName("OnlyOneOfTheseAttributesAllowedRuleDataData.ClassDefinition");
+            _OnlyOneOfTheseAttributesAllowedRuleData.setDefinedIn(this);
+            addClassDefList(_OnlyOneOfTheseAttributesAllowedRuleData);
 
     }
 
@@ -814,6 +841,21 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ReferencedAttributeTypeRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _ReferencedAttributeTypeRuleOBJ.setLineNumber("374");
             addRuleDefinitionList(_ReferencedAttributeTypeRule);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            RuleDefinitionDMO _OnlyOneOfTheseAttributesAllowedRuleOBJ = new RuleDefinitionDMO();
+            _OnlyOneOfTheseAttributesAllowedRule = new RuleDefinition(_OnlyOneOfTheseAttributesAllowedRuleOBJ);
+            _OnlyOneOfTheseAttributesAllowedRuleOBJ.addRuleCategory("meta.ObjectValidation");
+            _OnlyOneOfTheseAttributesAllowedRuleOBJ.setName("OnlyOneOfTheseAttributesAllowedRule");
+            _OnlyOneOfTheseAttributesAllowedRuleOBJ.setDmdID("-479988");
+            _OnlyOneOfTheseAttributesAllowedRuleOBJ.addDescription("The OnlyOneOfTheseAttributesAllowedRule allows you to specify\n that only one of the possible attributes specified must be present\n in the object being checked. This only makes sense where the attributes in\n question are optional (may have) in the object.\n <p/>\n An example of this rule can be seen below.\n <pre>\n OnlyOneOfTheseAttributesAllowedRule\n ruleName			dmvMoneySource\n ruleTitle			Only \n applyToClass		PaymentMethod\n onePossibility		creditCardNumber\n onePossibility		payPalAccount\n </pre>");
+            _OnlyOneOfTheseAttributesAllowedRuleOBJ.setNameAndTypeName("OnlyOneOfTheseAttributesAllowedRule.RuleDefinition");
+            _OnlyOneOfTheseAttributesAllowedRuleOBJ.addMust("dmv.onePossibility");
+            _OnlyOneOfTheseAttributesAllowedRuleOBJ.setDotName("dmv.OnlyOneOfTheseAttributesAllowedRule.RuleDefinition");
+            _OnlyOneOfTheseAttributesAllowedRule.setDefinedIn(this);
+            _OnlyOneOfTheseAttributesAllowedRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
+            _OnlyOneOfTheseAttributesAllowedRuleOBJ.setLineNumber("396");
+            addRuleDefinitionList(_OnlyOneOfTheseAttributesAllowedRule);
 
     }
 

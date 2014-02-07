@@ -32,7 +32,6 @@ public class OneOfTheseAttributesRequiredRule extends OneOfTheseAttributesRequir
 		if (found == 0){
 			// We haven't found any of the attributes - complain
 			DmcRuleExceptionSet ex = new DmcRuleExceptionSet();
-			possibilities = ruleDMO.getOnePossibility();
 			
 			ex.add(new DmcRuleException("The object must include at least one of these attributes: " + getPossibilities(), this));
 			throw(ex);

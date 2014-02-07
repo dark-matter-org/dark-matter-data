@@ -505,7 +505,12 @@ public class DmcOmni implements DmcNameResolverIF {
 		
 		if (mapping == null){
 			// It might be a fully qualified name, so try to find it in the dotname mapping
-			return(dotnameToAttribute.get(an));
+			try {
+				DotName dn = new DotName(an);
+				return(dotnameToAttribute.get(dn));
+			} catch (DmcValueException e) {
+				e.printStackTrace();
+			}
 		}
 		else{
 			if (mapping.size() == 1)
