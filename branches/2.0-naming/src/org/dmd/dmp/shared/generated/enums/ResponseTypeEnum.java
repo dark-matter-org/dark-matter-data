@@ -97,7 +97,7 @@ public enum ResponseTypeEnum implements DmcEnumIF
      * a valid member of this enum.
      */
     public static ResponseTypeEnum get(String str) {
-        return(lookupString.get(str));
+        return(lookupString.get(str.toUpperCase()));
     }
 
 }

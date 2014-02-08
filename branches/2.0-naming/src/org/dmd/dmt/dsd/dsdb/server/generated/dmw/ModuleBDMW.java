@@ -52,7 +52,7 @@ import org.dmd.dmt.dsd.dsdb.shared.generated.types.ModuleBREF;                  
  */
 abstract public class ModuleBDMW extends BConceptBase implements DmcDefinitionIF, DmcNamedObjectIF, ModuleBScopedInterface {
 
-    // Generated from: org.dmd.util.codegen.MemberManager.getFormattedMembers(MemberManager.java:59)
+    // Generated from: org.dmd.util.codegen.MemberManager.getFormattedMembers(MemberManager.java:60)
     // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperDefinitions(DMWGenerator.java:203)
     DmcDefinitionSet<BConceptBase>     BConceptBaseDefs    = new DmcDefinitionSet<BConceptBase>("ModuleB-allDefinitions");   // All definitions associated with this module
     DmcDefinitionSet<BConceptX>        BConceptXDefs       = new DmcDefinitionSet<BConceptX>("ModuleB-BConceptXDefs");       // All BConceptX definitions

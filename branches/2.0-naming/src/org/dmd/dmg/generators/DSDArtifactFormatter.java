@@ -27,10 +27,12 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.DefinitionName;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 import org.dmd.dmg.util.GeneratorUtils;
+import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.DSDefinitionModule;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
+import org.dmd.dms.generated.dmw.AttributeDefinitionIterableDMW;
 import org.dmd.dms.generated.dmw.DSDefinitionModuleIterableDMW;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.util.FileUpdateManager;
@@ -462,6 +464,9 @@ public class DSDArtifactFormatter {
 		ArrayList<ClassDefinition> structuralDefs = new ArrayList<ClassDefinition>();
 		getImportsForDefinitionsInSingleModule(imports, ddm, structuralDefs);
 		
+		imports.addImport("org.dmd.dms.AttributeDefinition", "To allow addition of preserve newline attributes");
+		imports.addImport("org.dmd.dms.generated.dmw.AttributeDefinitionIterableDMW", "To allow addition of preserve newline attributes");
+		
 		out.write(imports.getFormattedImports() + "\n");
 		out.write("\n");
 		
@@ -485,7 +490,17 @@ public class DSDArtifactFormatter {
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("    public " + ddm.getName() + "Parser(" + ddm.getGlobalInterfaceName() + " d, DmvRuleManager r) throws ResultException, DmcValueException, DmcNameClashException {\n");
 		out.write("        schema = new SchemaManager();\n");
-		out.write("        schema.manageSchema(new " + schemaName + "SchemaAG());\n");
+		out.write("        " + schemaName + "SchemaAG sd = new " + schemaName + "SchemaAG();\n");	
+		out.write("        schema.manageSchema(sd);\n");
+		out.write("        if (sd.getAttributeDefListSize() > 0){\n");
+		out.write("            AttributeDefinitionIterableDMW attrs = sd.getAttributeDefList();\n");
+		out.write("            while(attrs.hasNext()){\n");
+		out.write("                AttributeDefinition ad = attrs.getNext();\n");
+		out.write("                if (ad.getPreserveNewlines()){\n");
+		out.write("                    parser.addPreserveNewlinesAttribute(ad.getName().getNameString());\n");
+		out.write("                }\n");
+		out.write("            }\n");
+		out.write("        }\n");
 		out.write("        \n");
 		out.write("        factory      = new DmwObjectFactory(schema);\n");
 		out.write("        \n");
@@ -679,6 +694,15 @@ public class DSDArtifactFormatter {
 		out.write("                try {\n");
 		out.write("                    if (schema.isSchema(sd.getInstance().getName().getNameString()) == null){\n");
 		out.write("                        schema.manageSchema(sd);\n");
+		out.write("                        if (sd.getAttributeDefListSize() > 0){\n");
+		out.write("                            AttributeDefinitionIterableDMW attrs = sd.getAttributeDefList();\n");
+		out.write("                            while(attrs.hasNext()){\n");
+		out.write("                                AttributeDefinition ad = attrs.getNext();\n");
+		out.write("                                if (ad.getPreserveNewlines()){\n");
+		out.write("                                    parser.addPreserveNewlinesAttribute(ad.getName().getNameString());\n");
+		out.write("                                }\n");
+		out.write("                            }\n");
+		out.write("                        }\n");
 		out.write("                    }\n");
 		out.write("                } catch (DmcValueException e) {\n");
 		out.write("                    // TODO Auto-generated catch block\n");

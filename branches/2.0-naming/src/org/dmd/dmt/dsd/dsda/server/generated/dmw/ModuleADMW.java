@@ -48,7 +48,7 @@ import org.dmd.dmt.dsd.dsda.shared.generated.types.ModuleAREF;                  
  */
 abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF, DmcNamedObjectIF, ModuleAScopedInterface {
 
-    // Generated from: org.dmd.util.codegen.MemberManager.getFormattedMembers(MemberManager.java:59)
+    // Generated from: org.dmd.util.codegen.MemberManager.getFormattedMembers(MemberManager.java:60)
     // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperDefinitions(DMWGenerator.java:203)
     DmcDefinitionSet<AConceptBase>     AConceptBaseDefs    = new DmcDefinitionSet<AConceptBase>("ModuleA-allDefinitions");   // All definitions associated with this module
     DmcDefinitionSet<AConceptX>        AConceptXDefs       = new DmcDefinitionSet<AConceptX>("ModuleA-AConceptXDefs");       // All AConceptX definitions
