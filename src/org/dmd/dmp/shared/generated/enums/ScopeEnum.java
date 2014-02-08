@@ -94,7 +94,7 @@ public enum ScopeEnum implements DmcEnumIF
      * a valid member of this enum.
      */
     public static ScopeEnum get(String str) {
-        return(lookupString.get(str));
+        return(lookupString.get(str.toUpperCase()));
     }
 
 }
