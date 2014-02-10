@@ -20,6 +20,10 @@ public class MemberManager {
 		members = new ArrayList<MemberStatement>();
 	}
 	
+	public void addSpacer(){
+		members.add(new MemberStatement());
+	}
+	
 	/**
 	 * Adds a new member to the collection.
 	 * @param t the Java type of the member
