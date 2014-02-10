@@ -17,6 +17,14 @@ public class MemberStatement {
 	// Why the member is there
 	String reason;
 	
+	public MemberStatement(){
+		// Just a spacer
+		type 			= "";
+		name 			= "";
+		construction 	= "";
+		reason			= "";
+	}
+	
 	public MemberStatement(String t, String n, String r){
 		type 			= t;
 		name 			= n + ";";

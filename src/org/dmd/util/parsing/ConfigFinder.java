@@ -110,6 +110,17 @@ public class ConfigFinder {
 		checkClassPath = cp;
 	}
 	
+	
+	/**
+	 * A convenience function to add source search preferences.
+	 * @param sd source directories to search
+	 */
+	public void setSourceInfo(ArrayList<String> sd){
+		for(String src: sd){
+			sourceDirs.add(src);
+		}
+	}
+	
 	/**
 	 * A convenience function to add source and jar search preferences in one shot.
 	 * @param sd source directories to search
