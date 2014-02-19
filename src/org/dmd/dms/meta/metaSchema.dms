@@ -306,6 +306,7 @@ requiredPart	String			name        "The name of the Part"
 requiredPart	String			description "The description of the Part"  quoted=true
 //optionalPart	String			label 		"The label of the Part"			quoted=true
 optionalPart	Boolean			quoted 		"Indicates if the Part allows for a quoted value or if it's intended to be a single token"
+optionalPart	Boolean			multivalued	"Indicates if the Part is multivalued - this is only applicable to optional Parts."
 description     The Part complex type is used to describe the Parts of a ComplexTypeDefinition.
 
 ComplexTypeDefinition
