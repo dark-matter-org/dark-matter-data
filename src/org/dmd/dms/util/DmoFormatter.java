@@ -841,6 +841,10 @@ public class DmoFormatter {
     	String nullReturnValue = ad.getType().getNullReturnValue();
     	String typeName = ad.getType().getName().getNameString();
     	
+    	if (ad.getNullReturnValue() != null){
+    		nullReturnValue = ad.getNullReturnValue();
+    	}
+    	
     	if (ad.getType().getIsRefType()){
     		attrType = attrType + "REF";
 //    		typeName = typeName + "REF";

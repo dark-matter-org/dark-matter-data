@@ -1061,6 +1061,7 @@ public class DSDArtifactFormatter {
 		imports.addImport("org.dmd.util.BooleanVar", "Commandline flags");
 		imports.addImport("org.dmd.util.parsing.StringArrayList", "Commandline string values");
 		imports.addImport("java.io.IOException", "In case we have problems opening/writin got files");
+		imports.addImport("java.io.File", "To access the separator character");
 		imports.addImport("org.dmd.util.exceptions.ResultException", "To handle parsing exceptions");
 		imports.addImport("org.dmd.dmc.DmcValueException", "To handle fundamental value errors");
 		imports.addImport("org.dmd.dmc.DmcNameClashException", "To handle parsing errors");
@@ -1068,15 +1069,15 @@ public class DSDArtifactFormatter {
 		imports.addImport("org.dmd.dmc.DmcValueExceptionSet", "May occur when resolving objects");
 		
 		members.addMember(ddm.getName() + "ParsingCoordinator", "parser", "Module parser");
-		members.addMember("CommandLine", "commandLine", "new CommandLine()", "Commandline parser");
-		members.addMember("BooleanVar", "helpFlag", "new BooleanVar()", "The help flag value");
-		members.addMember("StringArrayList", "srcdir", "new StringArrayList()", "The source directories we'll search");
-		members.addMember("StringBuffer", "workspace", "new StringBuffer()", "The workspace base directory, this is appended to all srcdir directories");
-		members.addMember("StringBuffer", "target", "new StringBuffer()", "The target config on which to base generation");
+		members.addMember("protected CommandLine", "commandLine", "new CommandLine()", "Commandline parser");
+		members.addMember("protected BooleanVar", "helpFlag", "new BooleanVar()", "The help flag value");
+		members.addMember("protected StringArrayList", "srcdir", "new StringArrayList()", "The source directories we'll search");
+		members.addMember("protected StringBuffer", "workspace", "new StringBuffer()", "The workspace base directory, this is appended to all srcdir directories");
+		members.addMember("protected StringBuffer", "target", "new StringBuffer()", "The target config on which to base generation");
 // The standard behaviour should be to autogenerate
 //		members.addMember("BooleanVar", "autogen", "new BooleanVar()", "Indicates that you want to generate from all configs automatically.");
-		members.addMember("BooleanVar", "debug", "new BooleanVar()", "Dumps debug info if specified");
-		members.addMember("StringArrayList", "jars", "new StringArrayList()", "The jars that will be searched for ." + ddm.getFileExtension() + " config files");
+		members.addMember("protected BooleanVar", "debug", "new BooleanVar()", "Dumps debug info if specified");
+		members.addMember("protected StringArrayList", "jars", "new StringArrayList()", "The jars that will be searched for ." + ddm.getFileExtension() + " config files");
 		
 		out.write("package " + config.getGenPackage() + ".generated.dsd;\n\n");
 		
@@ -1107,19 +1108,37 @@ public class DSDArtifactFormatter {
 		out.write("\n");
 		out.write("        commandLine.parseArgs(args);\n");
 		out.write("\n");
+		out.write("        initialize();\n");
+		out.write("\n");
 		out.write("        if (helpFlag.booleanValue()){\n");
 		out.write("            displayHelp();\n");
 		out.write("            return;\n");
 		out.write("        }\n");
 		out.write("\n");
-		out.write("        parser = new " + ddm.getName() + "ParsingCoordinator(this, srcdir,jars);\n");
+		out.write("        StringArrayList withWorkspace = new StringArrayList();\n");
+		out.write("        for(String src: srcdir){\n");
+		out.write("            if (workspace.length() > 0)\n");
+		out.write("                withWorkspace.add(workspace + File.separator + src);\n");
+		out.write("            else\n");
+		out.write("                withWorkspace.add(src);\n");
+		out.write("        }\n");
+		out.write("\n");
+		out.write("        parser = new " + ddm.getName() + "ParsingCoordinator(this, withWorkspace, jars);\n");
 		out.write("\n");
 		out.write("        if (target.length() > 0)\n");
 		out.write("            parser.generateForConfig(target.toString());\n");
 		out.write("        else\n");
 		out.write("            parser.generateForAllConfigs();\n");
 		out.write("    }\n\n");
-		
+
+		out.write("    /**\n");
+		out.write("     * Derived classes may overload this method to perform additional initialization\n");
+		out.write("     * including checking that commandline arguments are appropriate.\n");
+		out.write("     */\n");
+		out.write("    public void initialize() throws ResultException {\n");
+		out.write("    	 \n");
+		out.write("    }\n\n");
+
 		out.write("}\n\n");
 		
 		out.close();

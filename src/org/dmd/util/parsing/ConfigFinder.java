@@ -77,7 +77,7 @@ public class ConfigFinder {
 	// The length of the longest schema name we found
 	int	longest;
 	
-	boolean	debug;
+	boolean	debug = true;
 	
 	boolean checkClassPath;
 	
@@ -376,6 +376,11 @@ public class ConfigFinder {
 						if (f.startsWith("meta"))
 							continue;
 						
+						// It's possible that we have something named with just the suffix, but not .suffix,
+						// so if there's no period, skip it
+						if (f.lastIndexOf(".") == -1)
+							continue;
+						
 						ConfigLocation newLocation = new ConfigLocation(f, dir.getCanonicalPath(), suffix);
 						
 						addConfig(newLocation);
@@ -394,7 +399,7 @@ public class ConfigFinder {
 		}
 		else{
 			ResultException ex = new ResultException();
-			ex.addError("Specified source directory doesn't exist: " + dir.getCanonicalPath());
+			ex.addError("Specified source directory doesn't exist: " + dir.getPath());
 			throw(ex);
 		}
 	}
