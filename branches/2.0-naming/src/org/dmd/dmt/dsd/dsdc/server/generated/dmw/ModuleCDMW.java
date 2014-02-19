@@ -56,7 +56,7 @@ import org.dmd.dmt.dsd.dsdc.shared.generated.types.ModuleCREF;                  
  */
 abstract public class ModuleCDMW extends CConceptBase implements DmcDefinitionIF, DmcNamedObjectIF, ModuleCScopedInterface {
 
-    // Generated from: org.dmd.util.codegen.MemberManager.getFormattedMembers(MemberManager.java:60)
+    // Generated from: org.dmd.util.codegen.MemberManager.getFormattedMembers(MemberManager.java:64)
     // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperDefinitions(DMWGenerator.java:203)
     DmcDefinitionSet<CConceptBase>     CConceptBaseDefs    = new DmcDefinitionSet<CConceptBase>("ModuleC-allDefinitions");   // All definitions associated with this module
     DmcDefinitionSet<CConceptX>        CConceptXDefs       = new DmcDefinitionSet<CConceptX>("ModuleC-CConceptXDefs");       // All CConceptX definitions

@@ -2797,6 +2797,9 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
     	String nullReturnValue = ad.getType().getNullReturnValue();
     	String staticName = "__" + ad.getName();
     	
+    	if (ad.getNullReturnValue() != null)
+    		nullReturnValue = ad.getNullReturnValue();
+    	
     	// Complicated stuff. When we're referring to wrapped objects through a reference
     	// attribute we can have two cases. Either, we have a straight wrapper e.g. generated.dmw.classDMW
     	// or, the generated wrapper has been extended e.g.  extended.class

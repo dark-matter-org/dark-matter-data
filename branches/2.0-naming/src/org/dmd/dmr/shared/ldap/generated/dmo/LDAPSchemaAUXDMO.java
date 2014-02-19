@@ -93,7 +93,7 @@ public class LDAPSchemaAUXDMO  {
     /**
      * Removes the ldapIdPrefix attribute from the object.
      */
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:867)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:871)
     static public DmcAttribute<?> remLdapIdPrefix(DmcObject core){
         if (core == null)
             return(null);
@@ -102,7 +102,7 @@ public class LDAPSchemaAUXDMO  {
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:900)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:904)
     static public String getLdapIdPrefix(DmcObject core){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(core, DmrldapDMSAG.__ldapIdPrefix);
         if (attr == null)
@@ -115,7 +115,7 @@ public class LDAPSchemaAUXDMO  {
      * Sets ldapIdPrefix to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:922)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:926)
     static public void setLdapIdPrefix(DmcObject core, Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(core, DmrldapDMSAG.__ldapIdPrefix);
         if (attr == null)
@@ -129,7 +129,7 @@ public class LDAPSchemaAUXDMO  {
      * Sets ldapIdPrefix to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:957)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:961)
     static public void setLdapIdPrefix(DmcObject core, String value){
         DmcAttribute<?> attr = get(core, DmrldapDMSAG.__ldapIdPrefix);
         if (attr == null)
