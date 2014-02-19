@@ -63,6 +63,10 @@ public class Part implements Serializable {
     Boolean quoted;
     final static DmcAttributeInfo quotedAI = new DmcAttributeInfo("quoted",0,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN);
 
+    // Indicates if the Part is multivalued - this is only applicable to optional Parts.
+    Boolean multivalued;
+    final static DmcAttributeInfo multivaluedAI = new DmcAttributeInfo("multivalued",0,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN);
+
     final static int requiredParts = 3;
 
     /**
@@ -79,18 +83,21 @@ public class Part implements Serializable {
         name = original.name;
         description = original.description;
         quoted = original.quoted;
+        multivalued = original.multivalued;
     }
 
     // Generated from: org.dmd.dms.meta.MetaComplexTypeFormatter.dumpComplexType(MetaComplexTypeFormatter.java:128)
     /**
      * All fields constructor.
      */
-    public Part(TypeDefinitionREF f1, String f2, String f3, Boolean f4) throws DmcValueException {
+    public Part(TypeDefinitionREF f1, String f2, String f3, Boolean f4, Boolean f5) throws DmcValueException {
         type = DmcTypeTypeDefinitionREFSTATIC.instance.typeCheck(f1);
         name = DmcTypeStringSTATIC.instance.typeCheck(f2);
         description = DmcTypeStringSTATIC.instance.typeCheck(f3);
         if (f4 != null)
             quoted = DmcTypeBooleanSTATIC.instance.typeCheck(f4);
+        if (f5 != null)
+            multivalued = DmcTypeBooleanSTATIC.instance.typeCheck(f5);
     }
 
     // Generated from: org.dmd.dms.meta.MetaComplexTypeFormatter.dumpComplexType(MetaComplexTypeFormatter.java:155)
@@ -122,6 +129,8 @@ public class Part implements Serializable {
                 }
                 if (nvp.get(i).getName().equals("quoted"))
                     quoted = DmcTypeBooleanSTATIC.instance.typeCheck(nvp.get(i).getValue());
+                else if (nvp.get(i).getName().equals("multivalued"))
+                    multivalued = DmcTypeBooleanSTATIC.instance.typeCheck(nvp.get(i).getValue());
                 else{
                     throw(new DmcValueException("Unknown field for complex type Part: "  + nvp.get(i).getName()));
                 }
@@ -160,6 +169,11 @@ public class Part implements Serializable {
             sb.append("quoted=" + quoted.toString());
         }
 
+        if (multivalued != null){
+            sb.append(' ');
+            sb.append("multivalued=" + multivalued.toString());
+        }
+
         return(sb.toString());
     }
 
@@ -177,6 +191,10 @@ public class Part implements Serializable {
 
     public Boolean getQuoted(){
         return(quoted);
+    }
+
+    public Boolean getMultivalued(){
+        return(multivalued);
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})
