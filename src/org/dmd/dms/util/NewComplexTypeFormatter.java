@@ -431,6 +431,8 @@ public class NewComplexTypeFormatter {
         	
 			if (isMulti){
                 out.write("    public Iterator<" + part.getType().getObjectName() + ref + "> get" + GenUtility.capTheName(part.getName()) + "(){\n");
+            	out.write("        if (" + pn + " == null)\n");
+            	out.write("            return(null);\n");
             	out.write("        return(" + pn + ".iterator());\n");
 			}
 			else{
