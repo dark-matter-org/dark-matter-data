@@ -304,6 +304,40 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
         mycore.setSortName(value);
     }
 
+    /**
+     * A collection of tags that can facilitate searching for\n definitions. The
+     * values are limited to a-zA-Z0-9 and the space character. 
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2591)
+    public Iterator<String> getTags(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__tags);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another tags value.
+     * @param value A value compatible with DmcTypeStringMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2671)
+    public void addTags(Object value) throws DmcValueException {
+        mycore.addTags(value);
+    }
+
+    /**
+     * Returns the number of tags values.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2684)
+    public int getTagsSize(){
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__tags);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation

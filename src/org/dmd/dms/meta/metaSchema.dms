@@ -2012,7 +2012,14 @@ description					Allows for references to base concepts that relate this
  in the domain of dark-matter schema definitions; other DSLs will allow for direct
  reference to Concinnity concepts.
 
- 
+AttributeDefinition
+name                		tags
+dmdID						177
+type                		String
+valueType					TREESET
+description					A collection of tags that can facilitate searching for
+ definitions. The values are limited to a-zA-Z0-9 and the space character.
+
 //AttributeDefinition
 //name                		nameAndTypeName
 //dmdID						176
@@ -2081,6 +2088,7 @@ may        		lineNumber
 may				dotName
 //may				nameAndTypeName
 may				sortName
+may				tags
 description		The domain specific definition (DSDefinition) forms the basis for all definitions
  that use dark-matter as their basis. The initial dark-matter mechanisms were focussed only on 
  schema for data objects, but, as the project developed, other, domain specific sets of definitions

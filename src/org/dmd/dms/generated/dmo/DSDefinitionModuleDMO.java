@@ -66,9 +66,11 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
         _ImAp.put(MetaDMSAG.__may.id,MetaDMSAG.__may);
         _ImAp.put(MetaDMSAG.__must.id,MetaDMSAG.__must);
         _ImAp.put(MetaDMSAG.__refersToDefsFromDSD.id,MetaDMSAG.__refersToDefsFromDSD);
+        _ImAp.put(MetaDMSAG.__relatedToConcept.id,MetaDMSAG.__relatedToConcept);
         _ImAp.put(MetaDMSAG.__requiredBaseModule.id,MetaDMSAG.__requiredBaseModule);
         _ImAp.put(MetaDMSAG.__sortName.id,MetaDMSAG.__sortName);
         _ImAp.put(MetaDMSAG.__supportDynamicSchemaLoading.id,MetaDMSAG.__supportDynamicSchemaLoading);
+        _ImAp.put(MetaDMSAG.__tags.id,MetaDMSAG.__tags);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(MetaDMSAG.__baseDefinition.name,MetaDMSAG.__baseDefinition);
@@ -87,9 +89,11 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
         _SmAp.put(MetaDMSAG.__may.name,MetaDMSAG.__may);
         _SmAp.put(MetaDMSAG.__must.name,MetaDMSAG.__must);
         _SmAp.put(MetaDMSAG.__refersToDefsFromDSD.name,MetaDMSAG.__refersToDefsFromDSD);
+        _SmAp.put(MetaDMSAG.__relatedToConcept.name,MetaDMSAG.__relatedToConcept);
         _SmAp.put(MetaDMSAG.__requiredBaseModule.name,MetaDMSAG.__requiredBaseModule);
         _SmAp.put(MetaDMSAG.__sortName.name,MetaDMSAG.__sortName);
         _SmAp.put(MetaDMSAG.__supportDynamicSchemaLoading.name,MetaDMSAG.__supportDynamicSchemaLoading);
+        _SmAp.put(MetaDMSAG.__tags.name,MetaDMSAG.__tags);
     }
 
 
@@ -610,6 +614,37 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
     }
 
     /**
+     * Allows for references to base concepts that relate this\n definition to
+     * another definition in the Concinnity domain. This mechanism is only used\n
+     * in the domain of dark-matter schema definitions; other DSLs will allow for
+     * direct\n reference to Concinnity concepts. 
+     * @return An Iterator of ConcinnityDMO objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2524)
+    public Iterator<ConcinnityREF> getRelatedToConcept(){
+        DmcTypeConcinnityREFMV attr = (DmcTypeConcinnityREFMV) get(MetaDMSAG.__relatedToConcept);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another relatedToConcept value.
+     * @param value A value compatible with DmcTypeConcinnityREFMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2636)
+    public DmcAttribute<?> addRelatedToConcept(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__relatedToConcept);
+        if (attr == null)
+            attr = new DmcTypeConcinnityREFMV(MetaDMSAG.__relatedToConcept);
+        
+        attr.add(value);
+        add(MetaDMSAG.__relatedToConcept,attr);
+        return(attr);
+    }
+
+    /**
      * A set of base module files that should be loaded before\n parsing of any
      * other modules associated with the DSD being defined. For example,\n the
      * dmdgpb (augmented Googoe Protocol Buffer specifications) DSD always
@@ -704,6 +739,35 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
         
         attr.set(value);
         set(MetaDMSAG.__supportDynamicSchemaLoading,attr);
+    }
+
+    /**
+     * A collection of tags that can facilitate searching for\n definitions. The
+     * values are limited to a-zA-Z0-9 and the space character. 
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2531)
+    public Iterator<String> getTags(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__tags);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another tags value.
+     * @param value A value compatible with DmcTypeStringMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2636)
+    public DmcAttribute<?> addTags(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__tags);
+        if (attr == null)
+            attr = new DmcTypeStringMV(MetaDMSAG.__tags);
+        
+        attr.add(value);
+        add(MetaDMSAG.__tags,attr);
+        return(attr);
     }
 
 
