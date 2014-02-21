@@ -88,10 +88,12 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         _ImAp.put(MetaDMSAG.__must.id,MetaDMSAG.__must);
         _ImAp.put(MetaDMSAG.__obsoleteVersion.id,MetaDMSAG.__obsoleteVersion);
         _ImAp.put(MetaDMSAG.__partOfDefinitionModule.id,MetaDMSAG.__partOfDefinitionModule);
+        _ImAp.put(MetaDMSAG.__relatedToConcept.id,MetaDMSAG.__relatedToConcept);
         _ImAp.put(MetaDMSAG.__ruleDefinition.id,MetaDMSAG.__ruleDefinition);
         _ImAp.put(MetaDMSAG.__sortName.id,MetaDMSAG.__sortName);
         _ImAp.put(MetaDMSAG.__subpackage.id,MetaDMSAG.__subpackage);
         _ImAp.put(MetaDMSAG.__supportsBackrefTracking.id,MetaDMSAG.__supportsBackrefTracking);
+        _ImAp.put(MetaDMSAG.__tags.id,MetaDMSAG.__tags);
         _ImAp.put(MetaDMSAG.__useWrapperType.id,MetaDMSAG.__useWrapperType);
         _ImAp.put(MetaDMSAG.__usesInterface.id,MetaDMSAG.__usesInterface);
 
@@ -139,10 +141,12 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         _SmAp.put(MetaDMSAG.__must.name,MetaDMSAG.__must);
         _SmAp.put(MetaDMSAG.__obsoleteVersion.name,MetaDMSAG.__obsoleteVersion);
         _SmAp.put(MetaDMSAG.__partOfDefinitionModule.name,MetaDMSAG.__partOfDefinitionModule);
+        _SmAp.put(MetaDMSAG.__relatedToConcept.name,MetaDMSAG.__relatedToConcept);
         _SmAp.put(MetaDMSAG.__ruleDefinition.name,MetaDMSAG.__ruleDefinition);
         _SmAp.put(MetaDMSAG.__sortName.name,MetaDMSAG.__sortName);
         _SmAp.put(MetaDMSAG.__subpackage.name,MetaDMSAG.__subpackage);
         _SmAp.put(MetaDMSAG.__supportsBackrefTracking.name,MetaDMSAG.__supportsBackrefTracking);
+        _SmAp.put(MetaDMSAG.__tags.name,MetaDMSAG.__tags);
         _SmAp.put(MetaDMSAG.__useWrapperType.name,MetaDMSAG.__useWrapperType);
         _SmAp.put(MetaDMSAG.__usesInterface.name,MetaDMSAG.__usesInterface);
     }
@@ -1418,6 +1422,37 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     }
 
     /**
+     * Allows for references to base concepts that relate this\n definition to
+     * another definition in the Concinnity domain. This mechanism is only used\n
+     * in the domain of dark-matter schema definitions; other DSLs will allow for
+     * direct\n reference to Concinnity concepts. 
+     * @return An Iterator of ConcinnityDMO objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2524)
+    public Iterator<ConcinnityREF> getRelatedToConcept(){
+        DmcTypeConcinnityREFMV attr = (DmcTypeConcinnityREFMV) get(MetaDMSAG.__relatedToConcept);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another relatedToConcept value.
+     * @param value A value compatible with DmcTypeConcinnityREFMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2636)
+    public DmcAttribute<?> addRelatedToConcept(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__relatedToConcept);
+        if (attr == null)
+            attr = new DmcTypeConcinnityREFMV(MetaDMSAG.__relatedToConcept);
+        
+        attr.add(value);
+        add(MetaDMSAG.__relatedToConcept,attr);
+        return(attr);
+    }
+
+    /**
      * The RuleDefinition that resulted in the creation of an\n internally
      * generated ClassDefinition. 
      */
@@ -1530,6 +1565,35 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         
         attr.set(value);
         set(MetaDMSAG.__supportsBackrefTracking,attr);
+    }
+
+    /**
+     * A collection of tags that can facilitate searching for\n definitions. The
+     * values are limited to a-zA-Z0-9 and the space character. 
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2531)
+    public Iterator<String> getTags(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__tags);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another tags value.
+     * @param value A value compatible with DmcTypeStringMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2636)
+    public DmcAttribute<?> addTags(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__tags);
+        if (attr == null)
+            attr = new DmcTypeStringMV(MetaDMSAG.__tags);
+        
+        attr.add(value);
+        add(MetaDMSAG.__tags,attr);
+        return(attr);
     }
 
     /**

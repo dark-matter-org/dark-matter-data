@@ -76,8 +76,10 @@ public class RuleCategoryDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO 
         _ImAp.put(MetaDMSAG.__exampleUsage.id,MetaDMSAG.__exampleUsage);
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
+        _ImAp.put(MetaDMSAG.__relatedToConcept.id,MetaDMSAG.__relatedToConcept);
         _ImAp.put(MetaDMSAG.__ruleImport.id,MetaDMSAG.__ruleImport);
         _ImAp.put(MetaDMSAG.__sortName.id,MetaDMSAG.__sortName);
+        _ImAp.put(MetaDMSAG.__tags.id,MetaDMSAG.__tags);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(MetaDMSAG.__classInfoFromParam.name,MetaDMSAG.__classInfoFromParam);
@@ -93,8 +95,10 @@ public class RuleCategoryDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO 
         _SmAp.put(MetaDMSAG.__exampleUsage.name,MetaDMSAG.__exampleUsage);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
+        _SmAp.put(MetaDMSAG.__relatedToConcept.name,MetaDMSAG.__relatedToConcept);
         _SmAp.put(MetaDMSAG.__ruleImport.name,MetaDMSAG.__ruleImport);
         _SmAp.put(MetaDMSAG.__sortName.name,MetaDMSAG.__sortName);
+        _SmAp.put(MetaDMSAG.__tags.name,MetaDMSAG.__tags);
     }
 
 
@@ -525,6 +529,37 @@ public class RuleCategoryDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO 
     }
 
     /**
+     * Allows for references to base concepts that relate this\n definition to
+     * another definition in the Concinnity domain. This mechanism is only used\n
+     * in the domain of dark-matter schema definitions; other DSLs will allow for
+     * direct\n reference to Concinnity concepts. 
+     * @return An Iterator of ConcinnityDMO objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2524)
+    public Iterator<ConcinnityREF> getRelatedToConcept(){
+        DmcTypeConcinnityREFMV attr = (DmcTypeConcinnityREFMV) get(MetaDMSAG.__relatedToConcept);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another relatedToConcept value.
+     * @param value A value compatible with DmcTypeConcinnityREFMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2636)
+    public DmcAttribute<?> addRelatedToConcept(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__relatedToConcept);
+        if (attr == null)
+            attr = new DmcTypeConcinnityREFMV(MetaDMSAG.__relatedToConcept);
+        
+        attr.add(value);
+        add(MetaDMSAG.__relatedToConcept,attr);
+        return(attr);
+    }
+
+    /**
      * An import required for generation of the rule collection associated with\n
      * a RuleCategory. 
      * @return An Iterator of String objects.
@@ -582,6 +617,35 @@ public class RuleCategoryDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO 
         
         attr.set(value);
         set(MetaDMSAG.__sortName,attr);
+    }
+
+    /**
+     * A collection of tags that can facilitate searching for\n definitions. The
+     * values are limited to a-zA-Z0-9 and the space character. 
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2531)
+    public Iterator<String> getTags(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__tags);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another tags value.
+     * @param value A value compatible with DmcTypeStringMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2636)
+    public DmcAttribute<?> addTags(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__tags);
+        if (attr == null)
+            attr = new DmcTypeStringMV(MetaDMSAG.__tags);
+        
+        attr.add(value);
+        add(MetaDMSAG.__tags,attr);
+        return(attr);
     }
 
 

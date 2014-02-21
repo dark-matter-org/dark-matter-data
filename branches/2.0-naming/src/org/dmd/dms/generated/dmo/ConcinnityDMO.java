@@ -61,6 +61,7 @@ public class ConcinnityDMO extends org.dmd.dms.generated.dmo.DSDefinitionDMO imp
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
         _ImAp.put(MetaDMSAG.__sortName.id,MetaDMSAG.__sortName);
+        _ImAp.put(MetaDMSAG.__tags.id,MetaDMSAG.__tags);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(MetaDMSAG.__name.name,MetaDMSAG.__name);
@@ -71,6 +72,7 @@ public class ConcinnityDMO extends org.dmd.dms.generated.dmo.DSDefinitionDMO imp
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
         _SmAp.put(MetaDMSAG.__sortName.name,MetaDMSAG.__sortName);
+        _SmAp.put(MetaDMSAG.__tags.name,MetaDMSAG.__tags);
     }
 
 
@@ -363,6 +365,35 @@ public class ConcinnityDMO extends org.dmd.dms.generated.dmo.DSDefinitionDMO imp
         
         attr.set(value);
         set(MetaDMSAG.__sortName,attr);
+    }
+
+    /**
+     * A collection of tags that can facilitate searching for\n definitions. The
+     * values are limited to a-zA-Z0-9 and the space character. 
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2531)
+    public Iterator<String> getTags(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__tags);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another tags value.
+     * @param value A value compatible with DmcTypeStringMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2636)
+    public DmcAttribute<?> addTags(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__tags);
+        if (attr == null)
+            attr = new DmcTypeStringMV(MetaDMSAG.__tags);
+        
+        attr.add(value);
+        add(MetaDMSAG.__tags,attr);
+        return(attr);
     }
 
 

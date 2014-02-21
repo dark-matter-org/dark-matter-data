@@ -78,6 +78,43 @@ public abstract class DmsDefinitionDMW extends org.dmd.dms.DSDefinition {
         mycore.setName(value);
     }
 
+    /**
+     * Allows for references to base concepts that relate this\n definition to
+     * another definition in the Concinnity domain. This mechanism is only used\n
+     * in the domain of dark-matter schema definitions; other DSLs will allow for
+     * direct\n reference to Concinnity concepts. 
+     * @return An Iterator of Concinnity objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2573)
+    public ConcinnityIterableDMW getRelatedToConcept(){
+        DmcTypeConcinnityREFMV attr = (DmcTypeConcinnityREFMV) mycore.get(MetaDMSAG.__relatedToConcept);
+        if (attr == null)
+            return(ConcinnityIterableDMW.emptyList);
+
+        return(new ConcinnityIterableDMW(attr.getMV()));
+    }
+
+    /**
+     * Adds another relatedToConcept value.
+     * @param value A value compatible with Concinnity
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2657)
+    public DmcAttribute<?> addRelatedToConcept(Concinnity value) throws DmcValueException {
+        DmcAttribute<?> attr = mycore.addRelatedToConcept(value.getDmcObject());
+        return(attr);
+    }
+
+    /**
+     * Returns the number of relatedToConcept values.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2684)
+    public int getRelatedToConceptSize(){
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__relatedToConcept);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation

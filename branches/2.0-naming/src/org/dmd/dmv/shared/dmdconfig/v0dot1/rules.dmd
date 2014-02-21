@@ -252,7 +252,15 @@ description			Although the name attribute is defined as type DotName, when
  This allows for the convention of referring to definitions in the most general
  way possible without having to fully qualify every reference. 
 
- 
+PatternMatchRuleData
+ruleName			dmvTagsCheck
+ruleTitle			The tags attribute must be a mix of letters, numbers and spaces.
+matchesPattern		[a-zA-Z0-9][a-zA-Z0-9 ]*
+applyToAttribute	tags
+description			Considered having tags with spaces, but it gets tricky when you 
+ want to represent things like San Franciso. So spaces are allowed in tags, but no
+ other special characters.
+
 ///////////////////////////////////////////////////////////////////////////////
 
 RuleDefinition

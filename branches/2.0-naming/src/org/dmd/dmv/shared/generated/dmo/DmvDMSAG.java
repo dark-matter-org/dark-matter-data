@@ -113,6 +113,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
     public final static CheckAttributesBasedOnValueRule __dmvNoMustInExtensible;
     public final static ReferencedAttributeTypeRule __dmvRATRApplyToAttribute;
     public final static ReferencedAttributeTypeRule __dmvRhs;
+    public final static PatternMatchRule __dmvTagsCheck;
     public final static OneOfTheseAttributesRequiredRule __dmvValueorAttribute;
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;
@@ -272,7 +273,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvBasedOnAttributeData     .setAllowedValueType("SINGLE");
             _dmvBasedOnAttributeData     .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _dmvBasedOnAttributeData     .setDefinedIn("dmv");
-            _dmvBasedOnAttributeData     .setLineNumber("456");
+            _dmvBasedOnAttributeData     .setLineNumber("464");
 
             __dmvBasedOnAttribute = new ReferencedAttributeTypeRule(_dmvBasedOnAttributeData);
 
@@ -287,7 +288,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvComplexTypeAttributeCheckData.addOnePossibility("optionalPart");
             _dmvComplexTypeAttributeCheckData.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _dmvComplexTypeAttributeCheckData.setDefinedIn("dmv");
-            _dmvComplexTypeAttributeCheckData.setLineNumber("315");
+            _dmvComplexTypeAttributeCheckData.setLineNumber("323");
 
             __dmvComplexTypeAttributeCheck = new OneOfTheseAttributesRequiredRule(_dmvComplexTypeAttributeCheckData);
 
@@ -302,7 +303,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvDefinedInModuleAttributeData.setAllowedValueType("SINGLE");
             _dmvDefinedInModuleAttributeData.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _dmvDefinedInModuleAttributeData.setDefinedIn("dmv");
-            _dmvDefinedInModuleAttributeData.setLineNumber("501");
+            _dmvDefinedInModuleAttributeData.setLineNumber("509");
 
             __dmvDefinedInModuleAttribute = new ReferencedAttributeTypeRule(_dmvDefinedInModuleAttributeData);
 
@@ -345,7 +346,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvFileExtensionCheckData   .setApplyToAttribute("fileExtension");
             _dmvFileExtensionCheckData   .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _dmvFileExtensionCheckData   .setDefinedIn("dmv");
-            _dmvFileExtensionCheckData   .setLineNumber("472");
+            _dmvFileExtensionCheckData   .setLineNumber("480");
 
             __dmvFileExtensionCheck = new PatternMatchRule(_dmvFileExtensionCheckData);
 
@@ -377,7 +378,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvLhsData                  .addAllowedType("Long");
             _dmvLhsData                  .addAllowedType("Float");
             _dmvLhsData                  .addAllowedType("Double");
-            _dmvLhsData                  .setLineNumber("431");
+            _dmvLhsData                  .setLineNumber("439");
 
             __dmvLhs = new ReferencedAttributeTypeRule(_dmvLhsData);
 
@@ -391,7 +392,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvMaxOrMinData             .addOnePossibility("minLength");
             _dmvMaxOrMinData             .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _dmvMaxOrMinData             .setDefinedIn("dmv");
-            _dmvMaxOrMinData             .setLineNumber("307");
+            _dmvMaxOrMinData             .setLineNumber("315");
 
             __dmvMaxOrMin = new OneOfTheseAttributesRequiredRule(_dmvMaxOrMinData);
 
@@ -404,7 +405,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvMaximumLengthData        .setNrrMinimum("1.0");
             _dmvMaximumLengthData        .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _dmvMaximumLengthData        .setDefinedIn("dmv");
-            _dmvMaximumLengthData        .setLineNumber("336");
+            _dmvMaximumLengthData        .setLineNumber("344");
 
             __dmvMaximumLength = new NumericRangeRule(_dmvMaximumLengthData);
 
@@ -419,7 +420,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvMinLessThanMaxData       .setRhs("maxLength");
             _dmvMinLessThanMaxData       .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _dmvMinLessThanMaxData       .setDefinedIn("dmv");
-            _dmvMinLessThanMaxData       .setLineNumber("323");
+            _dmvMinLessThanMaxData       .setLineNumber("331");
 
             __dmvMinLessThanMax = new RelatedNumbersRule(_dmvMinLessThanMaxData);
 
@@ -433,7 +434,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvMinimumLengthData        .setNrrMinimum("1.0");
             _dmvMinimumLengthData        .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _dmvMinimumLengthData        .setDefinedIn("dmv");
-            _dmvMinimumLengthData        .setLineNumber("330");
+            _dmvMinimumLengthData        .setLineNumber("338");
 
             __dmvMinimumLength = new NumericRangeRule(_dmvMinimumLengthData);
 
@@ -448,7 +449,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvMinimumOrMaximumData     .addDescription("The NumericRangeRule can operate with one or both of the minimum\n and maximum values.");
             _dmvMinimumOrMaximumData     .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _dmvMinimumOrMaximumData     .setDefinedIn("dmv");
-            _dmvMinimumOrMaximumData     .setLineNumber("465");
+            _dmvMinimumOrMaximumData     .setLineNumber("473");
 
             __dmvMinimumOrMaximum = new OneOfTheseAttributesRequiredRule(_dmvMinimumOrMaximumData);
 
@@ -463,7 +464,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvModuleDependenceAttributeData.setAllowedValueType("MULTI");
             _dmvModuleDependenceAttributeData.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _dmvModuleDependenceAttributeData.setDefinedIn("dmv");
-            _dmvModuleDependenceAttributeData.setLineNumber("492");
+            _dmvModuleDependenceAttributeData.setLineNumber("500");
 
             __dmvModuleDependenceAttribute = new ReferencedAttributeTypeRule(_dmvModuleDependenceAttributeData);
 
@@ -480,7 +481,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvNRRApplyToAttributeData  .addAllowedType("Long");
             _dmvNRRApplyToAttributeData  .addAllowedType("Float");
             _dmvNRRApplyToAttributeData  .addAllowedType("Double");
-            _dmvNRRApplyToAttributeData  .setLineNumber("420");
+            _dmvNRRApplyToAttributeData  .setLineNumber("428");
 
             __dmvNRRApplyToAttribute = new ReferencedAttributeTypeRule(_dmvNRRApplyToAttributeData);
 
@@ -511,7 +512,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvRATRApplyToAttributeData .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _dmvRATRApplyToAttributeData .setDefinedIn("dmv");
             _dmvRATRApplyToAttributeData .addAllowedType("AttributeDefinition");
-            _dmvRATRApplyToAttributeData .setLineNumber("410");
+            _dmvRATRApplyToAttributeData .setLineNumber("418");
 
             __dmvRATRApplyToAttribute = new ReferencedAttributeTypeRule(_dmvRATRApplyToAttributeData);
 
@@ -529,11 +530,25 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvRhsData                  .addAllowedType("Long");
             _dmvRhsData                  .addAllowedType("Float");
             _dmvRhsData                  .addAllowedType("Double");
-            _dmvRhsData                  .setLineNumber("442");
+            _dmvRhsData                  .setLineNumber("450");
 
             __dmvRhs = new ReferencedAttributeTypeRule(_dmvRhsData);
 
             _RmAp.add(__dmvRhs);
+
+            PatternMatchRuleDataDMO _dmvTagsCheckData = new PatternMatchRuleDataDMO();
+            _dmvTagsCheckData            .setRuleName("dmvTagsCheck");
+            _dmvTagsCheckData            .setRuleTitle("The tags attribute must be a mix of letters, numbers and spaces.");
+            _dmvTagsCheckData            .addDescription("Considered having tags with spaces, but it gets tricky when you \n want to represent things like San Franciso. So spaces are allowed in tags, but no\n other special characters.");
+            _dmvTagsCheckData            .setMatchesPattern("[a-zA-Z0-9][a-zA-Z0-9 ]*");
+            _dmvTagsCheckData            .setApplyToAttribute("tags");
+            _dmvTagsCheckData            .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
+            _dmvTagsCheckData            .setDefinedIn("dmv");
+            _dmvTagsCheckData            .setLineNumber("263");
+
+            __dmvTagsCheck = new PatternMatchRule(_dmvTagsCheckData);
+
+            _RmAp.add(__dmvTagsCheck);
 
             OneOfTheseAttributesRequiredRuleDataDMO _dmvValueorAttributeData = new OneOfTheseAttributesRequiredRuleDataDMO();
             _dmvValueorAttributeData     .setRuleName("dmvValueorAttribute");
@@ -543,7 +558,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvValueorAttributeData     .addOnePossibility("allowedValueType");
             _dmvValueorAttributeData     .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _dmvValueorAttributeData     .setDefinedIn("dmv");
-            _dmvValueorAttributeData     .setLineNumber("449");
+            _dmvValueorAttributeData     .setLineNumber("457");
 
             __dmvValueorAttribute = new OneOfTheseAttributesRequiredRule(_dmvValueorAttributeData);
 
