@@ -1,20 +1,5 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2014 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
-//	---------------------------------------------------------------------------
-//	dark-matter-data
 //	Copyright (c) 2010 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
@@ -111,7 +96,6 @@ public class DmrbaseSchemaAG extends SchemaDefinition {
             _HierarchicObjectOBJ.addMust("meta.FQN");
             _HierarchicObjectOBJ.setDmwIteratorImport("org.dmd.dmr.server.base.generated.dmw.HierarchicObjectIterableDMW");
             _HierarchicObjectOBJ.setDotName("dmrbase.HierarchicObject.ClassDefinition");
-            _HierarchicObjectOBJ.setNameAndTypeName("HierarchicObject.ClassDefinition");
             _HierarchicObject.setDefinedIn(this);
             addClassDefList(_HierarchicObject);
 
@@ -132,7 +116,6 @@ public class DmrbaseSchemaAG extends SchemaDefinition {
             _DotNamedObjectOBJ.addMust("meta.FQN");
             _DotNamedObjectOBJ.setDmwIteratorImport("org.dmd.dmr.server.base.generated.dmw.DotNamedObjectIterableDMW");
             _DotNamedObjectOBJ.setDotName("dmrbase.DotNamedObject.ClassDefinition");
-            _DotNamedObjectOBJ.setNameAndTypeName("DotNamedObject.ClassDefinition");
             _DotNamedObject.setDefinedIn(this);
             addClassDefList(_DotNamedObject);
 
@@ -146,7 +129,6 @@ public class DmrbaseSchemaAG extends SchemaDefinition {
             _userNameOBJ.setName("userName");
             _userNameOBJ.setDmdID("400");
             _userNameOBJ.addDescription("The name of a user.");
-            _userNameOBJ.setNameAndTypeName("userName.AttributeDefinition");
             _userNameOBJ.setDataType("PERSISTENT");
             _userNameOBJ.setDotName("dmrbase.userName.AttributeDefinition");
             _userName.setDefinedIn(this);
@@ -161,7 +143,6 @@ public class DmrbaseSchemaAG extends SchemaDefinition {
             _passwordOBJ.setName("password");
             _passwordOBJ.setDmdID("401");
             _passwordOBJ.addDescription("A user's password.");
-            _passwordOBJ.setNameAndTypeName("password.AttributeDefinition");
             _passwordOBJ.setDataType("PERSISTENT");
             _passwordOBJ.setDotName("dmrbase.password.AttributeDefinition");
             _password.setDefinedIn(this);

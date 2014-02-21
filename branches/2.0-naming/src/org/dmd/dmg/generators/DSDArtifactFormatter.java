@@ -598,7 +598,7 @@ public class DSDArtifactFormatter {
 		out.write("                module = (" + ddm.getName() + ")definition;\n");
 		out.write("            \n");
 		out.write("                definition.setDotName(module.getName() + \".\" + definition.getConstructionClassName());\n");
-		out.write("                definition.setNameAndTypeName(module.getName() + \".\" + definition.getConstructionClassName());\n");
+//		out.write("                definition.setNameAndTypeName(module.getName() + \".\" + definition.getConstructionClassName());\n");
 		out.write("            \n");
 		out.write("                module." + definedInModuleMethod + "(module);\n");
 		out.write("                definitions.add" + ddm.getName() + "(module);\n");
@@ -626,7 +626,7 @@ public class DSDArtifactFormatter {
 		out.write("            \n");
 		out.write("            definition." + definedInModuleMethod + "(module);\n");
 		out.write("            definition.setDotName(module.getName() + \".\" + definition.getName() + \".\" + definition.getConstructionClassName());\n");
-		out.write("            definition.setNameAndTypeName(definition.getName() + \".\" + definition.getConstructionClassName());\n");
+//		out.write("            definition.setNameAndTypeName(definition.getName() + \".\" + definition.getConstructionClassName());\n");
 		out.write("            \n");
 		
 		boolean first = true;
