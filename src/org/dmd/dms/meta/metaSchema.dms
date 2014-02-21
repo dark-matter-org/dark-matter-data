@@ -2003,14 +2003,29 @@ description					For classes that defined as part of a definition module,
  method to get the name of the module from which they were loaded.
 
 AttributeDefinition
-name                		nameAndTypeName
+name                		relatedToConcept
 dmdID						176
-type                		DotName
-description					For a DSDefinition, this attribute holds just the 
- defname.type of the definition. This is used to facilitate object resolution 
- using the findNamedObjectMayClash mechanisms. In that case we have the name of 
- and object and the attribute via which the reference is being made. These are
- concatenated to form the defname.type.
+type                		Concinnity
+valueType					MULTI
+description					Allows for references to base concepts that relate this
+ definition to another definition in the Concinnity domain. This mechanism is only used
+ in the domain of dark-matter schema definitions; other DSLs will allow for direct
+ reference to Concinnity concepts.
+
+ 
+//AttributeDefinition
+//name                		nameAndTypeName
+//dmdID						176
+//type                		DotName
+//description					For a DSDefinition, this attribute holds just the 
+// defname.type of the definition. This is used to facilitate object resolution 
+// using the findNamedObjectMayClash mechanisms. In that case we have the name of 
+// and object and the attribute via which the reference is being made. These are
+// concatenated to form the defname.type.
+//
+// NOTE: this turned out to be insufficient for adding a definition to the indices
+//       of all of its base classes so that we could support references to base
+//       and abstract classes in reference attributes.
 
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
@@ -2064,7 +2079,7 @@ may           	definedIn
 may          	file
 may        		lineNumber
 may				dotName
-may				nameAndTypeName
+//may				nameAndTypeName
 may				sortName
 description		The domain specific definition (DSDefinition) forms the basis for all definitions
  that use dark-matter as their basis. The initial dark-matter mechanisms were focussed only on 
@@ -2100,6 +2115,7 @@ javaClass    	org.dmd.dms.DmsDefinition
 dmoImport		org.dmd.dms.generated.dmo.DmsDefinitionDMO
 isNamedBy       name
 must         	name
+may				relatedToConcept
 description     The DmsDefinition class provides a common base for all dark-matter schema (DMS) definition classes.
 
 ClassDefinition
@@ -2716,6 +2732,27 @@ isNamedBy       name
 must        	name
 must			dependencies
 may				description
+
+ClassDefinition
+name			Concinnity
+classType     	ABSTRACT
+dmdID			42
+useWrapperType	EXTENDED
+javaClass    	org.dmd.dms.Concinnity
+dmoImport		org.dmd.dms.generated.dmo.ConcinnityDMO
+derivedFrom     DSDefinition
+isNamedBy       name
+must         	name
+description		When concinnity was conceived, it was conceived as a way of binding knowledge across
+ different domains. As the newer approach to generating Domain Specific Definitions arose, it became
+ easier to create DSLs for different domains and I wanted concinnity to make use of those mechanisms.
+ However, to do that would have required significant changes to the meta schema generator and a great
+ deal of hacking. I wanted to be able to refer to concinnity aspects from schema as well, so the
+ compromise is to place the base class for Concinnity in the meta schema (so that reference attributes
+ may refer to it). 
+ <p/>
+ Mechanisms exist to prevent any class other than ConcinnityDefinition from deriving directly from
+ Concinnity, so you can be guaranteed that down casting a Concinnity reference will yield a ConcinnityDefinition.
 
 ********************************************************************************
 *

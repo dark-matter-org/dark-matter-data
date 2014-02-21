@@ -147,7 +147,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __mustParm = new DmcAttributeInfo("meta","mustParm",28,"AttributeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __mustReturn = new DmcAttributeInfo("meta","mustReturn",30,"AttributeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __name = new DmcAttributeInfo("meta","name",2,"DefinitionName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __nameAndTypeName = new DmcAttributeInfo("meta","nameAndTypeName",176,"DotName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __nameAttributeDef = new DmcAttributeInfo("meta","nameAttributeDef",90,"AttributeDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __namingAttribute = new DmcAttributeInfo("meta","namingAttribute",64,"AttributeDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __nullReturnValue = new DmcAttributeInfo("meta","nullReturnValue",7,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
@@ -209,6 +208,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcTypeInfo __type_ClassInfoRef = new DmcTypeInfo("ClassInfoRef", OriginalTypeEnum.TYPE);
     public final static DmcTypeInfo __type_ClassTypeEnumREF = new DmcTypeInfo("ClassTypeEnumREF", OriginalTypeEnum.ENUM);
     public final static DmcTypeInfo __type_ComplexTypeDefinition = new DmcTypeInfo("ComplexTypeDefinition", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_Concinnity = new DmcTypeInfo("Concinnity", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_DSDefinitionModule = new DmcTypeInfo("DSDefinitionModule", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_DSDefinition = new DmcTypeInfo("DSDefinition", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_DataTypeEnumREF = new DmcTypeInfo("DataTypeEnumREF", OriginalTypeEnum.ENUM);
@@ -269,6 +269,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
 
     public final static DmcClassInfo __ActionTriggerInfo = new DmcClassInfo("ActionTriggerInfo","org.dmd.dms.generated.dmo.ActionTriggerInfoDMO",14,ClassTypeEnum.ABSTRACT,DataTypeEnum.PERSISTENT,null,null);
     public final static DmcClassInfo __DSDefinition = new DmcClassInfo("DSDefinition","org.dmd.dms.generated.dmo.DSDefinitionDMO",1,ClassTypeEnum.ABSTRACT,DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
+    public final static DmcClassInfo __Concinnity = new DmcClassInfo("Concinnity","org.dmd.dms.generated.dmo.ConcinnityDMO",42,ClassTypeEnum.ABSTRACT,DataTypeEnum.PERSISTENT,__DSDefinition,MetaDMSAG.__name);
     public final static DmcClassInfo __DmsDefinition = new DmcClassInfo("DmsDefinition","org.dmd.dms.generated.dmo.DmsDefinitionDMO",2,ClassTypeEnum.ABSTRACT,DataTypeEnum.PERSISTENT,__DSDefinition,MetaDMSAG.__name);
     public final static DmcClassInfo __ActionDefinition = new DmcClassInfo("ActionDefinition","org.dmd.dms.generated.dmo.ActionDefinitionDMO",11,ClassTypeEnum.STRUCTURAL,DataTypeEnum.PERSISTENT,__DmsDefinition,MetaDMSAG.__name);
     public final static DmcClassInfo __AttributeDefinition = new DmcClassInfo("AttributeDefinition","org.dmd.dms.generated.dmo.AttributeDefinitionDMO",9,ClassTypeEnum.STRUCTURAL,DataTypeEnum.PERSISTENT,__DmsDefinition,MetaDMSAG.__name);
@@ -437,7 +438,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__mustParm.id,__mustParm);
         _SmAp.put(__mustReturn.id,__mustReturn);
         _SmAp.put(__name.id,__name);
-        _SmAp.put(__nameAndTypeName.id,__nameAndTypeName);
         _SmAp.put(__nameAttributeDef.id,__nameAttributeDef);
         _SmAp.put(__namingAttribute.id,__namingAttribute);
         _SmAp.put(__nullReturnValue.id,__nullReturnValue);
@@ -490,6 +490,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _CmAp.put(__AttributeDefinition.id,__AttributeDefinition);
         _CmAp.put(__ClassDefinition.id,__ClassDefinition);
         _CmAp.put(__ComplexTypeDefinition.id,__ComplexTypeDefinition);
+        _CmAp.put(__Concinnity.id,__Concinnity);
         _CmAp.put(__DSDefinition.id,__DSDefinition);
         _CmAp.put(__DSDefinitionModule.id,__DSDefinitionModule);
         _CmAp.put(__Dependency.id,__Dependency);
@@ -519,7 +520,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __ActionDefinition.addMay(__maySendProgress);
         __ActionDefinition.addMay(__mustParm);
         __ActionDefinition.addMay(__mustReturn);
-        __ActionDefinition.addMay(__nameAndTypeName);
         __ActionDefinition.addMay(__obsoleteVersion);
         __ActionDefinition.addMay(__sortName);
 
@@ -542,7 +542,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __AttributeDefinition.addMay(__indexSize);
         __AttributeDefinition.addMay(__internalUse);
         __AttributeDefinition.addMay(__lineNumber);
-        __AttributeDefinition.addMay(__nameAndTypeName);
         __AttributeDefinition.addMay(__nullReturnValue);
         __AttributeDefinition.addMay(__obsoleteVersion);
         __AttributeDefinition.addMay(__preserveNewlines);
@@ -591,7 +590,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __ClassDefinition.addMay(__lineNumber);
         __ClassDefinition.addMay(__may);
         __ClassDefinition.addMay(__must);
-        __ClassDefinition.addMay(__nameAndTypeName);
         __ClassDefinition.addMay(__obsoleteVersion);
         __ClassDefinition.addMay(__partOfDefinitionModule);
         __ClassDefinition.addMay(__ruleDefinition);
@@ -611,10 +609,18 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __ComplexTypeDefinition.addMay(__fieldSeparator);
         __ComplexTypeDefinition.addMay(__file);
         __ComplexTypeDefinition.addMay(__lineNumber);
-        __ComplexTypeDefinition.addMay(__nameAndTypeName);
         __ComplexTypeDefinition.addMay(__optionalPart);
         __ComplexTypeDefinition.addMay(__requiredPart);
         __ComplexTypeDefinition.addMay(__sortName);
+
+        __Concinnity.addMust(__name);
+        __Concinnity.addMay(__definedIn);
+        __Concinnity.addMay(__description);
+        __Concinnity.addMay(__dotName);
+        __Concinnity.addMay(__exampleUsage);
+        __Concinnity.addMay(__file);
+        __Concinnity.addMay(__lineNumber);
+        __Concinnity.addMay(__sortName);
 
         __DSDefinition.addMust(__name);
         __DSDefinition.addMay(__definedIn);
@@ -623,7 +629,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __DSDefinition.addMay(__exampleUsage);
         __DSDefinition.addMay(__file);
         __DSDefinition.addMay(__lineNumber);
-        __DSDefinition.addMay(__nameAndTypeName);
         __DSDefinition.addMay(__sortName);
 
         __DSDefinitionModule.addMust(__baseDefinition);
@@ -641,7 +646,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __DSDefinitionModule.addMay(__lineNumber);
         __DSDefinitionModule.addMay(__may);
         __DSDefinitionModule.addMay(__must);
-        __DSDefinitionModule.addMay(__nameAndTypeName);
         __DSDefinitionModule.addMay(__refersToDefsFromDSD);
         __DSDefinitionModule.addMay(__requiredBaseModule);
         __DSDefinitionModule.addMay(__sortName);
@@ -657,7 +661,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __Dependency.addMay(__file);
         __Dependency.addMay(__instantiation);
         __Dependency.addMay(__lineNumber);
-        __Dependency.addMay(__nameAndTypeName);
         __Dependency.addMay(__sortName);
 
         __DependencyImplementation.addMust(__dependency);
@@ -670,7 +673,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __DependencyImplementation.addMay(__exampleUsage);
         __DependencyImplementation.addMay(__file);
         __DependencyImplementation.addMay(__lineNumber);
-        __DependencyImplementation.addMay(__nameAndTypeName);
         __DependencyImplementation.addMay(__sortName);
 
         __DmsDefinition.addMust(__name);
@@ -680,7 +682,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __DmsDefinition.addMay(__exampleUsage);
         __DmsDefinition.addMay(__file);
         __DmsDefinition.addMay(__lineNumber);
-        __DmsDefinition.addMay(__nameAndTypeName);
         __DmsDefinition.addMay(__sortName);
 
         __EnumDefinition.addMust(__enumValue);
@@ -691,7 +692,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __EnumDefinition.addMay(__exampleUsage);
         __EnumDefinition.addMay(__file);
         __EnumDefinition.addMay(__lineNumber);
-        __EnumDefinition.addMay(__nameAndTypeName);
         __EnumDefinition.addMay(__nullReturnValue);
         __EnumDefinition.addMay(__sortName);
 
@@ -706,7 +706,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __ExtendedReferenceTypeDefinition.addMay(__fieldSeparator);
         __ExtendedReferenceTypeDefinition.addMay(__file);
         __ExtendedReferenceTypeDefinition.addMay(__lineNumber);
-        __ExtendedReferenceTypeDefinition.addMay(__nameAndTypeName);
         __ExtendedReferenceTypeDefinition.addMay(__optionalPart);
         __ExtendedReferenceTypeDefinition.addMay(__requiredPart);
         __ExtendedReferenceTypeDefinition.addMay(__sortName);
@@ -724,7 +723,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __RuleCategory.addMay(__exampleUsage);
         __RuleCategory.addMay(__file);
         __RuleCategory.addMay(__lineNumber);
-        __RuleCategory.addMay(__nameAndTypeName);
         __RuleCategory.addMay(__ruleImport);
         __RuleCategory.addMay(__sortName);
 
@@ -752,7 +750,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __RuleDefinition.addMay(__lineNumber);
         __RuleDefinition.addMay(__may);
         __RuleDefinition.addMay(__must);
-        __RuleDefinition.addMay(__nameAndTypeName);
         __RuleDefinition.addMay(__sortName);
 
         __RunContext.addMust(__dependencies);
@@ -763,7 +760,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __RunContext.addMay(__exampleUsage);
         __RunContext.addMay(__file);
         __RunContext.addMay(__lineNumber);
-        __RunContext.addMay(__nameAndTypeName);
         __RunContext.addMay(__sortName);
 
         __SchemaDefinition.addMust(__name);
@@ -791,7 +787,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __SchemaDefinition.addMay(__generatedFileHeader);
         __SchemaDefinition.addMay(__internalTypeDefList);
         __SchemaDefinition.addMay(__lineNumber);
-        __SchemaDefinition.addMay(__nameAndTypeName);
         __SchemaDefinition.addMay(__ruleCategoryList);
         __SchemaDefinition.addMay(__ruleDataList);
         __SchemaDefinition.addMay(__ruleDefinitionList);
@@ -808,7 +803,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __SliceDefinition.addMay(__exampleUsage);
         __SliceDefinition.addMay(__file);
         __SliceDefinition.addMay(__lineNumber);
-        __SliceDefinition.addMay(__nameAndTypeName);
         __SliceDefinition.addMay(__sortName);
 
         __TypeDefinition.addMust(__name);
@@ -836,7 +830,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __TypeDefinition.addMay(__keyClass);
         __TypeDefinition.addMay(__keyImport);
         __TypeDefinition.addMay(__lineNumber);
-        __TypeDefinition.addMay(__nameAndTypeName);
         __TypeDefinition.addMay(__nameAttributeDef);
         __TypeDefinition.addMay(__nullReturnValue);
         __TypeDefinition.addMay(__originalClass);

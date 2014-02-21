@@ -167,7 +167,6 @@ public class ModuleAParser implements DsdParserInterface, DmcUncheckedOIFHandler
                 module = (ModuleA)definition;
             
                 definition.setDotName(module.getName() + "." + definition.getConstructionClassName());
-                definition.setNameAndTypeName(module.getName() + "." + definition.getConstructionClassName());
             
                 module.setDefinedInModuleA(module);
                 definitions.addModuleA(module);
@@ -188,7 +187,6 @@ public class ModuleAParser implements DsdParserInterface, DmcUncheckedOIFHandler
             
             definition.setDefinedInModuleA(module);
             definition.setDotName(module.getName() + "." + definition.getName() + "." + definition.getConstructionClassName());
-            definition.setNameAndTypeName(definition.getName() + "." + definition.getConstructionClassName());
             
             if (definition instanceof AConceptX){
                 definitions.addAConceptX((AConceptX)definition);

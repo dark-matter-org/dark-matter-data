@@ -1,20 +1,5 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2014 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
-//	---------------------------------------------------------------------------
-//	dark-matter-data
 //	Copyright (c) 2010 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
@@ -121,7 +106,6 @@ public class DmrldapSchemaAG extends SchemaDefinition {
             _LDAPSchemaAUXOBJ.setDmoAuxClass("LDAPSchemaAUXDMO");
             _LDAPSchemaAUXOBJ.setDmwAuxClassImport("org.dmd.dmr.server.ldap.generated.auxw.LDAPSchemaAUX");
             _LDAPSchemaAUXOBJ.setDotName("dmrldap.LDAPSchemaAUX.ClassDefinition");
-            _LDAPSchemaAUXOBJ.setNameAndTypeName("LDAPSchemaAUX.ClassDefinition");
             _LDAPSchemaAUX.setDefinedIn(this);
             addClassDefList(_LDAPSchemaAUX);
 
@@ -145,7 +129,6 @@ public class DmrldapSchemaAG extends SchemaDefinition {
             _LDAPClassAUXOBJ.setDmoAuxClass("LDAPClassAUXDMO");
             _LDAPClassAUXOBJ.setDmwAuxClassImport("org.dmd.dmr.server.ldap.generated.auxw.LDAPClassAUX");
             _LDAPClassAUXOBJ.setDotName("dmrldap.LDAPClassAUX.ClassDefinition");
-            _LDAPClassAUXOBJ.setNameAndTypeName("LDAPClassAUX.ClassDefinition");
             _LDAPClassAUX.setDefinedIn(this);
             addClassDefList(_LDAPClassAUX);
 
@@ -168,7 +151,6 @@ public class DmrldapSchemaAG extends SchemaDefinition {
             _LDAPAttributeAUXOBJ.setDmoAuxClass("LDAPAttributeAUXDMO");
             _LDAPAttributeAUXOBJ.setDmwAuxClassImport("org.dmd.dmr.server.ldap.generated.auxw.LDAPAttributeAUX");
             _LDAPAttributeAUXOBJ.setDotName("dmrldap.LDAPAttributeAUX.ClassDefinition");
-            _LDAPAttributeAUXOBJ.setNameAndTypeName("LDAPAttributeAUX.ClassDefinition");
             _LDAPAttributeAUX.setDefinedIn(this);
             addClassDefList(_LDAPAttributeAUX);
 
@@ -190,7 +172,6 @@ public class DmrldapSchemaAG extends SchemaDefinition {
             _LDAPHierarchicObjectOBJ.addMust("meta.FQN");
             _LDAPHierarchicObjectOBJ.setDmwIteratorImport("org.dmd.dmr.server.ldap.generated.dmw.LDAPHierarchicObjectIterableDMW");
             _LDAPHierarchicObjectOBJ.setDotName("dmrldap.LDAPHierarchicObject.ClassDefinition");
-            _LDAPHierarchicObjectOBJ.setNameAndTypeName("LDAPHierarchicObject.ClassDefinition");
             _LDAPHierarchicObject.setDefinedIn(this);
             addClassDefList(_LDAPHierarchicObject);
 
@@ -204,7 +185,6 @@ public class DmrldapSchemaAG extends SchemaDefinition {
             _ldapIdPrefixOBJ.setName("ldapIdPrefix");
             _ldapIdPrefixOBJ.setDmdID("450");
             _ldapIdPrefixOBJ.addDescription("The ldapIdPrefix is defined for use against an entire schema. It\n indicates the prefix that will be added to all class and attribute definitions\n that are loaded into the directory as schema. Having a prefix prevents possible\n collisions with existing schema definitions. The prefix should be short, 2 or 3\n characters.");
-            _ldapIdPrefixOBJ.setNameAndTypeName("ldapIdPrefix.AttributeDefinition");
             _ldapIdPrefixOBJ.setDotName("dmrldap.ldapIdPrefix.AttributeDefinition");
             _ldapIdPrefix.setDefinedIn(this);
             _ldapIdPrefixOBJ.setFile("/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/attributes.dmd");
@@ -218,7 +198,6 @@ public class DmrldapSchemaAG extends SchemaDefinition {
             _reposNameOBJ.setName("reposName");
             _reposNameOBJ.setDmdID("451");
             _reposNameOBJ.addDescription("This attribute indicates the name of an attribute or class when\n it is stored in a repository and added to that repository's schema. Generally\n speaking, we will always use the standard prefix for all attribute and class\n names. Like all other name values, this one must be globally unique.");
-            _reposNameOBJ.setNameAndTypeName("reposName.AttributeDefinition");
             _reposNameOBJ.setDotName("dmrldap.reposName.AttributeDefinition");
             _reposName.setDefinedIn(this);
             _reposNameOBJ.setFile("/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/attributes.dmd");

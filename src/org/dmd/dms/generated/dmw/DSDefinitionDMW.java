@@ -283,27 +283,6 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     }
 
     /**
-     * For a DSDefinition, this attribute holds just the \n defname.type of the
-     * definition. This is used to facilitate object resolution \n using the
-     * findNamedObjectMayClash mechanisms. In that case we have the name of \n
-     * and object and the attribute via which the reference is being made. These
-     * are\n concatenated to form the defname.type. 
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2387)
-    public DotName getNameAndTypeName(){
-        return(mycore.getNameAndTypeName());
-    }
-
-    /**
-     * Sets nameAndTypeName to the specified value.
-     * @param value A value compatible with DmcTypeDotNameSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2460)
-    public void setNameAndTypeName(Object value) throws DmcValueException {
-        mycore.setNameAndTypeName(value);
-    }
-
-    /**
      * The sortName is used in siutations where we need a name\n for storage of a
      * definition that is globally unique but can be sorted on the basis\n of the
      * definition name, not the module name. The dotName for a definition is\n

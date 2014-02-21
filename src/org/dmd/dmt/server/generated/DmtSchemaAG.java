@@ -1,18 +1,3 @@
-//	---------------------------------------------------------------------------
-//	dark-matter-data
-//	Copyright (c) 2014 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
 package org.dmd.dmt.server.generated;
 
 import org.dmd.dmc.DmcOmni;
@@ -234,7 +219,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestAbstractFixedOBJ.addDescription("The TestAbstract class just defines an abstract base class from which\n other test classes can be derived to tes this type of derivation.");
             _TestAbstractFixedOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.TestAbstractFixedREF");
             _TestAbstractFixedOBJ.setDmwIteratorClass("TestAbstractFixedIterableDMW");
-            _TestAbstractFixedOBJ.setNameAndTypeName("TestAbstractFixed.ClassDefinition");
             _TestAbstractFixedOBJ.addMust("dmt.svString");
             _TestAbstractFixedOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.TestAbstractFixedIterableDMW");
             _TestAbstractFixed.setDefinedIn(this);
@@ -260,7 +244,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestAbstractExtendedOBJ.addMust("dmt.svString");
             _TestAbstractExtendedOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.TestAbstractExtendedIterableDMW");
             _TestAbstractExtendedOBJ.setDotName("dmt.TestAbstractExtended.ClassDefinition");
-            _TestAbstractExtendedOBJ.setNameAndTypeName("TestAbstractExtended.ClassDefinition");
             _TestAbstractExtended.setDefinedIn(this);
             addClassDefList(_TestAbstractExtended);
 
@@ -307,7 +290,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestBasicObjectFixedOBJ.addMay("dmt.hsTestEnum");
             _TestBasicObjectFixedOBJ.addMay("dmt.mvIdxUnnamedObj");
             _TestBasicObjectFixedOBJ.addMay("dmrbase.userName");
-            _TestBasicObjectFixedOBJ.setNameAndTypeName("TestBasicObjectFixed.ClassDefinition");
             _TestBasicObjectFixedOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.TestBasicObjectFixedIterableDMW");
             _TestBasicObjectFixed.setDefinedIn(this);
             addClassDefList(_TestBasicObjectFixed);
@@ -331,7 +313,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestBasicNamedObjectFixedOBJ.addMust("dmt.svString");
             _TestBasicNamedObjectFixedOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.TestBasicNamedObjectFixedIterableDMW");
             _TestBasicNamedObjectFixedOBJ.setDotName("dmt.TestBasicNamedObjectFixed.ClassDefinition");
-            _TestBasicNamedObjectFixedOBJ.setNameAndTypeName("TestBasicNamedObjectFixed.ClassDefinition");
             _TestBasicNamedObjectFixed.setDefinedIn(this);
             addClassDefList(_TestBasicNamedObjectFixed);
 
@@ -353,7 +334,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestBasicNamedObjectExtendedOBJ.addMust("dmt.svString");
             _TestBasicNamedObjectExtendedOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.TestBasicNamedObjectExtendedIterableDMW");
             _TestBasicNamedObjectExtendedOBJ.setDotName("dmt.TestBasicNamedObjectExtended.ClassDefinition");
-            _TestBasicNamedObjectExtendedOBJ.setNameAndTypeName("TestBasicNamedObjectExtended.ClassDefinition");
             _TestBasicNamedObjectExtended.setDefinedIn(this);
             addClassDefList(_TestBasicNamedObjectExtended);
 
@@ -375,7 +355,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestBasicAuxiliaryOBJ.setDmoAuxClass("TestBasicAuxiliaryDMO");
             _TestBasicAuxiliaryOBJ.setDmwAuxClassImport("org.dmd.dmt.server.generated.auxw.TestBasicAuxiliary");
             _TestBasicAuxiliaryOBJ.setDotName("dmt.TestBasicAuxiliary.ClassDefinition");
-            _TestBasicAuxiliaryOBJ.setNameAndTypeName("TestBasicAuxiliary.ClassDefinition");
             _TestBasicAuxiliary.setDefinedIn(this);
             addClassDefList(_TestBasicAuxiliary);
 
@@ -397,7 +376,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestOneLevelSubpackageOBJ.setSubpackage("subpack");
             _TestOneLevelSubpackageOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.TestOneLevelSubpackageIterableDMW");
             _TestOneLevelSubpackageOBJ.setDotName("dmt.TestOneLevelSubpackage.ClassDefinition");
-            _TestOneLevelSubpackageOBJ.setNameAndTypeName("TestOneLevelSubpackage.ClassDefinition");
             _TestOneLevelSubpackage.setDefinedIn(this);
             addClassDefList(_TestOneLevelSubpackage);
 
@@ -420,7 +398,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestOneLevelSubpackageExtendedOBJ.setSubpackage("subpack");
             _TestOneLevelSubpackageExtendedOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.TestOneLevelSubpackageExtendedIterableDMW");
             _TestOneLevelSubpackageExtendedOBJ.setDotName("dmt.TestOneLevelSubpackageExtended.ClassDefinition");
-            _TestOneLevelSubpackageExtendedOBJ.setNameAndTypeName("TestOneLevelSubpackageExtended.ClassDefinition");
             _TestOneLevelSubpackageExtended.setDefinedIn(this);
             addClassDefList(_TestOneLevelSubpackageExtended);
 
@@ -442,7 +419,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestMultiLevelSubpackageOBJ.setSubpackage("subpack.multi");
             _TestMultiLevelSubpackageOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.TestMultiLevelSubpackageIterableDMW");
             _TestMultiLevelSubpackageOBJ.setDotName("dmt.TestMultiLevelSubpackage.ClassDefinition");
-            _TestMultiLevelSubpackageOBJ.setNameAndTypeName("TestMultiLevelSubpackage.ClassDefinition");
             _TestMultiLevelSubpackage.setDefinedIn(this);
             addClassDefList(_TestMultiLevelSubpackage);
 
@@ -465,7 +441,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestDerivedSubpackageOBJ.setSubpackage("subpack.multi");
             _TestDerivedSubpackageOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.TestDerivedSubpackageIterableDMW");
             _TestDerivedSubpackageOBJ.setDotName("dmt.TestDerivedSubpackage.ClassDefinition");
-            _TestDerivedSubpackageOBJ.setNameAndTypeName("TestDerivedSubpackage.ClassDefinition");
             _TestDerivedSubpackage.setDefinedIn(this);
             addClassDefList(_TestDerivedSubpackage);
 
@@ -489,7 +464,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestDerivedDiffSubpackageOBJ.setSubpackage("subpack.multi");
             _TestDerivedDiffSubpackageOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.TestDerivedDiffSubpackageIterableDMW");
             _TestDerivedDiffSubpackageOBJ.setDotName("dmt.TestDerivedDiffSubpackage.ClassDefinition");
-            _TestDerivedDiffSubpackageOBJ.setNameAndTypeName("TestDerivedDiffSubpackage.ClassDefinition");
             _TestDerivedDiffSubpackage.setDefinedIn(this);
             addClassDefList(_TestDerivedDiffSubpackage);
 
@@ -499,6 +473,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _UUIDNamedObjectOBJ.setName("UUIDNamedObject");
             _UUIDNamedObjectOBJ.setDmdID("10012");
             _UUIDNamedObjectOBJ.setClassType("STRUCTURAL");
+            _UUIDNamedObjectOBJ.setDotName("dmt.UUIDNamedObject.ClassDefinition");
             _UUIDNamedObjectOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _UUIDNamedObjectOBJ.setLineNumber("199");
             _UUIDNamedObjectOBJ.setIsNamedBy("meta.uuidName");
@@ -514,8 +489,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _UUIDNamedObjectOBJ.addMay("dmt.mvDouble");
             _UUIDNamedObjectOBJ.addMust("meta.uuidName");
             _UUIDNamedObjectOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.UUIDNamedObjectIterableDMW");
-            _UUIDNamedObjectOBJ.setDotName("dmt.UUIDNamedObject.ClassDefinition");
-            _UUIDNamedObjectOBJ.setNameAndTypeName("UUIDNamedObject.ClassDefinition");
             _UUIDNamedObject.setDefinedIn(this);
             addClassDefList(_UUIDNamedObject);
 
@@ -535,7 +508,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _IntegerNamedObjectOBJ.addMust("meta.integerName");
             _IntegerNamedObjectOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.IntegerNamedObjectIterableDMW");
             _IntegerNamedObjectOBJ.setDotName("dmt.IntegerNamedObject.ClassDefinition");
-            _IntegerNamedObjectOBJ.setNameAndTypeName("IntegerNamedObject.ClassDefinition");
             _IntegerNamedObject.setDefinedIn(this);
             addClassDefList(_IntegerNamedObject);
 
@@ -551,7 +523,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _NameContainerTestOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.NameContainerTestREF");
             _NameContainerTestOBJ.setDmwIteratorClass("NameContainerTestIterableDMW");
             _NameContainerTestOBJ.addMay("dmt.anotherDmtName");
-            _NameContainerTestOBJ.setNameAndTypeName("NameContainerTest.ClassDefinition");
             _NameContainerTestOBJ.addMust("dmt.dmtStringName");
             _NameContainerTestOBJ.addMust("dmt.anObjName");
             _NameContainerTestOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.NameContainerTestIterableDMW");
@@ -573,7 +544,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _BaseObjOBJ.addMust("meta.name");
             _BaseObjOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.BaseObjIterableDMW");
             _BaseObjOBJ.setDotName("dmt.BaseObj.ClassDefinition");
-            _BaseObjOBJ.setNameAndTypeName("BaseObj.ClassDefinition");
             _BaseObj.setDefinedIn(this);
             addClassDefList(_BaseObj);
 
@@ -622,7 +592,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ObjWithRefsOBJ.addMust("dmt.mvTestEnum");
             _ObjWithRefsOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.ObjWithRefsIterableDMW");
             _ObjWithRefsOBJ.setDotName("dmt.ObjWithRefs.ClassDefinition");
-            _ObjWithRefsOBJ.setNameAndTypeName("ObjWithRefs.ClassDefinition");
             _ObjWithRefs.setDefinedIn(this);
             addClassDefList(_ObjWithRefs);
 
@@ -639,7 +608,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ClientCountFilterOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.ClientCountFilterREF");
             _ClientCountFilterOBJ.setDmwIteratorClass("ClientCountFilterIterableDMW");
             _ClientCountFilterOBJ.addMay("dmt.OUIFilter");
-            _ClientCountFilterOBJ.setNameAndTypeName("ClientCountFilter.ClassDefinition");
             _ClientCountFilterOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.ClientCountFilterIterableDMW");
             _ClientCountFilter.setDefinedIn(this);
             addClassDefList(_ClientCountFilter);
@@ -660,7 +628,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ClientCountFilterRequestOBJ.addMust("dmp.requestID");
             _ClientCountFilterRequestOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.ClientCountFilterRequestIterableDMW");
             _ClientCountFilterRequestOBJ.setDotName("dmt.ClientCountFilterRequest.ClassDefinition");
-            _ClientCountFilterRequestOBJ.setNameAndTypeName("ClientCountFilterRequest.ClassDefinition");
             _ClientCountFilterRequest.setDefinedIn(this);
             addClassDefList(_ClientCountFilterRequest);
 
@@ -677,7 +644,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _UsingIndexedAttributesOBJ.setDmwIteratorClass("UsingIndexedAttributesIterableDMW");
             _UsingIndexedAttributesOBJ.addMay("dmt.someRelationIndexed");
             _UsingIndexedAttributesOBJ.addMay("dmt.indexedString");
-            _UsingIndexedAttributesOBJ.setNameAndTypeName("UsingIndexedAttributes.ClassDefinition");
             _UsingIndexedAttributesOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.UsingIndexedAttributesIterableDMW");
             _UsingIndexedAttributes.setDefinedIn(this);
             addClassDefList(_UsingIndexedAttributes);
@@ -694,7 +660,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _UsingObjRefHMOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.UsingObjRefHMREF");
             _UsingObjRefHMOBJ.setDmwIteratorClass("UsingObjRefHMIterableDMW");
             _UsingObjRefHMOBJ.addMay("dmt.objRefHM");
-            _UsingObjRefHMOBJ.setNameAndTypeName("UsingObjRefHM.ClassDefinition");
             _UsingObjRefHMOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.UsingObjRefHMIterableDMW");
             _UsingObjRefHM.setDefinedIn(this);
             addClassDefList(_UsingObjRefHM);
@@ -711,7 +676,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _PrimitiveSVOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.PrimitiveSVREF");
             _PrimitiveSVOBJ.setDmwIteratorClass("PrimitiveSVIterableDMW");
             _PrimitiveSVOBJ.addMay("dmt.svString");
-            _PrimitiveSVOBJ.setNameAndTypeName("PrimitiveSV.ClassDefinition");
             _PrimitiveSVOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.PrimitiveSVIterableDMW");
             _PrimitiveSV.setDefinedIn(this);
             addClassDefList(_PrimitiveSV);
@@ -728,7 +692,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _PrimitiveMVOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.PrimitiveMVREF");
             _PrimitiveMVOBJ.setDmwIteratorClass("PrimitiveMVIterableDMW");
             _PrimitiveMVOBJ.addMay("dmt.mvString");
-            _PrimitiveMVOBJ.setNameAndTypeName("PrimitiveMV.ClassDefinition");
             _PrimitiveMVOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.PrimitiveMVIterableDMW");
             _PrimitiveMV.setDefinedIn(this);
             addClassDefList(_PrimitiveMV);
@@ -745,7 +708,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _PrimitiveMVIDXOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.PrimitiveMVIDXREF");
             _PrimitiveMVIDXOBJ.setDmwIteratorClass("PrimitiveMVIDXIterableDMW");
             _PrimitiveMVIDXOBJ.addMay("dmt.mvIdxString");
-            _PrimitiveMVIDXOBJ.setNameAndTypeName("PrimitiveMVIDX.ClassDefinition");
             _PrimitiveMVIDXOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.PrimitiveMVIDXIterableDMW");
             _PrimitiveMVIDX.setDefinedIn(this);
             addClassDefList(_PrimitiveMVIDX);
@@ -762,7 +724,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _PrimitiveHMOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.PrimitiveHMREF");
             _PrimitiveHMOBJ.setDmwIteratorClass("PrimitiveHMIterableDMW");
             _PrimitiveHMOBJ.addMay("dmt.hmString");
-            _PrimitiveHMOBJ.setNameAndTypeName("PrimitiveHM.ClassDefinition");
             _PrimitiveHMOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.PrimitiveHMIterableDMW");
             _PrimitiveHM.setDefinedIn(this);
             addClassDefList(_PrimitiveHM);
@@ -779,7 +740,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _PrimitiveTMOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.PrimitiveTMREF");
             _PrimitiveTMOBJ.setDmwIteratorClass("PrimitiveTMIterableDMW");
             _PrimitiveTMOBJ.addMay("dmt.tmString");
-            _PrimitiveTMOBJ.setNameAndTypeName("PrimitiveTM.ClassDefinition");
             _PrimitiveTMOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.PrimitiveTMIterableDMW");
             _PrimitiveTM.setDefinedIn(this);
             addClassDefList(_PrimitiveTM);
@@ -796,7 +756,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _PrimitiveHSOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.PrimitiveHSREF");
             _PrimitiveHSOBJ.setDmwIteratorClass("PrimitiveHSIterableDMW");
             _PrimitiveHSOBJ.addMay("dmt.hsString");
-            _PrimitiveHSOBJ.setNameAndTypeName("PrimitiveHS.ClassDefinition");
             _PrimitiveHSOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.PrimitiveHSIterableDMW");
             _PrimitiveHS.setDefinedIn(this);
             addClassDefList(_PrimitiveHS);
@@ -813,7 +772,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _PrimitiveTSOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.PrimitiveTSREF");
             _PrimitiveTSOBJ.setDmwIteratorClass("PrimitiveTSIterableDMW");
             _PrimitiveTSOBJ.addMay("dmt.tsString");
-            _PrimitiveTSOBJ.setNameAndTypeName("PrimitiveTS.ClassDefinition");
             _PrimitiveTSOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.PrimitiveTSIterableDMW");
             _PrimitiveTS.setDefinedIn(this);
             addClassDefList(_PrimitiveTS);
@@ -830,7 +788,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _NamedObjSVOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.NamedObjSVREF");
             _NamedObjSVOBJ.setDmwIteratorClass("NamedObjSVIterableDMW");
             _NamedObjSVOBJ.addMay("dmt.svNamedObj");
-            _NamedObjSVOBJ.setNameAndTypeName("NamedObjSV.ClassDefinition");
             _NamedObjSVOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.NamedObjSVIterableDMW");
             _NamedObjSV.setDefinedIn(this);
             addClassDefList(_NamedObjSV);
@@ -847,7 +804,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _NamedObjMVOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.NamedObjMVREF");
             _NamedObjMVOBJ.setDmwIteratorClass("NamedObjMVIterableDMW");
             _NamedObjMVOBJ.addMay("dmt.mvNamedObj");
-            _NamedObjMVOBJ.setNameAndTypeName("NamedObjMV.ClassDefinition");
             _NamedObjMVOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.NamedObjMVIterableDMW");
             _NamedObjMV.setDefinedIn(this);
             addClassDefList(_NamedObjMV);
@@ -864,7 +820,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _NamedObjMVIDXOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.NamedObjMVIDXREF");
             _NamedObjMVIDXOBJ.setDmwIteratorClass("NamedObjMVIDXIterableDMW");
             _NamedObjMVIDXOBJ.addMay("dmt.mvIdxNamedObj");
-            _NamedObjMVIDXOBJ.setNameAndTypeName("NamedObjMVIDX.ClassDefinition");
             _NamedObjMVIDXOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.NamedObjMVIDXIterableDMW");
             _NamedObjMVIDX.setDefinedIn(this);
             addClassDefList(_NamedObjMVIDX);
@@ -881,7 +836,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _NamedObjHMOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.NamedObjHMREF");
             _NamedObjHMOBJ.setDmwIteratorClass("NamedObjHMIterableDMW");
             _NamedObjHMOBJ.addMay("dmt.hmNamedObj");
-            _NamedObjHMOBJ.setNameAndTypeName("NamedObjHM.ClassDefinition");
             _NamedObjHMOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.NamedObjHMIterableDMW");
             _NamedObjHM.setDefinedIn(this);
             addClassDefList(_NamedObjHM);
@@ -898,7 +852,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _NamedObjTMOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.NamedObjTMREF");
             _NamedObjTMOBJ.setDmwIteratorClass("NamedObjTMIterableDMW");
             _NamedObjTMOBJ.addMay("dmt.tmNamedObj");
-            _NamedObjTMOBJ.setNameAndTypeName("NamedObjTM.ClassDefinition");
             _NamedObjTMOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.NamedObjTMIterableDMW");
             _NamedObjTM.setDefinedIn(this);
             addClassDefList(_NamedObjTM);
@@ -915,7 +868,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _NamedObjHSOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.NamedObjHSREF");
             _NamedObjHSOBJ.setDmwIteratorClass("NamedObjHSIterableDMW");
             _NamedObjHSOBJ.addMay("dmt.hsNamedObj");
-            _NamedObjHSOBJ.setNameAndTypeName("NamedObjHS.ClassDefinition");
             _NamedObjHSOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.NamedObjHSIterableDMW");
             _NamedObjHS.setDefinedIn(this);
             addClassDefList(_NamedObjHS);
@@ -932,7 +884,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _NamedObjTSOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.NamedObjTSREF");
             _NamedObjTSOBJ.setDmwIteratorClass("NamedObjTSIterableDMW");
             _NamedObjTSOBJ.addMay("dmt.tsNamedObj");
-            _NamedObjTSOBJ.setNameAndTypeName("NamedObjTS.ClassDefinition");
             _NamedObjTSOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.NamedObjTSIterableDMW");
             _NamedObjTS.setDefinedIn(this);
             addClassDefList(_NamedObjTS);
@@ -949,7 +900,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _UnnamedObjSVOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.UnnamedObjSVREF");
             _UnnamedObjSVOBJ.setDmwIteratorClass("UnnamedObjSVIterableDMW");
             _UnnamedObjSVOBJ.addMay("dmt.svUnnamedObj");
-            _UnnamedObjSVOBJ.setNameAndTypeName("UnnamedObjSV.ClassDefinition");
             _UnnamedObjSVOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.UnnamedObjSVIterableDMW");
             _UnnamedObjSV.setDefinedIn(this);
             addClassDefList(_UnnamedObjSV);
@@ -966,7 +916,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _UnnamedObjMVOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.UnnamedObjMVREF");
             _UnnamedObjMVOBJ.setDmwIteratorClass("UnnamedObjMVIterableDMW");
             _UnnamedObjMVOBJ.addMay("dmt.mvUnnamedObj");
-            _UnnamedObjMVOBJ.setNameAndTypeName("UnnamedObjMV.ClassDefinition");
             _UnnamedObjMVOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.UnnamedObjMVIterableDMW");
             _UnnamedObjMV.setDefinedIn(this);
             addClassDefList(_UnnamedObjMV);
@@ -983,7 +932,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _UnnamedObjMVIDXOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.UnnamedObjMVIDXREF");
             _UnnamedObjMVIDXOBJ.setDmwIteratorClass("UnnamedObjMVIDXIterableDMW");
             _UnnamedObjMVIDXOBJ.addMay("dmt.mvIdxUnnamedObj");
-            _UnnamedObjMVIDXOBJ.setNameAndTypeName("UnnamedObjMVIDX.ClassDefinition");
             _UnnamedObjMVIDXOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.UnnamedObjMVIDXIterableDMW");
             _UnnamedObjMVIDX.setDefinedIn(this);
             addClassDefList(_UnnamedObjMVIDX);
@@ -1000,7 +948,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _UnnamedObjHSOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.UnnamedObjHSREF");
             _UnnamedObjHSOBJ.setDmwIteratorClass("UnnamedObjHSIterableDMW");
             _UnnamedObjHSOBJ.addMay("dmt.hsUnnamedObj");
-            _UnnamedObjHSOBJ.setNameAndTypeName("UnnamedObjHS.ClassDefinition");
             _UnnamedObjHSOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.UnnamedObjHSIterableDMW");
             _UnnamedObjHS.setDefinedIn(this);
             addClassDefList(_UnnamedObjHS);
@@ -1017,7 +964,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _UnnamedObjTSOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.UnnamedObjTSREF");
             _UnnamedObjTSOBJ.setDmwIteratorClass("UnnamedObjTSIterableDMW");
             _UnnamedObjTSOBJ.addMay("dmt.tsUnnamedObj");
-            _UnnamedObjTSOBJ.setNameAndTypeName("UnnamedObjTS.ClassDefinition");
             _UnnamedObjTSOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.UnnamedObjTSIterableDMW");
             _UnnamedObjTS.setDefinedIn(this);
             addClassDefList(_UnnamedObjTS);
@@ -1034,7 +980,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ExtendedRefSVOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.ExtendedRefSVREF");
             _ExtendedRefSVOBJ.setDmwIteratorClass("ExtendedRefSVIterableDMW");
             _ExtendedRefSVOBJ.addMay("dmt.svExtendedRef");
-            _ExtendedRefSVOBJ.setNameAndTypeName("ExtendedRefSV.ClassDefinition");
             _ExtendedRefSVOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.ExtendedRefSVIterableDMW");
             _ExtendedRefSV.setDefinedIn(this);
             addClassDefList(_ExtendedRefSV);
@@ -1051,7 +996,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ExtendedRefMVOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.ExtendedRefMVREF");
             _ExtendedRefMVOBJ.setDmwIteratorClass("ExtendedRefMVIterableDMW");
             _ExtendedRefMVOBJ.addMay("dmt.mvExtendedRef");
-            _ExtendedRefMVOBJ.setNameAndTypeName("ExtendedRefMV.ClassDefinition");
             _ExtendedRefMVOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.ExtendedRefMVIterableDMW");
             _ExtendedRefMV.setDefinedIn(this);
             addClassDefList(_ExtendedRefMV);
@@ -1068,7 +1012,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ExtendedRefMVIDXOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.ExtendedRefMVIDXREF");
             _ExtendedRefMVIDXOBJ.setDmwIteratorClass("ExtendedRefMVIDXIterableDMW");
             _ExtendedRefMVIDXOBJ.addMay("dmt.mvIdxExtendedRef");
-            _ExtendedRefMVIDXOBJ.setNameAndTypeName("ExtendedRefMVIDX.ClassDefinition");
             _ExtendedRefMVIDXOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.ExtendedRefMVIDXIterableDMW");
             _ExtendedRefMVIDX.setDefinedIn(this);
             addClassDefList(_ExtendedRefMVIDX);
@@ -1085,7 +1028,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ExtendedRefHSOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.ExtendedRefHSREF");
             _ExtendedRefHSOBJ.setDmwIteratorClass("ExtendedRefHSIterableDMW");
             _ExtendedRefHSOBJ.addMay("dmt.hsExtendedRef");
-            _ExtendedRefHSOBJ.setNameAndTypeName("ExtendedRefHS.ClassDefinition");
             _ExtendedRefHSOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.ExtendedRefHSIterableDMW");
             _ExtendedRefHS.setDefinedIn(this);
             addClassDefList(_ExtendedRefHS);
@@ -1102,7 +1044,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ExtendedRefTSOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.ExtendedRefTSREF");
             _ExtendedRefTSOBJ.setDmwIteratorClass("ExtendedRefTSIterableDMW");
             _ExtendedRefTSOBJ.addMay("dmt.tsExtendedRef");
-            _ExtendedRefTSOBJ.setNameAndTypeName("ExtendedRefTS.ClassDefinition");
             _ExtendedRefTSOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.ExtendedRefTSIterableDMW");
             _ExtendedRefTS.setDefinedIn(this);
             addClassDefList(_ExtendedRefTS);
@@ -1124,7 +1065,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ParseTestOBJ.addMay("dmt.svBoolean");
             _ParseTestOBJ.addMay("dmt.mvIdxNamedObj");
             _ParseTestOBJ.addMay("dmt.mvIdxUnnamedObj");
-            _ParseTestOBJ.setNameAndTypeName("ParseTest.ClassDefinition");
             _ParseTestOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.ParseTestIterableDMW");
             _ParseTest.setDefinedIn(this);
             addClassDefList(_ParseTest);
@@ -1142,7 +1082,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ComplexTypeTestOBJ.setDmwIteratorClass("ComplexTypeTestIterableDMW");
             _ComplexTypeTestOBJ.addMay("dmt.svComplex");
             _ComplexTypeTestOBJ.addMay("dmt.mvComplex");
-            _ComplexTypeTestOBJ.setNameAndTypeName("ComplexTypeTest.ClassDefinition");
             _ComplexTypeTestOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.ComplexTypeTestIterableDMW");
             _ComplexTypeTest.setDefinedIn(this);
             addClassDefList(_ComplexTypeTest);
@@ -1157,7 +1096,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _svBooleanOBJ.setName("svBoolean");
             _svBooleanOBJ.setDmdID("10000");
             _svBooleanOBJ.addDescription("A single valued Boolean.");
-            _svBooleanOBJ.setNameAndTypeName("svBoolean.AttributeDefinition");
             _svBooleanOBJ.setDotName("dmt.svBoolean.AttributeDefinition");
             _svBoolean.setDefinedIn(this);
             _svBooleanOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
@@ -1171,7 +1109,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvBooleanOBJ.setName("mvBoolean");
             _mvBooleanOBJ.setDmdID("10001");
             _mvBooleanOBJ.addDescription("A multi-valued Boolean.");
-            _mvBooleanOBJ.setNameAndTypeName("mvBoolean.AttributeDefinition");
             _mvBooleanOBJ.setValueType("MULTI");
             _mvBooleanOBJ.setDotName("dmt.mvBoolean.AttributeDefinition");
             _mvBoolean.setDefinedIn(this);
@@ -1186,7 +1123,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _svDateOBJ.setName("svDate");
             _svDateOBJ.setDmdID("10010");
             _svDateOBJ.addDescription("A sv Date.");
-            _svDateOBJ.setNameAndTypeName("svDate.AttributeDefinition");
             _svDateOBJ.setDotName("dmt.svDate.AttributeDefinition");
             _svDate.setDefinedIn(this);
             _svDateOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
@@ -1200,7 +1136,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvDateOBJ.setName("mvDate");
             _mvDateOBJ.setDmdID("10011");
             _mvDateOBJ.addDescription("A mv Date.");
-            _mvDateOBJ.setNameAndTypeName("mvDate.AttributeDefinition");
             _mvDateOBJ.setValueType("MULTI");
             _mvDateOBJ.setDotName("dmt.mvDate.AttributeDefinition");
             _mvDate.setDefinedIn(this);
@@ -1215,7 +1150,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _hsDateOBJ.setName("hsDate");
             _hsDateOBJ.setDmdID("10012");
             _hsDateOBJ.addDescription("A hs Date.");
-            _hsDateOBJ.setNameAndTypeName("hsDate.AttributeDefinition");
             _hsDateOBJ.setValueType("HASHSET");
             _hsDateOBJ.setDotName("dmt.hsDate.AttributeDefinition");
             _hsDate.setDefinedIn(this);
@@ -1230,7 +1164,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _tsDateOBJ.setName("tsDate");
             _tsDateOBJ.setDmdID("10013");
             _tsDateOBJ.addDescription("A ts Date.");
-            _tsDateOBJ.setNameAndTypeName("tsDate.AttributeDefinition");
             _tsDateOBJ.setValueType("TREESET");
             _tsDateOBJ.setDotName("dmt.tsDate.AttributeDefinition");
             _tsDate.setDefinedIn(this);
@@ -1245,7 +1178,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _svDmcObjectOBJ.setName("svDmcObject");
             _svDmcObjectOBJ.setDmdID("10020");
             _svDmcObjectOBJ.addDescription("A single valued DmcObject.");
-            _svDmcObjectOBJ.setNameAndTypeName("svDmcObject.AttributeDefinition");
             _svDmcObjectOBJ.setDotName("dmt.svDmcObject.AttributeDefinition");
             _svDmcObject.setDefinedIn(this);
             _svDmcObjectOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
@@ -1259,7 +1191,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvDmcObjectOBJ.setName("mvDmcObject");
             _mvDmcObjectOBJ.setDmdID("10021");
             _mvDmcObjectOBJ.addDescription("A multi-valued DmcObject.");
-            _mvDmcObjectOBJ.setNameAndTypeName("mvDmcObject.AttributeDefinition");
             _mvDmcObjectOBJ.setValueType("MULTI");
             _mvDmcObjectOBJ.setDotName("dmt.mvDmcObject.AttributeDefinition");
             _mvDmcObject.setDefinedIn(this);
@@ -1274,7 +1205,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _svDoubleOBJ.setName("svDouble");
             _svDoubleOBJ.setDmdID("10040");
             _svDoubleOBJ.addDescription("A sv Double.");
-            _svDoubleOBJ.setNameAndTypeName("svDouble.AttributeDefinition");
             _svDoubleOBJ.setDotName("dmt.svDouble.AttributeDefinition");
             _svDouble.setDefinedIn(this);
             _svDoubleOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
@@ -1288,7 +1218,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvDoubleOBJ.setName("mvDouble");
             _mvDoubleOBJ.setDmdID("10041");
             _mvDoubleOBJ.addDescription("An mv Double.");
-            _mvDoubleOBJ.setNameAndTypeName("mvDouble.AttributeDefinition");
             _mvDoubleOBJ.setValueType("MULTI");
             _mvDoubleOBJ.setDotName("dmt.mvDouble.AttributeDefinition");
             _mvDouble.setDefinedIn(this);
@@ -1303,7 +1232,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _hsDoubleOBJ.setName("hsDouble");
             _hsDoubleOBJ.setDmdID("10042");
             _hsDoubleOBJ.addDescription("An hs Double.");
-            _hsDoubleOBJ.setNameAndTypeName("hsDouble.AttributeDefinition");
             _hsDoubleOBJ.setValueType("HASHSET");
             _hsDoubleOBJ.setDotName("dmt.hsDouble.AttributeDefinition");
             _hsDouble.setDefinedIn(this);
@@ -1318,7 +1246,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _tsDoubleOBJ.setName("tsDouble");
             _tsDoubleOBJ.setDmdID("10043");
             _tsDoubleOBJ.addDescription("A ts Double.");
-            _tsDoubleOBJ.setNameAndTypeName("tsDouble.AttributeDefinition");
             _tsDoubleOBJ.setValueType("TREESET");
             _tsDoubleOBJ.setDotName("dmt.tsDouble.AttributeDefinition");
             _tsDouble.setDefinedIn(this);
@@ -1333,7 +1260,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _svFloatOBJ.setName("svFloat");
             _svFloatOBJ.setDmdID("10050");
             _svFloatOBJ.addDescription("A sv Float.");
-            _svFloatOBJ.setNameAndTypeName("svFloat.AttributeDefinition");
             _svFloatOBJ.setDotName("dmt.svFloat.AttributeDefinition");
             _svFloat.setDefinedIn(this);
             _svFloatOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
@@ -1347,7 +1273,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvFloatOBJ.setName("mvFloat");
             _mvFloatOBJ.setDmdID("10051");
             _mvFloatOBJ.addDescription("An mv Float.");
-            _mvFloatOBJ.setNameAndTypeName("mvFloat.AttributeDefinition");
             _mvFloatOBJ.setValueType("MULTI");
             _mvFloatOBJ.setDotName("dmt.mvFloat.AttributeDefinition");
             _mvFloat.setDefinedIn(this);
@@ -1362,7 +1287,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _hsFloatOBJ.setName("hsFloat");
             _hsFloatOBJ.setDmdID("10052");
             _hsFloatOBJ.addDescription("An hs Float.");
-            _hsFloatOBJ.setNameAndTypeName("hsFloat.AttributeDefinition");
             _hsFloatOBJ.setValueType("HASHSET");
             _hsFloatOBJ.setDotName("dmt.hsFloat.AttributeDefinition");
             _hsFloat.setDefinedIn(this);
@@ -1377,7 +1301,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _tsFloatOBJ.setName("tsFloat");
             _tsFloatOBJ.setDmdID("10053");
             _tsFloatOBJ.addDescription("A ts Float.");
-            _tsFloatOBJ.setNameAndTypeName("tsFloat.AttributeDefinition");
             _tsFloatOBJ.setValueType("TREESET");
             _tsFloatOBJ.setDotName("dmt.tsFloat.AttributeDefinition");
             _tsFloat.setDefinedIn(this);
@@ -1392,7 +1315,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _svIntegerOBJ.setName("svInteger");
             _svIntegerOBJ.setDmdID("10060");
             _svIntegerOBJ.addDescription("A sv Integer.");
-            _svIntegerOBJ.setNameAndTypeName("svInteger.AttributeDefinition");
             _svIntegerOBJ.setDotName("dmt.svInteger.AttributeDefinition");
             _svInteger.setDefinedIn(this);
             _svIntegerOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
@@ -1406,7 +1328,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvIntegerOBJ.setName("mvInteger");
             _mvIntegerOBJ.setDmdID("10061");
             _mvIntegerOBJ.addDescription("An mv Integer.");
-            _mvIntegerOBJ.setNameAndTypeName("mvInteger.AttributeDefinition");
             _mvIntegerOBJ.setValueType("MULTI");
             _mvIntegerOBJ.setDotName("dmt.mvInteger.AttributeDefinition");
             _mvInteger.setDefinedIn(this);
@@ -1421,7 +1342,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _hsIntegerOBJ.setName("hsInteger");
             _hsIntegerOBJ.setDmdID("10062");
             _hsIntegerOBJ.addDescription("An hs Integer.");
-            _hsIntegerOBJ.setNameAndTypeName("hsInteger.AttributeDefinition");
             _hsIntegerOBJ.setValueType("HASHSET");
             _hsIntegerOBJ.setDotName("dmt.hsInteger.AttributeDefinition");
             _hsInteger.setDefinedIn(this);
@@ -1436,7 +1356,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _tsIntegerOBJ.setName("tsInteger");
             _tsIntegerOBJ.setDmdID("10063");
             _tsIntegerOBJ.addDescription("A ts Integer.");
-            _tsIntegerOBJ.setNameAndTypeName("tsInteger.AttributeDefinition");
             _tsIntegerOBJ.setValueType("TREESET");
             _tsIntegerOBJ.setDotName("dmt.tsInteger.AttributeDefinition");
             _tsInteger.setDefinedIn(this);
@@ -1451,7 +1370,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _intToStringOBJ.setName("intToString");
             _intToStringOBJ.setDmdID("10080");
             _intToStringOBJ.addDescription("A hash mapping of an integer to a string.");
-            _intToStringOBJ.setNameAndTypeName("intToString.AttributeDefinition");
             _intToStringOBJ.setValueType("HASHMAPPED");
             _intToStringOBJ.setDotName("dmt.intToString.AttributeDefinition");
             _intToString.setDefinedIn(this);
@@ -1466,7 +1384,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _svLongOBJ.setName("svLong");
             _svLongOBJ.setDmdID("10110");
             _svLongOBJ.addDescription("A sv Long.");
-            _svLongOBJ.setNameAndTypeName("svLong.AttributeDefinition");
             _svLongOBJ.setDotName("dmt.svLong.AttributeDefinition");
             _svLong.setDefinedIn(this);
             _svLongOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
@@ -1480,7 +1397,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvLongOBJ.setName("mvLong");
             _mvLongOBJ.setDmdID("10111");
             _mvLongOBJ.addDescription("An mv Long.");
-            _mvLongOBJ.setNameAndTypeName("mvLong.AttributeDefinition");
             _mvLongOBJ.setValueType("MULTI");
             _mvLongOBJ.setDotName("dmt.mvLong.AttributeDefinition");
             _mvLong.setDefinedIn(this);
@@ -1495,7 +1411,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _hsLongOBJ.setName("hsLong");
             _hsLongOBJ.setDmdID("10112");
             _hsLongOBJ.addDescription("An hs Long.");
-            _hsLongOBJ.setNameAndTypeName("hsLong.AttributeDefinition");
             _hsLongOBJ.setValueType("HASHSET");
             _hsLongOBJ.setDotName("dmt.hsLong.AttributeDefinition");
             _hsLong.setDefinedIn(this);
@@ -1510,7 +1425,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _tsLongOBJ.setName("tsLong");
             _tsLongOBJ.setDmdID("10113");
             _tsLongOBJ.addDescription("A ts Long.");
-            _tsLongOBJ.setNameAndTypeName("tsLong.AttributeDefinition");
             _tsLongOBJ.setValueType("TREESET");
             _tsLongOBJ.setDotName("dmt.tsLong.AttributeDefinition");
             _tsLong.setDefinedIn(this);
@@ -1525,7 +1439,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _svStringOBJ.setName("svString");
             _svStringOBJ.setDmdID("10141");
             _svStringOBJ.addDescription("A sv String.");
-            _svStringOBJ.setNameAndTypeName("svString.AttributeDefinition");
             _svStringOBJ.setDotName("dmt.svString.AttributeDefinition");
             _svString.setDefinedIn(this);
             _svStringOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
@@ -1539,7 +1452,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvStringOBJ.setName("mvString");
             _mvStringOBJ.setDmdID("10142");
             _mvStringOBJ.addDescription("An mv String.");
-            _mvStringOBJ.setNameAndTypeName("mvString.AttributeDefinition");
             _mvStringOBJ.setValueType("MULTI");
             _mvStringOBJ.setDotName("dmt.mvString.AttributeDefinition");
             _mvString.setDefinedIn(this);
@@ -1555,7 +1467,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvIdxStringOBJ.setDmdID("10143");
             _mvIdxStringOBJ.addDescription("An indexed mv String.");
             _mvIdxStringOBJ.setIndexSize("10");
-            _mvIdxStringOBJ.setNameAndTypeName("mvIdxString.AttributeDefinition");
             _mvIdxStringOBJ.setValueType("MULTI");
             _mvIdxStringOBJ.setDotName("dmt.mvIdxString.AttributeDefinition");
             _mvIdxString.setDefinedIn(this);
@@ -1570,7 +1481,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _hmStringOBJ.setName("hmString");
             _hmStringOBJ.setDmdID("10144");
             _hmStringOBJ.addDescription("A hashmap of StringToStrings.");
-            _hmStringOBJ.setNameAndTypeName("hmString.AttributeDefinition");
             _hmStringOBJ.setValueType("HASHMAPPED");
             _hmStringOBJ.setDotName("dmt.hmString.AttributeDefinition");
             _hmString.setDefinedIn(this);
@@ -1585,7 +1495,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _tmStringOBJ.setName("tmString");
             _tmStringOBJ.setDmdID("10145");
             _tmStringOBJ.addDescription("A TreeMap of StringToStrings.");
-            _tmStringOBJ.setNameAndTypeName("tmString.AttributeDefinition");
             _tmStringOBJ.setValueType("TREEMAPPED");
             _tmStringOBJ.setDotName("dmt.tmString.AttributeDefinition");
             _tmString.setDefinedIn(this);
@@ -1600,7 +1509,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _hsStringOBJ.setName("hsString");
             _hsStringOBJ.setDmdID("10146");
             _hsStringOBJ.addDescription("A HashSet of Strings.");
-            _hsStringOBJ.setNameAndTypeName("hsString.AttributeDefinition");
             _hsStringOBJ.setValueType("HASHSET");
             _hsStringOBJ.setDotName("dmt.hsString.AttributeDefinition");
             _hsString.setDefinedIn(this);
@@ -1615,7 +1523,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _tsStringOBJ.setName("tsString");
             _tsStringOBJ.setDmdID("10147");
             _tsStringOBJ.addDescription("A TreeSet of Strings.");
-            _tsStringOBJ.setNameAndTypeName("tsString.AttributeDefinition");
             _tsStringOBJ.setValueType("TREESET");
             _tsStringOBJ.setDotName("dmt.tsString.AttributeDefinition");
             _tsString.setDefinedIn(this);
@@ -1630,7 +1537,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _anotherSVStringOBJ.setName("anotherSVString");
             _anotherSVStringOBJ.setDmdID("10148");
             _anotherSVStringOBJ.addDescription("A sv String.");
-            _anotherSVStringOBJ.setNameAndTypeName("anotherSVString.AttributeDefinition");
             _anotherSVStringOBJ.setDotName("dmt.anotherSVString.AttributeDefinition");
             _anotherSVString.setDefinedIn(this);
             _anotherSVStringOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
@@ -1644,7 +1550,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _svNamedObjOBJ.setName("svNamedObj");
             _svNamedObjOBJ.setDmdID("10241");
             _svNamedObjOBJ.addDescription("An sv ObjWithRefs.");
-            _svNamedObjOBJ.setNameAndTypeName("svNamedObj.AttributeDefinition");
             _svNamedObjOBJ.setDotName("dmt.svNamedObj.AttributeDefinition");
             _svNamedObj.setDefinedIn(this);
             _svNamedObjOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
@@ -1658,7 +1563,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvNamedObjOBJ.setName("mvNamedObj");
             _mvNamedObjOBJ.setDmdID("10242");
             _mvNamedObjOBJ.addDescription("An mv ObjWithRefs.");
-            _mvNamedObjOBJ.setNameAndTypeName("mvNamedObj.AttributeDefinition");
             _mvNamedObjOBJ.setValueType("MULTI");
             _mvNamedObjOBJ.setDotName("dmt.mvNamedObj.AttributeDefinition");
             _mvNamedObj.setDefinedIn(this);
@@ -1674,7 +1578,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvIdxNamedObjOBJ.setDmdID("10243");
             _mvIdxNamedObjOBJ.addDescription("An indexed mv ObjWithRefs.");
             _mvIdxNamedObjOBJ.setIndexSize("10");
-            _mvIdxNamedObjOBJ.setNameAndTypeName("mvIdxNamedObj.AttributeDefinition");
             _mvIdxNamedObjOBJ.setValueType("MULTI");
             _mvIdxNamedObjOBJ.setDotName("dmt.mvIdxNamedObj.AttributeDefinition");
             _mvIdxNamedObj.setDefinedIn(this);
@@ -1689,7 +1592,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _hmNamedObjOBJ.setName("hmNamedObj");
             _hmNamedObjOBJ.setDmdID("10244");
             _hmNamedObjOBJ.addDescription("A hashmap of ObjWithRefs.");
-            _hmNamedObjOBJ.setNameAndTypeName("hmNamedObj.AttributeDefinition");
             _hmNamedObjOBJ.setValueType("HASHMAPPED");
             _hmNamedObjOBJ.setDotName("dmt.hmNamedObj.AttributeDefinition");
             _hmNamedObj.setDefinedIn(this);
@@ -1704,7 +1606,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _tmNamedObjOBJ.setName("tmNamedObj");
             _tmNamedObjOBJ.setDmdID("10245");
             _tmNamedObjOBJ.addDescription("A TreeMap of ObjWithRefs.");
-            _tmNamedObjOBJ.setNameAndTypeName("tmNamedObj.AttributeDefinition");
             _tmNamedObjOBJ.setValueType("TREEMAPPED");
             _tmNamedObjOBJ.setDotName("dmt.tmNamedObj.AttributeDefinition");
             _tmNamedObj.setDefinedIn(this);
@@ -1719,7 +1620,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _hsNamedObjOBJ.setName("hsNamedObj");
             _hsNamedObjOBJ.setDmdID("10246");
             _hsNamedObjOBJ.addDescription("A HashSet of ObjWithRefs.");
-            _hsNamedObjOBJ.setNameAndTypeName("hsNamedObj.AttributeDefinition");
             _hsNamedObjOBJ.setValueType("HASHSET");
             _hsNamedObjOBJ.setDotName("dmt.hsNamedObj.AttributeDefinition");
             _hsNamedObj.setDefinedIn(this);
@@ -1734,7 +1634,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _tsNamedObjOBJ.setName("tsNamedObj");
             _tsNamedObjOBJ.setDmdID("10247");
             _tsNamedObjOBJ.addDescription("A TreeSet of ObjWithRefs.");
-            _tsNamedObjOBJ.setNameAndTypeName("tsNamedObj.AttributeDefinition");
             _tsNamedObjOBJ.setValueType("TREESET");
             _tsNamedObjOBJ.setDotName("dmt.tsNamedObj.AttributeDefinition");
             _tsNamedObj.setDefinedIn(this);
@@ -1749,7 +1648,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _svUnnamedObjOBJ.setName("svUnnamedObj");
             _svUnnamedObjOBJ.setDmdID("10341");
             _svUnnamedObjOBJ.addDescription("An sv TestBasicObjectFixed.");
-            _svUnnamedObjOBJ.setNameAndTypeName("svUnnamedObj.AttributeDefinition");
             _svUnnamedObjOBJ.setDotName("dmt.svUnnamedObj.AttributeDefinition");
             _svUnnamedObj.setDefinedIn(this);
             _svUnnamedObjOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
@@ -1763,7 +1661,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvUnnamedObjOBJ.setName("mvUnnamedObj");
             _mvUnnamedObjOBJ.setDmdID("10342");
             _mvUnnamedObjOBJ.addDescription("An mv TestBasicObjectFixed.");
-            _mvUnnamedObjOBJ.setNameAndTypeName("mvUnnamedObj.AttributeDefinition");
             _mvUnnamedObjOBJ.setValueType("MULTI");
             _mvUnnamedObjOBJ.setDotName("dmt.mvUnnamedObj.AttributeDefinition");
             _mvUnnamedObj.setDefinedIn(this);
@@ -1779,7 +1676,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvIdxUnnamedObjOBJ.setDmdID("10343");
             _mvIdxUnnamedObjOBJ.addDescription("An indexed mv TestBasicObjectFixed.");
             _mvIdxUnnamedObjOBJ.setIndexSize("10");
-            _mvIdxUnnamedObjOBJ.setNameAndTypeName("mvIdxUnnamedObj.AttributeDefinition");
             _mvIdxUnnamedObjOBJ.setValueType("MULTI");
             _mvIdxUnnamedObjOBJ.setDotName("dmt.mvIdxUnnamedObj.AttributeDefinition");
             _mvIdxUnnamedObj.setDefinedIn(this);
@@ -1794,7 +1690,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _hsUnnamedObjOBJ.setName("hsUnnamedObj");
             _hsUnnamedObjOBJ.setDmdID("10346");
             _hsUnnamedObjOBJ.addDescription("A HashSet of TestBasicObjectFixed.");
-            _hsUnnamedObjOBJ.setNameAndTypeName("hsUnnamedObj.AttributeDefinition");
             _hsUnnamedObjOBJ.setValueType("HASHSET");
             _hsUnnamedObjOBJ.setDotName("dmt.hsUnnamedObj.AttributeDefinition");
             _hsUnnamedObj.setDefinedIn(this);
@@ -1809,7 +1704,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _tsUnnamedObjOBJ.setName("tsUnnamedObj");
             _tsUnnamedObjOBJ.setDmdID("10347");
             _tsUnnamedObjOBJ.addDescription("A TreeSet of TestBasicObjectFixed.");
-            _tsUnnamedObjOBJ.setNameAndTypeName("tsUnnamedObj.AttributeDefinition");
             _tsUnnamedObjOBJ.setValueType("TREESET");
             _tsUnnamedObjOBJ.setDotName("dmt.tsUnnamedObj.AttributeDefinition");
             _tsUnnamedObj.setDefinedIn(this);
@@ -1824,7 +1718,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _svExtendedRefOBJ.setName("svExtendedRef");
             _svExtendedRefOBJ.setDmdID("10441");
             _svExtendedRefOBJ.addDescription("An sv SomeRelation.");
-            _svExtendedRefOBJ.setNameAndTypeName("svExtendedRef.AttributeDefinition");
             _svExtendedRefOBJ.setDotName("dmt.svExtendedRef.AttributeDefinition");
             _svExtendedRef.setDefinedIn(this);
             _svExtendedRefOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
@@ -1838,7 +1731,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvExtendedRefOBJ.setName("mvExtendedRef");
             _mvExtendedRefOBJ.setDmdID("10442");
             _mvExtendedRefOBJ.addDescription("An mv SomeRelation.");
-            _mvExtendedRefOBJ.setNameAndTypeName("mvExtendedRef.AttributeDefinition");
             _mvExtendedRefOBJ.setValueType("MULTI");
             _mvExtendedRefOBJ.setDotName("dmt.mvExtendedRef.AttributeDefinition");
             _mvExtendedRef.setDefinedIn(this);
@@ -1854,7 +1746,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvIdxExtendedRefOBJ.setDmdID("10443");
             _mvIdxExtendedRefOBJ.addDescription("An indexed mv SomeRelation.");
             _mvIdxExtendedRefOBJ.setIndexSize("10");
-            _mvIdxExtendedRefOBJ.setNameAndTypeName("mvIdxExtendedRef.AttributeDefinition");
             _mvIdxExtendedRefOBJ.setValueType("MULTI");
             _mvIdxExtendedRefOBJ.setDotName("dmt.mvIdxExtendedRef.AttributeDefinition");
             _mvIdxExtendedRef.setDefinedIn(this);
@@ -1869,7 +1760,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _hsExtendedRefOBJ.setName("hsExtendedRef");
             _hsExtendedRefOBJ.setDmdID("10446");
             _hsExtendedRefOBJ.addDescription("A HashSet of SomeRelation.");
-            _hsExtendedRefOBJ.setNameAndTypeName("hsExtendedRef.AttributeDefinition");
             _hsExtendedRefOBJ.setValueType("HASHSET");
             _hsExtendedRefOBJ.setDotName("dmt.hsExtendedRef.AttributeDefinition");
             _hsExtendedRef.setDefinedIn(this);
@@ -1884,7 +1774,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _tsExtendedRefOBJ.setName("tsExtendedRef");
             _tsExtendedRefOBJ.setDmdID("10447");
             _tsExtendedRefOBJ.addDescription("A TreeSet of SomeRelation.");
-            _tsExtendedRefOBJ.setNameAndTypeName("tsExtendedRef.AttributeDefinition");
             _tsExtendedRefOBJ.setValueType("TREESET");
             _tsExtendedRefOBJ.setDotName("dmt.tsExtendedRef.AttributeDefinition");
             _tsExtendedRef.setDefinedIn(this);
@@ -1899,7 +1788,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _svTestBasicNamedObjectFixedOBJ.setName("svTestBasicNamedObjectFixed");
             _svTestBasicNamedObjectFixedOBJ.setDmdID("10800");
             _svTestBasicNamedObjectFixedOBJ.addDescription("A single valued TestBasicNamedObjectFixed.");
-            _svTestBasicNamedObjectFixedOBJ.setNameAndTypeName("svTestBasicNamedObjectFixed.AttributeDefinition");
             _svTestBasicNamedObjectFixedOBJ.setDotName("dmt.svTestBasicNamedObjectFixed.AttributeDefinition");
             _svTestBasicNamedObjectFixed.setDefinedIn(this);
             _svTestBasicNamedObjectFixedOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
@@ -1913,7 +1801,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvTestBasicNamedObjectFixedOBJ.setName("mvTestBasicNamedObjectFixed");
             _mvTestBasicNamedObjectFixedOBJ.setDmdID("10801");
             _mvTestBasicNamedObjectFixedOBJ.addDescription("A multi-valued TestBasicNamedObjectFixed.");
-            _mvTestBasicNamedObjectFixedOBJ.setNameAndTypeName("mvTestBasicNamedObjectFixed.AttributeDefinition");
             _mvTestBasicNamedObjectFixedOBJ.setValueType("MULTI");
             _mvTestBasicNamedObjectFixedOBJ.setDotName("dmt.mvTestBasicNamedObjectFixed.AttributeDefinition");
             _mvTestBasicNamedObjectFixed.setDefinedIn(this);
@@ -1928,7 +1815,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _anObjNameOBJ.setName("anObjName");
             _anObjNameOBJ.setDmdID("10900");
             _anObjNameOBJ.addDescription("A single-valued NameContainer.");
-            _anObjNameOBJ.setNameAndTypeName("anObjName.AttributeDefinition");
             _anObjNameOBJ.setDotName("dmt.anObjName.AttributeDefinition");
             _anObjName.setDefinedIn(this);
             _anObjNameOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
@@ -1943,7 +1829,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _dmtStringNameOBJ.setName("dmtStringName");
             _dmtStringNameOBJ.setDmdID("10901");
             _dmtStringNameOBJ.addDescription("The naming attribute for DmtNameStrings.");
-            _dmtStringNameOBJ.setNameAndTypeName("dmtStringName.AttributeDefinition");
             _dmtStringNameOBJ.setDotName("dmt.dmtStringName.AttributeDefinition");
             _dmtStringName.setDefinedIn(this);
             _dmtStringNameOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
@@ -1957,7 +1842,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _anotherDmtNameOBJ.setName("anotherDmtName");
             _anotherDmtNameOBJ.setDmdID("10902");
             _anotherDmtNameOBJ.addDescription("Another DmtStringName attribute.");
-            _anotherDmtNameOBJ.setNameAndTypeName("anotherDmtName.AttributeDefinition");
             _anotherDmtNameOBJ.setDotName("dmt.anotherDmtName.AttributeDefinition");
             _anotherDmtName.setDefinedIn(this);
             _anotherDmtNameOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
@@ -1971,7 +1855,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _objRefOBJ.setName("objRef");
             _objRefOBJ.setDmdID("10903");
             _objRefOBJ.addDescription("Another ObjWithRefs object.");
-            _objRefOBJ.setNameAndTypeName("objRef.AttributeDefinition");
             _objRefOBJ.setDotName("dmt.objRef.AttributeDefinition");
             _objRef.setDefinedIn(this);
             _objRefOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
@@ -1985,7 +1868,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _objRefMVOBJ.setName("objRefMV");
             _objRefMVOBJ.setDmdID("10904");
             _objRefMVOBJ.addDescription("Other ObjWithRefs objects.");
-            _objRefMVOBJ.setNameAndTypeName("objRefMV.AttributeDefinition");
             _objRefMVOBJ.setValueType("MULTI");
             _objRefMVOBJ.setDotName("dmt.objRefMV.AttributeDefinition");
             _objRefMV.setDefinedIn(this);
@@ -2000,7 +1882,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _objRefHMOBJ.setName("objRefHM");
             _objRefHMOBJ.setDmdID("10905");
             _objRefHMOBJ.addDescription("Other ObjWithRefs objects.");
-            _objRefHMOBJ.setNameAndTypeName("objRefHM.AttributeDefinition");
             _objRefHMOBJ.setValueType("HASHMAPPED");
             _objRefHMOBJ.setDotName("dmt.objRefHM.AttributeDefinition");
             _objRefHM.setDefinedIn(this);
@@ -2014,7 +1895,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _attrIDsOBJ.setType("meta.AttributeID");
             _attrIDsOBJ.setName("attrIDs");
             _attrIDsOBJ.setDmdID("10906");
-            _attrIDsOBJ.setNameAndTypeName("attrIDs.AttributeDefinition");
             _attrIDsOBJ.setValueType("HASHSET");
             _attrIDsOBJ.setDotName("dmt.attrIDs.AttributeDefinition");
             _attrIDs.setDefinedIn(this);
@@ -2029,7 +1909,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _OUIFilterOBJ.setName("OUIFilter");
             _OUIFilterOBJ.setDmdID("10907");
             _OUIFilterOBJ.setNullReturnValue("");
-            _OUIFilterOBJ.setNameAndTypeName("OUIFilter.AttributeDefinition");
             _OUIFilterOBJ.setDotName("dmt.OUIFilter.AttributeDefinition");
             _OUIFilter.setDefinedIn(this);
             _OUIFilterOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
@@ -2042,7 +1921,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _clientCountFilterOBJ.setType("dmt.ClientCountFilter");
             _clientCountFilterOBJ.setName("clientCountFilter");
             _clientCountFilterOBJ.setDmdID("10908");
-            _clientCountFilterOBJ.setNameAndTypeName("clientCountFilter.AttributeDefinition");
             _clientCountFilterOBJ.setDotName("dmt.clientCountFilter.AttributeDefinition");
             _clientCountFilter.setDefinedIn(this);
             _clientCountFilterOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
@@ -2055,7 +1933,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvTestEnumOBJ.setType("dmt.DmtTestEnum");
             _mvTestEnumOBJ.setName("mvTestEnum");
             _mvTestEnumOBJ.setDmdID("10909");
-            _mvTestEnumOBJ.setNameAndTypeName("mvTestEnum.AttributeDefinition");
             _mvTestEnumOBJ.setValueType("MULTI");
             _mvTestEnumOBJ.setDotName("dmt.mvTestEnum.AttributeDefinition");
             _mvTestEnum.setDefinedIn(this);
@@ -2069,7 +1946,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _hsTestEnumOBJ.setType("dmt.DmtTestEnum");
             _hsTestEnumOBJ.setName("hsTestEnum");
             _hsTestEnumOBJ.setDmdID("10910");
-            _hsTestEnumOBJ.setNameAndTypeName("hsTestEnum.AttributeDefinition");
             _hsTestEnumOBJ.setValueType("HASHSET");
             _hsTestEnumOBJ.setDotName("dmt.hsTestEnum.AttributeDefinition");
             _hsTestEnum.setDefinedIn(this);
@@ -2083,7 +1959,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _hsNamesOBJ.setType("meta.NameContainer");
             _hsNamesOBJ.setName("hsNames");
             _hsNamesOBJ.setDmdID("10911");
-            _hsNamesOBJ.setNameAndTypeName("hsNames.AttributeDefinition");
             _hsNamesOBJ.setValueType("HASHSET");
             _hsNamesOBJ.setDotName("dmt.hsNames.AttributeDefinition");
             _hsNames.setDefinedIn(this);
@@ -2097,7 +1972,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _transStringOBJ.setType("meta.String");
             _transStringOBJ.setName("transString");
             _transStringOBJ.setDmdID("10912");
-            _transStringOBJ.setNameAndTypeName("transString.AttributeDefinition");
             _transStringOBJ.setDataType("TRANSIENT");
             _transStringOBJ.setValueType("HASHSET");
             _transStringOBJ.setDotName("dmt.transString.AttributeDefinition");
@@ -2112,7 +1986,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _nonperStringOBJ.setType("meta.String");
             _nonperStringOBJ.setName("nonperString");
             _nonperStringOBJ.setDmdID("10913");
-            _nonperStringOBJ.setNameAndTypeName("nonperString.AttributeDefinition");
             _nonperStringOBJ.setDataType("NONPERSISTENT");
             _nonperStringOBJ.setValueType("HASHSET");
             _nonperStringOBJ.setDotName("dmt.nonperString.AttributeDefinition");
@@ -2128,7 +2001,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _indexedStringOBJ.setName("indexedString");
             _indexedStringOBJ.setDmdID("10914");
             _indexedStringOBJ.setIndexSize("5");
-            _indexedStringOBJ.setNameAndTypeName("indexedString.AttributeDefinition");
             _indexedStringOBJ.setValueType("MULTI");
             _indexedStringOBJ.setDotName("dmt.indexedString.AttributeDefinition");
             _indexedString.setDefinedIn(this);
@@ -2144,7 +2016,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _indexedObjRefOBJ.setDmdID("10915");
             _indexedObjRefOBJ.addDescription("Indexed references to ObjWithRefs objects.");
             _indexedObjRefOBJ.setIndexSize("10");
-            _indexedObjRefOBJ.setNameAndTypeName("indexedObjRef.AttributeDefinition");
             _indexedObjRefOBJ.setValueType("MULTI");
             _indexedObjRefOBJ.setDotName("dmt.indexedObjRef.AttributeDefinition");
             _indexedObjRef.setDefinedIn(this);
@@ -2160,7 +2031,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _indexedPlainObjRefOBJ.setDmdID("10916");
             _indexedPlainObjRefOBJ.addDescription("Indexed references to unnamed objects.");
             _indexedPlainObjRefOBJ.setIndexSize("10");
-            _indexedPlainObjRefOBJ.setNameAndTypeName("indexedPlainObjRef.AttributeDefinition");
             _indexedPlainObjRefOBJ.setValueType("MULTI");
             _indexedPlainObjRefOBJ.setDotName("dmt.indexedPlainObjRef.AttributeDefinition");
             _indexedPlainObjRef.setDefinedIn(this);
@@ -2175,7 +2045,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _plainObjRefOBJ.setName("plainObjRef");
             _plainObjRefOBJ.setDmdID("10917");
             _plainObjRefOBJ.addDescription("References to unnamed objects.");
-            _plainObjRefOBJ.setNameAndTypeName("plainObjRef.AttributeDefinition");
             _plainObjRefOBJ.setValueType("MULTI");
             _plainObjRefOBJ.setDotName("dmt.plainObjRef.AttributeDefinition");
             _plainObjRef.setDefinedIn(this);
@@ -2189,7 +2058,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _svTestEnumOBJ.setType("dmt.DmtTestEnum");
             _svTestEnumOBJ.setName("svTestEnum");
             _svTestEnumOBJ.setDmdID("10918");
-            _svTestEnumOBJ.setNameAndTypeName("svTestEnum.AttributeDefinition");
             _svTestEnumOBJ.setDotName("dmt.svTestEnum.AttributeDefinition");
             _svTestEnum.setDefinedIn(this);
             _svTestEnumOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
@@ -2202,7 +2070,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _onOffOBJ.setType("meta.Boolean");
             _onOffOBJ.setName("onOff");
             _onOffOBJ.setDmdID("10919");
-            _onOffOBJ.setNameAndTypeName("onOff.AttributeDefinition");
             _onOffOBJ.setDotName("dmt.onOff.AttributeDefinition");
             _onOff.setDefinedIn(this);
             _onOffOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
@@ -2215,7 +2082,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _enabledDisabledOBJ.setType("meta.Boolean");
             _enabledDisabledOBJ.setName("enabledDisabled");
             _enabledDisabledOBJ.setDmdID("10920");
-            _enabledDisabledOBJ.setNameAndTypeName("enabledDisabled.AttributeDefinition");
             _enabledDisabledOBJ.setDotName("dmt.enabledDisabled.AttributeDefinition");
             _enabledDisabled.setDefinedIn(this);
             _enabledDisabledOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
@@ -2228,7 +2094,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _someRelationSVOBJ.setType("dmt.SomeRelation");
             _someRelationSVOBJ.setName("someRelationSV");
             _someRelationSVOBJ.setDmdID("10921");
-            _someRelationSVOBJ.setNameAndTypeName("someRelationSV.AttributeDefinition");
             _someRelationSVOBJ.setDotName("dmt.someRelationSV.AttributeDefinition");
             _someRelationSV.setDefinedIn(this);
             _someRelationSVOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
@@ -2241,7 +2106,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _someRelationMVOBJ.setType("dmt.SomeRelation");
             _someRelationMVOBJ.setName("someRelationMV");
             _someRelationMVOBJ.setDmdID("10922");
-            _someRelationMVOBJ.setNameAndTypeName("someRelationMV.AttributeDefinition");
             _someRelationMVOBJ.setValueType("MULTI");
             _someRelationMVOBJ.setDotName("dmt.someRelationMV.AttributeDefinition");
             _someRelationMV.setDefinedIn(this);
@@ -2256,7 +2120,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _someRelationMVIOBJ.setName("someRelationMVI");
             _someRelationMVIOBJ.setDmdID("10923");
             _someRelationMVIOBJ.setIndexSize("8");
-            _someRelationMVIOBJ.setNameAndTypeName("someRelationMVI.AttributeDefinition");
             _someRelationMVIOBJ.setValueType("MULTI");
             _someRelationMVIOBJ.setDotName("dmt.someRelationMVI.AttributeDefinition");
             _someRelationMVI.setDefinedIn(this);
@@ -2270,7 +2133,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _intToStringMAPOBJ.setType("meta.IntegerToString");
             _intToStringMAPOBJ.setName("intToStringMAP");
             _intToStringMAPOBJ.setDmdID("10924");
-            _intToStringMAPOBJ.setNameAndTypeName("intToStringMAP.AttributeDefinition");
             _intToStringMAPOBJ.setValueType("TREEMAPPED");
             _intToStringMAPOBJ.setDotName("dmt.intToStringMAP.AttributeDefinition");
             _intToStringMAP.setDefinedIn(this);
@@ -2284,7 +2146,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _hsStringNameOBJ.setType("meta.StringName");
             _hsStringNameOBJ.setName("hsStringName");
             _hsStringNameOBJ.setDmdID("10925");
-            _hsStringNameOBJ.setNameAndTypeName("hsStringName.AttributeDefinition");
             _hsStringNameOBJ.setValueType("HASHSET");
             _hsStringNameOBJ.setDotName("dmt.hsStringName.AttributeDefinition");
             _hsStringName.setDefinedIn(this);
@@ -2299,7 +2160,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _clientCountFiltersOBJ.setName("clientCountFilters");
             _clientCountFiltersOBJ.setDmdID("10926");
             _clientCountFiltersOBJ.setIndexSize("8");
-            _clientCountFiltersOBJ.setNameAndTypeName("clientCountFilters.AttributeDefinition");
             _clientCountFiltersOBJ.setValueType("MULTI");
             _clientCountFiltersOBJ.setDotName("dmt.clientCountFilters.AttributeDefinition");
             _clientCountFilters.setDefinedIn(this);
@@ -2314,7 +2174,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _someRelationIndexedOBJ.setName("someRelationIndexed");
             _someRelationIndexedOBJ.setDmdID("10927");
             _someRelationIndexedOBJ.setIndexSize("8");
-            _someRelationIndexedOBJ.setNameAndTypeName("someRelationIndexed.AttributeDefinition");
             _someRelationIndexedOBJ.setValueType("MULTI");
             _someRelationIndexedOBJ.setDotName("dmt.someRelationIndexed.AttributeDefinition");
             _someRelationIndexed.setDefinedIn(this);
@@ -2328,7 +2187,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _svComplexOBJ.setType("dmt.MenuElementTypeAndComment");
             _svComplexOBJ.setName("svComplex");
             _svComplexOBJ.setDmdID("10928");
-            _svComplexOBJ.setNameAndTypeName("svComplex.AttributeDefinition");
             _svComplexOBJ.setDotName("dmt.svComplex.AttributeDefinition");
             _svComplex.setDefinedIn(this);
             _svComplexOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
@@ -2341,7 +2199,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvComplexOBJ.setType("dmt.MenuElementTypeAndComment");
             _mvComplexOBJ.setName("mvComplex");
             _mvComplexOBJ.setDmdID("10929");
-            _mvComplexOBJ.setNameAndTypeName("mvComplex.AttributeDefinition");
             _mvComplexOBJ.setValueType("MULTI");
             _mvComplexOBJ.setDotName("dmt.mvComplex.AttributeDefinition");
             _mvComplex.setDefinedIn(this);
@@ -2356,7 +2213,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _userNameOBJ.setName("userName");
             _userNameOBJ.setDmdID("11000");
             _userNameOBJ.addDescription("An attribute that's meant to clash with the userName in the dmp schema.");
-            _userNameOBJ.setNameAndTypeName("userName.AttributeDefinition");
             _userNameOBJ.setDotName("dmt.userName.AttributeDefinition");
             _userName.setDefinedIn(this);
             _userNameOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
@@ -2379,7 +2235,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _DmtStringNameOBJ.addDescription("The DmtStringName type was created to test the definition of name types.");
             _DmtStringNameOBJ.setDmwIteratorClass("DmtStringNameIterableDMW");
             _DmtStringNameOBJ.setIsNameType("true");
-            _DmtStringNameOBJ.setNameAndTypeName("DmtStringName.TypeDefinition");
             _DmtStringName.setDefinedIn(this);
             _DmtStringNameOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.DmtStringNameIterableDMW");
             addTypeDefList(_DmtStringName);
@@ -2398,7 +2253,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _SomeRelationOBJ.addDescription("This is an internally generated type to represent extendedreference type SomeRelation values.");
             _SomeRelationOBJ.setOriginalClass("dmt.ObjWithRefs");
             _SomeRelationOBJ.setDmwIteratorClass("SomeRelationIterableDMW");
-            _SomeRelationOBJ.setNameAndTypeName("SomeRelation.TypeDefinition");
             _SomeRelationOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.SomeRelationIterableDMW");
             _SomeRelation.setDefinedIn(this);
             addTypeDefList(_SomeRelation);
@@ -2412,7 +2266,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _MenuElementTypeAndComment = new ComplexTypeDefinition(_MenuElementTypeAndCommentOBJ);
             _MenuElementTypeAndCommentOBJ.setName("MenuElementTypeAndComment");
             _MenuElementTypeAndCommentOBJ.addDescription("The MenuElementTypeAndComment type is used to indicate the strings that map to \n various menu and menu item implementations supported by a a particular menu implementation.");
-            _MenuElementTypeAndCommentOBJ.setNameAndTypeName("MenuElementTypeAndComment.ComplexTypeDefinition");
             _MenuElementTypeAndCommentOBJ.setDotName("dmt.MenuElementTypeAndComment.ComplexTypeDefinition");
             _MenuElementTypeAndComment.setDefinedIn(this);
             _MenuElementTypeAndCommentOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/complex.dmd");
@@ -2427,7 +2280,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _DmtField = new ComplexTypeDefinition(_DmtFieldOBJ);
             _DmtFieldOBJ.setName("DmtField");
             _DmtFieldOBJ.addDescription("The DmtField complex type is used to test generation of \n complex types that contain object references.");
-            _DmtFieldOBJ.setNameAndTypeName("DmtField.ComplexTypeDefinition");
             _DmtFieldOBJ.setDotName("dmt.DmtField.ComplexTypeDefinition");
             _DmtField.setDefinedIn(this);
             _DmtFieldOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/complex.dmd");
@@ -2446,7 +2298,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _DmtOptionalValueFieldWithSpacesOBJ.addOptionalPart("TypeDefinition otherType \"An optional object reference\"");
             _DmtOptionalValueFieldWithSpacesOBJ.addRequiredPart("TypeDefinition type \"The type of the field\"");
             _DmtOptionalValueFieldWithSpacesOBJ.addRequiredPart("String name \"The name of the field\"");
-            _DmtOptionalValueFieldWithSpacesOBJ.setNameAndTypeName("DmtOptionalValueFieldWithSpaces.ComplexTypeDefinition");
             _DmtOptionalValueFieldWithSpacesOBJ.setDotName("dmt.DmtOptionalValueFieldWithSpaces.ComplexTypeDefinition");
             _DmtOptionalValueFieldWithSpaces.setDefinedIn(this);
             _DmtOptionalValueFieldWithSpacesOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/complex.dmd");
@@ -2461,7 +2312,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _DmtOptionalValueFieldWithColonsOBJ.addOptionalPart("String description \"The description of the field\" quoted=true");
             _DmtOptionalValueFieldWithColonsOBJ.addRequiredPart("TypeDefinition type \"The type of the field\"");
             _DmtOptionalValueFieldWithColonsOBJ.addRequiredPart("String name \"The name of the field\"");
-            _DmtOptionalValueFieldWithColonsOBJ.setNameAndTypeName("DmtOptionalValueFieldWithColons.ComplexTypeDefinition");
             _DmtOptionalValueFieldWithColonsOBJ.setDotName("dmt.DmtOptionalValueFieldWithColons.ComplexTypeDefinition");
             _DmtOptionalValueFieldWithColons.setDefinedIn(this);
             _DmtOptionalValueFieldWithColonsOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/complex.dmd");
@@ -2478,7 +2328,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _testAction = new ActionDefinition(_testActionOBJ);
             _testActionOBJ.setName("testAction");
             _testActionOBJ.addDescription("Defines the parameters for a test action.");
-            _testActionOBJ.setNameAndTypeName("testAction.ActionDefinition");
             _testActionOBJ.addMayParm("meta.name");
             _testActionOBJ.addMustParm("dmt.svBoolean");
             _testActionOBJ.setDotName("dmt.testAction.ActionDefinition");
@@ -2501,7 +2350,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _DmtTestEnumOBJ.addEnumValue("3 TEST3 Third test");
             _DmtTestEnumOBJ.addDescription("The DmtTestEnum is used for testing operations on enumerated types");
             _DmtTestEnumOBJ.setNullReturnValue("DmtTestEnum.UNKNOWN");
-            _DmtTestEnumOBJ.setNameAndTypeName("DmtTestEnum.EnumDefinition");
             _DmtTestEnumOBJ.setDotName("dmt.DmtTestEnum.EnumDefinition");
             _DmtTestEnum.setDefinedIn(this);
             _DmtTestEnumOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/types.dmd");

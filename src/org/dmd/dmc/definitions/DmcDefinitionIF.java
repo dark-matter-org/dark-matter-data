@@ -39,7 +39,7 @@ public interface DmcDefinitionIF {
 	/**
 	 * @return the partially qualified name of a definition that has the form defname.type
 	 */
-	public DotName getNameAndTypeName();
+//	public DotName getNameAndTypeName();
 	
 	public String toOIF();
 	

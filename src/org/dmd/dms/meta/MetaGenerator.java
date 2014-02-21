@@ -285,7 +285,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		out.write("            staticRefName = new String(\"MetaSchema._\");\n\n");
 		out.write("            this.addDescription(\"The meta schema defines the elements used to define schemas.\");\n");
 		out.write("            this.setDotName(\"meta.SchemaDefinition\");\n");
-		out.write("            this.setNameAndTypeName(\"meta.SchemaDefinition\");\n");
+//		out.write("            this.setNameAndTypeName(\"meta.SchemaDefinition\");\n");
 
 		// Set the prefix for the generated output directory and the generated
 		// package prefixes
@@ -721,7 +721,7 @@ if (an.equals("requiredPart"))
 		}
 		else{
 			obj.addValue("dotName", "meta." + name + "." + obj.getConstructionClass());
-			obj.addValue("nameAndTypeName", name + "." + obj.getConstructionClass());
+//			obj.addValue("nameAndTypeName", name + "." + obj.getConstructionClass());
 		}
 
 		if (objClass.equals("TypeDefinition")) {
@@ -803,7 +803,7 @@ if (an.equals("requiredPart"))
 
 		classDef.addValue("name", name + "Data");
 		classDef.addValue("dotName", "meta." + name + "Data.ClassDefinition" );
-		classDef.addValue("nameAndTypeName", name + "Data.ClassDefinition" );
+//		classDef.addValue("nameAndTypeName", name + "Data.ClassDefinition" );
 		classDef.addValue("classType", ctype);
 		classDef.addValue("derivedFrom", "RuleData");
 		classDef.addValue("dmdID", uco.getSV("dmdID"));
@@ -845,7 +845,7 @@ if (an.equals("requiredPart"))
 			DmcUncheckedObject typeDef = new DmcUncheckedObject(objClasses, 0);
 			typeDef.addValue("name", cn);
 			typeDef.addValue("dotName", "meta." + cn + ".TypeDefinition");
-			typeDef.addValue("nameAndTypeName", cn + ".TypeDefinition");
+//			typeDef.addValue("nameAndTypeName", cn + ".TypeDefinition");
 			typeDef.addValue("typeClassName",
 					"org.dmd.dms.generated.types.DmcType" + cn);
 			typeDef.addValue("primitiveType", "org.dmd.dms.generated.types."
@@ -884,7 +884,7 @@ if (an.equals("requiredPart"))
 				typeDef = new DmcUncheckedObject(objClasses, 0);
 				typeDef.addValue("name", cn + "REF");
 				typeDef.addValue("dotName", "meta." + cn + "REF.TypeDefinition");
-				typeDef.addValue("nameAndTypeName", cn + "REF.TypeDefinition");
+//				typeDef.addValue("nameAndTypeName", cn + "REF.TypeDefinition");
 				typeDef.addValue("typeClassName",
 						"org.dmd.dms.generated.types.DmcType" + cn + "REF");
 				typeDef.addValue("wrapperClassName",
@@ -912,7 +912,7 @@ if (an.equals("requiredPart"))
 			DmcUncheckedObject typeDef = new DmcUncheckedObject(objClasses, 0);
 			typeDef.addValue("name", cn + "REF");
 			typeDef.addValue("dotName", "meta." + cn + "REF.TypeDefinition");
-			typeDef.addValue("nameAndTypeName", cn + "REF.TypeDefinition");
+//			typeDef.addValue("nameAndTypeName", cn + "REF.TypeDefinition");
 			typeDef.addValue("enumName", cn);
 			typeDef.addValue("typeClassName",
 					"org.dmd.dms.generated.types.DmcType" + cn);
