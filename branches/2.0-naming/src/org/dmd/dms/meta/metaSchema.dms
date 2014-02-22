@@ -310,6 +310,15 @@ optionalPart	Boolean			multivalued	"Indicates if the Part is multivalued - this 
 description     The Part complex type is used to describe the Parts of a ComplexTypeDefinition.
 
 ComplexTypeDefinition
+name			NameValuePair
+requiredPart	String			name		"The name of the value"
+requiredPart	String			value		"The value" quoted=true
+description		The NameValuePair type provides a general extensibility mechanism for DMOs
+ by allowing for the addition of name value pairs to an object. This is a quick and dirty
+ alternative to using auxiliary classes to extend an object especially the DSDefinition object
+ that provides a common base class for all domain specific definitions.
+
+ComplexTypeDefinition
 name			DmwTypeToWrapperType
 field           String          dmwType     The Dark Matter Wrapper type
 field           WrapperTypeEnum wrapperType The type of wrapper to be used in this context
@@ -2020,6 +2029,13 @@ valueType					TREESET
 description					A collection of tags that can facilitate searching for
  definitions. The values are limited to a-zA-Z0-9 and the space character.
 
+AttributeDefinition
+name                		nvp
+dmdID						178
+type                		NameValuePair
+valueType					MULTI
+description					A set of additional name value pairs that can be associated with an object.
+
 //AttributeDefinition
 //name                		nameAndTypeName
 //dmdID						176
@@ -2089,6 +2105,7 @@ may				dotName
 //may				nameAndTypeName
 may				sortName
 may				tags
+may				nvp
 description		The domain specific definition (DSDefinition) forms the basis for all definitions
  that use dark-matter as their basis. The initial dark-matter mechanisms were focussed only on 
  schema for data objects, but, as the project developed, other, domain specific sets of definitions

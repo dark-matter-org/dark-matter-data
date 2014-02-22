@@ -3,7 +3,7 @@ package org.dmd.dmt.shared.generated.types;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:123)
 import java.io.Serializable;                                               // To prevent serialization warnings - (NewComplexTypeFormatter.java:92)
-import java.util.ArrayList;                                                // To store NameValuePairs - (NewComplexTypeFormatter.java:99)
+import java.util.ArrayList;                                                // To store ParsedNameValuePairs - (NewComplexTypeFormatter.java:99)
 import org.dmd.dmc.DmcAttributeInfo;                                       // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:97)
 import org.dmd.dmc.DmcContainerIF;                                         // To support object references - (NewComplexTypeFormatter.java:109)
 import org.dmd.dmc.DmcInputStreamIF;                                       // Standard serialization techniques - (NewComplexTypeFormatter.java:93)
@@ -17,7 +17,7 @@ import org.dmd.dmc.DmcOutputStreamIF;                                      // St
 import org.dmd.dmc.DmcValueException;                                      // Standard value exception - (NewComplexTypeFormatter.java:118)
 import org.dmd.dmc.DmcValueExceptionSet;                                   // To support possible clashing object references - (NewComplexTypeFormatter.java:115)
 import org.dmd.dmc.util.ComplexTypeSplitter;                               // For parsing initial input - (NewComplexTypeFormatter.java:98)
-import org.dmd.dmc.util.NameValuePair;                                     // To store values parsed from initial input - (NewComplexTypeFormatter.java:100)
+import org.dmd.dmc.util.ParsedNameValuePair;                               // To store values parsed from initial input - (NewComplexTypeFormatter.java:100)
 import org.dmd.dms.generated.enums.DataTypeEnum;                           // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:95)
 import org.dmd.dms.generated.enums.ValueTypeEnum;                          // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:96)
 import org.dmd.dms.generated.types.DmcTypeStringSTATIC;                    // Standard type - (NewComplexTypeFormatter.java:797)
@@ -91,7 +91,7 @@ public class DmtOptionalValueFieldWithColons implements Serializable {
      * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:242)
      */
     void initialize(String initialInput) throws DmcValueException {
-        ArrayList<NameValuePair> nvp = ComplexTypeSplitter.parse(initialInput,':');
+        ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput,':');
 
         if (nvp.size() < requiredParts)
             throw(new DmcValueException("Missing required values for complex type: DmtOptionalValueFieldWithColons"));

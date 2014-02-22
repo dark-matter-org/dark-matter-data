@@ -7,16 +7,16 @@ import org.dmd.util.exceptions.DebugInfo;
  * The class also allows for a value without a name.
  * 
  */
-public class NameValuePair {
+public class ParsedNameValuePair {
 	String name;
 	String value;
 	
-	public NameValuePair(){
+	public ParsedNameValuePair(){
 		name = null;
 		value = null;
 	}
 	
-	public NameValuePair(String n, String v){
+	public ParsedNameValuePair(String n, String v){
 		name = n;
 		value = v;
 		
@@ -25,7 +25,7 @@ public class NameValuePair {
 		}
 	}
 	
-	public NameValuePair(String v){
+	public ParsedNameValuePair(String v){
 		name = null;
 		value = v;
 		

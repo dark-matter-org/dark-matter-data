@@ -18,7 +18,7 @@ package org.dmd.dms.generated.types;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dms.meta.MetaComplexTypeFormatter.dumpComplexType(MetaComplexTypeFormatter.java:96)
 import java.io.Serializable;                                  // Marker interface for serialization - (MetaComplexTypeFormatter.java:71)
-import java.util.ArrayList;                                   // To store NameValuePairs - (MetaComplexTypeFormatter.java:78)
+import java.util.ArrayList;                                   // To store ParsedNameValuePairs - (MetaComplexTypeFormatter.java:78)
 import org.dmd.dmc.DmcAttributeInfo;                          // For fake DmcAttributeInfo - (MetaComplexTypeFormatter.java:76)
 import org.dmd.dmc.DmcContainerIF;                            // Reference resolution - (MetaComplexTypeFormatter.java:87)
 import org.dmd.dmc.DmcInputStreamIF;                          // To support serialization - (MetaComplexTypeFormatter.java:72)
@@ -32,7 +32,7 @@ import org.dmd.dmc.DmcOutputStreamIF;                         // To support seri
 import org.dmd.dmc.DmcValueException;                         // For type checking - (MetaComplexTypeFormatter.java:92)
 import org.dmd.dmc.DmcValueExceptionSet;                      // Ambiguous reference resolution - (MetaComplexTypeFormatter.java:89)
 import org.dmd.dmc.util.ComplexTypeSplitter;                  // For parsing initial input - (MetaComplexTypeFormatter.java:77)
-import org.dmd.dmc.util.NameValuePair;                        // To store values parsed from initial input - (MetaComplexTypeFormatter.java:79)
+import org.dmd.dmc.util.ParsedNameValuePair;                  // To store values parsed from initial input - (MetaComplexTypeFormatter.java:79)
 import org.dmd.dms.generated.enums.DataTypeEnum;              // For fake DmcAttributeInfo - (MetaComplexTypeFormatter.java:74)
 import org.dmd.dms.generated.enums.ValueTypeEnum;             // For fake DmcAttributeInfo - (MetaComplexTypeFormatter.java:75)
 
@@ -110,7 +110,7 @@ public class Part implements Serializable {
 
     // Generated from: org.dmd.dms.meta.MetaComplexTypeFormatter.dumpComplexType(MetaComplexTypeFormatter.java:163)
     void initialize(String initialInput) throws DmcValueException {
-        ArrayList<NameValuePair> nvp = ComplexTypeSplitter.parse(initialInput);
+        ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput);
 
         if (nvp.size() < requiredParts)
             throw(new DmcValueException("Missing required values for complex type: Part"));

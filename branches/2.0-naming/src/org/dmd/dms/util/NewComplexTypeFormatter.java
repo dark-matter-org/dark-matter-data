@@ -96,8 +96,8 @@ public class NewComplexTypeFormatter {
 		imports.addImport("org.dmd.dms.generated.enums.ValueTypeEnum","For fake DmcAttributeInfo");
 		imports.addImport("org.dmd.dmc.DmcAttributeInfo","For fake DmcAttributeInfo");
 		imports.addImport("org.dmd.dmc.util.ComplexTypeSplitter","For parsing initial input");
-		imports.addImport("java.util.ArrayList","To store NameValuePairs");
-		imports.addImport("org.dmd.dmc.util.NameValuePair","To store values parsed from initial input");
+		imports.addImport("java.util.ArrayList","To store ParsedNameValuePairs");
+		imports.addImport("org.dmd.dmc.util.ParsedNameValuePair","To store values parsed from initial input");
 		
 		if (anyMultiValued)
 			imports.addImport("java.util.Iterator","To support multi-valued optional parts");
@@ -245,10 +245,10 @@ public class NewComplexTypeFormatter {
 //        out.write("        IntegerVar seppos = new IntegerVar(-1);\n");
 
 		if (whiteSpaceSeparator){
-			out.write("        ArrayList<NameValuePair> nvp = ComplexTypeSplitter.parse(initialInput);\n\n");
+			out.write("        ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput);\n\n");
 		}
 		else{
-			out.write("        ArrayList<NameValuePair> nvp = ComplexTypeSplitter.parse(initialInput,'" + fieldSeparator + "');\n\n");
+			out.write("        ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput,'" + fieldSeparator + "');\n\n");
 		}
 		
 		out.write("        if (nvp.size() < requiredParts)\n");

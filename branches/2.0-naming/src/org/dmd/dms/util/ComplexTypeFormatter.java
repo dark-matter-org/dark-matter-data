@@ -15,6 +15,12 @@ import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
+/**
+ * The ComplexTypeFormatter was the original mechanism for formatting complex types. It is
+ * now basically obsolete, but is maintained to allow backwards compatibility with the old
+ * style of creating complex types. It calls on the NewComplexTypeFormatter to handle the
+ * newer style complex types that have required and optional parts.
+ */
 public class ComplexTypeFormatter {
 	
 	public static void dumpComplexTypes(String fileHeader, SchemaDefinition sd, String typedir) throws IOException, ResultException{
