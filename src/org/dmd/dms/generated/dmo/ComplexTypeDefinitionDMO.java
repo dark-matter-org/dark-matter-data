@@ -71,6 +71,7 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
         _ImAp.put(MetaDMSAG.__fieldSeparator.id,MetaDMSAG.__fieldSeparator);
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
+        _ImAp.put(MetaDMSAG.__nvp.id,MetaDMSAG.__nvp);
         _ImAp.put(MetaDMSAG.__optionalPart.id,MetaDMSAG.__optionalPart);
         _ImAp.put(MetaDMSAG.__relatedToConcept.id,MetaDMSAG.__relatedToConcept);
         _ImAp.put(MetaDMSAG.__requiredPart.id,MetaDMSAG.__requiredPart);
@@ -88,6 +89,7 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
         _SmAp.put(MetaDMSAG.__fieldSeparator.name,MetaDMSAG.__fieldSeparator);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
+        _SmAp.put(MetaDMSAG.__nvp.name,MetaDMSAG.__nvp);
         _SmAp.put(MetaDMSAG.__optionalPart.name,MetaDMSAG.__optionalPart);
         _SmAp.put(MetaDMSAG.__relatedToConcept.name,MetaDMSAG.__relatedToConcept);
         _SmAp.put(MetaDMSAG.__requiredPart.name,MetaDMSAG.__requiredPart);
@@ -437,6 +439,35 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
         
         attr.set(value);
         set(MetaDMSAG.__lineNumber,attr);
+    }
+
+    /**
+     * A set of additional name value pairs that can be associated with an
+     * object. 
+     * @return An Iterator of NameValuePair objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2531)
+    public Iterator<NameValuePair> getNvp(){
+        DmcTypeNameValuePairMV attr = (DmcTypeNameValuePairMV) get(MetaDMSAG.__nvp);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another nvp value.
+     * @param value A value compatible with DmcTypeNameValuePairMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2636)
+    public DmcAttribute<?> addNvp(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__nvp);
+        if (attr == null)
+            attr = new DmcTypeNameValuePairMV(MetaDMSAG.__nvp);
+        
+        attr.add(value);
+        add(MetaDMSAG.__nvp,attr);
+        return(attr);
     }
 
     /**

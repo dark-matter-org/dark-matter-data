@@ -58,6 +58,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         _ImAp.put(MetaDMSAG.__maySendProgress.id,MetaDMSAG.__maySendProgress);
         _ImAp.put(MetaDMSAG.__mustParm.id,MetaDMSAG.__mustParm);
         _ImAp.put(MetaDMSAG.__mustReturn.id,MetaDMSAG.__mustReturn);
+        _ImAp.put(MetaDMSAG.__nvp.id,MetaDMSAG.__nvp);
         _ImAp.put(MetaDMSAG.__obsoleteVersion.id,MetaDMSAG.__obsoleteVersion);
         _ImAp.put(MetaDMSAG.__relatedToConcept.id,MetaDMSAG.__relatedToConcept);
         _ImAp.put(MetaDMSAG.__sortName.id,MetaDMSAG.__sortName);
@@ -78,6 +79,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         _SmAp.put(MetaDMSAG.__maySendProgress.name,MetaDMSAG.__maySendProgress);
         _SmAp.put(MetaDMSAG.__mustParm.name,MetaDMSAG.__mustParm);
         _SmAp.put(MetaDMSAG.__mustReturn.name,MetaDMSAG.__mustReturn);
+        _SmAp.put(MetaDMSAG.__nvp.name,MetaDMSAG.__nvp);
         _SmAp.put(MetaDMSAG.__obsoleteVersion.name,MetaDMSAG.__obsoleteVersion);
         _SmAp.put(MetaDMSAG.__relatedToConcept.name,MetaDMSAG.__relatedToConcept);
         _SmAp.put(MetaDMSAG.__sortName.name,MetaDMSAG.__sortName);
@@ -548,6 +550,35 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         
         attr.add(value);
         add(MetaDMSAG.__mustReturn,attr);
+        return(attr);
+    }
+
+    /**
+     * A set of additional name value pairs that can be associated with an
+     * object. 
+     * @return An Iterator of NameValuePair objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2531)
+    public Iterator<NameValuePair> getNvp(){
+        DmcTypeNameValuePairMV attr = (DmcTypeNameValuePairMV) get(MetaDMSAG.__nvp);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another nvp value.
+     * @param value A value compatible with DmcTypeNameValuePairMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2636)
+    public DmcAttribute<?> addNvp(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__nvp);
+        if (attr == null)
+            attr = new DmcTypeNameValuePairMV(MetaDMSAG.__nvp);
+        
+        attr.add(value);
+        add(MetaDMSAG.__nvp,attr);
         return(attr);
     }
 

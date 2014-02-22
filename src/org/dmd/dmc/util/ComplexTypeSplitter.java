@@ -23,17 +23,17 @@ public class ComplexTypeSplitter {
 	
 	static public boolean debug = false;
 
-	static public ArrayList<NameValuePair> parse(String initialInput) throws DmcValueException {
+	static public ArrayList<ParsedNameValuePair> parse(String initialInput) throws DmcValueException {
 		return(parse(initialInput,' '));
 	}
 
-	static public ArrayList<NameValuePair> parse(String initialInput, char separator) throws DmcValueException {
+	static public ArrayList<ParsedNameValuePair> parse(String initialInput, char separator) throws DmcValueException {
         if (initialInput == null){
         	throw(new DmcValueException("No content to parse!"));
         }
         
-		ArrayList<NameValuePair> rc = new ArrayList<NameValuePair>();
-		NameValuePair nvp = null;
+		ArrayList<ParsedNameValuePair> rc = new ArrayList<ParsedNameValuePair>();
+		ParsedNameValuePair nvp = null;
 		
         String input = initialInput.trim();
         input = input.replaceAll("(\\s)+", " ");
@@ -65,15 +65,15 @@ public class ComplexTypeSplitter {
         		// it means that someone meant to have another value (after the separator) so we'l'
         		// create the empty value
         		if (input.charAt(i) == separator)
-        			rc.add(new NameValuePair());
+        			rc.add(new ParsedNameValuePair());
         	}
         }
 		
 		return(rc);
 	}
 	
-	static private NameValuePair parseQuotedText(String input, String namePart, IntegerVar position) throws DmcValueException {
-		NameValuePair rc = null;
+	static private ParsedNameValuePair parseQuotedText(String input, String namePart, IntegerVar position) throws DmcValueException {
+		ParsedNameValuePair rc = null;
 		
 		if (debug)
 			System.out.println("    -> parseQuoted i = " + position);
@@ -89,7 +89,7 @@ public class ComplexTypeSplitter {
 				if (quotedPart.length() == 0)
 					quotedPart = null;
 				
-				rc = new NameValuePair(namePart, quotedPart);
+				rc = new ParsedNameValuePair(namePart, quotedPart);
 				position.set(i);
 				break;
 			}
@@ -116,8 +116,8 @@ public class ComplexTypeSplitter {
 	 * @return
 	 * @throws DmcValueException  
 	 */
-	static private NameValuePair parsePart(String input, IntegerVar position, char separator) throws DmcValueException {
-		NameValuePair 	rc				= null;
+	static private ParsedNameValuePair parsePart(String input, IntegerVar position, char separator) throws DmcValueException {
+		ParsedNameValuePair 	rc				= null;
 		String 			namePart		= null;
 		boolean			haveEquals		= false;
 		int 			afterEqualsPos	= -1;
@@ -162,13 +162,13 @@ public class ComplexTypeSplitter {
 					// character was.
 					if (i == 0){
 						// It's the first character, it's a separator, so there's an empty value at the beginning
-						rc = new NameValuePair();
+						rc = new ParsedNameValuePair();
 						break;
 					}
 					else{
 						if (input.charAt(i-1) == separator){
 							// We have the separator followed by separator, which also means an empty value
-							rc = new NameValuePair();
+							rc = new ParsedNameValuePair();
 							break;
 						}
 						else{
@@ -191,7 +191,7 @@ public class ComplexTypeSplitter {
 					if (namePart.length() == 0)
 						namePart = null;
 					
-					rc = new NameValuePair(namePart);
+					rc = new ParsedNameValuePair(namePart);
 					position.set(i);
 					break;
 				}
@@ -199,7 +199,7 @@ public class ComplexTypeSplitter {
 					if (haveEquals){
 						if (i > afterEqualsPos){
 							// This is fine - we have name=blort\b
-							rc = new NameValuePair(namePart,input.substring(afterEqualsPos, i));
+							rc = new ParsedNameValuePair(namePart,input.substring(afterEqualsPos, i));
 							position.set(i);
 							break;
 						}
@@ -217,7 +217,7 @@ public class ComplexTypeSplitter {
 			// We've run out of input, which may be fine
 			if (namePart == null){
 				// we just have a value
-				rc = new NameValuePair(input.substring(startPos));
+				rc = new ParsedNameValuePair(input.substring(startPos));
 				position.set(input.length());
 			}
 			else{
@@ -228,7 +228,7 @@ public class ComplexTypeSplitter {
 					}
 					else{
 						// We have the name and equals, take everything after the equals as the value
-						rc = new NameValuePair(namePart,input.substring(afterEqualsPos));
+						rc = new ParsedNameValuePair(namePart,input.substring(afterEqualsPos));
 						position.set(input.length());
 					}
 				}

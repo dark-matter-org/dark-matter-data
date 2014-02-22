@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.util.ComplexTypeSplitter;
 import org.dmd.dmc.util.DmcUncheckedObject;
-import org.dmd.dmc.util.NameValuePair;
+import org.dmd.dmc.util.ParsedNameValuePair;
 import org.dmd.dmc.util.NamedStringArray;
 import org.dmd.dms.util.GenUtility;
 import org.dmd.util.FileUpdateManager;
@@ -75,8 +75,8 @@ public class MetaComplexTypeFormatter {
 		imports.addImport("org.dmd.dms.generated.enums.ValueTypeEnum","For fake DmcAttributeInfo");
 		imports.addImport("org.dmd.dmc.DmcAttributeInfo","For fake DmcAttributeInfo");
 		imports.addImport("org.dmd.dmc.util.ComplexTypeSplitter","For parsing initial input");
-		imports.addImport("java.util.ArrayList","To store NameValuePairs");
-		imports.addImport("org.dmd.dmc.util.NameValuePair","To store values parsed from initial input");
+		imports.addImport("java.util.ArrayList","To store ParsedNameValuePairs");
+		imports.addImport("org.dmd.dmc.util.ParsedNameValuePair","To store values parsed from initial input");
 
 		if (hasRefs) {
 			imports.addImport("org.dmd.dmc.DmcNameResolverWithClashSupportIF","Ambiguous reference resolution");
@@ -163,10 +163,10 @@ public class MetaComplexTypeFormatter {
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("    void initialize(String initialInput) throws DmcValueException {\n");
 		if (whiteSpaceSeparator){
-			out.write("        ArrayList<NameValuePair> nvp = ComplexTypeSplitter.parse(initialInput);\n\n");
+			out.write("        ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput);\n\n");
 		}
 		else{
-			out.write("        ArrayList<NameValuePair> nvp = ComplexTypeSplitter.parse(initialInput,'" + fieldSeparator + "');\n\n");
+			out.write("        ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput,'" + fieldSeparator + "');\n\n");
 		}
 		
 		out.write("        if (nvp.size() < requiredParts)\n");
@@ -412,7 +412,7 @@ public class MetaComplexTypeFormatter {
 	}
 
 	static void getComplexTypeParts(String attrName, DmcUncheckedObject ct, ArrayList<Part> rc) throws DmcValueException {
-		ArrayList<NameValuePair> partNVP = null;
+		ArrayList<ParsedNameValuePair> partNVP = null;
 		
 //		ArrayList<Part> rc = new ArrayList<Part>();
 

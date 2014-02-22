@@ -11,7 +11,7 @@ public class ComplexTypeSplitterTest {
 
 	@Test
 	public void test() throws DmcValueException{
-		ArrayList<NameValuePair> rc = null;
+		ArrayList<ParsedNameValuePair> rc = null;
 		
 		rc = ComplexTypeSplitter.parse("\"hello\"");
 		
@@ -132,7 +132,7 @@ public class ComplexTypeSplitterTest {
 		assertEquals("Second value should be tag", "tag", rc.get(1).value);
 		assertEquals("Third value should be 1.1.2.3", "1.1.2.3", rc.get(2).value);
 		assertEquals("Fourth value should be \"this is cool!\"", "this is cool!", rc.get(3).value);
-		for(NameValuePair nvp: rc){
+		for(ParsedNameValuePair nvp: rc){
 			System.out.println(nvp.toString());
 		}
 		
