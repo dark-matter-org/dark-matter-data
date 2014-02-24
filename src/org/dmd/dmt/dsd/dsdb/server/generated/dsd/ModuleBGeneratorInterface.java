@@ -16,26 +16,34 @@
 package org.dmd.dmt.dsd.dsdb.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1172)
-import java.io.IOException;                                                        // May occur during artifact generation - (DSDArtifactFormatter.java:1167)
-import org.dmd.dmt.dsd.dsdb.server.extended.ModuleB;                               // The base module for generation - (DSDArtifactFormatter.java:1165)
-import org.dmd.dmt.dsd.dsdb.server.generated.dsd.ModuleBDefinitionManager;         // All parsed definition - (DSDArtifactFormatter.java:1170)
-import org.dmd.util.exceptions.ResultException;                                    // For problems found after parsing - (DSDArtifactFormatter.java:1169)
-import org.dmd.util.parsing.ConfigLocation;                                        // Where the config was loaded from - (DSDArtifactFormatter.java:1168)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1174)
+import java.io.IOException;                                                        // May occur during artifact generation - (DSDArtifactFormatter.java:1169)
+import org.dmd.dmt.dsd.dsdb.server.extended.ModuleB;                               // The base module for generation - (DSDArtifactFormatter.java:1167)
+import org.dmd.dmt.dsd.dsdb.server.generated.dsd.ModuleBDefinitionManager;         // All parsed definition - (DSDArtifactFormatter.java:1172)
+import org.dmd.util.exceptions.ResultException;                                    // For problems found after parsing - (DSDArtifactFormatter.java:1171)
+import org.dmd.util.parsing.ConfigLocation;                                        // Where the config was loaded from - (DSDArtifactFormatter.java:1170)
 
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1174)
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1176)
 public interface ModuleBGeneratorInterface {
 
     /**
-     * Called prior to generate() method so that derived classes can perform intermediate 
-     * processing such as generation of internal types, application of business logic not defined
-     * defined as part of rules etc.
+     * Called prior to the object resolution phase so that derived classes can perform intermediate 
+     * processing such as generation of internal types.
      * @param module the module that was just parsed
      * @param location the module's location
      * @param definitions the current set of definitions
      */
     public void parsingComplete(ModuleB module, ConfigLocation location, ModuleBDefinitionManager definitions) throws ResultException;
+
+    /**
+     * Called after object resolution has completely succsessfully. This allows for 
+     * application of business logic not defined as part of rules etc.
+     * @param module the module that was just parsed
+     * @param location the module's location
+     * @param definitions the current set of definitions
+     */
+    public void objectResolutionComplete(ModuleB module, ConfigLocation location, ModuleBDefinitionManager definitions) throws ResultException;
 
     /**
      * Derived classes should overload this method to perform artifact generation.
