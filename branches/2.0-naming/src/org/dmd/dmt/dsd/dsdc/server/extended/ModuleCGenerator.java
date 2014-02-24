@@ -29,4 +29,12 @@ public class ModuleCGenerator extends ModuleCGenUtility {
 		
 	}
 
+	@Override
+	public void objectResolutionComplete(ModuleC module,
+			ConfigLocation location, ModuleCDefinitionManager definitions)
+			throws ResultException {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
