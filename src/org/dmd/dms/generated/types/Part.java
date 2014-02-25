@@ -67,6 +67,10 @@ public class Part implements Serializable {
     Boolean multivalued;
     final static DmcAttributeInfo multivaluedAI = new DmcAttributeInfo("multivalued",0,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN);
 
+    // Indicates that a reference type is weak i.e. that no exception will be thrown if the reference can't be resolved - this is only applicable to optional Parts.
+    Boolean weakref;
+    final static DmcAttributeInfo weakrefAI = new DmcAttributeInfo("weakref",0,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN);
+
     final static int requiredParts = 3;
 
     /**
@@ -84,13 +88,14 @@ public class Part implements Serializable {
         description = original.description;
         quoted = original.quoted;
         multivalued = original.multivalued;
+        weakref = original.weakref;
     }
 
     // Generated from: org.dmd.dms.meta.MetaComplexTypeFormatter.dumpComplexType(MetaComplexTypeFormatter.java:128)
     /**
      * All fields constructor.
      */
-    public Part(TypeDefinitionREF f1, String f2, String f3, Boolean f4, Boolean f5) throws DmcValueException {
+    public Part(TypeDefinitionREF f1, String f2, String f3, Boolean f4, Boolean f5, Boolean f6) throws DmcValueException {
         type = DmcTypeTypeDefinitionREFSTATIC.instance.typeCheck(f1);
         name = DmcTypeStringSTATIC.instance.typeCheck(f2);
         description = DmcTypeStringSTATIC.instance.typeCheck(f3);
@@ -98,6 +103,8 @@ public class Part implements Serializable {
             quoted = DmcTypeBooleanSTATIC.instance.typeCheck(f4);
         if (f5 != null)
             multivalued = DmcTypeBooleanSTATIC.instance.typeCheck(f5);
+        if (f6 != null)
+            weakref = DmcTypeBooleanSTATIC.instance.typeCheck(f6);
     }
 
     // Generated from: org.dmd.dms.meta.MetaComplexTypeFormatter.dumpComplexType(MetaComplexTypeFormatter.java:155)
@@ -131,6 +138,8 @@ public class Part implements Serializable {
                     quoted = DmcTypeBooleanSTATIC.instance.typeCheck(nvp.get(i).getValue());
                 else if (nvp.get(i).getName().equals("multivalued"))
                     multivalued = DmcTypeBooleanSTATIC.instance.typeCheck(nvp.get(i).getValue());
+                else if (nvp.get(i).getName().equals("weakref"))
+                    weakref = DmcTypeBooleanSTATIC.instance.typeCheck(nvp.get(i).getValue());
                 else{
                     throw(new DmcValueException("Unknown field for complex type Part: "  + nvp.get(i).getName()));
                 }
@@ -174,6 +183,11 @@ public class Part implements Serializable {
             sb.append("multivalued=" + multivalued.toString());
         }
 
+        if (weakref != null){
+            sb.append(' ');
+            sb.append("weakref=" + weakref.toString());
+        }
+
         return(sb.toString());
     }
 
@@ -195,6 +209,10 @@ public class Part implements Serializable {
 
     public Boolean getMultivalued(){
         return(multivalued);
+    }
+
+    public Boolean getWeakref(){
+        return(weakref);
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})

@@ -1691,7 +1691,7 @@ abstract public class DmcObject implements Serializable {
 				// This ensures that we have the attribute info set. This is a temporary
 				// hack. The actual solution is to make attrInfo private and always go through
 				// the getAttributeInfo() method to get it.
-				attr.getAttributeInfo();
+				DmcAttributeInfo ai = attr.getAttributeInfo();
 					
 				if (attr instanceof DmcTypeNamedObjectREF){
 //System.out.println("DmcObject.resolveReferences() resolving: " + attr.getName());
@@ -1710,6 +1710,9 @@ abstract public class DmcObject implements Serializable {
 							try {
 								obj = ((DmcNameResolverWithClashSupportIF)rx).findNamedObjectMayClash(this, ref.getObjectName(), ncr, attr.attrInfo);
 							} catch (DmcValueException ex) {
+								// If this is a weak reference, just continue
+								if (ai.weakReference)
+									continue;
 								if (errors == null)
 									errors = new DmcValueExceptionSet();
 								errors.add(ex);
@@ -1719,6 +1722,10 @@ abstract public class DmcObject implements Serializable {
 						DmcObject 			resolvedObject 	= null;
 						
 						if (obj == null){
+							// If this is a weak reference, just continue
+							if (ai.weakReference)
+								continue;
+
 							DmcValueException ex = new DmcValueException("Could not resolve reference to: " + ref.getObjectName() + " via attribute: " + attr.getName());
 							ex.addMoreInfo(this.toOIF());
 							if (errors == null)
@@ -1791,6 +1798,10 @@ abstract public class DmcObject implements Serializable {
 								DmcObject 			resolvedObject 	= null;
 								
 								if (obj == null){
+									// If this is a weak reference, just continue
+									if (ai.weakReference)
+										continue;
+
 									DmcValueException ex = new DmcValueException("Could not resolve reference to: " + ref.getObjectName() + " via attribute: " + attr.getName());
 									ex.addMoreInfo(this.toOIF());
 									if (errors == null)

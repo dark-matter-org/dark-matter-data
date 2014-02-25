@@ -307,6 +307,7 @@ requiredPart	String			description "The description of the Part"  quoted=true
 //optionalPart	String			label 		"The label of the Part"			quoted=true
 optionalPart	Boolean			quoted 		"Indicates if the Part allows for a quoted value or if it's intended to be a single token"
 optionalPart	Boolean			multivalued	"Indicates if the Part is multivalued - this is only applicable to optional Parts."
+optionalPart	Boolean			weakref		"Indicates that a reference type is weak i.e. that no exception will be thrown if the reference can't be resolved - this is only applicable to optional Parts."
 description     The Part complex type is used to describe the Parts of a ComplexTypeDefinition.
 
 ComplexTypeDefinition
@@ -2036,6 +2037,13 @@ type                		NameValuePair
 valueType					MULTI
 description					A set of additional name value pairs that can be associated with an object.
 
+AttributeDefinition
+name                		weakReference
+dmdID						179
+type                		Boolean
+description					A flag to indicate that a reference attribute is weak i.e. 
+ if the object can't be resolved, no exception is thrown.
+
 //AttributeDefinition
 //name                		nameAndTypeName
 //dmdID						176
@@ -2494,6 +2502,7 @@ may				designatedFilterAttribute
 may				internalUse
 may				indexSize
 may				preserveNewlines
+may				weakReference
 description    This class is used to define attributes to be used
  as part of a class definition.
  

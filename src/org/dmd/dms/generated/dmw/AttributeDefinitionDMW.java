@@ -448,6 +448,24 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition implements
         mycore.setPreserveNewlines(value);
     }
 
+    /**
+     * A flag to indicate that a reference attribute is weak i.e. \n if the
+     * object can't be resolved, no exception is thrown. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2387)
+    public Boolean getWeakReference(){
+        return(mycore.getWeakReference());
+    }
+
+    /**
+     * Sets weakReference to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2460)
+    public void setWeakReference(Object value) throws DmcValueException {
+        mycore.setWeakReference(value);
+    }
+
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation
