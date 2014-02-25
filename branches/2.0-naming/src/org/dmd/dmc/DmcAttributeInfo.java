@@ -51,14 +51,48 @@ public class DmcAttributeInfo implements Comparable<DmcAttributeInfo> {
 	
 	final public int			indexSize;
 	
+	// For reference attributes, indicates whether the reference is weak i.e. no exception thrown
+	// when the name can't be resolved.
+	final public boolean		weakReference;
+	
+	/**
+	 * This form is used in ComplexTypeDefinitions - it has no schema name.
+	 * @param n the name of the attribute.
+	 * @param i the identifier - always 0
+	 * @param t the type
+	 * @param at the valueType
+	 * @param dte the data type - always UNKNOWN
+	 */
 	public DmcAttributeInfo(String n, int i, String t, ValueTypeEnum at, DataTypeEnum dte){
-		qualifiedName	= new DotName("NOT_SET",n);;
+		qualifiedName	= new DotName("NOT_SET",n);
 		name 			= n;
 		id				= i;
 		type			= t;
 		valueType		= at;
 		dataType		= dte;
 		indexSize		= 0;
+		weakReference	= false;
+	}
+	
+	/**
+	 * This form is used in ComplexTypeDefinitions - it has no schema name.
+	 * @param n the name of the attribute.
+	 * @param i the identifier - always 0
+	 * @param t the type
+	 * @param at the valueType
+	 * @param dte the data type - always UNKNOWN
+	 * @param is index size - always 0
+	 * @param wr weak reference flag
+	 */
+	public DmcAttributeInfo(String n, int i, String t, ValueTypeEnum at, DataTypeEnum dte, int is, boolean wr){
+		qualifiedName	= new DotName("NOT_SET",n);
+		name 			= n;
+		id				= i;
+		type			= t;
+		valueType		= at;
+		dataType		= dte;
+		indexSize		= is;
+		weakReference	= wr;
 	}
 	
 	public DmcAttributeInfo(String schema, String n, int i, String t, ValueTypeEnum at, DataTypeEnum dte){
@@ -69,6 +103,7 @@ public class DmcAttributeInfo implements Comparable<DmcAttributeInfo> {
 		valueType		= at;
 		dataType		= dte;
 		indexSize		= 0;
+		weakReference	= false;
 	}
 	
 //	public DmcAttributeInfo(String n, int i, String t, ValueTypeEnum at, DataTypeEnum dte, int is){
@@ -82,13 +117,25 @@ public class DmcAttributeInfo implements Comparable<DmcAttributeInfo> {
 //	}
 	
 	public DmcAttributeInfo(String schema, String n, int i, String t, ValueTypeEnum at, DataTypeEnum dte, int is){
-		qualifiedName = new DotName(schema,n);
-		name 		= n;
-		id			= i;
-		type		= t;
-		valueType	= at;
-		dataType	= dte;
-		indexSize	= is;
+		qualifiedName 	= new DotName(schema,n);
+		name 			= n;
+		id				= i;
+		type			= t;
+		valueType		= at;
+		dataType		= dte;
+		indexSize		= is;
+		weakReference	= false;
+	}
+	
+	public DmcAttributeInfo(String schema, String n, int i, String t, ValueTypeEnum at, DataTypeEnum dte, int is, boolean wr){
+		qualifiedName 	= new DotName(schema,n);
+		name 			= n;
+		id				= i;
+		type			= t;
+		valueType		= at;
+		dataType		= dte;
+		indexSize		= is;
+		weakReference	= wr;
 	}
 	
 //	public String toString(){
@@ -96,7 +143,7 @@ public class DmcAttributeInfo implements Comparable<DmcAttributeInfo> {
 //	}
 
 	public String toString(){
-		return(qualifiedName + " " + name + " " + id + " " + type + " " + valueType + " " + dataType + " index: " + indexSize);
+		return(qualifiedName + " " + name + " " + id + " " + type + " " + valueType + " " + dataType + " index: " + indexSize + " weak: " + weakReference);
 	}
 
 	@Override

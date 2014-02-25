@@ -71,6 +71,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         _ImAp.put(MetaDMSAG.__sortName.id,MetaDMSAG.__sortName);
         _ImAp.put(MetaDMSAG.__tags.id,MetaDMSAG.__tags);
         _ImAp.put(MetaDMSAG.__valueType.id,MetaDMSAG.__valueType);
+        _ImAp.put(MetaDMSAG.__weakReference.id,MetaDMSAG.__weakReference);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(MetaDMSAG.__name.name,MetaDMSAG.__name);
@@ -99,6 +100,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         _SmAp.put(MetaDMSAG.__sortName.name,MetaDMSAG.__sortName);
         _SmAp.put(MetaDMSAG.__tags.name,MetaDMSAG.__tags);
         _SmAp.put(MetaDMSAG.__valueType.name,MetaDMSAG.__valueType);
+        _SmAp.put(MetaDMSAG.__weakReference.name,MetaDMSAG.__weakReference);
     }
 
 
@@ -913,6 +915,33 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         
         attr.set(value);
         set(MetaDMSAG.__valueType,attr);
+    }
+
+    /**
+     * A flag to indicate that a reference attribute is weak i.e. \n if the
+     * object can't be resolved, no exception is thrown. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2334)
+    public Boolean getWeakReference(){
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaDMSAG.__weakReference);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets weakReference to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2426)
+    public void setWeakReference(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__weakReference);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(MetaDMSAG.__weakReference);
+        
+        attr.set(value);
+        set(MetaDMSAG.__weakReference,attr);
     }
 
 

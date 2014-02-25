@@ -454,6 +454,8 @@ public class NewComplexTypeFormatter {
             for(String fn: refFields){
             	out.write("        if ((" + fn + valSuffix + " != null) && (!" + fn + valSuffix + ".isResolved())){\n");
             	out.write("            obj = resolver.findNamedObject(" + fn + valSuffix + ".getObjectName());\n");
+            	out.write("            if (" + fn + "AI.weakReference)\n");
+            	out.write("                return;\n");
             	out.write("            if (obj == null)\n");
             	out.write("                throw(new DmcValueException(\"Could not resolve reference to: \" + " + fn + valSuffix + ".getObjectName() + \" via attribute: \" + attrName));\n");
             	out.write("        \n");
@@ -474,6 +476,8 @@ public class NewComplexTypeFormatter {
             	out.write("                if (v.isResolved())\n");
             	out.write("                    continue;\n");
             	out.write("                obj = resolver.findNamedObject(v.getObjectName());\n");
+            	out.write("                if (" + part.getName() + "AI.weakReference)\n");
+            	out.write("                    return;\n");
             	out.write("                if (obj == null)\n");
             	out.write("                    throw(new DmcValueException(\"Could not resolve reference to: \" + v.getObjectName() + \" via attribute: \" + attrName));\n");
             	out.write("        \n");
@@ -499,6 +503,8 @@ public class NewComplexTypeFormatter {
             for(String fn: refFields){
             	out.write("        if ((" + fn + valSuffix + " != null) && (!" + fn + valSuffix + ".isResolved())){\n");
             	out.write("            obj = resolver.findNamedObjectMayClash(object, " + fn + valSuffix + ".getObjectName(), ncr, " + fn + "AI);\n");
+            	out.write("            if (" + fn + "AI.weakReference)\n");
+            	out.write("                return;\n");
             	out.write("            if (obj == null)\n");
             	out.write("                throw(new DmcValueException(\"Could not resolve reference to: \" + " + fn + valSuffix + ".getObjectName() + \" via attribute: \" + ai.name));\n");
             	out.write("        \n");
@@ -509,6 +515,30 @@ public class NewComplexTypeFormatter {
             	out.write("        }\n");
             	out.write("        \n");
             }
+            
+            for(Part part: mvrefFields){
+            	TypeDefinition	type = (TypeDefinition) part.getType().getObject().getContainer();
+            	String pn = part.getName() + valSuffix;
+            	
+            	out.write("        if (" + pn + " != null){\n");
+            	out.write("            for(" + type.getName() + "REF v: " + pn + "){\n");
+            	out.write("                if (v.isResolved())\n");
+            	out.write("                    continue;\n");
+            	out.write("                obj = resolver.findNamedObjectMayClash(object, v.getObjectName(), ncr, " + part.getName() + "AI);\n");
+            	out.write("                if (" + part.getName() + "AI.weakReference)\n");
+            	out.write("                    return;\n");
+            	out.write("                if (obj == null)\n");
+            	out.write("                    throw(new DmcValueException(\"Could not resolve reference to: \" + v.getObjectName() + \" via attribute: \" + ai.name));\n");
+            	out.write("        \n");
+            	out.write("                if (obj instanceof DmcContainerIF)\n");
+            	out.write("                    ((DmcNamedObjectREF)v).setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());\n");
+            	out.write("                else\n");
+            	out.write("                    ((DmcNamedObjectREF)v).setObject(obj);\n");
+            	out.write("            }\n");
+            	out.write("        }\n");
+            	out.write("        \n");
+            }
+
 
         	out.write("    }\n\n");
 
@@ -718,12 +748,20 @@ public class NewComplexTypeFormatter {
     			mve = ">";
     		}
     		
+    		String indexSize = ", 0";
+    		String weakReference = ", false";
+    		
+    		if ((part.getWeakref() != null) && part.getWeakref())
+    			weakReference = ", true";
+    		
     		if (type.getIsRefType())
         		sb.append("    " + mvs + part.getType().getObjectName() + "REF" + mve + " " + part.getName() + valSuffix + ";\n\n");
     		else
     			sb.append("    " + mvs + part.getType().getObjectName() + mve + " " + part.getName() + valSuffix + ";\n\n");
     		
-    		sb.append("    final static DmcAttributeInfo " + part.getName() + "AI = new DmcAttributeInfo(\""+ part.getName() + "\",0,\"" + part.getType().getObjectName() + "\",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN);\n\n");
+//    		if (part.)
+    		
+    		sb.append("    final static DmcAttributeInfo " + part.getName() + "AI = new DmcAttributeInfo(\""+ part.getName() + "\",0,\"" + part.getType().getObjectName() + "\",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN" + indexSize + weakReference + ");\n\n");
     	}
     	
     	return(sb.toString());

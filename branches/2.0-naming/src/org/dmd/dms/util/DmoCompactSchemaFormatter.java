@@ -165,10 +165,17 @@ public class DmoCompactSchemaFormatter {
 			out.write(", ValueTypeEnum." + ad.getValueType());
 			out.write(", DataTypeEnum." + ad.getDataType());
 			
-			if (ad.getIndexSize() == null)
-				out.write(");\n");
-			else
-				out.write(", " + ad.getIndexSize() + ");\n");
+			String indexSize		= ", 0";
+			String weakReference	= ", false";
+			
+			if (ad.getIndexSize() != null)
+				indexSize = ", " + ad.getIndexSize();
+			
+			if (ad.getWeakReference() != null)
+				weakReference = ", " + ad.getWeakReference();
+			
+			out.write(indexSize + weakReference + ");\n");
+			
 		}
         
         if (types.size() > 0){
@@ -649,12 +656,20 @@ public class DmoCompactSchemaFormatter {
         if (attributes != null){
     		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 	        for(DmcUncheckedObject ad: attributes.values()){
-	        	String n	= ad.getSV("name");
-            	String t 	= ad.getSV("type");
-            	String ID 	= ad.getSV("dmdID");
-            	String mv 	= ad.getSV("valueType");
+	        	String n				= ad.getSV("name");
+            	String t 				= ad.getSV("type");
+            	String ID 				= ad.getSV("dmdID");
+            	String mv 				= ad.getSV("valueType");
+            	String indexSize		= ad.getSV("indexSize");
+	        	String weakReference	= ad.getSV("weakReference");
+	        	
+	        	if (indexSize == null)
+	        		indexSize = "0";
+	        	
+	        	if (weakReference == null)
+	        		weakReference = "false";
         		
-            	writeAttributeInfoMETA(out, n, ID, t, mv, "false");
+            	writeAttributeInfoMETA(out, n, ID, t, mv, "false", indexSize, weakReference);
 			}
 		}
         
@@ -1101,9 +1116,11 @@ public class DmoCompactSchemaFormatter {
 	 * @param t   type name
 	 * @param mv  valueType
 	 * @param opt optional
+	 * @param is  index size
+	 * @param wr  weak reference
 	 * @throws IOException
 	 */
-    void writeAttributeInfoMETA(BufferedWriter out, String n, String ID, String t, String mv, String opt) throws IOException {
+    void writeAttributeInfoMETA(BufferedWriter out, String n, String ID, String t, String mv, String opt, String is, String wr) throws IOException {
     	out.write("    public final static DmcAttributeInfo __" + n + " = new DmcAttributeInfo(");
     	out.write("\"meta\",");
     	out.write("\"" + n + "\",");
@@ -1116,6 +1133,10 @@ public class DmoCompactSchemaFormatter {
     		out.write("ValueTypeEnum.MULTI,");
     	
    		out.write("DataTypeEnum.PERSISTENT");
+    	
+   		out.write("," + is);
+    	
+   		out.write("," + wr);
     	
     	out.write(");\n");
 
