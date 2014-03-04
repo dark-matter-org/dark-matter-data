@@ -160,7 +160,8 @@ public class DmcUncheckedOIFParser {
                         }
                         else{
                             // We have tokens
-                            if (str.startsWith(" ")){
+//                            if (str.startsWith(" ")){
+                            if (Character.isWhitespace(str.charAt(0))){
                                 // Line continuation
                             	if (preserveNL.get(attrName) != null)
                                     attrVal.append("\n" + str);
