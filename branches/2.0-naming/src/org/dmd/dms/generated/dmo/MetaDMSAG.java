@@ -132,7 +132,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __keyClass = new DmcAttributeInfo("meta","keyClass",96,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __keyImport = new DmcAttributeInfo("meta","keyImport",97,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("meta","lineNumber",75,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
-    public final static DmcAttributeInfo __loadSchemaClass = new DmcAttributeInfo("meta","loadSchemaClass",173,"String",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,0,false);
+    public final static DmcAttributeInfo __loadSchemaClass = new DmcAttributeInfo("meta","loadSchemaClass",173,"SchemaAndReason",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __longName = new DmcAttributeInfo("meta","longName",134,"LongName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __may = new DmcAttributeInfo("meta","may",27,"AttributeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __mayParm = new DmcAttributeInfo("meta","mayParm",29,"AttributeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,0,false);
@@ -258,6 +258,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcTypeInfo __type_RuleParam = new DmcTypeInfo("RuleParam", OriginalTypeEnum.COMPLEXTYPE);
     public final static DmcTypeInfo __type_RuleTypeEnumREF = new DmcTypeInfo("RuleTypeEnumREF", OriginalTypeEnum.ENUM);
     public final static DmcTypeInfo __type_RunContext = new DmcTypeInfo("RunContext", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_SchemaAndReason = new DmcTypeInfo("SchemaAndReason", OriginalTypeEnum.COMPLEXTYPE);
     public final static DmcTypeInfo __type_SchemaDefinition = new DmcTypeInfo("SchemaDefinition", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_Short = new DmcTypeInfo("Short", OriginalTypeEnum.TYPE);
     public final static DmcTypeInfo __type_SliceDefinition = new DmcTypeInfo("SliceDefinition", OriginalTypeEnum.REFERENCE);
