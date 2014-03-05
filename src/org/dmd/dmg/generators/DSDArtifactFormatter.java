@@ -464,6 +464,9 @@ public class DSDArtifactFormatter {
 		
 		imports.addImport("org.dmd.dms.AttributeDefinition", "To allow addition of preserve newline attributes");
 		imports.addImport("org.dmd.dms.generated.dmw.AttributeDefinitionIterableDMW", "To allow addition of preserve newline attributes");
+		if (ddm.getSupportDynamicSchemaLoading()){
+			imports.addImport("org.dmd.dms.generated.types.SchemaAndReason", "To allow dynamic schema loading");
+		}
 		
 		out.write(imports.getFormattedImports() + "\n");
 		out.write("\n");
@@ -659,9 +662,10 @@ public class DSDArtifactFormatter {
 		out.write("    void loadSchemas(" + ddm.getName() + " module) throws ResultException {\n");
 		out.write("        Class<?> schemaClass = null;\n");
 		out.write("        SchemaDefinition sd	= null;\n");
-		out.write("        Iterator<String> it = module.getDMO().getLoadSchemaClass();\n");
+		out.write("        Iterator<SchemaAndReason> it = module.getDMO().getLoadSchemaClass();\n");
 		out.write("        while(it.hasNext()){\n");
-		out.write("		       String cn = it.next();\n");
+		out.write("		       SchemaAndReason sar = it.next();\n");
+		out.write("		       String cn = sar.getSchema();\n");
 		out.write("		       try {\n");
 		out.write("			       schemaClass = Class.forName(cn);\n");
 		out.write("            } catch (ClassNotFoundException e) {\n");
@@ -1081,6 +1085,8 @@ public class DSDArtifactFormatter {
 		members.addMember("protected BooleanVar", "debug", "new BooleanVar()", "Dumps debug info if specified");
 		members.addMember("protected StringArrayList", "jars", "new StringArrayList()", "The jars that will be searched for ." + ddm.getFileExtension() + " config files");
 		
+		members.addMember("protected StringArrayList", "searchPaths", "new StringArrayList()", "The srcdirs prefixed with the workspace - useful to pass to config finders");
+		
 		out.write("package " + config.getGenPackage() + ".generated.dsd;\n\n");
 		
 		out.write(imports.getFormattedImports() + "\n");
@@ -1110,22 +1116,21 @@ public class DSDArtifactFormatter {
 		out.write("\n");
 		out.write("        commandLine.parseArgs(args);\n");
 		out.write("\n");
-		out.write("        initialize();\n");
-		out.write("\n");
 		out.write("        if (helpFlag.booleanValue()){\n");
 		out.write("            displayHelp();\n");
 		out.write("            return;\n");
 		out.write("        }\n");
 		out.write("\n");
-		out.write("        StringArrayList withWorkspace = new StringArrayList();\n");
 		out.write("        for(String src: srcdir){\n");
 		out.write("            if (workspace.length() > 0)\n");
-		out.write("                withWorkspace.add(workspace + File.separator + src);\n");
+		out.write("                searchPaths.add(workspace + File.separator + src);\n");
 		out.write("            else\n");
-		out.write("                withWorkspace.add(src);\n");
+		out.write("                searchPaths.add(src);\n");
 		out.write("        }\n");
 		out.write("\n");
-		out.write("        parser = new " + ddm.getName() + "ParsingCoordinator(this, withWorkspace, jars);\n");
+		out.write("        initialize();\n");
+		out.write("\n");
+		out.write("        parser = new " + ddm.getName() + "ParsingCoordinator(this, searchPaths, jars);\n");
 		out.write("\n");
 		out.write("        if (target.length() > 0)\n");
 		out.write("            parser.generateForConfig(target.toString());\n");

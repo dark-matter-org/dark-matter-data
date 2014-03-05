@@ -320,6 +320,15 @@ description		The NameValuePair type provides a general extensibility mechanism f
  that provides a common base class for all domain specific definitions.
 
 ComplexTypeDefinition
+name			SchemaAndReason
+requiredPart	String			schema		"The fully qualified name of the schema to load"
+requiredPart	String			hint		"A hint as to why the schema is required" quoted=true
+description		The SchemaAndReason type is used when schemas are loaded dynamically by
+ some piece of software. For documentation purposes, it's useful to know why the schema
+ is being loaded, since the class name may not informative enough.
+
+
+ComplexTypeDefinition
 name			DmwTypeToWrapperType
 field           String          dmwType     The Dark Matter Wrapper type
 field           WrapperTypeEnum wrapperType The type of wrapper to be used in this context
@@ -1980,14 +1989,15 @@ description    				If this flag is set to true, the loadSchemaClass attribute
 AttributeDefinition
 name                		loadSchemaClass
 dmdID						173
-type                		String
+type                		SchemaAndReason
 valueType					MULTI
 description    				The fully qualified name of a schema that is to 
- be loaded dynamically as part of module definition. This is generally used
+ be loaded dynamically as part of module definition, along a description
+ of why the schema is being loaded. This is generally used
  when auxiliary class information is used in conjunction with a set of
  domain specific definitions.
  <p/>
- An example would be org.dmd.gpb.tools.generation.generated.GpbauxtestSchemaAG
+ An example would be org.dmd.gpb.tools.generation.generated.GpbauxtestSchemaAG "Because we need the aux classes"
 
 AttributeDefinition
 name                		requiredBaseModule

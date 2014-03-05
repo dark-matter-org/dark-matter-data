@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2010 dark-matter-data committers
+//	Copyright (c) 2012 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -13,29 +13,29 @@
 //	You should have received a copy of the GNU Lesser General Public License along
 //	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
 //	---------------------------------------------------------------------------
-package org.dmd.dmv.server.generated.dmw;
+package org.dmd.dms.generated.dmw;
 
 import java.util.Iterator;
 
 import org.dmd.dmw.DmwMVIterator;
-import org.dmd.dmv.shared.generated.enums.NumericRelationEnum;
+import org.dmd.dms.generated.types.SchemaAndReason;
 /**
- * The NumericRelationEnumIterableDMW wraps an Iterator for a particular type and makes 
+ * The SchemaAndReasonIterableDMW wraps an Iterator for a particular type and makes 
  * it Iterable.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1755)
- *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:123)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpTypeIterables(MetaGenerator.java:693)
  */
-public class NumericRelationEnumIterableDMW extends DmwMVIterator<NumericRelationEnum> {
+public class SchemaAndReasonIterableDMW extends DmwMVIterator<SchemaAndReason> {
 
-    public final static NumericRelationEnumIterableDMW emptyList = new NumericRelationEnumIterableDMW();
+    public final static SchemaAndReasonIterableDMW emptyList = new SchemaAndReasonIterableDMW();
 
-    protected NumericRelationEnumIterableDMW(){
+    protected SchemaAndReasonIterableDMW(){
         super();
     }
 
-    public NumericRelationEnumIterableDMW(Iterator<NumericRelationEnum> it){
+    public SchemaAndReasonIterableDMW(Iterator<SchemaAndReason> it){
         super(it);
     }
 
