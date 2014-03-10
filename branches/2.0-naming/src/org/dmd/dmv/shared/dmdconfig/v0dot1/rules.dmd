@@ -257,7 +257,7 @@ ruleName			dmvTagsCheck
 ruleTitle			The tags attribute must be a mix of letters, numbers and spaces.
 matchesPattern		[a-zA-Z0-9][a-zA-Z0-9 ]*
 applyToAttribute	tags
-description			Considered having tags with spaces, but it gets tricky when you 
+description			Considered having tags without spaces, but it gets tricky when you 
  want to represent things like San Franciso. So spaces are allowed in tags, but no
  other special characters.
 
