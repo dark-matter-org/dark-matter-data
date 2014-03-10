@@ -430,8 +430,17 @@ public class DmcOmni implements DmcNameResolverIF {
 		// to it. We don;t attempt to reuse the same modifier because these may be used in events.
 		Iterator<Modifier> it = mods.getMV();
 		while(it.hasNext()){
-			DmcTypeModifierMV single = new DmcTypeModifierMV();
 			Modifier mod = it.next();
+			
+			// Things are a little different for references from complex types.
+			// Since complex types are invariable, all we do is unresolve the references
+			// that are part of the complex type.
+			if (mod.getRefFromComplexType() != null){
+				mod.getRefFromComplexType().setObject(null);
+				continue;
+			}
+			
+			DmcTypeModifierMV single = new DmcTypeModifierMV();
 			try {
 				// Add the Modifier to our temporary
 				single.add(mod);

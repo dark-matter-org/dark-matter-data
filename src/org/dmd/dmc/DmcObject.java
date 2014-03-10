@@ -25,11 +25,11 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.Vector;
 
+import org.dmd.dmc.types.DefinitionName;
 import org.dmd.dmc.types.DmcTypeComplexTypeWithRefs;
 import org.dmd.dmc.types.DmcTypeModifier;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
 import org.dmd.dmc.types.Modifier;
-import org.dmd.dmc.types.DefinitionName;
 import org.dmd.dms.generated.dmo.ClassDefinitionDMO;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.DataTypeEnum;
@@ -1700,6 +1700,7 @@ abstract public class DmcObject implements Serializable {
 					
 					if (attr.getMVSize() == 0){
 						DmcNamedObjectREF ref = (DmcNamedObjectREF) attr.getSV();
+						
 						if (ref.isResolved())
 							continue;
 						
