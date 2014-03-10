@@ -1,7 +1,7 @@
 package org.dmd.dmt.shared.generated.types;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:123)
+// Called from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:126)
 import java.io.Serializable;                                               // To prevent serialization warnings - (NewComplexTypeFormatter.java:92)
 import java.util.ArrayList;                                                // To store ParsedNameValuePairs - (NewComplexTypeFormatter.java:99)
 import org.dmd.dmc.DmcAttributeInfo;                                       // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:97)
@@ -13,16 +13,18 @@ import org.dmd.dmc.DmcNameResolverWithClashSupportIF;                      // To
 import org.dmd.dmc.DmcNamedObjectIF;                                       // To support object references - (NewComplexTypeFormatter.java:107)
 import org.dmd.dmc.DmcNamedObjectREF;                                      // To support object references - (NewComplexTypeFormatter.java:108)
 import org.dmd.dmc.DmcObject;                                              // To support possible clashing object references - (NewComplexTypeFormatter.java:114)
+import org.dmd.dmc.DmcOmni;                                                // To enable back reference tracking - (NewComplexTypeFormatter.java:116)
 import org.dmd.dmc.DmcOutputStreamIF;                                      // Standard serialization techniques - (NewComplexTypeFormatter.java:94)
-import org.dmd.dmc.DmcValueException;                                      // Standard value exception - (NewComplexTypeFormatter.java:118)
+import org.dmd.dmc.DmcValueException;                                      // Standard value exception - (NewComplexTypeFormatter.java:121)
 import org.dmd.dmc.DmcValueExceptionSet;                                   // To support possible clashing object references - (NewComplexTypeFormatter.java:115)
+import org.dmd.dmc.types.Modifier;                                         // To enable back reference tracking - (NewComplexTypeFormatter.java:117)
 import org.dmd.dmc.util.ComplexTypeSplitter;                               // For parsing initial input - (NewComplexTypeFormatter.java:98)
 import org.dmd.dmc.util.ParsedNameValuePair;                               // To store values parsed from initial input - (NewComplexTypeFormatter.java:100)
 import org.dmd.dms.generated.enums.DataTypeEnum;                           // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:95)
 import org.dmd.dms.generated.enums.ValueTypeEnum;                          // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:96)
-import org.dmd.dms.generated.types.DmcTypeStringSTATIC;                    // Standard type - (NewComplexTypeFormatter.java:835)
-import org.dmd.dms.generated.types.DmcTypeTypeDefinitionREFSTATIC;         // Internally generated type - (NewComplexTypeFormatter.java:835)
-import org.dmd.dms.generated.types.TypeDefinitionREF;                      // Object reference - (NewComplexTypeFormatter.java:810)
+import org.dmd.dms.generated.types.DmcTypeStringSTATIC;                    // Standard type - (NewComplexTypeFormatter.java:856)
+import org.dmd.dms.generated.types.DmcTypeTypeDefinitionREFSTATIC;         // Internally generated type - (NewComplexTypeFormatter.java:856)
+import org.dmd.dms.generated.types.TypeDefinitionREF;                      // Object reference - (NewComplexTypeFormatter.java:831)
 
 
 
@@ -31,7 +33,7 @@ import org.dmd.dms.generated.types.TypeDefinitionREF;                      // Ob
  * The DmtOptionalValueFieldWithSpaces class.
  * This code was auto-generated and shouldn't be alterred manually.
  * 
- * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:130)
+ * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:133)
  */
 public class DmtOptionalValueFieldWithSpaces implements Serializable {
 
@@ -67,7 +69,7 @@ public class DmtOptionalValueFieldWithSpaces implements Serializable {
      * Copy constructor.
      */
     public DmtOptionalValueFieldWithSpaces(DmtOptionalValueFieldWithSpaces original){
-    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.getCopyConstructorAssignments(NewComplexTypeFormatter.java:773)
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.getCopyConstructorAssignments(NewComplexTypeFormatter.java:794)
         typeV =  original.typeV;
         nameV =  original.nameV;
         descriptionV =  original.descriptionV;
@@ -76,7 +78,7 @@ public class DmtOptionalValueFieldWithSpaces implements Serializable {
 
     /**
      * All fields constructor.
-     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:161)
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:164)
      */
     public DmtOptionalValueFieldWithSpaces(TypeDefinitionREF type_, String name_, String description_, TypeDefinitionREF otherType_) throws DmcValueException {
         typeV = DmcTypeTypeDefinitionREFSTATIC.instance.typeCheck(type_);
@@ -89,14 +91,14 @@ public class DmtOptionalValueFieldWithSpaces implements Serializable {
 
     /**
      * String based constructor.
-     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:234)
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:237)
      */
     public DmtOptionalValueFieldWithSpaces(String initialInput) throws DmcValueException {
         initialize(initialInput);
     }
     /**
      * Initialize content based on string form.
-     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:242)
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:245)
      */
     void initialize(String initialInput) throws DmcValueException {
         ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput);
@@ -143,7 +145,7 @@ public class DmtOptionalValueFieldWithSpaces implements Serializable {
 
     /**
      * String form.
-     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:341)
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:344)
      */
     public String toString(){
         StringBuffer sb = new StringBuffer();
@@ -179,7 +181,7 @@ public class DmtOptionalValueFieldWithSpaces implements Serializable {
         return(otherTypeV);
     }
 
-    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:449)
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:452)
     @SuppressWarnings({"unchecked", "rawtypes"})
     public void resolve(DmcNameResolverIF resolver, String attrName) throws DmcValueException {
         DmcNamedObjectIF  obj = null;
@@ -212,7 +214,7 @@ public class DmtOptionalValueFieldWithSpaces implements Serializable {
         
     }
 
-    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:498)
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:501)
     @SuppressWarnings({"unchecked", "rawtypes"})
     public void resolve(DmcNameResolverWithClashSupportIF resolver, DmcObject object, DmcNameClashResolverIF ncr, DmcAttributeInfo ai) throws DmcValueException, DmcValueExceptionSet {
         DmcNamedObjectIF  obj = null;
@@ -228,6 +230,15 @@ public class DmtOptionalValueFieldWithSpaces implements Serializable {
                 ((DmcNamedObjectREF)typeV).setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
             else
                 ((DmcNamedObjectREF)typeV).setObject(obj);
+        
+            if (DmcOmni.instance().backRefTracking()){
+                Modifier backrefMod = new Modifier("type", object, typeV);
+                if (obj instanceof DmcContainerIF)
+                    ((DmcContainerIF)obj).getDmcObject().addBackref(backrefMod);
+                else
+                    ((DmcObject)obj).addBackref(backrefMod);
+                typeV.setBackrefModifier(backrefMod);
+            }
         }
         
         if ((otherTypeV != null) && (!otherTypeV.isResolved())){
@@ -241,6 +252,15 @@ public class DmtOptionalValueFieldWithSpaces implements Serializable {
                 ((DmcNamedObjectREF)otherTypeV).setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
             else
                 ((DmcNamedObjectREF)otherTypeV).setObject(obj);
+        
+            if (DmcOmni.instance().backRefTracking()){
+                Modifier backrefMod = new Modifier("otherType", object, otherTypeV);
+                if (obj instanceof DmcContainerIF)
+                    ((DmcContainerIF)obj).getDmcObject().addBackref(backrefMod);
+                else
+                    ((DmcObject)obj).addBackref(backrefMod);
+                otherTypeV.setBackrefModifier(backrefMod);
+            }
         }
         
     }

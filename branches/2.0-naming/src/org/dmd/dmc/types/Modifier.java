@@ -21,6 +21,7 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcNamedObjectIF;
+import org.dmd.dmc.DmcNamedObjectREF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcOutputStreamIF;
@@ -67,7 +68,13 @@ public class Modifier implements Serializable {
 	// maintain the information required to remove references to an object that is
 	// being deleted. In that case, this attribute stores the object that is 
 	// referring to the object being deleted.
-	transient DmcNamedObjectIF	referringObject;	
+	transient DmcNamedObjectIF	referringObject;
+	
+	// Tricky as well: this information is used when backref tracking is done via
+	// complex types (DmcTypeComplexTypeWithRefs). In that case, we don't actually
+	// remove reference attributes when something being referred to is deleted, 
+	// we simply unresolve the reference.
+	transient DmcNamedObjectREF<?> refFromComplexType;
 	
 	/**
 	 * The mandatory zero arg constructor.
@@ -189,6 +196,32 @@ public class Modifier implements Serializable {
 		index			= -1;
 		attribute 		= attr;
 		referringObject	= (DmcNamedObjectIF) referrer;
+	}
+	
+	/**
+	 * Constructs a new backref Modifier for a reference from within a complex type.
+	 * References from complex types have to be handled differently since the complex
+	 * type value is actually immutable. When removing an object, all we do is unresolve
+	 * the object reference that was passed in.
+	 * @param pn       the name of the part in the complex type that's doing the referring.
+	 * @param referrer the object that is now referring to another object.
+	 * @param ctr      the reference in the complex type.
+	 */
+	public Modifier(String pn, DmcObject referrer, DmcNamedObjectREF<?> ctr){
+		operation = ModifyTypeEnum.NONE;
+		
+		haveAttribute		= false;
+		attributeName 		= null;
+		attributeID			= 0;
+		value				= null;
+		index				= -1;
+		attribute 			= null;
+		referringObject		= (DmcNamedObjectIF) referrer;
+		refFromComplexType	= ctr;
+	}
+	
+	public DmcNamedObjectREF<?> getRefFromComplexType(){
+		return(refFromComplexType);
 	}
 	
 	/**

@@ -113,6 +113,9 @@ public class NewComplexTypeFormatter {
     		imports.addImport("org.dmd.dmc.DmcNameClashResolverIF", "To support possible clashing object references");
     		imports.addImport("org.dmd.dmc.DmcObject", "To support possible clashing object references");
     		imports.addImport("org.dmd.dmc.DmcValueExceptionSet", "To support possible clashing object references");
+    		imports.addImport("org.dmd.dmc.DmcOmni","To enable back reference tracking");
+    		imports.addImport("org.dmd.dmc.types.Modifier","To enable back reference tracking");
+    		imports.addImport("org.dmd.dmc.DmcContainerIF","To enable back reference tracking");
         }
 
 		imports.addImport("org.dmd.dmc.DmcValueException", "Standard value exception");
@@ -512,6 +515,15 @@ public class NewComplexTypeFormatter {
             	out.write("                ((DmcNamedObjectREF)" + fn + valSuffix + ").setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());\n");
             	out.write("            else\n");
             	out.write("                ((DmcNamedObjectREF)" + fn + valSuffix + ").setObject(obj);\n");
+            	out.write("        \n");
+            	out.write("            if (DmcOmni.instance().backRefTracking()){\n");
+            	out.write("                Modifier backrefMod = new Modifier(\"" + fn + "\", object, " + fn + valSuffix + ");\n");
+            	out.write("                if (obj instanceof DmcContainerIF)\n");
+            	out.write("                    ((DmcContainerIF)obj).getDmcObject().addBackref(backrefMod);\n");
+            	out.write("                else\n");
+            	out.write("                    ((DmcObject)obj).addBackref(backrefMod);\n");
+            	out.write("                " + fn + valSuffix + ".setBackrefModifier(backrefMod);\n");
+            	out.write("            }\n");
             	out.write("        }\n");
             	out.write("        \n");
             }
@@ -534,6 +546,15 @@ public class NewComplexTypeFormatter {
             	out.write("                    ((DmcNamedObjectREF)v).setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());\n");
             	out.write("                else\n");
             	out.write("                    ((DmcNamedObjectREF)v).setObject(obj);\n");
+            	out.write("        \n");
+            	out.write("                if (DmcOmni.instance().backRefTracking()){\n");
+            	out.write("                    Modifier backrefMod = new Modifier(\"" + part.getName() + "\", object, v);\n");
+            	out.write("                    if (obj instanceof DmcContainerIF)\n");
+            	out.write("                        ((DmcContainerIF)obj).getDmcObject().addBackref(backrefMod);\n");
+            	out.write("                    else\n");
+            	out.write("                        ((DmcObject)obj).addBackref(backrefMod);\n");
+            	out.write("                    v.setBackrefModifier(backrefMod);\n");
+            	out.write("                }\n");
             	out.write("            }\n");
             	out.write("        }\n");
             	out.write("        \n");
