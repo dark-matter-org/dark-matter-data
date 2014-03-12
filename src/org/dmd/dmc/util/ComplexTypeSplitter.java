@@ -161,7 +161,7 @@ public class ComplexTypeSplitter {
 						rc = new ParsedNameValuePair();
 					}
 					else
-						rc = new ParsedNameValuePair(input.substring(i+1));
+						rc = new ParsedNameValuePair(input.substring(i));
 					position.set(input.length());
 					break;
 				}

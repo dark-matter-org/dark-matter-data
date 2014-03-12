@@ -452,6 +452,7 @@ public class DSDArtifactFormatter {
 		imports.addImport("org.dmd.dms.generated.dmw.StringIterableDMW", "To iterate over defFiles");
 		imports.addImport("org.dmd.dmc.rules.SourceInfo", "To indicate the source of rule problems");
 		imports.addImport("org.dmd.dmw.DmwWrapper", "To handle factory created objects");
+		imports.addImport("org.dmd.dms.MetaSchema", "So that we can preserve newlines");
 		
 		// Get the class that was generated for the module
 		ClassDefinition ddmClass = sm.isClass(ddm.getName().getNameString());
@@ -494,19 +495,23 @@ public class DSDArtifactFormatter {
 		out.write("        " + schemaName + "SchemaAG sd = new " + schemaName + "SchemaAG();\n");	
 		out.write("        schema.manageSchema(sd);\n");
 		out.write("        if (sd.getAttributeDefListSize() > 0){\n");
-		out.write("            AttributeDefinitionIterableDMW attrs = sd.getAttributeDefList();\n");
-		out.write("            while(attrs.hasNext()){\n");
-		out.write("                AttributeDefinition ad = attrs.getNext();\n");
-		out.write("                if (ad.getPreserveNewlines()){\n");
-		out.write("                    parser.addPreserveNewlinesAttribute(ad.getName().getNameString());\n");
-		out.write("                }\n");
-		out.write("            }\n");
+		out.write("            preserveNewLines(sd.getAttributeDefList());\n");
 		out.write("        }\n");
+		out.write("        preserveNewLines(MetaSchema._metaSchema.getAttributeDefList());\n");
 		out.write("        \n");
 		out.write("        factory      = new DmwObjectFactory(schema);\n");
 		out.write("        \n");
 		out.write("        definitions  = d;\n");
 		out.write("        rules        = r;\n");
+		out.write("    }\n\n");
+		
+		out.write("    void preserveNewLines(AttributeDefinitionIterableDMW attrs){\n");
+		out.write("        while(attrs.hasNext()){\n");
+		out.write("            AttributeDefinition ad = attrs.getNext();\n");
+		out.write("            if (ad.getPreserveNewlines()){\n");
+		out.write("                parser.addPreserveNewlinesAttribute(ad.getName().getNameString());\n");
+		out.write("            }\n");
+		out.write("        }\n");
 		out.write("    }\n\n");
 		
 		out.write("    public String getFileExtension(){\n");
