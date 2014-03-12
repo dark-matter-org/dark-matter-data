@@ -190,7 +190,7 @@ public class ComplexTypeSplitterTest {
 
 		ComplexTypeSplitter.debug = true;
 		// Greedy parsing with the greedy part that contains another separator - which shouldn't matter
-		rc = ComplexTypeSplitter.parse("first value: secondvalue : here's the greedy part : with some other stuff",':',2);
+		rc = ComplexTypeSplitter.parse("first value: secondvalue :here's the greedy part : with some other stuff",':',2);
 		assertEquals("Should be 3 values", 3, rc.size());
 		assertEquals("Greedy value should be \"here's the greedy part : with some other stuff\"", "here's the greedy part : with some other stuff", rc.get(2).value);
 		

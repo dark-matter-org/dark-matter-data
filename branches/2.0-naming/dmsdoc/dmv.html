@@ -23,7 +23,7 @@
 <!-- org.dmd.dms.doc.web.SchemaPage.writeClassSummary(SchemaPage.java:371) -->
 
     <div class="classList">
-    <h2> Classes (10)</h2>
+    <h2> Classes (12)</h2>
     <table>
       <tr>
       <td class="spacer"> </td>
@@ -48,6 +48,16 @@
       <tr>
       <td class="spacer"> </td>
       <td> <a class="deflink" href="#OneOfTheseAttributesRequiredRuleData"> OneOfTheseAttributesRequiredRuleData </a></td>
+      <td> ruleName </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#OnlyOneOfTheseAttributesAllowedRuleData"> OnlyOneOfTheseAttributesAllowedRuleData </a></td>
+      <td> ruleName </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#PartCheckerRuleData"> PartCheckerRuleData </a></td>
       <td> ruleName </td>
       </tr>
       <tr>
@@ -86,13 +96,15 @@
     </div><!-- org.dmd.dms.doc.web.SchemaPage.writeRuleDefinitionSummary(SchemaPage.java:518) -->
 
     <div class="ruledefs">
-    <h2> Rule Definitions (10)</h2>
+    <h2> Rule Definitions (12)</h2>
     <ul>
       <li> <a class="deflink" href="#AllowedAttributesRuleData"> AllowedAttributesRule </a></li>
       <li> <a class="deflink" href="#CheckAttributesBasedOnValueRuleData"> CheckAttributesBasedOnValueRule </a></li>
       <li> <a class="deflink" href="#InitRuleData"> InitRule </a></li>
       <li> <a class="deflink" href="#NumericRangeRuleData"> NumericRangeRule </a></li>
       <li> <a class="deflink" href="#OneOfTheseAttributesRequiredRuleData"> OneOfTheseAttributesRequiredRule </a></li>
+      <li> <a class="deflink" href="#OnlyOneOfTheseAttributesAllowedRuleData"> OnlyOneOfTheseAttributesAllowedRule </a></li>
+      <li> <a class="deflink" href="#PartCheckerRuleData"> PartCheckerRule </a></li>
       <li> <a class="deflink" href="#PatternMatchRuleData"> PatternMatchRule </a></li>
       <li> <a class="deflink" href="#ReferencedAttributeTypeRuleData"> ReferencedAttributeTypeRule </a></li>
       <li> <a class="deflink" href="#RelatedNumbersRuleData"> RelatedNumbersRule </a></li>
@@ -102,10 +114,12 @@
     </div><!-- org.dmd.dms.doc.web.SchemaPage.writeRuleInstancesSummary(SchemaPage.java:535) -->
 
     <div class="ruledefs">
-    <h2> Rule Instances (18)</h2>
+    <h2> Rule Instances (22)</h2>
     <ul>
       <li> <a class="deflink" href="#dmvAllowedAttributes"> An object's attributes must conform to its schema. </a></li>
       <li> <a class="deflink" href="#dmvBasedOnAttribute"> The basedOnAttribute attribute must refer to a single-valued attribute </a></li>
+      <li> <a class="deflink" href="#dmvComplexTypeAttributeCheck"> At least one of the field or requiredPart/optionalPart attributes must be specified. </a></li>
+      <li> <a class="deflink" href="#dmvDefinedInModuleAttribute"> The attribute referred to by the definedInModuleAttribute attribute must be single-valued. </a></li>
       <li> <a class="deflink" href="#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></li>
       <li> <a class="deflink" href="#dmvEnumDefinitionNameCheck"> An EnumDefinition's name must end with Enum </a></li>
       <li> <a class="deflink" href="#dmvFileExtensionCheck"> A file extension should be comprised of alpha-numeric characters. </a></li>
@@ -116,11 +130,13 @@
       <li> <a class="deflink" href="#dmvMinLessThanMax"> The minLength must be less than the maxLength. </a></li>
       <li> <a class="deflink" href="#dmvMinimumLength"> The minLength must be 1 or more </a></li>
       <li> <a class="deflink" href="#dmvMinimumOrMaximum"> Either nrrMinimum or nrrMaximum must be specified. </a></li>
-      <li> <a class="deflink" href="#dmvModuleDependenceAttribute"> The moduleDependenceAttribute attribute must be multi-valued. </a></li>
+      <li> <a class="deflink" href="#dmvModuleDependenceAttribute"> The attribute referred to by the moduleDependenceAttribute attribute must be multi-valued. </a></li>
       <li> <a class="deflink" href="#dmvNRRApplyToAttribute"> The applyToAttribute attribute in a NumericRangeRuleData instance must refer to an Integer, Long, Float or Double attribute </a></li>
       <li> <a class="deflink" href="#dmvNoMustInExtensible"> If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attributes </a></li>
+      <li> <a class="deflink" href="#dmvPartChecker"> The greedy flag is only allowed on the final requiredPart of a ComplexTypeDefinition composed of requiredParts. </a></li>
       <li> <a class="deflink" href="#dmvRATRApplyToAttribute"> The applyToAttribute attribute in a ReferencedAttributeTypeRuleData must refer to a single valued AttributeDefinition </a></li>
       <li> <a class="deflink" href="#dmvRhs"> The rhs attribute must be a single valued Integer, Long, Float or Double </a></li>
+      <li> <a class="deflink" href="#dmvTagsCheck"> The tags attribute must be a mix of letters, numbers and spaces. </a></li>
       <li> <a class="deflink" href="#dmvValueorAttribute"> Either allowedType or allowedValueType must be specified </a></li>
     </ul>
     </div>  </div> <!--  summary -->
@@ -1106,6 +1122,381 @@
       <td> The andOnlyOne attribute indicates that only one of a set of possibilities is
  allowed.
       </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#applyToClass">applyToClass</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
+      <td> The class to which a rule should be applied.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#immediateHalt">immediateHalt</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> The immediateHalt flag is used to indicate that no further
+ rule processing should occur if a rule fails. It is an optional attribute on rule instance
+ objects. In somes cases, there is no point in continuing with the application of a set 
+ of rules, so this flag gives the option of halting further processing.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#msgKey">msgKey</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The msgKey may be specified on rule instances to indicate the key to be used
+ to look up translated messages. This is primarily a GWT mechanism, but should be applicable in
+ other contexts.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#msgParam">msgParam</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The msgParam allows for the specification of parameters to be substituted
+ into translated messages.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#definedIn">definedIn</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </td>
+      <td> Indicates the schema in which a type, attribute or class is defined.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Indicates the file from which a definition was loaded.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> Indicates the line number of the file from which a definition was loaded.
+      </td>
+    </tr>
+
+  </table>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.dumpDetails(ClassFormatter.java:23) -->
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="OnlyOneOfTheseAttributesAllowedRuleData"> OnlyOneOfTheseAttributesAllowedRuleData </a> </td></tr>
+<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:54) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The OnlyOneOfTheseAttributesAllowedRule allows you to specify
+ that only one of the possible attributes specified must be present
+ in the object being checked. This only makes sense where the attributes in
+ question are optional (may have) in the object.
+ <p/>
+ An example of this rule can be seen below.
+ <pre>
+ OnlyOneOfTheseAttributesAllowedRule
+ ruleName			dmvMoneySource
+ ruleTitle			Only 
+ applyToClass		PaymentMethod
+ onePossibility		creditCardNumber
+ onePossibility		payPalAccount
+ </pre>
+</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:79) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="meta.html#RuleData">RuleData</a>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:151) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="meta.html#ruleName">ruleName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmv.html#onePossibility">onePossibility</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
+      <td> The onePossibility attribute indicates an attribute that is one possiblity among
+ many.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#ruleName">ruleName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleName">RuleName</a> </td>
+      <td> The ruleName attribute is used to store a single camelCase format name for a rule.
+ The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or 
+ other characters are allowed.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#ruleTitle">ruleTitle</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The title of a rule.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#applyToClass">applyToClass</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
+      <td> The class to which a rule should be applied.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#immediateHalt">immediateHalt</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> The immediateHalt flag is used to indicate that no further
+ rule processing should occur if a rule fails. It is an optional attribute on rule instance
+ objects. In somes cases, there is no point in continuing with the application of a set 
+ of rules, so this flag gives the option of halting further processing.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#msgKey">msgKey</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The msgKey may be specified on rule instances to indicate the key to be used
+ to look up translated messages. This is primarily a GWT mechanism, but should be applicable in
+ other contexts.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#msgParam">msgParam</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The msgParam allows for the specification of parameters to be substituted
+ into translated messages.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#definedIn">definedIn</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </td>
+      <td> Indicates the schema in which a type, attribute or class is defined.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Indicates the file from which a definition was loaded.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> Indicates the line number of the file from which a definition was loaded.
+      </td>
+    </tr>
+
+  </table>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.dumpDetails(ClassFormatter.java:23) -->
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="PartCheckerRuleData"> PartCheckerRuleData </a> </td></tr>
+<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:54) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The PartCheckerRule will validate a ComplexTypeDefinition
+ for some of the more tricky aspects of that definition. In particular it will
+ check: <br>
+ <ul>
+ <li> that the greedy flag is only specified on requiredPart attributes </li>
+ <li> that the greedy flag is only specified on ComplexTypes where are all parts are required </li>
+ <li> that the greedy flag is only specified on the final requiredPart </li>
+ </ul>
+</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:79) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="meta.html#RuleData">RuleData</a>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:151) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="meta.html#ruleName">ruleName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#ruleName">ruleName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleName">RuleName</a> </td>
+      <td> The ruleName attribute is used to store a single camelCase format name for a rule.
+ The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or 
+ other characters are allowed.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#ruleTitle">ruleTitle</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The title of a rule.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2803,6 +3194,7 @@ The onePossibility attribute indicates an attribute that is one possiblity among
         <table>
         <tr>
           <td> OneOfTheseAttributesRequiredRuleData (<a href="dmv.html#OneOfTheseAttributesRequiredRuleData">dmv</a>) </td>
+          <td> OnlyOneOfTheseAttributesAllowedRuleData (<a href="dmv.html#OnlyOneOfTheseAttributesAllowedRuleData">dmv</a>) </td>
         </tr>
         </table>
       </td>
@@ -2856,7 +3248,7 @@ The rhs attribute must be a single valued Integer, Long, Float or Double
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>java.util.AbstractList$Itr@2918958e</td>
+      <td>java.util.AbstractList$Itr@f593af</td>
     </tr>
 
     <tr>
@@ -3045,6 +3437,36 @@ meta.must
     <tr>
       <td class="spacer"> </td>
       <td colspan="3" class="ruleDetailTitle">
+      <a name ="dmvComplexTypeAttributeCheck">
+        At least one of the field or requiredPart/optionalPart attributes must be specified.
+      </a>
+      </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> Apply to class: </td>
+      <td> meta.ComplexTypeDefinition </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel"> Rule arguments </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> onePossibility </td>
+      <td>
+meta.field
+<br>meta.requiredPart
+<br>meta.optionalPart
+      </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="3" class="ruleDetailTitle">
       <a name ="dmvIncludeOrExclude">
         At least one of the excludeThisAttribute or includeThisAttribute attributes must be specified.
       </a>
@@ -3167,6 +3589,29 @@ dmv.allowedType
       </td>
     </tr>
 <!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:97) -->
+    <tr> <td class="ruleDefName" colspan="4"> PartCheckerRule (CLASS)</td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="3" class="ruleDetailTitle">
+      <a name ="dmvPartChecker">
+        The greedy flag is only allowed on the final requiredPart of a ComplexTypeDefinition composed of requiredParts.
+      </a>
+      </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> Apply to class: </td>
+      <td> meta.ComplexTypeDefinition </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> Description: </td>
+      <td> There are no parameters. The logic is completely internal to the rule.
+ </td>
+    </tr>
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:97) -->
     <tr> <td class="ruleDefName" colspan="4"> PatternMatchRule (ATTRIBUTE)</td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -3282,6 +3727,40 @@ dmv.allowedType
       <td class="spacer"> </td>
       <td> matchesPattern </td>
       <td> [a-zA-Z][a-zA-Z0-9]*</td>    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="3" class="ruleDetailTitle">
+      <a name ="dmvTagsCheck">
+        The tags attribute must be a mix of letters, numbers and spaces.
+      </a>
+      </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> Apply to attribute: </td>
+      <td> meta.tags </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> Description: </td>
+      <td> Considered having tags without spaces, but it gets tricky when you 
+ want to represent things like San Franciso. So spaces are allowed in tags, but no
+ other special characters.
+ </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel"> Rule arguments </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> matchesPattern </td>
+      <td> [a-zA-Z0-9][a-zA-Z0-9 ]*</td>    </tr>
 <!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:97) -->
     <tr> <td class="ruleDefName" colspan="4"> ReferencedAttributeTypeRule (ATTRIBUTE)</td></tr>
     <tr>
@@ -3303,6 +3782,46 @@ dmv.allowedType
       <td class="spacer"> </td>
       <td> Apply to attribute: </td>
       <td> dmv.basedOnAttribute </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel"> Rule arguments </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> allowedValueType </td>
+      <td> SINGLE</td>    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="3" class="ruleDetailTitle">
+      <a name ="dmvDefinedInModuleAttribute">
+        The attribute referred to by the definedInModuleAttribute attribute must be single-valued.
+      </a>
+      </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> Apply to class: </td>
+      <td> meta.DSDefinitionModule </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> Apply to attribute: </td>
+      <td> meta.definedInModuleAttribute </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> Description: </td>
+      <td> We have sections of generated code that will access the module
+ dependence attribute of a DDM module instance and being able to assume that the
+ module dependence attribute is multi-valued just makes things easier.
+ </td>
     </tr>
     <tr>
       <td class="spacer"> </td>
@@ -3361,7 +3880,7 @@ meta.Integer
       <td class="spacer"> </td>
       <td colspan="3" class="ruleDetailTitle">
       <a name ="dmvModuleDependenceAttribute">
-        The moduleDependenceAttribute attribute must be multi-valued.
+        The attribute referred to by the moduleDependenceAttribute attribute must be multi-valued.
       </a>
       </td>
     </tr>

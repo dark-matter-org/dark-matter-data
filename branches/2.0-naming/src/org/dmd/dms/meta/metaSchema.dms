@@ -337,6 +337,7 @@ requiredPart	String			type		"The type of the example - this is just a single tok
  hint to your example formatter of what to do with the content"
 requiredPart	String			title		"A title for the example - this doesn't have to be used by your example formatter"
 requiredPart	String			content		"The textual content of the example - this can be anything you want" greedy=true
+description If you want to get rid of the &#92;n use: .replaceAll("&#92;&#92;&#92;&#92;n","&#92;&#92;&#92;n")
 
 ComplexTypeDefinition
 name			DmwTypeToWrapperType
