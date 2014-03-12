@@ -45,6 +45,8 @@ public class MetaComplexTypeFormatter {
 		
 		// Determine if we have any reference parts
 		boolean hasRefs = false;
+		// Determine if we have the greedy flag 
+		boolean isGreedy = false;
 		ArrayList<String> refFields = new ArrayList<String>();
 		for (Part field : parts) {
 			DmcUncheckedObject type = meta.typeDefs.get(field.type);
@@ -61,6 +63,8 @@ public class MetaComplexTypeFormatter {
 				hasRefs = true;
 				refFields.add(field.name);
 			}
+			if (field.greedy)
+				isGreedy = true;
 		}
 
 		out.write(meta.LGPL.toString());
@@ -162,11 +166,18 @@ public class MetaComplexTypeFormatter {
 
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("    void initialize(String initialInput) throws DmcValueException {\n");
+		int stopAfter = parts.size() - 1;
 		if (whiteSpaceSeparator){
-			out.write("        ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput);\n\n");
+			if (isGreedy)
+				out.write("        ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput,' '," + stopAfter + ");\n\n");
+			else
+				out.write("        ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput);\n\n");
 		}
 		else{
-			out.write("        ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput,'" + fieldSeparator + "');\n\n");
+			if (isGreedy)
+				out.write("        ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput,'" + fieldSeparator + "', " + stopAfter + ");\n\n");
+			else
+				out.write("        ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput,'" + fieldSeparator + "');\n\n");
 		}
 		
 		out.write("        if (nvp.size() < requiredParts)\n");
@@ -423,13 +434,29 @@ public class MetaComplexTypeFormatter {
 		
 		for (String part : parts) {
 			partNVP = ComplexTypeSplitter.parse(part);
-			
 			String type = partNVP.get(0).getValue();
 			String name = partNVP.get(1).getValue();
 			String descr = partNVP.get(2).getValue();
-			String quoted = null;
-			if (partNVP.size()>3)
-				quoted = partNVP.get(3).getValue();
+			String quoted 		= null;
+			String multivalued 	= null;
+			String weakref 		= null;
+			String greedy		= null;
+			if (partNVP.size()>3){
+				for(int i=3; i<partNVP.size(); i++){
+					if (partNVP.get(i).getName().equals("quoted")){
+						quoted = partNVP.get(i).getValue();
+					}
+					else if (partNVP.get(i).getName().equals("multivalued")){
+						multivalued = partNVP.get(i).getValue();
+					}
+					else if (partNVP.get(i).getName().equals("weakref")){
+						weakref = partNVP.get(i).getValue();
+					}
+					else if (partNVP.get(i).getName().equals("greedy")){
+						greedy = partNVP.get(i).getValue();
+					}
+				}
+			}
 
 			DmcUncheckedObject typeDef = meta.typeDefs.get(type);
 			if (typeDef == null) {
@@ -437,7 +464,7 @@ public class MetaComplexTypeFormatter {
 					type = type + "REF";
 			}
 
-			rc.add(new Part(type, name, descr, quoted));
+			rc.add(new Part(type, name, descr, quoted, multivalued, weakref, greedy));
 		}
 
 //		return (rc);
@@ -448,14 +475,29 @@ public class MetaComplexTypeFormatter {
 		String name;
 		String descr;
 		boolean quoted;
+		boolean multivalued;
+		boolean weakref;
+		boolean greedy;
 
-		Part(String t, String n, String d, String q) {
+		Part(String t, String n, String d, String q, String m, String w, String g) {
 			type = t;
 			name = n;
 			descr = d;
 			if (q != null){
 				if (q.toLowerCase().equals("true"))
 					quoted = true;
+			}
+			if (m != null){
+				if (m.toLowerCase().equals("true"))
+					multivalued = true;
+			}
+			if (w != null){
+				if (w.toLowerCase().equals("true"))
+					weakref = true;
+			}
+			if (g != null){
+				if (g.toLowerCase().equals("true"))
+					greedy = true;
 			}
 		}
 

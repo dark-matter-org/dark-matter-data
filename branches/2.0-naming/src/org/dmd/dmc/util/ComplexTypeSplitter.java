@@ -17,7 +17,19 @@ import org.dmd.dmc.types.IntegerVar;
  * <br/>
  * The micro grammar doesn't know anything about what's required or optional (that's handled
  * in higher level code), but for the input above, it will create a set of name/value pairs
- * 
+ * <p/>
+ * However, there is another hint as to how the information should be parsed and that has to
+ * do with greedy required parts. The greedy flag can be specified only on the last requiredPart
+ * of a complex type composed entirely of required parts. What this means is that as soon as we
+ * have found the nth - 1 separator, everything else becomes part of the final requiredPart.
+ * For example, if we have 3 required parts and the final one is marked as greedy, we'll cycle
+ * through until we hit the 3 - 1 (2) second separator and stop parsing - everything else
+ * becomes part of the final value.
+ * <p/>
+ * You could mark a single requirePart as greedy, and we would just return the entire initialInput.
+ * <p/>
+ * The stopAfter flag indicates the number separators we'll stop after, or -1 if we aren't doing
+ * the greedy thing.
  */
 public class ComplexTypeSplitter {
 	
@@ -28,6 +40,10 @@ public class ComplexTypeSplitter {
 	}
 
 	static public ArrayList<ParsedNameValuePair> parse(String initialInput, char separator) throws DmcValueException {
+		return(parse(initialInput, separator, -1));
+	}
+	
+	static public ArrayList<ParsedNameValuePair> parse(String initialInput, char separator, int stopAfter) throws DmcValueException {
         if (initialInput == null){
         	throw(new DmcValueException("No content to parse!"));
         }
@@ -35,7 +51,12 @@ public class ComplexTypeSplitter {
 		ArrayList<ParsedNameValuePair> rc = new ArrayList<ParsedNameValuePair>();
 		ParsedNameValuePair nvp = null;
 		
-        String input = initialInput.trim();
+		if (stopAfter == 0){
+			rc.add(new ParsedNameValuePair(initialInput));
+			return(rc);
+		}
+
+		String input = initialInput.trim();
         input = input.replaceAll("(\\s)+", " ");
         
         if (input.length() == 0){
@@ -43,6 +64,7 @@ public class ComplexTypeSplitter {
         }
         
         IntegerVar position = new IntegerVar();
+		
         for(int i=0; i<input.length(); i++){
         	if (input.charAt(i) == '"'){
         		position.set(i);
@@ -55,18 +77,18 @@ public class ComplexTypeSplitter {
         	}
 			else{
 				position.set(i);
-				if ( (nvp = parsePart(input,position,separator)) != null)
+				if ( (nvp = parsePart(input,position,separator,stopAfter,rc.size())) != null)
 					rc.add(nvp);
         		i = position.intValue();
 			}
         	
         	if ( (i+1) == input.length()){
         		// A funny edge condition, if we finish up with the last character being a separator,
-        		// it means that someone meant to have another value (after the separator) so we'l'
+        		// it means that someone meant to have another value (after the separator) so we'll
         		// create the empty value
         		if (input.charAt(i) == separator)
         			rc.add(new ParsedNameValuePair());
-        	}
+        	}        	
         }
 		
 		return(rc);
@@ -116,7 +138,7 @@ public class ComplexTypeSplitter {
 	 * @return
 	 * @throws DmcValueException  
 	 */
-	static private ParsedNameValuePair parsePart(String input, IntegerVar position, char separator) throws DmcValueException {
+	static private ParsedNameValuePair parsePart(String input, IntegerVar position, char separator, int stopAfter, int nvpCount) throws DmcValueException {
 		ParsedNameValuePair 	rc				= null;
 		String 			namePart		= null;
 		boolean			haveEquals		= false;
@@ -129,7 +151,22 @@ public class ComplexTypeSplitter {
 		for(int i=startPos; i<input.length(); i++){
 			if (debug)
 				System.out.println("    i = " + i + "  - '" + input.charAt(i) + "'");
-			
+
+			if (stopAfter != -1){
+				if (stopAfter == nvpCount){
+					// We have a greedy part - if stopAfter equals the number of values we've parsed,
+					// everything else \goes to the greedy part and we bump the position so that parsing stops
+					if ((i+1) == input.length()){
+						// If we're at the end of the input, it's just an empty value - no value for you! You greedy SOB!
+						rc = new ParsedNameValuePair();
+					}
+					else
+						rc = new ParsedNameValuePair(input.substring(i+1));
+					position.set(input.length());
+					break;
+				}
+			}
+
 			if (input.charAt(i) == '"'){
 				if (namePart == null){
 					// We have something like - hey" - which is wrong
@@ -169,6 +206,8 @@ public class ComplexTypeSplitter {
 						if (input.charAt(i-1) == separator){
 							// We have the separator followed by separator, which also means an empty value
 							rc = new ParsedNameValuePair();
+							
+							
 							break;
 						}
 						else{

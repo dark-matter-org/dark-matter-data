@@ -98,7 +98,7 @@ public class DSDArtifactFormatter {
 					generateParser(config, dirname, module, sm);
 					generateGeneratorInterface(config, dirname, module, sm);
 					
-					generateBaseUtility(config, dirname, module, includedModules);
+					generateBaseUtility(config, dirname, module, includedModules, sm);
 				}
 			}
 		}
@@ -908,13 +908,6 @@ public class DSDArtifactFormatter {
 		out.write("\n");
 		out.write("            if (loadedInfo == null){\n");
 		out.write("                loaded = load" + ddm.getName() + "Module(location);\n");
-//		out.write("                loaded = parserFor" + ddm.getName() + ".parseConfig(location);\n");
-//		out.write("                loadedInfo = new " + ddm.getName() + "Info(loaded,location);\n");
-//		out.write("                loaded" + ddm.getName() + "Configs.put(loaded.getName(), loadedInfo);\n");
-//		out.write("                loadedConfigs.put(location.getFileName(), loadedInfo);\n");
-//		out.write("\n");
-//		out.write("                // We've loaded the base configuration file, now load any other modules on which it depends\n");
-//		out.write("                loadModuleDependencies(loadedInfo);\n");
 		out.write("            }\n");
 		out.write("            else{\n");
 		out.write("                loaded = loadedInfo.module;\n");
@@ -926,10 +919,10 @@ public class DSDArtifactFormatter {
 		out.write("\n");
 		out.write("            generator.objectResolutionComplete(loaded, location, definitions);\n");
 		out.write("\n");
-		out.write("            if (!location.isFromJAR())\n");
-		out.write("                generator.generate(loaded,location,definitions);\n");
-		out.write("\n");
 		out.write("        }\n");
+		out.write("\n");
+		out.write("        generator.generate(definitions);\n");
+		out.write("\n");
 		out.write("    }\n\n");
 		
 		
@@ -950,7 +943,17 @@ public class DSDArtifactFormatter {
 			out.write("\n");
 			out.write("        return(loaded);\n");
 			out.write("    }\n\n");
+			
+			out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+			out.write("    public ConfigLocation getLocation(" + mod.getName() + " module){\n");
+			out.write("        " + mod.getName() + "Info info = loaded" + mod.getName() + "Configs.get(module.getName());\n");
+			out.write("        if (info == null)\n");
+			out.write("            throw(new IllegalStateException(\"Couldn't find ConfigLocation for module: \\n\\n\" + module.toOIF()));\n");
+			out.write("\n");
+			out.write("        return(info.location);\n");
+			out.write("    }\n\n");
 		}
+		
 		
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("    void loadModuleDependencies(ModuleInfoBase mi) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {\n");
@@ -1055,8 +1058,10 @@ public class DSDArtifactFormatter {
 	 * Generates the base generation utility from which a tool builder can
 	 * derive and specialize.
 	 * @throws IOException 
+	 * @throws DmcValueException 
+	 * @throws DmcNameClashException 
 	 */
-	void generateBaseUtility(DmgConfigDMO config, String dir, DSDefinitionModule ddm, TreeMap<String, DSDefinitionModule> includedModules) throws IOException{
+	void generateBaseUtility(DmgConfigDMO config, String dir, DSDefinitionModule ddm, TreeMap<String, DSDefinitionModule> includedModules, SchemaManager sm) throws IOException, DmcNameClashException, DmcValueException{
 		ImportManager 	imports = new ImportManager();
 		MemberManager	members	= new MemberManager();
 		ManagedFileWriter out = FileUpdateManager.instance().getWriter(dir, ddm.getName() + "GenUtility.java");
@@ -1073,6 +1078,12 @@ public class DSDArtifactFormatter {
 		imports.addImport("org.dmd.dmc.DmcNameClashException", "To handle parsing errors");
 		imports.addImport("org.dmd.dmc.rules.DmcRuleExceptionSet", "To handle rule errors");
 		imports.addImport("org.dmd.dmc.DmcValueExceptionSet", "May occur when resolving objects");
+		imports.addImport("org.dmd.util.parsing.ConfigLocation", "Where a module was loaded from");
+		
+		for(DSDefinitionModule mod: includedModules.values()){
+			ClassDefinition ddmClass = sm.isClass(mod.getName().getNameString());
+			imports.addImport(ddmClass.getDmeImport(), "One of the DDS modules we might load");
+		}
 		
 		members.addMember(ddm.getName() + "ParsingCoordinator", "parser", "Module parser");
 		members.addMember("protected CommandLine", "commandLine", "new CommandLine()", "Commandline parser");
@@ -1145,6 +1156,14 @@ public class DSDArtifactFormatter {
 		out.write("    public void initialize() throws ResultException {\n");
 		out.write("    	 \n");
 		out.write("    }\n\n");
+		
+		
+		for(DSDefinitionModule mod: includedModules.values()){
+			out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+			out.write("    public ConfigLocation getLocation(" + mod.getName() + " module){\n");
+			out.write("        return(parser.getLocation(module));\n");
+			out.write("    }\n\n");
+		}
 
 		out.write("}\n\n");
 		
@@ -1206,6 +1225,14 @@ public class DSDArtifactFormatter {
 		out.write("     * @param definitions the current set of definitions\n");
 		out.write("     */\n");
 		out.write("    public void generate(" + ddm.getName() + " module, ConfigLocation location, " + ddm.getName() + "DefinitionManager definitions) throws IOException;\n");
+		out.write("\n");
+		out.write("    /**\n");
+		out.write("     * Derived classes should overload this method to perform artifact generation when no target module\n");
+		out.write("     * has been specified on the commandline. This is useful when doing things like generating documentation \n");
+		out.write("     * where you want to load and resolve objects across many modules.\n");
+		out.write("     * @param definitions the current set of definitions\n");
+		out.write("     */\n");
+		out.write("    public void generate(" + ddm.getName() + "DefinitionManager definitions) throws IOException;\n");
 		out.write("\n");
 		out.write("    /**\n");
 		out.write("     * Called if the help flag is found anywhere on the commandline.\n");

@@ -1,5 +1,7 @@
 package org.dmd.dmt.dsd.dsdc.server.extended;
 
+import java.io.IOException;
+
 import org.dmd.dmt.dsd.dsdc.server.generated.dsd.ModuleCDefinitionManager;
 import org.dmd.dmt.dsd.dsdc.server.generated.dsd.ModuleCGenUtility;
 import org.dmd.util.exceptions.DebugInfo;
@@ -33,6 +35,13 @@ public class ModuleCGenerator extends ModuleCGenUtility {
 	public void objectResolutionComplete(ModuleC module,
 			ConfigLocation location, ModuleCDefinitionManager definitions)
 			throws ResultException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void generate(ModuleCDefinitionManager definitions)
+			throws IOException {
 		// TODO Auto-generated method stub
 		
 	}

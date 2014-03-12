@@ -18,6 +18,7 @@ import org.dmd.dmv.shared.extended.rulesdmo.InitRule;                           
 import org.dmd.dmv.shared.extended.rulesdmo.NumericRangeRule;                            // To support instantiations of NumericRangeRule - (DmoCompactSchemaFormatter.java:1056)
 import org.dmd.dmv.shared.extended.rulesdmo.OneOfTheseAttributesRequiredRule;            // To support instantiations of OneOfTheseAttributesRequiredRule - (DmoCompactSchemaFormatter.java:1056)
 import org.dmd.dmv.shared.extended.rulesdmo.OnlyOneOfTheseAttributesAllowedRule;         // To support instantiations of OnlyOneOfTheseAttributesAllowedRule - (DmoCompactSchemaFormatter.java:1056)
+import org.dmd.dmv.shared.extended.rulesdmo.PartCheckerRule;                             // To support instantiations of PartCheckerRule - (DmoCompactSchemaFormatter.java:1056)
 import org.dmd.dmv.shared.extended.rulesdmo.PatternMatchRule;                            // To support instantiations of PatternMatchRule - (DmoCompactSchemaFormatter.java:1056)
 import org.dmd.dmv.shared.extended.rulesdmo.ReferencedAttributeTypeRule;                 // To support instantiations of ReferencedAttributeTypeRule - (DmoCompactSchemaFormatter.java:1056)
 import org.dmd.dmv.shared.extended.rulesdmo.RelatedNumbersRule;                          // To support instantiations of RelatedNumbersRule - (DmoCompactSchemaFormatter.java:1056)
@@ -27,6 +28,7 @@ import org.dmd.dmv.shared.generated.dmo.AllowedAttributesRuleDataDMO;           
 import org.dmd.dmv.shared.generated.dmo.CheckAttributesBasedOnValueRuleDataDMO;          // To instantiate CheckAttributesBasedOnValueRuleData rule data - (DmoCompactSchemaFormatter.java:1072)
 import org.dmd.dmv.shared.generated.dmo.NumericRangeRuleDataDMO;                         // To instantiate NumericRangeRuleData rule data - (DmoCompactSchemaFormatter.java:1072)
 import org.dmd.dmv.shared.generated.dmo.OneOfTheseAttributesRequiredRuleDataDMO;         // To instantiate OneOfTheseAttributesRequiredRuleData rule data - (DmoCompactSchemaFormatter.java:1072)
+import org.dmd.dmv.shared.generated.dmo.PartCheckerRuleDataDMO;                          // To instantiate PartCheckerRuleData rule data - (DmoCompactSchemaFormatter.java:1072)
 import org.dmd.dmv.shared.generated.dmo.PatternMatchRuleDataDMO;                         // To instantiate PatternMatchRuleData rule data - (DmoCompactSchemaFormatter.java:1072)
 import org.dmd.dmv.shared.generated.dmo.ReferencedAttributeTypeRuleDataDMO;              // To instantiate ReferencedAttributeTypeRuleData rule data - (DmoCompactSchemaFormatter.java:1072)
 import org.dmd.dmv.shared.generated.dmo.RelatedNumbersRuleDataDMO;                       // To instantiate RelatedNumbersRuleData rule data - (DmoCompactSchemaFormatter.java:1072)
@@ -74,6 +76,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
     public final static DmcTypeInfo __type_NumericRelationEnum = new DmcTypeInfo("NumericRelationEnum", OriginalTypeEnum.ENUM);
     public final static DmcTypeInfo __type_OneOfTheseAttributesRequiredRuleData = new DmcTypeInfo("OneOfTheseAttributesRequiredRuleData", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_OnlyOneOfTheseAttributesAllowedRuleData = new DmcTypeInfo("OnlyOneOfTheseAttributesAllowedRuleData", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_PartCheckerRuleData = new DmcTypeInfo("PartCheckerRuleData", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_PatternMatchRuleData = new DmcTypeInfo("PatternMatchRuleData", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_ReferencedAttributeTypeRuleData = new DmcTypeInfo("ReferencedAttributeTypeRuleData", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_RelatedNumbersRuleData = new DmcTypeInfo("RelatedNumbersRuleData", OriginalTypeEnum.REFERENCE);
@@ -87,6 +90,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
     public final static DmcClassInfo __NumericRangeRuleData = new DmcClassInfo("NumericRangeRuleData","org.dmd.dmv.shared.generated.dmo.NumericRangeRuleDataDMO", -959997, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,MetaDMSAG.__ruleName);
     public final static DmcClassInfo __OneOfTheseAttributesRequiredRuleData = new DmcClassInfo("OneOfTheseAttributesRequiredRuleData","org.dmd.dmv.shared.generated.dmo.OneOfTheseAttributesRequiredRuleDataDMO", -959992, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,MetaDMSAG.__ruleName);
     public final static DmcClassInfo __OnlyOneOfTheseAttributesAllowedRuleData = new DmcClassInfo("OnlyOneOfTheseAttributesAllowedRuleData","org.dmd.dmv.shared.generated.dmo.OnlyOneOfTheseAttributesAllowedRuleDataDMO", -959988, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,MetaDMSAG.__ruleName);
+    public final static DmcClassInfo __PartCheckerRuleData = new DmcClassInfo("PartCheckerRuleData","org.dmd.dmv.shared.generated.dmo.PartCheckerRuleDataDMO", -959986, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,MetaDMSAG.__ruleName);
     public final static DmcClassInfo __PatternMatchRuleData = new DmcClassInfo("PatternMatchRuleData","org.dmd.dmv.shared.generated.dmo.PatternMatchRuleDataDMO", -959991, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,MetaDMSAG.__ruleName);
     public final static DmcClassInfo __ReferencedAttributeTypeRuleData = new DmcClassInfo("ReferencedAttributeTypeRuleData","org.dmd.dmv.shared.generated.dmo.ReferencedAttributeTypeRuleDataDMO", -959989, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,MetaDMSAG.__ruleName);
     public final static DmcClassInfo __RelatedNumbersRuleData = new DmcClassInfo("RelatedNumbersRuleData","org.dmd.dmv.shared.generated.dmo.RelatedNumbersRuleDataDMO", -959994, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,MetaDMSAG.__ruleName);
@@ -111,6 +115,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
     public final static ReferencedAttributeTypeRule __dmvModuleDependenceAttribute;
     public final static ReferencedAttributeTypeRule __dmvNRRApplyToAttribute;
     public final static CheckAttributesBasedOnValueRule __dmvNoMustInExtensible;
+    public final static PartCheckerRule __dmvPartChecker;
     public final static ReferencedAttributeTypeRule __dmvRATRApplyToAttribute;
     public final static ReferencedAttributeTypeRule __dmvRhs;
     public final static PatternMatchRule __dmvTagsCheck;
@@ -220,6 +225,10 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
         __OnlyOneOfTheseAttributesAllowedRuleData.addMust(__onePossibility);
         __OnlyOneOfTheseAttributesAllowedRuleData.addMay(MetaDMSAG.__description);
 
+        __PartCheckerRuleData.addMust(MetaDMSAG.__ruleName);
+        __PartCheckerRuleData.addMust(MetaDMSAG.__ruleTitle);
+        __PartCheckerRuleData.addMay(MetaDMSAG.__description);
+
     }
 
     // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:351)
@@ -250,6 +259,8 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
         ReferencedAttributeTypeRule ReferencedAttributeTypeRuleInstance = new ReferencedAttributeTypeRule(new ReferencedAttributeTypeRuleDataDMO());
         @SuppressWarnings("unused")
         OnlyOneOfTheseAttributesAllowedRule OnlyOneOfTheseAttributesAllowedRuleInstance = new OnlyOneOfTheseAttributesAllowedRule(new OnlyOneOfTheseAttributesAllowedRuleDataDMO());
+        @SuppressWarnings("unused")
+        PartCheckerRule PartCheckerRuleInstance = new PartCheckerRule(new PartCheckerRuleDataDMO());
 
         // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:370)
         try{
@@ -273,7 +284,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvBasedOnAttributeData     .setAllowedValueType("SINGLE");
             _dmvBasedOnAttributeData     .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _dmvBasedOnAttributeData     .setDefinedIn("dmv");
-            _dmvBasedOnAttributeData     .setLineNumber("464");
+            _dmvBasedOnAttributeData     .setLineNumber("485");
 
             __dmvBasedOnAttribute = new ReferencedAttributeTypeRule(_dmvBasedOnAttributeData);
 
@@ -303,7 +314,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvDefinedInModuleAttributeData.setAllowedValueType("SINGLE");
             _dmvDefinedInModuleAttributeData.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _dmvDefinedInModuleAttributeData.setDefinedIn("dmv");
-            _dmvDefinedInModuleAttributeData.setLineNumber("509");
+            _dmvDefinedInModuleAttributeData.setLineNumber("531");
 
             __dmvDefinedInModuleAttribute = new ReferencedAttributeTypeRule(_dmvDefinedInModuleAttributeData);
 
@@ -346,7 +357,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvFileExtensionCheckData   .setApplyToAttribute("fileExtension");
             _dmvFileExtensionCheckData   .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _dmvFileExtensionCheckData   .setDefinedIn("dmv");
-            _dmvFileExtensionCheckData   .setLineNumber("480");
+            _dmvFileExtensionCheckData   .setLineNumber("501");
 
             __dmvFileExtensionCheck = new PatternMatchRule(_dmvFileExtensionCheckData);
 
@@ -378,7 +389,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvLhsData                  .addAllowedType("Long");
             _dmvLhsData                  .addAllowedType("Float");
             _dmvLhsData                  .addAllowedType("Double");
-            _dmvLhsData                  .setLineNumber("439");
+            _dmvLhsData                  .setLineNumber("460");
 
             __dmvLhs = new ReferencedAttributeTypeRule(_dmvLhsData);
 
@@ -449,7 +460,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvMinimumOrMaximumData     .addDescription("The NumericRangeRule can operate with one or both of the minimum\n and maximum values.");
             _dmvMinimumOrMaximumData     .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _dmvMinimumOrMaximumData     .setDefinedIn("dmv");
-            _dmvMinimumOrMaximumData     .setLineNumber("473");
+            _dmvMinimumOrMaximumData     .setLineNumber("494");
 
             __dmvMinimumOrMaximum = new OneOfTheseAttributesRequiredRule(_dmvMinimumOrMaximumData);
 
@@ -464,7 +475,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvModuleDependenceAttributeData.setAllowedValueType("MULTI");
             _dmvModuleDependenceAttributeData.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _dmvModuleDependenceAttributeData.setDefinedIn("dmv");
-            _dmvModuleDependenceAttributeData.setLineNumber("500");
+            _dmvModuleDependenceAttributeData.setLineNumber("521");
 
             __dmvModuleDependenceAttribute = new ReferencedAttributeTypeRule(_dmvModuleDependenceAttributeData);
 
@@ -481,7 +492,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvNRRApplyToAttributeData  .addAllowedType("Long");
             _dmvNRRApplyToAttributeData  .addAllowedType("Float");
             _dmvNRRApplyToAttributeData  .addAllowedType("Double");
-            _dmvNRRApplyToAttributeData  .setLineNumber("428");
+            _dmvNRRApplyToAttributeData  .setLineNumber("449");
 
             __dmvNRRApplyToAttribute = new ReferencedAttributeTypeRule(_dmvNRRApplyToAttributeData);
 
@@ -503,6 +514,19 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
 
             _RmAp.add(__dmvNoMustInExtensible);
 
+            PartCheckerRuleDataDMO _dmvPartCheckerData = new PartCheckerRuleDataDMO();
+            _dmvPartCheckerData          .setRuleName("dmvPartChecker");
+            _dmvPartCheckerData          .setApplyToClass("ComplexTypeDefinition");
+            _dmvPartCheckerData          .setRuleTitle("The greedy flag is only allowed on the final requiredPart of a ComplexTypeDefinition composed of requiredParts.");
+            _dmvPartCheckerData          .addDescription("There are no parameters. The logic is completely internal to the rule.");
+            _dmvPartCheckerData          .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
+            _dmvPartCheckerData          .setDefinedIn("dmv");
+            _dmvPartCheckerData          .setLineNumber("425");
+
+            __dmvPartChecker = new PartCheckerRule(_dmvPartCheckerData);
+
+            _RmAp.add(__dmvPartChecker);
+
             ReferencedAttributeTypeRuleDataDMO _dmvRATRApplyToAttributeData = new ReferencedAttributeTypeRuleDataDMO();
             _dmvRATRApplyToAttributeData .setRuleName("dmvRATRApplyToAttribute");
             _dmvRATRApplyToAttributeData .setApplyToClass("ReferencedAttributeTypeRuleData");
@@ -512,7 +536,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvRATRApplyToAttributeData .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _dmvRATRApplyToAttributeData .setDefinedIn("dmv");
             _dmvRATRApplyToAttributeData .addAllowedType("AttributeDefinition");
-            _dmvRATRApplyToAttributeData .setLineNumber("418");
+            _dmvRATRApplyToAttributeData .setLineNumber("439");
 
             __dmvRATRApplyToAttribute = new ReferencedAttributeTypeRule(_dmvRATRApplyToAttributeData);
 
@@ -530,7 +554,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvRhsData                  .addAllowedType("Long");
             _dmvRhsData                  .addAllowedType("Float");
             _dmvRhsData                  .addAllowedType("Double");
-            _dmvRhsData                  .setLineNumber("450");
+            _dmvRhsData                  .setLineNumber("471");
 
             __dmvRhs = new ReferencedAttributeTypeRule(_dmvRhsData);
 
@@ -539,7 +563,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             PatternMatchRuleDataDMO _dmvTagsCheckData = new PatternMatchRuleDataDMO();
             _dmvTagsCheckData            .setRuleName("dmvTagsCheck");
             _dmvTagsCheckData            .setRuleTitle("The tags attribute must be a mix of letters, numbers and spaces.");
-            _dmvTagsCheckData            .addDescription("Considered having tags with spaces, but it gets tricky when you \n want to represent things like San Franciso. So spaces are allowed in tags, but no\n other special characters.");
+            _dmvTagsCheckData            .addDescription("Considered having tags without spaces, but it gets tricky when you \n want to represent things like San Franciso. So spaces are allowed in tags, but no\n other special characters.");
             _dmvTagsCheckData            .setMatchesPattern("[a-zA-Z0-9][a-zA-Z0-9 ]*");
             _dmvTagsCheckData            .setApplyToAttribute("tags");
             _dmvTagsCheckData            .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
@@ -558,7 +582,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvValueorAttributeData     .addOnePossibility("allowedValueType");
             _dmvValueorAttributeData     .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _dmvValueorAttributeData     .setDefinedIn("dmv");
-            _dmvValueorAttributeData     .setLineNumber("457");
+            _dmvValueorAttributeData     .setLineNumber("478");
 
             __dmvValueorAttribute = new OneOfTheseAttributesRequiredRule(_dmvValueorAttributeData);
 

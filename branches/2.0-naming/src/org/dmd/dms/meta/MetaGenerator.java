@@ -2209,6 +2209,9 @@ if (an.equals("requiredPart"))
 				may.add(name);
 
 				DmcUncheckedObject attrDef = attributeDefs.get(name);
+				if (attrDef == null){
+					System.err.println("Couldn't find attribute definition for: " + name + " while getAllMustAndMay() for: \n\n" + uco.toOIF());
+				}
 				String attrType = attrDef.getSV("type");
 				DmcUncheckedObject typeDef = typeDefs.get(attrType);
 
@@ -2492,6 +2495,11 @@ if (an.equals("requiredPart"))
 			if (typeDef != null)
 				isObjREF = true;
 		}
+		
+		boolean isComplexType = false;
+		if (complexTypeDefs.get(typeName) != null){
+			isComplexType = true;
+		}
 
 		if (typeDef == null) {
 			ResultException ex = new ResultException();
@@ -2542,7 +2550,7 @@ if (an.equals("requiredPart"))
 			
 			String preserveNewlines = attributeDef.getSV("preserveNewlines");
 
-			if (preserveNewlines != null){
+			if ( (preserveNewlines != null) && !isComplexType){
 				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				out.write("    public Iterator<" + typeName + "> get" + functionName + "WithNewlines(){\n");
 	
@@ -2601,7 +2609,7 @@ if (an.equals("requiredPart"))
 				
 				String preserveNewlines = attributeDef.getSV("preserveNewlines");
 
-				if (preserveNewlines != null){
+				if ( (preserveNewlines != null) && !isComplexType){
 					out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 					out.write("    public Iterator<" + typeName + "> get" + functionName + "WithNewlines(){\n");
 		

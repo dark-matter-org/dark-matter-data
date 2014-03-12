@@ -94,7 +94,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition implemen
      * a unique name\n for an object with the set of definitions of which it is a
      * part. A name starts with a letter followed\n by letters and numbers. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2387)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2390)
     public DefinitionName getName(){
         return(mycore.getName());
     }
@@ -103,7 +103,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition implemen
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2460)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2463)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
@@ -112,7 +112,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition implemen
      * The field indicates a type and name for a field in a ComplexType. 
      * @return An Iterator of Field objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2591)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2599)
     public Iterator<Field> getField(){
         DmcTypeFieldMV attr = (DmcTypeFieldMV) mycore.get(MetaDMSAG.__field);
         if (attr == null)
@@ -125,7 +125,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition implemen
      * Adds another field value.
      * @param value A value compatible with DmcTypeFieldMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2671)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2679)
     public void addField(Object value) throws DmcValueException {
         mycore.addField(value);
     }
@@ -133,7 +133,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition implemen
     /**
      * Returns the number of field values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2684)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2692)
     public int getFieldSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__field);
         if (attr == null)
@@ -145,7 +145,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition implemen
      * Indicates a required part of a complex type definition. 
      * @return An Iterator of Part objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2591)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2599)
     public Iterator<Part> getRequiredPart(){
         DmcTypePartMV attr = (DmcTypePartMV) mycore.get(MetaDMSAG.__requiredPart);
         if (attr == null)
@@ -158,7 +158,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition implemen
      * Adds another requiredPart value.
      * @param value A value compatible with DmcTypePartMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2671)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2679)
     public void addRequiredPart(Object value) throws DmcValueException {
         mycore.addRequiredPart(value);
     }
@@ -166,7 +166,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition implemen
     /**
      * Returns the number of requiredPart values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2684)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2692)
     public int getRequiredPartSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__requiredPart);
         if (attr == null)
@@ -178,7 +178,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition implemen
      * Indicates an optional part of a complex type definition. 
      * @return An Iterator of Part objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2591)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2599)
     public Iterator<Part> getOptionalPart(){
         DmcTypePartMV attr = (DmcTypePartMV) mycore.get(MetaDMSAG.__optionalPart);
         if (attr == null)
@@ -191,7 +191,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition implemen
      * Adds another optionalPart value.
      * @param value A value compatible with DmcTypePartMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2671)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2679)
     public void addOptionalPart(Object value) throws DmcValueException {
         mycore.addOptionalPart(value);
     }
@@ -199,7 +199,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition implemen
     /**
      * Returns the number of optionalPart values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2684)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2692)
     public int getOptionalPartSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__optionalPart);
         if (attr == null)
@@ -212,7 +212,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition implemen
      * when a ComplexType is represented as a String. If a fieldSeparator isn't
      * specified, it is\n assumed to be a space. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2387)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2390)
     public String getFieldSeparator(){
         return(mycore.getFieldSeparator());
     }
@@ -221,7 +221,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition implemen
      * Sets fieldSeparator to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2460)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2463)
     public void setFieldSeparator(Object value) throws DmcValueException {
         mycore.setFieldSeparator(value);
     }
@@ -230,7 +230,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition implemen
      * The extendedClass indicates the fully qualified name of the class\n that
      * is derived from the generated ComplexType to provide additional behaviour. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2387)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2390)
     public String getExtendedClass(){
         return(mycore.getExtendedClass());
     }
@@ -239,7 +239,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition implemen
      * Sets extendedClass to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2460)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2463)
     public void setExtendedClass(Object value) throws DmcValueException {
         mycore.setExtendedClass(value);
     }
@@ -251,7 +251,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition implemen
      * HTML\n documentation. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2591)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2599)
     public Iterator<String> getDescription(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
         if (attr == null)
@@ -260,7 +260,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition implemen
         return(attr.getMV());
     }
 
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2605)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2613)
     public Iterator<String> getDescriptionWithNewlines(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
         if (attr == null)
@@ -283,7 +283,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition implemen
      * Adds another description value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2671)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2679)
     public void addDescription(Object value) throws DmcValueException {
         mycore.addDescription(value);
     }
@@ -291,7 +291,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition implemen
     /**
      * Returns the number of description values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2684)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2692)
     public int getDescriptionSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__description);
         if (attr == null)

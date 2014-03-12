@@ -79,7 +79,7 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition implements Dmc
      * a unique name\n for an object with the set of definitions of which it is a
      * part. A name starts with a letter followed\n by letters and numbers. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2387)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2390)
     public DefinitionName getName(){
         return(mycore.getName());
     }
@@ -88,7 +88,7 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition implements Dmc
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2460)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2463)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
@@ -98,7 +98,7 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition implements Dmc
      * of a Slice. 
      * @return An Iterator of AttributeDefinition objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2573)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2581)
     public AttributeDefinitionIterableDMW getSelectAttribute(){
         DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaDMSAG.__selectAttribute);
         if (attr == null)
@@ -111,7 +111,7 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition implements Dmc
      * Adds another selectAttribute value.
      * @param value A value compatible with AttributeDefinition
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2657)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2665)
     public DmcAttribute<?> addSelectAttribute(AttributeDefinition value) throws DmcValueException {
         DmcAttribute<?> attr = mycore.addSelectAttribute(value.getDmcObject());
         return(attr);
@@ -120,7 +120,7 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition implements Dmc
     /**
      * Returns the number of selectAttribute values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2684)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2692)
     public int getSelectAttributeSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__selectAttribute);
         if (attr == null)
@@ -135,7 +135,7 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition implements Dmc
      * HTML\n documentation. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2591)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2599)
     public Iterator<String> getDescription(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
         if (attr == null)
@@ -144,7 +144,7 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition implements Dmc
         return(attr.getMV());
     }
 
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2605)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2613)
     public Iterator<String> getDescriptionWithNewlines(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
         if (attr == null)
@@ -167,7 +167,7 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition implements Dmc
      * Adds another description value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2671)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2679)
     public void addDescription(Object value) throws DmcValueException {
         mycore.addDescription(value);
     }
@@ -175,7 +175,7 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition implements Dmc
     /**
      * Returns the number of description values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2684)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2692)
     public int getDescriptionSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__description);
         if (attr == null)

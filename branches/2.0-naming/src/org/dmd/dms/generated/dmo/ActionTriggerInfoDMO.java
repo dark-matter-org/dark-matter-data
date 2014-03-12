@@ -91,7 +91,7 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable  {
      * a unique name\n for an object with the set of definitions of which it is a
      * part. A name starts with a letter followed\n by letters and numbers. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2334)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2337)
     public DefinitionName getName(){
         DmcTypeDefinitionNameSV attr = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -104,7 +104,7 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable  {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2426)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2429)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)

@@ -67,7 +67,7 @@ public class ExtendedReferenceTypeDefinitionDMW extends org.dmd.dms.ComplexTypeD
      * a unique name\n for an object with the set of definitions of which it is a
      * part. A name starts with a letter followed\n by letters and numbers. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2387)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2390)
     public DefinitionName getName(){
         return(mycore.getName());
     }
@@ -76,7 +76,7 @@ public class ExtendedReferenceTypeDefinitionDMW extends org.dmd.dms.ComplexTypeD
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2460)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2463)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
@@ -85,7 +85,7 @@ public class ExtendedReferenceTypeDefinitionDMW extends org.dmd.dms.ComplexTypeD
      * Indicates the class of object to which an \n
      * ExtendedReferenceTypeDefinition refers. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2387)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2390)
     public ClassDefinition getExtendedReferenceClass(){
         DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) mycore.get(MetaDMSAG.__extendedReferenceClass);
         if (attr == null)
@@ -98,7 +98,7 @@ public class ExtendedReferenceTypeDefinitionDMW extends org.dmd.dms.ComplexTypeD
      * Sets extendedReferenceClass to the specified value.
      * @param value A value compatible with ClassDefinition
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2450)
     public void setExtendedReferenceClass(ClassDefinition value) throws DmcValueException {
         mycore.setExtendedReferenceClass(value.getDmcObject());
     }
