@@ -179,6 +179,22 @@ public class ComplexTypeSplitterTest {
 //		for(NameValuePair nvp: rc){
 //			System.out.println(nvp.toString());
 //		}
+		
+		// Greedy parsing with no value for the greedy part
+		rc = ComplexTypeSplitter.parse("first value: secondvalue :",':',2);
+		assertEquals("Should be 3 values", 3, rc.size());
+
+		// Greedy parsing with the greedy part 
+		rc = ComplexTypeSplitter.parse("first value: secondvalue : here's the greedy part ",':',2);
+		assertEquals("Should be 3 values", 3, rc.size());
+
+		ComplexTypeSplitter.debug = true;
+		// Greedy parsing with the greedy part that contains another separator - which shouldn't matter
+		rc = ComplexTypeSplitter.parse("first value: secondvalue : here's the greedy part : with some other stuff",':',2);
+		assertEquals("Should be 3 values", 3, rc.size());
+		assertEquals("Greedy value should be \"here's the greedy part : with some other stuff\"", "here's the greedy part : with some other stuff", rc.get(2).value);
+		
+
 	}
 
 }

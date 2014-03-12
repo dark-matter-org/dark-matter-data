@@ -62,6 +62,7 @@ public class NewComplexTypeFormatter {
         
         // Determine if we have any reference fields
         boolean hasRefs = false;
+        boolean isGreedy = false;
         ArrayList<String> 	refFields 	= new ArrayList<String>();
         ArrayList<Part> 	mvrefFields = new ArrayList<Part>();
         for(Part part: combinedParts){
@@ -79,6 +80,9 @@ public class NewComplexTypeFormatter {
         			mvrefFields.add(part);
         		else
         			refFields.add(part.getName());
+        	}
+        	if ( (part.getGreedy() != null) && part.getGreedy()){
+        		isGreedy = true;
         	}
         }
         
@@ -247,11 +251,18 @@ public class NewComplexTypeFormatter {
         out.write("    void initialize(String initialInput) throws DmcValueException {\n");
 //        out.write("        IntegerVar seppos = new IntegerVar(-1);\n");
 
+        int stopAfter = combinedParts.size() - 1;
 		if (whiteSpaceSeparator){
-			out.write("        ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput);\n\n");
+			if (isGreedy)
+				out.write("        ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput, ' ', " + stopAfter + ");\n\n");
+			else
+				out.write("        ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput);\n\n");
 		}
 		else{
-			out.write("        ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput,'" + fieldSeparator + "');\n\n");
+			if (isGreedy)
+				out.write("        ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput,'" + fieldSeparator + "', " + stopAfter + ");\n\n");
+			else
+				out.write("        ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput,'" + fieldSeparator + "');\n\n");
 		}
 		
 		out.write("        if (nvp.size() < requiredParts)\n");

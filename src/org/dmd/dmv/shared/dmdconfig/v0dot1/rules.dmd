@@ -403,7 +403,28 @@ description			The OnlyOneOfTheseAttributesAllowedRule allows you to specify
  </pre>
 
 ///////////////////////////////////////////////////////////////////////////////
- 
+
+RuleDefinition
+name			PartCheckerRule
+dmdID			14
+ruleCategory	ObjectValidation
+description		The PartCheckerRule will validate a ComplexTypeDefinition
+ for some of the more tricky aspects of that definition. In particular it will
+ check: <br>
+ <ul>
+ <li> that the greedy flag is only specified on requiredPart attributes </li>
+ <li> that the greedy flag is only specified on ComplexTypes where are all parts are required </li>
+ <li> that the greedy flag is only specified on the final requiredPart </li>
+ </ul>
+
+PartCheckerRuleData
+ruleName			dmvPartChecker
+ruleTitle			The greedy flag is only allowed on the final requiredPart of a ComplexTypeDefinition composed of requiredParts.
+applyToClass		ComplexTypeDefinition
+description			There are no parameters. The logic is completely internal to the rule.
+	 
+///////////////////////////////////////////////////////////////////////////////
+
  
 ReferencedAttributeTypeRuleData
 ruleName			dmvRATRApplyToAttribute
@@ -507,3 +528,4 @@ allowedValueType  SINGLE
 description       We have sections of generated code that will access the module
  dependence attribute of a DDM module instance and being able to assume that the
  module dependence attribute is multi-valued just makes things easier.
+

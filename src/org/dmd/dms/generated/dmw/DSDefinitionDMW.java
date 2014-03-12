@@ -87,7 +87,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * a unique name\n for an object with the set of definitions of which it is a
      * part. A name starts with a letter followed\n by letters and numbers. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2387)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2390)
     public DefinitionName getName(){
         return(mycore.getName());
     }
@@ -96,7 +96,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2460)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2463)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
@@ -108,7 +108,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * HTML\n documentation. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2591)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2599)
     public Iterator<String> getDescription(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
         if (attr == null)
@@ -117,7 +117,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
         return(attr.getMV());
     }
 
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2605)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2613)
     public Iterator<String> getDescriptionWithNewlines(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
         if (attr == null)
@@ -140,7 +140,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * Adds another description value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2671)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2679)
     public void addDescription(Object value) throws DmcValueException {
         mycore.addDescription(value);
     }
@@ -148,7 +148,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Returns the number of description values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2684)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2692)
     public int getDescriptionSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__description);
         if (attr == null)
@@ -157,54 +157,34 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     }
 
     /**
-     * The exampleUsage attribute is used to provide additional\n examples of how
-     * some defined thing is to be used. The convention for this field\n is to
-     * provide a title for the example followed by a colon. 
-     * @return An Iterator of String objects.
+     * The example attribute is used to provide additional\n examples of how some
+     * defined thing is to be used. 
+     * @return An Iterator of Example objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2591)
-    public Iterator<String> getExampleUsage(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__exampleUsage);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2599)
+    public Iterator<Example> getExample(){
+        DmcTypeExampleMV attr = (DmcTypeExampleMV) mycore.get(MetaDMSAG.__example);
         if (attr == null)
             return(null);
 
         return(attr.getMV());
     }
 
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2605)
-    public Iterator<String> getExampleUsageWithNewlines(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__exampleUsage);
-        if (attr == null)
-            return(null);
-
-        DmcTypeStringMV withNewLines = new DmcTypeStringMV();
-        Iterator<String> it = attr.getMV();
-        while(it.hasNext()){
-            try{
-                withNewLines.add(it.next().replaceAll("\\\\n","\\\n"));
-            } catch (DmcValueException e) {
-                e.printStackTrace();
-            }
-        }
-
-        return(withNewLines.getMV());
+    /**
+     * Adds another example value.
+     * @param value A value compatible with DmcTypeExampleMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2679)
+    public void addExample(Object value) throws DmcValueException {
+        mycore.addExample(value);
     }
 
     /**
-     * Adds another exampleUsage value.
-     * @param value A value compatible with DmcTypeStringMV
+     * Returns the number of example values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2671)
-    public void addExampleUsage(Object value) throws DmcValueException {
-        mycore.addExampleUsage(value);
-    }
-
-    /**
-     * Returns the number of exampleUsage values.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2684)
-    public int getExampleUsageSize(){
-        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__exampleUsage);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2692)
+    public int getExampleSize(){
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__example);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
@@ -213,7 +193,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Indicates the schema in which a type, attribute or class is defined. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2387)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2390)
     public SchemaDefinition getDefinedIn(){
         DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) mycore.get(MetaDMSAG.__definedIn);
         if (attr == null)
@@ -226,7 +206,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * Sets definedIn to the specified value.
      * @param value A value compatible with SchemaDefinition
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2447)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2450)
     public void setDefinedIn(SchemaDefinition value) throws DmcValueException {
         mycore.setDefinedIn(value.getDmcObject());
     }
@@ -234,7 +214,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Indicates the file from which a definition was loaded. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2387)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2390)
     public String getFile(){
         return(mycore.getFile());
     }
@@ -243,7 +223,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2460)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2463)
     public void setFile(Object value) throws DmcValueException {
         mycore.setFile(value);
     }
@@ -251,7 +231,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Indicates the line number of the file from which a definition was loaded. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2387)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2390)
     public Integer getLineNumber(){
         return(mycore.getLineNumber());
     }
@@ -260,7 +240,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2460)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2463)
     public void setLineNumber(Object value) throws DmcValueException {
         mycore.setLineNumber(value);
     }
@@ -268,7 +248,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * The dotName attribute is used to store dot separated names. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2387)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2390)
     public DotName getDotName(){
         return(mycore.getDotName());
     }
@@ -277,7 +257,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * Sets dotName to the specified value.
      * @param value A value compatible with DmcTypeDotNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2460)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2463)
     public void setDotName(Object value) throws DmcValueException {
         mycore.setDotName(value);
     }
@@ -290,7 +270,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * definition...module.type.\n So, for things like documentation generation,
      * the sortName provides a more \n natural ordering. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2387)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2390)
     public DotName getSortName(){
         return(mycore.getSortName());
     }
@@ -299,7 +279,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * Sets sortName to the specified value.
      * @param value A value compatible with DmcTypeDotNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2460)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2463)
     public void setSortName(Object value) throws DmcValueException {
         mycore.setSortName(value);
     }
@@ -309,7 +289,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * values are limited to a-zA-Z0-9 and the space character. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2591)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2599)
     public Iterator<String> getTags(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__tags);
         if (attr == null)
@@ -322,7 +302,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * Adds another tags value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2671)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2679)
     public void addTags(Object value) throws DmcValueException {
         mycore.addTags(value);
     }
@@ -330,7 +310,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Returns the number of tags values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2684)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2692)
     public int getTagsSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__tags);
         if (attr == null)
@@ -343,7 +323,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * object. 
      * @return An Iterator of NameValuePair objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2591)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2599)
     public Iterator<NameValuePair> getNvp(){
         DmcTypeNameValuePairMV attr = (DmcTypeNameValuePairMV) mycore.get(MetaDMSAG.__nvp);
         if (attr == null)
@@ -356,7 +336,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * Adds another nvp value.
      * @param value A value compatible with DmcTypeNameValuePairMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2671)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2679)
     public void addNvp(Object value) throws DmcValueException {
         mycore.addNvp(value);
     }
@@ -364,7 +344,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Returns the number of nvp values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2684)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2692)
     public int getNvpSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__nvp);
         if (attr == null)

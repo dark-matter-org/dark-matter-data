@@ -46,6 +46,7 @@ public class DmvSchemaAG extends SchemaDefinition {
     public static ClassDefinition _ValueLengthRuleData;
     public static ClassDefinition _ReferencedAttributeTypeRuleData;
     public static ClassDefinition _OnlyOneOfTheseAttributesAllowedRuleData;
+    public static ClassDefinition _PartCheckerRuleData;
 
     public static AttributeDefinition _nrrMinimum;
     public static AttributeDefinition _nrrMaximum;
@@ -80,6 +81,7 @@ public class DmvSchemaAG extends SchemaDefinition {
     public static RuleDefinition _ValueLengthRule;
     public static RuleDefinition _ReferencedAttributeTypeRule;
     public static RuleDefinition _OnlyOneOfTheseAttributesAllowedRule;
+    public static RuleDefinition _PartCheckerRule;
 
 
     static DmvSchemaAG instance;
@@ -388,6 +390,29 @@ public class DmvSchemaAG extends SchemaDefinition {
             _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setDotName("dmv.OnlyOneOfTheseAttributesAllowedRuleData.ClassDefinition");
             _OnlyOneOfTheseAttributesAllowedRuleData.setDefinedIn(this);
             addClassDefList(_OnlyOneOfTheseAttributesAllowedRuleData);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            ClassDefinitionDMO _PartCheckerRuleDataOBJ = new ClassDefinitionDMO();
+            _PartCheckerRuleData = new ClassDefinition(_PartCheckerRuleDataOBJ,DmvDMSAG.__PartCheckerRuleData);
+            _PartCheckerRuleDataOBJ.setName("PartCheckerRuleData");
+            _PartCheckerRuleDataOBJ.setDmdID("-959986");
+            _PartCheckerRuleDataOBJ.setInternallyGenerated("true");
+            _PartCheckerRuleDataOBJ.setClassType("STRUCTURAL");
+            _PartCheckerRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
+            _PartCheckerRuleDataOBJ.setLineNumber("419");
+            _PartCheckerRuleDataOBJ.addDescription("The PartCheckerRule will validate a ComplexTypeDefinition\n for some of the more tricky aspects of that definition. In particular it will\n check: <br>\n <ul>\n <li> that the greedy flag is only specified on requiredPart attributes </li>\n <li> that the greedy flag is only specified on ComplexTypes where are all parts are required </li>\n <li> that the greedy flag is only specified on the final requiredPart </li>\n </ul>");
+            _PartCheckerRuleDataOBJ.setDerivedFrom("meta.RuleData");
+            _PartCheckerRuleDataOBJ.setIsNamedBy("meta.ruleName");
+            _PartCheckerRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.PartCheckerRuleDataREF");
+            _PartCheckerRuleDataOBJ.setRuleDefinition("dmv.PartCheckerRule");
+            _PartCheckerRuleDataOBJ.setDmwIteratorClass("PartCheckerRuleDataIterableDMW");
+            _PartCheckerRuleDataOBJ.addMay("meta.description");
+            _PartCheckerRuleDataOBJ.addMust("meta.ruleName");
+            _PartCheckerRuleDataOBJ.addMust("meta.ruleTitle");
+            _PartCheckerRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.PartCheckerRuleDataIterableDMW");
+            _PartCheckerRuleDataOBJ.setDotName("dmv.PartCheckerRuleData.ClassDefinition");
+            _PartCheckerRuleData.setDefinedIn(this);
+            addClassDefList(_PartCheckerRuleData);
 
     }
 
@@ -802,6 +827,19 @@ public class DmvSchemaAG extends SchemaDefinition {
             _OnlyOneOfTheseAttributesAllowedRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _OnlyOneOfTheseAttributesAllowedRuleOBJ.setLineNumber("404");
             addRuleDefinitionList(_OnlyOneOfTheseAttributesAllowedRule);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            RuleDefinitionDMO _PartCheckerRuleOBJ = new RuleDefinitionDMO();
+            _PartCheckerRule = new RuleDefinition(_PartCheckerRuleOBJ);
+            _PartCheckerRuleOBJ.addRuleCategory("meta.ObjectValidation");
+            _PartCheckerRuleOBJ.setName("PartCheckerRule");
+            _PartCheckerRuleOBJ.setDmdID("-479986");
+            _PartCheckerRuleOBJ.addDescription("The PartCheckerRule will validate a ComplexTypeDefinition\n for some of the more tricky aspects of that definition. In particular it will\n check: <br>\n <ul>\n <li> that the greedy flag is only specified on requiredPart attributes </li>\n <li> that the greedy flag is only specified on ComplexTypes where are all parts are required </li>\n <li> that the greedy flag is only specified on the final requiredPart </li>\n </ul>");
+            _PartCheckerRuleOBJ.setDotName("dmv.PartCheckerRule.RuleDefinition");
+            _PartCheckerRule.setDefinedIn(this);
+            _PartCheckerRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
+            _PartCheckerRuleOBJ.setLineNumber("419");
+            addRuleDefinitionList(_PartCheckerRule);
 
     }
 

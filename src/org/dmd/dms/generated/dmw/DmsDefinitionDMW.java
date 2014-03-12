@@ -64,7 +64,7 @@ public abstract class DmsDefinitionDMW extends org.dmd.dms.DSDefinition {
      * a unique name\n for an object with the set of definitions of which it is a
      * part. A name starts with a letter followed\n by letters and numbers. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2387)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2390)
     public DefinitionName getName(){
         return(mycore.getName());
     }
@@ -73,7 +73,7 @@ public abstract class DmsDefinitionDMW extends org.dmd.dms.DSDefinition {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2460)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2463)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
@@ -85,7 +85,7 @@ public abstract class DmsDefinitionDMW extends org.dmd.dms.DSDefinition {
      * direct\n reference to Concinnity concepts. 
      * @return An Iterator of Concinnity objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2573)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2581)
     public ConcinnityIterableDMW getRelatedToConcept(){
         DmcTypeConcinnityREFMV attr = (DmcTypeConcinnityREFMV) mycore.get(MetaDMSAG.__relatedToConcept);
         if (attr == null)
@@ -98,7 +98,7 @@ public abstract class DmsDefinitionDMW extends org.dmd.dms.DSDefinition {
      * Adds another relatedToConcept value.
      * @param value A value compatible with Concinnity
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2657)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2665)
     public DmcAttribute<?> addRelatedToConcept(Concinnity value) throws DmcValueException {
         DmcAttribute<?> attr = mycore.addRelatedToConcept(value.getDmcObject());
         return(attr);
@@ -107,7 +107,7 @@ public abstract class DmsDefinitionDMW extends org.dmd.dms.DSDefinition {
     /**
      * Returns the number of relatedToConcept values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2684)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2692)
     public int getRelatedToConceptSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__relatedToConcept);
         if (attr == null)
