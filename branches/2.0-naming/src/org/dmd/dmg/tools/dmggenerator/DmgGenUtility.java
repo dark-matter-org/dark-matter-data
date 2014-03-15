@@ -210,7 +210,7 @@ public class DmgGenUtility {
             		}
             	}
             	
-            	System.exit(0);
+            	return;
             }
         	
         	System.exit(0);

@@ -510,6 +510,7 @@ public class ConfigFinder {
 					            }
 				            }
 				        }
+				        jar.close();
 					}
 				}
 			}

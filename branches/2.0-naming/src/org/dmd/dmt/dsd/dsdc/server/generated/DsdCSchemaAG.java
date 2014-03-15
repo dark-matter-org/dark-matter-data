@@ -238,8 +238,8 @@ public class DsdCSchemaAG extends SchemaDefinition {
             _ModuleCDSDOBJ.addRefersToDefsFromDSD("dsdB.ModuleB");
             _ModuleCDSDOBJ.setModuleDependenceAttribute("dsdC.dependsOnModuleC");
             _ModuleCDSDOBJ.setFile("/src/org/dmd/dmt/dsd/dsdc/shared/dmdconfig/module.dmd");
-            _ModuleCDSDOBJ.setBaseDefinition("dsdC.CConceptBase");
             _ModuleCDSDOBJ.setLineNumber("11");
+            _ModuleCDSDOBJ.setBaseDefinition("dsdC.CConceptBase");
             _ModuleCDSD.setDefinedIn(this);
             addDsdModuleList(_ModuleCDSD);
 
