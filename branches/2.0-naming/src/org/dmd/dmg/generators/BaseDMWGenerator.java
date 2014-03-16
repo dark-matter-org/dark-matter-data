@@ -40,11 +40,11 @@ import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.DataTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
-import org.dmd.dms.util.GenUtility;
 import org.dmd.dms.util.TypeAndAttr;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImplementsManager;
 import org.dmd.util.codegen.ImportManager;
+import org.dmd.util.codegen.Manipulator;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.CodeFormatter;
@@ -598,7 +598,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 		        }
 	        }
 	        else{
-	        	String upper = GenUtility.capTheName(cd.getIsNamedBy().getObjectName().toString());
+	        	String upper = Manipulator.capFirstChar(cd.getIsNamedBy().getObjectName().toString());
 	        	
 	        	if (cd.getDmwWrapperType(genContext) ==  WrapperTypeEnum.EXTENDED){
 		        	// If the wrapper type is extended, we're abstract at this level, so we

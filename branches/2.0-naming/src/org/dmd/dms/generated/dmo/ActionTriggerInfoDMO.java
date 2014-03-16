@@ -16,12 +16,12 @@
 package org.dmd.dms.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1935)
-import java.io.Serializable;                  // Serializable marker interface - (MetaGenerator.java:1884)
-import java.util.*;                           // Attribute info support - (MetaGenerator.java:1886)
-import org.dmd.dmc.*;                         // Dark matter core - (MetaGenerator.java:1908)
-import org.dmd.dmc.types.*;                   // Basic type access - (MetaGenerator.java:1898)
-import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGenerator.java:1924)
+// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1938)
+import java.io.Serializable;                  // Serializable marker interface - (MetaGenerator.java:1887)
+import java.util.*;                           // Attribute info support - (MetaGenerator.java:1889)
+import org.dmd.dmc.*;                         // Dark matter core - (MetaGenerator.java:1911)
+import org.dmd.dmc.types.*;                   // Basic type access - (MetaGenerator.java:1901)
+import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGenerator.java:1927)
 
 
 
@@ -36,7 +36,7 @@ import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGe
  * particular action and have a well defined\n interface to specify the
  * parameters for the action. 
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1945)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1948)
  */
 @SuppressWarnings("serial")
 public class ActionTriggerInfoDMO extends DmcObject implements Serializable  {
@@ -91,7 +91,7 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable  {
      * a unique name\n for an object with the set of definitions of which it is a
      * part. A name starts with a letter followed\n by letters and numbers. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2337)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2340)
     public DefinitionName getName(){
         DmcTypeDefinitionNameSV attr = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -104,7 +104,7 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable  {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2429)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2432)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)

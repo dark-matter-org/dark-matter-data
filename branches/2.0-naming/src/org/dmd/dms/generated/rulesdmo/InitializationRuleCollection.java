@@ -1,14 +1,14 @@
 package org.dmd.dms.generated.rulesdmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.RuleFormatter.dumpRuleCategoryInterfaces(RuleFormatter.java:300)
-import java.util.ArrayList;                           // Storage for the rules - (RuleFormatter.java:276)
-import org.dmd.dmc.DmcClassInfo;                      // Handle to class info - (RuleFormatter.java:280)
-import org.dmd.dmc.DmcObject;                         // Required for obj - (RuleFormatter.java:221)
-import org.dmd.dmc.DmcOmni;                           // Rule tracing support - (RuleFormatter.java:279)
-import org.dmd.dmc.rules.ClassRuleCollection;         // Class rule - (RuleFormatter.java:293)
-import org.dmd.dmc.rules.DmcRuleExceptionSet;         // Rule type - (RuleFormatter.java:209)
-import org.dmd.dmc.rules.RuleIF;                      // All rules implement this - (RuleFormatter.java:210)
+// Called from: org.dmd.dms.util.RuleFormatter.dumpRuleCategoryInterfaces(RuleFormatter.java:301)
+import java.util.ArrayList;                           // Storage for the rules - (RuleFormatter.java:277)
+import org.dmd.dmc.DmcClassInfo;                      // Handle to class info - (RuleFormatter.java:281)
+import org.dmd.dmc.DmcObject;                         // Required for obj - (RuleFormatter.java:222)
+import org.dmd.dmc.DmcOmni;                           // Rule tracing support - (RuleFormatter.java:280)
+import org.dmd.dmc.rules.ClassRuleCollection;         // Class rule - (RuleFormatter.java:294)
+import org.dmd.dmc.rules.DmcRuleExceptionSet;         // Rule type - (RuleFormatter.java:210)
+import org.dmd.dmc.rules.RuleIF;                      // All rules implement this - (RuleFormatter.java:211)
 
 
 public class InitializationRuleCollection extends ClassRuleCollection<InitializationIF> {
@@ -16,7 +16,7 @@ public class InitializationRuleCollection extends ClassRuleCollection<Initializa
     public InitializationRuleCollection(){
     }
 
-    // Generated from: org.dmd.dms.util.RuleFormatter.dumpRuleCategoryInterfaces(RuleFormatter.java:380)
+    // Generated from: org.dmd.dms.util.RuleFormatter.dumpRuleCategoryInterfaces(RuleFormatter.java:381)
     @Override
     public void addRule(RuleIF r){
 

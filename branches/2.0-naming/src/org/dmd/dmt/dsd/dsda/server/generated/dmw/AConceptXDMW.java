@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;                  // Requir
 import org.dmd.dmt.dsd.dsda.server.extended.AConceptBase;              // Derived class - (BaseDMWGenerator.java:1248)
 import org.dmd.dmt.dsd.dsda.server.extended.AConceptX;                 // Required for getModificationRecorder() - (BaseDMWGenerator.java:1076)
 import org.dmd.dmt.dsd.dsda.shared.generated.dmo.AConceptXDMO;         // Class not auxiliary or abstract - (BaseDMWGenerator.java:1252)
-import org.dmd.dmt.dsd.dsda.shared.generated.types.ModuleAREF;         // Required to access defined in module name - (DMWGenerator.java:180)
+import org.dmd.dmt.dsd.dsda.shared.generated.types.ModuleAREF;         // Required to access defined in module name - (DMWGenerator.java:181)
 
 
 
@@ -113,7 +113,7 @@ abstract public class AConceptXDMW extends AConceptBase implements DmcDefinition
         ((AConceptXDMO) core).remName();
     }
 
-    // Generated from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperFunctions(DMWGenerator.java:221)
+    // Generated from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperFunctions(DMWGenerator.java:222)
     /**
      * This method indicates the name of the module from which this definition was loaded.
      */

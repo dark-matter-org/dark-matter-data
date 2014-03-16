@@ -31,6 +31,7 @@ import org.dmd.dms.generated.enums.DataTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.util.BooleanVar;
 import org.dmd.util.FileUpdateManager;
+import org.dmd.util.codegen.Manipulator;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.CodeFormatter;
@@ -212,7 +213,7 @@ public class DmoFormatter {
 		        out.write("    }\n\n");
 	        }
 	        else{
-	        	String upper = GenUtility.capTheName(cd.getIsNamedBy().getObjectName().toString());
+	        	String upper = Manipulator.capFirstChar(cd.getIsNamedBy().getObjectName().toString());
 	        	
 		        out.write("    public " + cd.getName() + "DMO getModificationRecorder(){\n");
 		        out.write("        " + cd.getName() + "DMO rc = new " + cd.getName() + "DMO();\n");
@@ -297,7 +298,7 @@ public class DmoFormatter {
 		if (actions != null){
 			while(actions.hasNext()){
 				ActionDefinition ad = actions.next();
-				String capped = GenUtility.capTheName(ad.getName().getNameString());
+				String capped = Manipulator.capFirstChar(ad.getName().getNameString());
 				sb.append("\n");
 				sb.append("    /**\n");
 				sb.append("     * Returns the parameter container for the " + ad.getName() + " action.\n");

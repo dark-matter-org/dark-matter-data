@@ -16,25 +16,25 @@
 package org.dmd.dms.generated.types;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.meta.MetaComplexTypeFormatter.dumpComplexType(MetaComplexTypeFormatter.java:100)
-import java.io.Serializable;                                  // Marker interface for serialization - (MetaComplexTypeFormatter.java:75)
-import java.util.ArrayList;                                   // To store ParsedNameValuePairs - (MetaComplexTypeFormatter.java:82)
-import org.dmd.dmc.DmcAttributeInfo;                          // For fake DmcAttributeInfo - (MetaComplexTypeFormatter.java:80)
-import org.dmd.dmc.DmcContainerIF;                            // Reference resolution - (MetaComplexTypeFormatter.java:91)
-import org.dmd.dmc.DmcInputStreamIF;                          // To support serialization - (MetaComplexTypeFormatter.java:76)
-import org.dmd.dmc.DmcNameClashResolverIF;                    // Ambiguous reference resolution - (MetaComplexTypeFormatter.java:87)
-import org.dmd.dmc.DmcNameResolverIF;                         // Reference resolution - (MetaComplexTypeFormatter.java:88)
-import org.dmd.dmc.DmcNameResolverWithClashSupportIF;         // Ambiguous reference resolution - (MetaComplexTypeFormatter.java:86)
-import org.dmd.dmc.DmcNamedObjectIF;                          // Reference resolution - (MetaComplexTypeFormatter.java:89)
-import org.dmd.dmc.DmcNamedObjectREF;                         // Reference resolution - (MetaComplexTypeFormatter.java:90)
-import org.dmd.dmc.DmcObject;                                 // Ambiguous reference resolution - (MetaComplexTypeFormatter.java:92)
-import org.dmd.dmc.DmcOutputStreamIF;                         // To support serialization - (MetaComplexTypeFormatter.java:77)
-import org.dmd.dmc.DmcValueException;                         // For type checking - (MetaComplexTypeFormatter.java:96)
-import org.dmd.dmc.DmcValueExceptionSet;                      // Ambiguous reference resolution - (MetaComplexTypeFormatter.java:93)
-import org.dmd.dmc.util.ComplexTypeSplitter;                  // For parsing initial input - (MetaComplexTypeFormatter.java:81)
-import org.dmd.dmc.util.ParsedNameValuePair;                  // To store values parsed from initial input - (MetaComplexTypeFormatter.java:83)
-import org.dmd.dms.generated.enums.DataTypeEnum;              // For fake DmcAttributeInfo - (MetaComplexTypeFormatter.java:78)
-import org.dmd.dms.generated.enums.ValueTypeEnum;             // For fake DmcAttributeInfo - (MetaComplexTypeFormatter.java:79)
+// Called from: org.dmd.dms.meta.MetaComplexTypeFormatter.dumpComplexType(MetaComplexTypeFormatter.java:101)
+import java.io.Serializable;                                  // Marker interface for serialization - (MetaComplexTypeFormatter.java:76)
+import java.util.ArrayList;                                   // To store ParsedNameValuePairs - (MetaComplexTypeFormatter.java:83)
+import org.dmd.dmc.DmcAttributeInfo;                          // For fake DmcAttributeInfo - (MetaComplexTypeFormatter.java:81)
+import org.dmd.dmc.DmcContainerIF;                            // Reference resolution - (MetaComplexTypeFormatter.java:92)
+import org.dmd.dmc.DmcInputStreamIF;                          // To support serialization - (MetaComplexTypeFormatter.java:77)
+import org.dmd.dmc.DmcNameClashResolverIF;                    // Ambiguous reference resolution - (MetaComplexTypeFormatter.java:88)
+import org.dmd.dmc.DmcNameResolverIF;                         // Reference resolution - (MetaComplexTypeFormatter.java:89)
+import org.dmd.dmc.DmcNameResolverWithClashSupportIF;         // Ambiguous reference resolution - (MetaComplexTypeFormatter.java:87)
+import org.dmd.dmc.DmcNamedObjectIF;                          // Reference resolution - (MetaComplexTypeFormatter.java:90)
+import org.dmd.dmc.DmcNamedObjectREF;                         // Reference resolution - (MetaComplexTypeFormatter.java:91)
+import org.dmd.dmc.DmcObject;                                 // Ambiguous reference resolution - (MetaComplexTypeFormatter.java:93)
+import org.dmd.dmc.DmcOutputStreamIF;                         // To support serialization - (MetaComplexTypeFormatter.java:78)
+import org.dmd.dmc.DmcValueException;                         // For type checking - (MetaComplexTypeFormatter.java:97)
+import org.dmd.dmc.DmcValueExceptionSet;                      // Ambiguous reference resolution - (MetaComplexTypeFormatter.java:94)
+import org.dmd.dmc.util.ComplexTypeSplitter;                  // For parsing initial input - (MetaComplexTypeFormatter.java:82)
+import org.dmd.dmc.util.ParsedNameValuePair;                  // To store values parsed from initial input - (MetaComplexTypeFormatter.java:84)
+import org.dmd.dms.generated.enums.DataTypeEnum;              // For fake DmcAttributeInfo - (MetaComplexTypeFormatter.java:79)
+import org.dmd.dms.generated.enums.ValueTypeEnum;             // For fake DmcAttributeInfo - (MetaComplexTypeFormatter.java:80)
 
 
 
@@ -43,7 +43,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;             // For fake DmcAtt
  * The Part class.
  * This code was auto-generated by the createmeta utility and shouldn't be alterred
  * manually.
- * Generated from: org.dmd.dms.meta.MetaComplexTypeFormatter.dumpComplexType(MetaComplexTypeFormatter.java:107)
+ * Generated from: org.dmd.dms.meta.MetaComplexTypeFormatter.dumpComplexType(MetaComplexTypeFormatter.java:108)
  */
 public class Part implements Serializable {
 
@@ -96,7 +96,7 @@ public class Part implements Serializable {
         greedy = original.greedy;
     }
 
-    // Generated from: org.dmd.dms.meta.MetaComplexTypeFormatter.dumpComplexType(MetaComplexTypeFormatter.java:132)
+    // Generated from: org.dmd.dms.meta.MetaComplexTypeFormatter.dumpComplexType(MetaComplexTypeFormatter.java:133)
     /**
      * All fields constructor.
      */
@@ -114,7 +114,7 @@ public class Part implements Serializable {
             greedy = DmcTypeBooleanSTATIC.instance.typeCheck(f7);
     }
 
-    // Generated from: org.dmd.dms.meta.MetaComplexTypeFormatter.dumpComplexType(MetaComplexTypeFormatter.java:159)
+    // Generated from: org.dmd.dms.meta.MetaComplexTypeFormatter.dumpComplexType(MetaComplexTypeFormatter.java:160)
     /**
      * String based constructor.
      */
@@ -122,7 +122,7 @@ public class Part implements Serializable {
         initialize(initialInput);
     }
 
-    // Generated from: org.dmd.dms.meta.MetaComplexTypeFormatter.dumpComplexType(MetaComplexTypeFormatter.java:167)
+    // Generated from: org.dmd.dms.meta.MetaComplexTypeFormatter.dumpComplexType(MetaComplexTypeFormatter.java:168)
     void initialize(String initialInput) throws DmcValueException {
         ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput);
 
@@ -173,7 +173,7 @@ public class Part implements Serializable {
 
     /**
      * String form.
-     * Generated from: org.dmd.dms.meta.MetaComplexTypeFormatter.dumpComplexType(MetaComplexTypeFormatter.java:256)
+     * Generated from: org.dmd.dms.meta.MetaComplexTypeFormatter.dumpComplexType(MetaComplexTypeFormatter.java:257)
      */
     public String toString(){
         StringBuffer sb = new StringBuffer();

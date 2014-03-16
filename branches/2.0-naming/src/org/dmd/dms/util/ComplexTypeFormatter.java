@@ -12,6 +12,7 @@ import org.dmd.dms.generated.dmo.TypeDefinitionDMO;
 import org.dmd.dms.generated.types.Field;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
+import org.dmd.util.codegen.Manipulator;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
@@ -278,9 +279,9 @@ public class ComplexTypeFormatter {
         	TypeDefinition	type = (TypeDefinition) field.getType().getObject().getContainer();
         	
         	if (type.getIsRefType())
-                out.write("    public " + field.getType().getObjectName() + "REF get" + GenUtility.capTheName(field.getName()) + "(){\n");
+                out.write("    public " + field.getType().getObjectName() + "REF get" + Manipulator.capFirstChar(field.getName()) + "(){\n");
         	else
-        		out.write("    public " + field.getType().getObjectName() + " get" + GenUtility.capTheName(field.getName()) + "(){\n");
+        		out.write("    public " + field.getType().getObjectName() + " get" + Manipulator.capFirstChar(field.getName()) + "(){\n");
         	
         	out.write("        return(" + field.getName() + ");\n");
         	out.write("    }\n\n");

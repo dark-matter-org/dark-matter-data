@@ -22,6 +22,7 @@ import org.dmd.dms.generated.enums.WrapperTypeEnum;
 import org.dmd.dms.util.GenUtility;
 import org.dmd.util.codegen.ImplementsManager;
 import org.dmd.util.codegen.ImportManager;
+import org.dmd.util.codegen.Manipulator;
 import org.dmd.util.codegen.MemberManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
@@ -217,7 +218,7 @@ public class DMWGenerator extends BaseDMWGenerator {
 			// Here we overload this method on strucutural classes
 			if (cd.getClassType() == ClassTypeEnum.STRUCTURAL){
 				AttributeDefinition attr = cd.getPartOfDefinitionModule().getDefinedInModuleAttribute();
-				String attrNamePart = GenUtility.capTheName(attr.getName().getNameString());
+				String attrNamePart = Manipulator.capFirstChar(attr.getName().getNameString());
 				out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 				out.write("    /**\n");
 				out.write("     * This method indicates the name of the module from which this definition was loaded.\n");
