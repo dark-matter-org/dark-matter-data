@@ -44,6 +44,7 @@ import org.dmd.dms.generated.dmo.RuleDataDMO;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
+import org.dmd.util.codegen.Manipulator;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
@@ -528,7 +529,7 @@ public class DmoCompactSchemaFormatter {
 			DefinitionName adn = getDefinitionName(rd.getConstructionClassName(), attr.getName());
 			
 			if (cd.isAllowedAttribute(adn)){
-				String attrNameCapped = GenUtility.capTheName(attr.getName());
+				String attrNameCapped = Manipulator.capFirstChar(attr.getName());
 				if (attr.getAttributeInfo().valueType == ValueTypeEnum.SINGLE){
 		            out.write("            _" + pf.sprintf(objName));
 					out.write(".set" + attrNameCapped + "(");

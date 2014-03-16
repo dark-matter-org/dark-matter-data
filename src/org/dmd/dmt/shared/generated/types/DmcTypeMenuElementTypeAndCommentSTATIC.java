@@ -10,8 +10,8 @@ import org.dmd.dmt.shared.generated.types.MenuElementTypeAndComment;    // base 
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:2144)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2059)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:2160)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2075)
  */
 public class DmcTypeMenuElementTypeAndCommentSTATIC {
     

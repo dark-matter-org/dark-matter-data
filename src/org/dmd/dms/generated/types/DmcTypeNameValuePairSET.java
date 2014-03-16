@@ -30,8 +30,8 @@ import org.dmd.dms.generated.types.DmcTypeNameValuePair;    // DmcType import
  * The DmcTypeNameValuePairSET provides storage for a set of NameValuePair
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2609)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:672)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2625)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:673)
  */
 @SuppressWarnings("serial")
 public class DmcTypeNameValuePairSET extends DmcTypeNameValuePair implements Serializable {
@@ -63,7 +63,7 @@ public class DmcTypeNameValuePairSET extends DmcTypeNameValuePair implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2650)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2666)
     public DmcAttribute<NameValuePair> cloneIt(){
         synchronized(this){
             DmcTypeNameValuePairSET rc = getNew();
@@ -82,7 +82,7 @@ public class DmcTypeNameValuePairSET extends DmcTypeNameValuePair implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2673)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2689)
     public NameValuePair add(Object v) throws DmcValueException {
         synchronized(this){
             NameValuePair rc = typeCheck(v);
@@ -98,7 +98,7 @@ public class DmcTypeNameValuePairSET extends DmcTypeNameValuePair implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2690)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2706)
     public NameValuePair del(Object v){
         synchronized(this){
             NameValuePair rc = null;
@@ -122,7 +122,7 @@ public class DmcTypeNameValuePairSET extends DmcTypeNameValuePair implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2731)
     public Iterator<NameValuePair> getMV(){
         synchronized(this){
             if (value == null)
@@ -135,7 +135,7 @@ public class DmcTypeNameValuePairSET extends DmcTypeNameValuePair implements Ser
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2729)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2745)
     public Set<NameValuePair> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -154,7 +154,7 @@ public class DmcTypeNameValuePairSET extends DmcTypeNameValuePair implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2749)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2765)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -164,7 +164,7 @@ public class DmcTypeNameValuePairSET extends DmcTypeNameValuePair implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2760)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2776)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

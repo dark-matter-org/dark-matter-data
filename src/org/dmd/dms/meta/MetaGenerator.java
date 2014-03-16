@@ -35,6 +35,7 @@ import org.dmd.dms.util.GenUtility;
 import org.dmd.dms.util.RuleFormatter;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
+import org.dmd.util.codegen.Manipulator;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.DmcUncheckedOIFHandlerIF;
@@ -507,7 +508,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			String 				an 			= names.next();
 if (an.equals("requiredPart"))
 	DebugInfo.debug("HERE");
-			String				anCapped	= GenUtility.capTheName(an);
+			String				anCapped	= Manipulator.capFirstChar(an);
 			DmcUncheckedObject	attrDef 	= attributeDefs.get(an);
 			String				valueType	= attrDef.getSV("valueType");
 			boolean				sv			= true;
@@ -690,8 +691,7 @@ if (an.equals("requiredPart"))
 			String tn = typedef.getSV("name");
 			String ti = typedef.getSV("primitiveType");
 			String genericArgs = typedef.getSV("genericArgs");
-			GenUtility.dumpIterable(dmwdir, "org.dmd.dms", ti, tn, genericArgs,
-					LGPL.toString(), System.out);
+			GenUtility.dumpIterable(dmwdir, "org.dmd.dms", ti, tn, genericArgs, LGPL.toString(), System.out);
 		}
 	}
 
@@ -793,7 +793,7 @@ if (an.equals("requiredPart"))
 		objClasses.add("ClassDefinition");
 		DmcUncheckedObject classDef = new DmcUncheckedObject(objClasses, 0);
 
-		String name = GenUtility.capTheName(uco.getSV("name"));
+		String name = Manipulator.capFirstChar(uco.getSV("name"));
 		String isExtensible = uco.getSV("isExtensible");
 		String ctype = "STRUCTURAL";
 
@@ -801,15 +801,15 @@ if (an.equals("requiredPart"))
 			ctype = "EXTENSIBLE";
 		}
 
-		classDef.addValue("name", name + "Data");
-		classDef.addValue("dotName", "meta." + name + "Data.ClassDefinition" );
+		classDef.addValue("name", 					name + "Data");
+		classDef.addValue("dotName", 				"meta." + name + "Data.ClassDefinition" );
 //		classDef.addValue("nameAndTypeName", name + "Data.ClassDefinition" );
-		classDef.addValue("classType", ctype);
-		classDef.addValue("derivedFrom", "RuleData");
-		classDef.addValue("dmdID", uco.getSV("dmdID"));
-		classDef.addValue("dmoImport", "org.dmd.dms.generated.dmo." + name + "DataDMO");
-		classDef.addValue("javaClass", "org.dmd.dms.generated.dmo." + name + "DataDMO");
-		classDef.addValue("internallyGenerated", "true");
+		classDef.addValue("classType", 				ctype);
+		classDef.addValue("derivedFrom", 			"RuleData");
+		classDef.addValue("dmdID", 					uco.getSV("dmdID"));
+		classDef.addValue("dmoImport", 				"org.dmd.dms.generated.dmo." + name + "DataDMO");
+		classDef.addValue("javaClass", 				"org.dmd.dms.generated.dmo." + name + "DataDMO");
+		classDef.addValue("internallyGenerated", 	"true");
 		classDef.addValue("ruleDefinition", name);
 		classDef.addValue("must", "ruleTitle");
 		classDef.addValue("may", "description");
@@ -1600,40 +1600,43 @@ if (an.equals("requiredPart"))
 
 					// BufferedWriter out = new BufferedWriter(new
 					// FileWriter(dmwdir + File.separator + cn + "DMW.java"));
-					BufferedWriter out = FileUpdateManager.instance()
-							.getWriter(dmwdir, cn + "DMW.java");
+					BufferedWriter out = FileUpdateManager.instance().getWriter(dmwdir, cn + "DMW.java");
 
 					out.write(LGPL.toString());
+					
 					out.write("package org.dmd.dms.generated.dmw;\n\n");
-
-					out.write("import java.util.*;\n\n");
-
-					out.write("import org.dmd.dmc.types.*;\n");
-					out.write("import org.dmd.dmc.*;\n");
-					// if (derivedFrom == null){
-					out.write("import org.dmd.dmw.*;\n");
-					// }
+					
+					ImportManager imports = new ImportManager();
+					imports.addImport("java.util.*", "To support access functions");
+					imports.addImport("org.dmd.dmc.types.*", "Blanket import because at the meta level it's tricky to determine the exact pieces we need");
+					imports.addImport("org.dmd.dmc.*", "Basic dark-matter infrastructure");
+					imports.addImport("org.dmd.dmw.*", "Base wrapper capabilities");
+					imports.addImport("org.dmd.dms.generated.dmo.*", "Blanket import because at the meta level it's tricky to determine the exact pieces we need");
+					imports.addImport("org.dmd.dms.generated.enums.*", "Blanket import because at the meta level it's tricky to determine the exact pieces we need");
+					imports.addImport("org.dmd.dms.generated.types.*", "Blanket import because at the meta level it's tricky to determine the exact pieces we need");
+					imports.addImport("org.dmd.util.exceptions.*", "Blanket import because at the meta level it's tricky to determine the exact pieces we need");
+					imports.addImport("org.dmd.dms.*", "Blanket import because at the meta level it's tricky to determine the exact pieces we need");
 
 					if (cn.equals("EnumDefinition")) {
-						out.write("import org.dmd.dms.types.*;\n");
+						imports.addImport("org.dmd.dms.types.*", "Required for EnumDefinition");
 					}
-					out.write("import org.dmd.dms.generated.dmo.*;\n");
-					out.write("import org.dmd.dms.generated.enums.*;\n");
-					out.write("import org.dmd.dms.generated.types.*;\n");
-					out.write("import org.dmd.util.exceptions.*;\n");
-					out.write("import org.dmd.dms.*;\n");
 					
-					if (isDSDefinition != null)
-						out.write("import org.dmd.dmc.definitions.DmcDefinitionIF;\n");
-					if (isDSModule != null)
-						out.write("import org.dmd.dmc.definitions.DmcModuleIF;\n");
+					if (isDSDefinition != null){
+						imports.addImport("org.dmd.dmc.definitions.DmcDefinitionIF", "Because this is a DS definition");
+					}
+					if (isDSModule != null){
+						imports.addImport("org.dmd.dmc.definitions.DmcModuleIF", "Because this is a DS module");
+					}
 
 					if (cn.equals("ActionTriggerInfo")) {
-						// this is a complete friggin' hack!
-						out.write("import org.dmd.dms.extended.ActionTriggerInfo;\n");
+						imports.addImport("org.dmd.dms.extended.ActionTriggerInfo", "A hack that should go away! ");
 					}
 
 					out.write("\n");
+					
+					out.write(imports.getFormattedImports());
+					
+					///////////////////////////////////////////////////////////
 
 					out.write("/**\n");
 					dumpCodeComment(go.get("description"), out, " * ");
@@ -3330,7 +3333,7 @@ if (an.equals("requiredPart"))
 
 		for (Field field : fields) {
 			out.write("    public " + field.type + " get"
-					+ GenUtility.capTheName(field.name) + "(){\n");
+					+ Manipulator.capFirstChar(field.name) + "(){\n");
 			out.write("        return(" + field.name + ");\n");
 			out.write("    }\n\n");
 		}

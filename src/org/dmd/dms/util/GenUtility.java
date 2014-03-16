@@ -1704,16 +1704,16 @@ public class GenUtility {
 		
 	}
 
-	/**
-	 * @param value the string who first letter should be capitalized.
-	 * @return take a string like hello and return Hello
-	 */
-	static public String capTheName(String value){
-    	StringBuffer 	name 	= new StringBuffer();
-    	name.append(value);
-    	name.setCharAt(0,Character.toUpperCase(name.charAt(0)));
-    	return(name.toString());
-	}
+//	/**
+//	 * @param value the string who first letter should be capitalized.
+//	 * @return take a string like hello and return Hello
+//	 */
+//	static public String capTheName(String value){
+//    	StringBuffer 	name 	= new StringBuffer();
+//    	name.append(value);
+//    	name.setCharAt(0,Character.toUpperCase(name.charAt(0)));
+//    	return(name.toString());
+//	}
 	
 	/**
 	 * Returns the class or interface name after the last dot in an import statement.
@@ -1733,10 +1733,16 @@ public class GenUtility {
         
         out.write("package " + basePackage + ".generated.dmw;\n\n");
         
-        out.write("import java.util.Iterator;\n\n");
-        out.write("import org.dmd.dmw.DmwMVIterator;\n");
-        if (typeImport != null)
-        	out.write("import " + typeImport + ";\n");
+        ImportManager imports = new ImportManager();
+        	
+        imports.addImport("java.util.Iterator", "Beacuse we're iterating");
+        imports.addImport("org.dmd.dmw.DmwMVIterator", "The base multi-value iterator");
+        
+        if (typeImport != null){
+            imports.addImport(typeImport, "This is the type we're iterating");
+        }
+        
+        out.write(imports.getFormattedImports() + "\n");
         
         String suffix = "";
         if ( (typeImport != null) && (typeImport.endsWith("DMO"))){
@@ -1859,17 +1865,27 @@ public class GenUtility {
         
         out.write("package " + basePackage + ".generated.dmw;\n\n");
         
-        out.write("import java.util.Iterator;\n\n");
-        out.write("import org.dmd.dmw.DmwContainerIterator;\n");
-        out.write("import " + basePackage + ".generated.types." + className + "REF;\n");
+        ImportManager imports = new ImportManager();
+        
+        imports.addImport("java.util.Iterator", "Because we're iterating!");
+        imports.addImport("org.dmd.dmw.DmwContainerIterator", "Because we're extending the parameterized class");
+        imports.addImport(basePackage + ".generated.types." + className + "REF", "To access our reference type");
+        
+//        out.write("import java.util.Iterator;\n\n");
+//        out.write("import org.dmd.dmw.DmwContainerIterator;\n");
+//        out.write("import " + basePackage + ".generated.types." + className + "REF;\n");
         
         if (extended){
-            out.write("import " + extendedPackage + "." + className + ";\n");
+            imports.addImport(extendedPackage + "." + className, "Because " + className + " uses extended wrappers");
+//            out.write("import " + extendedPackage + "." + className + ";\n");
             CAST = className;
         }
         else{
-            out.write("import " + basePackage + ".generated.dmw." + className + "DMW;\n");
+            imports.addImport(basePackage + ".generated.dmw." + className + "DMW", "Because " + className + " is not extended");
+//            out.write("import " + basePackage + ".generated.dmw." + className + "DMW;\n");
         }
+        
+        out.write(imports.getFormattedImports() + "\n");
           	                
         out.write("/**\n");
         out.write(" * The " + className + "IteratorDMW will cast from an underlying " + REF + " class to \n");

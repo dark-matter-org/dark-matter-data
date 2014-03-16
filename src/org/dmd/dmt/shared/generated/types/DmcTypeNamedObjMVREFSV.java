@@ -9,7 +9,7 @@ import org.dmd.dmt.shared.generated.dmo.NamedObjMVDMO;    // DmcType import
  * The DmcTypeNamedObjMVREFSV provides storage for a single-valued NamedObjMV
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1969)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1985)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:254)
  */
 @SuppressWarnings("serial")
@@ -34,14 +34,14 @@ public class DmcTypeNamedObjMVREFSV extends DmcTypeNamedObjMVREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2001)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2017)
     public DmcAttribute<NamedObjMVDMO> cloneIt(){
         DmcTypeNamedObjMVREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2012)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2028)
     public NamedObjMVDMO getSVCopy(){
         if (value == null)
             return(null);
@@ -49,7 +49,7 @@ public class DmcTypeNamedObjMVREFSV extends DmcTypeNamedObjMVREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2024)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2040)
     public NamedObjMVDMO set(Object v) throws DmcValueException {
         NamedObjMVDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

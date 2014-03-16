@@ -29,7 +29,7 @@ import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;    // DmcType import
  * The DmcTypeDMPEventTypeEnumSET provides storage for a set of DMPEventTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2609)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2625)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:362)
  */
 @SuppressWarnings("serial")
@@ -62,7 +62,7 @@ public class DmcTypeDMPEventTypeEnumSET extends DmcTypeDMPEventTypeEnum implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2650)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2666)
     public DmcAttribute<DMPEventTypeEnum> cloneIt(){
         synchronized(this){
             DmcTypeDMPEventTypeEnumSET rc = getNew();
@@ -81,7 +81,7 @@ public class DmcTypeDMPEventTypeEnumSET extends DmcTypeDMPEventTypeEnum implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2673)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2689)
     public DMPEventTypeEnum add(Object v) throws DmcValueException {
         synchronized(this){
             DMPEventTypeEnum rc = typeCheck(v);
@@ -97,7 +97,7 @@ public class DmcTypeDMPEventTypeEnumSET extends DmcTypeDMPEventTypeEnum implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2690)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2706)
     public DMPEventTypeEnum del(Object v){
         synchronized(this){
             DMPEventTypeEnum rc = null;
@@ -121,7 +121,7 @@ public class DmcTypeDMPEventTypeEnumSET extends DmcTypeDMPEventTypeEnum implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2731)
     public Iterator<DMPEventTypeEnum> getMV(){
         synchronized(this){
             if (value == null)
@@ -134,7 +134,7 @@ public class DmcTypeDMPEventTypeEnumSET extends DmcTypeDMPEventTypeEnum implemen
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2729)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2745)
     public Set<DMPEventTypeEnum> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -153,7 +153,7 @@ public class DmcTypeDMPEventTypeEnumSET extends DmcTypeDMPEventTypeEnum implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2749)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2765)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -163,7 +163,7 @@ public class DmcTypeDMPEventTypeEnumSET extends DmcTypeDMPEventTypeEnum implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2760)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2776)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

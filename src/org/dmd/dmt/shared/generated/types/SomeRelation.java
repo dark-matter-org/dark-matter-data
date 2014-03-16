@@ -1,18 +1,18 @@
 package org.dmd.dmt.shared.generated.types;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:113)
-import java.io.Serializable;                                            // Serialization support - (ExtendedReferenceTypeFormatter.java:88)
-import org.dmd.dmc.DmcExtendedReferenceIF;                              // Marker interface for extended references - (ExtendedReferenceTypeFormatter.java:81)
-import org.dmd.dmc.DmcInputStreamIF;                                    // Serialization support - (ExtendedReferenceTypeFormatter.java:89)
-import org.dmd.dmc.DmcOutputStreamIF;                                   // Serialization support - (ExtendedReferenceTypeFormatter.java:90)
-import org.dmd.dmc.DmcValueException;                                   // Value exceptions - (ExtendedReferenceTypeFormatter.java:107)
-import org.dmd.dmc.types.DefinitionName;                                // Name type - (ExtendedReferenceTypeFormatter.java:75)
-import org.dmd.dmc.types.IntegerVar;                                    // Parsing support - (ExtendedReferenceTypeFormatter.java:91)
-import org.dmd.dms.generated.types.DmcTypeDefinitionNameSTATIC;         // Static type for name - (ExtendedReferenceTypeFormatter.java:77)
-import org.dmd.dms.generated.types.DmcTypeDefinitionNameSV;             // Name type - (ExtendedReferenceTypeFormatter.java:74)
-import org.dmd.dms.generated.types.DmcTypeIntegerSTATIC;                // Standard type - (ExtendedReferenceTypeFormatter.java:634)
-import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;                 // Object based constructor - (ExtendedReferenceTypeFormatter.java:79)
+// Called from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:114)
+import java.io.Serializable;                                            // Serialization support - (ExtendedReferenceTypeFormatter.java:89)
+import org.dmd.dmc.DmcExtendedReferenceIF;                              // Marker interface for extended references - (ExtendedReferenceTypeFormatter.java:82)
+import org.dmd.dmc.DmcInputStreamIF;                                    // Serialization support - (ExtendedReferenceTypeFormatter.java:90)
+import org.dmd.dmc.DmcOutputStreamIF;                                   // Serialization support - (ExtendedReferenceTypeFormatter.java:91)
+import org.dmd.dmc.DmcValueException;                                   // Value exceptions - (ExtendedReferenceTypeFormatter.java:108)
+import org.dmd.dmc.types.DefinitionName;                                // Name type - (ExtendedReferenceTypeFormatter.java:76)
+import org.dmd.dmc.types.IntegerVar;                                    // Parsing support - (ExtendedReferenceTypeFormatter.java:92)
+import org.dmd.dms.generated.types.DmcTypeDefinitionNameSTATIC;         // Static type for name - (ExtendedReferenceTypeFormatter.java:78)
+import org.dmd.dms.generated.types.DmcTypeDefinitionNameSV;             // Name type - (ExtendedReferenceTypeFormatter.java:75)
+import org.dmd.dms.generated.types.DmcTypeIntegerSTATIC;                // Standard type - (ExtendedReferenceTypeFormatter.java:635)
+import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;                 // Object based constructor - (ExtendedReferenceTypeFormatter.java:80)
 
 
 
@@ -21,7 +21,7 @@ import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;                 // Objec
  * The SomeRelation class.
  * This code was auto-generated and shouldn't be alterred manually.
  * 
- * Generated from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:120)
+ * Generated from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:121)
  */
 public class SomeRelation extends ObjWithRefsREF implements Serializable, DmcExtendedReferenceIF {
 
@@ -39,7 +39,7 @@ public class SomeRelation extends ObjWithRefsREF implements Serializable, DmcExt
 
     /**
      * Copy constructor.
-     * Generated from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:138)
+     * Generated from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:139)
      */
     public SomeRelation(SomeRelation original){
         myName = original.myName;
@@ -50,7 +50,7 @@ public class SomeRelation extends ObjWithRefsREF implements Serializable, DmcExt
 
     /**
      * All fields constructor.
-     * Generated from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:158)
+     * Generated from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:159)
      */
     public SomeRelation(DefinitionName name, Integer count, Integer order) {
         setName(name);
@@ -60,7 +60,7 @@ public class SomeRelation extends ObjWithRefsREF implements Serializable, DmcExt
 
     /**
      * All fields constructor.
-     * Generated from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:199)
+     * Generated from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:200)
      */
     public SomeRelation(ObjWithRefsDMO obj, Integer count, Integer order) {
         super(obj);
@@ -70,7 +70,7 @@ public class SomeRelation extends ObjWithRefsREF implements Serializable, DmcExt
 
     /**
      * String based constructor.
-     * Generated from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:240)
+     * Generated from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:241)
      */
     public SomeRelation(String input) throws DmcValueException {
         IntegerVar seppos = new IntegerVar(-1);
@@ -84,7 +84,7 @@ public class SomeRelation extends ObjWithRefsREF implements Serializable, DmcExt
 
     /**
      * Serialization.
-     * Generated from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:276)
+     * Generated from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:277)
      */
     public void serializeIt(DmcOutputStreamIF dos) throws Exception {
         DmcTypeDefinitionNameSTATIC.instance.serializeValue(dos, myName.getSV());
@@ -94,7 +94,7 @@ public class SomeRelation extends ObjWithRefsREF implements Serializable, DmcExt
 
     /**
      * Deserialization.
-     * Generated from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:294)
+     * Generated from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:295)
      */
     public void deserializeIt(DmcInputStreamIF dis) throws Exception {
         DefinitionName n = DmcTypeDefinitionNameSTATIC.instance.deserializeValue(dis);

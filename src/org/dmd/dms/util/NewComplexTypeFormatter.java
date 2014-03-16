@@ -12,6 +12,7 @@ import org.dmd.dms.generated.types.Part;
 //import org.dmd.dms.generated.types.Field;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
+import org.dmd.util.codegen.Manipulator;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
@@ -444,13 +445,13 @@ public class NewComplexTypeFormatter {
 				isMulti = true;
         	
 			if (isMulti){
-                out.write("    public Iterator<" + part.getType().getObjectName() + ref + "> get" + GenUtility.capTheName(part.getName()) + "(){\n");
+                out.write("    public Iterator<" + part.getType().getObjectName() + ref + "> get" + Manipulator.capFirstChar(part.getName()) + "(){\n");
             	out.write("        if (" + pn + " == null)\n");
             	out.write("            return(null);\n");
             	out.write("        return(" + pn + ".iterator());\n");
 			}
 			else{
-                out.write("    public " + part.getType().getObjectName() + ref + " get" + GenUtility.capTheName(part.getName()) + "(){\n");
+                out.write("    public " + part.getType().getObjectName() + ref + " get" + Manipulator.capFirstChar(part.getName()) + "(){\n");
             	out.write("        return(" + pn + ");\n");
 			}
 			

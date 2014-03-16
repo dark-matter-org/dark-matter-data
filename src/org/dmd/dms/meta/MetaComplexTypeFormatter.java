@@ -13,6 +13,7 @@ import org.dmd.dmc.util.NamedStringArray;
 import org.dmd.dms.util.GenUtility;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
+import org.dmd.util.codegen.Manipulator;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
@@ -305,7 +306,7 @@ public class MetaComplexTypeFormatter {
 
 		for (Part field : parts) {
 			out.write("    public " + field.type + " get"
-					+ GenUtility.capTheName(field.name) + "(){\n");
+					+ Manipulator.capFirstChar(field.name) + "(){\n");
 			out.write("        return(" + field.name + ");\n");
 			out.write("    }\n\n");
 		}

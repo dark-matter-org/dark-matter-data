@@ -1,26 +1,26 @@
 package org.dmd.dmt.shared.generated.types;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:106)
-import java.io.Serializable;                                               // To prevent serialization warnings - (ComplexTypeFormatter.java:81)
-import org.dmd.dmc.DmcAttributeInfo;                                       // For fake DmcAttributeInfo - (ComplexTypeFormatter.java:87)
-import org.dmd.dmc.DmcContainerIF;                                         // To support object references - (ComplexTypeFormatter.java:93)
-import org.dmd.dmc.DmcInputStreamIF;                                       // Standard serialization techniques - (ComplexTypeFormatter.java:82)
-import org.dmd.dmc.DmcNameClashResolverIF;                                 // To support possible clashing object references - (ComplexTypeFormatter.java:97)
-import org.dmd.dmc.DmcNameResolverIF;                                      // To support object references - (ComplexTypeFormatter.java:90)
-import org.dmd.dmc.DmcNameResolverWithClashSupportIF;                      // To support possible clashing object references - (ComplexTypeFormatter.java:95)
-import org.dmd.dmc.DmcNamedObjectIF;                                       // To support object references - (ComplexTypeFormatter.java:91)
-import org.dmd.dmc.DmcNamedObjectREF;                                      // To support object references - (ComplexTypeFormatter.java:92)
-import org.dmd.dmc.DmcObject;                                              // To support possible clashing object references - (ComplexTypeFormatter.java:98)
-import org.dmd.dmc.DmcOutputStreamIF;                                      // Standard serialization techniques - (ComplexTypeFormatter.java:83)
-import org.dmd.dmc.DmcValueException;                                      // Standard value exception - (ComplexTypeFormatter.java:102)
-import org.dmd.dmc.DmcValueExceptionSet;                                   // To support possible clashing object references - (ComplexTypeFormatter.java:99)
-import org.dmd.dmc.types.IntegerVar;                                       // To support getNextField() - (ComplexTypeFormatter.java:84)
-import org.dmd.dms.generated.enums.DataTypeEnum;                           // For fake DmcAttributeInfo - (ComplexTypeFormatter.java:85)
-import org.dmd.dms.generated.enums.ValueTypeEnum;                          // For fake DmcAttributeInfo - (ComplexTypeFormatter.java:86)
-import org.dmd.dms.generated.types.DmcTypeStringSTATIC;                    // Standard type - (ComplexTypeFormatter.java:587)
-import org.dmd.dms.generated.types.DmcTypeTypeDefinitionREFSTATIC;         // Internally generated type - (ComplexTypeFormatter.java:587)
-import org.dmd.dms.generated.types.TypeDefinitionREF;                      // Object reference - (ComplexTypeFormatter.java:562)
+// Called from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:107)
+import java.io.Serializable;                                               // To prevent serialization warnings - (ComplexTypeFormatter.java:82)
+import org.dmd.dmc.DmcAttributeInfo;                                       // For fake DmcAttributeInfo - (ComplexTypeFormatter.java:88)
+import org.dmd.dmc.DmcContainerIF;                                         // To support object references - (ComplexTypeFormatter.java:94)
+import org.dmd.dmc.DmcInputStreamIF;                                       // Standard serialization techniques - (ComplexTypeFormatter.java:83)
+import org.dmd.dmc.DmcNameClashResolverIF;                                 // To support possible clashing object references - (ComplexTypeFormatter.java:98)
+import org.dmd.dmc.DmcNameResolverIF;                                      // To support object references - (ComplexTypeFormatter.java:91)
+import org.dmd.dmc.DmcNameResolverWithClashSupportIF;                      // To support possible clashing object references - (ComplexTypeFormatter.java:96)
+import org.dmd.dmc.DmcNamedObjectIF;                                       // To support object references - (ComplexTypeFormatter.java:92)
+import org.dmd.dmc.DmcNamedObjectREF;                                      // To support object references - (ComplexTypeFormatter.java:93)
+import org.dmd.dmc.DmcObject;                                              // To support possible clashing object references - (ComplexTypeFormatter.java:99)
+import org.dmd.dmc.DmcOutputStreamIF;                                      // Standard serialization techniques - (ComplexTypeFormatter.java:84)
+import org.dmd.dmc.DmcValueException;                                      // Standard value exception - (ComplexTypeFormatter.java:103)
+import org.dmd.dmc.DmcValueExceptionSet;                                   // To support possible clashing object references - (ComplexTypeFormatter.java:100)
+import org.dmd.dmc.types.IntegerVar;                                       // To support getNextField() - (ComplexTypeFormatter.java:85)
+import org.dmd.dms.generated.enums.DataTypeEnum;                           // For fake DmcAttributeInfo - (ComplexTypeFormatter.java:86)
+import org.dmd.dms.generated.enums.ValueTypeEnum;                          // For fake DmcAttributeInfo - (ComplexTypeFormatter.java:87)
+import org.dmd.dms.generated.types.DmcTypeStringSTATIC;                    // Standard type - (ComplexTypeFormatter.java:588)
+import org.dmd.dms.generated.types.DmcTypeTypeDefinitionREFSTATIC;         // Internally generated type - (ComplexTypeFormatter.java:588)
+import org.dmd.dms.generated.types.TypeDefinitionREF;                      // Object reference - (ComplexTypeFormatter.java:563)
 
 
 
@@ -29,7 +29,7 @@ import org.dmd.dms.generated.types.TypeDefinitionREF;                      // Ob
  * The DmtField class.
  * This code was auto-generated and shouldn't be alterred manually.
  * 
- * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:113)
+ * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:114)
  */
 public class DmtField implements Serializable {
 
@@ -65,7 +65,7 @@ public class DmtField implements Serializable {
 
     /**
      * All fields constructor.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:140)
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:141)
      */
     public DmtField(TypeDefinitionREF f1, String f2, String f3) throws DmcValueException {
         type = DmcTypeTypeDefinitionREFSTATIC.instance.typeCheck(f1);
@@ -75,7 +75,7 @@ public class DmtField implements Serializable {
 
     /**
      * String based constructor.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:181)
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:182)
      */
     public DmtField(String initialInput) throws DmcValueException {
         IntegerVar seppos = new IntegerVar(-1);
@@ -88,7 +88,7 @@ public class DmtField implements Serializable {
 
     /**
      * Serialization.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:225)
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:226)
      */
     public void serializeIt(DmcOutputStreamIF dos) throws Exception {
         DmcTypeTypeDefinitionREFSTATIC.instance.serializeValue(dos, type);
@@ -98,7 +98,7 @@ public class DmtField implements Serializable {
 
     /**
      * Deserialization.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:242)
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:243)
      */
     public void deserializeIt(DmcInputStreamIF dis) throws Exception {
         type = DmcTypeTypeDefinitionREFSTATIC.instance.deserializeValue(dis);
@@ -108,7 +108,7 @@ public class DmtField implements Serializable {
 
     /**
      * String form.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:259)
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:260)
      */
     public String toString(){
         return(type.toString() + " " + name.toString() + " " + description.toString());
@@ -127,7 +127,7 @@ public class DmtField implements Serializable {
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})
-    // org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:291)
+    // org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:292)
     public void resolve(DmcNameResolverIF resolver, String attrName) throws DmcValueException {
         DmcNamedObjectIF  obj = null;
 
@@ -143,7 +143,7 @@ public class DmtField implements Serializable {
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})
-    // org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:313)
+    // org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:314)
     public void resolve(DmcNameResolverWithClashSupportIF resolver, DmcObject object, DmcNameClashResolverIF ncr, DmcAttributeInfo ai) throws DmcValueException, DmcValueExceptionSet {
         DmcNamedObjectIF  obj = null;
 
@@ -158,7 +158,7 @@ public class DmtField implements Serializable {
         
     }
 
-    // org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:334)
+    // org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:335)
     String getNextField(String input, IntegerVar seppos, String fn, boolean last) throws DmcValueException {
     	   String rc = null;
     	   int start = seppos.intValue();
