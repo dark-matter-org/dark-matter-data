@@ -65,6 +65,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         _ImAp.put(MetaDMSAG.__nullReturnValue.id,MetaDMSAG.__nullReturnValue);
         _ImAp.put(MetaDMSAG.__nvp.id,MetaDMSAG.__nvp);
         _ImAp.put(MetaDMSAG.__obsoleteVersion.id,MetaDMSAG.__obsoleteVersion);
+        _ImAp.put(MetaDMSAG.__optimize.id,MetaDMSAG.__optimize);
         _ImAp.put(MetaDMSAG.__preserveNewlines.id,MetaDMSAG.__preserveNewlines);
         _ImAp.put(MetaDMSAG.__relatedToConcept.id,MetaDMSAG.__relatedToConcept);
         _ImAp.put(MetaDMSAG.__secure.id,MetaDMSAG.__secure);
@@ -94,6 +95,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         _SmAp.put(MetaDMSAG.__nullReturnValue.name,MetaDMSAG.__nullReturnValue);
         _SmAp.put(MetaDMSAG.__nvp.name,MetaDMSAG.__nvp);
         _SmAp.put(MetaDMSAG.__obsoleteVersion.name,MetaDMSAG.__obsoleteVersion);
+        _SmAp.put(MetaDMSAG.__optimize.name,MetaDMSAG.__optimize);
         _SmAp.put(MetaDMSAG.__preserveNewlines.name,MetaDMSAG.__preserveNewlines);
         _SmAp.put(MetaDMSAG.__relatedToConcept.name,MetaDMSAG.__relatedToConcept);
         _SmAp.put(MetaDMSAG.__secure.name,MetaDMSAG.__secure);
@@ -718,6 +720,40 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         
         attr.set(value);
         set(MetaDMSAG.__obsoleteVersion,attr);
+    }
+
+    /**
+     * Depending on what you're modelling, you often come across\n places where
+     * you can see an opportunity to optimize, streamline or improve something
+     * e.g. merging\n concepts together, representing something differently,
+     * adding a relationship - whatever.\n However, these ideas often get lost in
+     * the shuffle or, if you add them into an overall\n description of
+     * something, they don't stand out.\n <p/>\n Any dark-matter definition can
+     * be decorated with optimize notes. These notes provide 
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2542)
+    public Iterator<String> getOptimize(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__optimize);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another optimize value.
+     * @param value A value compatible with DmcTypeStringMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2647)
+    public DmcAttribute<?> addOptimize(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__optimize);
+        if (attr == null)
+            attr = new DmcTypeStringMV(MetaDMSAG.__optimize);
+        
+        attr.add(value);
+        add(MetaDMSAG.__optimize,attr);
+        return(attr);
     }
 
     /**
