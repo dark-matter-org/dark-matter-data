@@ -340,6 +340,19 @@ requiredPart	String			content		"The textual content of the example - this can be
 description If you want to get rid of the &#92;n use: .replaceAll("&#92;&#92;&#92;&#92;n","&#92;&#92;&#92;n")
 
 ComplexTypeDefinition
+name			Optimize
+fieldSeparator	:
+requiredPart	String			what	"A description of the change to be made"
+optionalPart	String			who		"Who made the suggestion" quoted=true
+optionalPart	String			when	"A suggested timeframe for the change" quoted=true
+optionalPart	Concinnity		why		"A suggested timeframe for the change" weakref=true multivalued=true
+description		Allows for capture of optimization notes.
+example			code : Specifying an Optimization/Improvement : 
+ <pre>
+ optimize We could improve compression if we indicated the blah, blah, blah who="Me" when="release 5" why="reduce bandwidth charges"
+ </pre>
+
+ComplexTypeDefinition
 name			DmwTypeToWrapperType
 field           String          dmwType     The Dark Matter Wrapper type
 field           WrapperTypeEnum wrapperType The type of wrapper to be used in this context
@@ -2064,6 +2077,20 @@ type                		Boolean
 description					A flag to indicate that a reference attribute is weak i.e. 
  if the object can't be resolved, no exception is thrown.
 
+AttributeDefinition
+name                		optimize
+dmdID						180
+type                		String
+valueType					MULTI
+description					Depending on what you're modelling, you often come across
+ places where you can see an opportunity to optimize, streamline or improve something e.g. merging
+ concepts together, representing something differently, adding a relationship - whatever.
+ However, these ideas often get lost in the shuffle or, if you add them into an overall
+ description of something, they don't stand out.
+ <p/>
+ Any dark-matter definition can be decorated with optimize notes. These notes provide
+
+
 //AttributeDefinition
 //name                		nameAndTypeName
 //dmdID						176
@@ -2134,6 +2161,7 @@ may				dotName
 may				sortName
 may				tags
 may				nvp
+may				optimize
 description		The domain specific definition (DSDefinition) forms the basis for all definitions
  that use dark-matter as their basis. The initial dark-matter mechanisms were focussed only on 
  schema for data objects, but, as the project developed, other, domain specific sets of definitions

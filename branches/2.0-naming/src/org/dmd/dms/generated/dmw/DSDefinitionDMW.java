@@ -354,6 +354,45 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
         return(attr.getMVSize());
     }
 
+    /**
+     * Depending on what you're modelling, you often come across\n places where
+     * you can see an opportunity to optimize, streamline or improve something
+     * e.g. merging\n concepts together, representing something differently,
+     * adding a relationship - whatever.\n However, these ideas often get lost in
+     * the shuffle or, if you add them into an overall\n description of
+     * something, they don't stand out.\n <p/>\n Any dark-matter definition can
+     * be decorated with optimize notes. These notes provide 
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2602)
+    public Iterator<String> getOptimize(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__optimize);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another optimize value.
+     * @param value A value compatible with DmcTypeStringMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2682)
+    public void addOptimize(Object value) throws DmcValueException {
+        mycore.addOptimize(value);
+    }
+
+    /**
+     * Returns the number of optimize values.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2695)
+    public int getOptimizeSize(){
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__optimize);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation
