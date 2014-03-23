@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcClassInfo;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.types.StringName;
+import org.dmd.dmc.types.DefinitionName;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dms.generated.dmo.ClassDefinitionDMO;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
@@ -59,12 +59,12 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * Key:   String - attribute name
      * Value: AttributeDefinition
      */
-    TreeMap<StringName,AttributeDefinition>     attrMap;
+    TreeMap<DefinitionName,AttributeDefinition>     attrMap;
     
     // The fullAttrMap maintains the complete set of attributes supported by this
     // clas and any of it parent classes.
     // Key: attribute name
-    TreeMap<StringName,AttributeDefinition>		fullAttrMap;
+    TreeMap<DefinitionName,AttributeDefinition>		fullAttrMap;
 
     /**
      * Stores the definitions of required attributes whose dataType is PERSISTENT,
@@ -117,13 +117,13 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * Stores the definitions of all mustHave attributes for this class and
      * the classes from which it is derived.
      */
-    TreeMap<StringName,AttributeDefinition>     allMust;
+    TreeMap<DefinitionName,AttributeDefinition>     allMust;
 
     /**
      * Stores the definitions of all mayHave attributes for this class and
      * the classes from which it is derived.
      */
-    TreeMap<StringName,AttributeDefinition>     allMay;
+    TreeMap<DefinitionName,AttributeDefinition>     allMay;
 
     /**
      * The complete list of the classes from which this class is derived.
@@ -135,7 +135,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * or any number of levels down the inheritance hierarchy. The derivedClasses
      * attribute maintains a list of the immediate derivatives of a class.
      */
-    TreeMap<StringName,ClassDefinition>     allDerived;
+    TreeMap<DefinitionName,ClassDefinition>     allDerived;
 
     /**
      * The classes of objects that may be contained by this class of object if
@@ -143,7 +143,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * Key:   String (class name)
      * Value: ClassDefinition
      */
-    TreeMap<StringName,ClassDefinition>     allowedSubcomps;
+    TreeMap<DefinitionName,ClassDefinition>     allowedSubcomps;
 
     /**
      * These are actions that have been attached from other schemas.
@@ -154,7 +154,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * All actions defined for this class, either directly or via the
      * attachment mechanism.
      */
-    HashMap<StringName,ActionDefinition>     allActions;
+    HashMap<DefinitionName,ActionDefinition>     allActions;
     
     HashMap<String,DmwTypeToWrapperType>	wrapperTypeMap;
 
@@ -165,7 +165,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
     private ArrayList<ClassDefinition> allImplemented;
     private ArrayList<ClassDefinition> allImplementors;
         
-    StringName nameKey;
+    DefinitionName nameKey;
     
     // This is initialized in the SchemaAG for a class so that we can easily access it
     DmcClassInfo	classInfo;
@@ -275,7 +275,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
         allowedSubcomps = null;
         attachedActions = null;
         allActions      = null;
-    	nameKey 		= new StringName();
+    	nameKey 		= new DefinitionName();
     }
     
     public AttributeDefinition hasAttribute(String name){
@@ -291,7 +291,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * @param name the name of an attribute.
      * @return true if the attribute is a must have attribute in this class and false otherwise.
      */
-    public boolean isMust(StringName name){
+    public boolean isMust(DefinitionName name){
     	if (fullAttrMap == null)
     		getFullAttrMap();
     	
@@ -301,7 +301,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
     		return(true);
     }
     
-    public boolean isAllowedAttribute(StringName name){
+    public boolean isAllowedAttribute(DefinitionName name){
     	if (fullAttrMap == null)
     		getFullAttrMap();
     	if (fullAttrMap.get(name) == null)
@@ -314,7 +314,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
             Iterator<AttributeDefinition> it;
             AttributeDefinition ad;
 
-            attrMap = new TreeMap<StringName, AttributeDefinition>();
+            attrMap = new TreeMap<DefinitionName, AttributeDefinition>();
             if ( (it = this.getMust()) != null){
                 while(it.hasNext()){
                     ad = (AttributeDefinition)it.next();
@@ -337,7 +337,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * @param attrName The attribute name.
      * @return The attribute definition or null if we don't have the attribute for this class.
      */
-    public AttributeDefinition hasAttribute(StringName attrName){
+    public AttributeDefinition hasAttribute(DefinitionName attrName){
     	AttributeDefinition rc = null;
 
     	initAttrMap();
@@ -346,7 +346,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
 //            Iterator<AttributeDefinition> it;
 //            AttributeDefinition ad;
 //
-//            attrMap = new TreeMap<StringName, AttributeDefinition>();
+//            attrMap = new TreeMap<DefinitionName, AttributeDefinition>();
 //            if ( (it = this.getMust()) != null){
 //                while(it.hasNext()){
 //                    ad = (AttributeDefinition)it.next();
@@ -387,7 +387,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * class and any parent classes.
      * @param map
      */
-    void initFullAttrMap(TreeMap<StringName,AttributeDefinition> map, TreeMap<StringName,AttributeDefinition> must, TreeMap<StringName,AttributeDefinition> may){
+    void initFullAttrMap(TreeMap<DefinitionName,AttributeDefinition> map, TreeMap<DefinitionName,AttributeDefinition> must, TreeMap<DefinitionName,AttributeDefinition> may){
         Iterator<AttributeDefinition> it;
         AttributeDefinition ad;
 
@@ -412,12 +412,12 @@ public class ClassDefinition extends ClassDefinitionDMW {
 
     }
      
-    public TreeMap<StringName,AttributeDefinition> getAllMust(){
+    public TreeMap<DefinitionName,AttributeDefinition> getAllMust(){
     	getFullAttrMap();
     	return(allMust);
     }
     
-    public TreeMap<StringName,AttributeDefinition> getAllMay(){
+    public TreeMap<DefinitionName,AttributeDefinition> getAllMay(){
     	getFullAttrMap();
     	return(allMay);
     }
@@ -425,7 +425,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
     /**
      * @return all must/may attributes just for this class
      */
-    public TreeMap<StringName,AttributeDefinition> getAllAttributesAtThisLevel(){
+    public TreeMap<DefinitionName,AttributeDefinition> getAllAttributesAtThisLevel(){
     	initAttrMap();
     	return(attrMap);
     }
@@ -433,13 +433,13 @@ public class ClassDefinition extends ClassDefinitionDMW {
     /**
      * @return the complete set of attributes for this class and all of its parent classes.
      */
-    public TreeMap<StringName,AttributeDefinition> getFullAttrMap(){
+    public TreeMap<DefinitionName,AttributeDefinition> getFullAttrMap(){
     	if (fullAttrMap == null){
-    		fullAttrMap = new TreeMap<StringName, AttributeDefinition>();
+    		fullAttrMap = new TreeMap<DefinitionName, AttributeDefinition>();
     		if (allMust == null)
-    			allMust = new TreeMap<StringName, AttributeDefinition>();
+    			allMust = new TreeMap<DefinitionName, AttributeDefinition>();
     		if (allMay == null)
-    			allMay = new TreeMap<StringName, AttributeDefinition>();
+    			allMay = new TreeMap<DefinitionName, AttributeDefinition>();
     		initFullAttrMap(fullAttrMap,allMust,allMay);
     	}
     	return(fullAttrMap);
@@ -462,7 +462,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
      */
     void updateAllDerived(ClassDefinition derived){
         if (allDerived == null)
-            allDerived = new TreeMap<StringName,ClassDefinition>();
+            allDerived = new TreeMap<DefinitionName,ClassDefinition>();
 
         allDerived.put(derived.getObjectName(),derived);
 
@@ -551,7 +551,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
      */
     void addSubcomp(ClassDefinition subcomp){
         if (allowedSubcomps == null)
-            allowedSubcomps = new TreeMap<StringName,ClassDefinition>();
+            allowedSubcomps = new TreeMap<DefinitionName,ClassDefinition>();
 
         allowedSubcomps.put(subcomp.getObjectName(), subcomp);
     }
@@ -560,7 +560,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * Returns the allderived variable which holds a Hashmap of all
      * classes that derive from this class
      */
-    public TreeMap<StringName,ClassDefinition> getAllDerived() {
+    public TreeMap<DefinitionName,ClassDefinition> getAllDerived() {
     	if (allDerived == null)
     		updateAllDerived(this);
     	
@@ -575,7 +575,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
     /**
      * Returns the set of allowed subcomponents for this class.
      */
-    public TreeMap<StringName,ClassDefinition> getAllowedSubcomps(){
+    public TreeMap<DefinitionName,ClassDefinition> getAllowedSubcomps(){
         return(allowedSubcomps);
     }
 
@@ -701,7 +701,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
     		
     		if (classes != null){
 	    		for(ClassDefinition cdef: classes){
-	    			if (this.getObjectName().getNameString().equals(cdef.getName().getNameString())){
+	    			if (cd.getObjectName().getNameString().equals(cdef.getName().getNameString())){
 	    				rc = true;
 	    				break;
 	    			}
@@ -946,7 +946,13 @@ public class ClassDefinition extends ClassDefinitionDMW {
     	if (attrNames != null){
     		while(attrNames.hasNext()){
     			String		name = attrNames.next();
-    			StringName 	attr = new StringName(name);
+    			DefinitionName attr = null;
+				try {
+					attr = new DefinitionName(name);
+				} catch (DmcValueException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
     			if (!isAllowedAttribute(attr)){
     				if (getClassType() == ClassTypeEnum.EXTENSIBLE){
     					// Add the appropriate import for the attribute's type

@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Iterator;
 
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
@@ -82,7 +83,7 @@ public class DmoGenUtility {
 	BooleanVar		checkRules 	= new BooleanVar();
 	BooleanVar		checkOnly 	= new BooleanVar();
 	
-	public DmoGenUtility(String[] args) throws ResultException, IOException, DmcValueException, DmcValueExceptionSet {
+	public DmoGenUtility(String[] args) throws ResultException, IOException, DmcValueException, DmcValueExceptionSet, DmcNameClashException {
 		initHelp();
 		cl = new CommandLine();
         cl.addOption("-h",     		helpFlag,	"Dumps the help message.");
@@ -184,7 +185,7 @@ public class DmoGenUtility {
         help.append("\n");
 	}
 	
-	public void run() throws DmcValueExceptionSet, DmcRuleExceptionSet {
+	public void run() throws DmcValueExceptionSet, DmcRuleExceptionSet, DmcNameClashException {
         BufferedReader  in = new BufferedReader(new InputStreamReader(System.in));
         String          currLine    = null;
         TokenArrayList	tokens		= null;
@@ -213,7 +214,7 @@ public class DmoGenUtility {
 				System.exit(1);
 			}
         	
-        	System.exit(0);
+        	return;
         }
 
         System.out.println("\n-- dmo generator utility --\n");
@@ -289,6 +290,10 @@ public class DmoGenUtility {
 						
 						FileUpdateManager.instance().generationComplete();
 						
+						if ((sd != null) && checkRules.booleanValue()){
+							parser.checkRules(sd);
+						}
+						
 					} catch (ResultException e) {
 						System.err.println(e.toString());
 					} catch (DmcValueException e) {
@@ -307,7 +312,7 @@ public class DmoGenUtility {
         }
 	}
 	
-	void generateFromConfig(ConfigLocation location){
+	void generateFromConfig(ConfigLocation location) throws DmcNameClashException{
     	try {
     		// Create a new manager into which the parsed schemas will be loaded
     		readSchemas = new SchemaManager();

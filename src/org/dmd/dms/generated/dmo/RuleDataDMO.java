@@ -16,23 +16,24 @@
 package org.dmd.dms.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1844)
-import java.io.Serializable;                  // Serializable marker interface - (MetaGenerator.java:1797)
-import java.util.*;                           // Attribute info support - (MetaGenerator.java:1799)
-import org.dmd.dmc.*;                         // Dark matter core - (MetaGenerator.java:1821)
-import org.dmd.dmc.types.*;                   // Basic type access - (MetaGenerator.java:1811)
-import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGenerator.java:1833)
+// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1938)
+import java.io.Serializable;                  // Serializable marker interface - (MetaGenerator.java:1887)
+import java.util.*;                           // Attribute info support - (MetaGenerator.java:1889)
+import org.dmd.dmc.*;                         // Dark matter core - (MetaGenerator.java:1911)
+import org.dmd.dmc.types.*;                   // Basic type access - (MetaGenerator.java:1901)
+import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGenerator.java:1927)
+
 
 
 /**
  * The RuleData class serves as a common base for all ClassDefinitions\n that
  * are generated internally to represent the data associated with
- * RuleDefinitions.
+ * RuleDefinitions. 
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1854)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1948)
  */
 @SuppressWarnings("serial")
-public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializable {
+public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializable  {
 
 
 
@@ -100,9 +101,9 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
     /**
      * The ruleName attribute is used to store a single camelCase format name for
      * a rule.\n The name starts with a single letter and can be followed by a
-     * mix of letters and numbers. No spaces or \n other characters are allowed.
+     * mix of letters and numbers. No spaces or \n other characters are allowed. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2239)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2340)
     public RuleName getRuleName(){
         DmcTypeRuleNameSV attr = (DmcTypeRuleNameSV) get(MetaDMSAG.__ruleName);
         if (attr == null)
@@ -115,7 +116,7 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      * Sets ruleName to the specified value.
      * @param value A value compatible with DmcTypeRuleNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2332)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2432)
     public void setRuleName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__ruleName);
         if (attr == null)
@@ -126,9 +127,9 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
     }
 
     /**
-     * The title of a rule.
+     * The title of a rule. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2239)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2340)
     public String getRuleTitle(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__ruleTitle);
         if (attr == null)
@@ -141,7 +142,7 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2332)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2432)
     public void setRuleTitle(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__ruleTitle);
         if (attr == null)
@@ -152,9 +153,9 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
     }
 
     /**
-     * The class to which a rule should be applied.
+     * The class to which a rule should be applied. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2239)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2340)
     public ClassDefinitionREF getApplyToClass(){
         DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) get(MetaDMSAG.__applyToClass);
         if (attr == null)
@@ -167,7 +168,7 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      * Sets applyToClass to the specified value.
      * @param value A value compatible with DmcTypeClassDefinitionREFSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2332)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2432)
     public void setApplyToClass(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__applyToClass);
         if (attr == null)
@@ -178,9 +179,9 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
     }
 
     /**
-     * Indicates the schema in which a type, attribute or class is defined.
+     * Indicates the schema in which a type, attribute or class is defined. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2239)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2340)
     public SchemaDefinitionREF getDefinedIn(){
         DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) get(MetaDMSAG.__definedIn);
         if (attr == null)
@@ -193,7 +194,7 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      * Sets definedIn to the specified value.
      * @param value A value compatible with DmcTypeSchemaDefinitionREFSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2332)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2432)
     public void setDefinedIn(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__definedIn);
         if (attr == null)
@@ -207,44 +208,56 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      * The description attribute is used to provide descriptive\n documentation
      * for schema related definitions. The text provided should conform\n to
      * XHTML concepts since it will be dumped in the context of the generated
-     * HTML\n documentation.
+     * HTML\n documentation. 
+     * @return An Iterator of String objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2239)
-    public String getDescription(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__description);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2542)
+    public Iterator<String> getDescription(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
         if (attr == null)
             return(null);
 
-        return(attr.getSV());
+        return(attr.getMV());
     }
 
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2272)
-    public String getDescriptionWithNewlines(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__description);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2557)
+    public Iterator<String> getDescriptionWithNewlines(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
         if (attr == null)
             return(null);
 
-        return(attr.getSV().replaceAll("\\\\n","\\\n"));
+        DmcTypeStringMV withNewLines = new DmcTypeStringMV();
+        Iterator<String> it = attr.getMV();
+        while(it.hasNext()){
+            try{
+                withNewLines.add(it.next().replaceAll("\\\\n","\\\n"));
+            } catch (DmcValueException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return(withNewLines.getMV());
     }
 
     /**
-     * Sets description to the specified value.
-     * @param value A value compatible with DmcTypeStringSV
+     * Adds another description value.
+     * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2332)
-    public void setDescription(Object value) throws DmcValueException {
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2647)
+    public DmcAttribute<?> addDescription(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
-            attr = new DmcTypeStringSV(MetaDMSAG.__description);
+            attr = new DmcTypeStringMV(MetaDMSAG.__description);
         
-        attr.set(value);
-        set(MetaDMSAG.__description,attr);
+        attr.add(value);
+        add(MetaDMSAG.__description,attr);
+        return(attr);
     }
 
     /**
-     * Indicates the file from which a definition was loaded.
+     * Indicates the file from which a definition was loaded. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2239)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2340)
     public String getFile(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__file);
         if (attr == null)
@@ -257,7 +270,7 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2332)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2432)
     public void setFile(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__file);
         if (attr == null)
@@ -272,9 +285,9 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      * processing should occur if a rule fails. It is an optional attribute on
      * rule instance\n objects. In somes cases, there is no point in continuing
      * with the application of a set \n of rules, so this flag gives the option
-     * of halting further processing.
+     * of halting further processing. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2239)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2340)
     public Boolean getImmediateHalt(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaDMSAG.__immediateHalt);
         if (attr == null)
@@ -287,7 +300,7 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      * Sets immediateHalt to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2332)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2432)
     public void setImmediateHalt(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__immediateHalt);
         if (attr == null)
@@ -298,9 +311,9 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
     }
 
     /**
-     * Indicates the line number of the file from which a definition was loaded.
+     * Indicates the line number of the file from which a definition was loaded. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2239)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2340)
     public Integer getLineNumber(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaDMSAG.__lineNumber);
         if (attr == null)
@@ -313,7 +326,7 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2332)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2432)
     public void setLineNumber(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__lineNumber);
         if (attr == null)
@@ -326,9 +339,9 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
     /**
      * The msgKey may be specified on rule instances to indicate the key to be
      * used\n to look up translated messages. This is primarily a GWT mechanism,
-     * but should be applicable in\n other contexts.
+     * but should be applicable in\n other contexts. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2239)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2340)
     public String getMsgKey(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__msgKey);
         if (attr == null)
@@ -341,7 +354,7 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      * Sets msgKey to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2332)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2432)
     public void setMsgKey(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__msgKey);
         if (attr == null)
@@ -353,10 +366,10 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
 
     /**
      * The msgParam allows for the specification of parameters to be
-     * substituted\n into translated messages.
+     * substituted\n into translated messages. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2437)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2542)
     public Iterator<String> getMsgParam(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__msgParam);
         if (attr == null)
@@ -369,7 +382,7 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      * Adds another msgParam value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2492)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2647)
     public DmcAttribute<?> addMsgParam(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__msgParam);
         if (attr == null)
@@ -383,7 +396,7 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:2033)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:2131)
 
     /**
      * @return The name of this object from the ruleName attribute.

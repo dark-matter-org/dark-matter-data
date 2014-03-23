@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.SchemaDefinition;
@@ -48,7 +49,7 @@ public class GoogleCodeWikiGenerator {
 		
 	}
 
-	public void dumpDocumentation(String outdir) throws IOException {
+	public void dumpDocumentation(String outdir) throws IOException, DmcNameClashException {
 		DebugInfo.debug(outdir);
 		
 		initDirs(outdir);

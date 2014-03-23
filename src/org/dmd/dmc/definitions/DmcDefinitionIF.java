@@ -15,8 +15,9 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.definitions;
 
+import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.types.DotName;
-import org.dmd.dmc.types.StringName;
+import org.dmd.dmc.types.DefinitionName;
 
 /**
  * The DmcDefinitionIF interface provides a common interface for definitions
@@ -27,11 +28,22 @@ import org.dmd.dmc.types.StringName;
  */
 public interface DmcDefinitionIF {
 
-	public StringName getName();
+	public DefinitionName getName();
 	
+	/**
+	 * @return the fully qualified dot name of the definition. This is usually
+	 * of the form module.defname.type.
+	 */
 	public DotName getDotName();
 	
+	/**
+	 * @return the partially qualified name of a definition that has the form defname.type
+	 */
+//	public DotName getNameAndTypeName();
+	
 	public String toOIF();
+	
+	public DmcNamedObjectIF getDefinedIn();
 	
 	
 }

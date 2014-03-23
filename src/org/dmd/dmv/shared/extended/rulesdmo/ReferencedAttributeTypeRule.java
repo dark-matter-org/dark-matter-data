@@ -3,11 +3,11 @@ package org.dmd.dmv.shared.extended.rulesdmo;
 import java.util.Iterator;
 
 import org.dmd.dmc.DmcAttribute;
-import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcObject;
-import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.rules.DmcRuleException;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
+import org.dmd.dmc.rules.SourceInfo;
+import org.dmd.dms.generated.dmo.DSDefinitionDMO;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.types.AttributeDefinitionREF;
 import org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREFSV;
@@ -43,7 +43,7 @@ public class ReferencedAttributeTypeRule extends ReferencedAttributeTypeRuleBase
 			AttributeDefinitionREF ref = refsv.getSV();
 			
 			try {
-				checkReferencedAttribute(obj, attribute, ref.getObjectName().getNameString());
+				checkReferencedAttribute(obj, attribute, ref);
 			} catch (DmcRuleException e) {
 				rc = new DmcRuleExceptionSet();
 				rc.add(e);
@@ -54,7 +54,7 @@ public class ReferencedAttributeTypeRule extends ReferencedAttributeTypeRuleBase
 				AttributeDefinitionREF ref = (AttributeDefinitionREF) attribute.getMVnth(i);
 				
 				try {
-					checkReferencedAttribute(obj, attribute, ref.getObjectName().getNameString());
+					checkReferencedAttribute(obj, attribute, ref);
 				} catch (DmcRuleException e) {
 					if (rc == null)
 						rc = new DmcRuleExceptionSet();
@@ -72,37 +72,67 @@ public class ReferencedAttributeTypeRule extends ReferencedAttributeTypeRuleBase
 	 * This method facilitates reuse of the basic logic for both single and multi-valued reference attributes.
 	 * @param obj The object with the reference attribute.
 	 * @param attribute
-	 * @param attrName
+	 * @param ref the attribute reference
 	 * @throws DmcRuleException
 	 */
-	void checkReferencedAttribute(DmcObject obj, DmcAttribute<?> attribute, String attrName) throws DmcRuleException {
+	void checkReferencedAttribute(DmcObject obj, DmcAttribute<?> attribute, AttributeDefinitionREF ref) throws DmcRuleException {
 		
-		// First, we try to find the definition of the attribute in question
-		DmcAttributeInfo ai = DmcOmni.instance().getAttributeInfo(attrName);
+		// This might get called when the object hasn't been resolved, so just return. This is a bit of hack
+		// until we figure out an elegant way to handle schema loading and sequencing things like object resolution
+		// and rule checking.
+		//
+		// Originally, this rule was using the DmcOmni, but that was unreliable because there was no guarantee that
+		// the object we were looking for was already loaded in the DmcOmni. 
+		if (ref.getObject() == null)
+			return;
 		
-		if (ai == null)
-			throw(new DmcRuleException("Unknown attribute: " + attrName + " referred to via attribute: " + attribute.getName() + " in object: \n" + obj.toOIF(), this));
-			
+		// Depending on whether or not references have been resolved via loaded schemas
+		// of schemas being parsed, the type of the attribute being referred to has to
+		// be retrieved in different ways. 
+		// 
+		// Doing ref.getObject().getType().getObjectName().getNameString() will, in some cases
+		// give us schema.type, when we actually want just the type.
+		// When possible, we use ref.getObject().getType().getObject().getName().getNameString()
+		String testType = ref.getObject().getType().getObjectName().getNameString();
+		if (ref.getObject().getType().getObject() != null){
+			testType = ref.getObject().getType().getObject().getName().getNameString();
+		}
+		
 		if (ruleDMO.getAllowedValueType() != null){
 			// Check the value type if it was specified
-			if (ruleDMO.getAllowedValueType() != ai.valueType){
-				throw(new DmcRuleException(this.getRuleTitle() + "\n" + "Expected valueType: " + ruleDMO.getAllowedValueType() + " but " + attrName + " has valueType: " + ai.valueType, this));
+			if (ruleDMO.getAllowedValueType() != ref.getObject().getValueType()){
+				DmcRuleException rex = new DmcRuleException(this.getRuleTitle() + "\n" + "Expected valueType: " + ruleDMO.getAllowedValueType() + " but " + ref.getObjectName() + " has valueType: " + ref.getObject().getValueType(), this);
+				if (obj instanceof DSDefinitionDMO){
+					DSDefinitionDMO def = (DSDefinitionDMO) obj;
+					rex.source(new SourceInfo(def.getFile(), def.getLineNumber() + ""));
+					
+				}
+				throw(rex);
 			}
 		}
 		
 		if (ruleDMO.getAllowedTypeSize() > 0){
+		
+			
 			boolean typeOkay = false;
 			Iterator<TypeDefinitionREF> types = ruleDMO.getAllowedType();
 			while(types.hasNext()){
 				TypeDefinitionREF type = types.next();
-				if (type.getObjectName().getNameString().equals(ai.type)){
+				if (type.getObjectName().getNameString().equals(testType)){
 					typeOkay = true;
 					break;
 				}
 			}
 			
-			if (!typeOkay)
-				throw(new DmcRuleException(this.getRuleTitle() + "\n" + attrName + " isn't one of the expected types, it's of type: " + ai.type, this));
+			if (!typeOkay){
+//				DmcRuleException rex = new DmcRuleException(this.getRuleTitle() + "\n" + ref.getObjectName() + " isn't one of the expected types, it's of type: " + ref.getObject().getType().getObjectName().getNameString(), this);
+				DmcRuleException rex = new DmcRuleException(this.getRuleTitle() + "\n" + ref.getObjectName() + " isn't one of the expected types, it's of type: " + testType, this);
+				if (obj instanceof DSDefinitionDMO){
+					DSDefinitionDMO def = (DSDefinitionDMO) obj;
+					rex.source(new SourceInfo(def.getFile(), def.getLineNumber() + ""));
+				}
+				throw(rex);
+			}
 		}
 		
 	}

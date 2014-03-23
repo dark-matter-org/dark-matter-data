@@ -26,8 +26,8 @@ import org.dmd.dms.generated.enums.DebugEnum;    // DmcType import
  * The DmcTypeDebugEnumMV provides storage for a multi-valued DebugEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:562)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2329)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:595)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDebugEnumMV extends DmcTypeDebugEnum implements Serializable {
@@ -50,7 +50,7 @@ public class DmcTypeDebugEnumMV extends DmcTypeDebugEnum implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2360)
     public DmcAttribute<DebugEnum> cloneIt(){
         synchronized(this){
             DmcTypeDebugEnumMV rc = getNew();
@@ -79,7 +79,7 @@ public class DmcTypeDebugEnumMV extends DmcTypeDebugEnum implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2393)
     public DebugEnum add(Object v) throws DmcValueException {
         synchronized(this){
             DebugEnum rc = typeCheck(v);
@@ -91,7 +91,7 @@ public class DmcTypeDebugEnumMV extends DmcTypeDebugEnum implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2406)
     public DebugEnum del(Object v){
         synchronized(this){
             if (value == null)
@@ -115,7 +115,7 @@ public class DmcTypeDebugEnumMV extends DmcTypeDebugEnum implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2440)
     public Iterator<DebugEnum> getMV(){
         synchronized(this){
             if (value == null)
@@ -126,7 +126,7 @@ public class DmcTypeDebugEnumMV extends DmcTypeDebugEnum implements Serializable
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2452)
     public ArrayList<DebugEnum> getMVCopy(){
         synchronized(this){
             if (value == null)
@@ -137,7 +137,7 @@ public class DmcTypeDebugEnumMV extends DmcTypeDebugEnum implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2434)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2464)
     public int getMVSize(){
         synchronized(this){
             if (getAttributeInfo().indexSize == 0){
@@ -151,7 +151,7 @@ public class DmcTypeDebugEnumMV extends DmcTypeDebugEnum implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2479)
     public DebugEnum getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -161,7 +161,7 @@ public class DmcTypeDebugEnumMV extends DmcTypeDebugEnum implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2490)
     public DebugEnum setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
@@ -188,7 +188,7 @@ public class DmcTypeDebugEnumMV extends DmcTypeDebugEnum implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2518)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -211,7 +211,7 @@ public class DmcTypeDebugEnumMV extends DmcTypeDebugEnum implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2542)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

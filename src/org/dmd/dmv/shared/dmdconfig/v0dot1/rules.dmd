@@ -236,7 +236,31 @@ description			This is really just a convention, but the generation of
  the enum can be imported in the static implementation. The dumpSTATICType()
  method in GenUtility checks to see if the type ends with Enum and adds
  the appropriate import if that's the case.
- 
+
+PatternMatchRuleData
+ruleName			dmvDefinitionNameCheck
+ruleTitle			The name attribute must start with a letter, followed by a mix of letters and numbers.
+matchesPattern		[a-zA-Z][a-zA-Z0-9_]*
+applyToAttribute	name
+description			Although the name attribute is defined as type DotName, when
+ the value is used as the value for the name attribute, it must not contain the 
+ dot character. This is because we allow for references to definitions to be
+ either the flat name of the definition, or its fully qualified name that includes
+ the definition set name, for example, meta.must - which indicates the must attribute
+ from the meta schema.
+ <p/>
+ This allows for the convention of referring to definitions in the most general
+ way possible without having to fully qualify every reference. 
+
+PatternMatchRuleData
+ruleName			dmvTagsCheck
+ruleTitle			The tags attribute must be a mix of letters, numbers and spaces.
+matchesPattern		[a-zA-Z0-9][a-zA-Z0-9 ]*
+applyToAttribute	tags
+description			Considered having tags without spaces, but it gets tricky when you 
+ want to represent things like San Franciso. So spaces are allowed in tags, but no
+ other special characters.
+
 ///////////////////////////////////////////////////////////////////////////////
 
 RuleDefinition
@@ -288,6 +312,14 @@ ruleTitle			At least one of the maxLength or minLength attributes must be specif
 applyToClass		ValueLengthRuleData
 onePossibility		maxLength
 onePossibility		minLength
+
+OneOfTheseAttributesRequiredRuleData
+ruleName			dmvComplexTypeAttributeCheck
+ruleTitle			At least one of the field or requiredPart/optionalPart attributes must be specified.
+applyToClass		ComplexTypeDefinition
+onePossibility		field
+onePossibility		requiredPart
+onePossibility		optionalPart
 
 RelatedNumbersRuleData
 ruleName        	dmvMinLessThanMax
@@ -348,6 +380,52 @@ description			The ReferencedAttributeTypeRule allowes you to restrict the type o
  </pre>
  Here, we're indicating that the lhs (left hand side) attribute must be single valued.
 
+///////////////////////////////////////////////////////////////////////////////
+ 
+RuleDefinition
+name				OnlyOneOfTheseAttributesAllowedRule
+dmdID				12
+ruleCategory		ObjectValidation
+must				onePossibility
+description			The OnlyOneOfTheseAttributesAllowedRule allows you to specify
+ that only one of the possible attributes specified must be present
+ in the object being checked. This only makes sense where the attributes in
+ question are optional (may have) in the object.
+ <p/>
+ An example of this rule can be seen below.
+ <pre>
+ OnlyOneOfTheseAttributesAllowedRule
+ ruleName			dmvMoneySource
+ ruleTitle			Only 
+ applyToClass		PaymentMethod
+ onePossibility		creditCardNumber
+ onePossibility		payPalAccount
+ </pre>
+
+///////////////////////////////////////////////////////////////////////////////
+
+RuleDefinition
+name			PartCheckerRule
+dmdID			14
+ruleCategory	ObjectValidation
+description		The PartCheckerRule will validate a ComplexTypeDefinition
+ for some of the more tricky aspects of that definition. In particular it will
+ check: <br>
+ <ul>
+ <li> that the greedy flag is only specified on requiredPart attributes </li>
+ <li> that the greedy flag is only specified on ComplexTypes where are all parts are required </li>
+ <li> that the greedy flag is only specified on the final requiredPart </li>
+ </ul>
+
+PartCheckerRuleData
+ruleName			dmvPartChecker
+ruleTitle			The greedy flag is only allowed on the final requiredPart of a ComplexTypeDefinition composed of requiredParts.
+applyToClass		ComplexTypeDefinition
+description			There are no parameters. The logic is completely internal to the rule.
+	 
+///////////////////////////////////////////////////////////////////////////////
+
+ 
 ReferencedAttributeTypeRuleData
 ruleName			dmvRATRApplyToAttribute
 ruleTitle			The applyToAttribute attribute in a ReferencedAttributeTypeRuleData must refer to a single valued AttributeDefinition
@@ -355,7 +433,7 @@ applyToAttribute	applyToAttribute
 applyToClass 		ReferencedAttributeTypeRuleData
 allowedType 		AttributeDefinition
 description         This might look a little funny, applying the rule to the applyToattribute, but
- if you think about it, it makes sense. You might think, hey, applyToToAttribute is an AttributeDefinition
+ if you think about it, it makes sense. You might think, hey, applyToAttribute is an AttributeDefinition
  so why validate that. However, it's not the applyToAttribute that we're validating, but the attribute
  that it refers to. It just happens that we're 
 
@@ -413,4 +491,41 @@ onePossibility		nrrMinimum
 onePossibility		nrrMaximum
 description The NumericRangeRule can operate with one or both of the minimum
  and maximum values.
+
+PatternMatchRuleData
+ruleName			dmvFileExtensionCheck
+ruleTitle			A file extension should be comprised of alpha-numeric characters.
+matchesPattern		[a-zA-Z][a-zA-Z0-9]*
+applyToAttribute	fileExtension
+description			Didn't want to be too restrictive with this. Definitely didn't want special characters.
+
+// NOTE: tried to use this in the process of parsing and generating a new schema
+// and ran into the problem that the attribute being referenced by the moduleDependenceAttribute
+// has not been loaded into the the DmcOmni (which makes sense because we're parsing its schema!)
+// The rules have to be based on some sort of hybrid of schemas that have been loaded
+// and an "omni" that contains dynamically updated information. This is very 
+// particular to schema related rules.
+//
+// Or maybe the approach is to have an interface defined for a resolver that gets passed to the
+// rules instead of them access the DmcOmni. That way, we can pass in SchemaManager (for instance).
+
+ReferencedAttributeTypeRuleData
+ruleName          dmvModuleDependenceAttribute
+ruleTitle         The attribute referred to by the moduleDependenceAttribute attribute must be multi-valued.
+applyToAttribute  moduleDependenceAttribute
+applyToClass      DSDefinitionModule
+allowedValueType  MULTI
+description       We have sections of generated code that will access the module
+ dependence attribute of a DDM module instance and being able to assume that the
+ module dependence attribute is multi-valued just makes things easier.
+
+ReferencedAttributeTypeRuleData
+ruleName          dmvDefinedInModuleAttribute
+ruleTitle         The attribute referred to by the definedInModuleAttribute attribute must be single-valued.
+applyToAttribute  definedInModuleAttribute
+applyToClass      DSDefinitionModule
+allowedValueType  SINGLE
+description       We have sections of generated code that will access the module
+ dependence attribute of a DDM module instance and being able to assume that the
+ module dependence attribute is multi-valued just makes things easier.
 

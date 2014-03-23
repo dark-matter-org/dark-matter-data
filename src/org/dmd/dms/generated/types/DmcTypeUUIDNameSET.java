@@ -30,8 +30,8 @@ import org.dmd.dmc.types.DmcTypeUUIDName;    // DmcType import
  * The DmcTypeUUIDNameSET provides storage for a set of UUIDName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:641)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2625)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:673)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUUIDNameSET extends DmcTypeUUIDName implements Serializable {
@@ -63,7 +63,7 @@ public class DmcTypeUUIDNameSET extends DmcTypeUUIDName implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2666)
     public DmcAttribute<UUIDName> cloneIt(){
         synchronized(this){
             DmcTypeUUIDNameSET rc = getNew();
@@ -82,7 +82,7 @@ public class DmcTypeUUIDNameSET extends DmcTypeUUIDName implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2689)
     public UUIDName add(Object v) throws DmcValueException {
         synchronized(this){
             UUIDName rc = typeCheck(v);
@@ -98,7 +98,7 @@ public class DmcTypeUUIDNameSET extends DmcTypeUUIDName implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2706)
     public UUIDName del(Object v){
         synchronized(this){
             UUIDName rc = null;
@@ -122,7 +122,7 @@ public class DmcTypeUUIDNameSET extends DmcTypeUUIDName implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2731)
     public Iterator<UUIDName> getMV(){
         synchronized(this){
             if (value == null)
@@ -135,7 +135,7 @@ public class DmcTypeUUIDNameSET extends DmcTypeUUIDName implements Serializable 
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2745)
     public Set<UUIDName> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -154,7 +154,7 @@ public class DmcTypeUUIDNameSET extends DmcTypeUUIDName implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2765)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -164,7 +164,7 @@ public class DmcTypeUUIDNameSET extends DmcTypeUUIDName implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2776)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

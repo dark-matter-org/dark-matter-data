@@ -20,7 +20,7 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
-import org.dmd.dmc.types.StringName;
+import org.dmd.dmc.types.DefinitionName;
 
 import org.dmd.dmg.generated.types.ActifactGeneratorREF;
 
@@ -35,7 +35,7 @@ import org.dmd.dmg.generated.dmo.ActifactGeneratorDMO;
  * Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREFHelperType(DmoTypeFormatter.java:585)
  */
 @SuppressWarnings("serial")
-abstract public class DmcTypeActifactGeneratorREF extends DmcTypeNamedObjectREF<ActifactGeneratorREF, StringName> {
+abstract public class DmcTypeActifactGeneratorREF extends DmcTypeNamedObjectREF<ActifactGeneratorREF, DefinitionName> {
 
     public DmcTypeActifactGeneratorREF(){
     
@@ -51,8 +51,8 @@ abstract public class DmcTypeActifactGeneratorREF extends DmcTypeNamedObjectREF<
     }
 
     @Override
-    protected StringName getNewName(){
-        return(new StringName());
+    protected DefinitionName getNewName(){
+        return(new DefinitionName());
     }
 
     @Override
@@ -75,8 +75,8 @@ abstract public class DmcTypeActifactGeneratorREF extends DmcTypeNamedObjectREF<
             rc = (ActifactGeneratorREF)value;
         else if (value instanceof ActifactGeneratorDMO)
             rc = new ActifactGeneratorREF((ActifactGeneratorDMO)value);
-        else if (value instanceof StringName)
-            rc = new ActifactGeneratorREF((StringName)value);
+        else if (value instanceof DefinitionName)
+            rc = new ActifactGeneratorREF((DefinitionName)value);
         else if (value instanceof String)
             rc = new ActifactGeneratorREF((String)value);
         else

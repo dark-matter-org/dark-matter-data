@@ -73,4 +73,15 @@ public class OneOfTheseAttributesRequiredRuleTest {
 		DebugInfo.debug("\n" + rm.toString());
 	}
 	
+	@Test
+	public void tags(){
+		String tag1 = "hello";
+		String tag2 = "hello there";
+		String tag3 = "hello there!";
+		
+		assertEquals("Should be okay",true, tag1.matches("[a-zA-Z0-9][a-zA-Z0-9 ]*"));
+		assertEquals("Should be okay",true, tag2.matches("[a-zA-Z0-9][a-zA-Z0-9 ]*"));
+		assertEquals("Should not be okay",false, tag3.matches("[a-zA-Z0-9][a-zA-Z0-9 ]*"));
+	}
+	
 }

@@ -34,7 +34,8 @@ public class DotName extends DmcHierarchicObjectName implements Serializable {
 	
 	public final static String className = "DotName";
 	
-	final static String dotCase = "[a-zA-Z][a-zA-Z0-9.]*";
+	final static String dotCase = "[a-zA-Z][a-zA-Z0-9_.]*";
+	final static String nameCase = "[a-zA-Z][a-zA-Z0-9_]*";
 
 	String name;
 	transient DotName parent;
@@ -43,11 +44,64 @@ public class DotName extends DmcHierarchicObjectName implements Serializable {
 
 	}
 	
+	/**
+	 * This is a specialized constructor that's used when constructing DmcAttributeInfo instances.
+	 * It is meant to construct qualified names for attributes 
+	 * @param schema the name of the schema
+	 * @param attribute the name of the attribute
+	 */
+	public DotName(String schema, String attribute){
+		if (schema.matches(nameCase) && attribute.matches(nameCase)){
+			name = schema + "." + attribute;
+		}
+		else
+			throw(new IllegalStateException("One of these strings doesn't match the DotName character set: " + schema + "  " + attribute));
+	}
+	
 	public DotName(String n) throws DmcValueException {
 		if (n.matches(dotCase))
 			name = n;
 		else
-			throw(new DmcValueException("The String: " + n + " does not conform to dot name format."));
+			throw(new DmcValueException("The string: " + n + " does not conform to dot name format."));
+	}
+
+	/**
+	 * Creates a clone of the specified DotName.
+	 * @param dotName the original name
+	 */
+	public DotName(DotName dotName) {
+		name = new String(dotName.name);
+	}
+
+	/**
+	 * Creates a child name 
+	 * @param p the parent name
+	 * @param child the child portion to be added; this must be straight alphanumerics
+	 * @throws DmcValueException
+	 */
+	public DotName(DotName p, String child) throws DmcValueException {
+		if (child.matches(nameCase)){
+			name = new String(p.name + "." + child);
+			parent = p;
+		}
+		else
+			throw(new DmcValueException("The string: " + child + " does not conform to dot name format."));
+	}
+	
+	/**
+	 * @return the depth of the hierarchy implied by the number of dots in the name. A name with no dots
+	 * is considered depth 1.
+	 */
+	public int getDepth(){
+		int rc = 1;
+		
+		StringBuffer sb = new StringBuffer(name);
+		for(int i=0; i<sb.length(); i++){
+			if (sb.charAt(i) == '.')
+				rc++;
+		}
+		
+		return(rc);
 	}
 
 	@Override
@@ -55,11 +109,12 @@ public class DotName extends DmcHierarchicObjectName implements Serializable {
 		return(name);
 	}
 	
+	@Override
 	public void setNameString(String n) throws DmcValueException {
 		if (n.matches(dotCase))
 			name = n;
 		else
-			throw(new DmcValueException("The String: " + n + " does not conform to dot name format."));
+			throw(new DmcValueException("The string: " + n + " does not conform to dot name format."));
 	}
 
 	@Override
@@ -113,6 +168,15 @@ public class DotName extends DmcHierarchicObjectName implements Serializable {
 		}
 		return(parent);
 	}
+	
+//	public void addChild(String c) throws DmcValueException {
+//		if (c.matches(nameCase)){
+//			name = name + "." + c;
+//		}
+//		else{
+//			throw(new DmcValueException("The string: " + c + " must start with an alpha character followed by alphanumerics."));			
+//		}
+//	}
 
 	public boolean isChild(DmcHierarchicObjectName n) {
 		boolean rc = false;
@@ -120,6 +184,25 @@ public class DotName extends DmcHierarchicObjectName implements Serializable {
 			if (((DotName)n).name.startsWith(name))
 				rc = true;
 		}
+		return(rc);
+	}
+	
+	/**
+	 * Takes a name of the form x.y.z and trims the root component so that you get y.z
+	 * If the name doesn't contain any dots, you get an empty name string.
+	 * @return this name with the root trimmed
+	 */
+	public DotName trimRoot(){
+		DotName rc = new DotName();
+		
+		int dotPos = name.indexOf(".");
+		if (dotPos == -1){
+			rc.name = "";
+		}
+		else{
+			rc.name = name.substring(dotPos+1);
+		}
+		
 		return(rc);
 	}
 

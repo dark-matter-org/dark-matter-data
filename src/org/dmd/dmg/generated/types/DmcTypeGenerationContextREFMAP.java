@@ -30,7 +30,7 @@ import org.dmd.dmc.types.CamelCaseName;    // key type import
  * The DmcTypeGenerationContextREFMAP provides storage for a map of GenerationContextREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2828)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2858)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
@@ -73,7 +73,7 @@ public class DmcTypeGenerationContextREFMAP extends DmcTypeGenerationContextREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2885)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2915)
     public DmcAttribute<GenerationContextREF> cloneIt(){
         synchronized(this){
             DmcTypeGenerationContextREFMAP rc = getNew();
@@ -92,7 +92,7 @@ public class DmcTypeGenerationContextREFMAP extends DmcTypeGenerationContextREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2905)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2935)
     public GenerationContextREF add(Object v) throws DmcValueException {
         synchronized(this){
             GenerationContextREF newval = typeCheck(v);
@@ -112,7 +112,7 @@ public class DmcTypeGenerationContextREFMAP extends DmcTypeGenerationContextREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2926)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2956)
     public GenerationContextREF del(Object key){
         synchronized(this){
     
@@ -127,7 +127,7 @@ public class DmcTypeGenerationContextREFMAP extends DmcTypeGenerationContextREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2942)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2972)
     public Iterator<GenerationContextREF> getMV(){
         synchronized(this){
     
@@ -143,7 +143,7 @@ public class DmcTypeGenerationContextREFMAP extends DmcTypeGenerationContextREF 
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2959)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2989)
     public Map<CamelCaseName,GenerationContextREF> getMVCopy(){
         synchronized(this){
             Map<CamelCaseName,GenerationContextREF> clone = null;
@@ -163,7 +163,7 @@ public class DmcTypeGenerationContextREFMAP extends DmcTypeGenerationContextREF 
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2980)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3010)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -174,7 +174,7 @@ public class DmcTypeGenerationContextREFMAP extends DmcTypeGenerationContextREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2992)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3022)
     public GenerationContextREF getByKey(Object key){
         synchronized(this){
            if (value == null)
@@ -188,7 +188,7 @@ public class DmcTypeGenerationContextREFMAP extends DmcTypeGenerationContextREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3007)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3037)
     public boolean contains(Object v){
         synchronized(this){
            if (value == null)
@@ -204,7 +204,7 @@ public class DmcTypeGenerationContextREFMAP extends DmcTypeGenerationContextREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3024)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3054)
     public boolean containsKey(Object key){
         synchronized(this){
            if (value == null)

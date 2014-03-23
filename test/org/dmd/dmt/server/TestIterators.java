@@ -1,5 +1,6 @@
 package org.dmd.dmt.server;
 
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
@@ -14,7 +15,7 @@ public class TestIterators {
 	private SchemaManager schema;
 	
 	@Before
-	public void initialize() throws ResultException, DmcValueException{
+	public void initialize() throws ResultException, DmcValueException, DmcNameClashException {
 		schema = new SchemaManager();
 		schema.manageSchema(new DmtSchemaAG());
 	}
@@ -22,16 +23,16 @@ public class TestIterators {
 	@Test
 	public void addMVObjectREFs() throws DmcValueException{
 		TestBasicNamedObjectFixedDMW	obj1 = new TestBasicNamedObjectFixedDMW();
-		obj1.setName("Object 1");
+		obj1.setName("Object1");
 		obj1.addMvString("val1");
 		obj1.addMvString("val2");
 		
 		TestBasicNamedObjectFixedDMW	obj2 = new TestBasicNamedObjectFixedDMW();
-		obj2.setName("Object 2");
+		obj2.setName("Object2");
 		obj2.setSvString("Just one string");
 		
 		TestBasicNamedObjectFixedDMW	obj3 = new TestBasicNamedObjectFixedDMW();
-		obj3.setName("Object 3");
+		obj3.setName("Object3");
 		obj3.addMvString("one");
 		obj3.addMvString("two");
 		

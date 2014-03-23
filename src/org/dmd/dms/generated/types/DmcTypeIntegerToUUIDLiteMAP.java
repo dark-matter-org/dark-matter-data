@@ -31,8 +31,8 @@ import org.dmd.dmc.types.IntegerToUUIDLite;    // primitive import
  * The DmcTypeIntegerToUUIDLiteMAP provides storage for a map of IntegerToUUIDLite
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2828)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:647)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2858)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:679)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite<IntegerToUUIDLite> {
@@ -74,7 +74,7 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2885)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2915)
     public DmcAttribute<IntegerToUUIDLite> cloneIt(){
         synchronized(this){
             DmcTypeIntegerToUUIDLiteMAP rc = getNew();
@@ -93,7 +93,7 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2905)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2935)
     public IntegerToUUIDLite add(Object v) throws DmcValueException {
         synchronized(this){
             IntegerToUUIDLite newval = typeCheck(v);
@@ -113,7 +113,7 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2926)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2956)
     public IntegerToUUIDLite del(Object key){
         synchronized(this){
     
@@ -128,7 +128,7 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2942)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2972)
     public Iterator<IntegerToUUIDLite> getMV(){
         synchronized(this){
     
@@ -144,7 +144,7 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2959)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2989)
     public Map<Integer,IntegerToUUIDLite> getMVCopy(){
         synchronized(this){
             Map<Integer,IntegerToUUIDLite> clone = null;
@@ -164,7 +164,7 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2980)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3010)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -175,7 +175,7 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2992)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3022)
     public IntegerToUUIDLite getByKey(Object key){
         synchronized(this){
            if (value == null)
@@ -189,7 +189,7 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3007)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3037)
     public boolean contains(Object v){
         synchronized(this){
            if (value == null)
@@ -205,7 +205,7 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3024)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3054)
     public boolean containsKey(Object key){
         synchronized(this){
            if (value == null)

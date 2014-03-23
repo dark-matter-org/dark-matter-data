@@ -21,7 +21,9 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcClassInfo;
 import org.dmd.dmc.DmcContainer;
+import org.dmd.dmc.DmcNameClashResolverIF;
 import org.dmd.dmc.DmcNameResolverIF;
+import org.dmd.dmc.DmcNameResolverWithClashSupportIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcNamedObjectREF;
 import org.dmd.dmc.DmcObject;
@@ -255,6 +257,20 @@ public abstract class DmwWrapper extends DmcContainer {
 	}
 		
 	/**
+	 * This method is used to resolve references in names spaces where object names can clash.
+	 * This includes domain specific definition sets such as the dark-matter schema, Model View Whatever (MVW)
+	 * or other sets of definitions. The concept here is that it's convenient to use simple strings
+	 * as names for things and only use fully qualified names when it's necessary to distinguish
+	 * between ambiguous/clashing names. 
+	 * @param rx the name resolver
+	 * @param ncr the clash resolver
+	 * @throws DmcValueExceptionSet
+	 */
+	public void resolveReferences(DmcNameResolverWithClashSupportIF rx, DmcNameClashResolverIF ncr) throws DmcValueExceptionSet {
+		getDmcObject().resolveReferences(rx,ncr);
+	}
+		
+	/**
 	 * Attempt to resolve the specified object reference by checking it against the schema and,
 	 * if not found in the schema, in the alternate name resolver if it's available.
 	 * @param sm The schema manager.
@@ -287,4 +303,19 @@ public abstract class DmwWrapper extends DmcContainer {
 		
 		return(resolved);
 	}
+		
+    @Override
+    public boolean equals(Object obj){
+    	if (this == obj)
+    		return(true);
+    	if (obj == null)
+    		return(false);
+    	
+    	if (obj instanceof DmwWrapper){
+    		DmwWrapper other = (DmwWrapper) obj;
+    		return(this.getDmcObject().equals(other.getDmcObject()));
+    	}
+    	return(false);
+    }
+	
 }

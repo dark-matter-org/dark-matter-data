@@ -10,7 +10,7 @@ import org.dmd.dmt.shared.generated.types.DmcTypeMenuElementTypeAndComment;    /
  * The DmcTypeMenuElementTypeAndCommentSV provides storage for a single-valued MenuElementTypeAndComment
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1955)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1985)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:125)
  */
 @SuppressWarnings("serial")
@@ -35,14 +35,14 @@ public class DmcTypeMenuElementTypeAndCommentSV extends DmcTypeMenuElementTypeAn
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2017)
     public DmcAttribute<MenuElementTypeAndComment> cloneIt(){
         DmcTypeMenuElementTypeAndCommentSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2028)
     public MenuElementTypeAndComment getSVCopy(){
         if (value == null)
             return(null);
@@ -50,7 +50,7 @@ public class DmcTypeMenuElementTypeAndCommentSV extends DmcTypeMenuElementTypeAn
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2010)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2040)
     public MenuElementTypeAndComment set(Object v) throws DmcValueException {
         MenuElementTypeAndComment rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

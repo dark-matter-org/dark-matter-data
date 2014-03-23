@@ -16,7 +16,7 @@ import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.IntegerToString;
-import org.dmd.dmc.types.StringName;
+import org.dmd.dmc.types.DefinitionName;
 import org.dmd.dmc.types.UUIDName;
 import org.dmd.dmp.server.extended.CreateRequest;
 import org.dmd.dmp.server.extended.DMPEvent;
@@ -467,7 +467,7 @@ public class TestSerialization {
 	public void serializeExtendedReference() throws Exception{
 		DataOutputStream os = new DataOutputStream(new FileOutputStream(temp.getAbsolutePath()));
 
-		SomeRelation	rel = new SomeRelation(new StringName("some name"), 4, 2);
+		SomeRelation	rel = new SomeRelation(new DefinitionName("somename"), 4, 2);
 
 		ObjWithRefs obj = new ObjWithRefs();
 		obj.setName("object1");

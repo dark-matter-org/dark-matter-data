@@ -15,10 +15,13 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmg.tools.dmggenerator;
 
+import org.dmd.dmc.DmcNameClashException;
+import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
+import org.dmd.dmg.generated.dmo.DmgDMSAG;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmoObjectFactory;
 import org.dmd.util.exceptions.DebugInfo;
@@ -48,9 +51,11 @@ public class DmgParser implements DmcUncheckedOIFHandlerIF {
 		ucoParser	= new DmcUncheckedOIFParser(this);
 		finder 		= cf;
 		factory 	= new DmoObjectFactory(sm);
+		
+		DmcOmni.instance().addCompactSchema(DmgDMSAG.instance());
 	}
 	
-	public void parseConfig(ConfigLocation cl) throws ResultException, DmcValueException, DmcRuleExceptionSet {
+	public void parseConfig(ConfigLocation cl) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
 		ucoParser.parseFile(cl.getFileName());
 	}
 	
@@ -59,7 +64,7 @@ public class DmgParser implements DmcUncheckedOIFHandlerIF {
 	}
 
 	@Override
-	public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException {
+	public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException, DmcNameClashException {
 		
 		try {
 			theConfig = (DmgConfigDMO) factory.createObject(uco);

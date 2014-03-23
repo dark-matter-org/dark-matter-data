@@ -86,6 +86,8 @@ public class ImportManager {
 			sb.append(format.sprintf("import " + i.className + ";") + "// " + i.reason + "\n");			
 		}
 		
+		sb.append("\n");
+		
 		return(sb.toString());
 	}
 	

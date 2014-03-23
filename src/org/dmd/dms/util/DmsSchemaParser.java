@@ -20,6 +20,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Stack;
 
+import org.dmd.dmc.DmcAttributeInfo;
+import org.dmd.dmc.DmcNameClashException;
+import org.dmd.dmc.DmcNameClashObjectSet;
+import org.dmd.dmc.DmcNameClashResolverIF;
+import org.dmd.dmc.DmcNamedObjectIF;
+import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
@@ -33,6 +39,7 @@ import org.dmd.dms.MetaSchemaAG;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaDefinitionListenerIF;
 import org.dmd.dms.SchemaManager;
+import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;
 import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
@@ -55,7 +62,7 @@ import org.dmd.util.parsing.DmcUncheckedOIFParser;
  * (IMD) schema and stores them in an SchemaManager.
  */
 
-public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefinitionListenerIF {
+public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefinitionListenerIF, DmcNameClashResolverIF {
 
     // Schema manager that recognizes the DMS schema.
     SchemaManager    		dmsSchema;
@@ -155,8 +162,9 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
      * NOTE: If WARNINGs are encountered, we still the schema - just check for the
      * presence of WARNINGs on the result set when parsing is complete.
      * @throws DmcRuleExceptionSet 
+     * @throws DmcNameClashException 
      */
-    public SchemaDefinition parseSchema(SchemaManager am, String schemaName, boolean terse) throws ResultException, DmcValueException, DmcRuleExceptionSet {
+    public SchemaDefinition parseSchema(SchemaManager am, String schemaName, boolean terse) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
         SchemaDefinition rc;
         
         allSchema = am;
@@ -178,7 +186,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
         return(rc);
     }
     
-    public void checkRules(SchemaDefinition sd) throws DmcRuleExceptionSet {
+    public void checkRules(SchemaDefinition sd) throws DmcRuleExceptionSet, DmcNameClashException, DmcValueException {
         // And finally, after everything has been parsed and resolved, we go back over the rule instances
         // and sanity check them. Well, it's not quite that simple. We are applying rules to the rules
         // themselves and we have to dynamically instantiate the rules and initialize them with rule data.
@@ -226,13 +234,14 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
      * @throws ResultException 
      * @throws DmcValueException 
      * @throws DmcRuleExceptionSet 
+     * @throws DmcNameClashException 
      * @throws DmcValueExceptionSet 
      * @returns The requested schema is returned if all goes well, otherwise
      * null is returned.
      * NOTE: If WARNINGs are encountered, we still the schema - just check for the
      * presence of WARNINGs on the result set when parsing is complete.
      */
-    SchemaDefinition parseSchemaInternal(String schemaName) throws ResultException, DmcValueException, DmcRuleExceptionSet {
+    SchemaDefinition parseSchemaInternal(String schemaName) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
 //    	DmsSchemaLocation	location	= finder.getLocation(schemaName);
     	ConfigVersion		config		= finder.getConfig(schemaName);
     	ConfigLocation		location	= null;
@@ -272,14 +281,37 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
             loadedFiles.remove(currFile);
             loadedFiles.put(currFile,currSchema);
             
-            allSchema.addDefinition(currSchema);
+            allSchema.addDefinition(currSchema,this);
+            
+            // Some of our rules have to be run once we have the entire context, so we perform a final
+            // pass to ensure that those rules are followed. This is a bit of hack for now. Changes in
+            // definition loading, internal object creation and object resolution have to be studied.
+            for(DmsDefinition def : allSchema.globallyUniqueMAP.values()){
+            	ruleManager.executeAttributeValidation(def.getDmcObject());
+            }
             
             // And now check to see if everything is resolved
-            allSchema.resolveReferences(currSchema);
+            allSchema.resolveReferences(currSchema,this);
             
             Iterator<AttributeDefinition> adl = currSchema.getAttributeDefList();
             if (adl != null){
             	allSchema.resolveNameTypes(adl);
+            }
+            
+            // And now we have to check that any TypeDefinitions that have
+            // isNameType set to true have had their nameAttributeDef set
+            Iterator<TypeDefinition> tdl = currSchema.getTypeDefList();
+            if (tdl != null){
+            	while(tdl.hasNext()){
+            		TypeDefinition td = tdl.next();
+            		if (td.getIsNameType()){
+            			if (td.getNameAttributeDef() == null){
+            				ResultException ex = new ResultException("The " + td.getName() + " TypeDefinition is flagged as a name type but doesn't have a corresponding attribute of the same type with the designatedNameAttribute flag set to true.");
+            				ex.setLocationInfo(td.getFile(), td.getLineNumber());
+            				throw(ex);
+            			}
+            		}
+            	}
             }
             
         }
@@ -302,9 +334,10 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
      * @throws ResultException 
      * @throws DmcValueException 
      * @throws DmcRuleExceptionSet 
+     * @throws DmcNameClashException 
      * @throws DmcValueExceptionSet 
      */
-    public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException, DmcRuleExceptionSet {
+    public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
         ClassDefinition     cd                  = null;
         boolean             isSchema            = false;
         DmsDefinition    	newDef              = null;
@@ -345,12 +378,16 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
 					srcFile = infile;
 				
 				if (schemaLoading == null){
-					if (uco.getSV(MetaDMSAG.__name.name) != null)
-						uco.addValue(MetaDMSAG.__dotName.name, uco.getSV(MetaDMSAG.__name.name));
+					if (uco.getSV(MetaDMSAG.__name.name) != null){
+						uco.addValue(MetaDMSAG.__dotName.name, uco.getSV(MetaDMSAG.__name.name) + "." + uco.getConstructionClass());
+//						uco.addValue(MetaDMSAG.__nameAndTypeName.name, uco.getSV(MetaDMSAG.__name.name) + "." + uco.getConstructionClass());
+					}
 				}
 				else{
-					if (uco.getSV(MetaDMSAG.__name.name) != null)
-						uco.addValue(MetaDMSAG.__dotName.name, schemaLoading.getName() + "." + uco.getSV(MetaDMSAG.__name.name));
+					if (uco.getSV(MetaDMSAG.__name.name) != null){
+						uco.addValue(MetaDMSAG.__dotName.name, schemaLoading.getName() + "." + uco.getSV(MetaDMSAG.__name.name) + "." + uco.getConstructionClass());
+//						uco.addValue(MetaDMSAG.__nameAndTypeName.name, uco.getSV(MetaDMSAG.__name.name) + "." + uco.getConstructionClass());
+					}
 				}
 
 				// More interesting hand waving to handle rule instances. For most of the 
@@ -556,7 +593,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
 //            		}
 //            		else{
                 		newDef.setDefinedIn(schemaLoading);
-                    	allSchema.addDefinition(newDef);
+                    	allSchema.addDefinition(newDef,this);
                 		schemaLoading.addDefinition(newDef);
 //            		}                		
                 }
@@ -576,6 +613,56 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
 		}
 		
 	}
+
+	@Override
+	public DmcNamedObjectIF resolveClash(DmcObject obj, DmcAttributeInfo ai, DmcNameClashObjectSet<?> ncos) throws DmcValueException {
+		DmcNamedObjectIF rc = null;
+		
+		Iterator<DmcNamedObjectIF> it = ncos.getMatches();
+		while(it.hasNext()){
+			try{
+				DmsDefinition def = (DmsDefinition) it.next();
+				
+				// We get the source of the definition from the DMO, we don't know if these objects have been resolved as yet
+				if (def.getDMO().getDefinedIn() == null){
+					// This shouldn't happen, but if it does, just continue
+					continue;
+				}
+				
+				// If one of the definitions is in the schema we're currently loading, we're going
+				// to choose that definition
+				if (schemaLoading.getName().equals(def.getDMO().getDefinedIn().getObjectName().getNameString())){
+					rc = def;
+					break;
+				}
+				
+			}
+			catch(ClassCastException e){
+				// We could wind up here if someone is using the schema parser in an incorrect context
+				// Complain!
+				throw(new IllegalStateException("The DmsSchemaParser can only be used to resolve references to DmsDefinition objects!"));
+			}
+		}
+		
+		if (rc == null){
+			// None of the definitions are in the schema we're loading, so the user is
+			// going to have qualify the name of the thing they're referring to i.e.
+			// instead of just defName, they'll have to specify schema.defName.
+			StringBuffer sb = new StringBuffer();
+			sb.append("You must qualify the name of the object you're referring to: ");
+			it = ncos.getMatches();
+			while(it.hasNext()){
+				DmsDefinition def = (DmsDefinition) it.next();
+				sb.append(def.getDMO().getDefinedIn().getObjectName() + "." + def.getName() + "  ");
+			}
+
+			DmcValueException ex = new DmcValueException(sb.toString());
+			throw(ex);
+		}
+		
+		return(rc);
+	}
+
 
 
 }

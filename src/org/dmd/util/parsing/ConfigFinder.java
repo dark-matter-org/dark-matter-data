@@ -16,9 +16,7 @@
 package org.dmd.util.parsing;
 
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.LineNumberReader;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Iterator;
@@ -73,17 +71,68 @@ public class ConfigFinder {
 	String fsep;
 	
 	// The preferences file we attempt to read
-	String 	prefName;
-	boolean	prefsAvailable;
+//	String 	prefName;
+//	boolean	prefsAvailable;
 	
 	// The length of the longest schema name we found
 	int	longest;
 	
-	boolean	debug;
+	boolean	debug = true;
+	
+	boolean checkClassPath;
 	
 	public ConfigFinder(){
 		init();
-		loadPreferences();
+//		loadPreferences();
+	}
+	
+	/**
+	 * Convenience constructor to create a finder with the specified file suffix
+	 * @param suffix
+	 */
+	public ConfigFinder(String suffix){
+		init();
+		suffixes.add(suffix);
+	}
+	
+	/**
+	 * Convenience constructor to create a finder with the specified file suffix
+	 * and source directories.
+	 * @param suffix the file suffix
+	 * @param sd the source directories to search
+	 */
+	public ConfigFinder(String suffix, ArrayList<String> sd, boolean cp){
+		init();
+		suffixes.add(suffix);
+		for(String src: sd){
+			sourceDirs.add(src);
+		}
+		checkClassPath = cp;
+	}
+	
+	
+	/**
+	 * A convenience function to add source search preferences.
+	 * @param sd source directories to search
+	 */
+	public void setSourceInfo(ArrayList<String> sd){
+		for(String src: sd){
+			sourceDirs.add(src);
+		}
+	}
+	
+	/**
+	 * A convenience function to add source and jar search preferences in one shot.
+	 * @param sd source directories to search
+	 * @param jars the prefixes of jars to search
+	 */
+	public void setSourceAndJarInfo(ArrayList<String> sd, ArrayList<String> jars){
+		for(String src: sd){
+			sourceDirs.add(src);
+		}
+		for(String jar: jars){
+			jarPrefixes.add(jar);
+		}
 	}
 	
 	/**
@@ -96,7 +145,7 @@ public class ConfigFinder {
 		while(srcdirs.hasNext()){
 			sourceDirs.add(srcdirs.next());
 		}
-		prefsAvailable = true;
+//		prefsAvailable = true;
 	}
 	
 	public void debug(boolean db){
@@ -118,16 +167,17 @@ public class ConfigFinder {
 		configs			= new ArrayList<ConfigLocation>();
 		versions		= new TreeMap<String, ConfigVersion>();
 		fsep 			= File.separator;
-		prefsAvailable 	= false;
+//		prefsAvailable 	= false;
+		checkClassPath	= true;
 		classPaths 		= new ArrayList<String>();
 	}
 	
-	/**
-	 * @return The name of the file where additional source paths are indicated.
-	 */
-	public String getPrefName(){
-		return(prefName);
-	}
+//	/**
+//	 * @return The name of the file where additional source paths are indicated.
+//	 */
+//	public String getPrefName(){
+//		return(prefName);
+//	}
 	
 	/**
 	 * Adds a suffix to hunt for. Generally of the form ".xxx".
@@ -169,10 +219,13 @@ public class ConfigFinder {
 			throw(ex);
 		}
 		
-		for(String d : sourceDirs)
+		for(String d : sourceDirs){
+			debugMessage("Source dir: " + d);
 			findConfigsRecursive(new File(d));
+		}
 		
-		findConfigsOnClassPath();
+		if (checkClassPath)
+			findConfigsOnClassPath();
 		
 		debugMessage("Config search complete: " + getSearchInfo() + "\n");		
 	}
@@ -214,18 +267,26 @@ public class ConfigFinder {
 	public String getSearchInfo(){
 		StringBuffer sb = new StringBuffer();
 		
-		if (prefName == null)
-			sb.append("Source directory preferences from -srcdir option:\n");
-		else
-			sb.append("Source directory preferences: " + prefName + "\n");
+//		if (prefName == null)
+//			sb.append("Source directory preferences from -srcdir option:\n");
+//		else
+//			sb.append("Source directory preferences: " + prefName + "\n");
+//		
+//		if (prefsAvailable){
+//			for(String f : sourceDirs){
+//				sb.append("    " + f + "\n");
+//			}
+//		}
+//		else
+//			sb.append("No preferences specified");
+//		sb.append("\n");
 		
-		if (prefsAvailable){
-			for(String f : sourceDirs){
-				sb.append("    " + f + "\n");
-			}
+		sb.append("Source directory preferences from -srcdir option or added via addSourceDirectory():\n");
+		
+		for(String f : sourceDirs){
+			sb.append("    " + f + "\n");
 		}
-		else
-			sb.append("No preferences specified");
+
 		sb.append("\n");
 		
 		sb.append("Checked the following locations on your class path:\n");
@@ -237,14 +298,14 @@ public class ConfigFinder {
 		sb.append("\n");
 		
 		if (jarPrefixes.size() > 0){
-			sb.append("    Checked JARs with the following prefixs:\n");
+			sb.append("    Checked JARs with the following prefixes:\n");
 			for(String j : jarPrefixes){
 				sb.append("    " + j + "\n");
 			}
 			sb.append("\n");
 		}
 		
-		sb.append("For config files with the following suffixs:\n");
+		sb.append("For config files with the following suffixes:\n");
 		for(String s : suffixes){
 			sb.append("    " + s + "\n");
 		}
@@ -252,48 +313,48 @@ public class ConfigFinder {
 		return(sb.toString());
 	}
 	
-	/**
-	 * This method will check to see if the user has created a sourcedirs.txt
-	 * in user_home/.darkmatter
-	 */
-	void loadPreferences(){
-		
-		String userHome = System.getProperty("user.home");
-		File darkMatterFolder = new File(userHome + fsep + ".darkmatter");
-		
-		debugMessage("loadPreferences() - " + userHome + fsep + ".darkmatter");
-		
-		// Create the preferences folder if it doesn't exist
-		if (!darkMatterFolder.exists()){
-			darkMatterFolder.mkdir();
-		}
-		
-		prefName = userHome + fsep + ".darkmatter" + fsep + "sourcedirs.txt";
-		File prefFile = new File(prefName);
-		
-		if (prefFile.exists()){
-			prefsAvailable = true;
-            try {
-            	LineNumberReader in = new LineNumberReader(new FileReader(prefName));
-                String str;
-                while ((str = in.readLine()) != null) {
-                	String line = str.trim();
-                	
-                	if (line.startsWith("//"))
-                		continue;
-                	
-//                	if (line.endsWith(".jar"))
-//                		jarPrefixes.add(line);
-//                	else
-                		sourceDirs.add(line);
-                }
-                
-				in.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-	}
+//	/**
+//	 * This method will check to see if the user has created a sourcedirs.txt
+//	 * in user_home/.darkmatter
+//	 */
+//	void loadPreferences(){
+//		
+//		String userHome = System.getProperty("user.home");
+//		File darkMatterFolder = new File(userHome + fsep + ".darkmatter");
+//		
+//		debugMessage("loadPreferences() - " + userHome + fsep + ".darkmatter");
+//		
+//		// Create the preferences folder if it doesn't exist
+//		if (!darkMatterFolder.exists()){
+//			darkMatterFolder.mkdir();
+//		}
+//		
+//		prefName = userHome + fsep + ".darkmatter" + fsep + "sourcedirs.txt";
+//		File prefFile = new File(prefName);
+//		
+//		if (prefFile.exists()){
+//			prefsAvailable = true;
+//            try {
+//            	LineNumberReader in = new LineNumberReader(new FileReader(prefName));
+//                String str;
+//                while ((str = in.readLine()) != null) {
+//                	String line = str.trim();
+//                	
+//                	if (line.startsWith("//"))
+//                		continue;
+//                	
+////                	if (line.endsWith(".jar"))
+////                		jarPrefixes.add(line);
+////                	else
+//                		sourceDirs.add(line);
+//                }
+//                
+//				in.close();
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//	}
 	
 	/**
 	 * Recursively descends through the directory structure looking for files
@@ -304,6 +365,8 @@ public class ConfigFinder {
 	 */
 	void findConfigsRecursive(File dir) throws ResultException, IOException {
 		if (dir.exists()){
+			debugMessage("Searching for configs in: " + dir.getCanonicalPath());
+				
 			String[] files = dir.list();
 			
 			for(String f : files){
@@ -311,6 +374,11 @@ public class ConfigFinder {
 //					DebugInfo.debug("Checking suffix: " + suffix + " against " + f);					
 					if (f.endsWith(suffix)){
 						if (f.startsWith("meta"))
+							continue;
+						
+						// It's possible that we have something named with just the suffix, but not .suffix,
+						// so if there's no period, skip it
+						if (f.lastIndexOf(".") == -1)
 							continue;
 						
 						ConfigLocation newLocation = new ConfigLocation(f, dir.getCanonicalPath(), suffix);
@@ -331,7 +399,7 @@ public class ConfigFinder {
 		}
 		else{
 			ResultException ex = new ResultException();
-			ex.addError("Specified source directory doesn't exist: " + dir.getCanonicalPath());
+			ex.addError("Specified source directory doesn't exist: " + dir.getPath());
 			throw(ex);
 		}
 	}
@@ -442,6 +510,7 @@ public class ConfigFinder {
 					            }
 				            }
 				        }
+				        jar.close();
 					}
 				}
 			}

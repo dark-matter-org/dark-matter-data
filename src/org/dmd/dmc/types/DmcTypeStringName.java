@@ -58,7 +58,7 @@ abstract public class DmcTypeStringName extends DmcTypeDmcObjectName<StringName>
 
 	@Override
 	public StringName cloneValue(StringName original) {
-		return(new StringName(original.name));
+		return(new StringName(original));
 	}
 
     ////////////////////////////////////////////////////////////////////////////////

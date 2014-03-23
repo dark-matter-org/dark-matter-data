@@ -1,36 +1,22 @@
-//	---------------------------------------------------------------------------
-//	dark-matter-data
-//	Copyright (c) 2010 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
 package org.dmd.dmp.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import java.util.ArrayList;                                    // To support getMVCopy() - (BaseDMWGeneratorNewest.java:999)
-import java.util.Iterator;                                     // Support copy of MV objects - (BaseDMWGeneratorNewest.java:2054)
-import org.dmd.dmc.*;                                          // If any attributes - (BaseDMWGeneratorNewest.java:905)
-import org.dmd.dmc.DmcObjectName;                              // Alternative type for NameContainer values - (BaseDMWGeneratorNewest.java:976)
-import org.dmd.dmc.types.Modifier;                             // Primitive type - (BaseDMWGeneratorNewest.java:968)
-import org.dmd.dmc.types.NameContainer;                        // Primitive type - (BaseDMWGeneratorNewest.java:968)
-import org.dmd.dmp.server.extended.Request;                    // Derived class - (BaseDMWGeneratorNewest.java:1066)
-import org.dmd.dmp.server.extended.SetRequest;                 // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:898)
-import org.dmd.dmp.shared.generated.dmo.SetRequestDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1070)
-import org.dmd.dms.ClassDefinition;                            // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:889)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                    // Attribute modify from the meta schema - (BaseDMWGeneratorNewest.java:720)
-import org.dmd.dms.generated.dmw.ModifierIterableDMW;          // For multi-valued Modifier - (BaseDMWGeneratorNewest.java:1919)
-import org.dmd.dms.generated.types.ClassDefinitionREF;         // Is reference type REF - (BaseDMWGeneratorNewest.java:933)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;          // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:893)
+// Called from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:442)
+import java.util.ArrayList;                                    // Support for MULTI attribute - (BaseDMWGenerator.java:2226)
+import java.util.Iterator;                                     // Support copy of MV objects - (BaseDMWGenerator.java:2240)
+import org.dmd.dmc.*;                                          // If any attributes - (BaseDMWGenerator.java:1087)
+import org.dmd.dmc.DmcObjectName;                              // Alternative type for NameContainer values - (BaseDMWGenerator.java:1158)
+import org.dmd.dmc.types.Modifier;                             // Primitive type - (BaseDMWGenerator.java:1150)
+import org.dmd.dmc.types.NameContainer;                        // Primitive type - (BaseDMWGenerator.java:1150)
+import org.dmd.dmp.server.extended.Request;                    // Derived class - (BaseDMWGenerator.java:1248)
+import org.dmd.dmp.server.extended.SetRequest;                 // Required for getModificationRecorder() - (BaseDMWGenerator.java:1076)
+import org.dmd.dmp.shared.generated.dmo.SetRequestDMO;         // Class not auxiliary or abstract - (BaseDMWGenerator.java:1252)
+import org.dmd.dms.ClassDefinition;                            // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:1067)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                    // Attribute modify from the meta schema - (BaseDMWGenerator.java:897)
+import org.dmd.dms.generated.dmw.ModifierIterableDMW;          // For multi-valued Modifier - (BaseDMWGenerator.java:2103)
+import org.dmd.dms.generated.types.ClassDefinitionREF;         // Is reference type REF - (BaseDMWGenerator.java:1115)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;          // Required for MODREC constructor - (BaseDMWGenerator.java:1071)
+
 
 
 /**
@@ -41,28 +27,28 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;          // Required for M
  * Generated from the dmp schema at version 0.1
  * <P>
  * This code was auto-generated by the dmggenerator utility and shouldn't be alterred manually!
- * Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:366)
+ * Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:479)
  */
 abstract public class SetRequestDMW extends Request {
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:443)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:558)
     public SetRequestDMW() {
         super(new SetRequestDMO(), org.dmd.dmp.server.generated.DmpSchemaAG._SetRequest);
     }
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:449)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:564)
     public SetRequestDMW(DmcTypeModifierMV mods) {
         super(new SetRequestDMO(mods), org.dmd.dmp.server.generated.DmpSchemaAG._SetRequest);
     }
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:470)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:585)
     public SetRequest getModificationRecorder(){
         SetRequest rc = new SetRequest();
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
         return(rc);
     }
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:512)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:627)
     public SetRequestDMW(SetRequestDMO obj) {
         super(obj, org.dmd.dmp.server.generated.DmpSchemaAG._SetRequest);
     }
@@ -77,7 +63,7 @@ abstract public class SetRequestDMW extends Request {
         return((SetRequestDMO) core);
     }
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:527)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:642)
     protected SetRequestDMW(SetRequestDMO obj, ClassDefinition cd) {
         super(obj,cd);
     }
@@ -85,7 +71,7 @@ abstract public class SetRequestDMW extends Request {
     /**
      * @return The number of Modifier items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1671)
     public int getModifySize(){
         return(((SetRequestDMO) core).getModifySize());
     }
@@ -93,7 +79,7 @@ abstract public class SetRequestDMW extends Request {
     /**
      * @return true if there are no ModifierDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1497)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1679)
     public boolean getModifyIsEmpty(){
         if (((SetRequestDMO) core).getModifySize() == 0)
             return(true);
@@ -103,7 +89,7 @@ abstract public class SetRequestDMW extends Request {
     /**
      * @return true if there are any ModifierDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1507)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1689)
     public boolean getModifyHasValue(){
         if (((SetRequestDMO) core).getModifySize() == 0)
             return(false);
@@ -113,7 +99,7 @@ abstract public class SetRequestDMW extends Request {
     /**
      * @return An Iterator of Modifier objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1923)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2107)
     public ModifierIterableDMW getModifyIterable(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__modify);
         if (attr == null)
@@ -126,7 +112,7 @@ abstract public class SetRequestDMW extends Request {
      * Adds another modify value.
      * @param value A value compatible with Modifier
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1949)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2133)
     public void addModify(Object value) throws DmcValueException {
         ((SetRequestDMO) core).addModify(value);
     }
@@ -135,7 +121,7 @@ abstract public class SetRequestDMW extends Request {
      * Adds another modify value.
      * @param value A value compatible with Modifier
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1959)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2143)
     public void addModify(Modifier value){
         ((SetRequestDMO) core).addModify(value);
     }
@@ -144,7 +130,7 @@ abstract public class SetRequestDMW extends Request {
      * Returns true if the collection contains the modify value.
      * @param value A value compatible with Modifier
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2016)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2200)
     public boolean modifyContains(Modifier value){
         return(((SetRequestDMO) core).modifyContains(value));
     }
@@ -152,7 +138,7 @@ abstract public class SetRequestDMW extends Request {
     /**
      * @return A COPY of the collection of Modifier objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2058)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2244)
     @SuppressWarnings("unchecked")
     public ArrayList<Modifier> getModifyCopy(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__modify);
@@ -173,7 +159,7 @@ abstract public class SetRequestDMW extends Request {
      * Deletes a modify value.
      * @param value The Modifier to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2085)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2271)
     public void delModify(Object value) throws DmcValueException {
         ((SetRequestDMO) core).delModify(value);
     }
@@ -182,7 +168,7 @@ abstract public class SetRequestDMW extends Request {
      * Deletes a modify value.
      * @param value The Modifier to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2094)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2280)
     public void delModify(Modifier value){
         ((SetRequestDMO) core).delModify(value);
     }
@@ -190,12 +176,12 @@ abstract public class SetRequestDMW extends Request {
     /**
      * Removes the modify attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2106)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2292)
     public void remModify(){
         ((SetRequestDMO) core).remModify();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
     public NameContainer getTarget(){
         return(((SetRequestDMO) core).getTarget());
     }
@@ -204,7 +190,7 @@ abstract public class SetRequestDMW extends Request {
      * Sets target to the specified value.
      * @param value A value compatible with DmcTypeNameContainer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1402)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1584)
     public void setTarget(Object value) throws DmcValueException {
         ((SetRequestDMO) core).setTarget(value);
     }
@@ -213,7 +199,7 @@ abstract public class SetRequestDMW extends Request {
      * Sets target to the specified value.
      * @param value NameContainer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1593)
     public void setTarget(NameContainer value){
         ((SetRequestDMO) core).setTarget(value);
     }
@@ -222,7 +208,7 @@ abstract public class SetRequestDMW extends Request {
      * Sets target to the specified value.
      * @param value NameContainer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1425)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1607)
     public void setTarget(DmcObjectName value){
         ((SetRequestDMO) core).setTarget(value);
     }
@@ -230,7 +216,7 @@ abstract public class SetRequestDMW extends Request {
     /**
      * Removes the target attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1619)
     public void remTarget(){
         ((SetRequestDMO) core).remTarget();
     }
@@ -238,7 +224,7 @@ abstract public class SetRequestDMW extends Request {
     /**
      * @return A ClassDefinition object.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1252)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1434)
     public ClassDefinition getTargetObjectClass(){
         ClassDefinitionREF ref = ((SetRequestDMO) core).getTargetObjectClass();
         if (ref == null)
@@ -254,7 +240,7 @@ abstract public class SetRequestDMW extends Request {
      * Sets the targetObjectClass to the specified value.
      * @param value A value compatible with ClassDefinitionREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1337)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1519)
     public void setTargetObjectClass(ClassDefinition value) {
         ((SetRequestDMO) core).setTargetObjectClass(value.getDMO());
     }
@@ -263,7 +249,7 @@ abstract public class SetRequestDMW extends Request {
      * Sets the targetObjectClass to the specified value.
      * @param value A value compatible with ClassDefinitionREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1346)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1528)
     public void setTargetObjectClass(Object value) throws DmcValueException {
         ((SetRequestDMO) core).setTargetObjectClass(value);
     }
@@ -271,7 +257,7 @@ abstract public class SetRequestDMW extends Request {
     /**
      * Removes the targetObjectClass attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1619)
     public void remTargetObjectClass(){
         ((SetRequestDMO) core).remTargetObjectClass();
     }

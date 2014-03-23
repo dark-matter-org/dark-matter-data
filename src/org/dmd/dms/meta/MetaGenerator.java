@@ -24,6 +24,7 @@ import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmc.util.DmcUncheckedObject;
@@ -34,9 +35,9 @@ import org.dmd.dms.util.GenUtility;
 import org.dmd.dms.util.RuleFormatter;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
+import org.dmd.util.codegen.Manipulator;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
-import org.dmd.util.formatting.PrintfFormat;
 import org.dmd.util.parsing.DmcUncheckedOIFHandlerIF;
 import org.dmd.util.parsing.DmcUncheckedOIFParser;
 
@@ -76,7 +77,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 	private final static int META_ID_RANGE = 200;
 
-	private StringBuffer LGPL;
+	StringBuffer LGPL;
 
 	// All definitions of the metaschema
 	TreeMap<String, DmcUncheckedObject> allDefs;
@@ -107,6 +108,9 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 	// Rule category definitions
 	TreeMap<String, DmcUncheckedObject> ruleCategoryDefs;
+
+	// Module definitions
+	TreeMap<String, DmcUncheckedObject> dmModuleDefs;
 
 	// Rule instances
 	ArrayList<DmcUncheckedObject> ruleInstances;
@@ -139,6 +143,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		ovDefs = new TreeMap<String, DmcUncheckedObject>();
 		ruleDefs = new TreeMap<String, DmcUncheckedObject>();
 		ruleCategoryDefs = new TreeMap<String, DmcUncheckedObject>();
+		dmModuleDefs = new TreeMap<String, DmcUncheckedObject>();
 
 		ruleInstances = new ArrayList<DmcUncheckedObject>();
 
@@ -156,7 +161,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		parser.addPreserveNewlinesAttribute("description");
 	}
 
-	public void run(String[] args) throws DmcValueException, DmcRuleExceptionSet {
+	public void run(String[] args) throws DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
 
 		try {
 			FileUpdateManager.instance().generationStarting();
@@ -169,12 +174,12 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 			// Read the license header
 			LGPL = new StringBuffer();
-			LineNumberReader in = new LineNumberReader(new FileReader(sourceDir
-					+ "/LGPL.txt"));
+			LineNumberReader in = new LineNumberReader(new FileReader(sourceDir + "/LGPL.txt"));
 			String str;
 			while ((str = in.readLine()) != null) {
 				LGPL.append(str + "\n");
 			}
+			in.close();
 
 			parser.parseFile(sourceDir + "/metaSchema.dms");
 
@@ -231,6 +236,10 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		}
 	}
 	
+	void createClassesFromDMDefinitionModules(){
+		
+	}
+	
 	///////////////////////////////////////////////////////////////////////////
 	
 	void dumpMetaSchemaNew(String od) throws IOException, ResultException {
@@ -275,7 +284,9 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 		out.write("            _metaSchema = this;\n");
 		out.write("            staticRefName = new String(\"MetaSchema._\");\n\n");
-		out.write("            this.setDescription(\"The meta schema defines the elements used to define schemas.\");\n");
+		out.write("            this.addDescription(\"The meta schema defines the elements used to define schemas.\");\n");
+		out.write("            this.setDotName(\"meta.SchemaDefinition\");\n");
+//		out.write("            this.setNameAndTypeName(\"meta.SchemaDefinition\");\n");
 
 		// Set the prefix for the generated output directory and the generated
 		// package prefixes
@@ -495,10 +506,21 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		
 		while(names.hasNext()){
 			String 				an 			= names.next();
-			String				anCapped	= GenUtility.capTheName(an);
+if (an.equals("requiredPart"))
+	DebugInfo.debug("HERE");
+			String				anCapped	= Manipulator.capFirstChar(an);
 			DmcUncheckedObject	attrDef 	= attributeDefs.get(an);
 			String				valueType	= attrDef.getSV("valueType");
 			boolean				sv			= true;
+			
+			String				type		= attrDef.getSV("type") + "REF";
+			DmcUncheckedObject	typeDef 	= typeDefs.get(type);
+			boolean				isReference	= false;
+			if (typeDef != null){
+				String isRefType = typeDef.getSV("isRefType");
+				if (isRefType != null)
+					isReference = true;
+			}
 			
 			if ( (valueType != null) && (valueType.equals("MULTI")) )
 				sv = false;
@@ -508,13 +530,24 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 					String fixed = obj.getSV(an).replaceAll("\n", "\\\\n");
 					out.write(prefix + dmoName + ".set" + anCapped + "(\"" + fixed + "\");\n");
 				}
-				else
-					out.write(prefix + dmoName + ".set" + anCapped + "(\"" + obj.getSV(an) + "\");\n");
+				else{
+					if (isReference)
+						out.write(prefix + dmoName + ".set" + anCapped + "(\"meta." + obj.getSV(an) + "\");\n");
+					else
+						out.write(prefix + dmoName + ".set" + anCapped + "(\"" + obj.getSV(an) + "\");\n");
+				}
 			}
 			else{
 				NamedStringArray values = obj.get(an);
 				for(String value: values){
-					out.write(prefix + dmoName + ".add" + anCapped + "(\"" + value + "\");\n");
+					if (value.indexOf("\"") != -1){
+						// We have embedded quotes, escape them
+						value = value.replaceAll("\"", "\\\\\"");
+					}
+					if (isReference)
+						out.write(prefix + dmoName + ".add" + anCapped + "(\"meta." + value + "\");\n");
+					else
+						out.write(prefix + dmoName + ".add" + anCapped + "(\"" + value + "\");\n");
 				}
 			}
 		}
@@ -522,7 +555,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	
 	///////////////////////////////////////////////////////////////////////////
 
-	void dumpComplexTypes(String typedir) throws ResultException, IOException {
+	void dumpComplexTypes(String typedir) throws ResultException, IOException, DmcValueException {
 		for (DmcUncheckedObject typedef : complexTypeDefs.values()) {
 			dumpComplexType(typedir, typedef);
 		}
@@ -578,18 +611,18 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 				// primitiveImport nameAttrImport nameAttr nameAttrID generic
 				// isRef isNameType isFilterType fileHeader progress
 				GenUtility.dumpSVType(typedir, "org.dmd.dms", null, tn, null,
-						"org.dmd.dmc.types.StringName", "StringName", null,
+						"org.dmd.dmc.types.DefinitionName", "DefinitionName", null,
 						genericArgs, true, nameType, false, LGPL.toString(),
 						System.out);
 				GenUtility.dumpMVType(typedir, "org.dmd.dms", null, tn, null,
-						"org.dmd.dmc.types.StringName", "StringName",
+						"org.dmd.dmc.types.DefinitionName", "DefinitionName",
 						genericArgs, true, LGPL.toString(), System.out);
 				GenUtility.dumpSETType(typedir, "org.dmd.dms", null, tn, null,
-						"org.dmd.dmc.types.StringName", "StringName",
+						"org.dmd.dmc.types.DefinitionName", "DefinitionName",
 						genericArgs, true, LGPL.toString(), System.out);
 				if (keyClass != null)
 					GenUtility.dumpMAPType(typedir, "org.dmd.dms", null, tn,
-							null, "org.dmd.dmc.types.StringName", "StringName",
+							null, "org.dmd.dmc.types.DefinitionName", "DefinitionName",
 							genericArgs, keyClass, keyImport, LGPL.toString(),
 							System.out);
 			} else {
@@ -614,8 +647,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 				if (isNameType != null) {
 					String nameAttributeDef = typedef.getSV("nameAttributeDef");
-					DmcUncheckedObject attrDef = attributeDefs
-							.get(nameAttributeDef);
+					DmcUncheckedObject attrDef = attributeDefs.get(nameAttributeDef);
 					nameAttrID = attrDef.getSV("dmdID");
 				}
 
@@ -659,8 +691,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			String tn = typedef.getSV("name");
 			String ti = typedef.getSV("primitiveType");
 			String genericArgs = typedef.getSV("genericArgs");
-			GenUtility.dumpIterable(dmwdir, "org.dmd.dms", ti, tn, genericArgs,
-					LGPL.toString(), System.out);
+			GenUtility.dumpIterable(dmwdir, "org.dmd.dms", ti, tn, genericArgs, LGPL.toString(), System.out);
 		}
 	}
 
@@ -689,7 +720,8 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			}
 		}
 		else{
-			obj.addValue("dotName", "meta." + name);
+			obj.addValue("dotName", "meta." + name + "." + obj.getConstructionClass());
+//			obj.addValue("nameAndTypeName", name + "." + obj.getConstructionClass());
 		}
 
 		if (objClass.equals("TypeDefinition")) {
@@ -743,6 +775,9 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		} else if (objClass.equals("RuleCategory")) {
 			ruleCategoryDefs.put(name, obj);
 			origOrderCategories.add(name);
+		} else if (objClass.equals("DMDefinitionModule")) {
+			dmModuleDefs.put(name, obj);
+			origOrderCategories.add(name);
 		} else {
 			ResultException ex = new ResultException(
 					"Unknown definition type: " + objClass);
@@ -753,13 +788,12 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 	}
 
-	void createClassDefForRuleDef(DmcUncheckedObject uco)
-			throws ResultException {
+	void createClassDefForRuleDef(DmcUncheckedObject uco) throws ResultException {
 		ArrayList<String> objClasses = new ArrayList<String>();
 		objClasses.add("ClassDefinition");
 		DmcUncheckedObject classDef = new DmcUncheckedObject(objClasses, 0);
 
-		String name = GenUtility.capTheName(uco.getSV("name"));
+		String name = Manipulator.capFirstChar(uco.getSV("name"));
 		String isExtensible = uco.getSV("isExtensible");
 		String ctype = "STRUCTURAL";
 
@@ -767,16 +801,15 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			ctype = "EXTENSIBLE";
 		}
 
-		classDef.addValue("name", name + "Data");
-		classDef.addValue("dotName", "meta." + name + "Data");
-		classDef.addValue("classType", ctype);
-		classDef.addValue("derivedFrom", "RuleData");
-		classDef.addValue("dmdID", uco.getSV("dmdID"));
-		classDef.addValue("dmoImport", "org.dmd.dms.generated.dmo." + name
-				+ "DataDMO");
-		classDef.addValue("javaClass", "org.dmd.dms.generated.dmo." + name
-				+ "DataDMO");
-		classDef.addValue("internallyGenerated", "true");
+		classDef.addValue("name", 					name + "Data");
+		classDef.addValue("dotName", 				"meta." + name + "Data.ClassDefinition" );
+//		classDef.addValue("nameAndTypeName", name + "Data.ClassDefinition" );
+		classDef.addValue("classType", 				ctype);
+		classDef.addValue("derivedFrom", 			"RuleData");
+		classDef.addValue("dmdID", 					uco.getSV("dmdID"));
+		classDef.addValue("dmoImport", 				"org.dmd.dms.generated.dmo." + name + "DataDMO");
+		classDef.addValue("javaClass", 				"org.dmd.dms.generated.dmo." + name + "DataDMO");
+		classDef.addValue("internallyGenerated", 	"true");
 		classDef.addValue("ruleDefinition", name);
 		classDef.addValue("must", "ruleTitle");
 		classDef.addValue("may", "description");
@@ -811,7 +844,8 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			objClasses.add("TypeDefinition");
 			DmcUncheckedObject typeDef = new DmcUncheckedObject(objClasses, 0);
 			typeDef.addValue("name", cn);
-			typeDef.addValue("dotName", "meta." + cn);
+			typeDef.addValue("dotName", "meta." + cn + ".TypeDefinition");
+//			typeDef.addValue("nameAndTypeName", cn + ".TypeDefinition");
 			typeDef.addValue("typeClassName",
 					"org.dmd.dms.generated.types.DmcType" + cn);
 			typeDef.addValue("primitiveType", "org.dmd.dms.generated.types."
@@ -849,7 +883,8 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 				objClasses.add("TypeDefinition");
 				typeDef = new DmcUncheckedObject(objClasses, 0);
 				typeDef.addValue("name", cn + "REF");
-				typeDef.addValue("dotName", "meta." + cn + "REF");
+				typeDef.addValue("dotName", "meta." + cn + "REF.TypeDefinition");
+//				typeDef.addValue("nameAndTypeName", cn + "REF.TypeDefinition");
 				typeDef.addValue("typeClassName",
 						"org.dmd.dms.generated.types.DmcType" + cn + "REF");
 				typeDef.addValue("wrapperClassName",
@@ -876,7 +911,8 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			objClasses.add("TypeDefinition");
 			DmcUncheckedObject typeDef = new DmcUncheckedObject(objClasses, 0);
 			typeDef.addValue("name", cn + "REF");
-			typeDef.addValue("dotName", "meta." + cn + "REF");
+			typeDef.addValue("dotName", "meta." + cn + "REF.TypeDefinition");
+//			typeDef.addValue("nameAndTypeName", cn + "REF.TypeDefinition");
 			typeDef.addValue("enumName", cn);
 			typeDef.addValue("typeClassName",
 					"org.dmd.dms.generated.types.DmcType" + cn);
@@ -1044,15 +1080,11 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	/**
 	 * This function dumps the description of a class as a code comment. Long
 	 * lines are folded to 75 characters.
-	 * 
-	 * @param comment
-	 *            The comment to be written
+	 * @param comment The comment to be written
 	 * @out The place to write the output
-	 * @indent A string that is written at the beginning of each line to indent
-	 *         it
+	 * @indent A string that is written at the beginning of each line to indent it
 	 */
-	private void dumpCodeComment(String comment, BufferedWriter out,
-			String indent) {
+	private void dumpCodeComment(String comment, BufferedWriter out, String indent) {
 		StringBuffer sb = new StringBuffer();
 		int offset;
 
@@ -1080,425 +1112,459 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		}
 	}
 
-	void dumpMetaSchema(String od) throws IOException, ResultException {
-		BufferedWriter out = null;
-		PrintfFormat pf = null;
+	private void dumpCodeComment(NamedStringArray namedStringArray, BufferedWriter out, String indent) {
+		StringBuffer sb = new StringBuffer();
+		int offset;
 
-		// out = new BufferedWriter(new FileWriter(od + "/MetaSchemaAG.java"));
-		out = FileUpdateManager.instance().getWriter(od, "MetaSchemaAG.java");
-
-		// Strip the nameAttribute from all name types so that we don't cause
-		// problems
-		// when loading the meta schema
-		for (DmcUncheckedObject type : typeDefs.values()) {
-			type.rem("nameAttributeDef");
-			type.rem("filterAttributeDef");
+		if (namedStringArray == null)
+			return;
+		
+		for(String str: namedStringArray){
+			sb.append(str + " ");
 		}
+		
+		try {
+			while (sb.length() > 75) {
+				offset = 74;
+				// Move back until we find a space
+				while (sb.charAt(offset) != ' ') {
+					offset--;
+				}
 
-		out.write(LGPL.toString());
-		out.write("package org.dmd.dms;\n\n");
-
-		out.write("import org.dmd.dmc.DmcValueException;\n");
-		out.write("import org.dmd.dms.generated.enums.*;\n");
-
-		out.write("\n");
-
-		out.write("/**\n");
-		out.write("  * This class creates the basic definitions that allow for the definition of schemas.\n");
-		out.write("  * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-		out.write("  */\n");
-
-		out.write("abstract public class MetaSchemaAG extends SchemaDefinition {\n");
-
-		out.write("    public static SchemaDefinition    _metaSchema;\n\n");
-
-		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
-				+ "\n");
-		for (int i = 0; i < origOrderClasses.size(); i++) {
-			out.write("    public static ClassDefinition     _"
-					+ origOrderClasses.get(i) + ";\n");
-		}
-		out.write("\n");
-
-		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
-				+ "\n");
-		for (int i = 0; i < origOrderEnums.size(); i++)
-			out.write("    public static EnumDefinition      _"
-					+ origOrderEnums.get(i) + ";\n");
-		out.write("\n");
-
-		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
-				+ "\n");
-		for (int i = 0; i < origOrderTypes.size(); i++)
-			out.write("    public static TypeDefinition      _"
-					+ origOrderTypes.get(i) + ";\n");
-		out.write("\n");
-
-		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
-				+ "\n");
-		for (int i = 0; i < origOrderAttrs.size(); i++)
-			out.write("    public static AttributeDefinition _"
-					+ origOrderAttrs.get(i) + ";\n");
-		out.write("\n");
-
-		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
-				+ "\n");
-		for (int i = 0; i < origOrderCategories.size(); i++)
-			out.write("    public static RuleCategory        _"
-					+ origOrderCategories.get(i) + ";\n");
-		out.write("\n");
-
-		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
-				+ "\n");
-		for (int i = 0; i < origOrderRules.size(); i++)
-			out.write("    public static RuleDefinition      _"
-					+ origOrderRules.get(i) + ";\n");
-		out.write("\n");
-
-		// METASCHEMA START
-		out.write("    public MetaSchemaAG() throws DmcValueException {\n\n");
-		// out.write("        super(\"metaSchema\");\n\n");
-		// DebugInfo.debug("META SCHEMA NAME CHANGE!!!!");
-		out.write("        super(\"meta\");\n\n");
-		out.write("        staticRefName = new String(\"MetaSchema._\");\n\n");
-
-		pf = new PrintfFormat("%-28s");
-
-		out.write("        // We only ever want to initialize the schema once, so check\n");
-		out.write("        // to see if we've initialized the first class definition\n");
-
-		// START INIT METASCHEMA
-		out.write("        if (_metaSchema == null){\n");
-
-		out.write("            try{\n");
-
-		out.write("            _metaSchema = this;\n");
-
-		out.write("            // Create the class definitions\n");
-		out.write("            // Generated from: "
-				+ DebugInfo.getWhereWeAreNow() + "\n");
-		for (int i = 0; i < origOrderClasses.size(); i++) {
-			String defn = origOrderClasses.get(i);
-			out.write("            _" + pf.sprintf(defn));
-			out.write("= new ClassDefinition(\"" + defn + "\");\n");
-		}
-		out.write("\n");
-
-		out.write("            // Create the enum definitions\n");
-		out.write("            // Generated from: "
-				+ DebugInfo.getWhereWeAreNow() + "\n");
-		for (int i = 0; i < origOrderEnums.size(); i++) {
-			String defn = origOrderEnums.get(i);
-			out.write("            _" + pf.sprintf(defn));
-			out.write("= new EnumDefinition(\"" + defn + "\");\n");
-		}
-		out.write("\n");
-
-		out.write("            // Create the type definitions\n");
-		out.write("            // Generated from: "
-				+ DebugInfo.getWhereWeAreNow() + "\n");
-		for (int i = 0; i < origOrderTypes.size(); i++) {
-			String defn = origOrderTypes.get(i);
-
-			String predefname = origOrderTypes.get(i);
-			if (predefname.indexOf("Enum") != -1) {
-				if (predefname.equals("EnumValue")
-						|| predefname.equals("EnumDefinitionREF")) {
-
-				} else
-					predefname = predefname.replace("REF", "");
-				// predefname = origOrderTypes.get(i) + "REF";
+				out.write(indent);
+				for (int i = 0; i < offset; i++) {
+					out.write(sb.charAt(i));
+				}
+				out.write("\n");
+				// The subString(int,int) method seems to be missing
+				// out.write(" * " + sb.subString(start,offset) + "\n");
+				sb.delete(0, offset + 1);
 			}
-
-			DmcUncheckedObject typeObj = typeDefs.get(defn);
-			String typeClassName = typeObj.getSV("typeClassName");
-			String wrapperClassName = typeObj.getSV("wrapperClassName");
-			out.write("            _" + pf.sprintf(defn));
-			if (wrapperClassName == null)
-				out.write("= new TypeDefinition(\"" + predefname + "\", "
-						+ typeClassName + ".class);\n");
-			else
-				out.write("= new TypeDefinition(\"" + predefname + "\", "
-						+ typeClassName + ".class, " + wrapperClassName
-						+ ".class);\n");
+			out.write(indent + sb + "\n");
+		} catch (IOException e) {
+			System.out.println("IO Error:\n" + e);
 		}
-		out.write("\n");
-
-		out.write("            // Create the attribute definitions\n");
-		out.write("            // Generated from: "
-				+ DebugInfo.getWhereWeAreNow() + "\n");
-		for (int i = 0; i < origOrderAttrs.size(); i++) {
-			String attrName = origOrderAttrs.get(i);
-			String mediatorName = null;
-
-			DmcUncheckedObject attrDef = attributeDefs.get(attrName);
-			String typeName = attrDef.getSV("type");
-			DmcUncheckedObject typeDef = typeDefs.get(typeName);
-
-			// If we couldn't find the type by its name, it's because its a
-			// reference
-			// to a class or enum, and the actual TypeDefinition name will be
-			// _<ClassName>Reference
-			if (typeDef == null) {
-				mediatorName = typeName + "REF";
-			} else {
-				mediatorName = typeName;
-			}
-
-			out.write("            _" + pf.sprintf(attrName));
-			out.write("= new AttributeDefinition(\"" + attrName + "\", _"
-					+ mediatorName + ");\n");
-		}
-		out.write("\n");
-
-		out.write("            // Create the rule category definitions\n");
-		out.write("            // Generated from: "
-				+ DebugInfo.getWhereWeAreNow() + "\n");
-		for (int i = 0; i < origOrderCategories.size(); i++) {
-			String defn = origOrderCategories.get(i);
-			out.write("            _" + pf.sprintf(defn));
-			out.write("= new RuleCategory(\"" + defn + "\");\n");
-		}
-		out.write("\n");
-
-		out.write("            // Create the rule definitions\n");
-		out.write("            // Generated from: "
-				+ DebugInfo.getWhereWeAreNow() + "\n");
-		for (int i = 0; i < origOrderRules.size(); i++) {
-			String defn = origOrderRules.get(i);
-			out.write("            _" + pf.sprintf(defn));
-			out.write("= new RuleDefinition(\"" + defn + "\");\n");
-		}
-		out.write("\n");
-
-		// Set the attribute values on all objects
-		out.write("            // Set attribute values on all objects\n");
-		out.write("            // Generated from: "
-				+ DebugInfo.getWhereWeAreNow() + "\n");
-
-		setAttributeValues(out, typeDefs, pf);
-
-		setAttributeValues(out, enumDefs, pf);
-
-		setAttributeValues(out, attributeDefs, pf);
-
-		setAttributeValues(out, classDefs, pf);
-
-		setAttributeValues(out, ruleCategoryDefs, pf);
-
-		setAttributeValues(out, ruleDefs, pf);
-
-		out.write("        // Add the definitions to the schema object\n");
-		out.write("        // Generated from: " + DebugInfo.getWhereWeAreNow()
-				+ "\n");
-		// Set class, type and attribute definition lists of this schema
-		// definition
-		for (int i = 0; i < origOrderClasses.size(); i++)
-			out.write("            this.addClassDefList(_"
-					+ origOrderClasses.get(i) + ");\n");
-
-		for (int i = 0; i < origOrderEnums.size(); i++)
-			out.write("            this.addEnumDefList(_"
-					+ origOrderEnums.get(i) + ");\n");
-
-		for (int i = 0; i < origOrderTypes.size(); i++)
-			out.write("            this.addTypeDefList(_"
-					+ origOrderTypes.get(i) + ");\n");
-
-		for (int i = 0; i < origOrderAttrs.size(); i++)
-			out.write("            this.addAttributeDefList(_"
-					+ origOrderAttrs.get(i) + ");\n");
-
-		for (int i = 0; i < origOrderCategories.size(); i++)
-			out.write("            this.addRuleCategoryList(_"
-					+ origOrderCategories.get(i) + ");\n");
-
-		for (int i = 0; i < origOrderRules.size(); i++)
-			out.write("            this.addRuleDefinitionList(_"
-					+ origOrderRules.get(i) + ");\n");
-
-		// Set the schema instances' name and description
-		// DebugInfo.debug("META SCHEMA NAME CHANGE!!!!");
-		// out.write("            this.setName(\"metaSchema\");\n");
-		out.write("            this.setName(\"meta\");\n");
-		out.write("            this.setDescription(\"The meta schema defines the elements used to define schemas.\");\n");
-
-		// Set the prefix for the generated output directory and the generated
-		// package prefixes
-		out.write("            this.setSchemaPackage(\"org.dmd.dms\");\n");
-		out.write("            this.setDmwPackage(\"org.dmd.dms\");\n");
-
-		out.write("            this.setSchemaBaseID(" + META_BASE_ID + ");\n");
-		out.write("            this.setSchemaIDRange(" + META_ID_RANGE + ");\n");
-
-		// Set the construction class of this valid object instance
-		// out.write("            this.addObjectClass(_SchemaDefinition);\n");
-
-		out.write("            }\n");
-		out.write("            catch(Exception ex){\n");
-		out.write("                ex.printStackTrace();\n");
-		out.write("            }\n");
-
-		// END INIT METASCHEMA
-		out.write("        }\n\n");
-
-		// METASCHEMA END
-		out.write("    }\n\n");
-
-		out.write("}\n\n");
-
-		out.close();
 	}
 
-	private void setAttributeValues(BufferedWriter out,
-			TreeMap<String, DmcUncheckedObject> objects, PrintfFormat pf)
-			throws IOException, ResultException {
-		String attrName = null;
-		String objName = null;
-		DmcUncheckedObject attrDef = null;
-		String typeName = null;
-		DmcUncheckedObject typeDef = null;
-		boolean multiValued = false;
-		boolean isReference = false;
-		boolean isEnumType = false;
+//	void dumpMetaSchema(String od) throws IOException, ResultException {
+//		BufferedWriter out = null;
+//		PrintfFormat pf = null;
+//
+//		// out = new BufferedWriter(new FileWriter(od + "/MetaSchemaAG.java"));
+//		out = FileUpdateManager.instance().getWriter(od, "MetaSchemaAG.java");
+//
+//		// Strip the nameAttribute from all name types so that we don't cause
+//		// problems
+//		// when loading the meta schema
+//		for (DmcUncheckedObject type : typeDefs.values()) {
+//			type.rem("nameAttributeDef");
+//			type.rem("filterAttributeDef");
+//		}
+//
+//		out.write(LGPL.toString());
+//		out.write("package org.dmd.dms;\n\n");
+//
+//		out.write("import org.dmd.dmc.DmcValueException;\n");
+//		out.write("import org.dmd.dms.generated.enums.*;\n");
+//
+//		out.write("\n");
+//
+//		out.write("/**\n");
+//		out.write("  * This class creates the basic definitions that allow for the definition of schemas.\n");
+//		out.write("  * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+//		out.write("  */\n");
+//
+//		out.write("abstract public class MetaSchemaAG extends SchemaDefinition {\n");
+//
+//		out.write("    public static SchemaDefinition    _metaSchema;\n\n");
+//
+//		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
+//				+ "\n");
+//		for (int i = 0; i < origOrderClasses.size(); i++) {
+//			out.write("    public static ClassDefinition     _"
+//					+ origOrderClasses.get(i) + ";\n");
+//		}
+//		out.write("\n");
+//
+//		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
+//				+ "\n");
+//		for (int i = 0; i < origOrderEnums.size(); i++)
+//			out.write("    public static EnumDefinition      _"
+//					+ origOrderEnums.get(i) + ";\n");
+//		out.write("\n");
+//
+//		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
+//				+ "\n");
+//		for (int i = 0; i < origOrderTypes.size(); i++)
+//			out.write("    public static TypeDefinition      _"
+//					+ origOrderTypes.get(i) + ";\n");
+//		out.write("\n");
+//
+//		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
+//				+ "\n");
+//		for (int i = 0; i < origOrderAttrs.size(); i++)
+//			out.write("    public static AttributeDefinition _"
+//					+ origOrderAttrs.get(i) + ";\n");
+//		out.write("\n");
+//
+//		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
+//				+ "\n");
+//		for (int i = 0; i < origOrderCategories.size(); i++)
+//			out.write("    public static RuleCategory        _"
+//					+ origOrderCategories.get(i) + ";\n");
+//		out.write("\n");
+//
+//		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
+//				+ "\n");
+//		for (int i = 0; i < origOrderRules.size(); i++)
+//			out.write("    public static RuleDefinition      _"
+//					+ origOrderRules.get(i) + ";\n");
+//		out.write("\n");
+//
+//		// METASCHEMA START
+//		out.write("    public MetaSchemaAG() throws DmcValueException {\n\n");
+//		// out.write("        super(\"metaSchema\");\n\n");
+//		// DebugInfo.debug("META SCHEMA NAME CHANGE!!!!");
+//		out.write("        super(\"meta\");\n\n");
+//		out.write("        staticRefName = new String(\"MetaSchema._\");\n\n");
+//
+//		pf = new PrintfFormat("%-28s");
+//
+//		out.write("        // We only ever want to initialize the schema once, so check\n");
+//		out.write("        // to see if we've initialized the first class definition\n");
+//
+//		// START INIT METASCHEMA
+//		out.write("        if (_metaSchema == null){\n");
+//
+//		out.write("            try{\n");
+//
+//		out.write("            _metaSchema = this;\n");
+//
+//		out.write("            // Create the class definitions\n");
+//		out.write("            // Generated from: "
+//				+ DebugInfo.getWhereWeAreNow() + "\n");
+//		for (int i = 0; i < origOrderClasses.size(); i++) {
+//			String defn = origOrderClasses.get(i);
+//			out.write("            _" + pf.sprintf(defn));
+//			out.write("= new ClassDefinition(\"" + defn + "\");\n");
+//		}
+//		out.write("\n");
+//
+//		out.write("            // Create the enum definitions\n");
+//		out.write("            // Generated from: "
+//				+ DebugInfo.getWhereWeAreNow() + "\n");
+//		for (int i = 0; i < origOrderEnums.size(); i++) {
+//			String defn = origOrderEnums.get(i);
+//			out.write("            _" + pf.sprintf(defn));
+//			out.write("= new EnumDefinition(\"" + defn + "\");\n");
+//		}
+//		out.write("\n");
+//
+//		out.write("            // Create the type definitions\n");
+//		out.write("            // Generated from: "
+//				+ DebugInfo.getWhereWeAreNow() + "\n");
+//		for (int i = 0; i < origOrderTypes.size(); i++) {
+//			String defn = origOrderTypes.get(i);
+//
+//			String predefname = origOrderTypes.get(i);
+//			if (predefname.indexOf("Enum") != -1) {
+//				if (predefname.equals("EnumValue")
+//						|| predefname.equals("EnumDefinitionREF")) {
+//
+//				} else
+//					predefname = predefname.replace("REF", "");
+//				// predefname = origOrderTypes.get(i) + "REF";
+//			}
+//
+//			DmcUncheckedObject typeObj = typeDefs.get(defn);
+//			String typeClassName = typeObj.getSV("typeClassName");
+//			String wrapperClassName = typeObj.getSV("wrapperClassName");
+//			out.write("            _" + pf.sprintf(defn));
+//			if (wrapperClassName == null)
+//				out.write("= new TypeDefinition(\"" + predefname + "\", "
+//						+ typeClassName + ".class);\n");
+//			else
+//				out.write("= new TypeDefinition(\"" + predefname + "\", "
+//						+ typeClassName + ".class, " + wrapperClassName
+//						+ ".class);\n");
+//		}
+//		out.write("\n");
+//
+//		out.write("            // Create the attribute definitions\n");
+//		out.write("            // Generated from: "
+//				+ DebugInfo.getWhereWeAreNow() + "\n");
+//		for (int i = 0; i < origOrderAttrs.size(); i++) {
+//			String attrName = origOrderAttrs.get(i);
+//			String mediatorName = null;
+//
+//			DmcUncheckedObject attrDef = attributeDefs.get(attrName);
+//			String typeName = attrDef.getSV("type");
+//			DmcUncheckedObject typeDef = typeDefs.get(typeName);
+//
+//			// If we couldn't find the type by its name, it's because its a
+//			// reference
+//			// to a class or enum, and the actual TypeDefinition name will be
+//			// _<ClassName>Reference
+//			if (typeDef == null) {
+//				mediatorName = typeName + "REF";
+//			} else {
+//				mediatorName = typeName;
+//			}
+//
+//			out.write("            _" + pf.sprintf(attrName));
+//			out.write("= new AttributeDefinition(\"" + attrName + "\", _"
+//					+ mediatorName + ");\n");
+//		}
+//		out.write("\n");
+//
+//		out.write("            // Create the rule category definitions\n");
+//		out.write("            // Generated from: "
+//				+ DebugInfo.getWhereWeAreNow() + "\n");
+//		for (int i = 0; i < origOrderCategories.size(); i++) {
+//			String defn = origOrderCategories.get(i);
+//			out.write("            _" + pf.sprintf(defn));
+//			out.write("= new RuleCategory(\"" + defn + "\");\n");
+//		}
+//		out.write("\n");
+//
+//		out.write("            // Create the rule definitions\n");
+//		out.write("            // Generated from: "
+//				+ DebugInfo.getWhereWeAreNow() + "\n");
+//		for (int i = 0; i < origOrderRules.size(); i++) {
+//			String defn = origOrderRules.get(i);
+//			out.write("            _" + pf.sprintf(defn));
+//			out.write("= new RuleDefinition(\"" + defn + "\");\n");
+//		}
+//		out.write("\n");
+//
+//		// Set the attribute values on all objects
+//		out.write("            // Set attribute values on all objects\n");
+//		out.write("            // Generated from: "
+//				+ DebugInfo.getWhereWeAreNow() + "\n");
+//
+//		setAttributeValues(out, typeDefs, pf);
+//
+//		setAttributeValues(out, enumDefs, pf);
+//
+//		setAttributeValues(out, attributeDefs, pf);
+//
+//		setAttributeValues(out, classDefs, pf);
+//
+//		setAttributeValues(out, ruleCategoryDefs, pf);
+//
+//		setAttributeValues(out, ruleDefs, pf);
+//
+//		out.write("        // Add the definitions to the schema object\n");
+//		out.write("        // Generated from: " + DebugInfo.getWhereWeAreNow()
+//				+ "\n");
+//		// Set class, type and attribute definition lists of this schema
+//		// definition
+//		for (int i = 0; i < origOrderClasses.size(); i++)
+//			out.write("            this.addClassDefList(_"
+//					+ origOrderClasses.get(i) + ");\n");
+//
+//		for (int i = 0; i < origOrderEnums.size(); i++)
+//			out.write("            this.addEnumDefList(_"
+//					+ origOrderEnums.get(i) + ");\n");
+//
+//		for (int i = 0; i < origOrderTypes.size(); i++)
+//			out.write("            this.addTypeDefList(_"
+//					+ origOrderTypes.get(i) + ");\n");
+//
+//		for (int i = 0; i < origOrderAttrs.size(); i++)
+//			out.write("            this.addAttributeDefList(_"
+//					+ origOrderAttrs.get(i) + ");\n");
+//
+//		for (int i = 0; i < origOrderCategories.size(); i++)
+//			out.write("            this.addRuleCategoryList(_"
+//					+ origOrderCategories.get(i) + ");\n");
+//
+//		for (int i = 0; i < origOrderRules.size(); i++)
+//			out.write("            this.addRuleDefinitionList(_"
+//					+ origOrderRules.get(i) + ");\n");
+//
+//		// Set the schema instances' name and description
+//		// DebugInfo.debug("META SCHEMA NAME CHANGE!!!!");
+//		// out.write("            this.setName(\"metaSchema\");\n");
+//		out.write("            this.setName(\"meta\");\n");
+//		out.write("            this.addDescription(\"The meta schema defines the elements used to define schemas.\");\n");
+//
+//		// Set the prefix for the generated output directory and the generated
+//		// package prefixes
+//		out.write("            this.setSchemaPackage(\"org.dmd.dms\");\n");
+//		out.write("            this.setDmwPackage(\"org.dmd.dms\");\n");
+//
+//		out.write("            this.setSchemaBaseID(" + META_BASE_ID + ");\n");
+//		out.write("            this.setSchemaIDRange(" + META_ID_RANGE + ");\n");
+//
+//		// Set the construction class of this valid object instance
+//		// out.write("            this.addObjectClass(_SchemaDefinition);\n");
+//
+//		out.write("            }\n");
+//		out.write("            catch(Exception ex){\n");
+//		out.write("                ex.printStackTrace();\n");
+//		out.write("            }\n");
+//
+//		// END INIT METASCHEMA
+//		out.write("        }\n\n");
+//
+//		// METASCHEMA END
+//		out.write("    }\n\n");
+//
+//		out.write("}\n\n");
+//
+//		out.close();
+//	}
 
-		Iterator<DmcUncheckedObject> it = objects.values().iterator();
-		while (it.hasNext()) {
-			DmcUncheckedObject obj = it.next();
-			objName = obj.getSV("name");
-
-			// // trickiness here to handle the fact that the actual rule
-			// definition object
-			// // has to be called RuleDEF since Rule is the name of the class
-			// definition that
-			// // is created to represent the Rule instance.
-			// if (obj.getConstructionClass().equals("RuleDefinition")){
-			// objName = objName + "DEF";
-			// }
-
-			Iterator<String> attributeNames = obj.getAttributeNames();
-			while (attributeNames.hasNext()) {
-				NamedStringArray attr = obj.get(attributeNames.next());
-				attrName = attr.getName();
-				if (attrName == null) {
-					DebugInfo.debug("Attr name null");
-					continue;
-				}
-				attrDef = attributeDefs.get(attrName);
-				multiValued = false;
-				isReference = false;
-				isEnumType = false;
-
-				if (attrDef == null) {
-					ResultException ex = new ResultException();
-					ex.addError("Unknown attribute: " + attrName);
-					ex.result.lastResult().fileName("metaSchema.dms");
-					ex.result.lastResult().lineNumber(obj.lineNumber);
-					throw (ex);
-				}
-
-				// MULTIVALUED 1
-				if (attrDef.getSV("valueType") != null)
-					multiValued = true;
-
-				typeName = attrDef.getSV("type");
-				typeDef = typeDefs.get(typeName);
-
-				if (typeDef == null) {
-					// If this is null, we need to look for an internally
-					// generated Reference type
-					typeDef = typeDefs.get(typeName + "REF");
-					isReference = true;
-
-					if (typeDef.getSV("isEnumType") != null)
-						isEnumType = true;
-				}
-
-				StringBuffer attrNameCapped = new StringBuffer();
-				attrNameCapped.append(attrName);
-				attrNameCapped.setCharAt(0,
-						Character.toUpperCase(attrNameCapped.charAt(0)));
-
-				if (attrName.equals("type")) {
-					// The type attribute has to be handled slightly differently
-					// than most attributes
-					// to adjust for the fact that we create those internal
-					// Reference types to handle
-					// references to definitions.
-					isReference = false;
-					isEnumType = false;
-					typeName = obj.getSV("type");
-					typeDef = typeDefs.get(typeName);
-
-					if (typeDef == null) {
-						// If this is null, we need to look for an internally
-						// generated Reference type
-						typeDef = typeDefs.get(typeName + "REF");
-						isReference = true;
-
-						if (typeDef.getSV("isEnumType") != null)
-							isEnumType = true;
-					}
-
-					out.write("            _" + pf.sprintf(objName));
-
-					out.write(".setType(");
-
-					if (isReference) {
-						out.write("_" + obj.getSV(attrName) + "REF);\n");
-					} else {
-						out.write("_" + obj.getSV(attrName) + ");\n");
-					}
-				} else {
-					if (multiValued) {
-
-						for (String attrVal : attr) {
-							out.write("            _" + pf.sprintf(objName));
-							out.write(".add" + attrNameCapped + "(");
-
-							if (isReference) {
-								if (isEnumType)
-									out.write(typeName + "." + attrVal + ");\n");
-								else
-									out.write("_" + attrVal + ");\n");
-							} else {
-								out.write("\"" + attrVal + "\");\n");
-							}
-						}
-					} else {
-						out.write("            _" + pf.sprintf(objName));
-						out.write(".set" + attrNameCapped + "(");
-
-						if (isReference) {
-							if (isEnumType)
-								out.write(typeName + "." + obj.getSV(attrName)
-										+ ");\n");
-							else
-								out.write("_" + obj.getSV(attrName) + ");\n");
-						} else {
-							String value = obj.getSV(attrName);
-
-							if (attrName.equals("name")) {
-								String val = obj.getSV(attrName);
-								if (val.endsWith("EnumREF")) {
-									// DebugInfo.debug("Enum name: " + val);
-									value = val.replaceFirst("REF", "");
-									// DebugInfo.debug("value = " + value);
-								}
-							}
-
-							out.write("\"" + value + "\");\n");
-						}
-					}
-				}
-
-			}
-			out.write("            _" + pf.sprintf(objName));
-			out.write(".setDefinedIn(this);\n");
-
-			out.write("\n");
-		}
-	}
+//	private void setAttributeValues(BufferedWriter out,
+//			TreeMap<String, DmcUncheckedObject> objects, PrintfFormat pf)
+//			throws IOException, ResultException {
+//		String attrName = null;
+//		String objName = null;
+//		DmcUncheckedObject attrDef = null;
+//		String typeName = null;
+//		DmcUncheckedObject typeDef = null;
+//		boolean multiValued = false;
+//		boolean isReference = false;
+//		boolean isEnumType = false;
+//
+//		Iterator<DmcUncheckedObject> it = objects.values().iterator();
+//		while (it.hasNext()) {
+//			DmcUncheckedObject obj = it.next();
+//			objName = obj.getSV("name");
+//
+//			// // trickiness here to handle the fact that the actual rule
+//			// definition object
+//			// // has to be called RuleDEF since Rule is the name of the class
+//			// definition that
+//			// // is created to represent the Rule instance.
+//			// if (obj.getConstructionClass().equals("RuleDefinition")){
+//			// objName = objName + "DEF";
+//			// }
+//
+//			Iterator<String> attributeNames = obj.getAttributeNames();
+//			while (attributeNames.hasNext()) {
+//				NamedStringArray attr = obj.get(attributeNames.next());
+//				attrName = attr.getName();
+//				if (attrName == null) {
+//					DebugInfo.debug("Attr name null");
+//					continue;
+//				}
+//				attrDef = attributeDefs.get(attrName);
+//				multiValued = false;
+//				isReference = false;
+//				isEnumType = false;
+//
+//				if (attrDef == null) {
+//					ResultException ex = new ResultException();
+//					ex.addError("Unknown attribute: " + attrName);
+//					ex.result.lastResult().fileName("metaSchema.dms");
+//					ex.result.lastResult().lineNumber(obj.lineNumber);
+//					throw (ex);
+//				}
+//
+//				// MULTIVALUED 1
+//				if (attrDef.getSV("valueType") != null)
+//					multiValued = true;
+//
+//				typeName = attrDef.getSV("type");
+//				typeDef = typeDefs.get(typeName);
+//
+//				if (typeDef == null) {
+//					// If this is null, we need to look for an internally
+//					// generated Reference type
+//					typeDef = typeDefs.get(typeName + "REF");
+//					isReference = true;
+//
+//					if (typeDef.getSV("isEnumType") != null)
+//						isEnumType = true;
+//				}
+//
+//				StringBuffer attrNameCapped = new StringBuffer();
+//				attrNameCapped.append(attrName);
+//				attrNameCapped.setCharAt(0,
+//						Character.toUpperCase(attrNameCapped.charAt(0)));
+//
+//				if (attrName.equals("type")) {
+//					// The type attribute has to be handled slightly differently
+//					// than most attributes
+//					// to adjust for the fact that we create those internal
+//					// Reference types to handle
+//					// references to definitions.
+//					isReference = false;
+//					isEnumType = false;
+//					typeName = obj.getSV("type");
+//					typeDef = typeDefs.get(typeName);
+//
+//					if (typeDef == null) {
+//						// If this is null, we need to look for an internally
+//						// generated Reference type
+//						typeDef = typeDefs.get(typeName + "REF");
+//						isReference = true;
+//
+//						if (typeDef.getSV("isEnumType") != null)
+//							isEnumType = true;
+//					}
+//
+//					out.write("            _" + pf.sprintf(objName));
+//
+//					out.write(".setType(");
+//
+//					if (isReference) {
+//						out.write("_" + obj.getSV(attrName) + "REF);\n");
+//					} else {
+//						out.write("_" + obj.getSV(attrName) + ");\n");
+//					}
+//				} else {
+//					if (multiValued) {
+//
+//						for (String attrVal : attr) {
+//							out.write("            _" + pf.sprintf(objName));
+//							out.write(".add" + attrNameCapped + "(");
+//
+//							if (isReference) {
+//								if (isEnumType)
+//									out.write(typeName + "." + attrVal + ");\n");
+//								else
+//									out.write("_" + attrVal + ");\n");
+//							} else {
+//								out.write("\"" + attrVal + "\");\n");
+//							}
+//						}
+//					} else {
+//						out.write("            _" + pf.sprintf(objName));
+//						out.write(".set" + attrNameCapped + "(");
+//
+//						if (isReference) {
+//							if (isEnumType)
+//								out.write(typeName + "." + obj.getSV(attrName)
+//										+ ");\n");
+//							else
+//								out.write("_" + obj.getSV(attrName) + ");\n");
+//						} else {
+//							String value = obj.getSV(attrName);
+//
+//							if (attrName.equals("name")) {
+//								String val = obj.getSV(attrName);
+//								if (val.endsWith("EnumREF")) {
+//									// DebugInfo.debug("Enum name: " + val);
+//									value = val.replaceFirst("REF", "");
+//									// DebugInfo.debug("value = " + value);
+//								}
+//							}
+//
+//							out.write("\"" + value + "\");\n");
+//						}
+//					}
+//				}
+//
+//			}
+//			out.write("            _" + pf.sprintf(objName));
+//			out.write(".setDefinedIn(this);\n");
+//
+//			out.write("\n");
+//		}
+//	}
 
 	private void dumpDMWClasses(String dmwdir) throws ResultException {
 		DmcUncheckedObject go;
@@ -1512,12 +1578,16 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		String baseClass;
 		String derivedFrom;
 		String isNamedBy;
+		String isDSDefinition;
+		String isDSModule;
 
 		for (int i = 0; i < origOrderClasses.size(); i++) {
 			go = (DmcUncheckedObject) classDefs.get(origOrderClasses.get(i));
 
 			derivedFrom = go.getSV("derivedFrom");
 			isNamedBy = go.getSV("isNamedBy");
+			isDSDefinition = go.getSV("isDSDefinition");
+			isDSModule = go.getSV("isDSModule");
 
 			// System.out.println("*** Formatting class definition for: " +
 			// origOrderClasses.get(i));
@@ -1530,53 +1600,67 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 					// BufferedWriter out = new BufferedWriter(new
 					// FileWriter(dmwdir + File.separator + cn + "DMW.java"));
-					BufferedWriter out = FileUpdateManager.instance()
-							.getWriter(dmwdir, cn + "DMW.java");
+					BufferedWriter out = FileUpdateManager.instance().getWriter(dmwdir, cn + "DMW.java");
 
 					out.write(LGPL.toString());
+					
 					out.write("package org.dmd.dms.generated.dmw;\n\n");
-
-					out.write("import java.util.*;\n\n");
-
-					out.write("import org.dmd.dmc.types.*;\n");
-					out.write("import org.dmd.dmc.*;\n");
-					// if (derivedFrom == null){
-					out.write("import org.dmd.dmw.*;\n");
-					// }
+					
+					ImportManager imports = new ImportManager();
+					imports.addImport("java.util.*", "To support access functions");
+					imports.addImport("org.dmd.dmc.types.*", "Blanket import because at the meta level it's tricky to determine the exact pieces we need");
+					imports.addImport("org.dmd.dmc.*", "Basic dark-matter infrastructure");
+					imports.addImport("org.dmd.dmw.*", "Base wrapper capabilities");
+					imports.addImport("org.dmd.dms.generated.dmo.*", "Blanket import because at the meta level it's tricky to determine the exact pieces we need");
+					imports.addImport("org.dmd.dms.generated.enums.*", "Blanket import because at the meta level it's tricky to determine the exact pieces we need");
+					imports.addImport("org.dmd.dms.generated.types.*", "Blanket import because at the meta level it's tricky to determine the exact pieces we need");
+					imports.addImport("org.dmd.util.exceptions.*", "Blanket import because at the meta level it's tricky to determine the exact pieces we need");
+					imports.addImport("org.dmd.dms.*", "Blanket import because at the meta level it's tricky to determine the exact pieces we need");
 
 					if (cn.equals("EnumDefinition")) {
-						out.write("import org.dmd.dms.types.*;\n");
+						imports.addImport("org.dmd.dms.types.*", "Required for EnumDefinition");
 					}
-					out.write("import org.dmd.dms.generated.dmo.*;\n");
-					out.write("import org.dmd.dms.generated.enums.*;\n");
-					out.write("import org.dmd.dms.generated.types.*;\n");
-					out.write("import org.dmd.util.exceptions.*;\n");
-					out.write("import org.dmd.dms.*;\n");
+					
+					if (isDSDefinition != null){
+						imports.addImport("org.dmd.dmc.definitions.DmcDefinitionIF", "Because this is a DS definition");
+					}
+					if (isDSModule != null){
+						imports.addImport("org.dmd.dmc.definitions.DmcModuleIF", "Because this is a DS module");
+					}
 
 					if (cn.equals("ActionTriggerInfo")) {
-						// this is a complete friggin' hack!
-						out.write("import org.dmd.dms.extended.ActionTriggerInfo;\n");
+						imports.addImport("org.dmd.dms.extended.ActionTriggerInfo", "A hack that should go away! ");
 					}
 
 					out.write("\n");
+					
+					out.write(imports.getFormattedImports());
+					
+					///////////////////////////////////////////////////////////
 
 					out.write("/**\n");
-					dumpCodeComment(go.getSV("description"), out, " * ");
+					dumpCodeComment(go.get("description"), out, " * ");
 
 					out.write(" * @author Auto Generated\n");
 					out.write(" * Generated from: "
 							+ DebugInfo.getWhereWeAreNow() + "\n");
 					out.write(" */\n");
 					out.write("@SuppressWarnings(\"unused\")\n");
+					
+					String additionalInterfaces = "";
+					if (isDSDefinition != null)
+						additionalInterfaces = " implements DmcDefinitionIF";
+					if (isDSModule != null)
+						additionalInterfaces = " implements DmcModuleIF";
 
 					// See if we're derived from anything. If not, just use
 					// DmwWrapper as the base class
 					// If we're named, use DmwNamedObjectWrapper.
 					if (derivedFrom == null) {
-						baseClass = "DmwWrapper";
+						baseClass = "DmwWrapper" + additionalInterfaces;
 
 						if (isNamedBy != null)
-							baseClass = "DmwNamedObjectWrapper";
+							baseClass = "DmwNamedObjectWrapper" + additionalInterfaces;
 					} else {
 						// Otherwise, we look up the derived from class and use
 						// its javaClass
@@ -1590,7 +1674,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 							ex.result.lastResult().lineNumber(go.lineNumber);
 							throw (ex);
 						}
-						baseClass = bc.getSV("javaClass");
+						baseClass = bc.getSV("javaClass") + additionalInterfaces;
 					}
 
 					classType = go.getSV("classType");
@@ -1598,9 +1682,15 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 					if (classType.equals("ABSTRACT"))
 						out.write("public abstract class " + cn
 								+ "DMW extends " + baseClass + " {\n\n");
-					else
-						out.write("public class " + cn + "DMW extends "
-								+ baseClass + " {\n\n");
+					else{
+						if (cn.equals("SchemaDefinition")){
+							// Have to make this abstract because we need to manually overload the DmcModuleIF methods
+							out.write("public abstract class " + cn + "DMW extends " + baseClass + " {\n\n");							
+						}
+						else{
+							out.write("public class " + cn + "DMW extends " + baseClass + " {\n\n");
+						}
+					}
 
 					out.write("    private " + cn + "DMO mycore;\n\n");
 
@@ -1694,12 +1784,10 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 						// MULTIVALUED 2
 						String multiValued = attrObj.getSV("valueType");
 
-						dumpCodeComment(attrObj.getSV("description"), out,
-								"     * ");
+						dumpCodeComment(attrObj.get("description"), out, "     * ");
 
 						if (multiValued != null) {
-							dumpMVAccessFunction(out, currAttr, false, cn
-									+ "DMO");
+							dumpMVAccessFunction(out, currAttr, false, cn + "DMO");
 						} else {
 							out.write("     */\n");
 							dumpSVAccessFunction(out, currAttr, false, cn
@@ -1710,7 +1798,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 					out.write("\n");
 
 					if (isNamedBy != null) {
-						String nameType = "StringName";
+						String nameType = "DefinitionName";
 						if (cn.equals("RuleData"))
 							nameType = "RuleName";
 
@@ -1764,6 +1852,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		String baseClass;
 		String derivedFrom;
 		String isNamedBy;
+		String isDSDefinition;
 		boolean isDmsDefinition = false;
 
 		for (int i = 0; i < origOrderClasses.size(); i++) {
@@ -1774,6 +1863,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 			derivedFrom = go.getSV("derivedFrom");
 			isNamedBy = go.getSV("isNamedBy");
+			isDSDefinition = go.getSV("isDSDefinition");
 
 			// System.out.println("*** Formatting DMO for: " +
 			// origOrderClasses.get(i));
@@ -1829,6 +1919,10 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 						imports.addImport("org.dmd.dms.types.*", "Enum support");
 						// out.write("import org.dmd.dms.types.*;\n");
 					}
+					
+					if (isDSDefinition != null){
+						imports.addImport("org.dmd.dmc.definitions.DmcDefinitionIF", "This is a domain specific definition");
+					}
 
 					imports.addImport("org.dmd.dms.generated.types.*",
 							"Generated type access");
@@ -1847,7 +1941,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 					out.write("/**\n");
 
-					dumpCodeComment(go.getSV("description"), out, " * ");
+					dumpCodeComment(go.get("description"), out, " * ");
 
 					out.write(" * @author Auto Generated\n");
 					out.write(" * Generated from: "
@@ -1855,12 +1949,17 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 					out.write(" */\n");
 
 					out.write("@SuppressWarnings(\"serial\")\n");
+					
+					String additionalInterfaces = " ";
+					if (isDSDefinition != null){
+						additionalInterfaces = ", DmcDefinitionIF";
+					}
 
 					if (derivedFrom == null) {
 						if (isNamedBy == null) {
-							baseClass = "DmcObject implements Serializable";
+							baseClass = "DmcObject implements Serializable" + additionalInterfaces;
 						} else {
-							baseClass = "DmcObject implements DmcNamedObjectIF, Serializable";
+							baseClass = "DmcObject implements DmcNamedObjectIF, Serializable" + additionalInterfaces;
 						}
 					} else {
 						// Otherwise, we look up the derived from class and use
@@ -1877,7 +1976,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 						}
 
 						baseClass = bc.getSV("dmoImport")
-								+ " implements Serializable ";
+								+ " implements Serializable" + additionalInterfaces;
 					}
 
 					out.write("public class " + cn + "DMO extends " + baseClass
@@ -2007,8 +2106,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 						// MULTIVALUED 5
 						String multiValued = attrObj.getSV("valueType");
 
-						dumpCodeComment(attrObj.getSV("description"), out,
-								"     * ");
+						dumpCodeComment(attrObj.get("description"), out, "     * ");
 
 						if (multiValued != null) {
 							dumpMVAccessFunction(out, currAttr, true, cn
@@ -2023,7 +2121,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 					out.write("\n");
 
 					if (isNamedBy != null) {
-						String nameType = "StringName";
+						String nameType = "DefinitionName";
 
 						if (cn.equals("RuleData"))
 							nameType = "RuleName";
@@ -2114,6 +2212,9 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 				may.add(name);
 
 				DmcUncheckedObject attrDef = attributeDefs.get(name);
+				if (attrDef == null){
+					System.err.println("Couldn't find attribute definition for: " + name + " while getAllMustAndMay() for: \n\n" + uco.toOIF());
+				}
 				String attrType = attrDef.getSV("type");
 				DmcUncheckedObject typeDef = typeDefs.get(attrType);
 
@@ -2288,7 +2389,6 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 				out.write("        return(attr.getSV().replaceAll(\"\\\\\\\\n\",\"\\\\\\n\"));\n");
 				out.write("    }\n\n");
 			}
-
 		} else {
 			out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			if (isObjREF) {
@@ -2398,6 +2498,11 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			if (typeDef != null)
 				isObjREF = true;
 		}
+		
+		boolean isComplexType = false;
+		if (complexTypeDefs.get(typeName) != null){
+			isComplexType = true;
+		}
 
 		if (typeDef == null) {
 			ResultException ex = new ResultException();
@@ -2445,6 +2550,31 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			out.write("\n");
 			out.write("        return(attr.getMV());\n");
 			out.write("    }\n\n");
+			
+			String preserveNewlines = attributeDef.getSV("preserveNewlines");
+
+			if ( (preserveNewlines != null) && !isComplexType){
+				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				out.write("    public Iterator<" + typeName + "> get" + functionName + "WithNewlines(){\n");
+	
+				out.write("        " + attrType + " attr = (" + attrType + ") get(MetaDMSAG.__" + attrname + ");\n");
+				out.write("        if (attr == null)\n");
+				out.write("            return(null);\n");
+	
+				out.write("\n");
+				out.write("        " + attrType + " withNewLines = new " + attrType + "();\n");
+				out.write("        Iterator<" + typeName + "> it = attr.getMV();\n");
+				out.write("        while(it.hasNext()){\n");
+				out.write("            try{\n");
+				out.write("                withNewLines.add(it.next().replaceAll(\"\\\\\\\\n\",\"\\\\\\n\"));\n");
+				out.write("            } catch (DmcValueException e) {\n");
+				out.write("                e.printStackTrace();\n");
+				out.write("            }\n");
+				out.write("        }\n");
+				out.write("\n");
+				out.write("        return(withNewLines.getMV());\n");
+				out.write("    }\n\n");
+			}
 		} else {
 			if (isObjREF) {
 				out.write("     * @return An Iterator of " + typeName
@@ -2479,6 +2609,31 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 				out.write("\n");
 				out.write("        return(attr.getMV());\n");
 				out.write("    }\n\n");
+				
+				String preserveNewlines = attributeDef.getSV("preserveNewlines");
+
+				if ( (preserveNewlines != null) && !isComplexType){
+					out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+					out.write("    public Iterator<" + typeName + "> get" + functionName + "WithNewlines(){\n");
+		
+					out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(MetaDMSAG.__" + attrname + ");\n");
+					out.write("        if (attr == null)\n");
+					out.write("            return(null);\n");
+		
+					out.write("\n");
+					out.write("        " + attrType + " withNewLines = new " + attrType + "();\n");
+					out.write("        Iterator<" + typeName + "> it = attr.getMV();\n");
+					out.write("        while(it.hasNext()){\n");
+					out.write("            try{\n");
+					out.write("                withNewLines.add(it.next().replaceAll(\"\\\\\\\\n\",\"\\\\\\n\"));\n");
+					out.write("            } catch (DmcValueException e) {\n");
+					out.write("                e.printStackTrace();\n");
+					out.write("            }\n");
+					out.write("        }\n");
+					out.write("\n");
+					out.write("        return(withNewLines.getMV());\n");
+					out.write("    }\n\n");
+				}
 			}
 		}
 
@@ -2525,10 +2680,11 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 				out.write("     */\n");
 				// out.write("    @SuppressWarnings(\"unchecked\")\n");
 				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				out.write("    public DmcAttribute<?> add" + functionName
-						+ "(Object value) throws DmcValueException {\n");
-				out.write("        return(mycore.add" + functionName
-						+ "(value));\n");
+//				out.write("    public DmcAttribute<?> add" + functionName + "(Object value) throws DmcValueException {\n");
+//				out.write("        return(mycore.add" + functionName + "(value));\n");
+//				out.write("    }\n\n");
+				out.write("    public void add" + functionName + "(Object value) throws DmcValueException {\n");
+				out.write("        mycore.add" + functionName + "(value);\n");
 				out.write("    }\n\n");
 			}
 
@@ -2596,7 +2752,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 				out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
 				out.write("import org.dmd.dmc.types.DmcTypeNamedObjectREF;\n");
 				out.write("import org.dmd.dms.generated.dmo.*;\n");
-				out.write("import org.dmd.dmc.types.StringName;\n");
+				out.write("import org.dmd.dmc.types.DefinitionName;\n");
 
 				out.write("/**\n * The DmcType" + cn + "REF class.\n");
 				out.write(" * This code was auto-generated by the createmeta utility and shouldn't be alterred\n");
@@ -2608,7 +2764,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 				out.write("@SuppressWarnings(\"serial\")\n");
 				out.write("abstract public class DmcType" + cn
 						+ "REF extends DmcTypeNamedObjectREF<" + cn
-						+ "REF, StringName> implements Serializable {\n\n");
+						+ "REF, DefinitionName> implements Serializable {\n\n");
 
 				out.write("    /**\n");
 				out.write("     * Default constructor.\n");
@@ -2643,7 +2799,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 				out.write("        }\n");
 				out.write("        else if (value instanceof String){\n");
 				out.write("            rc = new " + cn + "REF();\n");
-				out.write("            rc.setName(new StringName((String)value));\n");
+				out.write("            rc.setName(new DefinitionName((String)value));\n");
 				out.write("        }\n");
 				out.write("        else\n");
 				out.write("            throw(new DmcValueException(\"Object of class:\" + value.getClass().getName() + \" passed where a "
@@ -2657,8 +2813,8 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 				out.write("    }\n\n");
 
 				out.write("    @Override\n");
-				out.write("    protected StringName " + "getNewName(){\n");
-				out.write("        return( new StringName());\n");
+				out.write("    protected DefinitionName " + "getNewName(){\n");
+				out.write("        return( new DefinitionName());\n");
 				out.write("    }\n\n");
 
 				out.write("    @Override\n");
@@ -2705,7 +2861,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 				// Generate the reference container
 
-				String nameType = "StringName";
+				String nameType = "DefinitionName";
 				if (cn.equals("RuleData"))
 					nameType = "RuleName";
 
@@ -2746,7 +2902,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 						+ "REF extends DmcNamedObjectNontransportableREF<" + cn
 						+ "DMO> implements Serializable {\n\n");
 
-				// writeAttributeInfo(out, "name", "2", "StringName", null,
+				// writeAttributeInfo(out, "name", "2", "DefinitionName", null,
 				// "false");
 				// out.write("\n");
 
@@ -2982,8 +3138,13 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 	}
 
-	void dumpComplexType(String od, DmcUncheckedObject ct) throws IOException,
-			ResultException {
+	void dumpComplexType(String od, DmcUncheckedObject ct) throws IOException, ResultException, DmcValueException {
+		// If there are no fields, take the new approach
+		if (ct.get("field") == null){
+			MetaComplexTypeFormatter.dumpComplexType(od, ct, this);
+			return;
+		}
+		
 		String ctn = ct.getSV("name");
 		String fieldSeparator = ct.getSV("fieldSeparator");
 		boolean	whiteSpaceSeparator = false;
@@ -3025,23 +3186,32 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		out.write(LGPL.toString());
 		out.write("package org.dmd.dms.generated.types;\n\n");
 
-		out.write("import java.io.Serializable;\n");
-		out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
-		out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
-		out.write("import org.dmd.dmc.types.IntegerVar;\n");
+		ImportManager imports = new ImportManager();
+		
+		imports.addImport("java.io.Serializable","Marker interface for serialization");
+		imports.addImport("org.dmd.dmc.DmcInputStreamIF","To support serialization");
+		imports.addImport("org.dmd.dmc.DmcOutputStreamIF","To support serialization");
+		imports.addImport("org.dmd.dmc.types.IntegerVar","For getNextField()");
+		imports.addImport("org.dmd.dms.generated.enums.DataTypeEnum","For fake DmcAttributeInfo");
+		imports.addImport("org.dmd.dms.generated.enums.ValueTypeEnum","For fake DmcAttributeInfo");
+		imports.addImport("org.dmd.dmc.DmcAttributeInfo","For fake DmcAttributeInfo");
 
 		if (hasRefs) {
-			out.write("import org.dmd.dmc.DmcNameResolverIF;\n");
-			out.write("import org.dmd.dmc.DmcNamedObjectIF;\n");
-			out.write("import org.dmd.dmc.DmcNamedObjectREF;\n");
-			out.write("import org.dmd.dmc.DmcContainerIF;\n");
+			imports.addImport("org.dmd.dmc.DmcNameResolverWithClashSupportIF","Ambiguous reference resolution");
+			imports.addImport("org.dmd.dmc.DmcNameClashResolverIF","Ambiguous reference resolution");
+			imports.addImport("org.dmd.dmc.DmcNameResolverIF","Reference resolution");
+			imports.addImport("org.dmd.dmc.DmcNamedObjectIF","Reference resolution");
+			imports.addImport("org.dmd.dmc.DmcNamedObjectREF","Reference resolution");
+			imports.addImport("org.dmd.dmc.DmcContainerIF","Reference resolution");
+			imports.addImport("org.dmd.dmc.DmcObject","Ambiguous reference resolution");
+			imports.addImport("org.dmd.dmc.DmcValueExceptionSet","Ambiguous reference resolution");
 		}
 
-		// out.write("import org.dmd.dmc.DmcAttribute;\n");
-		// out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
-		out.write("import org.dmd.dmc.DmcValueException;\n\n");
+		imports.addImport("org.dmd.dmc.DmcValueException","For type checking");
 
-		out.write(getComplexTypeImports(fields));
+		getComplexTypeImports(imports, fields);
+				
+		out.write(imports.getFormattedImports() + "\n\n");
 
 		out.write("@SuppressWarnings(\"serial\")\n");
 
@@ -3163,7 +3333,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 		for (Field field : fields) {
 			out.write("    public " + field.type + " get"
-					+ GenUtility.capTheName(field.name) + "(){\n");
+					+ Manipulator.capFirstChar(field.name) + "(){\n");
 			out.write("        return(" + field.name + ");\n");
 			out.write("    }\n\n");
 		}
@@ -3194,6 +3364,33 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			}
 
 			out.write("    }\n\n");
+			
+			
+			out.write("    @SuppressWarnings({\"unchecked\", \"rawtypes\"})\n");
+			out.write("    public void resolve(DmcNameResolverWithClashSupportIF resolver, DmcObject object, DmcNameClashResolverIF ncr, DmcAttributeInfo ai) throws DmcValueException, DmcValueExceptionSet {\n");
+			out.write("        DmcNamedObjectIF  obj = null;\n\n");
+
+			for (String fn : refFields) {
+				out.write("        if (!" + fn + ".isResolved()){\n");
+				out.write("            obj = resolver.findNamedObjectMayClash(object, " + fn + ".getObjectName(), ncr, " + fn + "AI);\n");
+				out.write("            if (obj == null)\n");
+				out.write("                throw(new DmcValueException(\"Could not resolve reference to: \" + "
+						+ fn
+						+ ".getObjectName() + \" via attribute: \" + ai.name));\n");
+				out.write("        \n");
+				out.write("            if (obj instanceof DmcContainerIF)\n");
+				out.write("                ((DmcNamedObjectREF)"
+						+ fn
+						+ ").setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());\n");
+				out.write("            else\n");
+				out.write("                ((DmcNamedObjectREF)" + fn
+						+ ").setObject(obj);\n");
+				out.write("        }\n");
+				out.write("        \n");
+			}
+
+			out.write("    }\n\n");
+
 		}
 
 		///////////////////////////////////////////////////////////////////////
@@ -3292,10 +3489,9 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 	}
 
-	String getComplexTypeImports(ArrayList<Field> fields)
-			throws ResultException {
-		StringBuffer sb = new StringBuffer();
-		TreeMap<String, String> uniqueImports = new TreeMap<String, String>();
+	void getComplexTypeImports(ImportManager imports, ArrayList<Field> fields) throws ResultException {
+//		StringBuffer sb = new StringBuffer();
+//		TreeMap<String, String> uniqueImports = new TreeMap<String, String>();
 
 		for (Field field : fields) {
 			// DebugInfo.debug("field type = " + field.type);
@@ -3306,23 +3502,26 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 				typeDef = enumDefs.get(field.type);
 				if (typeDef != null) {
 					String imp = "org.dmd.dms.generated.enums." + field.type;
-					uniqueImports.put(imp, imp);
+//					uniqueImports.put(imp, imp);
+					imports.addImport(imp, "Type for field: " + field.name);
 				} else {
 					typeDef = typeDefs.get(field.type + "REF");
 					String primitiveType = typeDef.getSV("primitiveType");
 
-					if (primitiveType != null)
-						uniqueImports.put(primitiveType, primitiveType);
+					if (primitiveType != null){
+//						uniqueImports.put(primitiveType, primitiveType);
+						imports.addImport(primitiveType, "Type for field: " + field.name);
+					}
 				}
 			}
 
 		}
 
-		for (String importStr : uniqueImports.values()) {
-			sb.append("import " + importStr + ";\n");
-		}
+//		for (String importStr : uniqueImports.values()) {
+//			sb.append("import " + importStr + ";\n");
+//		}
 
-		return (sb.toString());
+//		return (sb.toString());
 	}
 
 	String getComplexTypeFieldInstances(ArrayList<Field> fields) {
@@ -3330,7 +3529,12 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 		for (Field field : fields) {
 			sb.append("    // " + field.descr + "\n");
-			sb.append("    " + field.type + " " + field.name + ";\n\n");
+			sb.append("    " + field.type + " " + field.name + ";\n");
+//			DmcAttributeInfo("type",19,"TypeDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+			
+			String type = field.type;
+			type = type.replaceAll("REF", "");
+			sb.append("    final static DmcAttributeInfo " + field.name + "AI = new DmcAttributeInfo(\""+ field.name + "\",0,\"" + type + "\",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN);\n\n");
 		}
 
 		return (sb.toString());

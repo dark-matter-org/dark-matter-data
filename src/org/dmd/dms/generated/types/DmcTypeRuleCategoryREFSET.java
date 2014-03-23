@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeRuleCategoryREFSET provides storage for a set of RuleCategoryREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:587)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2625)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:620)
  */
 @SuppressWarnings("serial")
 public class DmcTypeRuleCategoryREFSET extends DmcTypeRuleCategoryREF implements Serializable {
@@ -61,7 +61,7 @@ public class DmcTypeRuleCategoryREFSET extends DmcTypeRuleCategoryREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2666)
     public DmcAttribute<RuleCategoryREF> cloneIt(){
         synchronized(this){
             DmcTypeRuleCategoryREFSET rc = getNew();
@@ -80,7 +80,7 @@ public class DmcTypeRuleCategoryREFSET extends DmcTypeRuleCategoryREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2689)
     public RuleCategoryREF add(Object v) throws DmcValueException {
         synchronized(this){
             RuleCategoryREF rc = typeCheck(v);
@@ -96,7 +96,7 @@ public class DmcTypeRuleCategoryREFSET extends DmcTypeRuleCategoryREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2706)
     public RuleCategoryREF del(Object v){
         synchronized(this){
             RuleCategoryREF rc = null;
@@ -120,7 +120,7 @@ public class DmcTypeRuleCategoryREFSET extends DmcTypeRuleCategoryREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2731)
     public Iterator<RuleCategoryREF> getMV(){
         synchronized(this){
             if (value == null)
@@ -133,7 +133,7 @@ public class DmcTypeRuleCategoryREFSET extends DmcTypeRuleCategoryREF implements
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2745)
     public Set<RuleCategoryREF> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -152,7 +152,7 @@ public class DmcTypeRuleCategoryREFSET extends DmcTypeRuleCategoryREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2765)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -162,7 +162,7 @@ public class DmcTypeRuleCategoryREFSET extends DmcTypeRuleCategoryREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2776)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

@@ -6,7 +6,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
-import org.dmd.dmc.types.StringName;
+import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.types.DefinitionName;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ComplexTypeDefinition;
 import org.dmd.dms.SchemaManager;
@@ -33,7 +34,7 @@ public class ComplexTypeFormatter {
 			out.write("    <tr>\n");
 			out.write("      <td class=\"spacer\"> </td>\n");
 			out.write("      <td class=\"label\">Description</td>\n");
-			out.write("      <td colspan=\"4\"> " + td.getDescriptionWithNewlines() + " </td>\n");
+			out.write("      <td colspan=\"4\"> " + Converter.convert(td.getDescriptionWithNewlines()) + " </td>\n");
 			out.write("    </tr>\n\n");
 		}
 	}
@@ -53,27 +54,35 @@ public class ComplexTypeFormatter {
 		
 		Iterator<Field> fields = td.getField();
 		int fieldNum = 1;
-		while(fields.hasNext()){
-			Field field = fields.next();
-			
-			out.write("    <tr>\n");
-			out.write("      <td class=\"spacer\"> </td>\n");
-			out.write("      <td class=\"label\"> Field " + fieldNum + "</td>\n");
-			out.write("      <td> " + field.getName() + " </td>\n");
-			
-			TypeDefinition fieldType = sm.tdef(field.getType().getObjectName().getNameString());
-			if (fieldType == null)
-				fieldType = sm.findInternalType(new StringName(field.getType().getObjectName().getNameString()));
-			
-			String type 		= TypeFormatter.getTypeName(fieldType);
-			String schema 		= fieldType.getDefinedIn().getName().getNameString();
-
-			out.write("      <td class=\"attrType\"> <a href=\"" + schema + ".html#" + type + "\">" + type + "</a> </td>\n");
-			
-			out.write("      <td> " + field.getDescription() + " </td>\n");
-			out.write("    </tr>\n\n");
-			
-			fieldNum++;
+		if (fields != null){
+			while(fields.hasNext()){
+				Field field = fields.next();
+				
+				out.write("    <tr>\n");
+				out.write("      <td class=\"spacer\"> </td>\n");
+				out.write("      <td class=\"label\"> Field " + fieldNum + "</td>\n");
+				out.write("      <td> " + field.getName() + " </td>\n");
+				
+				TypeDefinition fieldType = sm.tdef(field.getType().getObjectName().getNameString());
+				if (fieldType == null){
+					try {
+						fieldType = sm.findInternalType(new DefinitionName(field.getType().getObjectName().getNameString()));
+					} catch (DmcValueException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				
+				String type 		= TypeFormatter.getTypeName(fieldType);
+				String schema 		= fieldType.getDefinedIn().getName().getNameString();
+	
+				out.write("      <td class=\"attrType\"> <a href=\"" + schema + ".html#" + type + "\">" + type + "</a> </td>\n");
+				
+				out.write("      <td> " + field.getDescription() + " </td>\n");
+				out.write("    </tr>\n\n");
+				
+				fieldNum++;
+			}
 		}
 		
 	}
@@ -86,7 +95,7 @@ public class ComplexTypeFormatter {
 		// There's always one reference because the schema refers to its complex types
 		if ( (referring != null) && (referring.size() > 1) ){
 //		if (referring != null){
-			TreeMap<StringName,AttributeDefinition>	attributes = new TreeMap<StringName, AttributeDefinition>();
+			TreeMap<DefinitionName,AttributeDefinition>	attributes = new TreeMap<DefinitionName, AttributeDefinition>();
 			
 			for(DmwWrapper wrapper: referring){
 				if (wrapper instanceof AttributeDefinition){
@@ -109,7 +118,7 @@ public class ComplexTypeFormatter {
 		}
 	}
 
-	static String formatUsage(TreeMap<StringName,AttributeDefinition> ads){
+	static String formatUsage(TreeMap<DefinitionName,AttributeDefinition> ads){
 		StringBuffer sb = new StringBuffer();
 		
 		sb.append("<table>\n");

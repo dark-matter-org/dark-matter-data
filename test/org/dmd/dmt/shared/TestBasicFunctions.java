@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.UUID;
 
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcValueException;
@@ -36,7 +37,7 @@ public class TestBasicFunctions {
 	private SchemaManager schema;
 	
 	@Before
-	public void initialize() throws ResultException, DmcValueException{
+	public void initialize() throws ResultException, DmcValueException, DmcNameClashException {
 		schema = new SchemaManager();
 		schema.manageSchema(new DmpSchemaAG());
 		schema.manageSchema(new DmtSchemaAG());
@@ -152,7 +153,7 @@ public class TestBasicFunctions {
 		
 		ObjWithRefsDMO	obj = new ObjWithRefsDMO();
 		
-		obj.setName("object 1");
+		obj.setName("object1");
 		obj.setSvString("one value");
 		obj.addMvString("value1");
 		obj.addMvString("value2");
@@ -173,7 +174,7 @@ public class TestBasicFunctions {
 		
 		ObjWithRefs	obj = new ObjWithRefs();
 		
-		obj.setName("object 1");
+		obj.setName("object1");
 		obj.setSvString("one value");
 		obj.addMvString("value1");
 		obj.addMvString("value2");

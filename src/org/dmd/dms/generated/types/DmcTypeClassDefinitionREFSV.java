@@ -23,8 +23,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeClassDefinitionREFSV provides storage for a single-valued ClassDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1955)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:580)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1985)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:613)
  */
 @SuppressWarnings("serial")
 public class DmcTypeClassDefinitionREFSV extends DmcTypeClassDefinitionREF implements Serializable {
@@ -48,14 +48,14 @@ public class DmcTypeClassDefinitionREFSV extends DmcTypeClassDefinitionREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2017)
     public DmcAttribute<ClassDefinitionREF> cloneIt(){
         DmcTypeClassDefinitionREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2028)
     public ClassDefinitionREF getSVCopy(){
         if (value == null)
             return(null);
@@ -63,7 +63,7 @@ public class DmcTypeClassDefinitionREFSV extends DmcTypeClassDefinitionREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2010)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2040)
     public ClassDefinitionREF set(Object v) throws DmcValueException {
         ClassDefinitionREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

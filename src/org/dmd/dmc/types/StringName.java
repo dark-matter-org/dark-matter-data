@@ -32,14 +32,23 @@ public class StringName extends DmcObjectName implements DmcObjectNameIF, Serial
 	
 	public final static String className = "StringName";
 	
+//	final static String camelCase = "[a-zA-Z][a-zA-Z0-9]*";
+
 	String name;
 	
 	public StringName(){
 
 	}
 	
-	public StringName(String n){
-		name = n;
+	public StringName(StringName n){
+		name = new String(n.name);
+	}
+	
+	public StringName(String n) throws DmcValueException{
+//		if (n.matches(camelCase))
+			name = n;
+//		else
+//			throw(new DmcValueException("The String: " + n + " does not conform to StringName format. The name must begin with an alpha character and include only letters and numbers."));
 	}
 
 	@Override
@@ -48,7 +57,11 @@ public class StringName extends DmcObjectName implements DmcObjectNameIF, Serial
 	}
 	
 	public void setNameString(String n) throws DmcValueException {
-		name = n;
+//		if (n.matches(camelCase))
+			name = n;
+//		else
+//			throw(new DmcValueException("The String: " + n + " does not conform to StringName format. The name must begin with an alpha character and include only letters and numbers."));
+
 	}
 
 	@Override
@@ -117,7 +130,7 @@ public class StringName extends DmcObjectName implements DmcObjectNameIF, Serial
 
 	@Override
 	public DmcObjectName cloneIt() {
-		return(new StringName(name));
+		return(new StringName(this));
 	}
 
 	@Override

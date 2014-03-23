@@ -18,6 +18,7 @@ package org.dmd.dms;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.rules.DynamicInitIF;
 import org.dmd.dmc.rules.RuleIF;
@@ -30,7 +31,6 @@ import org.dmd.dms.generated.dmw.SchemaDefinitionDMW;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.util.DmoObjectFactory;
 import org.dmd.dms.util.DynamicCompactSchema;
-import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
 public class SchemaDefinition extends SchemaDefinitionDMW {
@@ -68,6 +68,9 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     
     TreeMap<RuleName,RuleIF>				ruleInstances;
     
+    // These are rules that have been instantiated and resolved by the schema manager
+    TreeMap<RuleName,RuleIF>				resolvedRules;
+    
     /**
      * Default constructor.
      */
@@ -77,7 +80,8 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     }
 
 	protected SchemaDefinition(String mn) throws DmcValueException {
-		super(mn);
+//		super(mn);
+		getDMO().setName(mn);
     	dependsOnSchemaClasses = new TreeMap<String, String>();
     	generatedSchema = false;
 	}
@@ -287,6 +291,9 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     		this.addComplexTypeDefList((ComplexTypeDefinition) def);
     	else if (def instanceof RuleDefinition)
     		this.addRuleDefinitionList((RuleDefinition)def);
+    	else if (def instanceof DSDefinitionModule){
+    		this.addDsdModuleList((DSDefinitionModule) def);
+    	}
         else{
         	ResultException ex = new ResultException();
         	ex.addError("The specified object is not a DMD object: \n" + def.toOIF());
@@ -311,8 +318,9 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
      * This method will return the parsed rules translated into DMOs. 
      * @param sm the schema manager used by our Dmo
      * @return
+     * @throws DmcNameClashException  
      */
-    public Iterator<RuleDataDMO> getParsedRulesDMOs(SchemaManager sm){
+    public Iterator<RuleDataDMO> getParsedRulesDMOs(SchemaManager sm) throws DmcNameClashException {
     	if (parsedRulesDMOs == null){
     		parsedRulesDMOs = new TreeMap<RuleName, RuleDataDMO>();
     		ruleInstances = new TreeMap<RuleName, RuleIF>();
@@ -321,10 +329,10 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
         		DmoObjectFactory	dmofactory = new DmoObjectFactory(sm);
     			for(DmcUncheckedObject uco: parsedRules.values()){
     				try {
-    					String ruleName = uco.getSV("ruleName");
-    					if ( (ruleName != null) && (ruleName.equals("dmvIncludeOrExclude")) ){
-    						DebugInfo.debug("HERE");
-    					}
+//    					String ruleName = uco.getSV("ruleName");
+//    					if ( (ruleName != null) && (ruleName.equals("dmvIncludeOrExclude")) ){
+//    						DebugInfo.debug("HERE");
+//    					}
     					
 						ClassDefinition ruleDataCD 	= sm.cdef(uco.getConstructionClass());
 						RuleDataDMO 	dmo 		= (RuleDataDMO) dmofactory.createObject(uco);
@@ -351,7 +359,24 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     	return(parsedRulesDMOs.values().iterator());
     }
     
-    public TreeMap<RuleName,RuleIF> getRuleInstances(SchemaManager sm){
+    /**
+     * Called when resolveReferences is performed on a schema manager being used by the
+     * DmsSchemaParser.
+     * @param rr
+     */
+    public void setResolvedRules(TreeMap<RuleName,RuleIF> rr){
+    	resolvedRules = rr;
+    }
+    
+    /**
+     * Called when we're formatting the compact schema rule data.
+     * @return
+     */
+    public TreeMap<RuleName,RuleIF> getResolvedRules(){
+    	return(resolvedRules);
+    }
+    
+    public TreeMap<RuleName,RuleIF> getRuleInstances(SchemaManager sm) throws DmcNameClashException {
     	if (ruleInstances == null)
     		getParsedRulesDMOs(sm);
     	return(ruleInstances);
@@ -399,5 +424,17 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     	
     	return(rc);
     }
+
+//	@Override
+//	public Iterator<DmcDefinitionIF> getDefinitions() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public Iterator<DmcDefinitionSet<?>> getDefinitionSets() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 }
 

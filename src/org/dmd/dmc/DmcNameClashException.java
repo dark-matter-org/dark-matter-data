@@ -25,25 +25,32 @@ import java.util.Iterator;
 @SuppressWarnings("serial")
 public class DmcNameClashException extends Exception {
 
-	ArrayList<DmcNamedObjectIF>	matches;
+	DmcNameClashObjectSet<DmcNamedObjectIF> matches;
+//	ArrayList<DmcNamedObjectIF>	matches;
 	
-	@SuppressWarnings("unchecked")
+//	@SuppressWarnings("unchecked")
 	public DmcNameClashException(String message, ArrayList<DmcNamedObjectIF> clash){
 		super(message);
-		matches = (ArrayList<DmcNamedObjectIF>) clash.clone();
+//		matches = (ArrayList<DmcNamedObjectIF>) clash.clone();
+		matches = new DmcNameClashObjectSet<DmcNamedObjectIF>(clash);
 	}
 	
 	public DmcNameClashException(String message){
 		super(message);
-		matches = new ArrayList<DmcNamedObjectIF>();
+//		matches = new ArrayList<DmcNamedObjectIF>();
+		matches = new DmcNameClashObjectSet<DmcNamedObjectIF>();
 	}
 	
 	public void addMatch(DmcNamedObjectIF m){
-		matches.add(m);
+		matches.addMatch(m);
 	}
 	
 	public Iterator<DmcNamedObjectIF> getMatches(){
-		return(matches.iterator());
+		return(matches.getMatches());
+	}
+	
+	public DmcNameClashObjectSet<DmcNamedObjectIF> getClashSet(){
+		return(matches);
 	}
 		
 	@Override

@@ -15,13 +15,25 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.util;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
-import org.dmd.dmc.types.StringName;
-import org.dmd.dms.*;
+import org.dmd.dmc.types.DefinitionName;
+import org.dmd.dms.ActionDefinition;
+import org.dmd.dms.AttributeDefinition;
+import org.dmd.dms.ClassDefinition;
+import org.dmd.dms.DmsDefinition;
+import org.dmd.dms.EnumDefinition;
+import org.dmd.dms.SchemaDefinition;
+import org.dmd.dms.SchemaManager;
+import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
-import org.dmd.util.exceptions.ResultSet;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.parsing.Token;
 
 /**
@@ -40,33 +52,33 @@ public class SchemaDocHtmlFormatter {
      * Key: String
      * Data: ClassDefinition
      */
-    TreeMap<StringName,ClassDefinition> classes;
+    TreeMap<DefinitionName,ClassDefinition> classes;
 
     /**
      * The schema's types sorted by name.
      * Key: String
      * Data: TypeDefinition
      */
-    TreeMap<StringName,TypeDefinition> types;
+    TreeMap<DefinitionName,TypeDefinition> types;
 
     /**
      * The schema's attributes sorted by name.
      * Key: String
      * Data: AttributeDefinition
      */
-    TreeMap<StringName,AttributeDefinition> attrs;
+    TreeMap<DefinitionName,AttributeDefinition> attrs;
 
     /**
      * The schema's actions sorted by name.
      * Key: String
      * Data: ActionDefinition
      */
-    TreeMap<StringName, ActionDefinition> actions;
+    TreeMap<DefinitionName, ActionDefinition> actions;
 
     /**
      * A treemap used to sort various definitions.
      */
-    TreeMap<StringName,DmsDefinition> util;
+    TreeMap<DefinitionName,DmsDefinition> util;
 
     /**
      * The global index of all definitions.
@@ -113,11 +125,11 @@ public class SchemaDocHtmlFormatter {
      * Constructs a new IMD HTML formatter.
      */
     public SchemaDocHtmlFormatter(String org, String user, String email){
-        classes = new TreeMap<StringName,ClassDefinition>();
-        types   = new TreeMap<StringName,TypeDefinition>();
-        attrs   = new TreeMap<StringName,AttributeDefinition>();
-        actions = new TreeMap<StringName,ActionDefinition>();
-        util    = new TreeMap<StringName,DmsDefinition>();
+        classes = new TreeMap<DefinitionName,ClassDefinition>();
+        types   = new TreeMap<DefinitionName,TypeDefinition>();
+        attrs   = new TreeMap<DefinitionName,AttributeDefinition>();
+        actions = new TreeMap<DefinitionName,ActionDefinition>();
+        util    = new TreeMap<DefinitionName,DmsDefinition>();
         schema  = null;
         
         organization = org;
@@ -126,61 +138,38 @@ public class SchemaDocHtmlFormatter {
 //        rules   = null;
     }
 
-    /**
-     * This dumps all the schema information in the specified schema manager to
-     * a set of files in the specified directory.
-     * @param sd The schema manager whose data is to be formatted.
-     * @param src The source directory.
-     * @param dir The directory to which we'll dump.
-     * @param jd The javadoc diretory on the webserver.
-     */
-    public void dumpHtml(SchemaManager sd, String src, String dir, String jd){
-//        public void dumpHtml(SchemaManager sd, PmfRuleManager r, String src, String dir, String jd){
-        ResultSet   rs = new ResultSet();
-        Iterator<SchemaDefinition>    it = null;
-
-        schema  = sd;
-
-        /**
-         * TODO put rules back in
-         */
-//        rules   = r;
-//        rules.initRules(rs);
-
-        // Ensure that the schema references are resolved
-        if (!schema.resolveSchemaRefs(rs)){
-            System.out.println(rs);
-        }
-
-//        if (!rules.loadAllRules(rs,src)){
-//            System.out.println(rs);
+//    /**
+//     * This dumps all the schema information in the specified schema manager to
+//     * a set of files in the specified directory.
+//     * @param sd The schema manager whose data is to be formatted.
+//     * @param src The source directory.
+//     * @param dir The directory to which we'll dump.
+//     * @param jd The javadoc diretory on the webserver.
+//     */
+//    public void dumpHtml(SchemaManager sd, String src, String dir, String jd){
+//        Iterator<SchemaDefinition>    it = null;
+//
+//        schema  = sd;
+//
+//        javaDir = jd;
+//
+//        generateIndex(dir);
+//
+//        // System.out.println("Dumping " + dir + File.separator + MetaSchemaAG.meta_metaSchema.getName() + ".shtml");
+//        it = schema.getSchemas();
+//        while(it.hasNext()){
+//            SchemaDefinition    s = (SchemaDefinition)it.next();
+//            System.out.println("Dumping " + dir + File.separator + s.getObjectName() + ".shtml");
+//            dumpHtml(s,dir + File.separator + s.getObjectName() + ".shtml");
 //        }
 //
-//        it = rules.allRules.values().iterator();
-//        while(it.hasNext()){
-//            BrfRule rule = (BrfRule)it.next();
-//            System.out.println(rule.getRuleTitle() + "   " + rule.loadedFrom());
-//        }
-
-        javaDir = jd;
-
-        generateIndex(dir);
-
-        // System.out.println("Dumping " + dir + File.separator + MetaSchemaAG.meta_metaSchema.getName() + ".shtml");
-        it = schema.getSchemas();
-        while(it.hasNext()){
-            SchemaDefinition    s = (SchemaDefinition)it.next();
-            System.out.println("Dumping " + dir + File.separator + s.getObjectName() + ".shtml");
-            dumpHtml(s,dir + File.separator + s.getObjectName() + ".shtml");
-        }
-
-        dumpClassHierarchy(dir);
-
-        dumpInstanceHierarchy(dir);
-
-        dumpClassListing(dir);
-
-    }
+//        dumpClassHierarchy(dir);
+//
+//        dumpInstanceHierarchy(dir);
+//
+//        dumpClassListing(dir);
+//
+//    }
 
     /**
      * This dumps the specified schema definition in HTML format to the specified
@@ -194,7 +183,7 @@ public class SchemaDocHtmlFormatter {
         TypeDefinition          td      = null;
         AttributeDefinition     ad      = null;
         ActionDefinition        acd     = null;
-        Iterator<StringName>            entries = null;
+        Iterator<DefinitionName>            entries = null;
 
         classes.clear();
         attrs.clear();
@@ -238,7 +227,7 @@ public class SchemaDocHtmlFormatter {
             out.write("<tr>\n");
             out.write("<TD VALIGN=TOP CLASS=\"stronghead\"> Description </TD>\n");
             out.write("<TD CLASS=\"pagetextUnjust\">\n");
-            out.write(sd.getDescription());
+            out.write(getFormattedDescription(sd.getDescription()));
             out.write("</TD> </tr> \n");
 
             if (sd.getSchemaPackage() != null){
@@ -358,13 +347,28 @@ public class SchemaDocHtmlFormatter {
             System.out.println("IO Error:\n" + e);
         }
     }
+	
+	String getFormattedDescription(Iterator<String> description){
+		if (description == null)
+			return("");
+		
+		StringBuffer sb = new StringBuffer();
+		
+		while(description.hasNext()){
+			sb.append(description.next());
+			if (description.hasNext())
+				sb.append("</p>");
+		}
+		
+		return(sb.toString());
+	}
 
     /**
      * Formats each class definition.
      */
     @SuppressWarnings({ "unchecked", "rawtypes" })
 	private void formatClasses(SchemaDefinition currSchema, BufferedWriter out){
-        Iterator<StringName>	entries = classes.keySet().iterator();
+        Iterator<DefinitionName>	entries = classes.keySet().iterator();
         ClassDefinition		cd      = null;
         Iterator            it      = null;
 //        AttributeDefinition     ad;
@@ -489,7 +493,7 @@ public class SchemaDocHtmlFormatter {
      * Formats each attribute definition.
      */
 	private void formatAttributes(SchemaDefinition currSchema, BufferedWriter out){
-        Iterator<StringName>            entries = attrs.keySet().iterator();
+        Iterator<DefinitionName>            entries = attrs.keySet().iterator();
         AttributeDefinition     ad      = null;
 
         try{
@@ -567,7 +571,7 @@ public class SchemaDocHtmlFormatter {
      */
     @SuppressWarnings({ "unchecked", "rawtypes" })
 	private void formatActions(SchemaDefinition currSchema, BufferedWriter out){
-        Iterator<StringName>	entries = actions.keySet().iterator();
+        Iterator<DefinitionName>	entries = actions.keySet().iterator();
         ActionDefinition    	ad      = null;
         Iterator        it      = null;
 
@@ -629,7 +633,7 @@ public class SchemaDocHtmlFormatter {
      * Formats each type definition.
      */
 	private void formatTypes(SchemaDefinition currSchema, BufferedWriter out){
-        Iterator<StringName>        entries = types.keySet().iterator();
+        Iterator<DefinitionName>        entries = types.keySet().iterator();
         TypeDefinition      td      = null;
 
         try{
@@ -685,7 +689,7 @@ public class SchemaDocHtmlFormatter {
      * Sorts generic objects - schema definitions on the basis of their names.
      */
     public Iterator<DmsDefinition> sort(Iterator<DmsDefinition> it){
-        util = new TreeMap<StringName,DmsDefinition>();
+        util = new TreeMap<DefinitionName,DmsDefinition>();
         while(it.hasNext()){
         	
         	DmsDefinition    go = (DmsDefinition)it.next();
@@ -730,18 +734,19 @@ public class SchemaDocHtmlFormatter {
     }
 
 	public void generateIndex(String dir){
-        Iterator<StringName>        it  = null;
+        Iterator<DefinitionName>        it  = null;
         StringBuffer    sb  = new StringBuffer();
         initIndex();
 
-        it = schema.allDefs.keySet().iterator();
-        while(it.hasNext()){
-            StringName  key         = it.next();
-            String  firstChar   = key.getNameString().substring(0,1).toUpperCase();
-            TreeMap<String,Token> charTree    = index.get(firstChar);
-
-            charTree.put(key.getNameString().toUpperCase(), new Token(key.getNameString(),0,schema.allDefs.get(key)));
-        }
+        DebugInfo.debugWithTrace("\n\n*** NEED TO USE THE SCHEMA'S GLOBAL INDEX ***\n\n");
+//        it = schema.allDefs.keySet().iterator();
+//        while(it.hasNext()){
+//            DefinitionName  key         = it.next();
+//            String  firstChar   = key.getNameString().substring(0,1).toUpperCase();
+//            TreeMap<String,Token> charTree    = index.get(firstChar);
+//
+//            charTree.put(key.getNameString().toUpperCase(), new Token(key.getNameString(),0,schema.allDefs.get(key)));
+//        }
 
         // Generate the index reference header in HTML format - this will be
         // placed at the top of each index page.
@@ -802,7 +807,7 @@ public class SchemaDocHtmlFormatter {
                 out.write("<tr> <TD VALIGN=TOP CLASS=\"pagetextUnjust\">\n");
                 out.write(schemaLink(sd));
                 out.write("</TD> <TD CLASS=\"pagetextUnjust\">\n");
-                out.write(sd.getDescription());
+                out.write(getFormattedDescription(sd.getDescription()));
                 out.write("</TD> </tr>");
             }
 
@@ -928,127 +933,130 @@ public class SchemaDocHtmlFormatter {
         }
     }
 
-    /**
-     * This function dumps the class derivation hierarchy. Basically, if a
-     * class has derived classes (but no derivedFrom class) it will be
-     * dumped.
-     * @param dir The output directory.
-     */
-	void dumpClassHierarchy(String dir){
-        Iterator<ClassDefinition>            it      = null;
-        ClassDefinition         cd      = null;
+//    /**
+//     * This function dumps the class derivation hierarchy. Basically, if a
+//     * class has derived classes (but no derivedFrom class) it will be
+//     * dumped.
+//     * @param dir The output directory.
+//     */
+//	void dumpClassHierarchy(String dir){
+//        Iterator<ClassDefinition>            it      = null;
+//        ClassDefinition         cd      = null;
+//
+//        classes.clear();
+//
+//        try {
+//            BufferedWriter out = new BufferedWriter(new FileWriter(dir + "/classHierarchy.shtml"));
+//
+//            // System.out.println("The schema object:\n\n" + sd + "\n\n");
+//            out.write("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\"\n");
+//            out.write("        \"http://www.w3.org/TR/REC-html40\">\n");
+//            out.write("<HTML>\n");
+//            out.write("<HEAD>\n");
+//            out.write("<TITLE> " + organization + " - The Schema Class Derivation Hierarchy </TITLE>\n");
+//            out.write("<LINK href=\"/standard.css\" rel=\"stylesheet\" type=\"text/css\">\n");
+//            out.write("</HEAD>\n");
+//            out.write("<BODY BGCOLOR=\"FFFFFF\">\n\n");
+//
+//            // The whole page is in a table
+//            out.write("<TABLE WIDTH=600 CELLPADDING=10> <tr> \n");
+//
+//            out.write("<TD WIDTH=120 CLASS=\"sidebar2\" VALIGN=TOP>\n");
+////            out.write("<!--#include virtual=\"navLinks.html\" --> <P> </TD>\n");
+//            out.write("<TD>\n");
+//
+//            out.write("<CENTER> \n");
+//            out.write("<P CLASS=\"pagehead\"> The Schema Class Derivation Hierarchy \n");
+//            out.write("</CENTER> \n");
+//
+//            out.write(indexRefHTML);
+//
+//            it = schema.classDefs.values().iterator();
+//            while(it.hasNext()){
+//                cd = (ClassDefinition)it.next();
+//
+//                if (cd.getDerivedClasses() != null){
+//                    // We have derived classes, but are we the base class of
+//                    // the whole works?
+//                    if (cd.getDerivedFrom() == null){
+//                        // Ain't nothin' above us, so we are the base of the base!
+//                        classes.put(cd.getObjectName(),cd);
+//                    }
+//                }
+//            }
+//
+//            formatClassHierarchy(classes.values().iterator(),classes.size(),out);
+//
+//            out.write("</TD> </tr> </TABLE>");
+//            // out.write("</TABLE>\n\n");
+//            out.write("</BODY>\n");
+//            out.write("</HTML>\n");
+//
+//            out.close();
+//        } catch (IOException e) {
+//            System.out.println("IO Error:\n" + e);
+//        }
+//    }
 
-        classes.clear();
-
-        try {
-            BufferedWriter out = new BufferedWriter(new FileWriter(dir + "/classHierarchy.shtml"));
-
-            // System.out.println("The schema object:\n\n" + sd + "\n\n");
-            out.write("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\"\n");
-            out.write("        \"http://www.w3.org/TR/REC-html40\">\n");
-            out.write("<HTML>\n");
-            out.write("<HEAD>\n");
-            out.write("<TITLE> " + organization + " - The Schema Class Derivation Hierarchy </TITLE>\n");
-            out.write("<LINK href=\"/standard.css\" rel=\"stylesheet\" type=\"text/css\">\n");
-            out.write("</HEAD>\n");
-            out.write("<BODY BGCOLOR=\"FFFFFF\">\n\n");
-
-            // The whole page is in a table
-            out.write("<TABLE WIDTH=600 CELLPADDING=10> <tr> \n");
-
-            out.write("<TD WIDTH=120 CLASS=\"sidebar2\" VALIGN=TOP>\n");
-//            out.write("<!--#include virtual=\"navLinks.html\" --> <P> </TD>\n");
-            out.write("<TD>\n");
-
-            out.write("<CENTER> \n");
-            out.write("<P CLASS=\"pagehead\"> The Schema Class Derivation Hierarchy \n");
-            out.write("</CENTER> \n");
-
-            out.write(indexRefHTML);
-
-            it = schema.classDefs.values().iterator();
-            while(it.hasNext()){
-                cd = (ClassDefinition)it.next();
-
-                if (cd.getDerivedClasses() != null){
-                    // We have derived classes, but are we the base class of
-                    // the whole works?
-                    if (cd.getDerivedFrom() == null){
-                        // Ain't nothin' above us, so we are the base of the base!
-                        classes.put(cd.getObjectName(),cd);
-                    }
-                }
-            }
-
-            formatClassHierarchy(classes.values().iterator(),classes.size(),out);
-
-            out.write("</TD> </tr> </TABLE>");
-            // out.write("</TABLE>\n\n");
-            out.write("</BODY>\n");
-            out.write("</HTML>\n");
-
-            out.close();
-        } catch (IOException e) {
-            System.out.println("IO Error:\n" + e);
-        }
-    }
-
-    /**
-     * This function dumps all of the classes. if the class has a prodDescr
-     * attribute, it is dumped as well.
-     * @param dir The output directory.
-     */
-    void dumpClassListing(String dir){
-        Iterator<ClassDefinition>            it      = null;
-        ClassDefinition         cd      = null;
-
-        classes.clear();
-
-        try {
-            BufferedWriter out = new BufferedWriter(new FileWriter(dir + "/classListing.shtml"));
-
-            // System.out.println("The schema object:\n\n" + sd + "\n\n");
-            out.write("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\"\n");
-            out.write("        \"http://www.w3.org/TR/REC-html40\">\n");
-            out.write("<HTML>\n");
-            out.write("<HEAD>\n");
-            out.write("<TITLE> " + organization + " - Class Listing </TITLE>\n");
-            out.write("<LINK href=\"/standard.css\" rel=\"stylesheet\" type=\"text/css\">\n");
-            out.write("</HEAD>\n");
-            out.write("<BODY BGCOLOR=\"FFFFFF\">\n\n");
-
-            // The whole page is in a table
-            out.write("<TABLE WIDTH=600 CELLPADDING=10> <tr> \n");
-
-            out.write("<TD WIDTH=120 CLASS=\"sidebar2\" VALIGN=TOP>\n");
-//            out.write("<!--#include virtual=\"navLinks.html\" --> <P> </TD>\n");
-            out.write("<TD>\n");
-
-            out.write("<CENTER> \n");
-            out.write("<P CLASS=\"pagehead\"> Class Listing \n");
-            out.write("</CENTER> \n");
-
-            out.write(indexRefHTML);
-
-            it = schema.classDefs.values().iterator();
-            while(it.hasNext()){
-                cd = it.next();
-
-                classes.put(cd.getObjectName(),cd);
-            }
-
-            formatClassList(classes.values().iterator(),classes.size(),out);
-
-            out.write("</TD> </tr> </TABLE>");
-            // out.write("</TABLE>\n\n");
-            out.write("</BODY>\n");
-            out.write("</HTML>\n");
-
-            out.close();
-        } catch (IOException e) {
-            System.out.println("IO Error:\n" + e);
-        }
-    }
+	// TODO: probably not required anymore
+//    /**
+//     * This function dumps all of the classes. if the class has a prodDescr
+//     * attribute, it is dumped as well.
+//     * @param dir The output directory.
+//     */
+//    void dumpClassListing(String dir){
+//        Iterator<ClassDefinition>            it      = null;
+//        ClassDefinition         cd      = null;
+//
+//        classes.clear();
+//
+//        try {
+//            BufferedWriter out = new BufferedWriter(new FileWriter(dir + "/classListing.shtml"));
+//
+//            // System.out.println("The schema object:\n\n" + sd + "\n\n");
+//            out.write("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\"\n");
+//            out.write("        \"http://www.w3.org/TR/REC-html40\">\n");
+//            out.write("<HTML>\n");
+//            out.write("<HEAD>\n");
+//            out.write("<TITLE> " + organization + " - Class Listing </TITLE>\n");
+//            out.write("<LINK href=\"/standard.css\" rel=\"stylesheet\" type=\"text/css\">\n");
+//            out.write("</HEAD>\n");
+//            out.write("<BODY BGCOLOR=\"FFFFFF\">\n\n");
+//
+//            // The whole page is in a table
+//            out.write("<TABLE WIDTH=600 CELLPADDING=10> <tr> \n");
+//
+//            out.write("<TD WIDTH=120 CLASS=\"sidebar2\" VALIGN=TOP>\n");
+////            out.write("<!--#include virtual=\"navLinks.html\" --> <P> </TD>\n");
+//            out.write("<TD>\n");
+//
+//            out.write("<CENTER> \n");
+//            out.write("<P CLASS=\"pagehead\"> Class Listing \n");
+//            out.write("</CENTER> \n");
+//
+//            out.write(indexRefHTML);
+//            
+//            PriorityQueue<ClassDefinition> queue;
+//
+//            it = schema.classDefs.values().iterator();
+//            while(it.hasNext()){
+//                cd = it.next();
+//
+//                classes.put(cd.getObjectName(),cd);
+//            }
+//
+//            formatClassList(classes.values().iterator(),classes.size(),out);
+//
+//            out.write("</TD> </tr> </TABLE>");
+//            // out.write("</TABLE>\n\n");
+//            out.write("</BODY>\n");
+//            out.write("</HTML>\n");
+//
+//            out.close();
+//        } catch (IOException e) {
+//            System.out.println("IO Error:\n" + e);
+//        }
+//    }
 
     /**
      * Formats a nested set of derived classes
@@ -1061,7 +1069,7 @@ public class SchemaDocHtmlFormatter {
             for(int i=0; i<size; i++){
                 ClassDefinition cd = (ClassDefinition)it.next();
 //                ga = cd.getAttr(MetaSchemaAG._description);
-                String description = cd.getDescription();
+                String description = getFormattedDescription(cd.getDescription());
 
                 if (cd.getClassType() == ClassTypeEnum.STRUCTURAL){
 //                    if (DmdClassTypeEnumAG.isSTRUCTURAL(cd.getClassType().intValue())){

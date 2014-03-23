@@ -26,7 +26,7 @@ import org.dmd.dmp.shared.generated.dmo.ResponseDMO;    // DmcType import
  * The DmcTypeResponseREFMV provides storage for a multi-valued Response
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2329)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:255)
  */
 @SuppressWarnings("serial")
@@ -50,7 +50,7 @@ public class DmcTypeResponseREFMV extends DmcTypeResponseREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2360)
     public DmcAttribute<ResponseDMO> cloneIt(){
         synchronized(this){
             DmcTypeResponseREFMV rc = getNew();
@@ -79,7 +79,7 @@ public class DmcTypeResponseREFMV extends DmcTypeResponseREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2393)
     public ResponseDMO add(Object v) throws DmcValueException {
         synchronized(this){
             ResponseDMO rc = typeCheck(v);
@@ -91,7 +91,7 @@ public class DmcTypeResponseREFMV extends DmcTypeResponseREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2406)
     public ResponseDMO del(Object v){
         synchronized(this){
             if (value == null)
@@ -115,7 +115,7 @@ public class DmcTypeResponseREFMV extends DmcTypeResponseREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2440)
     public Iterator<ResponseDMO> getMV(){
         synchronized(this){
             if (value == null)
@@ -126,7 +126,7 @@ public class DmcTypeResponseREFMV extends DmcTypeResponseREF implements Serializ
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2452)
     public ArrayList<ResponseDMO> getMVCopy(){
         synchronized(this){
             if (value == null)
@@ -137,7 +137,7 @@ public class DmcTypeResponseREFMV extends DmcTypeResponseREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2434)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2464)
     public int getMVSize(){
         synchronized(this){
             if (getAttributeInfo().indexSize == 0){
@@ -151,7 +151,7 @@ public class DmcTypeResponseREFMV extends DmcTypeResponseREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2479)
     public ResponseDMO getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -161,7 +161,7 @@ public class DmcTypeResponseREFMV extends DmcTypeResponseREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2490)
     public ResponseDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
@@ -188,7 +188,7 @@ public class DmcTypeResponseREFMV extends DmcTypeResponseREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2518)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -211,7 +211,7 @@ public class DmcTypeResponseREFMV extends DmcTypeResponseREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2542)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)
