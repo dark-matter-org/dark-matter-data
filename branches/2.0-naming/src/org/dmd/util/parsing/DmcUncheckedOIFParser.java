@@ -63,6 +63,9 @@ public class DmcUncheckedOIFParser {
     
     // Indicates the attributes that should have their newlines preserved
     HashMap<String, String> 	preserveNL;
+    
+    // A flag that indicates we should drop the leading space on continued lines
+    boolean dropLineContinuation;
 
     /**
       * Creates a new Object Instance Format parser. As new BasicObjects are created,
@@ -77,6 +80,15 @@ public class DmcUncheckedOIFParser {
     
     public void addPreserveNewlinesAttribute(String an){
     	preserveNL.put(an, an);
+    }
+    
+    /**
+     * The OIF format uses the idea of continuing an attribute value across multiple lines
+     * by starting subsequent lines with a space. By setting this option, the leading space will
+     * be dropped from attribute value input.
+     */
+    public void dropLineContinuations(){
+    	dropLineContinuation = true;
     }
 
     /**
@@ -163,10 +175,18 @@ public class DmcUncheckedOIFParser {
 //                            if (str.startsWith(" ")){
                             if (Character.isWhitespace(str.charAt(0))){
                                 // Line continuation
-                            	if (preserveNL.get(attrName) != null)
-                                    attrVal.append("\n" + str);
-                            	else
-                            		attrVal.append(str);
+                            	if (preserveNL.get(attrName) != null){
+                            		if (dropLineContinuation)
+                                        attrVal.append("\n" + str.substring(1));
+                            		else
+                            			attrVal.append("\n" + str);
+                            	}
+                            	else{
+                            		if (dropLineContinuation)
+                            			attrVal.append(str.substring(1));
+                            		else
+                            			attrVal.append(str);
+                            	}
                             }
                             else{
                                 // A new attribute line

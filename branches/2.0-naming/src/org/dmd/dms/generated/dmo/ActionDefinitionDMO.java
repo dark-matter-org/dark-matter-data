@@ -59,11 +59,15 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         _ImAp.put(MetaDMSAG.__mustParm.id,MetaDMSAG.__mustParm);
         _ImAp.put(MetaDMSAG.__mustReturn.id,MetaDMSAG.__mustReturn);
         _ImAp.put(MetaDMSAG.__nvp.id,MetaDMSAG.__nvp);
+        _ImAp.put(MetaDMSAG.__obsolete.id,MetaDMSAG.__obsolete);
         _ImAp.put(MetaDMSAG.__obsoleteVersion.id,MetaDMSAG.__obsoleteVersion);
         _ImAp.put(MetaDMSAG.__optimize.id,MetaDMSAG.__optimize);
         _ImAp.put(MetaDMSAG.__relatedToConcept.id,MetaDMSAG.__relatedToConcept);
+        _ImAp.put(MetaDMSAG.__skip.id,MetaDMSAG.__skip);
         _ImAp.put(MetaDMSAG.__sortName.id,MetaDMSAG.__sortName);
         _ImAp.put(MetaDMSAG.__tags.id,MetaDMSAG.__tags);
+        _ImAp.put(MetaDMSAG.__version.id,MetaDMSAG.__version);
+        _ImAp.put(MetaDMSAG.__why.id,MetaDMSAG.__why);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(MetaDMSAG.__name.name,MetaDMSAG.__name);
@@ -81,11 +85,15 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         _SmAp.put(MetaDMSAG.__mustParm.name,MetaDMSAG.__mustParm);
         _SmAp.put(MetaDMSAG.__mustReturn.name,MetaDMSAG.__mustReturn);
         _SmAp.put(MetaDMSAG.__nvp.name,MetaDMSAG.__nvp);
+        _SmAp.put(MetaDMSAG.__obsolete.name,MetaDMSAG.__obsolete);
         _SmAp.put(MetaDMSAG.__obsoleteVersion.name,MetaDMSAG.__obsoleteVersion);
         _SmAp.put(MetaDMSAG.__optimize.name,MetaDMSAG.__optimize);
         _SmAp.put(MetaDMSAG.__relatedToConcept.name,MetaDMSAG.__relatedToConcept);
+        _SmAp.put(MetaDMSAG.__skip.name,MetaDMSAG.__skip);
         _SmAp.put(MetaDMSAG.__sortName.name,MetaDMSAG.__sortName);
         _SmAp.put(MetaDMSAG.__tags.name,MetaDMSAG.__tags);
+        _SmAp.put(MetaDMSAG.__version.name,MetaDMSAG.__version);
+        _SmAp.put(MetaDMSAG.__why.name,MetaDMSAG.__why);
     }
 
 
@@ -565,6 +573,32 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     }
 
     /**
+     * The version at which something became obsolete. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2340)
+    public String getObsolete(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__obsolete);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets obsolete to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2432)
+    public void setObsolete(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__obsolete);
+        if (attr == null)
+            attr = new DmcTypeStringSV(MetaDMSAG.__obsolete);
+        
+        attr.set(value);
+        set(MetaDMSAG.__obsolete,attr);
+    }
+
+    /**
      * This indicates the version at which something became obsolete.\n Generally
      * speaking you shouldn't ever delete definitions for products that have\n
      * been released to the field, this may break backwards compatibility.
@@ -659,6 +693,36 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     }
 
     /**
+     * A version from which something should be excluded (even though it is
+     * included\n in later versions). This is an unusual situation, and should be
+     * approached with extreme caution! 
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2542)
+    public Iterator<String> getSkip(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__skip);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another skip value.
+     * @param value A value compatible with DmcTypeStringMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2647)
+    public DmcAttribute<?> addSkip(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__skip);
+        if (attr == null)
+            attr = new DmcTypeStringMV(MetaDMSAG.__skip);
+        
+        attr.add(value);
+        add(MetaDMSAG.__skip,attr);
+        return(attr);
+    }
+
+    /**
      * The sortName is used in siutations where we need a name\n for storage of a
      * definition that is globally unique but can be sorted on the basis\n of the
      * definition name, not the module name. The dotName for a definition is\n
@@ -716,6 +780,64 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         attr.add(value);
         add(MetaDMSAG.__tags,attr);
         return(attr);
+    }
+
+    /**
+     * The version at which something was introduced. Version names\n are assumed
+     * to be lexicographically sortable i.e. the name of a version must have a
+     * nautral\n sort order that increases. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2340)
+    public String getVersion(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__version);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets version to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2432)
+    public void setVersion(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__version);
+        if (attr == null)
+            attr = new DmcTypeStringSV(MetaDMSAG.__version);
+        
+        attr.set(value);
+        set(MetaDMSAG.__version,attr);
+    }
+
+    /**
+     * An indication of why something was added to a specification or a system.\n
+     * This might be a reference to a requirement or feature concept. How this is
+     * used will depend on context.\n Due to the fact that it is a weak
+     * reference, you may also just put in free form text, since it\n will simply
+     * be treated as an unresolved reference. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2340)
+    public ConcinnityREF getWhy(){
+        DmcTypeConcinnityREFSV attr = (DmcTypeConcinnityREFSV) get(MetaDMSAG.__why);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets why to the specified value.
+     * @param value A value compatible with DmcTypeConcinnityREFSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2432)
+    public void setWhy(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__why);
+        if (attr == null)
+            attr = new DmcTypeConcinnityREFSV(MetaDMSAG.__why);
+        
+        attr.set(value);
+        set(MetaDMSAG.__why,attr);
     }
 
 

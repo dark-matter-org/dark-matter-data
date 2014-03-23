@@ -193,78 +193,6 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     }
 
     /**
-     * Indicates the schema in which a type, attribute or class is defined. 
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2393)
-    public SchemaDefinition getDefinedIn(){
-        DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) mycore.get(MetaDMSAG.__definedIn);
-        if (attr == null)
-            return(null);
-        SchemaDefinitionDMO obj = attr.getSV().getObject();
-        return((SchemaDefinition)obj.getContainer());
-    }
-
-    /**
-     * Sets definedIn to the specified value.
-     * @param value A value compatible with SchemaDefinition
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2453)
-    public void setDefinedIn(SchemaDefinition value) throws DmcValueException {
-        mycore.setDefinedIn(value.getDmcObject());
-    }
-
-    /**
-     * Indicates the file from which a definition was loaded. 
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2393)
-    public String getFile(){
-        return(mycore.getFile());
-    }
-
-    /**
-     * Sets file to the specified value.
-     * @param value A value compatible with DmcTypeStringSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2466)
-    public void setFile(Object value) throws DmcValueException {
-        mycore.setFile(value);
-    }
-
-    /**
-     * Indicates the line number of the file from which a definition was loaded. 
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2393)
-    public Integer getLineNumber(){
-        return(mycore.getLineNumber());
-    }
-
-    /**
-     * Sets lineNumber to the specified value.
-     * @param value A value compatible with DmcTypeIntegerSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2466)
-    public void setLineNumber(Object value) throws DmcValueException {
-        mycore.setLineNumber(value);
-    }
-
-    /**
-     * The dotName attribute is used to store dot separated names. 
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2393)
-    public DotName getDotName(){
-        return(mycore.getDotName());
-    }
-
-    /**
-     * Sets dotName to the specified value.
-     * @param value A value compatible with DmcTypeDotNameSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2466)
-    public void setDotName(Object value) throws DmcValueException {
-        mycore.setDotName(value);
-    }
-
-    /**
      * The sortName is used in siutations where we need a name\n for storage of a
      * definition that is globally unique but can be sorted on the basis\n of the
      * definition name, not the module name. The dotName for a definition is\n
@@ -391,6 +319,174 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
         if (attr == null)
             return(0);
         return(attr.getMVSize());
+    }
+
+    /**
+     * The version at which something was introduced. Version names\n are assumed
+     * to be lexicographically sortable i.e. the name of a version must have a
+     * nautral\n sort order that increases. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2393)
+    public String getVersion(){
+        return(mycore.getVersion());
+    }
+
+    /**
+     * Sets version to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2466)
+    public void setVersion(Object value) throws DmcValueException {
+        mycore.setVersion(value);
+    }
+
+    /**
+     * A version from which something should be excluded (even though it is
+     * included\n in later versions). This is an unusual situation, and should be
+     * approached with extreme caution! 
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2602)
+    public Iterator<String> getSkip(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__skip);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another skip value.
+     * @param value A value compatible with DmcTypeStringMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2682)
+    public void addSkip(Object value) throws DmcValueException {
+        mycore.addSkip(value);
+    }
+
+    /**
+     * Returns the number of skip values.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2695)
+    public int getSkipSize(){
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__skip);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
+    /**
+     * The version at which something became obsolete. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2393)
+    public String getObsolete(){
+        return(mycore.getObsolete());
+    }
+
+    /**
+     * Sets obsolete to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2466)
+    public void setObsolete(Object value) throws DmcValueException {
+        mycore.setObsolete(value);
+    }
+
+    /**
+     * An indication of why something was added to a specification or a system.\n
+     * This might be a reference to a requirement or feature concept. How this is
+     * used will depend on context.\n Due to the fact that it is a weak
+     * reference, you may also just put in free form text, since it\n will simply
+     * be treated as an unresolved reference. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2393)
+    public Concinnity getWhy(){
+        DmcTypeConcinnityREFSV attr = (DmcTypeConcinnityREFSV) mycore.get(MetaDMSAG.__why);
+        if (attr == null)
+            return(null);
+        ConcinnityDMO obj = attr.getSV().getObject();
+        return((Concinnity)obj.getContainer());
+    }
+
+    /**
+     * Sets why to the specified value.
+     * @param value A value compatible with Concinnity
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2453)
+    public void setWhy(Concinnity value) throws DmcValueException {
+        mycore.setWhy(value.getDmcObject());
+    }
+
+    /**
+     * Indicates the schema in which a type, attribute or class is defined. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2393)
+    public SchemaDefinition getDefinedIn(){
+        DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) mycore.get(MetaDMSAG.__definedIn);
+        if (attr == null)
+            return(null);
+        SchemaDefinitionDMO obj = attr.getSV().getObject();
+        return((SchemaDefinition)obj.getContainer());
+    }
+
+    /**
+     * Sets definedIn to the specified value.
+     * @param value A value compatible with SchemaDefinition
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2453)
+    public void setDefinedIn(SchemaDefinition value) throws DmcValueException {
+        mycore.setDefinedIn(value.getDmcObject());
+    }
+
+    /**
+     * Indicates the file from which a definition was loaded. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2393)
+    public String getFile(){
+        return(mycore.getFile());
+    }
+
+    /**
+     * Sets file to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2466)
+    public void setFile(Object value) throws DmcValueException {
+        mycore.setFile(value);
+    }
+
+    /**
+     * Indicates the line number of the file from which a definition was loaded. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2393)
+    public Integer getLineNumber(){
+        return(mycore.getLineNumber());
+    }
+
+    /**
+     * Sets lineNumber to the specified value.
+     * @param value A value compatible with DmcTypeIntegerSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2466)
+    public void setLineNumber(Object value) throws DmcValueException {
+        mycore.setLineNumber(value);
+    }
+
+    /**
+     * The dotName attribute is used to store dot separated names. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2393)
+    public DotName getDotName(){
+        return(mycore.getDotName());
+    }
+
+    /**
+     * Sets dotName to the specified value.
+     * @param value A value compatible with DmcTypeDotNameSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2466)
+    public void setDotName(Object value) throws DmcValueException {
+        mycore.setDotName(value);
     }
 
 
