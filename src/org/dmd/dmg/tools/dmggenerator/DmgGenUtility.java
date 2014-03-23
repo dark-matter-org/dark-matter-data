@@ -84,6 +84,7 @@ public class DmgGenUtility {
 	StringBuffer	cfg			= new StringBuffer();
 	BooleanVar		debug 		= new BooleanVar();
 	StringArrayList	jars 		= new StringArrayList();
+	StringArrayList	targets 	= new StringArrayList();
 	
 	public DmgGenUtility(String[] args) throws ResultException, IOException, DmcValueException, DmcValueExceptionSet, DmcRuleExceptionSet, DmcNameClashException {
 		initHelp();
@@ -95,6 +96,7 @@ public class DmgGenUtility {
         cl.addOption("-cfg",   		cfg,     	"The configuration file to load.");
         cl.addOption("-debug",   	debug,     	"Dump debug information.");
         cl.addOption("-jars",   	jars,     	"The prefixs of jars to search for .dms config files.");
+        cl.addOption("-targets",   	targets,    "Indicates you only want to generate for the specified configs.");
 		
 		cl.parseArgs(args);
 		
@@ -206,7 +208,12 @@ public class DmgGenUtility {
             		if (!loc.isFromJAR()){
             			// Wasn't in a jar, so try to generate
 //            			DebugInfo.debug("Generating: " + loc.getConfigName());
-            			generateFromConfig(version);
+            			if (targets.contains(loc.getConfigName())){
+            				generateFromConfig(version);
+            			}
+            			else{
+            				System.out.println("DMWGEN: " + loc.getConfigName() + " is not in the -targets list - not generating:  " + loc.getDirectory() + "\n");
+            			}
             		}
             	}
             	

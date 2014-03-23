@@ -82,6 +82,7 @@ public class DmoGenUtility {
 	StringArrayList	jars 		= new StringArrayList();
 	BooleanVar		checkRules 	= new BooleanVar();
 	BooleanVar		checkOnly 	= new BooleanVar();
+	StringArrayList	targets		= new StringArrayList();
 	
 	public DmoGenUtility(String[] args) throws ResultException, IOException, DmcValueException, DmcValueExceptionSet, DmcNameClashException {
 		initHelp();
@@ -96,8 +97,14 @@ public class DmoGenUtility {
         cl.addOption("-jars",   	jars,     	"The prefixs of jars to search for .dms config files.");
         cl.addOption("-checkRules",	checkRules,	"Indicates if you want to dynamically instantiate and validate rule definitions.");
         cl.addOption("-checkOnly",	checkOnly,	"Indicates if you want to only check rule definitions, not generate code.");
+        cl.addOption("-targets",	targets,	"Indicates you only want to generate for the specified configs");
 		
 		cl.parseArgs(args);
+		
+		System.out.print("TARGETS: ");
+		for(int i=0; i<targets.size(); i++)
+			System.out.print(targets.get(i) + " ");
+		System.out.println();
 		
 		dmsSchema = new SchemaManager();
 		
@@ -197,7 +204,13 @@ public class DmoGenUtility {
         		ConfigLocation loc = version.getLatestVersion();
         		if (!loc.isFromJAR()){
         			// Wasn't in a jar, so try to generate
-        			generateFromConfig(loc);
+        			
+        			if (targets.contains(loc.getConfigName())){
+        				generateFromConfig(loc);
+        			}
+        			else{
+        				System.out.println("DMOGEN: " + loc.getConfigName() + " is not in the -targets list - not generating:  " + loc.getDirectory() + "\n");
+        			}
         		}
         	}
         	

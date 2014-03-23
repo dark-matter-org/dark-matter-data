@@ -54,7 +54,7 @@ public class ModuleAParsingCoordinator {
     ModuleAGeneratorInterface               generator;                                                              // Injected generator that we call when config loading is complete
     TreeMap<String, ModuleInfoBase>         loadedConfigs           = new TreeMap<String, ModuleInfoBase>();        // Stores all loaded configs based on the name of the file that was parsed.
     ModuleAParser                           parserForModuleA;                                                       // Parser for ModuleA definitions
-    ConfigFinder                            finderForModuleA        = new ConfigFinder("tma");                      // Config finder for ModuleA config files ending with .tma
+    ConfigFinder                            finderForModuleA        = new ConfigFinder(".tma");                     // Config finder for ModuleA config files ending with .tma
     TreeMap<DefinitionName, ModuleAInfo>    loadedModuleAConfigs    = new TreeMap<DefinitionName, ModuleAInfo>();   // The names/location of the ModuleA modules that have been loaded
 
 

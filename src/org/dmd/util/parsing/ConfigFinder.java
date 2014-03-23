@@ -52,18 +52,23 @@ import org.dmd.util.exceptions.ResultException;
 public class ConfigFinder {
 
 	// The source paths that we're going to search
-	ArrayList<String>	sourceDirs;
+	ArrayList<String>				sourceDirs;
 	
 	// The suffixes that we're going to check for
-	ArrayList<String>	suffixes;
+	ArrayList<String>				suffixes;
 	
-	ArrayList<String>	jarPrefixes;
+	// Indicates whether or not we want to search the JARs on the class path for configs
+	// This default to false. If any jarPrefixes are added, this gets set to true.
+	boolean 						checkClassPath;
+	
+	// When searching the class path, we'll only examine jar with these prefixes
+	ArrayList<String>				jarPrefixes;
 	
 	// The individual configs that we've found
-	ArrayList<ConfigLocation>	configs;
+	ArrayList<ConfigLocation>		configs;
 	
 	// These are the class paths we searched
-	ArrayList<String>	classPaths;
+	ArrayList<String>				classPaths;
 	
 	// The configs grouped into versions
 	TreeMap<String,ConfigVersion>	versions;
@@ -78,8 +83,6 @@ public class ConfigFinder {
 	int	longest;
 	
 	boolean	debug = true;
-	
-	boolean checkClassPath;
 	
 	public ConfigFinder(){
 		init();
@@ -163,21 +166,13 @@ public class ConfigFinder {
 		sourceDirs 		= new ArrayList<String>();
 		suffixes 		= new ArrayList<String>();
 		jarPrefixes		= new ArrayList<String>();
-		jarPrefixes.add("dark-matter-data");
+//		jarPrefixes.add("dark-matter");
 		configs			= new ArrayList<ConfigLocation>();
 		versions		= new TreeMap<String, ConfigVersion>();
 		fsep 			= File.separator;
-//		prefsAvailable 	= false;
-		checkClassPath	= true;
+		checkClassPath	= false;
 		classPaths 		= new ArrayList<String>();
 	}
-	
-//	/**
-//	 * @return The name of the file where additional source paths are indicated.
-//	 */
-//	public String getPrefName(){
-//		return(prefName);
-//	}
 	
 	/**
 	 * Adds a suffix to hunt for. Generally of the form ".xxx".
@@ -222,6 +217,11 @@ public class ConfigFinder {
 		for(String d : sourceDirs){
 			debugMessage("Source dir: " + d);
 			findConfigsRecursive(new File(d));
+		}
+		
+		if (jarPrefixes.size() > 0){
+			debugMessage("We have JAR prefixes, searching class path\n");		
+			checkClassPath = true;
 		}
 		
 		if (checkClassPath)
@@ -502,6 +502,8 @@ public class ConfigFinder {
 //						            DebugInfo.debug(jarEntry);
 
 						            ConfigLocation newLocation = new ConfigLocation(f, schemaName, path, suffix);
+						            
+						            debugMessage("\n" + newLocation.toString() + "\n");
 									
 									addConfig(newLocation);
 									
