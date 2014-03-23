@@ -2090,6 +2090,37 @@ description					Depending on what you're modelling, you often come across
  <p/>
  Any dark-matter definition can be decorated with optimize notes. These notes provide
 
+AttributeDefinition
+name						version
+dmdID						181
+type						String
+description 				The version at which something was introduced. Version names
+ are assumed to be lexicographically sortable i.e. the name of a version must have a nautral
+ sort order that increases.
+
+AttributeDefinition
+name						skip
+dmdID						182
+type						String
+valueType					MULTI
+description 				A version from which something should be excluded (even though it is included
+ in later versions). This is an unusual situation, and should be approached with extreme caution!
+
+AttributeDefinition
+name						obsolete
+dmdID						183
+type						String
+description 				The version at which something became obsolete.
+
+AttributeDefinition
+name						why
+dmdID						184
+type						Concinnity
+weakReference				true
+description 				An indication of why something was added to a specification or a system.
+ This might be a reference to a requirement or feature concept. How this is used will depend on context.
+ Due to the fact that it is a weak reference, you may also just put in free form text, since it
+ will simply be treated as an unresolved reference.
 
 //AttributeDefinition
 //name                		nameAndTypeName
@@ -2152,16 +2183,19 @@ isNamedBy       name
 must         	name
 may				description
 may				example
+may				sortName
+may				tags
+may				nvp
+may				optimize
+may				version
+may				skip
+may				obsolete
+may				why
 // Auto generated/set
 may           	definedIn
 may          	file
 may        		lineNumber
 may				dotName
-//may				nameAndTypeName
-may				sortName
-may				tags
-may				nvp
-may				optimize
 description		The domain specific definition (DSDefinition) forms the basis for all definitions
  that use dark-matter as their basis. The initial dark-matter mechanisms were focussed only on 
  schema for data objects, but, as the project developed, other, domain specific sets of definitions
