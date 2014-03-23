@@ -1,0 +1,9 @@
+DSDefinitionModule
+name						ModuleB
+fileExtension				tmb
+dmdID						1
+moduleClassName				ModuleB
+moduleDependenceAttribute 	dependsOnModuleB
+definedInModuleAttribute	definedInModuleB
+baseDefinition				BConceptBase
+refersToDefsFromDSD			ModuleA

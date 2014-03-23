@@ -1,0 +1,11 @@
+SchemaDefinition
+name       			dsdA
+schemaBaseID		-500050
+schemaIDRange		50
+defFiles    		attributes.dmd
+defFiles    		classes.dmd
+defFiles			module.dmd
+schemaPackage 		org.dmd.dmt.dsd.dsda.shared
+dmwPackage 			org.dmd.dmt.dsd.dsda.server
+generatedFileHeader LGPL.txt
+description			A domain specific definition schema for test purposes. 
