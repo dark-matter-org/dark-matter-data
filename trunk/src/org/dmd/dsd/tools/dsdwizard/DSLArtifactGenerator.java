@@ -197,6 +197,7 @@ public class DSLArtifactGenerator {
 		String[] args = {
 				"-workspace", workspace,
 				"-srcdir", dslProject + "/src", "dark-matter-data/src", "dark-matter-concinnity/src",
+				"-targets", dslAbbrev,
 				"-autogen"
 		};
 		
@@ -208,6 +209,7 @@ public class DSLArtifactGenerator {
 		String[] args = {
 				"-workspace", workspace,
 				"-srcdir", dslProject + "/src", "dark-matter-data/src", "dark-matter-concinnity/src",
+				"-targets", dslAbbrev,
 				"-autogen"
 		};
 		

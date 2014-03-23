@@ -62,15 +62,15 @@ public class ModuleCParsingCoordinator {
     ModuleCGeneratorInterface               generator;                                                              // Injected generator that we call when config loading is complete
     TreeMap<String, ModuleInfoBase>         loadedConfigs           = new TreeMap<String, ModuleInfoBase>();        // Stores all loaded configs based on the name of the file that was parsed.
     ModuleAParser                           parserForModuleA;                                                       // Parser for ModuleA definitions
-    ConfigFinder                            finderForModuleA        = new ConfigFinder("tma");                      // Config finder for ModuleA config files ending with .tma
+    ConfigFinder                            finderForModuleA        = new ConfigFinder(".tma");                     // Config finder for ModuleA config files ending with .tma
     TreeMap<DefinitionName, ModuleAInfo>    loadedModuleAConfigs    = new TreeMap<DefinitionName, ModuleAInfo>();   // The names/location of the ModuleA modules that have been loaded
 
     ModuleBParser                           parserForModuleB;                                                       // Parser for ModuleB definitions
-    ConfigFinder                            finderForModuleB        = new ConfigFinder("tmb");                      // Config finder for ModuleB config files ending with .tmb
+    ConfigFinder                            finderForModuleB        = new ConfigFinder(".tmb");                     // Config finder for ModuleB config files ending with .tmb
     TreeMap<DefinitionName, ModuleBInfo>    loadedModuleBConfigs    = new TreeMap<DefinitionName, ModuleBInfo>();   // The names/location of the ModuleB modules that have been loaded
 
     ModuleCParser                           parserForModuleC;                                                       // Parser for ModuleC definitions
-    ConfigFinder                            finderForModuleC        = new ConfigFinder("tmc");                      // Config finder for ModuleC config files ending with .tmc
+    ConfigFinder                            finderForModuleC        = new ConfigFinder(".tmc");                     // Config finder for ModuleC config files ending with .tmc
     TreeMap<DefinitionName, ModuleCInfo>    loadedModuleCConfigs    = new TreeMap<DefinitionName, ModuleCInfo>();   // The names/location of the ModuleC modules that have been loaded
 
 

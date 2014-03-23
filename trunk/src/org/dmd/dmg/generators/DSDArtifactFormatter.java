@@ -805,7 +805,7 @@ public class DSDArtifactFormatter {
 			imports.addImport(mod.getDefinitionParserImport(), "Required to parse " + mod.getName() + " definitions");
 			members.addMember(mod.getDefinitionParserName(), "parserFor" + mod.getName(), "Parser for " + mod.getName() + " definitions");
 			imports.addImport(mod.getDefinedIn().getDMSASGImport(),"To allow loading of rules from the " + mod.getDefinedIn().getName() + " schema");
-			members.addMember("ConfigFinder", "finderFor" + mod.getName(), "new ConfigFinder(\"" + mod.getFileExtension() + "\")", "Config finder for " + mod.getName() + " config files ending with ." + mod.getFileExtension());
+			members.addMember("ConfigFinder", "finderFor" + mod.getName(), "new ConfigFinder(\"." + mod.getFileExtension() + "\")", "Config finder for " + mod.getName() + " config files ending with ." + mod.getFileExtension());
 			members.addMember("TreeMap<DefinitionName, " + mod.getName() + "Info>", "loaded" + mod.getName() + "Configs", "new TreeMap<DefinitionName, " + mod.getName() + "Info>()", "The names/location of the " + mod.getName() + " modules that have been loaded\n");
 		}
 		

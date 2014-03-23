@@ -136,14 +136,19 @@ public class ConfigLocation {
 	/**
 	 * Constructs a new schema location that's located in a JAR file.
 	 * @param j The JAR file name (that ends with DMSChema.jar). Example: 
-	 * @param n The name of the schema with the .dms suffix in place.
+	 * @param n The name of the config file with the .whatever suffix in place.
 	 * @param dir The sub directory in the JAR where the schema is found.
 	 * @param s  The config file suffix.
 	 */
 	public ConfigLocation(String j, String n, String dir, String s){
 		int lastSlash = -1;
-
-		configName 	= n.substring(0,n.length()-4);
+		int lastDot = n.lastIndexOf(".");
+		
+		if (lastDot == -1){
+			throw(new IllegalStateException("A config name must end with a . followed by an extension, this doesn't: " + n + "\nIn the following directory: " + dir));
+		}
+		
+		configName 	= n.substring(0,lastDot);
 		directory 	= dir;
 		suffix 		= s;
 		

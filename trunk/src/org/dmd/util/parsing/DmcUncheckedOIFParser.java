@@ -143,7 +143,15 @@ public class DmcUncheckedOIFParser {
             // BufferedReader in = new BufferedReader(new FileReader(fileName));
         	
         	if (isResource){
-    			InputStreamReader isr = new InputStreamReader(getClass().getResourceAsStream(fn));
+        		InputStreamReader isr = null;
+        		try{
+        			isr = new InputStreamReader(getClass().getResourceAsStream(fn));
+        		}
+        		catch(Exception e){
+        			ResultException ex = new ResultException("Tried to open this file as a resource from a JAR, but failed: " + fn);
+        			ex.moreMessages("This may be because you're using ConfigFinder but not passing in the name of the resource based on the JAR");
+        			throw(ex);
+        		}
     			in = new LineNumberReader(isr);        		
         	}
         	else
