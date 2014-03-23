@@ -1,0 +1,13 @@
+AttributeDefinition
+name			dependsOnModuleB
+dmdID			1
+type			ModuleB
+valueType		MULTI
+description		Indicates the ModuleB on which something depends.
+
+AttributeDefinition
+name			definedInModuleB
+dmdID			2
+type			ModuleB
+description		Indicates the name of the ModuleB in which a definition is defined.
+

@@ -1,0 +1,6 @@
+DmgConfig
+genPackage      	org.dmd.dmt.dsd.dsdb.server
+schemaToLoad		dsdB
+generator			org.dmd.dmg.generators.DMWGenerator
+generatedFileHeader LGPL.txt
+description     	We generate the wrappers for this DSD.

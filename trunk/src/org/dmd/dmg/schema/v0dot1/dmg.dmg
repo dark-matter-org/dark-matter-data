@@ -1,0 +1,6 @@
+DmgConfig
+genPackage      	org.dmd.dmg
+schemaToLoad    	dmg
+generator       	org.dmd.dmg.generators.DMWGenerator
+generatedFileHeader LGPL.txt
+description     	We generate the wrappers for use with the DMG objects.
