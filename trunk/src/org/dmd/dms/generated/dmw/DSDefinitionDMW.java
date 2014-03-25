@@ -159,6 +159,76 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     }
 
     /**
+     * A comment or note associated with the definition of something. For\n code
+     * that's generated from a definition, comments may be added to the code, as
+     * opposed to \n descriptions which are meant to assist in generating
+     * documentation. In the end, it's up to\n the designer of a DSL to determine
+     * how comments are used. 
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2602)
+    public Iterator<String> getComment(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__comment);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another comment value.
+     * @param value A value compatible with DmcTypeStringMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2682)
+    public void addComment(Object value) throws DmcValueException {
+        mycore.addComment(value);
+    }
+
+    /**
+     * Returns the number of comment values.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2695)
+    public int getCommentSize(){
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__comment);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
+    /**
+     * A question associated with the definition of something. 
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2602)
+    public Iterator<String> getQuestion(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__question);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another question value.
+     * @param value A value compatible with DmcTypeStringMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2682)
+    public void addQuestion(Object value) throws DmcValueException {
+        mycore.addQuestion(value);
+    }
+
+    /**
+     * Returns the number of question values.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2695)
+    public int getQuestionSize(){
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__question);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
+    /**
      * The example attribute is used to provide additional\n examples of how some
      * defined thing is to be used. 
      * @return An Iterator of Example objects.
@@ -190,6 +260,24 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
         if (attr == null)
             return(0);
         return(attr.getMVSize());
+    }
+
+    /**
+     * A short description of something that can be dumped as one line summary of
+     * something.\n For longer explanations, use the description attribute. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2393)
+    public String getHint(){
+        return(mycore.getHint());
+    }
+
+    /**
+     * Sets hint to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2466)
+    public void setHint(Object value) throws DmcValueException {
+        mycore.setHint(value);
     }
 
     /**

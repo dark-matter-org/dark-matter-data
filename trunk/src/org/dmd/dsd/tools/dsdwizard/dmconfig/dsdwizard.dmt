@@ -9,10 +9,10 @@ format	TdlModule
   documentation pages for dark-matter Google Protocol Buffer (GPB) definitions.
  ///
  TextualArtifact
- name 			GpbHtmlDoc
+ name 			HtmlDoc
  contains		static DocType
  contains		static HtmlContent
- description 	The GpbHtmlDoc interface defines the overall form of a GPB documentation page.
+ description 	The HtmlDoc interface defines the overall form of a documentation page for something.
  ///
  Section
  name			DocType
@@ -28,7 +28,7 @@ format	TdlModule
  Section
  name			HtmlHead
  value			styleSheet	"The name of the CSS style sheet to use."
- value			moduleName	"The name of the dark-matter GPB module." 
+ value			moduleName	"The name of the module." 
  ///
  Section
  name			Body

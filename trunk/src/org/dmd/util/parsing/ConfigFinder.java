@@ -398,8 +398,24 @@ public class ConfigFinder {
 			}
 		}
 		else{
+			String testdir = dir.getCanonicalPath();
+			int lastSlash = testdir.lastIndexOf(File.separator);
+			boolean partOkay = false;
+			while(lastSlash != 0){
+				testdir = testdir.substring(0,lastSlash);
+				lastSlash = testdir.lastIndexOf(File.separator);
+				File test = new File(testdir);
+				
+				if (test.exists()){
+					partOkay = true;
+					break;
+				}
+			}
+			
 			ResultException ex = new ResultException();
 			ex.addError("Specified source directory doesn't exist: " + dir.getPath());
+			if (partOkay)
+				ex.moreMessages("This part of the path is valid: " + testdir);
 			throw(ex);
 		}
 	}

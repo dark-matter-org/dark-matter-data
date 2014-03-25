@@ -242,6 +242,7 @@ ruleName			dmvDefinitionNameCheck
 ruleTitle			The name attribute must start with a letter, followed by a mix of letters and numbers.
 matchesPattern		[a-zA-Z][a-zA-Z0-9_]*
 applyToAttribute	name
+applyToClass		DmsDefinition
 description			Although the name attribute is defined as type DotName, when
  the value is used as the value for the name attribute, it must not contain the 
  dot character. This is because we allow for references to definitions to be
@@ -529,3 +530,8 @@ description       We have sections of generated code that will access the module
  dependence attribute of a DDM module instance and being able to assume that the
  module dependence attribute is multi-valued just makes things easier.
 
+ValueLengthRuleData
+ruleName         dmvHintLength
+ruleTitle        The hint for something should be at most 80 characters.
+applyToAttribute hint
+maxLength        80

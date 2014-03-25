@@ -2122,6 +2122,30 @@ description 				An indication of why something was added to a specification or a
  Due to the fact that it is a weak reference, you may also just put in free form text, since it
  will simply be treated as an unresolved reference.
 
+AttributeDefinition
+name						comment
+dmdID						185
+type						String
+valueType					MULTI
+description					A comment or note associated with the definition of something. For
+ code that's generated from a definition, comments may be added to the code, as opposed to 
+ descriptions which are meant to assist in generating documentation. In the end, it's up to
+ the designer of a DSL to determine how comments are used.
+
+AttributeDefinition
+name						hint
+dmdID						186
+type						String
+description					A short description of something that can be dumped as one line summary of something.
+ For longer explanations, use the description attribute.
+
+AttributeDefinition
+name						question
+dmdID						187
+type						String
+valueType					MULTI
+description					A question associated with the definition of something.
+
 //AttributeDefinition
 //name                		nameAndTypeName
 //dmdID						176
@@ -2182,7 +2206,10 @@ dmoImport		org.dmd.dms.generated.dmo.DSDefinitionDMO
 isNamedBy       name
 must         	name
 may				description
+may				comment
+may				question
 may				example
+may				hint
 may				sortName
 may				tags
 may				nvp

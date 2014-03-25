@@ -323,7 +323,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ValueLengthRuleDataOBJ.setInternallyGenerated("true");
             _ValueLengthRuleDataOBJ.setClassType("STRUCTURAL");
             _ValueLengthRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _ValueLengthRuleDataOBJ.setLineNumber("308");
+            _ValueLengthRuleDataOBJ.setLineNumber("309");
             _ValueLengthRuleDataOBJ.addDescription("The ValueLengthRule allows you to indicate the maximum length,\n the minimum length or both the maximum and minimum length of the String form of\n a value associated with an attribute. It works for both single valued and\n multi-valued attributes.\n <p/>\n If you have added types via the TypeDefinition mechanisms,\n you should ensure that you have overloaded the toString() method \n <pre>\n ValueLengthRuleData\n ruleName         userNameLength\n ruleTitle        The user name must be between 6 and 20 characters\n applyToAttribute userNameString\n minLength        6\n maxLength        20\n </pre>\n Or, just a minimum length:\n <pre>\n ValueLengthRuleData\n ruleName         tagLength\n ruleTitle        Tag information must be 4 characters or more.\n applyToAttribute dataTag\n applyToClass     chunkOfData\n minLength        4\n </pre>\n Or, just a maximum length:\n <pre>\n ValueLengthRuleData\n ruleName         infoLength\n ruleTitle        The info must be less than or equal to 50 characters.\n applyToAttribute info\n applyToClass     chunkOfData\n maxLength        50\n </pre>\n NOTE: If you have added types via the TypeDefinition mechanisms, you should ensure\n that you have overloaded the toString() method of the primitiveType that\n you're using.");
             _ValueLengthRuleDataOBJ.setDerivedFrom("meta.RuleData");
             _ValueLengthRuleDataOBJ.setIsNamedBy("meta.ruleName");
@@ -349,7 +349,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ReferencedAttributeTypeRuleDataOBJ.setInternallyGenerated("true");
             _ReferencedAttributeTypeRuleDataOBJ.setClassType("STRUCTURAL");
             _ReferencedAttributeTypeRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _ReferencedAttributeTypeRuleDataOBJ.setLineNumber("382");
+            _ReferencedAttributeTypeRuleDataOBJ.setLineNumber("383");
             _ReferencedAttributeTypeRuleDataOBJ.addDescription("The ReferencedAttributeTypeRule allowes you to restrict the type of\n an attribute referred to by an AttributeDefinition reference. Some examples include:\n <pre>\n ReferencedAttributeTypeRuleData\n ruleName          dmvNRRApplyToAttribute\n ruleTitle         The applyToAttribute attribute in a NumericRangeRuleData instance must refer to an Integer, Long, Float or Double attribute\n applyToAttribute  applyToAttribute\n applyToClass      NumericRangeRuleData\n allowedType       Integer\n allowedType       Long\n allowedType       Float\n allowedType       Double\n </pre>\n In this case, we're restricting the applyToAttribute to be a numeric type, either Integer, Long Float or Double.\n <p/>\n You can also restrict the valueType of an attribute reference, for instance:\n <pre>\n ReferencedAttributeTypeRuleData\n ruleName          dmvLhs\n ruleTitle         The lhs attribute must be a single valued Integer, Long, Float or Double\n applyToAttribute  lhs\n applyToClass      RelatedNumbersRuleData\n allowedType       Integer\n allowedType       Long\n allowedType       Float\n allowedType       Double\n allowedValueType  SINGLE\n </pre>\n Here, we're indicating that the lhs (left hand side) attribute must be single valued.");
             _ReferencedAttributeTypeRuleDataOBJ.setDerivedFrom("meta.RuleData");
             _ReferencedAttributeTypeRuleDataOBJ.setIsNamedBy("meta.ruleName");
@@ -375,7 +375,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setInternallyGenerated("true");
             _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setClassType("STRUCTURAL");
             _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setLineNumber("404");
+            _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setLineNumber("405");
             _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.addDescription("The OnlyOneOfTheseAttributesAllowedRule allows you to specify\n that only one of the possible attributes specified must be present\n in the object being checked. This only makes sense where the attributes in\n question are optional (may have) in the object.\n <p/>\n An example of this rule can be seen below.\n <pre>\n OnlyOneOfTheseAttributesAllowedRule\n ruleName			dmvMoneySource\n ruleTitle			Only \n applyToClass		PaymentMethod\n onePossibility		creditCardNumber\n onePossibility		payPalAccount\n </pre>");
             _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setDerivedFrom("meta.RuleData");
             _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setIsNamedBy("meta.ruleName");
@@ -399,7 +399,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _PartCheckerRuleDataOBJ.setInternallyGenerated("true");
             _PartCheckerRuleDataOBJ.setClassType("STRUCTURAL");
             _PartCheckerRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _PartCheckerRuleDataOBJ.setLineNumber("419");
+            _PartCheckerRuleDataOBJ.setLineNumber("420");
             _PartCheckerRuleDataOBJ.addDescription("The PartCheckerRule will validate a ComplexTypeDefinition\n for some of the more tricky aspects of that definition. In particular it will\n check: <br>\n <ul>\n <li> that the greedy flag is only specified on requiredPart attributes </li>\n <li> that the greedy flag is only specified on ComplexTypes where are all parts are required </li>\n <li> that the greedy flag is only specified on the final requiredPart </li>\n </ul>");
             _PartCheckerRuleDataOBJ.setDerivedFrom("meta.RuleData");
             _PartCheckerRuleDataOBJ.setIsNamedBy("meta.ruleName");
@@ -796,7 +796,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ValueLengthRuleOBJ.setDotName("dmv.ValueLengthRule.RuleDefinition");
             _ValueLengthRule.setDefinedIn(this);
             _ValueLengthRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _ValueLengthRuleOBJ.setLineNumber("308");
+            _ValueLengthRuleOBJ.setLineNumber("309");
             addRuleDefinitionList(_ValueLengthRule);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
@@ -811,7 +811,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ReferencedAttributeTypeRuleOBJ.setDotName("dmv.ReferencedAttributeTypeRule.RuleDefinition");
             _ReferencedAttributeTypeRule.setDefinedIn(this);
             _ReferencedAttributeTypeRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _ReferencedAttributeTypeRuleOBJ.setLineNumber("382");
+            _ReferencedAttributeTypeRuleOBJ.setLineNumber("383");
             addRuleDefinitionList(_ReferencedAttributeTypeRule);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
@@ -825,7 +825,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _OnlyOneOfTheseAttributesAllowedRuleOBJ.setDotName("dmv.OnlyOneOfTheseAttributesAllowedRule.RuleDefinition");
             _OnlyOneOfTheseAttributesAllowedRule.setDefinedIn(this);
             _OnlyOneOfTheseAttributesAllowedRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _OnlyOneOfTheseAttributesAllowedRuleOBJ.setLineNumber("404");
+            _OnlyOneOfTheseAttributesAllowedRuleOBJ.setLineNumber("405");
             addRuleDefinitionList(_OnlyOneOfTheseAttributesAllowedRule);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
@@ -838,7 +838,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _PartCheckerRuleOBJ.setDotName("dmv.PartCheckerRule.RuleDefinition");
             _PartCheckerRule.setDefinedIn(this);
             _PartCheckerRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _PartCheckerRuleOBJ.setLineNumber("419");
+            _PartCheckerRuleOBJ.setLineNumber("420");
             addRuleDefinitionList(_PartCheckerRule);
 
     }
