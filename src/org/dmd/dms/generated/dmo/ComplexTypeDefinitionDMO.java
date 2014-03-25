@@ -62,6 +62,7 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
         _ImAp.put(MetaDMSAG.__name.id,MetaDMSAG.__name);
+        _ImAp.put(MetaDMSAG.__comment.id,MetaDMSAG.__comment);
         _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
         _ImAp.put(MetaDMSAG.__description.id,MetaDMSAG.__description);
         _ImAp.put(MetaDMSAG.__dotName.id,MetaDMSAG.__dotName);
@@ -70,11 +71,13 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
         _ImAp.put(MetaDMSAG.__field.id,MetaDMSAG.__field);
         _ImAp.put(MetaDMSAG.__fieldSeparator.id,MetaDMSAG.__fieldSeparator);
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
+        _ImAp.put(MetaDMSAG.__hint.id,MetaDMSAG.__hint);
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
         _ImAp.put(MetaDMSAG.__nvp.id,MetaDMSAG.__nvp);
         _ImAp.put(MetaDMSAG.__obsolete.id,MetaDMSAG.__obsolete);
         _ImAp.put(MetaDMSAG.__optimize.id,MetaDMSAG.__optimize);
         _ImAp.put(MetaDMSAG.__optionalPart.id,MetaDMSAG.__optionalPart);
+        _ImAp.put(MetaDMSAG.__question.id,MetaDMSAG.__question);
         _ImAp.put(MetaDMSAG.__relatedToConcept.id,MetaDMSAG.__relatedToConcept);
         _ImAp.put(MetaDMSAG.__requiredPart.id,MetaDMSAG.__requiredPart);
         _ImAp.put(MetaDMSAG.__skip.id,MetaDMSAG.__skip);
@@ -85,6 +88,7 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(MetaDMSAG.__name.name,MetaDMSAG.__name);
+        _SmAp.put(MetaDMSAG.__comment.name,MetaDMSAG.__comment);
         _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
         _SmAp.put(MetaDMSAG.__description.name,MetaDMSAG.__description);
         _SmAp.put(MetaDMSAG.__dotName.name,MetaDMSAG.__dotName);
@@ -93,11 +97,13 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
         _SmAp.put(MetaDMSAG.__field.name,MetaDMSAG.__field);
         _SmAp.put(MetaDMSAG.__fieldSeparator.name,MetaDMSAG.__fieldSeparator);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
+        _SmAp.put(MetaDMSAG.__hint.name,MetaDMSAG.__hint);
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
         _SmAp.put(MetaDMSAG.__nvp.name,MetaDMSAG.__nvp);
         _SmAp.put(MetaDMSAG.__obsolete.name,MetaDMSAG.__obsolete);
         _SmAp.put(MetaDMSAG.__optimize.name,MetaDMSAG.__optimize);
         _SmAp.put(MetaDMSAG.__optionalPart.name,MetaDMSAG.__optionalPart);
+        _SmAp.put(MetaDMSAG.__question.name,MetaDMSAG.__question);
         _SmAp.put(MetaDMSAG.__relatedToConcept.name,MetaDMSAG.__relatedToConcept);
         _SmAp.put(MetaDMSAG.__requiredPart.name,MetaDMSAG.__requiredPart);
         _SmAp.put(MetaDMSAG.__skip.name,MetaDMSAG.__skip);
@@ -163,6 +169,38 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
         
         attr.set(value);
         set(MetaDMSAG.__name,attr);
+    }
+
+    /**
+     * A comment or note associated with the definition of something. For\n code
+     * that's generated from a definition, comments may be added to the code, as
+     * opposed to \n descriptions which are meant to assist in generating
+     * documentation. In the end, it's up to\n the designer of a DSL to determine
+     * how comments are used. 
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2542)
+    public Iterator<String> getComment(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__comment);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another comment value.
+     * @param value A value compatible with DmcTypeStringMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2647)
+    public DmcAttribute<?> addComment(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__comment);
+        if (attr == null)
+            attr = new DmcTypeStringMV(MetaDMSAG.__comment);
+        
+        attr.add(value);
+        add(MetaDMSAG.__comment,attr);
+        return(attr);
     }
 
     /**
@@ -406,6 +444,33 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
     }
 
     /**
+     * A short description of something that can be dumped as one line summary of
+     * something.\n For longer explanations, use the description attribute. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2340)
+    public String getHint(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__hint);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets hint to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2432)
+    public void setHint(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__hint);
+        if (attr == null)
+            attr = new DmcTypeStringSV(MetaDMSAG.__hint);
+        
+        attr.set(value);
+        set(MetaDMSAG.__hint,attr);
+    }
+
+    /**
      * Indicates the line number of the file from which a definition was loaded. 
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2340)
@@ -545,6 +610,34 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
         
         attr.add(value);
         add(MetaDMSAG.__optionalPart,attr);
+        return(attr);
+    }
+
+    /**
+     * A question associated with the definition of something. 
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2542)
+    public Iterator<String> getQuestion(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__question);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another question value.
+     * @param value A value compatible with DmcTypeStringMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2647)
+    public DmcAttribute<?> addQuestion(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__question);
+        if (attr == null)
+            attr = new DmcTypeStringMV(MetaDMSAG.__question);
+        
+        attr.add(value);
+        add(MetaDMSAG.__question,attr);
         return(attr);
     }
 

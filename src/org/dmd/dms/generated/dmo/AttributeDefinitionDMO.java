@@ -48,6 +48,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         _ImAp.put(MetaDMSAG.__name.id,MetaDMSAG.__name);
         _ImAp.put(MetaDMSAG.__type.id,MetaDMSAG.__type);
         _ImAp.put(MetaDMSAG.__abbrev.id,MetaDMSAG.__abbrev);
+        _ImAp.put(MetaDMSAG.__comment.id,MetaDMSAG.__comment);
         _ImAp.put(MetaDMSAG.__dataType.id,MetaDMSAG.__dataType);
         _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
         _ImAp.put(MetaDMSAG.__description.id,MetaDMSAG.__description);
@@ -59,6 +60,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
         _ImAp.put(MetaDMSAG.__genericArgs.id,MetaDMSAG.__genericArgs);
         _ImAp.put(MetaDMSAG.__genericArgsImport.id,MetaDMSAG.__genericArgsImport);
+        _ImAp.put(MetaDMSAG.__hint.id,MetaDMSAG.__hint);
         _ImAp.put(MetaDMSAG.__indexSize.id,MetaDMSAG.__indexSize);
         _ImAp.put(MetaDMSAG.__internalUse.id,MetaDMSAG.__internalUse);
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
@@ -68,6 +70,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         _ImAp.put(MetaDMSAG.__obsoleteVersion.id,MetaDMSAG.__obsoleteVersion);
         _ImAp.put(MetaDMSAG.__optimize.id,MetaDMSAG.__optimize);
         _ImAp.put(MetaDMSAG.__preserveNewlines.id,MetaDMSAG.__preserveNewlines);
+        _ImAp.put(MetaDMSAG.__question.id,MetaDMSAG.__question);
         _ImAp.put(MetaDMSAG.__relatedToConcept.id,MetaDMSAG.__relatedToConcept);
         _ImAp.put(MetaDMSAG.__secure.id,MetaDMSAG.__secure);
         _ImAp.put(MetaDMSAG.__skip.id,MetaDMSAG.__skip);
@@ -82,6 +85,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         _SmAp.put(MetaDMSAG.__name.name,MetaDMSAG.__name);
         _SmAp.put(MetaDMSAG.__type.name,MetaDMSAG.__type);
         _SmAp.put(MetaDMSAG.__abbrev.name,MetaDMSAG.__abbrev);
+        _SmAp.put(MetaDMSAG.__comment.name,MetaDMSAG.__comment);
         _SmAp.put(MetaDMSAG.__dataType.name,MetaDMSAG.__dataType);
         _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
         _SmAp.put(MetaDMSAG.__description.name,MetaDMSAG.__description);
@@ -93,6 +97,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
         _SmAp.put(MetaDMSAG.__genericArgs.name,MetaDMSAG.__genericArgs);
         _SmAp.put(MetaDMSAG.__genericArgsImport.name,MetaDMSAG.__genericArgsImport);
+        _SmAp.put(MetaDMSAG.__hint.name,MetaDMSAG.__hint);
         _SmAp.put(MetaDMSAG.__indexSize.name,MetaDMSAG.__indexSize);
         _SmAp.put(MetaDMSAG.__internalUse.name,MetaDMSAG.__internalUse);
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
@@ -102,6 +107,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         _SmAp.put(MetaDMSAG.__obsoleteVersion.name,MetaDMSAG.__obsoleteVersion);
         _SmAp.put(MetaDMSAG.__optimize.name,MetaDMSAG.__optimize);
         _SmAp.put(MetaDMSAG.__preserveNewlines.name,MetaDMSAG.__preserveNewlines);
+        _SmAp.put(MetaDMSAG.__question.name,MetaDMSAG.__question);
         _SmAp.put(MetaDMSAG.__relatedToConcept.name,MetaDMSAG.__relatedToConcept);
         _SmAp.put(MetaDMSAG.__secure.name,MetaDMSAG.__secure);
         _SmAp.put(MetaDMSAG.__skip.name,MetaDMSAG.__skip);
@@ -226,6 +232,38 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         
         attr.set(value);
         set(MetaDMSAG.__abbrev,attr);
+    }
+
+    /**
+     * A comment or note associated with the definition of something. For\n code
+     * that's generated from a definition, comments may be added to the code, as
+     * opposed to \n descriptions which are meant to assist in generating
+     * documentation. In the end, it's up to\n the designer of a DSL to determine
+     * how comments are used. 
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2542)
+    public Iterator<String> getComment(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__comment);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another comment value.
+     * @param value A value compatible with DmcTypeStringMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2647)
+    public DmcAttribute<?> addComment(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__comment);
+        if (attr == null)
+            attr = new DmcTypeStringMV(MetaDMSAG.__comment);
+        
+        attr.add(value);
+        add(MetaDMSAG.__comment,attr);
+        return(attr);
     }
 
     /**
@@ -556,6 +594,33 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     }
 
     /**
+     * A short description of something that can be dumped as one line summary of
+     * something.\n For longer explanations, use the description attribute. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2340)
+    public String getHint(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__hint);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets hint to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2432)
+    public void setHint(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__hint);
+        if (attr == null)
+            attr = new DmcTypeStringSV(MetaDMSAG.__hint);
+        
+        attr.set(value);
+        set(MetaDMSAG.__hint,attr);
+    }
+
+    /**
      * The indexSize is used in conjunction with the MULTI valueType to\n
      * indicate that the attribute may have the specified number of values and is
      * integer indexed.\n Indexed attributes may be thought of as having a
@@ -819,6 +884,34 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         
         attr.set(value);
         set(MetaDMSAG.__preserveNewlines,attr);
+    }
+
+    /**
+     * A question associated with the definition of something. 
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2542)
+    public Iterator<String> getQuestion(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__question);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another question value.
+     * @param value A value compatible with DmcTypeStringMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2647)
+    public DmcAttribute<?> addQuestion(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__question);
+        if (attr == null)
+            attr = new DmcTypeStringMV(MetaDMSAG.__question);
+        
+        attr.add(value);
+        add(MetaDMSAG.__question,attr);
+        return(attr);
     }
 
     /**
