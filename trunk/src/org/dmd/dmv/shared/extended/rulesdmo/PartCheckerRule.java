@@ -24,7 +24,7 @@ public class PartCheckerRule extends PartCheckerRuleBaseImpl {
 	public void execute(DmcObject obj) throws DmcRuleExceptionSet {
 		ComplexTypeDefinitionDMO dmo = (ComplexTypeDefinitionDMO) obj;
 		
-		System.err.println("PartCheckerRule applied to " + dmo.getName() + "\n");
+//		System.err.println("PartCheckerRule applied to " + dmo.getName() + "\n");
 		DmcRuleExceptionSet ex = null;
 		
 		Iterator<Part> optparts = dmo.getOptionalPart();
