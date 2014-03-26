@@ -37,7 +37,7 @@ public abstract class ClassRuleCollection<I extends RuleIF> extends RuleCollecti
             globalRules.add(rule);
             
             if (DmcOmni.instance().ruleTracing())
-            	DmcOmni.instance().ruleAdded(this.getClass().getName() + " added global attribute rule: " + rule.getRuleTitle());
+            	DmcOmni.instance().ruleAdded(this.getClass().getName() + " added global class rule: " + rule.getRuleTitle());
         }
         else{
             RuleList<I> classRules = rules.get(rule.getKey());

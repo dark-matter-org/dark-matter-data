@@ -453,6 +453,7 @@ public class DSDArtifactFormatter {
 		imports.addImport("org.dmd.dmc.rules.SourceInfo", "To indicate the source of rule problems");
 		imports.addImport("org.dmd.dmw.DmwWrapper", "To handle factory created objects");
 		imports.addImport("org.dmd.dms.MetaSchema", "So that we can preserve newlines");
+		imports.addImport(ddm.getDefinedIn().getDMSASGImport(),"To allow loading of rules from the " + ddm.getDefinedIn().getName() + " schema");
 		
 		// Get the class that was generated for the module
 		ClassDefinition ddmClass = sm.isClass(ddm.getName().getNameString());
@@ -493,7 +494,7 @@ public class DSDArtifactFormatter {
 		out.write("    public " + ddm.getName() + "Parser(" + ddm.getGlobalInterfaceName() + " d, DmvRuleManager r) throws ResultException, DmcValueException, DmcNameClashException {\n");
 		out.write("        schema = new SchemaManager();\n");
 		out.write("        " + schemaName + "SchemaAG sd = new " + schemaName + "SchemaAG();\n");	
-		out.write("        schema.manageSchema(sd);\n");
+		out.write("        schema.manageSchema(sd.getInstance());\n");
 		out.write("        if (sd.getAttributeDefListSize() > 0){\n");
 		out.write("            preserveNewLines(sd.getAttributeDefList());\n");
 		out.write("        }\n");
@@ -503,6 +504,7 @@ public class DSDArtifactFormatter {
 		out.write("        \n");
 		out.write("        definitions  = d;\n");
 		out.write("        rules        = r;\n");
+		out.write("        rules.loadRules(" + ddm.getDefinedIn().getDMSASGName() + ".instance());\n");			
 		out.write("    }\n\n");
 		
 		out.write("    void preserveNewLines(AttributeDefinitionIterableDMW attrs){\n");
@@ -804,7 +806,7 @@ public class DSDArtifactFormatter {
 
 			imports.addImport(mod.getDefinitionParserImport(), "Required to parse " + mod.getName() + " definitions");
 			members.addMember(mod.getDefinitionParserName(), "parserFor" + mod.getName(), "Parser for " + mod.getName() + " definitions");
-			imports.addImport(mod.getDefinedIn().getDMSASGImport(),"To allow loading of rules from the " + mod.getDefinedIn().getName() + " schema");
+//			imports.addImport(mod.getDefinedIn().getDMSASGImport(),"To allow loading of rules from the " + mod.getDefinedIn().getName() + " schema");
 			members.addMember("ConfigFinder", "finderFor" + mod.getName(), "new ConfigFinder(\"." + mod.getFileExtension() + "\")", "Config finder for " + mod.getName() + " config files ending with ." + mod.getFileExtension());
 			members.addMember("TreeMap<DefinitionName, " + mod.getName() + "Info>", "loaded" + mod.getName() + "Configs", "new TreeMap<DefinitionName, " + mod.getName() + "Info>()", "The names/location of the " + mod.getName() + " modules that have been loaded\n");
 		}
@@ -830,7 +832,6 @@ public class DSDArtifactFormatter {
 		out.write("\n");
 		
 		for(DSDefinitionModule mod: includedModules.values()){
-			out.write("        rules.loadRules(" + mod.getDefinedIn().getDMSASGName() + ".instance());\n");			
 			out.write("        parserFor" + mod.getName() + " = new " + mod.getDefinitionParserName() + "(definitions, rules);\n");		
 			out.write("        finderFor" + mod.getName() + ".setSourceAndJarInfo(sourceDirs,jars);\n");	
 			out.write("        finderFor" + mod.getName() + ".findConfigs();\n");
