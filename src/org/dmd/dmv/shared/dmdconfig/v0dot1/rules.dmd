@@ -426,6 +426,21 @@ description			There are no parameters. The logic is completely internal to the r
 	 
 ///////////////////////////////////////////////////////////////////////////////
 
+RuleDefinition
+name			NamedObjectRule
+dmdID			15
+ruleCategory	ObjectValidation
+description		The NamedObjectRule will validate a ClassDefinition for a named object
+ to ensure that the isNamedBy attribute is included in the must have attributes list.
+ 
+NamedObjectRuleData
+ruleName			dmvNamedObject
+ruleTitle			The naming attribute must be a must have attribute.
+applyToClass		ClassDefinition
+description			If you're naming an object, you've got to have its name attribute.
+
+
+///////////////////////////////////////////////////////////////////////////////
  
 ReferencedAttributeTypeRuleData
 ruleName			dmvRATRApplyToAttribute

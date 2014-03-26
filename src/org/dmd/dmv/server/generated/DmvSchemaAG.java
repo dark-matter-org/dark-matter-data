@@ -47,6 +47,7 @@ public class DmvSchemaAG extends SchemaDefinition {
     public static ClassDefinition _ReferencedAttributeTypeRuleData;
     public static ClassDefinition _OnlyOneOfTheseAttributesAllowedRuleData;
     public static ClassDefinition _PartCheckerRuleData;
+    public static ClassDefinition _NamedObjectRuleData;
 
     public static AttributeDefinition _nrrMinimum;
     public static AttributeDefinition _nrrMaximum;
@@ -82,6 +83,7 @@ public class DmvSchemaAG extends SchemaDefinition {
     public static RuleDefinition _ReferencedAttributeTypeRule;
     public static RuleDefinition _OnlyOneOfTheseAttributesAllowedRule;
     public static RuleDefinition _PartCheckerRule;
+    public static RuleDefinition _NamedObjectRule;
 
 
     static DmvSchemaAG instance;
@@ -413,6 +415,29 @@ public class DmvSchemaAG extends SchemaDefinition {
             _PartCheckerRuleDataOBJ.setDotName("dmv.PartCheckerRuleData.ClassDefinition");
             _PartCheckerRuleData.setDefinedIn(this);
             addClassDefList(_PartCheckerRuleData);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            ClassDefinitionDMO _NamedObjectRuleDataOBJ = new ClassDefinitionDMO();
+            _NamedObjectRuleData = new ClassDefinition(_NamedObjectRuleDataOBJ,DmvDMSAG.__NamedObjectRuleData);
+            _NamedObjectRuleDataOBJ.setName("NamedObjectRuleData");
+            _NamedObjectRuleDataOBJ.setDmdID("-959985");
+            _NamedObjectRuleDataOBJ.setInternallyGenerated("true");
+            _NamedObjectRuleDataOBJ.setClassType("STRUCTURAL");
+            _NamedObjectRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
+            _NamedObjectRuleDataOBJ.setLineNumber("435");
+            _NamedObjectRuleDataOBJ.addDescription("The NamedObjectRule will validate a ClassDefinition for a named object\n to ensure that the isNamedBy attribute is included in the must have attributes list.");
+            _NamedObjectRuleDataOBJ.setDerivedFrom("meta.RuleData");
+            _NamedObjectRuleDataOBJ.setIsNamedBy("meta.ruleName");
+            _NamedObjectRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.NamedObjectRuleDataREF");
+            _NamedObjectRuleDataOBJ.setRuleDefinition("dmv.NamedObjectRule");
+            _NamedObjectRuleDataOBJ.setDmwIteratorClass("NamedObjectRuleDataIterableDMW");
+            _NamedObjectRuleDataOBJ.addMay("meta.description");
+            _NamedObjectRuleDataOBJ.addMust("meta.ruleName");
+            _NamedObjectRuleDataOBJ.addMust("meta.ruleTitle");
+            _NamedObjectRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.NamedObjectRuleDataIterableDMW");
+            _NamedObjectRuleDataOBJ.setDotName("dmv.NamedObjectRuleData.ClassDefinition");
+            _NamedObjectRuleData.setDefinedIn(this);
+            addClassDefList(_NamedObjectRuleData);
 
     }
 
@@ -840,6 +865,19 @@ public class DmvSchemaAG extends SchemaDefinition {
             _PartCheckerRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _PartCheckerRuleOBJ.setLineNumber("420");
             addRuleDefinitionList(_PartCheckerRule);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            RuleDefinitionDMO _NamedObjectRuleOBJ = new RuleDefinitionDMO();
+            _NamedObjectRule = new RuleDefinition(_NamedObjectRuleOBJ);
+            _NamedObjectRuleOBJ.addRuleCategory("meta.ObjectValidation");
+            _NamedObjectRuleOBJ.setName("NamedObjectRule");
+            _NamedObjectRuleOBJ.setDmdID("-479985");
+            _NamedObjectRuleOBJ.addDescription("The NamedObjectRule will validate a ClassDefinition for a named object\n to ensure that the isNamedBy attribute is included in the must have attributes list.");
+            _NamedObjectRuleOBJ.setDotName("dmv.NamedObjectRule.RuleDefinition");
+            _NamedObjectRule.setDefinedIn(this);
+            _NamedObjectRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
+            _NamedObjectRuleOBJ.setLineNumber("435");
+            addRuleDefinitionList(_NamedObjectRule);
 
     }
 

@@ -14,6 +14,7 @@ public class DmvDMSAGCMAP {
         _CmAp.put(DmvDMSAG.__AllowedAttributesRuleData.id,DmvDMSAG.__AllowedAttributesRuleData);
         _CmAp.put(DmvDMSAG.__CheckAttributesBasedOnValueRuleData.id,DmvDMSAG.__CheckAttributesBasedOnValueRuleData);
         _CmAp.put(DmvDMSAG.__InitRuleData.id,DmvDMSAG.__InitRuleData);
+        _CmAp.put(DmvDMSAG.__NamedObjectRuleData.id,DmvDMSAG.__NamedObjectRuleData);
         _CmAp.put(DmvDMSAG.__NumericRangeRuleData.id,DmvDMSAG.__NumericRangeRuleData);
         _CmAp.put(DmvDMSAG.__OneOfTheseAttributesRequiredRuleData.id,DmvDMSAG.__OneOfTheseAttributesRequiredRuleData);
         _CmAp.put(DmvDMSAG.__OnlyOneOfTheseAttributesAllowedRuleData.id,DmvDMSAG.__OnlyOneOfTheseAttributesAllowedRuleData);
