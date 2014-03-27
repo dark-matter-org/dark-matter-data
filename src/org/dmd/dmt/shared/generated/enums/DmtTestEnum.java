@@ -78,7 +78,7 @@ public enum DmtTestEnum implements DmcEnumIF
      * a valid member of this enum.
      */
     public static DmtTestEnum get(String str) {
-        return(lookupString.get(str.toUpperCase()));
+        return(lookupString.get(str));
     }
 
 }

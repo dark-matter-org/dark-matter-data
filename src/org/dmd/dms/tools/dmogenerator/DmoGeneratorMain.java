@@ -17,7 +17,6 @@ package org.dmd.dms.tools.dmogenerator;
 
 import java.io.IOException;
 
-import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
@@ -40,9 +39,6 @@ public class DmoGeneratorMain {
 			e.printStackTrace();
 		} catch (DmcRuleExceptionSet e) {
 			System.err.print(e.toString());
-		} catch (DmcNameClashException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 
 	}

@@ -36,10 +36,6 @@ public class DmcValueExceptionSet extends Exception {
 		exceptions = new ArrayList<DmcValueException>();
 	}
 	
-	public DmcValueException lastException(){
-		return(exceptions.get(exceptions.size()-1));
-	}
-	
 	/**
 	 * Adds another exception.
 	 * @param ex The exception.
@@ -56,7 +52,7 @@ public class DmcValueExceptionSet extends Exception {
 	public String toString(){
         StringBuffer sb = new StringBuffer();
         for(DmcValueException ex : exceptions)
-        	sb.append(ex.toString() + "\n");
+        	sb.append(ex.getLocalizedMessage() + "\n");
         return(sb.toString());
 	}
 	

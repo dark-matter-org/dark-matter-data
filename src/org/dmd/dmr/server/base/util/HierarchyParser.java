@@ -16,7 +16,6 @@
 package org.dmd.dmr.server.base.util;
 
 import org.dmd.dmc.DmcHierarchicObjectName;
-import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
@@ -79,7 +78,7 @@ public class HierarchyParser implements DmcUncheckedOIFHandlerIF, DmcNameResolve
 		setFileAndLine	= sfal;
 	}
 
-	public HierarchicObject readHierarchy(String fn) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
+	public HierarchicObject readHierarchy(String fn) throws ResultException, DmcValueException, DmcRuleExceptionSet {
 		root	= null;
 		
 //		loadedObjects = new ArrayList<HierarchicObject>();
@@ -167,7 +166,7 @@ public class HierarchyParser implements DmcUncheckedOIFHandlerIF, DmcNameResolve
 	}
 
 	@Override
-	public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException, DmcNameClashException {
+	public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException {
 		DmcHierarchicObjectName			fqn			= null;
 		DmcHierarchicObjectName			parentFqn	= null;
 		HierarchicObject 	newEntry 	= null;

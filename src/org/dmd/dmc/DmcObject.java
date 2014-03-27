@@ -25,11 +25,11 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.Vector;
 
-import org.dmd.dmc.types.DefinitionName;
 import org.dmd.dmc.types.DmcTypeComplexTypeWithRefs;
 import org.dmd.dmc.types.DmcTypeModifier;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
 import org.dmd.dmc.types.Modifier;
+import org.dmd.dmc.types.StringName;
 import org.dmd.dms.generated.dmo.ClassDefinitionDMO;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.DataTypeEnum;
@@ -129,8 +129,7 @@ abstract public class DmcObject implements Serializable {
 	
 	// The objectClass attribute is common to all objects and indicates the construction class
 	// and any auxiliary classes associated with the object
-//    public final static DmcAttributeInfo __objectClass = new DmcAttributeInfo("meta","objectClass",1,"ClassDefinitionREF",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __objectClass = new DmcAttributeInfo("meta","objectClass",1,"ClassDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __objectClass = new DmcAttributeInfo("objectClass",1,"ClassDefinitionREF",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
 	
 	// At this level, all we have is a simple collection of attributes.
 	protected Map<Integer, DmcAttribute<?>>	attributes;
@@ -160,7 +159,7 @@ abstract public class DmcObject implements Serializable {
 		// entry in their objectClass attribute.
         DmcAttribute<?> attr = new DmcTypeClassDefinitionREFMV(__objectClass);
         try {
-            attr.add(new DefinitionName(oc));
+            attr.add(new StringName(oc));
 			add(__objectClass,attr);
 		} catch (DmcValueException e) {
 			throw(new IllegalStateException("Setting the objectClass using a String shouldn't ever croak!", e));
@@ -593,22 +592,12 @@ abstract public class DmcObject implements Serializable {
 	 * @return The attribute info or null.
 	 */
 	public DmcAttributeInfo getAttributeInfo(String an){
-		
-		DmcAttributeInfo rc = getConstructionClassInfo().getAttributeInfo(an);
+//		DmcAttributeInfo rc = getStringToAttrInfo().get(an);
+		DmcAttributeInfo rc = DmcOmni.instance().getAttributeInfo(an);
 		
 		if (rc == null){
 			if (an.equals(__objectClass.name))
 				rc = __objectClass;
-		}
-		
-		if (rc == null){
-			// Fall back to check the auxiliary classes
-			DmcTypeClassDefinitionREFMV objClass = (DmcTypeClassDefinitionREFMV) attributes.get(__objectClass.id);
-			for(int i=0; i<objClass.getMVSize(); i++){
-				rc = objClass.getMVnth(i).getClassInfo().getAttributeInfo(an);
-				if (rc != null)
-					break;
-			}
 		}
 		
 		return(rc);
@@ -622,7 +611,13 @@ abstract public class DmcObject implements Serializable {
 	 */
 	public DmcAttributeInfo getAttributeInfo(Integer id){
 		DmcAttributeInfo rc = null;
-
+//		
+//		if (getIdTo AttrInfo() != null)
+//			return(getIdToAttrInfo().get(id));
+//		
+//		return(rc);
+//		
+				
 		if (id == __objectClass.id)
 			return(__objectClass);
 		
@@ -761,18 +756,18 @@ abstract public class DmcObject implements Serializable {
 	public DmcAttribute<?> get(DmcAttributeInfo ai){
 		synchronized (attributes) {
 			DmcAttribute<?> rc = attributes.get(ai.id);
-		
+			
 			// If you ask for the attribute using its attribute info and we find it, we check to
 			// see if it's set on the attribute. If not, we set it. This may seem weird, but it's 
 			// because the link to the DmcAttributeInfo is lost when DMOs are transported over
 			// GWT's serialization mechanisms. However, when we use generated DMOs to access the 
 			// the attributes, THEY have the attribute info, and so we just set it back on the 
 			// attribute.
-		
+			
 			if ( (rc != null) && (rc.getAttributeInfo() == null))
 				rc.setAttributeInfo(ai);
-		
-		return (rc);
+			
+			return (rc);
 		}
 	}
 	
@@ -1645,7 +1640,7 @@ abstract public class DmcObject implements Serializable {
 	 * @throws Exception 
 	 */
 	public void resolveReferences(DmcNameResolverIF rx) throws DmcValueExceptionSet {
-		resolveReferences(rx, false, null);
+		resolveReferences(rx, false);
 	}
 	
 	/**
@@ -1656,21 +1651,7 @@ abstract public class DmcObject implements Serializable {
 	 * @throws DmcValueExceptionSet
 	 */
 	public void resolveReferencesExceptClass(DmcNameResolverIF rx) throws DmcValueExceptionSet {
-		resolveReferences(rx, true, null);
-	}
-	
-	/**
-	 * This method is used to resolve references in names spaces where object names can clash.
-	 * This includes domain specific definition sets such as the dark-matter schema, Model View Whatever (MVW)
-	 * or other sets of definitions. The concept here is that it's convenient to use simple strings
-	 * as names for things and only use fully qualified names when it's necessary to distinguish
-	 * between ambiguous/clashing names. 
-	 * @param rx the name resolver
-	 * @param ncr the clash resolver
-	 * @throws DmcValueExceptionSet
-	 */
-	public void resolveReferences(DmcNameResolverWithClashSupportIF rx, DmcNameClashResolverIF ncr) throws DmcValueExceptionSet {
-		resolveReferences(rx, false, ncr);		
+		resolveReferences(rx, true);
 	}
 	
 	/**
@@ -1680,7 +1661,7 @@ abstract public class DmcObject implements Serializable {
 	 * @throws Exception 
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	protected void resolveReferences(DmcNameResolverIF rx, boolean skipClass, DmcNameClashResolverIF ncr) throws DmcValueExceptionSet {
+	public void resolveReferences(DmcNameResolverIF rx, boolean skipClass) throws DmcValueExceptionSet {
 		synchronized (attributes) {
 			DmcValueExceptionSet	errors = null;
 	
@@ -1691,7 +1672,7 @@ abstract public class DmcObject implements Serializable {
 				// This ensures that we have the attribute info set. This is a temporary
 				// hack. The actual solution is to make attrInfo private and always go through
 				// the getAttributeInfo() method to get it.
-				DmcAttributeInfo ai = attr.getAttributeInfo();
+				attr.getAttributeInfo();
 					
 				if (attr instanceof DmcTypeNamedObjectREF){
 //System.out.println("DmcObject.resolveReferences() resolving: " + attr.getName());
@@ -1700,35 +1681,14 @@ abstract public class DmcObject implements Serializable {
 					
 					if (attr.getMVSize() == 0){
 						DmcNamedObjectREF ref = (DmcNamedObjectREF) attr.getSV();
-						
 						if (ref.isResolved())
 							continue;
 						
-						DmcNamedObjectIF obj = null;
-						if (ncr == null)
-							obj = rx.findNamedObject(ref.getObjectName(),attr.ID);
-						else{
-							try {
-								obj = ((DmcNameResolverWithClashSupportIF)rx).findNamedObjectMayClash(this, ref.getObjectName(), ncr, attr.attrInfo);
-							} catch (DmcValueException ex) {
-								// If this is a weak reference, just continue
-								if (ai.weakReference)
-									continue;
-								if (errors == null)
-									errors = new DmcValueExceptionSet();
-								errors.add(ex);
-								continue;
-							}
-						}
+						DmcNamedObjectIF  	obj 			= rx.findNamedObject(ref.getObjectName(),attr.ID);
 						DmcObject 			resolvedObject 	= null;
 						
 						if (obj == null){
-							// If this is a weak reference, just continue
-							if (ai.weakReference)
-								continue;
-
 							DmcValueException ex = new DmcValueException("Could not resolve reference to: " + ref.getObjectName() + " via attribute: " + attr.getName());
-							ex.addMoreInfo(this.toOIF());
 							if (errors == null)
 								errors = new DmcValueExceptionSet();
 							errors.add(ex);
@@ -1747,7 +1707,6 @@ abstract public class DmcObject implements Serializable {
 							}
 							catch(ClassCastException e){
 								DmcValueException ex = new DmcValueException("Attribute " + attr.getName() + " is of type: " + attr.getAttributeInfo().type + " and you've tried to set it to " + obj.getObjectName() + " which is of type " + resolvedObject.getConstructionClassName());
-								ex.addMoreInfo(this.toOIF());
 								if (errors == null)
 									errors = new DmcValueExceptionSet();
 								errors.add(ex);
@@ -1783,28 +1742,11 @@ abstract public class DmcObject implements Serializable {
 								if ( (ref == null) || ref.isResolved())
 									continue;
 								
-								DmcNamedObjectIF obj = null;
-								if (ncr == null)
-									obj = rx.findNamedObject(ref.getObjectName(),attr.ID);
-								else{
-									try {
-										obj = ((DmcNameResolverWithClashSupportIF)rx).findNamedObjectMayClash(this, ref.getObjectName(), ncr, attr.attrInfo);
-									} catch (DmcValueException ex) {
-										if (errors == null)
-											errors = new DmcValueExceptionSet();
-										errors.add(ex);
-										continue;
-									}									
-								}
+								DmcNamedObjectIF  	obj 			= rx.findNamedObject(ref.getObjectName(),attr.ID);
 								DmcObject 			resolvedObject 	= null;
 								
 								if (obj == null){
-									// If this is a weak reference, just continue
-									if (ai.weakReference)
-										continue;
-
 									DmcValueException ex = new DmcValueException("Could not resolve reference to: " + ref.getObjectName() + " via attribute: " + attr.getName());
-									ex.addMoreInfo(this.toOIF());
 									if (errors == null)
 										errors = new DmcValueExceptionSet();
 									errors.add(ex);
@@ -1829,8 +1771,8 @@ abstract public class DmcObject implements Serializable {
 										continue;
 									}
 									
-//									if (resolvedObject == null)
-//										System.out.println("HERE");
+									if (resolvedObject == null)
+										System.out.println("HERE");
 									
 									
 									// NOTE: we wouldn't do the backref tracking in the case of DMP
@@ -1884,16 +1826,8 @@ abstract public class DmcObject implements Serializable {
 				}
 				else if (attr instanceof DmcTypeComplexTypeWithRefs){
 					try {
-						if (ncr == null)
-							((DmcTypeComplexTypeWithRefs)attr).resolve(rx, attr.getName());
-						else{
-							((DmcTypeComplexTypeWithRefs)attr).resolve((DmcNameResolverWithClashSupportIF)rx, this, ncr, attr.attrInfo);				
-						}
-						
-//						// TODO name resolution for complex types
-//						((DmcTypeComplexTypeWithRefs)attr).resolve(rx, attr.getName());
+						((DmcTypeComplexTypeWithRefs)attr).resolve(rx, attr.getName());
 					} catch (DmcValueException e) {
-						e.addMoreInfo(this.toOIF());
 						if (errors == null)
 							errors = new DmcValueExceptionSet();
 						errors.add(e);
@@ -2218,8 +2152,6 @@ abstract public class DmcObject implements Serializable {
 					if (rem(mod.getAttributeName()) != null)
 						anyChange = true;
 					break;
-				case NONE:
-					break;
 				}
 			}
 			
@@ -2468,9 +2400,6 @@ abstract public class DmcObject implements Serializable {
 	    									}
 	    								}
 	    								break;
-									case SINGLE:
-										// We never get here - just covering the cases
-										break;
 	    							}
 	    						}
 	    					}
@@ -2506,7 +2435,9 @@ abstract public class DmcObject implements Serializable {
 				else{
 					Iterator<DmcNamedObjectREF<?>> refs = reference.getMV();
 					if (refs != null){
+						int currIndex = -1;
 						while(refs.hasNext()){
+							currIndex++;
 							DmcNamedObjectREF<?> ref = refs.next();
 							if (ref != null){
 								ref.setObject(null);

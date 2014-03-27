@@ -17,7 +17,7 @@ import org.apache.commons.io.FileUtils;
  * especially useful when removing files for classes that have been removed from 
  * schemas or renamed.
  * <P>
- * This mechanism is useful when you include dark-matter code generation as part of
+ * This mechanism is useful when you include Dark Matter code generation as part of
  * your build process because it cuts down on the number of files that have to be
  * recompiled; if code hasn't changed, the FileUpdateManager leaves the original file
  * (and its time stamp) intact, so unneeded recompilation is avoided.
@@ -163,7 +163,7 @@ public class FileUpdateManager {
 	 * Use this method to get a BufferedWriter for the file you're generating and close it
 	 * as normal when you're done. If the file doesn't yet exist, it will be written straight to
 	 * your output directory. However, if the file exists, we will write the file to the
-	 * working folder and perform a comparison with the existing file. If the files are different,
+	 * working folder and perform a comparison with the existing file. The files are different,
 	 * we'll replace the existing file, if not, we just leave the existing file alone.
 	 * @param of The output folder.
 	 * @param fn The name of the file to be generated.

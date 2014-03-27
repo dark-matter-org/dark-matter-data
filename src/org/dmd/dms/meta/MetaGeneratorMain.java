@@ -15,7 +15,6 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.meta;
 
-import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
 
@@ -29,9 +28,6 @@ public class MetaGeneratorMain {
 		} catch (DmcValueException e) {
 			e.printStackTrace();
 		} catch (DmcRuleExceptionSet e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (DmcNameClashException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

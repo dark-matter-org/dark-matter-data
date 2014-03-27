@@ -25,7 +25,7 @@ public class MetaSchema extends MetaSchemaAG {
      * This is useful for GDO classes that may need to the schema for various
      * purposes.
      */
-//    public static SchemaManager  schemaManager;
+    public static SchemaManager  schemaManager;
     
 	public MetaSchema() throws DmcValueException{
 		super();
@@ -39,13 +39,13 @@ public class MetaSchema extends MetaSchemaAG {
 		DebugInfo.debug(DebugInfo.getCurrentStack());
 	}
 	
-//    /**
-//     * Sets the schema manager if it's not already set.
-//     */
-//    public void setSchemaManager(SchemaManager sm){
-//        if (schemaManager == null)
-//            schemaManager = sm;
-//    }
+    /**
+     * Sets the schema manager if it's not already set.
+     */
+    public void setSchemaManager(SchemaManager sm){
+        if (schemaManager == null)
+            schemaManager = sm;
+    }
 
 	@Override
 	public

@@ -7,7 +7,6 @@ import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.apache.commons.io.FileUtils;
-import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.SchemaDefinition;
@@ -79,7 +78,7 @@ public class DmsHtmlDocGenerator {
 //		
 //	}
 	
-	public void dumpDocumentation(String outdir) throws IOException, DmcNameClashException {
+	public void dumpDocumentation(String outdir) throws IOException {
 		DebugInfo.debug(outdir);
 		
 		initDirs(outdir);

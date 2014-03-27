@@ -19,7 +19,6 @@ import java.util.Iterator;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
-import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectName;
@@ -332,10 +331,8 @@ public class DMPEvent extends DMPEventDMW {
 	 * If the event object has generated/extended DMW code, this method will return the 
 	 * DMO wrapped in its associated DMW object.
 	 * @return The wrapped DMO.
-	 * @throws DmcNameClashException 
-	 * @throws DmcValueException  
 	 */
-	public DmwWrapper getSourceObjectWrapped() throws DmcNameClashException, DmcValueException {
+	public DmwWrapper getSourceObjectWrapped(){
 		if (getSourceObject() == null)
 			return(null);
 		return(DmwOmni.instance().wrapIt(getSourceObject()));
@@ -463,7 +460,7 @@ public class DMPEvent extends DMPEventDMW {
 					Modifier mod = mods.getMVnth(i);
 					DmcAttributeInfo modai = mod.getAttributeInfo();
 					if (modai == null)
-						throw(new IllegalStateException("Couldn't get attribute info for: " + mod.getAttributeName()));
+						throw(new IllegalStateException("Couldn't get attriute info for: " + mod.getAttributeName()));
 					if (modai.id == ai.id)
 						return(true);
 				}

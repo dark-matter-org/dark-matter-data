@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.TreeMap;
 
-import org.dmd.dmc.types.DefinitionName;
+import org.dmd.dmc.types.StringName;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dmw.DmwWrapper;
@@ -109,7 +109,7 @@ public class TypeFormatter {
 		
 		// There's always one reference because the schema refers to its types
 		if ( (referring != null) && (referring.size() > 1) ){
-			TreeMap<DefinitionName,AttributeDefinition>	attributes = new TreeMap<DefinitionName, AttributeDefinition>();
+			TreeMap<StringName,AttributeDefinition>	attributes = new TreeMap<StringName, AttributeDefinition>();
 			
 			out.write("    <tr>\n");
 			out.write("      <td class=\"spacer\"> </td>\n");
@@ -135,7 +135,7 @@ public class TypeFormatter {
 		}
 	}
 
-	static String formatUsage(TreeMap<DefinitionName,AttributeDefinition> ads){
+	static String formatUsage(TreeMap<StringName,AttributeDefinition> ads){
 		StringBuffer sb = new StringBuffer();
 		
 		sb.append("<table>\n");

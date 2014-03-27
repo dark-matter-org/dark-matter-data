@@ -15,7 +15,7 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
-import org.dmd.dmc.types.DefinitionName;
+import org.dmd.dmc.types.StringName;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
 import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
@@ -541,7 +541,7 @@ public class TestReferenceTracking {
 		///////////////////////////////////////////////////////////////////////
 		// lazy resolution of mv extref
 		
-		SomeRelation	rel2 = new SomeRelation(new DefinitionName("obj3"), 3, 3);
+		SomeRelation	rel2 = new SomeRelation(new StringName("obj3"), 3, 3);
 		
 		obj1.addSomeRelationMV(rel2);
 		
@@ -551,7 +551,7 @@ public class TestReferenceTracking {
 		
 		
 
-		SomeRelation	rel3 = new SomeRelation(new DefinitionName("obj2"), 2, 2);
+		SomeRelation	rel3 = new SomeRelation(new StringName("obj2"), 2, 2);
 
 		obj3.addSomeRelationMV(rel3);
 		

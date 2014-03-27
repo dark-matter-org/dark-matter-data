@@ -15,13 +15,11 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.util;
 
-import java.io.File;
 import java.io.IOException;
 
 import org.junit.*;
 import static org.junit.Assert.assertNotNull;
 
-import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dms.SchemaDefinition;
@@ -38,27 +36,19 @@ public class TestDmsSchemaParser {
 	ConfigFinder	finder;
 	
 	@Before
-	public void initialize() throws ResultException, IOException, DmcValueException, DmcNameClashException {
+	public void initialize() throws ResultException, IOException, DmcValueException{
 		dmsSchema = new SchemaManager();
 		readSchemas	= new SchemaManager();
-
-        File curr = new File(".");
-        String runDir;
-		runDir = curr.getCanonicalPath();
-		System.out.println("*** Running from: " + runDir);
 		
 		finder = new ConfigFinder();
-		finder.addSourceDirectory(runDir + "/src");
-		finder.debug(true);
 		finder.addSuffix(".dms");
 //		finder.addJarEnding("DMSchema.jar");
 		finder.findConfigs();
 
-		
 	}
 	
 	@Test
-	public void testParseDMPSchema() throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException{
+	public void testParseDMPSchema() throws ResultException, DmcValueException, DmcRuleExceptionSet{
 		DmsSchemaParser parser = new DmsSchemaParser(dmsSchema, finder);
 		SchemaDefinition dmp	= null;
 		
@@ -68,7 +58,7 @@ public class TestDmsSchemaParser {
 	}
 	
 	@Test(expected=ResultException.class)
-	public void testParseUnknownSchema() throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException{
+	public void testParseUnknownSchema() throws ResultException, DmcValueException, DmcRuleExceptionSet{
 		DmsSchemaParser parser = new DmsSchemaParser(dmsSchema, finder);
 		
 		parser.parseSchema(readSchemas, "unknown", true);

@@ -19,7 +19,6 @@ import java.util.Iterator;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
-import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.util.DmcUncheckedObject;
@@ -60,9 +59,8 @@ public class DmoObjectFactory {
 	 * @throws DmcValueException 
 	 * @throws ClassNotFoundException 
 	 * @throws ClassNotFoundException  
-	 * @throws DmcNameClashException 
 	 */
-	public DmcObject createObject(DmcUncheckedObject uco) throws ResultException, DmcValueException, ClassNotFoundException, DmcNameClashException {
+	public DmcObject createObject(DmcUncheckedObject uco) throws ResultException, DmcValueException, ClassNotFoundException {
 		DmcObject			dmo	= null;
 		ClassDefinition		cd	= null;
 		AttributeDefinition	ad	= null;

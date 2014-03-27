@@ -8,7 +8,6 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcCompactSchemaIF;
-import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
@@ -31,6 +30,7 @@ import org.dmd.dms.generated.rulesdmo.AttributeValidationRuleCollection;
 import org.dmd.dms.generated.rulesdmo.ObjectValidationRuleCollection;
 import org.dmd.dms.util.DmoObjectFactory;
 import org.dmd.util.ConsoleRuleTracer;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
 /**
@@ -83,7 +83,7 @@ public class DmvDynamicRuleManager extends DmcRuleManager {
 		return(rc);
 	}
 	
-	public void loadAndCheckRules(SchemaManager sm, SchemaDefinition sd) throws DmcRuleExceptionSet, DmcNameClashException, DmcValueException {
+	public void loadAndCheckRules(SchemaManager sm, SchemaDefinition sd) throws DmcRuleExceptionSet {
 		DmcRuleExceptionSet		rc 			= null;
 	    DmoObjectFactory 		dmofactory 	= new DmoObjectFactory(sm);
 	    ArrayList<RuleDataDMO>	allRuleData = new ArrayList<RuleDataDMO>();
@@ -158,7 +158,7 @@ public class DmvDynamicRuleManager extends DmcRuleManager {
 							continue;
 						
 						try{
-							ruledata.resolveReferences(sm,sm);
+							ruledata.resolveReferences(sm);
 						}
 						catch(DmcValueExceptionSet ex){
 							System.err.println(ex.toString() + "\nFile: " + ruledata.getFile() + "  Line: " + ruledata.getLineNumber());
@@ -192,11 +192,11 @@ public class DmvDynamicRuleManager extends DmcRuleManager {
 			for(RuleIF rule: allRules)
 				addThisRule(rule);
 			
-//			DebugInfo.debug("*** ALL RULE COLLECTIONS ***\n\n" + this.toString());
+			DebugInfo.debug("*** ALL RULE COLLECTIONS ***\n\n" + this.toString());
 			
 //			DebugInfo.debug("\n\n*** RULE TRACING DISABLED ***\n\n");
 			DmcOmni.instance().ruleTracer(new ConsoleRuleTracer());
-			DmcOmni.instance().ruleTracing(false);
+			DmcOmni.instance().ruleTracing(true);
 			
 			for(RuleDataDMO rule: allRuleData){
 				SourceInfo source = new SourceInfo(rule.getFile(), rule.getLineNumber()+"", rule);

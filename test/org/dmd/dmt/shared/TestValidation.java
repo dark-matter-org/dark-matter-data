@@ -62,11 +62,5 @@ public class TestValidation {
 		
 	}
 	
-	@Test
-	public void testDmcOmniLookup(){
-		
-		
-	}
-	
 	
 }
