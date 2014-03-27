@@ -772,6 +772,18 @@ abstract public class DmcObject implements Serializable {
 	}
 	
 	/**
+	 * @param ai the attribute info for the attribute you want to check.
+	 * @return true if the attribute exists and false otherwise.
+	 */
+	public boolean hasValue(DmcAttributeInfo ai){
+		synchronized (attributes) {
+			if (attributes.get(ai.id) == null)
+				return(false);
+			return(true);
+		}		
+	}
+	
+	/**
 	 * Retrieves the names of attributes in this object. If you only want the single
 	 * valued attributes.
 	 * @param onlySV  if true, will only return single valued attribute names.
