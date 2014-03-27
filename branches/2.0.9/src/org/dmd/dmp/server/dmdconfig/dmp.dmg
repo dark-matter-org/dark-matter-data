@@ -1,0 +1,8 @@
+DmgConfig
+genPackage      	org.dmd.dmp.server
+schemaToLoad		dmp
+generator			org.dmd.dmg.generators.DMWGenerator
+generatedFileHeader LGPL.txt
+description     	We generate the wrappers for the Dark Matter Protocol messages. These
+ wrappers are then extended so that we can include the original HttpServletRequest
+ with the message.

@@ -1,0 +1,7 @@
+ComplexTypeDefinition
+name MenuElementTypeAndComment
+fieldSeparator :
+field String type    The name of this implementation.
+field String comment The class used to implement the required behaviour.
+description The MenuElementTypeAndComment type is used to indicate the strings that map to 
+ various menu and menu item implementations supported by a a particular menu implementation.
