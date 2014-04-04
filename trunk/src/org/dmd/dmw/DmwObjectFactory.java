@@ -131,6 +131,12 @@ public class DmwObjectFactory {
 			case SINGLE:
 				values = uco.get(n);
 				
+				if (values.size() > 1){
+		        	ResultException ex = new ResultException();
+		            ex.result.addResult(Result.ERROR,"Multiple values for a single-valued attribute: " + n);
+		            throw(ex);
+				}
+				
 				try {
 					// Try to get the attribute
 					DmcAttribute<?> attr = dmo.get(ad.getName().getNameString());
