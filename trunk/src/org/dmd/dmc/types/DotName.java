@@ -40,7 +40,7 @@ public class DotName extends DmcHierarchicObjectName implements Serializable {
 	//       names that start with numbers was advantageous. So, the restrictions are loosened here and
 	//       made up for using rules e.g. more restrictive rules when the name is part of a schema definition.
 //	final static String dotCase = "[a-zA-Z][a-zA-Z0-9_.]*";
-	final static String dotCase = "[a-zA-Z0-9][a-zA-Z0-9_.-]*";
+	final static String dotCase = "[a-zA-Z0-9][a-zA-Z0-9_./-]*";
 	final static String nameCase = "[a-zA-Z][a-zA-Z0-9_]*";
 	
 

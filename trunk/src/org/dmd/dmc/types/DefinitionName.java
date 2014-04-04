@@ -45,7 +45,7 @@ public class DefinitionName extends DmcObjectName implements DmcObjectNameIF, Se
 	//       from the names. However, as dark-matter DSL technology has expanded, the ability to allow for
 	//       names that start with numbers was advantageous. So, the restrictions are loosened here and
 	//       made up for using rules e.g. more restrictive rules when the name is part of a schema definition.
-	final static String camelCase = "[a-zA-Z0-9][a-zA-Z0-9_.-]*";
+	final static String camelCase = "[a-zA-Z0-9][a-zA-Z0-9_./-]*";
 
 	String name;
 	
