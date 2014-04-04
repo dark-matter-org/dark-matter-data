@@ -92,6 +92,9 @@ public class CSVFileReader {
 			else{
 				for(int j=0; j<tokens.size(); j++){
 					String token = tokens.get(j).getValue().toLowerCase();
+					if (token.contains("#")){
+						token = token.replaceAll("#", "Number");
+					}
 					if (j==0)
 						sb.append(token);
 					else
