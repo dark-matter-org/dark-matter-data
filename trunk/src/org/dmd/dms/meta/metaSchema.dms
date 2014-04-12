@@ -306,7 +306,8 @@ requiredPart	String			name        "The name of the Part"
 requiredPart	String			description "The description of the Part"  quoted=true
 //optionalPart	String			label 		"The label of the Part"			quoted=true
 optionalPart	Boolean			quoted 		"Indicates if the Part allows for a quoted value or if it's intended to be a single token"
-optionalPart	Boolean			multivalued	"Indicates if the Part is multivalued - this is only applicable to optional Parts."
+optionalPart	Boolean			multivalued	"Indicates if the Part is multivalued. This can be specified on any optionalPart
+ but can only be used on a requiredPart if it's the only part in the ComplexTypeDefinition"
 optionalPart	Boolean			weakref		"Indicates that a reference type is weak i.e. that no exception will be thrown if the reference can't be resolved - this is only applicable to optional Parts."
 optionalPart	Boolean			greedy		"This flag can only be used on a Part composed of requiredParts and only on the last requiredPart. It is not compatible
  with other flags such as quoted, multivalued or weakref. It allows for a set of required parts followed by chunk of text that extends to the end of the attribute value."

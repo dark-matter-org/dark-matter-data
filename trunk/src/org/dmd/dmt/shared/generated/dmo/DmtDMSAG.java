@@ -132,6 +132,8 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     public final static DmcTypeInfo __type_ClientCountFilterRequest = new DmcTypeInfo("ClientCountFilterRequest", OriginalTypeEnum.OBJECT);
     public final static DmcTypeInfo __type_ComplexTypeTest = new DmcTypeInfo("ComplexTypeTest", OriginalTypeEnum.OBJECT);
     public final static DmcTypeInfo __type_DmtField = new DmcTypeInfo("DmtField", OriginalTypeEnum.COMPLEXTYPE);
+    public final static DmcTypeInfo __type_DmtMultiValuedRequiredPartPrimitive = new DmcTypeInfo("DmtMultiValuedRequiredPartPrimitive", OriginalTypeEnum.COMPLEXTYPE);
+    public final static DmcTypeInfo __type_DmtMultiValuedRequiredPartWithReferences = new DmcTypeInfo("DmtMultiValuedRequiredPartWithReferences", OriginalTypeEnum.COMPLEXTYPE);
     public final static DmcTypeInfo __type_DmtOptionalValueFieldWithColons = new DmcTypeInfo("DmtOptionalValueFieldWithColons", OriginalTypeEnum.COMPLEXTYPE);
     public final static DmcTypeInfo __type_DmtOptionalValueFieldWithSpaces = new DmcTypeInfo("DmtOptionalValueFieldWithSpaces", OriginalTypeEnum.COMPLEXTYPE);
     public final static DmcTypeInfo __type_DmtStringName = new DmcTypeInfo("DmtStringName", OriginalTypeEnum.NAMETYPE);

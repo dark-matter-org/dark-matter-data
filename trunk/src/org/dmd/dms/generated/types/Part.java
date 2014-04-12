@@ -63,7 +63,7 @@ public class Part implements Serializable {
     Boolean quoted;
     final static DmcAttributeInfo quotedAI = new DmcAttributeInfo("quoted",0,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN);
 
-    // Indicates if the Part is multivalued - this is only applicable to optional Parts.
+    // Indicates if the Part is multivalued. This can be specified on any optionalPart but can only be used on a requiredPart if it's the only part in the ComplexTypeDefinition
     Boolean multivalued;
     final static DmcAttributeInfo multivaluedAI = new DmcAttributeInfo("multivalued",0,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN);
 

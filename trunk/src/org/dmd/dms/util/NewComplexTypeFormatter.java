@@ -47,7 +47,10 @@ public class NewComplexTypeFormatter {
         if (ctd.getRequiredPartSize() > 0){
 	        parts = ctd.getRequiredPart();
 	        while(parts.hasNext()){
-	        	combinedParts.add(parts.next());
+	        	Part p = parts.next();
+	        	combinedParts.add(p);
+	        	if ((p.getMultivalued() != null) && p.getMultivalued())
+	        		anyMultiValued = true;
 	        }
         }
         
@@ -228,8 +231,18 @@ public class NewComplexTypeFormatter {
 	        		out.write("    " + assignment);
         		}
         	}
-        	else
-        		out.write(assignment);
+        	else{
+        		if ((part.getMultivalued() != null) && part.getMultivalued()){
+					out.write("        if ("  + part.getName() + "_" + " != null){\n");
+					out.write("            " + pn + " = new ArrayList<" + pt + ref + ">();\n");
+        			out.write("            for(" + pt + ref + " v: " + part.getName() + "_){\n");
+        			out.write("                " + pn + ".add(DmcType" + pt + ref + "STATIC.instance.typeCheck(v));\n");
+        			out.write("            }\n");
+        			out.write("        }\n");
+        		}
+        		else 
+        			out.write(assignment);
+        	}
         	
         	fnum++;
         }
@@ -290,7 +303,26 @@ public class NewComplexTypeFormatter {
         	}
         		
 			if (fnum < requiredCount){
-				out.write("        " + part.getName() + valSuffix + " = DmcType" + part.getType().getObjectName() + REF + "STATIC.instance.typeCheck(nvp.get(" + fnum + ").getValue());\n");			}
+				if (isMulti){
+					// This is a multi-valued required part, which means it's the only part
+					out.write("\n");
+					out.write("        if (nvp.size() > requiredParts){\n");
+					out.write("            for(int i=" + requiredCount + "; i<nvp.size(); i++){\n");
+//					out.write("                if (nvp.get(i).getName() == null){\n");
+//					out.write("                    if (nvp.get(i).getValue() == null)\n");
+//					out.write("                        throw(new DmcValueException(\"Expecting a partname=\\\"some value\\\" in complex type: " + ctn + "\"));\n");
+//					out.write("                    else\n");
+//					out.write("                        throw(new DmcValueException(\"Expecting a partname=\\\"\" + nvp.get(i).getValue() + \"\\\" in complex type: " + ctn + "\"));\n");
+//					out.write("                }\n");
+					out.write("                if (" + pn + " == null)\n");
+					out.write("                    " + pn + " = new ArrayList<" + part.getType().getObjectName() + REF + ">();\n");
+					out.write("                " + pn + ".add(DmcType" + part.getType().getObjectName() + REF + "STATIC.instance.typeCheck(nvp.get(i).getValue()));\n");
+					out.write("            }\n");
+					out.write("        }\n");
+				}
+				else
+					out.write("        " + part.getName() + valSuffix + " = DmcType" + part.getType().getObjectName() + REF + "STATIC.instance.typeCheck(nvp.get(" + fnum + ").getValue());\n");
+			}
 			else{
 				
 				if (firstOptional){
