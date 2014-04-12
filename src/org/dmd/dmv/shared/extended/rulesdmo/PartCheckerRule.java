@@ -29,9 +29,21 @@ public class PartCheckerRule extends PartCheckerRuleBaseImpl {
 		
 		Iterator<Part> optparts = dmo.getOptionalPart();
 		Iterator<Part> reqparts = dmo.getRequiredPart();
+		boolean multiValued = false;
+		int		reqCount = 0;
+		
 		if (reqparts != null){
+			// Check that the greedy flag is only specified on the last required part of
+			// a type composed of only required parts
 			while(reqparts.hasNext()){
 				Part reqpart = reqparts.next();
+				
+				reqCount++;
+				
+				// Hang on to this so that we know if we need further checking
+				if ((reqpart.getMultivalued() != null) && (reqpart.getMultivalued()))
+					multiValued = true;
+				
 				if ( (reqpart.getGreedy() != null) && reqpart.getGreedy()){
 					if (optparts != null){
 						if (ex == null)
@@ -45,6 +57,26 @@ public class PartCheckerRule extends PartCheckerRuleBaseImpl {
 					}
 				}
 			}
+			
+			if (multiValued){
+				// You can only use multi-valued on a single required part
+				if (reqCount != 1){
+					if (ex == null)
+						ex = new DmcRuleExceptionSet();
+					ex.add(new DmcRuleException("The multivalued flag can only be specified on a requiredPart if it's the only part in a ComplexTypeDefinition", this));
+				}
+				
+				reqparts = dmo.getRequiredPart();
+				Part reqpart = reqparts.next();
+				
+				if ((reqpart.getGreedy() != null) && (reqpart.getGreedy())){
+					if (ex == null)
+						ex = new DmcRuleExceptionSet();
+					ex.add(new DmcRuleException("The greedy flag can't be used with the multivalued flag on a single requiredPart in a ComplexTypeDefinition", this));
+				}
+				
+			}
+
 		}
 		if (ex != null)
 			throw(ex);

@@ -4,6 +4,7 @@ package org.dmd.dmt.shared.generated.types;
 // Called from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:134)
 import java.io.Serializable;                                               // To prevent serialization warnings - (NewComplexTypeFormatter.java:100)
 import java.util.ArrayList;                                                // To store ParsedNameValuePairs - (NewComplexTypeFormatter.java:107)
+import java.util.Iterator;                                                 // To support multi-valued optional parts - (NewComplexTypeFormatter.java:111)
 import org.dmd.dmc.DmcAttributeInfo;                                       // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:105)
 import org.dmd.dmc.DmcContainerIF;                                         // To support object references - (NewComplexTypeFormatter.java:117)
 import org.dmd.dmc.DmcInputStreamIF;                                       // Standard serialization techniques - (NewComplexTypeFormatter.java:101)
@@ -22,7 +23,6 @@ import org.dmd.dmc.util.ComplexTypeSplitter;                               // Fo
 import org.dmd.dmc.util.ParsedNameValuePair;                               // To store values parsed from initial input - (NewComplexTypeFormatter.java:108)
 import org.dmd.dms.generated.enums.DataTypeEnum;                           // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:103)
 import org.dmd.dms.generated.enums.ValueTypeEnum;                          // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:104)
-import org.dmd.dms.generated.types.DmcTypeStringSTATIC;                    // Standard type - (NewComplexTypeFormatter.java:900)
 import org.dmd.dms.generated.types.DmcTypeTypeDefinitionREFSTATIC;         // Internally generated type - (NewComplexTypeFormatter.java:900)
 import org.dmd.dms.generated.types.TypeDefinitionREF;                      // Object reference - (NewComplexTypeFormatter.java:875)
 
@@ -30,62 +30,53 @@ import org.dmd.dms.generated.types.TypeDefinitionREF;                      // Ob
 
 @SuppressWarnings("serial")
 /**
- * The DmtOptionalValueFieldWithColons class.
+ * The DmtMultiValuedRequiredPartWithReferences class.
  * This code was auto-generated and shouldn't be alterred manually.
  * 
  * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:141)
  */
-public class DmtOptionalValueFieldWithColons implements Serializable {
+public class DmtMultiValuedRequiredPartWithReferences implements Serializable {
 
-    final static int requiredParts = 2;
+    final static int requiredParts = 1;
 
-    // The type of the field
-    TypeDefinitionREF typeV;
+    // A bunch of types
+    ArrayList<TypeDefinitionREF> typeV;
 
     final static DmcAttributeInfo typeAI = new DmcAttributeInfo("type",0,"TypeDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN, 0, false);
-
-    // The name of the field
-    String nameV;
-
-    final static DmcAttributeInfo nameAI = new DmcAttributeInfo("name",0,"String",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN, 0, false);
-
-    // The description of the field
-    String descriptionV;
-
-    final static DmcAttributeInfo descriptionAI = new DmcAttributeInfo("description",0,"String",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN, 0, false);
 
     /**
      * Default constructor.
      */
-    public DmtOptionalValueFieldWithColons(){
+    public DmtMultiValuedRequiredPartWithReferences(){
     }
 
     /**
      * Copy constructor.
      */
-    public DmtOptionalValueFieldWithColons(DmtOptionalValueFieldWithColons original){
+    @SuppressWarnings("unchecked")
+    public DmtMultiValuedRequiredPartWithReferences(DmtMultiValuedRequiredPartWithReferences original){
     // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.getCopyConstructorAssignments(NewComplexTypeFormatter.java:838)
-        typeV =  original.typeV;
-        nameV =  original.nameV;
-        descriptionV =  original.descriptionV;
+        typeV = (ArrayList<TypeDefinitionREF>) original.typeV.clone();
     }
 
     /**
      * All fields constructor.
      * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:172)
      */
-    public DmtOptionalValueFieldWithColons(TypeDefinitionREF type_, String name_, String description_) throws DmcValueException {
-        typeV = DmcTypeTypeDefinitionREFSTATIC.instance.typeCheck(type_);
-        nameV = DmcTypeStringSTATIC.instance.typeCheck(name_);
-        if (description_ != null)
-            descriptionV = DmcTypeStringSTATIC.instance.typeCheck(description_);
+    public DmtMultiValuedRequiredPartWithReferences(ArrayList<TypeDefinitionREF> type_) throws DmcValueException {
+        if (type_ != null){
+            typeV = new ArrayList<TypeDefinitionREF>();
+            for(TypeDefinitionREF v: type_){
+                typeV.add(DmcTypeTypeDefinitionREFSTATIC.instance.typeCheck(v));
+            }
+        }
     }
 
     /**
      * String based constructor.
      * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:255)
      */
-    public DmtOptionalValueFieldWithColons(String initialInput) throws DmcValueException {
+    public DmtMultiValuedRequiredPartWithReferences(String initialInput) throws DmcValueException {
         initialize(initialInput);
     }
     /**
@@ -93,30 +84,25 @@ public class DmtOptionalValueFieldWithColons implements Serializable {
      * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:263)
      */
     void initialize(String initialInput) throws DmcValueException {
-        ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput,':');
+        ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput);
 
         if (nvp.size() < requiredParts)
-            throw(new DmcValueException("Missing required values for complex type: DmtOptionalValueFieldWithColons"));
+            throw(new DmcValueException("Missing required values for complex type: DmtMultiValuedRequiredPartWithReferences"));
 
-        typeV = DmcTypeTypeDefinitionREFSTATIC.instance.typeCheck(nvp.get(0).getValue());
-        nameV = DmcTypeStringSTATIC.instance.typeCheck(nvp.get(1).getValue());
 
         if (nvp.size() > requiredParts){
-            for(int i=2; i<nvp.size(); i++){
+            for(int i=1; i<nvp.size(); i++){
                 if (nvp.get(i).getName() == null){
                     if (nvp.get(i).getValue() == null)
-                        throw(new DmcValueException("Expecting a partname=\"some value\" in complex type: DmtOptionalValueFieldWithColons"));
+                        throw(new DmcValueException("Expecting a partname=\"some value\" in complex type: DmtMultiValuedRequiredPartWithReferences"));
                     else
-                        throw(new DmcValueException("Expecting a partname=\"" + nvp.get(i).getValue() + "\" in complex type: DmtOptionalValueFieldWithColons"));
+                        throw(new DmcValueException("Expecting a partname=\"" + nvp.get(i).getValue() + "\" in complex type: DmtMultiValuedRequiredPartWithReferences"));
                 }
-                if (nvp.get(i).getName().equals("description"))
-                    descriptionV = DmcTypeStringSTATIC.instance.typeCheck(nvp.get(i).getValue());
-                else{
-                    throw(new DmcValueException("Unknown field for complex type DmtOptionalValueFieldWithColons: "  + nvp.get(i).getName()));
-                }
+                if (typeV == null)
+                    typeV = new ArrayList<TypeDefinitionREF>();
+                typeV.add(DmcTypeTypeDefinitionREFSTATIC.instance.typeCheck(nvp.get(i).getValue()));
             }
         }
-
     }
 
     /**
@@ -140,26 +126,13 @@ public class DmtOptionalValueFieldWithColons implements Serializable {
     public String toString(){
         StringBuffer sb = new StringBuffer();
         sb.append(typeV.toString());
-        sb.append(':');
-        sb.append(nameV.toString());
-        if (descriptionV != null){
-            sb.append(':');
-            sb.append("description=" + "\"" + descriptionV.toString() + "\"");
-        }
-
         return(sb.toString());
     }
 
-    public TypeDefinitionREF getType(){
-        return(typeV);
-    }
-
-    public String getName(){
-        return(nameV);
-    }
-
-    public String getDescription(){
-        return(descriptionV);
+    public Iterator<TypeDefinitionREF> getType(){
+        if (typeV == null)
+            return(null);
+        return(typeV.iterator());
     }
 
     // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:496)
@@ -167,17 +140,21 @@ public class DmtOptionalValueFieldWithColons implements Serializable {
     public void resolve(DmcNameResolverIF resolver, String attrName) throws DmcValueException {
         DmcNamedObjectIF  obj = null;
 
-        if ((typeV != null) && (!typeV.isResolved())){
-            obj = resolver.findNamedObject(typeV.getObjectName());
-            if (typeAI.weakReference)
-                return;
-            if (obj == null)
-                throw(new DmcValueException("Could not resolve reference to: " + typeV.getObjectName() + " via attribute: " + attrName));
+        if (typeV != null){
+            for(TypeDefinitionREF v: typeV){
+                if (v.isResolved())
+                    continue;
+                obj = resolver.findNamedObject(v.getObjectName());
+                if (typeAI.weakReference)
+                    return;
+                if (obj == null)
+                    throw(new DmcValueException("Could not resolve reference to: " + v.getObjectName() + " via attribute: " + attrName));
         
-            if (obj instanceof DmcContainerIF)
-                ((DmcNamedObjectREF)typeV).setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
-            else
-                ((DmcNamedObjectREF)typeV).setObject(obj);
+                if (obj instanceof DmcContainerIF)
+                    ((DmcNamedObjectREF)v).setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
+                else
+                    ((DmcNamedObjectREF)v).setObject(obj);
+            }
         }
         
     }
@@ -187,25 +164,29 @@ public class DmtOptionalValueFieldWithColons implements Serializable {
     public void resolve(DmcNameResolverWithClashSupportIF resolver, DmcObject object, DmcNameClashResolverIF ncr, DmcAttributeInfo ai) throws DmcValueException, DmcValueExceptionSet {
         DmcNamedObjectIF  obj = null;
 
-        if ((typeV != null) && (!typeV.isResolved())){
-            obj = resolver.findNamedObjectMayClash(object, typeV.getObjectName(), ncr, typeAI);
-            if (typeAI.weakReference)
-                return;
-            if (obj == null)
-                throw(new DmcValueException("Could not resolve reference to: " + typeV.getObjectName() + " via attribute: " + ai.name));
+        if (typeV != null){
+            for(TypeDefinitionREF v: typeV){
+                if (v.isResolved())
+                    continue;
+                obj = resolver.findNamedObjectMayClash(object, v.getObjectName(), ncr, typeAI);
+                if (typeAI.weakReference)
+                    return;
+                if (obj == null)
+                    throw(new DmcValueException("Could not resolve reference to: " + v.getObjectName() + " via attribute: " + ai.name));
         
-            if (obj instanceof DmcContainerIF)
-                ((DmcNamedObjectREF)typeV).setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
-            else
-                ((DmcNamedObjectREF)typeV).setObject(obj);
-        
-            if (DmcOmni.instance().backRefTracking()){
-                Modifier backrefMod = new Modifier("type", object, typeV);
                 if (obj instanceof DmcContainerIF)
-                    ((DmcContainerIF)obj).getDmcObject().addBackref(backrefMod);
+                    ((DmcNamedObjectREF)v).setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
                 else
-                    ((DmcObject)obj).addBackref(backrefMod);
-                typeV.setBackrefModifier(backrefMod);
+                    ((DmcNamedObjectREF)v).setObject(obj);
+        
+                if (DmcOmni.instance().backRefTracking()){
+                    Modifier backrefMod = new Modifier("type", object, v);
+                    if (obj instanceof DmcContainerIF)
+                        ((DmcContainerIF)obj).getDmcObject().addBackref(backrefMod);
+                    else
+                        ((DmcObject)obj).addBackref(backrefMod);
+                    v.setBackrefModifier(backrefMod);
+                }
             }
         }
         
