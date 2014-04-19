@@ -156,6 +156,8 @@ public class DmtSchemaAG extends SchemaDefinition {
     public static ComplexTypeDefinition _DmtField;
     public static ComplexTypeDefinition _DmtOptionalValueFieldWithSpaces;
     public static ComplexTypeDefinition _DmtOptionalValueFieldWithColons;
+    public static ComplexTypeDefinition _DmtMultiValuedRequiredPartWithReferences;
+    public static ComplexTypeDefinition _DmtMultiValuedRequiredPartPrimitive;
 
     public static ActionDefinition _testAction;
 
@@ -2316,8 +2318,32 @@ public class DmtSchemaAG extends SchemaDefinition {
             _DmtOptionalValueFieldWithColons.setDefinedIn(this);
             _DmtOptionalValueFieldWithColonsOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/complex.dmd");
             _DmtOptionalValueFieldWithColonsOBJ.setFieldSeparator(":");
-            _DmtOptionalValueFieldWithColonsOBJ.setLineNumber("37");
+            _DmtOptionalValueFieldWithColonsOBJ.setLineNumber("38");
             addComplexTypeDefList(_DmtOptionalValueFieldWithColons);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            ComplexTypeDefinitionDMO _DmtMultiValuedRequiredPartWithReferencesOBJ = new ComplexTypeDefinitionDMO();
+            _DmtMultiValuedRequiredPartWithReferences = new ComplexTypeDefinition(_DmtMultiValuedRequiredPartWithReferencesOBJ);
+            _DmtMultiValuedRequiredPartWithReferencesOBJ.setName("DmtMultiValuedRequiredPartWithReferences");
+            _DmtMultiValuedRequiredPartWithReferencesOBJ.addDescription("Originally, multivalued was only applicable to optional parts, and that\n would mean specifying part=value for each value.\n <p/>\n There are many situations where it's handy to specify a set of values for\n something on a single line without syntactic cruft, and this complex type exercises\n those generation mechanisms for reference values.");
+            _DmtMultiValuedRequiredPartWithReferencesOBJ.addRequiredPart("TypeDefinition type \"A bunch of types\" multivalued=true");
+            _DmtMultiValuedRequiredPartWithReferencesOBJ.setDotName("dmt.DmtMultiValuedRequiredPartWithReferences.ComplexTypeDefinition");
+            _DmtMultiValuedRequiredPartWithReferences.setDefinedIn(this);
+            _DmtMultiValuedRequiredPartWithReferencesOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/complex.dmd");
+            _DmtMultiValuedRequiredPartWithReferencesOBJ.setLineNumber("48");
+            addComplexTypeDefList(_DmtMultiValuedRequiredPartWithReferences);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            ComplexTypeDefinitionDMO _DmtMultiValuedRequiredPartPrimitiveOBJ = new ComplexTypeDefinitionDMO();
+            _DmtMultiValuedRequiredPartPrimitive = new ComplexTypeDefinition(_DmtMultiValuedRequiredPartPrimitiveOBJ);
+            _DmtMultiValuedRequiredPartPrimitiveOBJ.setName("DmtMultiValuedRequiredPartPrimitive");
+            _DmtMultiValuedRequiredPartPrimitiveOBJ.addDescription("Testing a multi-valued required part with primitive type.");
+            _DmtMultiValuedRequiredPartPrimitiveOBJ.addRequiredPart("Integer value \"A bunch of integers\" multivalued=true");
+            _DmtMultiValuedRequiredPartPrimitiveOBJ.setDotName("dmt.DmtMultiValuedRequiredPartPrimitive.ComplexTypeDefinition");
+            _DmtMultiValuedRequiredPartPrimitive.setDefinedIn(this);
+            _DmtMultiValuedRequiredPartPrimitiveOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/complex.dmd");
+            _DmtMultiValuedRequiredPartPrimitiveOBJ.setLineNumber("52");
+            addComplexTypeDefList(_DmtMultiValuedRequiredPartPrimitive);
 
     }
 
