@@ -76,17 +76,14 @@ public class ModuleCParsingCoordinator {
 
         generator = g;
 
-//        rules.loadRules(DsdADMSAG.instance());
         parserForModuleA = new ModuleAParser(definitions, rules);
         finderForModuleA.setSourceAndJarInfo(sourceDirs,jars);
         finderForModuleA.findConfigs();
 
-//        rules.loadRules(DsdBDMSAG.instance());
         parserForModuleB = new ModuleBParser(definitions, rules);
         finderForModuleB.setSourceAndJarInfo(sourceDirs,jars);
         finderForModuleB.findConfigs();
 
-//        rules.loadRules(DsdCDMSAG.instance());
         parserForModuleC = new ModuleCParser(definitions, rules);
         finderForModuleC.setSourceAndJarInfo(sourceDirs,jars);
         finderForModuleC.findConfigs();
@@ -96,7 +93,7 @@ public class ModuleCParsingCoordinator {
 
 
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:847)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:846)
     void loadBaseModuleModuleC(String config) throws ResultException, DmcValueException, DmcNameClashException, DmcRuleExceptionSet, IOException {
         ConfigVersion version = finderForModuleC.getConfig(config);
         
@@ -112,7 +109,7 @@ public class ModuleCParsingCoordinator {
         loadModuleCModule(location);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:879)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:878)
     public void generateForConfig(String configName) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException, DmcValueExceptionSet, IOException {
         ConfigVersion version = finderForModuleC.getConfig(configName);
         
@@ -138,7 +135,7 @@ public class ModuleCParsingCoordinator {
         generator.generate(loaded,location,definitions);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:905)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:904)
     public void generateForAllConfigs() throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException, DmcValueExceptionSet, IOException {
         ModuleC loaded = null;
         ModuleCInfo loadedInfo = null;
@@ -168,7 +165,7 @@ public class ModuleCParsingCoordinator {
 
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:937)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:936)
     ModuleA loadModuleAModule(ConfigLocation location)  throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
         // If we've already loaded the file, skip it
         ModuleAInfo info = loadedModuleAConfigs.get(new DefinitionName(location.getConfigName()));
@@ -185,7 +182,7 @@ public class ModuleCParsingCoordinator {
         return(loaded);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:954)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:953)
     public ConfigLocation getLocation(ModuleA module){
         ModuleAInfo info = loadedModuleAConfigs.get(module.getName());
         if (info == null)
@@ -194,7 +191,7 @@ public class ModuleCParsingCoordinator {
         return(info.location);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:937)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:936)
     ModuleB loadModuleBModule(ConfigLocation location)  throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
         // If we've already loaded the file, skip it
         ModuleBInfo info = loadedModuleBConfigs.get(new DefinitionName(location.getConfigName()));
@@ -211,7 +208,7 @@ public class ModuleCParsingCoordinator {
         return(loaded);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:954)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:953)
     public ConfigLocation getLocation(ModuleB module){
         ModuleBInfo info = loadedModuleBConfigs.get(module.getName());
         if (info == null)
@@ -220,7 +217,7 @@ public class ModuleCParsingCoordinator {
         return(info.location);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:937)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:936)
     ModuleC loadModuleCModule(ConfigLocation location)  throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
         // If we've already loaded the file, skip it
         ModuleCInfo info = loadedModuleCConfigs.get(new DefinitionName(location.getConfigName()));
@@ -237,7 +234,7 @@ public class ModuleCParsingCoordinator {
         return(loaded);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:954)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:953)
     public ConfigLocation getLocation(ModuleC module){
         ModuleCInfo info = loadedModuleCConfigs.get(module.getName());
         if (info == null)
@@ -246,7 +243,7 @@ public class ModuleCParsingCoordinator {
         return(info.location);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:965)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:964)
     void loadModuleDependencies(ModuleInfoBase mi) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
 
         if (mi.dependenciesLoaded)
@@ -342,20 +339,20 @@ public class ModuleCParsingCoordinator {
 
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:995)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:994)
     void missingConfigError(String missing) throws ResultException {
         ResultException ex = new ResultException("Could not find config: " + missing);
         throw(ex);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1001)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1000)
     void missingConfigError(DSDefinition module, String missing) throws ResultException {
         ResultException ex = new ResultException("Could not find config: " + missing);
         ex.setLocationInfo(module.getFile(), module.getLineNumber());
         throw(ex);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1009)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1008)
     class ModuleInfoBase {
         ConfigLocation location;
         boolean        dependenciesLoaded;

@@ -82,7 +82,7 @@ public class ConfigFinder {
 	// The length of the longest schema name we found
 	int	longest;
 	
-	boolean	debug = true;
+	boolean	debug = false;
 	
 	public ConfigFinder(){
 		init();

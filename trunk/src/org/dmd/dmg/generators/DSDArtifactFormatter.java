@@ -69,9 +69,9 @@ public class DSDArtifactFormatter {
 	 * @throws DmcValueException 
 	 */
 	public void generateCode(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaDefinition sd, SchemaManager sm) throws IOException, DmcNameClashException, DmcValueException {
-		DebugInfo.debug(loc.toString());
+//		DebugInfo.debug(loc.toString());
 		
-		DebugInfo.debug(config.toOIF());
+//		DebugInfo.debug(config.toOIF());
 		
 		if (sm.getDSDefinitionModulesCount() > 0){
 			
@@ -1096,7 +1096,8 @@ public class DSDArtifactFormatter {
 		members.addMember("protected BooleanVar", "helpFlag", "new BooleanVar()", "The help flag value");
 		members.addMember("protected StringArrayList", "srcdir", "new StringArrayList()", "The source directories we'll search");
 		members.addMember("protected StringBuffer", "workspace", "new StringBuffer()", "The workspace base directory, this is appended to all srcdir directories");
-		members.addMember("protected StringBuffer", "target", "new StringBuffer()", "The target config on which to base generation");
+		members.addMember("protected StringBuffer", "outdir", "new StringBuffer()", "The output directory for generated artifacts");
+		members.addMember("protected StringArrayList", "targets", "new StringArrayList()", "The target configs on which to base generation");
 // The standard behaviour should be to autogenerate
 //		members.addMember("BooleanVar", "autogen", "new BooleanVar()", "Indicates that you want to generate from all configs automatically.");
 		members.addMember("protected BooleanVar", "debug", "new BooleanVar()", "Dumps debug info if specified");
@@ -1118,7 +1119,8 @@ public class DSDArtifactFormatter {
 		out.write("        commandLine.addOption(\"-h\",         helpFlag,  \"Dumps the help message.\");\n");
 		out.write("        commandLine.addOption(\"-srcdir\",    srcdir,    \"The source directories to search.\");\n");
 		out.write("        commandLine.addOption(\"-workspace\", workspace, \"The workspace base directory, this is appended to all srcdir directories.\");\n");
-		out.write("        commandLine.addOption(\"-target\",    target, \"The name of the target config. If this isn't specified, we generate for all configs.\");\n");
+		out.write("        commandLine.addOption(\"-outdir\",    outdir,    \"The output directory for generated artifacts.\");\n");
+		out.write("        commandLine.addOption(\"-targets\",   targets,    \"The names of the target configs. If this isn't specified, we generate for all configs.\");\n");
 		out.write("        commandLine.addOption(\"-debug\",     debug,     \"Dump debug information.\");\n");
 		out.write("        commandLine.addOption(\"-jars\",      jars,     	\"The prefixs of jars to search for ." + ddm.getFileExtension() + " config files.\");\n");
 		out.write("\n");
@@ -1149,8 +1151,10 @@ public class DSDArtifactFormatter {
 		out.write("\n");
 		out.write("        parser = new " + ddm.getName() + "ParsingCoordinator(this, searchPaths, jars);\n");
 		out.write("\n");
-		out.write("        if (target.length() > 0)\n");
-		out.write("            parser.generateForConfig(target.toString());\n");
+		out.write("        if (targets.size() >0){\n");
+		out.write("            for(String target: targets)\n");
+		out.write("                parser.generateForConfig(target);\n");
+		out.write("        }\n");
 		out.write("        else\n");
 		out.write("            parser.generateForAllConfigs();\n");
 		out.write("    }\n\n");
