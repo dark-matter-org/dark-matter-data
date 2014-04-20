@@ -1,0 +1,148 @@
+EnumDefinition
+name            ClassTypeEnum
+nullReturnValue ClassTypeEnum.UNKNOWN
+enumValue		0 UNKNOWN		Unknown value.
+enumValue		1 ABSTRACT		An abstract class is one that provides a base class for a set of
+ related derived classes, but which can't be instantiated by itself.
+enumValue		2 STRUCTURAL	A structural class is a class that can be instantiated by itself.
+enumValue       3 AUXILIARY 	An auxiliary class is basically a collection of additional
+ attributes that can be added to an instance of a STRUCTURAL class; an
+ AUXILIARY class can't be instantiated on its own.
+enumValue		4 EXTENSIBLE 	An extensible class is basically a free-form class that allows
+ ANY attribute to be set on it.
+enumValue		5 INTERFACE		An interface class provides an interface for a set of implementing classes.
+description		The ClassTypeEnum enumeration indicates the types of classes that can
+ be defined; some of these definitions are borrowed from LDAP directory parlance. See
+ the individual enum value definitions for details.
+
+EnumDefinition
+name			ModifyTypeEnum
+nullReturnValue ModifyTypeEnum.NONE
+enumValue		0 NONE Indicates that no modify operation was specified.
+enumValue		1 ADD  The ADD operation adds a new value to a multi-valued attribute.
+enumValue		2 DEL  The DEL operation removes a value from a multi-valued attribute.
+enumValue		3 SET  The SET operation sets a new value for a single-valued attribute.
+enumValue		4 REM  The REM operation removes the entire attribute from the object.
+enumValue		5 NTH  The NTH operation sets the value at the specified index.
+description	The ModifyTypeEnum indicates the types of modification operations
+ that can be carried out on the attributes of an object.
+
+EnumDefinition
+name			OperationalContextEnum
+nullReturnValue OperationalContextEnum.DMO
+enumValue		0 DMO       Indicates that the component follows basic Dark Matter Object rules which likewise conform to GWT JRE Emulation.
+enumValue		1 FULLJAVA  indicates that the component operates in a ful Java environment; no restrictions.
+description	The OperationalContextEnum indicates various types of operational contexts
+ in which some component can operate.
+
+EnumDefinition
+name			RuleTypeEnum
+nullReturnValue RuleTypeEnum.ATTRIBUTE
+enumValue		0 ATTRIBUTE Indicates that this is an attribute level rule.
+enumValue		1 CLASS     Indicates that this is a class level rule.
+description		The RuleTypeEnum indicates the level at which a rule is applied. An ATTRIBUTE
+ rule is applied at the attribute level and must have the applyToAttribute attribute and may
+ have the applyToClass attribute to limit its scope to particular classes. A CLASS
+ level rule will be applied to an entire object and will have the applyToClass attribute
+ unless it is defined as GLOBAL.
+
+//EnumDefinition
+//name			RuleScopeEnum
+//nullReturnValue RuleScopeEnum.PERCLASS
+//enumValue		0 PERCLASS 		Indicates the rule is applied within the scope of a class.
+//enumValue		1 GLOBAL		Indicates the rule is global in scope.
+//description		The RuleScopeEnum indicates the scope at which a rule is applied. 
+// When the DMO for a rule is generated, the scope, in conjunction with the RuleTypeEnum
+// will determine some additional attributes that will be added to the DMO class definition.
+// <table>
+// <tr> <td> ATTRIBUTE </td> <td> PERCLASS      </td> <td> applyToClasses </td> </tr>
+// <tr> <td> ATTRIBUTE </td> <td> GLOBAL        </td> <td> [nothing]      </td> </tr>
+// <tr> <td> CLASS     </td> <td> PERCLASS      </td> <td> applyToClass   </td> </tr>
+// <tr> <td> CLASS     </td> <td> GLOBAL        </td> <td> [nothing]      </td> </tr>
+// </table>
+
+EnumDefinition
+name			DataTypeEnum
+nullReturnValue DataTypeEnum.PERSISTENT
+enumValue		0 UNKNOWN Indicates that we can't determine the data type.
+enumValue		1 TRANSIENT Indicates that the data is transient i.e. it exists within the
+ application context in which it is used, but is not persisted across application invocations
+ and is not serialized in communications with other systems.
+enumValue		2 PERSISTENT Indicates that the data is meant to be persistent. What persistence
+ mechanism is used is application dependent.
+enumValue		3 NONPERSISTENT Indicates that the data is used within your system and 
+ transmitted to remote systems but is not persisted.
+description		The DataTypeEnum relates to how attributes/classes are dealt with
+ by various persistence mechanism. No inherent behaviour is defined at this level.
+
+EnumDefinition
+name			ValueTypeEnum
+nullReturnValue ValueTypeEnum.SINGLE
+enumValue		0 SINGLE Indicates that the attribute is single-valued.
+enumValue		1 MULTI Indicates that the attribute is multi-valued.
+enumValue		2 HASHMAPPED Indicates that the attribute values implement the DmcMappedAttributeIF interface
+ and are stored in a HashMap.
+enumValue		3 TREEMAPPED Indicates that the attribute values implement the DmcMappedAttributeIF interface
+ and are stored in a TreeMap.
+enumValue		4 HASHSET Indicates that the attribute values are stored in a HashSet.
+enumValue		5 TREESET Indicates that the attribute values are stored in a TreeSet.
+//enumValue		6 INDEXED Indicates that the attribute is multi-valued and indexed i.e. it has predefined slots for a fix number of values.
+description		The ValueTypeEnum indicates the cardinality of an attribute as
+ well as the type of Map to be used if the attribute is keyed. This is an extension
+ to original concept of single-valued versus multi-valued. Hashsets are also supported.
+
+EnumDefinition
+name			BaseTypeEnum
+nullReturnValue BaseTypeEnum.PRIMITIVE
+enumValue		0 PRIMITIVE 	Indicates a primitive data type such as Integer, String, long or a generated complex type.
+enumValue		1 NAMEDREF		Indicates a named object reference.
+enumValue		2 UNNAMEDREF 	Indicates an unnamed object reference.
+enumValue		3 EXTENDEDREF 	Indicates an extended reference.
+enumValue		4 KEYED			Indicates a type that has a defined key type.
+description		The BaseTypeEnum indicates the broad category of data types for which 
+ a MethodGenerator component is intended. The matrix defined by combining the ValueType and
+ BaseTypeEnums indicates all the combinations of method types required for a particular
+ type of data in code generation context.
+
+EnumDefinition
+name			FilterTypeEnum
+nullReturnValue FilterTypeEnum.NONE
+enumValue		0 NONE Indicates that no filter operation was specified.
+enumValue		1 AND  Indicates that the rest of the filter ops that follow will be ANDed together.
+enumValue		2 OR   Indicates that the rest of the filter ops that follow will be ORed together.
+enumValue		3 EQ   Performs a test for equality.
+enumValue		4 NE   Performs a test for inequality.
+enumValue		5 PR   Performs a test for the presence of an attribute.
+enumValue		6 NP   Performs a test to see if an attribute is not present.
+description    The FilterTypeEnum enumeration indicates the types of filter operations
+ that can be carried out on the attributes of an object.
+
+EnumDefinition
+name			DebugEnum
+description     The DebugEnum indicates the various levels of detailed logging that can be enabled in the DMC framework.
+nullReturnValue DebugEnum.NONE
+enumValue		0 NONE Unknown value.
+enumValue		1 FILTER Allows fine control over printing of debug messages associated with filtering operations.
+enumValue		2 SCHEMA Allows fine control over printing of debug messages associated with schema loading operations.
+
+EnumDefinition
+name			WrapperTypeEnum
+nullReturnValue WrapperTypeEnum.BASE
+enumValue		0 NONE Unknown value.
+enumValue		1 BASE Indicates that you just want to use the generated DMW class.
+enumValue		2 EXTENDED Indicates that you want to use your own extended class.
+description     The WrapperTypeEnum indicates which wrapper class you want instantiated when a class
+ of object is recognized during parsing or when an object is pulled from a repository.
+ 
+EnumDefinition
+name			OriginalTypeEnum
+nullReturnValue OriginalTypeEnum.TYPE
+enumValue		0 TYPE The type is actually a type!.
+enumValue		1 ENUM The type is an enum.
+enumValue		2 OBJECT The type is the internally generated one to represent an unnamed object.
+enumValue		3 REFERENCE The type is the internally generated one to represent a reference to a named object.
+enumValue		4 EXTREF The type is an extended reference type.
+enumValue		5 COMPLEXTYPE The is a complex type.
+enumValue		6 NAMETYPE The type is a name type.
+description     The OriginalTypeEnum indicates the source of type, whether explicitly defined
+ or implicitly defined and generated as an internal type.
