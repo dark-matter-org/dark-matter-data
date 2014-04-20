@@ -1,0 +1,274 @@
+TypeDefinition
+name 			String
+typeClassName	org.dmd.dmc.types.DmcTypeString
+description		Provides support for String values.
+
+TypeDefinition
+name 			DmcObject
+typeClassName	org.dmd.dmc.types.DmcTypeDmcObject
+primitiveType   org.dmd.dmc.DmcObject
+description		The DmcObject type allows for the storage of raw DmcObjects.
+
+TypeDefinition
+name 			ClassInfoRef
+typeClassName	org.dmd.dmc.types.DmcTypeClassInfoRef
+primitiveType   org.dmd.dmc.types.ClassInfoRef
+description		The ClassInfoRef type allows for the representation of class information 
+ via the Dark Matter ID associated with a ClassDefinition. It provides transient access
+ to the static DmcClassInfo from the generated DMSAG, regardless of the environment in
+ which it exists. 
+
+//TypeDefinition
+//name 			DmcAttribute
+//typeClassName	org.dmd.dmc.types.DmcTypeDmcAttribute
+//primitiveType   org.dmd.dmc.DmcAttribute
+//genericArgs     <?>
+//description		The DmcAttribute type allows for the storage of other attributes in an attribute. Yikes!
+
+TypeDefinition
+name 			NameContainer
+typeClassName	org.dmd.dmc.types.DmcTypeNameContainer
+primitiveType   org.dmd.dmc.types.NameContainer
+altType			DmcObjectName
+altTypeImport	org.dmd.dmc.DmcObjectName
+description		The NameContainer type allows for the storage of object names of different types.
+ This mechanism is required because the naming mechanisms associated with dark-matter allow for
+ different ways of naming objects. When the name of something is transported, it has to be 
+ self describing i.e. the type of the naming attribute must be known so that the appropriate 
+ name type can be instantiated. An example of this comes from the Dark Matter Protocol. 
+ The targets attribute is defined as a NameContainer. An instance of targets might appear
+ as follows:
+ <pre>
+ targets uuidName 809408a7-f00b-448c-beb6-00337e83acc4
+ </pre>
+ As you can see, the attribute name is <code>targets</code> and the value is <code> uuidName 809408a7-f00b-448c-beb6-00337e83acc4</code>.
+ The <code>uuidName</code> attribute is the <code> designatedNameAttribute </code> for the <code> UUIDName </code> type. So, when parsing/deserializing a
+ name container, we always know the underlying type of the name.
+ <p/>
+ This approach makes dark-matter name handling completely extensible.
+ <p/>
+ A similar approach is taken to filter specifications via the FilterContainer.
+
+TypeDefinition
+name 			FilterContainer
+typeClassName	org.dmd.dmc.types.DmcTypeFilterContainer
+primitiveType   org.dmd.dmc.types.FilterContainer
+altType			DmcFilter
+altTypeImport	org.dmd.dmc.DmcFilter
+description		The FilterContainer type allows for the storage of object filters of different types.
+
+TypeDefinition
+name 			AttributeID
+typeClassName	org.dmd.dmc.types.DmcTypeAttributeID
+primitiveType   org.dmd.dmc.types.AttributeID
+altType			DmcAttributeInfo
+altTypeImport	org.dmd.dmc.DmcAttributeInfo
+description		The AttributeID type allows for the storage of unique attribute identifiers.
+ Currently this is only used in the dark-matter protocol attributeSelector attribute.
+
+TypeDefinition
+name    		Integer
+typeClassName	org.dmd.dmc.types.DmcTypeInteger
+description		Provides support for Integer values.
+
+TypeDefinition
+name    		Float
+typeClassName	org.dmd.dmc.types.DmcTypeFloat
+description		Provides support for Float values.
+
+TypeDefinition
+name    		Double
+typeClassName	org.dmd.dmc.types.DmcTypeDouble
+description		Provides support for Double values.
+
+TypeDefinition
+name    		Long
+typeClassName	org.dmd.dmc.types.DmcTypeLong
+description		Provides support for Long values.
+
+TypeDefinition
+name    		Short
+typeClassName	org.dmd.dmc.types.DmcTypeShort
+description		Provides support for Short values.
+
+TypeDefinition
+name    		Byte
+typeClassName	org.dmd.dmc.types.DmcTypeByte
+description		Provides support for Byte values.
+
+TypeDefinition
+name    		Date
+typeClassName	org.dmd.dmc.types.DmcTypeDate
+primitiveType	java.util.Date
+description		Provides support for Date values.
+
+TypeDefinition
+name	 		Boolean
+typeClassName	org.dmd.dmc.types.DmcTypeBoolean
+nullReturnValue false
+description		Provides support for Boolean values. This type makes use of the <code> nullReturnValue </code>
+ flag so that, even if there is no value for an attribute of this type, a value of false will
+ be returned.
+
+TypeDefinition
+name    		EnumValue
+typeClassName	org.dmd.dms.types.DmcTypeEnumValue
+primitiveType   org.dmd.dms.types.EnumValue
+description  The EnumValue type is used to store the definition of one enumerated value
+ that comprises part of an overall EnumDefinition.
+ <p/>
+ The value of an EnumValue is comprised of at least three tokens and possibly a label:
+ <pre>
+ [enum integer value] [enum value name] [enum description] <: label>
+ </pre>
+ For example:
+ <pre>
+ 0 ABSTRACT Here is the definition of abstract. : Abstract
+ </pre>
+ Within an EnumDefinition, each EnumValue must have a unique integer identifier
+ and a unique value name.
+ <p/>
+ The enum value name is automatically set to uppercase, even if it is specified
+ in lower or mixed case.
+
+TypeDefinition
+name    		Modifier
+typeClassName	org.dmd.dmc.types.DmcTypeModifier
+primitiveType   org.dmd.dmc.types.Modifier
+description     The Modifier type is used to represent modification operations on a DmcObject.
+ Any modification to an object can be represented by a Modifier. The string representation
+ of a modification can take the following forms:
+ <ul>
+ <li> &ltattribute name&gt ADD &ltvalue&gt</li>
+ <li> &ltattribute name&gt DEL &ltvalue&gt</li>
+ <li> &ltattribute name&gt SET &ltvalue&gt</li>
+ <li> &ltattribute name&gt NTH &ltindex&gt &ltvalue&gt</li>
+ <li> &ltattribute name&gt NTH &ltindex&gt</li>
+ <li> &ltattribute name&gt REM </li>
+ </ul>
+
+TypeDefinition
+name			StringName
+typeClassName	org.dmd.dmc.types.DmcTypeStringName
+primitiveType	org.dmd.dmc.types.StringName
+isNameType		true
+description		The StringName is the simplest naming mechanism available; it's just a String.
+
+TypeDefinition
+name			DefinitionName
+typeClassName	org.dmd.dmc.types.DmcTypeDefinitionName
+primitiveType	org.dmd.dmc.types.DefinitionName
+isNameType		true
+description		The DefinitionName provides naming of dark-matter definitions.
+
+TypeDefinition
+name			CamelCaseName
+typeClassName	org.dmd.dmc.types.DmcTypeCamelCaseName
+primitiveType	org.dmd.dmc.types.CamelCaseName
+isNameType		true
+description		The CamelCaseName is a string based name that must start with an alpha character
+ which is followed by a mix of alphanumerics.
+
+TypeDefinition
+name			RuleName
+typeClassName	org.dmd.dmc.types.DmcTypeRuleName
+primitiveType	org.dmd.dmc.types.RuleName
+isNameType		true
+description		The RuleName is a string based name that must start with an alpha character
+ which is followed by a mix of alphanumerics. 
+
+TypeDefinition
+name			IntegerName
+typeClassName	org.dmd.dmc.types.DmcTypeIntegerName
+primitiveType	org.dmd.dmc.types.IntegerName
+isNameType		true
+description		An IntegerName provides the means to uniquely identify an object using an integer value.
+
+TypeDefinition
+name			LongName
+typeClassName	org.dmd.dmc.types.DmcTypeLongName
+primitiveType	org.dmd.dmc.types.LongName
+isNameType		true
+description		A LongName provides the means to uniquely identify an object using a long value.
+
+TypeDefinition
+name				DotName
+typeClassName		org.dmd.dmc.types.DmcTypeDotName
+primitiveType		org.dmd.dmc.types.DotName
+isNameType			true
+isHierarchicName	true
+description			The DotName provides standard mechanisms to deal with hierarchic names composed of
+ strings interspersed with periods (dots) to separate the name elements. For example
+ a dot name might be one.two.three
+
+TypeDefinition
+name			ClassFilter
+typeClassName	org.dmd.dmc.types.DmcTypeClassFilter
+primitiveType	org.dmd.dmc.types.ClassFilter
+isFilterType	true
+description		The ClassFilter is used to perform matches against objects based on their class
+ or auxiliary classes.
+
+TypeDefinition
+name 			IntegerToString
+typeClassName	org.dmd.dmc.types.DmcTypeIntegerToString
+primitiveType	org.dmd.dmc.types.IntegerToString
+keyClass        Integer
+description		Provides support for hashed integer to string values.
+
+TypeDefinition
+name 			StringToString
+typeClassName	org.dmd.dmc.types.DmcTypeStringToString
+primitiveType	org.dmd.dmc.types.StringToString
+keyClass        String
+description		Provides support for hashed string to string values.
+
+TypeDefinition
+name 			UUIDLite
+typeClassName	org.dmd.dmc.types.DmcTypeUUIDLite
+primitiveType	org.dmd.dmc.types.UUIDLite
+description		The UUIDLite provides support for UUIDs in GWT environments; a full UUID implementation
+ is not supported by the GWT JRE Emulation mechanisms. It holds two long values that represent a complete
+ java.util.UUID as generated within the server environment. The methods to parse a UUID from a String and
+ present it as a String are taken from the java.util.UUID class.
+
+TypeDefinition
+name 			UUIDName
+typeClassName	org.dmd.dmc.types.DmcTypeUUIDName
+primitiveType	org.dmd.dmc.types.UUIDName
+isNameType		true
+description		The UUIDName allows for the naming of objects based on the GWT compatible UUIDLite type.
+
+TypeDefinition
+name 			IntegerToBoolean
+typeClassName	org.dmd.dmc.types.DmcTypeIntegerToBoolean
+primitiveType	org.dmd.dmc.types.IntegerToBoolean
+keyClass        Integer
+description		Provides support for hashed integer to Boolean values.
+
+TypeDefinition
+name 			IntegerToUUIDLite
+typeClassName	org.dmd.dmc.types.DmcTypeIntegerToUUIDLite
+primitiveType	org.dmd.dmc.types.IntegerToUUIDLite
+keyClass        Integer
+description		Provides support for hashed integer to UUIDLite values.
+
+TypeDefinition
+name			FullyQualifiedName
+typeClassName	org.dmd.dmc.types.DmcTypeFullyQualifiedName
+primitiveType	org.dmd.dmc.types.FullyQualifiedName
+isNameType		true
+
+TypeDefinition
+name    		LabelledIntegerDataPoint
+typeClassName	org.dmd.dmc.types.DmcTypeLabelledIntegerDataPoint
+primitiveType   org.dmd.dmc.types.LabelledIntegerDataPoint
+description		Represents a single, labelled Integer data point. Generally used for pie
+ chart data.
+
+TypeDefinition
+name    		TimeDoubleDataPoint
+typeClassName	org.dmd.dmc.types.DmcTypeTimeDoubleDataPoint
+primitiveType   org.dmd.dmc.types.TimeDoubleDataPoint
+description		Represents a single Double data point at a moment in time. Generally used
+ for line or column chart data.

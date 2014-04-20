@@ -1,0 +1,13 @@
+SchemaDefinition
+name       			meta
+schemaBaseID		0
+schemaIDRange		200
+defFiles			types.dmd
+defFiles			enums.dmd
+defFiles			complex.dmd
+defFiles    		attributes.dmd
+defFiles    		classes.dmd
+generatedFileHeader LGPL.txt
+//
+schemaPackage 		org.dmd.dms.shared
+dmwPackage			org.dmd.dms.server
