@@ -87,17 +87,11 @@ public class DmtMultiValuedRequiredPartWithReferences implements Serializable {
         ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput);
 
         if (nvp.size() < requiredParts)
-            throw(new DmcValueException("Missing required values for complex type: DmtMultiValuedRequiredPartWithReferences"));
+            throw(new DmcValueException("Missing required values for complex type: DmtMultiValuedRequiredPartWithReferences\nValue: " + initialInput));
 
 
         if (nvp.size() > requiredParts){
             for(int i=1; i<nvp.size(); i++){
-                if (nvp.get(i).getName() == null){
-                    if (nvp.get(i).getValue() == null)
-                        throw(new DmcValueException("Expecting a partname=\"some value\" in complex type: DmtMultiValuedRequiredPartWithReferences"));
-                    else
-                        throw(new DmcValueException("Expecting a partname=\"" + nvp.get(i).getValue() + "\" in complex type: DmtMultiValuedRequiredPartWithReferences"));
-                }
                 if (typeV == null)
                     typeV = new ArrayList<TypeDefinitionREF>();
                 typeV.add(DmcTypeTypeDefinitionREFSTATIC.instance.typeCheck(nvp.get(i).getValue()));
