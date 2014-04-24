@@ -104,7 +104,7 @@ public class DmtOptionalValueFieldWithSpaces implements Serializable {
         ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput);
 
         if (nvp.size() < requiredParts)
-            throw(new DmcValueException("Missing required values for complex type: DmtOptionalValueFieldWithSpaces"));
+            throw(new DmcValueException("Missing required values for complex type: DmtOptionalValueFieldWithSpaces\nValue: " + initialInput));
 
         typeV = DmcTypeTypeDefinitionREFSTATIC.instance.typeCheck(nvp.get(0).getValue());
         nameV = DmcTypeStringSTATIC.instance.typeCheck(nvp.get(1).getValue());
@@ -113,9 +113,9 @@ public class DmtOptionalValueFieldWithSpaces implements Serializable {
             for(int i=2; i<nvp.size(); i++){
                 if (nvp.get(i).getName() == null){
                     if (nvp.get(i).getValue() == null)
-                        throw(new DmcValueException("Expecting a partname=\"some value\" in complex type: DmtOptionalValueFieldWithSpaces"));
+                        throw(new DmcValueException("Expecting a partname=\"some value\" in complex type: DmtOptionalValueFieldWithSpaces\nValue: " + initialInput));
                     else
-                        throw(new DmcValueException("Expecting a partname=\"" + nvp.get(i).getValue() + "\" in complex type: DmtOptionalValueFieldWithSpaces"));
+                        throw(new DmcValueException("Expecting a partname=\"" + nvp.get(i).getValue() + "\" in complex type: DmtOptionalValueFieldWithSpaces\nValue: " + initialInput));
                 }
                 if (nvp.get(i).getName().equals("description"))
                     descriptionV = DmcTypeStringSTATIC.instance.typeCheck(nvp.get(i).getValue());

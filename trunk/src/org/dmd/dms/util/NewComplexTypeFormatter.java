@@ -280,7 +280,7 @@ public class NewComplexTypeFormatter {
 		}
 		
 		out.write("        if (nvp.size() < requiredParts)\n");
-		out.write("            throw(new DmcValueException(\"Missing required values for complex type: " + ctn + "\"));\n");
+		out.write("            throw(new DmcValueException(\"Missing required values for complex type: " + ctn + "\\nValue: \" + initialInput));\n");
 		out.write("\n");
 
 		fnum = 0;
@@ -331,9 +331,9 @@ public class NewComplexTypeFormatter {
 					out.write("            for(int i=" + requiredCount + "; i<nvp.size(); i++){\n");
 					out.write("                if (nvp.get(i).getName() == null){\n");
 					out.write("                    if (nvp.get(i).getValue() == null)\n");
-					out.write("                        throw(new DmcValueException(\"Expecting a partname=\\\"some value\\\" in complex type: " + ctn + "\"));\n");
+					out.write("                        throw(new DmcValueException(\"Expecting a partname=\\\"some value\\\" in complex type: " + ctn + "\\nValue: \" + initialInput));\n");
 					out.write("                    else\n");
-					out.write("                        throw(new DmcValueException(\"Expecting a partname=\\\"\" + nvp.get(i).getValue() + \"\\\" in complex type: " + ctn + "\"));\n");
+					out.write("                        throw(new DmcValueException(\"Expecting a partname=\\\"\" + nvp.get(i).getValue() + \"\\\" in complex type: " + ctn + "\\nValue: \" + initialInput));\n");
 					out.write("                }\n");
 					firstOptional = false;
 					out.write("                if (nvp.get(i).getName().equals(\"" + part.getName() + "\"))" + openBrace +"\n");
