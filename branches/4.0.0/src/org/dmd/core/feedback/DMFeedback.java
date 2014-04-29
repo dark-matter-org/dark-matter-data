@@ -52,4 +52,12 @@ abstract public class DMFeedback {
 		return(error);
 	}
 
+	/**
+	 * Appends a newline and then the additional message.
+	 * @param msg
+	 */
+	public void addToMessage(String msg){
+		message.append("\n" + msg);
+	}
+	
 }

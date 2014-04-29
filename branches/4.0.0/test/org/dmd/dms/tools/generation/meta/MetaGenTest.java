@@ -19,7 +19,7 @@ public class MetaGenTest {
 	}
 
 	@Test
-	public void generate(){
+	public void generate() throws IOException {
 		MetaGen generator = new MetaGen();
 		
 		try {

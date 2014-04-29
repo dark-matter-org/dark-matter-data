@@ -140,7 +140,7 @@ public class DMUncheckedObjectParser {
                                 al.add(t.nextToken().trim());
                             }
 
-                            uco = new DMUncheckedObject(al,in.getLineNumber());
+                            uco = new DMUncheckedObject(al,fileName,in.getLineNumber());
                             inObject = true;
                             attrName = null;
                         }

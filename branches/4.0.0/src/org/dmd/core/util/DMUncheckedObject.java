@@ -46,14 +46,34 @@ public class DMUncheckedObject {
 	}
 
 	/**
+	 * Constructs a new unchecked object of the specified class.
+	 * @param cn The class name.
+	 */
+	public DMUncheckedObject(String cn){
+		attributes 	= new TreeMap<String, NamedStringArray>();
+		classes 	= new ArrayList<String>();
+		lineNumber	= -1;
+		file		= "UNKNOWN";
+		classes.add(cn);
+	}
+
+	/**
 	 * Creates a new DmcUncheckedObject.
 	 * @param classNames The construction class and any auxiliary classes.
 	 */
-	public DMUncheckedObject(ArrayList<String> classNames, int ln){
+	public DMUncheckedObject(ArrayList<String> classNames, String fn, int ln){
 		attributes 	= new TreeMap<String, NamedStringArray>();
 		classes 	= new ArrayList<String>(classNames);
 		lineNumber	= ln;
-		file		= "UNKNOWN";
+		file		= fn;
+	}
+	
+	public int getLineNumber(){
+		return(lineNumber);
+	}
+	
+	public String getFile(){
+		return(file);
 	}
 	
 	public String getConstructionClass(){
