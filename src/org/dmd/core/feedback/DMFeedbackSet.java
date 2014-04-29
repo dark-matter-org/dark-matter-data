@@ -27,6 +27,15 @@ public class DMFeedbackSet extends Exception {
 	}
 	
 	/**
+	 * Shorthand mechanism to create a DMFeedbackSet with a single piece of error feedback.
+	 */
+	public DMFeedbackSet(String msg){
+		errors		= 0;
+		feedback 	= new ArrayList<>();
+		feedback.add(new DMError(msg));
+	}
+	
+	/**
 	 * Constructs a new DMExceptionSet with the specified exception.
 	 * @param e the exception to be added
 	 */

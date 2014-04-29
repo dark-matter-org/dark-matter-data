@@ -1,5 +1,7 @@
 package org.dmd.util.artifact;
 
+import java.util.StringTokenizer;
+
 /**
  * The Manipulator provides a variety of useful functions to manipulate
  * strings and things.
@@ -42,5 +44,25 @@ public class Manipulator {
 		int lastDot = value.lastIndexOf(".");
 		return(value.substring(lastDot+1));
 	}
+	
+	/**
+	 * This method takes a dot name, for example app.event.explosion and turns it into a camel
+	 * case string like: AppEventExplosion
+	 * @return A camel case string.
+	 */
+	static public String dotNameToCamelCase(String in){
+		StringBuffer sb = new StringBuffer();
+		StringTokenizer	tokenizer = new StringTokenizer(in,".");
+		
+		while(tokenizer.hasMoreTokens()){
+			StringBuffer t = new StringBuffer(tokenizer.nextToken());
+	    	t.setCharAt(0,Character.toUpperCase(t.charAt(0)));
+	    	sb.append(t.toString());
+		}
+		
+		return(sb.toString());
+	}
+	
+
 
 }

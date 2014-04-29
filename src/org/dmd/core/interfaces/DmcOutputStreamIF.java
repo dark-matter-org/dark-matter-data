@@ -1,0 +1,58 @@
+//	---------------------------------------------------------------------------
+//	dark-matter-data
+//	Copyright (c) 2011 dark-matter-data committers
+//	---------------------------------------------------------------------------
+//	This program is free software; you can redistribute it and/or modify it
+//	under the terms of the GNU Lesser General Public License as published by the
+//	Free Software Foundation; either version 3 of the License, or (at your
+//	option) any later version.
+//	This program is distributed in the hope that it will be useful, but WITHOUT
+//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
+//	more details.
+//	You should have received a copy of the GNU Lesser General Public License along
+//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
+//	---------------------------------------------------------------------------
+package org.dmd.core.interfaces;
+
+import org.dmd.core.schema.DmcAttributeInfo;
+
+
+public interface DmcOutputStreamIF {
+	
+	/**
+	 * @return whether the stream is in file mode (true) or wire mode (false);
+	 */
+	public boolean isFile();
+	
+	public void writeAttributeID(DmcAttributeInfo ai) throws Exception;
+
+	public void writeValueCount(int size) throws Exception;
+
+	public void writeAttributeCount(int count) throws Exception;
+
+	public void writeBoolean(boolean v) throws Exception;
+	
+	public void writeByte(int v) throws Exception;
+	
+	public void writeBytes(String v) throws Exception;
+	
+	public void writeBytes(byte[] v) throws Exception;
+	
+	public void writeChar(int v) throws Exception;
+	
+	public void writeChars(String v) throws Exception;
+	
+	public void writeDouble(double v) throws Exception;
+	
+	public void writeFloat(float v) throws Exception;
+	
+	public void writeInt(int v) throws Exception;
+	
+	public void writeLong(long v) throws Exception;
+	
+	public void writeShort(int v) throws Exception;
+	
+	public void writeUTF(String v) throws Exception;
+
+}

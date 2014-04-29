@@ -64,14 +64,6 @@ public class DMParsingFeedback extends DMFeedback {
 		line	= l;
 	}
 	
-	/**
-	 * Appends a newline and then the additional message.
-	 * @param msg
-	 */
-	public void addToMessage(String msg){
-		message.append("\n" + msg);
-	}
-	
 	public String toString(){
 		StringBuffer sb = new StringBuffer();
 		
