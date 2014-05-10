@@ -19,7 +19,7 @@ package org.dmd.dms.shared.generated.types;
 // Called from: org.dmd.dms.tools.generation.meta.TypeFormatter.dumpREF(TypeFormatter.java:183)
 import java.io.Serializable;                                         // Marker for serializable - (TypeFormatter.java:167)
 import org.dmd.core.DmcAttribute;                                    // Used when retrieving the naming attribute - (TypeFormatter.java:168)
-import org.dmd.core.DmcNamedObjectNontransportableREF;               // THIS HAS TO CHANGE - (TypeFormatter.java:176)
+import org.dmd.core.DmcNamedObjectREF;                               // Our base type - (TypeFormatter.java:176)
 import org.dmd.core.DmcObjectName;                                   // Because we're a named object - (TypeFormatter.java:170)
 import org.dmd.core.feedback.DMFeedbackSet;                          // To facilitate error handling - (TypeFormatter.java:169)
 import org.dmd.core.interfaces.DmcInputStreamIF;                     // To support serialization - (TypeFormatter.java:174)
@@ -35,7 +35,7 @@ import org.dmd.dms.shared.types.DmcTypeDefinitionName;               // The type
  * Generated from: org.dmd.dms.tools.generation.meta.TypeFormatter.dumpREF(TypeFormatter.java:188)
  */
 @SuppressWarnings("serial")
-public class ActionDefinitionREF extends DmcNamedObjectNontransportableREF<ActionDefinitionDMO> implements Serializable {
+public class ActionDefinitionREF extends DmcNamedObjectREF<ActionDefinitionDMO> implements Serializable {
 
     DmcTypeDefinitionName myName;
 
