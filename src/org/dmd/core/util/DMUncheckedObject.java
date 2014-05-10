@@ -87,6 +87,10 @@ public class DMUncheckedObject {
 		classes.add(c);
 	}
 	
+	public ArrayList<String> getClasses(){
+		return(classes);
+	}
+	
 	/**
 	 * Removes the value for the specified attribute
 	 * @param attribute the name of the attribute.

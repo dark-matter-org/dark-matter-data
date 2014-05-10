@@ -19,11 +19,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import org.dmd.core.feedback.DMFeedbackSet;
 import org.dmd.core.interfaces.DmcCacheIF;
 import org.dmd.core.interfaces.DmcFilterBuilderIF;
 import org.dmd.core.interfaces.DmcLoggerIF;
 import org.dmd.core.interfaces.DmcNameBuilderIF;
 import org.dmd.core.interfaces.DmcNameResolverIF;
+import org.dmd.core.interfaces.DmcNamedObjectIF;
 import org.dmd.core.schema.DmcAttributeInfo;
 import org.dmd.core.schema.DmcClassInfo;
 import org.dmd.core.schema.DmcCompactSchemaIF;
@@ -460,10 +462,8 @@ public class DmcOmni implements DmcNameResolverIF {
 				else
 					cache.applyModification(mod.getReferringObject(), single);
 				
-			} catch (DmcValueException e) {
-				throw(new IllegalStateException("Adding a prebuilt Modifier to a DmcTypeModifierMV shouldn't thrown an exception."));
-			} catch (DmcValueExceptionSet e) {
-				throw(new IllegalStateException("Removing a back reference shouldn't thrown an exception."));
+			} catch (DMFeedbackSet e) {
+				throw(new IllegalStateException(e.toString(), e));
 			}
 		}
 	}
@@ -527,8 +527,8 @@ public class DmcOmni implements DmcNameResolverIF {
 			try {
 				DotName dn = new DotName(an);
 				return(dotnameToAttribute.get(dn));
-			} catch (DmcValueException e) {
-				e.printStackTrace();
+			} catch (DMFeedbackSet e) {
+				throw(new IllegalStateException(e.toString(), e));
 			}
 		}
 		else{

@@ -25,7 +25,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.Vector;
 
-import org.dmd.core.feedback.DMError;
+import org.dmd.core.feedback.DMFeedback;
 import org.dmd.core.feedback.DMFeedbackSet;
 import org.dmd.core.interfaces.DmcContainerIF;
 import org.dmd.core.interfaces.DmcExtendedReferenceIF;
@@ -39,11 +39,6 @@ import org.dmd.core.interfaces.DmcOutputStreamIF;
 import org.dmd.core.schema.DmcAttributeInfo;
 import org.dmd.core.schema.DmcClassInfo;
 import org.dmd.core.schema.DmcSliceInfo;
-import org.dmd.dms.shared.types.DefinitionName;
-import org.dmd.dms.shared.types.DmcTypeComplexTypeWithRefs;
-import org.dmd.dms.shared.types.DmcTypeModifier;
-import org.dmd.dms.shared.types.DmcTypeNamedObjectREF;
-import org.dmd.dms.shared.types.Modifier;
 import org.dmd.dms.shared.generated.dmo.ClassDefinitionDMO;
 import org.dmd.dms.shared.generated.enums.ClassTypeEnum;
 import org.dmd.dms.shared.generated.enums.DataTypeEnum;
@@ -52,6 +47,11 @@ import org.dmd.dms.shared.generated.enums.ValueTypeEnum;
 import org.dmd.dms.shared.generated.types.ClassDefinitionREF;
 import org.dmd.dms.shared.generated.types.DmcTypeClassDefinitionREFMV;
 import org.dmd.dms.shared.generated.types.DmcTypeModifierMV;
+import org.dmd.dms.shared.types.DefinitionName;
+import org.dmd.dms.shared.types.DmcTypeComplexTypeWithRefs;
+import org.dmd.dms.shared.types.DmcTypeModifier;
+import org.dmd.dms.shared.types.DmcTypeNamedObjectREF;
+import org.dmd.dms.shared.types.Modifier;
 
 /**
  * The Dark Matter Core (DMC) Object is the basic entity on which all aspects of the 
@@ -1741,7 +1741,7 @@ abstract public class DmcObject implements Serializable {
 							if (ai.weakReference)
 								continue;
 
-							DMError ex = new DMError("Could not resolve reference to: " + ref.getObjectName() + " via attribute: " + attr.getName());
+							DMFeedback ex = new DMFeedback("Could not resolve reference to: " + ref.getObjectName() + " via attribute: " + attr.getName());
 							ex.addToMessage(this.toOIF());
 							
 							if (errors == null)
@@ -1761,7 +1761,7 @@ abstract public class DmcObject implements Serializable {
 								}
 							}
 							catch(ClassCastException e){
-								DMError ex = new DMError("Attribute " + attr.getName() + " is of type: " + attr.getAttributeInfo().type + " and you've tried to set it to " + obj.getObjectName() + " which is of type " + resolvedObject.getConstructionClassName());
+								DMFeedback ex = new DMFeedback("Attribute " + attr.getName() + " is of type: " + attr.getAttributeInfo().type + " and you've tried to set it to " + obj.getObjectName() + " which is of type " + resolvedObject.getConstructionClassName());
 								ex.addToMessage(this.toOIF());
 
 								if (errors == null)
@@ -1819,7 +1819,7 @@ abstract public class DmcObject implements Serializable {
 									if (ai.weakReference)
 										continue;
 
-									DMError ex = new DMError("Could not resolve reference to: " + ref.getObjectName() + " via attribute: " + attr.getName());
+									DMFeedback ex = new DMFeedback("Could not resolve reference to: " + ref.getObjectName() + " via attribute: " + attr.getName());
 									ex.addToMessage(this.toOIF());
 									if (errors == null)
 										errors = new DMFeedbackSet();
@@ -1838,7 +1838,7 @@ abstract public class DmcObject implements Serializable {
 										}
 									}
 									catch(ClassCastException e){
-										DMError ex = new DMError("Attribute " + attr.getName() + " is of type: " + attr.getAttributeInfo().type + " and you've tried to set it to " + obj.getObjectName() + " which is of type " + resolvedObject.getConstructionClassName());
+										DMFeedback ex = new DMFeedback("Attribute " + attr.getName() + " is of type: " + attr.getAttributeInfo().type + " and you've tried to set it to " + obj.getObjectName() + " which is of type " + resolvedObject.getConstructionClassName());
 										if (errors == null)
 											errors = new DMFeedbackSet();
 										errors.add(ex);
@@ -1912,7 +1912,7 @@ abstract public class DmcObject implements Serializable {
 						if (errors == null)
 							errors = new DMFeedbackSet();
 						errors.add(e);
-						errors.add(new DMError("Occurred in object:\n" + this.toOIF()));
+						errors.add(new DMFeedback("Occurred in object:\n" + this.toOIF()));
 					}
 				}
 			}

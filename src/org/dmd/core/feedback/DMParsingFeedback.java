@@ -6,12 +6,6 @@ package org.dmd.core.feedback;
  */
 public class DMParsingFeedback extends DMFeedback {
 
-	// The source of the error
-	String			source;
-	
-	// The line where it occured or null if it's not known
-	Integer			line;
-	
 	/**
 	 * Creates an empty error.
 	 */

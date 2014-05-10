@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.StringTokenizer;
 
+import org.dmd.core.feedback.DMFeedback;
 import org.dmd.core.feedback.DMFeedbackSet;
 import org.dmd.core.feedback.DMParsingFeedback;
 import org.dmd.core.util.DMUncheckedObject;
@@ -249,7 +250,15 @@ public class DMUncheckedObjectParser {
         	if (feedback == null)
         		feedback = new DMFeedbackSet();
         	
-        	feedback.add(new DMParsingFeedback(e.toString() + "\nOccurred while reading file: " + fileName));
+        	feedback.add(new DMFeedback(e.toString(), fileName, in.getLineNumber()));
+        	uco = null;
+        }
+        catch(Exception e){
+        	if (feedback == null)
+        		feedback = new DMFeedbackSet();
+        	
+        	feedback.add(new DMFeedback(e.toString(), fileName, in.getLineNumber())); 
+        	uco = null;
         }
 
         if (uco != null){

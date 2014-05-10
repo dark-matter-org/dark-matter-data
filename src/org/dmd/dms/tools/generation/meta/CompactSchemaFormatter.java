@@ -22,7 +22,7 @@ import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.dmd.core.feedback.DMError;
+import org.dmd.core.feedback.DMFeedback;
 import org.dmd.core.feedback.DMFeedbackSet;
 import org.dmd.core.util.DMUncheckedObject;
 import org.dmd.core.util.NamedStringArray;
@@ -60,7 +60,7 @@ public class CompactSchemaFormatter {
 		rc = new DefinitionName(dn);
 		}
 		else{
-			DMError error = new DMError("This is not a legal attribute name: " + dn);
+			DMFeedback error = new DMFeedback("This is not a legal attribute name: " + dn);
 			error.addToMessage("DefinitionNames must begin with an alpha character and contain only letters and numbers.");
 			error.addToMessage("This occurred while formatting the compact schema for class: " + cn);
 			throw(new DMFeedbackSet(error));

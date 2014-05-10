@@ -44,6 +44,9 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 	// org/dmd/dms/shared/generated/dmo
 	String	dmoDir;
 	
+	// org/dmd/dms/server/generated/dmw
+	String	dmwDir;
+	
 	// org/dmd/dms/server/generated
 	String 	serverGenDir;
 	
@@ -79,6 +82,7 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 		typeDir 		= baseDir + "/shared/generated/types";
 		adapterDir 		= baseDir + "/shared/generated/types/adapters";
 		serverGenDir 	= baseDir + "/server/generated";
+		dmwDir 			= baseDir + "/server/generated/dmw";
 		serverExtDir 	= baseDir + "/server/extended";
 		
 		readHeader();
@@ -104,6 +108,7 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 		createDir(typeDir);
 		createDir(adapterDir);
 		createDir(serverGenDir);
+		createDir(dmwDir);
 		createDir(serverExtDir);
 		
 		FileUpdateManager.instance().generationStarting();
@@ -137,6 +142,9 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 		
 		dumpCompactSchema();
 		
+		DmwFormatter.dumpDMWClasses(ucoManager, dmwDir, LGPL.toString());
+		
+		MetaSchemaFormatter.dumpMetaSchemaAG(ucoManager, serverGenDir, LGPL.toString());
 	}
 	
 	/**

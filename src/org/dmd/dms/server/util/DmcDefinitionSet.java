@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.TreeMap;
 
+import org.dmd.core.feedback.DMFeedbackSet;
+import org.dmd.core.feedback.DmcNameClashException;
 import org.dmd.core.interfaces.DmcNamedObjectIF;
-import org.dmd.dms.shared.types.DotName;
-import org.dmd.dms.shared.types.DefinitionName;
 import org.dmd.dms.server.extended.DSDefinition;
+import org.dmd.dms.shared.types.DefinitionName;
+import org.dmd.dms.shared.types.DotName;
 import org.dmd.util.runtime.DebugInfo;
 
 /**
@@ -223,9 +225,8 @@ public class DmcDefinitionSet<DEF extends DSDefinition> {
 				if (globalSet != null)
 					globalSet.addGlobal(def, fullName, nameAndTypeName);
 			}
-		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (DMFeedbackSet e) {
+			throw(new IllegalStateException(e.toString()));
 		}
 		
 	}
@@ -267,7 +268,7 @@ public class DmcDefinitionSet<DEF extends DSDefinition> {
 	 * name, we throw an exception
 	 * @throws DmcValueException 
 	 */
-	public DEF getDefinition(String name) throws DmcNameClashException, DmcValueException {
+	public DEF getDefinition(String name) throws DMFeedbackSet {
 		DefinitionName dn = new DefinitionName(name);
 		ArrayList<DEF> existing = nameMap.get(dn);
 		
@@ -293,7 +294,7 @@ public class DmcDefinitionSet<DEF extends DSDefinition> {
 	 * name, we throw an exception
 	 * @throws DmcValueException
 	 */
-	public DEF getDefinitionByNameAndType(DotName dn) throws DmcNameClashException {
+	public DEF getDefinitionByNameAndType(DotName dn) throws DMFeedbackSet {
 		ArrayList<DEF> existing = nameAndTypeMap.get(dn);
 		
 		if (existing == null)
@@ -303,7 +304,7 @@ public class DmcDefinitionSet<DEF extends DSDefinition> {
 			return(existing.get(0));
 		
 		@SuppressWarnings("unchecked")
-		DmcNameClashException mdce = new DmcNameClashException("",(ArrayList<DmcNamedObjectIF>) existing);
+		DmcNameClashException mdce = new DmcNameClashException("Multiple objects with the same name: " + dn,(ArrayList<DmcNamedObjectIF>) existing);
 		throw(mdce);
 	}
 	

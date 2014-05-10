@@ -541,6 +541,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
 
         __ActionDefinition.addMust(__name);
         __ActionDefinition.addMay(__attachToClass);
+        __ActionDefinition.addMay(__codeComment);
         __ActionDefinition.addMay(__comment);
         __ActionDefinition.addMay(__definedIn);
         __ActionDefinition.addMay(__description);
@@ -572,6 +573,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __AttributeDefinition.addMust(__name);
         __AttributeDefinition.addMust(__type);
         __AttributeDefinition.addMay(__abbrev);
+        __AttributeDefinition.addMay(__codeComment);
         __AttributeDefinition.addMay(__comment);
         __AttributeDefinition.addMay(__dataType);
         __AttributeDefinition.addMay(__definedIn);
@@ -611,6 +613,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __ClassDefinition.addMay(__abbrev);
         __ClassDefinition.addMay(__actions);
         __ClassDefinition.addMay(__allowedParents);
+        __ClassDefinition.addMay(__codeComment);
         __ClassDefinition.addMay(__comment);
         __ClassDefinition.addMay(__dataType);
         __ClassDefinition.addMay(__definedIn);
@@ -667,6 +670,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __ClassDefinition.addMay(__why);
 
         __ComplexTypeDefinition.addMust(__name);
+        __ComplexTypeDefinition.addMay(__codeComment);
         __ComplexTypeDefinition.addMay(__comment);
         __ComplexTypeDefinition.addMay(__definedIn);
         __ComplexTypeDefinition.addMay(__description);
@@ -734,6 +738,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __DSDefinitionModule.addMust(__moduleClassName);
         __DSDefinitionModule.addMust(__moduleDependenceAttribute);
         __DSDefinitionModule.addMust(__name);
+        __DSDefinitionModule.addMay(__codeComment);
         __DSDefinitionModule.addMay(__comment);
         __DSDefinitionModule.addMay(__definedIn);
         __DSDefinitionModule.addMay(__definedInModuleAttribute);
@@ -761,6 +766,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
 
         __Dependency.addMust(__name);
         __Dependency.addMust(__useInterface);
+        __Dependency.addMay(__codeComment);
         __Dependency.addMay(__comment);
         __Dependency.addMay(__definedIn);
         __Dependency.addMay(__dependencies);
@@ -786,6 +792,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __DependencyImplementation.addMust(__instantiation);
         __DependencyImplementation.addMust(__name);
         __DependencyImplementation.addMust(__runContext);
+        __DependencyImplementation.addMay(__codeComment);
         __DependencyImplementation.addMay(__comment);
         __DependencyImplementation.addMay(__definedIn);
         __DependencyImplementation.addMay(__description);
@@ -806,6 +813,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __DependencyImplementation.addMay(__why);
 
         __DmsDefinition.addMust(__name);
+        __DmsDefinition.addMay(__codeComment);
         __DmsDefinition.addMay(__comment);
         __DmsDefinition.addMay(__definedIn);
         __DmsDefinition.addMay(__description);
@@ -827,6 +835,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
 
         __EnumDefinition.addMust(__enumValue);
         __EnumDefinition.addMust(__name);
+        __EnumDefinition.addMay(__codeComment);
         __EnumDefinition.addMay(__comment);
         __EnumDefinition.addMay(__definedIn);
         __EnumDefinition.addMay(__description);
@@ -849,6 +858,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
 
         __ExtendedReferenceTypeDefinition.addMust(__extendedReferenceClass);
         __ExtendedReferenceTypeDefinition.addMust(__name);
+        __ExtendedReferenceTypeDefinition.addMay(__codeComment);
         __ExtendedReferenceTypeDefinition.addMay(__comment);
         __ExtendedReferenceTypeDefinition.addMay(__definedIn);
         __ExtendedReferenceTypeDefinition.addMay(__description);
@@ -879,6 +889,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __RuleCategory.addMust(__ruleParam);
         __RuleCategory.addMust(__ruleType);
         __RuleCategory.addMay(__attributeInfoFromParam);
+        __RuleCategory.addMay(__codeComment);
         __RuleCategory.addMay(__comment);
         __RuleCategory.addMay(__definedIn);
         __RuleCategory.addMay(__description);
@@ -913,6 +924,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __RuleDefinition.addMust(__dmdID);
         __RuleDefinition.addMust(__name);
         __RuleDefinition.addMust(__ruleCategory);
+        __RuleDefinition.addMay(__codeComment);
         __RuleDefinition.addMay(__comment);
         __RuleDefinition.addMay(__definedIn);
         __RuleDefinition.addMay(__dependency);
@@ -938,6 +950,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
 
         __RunContext.addMust(__dependencies);
         __RunContext.addMust(__name);
+        __RunContext.addMay(__codeComment);
         __RunContext.addMay(__comment);
         __RunContext.addMay(__definedIn);
         __RunContext.addMay(__description);
@@ -964,6 +977,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __SchemaDefinition.addMay(__actionDefList);
         __SchemaDefinition.addMay(__attributeDefList);
         __SchemaDefinition.addMay(__classDefList);
+        __SchemaDefinition.addMay(__codeComment);
         __SchemaDefinition.addMay(__comment);
         __SchemaDefinition.addMay(__complexTypeDefList);
         __SchemaDefinition.addMay(__createAttributeFactory);
@@ -1003,6 +1017,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
 
         __SliceDefinition.addMust(__name);
         __SliceDefinition.addMust(__selectAttribute);
+        __SliceDefinition.addMay(__codeComment);
         __SliceDefinition.addMay(__comment);
         __SliceDefinition.addMay(__definedIn);
         __SliceDefinition.addMay(__description);
@@ -1026,6 +1041,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __TypeDefinition.addMust(__typeClassName);
         __TypeDefinition.addMay(__altType);
         __TypeDefinition.addMay(__altTypeImport);
+        __TypeDefinition.addMay(__codeComment);
         __TypeDefinition.addMay(__comment);
         __TypeDefinition.addMay(__definedIn);
         __TypeDefinition.addMay(__description);
