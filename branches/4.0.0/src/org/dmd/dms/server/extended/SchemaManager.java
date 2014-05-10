@@ -34,6 +34,7 @@ import org.dmd.core.interfaces.DmcNameResolverWithClashSupportIF;
 import org.dmd.core.interfaces.DmcNamedObjectIF;
 import org.dmd.core.interfaces.DmcObjectNameIF;
 import org.dmd.core.interfaces.DmcUniqueNameResolverIF;
+import org.dmd.core.rules.RuleIF;
 import org.dmd.core.schema.DmcAttributeInfo;
 import org.dmd.core.schema.DmcClassInfo;
 import org.dmd.core.util.DMUncheckedObject;
@@ -2427,10 +2428,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 		        			}
 		        		}
 		        		else{
-		        			DMFeedbackSet ex = new DMFeedbackSet(,d.getFile(), d.getLineNumber());
-							ResultException ex = new ResultException("AttributeDefinition: " + d.getName() + " cannot have valueType HASHMAPPED/TREEMAPPED since the " + d.getType().getName() + " type does not have a specified keyClass.",d.getFile(), d.getLineNumber());
-							ex.addError("AttributeDefinition: " + d.getName() + " cannot have valueType HASHMAPPED/TREEMAPPED since the " + d.getType().getName() + " type does not have a specified keyClass.");
-							ex.setLocationInfo(d.getFile(), d.getLineNumber());
+		        			DMFeedbackSet ex = new DMFeedbackSet("AttributeDefinition: " + d.getName() + " cannot have valueType HASHMAPPED/TREEMAPPED since the " + d.getType().getName() + " type does not have a specified keyClass.",d.getFile(), d.getLineNumber());
 			        		throw(ex);
 		        		}
 		        	}
@@ -2449,26 +2447,19 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 		            if (d.getAllowedParentsSize() > 0){
 		            	// The name must be hierarchic
 		            	if (d.getIsNamedBy() == null){
-		        			ResultException ex = new ResultException();
-		        			ex.addError("The following class indicates that it has allowed parents, but isn't a named object: " + d.getName());
+	    					DMFeedbackSet ex = new DMFeedbackSet("The following class indicates that it has allowed parents, but isn't a named object: " + d.getName(),d.getFile(), d.getLineNumber());
 		            		throw(ex);
 		            	}
-		            	if (!d.getIsNamedBy().getType().getIsHierarchicName()){
-		        			ResultException ex = new ResultException();
-		        			ex.addError("The following class indicates that it has allowed parents, but its naming attribute isn't heirarchic: " + d.getName());
-		        			ex.result.lastResult().moreMessages("isNamedBy: " + d.getIsNamedBy().getName());
-		            		throw(ex);
+		            	if (!d.getIsNamedBy().getType().getIsHierarchicName()){ 
+		            		DMFeedback fb = new DMFeedback("The following class indicates that it has allowed parents, but its naming attribute isn't heirarchic: " + d.getName(),d.getFile(), d.getLineNumber());
+		            		fb.addToMessage("isNamedBy: " + d.getIsNamedBy().getName());
+		            		throw(new DMFeedbackSet(fb));
 		            	}
 		            }
 
-				} catch (DmcValueExceptionSet e) {
-					ResultException ex = new ResultException();
-					ex.addError("Unresolved references in ClassDefinition: " + d.getName());
-					ex.setLocationInfo(d.getFile(), d.getLineNumber());
-					
-					for(DmcValueException dve : e.getExceptions()){
-						ex.moreMessages(dve.getMessage());
-					}
+				} catch (DMFeedbackSet e) {
+					DMFeedbackSet ex = new DMFeedbackSet("Unresolved references in ClassDefinition: " + d.getName(), d.getFile(), d.getLineNumber());
+					ex.add(e);
 					throw(ex);
 				}
     		}
@@ -2482,14 +2473,9 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     			EnumDefinition d = edl.next();
     			try {
     				d.resolveReferences(this,clashResolver);
-				} catch (DmcValueExceptionSet e) {
-					ResultException ex = new ResultException();
-					ex.addError("Unresolved references in EnumDefinition: " + d.getName());
-					ex.setLocationInfo(d.getFile(), d.getLineNumber());
-					
-					for(DmcValueException dve : e.getExceptions()){
-						ex.moreMessages(dve.getMessage());
-					}
+				} catch (DMFeedbackSet e) {
+					DMFeedbackSet ex = new DMFeedbackSet("Unresolved references in EnumDefinition: " + d.getName(),d.getFile(), d.getLineNumber());
+					ex.add(e);
 					throw(ex);
 				}
     		}
@@ -2501,14 +2487,9 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     			TypeDefinition d = tdl.next();
     			try {
     				d.resolveReferences(this,clashResolver);
-				} catch (DmcValueExceptionSet e) {
-					ResultException ex = new ResultException();
-					ex.addError("Unresolved references in TypeDefinition: " + d.getName());
-					ex.setLocationInfo(d.getFile(), d.getLineNumber());
-					
-					for(DmcValueException dve : e.getExceptions()){
-						ex.moreMessages(dve.getMessage());
-					}
+				} catch (DMFeedbackSet e) {
+					DMFeedbackSet ex = new DMFeedbackSet("Unresolved references in TypeDefinition: " + d.getName(),d.getFile(), d.getLineNumber());
+					ex.add(e);
 					throw(ex);
 				}
     		}
@@ -2517,17 +2498,12 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     	Iterator<SliceDefinition> sdl = sd.getSliceDefList();
     	if (sdl != null){
     		while(sdl.hasNext()){
-    			SliceDefinition s = sdl.next();
+    			SliceDefinition d = sdl.next();
     			try {
-    				s.resolveReferences(this,clashResolver);
-				} catch (DmcValueExceptionSet e) {
-					ResultException ex = new ResultException();
-					ex.addError("Unresolved references in SliceDefinition: " + s.getName());
-					ex.setLocationInfo(s.getFile(), s.getLineNumber());
-					
-					for(DmcValueException dve : e.getExceptions()){
-						ex.moreMessages(dve.getMessage());
-					}
+    				d.resolveReferences(this,clashResolver);
+				} catch (DMFeedbackSet e) {
+					DMFeedbackSet ex = new DMFeedbackSet("Unresolved references in SliceDefinition: " + d.getName(),d.getFile(), d.getLineNumber());
+					ex.add(e);
 					throw(ex);
 				}
     		}
@@ -2537,14 +2513,9 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     	for(RuleIF rule: theRules.values()){
     		try {
 				rule.getRuleDataDMO().resolveReferences(this, clashResolver);
-			} catch (DmcValueExceptionSet e) {
-				ResultException ex = new ResultException();
-				ex.addError("Unresolved references in rule data: " + rule.getRuleDataDMO().getRuleName());
-//				ex.setLocationInfo(s.getFile(), s.getLineNumber());
-				
-				for(DmcValueException dve : e.getExceptions()){
-					ex.moreMessages(dve.getMessage());
-				}
+			} catch (DMFeedbackSet e) {
+				DMFeedbackSet ex = new DMFeedbackSet("Unresolved references in rule data: " + rule.getRuleDataDMO().getRuleName(),rule.getRuleDataDMO().getFile(), rule.getRuleDataDMO().getLineNumber());
+				ex.add(e);
 				throw(ex);
 			}
     	}
@@ -2583,7 +2554,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     }
 
     
-    public void resolveNameTypes(Iterator<AttributeDefinition> adl) throws ResultException{
+    public void resolveNameTypes(Iterator<AttributeDefinition> adl) throws DMFeedbackSet {
     	if (adl != null){
     		while(adl.hasNext()){
     			AttributeDefinition ad = adl.next();
@@ -2605,18 +2576,18 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 		        		
 		        		AttributeDefinition nd = ad.getType().getNameAttributeDef();
 		        		String sn = ad.getDefinedIn().getName().getNameString();
-		            	ResultException ex = new ResultException();
-		            	ex.addError("Only one attribute may be defined of type: " + ad.getType().getName());
-		            	ex.result.lastResult().moreMessages("You must use the \"" + nd.getName() + "\" attribute from the " + sn + " schema.");
-		            	ex.result.lastResult().moreMessages("This error was caused by the " + ad.getName() + " attribute definition.");
-		            	throw(ex);
+		        		
+		        		DMFeedback fb = new DMFeedback("Only one attribute may be defined of type: " + ad.getType().getName());
+		        		fb.addToMessage("You must use the \"" + nd.getName() + "\" attribute from the " + sn + " schema.");
+		        		fb.addToMessage("This error was caused by the " + ad.getName() + " attribute definition.");
+		            	throw(new DMFeedbackSet(fb));
 		        	}
 		        	
 		        	try {
 //DebugInfo.debug("Adding " + ad.getName() + " as nameAttributeDef for type " + ad.getType().getName());
 						ad.getType().setNameAttributeDef(ad);
-					} catch (DmcValueException e) {
-						e.printStackTrace();
+					} catch (DMFeedbackSet e) {
+						throw(new IllegalStateException(e.toString(), e));
 					}
 		        }
     		}

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="dark-matter-data" default="all" basedir=".">
+
+	<property name="dmgpb.dir"		value="${basedir}/dmgpb"/>
+	<property name="doc.dir"		value="${basedir}/docs"/>
+	<property name="proto.dir"		value="${basedir}/proto"/>
+	<property name="generated.dir" 	value="${basedir}/java/generated"/>
+	<property name="src.dir"		value="${basedir}/java/src"/>
+	
+	<!--
+	<property name="protoc.appName" location="build-tools/mac/protoc" />
+	-->
+	
+	<!--
+	###########################################################################
+	-->
+
+	<target name="clean">
+		<delete quiet="true">
+			<fileset dir="${generated.dir}" includes="*.java"/>
+			<fileset dir="${proto.dir}" includes="*.proto"/>
+		</delete>
+	</target>
+	
+	<!--
+	###########################################################################
+	#
+	# Protocol compilation
+	#
+	###########################################################################
+	-->
+	
+	<target name="checksw_path" depends="if_windows, if_mac, if_unix">
+	</target>
+
+	<target name="checkos">
+		<condition property="isWindows">
+			<os family="windows" />
+		</condition>
+
+		<condition property="isLinux">
+			<os family="unix" />
+		</condition>
+
+		<condition property="isMac">
+			<os family="mac" />
+		</condition>
+	</target>
+	
+	<target name="if_windows" depends="checkos" if="isWindows">
+		<echo> Running on windows </echo>
+		<property name="protoc.appName" location="build-tools/windows/protoc" />
+	</target>
+
+	<target name="if_mac" depends="checkos" if="isMac">
+		<echo> Running on Mac </echo>
+		<property name="protoc.appName" location="build-tools/mac/protoc" />
+	</target>
+
+	<target name="if_unix" depends="checkos" if="isLinux">
+		<echo> Running on Linux </echo>
+		<property name="protoc.appName" location="/opt/BA/protobuf-2.4.0a/bin/protoc" />
+	</target>
+
+	
+	<dirset id="proto-dirset" dir="${basedir}/proto/" />
+	<pathconvert property="proto-dir" refid="proto-dirset" />
+	
+	<fileset id="proto-fileset" dir="${proto.dir}" includes="*.proto" />
+	<pathconvert property="proto-file-list" pathsep=" " refid="proto-fileset" />
+	
+	
+	<!--
+	###########################################################################
+	##
+	## Protocol generation from .dmgpb files
+	-->
+	<target name="proto-generation">
+		<java classname="org.dmd.gpb.tools.generation.GpbDefGeneratorMain" failonerror="true" fork="true">
+			<arg value="-workspace" />
+			<arg value="${basedir}/" />
+			<arg value="-srcdir" />
+			<arg value="dmgpb" />
+			<arg value="-jars" />
+			<arg value="dark-matter-gpb" />
+			<arg value="wme-tools" />
+			<arg value="-outdir" />
+			<arg value="${basedir}/proto" />
+			<classpath>
+				<pathelement location="${basedir}/extjars/commons-io-2.0.1.jar" />
+				<pathelement location="${basedir}/extjars/dark-matter-concinnity-1.0.1.jar" />
+				<pathelement location="${basedir}/extjars/dark-matter-data-3.0.1.jar" />
+				<pathelement location="${basedir}/extjars/dark-matter-gpb-1.0.1.jar" />
+				<pathelement location="${basedir}/extjars/dark-matter-templates-1.0.1.jar" />
+				<pathelement location="${basedir}/extjars/wme-tools-1.0.0.0.jar" />
+			</classpath>
+		</java>
+	</target>
+	
+	<!--
+	###########################################################################
+	##
+	## Protocol compilation
+	-->
+	<target name="proto-compile" depends="checksw_path"
+		description="Runs the Google Protocol Buffer compiler on the .proto files">
+		<exec executable="${protoc.appName}" failonerror="true">
+			<arg value="--java_out=${generated.dir}" />
+			<arg value="--proto_path=${proto-dir}" />
+			<arg line="${proto-file-list}" />
+		</exec>
+	</target>
+
+	<!--
+	###########################################################################
+	##
+	## Our primary target
+	-->
+	<target name="all" depends="clean, proto-generation, proto-compile"
+		description="Cleans the generated and compiled files, runs the protocol compiler, compiles the code and creates the jar.">
+	</target>
+
+</project>
