@@ -173,8 +173,8 @@ public class TypeFormatter {
 		imports.addImport("org.dmd.dms.shared.generated.dmo." + cn + "DMO", "The type of object we refer to");
 		imports.addImport("org.dmd.core.interfaces.DmcInputStreamIF", 		"To support serialization");
 		imports.addImport("org.dmd.dms.shared.types.DmcType" + nameType, 	"The type of our naming attribute");
-		imports.addImport("org.dmd.core.DmcNamedObjectNontransportableREF", "THIS HAS TO CHANGE");
-		imports.addImport("org.dmd.dms.shared.generated.dmo.MetaDMSAG", "dark-matter core");
+		imports.addImport("org.dmd.core.DmcNamedObjectREF", 				"Our base type");
+		imports.addImport("org.dmd.dms.shared.generated.dmo.MetaDMSAG", 	"dark-matter core");
 
 		if (cn.equals("ClassDefinition")) {
 			imports.addImport("org.dmd.core.DmcOmni", 		"So that we can get DmcClassInfo");
@@ -189,7 +189,7 @@ public class TypeFormatter {
 		out.write(" */\n");
 
 		out.write("@SuppressWarnings(\"serial\")\n");
-		out.write("public class " + cn + "REF extends DmcNamedObjectNontransportableREF<" + cn + "DMO> implements Serializable {\n\n");
+		out.write("public class " + cn + "REF extends DmcNamedObjectREF<" + cn + "DMO> implements Serializable {\n\n");
 
 		if (cn.equals("ClassDefinition")) {
 			out.write("    transient DmcClassInfo info;\n\n");

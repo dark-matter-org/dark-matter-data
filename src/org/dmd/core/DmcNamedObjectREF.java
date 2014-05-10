@@ -24,27 +24,29 @@ import org.dmd.dms.shared.types.Modifier;
 
 
 /**
- * The DmcNamedObjectREF is an abstract base class that defines helper class for implementing
- * the concept of references to named objects that can either be resolved or unresolved. The
- * derived classes of this class provide the concept of transportable versus nontransportable
- * object references.
+ * The DmcNamedObjectREF is an abstract base class that defines a helper class for implementing
+ * the concept of references to named objects that can either be resolved or unresolved.
  */
 @SuppressWarnings("serial")
-abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements Serializable, DmcNamedObjectIF, DmcMappedAttributeIF  {
+abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements Serializable, DmcNamedObjectIF, DmcMappedAttributeIF, Comparable<DmcNamedObjectREF<?>>  {
 	
+	// If the reference is resolved, the object will be available. Otherwise, this will be null.
+	protected transient DMO object;
+
 	protected transient Modifier backrefModifier;
 	
 	/**
 	 * Constructs a new named object reference.
 	 */
 	public DmcNamedObjectREF(){
-
+		object			= null;
+		backrefModifier	= null;
 	}
 	
 	/**
 	 * Sets the modifier that will remove this object reference if the object being
 	 * referred to is deleted. This is used to efficiently remove the back reference
-	 * when an object is no longer referenced. This mechanism is used by the Dark Matter 
+	 * when an object is no longer referenced. This mechanism is used by the dark-matter 
 	 * back reference tracking mechanisms; don't mess with it unless you know what 
 	 * you're doing ;-)
 	 * @param mod The back reference modifier.
@@ -85,12 +87,19 @@ abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements
 	/**
 	 * @return The object if this reference is resolved.
 	 */
-	abstract public DMO getObject();
+	public DMO getObject(){
+		return(object);
+	}
 	
 	/**
 	 * @return True if the reference is resolved and false otherwise.
 	 */
-	abstract public boolean isResolved();
+	public boolean isResolved(){
+		if (object == null)
+			return(false);
+			
+		return(true);
+	}
 		
 	/**
 	 * Sets the name of the object being referred to. NOTE: USE WITH CAUTION!!!
@@ -158,5 +167,24 @@ abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements
 	public String getKeyAsString(){
 		return(getObjectName().getNameString());
 	}
+	
+	@Override
+	public boolean valuesAreEqual(DmcMappedAttributeIF obj){
+		boolean rc = false;
+		if (obj instanceof DmcNamedObjectREF<?>){
+			DmcNamedObjectREF<?> other = (DmcNamedObjectREF<?>) obj;
+			rc = getObjectName().equals(other.getObjectName());
+		}
+		return(rc);
+	}
+
+	///////////////////////////////////////////////////////////////////////////
+	// Comparable
+	
+	@Override
+	public int compareTo(DmcNamedObjectREF<?> o) {
+		return(getObjectName().getNameString().compareTo(o.getObjectName().getNameString()));
+	}
+	
 
 }
