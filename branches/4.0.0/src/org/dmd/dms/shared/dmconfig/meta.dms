@@ -7,6 +7,7 @@ defFiles			enums.dmd
 defFiles			complex.dmd
 defFiles    		attributes.dmd
 defFiles    		classes.dmd
+defFiles    		categories.dmd
 generatedFileHeader LGPL.txt
 //
 schemaPackage 		org.dmd.dms.shared

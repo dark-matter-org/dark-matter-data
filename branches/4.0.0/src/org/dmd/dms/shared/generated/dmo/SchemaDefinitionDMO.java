@@ -51,6 +51,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
         _ImAp.put(MetaDMSAG.__actionDefList.id,MetaDMSAG.__actionDefList);
         _ImAp.put(MetaDMSAG.__attributeDefList.id,MetaDMSAG.__attributeDefList);
         _ImAp.put(MetaDMSAG.__classDefList.id,MetaDMSAG.__classDefList);
+        _ImAp.put(MetaDMSAG.__codeComment.id,MetaDMSAG.__codeComment);
         _ImAp.put(MetaDMSAG.__comment.id,MetaDMSAG.__comment);
         _ImAp.put(MetaDMSAG.__complexTypeDefList.id,MetaDMSAG.__complexTypeDefList);
         _ImAp.put(MetaDMSAG.__createAttributeFactory.id,MetaDMSAG.__createAttributeFactory);
@@ -96,6 +97,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
         _SmAp.put(MetaDMSAG.__actionDefList.name,MetaDMSAG.__actionDefList);
         _SmAp.put(MetaDMSAG.__attributeDefList.name,MetaDMSAG.__attributeDefList);
         _SmAp.put(MetaDMSAG.__classDefList.name,MetaDMSAG.__classDefList);
+        _SmAp.put(MetaDMSAG.__codeComment.name,MetaDMSAG.__codeComment);
         _SmAp.put(MetaDMSAG.__comment.name,MetaDMSAG.__comment);
         _SmAp.put(MetaDMSAG.__complexTypeDefList.name,MetaDMSAG.__complexTypeDefList);
         _SmAp.put(MetaDMSAG.__createAttributeFactory.name,MetaDMSAG.__createAttributeFactory);
@@ -359,6 +361,40 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
         
         attr.add(value);
         add(MetaDMSAG.__classDefList,attr);
+        return(attr);
+    }
+
+    /**
+     * A brief comment that will be included in generated code to give users a
+     * basic idea of what the purpose of something like an attribute or class or
+     * type is for. For more long winded explanations, you should use the
+     * description attribute whose contents are used as the basis for HTML based
+     * documentation. <p/> By convention, generated HTML will have the code
+     * comments followed by the description followed by any examples you've
+     * provided. 
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:290)
+    public Iterator<String> getCodeComment(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__codeComment);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another codeComment value.
+     * @param value A value compatible with DmcTypeStringMV
+     */
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:394)
+    public DmcAttribute<?> addCodeComment(Object value) throws DMFeedbackSet {
+        DmcAttribute<?> attr = get(MetaDMSAG.__codeComment);
+        if (attr == null)
+            attr = new DmcTypeStringMV(MetaDMSAG.__codeComment);
+        
+        attr.add(value);
+        add(MetaDMSAG.__codeComment,attr);
         return(attr);
     }
 

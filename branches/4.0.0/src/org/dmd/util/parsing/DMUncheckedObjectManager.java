@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import org.dmd.core.feedback.DMFeedback;
 import org.dmd.core.feedback.DMFeedbackSet;
-import org.dmd.core.feedback.DMParsingFeedback;
 import org.dmd.core.util.DMUncheckedObject;
 
 /**
@@ -74,14 +74,13 @@ public class DMUncheckedObjectManager {
 		String name = uco.getSV(namingAttribute);
 		
 		if (name == null){
-			DMParsingFeedback f = new DMParsingFeedback("The naming attribute: " + namingAttribute + " is missing from: " + uco.toOIF());
-			throw(new DMFeedbackSet(f));
+			throw(new DMFeedbackSet("The naming attribute: " + namingAttribute + " is missing from: " + uco.toOIF()));
 		}
 		
 		DMUncheckedObject existing = objectsByName.get(name);
 		
 		if (existing != null){
-			DMParsingFeedback f = new DMParsingFeedback("Clashing names for the following objects:\n");
+			DMFeedback f = new DMFeedback("Clashing names for the following objects:\n");
 			f.addToMessage(existing.toOIF() + "\n");
 			f.addToMessage(uco.toOIF());
 			throw(new DMFeedbackSet(f));

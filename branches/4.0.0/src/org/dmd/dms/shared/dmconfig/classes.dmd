@@ -78,6 +78,7 @@ dmoImport		org.dmd.dms.shared.generated.dmo.DmsDefinitionDMO
 isNamedBy       name
 must         	name
 may				relatedToConcept
+may				codeComment
 description     The DmsDefinition class provides a common base for all dark-matter schema (DMS) definition classes.
 
 ClassDefinition

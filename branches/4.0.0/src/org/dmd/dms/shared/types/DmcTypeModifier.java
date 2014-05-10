@@ -19,11 +19,11 @@ import java.io.Serializable;
 import java.util.Iterator;
 
 import org.dmd.core.DmcAttribute;
-import org.dmd.core.schema.DmcAttributeInfo;
-import org.dmd.core.feedback.DMError;
+import org.dmd.core.feedback.DMFeedback;
 import org.dmd.core.feedback.DMFeedbackSet;
 import org.dmd.core.interfaces.DmcInputStreamIF;
 import org.dmd.core.interfaces.DmcOutputStreamIF;
+import org.dmd.core.schema.DmcAttributeInfo;
 
 @SuppressWarnings("serial")
 abstract public class DmcTypeModifier extends DmcAttribute<Modifier> implements Serializable {
@@ -102,7 +102,7 @@ abstract public class DmcTypeModifier extends DmcAttribute<Modifier> implements 
 				if (!mod.isResolved()){
 					if (ex == null)
 						ex = new DMFeedbackSet();
-					ex.add(new DMError("The value for the " + mod.operation + " modification on the " + mod.attributeName + " attribute is not resolved."));
+					ex.add(new DMFeedback("The value for the " + mod.operation + " modification on the " + mod.attributeName + " attribute is not resolved."));
 				}
 			}
 		}

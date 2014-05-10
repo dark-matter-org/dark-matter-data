@@ -30,9 +30,21 @@ public class DMFeedbackSet extends Exception {
 	 * Shorthand mechanism to create a DMFeedbackSet with a single piece of error feedback.
 	 */
 	public DMFeedbackSet(String msg){
-		errors		= 0;
+		errors		= 1;
 		feedback 	= new ArrayList<>();
-		feedback.add(new DMError(msg));
+		feedback.add(new DMFeedback(msg));
+	}
+	
+	/**
+	 * Shorthand mechanism to create a DMFeedbackSet with a single piece of error feedback along with location information.
+	 * @param msg the error message
+	 * @param f   the file name
+	 * @param l   the line number
+	 */
+	public DMFeedbackSet(String msg, String f, int l){
+		errors		= 1;
+		feedback 	= new ArrayList<>();
+		feedback.add(new DMFeedback(msg,f,l));
 	}
 	
 	/**
@@ -66,6 +78,17 @@ public class DMFeedbackSet extends Exception {
 	public DMFeedbackSet add(DMFeedbackSet set){
 		feedback.addAll(set.feedback);
 		return(this);
+	}
+	
+	/**
+	 * Sets the location on the last feedback item if there is one.
+	 * @param fn file name
+	 * @param ln line number
+	 */
+	public void setLocation(String fn, int ln){
+		if (feedback.size() >0){
+			feedback.get(feedback.size()-1).setLocation(fn, ln);
+		}
 	}
 	
 	/**
