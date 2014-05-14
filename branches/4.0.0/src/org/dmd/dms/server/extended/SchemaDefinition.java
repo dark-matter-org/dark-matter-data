@@ -108,7 +108,7 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
 	public String getDmwPackage(String context){
 		if (dmwToPackageMapping == null){
 			dmwToPackageMapping = new TreeMap<String, StringToString>();
-			Iterator<StringToString>	mapping = getDmwTypeToPackage();
+			Iterator<StringToString>	mapping = getDmwTypeToPackageIterable();
 			if (mapping != null){
 				while(mapping.hasNext()){
 					StringToString curr = mapping.next();

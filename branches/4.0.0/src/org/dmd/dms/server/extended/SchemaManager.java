@@ -933,8 +933,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         cd.setDefinedIn(ddm.getDefinedIn());
         cd.setUseWrapperType(WrapperTypeEnum.EXTENDED);
         
-        if (ddm.getDescription() != null){
-	    	Iterator<String> it = ddm.getDescription();
+        if (ddm.getDescriptionHasValue()){
+	    	Iterator<String> it = ddm.getDescriptionIterable();
 	    	while(it.hasNext()){
 	    		cd.addDescription(it.next());
 	    	}
@@ -1218,8 +1218,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         cd.setLineNumber(rd.getLineNumber());
         cd.setDefinedIn(rd.getDefinedIn());
         
-        if (rd.getDescription() != null){
-        	Iterator<String> it = rd.getDescription();
+        if (rd.getDescriptionHasValue()){
+        	Iterator<String> it = rd.getDescriptionIterable();
         	while(it.hasNext()){
         		cd.addDescription(it.next());
         	}

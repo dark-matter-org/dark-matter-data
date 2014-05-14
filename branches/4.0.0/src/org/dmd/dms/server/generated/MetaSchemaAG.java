@@ -27,7 +27,7 @@ import org.dmd.dms.shared.generated.dmo.*;          // Access to meta schema DMO
   * This class creates the basic definitions that allow for the definition of schemas.
   * Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatter.dumpMetaSchemaAG(MetaSchemaFormatter.java:69)
   */
-abstract public class MetaSchemaAG extends SchemaDefinition {
+public class MetaSchemaAG extends SchemaDefinition {
     public static SchemaDefinition    _metaSchema;
 
     // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatter.dumpStaticDefinitions(MetaSchemaFormatter.java:130)
@@ -51,6 +51,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static ClassDefinition     _DependencyImplementation;
     public static ClassDefinition     _RunContext;
     public static ClassDefinition     _Concinnity;
+    public static ClassDefinition     _DmsModule;
 
     // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatter.dumpStaticDefinitions(MetaSchemaFormatter.java:137)
     public static EnumDefinition      _ClassTypeEnum;
@@ -278,6 +279,8 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _hint;
     public static AttributeDefinition _question;
     public static AttributeDefinition _codeComment;
+    public static AttributeDefinition _definedInDmsModule;
+    public static AttributeDefinition _dependsOnDmsModule;
     public static AttributeDefinition _objectClass;
 
     // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatter.dumpStaticDefinitions(MetaSchemaFormatter.java:163)
@@ -327,6 +330,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         ClassDefinitionDMO _ActionTriggerInfoOBJ = new ClassDefinitionDMO();
         _ActionTriggerInfo = new ClassDefinition(_ActionTriggerInfoOBJ,MetaDMSAG.__ActionTriggerInfo);
         _ActionTriggerInfoOBJ.setClassType("ABSTRACT");
+        _ActionTriggerInfoOBJ.setDefinedInDmsModule("meta.meta");
         _ActionTriggerInfoOBJ.addDescription("The ActionTriggerInfo class simply provides a common base for the bundle of information required to remotely trigger an action on an object.  Derivatives of this class are generated as part of the DMO generation process and have action specific interfaces to handle the parameters  required by an ActionDefinition. <p/> This mechanism is a replacement for the concept that ActionRequests were EXTENSIBLE objects. This way, the user can ask an object for the  ActionTriggerInfo (ATI) for a particular action and have a well defined interface to specify the parameters for the action.");
         _ActionTriggerInfoOBJ.setDmdID("14");
         _ActionTriggerInfoOBJ.setDmoImport("org.dmd.dms.shared.generated.dmo.ActionTriggerInfoDMO");
@@ -339,6 +343,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         ClassDefinitionDMO _DSDefinitionOBJ = new ClassDefinitionDMO();
         _DSDefinition = new ClassDefinition(_DSDefinitionOBJ,MetaDMSAG.__DSDefinition);
         _DSDefinitionOBJ.setClassType("ABSTRACT");
+        _DSDefinitionOBJ.setDefinedInDmsModule("meta.meta");
         _DSDefinitionOBJ.addDescription("The domain specific definition (DSDefinition) forms the basis for all definitions that use dark-matter as their basis. The initial dark-matter mechanisms were focussed only on  schema for data objects, but, as the project developed, other, domain specific sets of definitions were added. Eventually, a pattern emerged in terms of these various sets of definitions and some additional higher order concepts were introduced to make the creation of new, domain specific definition sets easier and to allow them to build on and use each others' definitions in a  coherent manner. <p/> For instance, the Model View Whatever (MVW) framework, builds on the dark-matter schema  concepts and introduces definitions that align with the Google Web Toolkit (GWT) conceptual model of the elements that comprise GWT applications and the various relationships that exist between them. The infrastructure needed to parse, manage and use those definitions to generate code and documentation are very similar to those used in the base dark-matter schema mechanisms, but they had to be hand built for the domain. <p/> Other kinds of domain specific definitions started to emerge, Google Protocol Buffer (GPB), Simple Network Management Protocol (SNMP) etc. Having to build the infrastructure for these  definitions each time was tedious and, in the spirit of the rest of dark-matter, lent themselves to being defined, generated and extended to make the process the easier. <p/> Likewise, the code generation mechanisms originally employed have evolved and the more generic concept of artifact generation, based on definition sets, was introduced to allow for more rapid creation of utilities that generate code or documentation or other types of specifications.");
         _DSDefinitionOBJ.setDmdID("1");
         _DSDefinitionOBJ.setDmoImport("org.dmd.dms.shared.generated.dmo.DSDefinitionDMO");
@@ -370,6 +375,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         ClassDefinitionDMO _DmsDefinitionOBJ = new ClassDefinitionDMO();
         _DmsDefinition = new ClassDefinition(_DmsDefinitionOBJ,MetaDMSAG.__DmsDefinition);
         _DmsDefinitionOBJ.setClassType("ABSTRACT");
+        _DmsDefinitionOBJ.setDefinedInDmsModule("meta.meta");
         _DmsDefinitionOBJ.setDerivedFrom("meta.DSDefinition");
         _DmsDefinitionOBJ.addDescription("The DmsDefinition class provides a common base for all dark-matter schema (DMS) definition classes.");
         _DmsDefinitionOBJ.setDmdID("2");
@@ -379,7 +385,9 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _DmsDefinitionOBJ.addMay("meta.relatedToConcept");
         _DmsDefinitionOBJ.addMay("meta.codeComment");
         _DmsDefinitionOBJ.addMust("meta.name");
+        _DmsDefinitionOBJ.addMust("meta.definedInDmsModule");
         _DmsDefinitionOBJ.setName("DmsDefinition");
+        _DmsDefinitionOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _DmsDefinitionOBJ.setUseWrapperType("EXTENDED");
         _DmsDefinition.setDefinedIn(this);
         addClassDefList(_DmsDefinition);
@@ -387,6 +395,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         ClassDefinitionDMO _DSDefinitionModuleOBJ = new ClassDefinitionDMO();
         _DSDefinitionModule = new ClassDefinition(_DSDefinitionModuleOBJ,MetaDMSAG.__DSDefinitionModule);
         _DSDefinitionModuleOBJ.setClassType("STRUCTURAL");
+        _DSDefinitionModuleOBJ.setDefinedInDmsModule("meta.meta");
         _DSDefinitionModuleOBJ.setDerivedFrom("meta.DmsDefinition");
         _DSDefinitionModuleOBJ.addDescription("The DSDefinitionModule is a definition that defines a collection of definitions and provides a basis for the generation of various artifacts that allow for parsing and management of that set of definitions. <p/> The specific of a definition module will result in the generation of a ClassDefinition for the specified module type and thus, the dmdID associated with it must be unique across the set of classes that comprise the definitions encompassed by the module. <p/> The ClassDefinition will be named by name and will have the may and must attributes specified as part of the DSDefinitionModule.");
         _DSDefinitionModuleOBJ.setDmdID("3");
@@ -407,6 +416,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _DSDefinitionModuleOBJ.addMust("meta.moduleDependenceAttribute");
         _DSDefinitionModuleOBJ.addMust("meta.baseDefinition");
         _DSDefinitionModuleOBJ.setName("DSDefinitionModule");
+        _DSDefinitionModuleOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _DSDefinitionModuleOBJ.setUseWrapperType("EXTENDED");
         _DSDefinitionModule.setDefinedIn(this);
         addClassDefList(_DSDefinitionModule);
@@ -414,6 +424,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         ClassDefinitionDMO _ClassDefinitionOBJ = new ClassDefinitionDMO();
         _ClassDefinition = new ClassDefinition(_ClassDefinitionOBJ,MetaDMSAG.__ClassDefinition);
         _ClassDefinitionOBJ.setClassType("STRUCTURAL");
+        _ClassDefinitionOBJ.setDefinedInDmsModule("meta.meta");
         _ClassDefinitionOBJ.setDerivedFrom("meta.DmsDefinition");
         _ClassDefinitionOBJ.addDescription("This class provides the basic mechanism to define new classes for a schema.");
         _ClassDefinitionOBJ.setDmdID("4");
@@ -465,6 +476,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ClassDefinitionOBJ.addMust("meta.classType");
         _ClassDefinitionOBJ.addMust("meta.dmdID");
         _ClassDefinitionOBJ.setName("ClassDefinition");
+        _ClassDefinitionOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _ClassDefinitionOBJ.setUseWrapperType("EXTENDED");
         _ClassDefinition.setDefinedIn(this);
         addClassDefList(_ClassDefinition);
@@ -472,6 +484,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         ClassDefinitionDMO _EnumDefinitionOBJ = new ClassDefinitionDMO();
         _EnumDefinition = new ClassDefinition(_EnumDefinitionOBJ,MetaDMSAG.__EnumDefinition);
         _EnumDefinitionOBJ.setClassType("STRUCTURAL");
+        _EnumDefinitionOBJ.setDefinedInDmsModule("meta.meta");
         _EnumDefinitionOBJ.setDerivedFrom("meta.DmsDefinition");
         _EnumDefinitionOBJ.addDescription("The EnumDefinition allows for the definition of real Java enums that provide inherent mapping of the string and integer values of the enum into actual enum values. Once defined, EnumDefinitions can be used where ever you would use a TypeDefinition name i.e. they can be used in the type attribute of AttributeDefinitions.");
         _EnumDefinitionOBJ.setDmdID("5");
@@ -484,6 +497,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _EnumDefinitionOBJ.addMust("meta.name");
         _EnumDefinitionOBJ.addMust("meta.enumValue");
         _EnumDefinitionOBJ.setName("EnumDefinition");
+        _EnumDefinitionOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _EnumDefinitionOBJ.setUseWrapperType("EXTENDED");
         _EnumDefinition.setDefinedIn(this);
         addClassDefList(_EnumDefinition);
@@ -491,6 +505,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         ClassDefinitionDMO _TypeDefinitionOBJ = new ClassDefinitionDMO();
         _TypeDefinition = new ClassDefinition(_TypeDefinitionOBJ,MetaDMSAG.__TypeDefinition);
         _TypeDefinitionOBJ.setClassType("STRUCTURAL");
+        _TypeDefinitionOBJ.setDefinedInDmsModule("meta.meta");
         _TypeDefinitionOBJ.setDerivedFrom("meta.DmsDefinition");
         _TypeDefinitionOBJ.addDescription("The <code> TypeDefinition </code> is used to define the types of attributes that can be used as the basis for attribute values. The name of the type definition should be the same as the actual Java class that is used to store the value of an attribute e.g. the name of the type used to store strings is String. The <code> typeClassName </code> is the fully qualified name of the class derived from <code>DmcAttribute</code> that stores this type of value; they are always, by convention, named <code>DmcTypeXXX</code>. <p/> <code> TypeDefinitions </code> are automatically generated internally for <code>ClassDefinitions</code>,  <code>ComplexTypeDefinitions</code>, <code>ExtendedReferenceTypeDefinitions</code> and <code>EnumDefinitions</code> so that these objects can be referred to via the <code>type</code> attribute of <code> AttributeDefinitions</code>. These definitions are marked as <code> internallyGenerated </code>. <p/> The simplest <code> TypeDefinition </code> would look something like: <pre> TypeDefinition name           String typeClassName  org.dmd.dmc.types.DmcTypeString description    Provides support for String values. </pre> This form would be used for attribute types whose base type originates in <code> java.lang</code>. The dark-matter base types include: Boolean, Byte, Double, Float, Integer, Long, Short and String. <p/> <code>TypeDefinitions</code> also support the concept of specifying a <code> nullReturnValue </code> for the entire type i.e. whenever an attribute of the specified type is accessed, it will return that value when the attribute doesn't exist in the object. An example of this is the <code> Boolean </code> type: <pre> TypeDefinition name            Boolean typeClassName   org.dmd.dmc.types.DmcTypeBoolean nullReturnValue false description     Provides support for Boolean values. This type makes use of the                 nullReturnValue flag so that, even if there is no                 value for an attribute of this type, a value of false will                 be returned. </pre> <p/> The next most common form of <code> TypeDefinition </code> adds the <code> primitiveType </code> attribute. This is required for code generation so that we can import the appropriate type for use in the various getter/setter methods. An example would be the <code> Date </code> type. <pre> TypeDefinition name           Date typeClassName  org.dmd.dmc.types.DmcTypeDate primitiveType  java.util.Date description    Provides support for Date values. </pre> Another common form of <code>TypeDefinition</code> is the definition of a name type. Object naming is a fundamental aspect of DMOs, with all object names being based on the <code>DmcObjectName</code>. Flagging a type as being a name type also implies the definition of a designated naming attribute associated with the type. This mechanism allows for the transport of names that are self describing in terms of their implementation type. This feature supports the <code>NameContainer</code> type that allows any name to be transported in things like dark-matter protocol <code>GetRequest</code>. An example of a naming type would be: <pre> TypeDefinition name           CamelCaseName typeClassName  org.dmd.dmc.types.DmcTypeCamelCaseName primitiveType  org.dmd.dmc.types.CamelCaseName isNameType     true description    The CamelCaseName is a string based name that must start with                an alpha character which is followed by a mix of alphanumerics. </pre> And its associated designated naming attribute would be: <pre> AttributeDefinition name                     camelCaseName dmdID                    116 type                     CamelCaseName designatedNameAttribute  true description              The camelCaseName attribute is used to store a single camelCase                          format name for something. The name starts with a single letter                          and can be followed by a mix of letters and numbers. No spaces or                           other characters are allowed. </pre> The last form of type definition is one that includes some additional information to provide a convenient, alternate interface for the generation of member functions associated with a container type; this concept is pretty much limited to the meta-schema, so it is unlikely that non-contributors to dark-matter will make use of this concept. However, here is an example: <pre> TypeDefinition name           NameContainer typeClassName  org.dmd.dmc.types.DmcTypeNameContainer primitiveType  org.dmd.dmc.types.NameContainer altType        DmcObjectName altTypeImport  org.dmd.dmc.DmcObjectName description    The NameContainer type allows for the storage of object names of different types... </pre>");
         _TypeDefinitionOBJ.setDmdID("6");
@@ -524,6 +539,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _TypeDefinitionOBJ.addMust("meta.name");
         _TypeDefinitionOBJ.addMust("meta.typeClassName");
         _TypeDefinitionOBJ.setName("TypeDefinition");
+        _TypeDefinitionOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _TypeDefinitionOBJ.setUseWrapperType("EXTENDED");
         _TypeDefinition.setDefinedIn(this);
         addClassDefList(_TypeDefinition);
@@ -531,6 +547,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         ClassDefinitionDMO _ComplexTypeDefinitionOBJ = new ClassDefinitionDMO();
         _ComplexTypeDefinition = new ClassDefinition(_ComplexTypeDefinitionOBJ,MetaDMSAG.__ComplexTypeDefinition);
         _ComplexTypeDefinitionOBJ.setClassType("STRUCTURAL");
+        _ComplexTypeDefinitionOBJ.setDefinedInDmsModule("meta.meta");
         _ComplexTypeDefinitionOBJ.setDerivedFrom("meta.DmsDefinition");
         _ComplexTypeDefinitionOBJ.addDescription("The ComplexTypeDefinition provides a mechanism for defining the structure of a complex type composed of other types. From this definition, a new DmcType is generated that has all of the required methods automatically defined. <p/> An example definition is the RuleParam: <pre> ComplexTypeDefinition name			RuleParam fieldSeparator : field String importStatement The import for the type of parameter field String genericArgs     The generic arguments associated with this parameter field String name            The name of the parameter field String description     A description of the parameter description The RuleParam type is used to succintly describe a parameter  to be supplied to a rule when it is executed. </pre> In this case, the type has four fields, all of String type. An example of the String format of the field might be: <pre> org.dmc.DmcObject::obj:The object to be validated</pre> In this case, the generic args field isn't available and will be the empty string. When a field seperator is specified, all fields are, more or less optional, but the underlying type must be able to handle the empty string as a valid value. This wouldn't work with Integer. <p/> If no field separator is specified, the separator is assumed to be whitespace and additional whitespace is consumed during the parsing.");
         _ComplexTypeDefinitionOBJ.setDmdID("7");
@@ -545,6 +562,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ComplexTypeDefinitionOBJ.addMay("meta.description");
         _ComplexTypeDefinitionOBJ.addMust("meta.name");
         _ComplexTypeDefinitionOBJ.setName("ComplexTypeDefinition");
+        _ComplexTypeDefinitionOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _ComplexTypeDefinitionOBJ.setUseWrapperType("EXTENDED");
         _ComplexTypeDefinition.setDefinedIn(this);
         addClassDefList(_ComplexTypeDefinition);
@@ -552,6 +570,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         ClassDefinitionDMO _ExtendedReferenceTypeDefinitionOBJ = new ClassDefinitionDMO();
         _ExtendedReferenceTypeDefinition = new ClassDefinition(_ExtendedReferenceTypeDefinitionOBJ,MetaDMSAG.__ExtendedReferenceTypeDefinition);
         _ExtendedReferenceTypeDefinitionOBJ.setClassType("STRUCTURAL");
+        _ExtendedReferenceTypeDefinitionOBJ.setDefinedInDmsModule("meta.meta");
         _ExtendedReferenceTypeDefinitionOBJ.setDerivedFrom("meta.ComplexTypeDefinition");
         _ExtendedReferenceTypeDefinitionOBJ.addDescription("The ExtendedReferenceTypeDefinition provides a mechanism for extending  the automatically generated named object reference attribute types with additional information. This can be seen as adding additional information to the relationship between two objects.");
         _ExtendedReferenceTypeDefinitionOBJ.setDmdID("8");
@@ -562,6 +581,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ExtendedReferenceTypeDefinitionOBJ.addMust("meta.name");
         _ExtendedReferenceTypeDefinitionOBJ.addMust("meta.extendedReferenceClass");
         _ExtendedReferenceTypeDefinitionOBJ.setName("ExtendedReferenceTypeDefinition");
+        _ExtendedReferenceTypeDefinitionOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _ExtendedReferenceTypeDefinitionOBJ.setUseWrapperType("EXTENDED");
         _ExtendedReferenceTypeDefinition.setDefinedIn(this);
         addClassDefList(_ExtendedReferenceTypeDefinition);
@@ -569,6 +589,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         ClassDefinitionDMO _AttributeDefinitionOBJ = new ClassDefinitionDMO();
         _AttributeDefinition = new ClassDefinition(_AttributeDefinitionOBJ,MetaDMSAG.__AttributeDefinition);
         _AttributeDefinitionOBJ.setClassType("STRUCTURAL");
+        _AttributeDefinitionOBJ.setDefinedInDmsModule("meta.meta");
         _AttributeDefinitionOBJ.setDerivedFrom("meta.DmsDefinition");
         _AttributeDefinitionOBJ.addDescription("This class is used to define attributes to be used as part of a class definition.");
         _AttributeDefinitionOBJ.setDmdID("9");
@@ -595,6 +616,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _AttributeDefinitionOBJ.addMust("meta.name");
         _AttributeDefinitionOBJ.addMust("meta.type");
         _AttributeDefinitionOBJ.setName("AttributeDefinition");
+        _AttributeDefinitionOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _AttributeDefinitionOBJ.setUseWrapperType("EXTENDED");
         _AttributeDefinition.setDefinedIn(this);
         addClassDefList(_AttributeDefinition);
@@ -602,6 +624,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         ClassDefinitionDMO _SliceDefinitionOBJ = new ClassDefinitionDMO();
         _SliceDefinition = new ClassDefinition(_SliceDefinitionOBJ,MetaDMSAG.__SliceDefinition);
         _SliceDefinitionOBJ.setClassType("STRUCTURAL");
+        _SliceDefinitionOBJ.setDefinedInDmsModule("meta.meta");
         _SliceDefinitionOBJ.setDerivedFrom("meta.DmsDefinition");
         _SliceDefinitionOBJ.addDescription("The SliceDefinition class is used to define a named set of attributes that are used to retrieve a slice of an object i.e. an abbreviated set of values. These are used in the generation of static, named DmcSliceInfo instances.");
         _SliceDefinitionOBJ.setDmdID("10");
@@ -613,6 +636,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _SliceDefinitionOBJ.addMust("meta.name");
         _SliceDefinitionOBJ.addMust("meta.selectAttribute");
         _SliceDefinitionOBJ.setName("SliceDefinition");
+        _SliceDefinitionOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _SliceDefinitionOBJ.setUseWrapperType("EXTENDED");
         _SliceDefinition.setDefinedIn(this);
         addClassDefList(_SliceDefinition);
@@ -620,6 +644,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         ClassDefinitionDMO _ActionDefinitionOBJ = new ClassDefinitionDMO();
         _ActionDefinition = new ClassDefinition(_ActionDefinitionOBJ,MetaDMSAG.__ActionDefinition);
         _ActionDefinitionOBJ.setClassType("STRUCTURAL");
+        _ActionDefinitionOBJ.setDefinedInDmsModule("meta.meta");
         _ActionDefinitionOBJ.setDerivedFrom("meta.DmsDefinition");
         _ActionDefinitionOBJ.addDescription("This class is used to define the actions that may be triggered on an object.");
         _ActionDefinitionOBJ.setDmdID("11");
@@ -638,6 +663,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ActionDefinitionOBJ.addMay("meta.maySendProgress");
         _ActionDefinitionOBJ.addMust("meta.name");
         _ActionDefinitionOBJ.setName("ActionDefinition");
+        _ActionDefinitionOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _ActionDefinitionOBJ.setUseWrapperType("EXTENDED");
         _ActionDefinition.setDefinedIn(this);
         addClassDefList(_ActionDefinition);
@@ -645,6 +671,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         ClassDefinitionDMO _SchemaDefinitionOBJ = new ClassDefinitionDMO();
         _SchemaDefinition = new ClassDefinition(_SchemaDefinitionOBJ,MetaDMSAG.__SchemaDefinition);
         _SchemaDefinitionOBJ.setClassType("STRUCTURAL");
+        _SchemaDefinitionOBJ.setDefinedInDmsModule("meta.meta");
         _SchemaDefinitionOBJ.setDerivedFrom("meta.DmsDefinition");
         _SchemaDefinitionOBJ.addDescription("This class is used to define a schema as a discrete, nameable entity.");
         _SchemaDefinitionOBJ.setDmdID("12");
@@ -677,6 +704,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _SchemaDefinitionOBJ.addMust("meta.schemaBaseID");
         _SchemaDefinitionOBJ.addMust("meta.schemaIDRange");
         _SchemaDefinitionOBJ.setName("SchemaDefinition");
+        _SchemaDefinitionOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _SchemaDefinitionOBJ.setUseWrapperType("EXTENDED");
         _SchemaDefinition.setDefinedIn(this);
         addClassDefList(_SchemaDefinition);
@@ -684,6 +712,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         ClassDefinitionDMO _RuleCategoryOBJ = new ClassDefinitionDMO();
         _RuleCategory = new ClassDefinition(_RuleCategoryOBJ,MetaDMSAG.__RuleCategory);
         _RuleCategoryOBJ.setClassType("STRUCTURAL");
+        _RuleCategoryOBJ.setDefinedInDmsModule("meta.meta");
         _RuleCategoryOBJ.setDerivedFrom("meta.DmsDefinition");
         _RuleCategoryOBJ.addDescription("The RuleCategory allows for the definition of categories of rules to be applied to various objects and indicates the expected interface to be implemented by a rule instance. A RuleDefinition may belong to multiple categories.  <p/> RuleCategories fall into two broad types, ATTRIBUTE and CLASS level, as specified via the ruleType attribute. When a RuleDefinition belongs to an ATTRIBUTE level category, its instances will have a mandatory applyToAttribute attribute. Both ATTRIBUTE and CLASS level RuleDefinitions have an optional applyToClass attribute by default. <p/> Specifying a RuleCategory will cause the generation of several artifacts including: <ul> <li> a category interface: this interface will be created based on the ruleParam values and will be implemented by RuleDefinitions that are part of the category </li> a rule collection: this is a category specific collection of rules that organize the rule instances in this category. </ul> Exactly how a RuleCategory applies rule instances is category specific and this behaviour should be part of the description of a rule category. <p/> For CLASS level rules, you must specify the classInfoFromParam attribute to indicate how to  get the DmcClassInfo from whatever object you are passing to the rule. For ATTRIBUTE level rules, you must specify both attributeInfoFromParam and classInfoFromParam.");
         _RuleCategoryOBJ.setDmdID("15");
@@ -700,6 +729,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _RuleCategoryOBJ.addMust("meta.ruleParam");
         _RuleCategoryOBJ.addMust("meta.classInfoFromParam");
         _RuleCategoryOBJ.setName("RuleCategory");
+        _RuleCategoryOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _RuleCategoryOBJ.setUseWrapperType("EXTENDED");
         _RuleCategory.setDefinedIn(this);
         addClassDefList(_RuleCategory);
@@ -707,6 +737,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         ClassDefinitionDMO _RuleDefinitionOBJ = new ClassDefinitionDMO();
         _RuleDefinition = new ClassDefinition(_RuleDefinitionOBJ,MetaDMSAG.__RuleDefinition);
         _RuleDefinitionOBJ.setClassType("STRUCTURAL");
+        _RuleDefinitionOBJ.setDefinedInDmsModule("meta.meta");
         _RuleDefinitionOBJ.setDerivedFrom("meta.DmsDefinition");
         _RuleDefinitionOBJ.addDescription("The RuleDefinition allows for the definition of rules that can be applied to attributes or classes. Rules are not just for validation, they can be applied to objects at different times in an object's life cycle e.g.  the InitRule can initialize a set of attributes to known values. <p/> RuleDefinitions will result in the generation of ClassDefinitions that define the  DMOs that will carry the parameters associated with the rule and the expectation that you will define an implementation class for the rule that derives from an abstract BaseImpl (base implementation) of the rule that provides common rule infrastructure and appropriate abstract methods that must be filled in. <p/> RuleDefinitions and ClassDefinitions share the same dmdID space and the IDs must be unique. This is because each RuleDefinition results in the creation of a  ClassDefinition for the DMO part of the rule that carries the rule parameters.");
         _RuleDefinitionOBJ.setDmdID("16");
@@ -722,6 +753,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _RuleDefinitionOBJ.addMust("meta.ruleCategory");
         _RuleDefinitionOBJ.addMust("meta.dmdID");
         _RuleDefinitionOBJ.setName("RuleDefinition");
+        _RuleDefinitionOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _RuleDefinitionOBJ.setUseWrapperType("EXTENDED");
         _RuleDefinition.setDefinedIn(this);
         addClassDefList(_RuleDefinition);
@@ -729,6 +761,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         ClassDefinitionDMO _RuleDataOBJ = new ClassDefinitionDMO();
         _RuleData = new ClassDefinition(_RuleDataOBJ,MetaDMSAG.__RuleData);
         _RuleDataOBJ.setClassType("ABSTRACT");
+        _RuleDataOBJ.setDefinedInDmsModule("meta.meta");
         _RuleDataOBJ.addDescription("The RuleData class serves as a common base for all ClassDefinitions that are generated internally to represent the data associated with RuleDefinitions.");
         _RuleDataOBJ.setDmdID("17");
         _RuleDataOBJ.setDmoImport("org.dmd.dms.shared.generated.dmo.RuleDataDMO");
@@ -752,6 +785,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         ClassDefinitionDMO _DependencyOBJ = new ClassDefinitionDMO();
         _Dependency = new ClassDefinition(_DependencyOBJ,MetaDMSAG.__Dependency);
         _DependencyOBJ.setClassType("STRUCTURAL");
+        _DependencyOBJ.setDefinedInDmsModule("meta.meta");
         _DependencyOBJ.setDerivedFrom("meta.DmsDefinition");
         _DependencyOBJ.addDescription("The Dependency class allows for the definition of a named dependency on something; usually an interface. In the current schema mechanisms, the only place that this mechanism is used is in the specification of RuleDefinitions. Rule instances are created by injecting RuleData into a rule implementation. If the rule implementation has dependencies on other objects, those dependencies are specified via references to Dependencies. <p/> A Dependency can be referred to via a RunContext definition which directs the generation of code that can instantiate the required object instances. Satisfying a Dependency relies on there being a DependencyImplementation that indicates how to instantiate the object that implements the interface defined by the dependency. <p/> If a Dependency specifies an instantiation, this is considered the default mechanism to fulfill the dependency. Other DependencyImplementations may be specified that override the specified instantiation in particular contexts.");
         _DependencyOBJ.setDmdID("18");
@@ -764,6 +798,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _DependencyOBJ.addMust("meta.name");
         _DependencyOBJ.addMust("meta.useInterface");
         _DependencyOBJ.setName("Dependency");
+        _DependencyOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _DependencyOBJ.setUseWrapperType("EXTENDED");
         _Dependency.setDefinedIn(this);
         addClassDefList(_Dependency);
@@ -771,6 +806,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         ClassDefinitionDMO _DependencyImplementationOBJ = new ClassDefinitionDMO();
         _DependencyImplementation = new ClassDefinition(_DependencyImplementationOBJ,MetaDMSAG.__DependencyImplementation);
         _DependencyImplementationOBJ.setClassType("STRUCTURAL");
+        _DependencyImplementationOBJ.setDefinedInDmsModule("meta.meta");
         _DependencyImplementationOBJ.setDerivedFrom("meta.DmsDefinition");
         _DependencyImplementationOBJ.addDescription("The DependencyImplementation allows you to fulfill a defined Dependency. When a RunContext is specified, it will indicate a set of dependencies. For each of the specified dependencies, there must be at least one related DependencyImplementation, otherwise, we have no way to fulfill the dependency.");
         _DependencyImplementationOBJ.setDmdID("19");
@@ -784,6 +820,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _DependencyImplementationOBJ.addMust("meta.runContext");
         _DependencyImplementationOBJ.addMust("meta.instantiation");
         _DependencyImplementationOBJ.setName("DependencyImplementation");
+        _DependencyImplementationOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _DependencyImplementationOBJ.setUseWrapperType("EXTENDED");
         _DependencyImplementation.setDefinedIn(this);
         addClassDefList(_DependencyImplementation);
@@ -791,6 +828,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         ClassDefinitionDMO _RunContextOBJ = new ClassDefinitionDMO();
         _RunContext = new ClassDefinition(_RunContextOBJ,MetaDMSAG.__RunContext);
         _RunContextOBJ.setClassType("STRUCTURAL");
+        _RunContextOBJ.setDefinedInDmsModule("meta.meta");
         _RunContextOBJ.setDerivedFrom("meta.DmsDefinition");
         _RunContextOBJ.setDmdID("20");
         _RunContextOBJ.setDmoImport("org.dmd.dms.shared.generated.dmo.DependencyDMO");
@@ -801,6 +839,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _RunContextOBJ.addMust("meta.name");
         _RunContextOBJ.addMust("meta.dependencies");
         _RunContextOBJ.setName("RunContext");
+        _RunContextOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _RunContextOBJ.setUseWrapperType("EXTENDED");
         _RunContext.setDefinedIn(this);
         addClassDefList(_RunContext);
@@ -808,6 +847,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         ClassDefinitionDMO _ConcinnityOBJ = new ClassDefinitionDMO();
         _Concinnity = new ClassDefinition(_ConcinnityOBJ,MetaDMSAG.__Concinnity);
         _ConcinnityOBJ.setClassType("ABSTRACT");
+        _ConcinnityOBJ.setDefinedInDmsModule("meta.meta");
         _ConcinnityOBJ.setDerivedFrom("meta.DSDefinition");
         _ConcinnityOBJ.addDescription("When concinnity was conceived, it was conceived as a way of binding knowledge across different domains. As the newer approach to generating Domain Specific Definitions arose, it became easier to create DSLs for different domains and I wanted concinnity to make use of those mechanisms. However, to do that would have required significant changes to the meta schema generator and a great deal of hacking. I wanted to be able to refer to concinnity aspects from schema as well, so the compromise is to place the base class for Concinnity in the meta schema (so that reference attributes may refer to it).  <p/> Mechanisms exist to prevent any class other than ConcinnityDefinition from deriving directly from Concinnity, so you can be guaranteed that down casting a Concinnity reference will yield a ConcinnityDefinition.");
         _ConcinnityOBJ.setDmdID("42");
@@ -820,12 +860,43 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _Concinnity.setDefinedIn(this);
         addClassDefList(_Concinnity);
 
+        ClassDefinitionDMO _DmsModuleOBJ = new ClassDefinitionDMO();
+        _DmsModule = new ClassDefinition(_DmsModuleOBJ,MetaDMSAG.__DmsModule);
+        _DmsModuleOBJ.setClassType("STRUCTURAL");
+        _DmsModuleOBJ.setDefinedIn("meta.meta");
+        _DmsModuleOBJ.setDefinedInDmsModule("meta.meta");
+        _DmsModuleOBJ.setDerivedFrom("meta.DmsDefinition");
+        _DmsModuleOBJ.setDmdID("21");
+        _DmsModuleOBJ.setDmoImport("org.dmd.dms.shared.generated.dmo.DmsModuleDMO");
+        _DmsModuleOBJ.setDotName("meta.DmsModule.ClassDefinition");
+        _DmsModuleOBJ.setDsdModuleDefinition("meta.DmsModule");
+        _DmsModuleOBJ.setFile("/Users/peterstrong/Development/dark-matter/dark-matter-refactor/src/org/dmd/dms/shared/dmconfig/module.dmd");
+        _DmsModuleOBJ.setInternallyGenerated("true");
+        _DmsModuleOBJ.setIsNamedBy("meta.name");
+        _DmsModuleOBJ.setJavaClass("org.dmd.dms.server.extended.DmsModule");
+        _DmsModuleOBJ.setLineNumber("1");
+        _DmsModuleOBJ.addMay("meta.description");
+        _DmsModuleOBJ.addMay("meta.defFiles");
+        _DmsModuleOBJ.addMay("meta.dmwPackage");
+        _DmsModuleOBJ.addMay("meta.dmwTypeToPackage");
+        _DmsModuleOBJ.addMay("meta.dependsOnDmsModule");
+        _DmsModuleOBJ.addMust("meta.name");
+        _DmsModuleOBJ.addMust("meta.schemaPackage");
+        _DmsModuleOBJ.addMust("meta.schemaBaseID");
+        _DmsModuleOBJ.addMust("meta.schemaIDRange");
+        _DmsModuleOBJ.setName("DmsModule");
+        _DmsModuleOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
+        _DmsModuleOBJ.setUseWrapperType("EXTENDED");
+        _DmsModule.setDefinedIn(this);
+        addClassDefList(_DmsModule);
+
     }
     // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatter.dumpInitAttributes(MetaSchemaFormatter.java:204)
     private void initAttributes() throws DMFeedbackSet {
 
         AttributeDefinitionDMO _FQNOBJ = new AttributeDefinitionDMO();
         _FQN = new AttributeDefinition(_FQNOBJ);
+        _FQNOBJ.setDefinedInDmsModule("meta.meta");
         _FQNOBJ.addDescription("The fully qualified name of a hierarchic object. The exact form of the fqn is application specific.");
         _FQNOBJ.setDesignatedNameAttribute("true");
         _FQNOBJ.setDmdID("84");
@@ -836,6 +907,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _abbrevOBJ = new AttributeDefinitionDMO();
         _abbrev = new AttributeDefinition(_abbrevOBJ);
+        _abbrevOBJ.setDefinedInDmsModule("meta.meta");
         _abbrevOBJ.addDescription("This attribute stores an abbreviated form of the name of an attribute or class. This concept is borrowed from directory technology where shortened name forms are often used as part of distinguished names (DNs).");
         _abbrevOBJ.setDmdID("9");
         _abbrevOBJ.setName("abbrev");
@@ -845,6 +917,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _actionDefListOBJ = new AttributeDefinitionDMO();
         _actionDefList = new AttributeDefinition(_actionDefListOBJ);
+        _actionDefListOBJ.setDefinedInDmsModule("meta.meta");
         _actionDefListOBJ.addDescription("A list of action definition references.");
         _actionDefListOBJ.setDmdID("60");
         _actionDefListOBJ.setInternalUse("true");
@@ -856,6 +929,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _actionsOBJ = new AttributeDefinitionDMO();
         _actions = new AttributeDefinition(_actionsOBJ);
+        _actionsOBJ.setDefinedInDmsModule("meta.meta");
         _actionsOBJ.addDescription("Indicates the set of actions that are supported by a class of objects.");
         _actionsOBJ.setDmdID("32");
         _actionsOBJ.setName("actions");
@@ -866,6 +940,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _allowedParentsOBJ = new AttributeDefinitionDMO();
         _allowedParents = new AttributeDefinition(_allowedParentsOBJ);
+        _allowedParentsOBJ.setDefinedInDmsModule("meta.meta");
         _allowedParentsOBJ.addDescription("Indicates the classes of object that may be parents of the current class when objects are created in an instance hierarchy.");
         _allowedParentsOBJ.setDmdID("62");
         _allowedParentsOBJ.setName("allowedParents");
@@ -876,6 +951,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _altTypeOBJ = new AttributeDefinitionDMO();
         _altType = new AttributeDefinition(_altTypeOBJ);
+        _altTypeOBJ.setDefinedInDmsModule("meta.meta");
         _altTypeOBJ.addDescription("The altType indicates an alternate type for a value. For instance when dealing with NameContainers, the value interface is obviously NameContainer, but the secret sauce of NameContainers is that they also take any DmcObjectName derivative. Specifying the altType on the NameContainer TypeDefinition allows for generation of  the DmcObjectName interface as well.");
         _altTypeOBJ.setDmdID("108");
         _altTypeOBJ.setName("altType");
@@ -885,6 +961,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _altTypeImportOBJ = new AttributeDefinitionDMO();
         _altTypeImport = new AttributeDefinition(_altTypeImportOBJ);
+        _altTypeImportOBJ.setDefinedInDmsModule("meta.meta");
         _altTypeImportOBJ.addDescription("An additional import (if required) by the altType attribute value.");
         _altTypeImportOBJ.setDmdID("109");
         _altTypeImportOBJ.setName("altTypeImport");
@@ -894,6 +971,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _applyToAttributeOBJ = new AttributeDefinitionDMO();
         _applyToAttribute = new AttributeDefinition(_applyToAttributeOBJ);
+        _applyToAttributeOBJ.setDefinedInDmsModule("meta.meta");
         _applyToAttributeOBJ.addDescription("Indicates the attribute to which an ATTRIBUTE type rule is applied.");
         _applyToAttributeOBJ.setDmdID("157");
         _applyToAttributeOBJ.setName("applyToAttribute");
@@ -903,6 +981,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _applyToClassOBJ = new AttributeDefinitionDMO();
         _applyToClass = new AttributeDefinition(_applyToClassOBJ);
+        _applyToClassOBJ.setDefinedInDmsModule("meta.meta");
         _applyToClassOBJ.addDescription("The class to which a rule should be applied.");
         _applyToClassOBJ.setDmdID("154");
         _applyToClassOBJ.setName("applyToClass");
@@ -912,6 +991,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _attachToClassOBJ = new AttributeDefinitionDMO();
         _attachToClass = new AttributeDefinition(_attachToClassOBJ);
+        _attachToClassOBJ.setDefinedInDmsModule("meta.meta");
         _attachToClassOBJ.addDescription("Indicates the classes of object to which an action is to be attached. This mechanism allows for the extension of a class's behaviour without having to alter the schema of the class involved. This can be viewed as the auxiliary class equivalent for behaviour.");
         _attachToClassOBJ.setDmdID("65");
         _attachToClassOBJ.setName("attachToClass");
@@ -922,6 +1002,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _attributeDefListOBJ = new AttributeDefinitionDMO();
         _attributeDefList = new AttributeDefinition(_attributeDefListOBJ);
+        _attributeDefListOBJ.setDefinedInDmsModule("meta.meta");
         _attributeDefListOBJ.addDescription("A list of attribute definition references.");
         _attributeDefListOBJ.setDmdID("59");
         _attributeDefListOBJ.setInternalUse("true");
@@ -933,6 +1014,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _attributeInfoFromParamOBJ = new AttributeDefinitionDMO();
         _attributeInfoFromParam = new AttributeDefinition(_attributeInfoFromParamOBJ);
+        _attributeInfoFromParamOBJ.setDefinedInDmsModule("meta.meta");
         _attributeInfoFromParamOBJ.addDescription("Indicates how the DmcAttributeInfo should be extracted from one of the ruleParam values associated with a RuleCategory. If additional classes are required to support this access, you can specify ruleImport values as appropriate.");
         _attributeInfoFromParamOBJ.setDmdID("155");
         _attributeInfoFromParamOBJ.setName("attributeInfoFromParam");
@@ -942,6 +1024,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _baseDefinitionOBJ = new AttributeDefinitionDMO();
         _baseDefinition = new AttributeDefinition(_baseDefinitionOBJ);
+        _baseDefinitionOBJ.setDefinedInDmsModule("meta.meta");
         _baseDefinitionOBJ.addDescription("A reference to the DSDefinition derived class that is the base class for a  set of definition classes.");
         _baseDefinitionOBJ.setDmdID("164");
         _baseDefinitionOBJ.setName("baseDefinition");
@@ -951,6 +1034,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _baseTypeOBJ = new AttributeDefinitionDMO();
         _baseType = new AttributeDefinition(_baseTypeOBJ);
+        _baseTypeOBJ.setDefinedInDmsModule("meta.meta");
         _baseTypeOBJ.addDescription("The broad base type of the data.");
         _baseTypeOBJ.setDmdID("135");
         _baseTypeOBJ.setName("baseType");
@@ -960,6 +1044,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _camelCaseNameOBJ = new AttributeDefinitionDMO();
         _camelCaseName = new AttributeDefinition(_camelCaseNameOBJ);
+        _camelCaseNameOBJ.setDefinedInDmsModule("meta.meta");
         _camelCaseNameOBJ.addDescription("The camelCaseName attribute is used to store a single camelCase format name for something. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other characters are allowed.");
         _camelCaseNameOBJ.setDesignatedNameAttribute("true");
         _camelCaseNameOBJ.setDmdID("116");
@@ -970,6 +1055,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _classDefListOBJ = new AttributeDefinitionDMO();
         _classDefList = new AttributeDefinition(_classDefListOBJ);
+        _classDefListOBJ.setDefinedInDmsModule("meta.meta");
         _classDefListOBJ.addDescription("A list of class definition references.");
         _classDefListOBJ.setDmdID("55");
         _classDefListOBJ.setInternalUse("true");
@@ -981,6 +1067,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _classFilterOBJ = new AttributeDefinitionDMO();
         _classFilter = new AttributeDefinition(_classFilterOBJ);
+        _classFilterOBJ.setDefinedInDmsModule("meta.meta");
         _classFilterOBJ.addDescription("The classFilter is used to performing matching of objects based on their class or auxiliary classes.");
         _classFilterOBJ.setDesignatedFilterAttribute("true");
         _classFilterOBJ.setDmdID("128");
@@ -991,6 +1078,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _classInfoFromParamOBJ = new AttributeDefinitionDMO();
         _classInfoFromParam = new AttributeDefinition(_classInfoFromParamOBJ);
+        _classInfoFromParamOBJ.setDefinedInDmsModule("meta.meta");
         _classInfoFromParamOBJ.addDescription("Indicates how the DmcClassInfo should be extracted from one of the ruleParam values associated with a RuleCategory. If additional classes are required to support this access, you can specify ruleImport values as appropriate.");
         _classInfoFromParamOBJ.setDmdID("151");
         _classInfoFromParamOBJ.setName("classInfoFromParam");
@@ -1000,6 +1088,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _classTypeOBJ = new AttributeDefinitionDMO();
         _classType = new AttributeDefinition(_classTypeOBJ);
+        _classTypeOBJ.setDefinedInDmsModule("meta.meta");
         _classTypeOBJ.addDescription("This attribute indicates the type of a class definition.");
         _classTypeOBJ.setDmdID("10");
         _classTypeOBJ.setName("classType");
@@ -1009,6 +1098,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _codeCommentOBJ = new AttributeDefinitionDMO();
         _codeComment = new AttributeDefinition(_codeCommentOBJ);
+        _codeCommentOBJ.setDefinedInDmsModule("meta.meta");
         _codeCommentOBJ.addDescription("A brief comment that will be included in generated code to give users a basic idea of what the purpose of something like an attribute or class or type is for. For more long winded explanations, you should use the description attribute whose contents are used as the basis for HTML based documentation. <p/> By convention, generated HTML will have the code comments followed by the description followed by any examples you've provided.");
         _codeCommentOBJ.setDmdID("188");
         _codeCommentOBJ.setName("codeComment");
@@ -1019,6 +1109,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _commentOBJ = new AttributeDefinitionDMO();
         _comment = new AttributeDefinition(_commentOBJ);
+        _commentOBJ.setDefinedInDmsModule("meta.meta");
         _commentOBJ.addDescription("A comment or note associated with the definition of something. For code that's generated from a definition, comments may be added to the code, as opposed to  descriptions which are meant to assist in generating documentation. In the end, it's up to the designer of a DSL to determine how comments are used.");
         _commentOBJ.setDmdID("185");
         _commentOBJ.setName("comment");
@@ -1029,6 +1120,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _complexTypeDefListOBJ = new AttributeDefinitionDMO();
         _complexTypeDefList = new AttributeDefinition(_complexTypeDefListOBJ);
+        _complexTypeDefListOBJ.setDefinedInDmsModule("meta.meta");
         _complexTypeDefListOBJ.addDescription("A list of complex type definition references.");
         _complexTypeDefListOBJ.setDmdID("117");
         _complexTypeDefListOBJ.setInternalUse("true");
@@ -1040,6 +1132,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _createAttributeFactoryOBJ = new AttributeDefinitionDMO();
         _createAttributeFactory = new AttributeDefinition(_createAttributeFactoryOBJ);
+        _createAttributeFactoryOBJ.setDefinedInDmsModule("meta.meta");
         _createAttributeFactoryOBJ.addDescription("When specified as true on a SchemaDefinition, the DMO generation utility will create a free standing AttributeFactory for the schema. This allows for the creation of attributes taht can then be embedded in complex objects and properly serialized/deserialized.");
         _createAttributeFactoryOBJ.setDmdID("89");
         _createAttributeFactoryOBJ.setName("createAttributeFactory");
@@ -1049,6 +1142,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _dataTypeOBJ = new AttributeDefinitionDMO();
         _dataType = new AttributeDefinition(_dataTypeOBJ);
+        _dataTypeOBJ.setDefinedInDmsModule("meta.meta");
         _dataTypeOBJ.addDescription("This attribute indicates the persistence characteristics of an attribute or class of object. How this information is used is application dependent.");
         _dataTypeOBJ.setDmdID("11");
         _dataTypeOBJ.setName("dataType");
@@ -1058,6 +1152,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _defFilesOBJ = new AttributeDefinitionDMO();
         _defFiles = new AttributeDefinition(_defFilesOBJ);
+        _defFilesOBJ.setDefinedInDmsModule("meta.meta");
         _defFilesOBJ.addDescription("A list of files that contain the class, attribute and type definitions that comprise a schema.");
         _defFilesOBJ.setDmdID("68");
         _defFilesOBJ.setName("defFiles");
@@ -1068,6 +1163,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _definedInOBJ = new AttributeDefinitionDMO();
         _definedIn = new AttributeDefinition(_definedInOBJ);
+        _definedInOBJ.setDefinedInDmsModule("meta.meta");
         _definedInOBJ.addDescription("Indicates the schema in which a type, attribute or class is defined.");
         _definedInOBJ.setDmdID("61");
         _definedInOBJ.setInternalUse("true");
@@ -1076,8 +1172,19 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _definedIn.setDefinedIn(this);
         addAttributeDefList(_definedIn);
 
+        AttributeDefinitionDMO _definedInDmsModuleOBJ = new AttributeDefinitionDMO();
+        _definedInDmsModule = new AttributeDefinition(_definedInDmsModuleOBJ);
+        _definedInDmsModuleOBJ.setDefinedInDmsModule("meta.meta");
+        _definedInDmsModuleOBJ.addDescription("The dark-matter schema module (DmsModule) in which something is defined.");
+        _definedInDmsModuleOBJ.setDmdID("189");
+        _definedInDmsModuleOBJ.setName("definedInDmsModule");
+        _definedInDmsModuleOBJ.setType("meta.DmsModule");
+        _definedInDmsModule.setDefinedIn(this);
+        addAttributeDefList(_definedInDmsModule);
+
         AttributeDefinitionDMO _definedInModuleAttributeOBJ = new AttributeDefinitionDMO();
         _definedInModuleAttribute = new AttributeDefinition(_definedInModuleAttributeOBJ);
+        _definedInModuleAttributeOBJ.setDefinedInDmsModule("meta.meta");
         _definedInModuleAttributeOBJ.addDescription("The name of the attribute that will be set on all definitions associated with a DSD to indicate the module from which a definition was loaded.");
         _definedInModuleAttributeOBJ.setDmdID("167");
         _definedInModuleAttributeOBJ.setName("definedInModuleAttribute");
@@ -1087,6 +1194,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _dependenciesOBJ = new AttributeDefinitionDMO();
         _dependencies = new AttributeDefinition(_dependenciesOBJ);
+        _dependenciesOBJ.setDefinedInDmsModule("meta.meta");
         _dependenciesOBJ.addDescription("A set of references to Dependencies.");
         _dependenciesOBJ.setDmdID("147");
         _dependenciesOBJ.setName("dependencies");
@@ -1097,6 +1205,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _dependencyOBJ = new AttributeDefinitionDMO();
         _dependency = new AttributeDefinition(_dependencyOBJ);
+        _dependencyOBJ.setDefinedInDmsModule("meta.meta");
         _dependencyOBJ.addDescription("A reference to a single Dependency.");
         _dependencyOBJ.setDmdID("146");
         _dependencyOBJ.setName("dependency");
@@ -1106,6 +1215,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _dependsOnOBJ = new AttributeDefinitionDMO();
         _dependsOn = new AttributeDefinition(_dependsOnOBJ);
+        _dependsOnOBJ.setDefinedInDmsModule("meta.meta");
         _dependsOnOBJ.addDescription("A list of schema names.");
         _dependsOnOBJ.setDmdID("66");
         _dependsOnOBJ.setName("dependsOn");
@@ -1114,8 +1224,20 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _dependsOn.setDefinedIn(this);
         addAttributeDefList(_dependsOn);
 
+        AttributeDefinitionDMO _dependsOnDmsModuleOBJ = new AttributeDefinitionDMO();
+        _dependsOnDmsModule = new AttributeDefinition(_dependsOnDmsModuleOBJ);
+        _dependsOnDmsModuleOBJ.setDefinedInDmsModule("meta.meta");
+        _dependsOnDmsModuleOBJ.addDescription("The dark-matter schema modules on which a module depends.");
+        _dependsOnDmsModuleOBJ.setDmdID("190");
+        _dependsOnDmsModuleOBJ.setName("dependsOnDmsModule");
+        _dependsOnDmsModuleOBJ.setType("meta.DmsModule");
+        _dependsOnDmsModuleOBJ.setValueType("MULTI");
+        _dependsOnDmsModule.setDefinedIn(this);
+        addAttributeDefList(_dependsOnDmsModule);
+
         AttributeDefinitionDMO _dependsOnRefOBJ = new AttributeDefinitionDMO();
         _dependsOnRef = new AttributeDefinition(_dependsOnRefOBJ);
+        _dependsOnRefOBJ.setDefinedInDmsModule("meta.meta");
         _dependsOnRefOBJ.addDescription("A list of schema references that are based on the contents of the dependsOn attribute.");
         _dependsOnRefOBJ.setDmdID("67");
         _dependsOnRefOBJ.setInternalUse("true");
@@ -1127,6 +1249,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _dependsOnSchemaOBJ = new AttributeDefinitionDMO();
         _dependsOnSchema = new AttributeDefinition(_dependsOnSchemaOBJ);
+        _dependsOnSchemaOBJ.setDefinedInDmsModule("meta.meta");
         _dependsOnSchemaOBJ.addDescription("Indicates the schema(s) on which something depends.");
         _dependsOnSchemaOBJ.setDmdID("120");
         _dependsOnSchemaOBJ.setName("dependsOnSchema");
@@ -1137,6 +1260,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _derivedClassesOBJ = new AttributeDefinitionDMO();
         _derivedClasses = new AttributeDefinition(_derivedClassesOBJ);
+        _derivedClassesOBJ.setDefinedInDmsModule("meta.meta");
         _derivedClassesOBJ.addDescription("Indicates the classes that are known to be derived from a class.");
         _derivedClassesOBJ.setDmdID("25");
         _derivedClassesOBJ.setInternalUse("true");
@@ -1148,6 +1272,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _derivedFromOBJ = new AttributeDefinitionDMO();
         _derivedFrom = new AttributeDefinition(_derivedFromOBJ);
+        _derivedFromOBJ.setDefinedInDmsModule("meta.meta");
         _derivedFromOBJ.addDescription("Indicates the abstract or structural class from which this class is derived.");
         _derivedFromOBJ.setDmdID("21");
         _derivedFromOBJ.setName("derivedFrom");
@@ -1157,7 +1282,9 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _descriptionOBJ = new AttributeDefinitionDMO();
         _description = new AttributeDefinition(_descriptionOBJ);
-        _descriptionOBJ.addDescription("The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation.");
+        _descriptionOBJ.setDefinedInDmsModule("meta.meta");
+        _descriptionOBJ.addDescription("The detailed description of some concept definition.");
+        _descriptionOBJ.addDescription("The description is multi-valued and is used in the generation of documentation. By convention, it should follow XHTML guidelines in terms of its content.  <p/> Also by convention, the first element of the description should be a short, simple indication of the concept that is suitable for inclusion as a code comment; this is primarily used in dark-matter schema (DMS) specifications since dark-matter object (DMO) and dark-matter wrapper (DMW) Java code is generated from these specifications. <p/> When defining your own Domain Specific Languages (DSLs), feel free to follow whatever conventions make sense for your purposes.");
         _descriptionOBJ.setDmdID("18");
         _descriptionOBJ.setName("description");
         _descriptionOBJ.setPreserveNewlines("true");
@@ -1168,6 +1295,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _designatedFilterAttributeOBJ = new AttributeDefinitionDMO();
         _designatedFilterAttribute = new AttributeDefinition(_designatedFilterAttributeOBJ);
+        _designatedFilterAttributeOBJ.setDefinedInDmsModule("meta.meta");
         _designatedFilterAttributeOBJ.addDescription("The designatedFilterAttribute flag is used to identify the attribute designated as the standard wrapper for filters of a particular type.  One, and only one, attribute definition can be the designatedFilterAttribute for a  TypeDefinition that is identified as isFilterType.");
         _designatedFilterAttributeOBJ.setDmdID("126");
         _designatedFilterAttributeOBJ.setName("designatedFilterAttribute");
@@ -1177,6 +1305,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _designatedNameAttributeOBJ = new AttributeDefinitionDMO();
         _designatedNameAttribute = new AttributeDefinition(_designatedNameAttributeOBJ);
+        _designatedNameAttributeOBJ.setDefinedInDmsModule("meta.meta");
         _designatedNameAttributeOBJ.addDescription("The designatedNameAttribute flag is used to identify the attribute designated as the standard wrapper for names of a particular type. One, and only one, attribute definition can be the designatedNameAttribute for a TypeDefinition that has isNameType true.");
         _designatedNameAttributeOBJ.setDmdID("102");
         _designatedNameAttributeOBJ.setName("designatedNameAttribute");
@@ -1187,6 +1316,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         AttributeDefinitionDMO _dmdIDOBJ = new AttributeDefinitionDMO();
         _dmdID = new AttributeDefinition(_dmdIDOBJ);
         _dmdIDOBJ.addCodeComment("The unique integer identifier associated with  a dark-matter schema class or attribute.");
+        _dmdIDOBJ.setDefinedInDmsModule("meta.meta");
         _dmdIDOBJ.addDescription("Dark-matter identifiers facilitate the compact serialization of dark-matter objects (DMOs); see the serializeIt() and deserializeIt() methods of the DmcObject. <p/> This mechanism also allows for compact transport of dark-matter objects when used with Google Web Toolkit (GWT) RPC mechanisms. When objects are passed back and forth via RPC, the dark-matter identifiers are used instead of the string-based attribute names, which are usually much more lengthy. This optimization is transparently supported by the  DmcObject; you don't need to worry about how it's achieved. <p/> However, if you're curious, have a look at the Compact Schema documentation.");
         _dmdIDOBJ.setDmdID("3");
         _dmdIDOBJ.setName("dmdID");
@@ -1196,6 +1326,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _dmeClassOBJ = new AttributeDefinitionDMO();
         _dmeClass = new AttributeDefinition(_dmeClassOBJ);
+        _dmeClassOBJ.setDefinedInDmsModule("meta.meta");
         _dmeClassOBJ.addDescription("This attribute indicates just the Dark Matter Extended (DME) class name.");
         _dmeClassOBJ.setDmdID("44");
         _dmeClassOBJ.setInternalUse("true");
@@ -1206,6 +1337,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _dmeImportOBJ = new AttributeDefinitionDMO();
         _dmeImport = new AttributeDefinition(_dmeImportOBJ);
+        _dmeImportOBJ.setDefinedInDmsModule("meta.meta");
         _dmeImportOBJ.addDescription("This attribute indicates the full name of the class that extends a DMW class. Dark Matter Extended (DME).");
         _dmeImportOBJ.setDmdID("43");
         _dmeImportOBJ.setInternalUse("true");
@@ -1216,6 +1348,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _dmoAuxClassOBJ = new AttributeDefinitionDMO();
         _dmoAuxClass = new AttributeDefinition(_dmoAuxClassOBJ);
+        _dmoAuxClassOBJ.setDefinedInDmsModule("meta.meta");
         _dmoAuxClassOBJ.addDescription("This attribute indicates just the DMO class name e.g. MyClassAUXDMO");
         _dmoAuxClassOBJ.setDmdID("37");
         _dmoAuxClassOBJ.setInternalUse("true");
@@ -1226,6 +1359,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _dmoAuxClassImportOBJ = new AttributeDefinitionDMO();
         _dmoAuxClassImport = new AttributeDefinition(_dmoAuxClassImportOBJ);
+        _dmoAuxClassImportOBJ.setDefinedInDmsModule("meta.meta");
         _dmoAuxClassImportOBJ.addDescription("This attribute indicates the full name of the MyClassAUXDMO class");
         _dmoAuxClassImportOBJ.setDmdID("38");
         _dmoAuxClassImportOBJ.setInternalUse("true");
@@ -1236,6 +1370,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _dmoClassOBJ = new AttributeDefinitionDMO();
         _dmoClass = new AttributeDefinition(_dmoClassOBJ);
+        _dmoClassOBJ.setDefinedInDmsModule("meta.meta");
         _dmoClassOBJ.addDescription("This attribute indicates just the DMO class name e.g. MyClassDMO");
         _dmoClassOBJ.setDmdID("36");
         _dmoClassOBJ.setInternalUse("true");
@@ -1246,6 +1381,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _dmoImportOBJ = new AttributeDefinitionDMO();
         _dmoImport = new AttributeDefinition(_dmoImportOBJ);
+        _dmoImportOBJ.setDefinedInDmsModule("meta.meta");
         _dmoImportOBJ.addDescription("This attribute indicates the full name of the generated Dark Matter Object (DMO) class (including package) that is generated for this class. The class will always have DmcObject at the top of its derivation hierarchy.");
         _dmoImportOBJ.setDmdID("35");
         _dmoImportOBJ.setInternalUse("true");
@@ -1256,6 +1392,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _dmtClassOBJ = new AttributeDefinitionDMO();
         _dmtClass = new AttributeDefinition(_dmtClassOBJ);
+        _dmtClassOBJ.setDefinedInDmsModule("meta.meta");
         _dmtClassOBJ.addDescription("This attribute indicates just the DmcType class name.");
         _dmtClassOBJ.setDmdID("46");
         _dmtClassOBJ.setInternalUse("true");
@@ -1266,6 +1403,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _dmtImportOBJ = new AttributeDefinitionDMO();
         _dmtImport = new AttributeDefinition(_dmtImportOBJ);
+        _dmtImportOBJ.setDefinedInDmsModule("meta.meta");
         _dmtImportOBJ.addDescription("This attribute indicates the full name of the DmcType class used to reference a class. These types are auto generated and named DmcType<classname>REF.");
         _dmtImportOBJ.setDmdID("45");
         _dmtImportOBJ.setInternalUse("true");
@@ -1276,6 +1414,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _dmtREFImportOBJ = new AttributeDefinitionDMO();
         _dmtREFImport = new AttributeDefinition(_dmtREFImportOBJ);
+        _dmtREFImportOBJ.setDefinedInDmsModule("meta.meta");
         _dmtREFImportOBJ.addDescription("This attribute indicates the full name of the class used to reference a class. These types are auto generated and named <classname>REF.");
         _dmtREFImportOBJ.setDmdID("93");
         _dmtREFImportOBJ.setInternalUse("true");
@@ -1286,6 +1425,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _dmwAuxClassOBJ = new AttributeDefinitionDMO();
         _dmwAuxClass = new AttributeDefinition(_dmwAuxClassOBJ);
+        _dmwAuxClassOBJ.setDefinedInDmsModule("meta.meta");
         _dmwAuxClassOBJ.addDescription("This attribute indicates just the DMO class name e.g. MyClassAUX");
         _dmwAuxClassOBJ.setDmdID("39");
         _dmwAuxClassOBJ.setInternalUse("true");
@@ -1296,6 +1436,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _dmwAuxClassImportOBJ = new AttributeDefinitionDMO();
         _dmwAuxClassImport = new AttributeDefinition(_dmwAuxClassImportOBJ);
+        _dmwAuxClassImportOBJ.setDefinedInDmsModule("meta.meta");
         _dmwAuxClassImportOBJ.addDescription("This attribute indicates the full name of the MyClassAUX class");
         _dmwAuxClassImportOBJ.setDmdID("40");
         _dmwAuxClassImportOBJ.setInternalUse("true");
@@ -1306,6 +1447,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _dmwClassOBJ = new AttributeDefinitionDMO();
         _dmwClass = new AttributeDefinition(_dmwClassOBJ);
+        _dmwClassOBJ.setDefinedInDmsModule("meta.meta");
         _dmwClassOBJ.addDescription("This attribute indicates just the DMW class name, eg MyClassDMW");
         _dmwClassOBJ.setDmdID("42");
         _dmwClassOBJ.setInternalUse("true");
@@ -1316,6 +1458,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _dmwImportOBJ = new AttributeDefinitionDMO();
         _dmwImport = new AttributeDefinition(_dmwImportOBJ);
+        _dmwImportOBJ.setDefinedInDmsModule("meta.meta");
         _dmwImportOBJ.addDescription("This attribute indicates the full name of the generated Dark Matter Wrapper (DMW) class (including package) that is wrapped by this class. The class will always be a derived class of DmwWrapperBase.");
         _dmwImportOBJ.setDmdID("41");
         _dmwImportOBJ.setInternalUse("true");
@@ -1326,6 +1469,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _dmwIteratorClassOBJ = new AttributeDefinitionDMO();
         _dmwIteratorClass = new AttributeDefinition(_dmwIteratorClassOBJ);
+        _dmwIteratorClassOBJ.setDefinedInDmsModule("meta.meta");
         _dmwIteratorClassOBJ.addDescription("This attribute indicates just the DmcContainerIterator name for a class of object.");
         _dmwIteratorClassOBJ.setDmdID("92");
         _dmwIteratorClassOBJ.setInternalUse("true");
@@ -1336,6 +1480,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _dmwIteratorImportOBJ = new AttributeDefinitionDMO();
         _dmwIteratorImport = new AttributeDefinition(_dmwIteratorImportOBJ);
+        _dmwIteratorImportOBJ.setDefinedInDmsModule("meta.meta");
         _dmwIteratorImportOBJ.addDescription("This attribute indicates the full name of the DmcContainerIterator  derived class that allows us to iterate over a set of object references and get back the DMW wrapper object instead of the DMO.");
         _dmwIteratorImportOBJ.setDmdID("91");
         _dmwIteratorImportOBJ.setInternalUse("true");
@@ -1346,6 +1491,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _dmwPackageOBJ = new AttributeDefinitionDMO();
         _dmwPackage = new AttributeDefinition(_dmwPackageOBJ);
+        _dmwPackageOBJ.setDefinedInDmsModule("meta.meta");
         _dmwPackageOBJ.addDescription("Indicates the package where server related Dark Matter Wrapper classes  were generated for this schema. This is used when we're generating derived wrapper classes.");
         _dmwPackageOBJ.setDmdID("54");
         _dmwPackageOBJ.setName("dmwPackage");
@@ -1355,6 +1501,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _dmwTypeToPackageOBJ = new AttributeDefinitionDMO();
         _dmwTypeToPackage = new AttributeDefinition(_dmwTypeToPackageOBJ);
+        _dmwTypeToPackageOBJ.setDefinedInDmsModule("meta.meta");
         _dmwTypeToPackageOBJ.addDescription("The dmwTypeToPackage attribute is used to indicate alternative generation packages for the Dark Matter Wrapper (DMW) code generation mechanisms. For instance, if we  want to generate GXT wrappers for use with Sencha's GXT model classes, we could specify dmwTypeToPackage gxt com.example.client. Each of schemas that's loaded for generation would have to have this same attribute specified so that, if there were derived classes across schemas, the appropriate wrapper derivations could be determined. See the ClassDefintion.adjustClass() method to see how this is used.");
         _dmwTypeToPackageOBJ.setDmdID("123");
         _dmwTypeToPackageOBJ.setName("dmwTypeToPackage");
@@ -1365,6 +1512,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _dmwWrapperTypeOBJ = new AttributeDefinitionDMO();
         _dmwWrapperType = new AttributeDefinition(_dmwWrapperTypeOBJ);
+        _dmwWrapperTypeOBJ.setDefinedInDmsModule("meta.meta");
         _dmwWrapperTypeOBJ.addDescription("The dmwWrapperType is used to indicate whether or not you want extended wrappers when the wrappers are generated for an object in a particular generation context.");
         _dmwWrapperTypeOBJ.setDmdID("124");
         _dmwWrapperTypeOBJ.setName("dmwWrapperType");
@@ -1375,6 +1523,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _dotNameOBJ = new AttributeDefinitionDMO();
         _dotName = new AttributeDefinition(_dotNameOBJ);
+        _dotNameOBJ.setDefinedInDmsModule("meta.meta");
         _dotNameOBJ.addDescription("The dotName attribute is used to store dot separated names.");
         _dotNameOBJ.setDesignatedNameAttribute("true");
         _dotNameOBJ.setDmdID("107");
@@ -1385,6 +1534,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _dsdModuleDefinitionOBJ = new AttributeDefinitionDMO();
         _dsdModuleDefinition = new AttributeDefinition(_dsdModuleDefinitionOBJ);
+        _dsdModuleDefinitionOBJ.setDefinedInDmsModule("meta.meta");
         _dsdModuleDefinitionOBJ.addDescription("The DSDefinitionModule that resulted in the creation of an internally generated ClassDefinition.");
         _dsdModuleDefinitionOBJ.setDmdID("168");
         _dsdModuleDefinitionOBJ.setInternalUse("true");
@@ -1395,6 +1545,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _dsdModuleListOBJ = new AttributeDefinitionDMO();
         _dsdModuleList = new AttributeDefinition(_dsdModuleListOBJ);
+        _dsdModuleListOBJ.setDefinedInDmsModule("meta.meta");
         _dsdModuleListOBJ.addDescription("The set of DSDefinitionModules defined in a schema.");
         _dsdModuleListOBJ.setDmdID("169");
         _dsdModuleListOBJ.setName("dsdModuleList");
@@ -1405,6 +1556,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _enumDefListOBJ = new AttributeDefinitionDMO();
         _enumDefList = new AttributeDefinition(_enumDefListOBJ);
+        _enumDefListOBJ.setDefinedInDmsModule("meta.meta");
         _enumDefListOBJ.addDescription("A list of EnumDefinitions.");
         _enumDefListOBJ.setDmdID("58");
         _enumDefListOBJ.setInternalUse("true");
@@ -1416,6 +1568,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _enumIntOBJ = new AttributeDefinitionDMO();
         _enumInt = new AttributeDefinition(_enumIntOBJ);
+        _enumIntOBJ.setDefinedInDmsModule("meta.meta");
         _enumIntOBJ.addDescription("The integer value associated with an enumeration value.");
         _enumIntOBJ.setDmdID("69");
         _enumIntOBJ.setName("enumInt");
@@ -1425,6 +1578,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _enumNameOBJ = new AttributeDefinitionDMO();
         _enumName = new AttributeDefinition(_enumNameOBJ);
+        _enumNameOBJ.setDefinedInDmsModule("meta.meta");
         _enumNameOBJ.addDescription("The original name of an enum as referred to in the internally generated type for enums.");
         _enumNameOBJ.setDmdID("99");
         _enumNameOBJ.setInternalUse("true");
@@ -1435,6 +1589,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _enumStringOBJ = new AttributeDefinitionDMO();
         _enumString = new AttributeDefinition(_enumStringOBJ);
+        _enumStringOBJ.setDefinedInDmsModule("meta.meta");
         _enumStringOBJ.addDescription("The string value associated with an enumeration value.");
         _enumStringOBJ.setDmdID("70");
         _enumStringOBJ.setName("enumString");
@@ -1444,6 +1599,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _enumValueOBJ = new AttributeDefinitionDMO();
         _enumValue = new AttributeDefinition(_enumValueOBJ);
+        _enumValueOBJ.setDefinedInDmsModule("meta.meta");
         _enumValueOBJ.addDescription("Indicates the set of enum values associated with an enumeration type definition.");
         _enumValueOBJ.setDmdID("33");
         _enumValueOBJ.setName("enumValue");
@@ -1454,6 +1610,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _exampleOBJ = new AttributeDefinitionDMO();
         _example = new AttributeDefinition(_exampleOBJ);
+        _exampleOBJ.setDefinedInDmsModule("meta.meta");
         _exampleOBJ.addDescription("The example attribute is used to provide additional examples of how some defined thing is to be used.");
         _exampleOBJ.setDmdID("63");
         _exampleOBJ.setName("example");
@@ -1465,6 +1622,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _excludeFromContextOBJ = new AttributeDefinitionDMO();
         _excludeFromContext = new AttributeDefinition(_excludeFromContextOBJ);
+        _excludeFromContextOBJ.setDefinedInDmsModule("meta.meta");
         _excludeFromContextOBJ.addDescription("The excludeFromContext attribute is used to indicate that a class of object (and all of its derivatives) should be excluded from the wrapper generation for the specified context. An example usage is in the Dark Matter Protocol where we don't want to generate wrappers for the message objects in a GXT context.");
         _excludeFromContextOBJ.setDmdID("130");
         _excludeFromContextOBJ.setName("excludeFromContext");
@@ -1475,6 +1633,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _extendedClassOBJ = new AttributeDefinitionDMO();
         _extendedClass = new AttributeDefinition(_extendedClassOBJ);
+        _extendedClassOBJ.setDefinedInDmsModule("meta.meta");
         _extendedClassOBJ.addDescription("The extendedClass indicates the fully qualified name of the class that is derived from the generated ComplexType to provide additional behaviour.");
         _extendedClassOBJ.setDmdID("106");
         _extendedClassOBJ.setName("extendedClass");
@@ -1484,6 +1643,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _extendedReferenceClassOBJ = new AttributeDefinitionDMO();
         _extendedReferenceClass = new AttributeDefinition(_extendedReferenceClassOBJ);
+        _extendedReferenceClassOBJ.setDefinedInDmsModule("meta.meta");
         _extendedReferenceClassOBJ.addDescription("Indicates the class of object to which an  ExtendedReferenceTypeDefinition refers.");
         _extendedReferenceClassOBJ.setDmdID("131");
         _extendedReferenceClassOBJ.setName("extendedReferenceClass");
@@ -1493,6 +1653,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _extendedReferenceTypeDefListOBJ = new AttributeDefinitionDMO();
         _extendedReferenceTypeDefList = new AttributeDefinition(_extendedReferenceTypeDefListOBJ);
+        _extendedReferenceTypeDefListOBJ.setDefinedInDmsModule("meta.meta");
         _extendedReferenceTypeDefListOBJ.addDescription("A list of extended reference type definition references.");
         _extendedReferenceTypeDefListOBJ.setDmdID("132");
         _extendedReferenceTypeDefListOBJ.setInternalUse("true");
@@ -1504,6 +1665,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _extendsInterfaceOBJ = new AttributeDefinitionDMO();
         _extendsInterface = new AttributeDefinition(_extendsInterfaceOBJ);
+        _extendsInterfaceOBJ.setDefinedInDmsModule("meta.meta");
         _extendsInterfaceOBJ.addDescription("Indicates the fully qualifed name of an interface that an interface extends.");
         _extendsInterfaceOBJ.setDmdID("119");
         _extendsInterfaceOBJ.setName("extendsInterface");
@@ -1514,6 +1676,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _fieldSeparatorOBJ = new AttributeDefinitionDMO();
         _fieldSeparator = new AttributeDefinition(_fieldSeparatorOBJ);
+        _fieldSeparatorOBJ.setDefinedInDmsModule("meta.meta");
         _fieldSeparatorOBJ.addDescription("The fieldSeparator is used to indicate the separation character used when a ComplexType is represented as a String. If a fieldSeparator isn't specified, it is assumed to be a space.");
         _fieldSeparatorOBJ.setDmdID("104");
         _fieldSeparatorOBJ.setName("fieldSeparator");
@@ -1523,6 +1686,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _fileOBJ = new AttributeDefinitionDMO();
         _file = new AttributeDefinition(_fileOBJ);
+        _fileOBJ.setDefinedInDmsModule("meta.meta");
         _fileOBJ.addDescription("Indicates the file from which a definition was loaded.");
         _fileOBJ.setDmdID("74");
         _fileOBJ.setInternalUse("true");
@@ -1533,6 +1697,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _fileExtensionOBJ = new AttributeDefinitionDMO();
         _fileExtension = new AttributeDefinition(_fileExtensionOBJ);
+        _fileExtensionOBJ.setDefinedInDmsModule("meta.meta");
         _fileExtensionOBJ.addDescription("Indicates the extension of files of a particular type.");
         _fileExtensionOBJ.setDmdID("161");
         _fileExtensionOBJ.setName("fileExtension");
@@ -1542,6 +1707,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _filterAttributeDefOBJ = new AttributeDefinitionDMO();
         _filterAttributeDef = new AttributeDefinition(_filterAttributeDefOBJ);
+        _filterAttributeDefOBJ.setDefinedInDmsModule("meta.meta");
         _filterAttributeDefOBJ.addDescription("The filterAttributeDef is a reference to the attribute that is locked to a TypeDefinition that is flagged as filterType. This mechanism is used to create the correct type of DmcType[FILTERTYPE]SV derivative for a value of type DmcFilter.");
         _filterAttributeDefOBJ.setDmdID("127");
         _filterAttributeDefOBJ.setInternalUse("true");
@@ -1552,6 +1718,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _generatedFileHeaderOBJ = new AttributeDefinitionDMO();
         _generatedFileHeader = new AttributeDefinition(_generatedFileHeaderOBJ);
+        _generatedFileHeaderOBJ.setDefinedInDmsModule("meta.meta");
         _generatedFileHeaderOBJ.addDescription("The name of file that coresides with the schema.dms file that contains a common header to be applied to all generated code. For instance, you might want a common licensing comment at the top of your generated files.");
         _generatedFileHeaderOBJ.setDmdID("81");
         _generatedFileHeaderOBJ.setName("generatedFileHeader");
@@ -1561,6 +1728,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _genericArgsOBJ = new AttributeDefinitionDMO();
         _genericArgs = new AttributeDefinition(_genericArgsOBJ);
+        _genericArgsOBJ.setDefinedInDmsModule("meta.meta");
         _genericArgsOBJ.addDescription("This attribute indicates the generic arguments to be supplied in the use of a class in an autogenerated Iterable.");
         _genericArgsOBJ.setDmdID("94");
         _genericArgsOBJ.setName("genericArgs");
@@ -1570,6 +1738,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _genericArgsImportOBJ = new AttributeDefinitionDMO();
         _genericArgsImport = new AttributeDefinition(_genericArgsImportOBJ);
+        _genericArgsImportOBJ.setDefinedInDmsModule("meta.meta");
         _genericArgsImportOBJ.addDescription("Indicates the import required to support a genericArgs specification i.e. if you're not specifying something like <?>, an additional import may be required.");
         _genericArgsImportOBJ.setDmdID("98");
         _genericArgsImportOBJ.setName("genericArgsImport");
@@ -1579,6 +1748,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _getMethodOBJ = new AttributeDefinitionDMO();
         _getMethod = new AttributeDefinition(_getMethodOBJ);
+        _getMethodOBJ.setDefinedInDmsModule("meta.meta");
         _getMethodOBJ.addDescription("If you want to return a value other than the native value class, use the appropriate getType and specify the method you need to call on the DmdValue derived class to return it.");
         _getMethodOBJ.setDmdID("49");
         _getMethodOBJ.setName("getMethod");
@@ -1588,6 +1758,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _getTypeOBJ = new AttributeDefinitionDMO();
         _getType = new AttributeDefinition(_getTypeOBJ);
+        _getTypeOBJ.setDefinedInDmsModule("meta.meta");
         _getTypeOBJ.addDescription("Indicates the type of value that will be returned when an attribute value is returned for a type definition; a type definition defines only one get type. This must be a Java class reference and not a primitive type e.g. int.");
         _getTypeOBJ.setDmdID("48");
         _getTypeOBJ.setName("getType");
@@ -1597,6 +1768,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _helperClassNameOBJ = new AttributeDefinitionDMO();
         _helperClassName = new AttributeDefinition(_helperClassNameOBJ);
+        _helperClassNameOBJ.setDefinedInDmsModule("meta.meta");
         _helperClassNameOBJ.addDescription("This attribute indicates the full name of the generated helper class for  object references i.e. if you had a ClassDefinition X, the framework generates a  types/XREF class which is subsequently used by the DmcTypeXREF class to store references to objects of the defined class.");
         _helperClassNameOBJ.setDmdID("47");
         _helperClassNameOBJ.setInternalUse("true");
@@ -1607,6 +1779,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _hintOBJ = new AttributeDefinitionDMO();
         _hint = new AttributeDefinition(_hintOBJ);
+        _hintOBJ.setDefinedInDmsModule("meta.meta");
         _hintOBJ.addDescription("A short description of something that can be dumped as one line summary of something. For longer explanations, use the description attribute.");
         _hintOBJ.setDmdID("186");
         _hintOBJ.setName("hint");
@@ -1616,6 +1789,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _immediateHaltOBJ = new AttributeDefinitionDMO();
         _immediateHalt = new AttributeDefinition(_immediateHaltOBJ);
+        _immediateHaltOBJ.setDefinedInDmsModule("meta.meta");
         _immediateHaltOBJ.addDescription("The immediateHalt flag is used to indicate that no further rule processing should occur if a rule fails. It is an optional attribute on rule instance objects. In somes cases, there is no point in continuing with the application of a set  of rules, so this flag gives the option of halting further processing.");
         _immediateHaltOBJ.setDmdID("137");
         _immediateHaltOBJ.setName("immediateHalt");
@@ -1625,6 +1799,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _indexSizeOBJ = new AttributeDefinitionDMO();
         _indexSize = new AttributeDefinition(_indexSizeOBJ);
+        _indexSizeOBJ.setDefinedInDmsModule("meta.meta");
         _indexSizeOBJ.addDescription("The indexSize is used in conjunction with the MULTI valueType to indicate that the attribute may have the specified number of values and is integer indexed. Indexed attributes may be thought of as having a predetermined number of slots into which values may be stored. When indexed, an attribute has values added to it using the setMVnth() interface, not the usual add() interface. If you attempt to use add() with an indexed attribute, an exception will be thrown.");
         _indexSizeOBJ.setDmdID("129");
         _indexSizeOBJ.setName("indexSize");
@@ -1634,6 +1809,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _instantiationOBJ = new AttributeDefinitionDMO();
         _instantiation = new AttributeDefinition(_instantiationOBJ);
+        _instantiationOBJ.setDefinedInDmsModule("meta.meta");
         _instantiationOBJ.addDescription("The instantiation attribute specifies how something is to be instantiated.");
         _instantiationOBJ.setDmdID("148");
         _instantiationOBJ.setName("instantiation");
@@ -1643,6 +1819,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _integerNameOBJ = new AttributeDefinitionDMO();
         _integerName = new AttributeDefinition(_integerNameOBJ);
+        _integerNameOBJ.setDefinedInDmsModule("meta.meta");
         _integerNameOBJ.addDescription("The object name for objects uniquely identified with an integer.");
         _integerNameOBJ.setDesignatedNameAttribute("true");
         _integerNameOBJ.setDmdID("100");
@@ -1653,6 +1830,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _intendedToExtendOBJ = new AttributeDefinitionDMO();
         _intendedToExtend = new AttributeDefinition(_intendedToExtendOBJ);
+        _intendedToExtendOBJ.setDefinedInDmsModule("meta.meta");
         _intendedToExtendOBJ.addDescription("This attribute can be used on AUXILIARY classes to give a hint about their intended usage. For example, if you were extending schema definitions with some or your  own attributes for some purpose, your auxiliary class could have intendedToExtend ClassDefinition.");
         _intendedToExtendOBJ.setDmdID("22");
         _intendedToExtendOBJ.setName("intendedToExtend");
@@ -1663,6 +1841,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _internalTypeDefListOBJ = new AttributeDefinitionDMO();
         _internalTypeDefList = new AttributeDefinition(_internalTypeDefListOBJ);
+        _internalTypeDefListOBJ.setDefinedInDmsModule("meta.meta");
         _internalTypeDefListOBJ.addDescription("A list of type definitions that were generated internally to represent enums and object references.");
         _internalTypeDefListOBJ.setDmdID("57");
         _internalTypeDefListOBJ.setInternalUse("true");
@@ -1674,6 +1853,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _internalTypeRefOBJ = new AttributeDefinitionDMO();
         _internalTypeRef = new AttributeDefinition(_internalTypeRefOBJ);
+        _internalTypeRefOBJ.setDefinedInDmsModule("meta.meta");
         _internalTypeRefOBJ.addDescription("Indicates the internal type that's generated for all ClassDefinitions. This is set automatically on ClassDefinitions as they are parsed.");
         _internalTypeRefOBJ.setDmdID("20");
         _internalTypeRefOBJ.setInternalUse("true");
@@ -1684,6 +1864,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _internalUseOBJ = new AttributeDefinitionDMO();
         _internalUse = new AttributeDefinition(_internalUseOBJ);
+        _internalUseOBJ.setDefinedInDmsModule("meta.meta");
         _internalUseOBJ.addDescription("Indicates if an attribute is used and set within the Dark Matter Data code generation mechanisms. In the documentation generation code, attributes marked as internalUse WILL NOT be displayed unless you set the -internalUse flag is indicated.");
         _internalUseOBJ.setDmdID("122");
         _internalUseOBJ.setName("internalUse");
@@ -1693,6 +1874,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _internallyGeneratedOBJ = new AttributeDefinitionDMO();
         _internallyGenerated = new AttributeDefinition(_internallyGeneratedOBJ);
+        _internallyGeneratedOBJ.setDefinedInDmsModule("meta.meta");
         _internallyGeneratedOBJ.addDescription("This flag indicates if the associated definition was internally generated. This is the case for TypeDefinitions generated for ClassDefinitions and EnumDefinitions that allow for references to these objects.");
         _internallyGeneratedOBJ.setDmdID("77");
         _internallyGeneratedOBJ.setInternalUse("true");
@@ -1703,6 +1885,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _isDSDefinitionOBJ = new AttributeDefinitionDMO();
         _isDSDefinition = new AttributeDefinition(_isDSDefinitionOBJ);
+        _isDSDefinitionOBJ.setDefinedInDmsModule("meta.meta");
         _isDSDefinitionOBJ.addDescription("Indicates if the class defined by a ClassDefinition and its derivatives are part of a domain specific set of definitions. For instance, the definitions associated with the meta schema are considered a set of domain specific definitions for defining data objects; the dark-matter Model View Whatever (MVW) definitions describe a set of domain specific concepts for defining aspects of a GWT application. <p/> A domain specific definition must be named by name and must have dotName as an attribute because the  generated class will implement the DmcDefinitionIF which assumes that these attributes exist. This interface allows these definitions to be managed as part of a set of definitions.");
         _isDSDefinitionOBJ.setDmdID("158");
         _isDSDefinitionOBJ.setName("isDSDefinition");
@@ -1712,6 +1895,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _isDefaultValueOBJ = new AttributeDefinitionDMO();
         _isDefaultValue = new AttributeDefinition(_isDefaultValueOBJ);
+        _isDefaultValueOBJ.setDefinedInDmsModule("meta.meta");
         _isDefaultValueOBJ.addDescription("This flag is set to true to indicate the default value for a type (e.g. an enum).");
         _isDefaultValueOBJ.setDmdID("17");
         _isDefaultValueOBJ.setName("isDefaultValue");
@@ -1721,6 +1905,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _isEnumTypeOBJ = new AttributeDefinitionDMO();
         _isEnumType = new AttributeDefinition(_isEnumTypeOBJ);
+        _isEnumTypeOBJ.setDefinedInDmsModule("meta.meta");
         _isEnumTypeOBJ.addDescription("This flag is set to true for type definitions that define enumerations.");
         _isEnumTypeOBJ.setDmdID("16");
         _isEnumTypeOBJ.setInternalUse("true");
@@ -1731,6 +1916,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _isExtendedRefTypeOBJ = new AttributeDefinitionDMO();
         _isExtendedRefType = new AttributeDefinition(_isExtendedRefTypeOBJ);
+        _isExtendedRefTypeOBJ.setDefinedInDmsModule("meta.meta");
         _isExtendedRefTypeOBJ.addDescription("This flag is used to indicate taht an internally generated type is an extended reference type.");
         _isExtendedRefTypeOBJ.setDmdID("133");
         _isExtendedRefTypeOBJ.setInternalUse("true");
@@ -1741,6 +1927,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _isExtensibleOBJ = new AttributeDefinitionDMO();
         _isExtensible = new AttributeDefinition(_isExtensibleOBJ);
+        _isExtensibleOBJ.setDefinedInDmsModule("meta.meta");
         _isExtensibleOBJ.addDescription("Indicates whether or not the ClassDefinition associated with a RuleDefinition has classType EXTENSIBLE or not. This mechanism is useful in situations where the exact set of attributes associated with a rule must be flexible. The best example is the InitRule where any set of attributes can be specified as value for the rule.");
         _isExtensibleOBJ.setDmdID("142");
         _isExtensibleOBJ.setName("isExtensible");
@@ -1750,6 +1937,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _isFilterTypeOBJ = new AttributeDefinitionDMO();
         _isFilterType = new AttributeDefinition(_isFilterTypeOBJ);
+        _isFilterTypeOBJ.setDefinedInDmsModule("meta.meta");
         _isFilterTypeOBJ.addDescription("Indicates that a type is derived from DmcFilter.");
         _isFilterTypeOBJ.setDmdID("125");
         _isFilterTypeOBJ.setName("isFilterType");
@@ -1759,6 +1947,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _isGetActionOBJ = new AttributeDefinitionDMO();
         _isGetAction = new AttributeDefinition(_isGetActionOBJ);
+        _isGetActionOBJ.setDefinedInDmsModule("meta.meta");
         _isGetActionOBJ.addDescription("This flag indicates if an Action is merely a data retrieval (get) Action. Actions that are flagged with this attribute set to true will be executable even when the server is in a read-only mode because they don't actually alter data.");
         _isGetActionOBJ.setDmdID("72");
         _isGetActionOBJ.setName("isGetAction");
@@ -1768,6 +1957,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _isHierarchicNameOBJ = new AttributeDefinitionDMO();
         _isHierarchicName = new AttributeDefinition(_isHierarchicNameOBJ);
+        _isHierarchicNameOBJ.setDefinedInDmsModule("meta.meta");
         _isHierarchicNameOBJ.addDescription("Indicates if a name type is for hierarchic objects.");
         _isHierarchicNameOBJ.setDmdID("121");
         _isHierarchicNameOBJ.setInternalUse("true");
@@ -1778,6 +1968,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _isNameTypeOBJ = new AttributeDefinitionDMO();
         _isNameType = new AttributeDefinition(_isNameTypeOBJ);
+        _isNameTypeOBJ.setDefinedInDmsModule("meta.meta");
         _isNameTypeOBJ.addDescription("This attribute indicates if a defined type is used for naming purposes. This allows us to automatically add attributes of this type to the AttributeFactories.");
         _isNameTypeOBJ.setDmdID("95");
         _isNameTypeOBJ.setName("isNameType");
@@ -1787,6 +1978,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _isNamedByOBJ = new AttributeDefinitionDMO();
         _isNamedBy = new AttributeDefinition(_isNamedByOBJ);
+        _isNamedByOBJ.setDefinedInDmsModule("meta.meta");
         _isNamedByOBJ.addDescription("Indicates the attribute by which an object of some class is named. When this attribute is supplied in a ClassDefinition, the generated DMO class will indicate that it implements the DmcNamedObjectIF and its getObjectName() method will return the value of the isNamedBy attribute.");
         _isNamedByOBJ.setDmdID("80");
         _isNamedByOBJ.setName("isNamedBy");
@@ -1796,6 +1988,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _isRefTypeOBJ = new AttributeDefinitionDMO();
         _isRefType = new AttributeDefinition(_isRefTypeOBJ);
+        _isRefTypeOBJ.setDefinedInDmsModule("meta.meta");
         _isRefTypeOBJ.addDescription("This flag is set to true for type definitions that refer to other objects.");
         _isRefTypeOBJ.setDmdID("14");
         _isRefTypeOBJ.setInternalUse("true");
@@ -1806,6 +1999,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _isSchemaRtypeOBJ = new AttributeDefinitionDMO();
         _isSchemaRtype = new AttributeDefinition(_isSchemaRtypeOBJ);
+        _isSchemaRtypeOBJ.setDefinedInDmsModule("meta.meta");
         _isSchemaRtypeOBJ.addDescription("This flag is set to true for type definitions that refer to other schema-related definitions.");
         _isSchemaRtypeOBJ.setDmdID("15");
         _isSchemaRtypeOBJ.setInternalUse("true");
@@ -1816,6 +2010,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _javaClassOBJ = new AttributeDefinitionDMO();
         _javaClass = new AttributeDefinition(_javaClassOBJ);
+        _javaClassOBJ.setDefinedInDmsModule("meta.meta");
         _javaClassOBJ.addDescription("This attribute indicates the full name of the class (including package) that should be instantiated when an instance of an object is created via the DmdClassDef.newInstance() function. The class must be a derived class of DmdGenericObject.");
         _javaClassOBJ.setDmdID("34");
         _javaClassOBJ.setInternalUse("true");
@@ -1826,6 +2021,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _keyClassOBJ = new AttributeDefinitionDMO();
         _keyClass = new AttributeDefinition(_keyClassOBJ);
+        _keyClassOBJ.setDefinedInDmsModule("meta.meta");
         _keyClassOBJ.addDescription("This attribute indicates the class of the key used for types that support storage in a MAP.");
         _keyClassOBJ.setDmdID("96");
         _keyClassOBJ.setName("keyClass");
@@ -1835,6 +2031,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _keyImportOBJ = new AttributeDefinitionDMO();
         _keyImport = new AttributeDefinition(_keyImportOBJ);
+        _keyImportOBJ.setDefinedInDmsModule("meta.meta");
         _keyImportOBJ.addDescription("Indicates the import for a keyClass. this is required if the keyClass is NOT a primitive java type e.g. Integer, String etc.");
         _keyImportOBJ.setDmdID("97");
         _keyImportOBJ.setName("keyImport");
@@ -1844,6 +2041,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _lineNumberOBJ = new AttributeDefinitionDMO();
         _lineNumber = new AttributeDefinition(_lineNumberOBJ);
+        _lineNumberOBJ.setDefinedInDmsModule("meta.meta");
         _lineNumberOBJ.addDescription("Indicates the line number of the file from which a definition was loaded.");
         _lineNumberOBJ.setDmdID("75");
         _lineNumberOBJ.setInternalUse("true");
@@ -1854,6 +2052,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _loadSchemaClassOBJ = new AttributeDefinitionDMO();
         _loadSchemaClass = new AttributeDefinition(_loadSchemaClassOBJ);
+        _loadSchemaClassOBJ.setDefinedInDmsModule("meta.meta");
         _loadSchemaClassOBJ.addDescription("The fully qualified name of a schema that is to  be loaded dynamically as part of module definition, along a description of why the schema is being loaded. This is generally used when auxiliary class information is used in conjunction with a set of domain specific definitions. <p/> An example would be org.dmd.gpb.tools.generation.generated.GpbauxtestSchemaAG \"Because we need the aux classes\"");
         _loadSchemaClassOBJ.setDmdID("173");
         _loadSchemaClassOBJ.setName("loadSchemaClass");
@@ -1864,6 +2063,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _longNameOBJ = new AttributeDefinitionDMO();
         _longName = new AttributeDefinition(_longNameOBJ);
+        _longNameOBJ.setDefinedInDmsModule("meta.meta");
         _longNameOBJ.addDescription("The object name for objects uniquely identified with a long.");
         _longNameOBJ.setDesignatedNameAttribute("true");
         _longNameOBJ.setDmdID("134");
@@ -1874,6 +2074,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _mayOBJ = new AttributeDefinitionDMO();
         _may = new AttributeDefinition(_mayOBJ);
+        _mayOBJ.setDefinedInDmsModule("meta.meta");
         _mayOBJ.addDescription("Indicates the set of attributes that an instance of a class MAY have. When accessed in Java, this is a set of references to AttributeDefinition objects.");
         _mayOBJ.setDmdID("27");
         _mayOBJ.setName("may");
@@ -1884,6 +2085,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _mayParmOBJ = new AttributeDefinitionDMO();
         _mayParm = new AttributeDefinition(_mayParmOBJ);
+        _mayParmOBJ.setDefinedInDmsModule("meta.meta");
         _mayParmOBJ.addDescription("Indicates the set of parameters that an action MAY have. When accessed in Java, this is a set of references to AttributeDefinition objects.");
         _mayParmOBJ.setDmdID("29");
         _mayParmOBJ.setName("mayParm");
@@ -1894,6 +2096,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _mayReturnOBJ = new AttributeDefinitionDMO();
         _mayReturn = new AttributeDefinition(_mayReturnOBJ);
+        _mayReturnOBJ.setDefinedInDmsModule("meta.meta");
         _mayReturnOBJ.addDescription("Indicates the set of return vals that may be returned as part of a particular action response message.");
         _mayReturnOBJ.setDmdID("31");
         _mayReturnOBJ.setName("mayReturn");
@@ -1904,6 +2107,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _maySendProgressOBJ = new AttributeDefinitionDMO();
         _maySendProgress = new AttributeDefinition(_maySendProgressOBJ);
+        _maySendProgressOBJ.setDefinedInDmsModule("meta.meta");
         _maySendProgressOBJ.addDescription("This flag is used to indicate if a particular request might result in progress indications being sent. Although primarily intended as a documentation aspect, this flag is used within the TL1 subsystem to allow for the creation of a response handler for node requests that send progress text.");
         _maySendProgressOBJ.setDmdID("76");
         _maySendProgressOBJ.setName("maySendProgress");
@@ -1913,6 +2117,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _modifyOBJ = new AttributeDefinitionDMO();
         _modify = new AttributeDefinition(_modifyOBJ);
+        _modifyOBJ.setDefinedInDmsModule("meta.meta");
         _modifyOBJ.addDescription("A set of modifications to an object.");
         _modifyOBJ.setDmdID("85");
         _modifyOBJ.setName("modify");
@@ -1923,6 +2128,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _moduleClassNameOBJ = new AttributeDefinitionDMO();
         _moduleClassName = new AttributeDefinition(_moduleClassNameOBJ);
+        _moduleClassNameOBJ.setDefinedInDmsModule("meta.meta");
         _moduleClassNameOBJ.addDescription("The name of the class that will be generated as a result of a DSDefinitionModule definition.");
         _moduleClassNameOBJ.setDmdID("163");
         _moduleClassNameOBJ.setName("moduleClassName");
@@ -1932,6 +2138,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _moduleDependenceAttributeOBJ = new AttributeDefinitionDMO();
         _moduleDependenceAttribute = new AttributeDefinition(_moduleDependenceAttributeOBJ);
+        _moduleDependenceAttributeOBJ.setDefinedInDmsModule("meta.meta");
         _moduleDependenceAttributeOBJ.addDescription("The name of the attribute in a DSDefinitionModule that indicates a dependence on another module of the same type. For example, in dark-matter schemas, the SchemaDefinition uses the dependsOn attribute to refer to oher schemas.");
         _moduleDependenceAttributeOBJ.setDmdID("165");
         _moduleDependenceAttributeOBJ.setName("moduleDependenceAttribute");
@@ -1941,6 +2148,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _msgKeyOBJ = new AttributeDefinitionDMO();
         _msgKey = new AttributeDefinition(_msgKeyOBJ);
+        _msgKeyOBJ.setDefinedInDmsModule("meta.meta");
         _msgKeyOBJ.addDescription("The msgKey may be specified on rule instances to indicate the key to be used to look up translated messages. This is primarily a GWT mechanism, but should be applicable in other contexts.");
         _msgKeyOBJ.setDmdID("23");
         _msgKeyOBJ.setName("msgKey");
@@ -1950,6 +2158,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _msgParamOBJ = new AttributeDefinitionDMO();
         _msgParam = new AttributeDefinition(_msgParamOBJ);
+        _msgParamOBJ.setDefinedInDmsModule("meta.meta");
         _msgParamOBJ.addDescription("The msgParam allows for the specification of parameters to be substituted into translated messages.");
         _msgParamOBJ.setDmdID("52");
         _msgParamOBJ.setName("msgParam");
@@ -1960,6 +2169,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _mustOBJ = new AttributeDefinitionDMO();
         _must = new AttributeDefinition(_mustOBJ);
+        _mustOBJ.setDefinedInDmsModule("meta.meta");
         _mustOBJ.addDescription("Indicates the set of attributes that an instance of a class MUST have.");
         _mustOBJ.setDmdID("26");
         _mustOBJ.setName("must");
@@ -1970,6 +2180,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _mustParmOBJ = new AttributeDefinitionDMO();
         _mustParm = new AttributeDefinition(_mustParmOBJ);
+        _mustParmOBJ.setDefinedInDmsModule("meta.meta");
         _mustParmOBJ.addDescription("Indicates the set of parameters that an action MUST have. When accessed in Java, this is a set of references to AttributeDefinition objects.");
         _mustParmOBJ.setDmdID("28");
         _mustParmOBJ.setName("mustParm");
@@ -1980,6 +2191,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _mustReturnOBJ = new AttributeDefinitionDMO();
         _mustReturn = new AttributeDefinition(_mustReturnOBJ);
+        _mustReturnOBJ.setDefinedInDmsModule("meta.meta");
         _mustReturnOBJ.addDescription("Indicates the set of return vals that must be returned as part of a particular action response message.");
         _mustReturnOBJ.setDmdID("30");
         _mustReturnOBJ.setName("mustReturn");
@@ -1991,6 +2203,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         AttributeDefinitionDMO _nameOBJ = new AttributeDefinitionDMO();
         _name = new AttributeDefinition(_nameOBJ);
         _nameOBJ.addCodeComment("The name of some defined concept that uniquely identifies it within a definition module.");
+        _nameOBJ.setDefinedInDmsModule("meta.meta");
         _nameOBJ.addDescription("How a name is composed will depend on the context in which it used. For instance, the names of definitions specified as part of a dark-matter schema will conform to conventions of naming classes and or attributes in Java. <p/> The generated documentation for a set of Domain Specific Language (DSL) concepts will indicate the rules that apply to a name in that DSL.");
         _nameOBJ.setDesignatedNameAttribute("true");
         _nameOBJ.setDmdID("2");
@@ -2001,6 +2214,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _nameAttributeDefOBJ = new AttributeDefinitionDMO();
         _nameAttributeDef = new AttributeDefinition(_nameAttributeDefOBJ);
+        _nameAttributeDefOBJ.setDefinedInDmsModule("meta.meta");
         _nameAttributeDefOBJ.addDescription("The nameAttributeDef is a reference to the attribute that is locked to a TypeDefinition. This mechanism is used to create the correct type of DmcType[NAMETYPE]* derivative for a value of type DmcObjectName.");
         _nameAttributeDefOBJ.setDmdID("90");
         _nameAttributeDefOBJ.setInternalUse("true");
@@ -2011,6 +2225,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _namingAttributeOBJ = new AttributeDefinitionDMO();
         _namingAttribute = new AttributeDefinition(_namingAttributeOBJ);
+        _namingAttributeOBJ.setDefinedInDmsModule("meta.meta");
         _namingAttributeOBJ.addDescription("This attribute indicates the attribute that is used to name an object instance. The exact manner in which the naming attribute is used is specific to the implementation of the HierarchicObject derived class. <p> For instance, the DotNamedObject simply uses the value of the naming attribute and separates the attribute values with periods e.g. grandparent.parent.child. <p> For LDAP objects when a hierarchic name is composed for an object, the class name plus the value of the naming attribute (type:value) is used to create the name of an object. It is best if the naming attribute value is created by the application; it shouldn't be based on any user configurable value.");
         _namingAttributeOBJ.setDmdID("64");
         _namingAttributeOBJ.setName("namingAttribute");
@@ -2020,6 +2235,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _nullReturnValueOBJ = new AttributeDefinitionDMO();
         _nullReturnValue = new AttributeDefinition(_nullReturnValueOBJ);
+        _nullReturnValueOBJ.setDefinedInDmsModule("meta.meta");
         _nullReturnValueOBJ.addDescription("This attribute is used in TypeDefinitions to indicate the value that should be returned when an attribute of the specified type doesn't exist in the object. For example, Boolean values are defined to return false when they aren't actually set on an object. This just gives a convenient mechanism to provide a default value for non-existent attribute values.");
         _nullReturnValueOBJ.setDmdID("7");
         _nullReturnValueOBJ.setName("nullReturnValue");
@@ -2029,6 +2245,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _nvpOBJ = new AttributeDefinitionDMO();
         _nvp = new AttributeDefinition(_nvpOBJ);
+        _nvpOBJ.setDefinedInDmsModule("meta.meta");
         _nvpOBJ.addDescription("A set of additional name value pairs that can be associated with an object.");
         _nvpOBJ.setDmdID("178");
         _nvpOBJ.setName("nvp");
@@ -2039,6 +2256,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _objectClassOBJ = new AttributeDefinitionDMO();
         _objectClass = new AttributeDefinition(_objectClassOBJ);
+        _objectClassOBJ.setDefinedInDmsModule("meta.meta");
         _objectClassOBJ.addDescription("Used to indicate the classes that an object instance supports.");
         _objectClassOBJ.setDmdID("1");
         _objectClassOBJ.setName("objectClass");
@@ -2049,6 +2267,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _obsoleteOBJ = new AttributeDefinitionDMO();
         _obsolete = new AttributeDefinition(_obsoleteOBJ);
+        _obsoleteOBJ.setDefinedInDmsModule("meta.meta");
         _obsoleteOBJ.addDescription("The version at which something became obsolete.");
         _obsoleteOBJ.setDmdID("183");
         _obsoleteOBJ.setName("obsolete");
@@ -2058,6 +2277,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _obsoleteVersionOBJ = new AttributeDefinitionDMO();
         _obsoleteVersion = new AttributeDefinition(_obsoleteVersionOBJ);
+        _obsoleteVersionOBJ.setDefinedInDmsModule("meta.meta");
         _obsoleteVersionOBJ.addDescription("This indicates the version at which something became obsolete. Generally speaking you shouldn't ever delete definitions for products that have been released to the field, this may break backwards compatibility. Instead, you should mark them as obsolete.");
         _obsoleteVersionOBJ.setDmdID("73");
         _obsoleteVersionOBJ.setName("obsoleteVersion");
@@ -2067,6 +2287,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _opContextOBJ = new AttributeDefinitionDMO();
         _opContext = new AttributeDefinition(_opContextOBJ);
+        _opContextOBJ.setDefinedInDmsModule("meta.meta");
         _opContextOBJ.addDescription("Indicates the operational context for some component e.g. object or attribute validators.");
         _opContextOBJ.setDmdID("115");
         _opContextOBJ.setName("opContext");
@@ -2076,6 +2297,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _optimizeOBJ = new AttributeDefinitionDMO();
         _optimize = new AttributeDefinition(_optimizeOBJ);
+        _optimizeOBJ.setDefinedInDmsModule("meta.meta");
         _optimizeOBJ.addDescription("Depending on what you're modelling, you often come across places where you can see an opportunity to optimize, streamline or improve something e.g. merging concepts together, representing something differently, adding a relationship - whatever. However, these ideas often get lost in the shuffle or, if you add them into an overall description of something, they don't stand out. <p/> Any dark-matter definition can be decorated with optimize notes. These notes provide");
         _optimizeOBJ.setDmdID("180");
         _optimizeOBJ.setName("optimize");
@@ -2086,6 +2308,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _optionalPartOBJ = new AttributeDefinitionDMO();
         _optionalPart = new AttributeDefinition(_optionalPartOBJ);
+        _optionalPartOBJ.setDefinedInDmsModule("meta.meta");
         _optionalPartOBJ.addDescription("Indicates an optional part of a complex type definition.");
         _optionalPartOBJ.setDmdID("114");
         _optionalPartOBJ.setName("optionalPart");
@@ -2096,6 +2319,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _originalClassOBJ = new AttributeDefinitionDMO();
         _originalClass = new AttributeDefinition(_originalClassOBJ);
+        _originalClassOBJ.setDefinedInDmsModule("meta.meta");
         _originalClassOBJ.addDescription("Refers to the class that an internally generated type represents.");
         _originalClassOBJ.setDmdID("83");
         _originalClassOBJ.setInternalUse("true");
@@ -2106,6 +2330,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _partOfDefinitionModuleOBJ = new AttributeDefinitionDMO();
         _partOfDefinitionModule = new AttributeDefinition(_partOfDefinitionModuleOBJ);
+        _partOfDefinitionModuleOBJ.setDefinedInDmsModule("meta.meta");
         _partOfDefinitionModuleOBJ.addDescription("For classes that defined as part of a definition module, this indicates the module they belong to. This allows for generation of a standard method to get the name of the module from which they were loaded.");
         _partOfDefinitionModuleOBJ.setDmdID("175");
         _partOfDefinitionModuleOBJ.setName("partOfDefinitionModule");
@@ -2115,6 +2340,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _preserveNewlinesOBJ = new AttributeDefinitionDMO();
         _preserveNewlines = new AttributeDefinition(_preserveNewlinesOBJ);
+        _preserveNewlinesOBJ.setDefinedInDmsModule("meta.meta");
         _preserveNewlinesOBJ.addDescription("Indicates that newline characters should be preserved when an attribute is parsed by the DmcUncheckedOIFParser. This is useful for certain attributes when newlines are required to properly format the contents of the attribute at a later time. For example, the description attribute is later dumped as part of  HTML documentation and, if the newlines are stripped, it won't be properly formatted.");
         _preserveNewlinesOBJ.setDmdID("51");
         _preserveNewlinesOBJ.setName("preserveNewlines");
@@ -2124,6 +2350,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _primitiveTypeOBJ = new AttributeDefinitionDMO();
         _primitiveType = new AttributeDefinition(_primitiveTypeOBJ);
+        _primitiveTypeOBJ.setDefinedInDmsModule("meta.meta");
         _primitiveTypeOBJ.addDescription("The primitiveType indicates the underlying type of a DmcType.");
         _primitiveTypeOBJ.setDmdID("8");
         _primitiveTypeOBJ.setName("primitiveType");
@@ -2133,6 +2360,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _questionOBJ = new AttributeDefinitionDMO();
         _question = new AttributeDefinition(_questionOBJ);
+        _questionOBJ.setDefinedInDmsModule("meta.meta");
         _questionOBJ.addDescription("A question associated with the definition of something.");
         _questionOBJ.setDmdID("187");
         _questionOBJ.setName("question");
@@ -2143,6 +2371,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _refersToDefsFromDSDOBJ = new AttributeDefinitionDMO();
         _refersToDefsFromDSD = new AttributeDefinition(_refersToDefsFromDSDOBJ);
+        _refersToDefsFromDSDOBJ.setDefinedInDmsModule("meta.meta");
         _refersToDefsFromDSDOBJ.addDescription("A reference to another DSDefinitionModule from which the current module makes use of definitions. For instance, the Model View Whatever DSD includes references to schema related definitions. As a result of specifying this, the module class that's generated for the DSDefinitionModule will include the moduleDependenceAttribute of the module from which definitions are used. Likewise, the generated parser will be primed with the schema of the required definition module.");
         _refersToDefsFromDSDOBJ.setDmdID("166");
         _refersToDefsFromDSDOBJ.setName("refersToDefsFromDSD");
@@ -2153,6 +2382,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _relatedToConceptOBJ = new AttributeDefinitionDMO();
         _relatedToConcept = new AttributeDefinition(_relatedToConceptOBJ);
+        _relatedToConceptOBJ.setDefinedInDmsModule("meta.meta");
         _relatedToConceptOBJ.addDescription("Allows for references to base concepts that relate this definition to another definition in the Concinnity domain. This mechanism is only used in the domain of dark-matter schema definitions; other DSLs will allow for direct reference to Concinnity concepts.");
         _relatedToConceptOBJ.setDmdID("176");
         _relatedToConceptOBJ.setName("relatedToConcept");
@@ -2163,6 +2393,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _requiredBaseModuleOBJ = new AttributeDefinitionDMO();
         _requiredBaseModule = new AttributeDefinition(_requiredBaseModuleOBJ);
+        _requiredBaseModuleOBJ.setDefinedInDmsModule("meta.meta");
         _requiredBaseModuleOBJ.addDescription("A set of base module files that should be loaded before parsing of any other modules associated with the DSD being defined. For example, the dmdgpb (augmented Googoe Protocol Buffer specifications) DSD always requires that the gpbbase.gpb file is loaded because it defines the base types of the fields that comprise messages. By specifying gpbbase.gpb as a requiredBaseModule, the generated parsing coordinator will ensure that this module is loaded on start-up. <p/> You should specify just the name of the module file to be loaded, not the file extension. The file extension is assumed to be fileExtension associated with the DSD.");
         _requiredBaseModuleOBJ.setDmdID("174");
         _requiredBaseModuleOBJ.setName("requiredBaseModule");
@@ -2173,6 +2404,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _requiredPartOBJ = new AttributeDefinitionDMO();
         _requiredPart = new AttributeDefinition(_requiredPartOBJ);
+        _requiredPartOBJ.setDefinedInDmsModule("meta.meta");
         _requiredPartOBJ.addDescription("Indicates a required part of a complex type definition.");
         _requiredPartOBJ.setDmdID("112");
         _requiredPartOBJ.setName("requiredPart");
@@ -2183,6 +2415,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _ruleCategoryOBJ = new AttributeDefinitionDMO();
         _ruleCategory = new AttributeDefinition(_ruleCategoryOBJ);
+        _ruleCategoryOBJ.setDefinedInDmsModule("meta.meta");
         _ruleCategoryOBJ.addDescription("The category of a rule.");
         _ruleCategoryOBJ.setDmdID("139");
         _ruleCategoryOBJ.setName("ruleCategory");
@@ -2193,6 +2426,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _ruleCategoryIDOBJ = new AttributeDefinitionDMO();
         _ruleCategoryID = new AttributeDefinition(_ruleCategoryIDOBJ);
+        _ruleCategoryIDOBJ.setDefinedInDmsModule("meta.meta");
         _ruleCategoryIDOBJ.addDescription("The numeric ID of a rule category. Category IDs must be unique for all RuleDefinitions defined within a schema.");
         _ruleCategoryIDOBJ.setDmdID("140");
         _ruleCategoryIDOBJ.setName("ruleCategoryID");
@@ -2202,6 +2436,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _ruleCategoryListOBJ = new AttributeDefinitionDMO();
         _ruleCategoryList = new AttributeDefinition(_ruleCategoryListOBJ);
+        _ruleCategoryListOBJ.setDefinedInDmsModule("meta.meta");
         _ruleCategoryListOBJ.addDescription("The RuleCategories defined in a schema.");
         _ruleCategoryListOBJ.setDmdID("143");
         _ruleCategoryListOBJ.setName("ruleCategoryList");
@@ -2212,6 +2447,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _ruleDataListOBJ = new AttributeDefinitionDMO();
         _ruleDataList = new AttributeDefinition(_ruleDataListOBJ);
+        _ruleDataListOBJ.setDefinedInDmsModule("meta.meta");
         _ruleDataListOBJ.addDescription("The RuleData defined in a schema.");
         _ruleDataListOBJ.setDmdID("156");
         _ruleDataListOBJ.setName("ruleDataList");
@@ -2222,6 +2458,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _ruleDefinitionOBJ = new AttributeDefinitionDMO();
         _ruleDefinition = new AttributeDefinition(_ruleDefinitionOBJ);
+        _ruleDefinitionOBJ.setDefinedInDmsModule("meta.meta");
         _ruleDefinitionOBJ.addDescription("The RuleDefinition that resulted in the creation of an internally generated ClassDefinition.");
         _ruleDefinitionOBJ.setDmdID("145");
         _ruleDefinitionOBJ.setInternalUse("true");
@@ -2232,6 +2469,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _ruleDefinitionListOBJ = new AttributeDefinitionDMO();
         _ruleDefinitionList = new AttributeDefinition(_ruleDefinitionListOBJ);
+        _ruleDefinitionListOBJ.setDefinedInDmsModule("meta.meta");
         _ruleDefinitionListOBJ.addDescription("The RuleDefinitions defined in a schema.");
         _ruleDefinitionListOBJ.setDmdID("144");
         _ruleDefinitionListOBJ.setName("ruleDefinitionList");
@@ -2242,6 +2480,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _ruleImportOBJ = new AttributeDefinitionDMO();
         _ruleImport = new AttributeDefinition(_ruleImportOBJ);
+        _ruleImportOBJ.setDefinedInDmsModule("meta.meta");
         _ruleImportOBJ.addDescription("An import required for generation of the rule collection associated with a RuleCategory.");
         _ruleImportOBJ.setDmdID("152");
         _ruleImportOBJ.setName("ruleImport");
@@ -2252,6 +2491,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _ruleNameOBJ = new AttributeDefinitionDMO();
         _ruleName = new AttributeDefinition(_ruleNameOBJ);
+        _ruleNameOBJ.setDefinedInDmsModule("meta.meta");
         _ruleNameOBJ.addDescription("The ruleName attribute is used to store a single camelCase format name for a rule. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other characters are allowed.");
         _ruleNameOBJ.setDesignatedNameAttribute("true");
         _ruleNameOBJ.setDmdID("153");
@@ -2262,6 +2502,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _ruleParamOBJ = new AttributeDefinitionDMO();
         _ruleParam = new AttributeDefinition(_ruleParamOBJ);
+        _ruleParamOBJ.setDefinedInDmsModule("meta.meta");
         _ruleParamOBJ.addDescription("A parameter to be supplied to a rule when it is executed.");
         _ruleParamOBJ.setDmdID("50");
         _ruleParamOBJ.setName("ruleParam");
@@ -2272,6 +2513,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _ruleTitleOBJ = new AttributeDefinitionDMO();
         _ruleTitle = new AttributeDefinition(_ruleTitleOBJ);
+        _ruleTitleOBJ.setDefinedInDmsModule("meta.meta");
         _ruleTitleOBJ.addDescription("The title of a rule.");
         _ruleTitleOBJ.setDmdID("138");
         _ruleTitleOBJ.setName("ruleTitle");
@@ -2281,6 +2523,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _ruleTypeOBJ = new AttributeDefinitionDMO();
         _ruleType = new AttributeDefinition(_ruleTypeOBJ);
+        _ruleTypeOBJ.setDefinedInDmsModule("meta.meta");
         _ruleTypeOBJ.addDescription("The type of a rule.");
         _ruleTypeOBJ.setDmdID("136");
         _ruleTypeOBJ.setName("ruleType");
@@ -2290,6 +2533,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _runContextOBJ = new AttributeDefinitionDMO();
         _runContext = new AttributeDefinition(_runContextOBJ);
+        _runContextOBJ.setDefinedInDmsModule("meta.meta");
         _runContextOBJ.addDescription("A reference to a RunContext.");
         _runContextOBJ.setDmdID("149");
         _runContextOBJ.setName("runContext");
@@ -2299,6 +2543,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _schemaBaseIDOBJ = new AttributeDefinitionDMO();
         _schemaBaseID = new AttributeDefinition(_schemaBaseIDOBJ);
+        _schemaBaseIDOBJ.setDefinedInDmsModule("meta.meta");
         _schemaBaseIDOBJ.addDescription("The base identifier value for a schema. This value is added to each dmdID value associated with the AttributeDefinitions defined by the schema. This allows for easy rebasing of identifier values if required.");
         _schemaBaseIDOBJ.setDmdID("86");
         _schemaBaseIDOBJ.setName("schemaBaseID");
@@ -2308,6 +2553,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _schemaExtensionOBJ = new AttributeDefinitionDMO();
         _schemaExtension = new AttributeDefinition(_schemaExtensionOBJ);
+        _schemaExtensionOBJ.setDefinedInDmsModule("meta.meta");
         _schemaExtensionOBJ.addDescription("The fully qualified name of a class that extends the schema management capabilities of the SchemaManager. the class must have a zero arg constructor and implement the SchemaExtensionIF.");
         _schemaExtensionOBJ.setDmdID("4");
         _schemaExtensionOBJ.setName("schemaExtension");
@@ -2318,6 +2564,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _schemaIDRangeOBJ = new AttributeDefinitionDMO();
         _schemaIDRange = new AttributeDefinition(_schemaIDRangeOBJ);
+        _schemaIDRangeOBJ.setDefinedInDmsModule("meta.meta");
         _schemaIDRangeOBJ.addDescription("The maximum number of attribute definitions in a particular schema. This will provide immediate feedback if you exceed the given ID range for your schema.");
         _schemaIDRangeOBJ.setDmdID("87");
         _schemaIDRangeOBJ.setName("schemaIDRange");
@@ -2327,6 +2574,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _schemaPackageOBJ = new AttributeDefinitionDMO();
         _schemaPackage = new AttributeDefinition(_schemaPackageOBJ);
+        _schemaPackageOBJ.setDefinedInDmsModule("meta.meta");
         _schemaPackageOBJ.addDescription("Indicates the package that a schema will be part of when its code is generated using DMO generator tool.");
         _schemaPackageOBJ.setDmdID("53");
         _schemaPackageOBJ.setName("schemaPackage");
@@ -2336,6 +2584,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _secureOBJ = new AttributeDefinitionDMO();
         _secure = new AttributeDefinition(_secureOBJ);
+        _secureOBJ.setDefinedInDmsModule("meta.meta");
         _secureOBJ.addDescription("This attribute indicates whether or not the attribute should be encrypted before being transported over the wire or stored in a file or repository");
         _secureOBJ.setDmdID("78");
         _secureOBJ.setName("secure");
@@ -2345,6 +2594,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _selectAttributeOBJ = new AttributeDefinitionDMO();
         _selectAttribute = new AttributeDefinition(_selectAttributeOBJ);
+        _selectAttributeOBJ.setDefinedInDmsModule("meta.meta");
         _selectAttributeOBJ.addDescription("The selectAttribute indicates an attribute to be used in the definition of a Slice.");
         _selectAttributeOBJ.setDmdID("110");
         _selectAttributeOBJ.setName("selectAttribute");
@@ -2355,6 +2605,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _skipOBJ = new AttributeDefinitionDMO();
         _skip = new AttributeDefinition(_skipOBJ);
+        _skipOBJ.setDefinedInDmsModule("meta.meta");
         _skipOBJ.addDescription("A version from which something should be excluded (even though it is included in later versions). This is an unusual situation, and should be approached with extreme caution!");
         _skipOBJ.setDmdID("182");
         _skipOBJ.setName("skip");
@@ -2365,6 +2616,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _sliceDefListOBJ = new AttributeDefinitionDMO();
         _sliceDefList = new AttributeDefinition(_sliceDefListOBJ);
+        _sliceDefListOBJ.setDefinedInDmsModule("meta.meta");
         _sliceDefListOBJ.addDescription("A list of slice definition references.");
         _sliceDefListOBJ.setDmdID("111");
         _sliceDefListOBJ.setInternalUse("true");
@@ -2376,6 +2628,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _sortNameOBJ = new AttributeDefinitionDMO();
         _sortName = new AttributeDefinition(_sortNameOBJ);
+        _sortNameOBJ.setDefinedInDmsModule("meta.meta");
         _sortNameOBJ.addDescription("The sortName is used in siutations where we need a name for storage of a definition that is globally unique but can be sorted on the basis of the definition name, not the module name. The dotName for a definition is module.definition...type, whereas the sortName would be definition...module.type. So, for things like documentation generation, the sortName provides a more  natural ordering.");
         _sortNameOBJ.setDmdID("170");
         _sortNameOBJ.setName("sortName");
@@ -2385,6 +2638,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _stringNameOBJ = new AttributeDefinitionDMO();
         _stringName = new AttributeDefinition(_stringNameOBJ);
+        _stringNameOBJ.setDefinedInDmsModule("meta.meta");
         _stringNameOBJ.addDescription("The stringName attribute is used to store a simple name for something. It starts with a letter followed letters or numbers.");
         _stringNameOBJ.setDesignatedNameAttribute("true");
         _stringNameOBJ.setDmdID("160");
@@ -2395,6 +2649,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _subpackageOBJ = new AttributeDefinitionDMO();
         _subpackage = new AttributeDefinition(_subpackageOBJ);
+        _subpackageOBJ.setDefinedInDmsModule("meta.meta");
         _subpackageOBJ.addDescription("The subpackage beneath extended where generated code will be written. This allows for a hierarchic package structure for the classes generated by the dmg and mvc generator utilities. The structure can contain other subpackages etc x.y.z but should not start or end with a period.");
         _subpackageOBJ.setDmdID("88");
         _subpackageOBJ.setName("subpackage");
@@ -2404,6 +2659,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _supportDynamicSchemaLoadingOBJ = new AttributeDefinitionDMO();
         _supportDynamicSchemaLoading = new AttributeDefinition(_supportDynamicSchemaLoadingOBJ);
+        _supportDynamicSchemaLoadingOBJ.setDefinedInDmsModule("meta.meta");
         _supportDynamicSchemaLoadingOBJ.addDescription("If this flag is set to true, the loadSchemaClass attribute will be added to the generated domain specific module definition class so that additional schemas (usually containg auxiliary classes) can be loaded dynamically. This allows the generated module parser to handle auxiliary information on the domain specific definitions.");
         _supportDynamicSchemaLoadingOBJ.setDmdID("172");
         _supportDynamicSchemaLoadingOBJ.setName("supportDynamicSchemaLoading");
@@ -2413,6 +2669,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _supportsBackrefTrackingOBJ = new AttributeDefinitionDMO();
         _supportsBackrefTracking = new AttributeDefinition(_supportsBackrefTrackingOBJ);
+        _supportsBackrefTrackingOBJ.setDefinedInDmsModule("meta.meta");
         _supportsBackrefTrackingOBJ.addDescription("Indicates if a class of objects supports back reference tracking or not. The default is that all objects support it, however, in places like the Dark Matter Protocol, we don't want to track references in the messages.");
         _supportsBackrefTrackingOBJ.setDmdID("118");
         _supportsBackrefTrackingOBJ.setName("supportsBackrefTracking");
@@ -2423,6 +2680,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _tagsOBJ = new AttributeDefinitionDMO();
         _tags = new AttributeDefinition(_tagsOBJ);
+        _tagsOBJ.setDefinedInDmsModule("meta.meta");
         _tagsOBJ.addDescription("A collection of tags that can facilitate searching for definitions. The values are limited to a-zA-Z0-9 and the space character.");
         _tagsOBJ.setDmdID("177");
         _tagsOBJ.setName("tags");
@@ -2433,6 +2691,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _typeOBJ = new AttributeDefinitionDMO();
         _type = new AttributeDefinition(_typeOBJ);
+        _typeOBJ.setDefinedInDmsModule("meta.meta");
         _typeOBJ.addDescription("Indicates the type of an attribute. The value is the name of any previously defined TypeDefinition, ClassDefinition, EnumDefinition or ComplexTypeDefinition.");
         _typeOBJ.setDmdID("19");
         _typeOBJ.setName("type");
@@ -2442,6 +2701,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _typeClassNameOBJ = new AttributeDefinitionDMO();
         _typeClassName = new AttributeDefinition(_typeClassNameOBJ);
+        _typeClassNameOBJ.setDefinedInDmsModule("meta.meta");
         _typeClassNameOBJ.addDescription("This is the fully qualified name of the class derived from DmcAttribute that provides management of a particular type of attribute value. For instance, the type class that handles String attributes  is org.dmd.dms.shared.types.DmcTypeString");
         _typeClassNameOBJ.setDmdID("5");
         _typeClassNameOBJ.setName("typeClassName");
@@ -2451,6 +2711,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _typeDefListOBJ = new AttributeDefinitionDMO();
         _typeDefList = new AttributeDefinition(_typeDefListOBJ);
+        _typeDefListOBJ.setDefinedInDmsModule("meta.meta");
         _typeDefListOBJ.addDescription("A list of type definition references.");
         _typeDefListOBJ.setDmdID("56");
         _typeDefListOBJ.setInternalUse("true");
@@ -2462,6 +2723,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _useInterfaceOBJ = new AttributeDefinitionDMO();
         _useInterface = new AttributeDefinition(_useInterfaceOBJ);
+        _useInterfaceOBJ.setDefinedInDmsModule("meta.meta");
         _useInterfaceOBJ.addDescription("The fully qualified name of a Java interface or base class that specifies a dependency.");
         _useInterfaceOBJ.setDmdID("150");
         _useInterfaceOBJ.setName("useInterface");
@@ -2471,6 +2733,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _useWrapperTypeOBJ = new AttributeDefinitionDMO();
         _useWrapperType = new AttributeDefinition(_useWrapperTypeOBJ);
+        _useWrapperTypeOBJ.setDefinedInDmsModule("meta.meta");
         _useWrapperTypeOBJ.addDescription("Indicates whether you want to use the generated DMW wrapper or the extended wrapper you've created yourself.");
         _useWrapperTypeOBJ.setDmdID("82");
         _useWrapperTypeOBJ.setName("useWrapperType");
@@ -2480,6 +2743,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _usesInterfaceOBJ = new AttributeDefinitionDMO();
         _usesInterface = new AttributeDefinition(_usesInterfaceOBJ);
+        _usesInterfaceOBJ.setDefinedInDmsModule("meta.meta");
         _usesInterfaceOBJ.addDescription("This is a hack for now to allow for the inclusion of an  interface on a class; it should be the fully qualified name of the interface. The interface shouldn't require any method implementations.");
         _usesInterfaceOBJ.setDmdID("24");
         _usesInterfaceOBJ.setName("usesInterface");
@@ -2489,6 +2753,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _uuidNameOBJ = new AttributeDefinitionDMO();
         _uuidName = new AttributeDefinition(_uuidNameOBJ);
+        _uuidNameOBJ.setDefinedInDmsModule("meta.meta");
         _uuidNameOBJ.addDescription("The object name for objects uniquely identified with a UUID.");
         _uuidNameOBJ.setDesignatedNameAttribute("true");
         _uuidNameOBJ.setDmdID("101");
@@ -2499,6 +2764,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _valueTypeOBJ = new AttributeDefinitionDMO();
         _valueType = new AttributeDefinition(_valueTypeOBJ);
+        _valueTypeOBJ.setDefinedInDmsModule("meta.meta");
         _valueTypeOBJ.addDescription("This attribute indicates the cardinality and storage mechanism for an attribute.");
         _valueTypeOBJ.setDmdID("12");
         _valueTypeOBJ.setName("valueType");
@@ -2508,6 +2774,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _versionOBJ = new AttributeDefinitionDMO();
         _version = new AttributeDefinition(_versionOBJ);
+        _versionOBJ.setDefinedInDmsModule("meta.meta");
         _versionOBJ.addDescription("The version at which something was introduced. Version names are assumed to be lexicographically sortable i.e. the name of a version must have a nautral sort order that increases.");
         _versionOBJ.setDmdID("181");
         _versionOBJ.setName("version");
@@ -2517,6 +2784,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _weakReferenceOBJ = new AttributeDefinitionDMO();
         _weakReference = new AttributeDefinition(_weakReferenceOBJ);
+        _weakReferenceOBJ.setDefinedInDmsModule("meta.meta");
         _weakReferenceOBJ.addDescription("A flag to indicate that a reference attribute is weak i.e.  if the object can't be resolved, no exception is thrown.");
         _weakReferenceOBJ.setDmdID("179");
         _weakReferenceOBJ.setName("weakReference");
@@ -2526,6 +2794,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _whyOBJ = new AttributeDefinitionDMO();
         _why = new AttributeDefinition(_whyOBJ);
+        _whyOBJ.setDefinedInDmsModule("meta.meta");
         _whyOBJ.addDescription("An indication of why something was added to a specification or a system. This might be a reference to a requirement or feature concept. How this is used will depend on context. Due to the fact that it is a weak reference, you may also just put in free form text, since it will simply be treated as an unresolved reference.");
         _whyOBJ.setDmdID("184");
         _whyOBJ.setName("why");
@@ -2536,6 +2805,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         AttributeDefinitionDMO _wrapperClassNameOBJ = new AttributeDefinitionDMO();
         _wrapperClassName = new AttributeDefinition(_wrapperClassNameOBJ);
+        _wrapperClassNameOBJ.setDefinedInDmsModule("meta.meta");
         _wrapperClassNameOBJ.addDescription("This is the fully qualified name of the wrapper class derived from DmcWrapperBase that wraps a DMO. This is used when generating object reference classes associated with ClassDefinitions This actually aligns to the javaClass of the ClassDefinition for which we're generating the reference classes.");
         _wrapperClassNameOBJ.setDmdID("6");
         _wrapperClassNameOBJ.setInternalUse("true");
@@ -2552,6 +2822,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _AttributeID = new TypeDefinition(_AttributeIDOBJ);
         _AttributeIDOBJ.setAltType("DmcAttributeInfo");
         _AttributeIDOBJ.setAltTypeImport("org.dmd.core.DmcAttributeInfo");
+        _AttributeIDOBJ.setDefinedInDmsModule("meta.meta");
         _AttributeIDOBJ.addDescription("The AttributeID type allows for the storage of unique attribute identifiers. Currently this is only used in the dark-matter protocol attributeSelector attribute.");
         _AttributeIDOBJ.setName("AttributeID");
         _AttributeIDOBJ.setPrimitiveType("org.dmd.dms.shared.types.AttributeID");
@@ -2561,6 +2832,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _BooleanOBJ = new TypeDefinitionDMO();
         _Boolean = new TypeDefinition(_BooleanOBJ);
+        _BooleanOBJ.setDefinedInDmsModule("meta.meta");
         _BooleanOBJ.addDescription("Provides support for Boolean values. This type makes use of the <code> nullReturnValue </code> flag so that, even if there is no value for an attribute of this type, a value of false will be returned.");
         _BooleanOBJ.setName("Boolean");
         _BooleanOBJ.setNullReturnValue("false");
@@ -2570,6 +2842,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _ByteOBJ = new TypeDefinitionDMO();
         _Byte = new TypeDefinition(_ByteOBJ);
+        _ByteOBJ.setDefinedInDmsModule("meta.meta");
         _ByteOBJ.addDescription("Provides support for Byte values.");
         _ByteOBJ.setName("Byte");
         _ByteOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeByte");
@@ -2578,6 +2851,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _CamelCaseNameOBJ = new TypeDefinitionDMO();
         _CamelCaseName = new TypeDefinition(_CamelCaseNameOBJ);
+        _CamelCaseNameOBJ.setDefinedInDmsModule("meta.meta");
         _CamelCaseNameOBJ.addDescription("The CamelCaseName is a string based name that must start with an alpha character which is followed by a mix of alphanumerics.");
         _CamelCaseNameOBJ.setIsNameType("true");
         _CamelCaseNameOBJ.setName("CamelCaseName");
@@ -2589,6 +2863,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _ClassFilterOBJ = new TypeDefinitionDMO();
         _ClassFilter = new TypeDefinition(_ClassFilterOBJ);
+        _ClassFilterOBJ.setDefinedInDmsModule("meta.meta");
         _ClassFilterOBJ.addDescription("The ClassFilter is used to perform matches against objects based on their class or auxiliary classes.");
         _ClassFilterOBJ.setFilterAttributeDef("meta.classFilter");
         _ClassFilterOBJ.setIsFilterType("true");
@@ -2600,6 +2875,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _ClassInfoRefOBJ = new TypeDefinitionDMO();
         _ClassInfoRef = new TypeDefinition(_ClassInfoRefOBJ);
+        _ClassInfoRefOBJ.setDefinedInDmsModule("meta.meta");
         _ClassInfoRefOBJ.addDescription("The ClassInfoRef type allows for the representation of class information  via the Dark Matter ID associated with a ClassDefinition. It provides transient access to the static DmcClassInfo from the generated DMSAG, regardless of the environment in which it exists.");
         _ClassInfoRefOBJ.setName("ClassInfoRef");
         _ClassInfoRefOBJ.setPrimitiveType("org.dmd.dms.shared.types.ClassInfoRef");
@@ -2609,6 +2885,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _DateOBJ = new TypeDefinitionDMO();
         _Date = new TypeDefinition(_DateOBJ);
+        _DateOBJ.setDefinedInDmsModule("meta.meta");
         _DateOBJ.addDescription("Provides support for Date values.");
         _DateOBJ.setName("Date");
         _DateOBJ.setPrimitiveType("java.util.Date");
@@ -2618,6 +2895,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _DefinitionNameOBJ = new TypeDefinitionDMO();
         _DefinitionName = new TypeDefinition(_DefinitionNameOBJ);
+        _DefinitionNameOBJ.setDefinedInDmsModule("meta.meta");
         _DefinitionNameOBJ.addDescription("The DefinitionName provides naming of dark-matter definitions.");
         _DefinitionNameOBJ.setIsNameType("true");
         _DefinitionNameOBJ.setName("DefinitionName");
@@ -2629,6 +2907,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _DmcObjectOBJ = new TypeDefinitionDMO();
         _DmcObject = new TypeDefinition(_DmcObjectOBJ);
+        _DmcObjectOBJ.setDefinedInDmsModule("meta.meta");
         _DmcObjectOBJ.addDescription("The DmcObject type allows for the storage of raw DmcObjects.");
         _DmcObjectOBJ.setName("DmcObject");
         _DmcObjectOBJ.setPrimitiveType("org.dmd.core.DmcObject");
@@ -2638,6 +2917,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _DotNameOBJ = new TypeDefinitionDMO();
         _DotName = new TypeDefinition(_DotNameOBJ);
+        _DotNameOBJ.setDefinedInDmsModule("meta.meta");
         _DotNameOBJ.addDescription("The DotName provides standard mechanisms to deal with hierarchic names composed of strings interspersed with periods (dots) to separate the name elements. For example a dot name might be one.two.three");
         _DotNameOBJ.setIsHierarchicName("true");
         _DotNameOBJ.setIsNameType("true");
@@ -2650,6 +2930,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _DoubleOBJ = new TypeDefinitionDMO();
         _Double = new TypeDefinition(_DoubleOBJ);
+        _DoubleOBJ.setDefinedInDmsModule("meta.meta");
         _DoubleOBJ.addDescription("Provides support for Double values.");
         _DoubleOBJ.setName("Double");
         _DoubleOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeDouble");
@@ -2658,6 +2939,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _EnumValueOBJ = new TypeDefinitionDMO();
         _EnumValue = new TypeDefinition(_EnumValueOBJ);
+        _EnumValueOBJ.setDefinedInDmsModule("meta.meta");
         _EnumValueOBJ.addDescription("The EnumValue type is used to store the definition of one enumerated value that comprises part of an overall EnumDefinition. <p/> The value of an EnumValue is comprised of at least three tokens and possibly a label: <pre> [enum integer value] [enum value name] [enum description] <: label> </pre> For example: <pre> 0 ABSTRACT Here is the definition of abstract. : Abstract </pre> Within an EnumDefinition, each EnumValue must have a unique integer identifier and a unique value name. <p/> The enum value name is automatically set to uppercase, even if it is specified in lower or mixed case.");
         _EnumValueOBJ.setName("EnumValue");
         _EnumValueOBJ.setPrimitiveType("org.dmd.dms.shared.types.EnumValue");
@@ -2669,6 +2951,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _FilterContainer = new TypeDefinition(_FilterContainerOBJ);
         _FilterContainerOBJ.setAltType("DmcFilter");
         _FilterContainerOBJ.setAltTypeImport("org.dmd.core.DmcFilter");
+        _FilterContainerOBJ.setDefinedInDmsModule("meta.meta");
         _FilterContainerOBJ.addDescription("The FilterContainer type allows for the storage of object filters of different types.");
         _FilterContainerOBJ.setName("FilterContainer");
         _FilterContainerOBJ.setPrimitiveType("org.dmd.dms.shared.types.FilterContainer");
@@ -2678,6 +2961,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _FloatOBJ = new TypeDefinitionDMO();
         _Float = new TypeDefinition(_FloatOBJ);
+        _FloatOBJ.setDefinedInDmsModule("meta.meta");
         _FloatOBJ.addDescription("Provides support for Float values.");
         _FloatOBJ.setName("Float");
         _FloatOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeFloat");
@@ -2686,6 +2970,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _FullyQualifiedNameOBJ = new TypeDefinitionDMO();
         _FullyQualifiedName = new TypeDefinition(_FullyQualifiedNameOBJ);
+        _FullyQualifiedNameOBJ.setDefinedInDmsModule("meta.meta");
         _FullyQualifiedNameOBJ.setIsNameType("true");
         _FullyQualifiedNameOBJ.setName("FullyQualifiedName");
         _FullyQualifiedNameOBJ.setNameAttributeDef("meta.FQN");
@@ -2696,6 +2981,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _IntegerOBJ = new TypeDefinitionDMO();
         _Integer = new TypeDefinition(_IntegerOBJ);
+        _IntegerOBJ.setDefinedInDmsModule("meta.meta");
         _IntegerOBJ.addDescription("Provides support for Integer values.");
         _IntegerOBJ.setName("Integer");
         _IntegerOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeInteger");
@@ -2704,6 +2990,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _IntegerNameOBJ = new TypeDefinitionDMO();
         _IntegerName = new TypeDefinition(_IntegerNameOBJ);
+        _IntegerNameOBJ.setDefinedInDmsModule("meta.meta");
         _IntegerNameOBJ.addDescription("An IntegerName provides the means to uniquely identify an object using an integer value.");
         _IntegerNameOBJ.setIsNameType("true");
         _IntegerNameOBJ.setName("IntegerName");
@@ -2715,6 +3002,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _IntegerToBooleanOBJ = new TypeDefinitionDMO();
         _IntegerToBoolean = new TypeDefinition(_IntegerToBooleanOBJ);
+        _IntegerToBooleanOBJ.setDefinedInDmsModule("meta.meta");
         _IntegerToBooleanOBJ.addDescription("Provides support for hashed integer to Boolean values.");
         _IntegerToBooleanOBJ.setKeyClass("Integer");
         _IntegerToBooleanOBJ.setName("IntegerToBoolean");
@@ -2725,6 +3013,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _IntegerToStringOBJ = new TypeDefinitionDMO();
         _IntegerToString = new TypeDefinition(_IntegerToStringOBJ);
+        _IntegerToStringOBJ.setDefinedInDmsModule("meta.meta");
         _IntegerToStringOBJ.addDescription("Provides support for hashed integer to string values.");
         _IntegerToStringOBJ.setKeyClass("Integer");
         _IntegerToStringOBJ.setName("IntegerToString");
@@ -2735,6 +3024,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _IntegerToUUIDLiteOBJ = new TypeDefinitionDMO();
         _IntegerToUUIDLite = new TypeDefinition(_IntegerToUUIDLiteOBJ);
+        _IntegerToUUIDLiteOBJ.setDefinedInDmsModule("meta.meta");
         _IntegerToUUIDLiteOBJ.addDescription("Provides support for hashed integer to UUIDLite values.");
         _IntegerToUUIDLiteOBJ.setKeyClass("Integer");
         _IntegerToUUIDLiteOBJ.setName("IntegerToUUIDLite");
@@ -2745,6 +3035,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _LabelledIntegerDataPointOBJ = new TypeDefinitionDMO();
         _LabelledIntegerDataPoint = new TypeDefinition(_LabelledIntegerDataPointOBJ);
+        _LabelledIntegerDataPointOBJ.setDefinedInDmsModule("meta.meta");
         _LabelledIntegerDataPointOBJ.addDescription("Represents a single, labelled Integer data point. Generally used for pie chart data.");
         _LabelledIntegerDataPointOBJ.setName("LabelledIntegerDataPoint");
         _LabelledIntegerDataPointOBJ.setPrimitiveType("org.dmd.dms.shared.types.LabelledIntegerDataPoint");
@@ -2754,6 +3045,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _LongOBJ = new TypeDefinitionDMO();
         _Long = new TypeDefinition(_LongOBJ);
+        _LongOBJ.setDefinedInDmsModule("meta.meta");
         _LongOBJ.addDescription("Provides support for Long values.");
         _LongOBJ.setName("Long");
         _LongOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeLong");
@@ -2762,6 +3054,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _LongNameOBJ = new TypeDefinitionDMO();
         _LongName = new TypeDefinition(_LongNameOBJ);
+        _LongNameOBJ.setDefinedInDmsModule("meta.meta");
         _LongNameOBJ.addDescription("A LongName provides the means to uniquely identify an object using a long value.");
         _LongNameOBJ.setIsNameType("true");
         _LongNameOBJ.setName("LongName");
@@ -2773,6 +3066,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _ModifierOBJ = new TypeDefinitionDMO();
         _Modifier = new TypeDefinition(_ModifierOBJ);
+        _ModifierOBJ.setDefinedInDmsModule("meta.meta");
         _ModifierOBJ.addDescription("The Modifier type is used to represent modification operations on a DmcObject. Any modification to an object can be represented by a Modifier. The string representation of a modification can take the following forms: <ul> <li> &ltattribute name&gt ADD &ltvalue&gt</li> <li> &ltattribute name&gt DEL &ltvalue&gt</li> <li> &ltattribute name&gt SET &ltvalue&gt</li> <li> &ltattribute name&gt NTH &ltindex&gt &ltvalue&gt</li> <li> &ltattribute name&gt NTH &ltindex&gt</li> <li> &ltattribute name&gt REM </li> </ul>");
         _ModifierOBJ.setName("Modifier");
         _ModifierOBJ.setPrimitiveType("org.dmd.dms.shared.types.Modifier");
@@ -2784,6 +3078,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _NameContainer = new TypeDefinition(_NameContainerOBJ);
         _NameContainerOBJ.setAltType("DmcObjectName");
         _NameContainerOBJ.setAltTypeImport("org.dmd.core.DmcObjectName");
+        _NameContainerOBJ.setDefinedInDmsModule("meta.meta");
         _NameContainerOBJ.addDescription("The NameContainer type allows for the storage of object names of different types. This mechanism is required because the naming mechanisms associated with dark-matter allow for different ways of naming objects. When the name of something is transported, it has to be  self describing i.e. the type of the naming attribute must be known so that the appropriate  name type can be instantiated. An example of this comes from the Dark Matter Protocol.  The targets attribute is defined as a NameContainer. An instance of targets might appear as follows: <pre> targets uuidName 809408a7-f00b-448c-beb6-00337e83acc4 </pre> As you can see, the attribute name is <code>targets</code> and the value is <code> uuidName 809408a7-f00b-448c-beb6-00337e83acc4</code>. The <code>uuidName</code> attribute is the <code> designatedNameAttribute </code> for the <code> UUIDName </code> type. So, when parsing/deserializing a name container, we always know the underlying type of the name. <p/> This approach makes dark-matter name handling completely extensible. <p/> A similar approach is taken to filter specifications via the FilterContainer.");
         _NameContainerOBJ.setName("NameContainer");
         _NameContainerOBJ.setPrimitiveType("org.dmd.dms.shared.types.NameContainer");
@@ -2793,6 +3088,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _RuleNameOBJ = new TypeDefinitionDMO();
         _RuleName = new TypeDefinition(_RuleNameOBJ);
+        _RuleNameOBJ.setDefinedInDmsModule("meta.meta");
         _RuleNameOBJ.addDescription("The RuleName is a string based name that must start with an alpha character which is followed by a mix of alphanumerics.");
         _RuleNameOBJ.setIsNameType("true");
         _RuleNameOBJ.setName("RuleName");
@@ -2804,6 +3100,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _ShortOBJ = new TypeDefinitionDMO();
         _Short = new TypeDefinition(_ShortOBJ);
+        _ShortOBJ.setDefinedInDmsModule("meta.meta");
         _ShortOBJ.addDescription("Provides support for Short values.");
         _ShortOBJ.setName("Short");
         _ShortOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeShort");
@@ -2812,6 +3109,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _StringOBJ = new TypeDefinitionDMO();
         _String = new TypeDefinition(_StringOBJ);
+        _StringOBJ.setDefinedInDmsModule("meta.meta");
         _StringOBJ.addDescription("Provides support for String values.");
         _StringOBJ.setName("String");
         _StringOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeString");
@@ -2820,6 +3118,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _StringNameOBJ = new TypeDefinitionDMO();
         _StringName = new TypeDefinition(_StringNameOBJ);
+        _StringNameOBJ.setDefinedInDmsModule("meta.meta");
         _StringNameOBJ.addDescription("The StringName is the simplest naming mechanism available; it's just a String.");
         _StringNameOBJ.setIsNameType("true");
         _StringNameOBJ.setName("StringName");
@@ -2831,6 +3130,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _StringToStringOBJ = new TypeDefinitionDMO();
         _StringToString = new TypeDefinition(_StringToStringOBJ);
+        _StringToStringOBJ.setDefinedInDmsModule("meta.meta");
         _StringToStringOBJ.addDescription("Provides support for hashed string to string values.");
         _StringToStringOBJ.setKeyClass("String");
         _StringToStringOBJ.setName("StringToString");
@@ -2841,6 +3141,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _TimeDoubleDataPointOBJ = new TypeDefinitionDMO();
         _TimeDoubleDataPoint = new TypeDefinition(_TimeDoubleDataPointOBJ);
+        _TimeDoubleDataPointOBJ.setDefinedInDmsModule("meta.meta");
         _TimeDoubleDataPointOBJ.addDescription("Represents a single Double data point at a moment in time. Generally used for line or column chart data.");
         _TimeDoubleDataPointOBJ.setName("TimeDoubleDataPoint");
         _TimeDoubleDataPointOBJ.setPrimitiveType("org.dmd.dms.shared.types.TimeDoubleDataPoint");
@@ -2850,6 +3151,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _UUIDLiteOBJ = new TypeDefinitionDMO();
         _UUIDLite = new TypeDefinition(_UUIDLiteOBJ);
+        _UUIDLiteOBJ.setDefinedInDmsModule("meta.meta");
         _UUIDLiteOBJ.addDescription("The UUIDLite provides support for UUIDs in GWT environments; a full UUID implementation is not supported by the GWT JRE Emulation mechanisms. It holds two long values that represent a complete java.util.UUID as generated within the server environment. The methods to parse a UUID from a String and present it as a String are taken from the java.util.UUID class.");
         _UUIDLiteOBJ.setName("UUIDLite");
         _UUIDLiteOBJ.setPrimitiveType("org.dmd.dms.shared.types.UUIDLite");
@@ -2859,6 +3161,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         TypeDefinitionDMO _UUIDNameOBJ = new TypeDefinitionDMO();
         _UUIDName = new TypeDefinition(_UUIDNameOBJ);
+        _UUIDNameOBJ.setDefinedInDmsModule("meta.meta");
         _UUIDNameOBJ.addDescription("The UUIDName allows for the naming of objects based on the GWT compatible UUIDLite type.");
         _UUIDNameOBJ.setIsNameType("true");
         _UUIDNameOBJ.setName("UUIDName");
@@ -2874,6 +3177,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         EnumDefinitionDMO _BaseTypeEnumOBJ = new EnumDefinitionDMO();
         _BaseTypeEnum = new EnumDefinition(_BaseTypeEnumOBJ);
+        _BaseTypeEnumOBJ.setDefinedInDmsModule("meta.meta");
         _BaseTypeEnumOBJ.addDescription("The BaseTypeEnum indicates the broad category of data types for which  a MethodGenerator component is intended. The matrix defined by combining the ValueType and BaseTypeEnums indicates all the combinations of method types required for a particular type of data in code generation context.");
         _BaseTypeEnumOBJ.addEnumValue("0 PRIMITIVE 	Indicates a primitive data type such as Integer, String, long or a generated complex type.");
         _BaseTypeEnumOBJ.addEnumValue("1 NAMEDREF		Indicates a named object reference.");
@@ -2887,6 +3191,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         EnumDefinitionDMO _ClassTypeEnumOBJ = new EnumDefinitionDMO();
         _ClassTypeEnum = new EnumDefinition(_ClassTypeEnumOBJ);
+        _ClassTypeEnumOBJ.setDefinedInDmsModule("meta.meta");
         _ClassTypeEnumOBJ.addDescription("The ClassTypeEnum enumeration indicates the types of classes that can be defined; some of these definitions are borrowed from LDAP directory parlance. See the individual enum value definitions for details.");
         _ClassTypeEnumOBJ.addEnumValue("0 UNKNOWN		Unknown value.");
         _ClassTypeEnumOBJ.addEnumValue("1 ABSTRACT		An abstract class is one that provides a base class for a set of related derived classes, but which can't be instantiated by itself.");
@@ -2901,6 +3206,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         EnumDefinitionDMO _DataTypeEnumOBJ = new EnumDefinitionDMO();
         _DataTypeEnum = new EnumDefinition(_DataTypeEnumOBJ);
+        _DataTypeEnumOBJ.setDefinedInDmsModule("meta.meta");
         _DataTypeEnumOBJ.addDescription("The DataTypeEnum relates to how attributes/classes are dealt with by various persistence mechanism. No inherent behaviour is defined at this level.");
         _DataTypeEnumOBJ.addEnumValue("0 UNKNOWN Indicates that we can't determine the data type.");
         _DataTypeEnumOBJ.addEnumValue("1 TRANSIENT Indicates that the data is transient i.e. it exists within the application context in which it is used, but is not persisted across application invocations and is not serialized in communications with other systems.");
@@ -2913,6 +3219,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         EnumDefinitionDMO _DebugEnumOBJ = new EnumDefinitionDMO();
         _DebugEnum = new EnumDefinition(_DebugEnumOBJ);
+        _DebugEnumOBJ.setDefinedInDmsModule("meta.meta");
         _DebugEnumOBJ.addDescription("The DebugEnum indicates the various levels of detailed logging that can be enabled in the DMC framework.");
         _DebugEnumOBJ.addEnumValue("0 NONE Unknown value.");
         _DebugEnumOBJ.addEnumValue("1 FILTER Allows fine control over printing of debug messages associated with filtering operations.");
@@ -2924,6 +3231,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         EnumDefinitionDMO _FilterTypeEnumOBJ = new EnumDefinitionDMO();
         _FilterTypeEnum = new EnumDefinition(_FilterTypeEnumOBJ);
+        _FilterTypeEnumOBJ.setDefinedInDmsModule("meta.meta");
         _FilterTypeEnumOBJ.addDescription("The FilterTypeEnum enumeration indicates the types of filter operations that can be carried out on the attributes of an object.");
         _FilterTypeEnumOBJ.addEnumValue("0 NONE Indicates that no filter operation was specified.");
         _FilterTypeEnumOBJ.addEnumValue("1 AND  Indicates that the rest of the filter ops that follow will be ANDed together.");
@@ -2939,6 +3247,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         EnumDefinitionDMO _ModifyTypeEnumOBJ = new EnumDefinitionDMO();
         _ModifyTypeEnum = new EnumDefinition(_ModifyTypeEnumOBJ);
+        _ModifyTypeEnumOBJ.setDefinedInDmsModule("meta.meta");
         _ModifyTypeEnumOBJ.addDescription("The ModifyTypeEnum indicates the types of modification operations that can be carried out on the attributes of an object.");
         _ModifyTypeEnumOBJ.addEnumValue("0 NONE Indicates that no modify operation was specified.");
         _ModifyTypeEnumOBJ.addEnumValue("1 ADD  The ADD operation adds a new value to a multi-valued attribute.");
@@ -2953,6 +3262,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         EnumDefinitionDMO _OperationalContextEnumOBJ = new EnumDefinitionDMO();
         _OperationalContextEnum = new EnumDefinition(_OperationalContextEnumOBJ);
+        _OperationalContextEnumOBJ.setDefinedInDmsModule("meta.meta");
         _OperationalContextEnumOBJ.addDescription("The OperationalContextEnum indicates various types of operational contexts in which some component can operate.");
         _OperationalContextEnumOBJ.addEnumValue("0 DMO       Indicates that the component follows basic Dark Matter Object rules which likewise conform to GWT JRE Emulation.");
         _OperationalContextEnumOBJ.addEnumValue("1 FULLJAVA  indicates that the component operates in a ful Java environment; no restrictions.");
@@ -2963,6 +3273,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         EnumDefinitionDMO _OriginalTypeEnumOBJ = new EnumDefinitionDMO();
         _OriginalTypeEnum = new EnumDefinition(_OriginalTypeEnumOBJ);
+        _OriginalTypeEnumOBJ.setDefinedInDmsModule("meta.meta");
         _OriginalTypeEnumOBJ.addDescription("The OriginalTypeEnum indicates the source of type, whether explicitly defined or implicitly defined and generated as an internal type.");
         _OriginalTypeEnumOBJ.addEnumValue("0 TYPE The type is actually a type!.");
         _OriginalTypeEnumOBJ.addEnumValue("1 ENUM The type is an enum.");
@@ -2978,6 +3289,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         EnumDefinitionDMO _RuleTypeEnumOBJ = new EnumDefinitionDMO();
         _RuleTypeEnum = new EnumDefinition(_RuleTypeEnumOBJ);
+        _RuleTypeEnumOBJ.setDefinedInDmsModule("meta.meta");
         _RuleTypeEnumOBJ.addDescription("The RuleTypeEnum indicates the level at which a rule is applied. An ATTRIBUTE rule is applied at the attribute level and must have the applyToAttribute attribute and may have the applyToClass attribute to limit its scope to particular classes. A CLASS level rule will be applied to an entire object and will have the applyToClass attribute unless it is defined as GLOBAL.");
         _RuleTypeEnumOBJ.addEnumValue("0 ATTRIBUTE Indicates that this is an attribute level rule.");
         _RuleTypeEnumOBJ.addEnumValue("1 CLASS     Indicates that this is a class level rule.");
@@ -2988,6 +3300,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         EnumDefinitionDMO _ValueTypeEnumOBJ = new EnumDefinitionDMO();
         _ValueTypeEnum = new EnumDefinition(_ValueTypeEnumOBJ);
+        _ValueTypeEnumOBJ.setDefinedInDmsModule("meta.meta");
         _ValueTypeEnumOBJ.addDescription("The ValueTypeEnum indicates the cardinality of an attribute as well as the type of Map to be used if the attribute is keyed. This is an extension to original concept of single-valued versus multi-valued. Hashsets are also supported.");
         _ValueTypeEnumOBJ.addEnumValue("0 SINGLE Indicates that the attribute is single-valued.");
         _ValueTypeEnumOBJ.addEnumValue("1 MULTI Indicates that the attribute is multi-valued.");
@@ -3002,6 +3315,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         EnumDefinitionDMO _WrapperTypeEnumOBJ = new EnumDefinitionDMO();
         _WrapperTypeEnum = new EnumDefinition(_WrapperTypeEnumOBJ);
+        _WrapperTypeEnumOBJ.setDefinedInDmsModule("meta.meta");
         _WrapperTypeEnumOBJ.addDescription("The WrapperTypeEnum indicates which wrapper class you want instantiated when a class of object is recognized during parsing or when an object is pulled from a repository.");
         _WrapperTypeEnumOBJ.addEnumValue("0 NONE Unknown value.");
         _WrapperTypeEnumOBJ.addEnumValue("1 BASE Indicates that you just want to use the generated DMW class.");
@@ -3019,12 +3333,13 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _AttributeValidation = new RuleCategory(_AttributeValidationOBJ);
         _AttributeValidationOBJ.setAttributeInfoFromParam("attribute.getAttributeInfo()");
         _AttributeValidationOBJ.setClassInfoFromParam("obj.getConstructionClassInfo()");
+        _AttributeValidationOBJ.setDefinedInDmsModule("meta.meta");
         _AttributeValidationOBJ.addDescription("Rules in this category are used to validate individual attributes.");
         _AttributeValidationOBJ.setName("AttributeValidation");
         _AttributeValidationOBJ.setOpContext("DMO");
         _AttributeValidationOBJ.setRuleCategoryID("3");
-        _AttributeValidationOBJ.addRuleParam("org.dmd.dmc.DmcObject::obj:The object in which the attribute exists");
-        _AttributeValidationOBJ.addRuleParam("org.dmd.dmc.DmcAttribute:<?>:attribute:The attribute to be validated");
+        _AttributeValidationOBJ.addRuleParam("org.dmd.core.DmcObject:\" \":obj:The object in which the attribute exists");
+        _AttributeValidationOBJ.addRuleParam("org.dmd.core.DmcAttribute:\"<?>\":attribute:The attribute to be validated");
         _AttributeValidationOBJ.setRuleType("ATTRIBUTE");
         _AttributeValidation.setDefinedIn(this);
         addRuleCategoryList(_AttributeValidation);
@@ -3033,13 +3348,14 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _AttributeValidationWithResolver = new RuleCategory(_AttributeValidationWithResolverOBJ);
         _AttributeValidationWithResolverOBJ.setAttributeInfoFromParam("attribute.getAttributeInfo()");
         _AttributeValidationWithResolverOBJ.setClassInfoFromParam("obj.getConstructionClassInfo()");
+        _AttributeValidationWithResolverOBJ.setDefinedInDmsModule("meta.meta");
         _AttributeValidationWithResolverOBJ.addDescription("Rules in this category are used to validate individual attributes, but may require information that can be accessed from a given namespace provided by the name resolver. <p> For now, we've a way around having this category - see ReferencedAttributeTypeRule, but we may have to return to this mechanism.");
         _AttributeValidationWithResolverOBJ.setName("AttributeValidationWithResolver");
         _AttributeValidationWithResolverOBJ.setOpContext("DMO");
         _AttributeValidationWithResolverOBJ.setRuleCategoryID("4");
-        _AttributeValidationWithResolverOBJ.addRuleParam("org.dmd.dmc.DmcObject::obj:The object in which the attribute exists");
-        _AttributeValidationWithResolverOBJ.addRuleParam("org.dmd.dmc.DmcAttribute:<?>:attribute:The attribute to be validated");
-        _AttributeValidationWithResolverOBJ.addRuleParam("org.dmd.dmc.DmcUniqueNameResolverIF::resolver:The name resolver");
+        _AttributeValidationWithResolverOBJ.addRuleParam("org.dmd.core.DmcObject:\" \":obj:The object in which the attribute exists");
+        _AttributeValidationWithResolverOBJ.addRuleParam("org.dmd.core.DmcAttribute:\"<?>\":attribute:The attribute to be validated");
+        _AttributeValidationWithResolverOBJ.addRuleParam("org.dmd.core.interfaces.DmcUniqueNameResolverIF:\" \":resolver:The name resolver");
         _AttributeValidationWithResolverOBJ.setRuleType("ATTRIBUTE");
         _AttributeValidationWithResolver.setDefinedIn(this);
         addRuleCategoryList(_AttributeValidationWithResolver);
@@ -3047,11 +3363,12 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         RuleCategoryDMO _InitializationOBJ = new RuleCategoryDMO();
         _Initialization = new RuleCategory(_InitializationOBJ);
         _InitializationOBJ.setClassInfoFromParam("obj.getConstructionClassInfo()");
+        _InitializationOBJ.setDefinedInDmsModule("meta.meta");
         _InitializationOBJ.addDescription("Rules in this category are used to initialize objects to a known state after creation. <p/> Execution will be performed from the bottom of the derivation hierarchy to the top i.e. we look for rules for the construction class of the object being initialized and then move up the derivation hierarchy looking for rules associated with the base classes.");
         _InitializationOBJ.setName("Initialization");
         _InitializationOBJ.setOpContext("DMO");
         _InitializationOBJ.setRuleCategoryID("1");
-        _InitializationOBJ.addRuleParam("org.dmd.dmc.DmcObject: :obj:The object to be initialized");
+        _InitializationOBJ.addRuleParam("org.dmd.core.DmcObject:\" \":obj:The object to be initialized");
         _InitializationOBJ.setRuleType("CLASS");
         _Initialization.setDefinedIn(this);
         addRuleCategoryList(_Initialization);
@@ -3059,11 +3376,12 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         RuleCategoryDMO _ObjectValidationOBJ = new RuleCategoryDMO();
         _ObjectValidation = new RuleCategory(_ObjectValidationOBJ);
         _ObjectValidationOBJ.setClassInfoFromParam("obj.getConstructionClassInfo()");
+        _ObjectValidationOBJ.setDefinedInDmsModule("meta.meta");
         _ObjectValidationOBJ.addDescription("Rules in this category are used to validate a complete object. This would include objects read from Object Instance Files, objects in CreateRequests (after Initialization rules have been applied).");
         _ObjectValidationOBJ.setName("ObjectValidation");
         _ObjectValidationOBJ.setOpContext("DMO");
         _ObjectValidationOBJ.setRuleCategoryID("2");
-        _ObjectValidationOBJ.addRuleParam("org.dmd.dmc.DmcObject: :obj:The object to be validated");
+        _ObjectValidationOBJ.addRuleParam("org.dmd.core.DmcObject:\" \":obj:The object to be validated");
         _ObjectValidationOBJ.setRuleType("CLASS");
         _ObjectValidation.setDefinedIn(this);
         addRuleCategoryList(_ObjectValidation);
@@ -3071,12 +3389,13 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         RuleCategoryDMO _UCOValidationOBJ = new RuleCategoryDMO();
         _UCOValidation = new RuleCategory(_UCOValidationOBJ);
         _UCOValidationOBJ.setClassInfoFromParam("DmcOmni.instance().getClassInfo(obj.getConstructionClass())");
+        _UCOValidationOBJ.setDefinedInDmsModule("meta.meta");
         _UCOValidationOBJ.addDescription("Rules in this category are used to validate DmcUncheckedObjects (UCOs) which are basically just collections of attribute/value pairs.");
         _UCOValidationOBJ.setName("UCOValidation");
         _UCOValidationOBJ.setOpContext("DMO");
         _UCOValidationOBJ.setRuleCategoryID("6");
-        _UCOValidationOBJ.addRuleImport("org.dmd.dmc.DmcOmni");
-        _UCOValidationOBJ.addRuleParam("org.dmd.dmc.util.DmcUncheckedObject: :obj:The object to be validated:");
+        _UCOValidationOBJ.addRuleImport("org.dmd.core.DmcOmni");
+        _UCOValidationOBJ.addRuleParam("org.dmd.core.util.DMUncheckedObject:\" \":obj:The object to be validated:");
         _UCOValidationOBJ.setRuleType("CLASS");
         _UCOValidation.setDefinedIn(this);
         addRuleCategoryList(_UCOValidation);
@@ -3087,6 +3406,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         ComplexTypeDefinitionDMO _DmwTypeToWrapperTypeOBJ = new ComplexTypeDefinitionDMO();
         _DmwTypeToWrapperType = new ComplexTypeDefinition(_DmwTypeToWrapperTypeOBJ);
+        _DmwTypeToWrapperTypeOBJ.setDefinedInDmsModule("meta.meta");
         _DmwTypeToWrapperTypeOBJ.addDescription("The DmwTypeToWrapperType complex type is used as the type of the dmwWrapperType attribute which is used to indicate the type of wrappers to generate for a class in a particular generation context.");
         _DmwTypeToWrapperTypeOBJ.setName("DmwTypeToWrapperType");
         _DmwTypeToWrapperTypeOBJ.addRequiredPart("String          dmwType     \"The Dark Matter Wrapper type\"");
@@ -3096,6 +3416,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         ComplexTypeDefinitionDMO _ExampleOBJ = new ComplexTypeDefinitionDMO();
         _Example = new ComplexTypeDefinition(_ExampleOBJ);
+        _ExampleOBJ.setDefinedInDmsModule("meta.meta");
         _ExampleOBJ.addDescription("If you want to get rid of the &#92;n use: .replaceAll(\"&#92;&#92;&#92;&#92;n\",\"&#92;&#92;&#92;n\")");
         _ExampleOBJ.setFieldSeparator(":");
         _ExampleOBJ.setName("Example");
@@ -3107,6 +3428,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         ComplexTypeDefinitionDMO _NameValuePairOBJ = new ComplexTypeDefinitionDMO();
         _NameValuePair = new ComplexTypeDefinition(_NameValuePairOBJ);
+        _NameValuePairOBJ.setDefinedInDmsModule("meta.meta");
         _NameValuePairOBJ.addDescription("The NameValuePair type provides a general extensibility mechanism for DMOs by allowing for the addition of name value pairs to an object. This is a quick and dirty alternative to using auxiliary classes to extend an object especially the DSDefinition object that provides a common base class for all domain specific definitions.");
         _NameValuePairOBJ.setName("NameValuePair");
         _NameValuePairOBJ.addRequiredPart("String			name		\"The name of the value\"");
@@ -3116,6 +3438,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         ComplexTypeDefinitionDMO _OptimizeOBJ = new ComplexTypeDefinitionDMO();
         _Optimize = new ComplexTypeDefinition(_OptimizeOBJ);
+        _OptimizeOBJ.setDefinedInDmsModule("meta.meta");
         _OptimizeOBJ.addDescription("Allows for capture of optimization notes.");
         _OptimizeOBJ.addExample("code : Specifying an Optimization/Improvement :  <pre> optimize We could improve compression if we indicated the blah, blah, blah who=\"Me\" when=\"release 5\" why=\"reduce bandwidth charges\" </pre>");
         _OptimizeOBJ.setFieldSeparator(":");
@@ -3129,6 +3452,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         ComplexTypeDefinitionDMO _PartOBJ = new ComplexTypeDefinitionDMO();
         _Part = new ComplexTypeDefinition(_PartOBJ);
+        _PartOBJ.setDefinedInDmsModule("meta.meta");
         _PartOBJ.addDescription("The Part complex type is used to describe the Parts of a ComplexTypeDefinition.");
         _PartOBJ.setName("Part");
         _PartOBJ.addOptionalPart("Boolean			quoted 		\"Indicates if the Part allows for a quoted value or if it's intended to be a single token\"");
@@ -3143,11 +3467,12 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         ComplexTypeDefinitionDMO _RuleParamOBJ = new ComplexTypeDefinitionDMO();
         _RuleParam = new ComplexTypeDefinition(_RuleParamOBJ);
+        _RuleParamOBJ.setDefinedInDmsModule("meta.meta");
         _RuleParamOBJ.addDescription("The RuleParam type is used to succintly describe a parameter to be supplied to a rule when it is executed.");
         _RuleParamOBJ.setFieldSeparator(":");
         _RuleParamOBJ.setName("RuleParam");
         _RuleParamOBJ.addRequiredPart("String         importStatement \"The import for the type of parameter\"");
-        _RuleParamOBJ.addRequiredPart("String         genericArgs     \"The generic arguments associated with this parameter\"");
+        _RuleParamOBJ.addRequiredPart("String         genericArgs     \"The generic arguments associated with this parameter\" quoted=true");
         _RuleParamOBJ.addRequiredPart("String         name            \"The name of the parameter\"");
         _RuleParamOBJ.addRequiredPart("String         description     \"A description of the parameter\"");
         _RuleParam.setDefinedIn(this);
@@ -3155,6 +3480,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         ComplexTypeDefinitionDMO _SchemaAndReasonOBJ = new ComplexTypeDefinitionDMO();
         _SchemaAndReason = new ComplexTypeDefinition(_SchemaAndReasonOBJ);
+        _SchemaAndReasonOBJ.setDefinedInDmsModule("meta.meta");
         _SchemaAndReasonOBJ.addDescription("The SchemaAndReason type is used when schemas are loaded dynamically by some piece of software. For documentation purposes, it's useful to know why the schema is being loaded, since the class name may not informative enough.");
         _SchemaAndReasonOBJ.setName("SchemaAndReason");
         _SchemaAndReasonOBJ.addRequiredPart("String			schema		\"The fully qualified name of the schema to load\"");

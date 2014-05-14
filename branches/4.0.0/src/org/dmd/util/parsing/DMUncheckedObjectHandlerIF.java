@@ -19,10 +19,7 @@ import org.dmd.core.feedback.DMFeedbackSet;
 import org.dmd.core.util.DMUncheckedObject;
 
 /**
- * This interface defines objects that can process DmcUncheckedObject after
- * their creation.
- * @author Peter Strong
- * @version 1.0
+ * This interface defines objects that can process DMUncheckedObjects after their creation.
  */
 public interface DMUncheckedObjectHandlerIF {
 

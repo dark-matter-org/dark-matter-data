@@ -1,0 +1,18 @@
+DSDefinitionModule
+name						DmsModule
+fileExtension				dms
+dmdID						21
+moduleClassName				DmsModule
+moduleDependenceAttribute 	dependsOnDmsModule
+baseDefinition				DmsDefinition
+definedInModuleAttribute	definedInDmsModule
+must						schemaPackage
+must						schemaBaseID
+must						schemaIDRange
+may							dmwPackage
+may							dmwTypeToPackage
+may							dependsOnDmsModule
+description					The dark-matter schema module (DmsModule) allows for the
+ management of concepts associated with schema specifications.
+description All dark-matter Domain Specific Language (DSL) concepts are defined and
+ managed as a set of schema specifications.

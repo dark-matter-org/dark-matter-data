@@ -11,6 +11,7 @@ import org.dmd.core.feedback.DMParsingFeedback;
 import org.dmd.core.util.DMUncheckedObject;
 import org.dmd.core.util.NamedStringArray;
 import org.dmd.util.artifact.FileUpdateManager;
+import org.dmd.util.artifact.java.ImplementsManager;
 import org.dmd.util.artifact.java.ImportManager;
 import org.dmd.util.parsing.DMUncheckedObjectManager;
 import org.dmd.util.runtime.DebugInfo;
@@ -20,10 +21,14 @@ public class DmwFormatter {
 
 	static TreeMap<String,DMUncheckedObject>	ucoAttributeDefs;
 	static TreeMap<String,DMUncheckedObject>	ucoClassDefs;
+	static TreeMap<String,DMUncheckedObject>	ucoTypeDefs;
+	static MetaDSDHelper						dsdHelper;
 
-	public static void dumpDMWClasses(DMUncheckedObjectManager ucoManager, String dmwdir, String LGPL) throws DMFeedbackSet {
+	public static void dumpDMWClasses(DMUncheckedObjectManager ucoManager, MetaDSDHelper dh, String dmwdir, String LGPL) throws DMFeedbackSet {
 		ucoClassDefs 		= ucoManager.getObjects("ClassDefinition");
 		ucoAttributeDefs 	= ucoManager.getObjects("AttributeDefinition");
+		ucoTypeDefs 		= ucoManager.getObjects("TypeDefinition");
+		dsdHelper			= dh;
 
 //		DMUncheckedObject go;
 		DMUncheckedObject attrObj;
@@ -37,23 +42,24 @@ public class DmwFormatter {
 		String derivedFrom;
 		String isNamedBy;
 		String isDSDefinition;
-		String isDSModule;
+		String dsdModuleDefinition;
 
 //		for (int i = 0; i < origOrderClasses.size(); i++) {
 //			go = (DMUncheckedObject) classDefs.get(origOrderClasses.get(i));
-		for(DMUncheckedObject go: ucoClassDefs.values()){
+		for(DMUncheckedObject ucoCD: ucoClassDefs.values()){
 
-			derivedFrom = go.getSV("derivedFrom");
-			isNamedBy = go.getSV("isNamedBy");
-			isDSDefinition = go.getSV("isDSDefinition");
-			isDSModule = go.getSV("isDSModule");
+			derivedFrom 		= ucoCD.getSV("derivedFrom");
+			isNamedBy 			= ucoCD.getSV("isNamedBy");
+			isDSDefinition 		= ucoCD.getSV("isDSDefinition");
+			dsdModuleDefinition = ucoCD.getSV("dsdModuleDefinition");
+			
 
 			// System.out.println("*** Formatting class definition for: " +
 			// origOrderClasses.get(i));
 
-			if ((cn = go.getSV("name")) == null) {
+			if ((cn = ucoCD.getSV("name")) == null) {
 				System.out.println("Couldn't get name for class definition:\n"
-						+ go);
+						+ ucoCD);
 			} else {
 				try {
 
@@ -84,8 +90,10 @@ public class DmwFormatter {
 					if (isDSDefinition != null){
 						imports.addImport("org.dmd.core.interfaces.DmcDefinitionIF", "Because this is a DS definition");
 					}
-					if (isDSModule != null){
-						imports.addImport("org.dmd.core.interfaces.DmcModuleIF", "Because this is a DS module");
+					if (dsdModuleDefinition != null){
+						imports.addImport("org.dmd.core.interfaces.DmcNamedObjectIF", "Required when managing definitions");
+						imports.addImport("org.dmd.core.interfaces.DmcDefinitionIF", "Because this is a DS definition");
+						dsdHelper.getAdditionalWrapperImports(imports,ucoCD);
 					}
 
 //					if (cn.equals("ActionTriggerInfo")) {
@@ -99,27 +107,32 @@ public class DmwFormatter {
 					///////////////////////////////////////////////////////////
 
 					out.write("/**\n");
-					dumpCodeComment(go.get("description"), out, " * ");
+					dumpCodeComment(ucoCD.get("description"), out, " * ");
 
 					out.write(" * @author Auto Generated\n");
 					out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 					out.write(" */\n");
 					out.write("@SuppressWarnings(\"unused\")\n");
 					
-					String additionalInterfaces = "";
-					if (isDSDefinition != null)
-						additionalInterfaces = " implements DmcDefinitionIF";
-					if (isDSModule != null)
-						additionalInterfaces = " implements DmcModuleIF";
+					ImplementsManager impl = new ImplementsManager();
+					
+					if (isDSDefinition != null){
+						impl.addImplements("DmcDefinitionIF");
+					}
+					if (dsdModuleDefinition != null){
+						impl.addImplements("DmcDefinitionIF");
+						impl.addImplements("DmcNamedObjectIF");
+						impl.addImplements(dsdModuleDefinition + "ScopedInterface");
+					}
 
 					// See if we're derived from anything. If not, just use
 					// DmwWrapper as the base class
 					// If we're named, use DmwNamedObjectWrapper.
 					if (derivedFrom == null) {
-						baseClass = "DmwWrapper" + additionalInterfaces;
+						baseClass = "DmwWrapper";
 
 						if (isNamedBy != null)
-							baseClass = "DmwNamedObjectWrapper" + additionalInterfaces;
+							baseClass = "DmwNamedObjectWrapper";
 					} else {
 						// Otherwise, we look up the derived from class and use
 						// its javaClass
@@ -127,13 +140,13 @@ public class DmwFormatter {
 						DMUncheckedObject bc = ucoClassDefs.get(derivedFrom);
 
 						if (bc == null) {
-							DMParsingFeedback dpf = new DMParsingFeedback("Unknown base class: " + derivedFrom + " for class: " + cn, go.getFile(), go.getLineNumber());
+							DMParsingFeedback dpf = new DMParsingFeedback("Unknown base class: " + derivedFrom + " for class: " + cn, ucoCD.getFile(), ucoCD.getLineNumber());
 							throw(new DMFeedbackSet(dpf));
 						}
-						baseClass = bc.getSV("javaClass") + additionalInterfaces;
+						baseClass = bc.getSV("javaClass");
 					}
 
-					classType = go.getSV("classType");
+					classType = ucoCD.getSV("classType");
 
 					if (classType.equals("ABSTRACT"))
 						out.write("public abstract class " + cn
@@ -144,9 +157,11 @@ public class DmwFormatter {
 							out.write("public abstract class " + cn + "DMW extends " + baseClass + " {\n\n");							
 						}
 						else{
-							out.write("public class " + cn + "DMW extends " + baseClass + " {\n\n");
+							out.write("public class " + cn + "DMW extends " + baseClass + " " + impl.getFormattedImplementations() + " {\n\n");
 						}
 					}
+					
+					dsdHelper.dumpAdditionalWrapperDefinitions(ucoCD,out);
 
 					out.write("    private " + cn + "DMO mycore;\n\n");
 
@@ -206,8 +221,8 @@ public class DmwFormatter {
 					}
 
 					// Gather the attributes together
-					must = go.get("must");
-					may = go.get("may");
+					must = ucoCD.get("must");
+					may = ucoCD.get("may");
 					atlist = new ArrayList<String>();
 
 					if (must != null) {
@@ -274,6 +289,8 @@ public class DmwFormatter {
 						out.write("        return(mycore.getObjectNameAttribute());\n");
 						out.write("    }\n\n");
 					}
+					
+					dsdHelper.dumpAdditionalWrapperFunctions(ucoCD, out);
 
 					out.write("}\n");
 
@@ -295,7 +312,7 @@ public class DmwFormatter {
 	 * @param dmwdir		The output directory.
 	 * @param basePackage   The base package for the generated code.
 	 * @param className the for which we're generating the iterator.
-	 * @param extended flag indicating if the calss is extended.
+	 * @param extended flag indicating if the class is extended.
 	 * @param extendedPackage the package if the class is extended.
 	 * @param fileHeader the header to be dumped on the file.
 	 * @param progress the progress reporting stream.
@@ -401,6 +418,82 @@ public class DmwFormatter {
 		} catch (IOException e) {
 			System.out.println("IO Error:\n" + e);
 		}
+	}
+	
+	///////////////////////////////////////////////////////////////////////////
+	
+	static public void dumpTypeIterables(String dmwdir, String LGPL) throws IOException {
+		for (DMUncheckedObject typedef : ucoTypeDefs.values()) {
+			String tn = typedef.getSV("name");
+			
+			if (tn.endsWith("EnumREF"))
+				continue;
+			
+			String ti = typedef.getSV("primitiveType");
+			String genericArgs = typedef.getSV("genericArgs");
+			dumpIterable(dmwdir, "org.dmd.dms.server", ti, tn, genericArgs, LGPL, System.out);
+		}
+	}
+	
+
+	static void dumpIterable(String dmwdir, String basePackage, String typeImport, String typeName, String genericArgs, String fileHeader, PrintStream progress) throws IOException {
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmwdir, typeName + "IterableDMW.java");
+        
+        if (fileHeader != null)
+        	out.write(fileHeader);
+        
+        out.write("package " + basePackage + ".generated.dmw;\n\n");
+        
+        ImportManager imports = new ImportManager();
+        	
+        if (typeName.endsWith("REF"))
+        	imports.addImport("org.dmd.dms.shared.generated.types." + typeName, "The base type");
+        
+        imports.addImport("java.util.Iterator", "Because we're iterating");
+        imports.addImport("org.dmd.dmw.DmwMVIterator", "The base multi-value iterator");
+        
+        if (typeImport != null){
+            imports.addImport(typeImport, "This is the type we're iterating");
+        }
+        
+        out.write(imports.getFormattedImports() + "\n");
+        
+        String suffix = "";
+        if ( (typeImport != null) && (typeImport.endsWith("DMO"))){
+        	suffix = "DMO";
+        }
+        
+        String args = "";
+        if (genericArgs != null)
+        	args = genericArgs;
+                 	                
+        out.write("/**\n");
+        out.write(" * The " + typeName + "IterableDMW wraps an Iterator for a particular type and makes \n");
+        out.write(" * it Iterable.\n");
+        out.write(" * <P>\n");
+        out.write(" * This code was auto-generated and shouldn't be altered manually!\n");
+        out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write(" *    " + DebugInfo.getWhereWeWereCalledFrom() + "\n");
+        out.write(" */\n");
+        
+        
+        out.write("public class " + typeName + "IterableDMW extends DmwMVIterator<" + typeName + suffix + args +"> {\n");
+        out.write("\n");
+        out.write("    public final static " + typeName + "IterableDMW emptyList = new " + typeName + "IterableDMW();\n");
+        out.write("\n");
+        out.write("    protected " + typeName + "IterableDMW(){\n");
+        out.write("        super();\n");
+        out.write("    }\n");
+        out.write("\n");
+        out.write("    public " + typeName + "IterableDMW(Iterator<" + typeName + suffix + args +"> it){\n");
+        out.write("        super(it);\n");
+        out.write("    }\n");
+        out.write("\n");
+        
+        out.write("}\n\n");
+        
+        out.close();
+
 	}
 
 

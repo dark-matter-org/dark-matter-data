@@ -23,7 +23,7 @@ import org.dmd.core.interfaces.DmcNamedObjectIF;
 
 /**
  * DmcNameClashExceptions are thrown by DmcNameResolverIF implementers if they have
- * more than object with a given name.
+ * more than one object with a given name.
  */
 @SuppressWarnings("serial")
 public class DmcNameClashException extends DMFeedbackSet {

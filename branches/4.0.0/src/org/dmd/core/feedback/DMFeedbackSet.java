@@ -16,7 +16,7 @@ public class DMFeedbackSet extends Exception {
 	int					errors;
 	
 	// The feedback we've gathered
-	ArrayList<DMFeedback> feedback;
+	protected ArrayList<DMFeedback> feedback;
 	
 	/**
 	 * Constructs a new DMExceptionSet.
@@ -88,6 +88,16 @@ public class DMFeedbackSet extends Exception {
 	public void setLocation(String fn, int ln){
 		if (feedback.size() >0){
 			feedback.get(feedback.size()-1).setLocation(fn, ln);
+		}
+	}
+	
+	/**
+	 * Sets the source on the last feedback item if there is one.
+	 * @param si the source of the problem.
+	 */
+	public void setLocation(SourceInfo si){
+		if (feedback.size() >0){
+			feedback.get(feedback.size()-1).setLocation(si);
 		}
 	}
 	

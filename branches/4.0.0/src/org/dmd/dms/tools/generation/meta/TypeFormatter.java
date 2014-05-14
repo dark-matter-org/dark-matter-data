@@ -173,6 +173,7 @@ public class TypeFormatter {
 		imports.addImport("org.dmd.dms.shared.generated.dmo." + cn + "DMO", "The type of object we refer to");
 		imports.addImport("org.dmd.core.interfaces.DmcInputStreamIF", 		"To support serialization");
 		imports.addImport("org.dmd.dms.shared.types.DmcType" + nameType, 	"The type of our naming attribute");
+		imports.addImport("org.dmd.dms.shared.types." + nameType, 	        "The base type of our naming attribute");
 		imports.addImport("org.dmd.core.DmcNamedObjectREF", 				"Our base type");
 		imports.addImport("org.dmd.dms.shared.generated.dmo.MetaDMSAG", 	"dark-matter core");
 
@@ -254,6 +255,12 @@ public class TypeFormatter {
 		out.write("    @Override\n");
 		out.write("    public DmcObjectName getObjectName(){\n");
 		out.write("         return(myName.getSV());\n");
+		out.write("    }\n\n");
+
+		out.write("    public " + nameType + " getName(){\n");
+		out.write("        if (myName == null)\n");
+		out.write("            throw(new IllegalStateException(\"You've tried to access the name of an object but the name attribute hasn't been set.\"));\n");
+		out.write("        return(myName.getSV());\n");
 		out.write("    }\n\n");
 
 		out.write("    public void serializeIt(DmcOutputStreamIF dos) throws Exception {\n");

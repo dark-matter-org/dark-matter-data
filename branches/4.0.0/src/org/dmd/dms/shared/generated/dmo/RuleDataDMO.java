@@ -208,13 +208,19 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
     }
 
     /**
-     * The description attribute is used to provide descriptive documentation for
-     * schema related definitions. The text provided should conform to XHTML
-     * concepts since it will be dumped in the context of the generated HTML
-     * documentation. 
+     * The detailed description of some concept definition. The description is
+     * multi-valued and is used in the generation of documentation. By
+     * convention, it should follow XHTML guidelines in terms of its content. 
+     * <p/> Also by convention, the first element of the description should be a
+     * short, simple indication of the concept that is suitable for inclusion as
+     * a code comment; this is primarily used in dark-matter schema (DMS)
+     * specifications since dark-matter object (DMO) and dark-matter wrapper
+     * (DMW) Java code is generated from these specifications. <p/> When defining
+     * your own Domain Specific Languages (DSLs), feel free to follow whatever
+     * conventions make sense for your purposes. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:290)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:281)
     public Iterator<String> getDescription(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -223,7 +229,7 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
         return(attr.getMV());
     }
 
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:305)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:295)
     public Iterator<String> getDescriptionWithNewlines(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -246,7 +252,7 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      * Adds another description value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:394)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:386)
     public DmcAttribute<?> addDescription(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -372,7 +378,7 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      * into translated messages. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:290)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:281)
     public Iterator<String> getMsgParam(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__msgParam);
         if (attr == null)
@@ -385,7 +391,7 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      * Adds another msgParam value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:394)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:386)
     public DmcAttribute<?> addMsgParam(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__msgParam);
         if (attr == null)

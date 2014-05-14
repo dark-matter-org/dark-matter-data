@@ -69,7 +69,7 @@ public class MetaSchemaFormatter {
 		out.write("  * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("  */\n");
 
-		out.write("abstract public class MetaSchemaAG extends SchemaDefinition {\n");
+		out.write("public class MetaSchemaAG extends SchemaDefinition {\n");
 
 		dumpStaticDefinitions(out);
 		

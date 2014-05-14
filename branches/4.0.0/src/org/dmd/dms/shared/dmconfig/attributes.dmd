@@ -138,10 +138,17 @@ dmdID				18
 preserveNewlines	true
 type                String
 valueType			MULTI
-description    		The description attribute is used to provide descriptive
- documentation for schema related definitions. The text provided should conform
- to XHTML concepts since it will be dumped in the context of the generated HTML
- documentation.
+description			The detailed description of some concept definition.
+description    		The description is multi-valued and is used in the generation of documentation.
+ By convention, it should follow XHTML guidelines in terms of its content. 
+ <p/>
+ Also by convention, the first element of the description should be a short, simple indication
+ of the concept that is suitable for inclusion as a code comment; this is primarily used in
+ dark-matter schema (DMS) specifications since dark-matter object (DMO) and dark-matter wrapper
+ (DMW) Java code is generated from these specifications.
+ <p/>
+ When defining your own Domain Specific Languages (DSLs), feel free to follow whatever conventions
+ make sense for your purposes.
 
 AttributeDefinition
 name                type
@@ -1491,6 +1498,19 @@ description					A brief comment that will be included in generated code
  <p/>
  By convention, generated HTML will have the code comments followed by the description
  followed by any examples you've provided.
+
+AttributeDefinition
+name						definedInDmsModule
+dmdID						189
+type						DmsModule
+description					The dark-matter schema module (DmsModule) in which something is defined.
+
+AttributeDefinition
+name						dependsOnDmsModule
+dmdID						190
+type						DmsModule
+valueType					MULTI
+description					The dark-matter schema modules on which a module depends.
 
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.

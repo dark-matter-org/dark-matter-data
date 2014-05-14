@@ -93,6 +93,25 @@ public class DMUncheckedObjectManager {
 	}
 	
 	/**
+	 * Deletes the specified object. 
+	 * @param name the object name.
+	 */
+	public void deleteObject(DMUncheckedObject uco){
+		DMUncheckedObject objByName = objectsByName.get(uco.getSV(namingAttribute));
+		
+		if (objByName == null)
+			throw(new IllegalStateException("Unknown object: " + uco.getSV(namingAttribute)));
+		
+		objectsByName.remove(uco.getSV(namingAttribute));
+		
+		TreeMap<String,DMUncheckedObject> byClass = objectsByClass.get(uco.getConstructionClass());
+		byClass.remove(uco.getSV(namingAttribute));
+		
+		ArrayList<String> origOrder = objectsByClassOriginalOrder.get(uco.getConstructionClass());
+		origOrder.remove(uco.getSV(namingAttribute));
+	}
+	
+	/**
 	 * @param cn the class of object you want to retrieve.
 	 * @return objects of the specified class or an empty iterator.
 	 */
@@ -119,5 +138,12 @@ public class DMUncheckedObjectManager {
 	 */
 	public ArrayList<String> getOriginalOrder(String cn){
 		return(objectsByClassOriginalOrder.get(cn));
+	}
+	
+	/**
+	 * @return an iterator over all objects based
+	 */
+	public Iterator<DMUncheckedObject> getAllObjectsIterator(){
+		return(objectsByName.values().iterator());
 	}
 }

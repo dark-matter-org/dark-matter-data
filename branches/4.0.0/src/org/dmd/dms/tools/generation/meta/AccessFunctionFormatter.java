@@ -267,32 +267,22 @@ public class AccessFunctionFormatter {
 
 		attrType = attrType + "MV";
 
-		// DebugInfo.debug("attrType: " + attrType);
-		// attrType = attrType + "MV";
-
-//		StringBuffer functionName = new StringBuffer();
-//		functionName.append(attrname);
-//		functionName.setCharAt(0, Character.toUpperCase(functionName.charAt(0)));
 		String functionName = Manipulator.capFirstChar(attrname);
 
 		if (DMO) {
 			if (isObjREF) {
-				out.write("     * @return An Iterator of " + typeName
-						+ "DMO objects.\n");
+				out.write("     * @return An Iterator of " + typeName + "DMO objects.\n");
 				out.write("     */\n");
 				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				out.write("    public Iterator<" + typeName + "REF> get"
-						+ functionName + "(){\n");
+				out.write("    public Iterator<" + typeName + "REF> get" + functionName + "(){\n");
 			} else {
-				out.write("     * @return An Iterator of " + typeName
-						+ " objects.\n");
+				out.write("     * @return An Iterator of " + typeName + " objects.\n");
 				out.write("     */\n");
 				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				out.write("    public Iterator<" + typeName + "> get"
 						+ functionName + "(){\n");
 			}
-			out.write("        " + attrType + " attr = (" + attrType
-					+ ") get(MetaDMSAG.__" + attrname + ");\n");
+			out.write("        " + attrType + " attr = (" + attrType + ") get(MetaDMSAG.__" + attrname + ");\n");
 			out.write("        if (attr == null)\n");
 			out.write("            return(null);\n");
 			out.write("\n");
@@ -325,38 +315,41 @@ public class AccessFunctionFormatter {
 			}
 		} else {
 			if (isObjREF) {
-				out.write("     * @return An Iterator of " + typeName
-						+ " objects.\n");
+				out.write("     * @return An Iterator of " + typeName + " objects.\n");
 				out.write("     */\n");
-				// out.write("    @SuppressWarnings(\"unchecked\")\n");
 				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				out.write("    public " + typeName + "IterableDMW get"
-						+ functionName + "(){\n");
-				// out.write("        DmcAttribute<?> attr = (" + attrType +
-				// ") mycore.get(MetaDMSAG.__" + attrname + ");\n");
-				out.write("        " + attrType + " attr = (" + attrType
-						+ ") mycore.get(MetaDMSAG.__" + attrname + ");\n");
+				out.write("    public " + typeName + "IterableDMW get" + functionName + "(){\n");
+				out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(MetaDMSAG.__" + attrname + ");\n");
 				out.write("        if (attr == null)\n");
-				out.write("            return(" + typeName
-						+ "IterableDMW.emptyList);\n");
+				out.write("            return(" + typeName + "IterableDMW.emptyList);\n");
 				out.write("\n");
-				out.write("        return(new " + typeName
-						+ "IterableDMW(attr.getMV()));\n");
+				out.write("        return(new " + typeName + "IterableDMW(attr.getMV()));\n");
 				out.write("    }\n\n");
 			} else {
-				out.write("     * @return An Iterator of " + typeName
-						+ " objects.\n");
-				out.write("     */\n");
-				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				out.write("    public Iterator<" + typeName + "> get"
-						+ functionName + "(){\n");
-				out.write("        " + attrType + " attr = (" + attrType
-						+ ") mycore.get(MetaDMSAG.__" + attrname + ");\n");
-				out.write("        if (attr == null)\n");
-				out.write("            return(null);\n");
-				out.write("\n");
-				out.write("        return(attr.getMV());\n");
-				out.write("    }\n\n");
+				if (DMO){
+					out.write("     * @return An Iterator of " + typeName + " objects.\n");
+					out.write("     */\n");
+					out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+					out.write("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
+					out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(MetaDMSAG.__" + attrname + ");\n");
+					out.write("        if (attr == null)\n");
+					out.write("            return(null);\n");
+					out.write("\n");
+					out.write("        return(attr.getMV());\n");
+					out.write("    }\n\n");
+				}
+				else{
+					out.write("     * @return An Iterator of " + typeName + " objects.\n");
+					out.write("     */\n");
+					out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+					out.write("    public " + typeName + "IterableDMW get" + functionName + "Iterable(){\n");
+					out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(MetaDMSAG.__" + attrname + ");\n");
+					out.write("        if (attr == null)\n");
+					out.write("            return(" + typeName + "IterableDMW.emptyList);\n");
+					out.write("\n");
+					out.write("        return(new " + typeName + "IterableDMW(attr.getMV()));\n");
+					out.write("    }\n\n");
+				}
 				
 				String preserveNewlines = attributeDef.getSV("preserveNewlines");
 
@@ -388,17 +381,13 @@ public class AccessFunctionFormatter {
 		if (DMO) {
 			out.write("    /**\n");
 			out.write("     * Adds another " + attrname + " value.\n");
-			out.write("     * @param value A value compatible with " + attrType
-					+ "\n");
+			out.write("     * @param value A value compatible with " + attrType + "\n");
 			out.write("     */\n");
 			out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			out.write("    public DmcAttribute<?> add" + functionName
-					+ "(Object value) throws DMFeedbackSet {\n");
-			out.write("        DmcAttribute<?> attr = get(MetaDMSAG.__"
-					+ attrname + ");\n");
+			out.write("    public DmcAttribute<?> add" + functionName + "(Object value) throws DMFeedbackSet {\n");
+			out.write("        DmcAttribute<?> attr = get(MetaDMSAG.__" + attrname + ");\n");
 			out.write("        if (attr == null)\n");
-			out.write("            attr = new " + attrType + "(MetaDMSAG.__"
-					+ attrname + ");\n");
+			out.write("            attr = new " + attrType + "(MetaDMSAG.__" + attrname + ");\n");
 			out.write("        \n");
 			out.write("        attr.add(value);\n");
 			out.write("        add(MetaDMSAG.__" + attrname + ",attr);\n");
@@ -408,21 +397,17 @@ public class AccessFunctionFormatter {
 			if (isObjREF) {
 				out.write("    /**\n");
 				out.write("     * Adds another " + attrname + " value.\n");
-				out.write("     * @param value A value compatible with "
-						+ typeName + "\n");
+				out.write("     * @param value A value compatible with " + typeName + "\n");
 				out.write("     */\n");
 				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				out.write("    public DmcAttribute<?> add" + functionName + "("
-						+ typeName + " value) throws DMFeedbackSet {\n");
-				out.write("        DmcAttribute<?> attr = mycore.add"
-						+ functionName + "(value.getDmcObject());\n");
+				out.write("    public DmcAttribute<?> add" + functionName + "(" + typeName + " value) throws DMFeedbackSet {\n");
+				out.write("        DmcAttribute<?> attr = mycore.add" + functionName + "(value.getDmcObject());\n");
 				out.write("        return(attr);\n");
 				out.write("    }\n\n");
 			} else {
 				out.write("    /**\n");
 				out.write("     * Adds another " + attrname + " value.\n");
-				out.write("     * @param value A value compatible with "
-						+ attrType + "\n");
+				out.write("     * @param value A value compatible with " + attrType + "\n");
 				out.write("     */\n");
 				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				out.write("    public void add" + functionName + "(Object value) throws DMFeedbackSet {\n");
@@ -435,11 +420,18 @@ public class AccessFunctionFormatter {
 			out.write("     */\n");
 			out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			out.write("    public int get" + functionName + "Size(){\n");
-			out.write("        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__"
-					+ attrname + ");\n");
+			out.write("        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__" + attrname + ");\n");
 			out.write("        if (attr == null)\n");
 			out.write("            return(0);\n");
 			out.write("        return(attr.getMVSize());\n");
+			out.write("    }\n\n");
+
+			out.write("    /**\n");
+			out.write("     * Returns true if " + attrname + " has values.\n");
+			out.write("     */\n");
+			out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+			out.write("    public boolean get" + functionName + "HasValue(){\n");
+			out.write("        return(get" + functionName + "Size() > 0);\n");
 			out.write("    }\n\n");
 
 		}

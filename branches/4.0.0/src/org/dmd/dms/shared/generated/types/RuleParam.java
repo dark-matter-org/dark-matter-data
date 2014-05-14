@@ -127,7 +127,7 @@ public class RuleParam implements Serializable {
         StringBuffer sb = new StringBuffer();
         sb.append(importStatement.toString());
         sb.append(':');
-        sb.append(genericArgs.toString());
+        sb.append("\"" + genericArgs.toString() + "\"");
         sb.append(':');
         sb.append(name.toString());
         sb.append(':');
