@@ -17,17 +17,17 @@ package org.dmd.dms.server.generated.dmw;
 
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:97)
-import java.util.*;                                     // To support access functions - (DmwFormatter.java:69)
-import org.dmd.core.*;                                  // Basic dark-matter infrastructure - (DmwFormatter.java:71)
-import org.dmd.core.feedback.*;                         // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:77)
-import org.dmd.core.interfaces.DmcDefinitionIF;         // Because this is a DS definition - (DmwFormatter.java:85)
-import org.dmd.dms.server.extended.*;                   // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:73)
-import org.dmd.dms.shared.generated.dmo.*;              // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:74)
-import org.dmd.dms.shared.generated.enums.*;            // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:75)
-import org.dmd.dms.shared.generated.types.*;            // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:76)
-import org.dmd.dms.shared.types.*;                      // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:70)
-import org.dmd.dmw.*;                                   // Base wrapper capabilities - (DmwFormatter.java:72)
+// Called from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:105)
+import java.util.*;                                     // To support access functions - (DmwFormatter.java:75)
+import org.dmd.core.*;                                  // Basic dark-matter infrastructure - (DmwFormatter.java:77)
+import org.dmd.core.feedback.*;                         // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:83)
+import org.dmd.core.interfaces.DmcDefinitionIF;         // Because this is a DS definition - (DmwFormatter.java:91)
+import org.dmd.dms.server.extended.*;                   // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:79)
+import org.dmd.dms.shared.generated.dmo.*;              // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:80)
+import org.dmd.dms.shared.generated.enums.*;            // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:81)
+import org.dmd.dms.shared.generated.types.*;            // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:82)
+import org.dmd.dms.shared.types.*;                      // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:76)
+import org.dmd.dmw.*;                                   // Base wrapper capabilities - (DmwFormatter.java:78)
 
 /**
  * The DependencyImplementation allows you to fulfill a defined Dependency.
@@ -36,10 +36,10 @@ import org.dmd.dmw.*;                                   // Base wrapper capabili
  * DependencyImplementation, otherwise, we have no way to fulfill the
  * dependency. 
  * @author Auto Generated
- * Generated from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:105)
+ * Generated from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:113)
  */
 @SuppressWarnings("unused")
-public class DependencyImplementationDMW extends org.dmd.dms.server.extended.DmsDefinition implements DmcDefinitionIF {
+public class DependencyImplementationDMW extends org.dmd.dms.server.extended.DmsDefinition implements DmcDefinitionIF  {
 
     private DependencyImplementationDMO mycore;
 
@@ -159,22 +159,28 @@ public class DependencyImplementationDMW extends org.dmd.dms.server.extended.Dms
     }
 
     /**
-     * The description attribute is used to provide descriptive documentation for
-     * schema related definitions. The text provided should conform to XHTML
-     * concepts since it will be dumped in the context of the generated HTML
-     * documentation. 
+     * The detailed description of some concept definition. The description is
+     * multi-valued and is used in the generation of documentation. By
+     * convention, it should follow XHTML guidelines in terms of its content. 
+     * <p/> Also by convention, the first element of the description should be a
+     * short, simple indication of the concept that is suitable for inclusion as
+     * a code comment; this is primarily used in dark-matter schema (DMS)
+     * specifications since dark-matter object (DMO) and dark-matter wrapper
+     * (DMW) Java code is generated from these specifications. <p/> When defining
+     * your own Domain Specific Languages (DSLs), feel free to follow whatever
+     * conventions make sense for your purposes. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:350)
-    public Iterator<String> getDescription(){
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:344)
+    public StringIterableDMW getDescriptionIterable(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
         if (attr == null)
-            return(null);
+            return(StringIterableDMW.emptyList);
 
-        return(attr.getMV());
+        return(new StringIterableDMW(attr.getMV()));
     }
 
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:364)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:357)
     public Iterator<String> getDescriptionWithNewlines(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
         if (attr == null)
@@ -197,7 +203,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.server.extended.Dms
      * Adds another description value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:427)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:412)
     public void addDescription(Object value) throws DMFeedbackSet {
         mycore.addDescription(value);
     }
@@ -205,7 +211,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.server.extended.Dms
     /**
      * Returns the number of description values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:436)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:421)
     public int getDescriptionSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__description);
         if (attr == null)
@@ -213,10 +219,18 @@ public class DependencyImplementationDMW extends org.dmd.dms.server.extended.Dms
         return(attr.getMVSize());
     }
 
+    /**
+     * Returns true if description has values.
+     */
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:432)
+    public boolean getDescriptionHasValue(){
+        return(getDescriptionSize() > 0);
+    }
+
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation
-    // Generated from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:256)
+    // Generated from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:271)
 
     /**
      * @return The name of this object from the name attribute.
@@ -231,6 +245,16 @@ public class DependencyImplementationDMW extends org.dmd.dms.server.extended.Dms
      */
     public DmcAttribute<?> getObjectNameAttribute(){
         return(mycore.getObjectNameAttribute());
+    }
+
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpAdditionalWrapperFunctions(MetaDSDHelper.java:903)
+    /**
+     * This method indicates the name of the module from which this definition was loaded.
+     */
+    @Override
+    public String getNameOfModuleWhereThisCameFrom(){
+        DmsModuleREF ref = ((DependencyImplementationDMO) core).getDefinedInDmsModule();
+        return(ref.getName().getNameString());
     }
 
 }

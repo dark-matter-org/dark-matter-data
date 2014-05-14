@@ -3,7 +3,7 @@ name				Initialization
 opContext			DMO
 ruleCategoryID		1
 ruleType			CLASS
-ruleParam			org.dmd.dmc.DmcObject: :obj:The object to be initialized
+ruleParam			org.dmd.core.DmcObject:" ":obj:The object to be initialized
 classInfoFromParam	obj.getConstructionClassInfo()
 description			Rules in this category are used to initialize objects to a known
  state after creation.
@@ -17,7 +17,7 @@ name				ObjectValidation
 opContext			DMO
 ruleCategoryID		2
 ruleType			CLASS
-ruleParam			org.dmd.dmc.DmcObject: :obj:The object to be validated
+ruleParam			org.dmd.core.DmcObject:" ":obj:The object to be validated
 classInfoFromParam	obj.getConstructionClassInfo()
 description			Rules in this category are used to validate a complete object. This
  would include objects read from Object Instance Files, objects in CreateRequests
@@ -28,8 +28,8 @@ name					AttributeValidation
 opContext				DMO
 ruleCategoryID			3
 ruleType				ATTRIBUTE
-ruleParam				org.dmd.dmc.DmcObject::obj:The object in which the attribute exists
-ruleParam				org.dmd.dmc.DmcAttribute:<?>:attribute:The attribute to be validated
+ruleParam				org.dmd.core.DmcObject:" ":obj:The object in which the attribute exists
+ruleParam				org.dmd.core.DmcAttribute:"<?>":attribute:The attribute to be validated
 classInfoFromParam		obj.getConstructionClassInfo()
 attributeInfoFromParam	attribute.getAttributeInfo()
 description				Rules in this category are used to validate individual attributes.
@@ -39,9 +39,9 @@ name					AttributeValidationWithResolver
 opContext				DMO
 ruleCategoryID			4
 ruleType				ATTRIBUTE
-ruleParam				org.dmd.dmc.DmcObject::obj:The object in which the attribute exists
-ruleParam				org.dmd.dmc.DmcAttribute:<?>:attribute:The attribute to be validated
-ruleParam				org.dmd.dmc.DmcUniqueNameResolverIF::resolver:The name resolver
+ruleParam				org.dmd.core.DmcObject:" ":obj:The object in which the attribute exists
+ruleParam				org.dmd.core.DmcAttribute:"<?>":attribute:The attribute to be validated
+ruleParam				org.dmd.core.interfaces.DmcUniqueNameResolverIF:" ":resolver:The name resolver
 classInfoFromParam		obj.getConstructionClassInfo()
 attributeInfoFromParam	attribute.getAttributeInfo()
 description				Rules in this category are used to validate individual attributes, but
@@ -55,8 +55,8 @@ name					UCOValidation
 opContext				DMO
 ruleCategoryID			6
 ruleType				CLASS
-ruleParam				org.dmd.dmc.util.DmcUncheckedObject: :obj:The object to be validated:
+ruleParam				org.dmd.core.util.DMUncheckedObject:" ":obj:The object to be validated:
 classInfoFromParam		DmcOmni.instance().getClassInfo(obj.getConstructionClass())
-ruleImport				org.dmd.dmc.DmcOmni
+ruleImport				org.dmd.core.DmcOmni
 description				Rules in this category are used to validate DmcUncheckedObjects (UCOs) which
  are basically just collections of attribute/value pairs.

@@ -17,6 +17,9 @@ package org.dmd.core.rules;
 
 import java.util.ArrayList;
 
+import org.dmd.core.feedback.DMFeedback;
+import org.dmd.core.feedback.SourceInfo;
+
 
 /**
  * The DmcRuleException is generally thrown by validation rules defined
@@ -30,8 +33,7 @@ import java.util.ArrayList;
  * it provides mechanisms to define a unique message key as well as any parameters
  * that may be embedded in the message.
  */
-@SuppressWarnings("serial")
-public class DmcRuleException extends Exception {
+public class DmcRuleException extends DMFeedback {
 
 	// The rule that generated this exception
 	RuleIF				rule;
@@ -46,8 +48,6 @@ public class DmcRuleException extends Exception {
 	// rule processing should be halted immediately
 	boolean				immediateHalt;
 	
-	SourceInfo			source;
-	
 	/**
 	 * Instantiates a new DmcRuleException.
 	 * @param baseMessage the basic message.
@@ -58,7 +58,6 @@ public class DmcRuleException extends Exception {
 		rule				= ri;
 		messageKey 			= null;
 		messageParameters	= null;
-		source				= null;
 	}
 	
 	public void source(SourceInfo si){
@@ -178,9 +177,10 @@ public class DmcRuleException extends Exception {
 	public String toString(){
 		StringBuffer sb = new StringBuffer();
 		
-		sb.append(getLocalizedMessage());
-		if (source != null)
-			sb.append("\n" + source.toString());
+		sb.append(super.toString());
+		
+		if (rule != null)
+			sb.append("Rule: " + rule.getRuleTitle());
 		
 		return(sb.toString());
 	}

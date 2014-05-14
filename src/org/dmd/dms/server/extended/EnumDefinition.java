@@ -44,7 +44,7 @@ public class EnumDefinition extends EnumDefinitionDMW {
 	public EnumValue getEnumValue(String valueName){
 		EnumValue rc = null;
 		
-		Iterator<EnumValue> values = getEnumValue();
+		Iterator<EnumValue> values = getEnumValueIterable();
 		while(values.hasNext()){
 			EnumValue value = values.next();
 			if (value.getName().equals(valueName)){

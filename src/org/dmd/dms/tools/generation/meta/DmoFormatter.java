@@ -390,7 +390,7 @@ public class DmoFormatter {
 
 				DMUncheckedObject attrDef = ucoAttributeDefs.get(name);
 				if (attrDef == null){
-					System.err.println("Couldn't find attribute definition for: " + name + " while getAllMustAndMay() for: \n\n" + uco.toOIF());
+					throw(new DMFeedbackSet("Couldn't find attribute definition for: " + name + " while getAllMustAndMay() for: \n\n" + uco.toOIF()));
 				}
 				String attrType = attrDef.getSV("type");
 				DMUncheckedObject typeDef = ucoTypeDefs.get(attrType);

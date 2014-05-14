@@ -17,17 +17,17 @@ package org.dmd.dms.server.generated.dmw;
 
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:97)
-import java.util.*;                                     // To support access functions - (DmwFormatter.java:69)
-import org.dmd.core.*;                                  // Basic dark-matter infrastructure - (DmwFormatter.java:71)
-import org.dmd.core.feedback.*;                         // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:77)
-import org.dmd.core.interfaces.DmcDefinitionIF;         // Because this is a DS definition - (DmwFormatter.java:85)
-import org.dmd.dms.server.extended.*;                   // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:73)
-import org.dmd.dms.shared.generated.dmo.*;              // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:74)
-import org.dmd.dms.shared.generated.enums.*;            // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:75)
-import org.dmd.dms.shared.generated.types.*;            // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:76)
-import org.dmd.dms.shared.types.*;                      // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:70)
-import org.dmd.dmw.*;                                   // Base wrapper capabilities - (DmwFormatter.java:72)
+// Called from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:105)
+import java.util.*;                                     // To support access functions - (DmwFormatter.java:75)
+import org.dmd.core.*;                                  // Basic dark-matter infrastructure - (DmwFormatter.java:77)
+import org.dmd.core.feedback.*;                         // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:83)
+import org.dmd.core.interfaces.DmcDefinitionIF;         // Because this is a DS definition - (DmwFormatter.java:91)
+import org.dmd.dms.server.extended.*;                   // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:79)
+import org.dmd.dms.shared.generated.dmo.*;              // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:80)
+import org.dmd.dms.shared.generated.enums.*;            // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:81)
+import org.dmd.dms.shared.generated.types.*;            // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:82)
+import org.dmd.dms.shared.types.*;                      // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:76)
+import org.dmd.dmw.*;                                   // Base wrapper capabilities - (DmwFormatter.java:78)
 
 /**
  * The RuleCategory allows for the definition of categories of rules to be
@@ -51,10 +51,10 @@ import org.dmd.dmw.*;                                   // Base wrapper capabili
  * ATTRIBUTE level rules, you must specify both attributeInfoFromParam and
  * classInfoFromParam. 
  * @author Auto Generated
- * Generated from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:105)
+ * Generated from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:113)
  */
 @SuppressWarnings("unused")
-public class RuleCategoryDMW extends org.dmd.dms.server.extended.DmsDefinition implements DmcDefinitionIF {
+public class RuleCategoryDMW extends org.dmd.dms.server.extended.DmsDefinition implements DmcDefinitionIF  {
 
     private RuleCategoryDMO mycore;
 
@@ -171,20 +171,20 @@ public class RuleCategoryDMW extends org.dmd.dms.server.extended.DmsDefinition i
      * A parameter to be supplied to a rule when it is executed. 
      * @return An Iterator of RuleParam objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:350)
-    public Iterator<RuleParam> getRuleParam(){
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:344)
+    public RuleParamIterableDMW getRuleParamIterable(){
         DmcTypeRuleParamMV attr = (DmcTypeRuleParamMV) mycore.get(MetaDMSAG.__ruleParam);
         if (attr == null)
-            return(null);
+            return(RuleParamIterableDMW.emptyList);
 
-        return(attr.getMV());
+        return(new RuleParamIterableDMW(attr.getMV()));
     }
 
     /**
      * Adds another ruleParam value.
      * @param value A value compatible with DmcTypeRuleParamMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:427)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:412)
     public void addRuleParam(Object value) throws DMFeedbackSet {
         mycore.addRuleParam(value);
     }
@@ -192,12 +192,20 @@ public class RuleCategoryDMW extends org.dmd.dms.server.extended.DmsDefinition i
     /**
      * Returns the number of ruleParam values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:436)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:421)
     public int getRuleParamSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__ruleParam);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
+    }
+
+    /**
+     * Returns true if ruleParam has values.
+     */
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:432)
+    public boolean getRuleParamHasValue(){
+        return(getRuleParamSize() > 0);
     }
 
     /**
@@ -225,20 +233,20 @@ public class RuleCategoryDMW extends org.dmd.dms.server.extended.DmsDefinition i
      * RuleCategory. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:350)
-    public Iterator<String> getRuleImport(){
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:344)
+    public StringIterableDMW getRuleImportIterable(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__ruleImport);
         if (attr == null)
-            return(null);
+            return(StringIterableDMW.emptyList);
 
-        return(attr.getMV());
+        return(new StringIterableDMW(attr.getMV()));
     }
 
     /**
      * Adds another ruleImport value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:427)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:412)
     public void addRuleImport(Object value) throws DMFeedbackSet {
         mycore.addRuleImport(value);
     }
@@ -246,12 +254,20 @@ public class RuleCategoryDMW extends org.dmd.dms.server.extended.DmsDefinition i
     /**
      * Returns the number of ruleImport values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:436)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:421)
     public int getRuleImportSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__ruleImport);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
+    }
+
+    /**
+     * Returns true if ruleImport has values.
+     */
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:432)
+    public boolean getRuleImportHasValue(){
+        return(getRuleImportSize() > 0);
     }
 
     /**
@@ -277,7 +293,7 @@ public class RuleCategoryDMW extends org.dmd.dms.server.extended.DmsDefinition i
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation
-    // Generated from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:256)
+    // Generated from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:271)
 
     /**
      * @return The name of this object from the name attribute.
@@ -292,6 +308,16 @@ public class RuleCategoryDMW extends org.dmd.dms.server.extended.DmsDefinition i
      */
     public DmcAttribute<?> getObjectNameAttribute(){
         return(mycore.getObjectNameAttribute());
+    }
+
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpAdditionalWrapperFunctions(MetaDSDHelper.java:903)
+    /**
+     * This method indicates the name of the module from which this definition was loaded.
+     */
+    @Override
+    public String getNameOfModuleWhereThisCameFrom(){
+        DmsModuleREF ref = ((RuleCategoryDMO) core).getDefinedInDmsModule();
+        return(ref.getName().getNameString());
     }
 
 }

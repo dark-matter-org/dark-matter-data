@@ -8,6 +8,7 @@ defFiles			complex.dmd
 defFiles    		attributes.dmd
 defFiles    		classes.dmd
 defFiles    		categories.dmd
+defFiles    		module.dmd
 generatedFileHeader LGPL.txt
 //
 schemaPackage 		org.dmd.dms.shared

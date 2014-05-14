@@ -17,17 +17,17 @@ package org.dmd.dms.server.generated.dmw;
 
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:97)
-import java.util.*;                                     // To support access functions - (DmwFormatter.java:69)
-import org.dmd.core.*;                                  // Basic dark-matter infrastructure - (DmwFormatter.java:71)
-import org.dmd.core.feedback.*;                         // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:77)
-import org.dmd.core.interfaces.DmcDefinitionIF;         // Because this is a DS definition - (DmwFormatter.java:85)
-import org.dmd.dms.server.extended.*;                   // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:73)
-import org.dmd.dms.shared.generated.dmo.*;              // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:74)
-import org.dmd.dms.shared.generated.enums.*;            // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:75)
-import org.dmd.dms.shared.generated.types.*;            // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:76)
-import org.dmd.dms.shared.types.*;                      // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:70)
-import org.dmd.dmw.*;                                   // Base wrapper capabilities - (DmwFormatter.java:72)
+// Called from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:105)
+import java.util.*;                                     // To support access functions - (DmwFormatter.java:75)
+import org.dmd.core.*;                                  // Basic dark-matter infrastructure - (DmwFormatter.java:77)
+import org.dmd.core.feedback.*;                         // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:83)
+import org.dmd.core.interfaces.DmcDefinitionIF;         // Because this is a DS definition - (DmwFormatter.java:91)
+import org.dmd.dms.server.extended.*;                   // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:79)
+import org.dmd.dms.shared.generated.dmo.*;              // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:80)
+import org.dmd.dms.shared.generated.enums.*;            // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:81)
+import org.dmd.dms.shared.generated.types.*;            // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:82)
+import org.dmd.dms.shared.types.*;                      // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:76)
+import org.dmd.dmw.*;                                   // Base wrapper capabilities - (DmwFormatter.java:78)
 
 /**
  * The ExtendedReferenceTypeDefinition provides a mechanism for extending 
@@ -35,10 +35,10 @@ import org.dmd.dmw.*;                                   // Base wrapper capabili
  * additional information. This can be seen as adding additional information
  * to the relationship between two objects. 
  * @author Auto Generated
- * Generated from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:105)
+ * Generated from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:113)
  */
 @SuppressWarnings("unused")
-public class ExtendedReferenceTypeDefinitionDMW extends org.dmd.dms.server.extended.ComplexTypeDefinition implements DmcDefinitionIF {
+public class ExtendedReferenceTypeDefinitionDMW extends org.dmd.dms.server.extended.ComplexTypeDefinition implements DmcDefinitionIF  {
 
     private ExtendedReferenceTypeDefinitionDMO mycore;
 
@@ -111,7 +111,7 @@ public class ExtendedReferenceTypeDefinitionDMW extends org.dmd.dms.server.exten
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation
-    // Generated from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:256)
+    // Generated from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:271)
 
     /**
      * @return The name of this object from the name attribute.
@@ -126,6 +126,16 @@ public class ExtendedReferenceTypeDefinitionDMW extends org.dmd.dms.server.exten
      */
     public DmcAttribute<?> getObjectNameAttribute(){
         return(mycore.getObjectNameAttribute());
+    }
+
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpAdditionalWrapperFunctions(MetaDSDHelper.java:903)
+    /**
+     * This method indicates the name of the module from which this definition was loaded.
+     */
+    @Override
+    public String getNameOfModuleWhereThisCameFrom(){
+        DmsModuleREF ref = ((ExtendedReferenceTypeDefinitionDMO) core).getDefinedInDmsModule();
+        return(ref.getName().getNameString());
     }
 
 }

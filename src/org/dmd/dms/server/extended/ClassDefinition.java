@@ -777,7 +777,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
 	public WrapperTypeEnum getDmwWrapperType(String context){
 		if (wrapperTypeMap == null){
 			wrapperTypeMap = new HashMap<String, DmwTypeToWrapperType>();
-			Iterator<DmwTypeToWrapperType> it = getDmwWrapperType();
+			Iterator<DmwTypeToWrapperType> it = getDmwWrapperTypeIterable();
 			if (it != null){
 				while(it.hasNext()){
 					DmwTypeToWrapperType curr = it.next();

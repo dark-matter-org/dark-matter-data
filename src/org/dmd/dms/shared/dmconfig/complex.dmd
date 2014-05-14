@@ -82,7 +82,7 @@ ComplexTypeDefinition
 name			RuleParam
 fieldSeparator  :
 requiredPart	String         importStatement "The import for the type of parameter"
-requiredPart	String         genericArgs     "The generic arguments associated with this parameter"
+requiredPart	String         genericArgs     "The generic arguments associated with this parameter" quoted=true
 requiredPart	String         name            "The name of the parameter"
 requiredPart	String         description     "A description of the parameter"
 description The RuleParam type is used to succintly describe a parameter

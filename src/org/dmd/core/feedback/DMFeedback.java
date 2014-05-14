@@ -12,11 +12,14 @@ package org.dmd.core.feedback;
  */
 public class DMFeedback {
 	
-	// The source of the error
-	String			source;
+	// The source of this feedback
+	protected SourceInfo			source;
 	
-	// The line where it occured or null if it's not known
-	Integer			line;
+//	// The source of the error
+//	String			source;
+//	
+//	// The line where it occured or null if it's not known
+//	Integer			line;
 	
 	// true if this represents an error as opposed to a warning
 	boolean	error;
@@ -31,7 +34,6 @@ public class DMFeedback {
 		error 	= true;
 		message = new StringBuffer(msg);
 		source 	= null;
-		line	= null;
 	}
 	
 	/**
@@ -42,7 +44,6 @@ public class DMFeedback {
 		error 	= f;
 		message = new StringBuffer();
 		source 	= null;
-		line	= null;
 	}
 	
 	/**
@@ -54,7 +55,6 @@ public class DMFeedback {
 		error 	= f;
 		message = new StringBuffer(msg);
 		source 	= null;
-		line	= null;
 	}
 	
 	/**
@@ -66,8 +66,7 @@ public class DMFeedback {
 	public DMFeedback(String msg, String src, int l){
 		error 	= true;
 		message = new StringBuffer(msg);
-		source 	= src;
-		line	= l;
+		source 	= new SourceInfo(src, l);
 	}
 	
 	/**
@@ -76,8 +75,16 @@ public class DMFeedback {
 	 * @param ln line number
 	 */
 	public void setLocation(String fn, int ln){
-		source 	= fn;
-		line	= ln;
+		source 	= new SourceInfo(fn, ln);
+	}
+
+	/**
+	 * Sets the location information.
+	 * @param si the source
+	 * @param ln line number
+	 */
+	public void setLocation(SourceInfo si){
+		source 	= si;
 	}
 
 	/**
@@ -107,9 +114,7 @@ public class DMFeedback {
 			sb.append("Warning: " + message.toString());
 		
 		if (source != null)
-			sb.append("\nSource: " + source + "\n");
-		if (line != null)
-			sb.append("\n  Line: " + line + "\n");
+			sb.append(source.toString() + "\n");
 		
 		return(sb.toString());
 	}

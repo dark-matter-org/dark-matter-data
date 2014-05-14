@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.LineNumberReader;
+import java.util.ArrayList;
 import java.util.TreeMap;
 
 import org.dmd.core.feedback.DMFeedbackSet;
@@ -14,6 +15,7 @@ import org.dmd.util.artifact.FileUpdateManager;
 import org.dmd.util.parsing.DMUncheckedObjectHandlerIF;
 import org.dmd.util.parsing.DMUncheckedObjectManager;
 import org.dmd.util.parsing.DMUncheckedObjectParser;
+import org.dmd.util.runtime.DebugInfo;
 
 public class MetaGen implements DMUncheckedObjectHandlerIF {
 	
@@ -31,6 +33,9 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 	// org/dmd/dms/shared/generated
 	String	sharedGenDir;
 	
+	// org/dmd/dms/shared/generated/rulesdmo
+	String	sharedGenRulesDir;
+	
 	// org/dmd/dms/shared/generated/enums
 	String	enumDir;
 	String	sharedGenEnumsPackage	= "org.dmd.dms.shared.generated.enums";
@@ -46,6 +51,9 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 	
 	// org/dmd/dms/server/generated/dmw
 	String	dmwDir;
+	
+	// org/dmd/dms/server/generated/dsd
+	String	dsdDir;
 	
 	// org/dmd/dms/server/generated
 	String 	serverGenDir;
@@ -66,24 +74,40 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 	TreeMap<String,DMUncheckedObject>	ucoTypeDefs;
 	TreeMap<String,DMUncheckedObject>	ucoClassDefs;
 	TreeMap<String,DMUncheckedObject>	ucoAttributeDefs;
+	TreeMap<String,DMUncheckedObject>	ucoModuleDefs;
+	TreeMap<String,DMUncheckedObject>	ucoRuleCategoryDefs;
 	
-	DMUncheckedObject			metaSchema;
+	//  The schema module definition
+	DMUncheckedObject					ucoModule;
+	
+	DMUncheckedObject					metaSchema;
+	
+	MetaDSDHelper						dsdHelper;
 
 	StringBuffer LGPL = new StringBuffer();
 
-	public void generate(String baseDir) throws DMFeedbackSet, IOException {
+	/**
+	 * 
+	 * @param baseDir
+	 * @param partOne generates the DMOs and DMWs if true, otherwise, generates the DSD stuff
+	 * @throws DMFeedbackSet
+	 * @throws IOException
+	 */
+	public void generate(String baseDir, boolean partOne) throws DMFeedbackSet, IOException {
 		System.out.println("Base directory: " + baseDir);
 		
-		sharedDir 		= baseDir + "/shared";
-		dmconfigDir 	= baseDir + "/shared/dmconfig";
-		sharedGenDir 	= baseDir + "/shared/generated";
-		dmoDir 			= baseDir + "/shared/generated/dmo";
-		enumDir 		= baseDir + "/shared/generated/enums";
-		typeDir 		= baseDir + "/shared/generated/types";
-		adapterDir 		= baseDir + "/shared/generated/types/adapters";
-		serverGenDir 	= baseDir + "/server/generated";
-		dmwDir 			= baseDir + "/server/generated/dmw";
-		serverExtDir 	= baseDir + "/server/extended";
+		sharedDir 			= baseDir + "/shared";
+		dmconfigDir 		= baseDir + "/shared/dmconfig";
+		sharedGenDir 		= baseDir + "/shared/generated";
+		sharedGenRulesDir	= baseDir + "/shared/generated/rulesdmo";
+		dmoDir 				= baseDir + "/shared/generated/dmo";
+		enumDir 			= baseDir + "/shared/generated/enums";
+		typeDir 			= baseDir + "/shared/generated/types";
+		adapterDir 			= baseDir + "/shared/generated/types/adapters";
+		serverGenDir 		= baseDir + "/server/generated";
+		dmwDir 				= baseDir + "/server/generated/dmw";
+		dsdDir 				= baseDir + "/server/generated/dsd";
+		serverExtDir 		= baseDir + "/server/extended";
 		
 		readHeader();
 		
@@ -94,7 +118,7 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 		ucoParser.parseFile(dmconfigDir + "/meta.dms", false);
 		
 		if (metaSchema == null){
-			
+			throw(new DMFeedbackSet("The meta schema SchemaDefinition wasn't found!"));
 		}
 		
 		NamedStringArray defFiles = metaSchema.get(DEF_FILES);
@@ -102,49 +126,135 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 			ucoParser.parseFile(dmconfigDir + "/" + fn);
 		}
 
-		createDir(sharedGenDir);
-		createDir(dmoDir);
-		createDir(enumDir);
-		createDir(typeDir);
-		createDir(adapterDir);
-		createDir(serverGenDir);
-		createDir(dmwDir);
-		createDir(serverExtDir);
-		
-		FileUpdateManager.instance().generationStarting();
-		FileUpdateManager.instance().reportProgress(System.out);
-		FileUpdateManager.instance().reportErrors(System.err);
-		FileUpdateManager.instance().deleteFiles(false);
-		
-		// We now have all of the base meta definitions. For the sake of convenience,
-		// we initialize handles to some of the collections of objects maintained by
-		// the ucoManager
-		ucoTypeDefs 		= ucoManager.getObjects("TypeDefinition");
-		ucoClassDefs 		= ucoManager.getObjects("ClassDefinition");
-		ucoAttributeDefs 	= ucoManager.getObjects("AttributeDefinition");
-		
-		// Create the TypeDefinitions to represent things that can be referred to as types
-		// when defining attributes
-		createInternalReferenceTypesForClasses();
-		createInternaReferenceTypesForEnums();
-		createInternalTypesForComplexTypes();
-		setDesignatedNameAndFilterAttributesOnTypes();
-		
-		dumpDMOs();
+		if (partOne){
+			createDir(sharedGenDir);
+			createDir(sharedGenRulesDir);
+			createDir(dmoDir);
+			createDir(enumDir);
+			createDir(typeDir);
+			createDir(adapterDir);
+			createDir(serverGenDir);
+			createDir(dmwDir);
+			createDir(dsdDir);
+			createDir(serverExtDir);
+			
+			FileUpdateManager.instance().generationStarting();
+			FileUpdateManager.instance().reportProgress(System.out);
+			FileUpdateManager.instance().reportErrors(System.err);
+			FileUpdateManager.instance().deleteFiles(false);
+			
+			// We now have all of the base meta definitions. For the sake of convenience,
+			// we initialize handles to some of the collections of objects maintained by
+			// the ucoManager
+			
+			// We create the module class before we grab the classes
+			createDmsModuleClass();
+			dsdHelper = new MetaDSDHelper(ucoManager,ucoModule);
+			dsdHelper.generateGlobalInterface(dsdDir, LGPL.toString());
+			dsdHelper.generateScopedInterface(dsdDir, LGPL.toString());
+			dsdHelper.generateDefinitionManager(dsdDir, LGPL.toString());
+			dsdHelper.generateGeneratorInterface(dsdDir, LGPL.toString());
+			dsdHelper.generateParser(dsdDir, LGPL.toString());
+			
+			ArrayList<ClassInfo> allDerived = dsdHelper.getAllDerived("DmsDefinition");
+			
+			for(ClassInfo ci: allDerived){
+				DebugInfo.debug(ci.toString());
+			}
+			
+			ucoTypeDefs 			= ucoManager.getObjects("TypeDefinition");
+			ucoClassDefs 			= ucoManager.getObjects("ClassDefinition");
+			ucoAttributeDefs 		= ucoManager.getObjects("AttributeDefinition");
+			ucoRuleCategoryDefs 	= ucoManager.getObjects("RuleCategory");
+			
+			// Create the TypeDefinitions to represent things that can be referred to as types
+			// when defining attributes
+			createInternalReferenceTypesForClasses();
+			createInternaReferenceTypesForEnums();
+			createInternalTypesForComplexTypes();
+			setDesignatedNameAndFilterAttributesOnTypes();
+			
+			dumpDMOs();
+	
+			dumpTypes();
+			
+			DerivedTypeFormatter.dumpDerivedTypes(ucoManager, typeDir, LGPL.toString());
+			
+			dumpEnums();
+			
+			dumpComplexTypes();
+			
+			dumpCompactSchema();
+			
+			DmwFormatter.dumpDMWClasses(ucoManager, dsdHelper, dmwDir, LGPL.toString());
+			
+			DmwFormatter.dumpTypeIterables(dmwDir, LGPL.toString());
+			
+			MetaSchemaFormatter.dumpMetaSchemaAG(ucoManager, serverGenDir, LGPL.toString());
+			
+			MetaRuleFormatter.dumpRuleCategoryInterfaces(ucoRuleCategoryDefs, sharedGenRulesDir, LGPL.toString());
+		}
+//		else{
+//			MetaDSDArtifactFormatter1.generateCode(ucoManager, dsdDir, LGPL.toString());
+//		}
+	}
+	
+	/**
+	 * The DmsModule specification is used as the basis for the creation of the DmsModule
+	 * class. This is the replacement for the SchemaDefinition used prior to release 4.0.
+	 * @throws DMFeedbackSet 
+	 */
+	private void createDmsModuleClass() throws DMFeedbackSet{
+		if (ucoManager.getObjects("DSDefinitionModule").size() > 1)
+			throw(new DMFeedbackSet("More than one DSDefinitionModule specified!"));
 
-		dumpTypes();
+		ucoModule = ucoManager.getObjects("DSDefinitionModule").get("DmsModule");
+		DMUncheckedObject	cd = new DMUncheckedObject();
 		
-		DerivedTypeFormatter.dumpDerivedTypes(ucoManager, typeDir, LGPL.toString());
+		cd.addToClasses("ClassDefinition");
+		cd.addValue("name", 				"DmsModule");
+		cd.addValue("classType", 			"STRUCTURAL");
+		cd.addValue("dmdID", 				ucoModule.getSV("dmdID"));
+		cd.addValue("isNamedBy", 			"name");
+		cd.addValue("internallyGenerated", 	"true");
+		cd.addValue("dsdModuleDefinition", 	"DmsModule");
+		cd.addValue("derivedFrom", 			ucoModule.getSV("baseDefinition"));
+        // The name of a domain specific definition module is schema.dsdmodulename.DSDefinitionModule
+        // For the associated class, it will be schema.dsdmodulename.ClassDefinition
+		cd.addValue("dotName", 				"meta.DmsModule.ClassDefinition");
 		
-		dumpEnums();
+		cd.addValue("javaClass", "org.dmd.dms.server.extended.DmsModule");
+		cd.addValue("dmoImport", "org.dmd.dms.shared.generated.dmo.DmsModuleDMO");
 		
-		dumpComplexTypes();
 		
-		dumpCompactSchema();
+		cd.addValue("file", 				ucoModule.getFile());
+		cd.addValue("lineNumber", 			ucoModule.getLineNumber() + "");
+		cd.addValue("definedIn", 			"meta");
+		cd.addValue("useWrapperType", 		"EXTENDED");
 		
-		DmwFormatter.dumpDMWClasses(ucoManager, dmwDir, LGPL.toString());
+		cd.addValue("must", 				"name");
+		cd.addValue("may", 					"description");
+		cd.addValue("may", 					"defFiles");
 		
-		MetaSchemaFormatter.dumpMetaSchemaAG(ucoManager, serverGenDir, LGPL.toString());
+		NamedStringArray values = null;
+		
+		values = ucoModule.get("must");
+		if (values!= null){
+			for(String value: values)
+				cd.addValue("must", value);
+		}
+		
+		values = ucoModule.get("may");
+		if (values!= null){
+			for(String value: values)
+				cd.addValue("may", value);
+		}
+		
+		// The DMUncheckedObjectManager is very simple and can't deal with the ambiguity
+		// of having two things with the same name of different construction classes,
+		// so we remove the module.
+		ucoManager.deleteObject(ucoModule);
+		ucoManager.add(cd);
 	}
 	
 	/**
@@ -236,7 +346,6 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 			checkForDuplicateType("EnumDefinition", tn);
 
 			ucoTypeDefs.put(tn, typeDef);
-//			origOrderTypes.add(tn);
 		}
 	}
 		

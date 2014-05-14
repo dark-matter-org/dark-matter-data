@@ -11,9 +11,6 @@ public class DMParsingFeedback extends DMFeedback {
 	 */
 	public DMParsingFeedback(){
 		super(true);
-		message = new StringBuffer();
-		source 	= null;
-		line	= null;
 	}
 	
 	/**
@@ -21,10 +18,7 @@ public class DMParsingFeedback extends DMFeedback {
 	 * @param msg the message.
 	 */
 	public DMParsingFeedback(String msg){
-		super(true);
-		message = new StringBuffer(msg);
-		source	= null;
-		line	= null;
+		super(msg);
 	}
 	
 	/**
@@ -33,10 +27,7 @@ public class DMParsingFeedback extends DMFeedback {
 	 * @param msg the message.
 	 */
 	public DMParsingFeedback(boolean error, String msg){
-		super(error);
-		message = new StringBuffer(msg);
-		source	= null;
-		line	= null;
+		super(error,msg);
 	}
 	
 	/**
@@ -47,30 +38,11 @@ public class DMParsingFeedback extends DMFeedback {
 	public DMParsingFeedback(String msg, String src){
 		super(true);
 		message = new StringBuffer(msg);
-		source	= src;
-		line	= null;
+		source = new SourceInfo(src, 0);
 	}
 	
 	public DMParsingFeedback(String msg, String src, int l){
-		super(true);
-		message = new StringBuffer(msg);
-		source	= src;
-		line	= l;
+		super(msg,src,l);
 	}
 	
-	public String toString(){
-		StringBuffer sb = new StringBuffer();
-		
-		if (error)
-			sb.append("Error: " + message.toString());
-		else
-			sb.append("Warning: " + message.toString());
-		
-		if (source != null)
-			sb.append("\nSource: " + source + "\n");
-		if (line != null)
-			sb.append("\n  Line: " + line + "\n");
-		
-		return(sb.toString());
-	}
 }
