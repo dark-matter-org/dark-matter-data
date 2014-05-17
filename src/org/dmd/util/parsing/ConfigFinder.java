@@ -227,8 +227,8 @@ public class ConfigFinder {
 		return(configs.get(cn));
 	}
 	
-	public TreeMap<String,ConfigLocation> getLocations(){
-		return(configs);
+	public Iterator<ConfigLocation> getLocations(){
+		return(configs.values().iterator());
 	}
 	
 	/**

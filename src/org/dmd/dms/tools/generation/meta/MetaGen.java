@@ -93,7 +93,7 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 	 * @throws DMFeedbackSet
 	 * @throws IOException
 	 */
-	public void generate(String baseDir, boolean partOne) throws DMFeedbackSet, IOException {
+	public void generate(String baseDir) throws DMFeedbackSet, IOException {
 		System.out.println("Base directory: " + baseDir);
 		
 		sharedDir 			= baseDir + "/shared";
@@ -126,77 +126,75 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 			ucoParser.parseFile(dmconfigDir + "/" + fn);
 		}
 
-		if (partOne){
-			createDir(sharedGenDir);
-			createDir(sharedGenRulesDir);
-			createDir(dmoDir);
-			createDir(enumDir);
-			createDir(typeDir);
-			createDir(adapterDir);
-			createDir(serverGenDir);
-			createDir(dmwDir);
-			createDir(dsdDir);
-			createDir(serverExtDir);
-			
-			FileUpdateManager.instance().generationStarting();
-			FileUpdateManager.instance().reportProgress(System.out);
-			FileUpdateManager.instance().reportErrors(System.err);
-			FileUpdateManager.instance().deleteFiles(false);
-			
-			// We now have all of the base meta definitions. For the sake of convenience,
-			// we initialize handles to some of the collections of objects maintained by
-			// the ucoManager
-			
-			// We create the module class before we grab the classes
-			createDmsModuleClass();
-			dsdHelper = new MetaDSDHelper(ucoManager,ucoModule);
-			dsdHelper.generateGlobalInterface(dsdDir, LGPL.toString());
-			dsdHelper.generateScopedInterface(dsdDir, LGPL.toString());
-			dsdHelper.generateDefinitionManager(dsdDir, LGPL.toString());
-			dsdHelper.generateGeneratorInterface(dsdDir, LGPL.toString());
-			dsdHelper.generateParser(dsdDir, LGPL.toString());
-			
-			ArrayList<ClassInfo> allDerived = dsdHelper.getAllDerived("DmsDefinition");
-			
-			for(ClassInfo ci: allDerived){
-				DebugInfo.debug(ci.toString());
-			}
-			
-			ucoTypeDefs 			= ucoManager.getObjects("TypeDefinition");
-			ucoClassDefs 			= ucoManager.getObjects("ClassDefinition");
-			ucoAttributeDefs 		= ucoManager.getObjects("AttributeDefinition");
-			ucoRuleCategoryDefs 	= ucoManager.getObjects("RuleCategory");
-			
-			// Create the TypeDefinitions to represent things that can be referred to as types
-			// when defining attributes
-			createInternalReferenceTypesForClasses();
-			createInternaReferenceTypesForEnums();
-			createInternalTypesForComplexTypes();
-			setDesignatedNameAndFilterAttributesOnTypes();
-			
-			dumpDMOs();
-	
-			dumpTypes();
-			
-			DerivedTypeFormatter.dumpDerivedTypes(ucoManager, typeDir, LGPL.toString());
-			
-			dumpEnums();
-			
-			dumpComplexTypes();
-			
-			dumpCompactSchema();
-			
-			DmwFormatter.dumpDMWClasses(ucoManager, dsdHelper, dmwDir, LGPL.toString());
-			
-			DmwFormatter.dumpTypeIterables(dmwDir, LGPL.toString());
-			
-			MetaSchemaFormatter.dumpMetaSchemaAG(ucoManager, serverGenDir, LGPL.toString());
-			
-			MetaRuleFormatter.dumpRuleCategoryInterfaces(ucoRuleCategoryDefs, sharedGenRulesDir, LGPL.toString());
+		createDir(sharedGenDir);
+		createDir(sharedGenRulesDir);
+		createDir(dmoDir);
+		createDir(enumDir);
+		createDir(typeDir);
+		createDir(adapterDir);
+		createDir(serverGenDir);
+		createDir(dmwDir);
+		createDir(dsdDir);
+		createDir(serverExtDir);
+		
+		FileUpdateManager.instance().generationStarting();
+		FileUpdateManager.instance().reportProgress(System.out);
+		FileUpdateManager.instance().reportErrors(System.err);
+		FileUpdateManager.instance().deleteFiles(false);
+		
+		// We now have all of the base meta definitions. For the sake of convenience,
+		// we initialize handles to some of the collections of objects maintained by
+		// the ucoManager
+		
+		// We create the module class before we grab the classes
+		createDmsModuleClass();
+		dsdHelper = new MetaDSDHelper(ucoManager,ucoModule);
+		dsdHelper.generateGlobalInterface(dsdDir, LGPL.toString());
+		dsdHelper.generateScopedInterface(dsdDir, LGPL.toString());
+		dsdHelper.generateDefinitionManager(dsdDir, LGPL.toString());
+		dsdHelper.generateGeneratorInterface(dsdDir, LGPL.toString());
+		dsdHelper.generateParser(dsdDir, LGPL.toString());
+		dsdHelper.generateParsingCoordinator(dsdDir,LGPL.toString());
+		dsdHelper.generateBaseUtility(dsdDir,LGPL.toString());
+		
+		ArrayList<ClassInfo> allDerived = dsdHelper.getAllDerived("DmsDefinition");
+		
+		for(ClassInfo ci: allDerived){
+			DebugInfo.debug(ci.toString());
 		}
-//		else{
-//			MetaDSDArtifactFormatter1.generateCode(ucoManager, dsdDir, LGPL.toString());
-//		}
+		
+		ucoTypeDefs 			= ucoManager.getObjects("TypeDefinition");
+		ucoClassDefs 			= ucoManager.getObjects("ClassDefinition");
+		ucoAttributeDefs 		= ucoManager.getObjects("AttributeDefinition");
+		ucoRuleCategoryDefs 	= ucoManager.getObjects("RuleCategory");
+		
+		// Create the TypeDefinitions to represent things that can be referred to as types
+		// when defining attributes
+		createInternalReferenceTypesForClasses();
+		createInternaReferenceTypesForEnums();
+		createInternalTypesForComplexTypes();
+		setDesignatedNameAndFilterAttributesOnTypes();
+		
+		dumpDMOs();
+
+		dumpTypes();
+		
+		DerivedTypeFormatter.dumpDerivedTypes(ucoManager, typeDir, LGPL.toString());
+		
+		dumpEnums();
+		
+		dumpComplexTypes();
+		
+		dumpCompactSchema();
+		
+		DmwFormatter.dumpDMWClasses(ucoManager, dsdHelper, dmwDir, LGPL.toString());
+		
+		DmwFormatter.dumpTypeIterables(dmwDir, LGPL.toString());
+		
+		MetaSchemaFormatter.dumpMetaSchemaAG(ucoManager, serverGenDir, LGPL.toString());
+		
+		MetaRuleFormatter.dumpRuleCategoryInterfaces(ucoRuleCategoryDefs, sharedGenRulesDir, LGPL.toString());
+
 	}
 	
 	/**

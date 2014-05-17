@@ -7,7 +7,7 @@ import org.dmd.core.feedback.DMFeedbackSet;
 import org.junit.Before;
 import org.junit.Test;
 
-public class MetaGenPart1Test {
+public class MetaGenTest {
 
 	static String workingDir;
 
@@ -22,10 +22,7 @@ public class MetaGenPart1Test {
 	public void generate() throws IOException, DMFeedbackSet {
 		MetaGen generator = new MetaGen();
 		
-//		try {
-			generator.generate(workingDir + "/src/org/dmd/dms", true);
-//		} catch (DMFeedbackSet e) {
-//			System.err.println(e.toString());
-//		}
+		generator.generate(workingDir + "/src/org/dmd/dms");
+		
 	}
 }
