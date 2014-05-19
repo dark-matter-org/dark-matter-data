@@ -24,6 +24,10 @@ public class MemberManager {
 		members.add(new MemberStatement());
 	}
 	
+	public void addComment(String comment){
+		members.add(new MemberStatement(comment));
+	}
+	
 	/**
 	 * Adds a new member to the collection.
 	 * @param t the Java type of the member
@@ -62,7 +66,7 @@ public class MemberManager {
 		StringBuffer sb = new StringBuffer();
 		
 		sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-		sb.append("    // " + DebugInfo.getWhereWeWereCalledFrom() + "\n");
+		sb.append("    // " + DebugInfo.getWhereWeWereCalledFrom() + "\n\n");
 
 		int tpadding = longestType + 4;
 		int npadding = longestName + 4;
@@ -73,10 +77,15 @@ public class MemberManager {
 		PrintfFormat 	cformat 	= new PrintfFormat("%-" + cpadding + "s");
 		
 		for(MemberStatement mem: members){
-			sb.append("    " + tformat.sprintf(mem.type));
-			sb.append(nformat.sprintf(mem.name));
-			sb.append(cformat.sprintf(mem.construction));
-			sb.append("// " + mem.reason + "\n");
+			if (mem.comment == null){
+				sb.append("    " + tformat.sprintf(mem.type));
+				sb.append(nformat.sprintf(mem.name));
+				sb.append(cformat.sprintf(mem.construction));
+				sb.append("// " + mem.reason + "\n");
+			}
+			else{
+				sb.append("    // " + mem.comment + "\n");
+			}
 		}
 		
 		return(sb.toString());

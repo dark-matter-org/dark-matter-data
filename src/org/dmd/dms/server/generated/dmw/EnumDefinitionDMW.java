@@ -251,7 +251,7 @@ public class EnumDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
         return(mycore.getObjectNameAttribute());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpAdditionalWrapperFunctions(MetaDSDHelper.java:907)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpAdditionalWrapperFunctions(MetaDSDHelper.java:927)
     /**
      * This method indicates the name of the module from which this definition was loaded.
      */

@@ -193,6 +193,8 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 		
 		MetaSchemaFormatter.dumpMetaSchemaAG(ucoManager, serverGenDir, LGPL.toString());
 		
+		MetaSchemaFormatterNew.dumpMetaSchemaAG(ucoManager, serverGenDir, LGPL.toString());
+		
 		MetaRuleFormatter.dumpRuleCategoryInterfaces(ucoRuleCategoryDefs, sharedGenRulesDir, LGPL.toString());
 
 	}
@@ -426,6 +428,8 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 //		System.out.println(uco.toOIF());
 		
 		ucoManager.add(uco);
+		
+		uco.addValue("dotName", "meta." + uco.getSV("name") + "." + uco.getConstructionClass());
 		
 		if (uco.getConstructionClass().equals(SCHEMA_DEFINITION)){
 			if (metaSchema != null){

@@ -277,16 +277,13 @@ public class MetaDSDHelper {
 		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("public class " + ucoModule.getSV("name") + "DefinitionManager " + impl.getFormattedImplementations() + "{\n\n");
 		
-		out.write("    DmcDefinitionSet<DSDefinition>	allDefinitions;\n");
-		out.write("\n");
-		
 		dumpDefinitionManagerMembers(out, ucoModule);
 		
 		out.write("    public " + ucoModule.getSV("name") + "DefinitionManager(){\n\n");
 		
-		out.write("        // This will be populated as a result of adding definitions to the definition sets for each definition type\n");
-		out.write("        allDefinitions = new DmcDefinitionSet<DSDefinition>(\"allDefinitions\");\n\n");
-		initializeDefinitionManagerMembers(out);
+//		out.write("        // This will be populated as a result of adding definitions to the definition sets for each definition type\n");
+//		out.write("        allDefinitions = new DmcDefinitionSet<DSDefinition>(\"allDefinitions\");\n\n");
+//		initializeDefinitionManagerMembers(out);
 		
 		out.write("    }\n\n");
 		
@@ -392,27 +389,50 @@ public class MetaDSDHelper {
 		out.write(getInterfaceMethodsImplementations(false));
 	}
 
-	private void initializeDefinitionManagerMembers(ManagedFileWriter out) throws IOException, DMFeedbackSet {
-		out.write("        // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-		out.write("        " + ucoModule.getSV("baseDefinition") + "Defs = new DmcDefinitionSet<" + ucoModule.getSV("baseDefinition") + ">(\"" + ucoModule.getSV("baseDefinition") + "\", allDefinitions);\n");
-		
-		ArrayList<ClassInfo> derived = getAllDerived(ucoModule.getSV("baseDefinition"));
-		for(ClassInfo ci: derived){
-			out.write("        " + ci.cd.getSV("name") + "Defs = new DmcDefinitionSet<" + ci.cd.getSV("name") + ">(\"" + ci.cd.getSV("name") + "\", allDefinitions);\n");
-		}
-		
-		out.write("\n");
-	}
+//	private void initializeDefinitionManagerMembers(ManagedFileWriter out) throws IOException, DMFeedbackSet {
+//		out.write("        // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+//		out.write("        " + ucoModule.getSV("baseDefinition") + "Defs = new DmcDefinitionSet<" + ucoModule.getSV("baseDefinition") + ">(\"" + ucoModule.getSV("baseDefinition") + "\", allDefinitions);\n");
+//		
+//		ArrayList<ClassInfo> derived = getAllDerived(ucoModule.getSV("baseDefinition"));
+//		for(ClassInfo ci: derived){
+//			out.write("        " + ci.cd.getSV("name") + "Defs = new DmcDefinitionSet<" + ci.cd.getSV("name") + ">(\"" + ci.cd.getSV("name") + "\", allDefinitions);\n");
+//		}
+//		
+//		out.write("\n");
+//	}
 
 	private void dumpDefinitionManagerMembers(ManagedFileWriter out, DMUncheckedObject boing) throws IOException, DMFeedbackSet {
-		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-		out.write("    DmcDefinitionSet<" + ucoModule.getSV("baseDefinition") + "> " + ucoModule.getSV("baseDefinition") + "Defs;\n");
-
+		String defname = null;
+		String construct = null;
+		
+		MemberManager	members = new MemberManager();
+		members.addComment("This will be populated as a result of adding definitions to the definition sets for each definition type");
+		members.addMember("protected DmcDefinitionSet<DSDefinition>", "allDefinitions", "new DmcDefinitionSet<DSDefinition>(\"allDefinitions\")", "Maintains all definitions");
+		members.addSpacer();
+		
+		defname = ucoModule.getSV("baseDefinition");
+		construct = "new DmcDefinitionSet<" + defname + ">(\"" + defname + "\", allDefinitions)";
+		members.addMember("protected DmcDefinitionSet<" + defname + ">", defname + "Defs", construct, "The set of all " + defname + " definitions");
+		
+//		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+//		out.write("    DmcDefinitionSet<DSDefinition>	allDefinitions;\n");
+//		out.write("\n");
+//		
+//		out.write("    DmcDefinitionSet<" + ucoModule.getSV("baseDefinition") + "> " + ucoModule.getSV("baseDefinition") + "Defs;\n");
+//
+//		ArrayList<ClassInfo> derived = getAllDerived(ucoModule.getSV("baseDefinition"));
+//		for(ClassInfo ci: derived){
+//			out.write("    DmcDefinitionSet<" + ci.cd.getSV("name") + "> " + ci.cd.getSV("name") + "Defs;\n");			
+//		}
+		
 		ArrayList<ClassInfo> derived = getAllDerived(ucoModule.getSV("baseDefinition"));
 		for(ClassInfo ci: derived){
-			out.write("    DmcDefinitionSet<" + ci.cd.getSV("name") + "> " + ci.cd.getSV("name") + "Defs;\n");			
+			defname = ci.cd.getSV("name");
+			construct = "new DmcDefinitionSet<" + defname + ">(\"" + defname + "\", allDefinitions)";
+			members.addMember("protected DmcDefinitionSet<" + defname + ">", defname + "Defs", construct, "The set of all " + defname + " definitions");
 		}
 		
+		out.write(members.getFormattedMembers());
 		out.write("\n");
 	}
 	
