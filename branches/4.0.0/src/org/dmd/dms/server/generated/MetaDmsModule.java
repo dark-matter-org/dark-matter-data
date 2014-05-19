@@ -16,21 +16,21 @@
 package org.dmd.dms.server.generated;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatter.dumpMetaSchemaAG(MetaSchemaFormatter.java:65)
-import org.dmd.core.feedback.DMFeedbackSet;         // To handle potential value exceptions. - (MetaSchemaFormatter.java:56)
-import org.dmd.dms.server.extended.*;               // Access to meta schema extended classes - (MetaSchemaFormatter.java:57)
-import org.dmd.dms.shared.generated.dmo.*;          // Access to meta schema DMOs - (MetaSchemaFormatter.java:58)
+// Called from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpMetaSchemaAG(MetaSchemaFormatterNew.java:65)
+import org.dmd.core.feedback.DMFeedbackSet;         // To handle potential value exceptions. - (MetaSchemaFormatterNew.java:56)
+import org.dmd.dms.server.extended.*;               // Access to meta schema extended classes - (MetaSchemaFormatterNew.java:57)
+import org.dmd.dms.shared.generated.dmo.*;          // Access to meta schema DMOs - (MetaSchemaFormatterNew.java:58)
 
 
 
 /**
   * This class creates the basic definitions that allow for the definition of schemas.
-  * Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatter.dumpMetaSchemaAG(MetaSchemaFormatter.java:69)
+  * Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpMetaSchemaAG(MetaSchemaFormatterNew.java:69)
   */
-public class MetaSchemaAG extends SchemaDefinition {
-    public static SchemaDefinition    _metaSchema;
+public class MetaDmsModule extends DmsModule {
+    public static DmsModule    _metaSchema;
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatter.dumpStaticDefinitions(MetaSchemaFormatter.java:130)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:132)
     public static ClassDefinition     _ActionTriggerInfo;
     public static ClassDefinition     _DSDefinition;
     public static ClassDefinition     _DmsDefinition;
@@ -53,7 +53,7 @@ public class MetaSchemaAG extends SchemaDefinition {
     public static ClassDefinition     _Concinnity;
     public static ClassDefinition     _DmsModule;
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatter.dumpStaticDefinitions(MetaSchemaFormatter.java:137)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:139)
     public static EnumDefinition      _ClassTypeEnum;
     public static EnumDefinition      _ModifyTypeEnum;
     public static EnumDefinition      _OperationalContextEnum;
@@ -66,7 +66,7 @@ public class MetaSchemaAG extends SchemaDefinition {
     public static EnumDefinition      _WrapperTypeEnum;
     public static EnumDefinition      _OriginalTypeEnum;
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatter.dumpStaticDefinitions(MetaSchemaFormatter.java:143)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:145)
     public static TypeDefinition      _String;
     public static TypeDefinition      _DmcObject;
     public static TypeDefinition      _ClassInfoRef;
@@ -101,7 +101,7 @@ public class MetaSchemaAG extends SchemaDefinition {
     public static TypeDefinition      _LabelledIntegerDataPoint;
     public static TypeDefinition      _TimeDoubleDataPoint;
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatter.dumpStaticDefinitions(MetaSchemaFormatter.java:157)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:159)
     public static AttributeDefinition _name;
     public static AttributeDefinition _dmdID;
     public static AttributeDefinition _schemaExtension;
@@ -283,7 +283,7 @@ public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _dependsOnDmsModule;
     public static AttributeDefinition _objectClass;
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatter.dumpStaticDefinitions(MetaSchemaFormatter.java:163)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:165)
     public static ComplexTypeDefinition _Part;
     public static ComplexTypeDefinition _NameValuePair;
     public static ComplexTypeDefinition _SchemaAndReason;
@@ -292,25 +292,25 @@ public class MetaSchemaAG extends SchemaDefinition {
     public static ComplexTypeDefinition _DmwTypeToWrapperType;
     public static ComplexTypeDefinition _RuleParam;
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatter.dumpStaticDefinitions(MetaSchemaFormatter.java:168)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:170)
     public static RuleCategory        _Initialization;
     public static RuleCategory        _ObjectValidation;
     public static RuleCategory        _AttributeValidation;
     public static RuleCategory        _AttributeValidationWithResolver;
     public static RuleCategory        _UCOValidation;
 
-    public MetaSchemaAG() throws DMFeedbackSet {
-
-        super("meta");
+    public MetaDmsModule() throws DMFeedbackSet {
 
         // We only ever want to initialize the schema once, so check
         // to see if we've initialized the first class definition
         if (_metaSchema == null){
             _metaSchema = this;
-            staticRefName = new String("MetaSchema._");
+            staticRefName = new String("MetaDmsModule._");
 
             this.addDescription("The meta schema defines the elements used to define schemas.");
-            this.setDotName("meta.SchemaDefinition");
+            this.setName("meta");
+            this.setDotName("meta");
+            this.setDefinedInDmsModule(this);
             this.setSchemaPackage("org.dmd.dms");
             this.setDmwPackage("org.dmd.dms");
             this.setSchemaBaseID(0);
@@ -324,7 +324,7 @@ public class MetaSchemaAG extends SchemaDefinition {
         }
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatter.dumpInitClasses(MetaSchemaFormatter.java:183)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitClasses(MetaSchemaFormatterNew.java:185)
     private void initClasses() throws DMFeedbackSet {
 
         ClassDefinitionDMO _ActionTriggerInfoOBJ = new ClassDefinitionDMO();
@@ -338,8 +338,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _ActionTriggerInfoOBJ.setJavaClass("org.dmd.dms.extended.ActionTriggerInfo");
         _ActionTriggerInfoOBJ.addMust("meta.name");
         _ActionTriggerInfoOBJ.setName("ActionTriggerInfo");
-        _ActionTriggerInfo.setDefinedIn(this);
-        addClassDefList(_ActionTriggerInfo);
+        _ActionTriggerInfo.setDefinedInDmsModule(this);
+        addClassDefinition(_ActionTriggerInfo);
 
         ClassDefinitionDMO _DSDefinitionOBJ = new ClassDefinitionDMO();
         _DSDefinition = new ClassDefinition(_DSDefinitionOBJ,MetaDMSAG.__DSDefinition);
@@ -371,8 +371,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _DSDefinitionOBJ.addMust("meta.name");
         _DSDefinitionOBJ.setName("DSDefinition");
         _DSDefinitionOBJ.setUseWrapperType("EXTENDED");
-        _DSDefinition.setDefinedIn(this);
-        addClassDefList(_DSDefinition);
+        _DSDefinition.setDefinedInDmsModule(this);
+        addClassDefinition(_DSDefinition);
 
         ClassDefinitionDMO _DmsDefinitionOBJ = new ClassDefinitionDMO();
         _DmsDefinition = new ClassDefinition(_DmsDefinitionOBJ,MetaDMSAG.__DmsDefinition);
@@ -392,8 +392,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _DmsDefinitionOBJ.setName("DmsDefinition");
         _DmsDefinitionOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _DmsDefinitionOBJ.setUseWrapperType("EXTENDED");
-        _DmsDefinition.setDefinedIn(this);
-        addClassDefList(_DmsDefinition);
+        _DmsDefinition.setDefinedInDmsModule(this);
+        addClassDefinition(_DmsDefinition);
 
         ClassDefinitionDMO _DSDefinitionModuleOBJ = new ClassDefinitionDMO();
         _DSDefinitionModule = new ClassDefinition(_DSDefinitionModuleOBJ,MetaDMSAG.__DSDefinitionModule);
@@ -422,8 +422,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _DSDefinitionModuleOBJ.setName("DSDefinitionModule");
         _DSDefinitionModuleOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _DSDefinitionModuleOBJ.setUseWrapperType("EXTENDED");
-        _DSDefinitionModule.setDefinedIn(this);
-        addClassDefList(_DSDefinitionModule);
+        _DSDefinitionModule.setDefinedInDmsModule(this);
+        addClassDefinition(_DSDefinitionModule);
 
         ClassDefinitionDMO _ClassDefinitionOBJ = new ClassDefinitionDMO();
         _ClassDefinition = new ClassDefinition(_ClassDefinitionOBJ,MetaDMSAG.__ClassDefinition);
@@ -483,8 +483,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _ClassDefinitionOBJ.setName("ClassDefinition");
         _ClassDefinitionOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _ClassDefinitionOBJ.setUseWrapperType("EXTENDED");
-        _ClassDefinition.setDefinedIn(this);
-        addClassDefList(_ClassDefinition);
+        _ClassDefinition.setDefinedInDmsModule(this);
+        addClassDefinition(_ClassDefinition);
 
         ClassDefinitionDMO _EnumDefinitionOBJ = new ClassDefinitionDMO();
         _EnumDefinition = new ClassDefinition(_EnumDefinitionOBJ,MetaDMSAG.__EnumDefinition);
@@ -505,8 +505,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _EnumDefinitionOBJ.setName("EnumDefinition");
         _EnumDefinitionOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _EnumDefinitionOBJ.setUseWrapperType("EXTENDED");
-        _EnumDefinition.setDefinedIn(this);
-        addClassDefList(_EnumDefinition);
+        _EnumDefinition.setDefinedInDmsModule(this);
+        addClassDefinition(_EnumDefinition);
 
         ClassDefinitionDMO _TypeDefinitionOBJ = new ClassDefinitionDMO();
         _TypeDefinition = new ClassDefinition(_TypeDefinitionOBJ,MetaDMSAG.__TypeDefinition);
@@ -548,8 +548,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _TypeDefinitionOBJ.setName("TypeDefinition");
         _TypeDefinitionOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _TypeDefinitionOBJ.setUseWrapperType("EXTENDED");
-        _TypeDefinition.setDefinedIn(this);
-        addClassDefList(_TypeDefinition);
+        _TypeDefinition.setDefinedInDmsModule(this);
+        addClassDefinition(_TypeDefinition);
 
         ClassDefinitionDMO _ComplexTypeDefinitionOBJ = new ClassDefinitionDMO();
         _ComplexTypeDefinition = new ClassDefinition(_ComplexTypeDefinitionOBJ,MetaDMSAG.__ComplexTypeDefinition);
@@ -572,8 +572,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _ComplexTypeDefinitionOBJ.setName("ComplexTypeDefinition");
         _ComplexTypeDefinitionOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _ComplexTypeDefinitionOBJ.setUseWrapperType("EXTENDED");
-        _ComplexTypeDefinition.setDefinedIn(this);
-        addClassDefList(_ComplexTypeDefinition);
+        _ComplexTypeDefinition.setDefinedInDmsModule(this);
+        addClassDefinition(_ComplexTypeDefinition);
 
         ClassDefinitionDMO _ExtendedReferenceTypeDefinitionOBJ = new ClassDefinitionDMO();
         _ExtendedReferenceTypeDefinition = new ClassDefinition(_ExtendedReferenceTypeDefinitionOBJ,MetaDMSAG.__ExtendedReferenceTypeDefinition);
@@ -592,8 +592,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _ExtendedReferenceTypeDefinitionOBJ.setName("ExtendedReferenceTypeDefinition");
         _ExtendedReferenceTypeDefinitionOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _ExtendedReferenceTypeDefinitionOBJ.setUseWrapperType("EXTENDED");
-        _ExtendedReferenceTypeDefinition.setDefinedIn(this);
-        addClassDefList(_ExtendedReferenceTypeDefinition);
+        _ExtendedReferenceTypeDefinition.setDefinedInDmsModule(this);
+        addClassDefinition(_ExtendedReferenceTypeDefinition);
 
         ClassDefinitionDMO _AttributeDefinitionOBJ = new ClassDefinitionDMO();
         _AttributeDefinition = new ClassDefinition(_AttributeDefinitionOBJ,MetaDMSAG.__AttributeDefinition);
@@ -628,8 +628,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _AttributeDefinitionOBJ.setName("AttributeDefinition");
         _AttributeDefinitionOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _AttributeDefinitionOBJ.setUseWrapperType("EXTENDED");
-        _AttributeDefinition.setDefinedIn(this);
-        addClassDefList(_AttributeDefinition);
+        _AttributeDefinition.setDefinedInDmsModule(this);
+        addClassDefinition(_AttributeDefinition);
 
         ClassDefinitionDMO _SliceDefinitionOBJ = new ClassDefinitionDMO();
         _SliceDefinition = new ClassDefinition(_SliceDefinitionOBJ,MetaDMSAG.__SliceDefinition);
@@ -649,8 +649,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _SliceDefinitionOBJ.setName("SliceDefinition");
         _SliceDefinitionOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _SliceDefinitionOBJ.setUseWrapperType("EXTENDED");
-        _SliceDefinition.setDefinedIn(this);
-        addClassDefList(_SliceDefinition);
+        _SliceDefinition.setDefinedInDmsModule(this);
+        addClassDefinition(_SliceDefinition);
 
         ClassDefinitionDMO _ActionDefinitionOBJ = new ClassDefinitionDMO();
         _ActionDefinition = new ClassDefinition(_ActionDefinitionOBJ,MetaDMSAG.__ActionDefinition);
@@ -677,8 +677,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _ActionDefinitionOBJ.setName("ActionDefinition");
         _ActionDefinitionOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _ActionDefinitionOBJ.setUseWrapperType("EXTENDED");
-        _ActionDefinition.setDefinedIn(this);
-        addClassDefList(_ActionDefinition);
+        _ActionDefinition.setDefinedInDmsModule(this);
+        addClassDefinition(_ActionDefinition);
 
         ClassDefinitionDMO _SchemaDefinitionOBJ = new ClassDefinitionDMO();
         _SchemaDefinition = new ClassDefinition(_SchemaDefinitionOBJ,MetaDMSAG.__SchemaDefinition);
@@ -719,8 +719,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _SchemaDefinitionOBJ.setName("SchemaDefinition");
         _SchemaDefinitionOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _SchemaDefinitionOBJ.setUseWrapperType("EXTENDED");
-        _SchemaDefinition.setDefinedIn(this);
-        addClassDefList(_SchemaDefinition);
+        _SchemaDefinition.setDefinedInDmsModule(this);
+        addClassDefinition(_SchemaDefinition);
 
         ClassDefinitionDMO _RuleCategoryOBJ = new ClassDefinitionDMO();
         _RuleCategory = new ClassDefinition(_RuleCategoryOBJ,MetaDMSAG.__RuleCategory);
@@ -745,8 +745,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _RuleCategoryOBJ.setName("RuleCategory");
         _RuleCategoryOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _RuleCategoryOBJ.setUseWrapperType("EXTENDED");
-        _RuleCategory.setDefinedIn(this);
-        addClassDefList(_RuleCategory);
+        _RuleCategory.setDefinedInDmsModule(this);
+        addClassDefinition(_RuleCategory);
 
         ClassDefinitionDMO _RuleDefinitionOBJ = new ClassDefinitionDMO();
         _RuleDefinition = new ClassDefinition(_RuleDefinitionOBJ,MetaDMSAG.__RuleDefinition);
@@ -770,8 +770,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _RuleDefinitionOBJ.setName("RuleDefinition");
         _RuleDefinitionOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _RuleDefinitionOBJ.setUseWrapperType("EXTENDED");
-        _RuleDefinition.setDefinedIn(this);
-        addClassDefList(_RuleDefinition);
+        _RuleDefinition.setDefinedInDmsModule(this);
+        addClassDefinition(_RuleDefinition);
 
         ClassDefinitionDMO _RuleDataOBJ = new ClassDefinitionDMO();
         _RuleData = new ClassDefinition(_RuleDataOBJ,MetaDMSAG.__RuleData);
@@ -795,8 +795,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _RuleDataOBJ.addMust("meta.ruleName");
         _RuleDataOBJ.setName("RuleData");
         _RuleDataOBJ.setUseWrapperType("EXTENDED");
-        _RuleData.setDefinedIn(this);
-        addClassDefList(_RuleData);
+        _RuleData.setDefinedInDmsModule(this);
+        addClassDefinition(_RuleData);
 
         ClassDefinitionDMO _DependencyOBJ = new ClassDefinitionDMO();
         _Dependency = new ClassDefinition(_DependencyOBJ,MetaDMSAG.__Dependency);
@@ -817,8 +817,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _DependencyOBJ.setName("Dependency");
         _DependencyOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _DependencyOBJ.setUseWrapperType("EXTENDED");
-        _Dependency.setDefinedIn(this);
-        addClassDefList(_Dependency);
+        _Dependency.setDefinedInDmsModule(this);
+        addClassDefinition(_Dependency);
 
         ClassDefinitionDMO _DependencyImplementationOBJ = new ClassDefinitionDMO();
         _DependencyImplementation = new ClassDefinition(_DependencyImplementationOBJ,MetaDMSAG.__DependencyImplementation);
@@ -840,8 +840,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _DependencyImplementationOBJ.setName("DependencyImplementation");
         _DependencyImplementationOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _DependencyImplementationOBJ.setUseWrapperType("EXTENDED");
-        _DependencyImplementation.setDefinedIn(this);
-        addClassDefList(_DependencyImplementation);
+        _DependencyImplementation.setDefinedInDmsModule(this);
+        addClassDefinition(_DependencyImplementation);
 
         ClassDefinitionDMO _RunContextOBJ = new ClassDefinitionDMO();
         _RunContext = new ClassDefinition(_RunContextOBJ,MetaDMSAG.__RunContext);
@@ -860,8 +860,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _RunContextOBJ.setName("RunContext");
         _RunContextOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _RunContextOBJ.setUseWrapperType("EXTENDED");
-        _RunContext.setDefinedIn(this);
-        addClassDefList(_RunContext);
+        _RunContext.setDefinedInDmsModule(this);
+        addClassDefinition(_RunContext);
 
         ClassDefinitionDMO _ConcinnityOBJ = new ClassDefinitionDMO();
         _Concinnity = new ClassDefinition(_ConcinnityOBJ,MetaDMSAG.__Concinnity);
@@ -877,8 +877,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _ConcinnityOBJ.addMust("meta.name");
         _ConcinnityOBJ.setName("Concinnity");
         _ConcinnityOBJ.setUseWrapperType("EXTENDED");
-        _Concinnity.setDefinedIn(this);
-        addClassDefList(_Concinnity);
+        _Concinnity.setDefinedInDmsModule(this);
+        addClassDefinition(_Concinnity);
 
         ClassDefinitionDMO _DmsModuleOBJ = new ClassDefinitionDMO();
         _DmsModule = new ClassDefinition(_DmsModuleOBJ,MetaDMSAG.__DmsModule);
@@ -907,11 +907,11 @@ public class MetaSchemaAG extends SchemaDefinition {
         _DmsModuleOBJ.setName("DmsModule");
         _DmsModuleOBJ.setPartOfDefinitionModule("meta.meta.DmsModule");
         _DmsModuleOBJ.setUseWrapperType("EXTENDED");
-        _DmsModule.setDefinedIn(this);
-        addClassDefList(_DmsModule);
+        _DmsModule.setDefinedInDmsModule(this);
+        addClassDefinition(_DmsModule);
 
     }
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatter.dumpInitAttributes(MetaSchemaFormatter.java:204)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitAttributes(MetaSchemaFormatterNew.java:206)
     private void initAttributes() throws DMFeedbackSet {
 
         AttributeDefinitionDMO _FQNOBJ = new AttributeDefinitionDMO();
@@ -923,8 +923,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _FQNOBJ.setDotName("meta.FQN.AttributeDefinition");
         _FQNOBJ.setName("FQN");
         _FQNOBJ.setType("meta.FullyQualifiedName");
-        _FQN.setDefinedIn(this);
-        addAttributeDefList(_FQN);
+        _FQN.setDefinedInDmsModule(this);
+        addAttributeDefinition(_FQN);
 
         AttributeDefinitionDMO _abbrevOBJ = new AttributeDefinitionDMO();
         _abbrev = new AttributeDefinition(_abbrevOBJ);
@@ -934,8 +934,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _abbrevOBJ.setDotName("meta.abbrev.AttributeDefinition");
         _abbrevOBJ.setName("abbrev");
         _abbrevOBJ.setType("meta.String");
-        _abbrev.setDefinedIn(this);
-        addAttributeDefList(_abbrev);
+        _abbrev.setDefinedInDmsModule(this);
+        addAttributeDefinition(_abbrev);
 
         AttributeDefinitionDMO _actionDefListOBJ = new AttributeDefinitionDMO();
         _actionDefList = new AttributeDefinition(_actionDefListOBJ);
@@ -947,8 +947,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _actionDefListOBJ.setName("actionDefList");
         _actionDefListOBJ.setType("meta.ActionDefinition");
         _actionDefListOBJ.setValueType("MULTI");
-        _actionDefList.setDefinedIn(this);
-        addAttributeDefList(_actionDefList);
+        _actionDefList.setDefinedInDmsModule(this);
+        addAttributeDefinition(_actionDefList);
 
         AttributeDefinitionDMO _actionsOBJ = new AttributeDefinitionDMO();
         _actions = new AttributeDefinition(_actionsOBJ);
@@ -959,8 +959,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _actionsOBJ.setName("actions");
         _actionsOBJ.setType("meta.ActionDefinition");
         _actionsOBJ.setValueType("MULTI");
-        _actions.setDefinedIn(this);
-        addAttributeDefList(_actions);
+        _actions.setDefinedInDmsModule(this);
+        addAttributeDefinition(_actions);
 
         AttributeDefinitionDMO _allowedParentsOBJ = new AttributeDefinitionDMO();
         _allowedParents = new AttributeDefinition(_allowedParentsOBJ);
@@ -971,8 +971,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _allowedParentsOBJ.setName("allowedParents");
         _allowedParentsOBJ.setType("meta.ClassDefinition");
         _allowedParentsOBJ.setValueType("MULTI");
-        _allowedParents.setDefinedIn(this);
-        addAttributeDefList(_allowedParents);
+        _allowedParents.setDefinedInDmsModule(this);
+        addAttributeDefinition(_allowedParents);
 
         AttributeDefinitionDMO _altTypeOBJ = new AttributeDefinitionDMO();
         _altType = new AttributeDefinition(_altTypeOBJ);
@@ -982,8 +982,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _altTypeOBJ.setDotName("meta.altType.AttributeDefinition");
         _altTypeOBJ.setName("altType");
         _altTypeOBJ.setType("meta.String");
-        _altType.setDefinedIn(this);
-        addAttributeDefList(_altType);
+        _altType.setDefinedInDmsModule(this);
+        addAttributeDefinition(_altType);
 
         AttributeDefinitionDMO _altTypeImportOBJ = new AttributeDefinitionDMO();
         _altTypeImport = new AttributeDefinition(_altTypeImportOBJ);
@@ -993,8 +993,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _altTypeImportOBJ.setDotName("meta.altTypeImport.AttributeDefinition");
         _altTypeImportOBJ.setName("altTypeImport");
         _altTypeImportOBJ.setType("meta.String");
-        _altTypeImport.setDefinedIn(this);
-        addAttributeDefList(_altTypeImport);
+        _altTypeImport.setDefinedInDmsModule(this);
+        addAttributeDefinition(_altTypeImport);
 
         AttributeDefinitionDMO _applyToAttributeOBJ = new AttributeDefinitionDMO();
         _applyToAttribute = new AttributeDefinition(_applyToAttributeOBJ);
@@ -1004,8 +1004,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _applyToAttributeOBJ.setDotName("meta.applyToAttribute.AttributeDefinition");
         _applyToAttributeOBJ.setName("applyToAttribute");
         _applyToAttributeOBJ.setType("meta.AttributeDefinition");
-        _applyToAttribute.setDefinedIn(this);
-        addAttributeDefList(_applyToAttribute);
+        _applyToAttribute.setDefinedInDmsModule(this);
+        addAttributeDefinition(_applyToAttribute);
 
         AttributeDefinitionDMO _applyToClassOBJ = new AttributeDefinitionDMO();
         _applyToClass = new AttributeDefinition(_applyToClassOBJ);
@@ -1015,8 +1015,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _applyToClassOBJ.setDotName("meta.applyToClass.AttributeDefinition");
         _applyToClassOBJ.setName("applyToClass");
         _applyToClassOBJ.setType("meta.ClassDefinition");
-        _applyToClass.setDefinedIn(this);
-        addAttributeDefList(_applyToClass);
+        _applyToClass.setDefinedInDmsModule(this);
+        addAttributeDefinition(_applyToClass);
 
         AttributeDefinitionDMO _attachToClassOBJ = new AttributeDefinitionDMO();
         _attachToClass = new AttributeDefinition(_attachToClassOBJ);
@@ -1027,8 +1027,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _attachToClassOBJ.setName("attachToClass");
         _attachToClassOBJ.setType("meta.ClassDefinition");
         _attachToClassOBJ.setValueType("MULTI");
-        _attachToClass.setDefinedIn(this);
-        addAttributeDefList(_attachToClass);
+        _attachToClass.setDefinedInDmsModule(this);
+        addAttributeDefinition(_attachToClass);
 
         AttributeDefinitionDMO _attributeDefListOBJ = new AttributeDefinitionDMO();
         _attributeDefList = new AttributeDefinition(_attributeDefListOBJ);
@@ -1040,8 +1040,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _attributeDefListOBJ.setName("attributeDefList");
         _attributeDefListOBJ.setType("meta.AttributeDefinition");
         _attributeDefListOBJ.setValueType("MULTI");
-        _attributeDefList.setDefinedIn(this);
-        addAttributeDefList(_attributeDefList);
+        _attributeDefList.setDefinedInDmsModule(this);
+        addAttributeDefinition(_attributeDefList);
 
         AttributeDefinitionDMO _attributeInfoFromParamOBJ = new AttributeDefinitionDMO();
         _attributeInfoFromParam = new AttributeDefinition(_attributeInfoFromParamOBJ);
@@ -1051,8 +1051,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _attributeInfoFromParamOBJ.setDotName("meta.attributeInfoFromParam.AttributeDefinition");
         _attributeInfoFromParamOBJ.setName("attributeInfoFromParam");
         _attributeInfoFromParamOBJ.setType("meta.String");
-        _attributeInfoFromParam.setDefinedIn(this);
-        addAttributeDefList(_attributeInfoFromParam);
+        _attributeInfoFromParam.setDefinedInDmsModule(this);
+        addAttributeDefinition(_attributeInfoFromParam);
 
         AttributeDefinitionDMO _baseDefinitionOBJ = new AttributeDefinitionDMO();
         _baseDefinition = new AttributeDefinition(_baseDefinitionOBJ);
@@ -1062,8 +1062,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _baseDefinitionOBJ.setDotName("meta.baseDefinition.AttributeDefinition");
         _baseDefinitionOBJ.setName("baseDefinition");
         _baseDefinitionOBJ.setType("meta.DSDefinition");
-        _baseDefinition.setDefinedIn(this);
-        addAttributeDefList(_baseDefinition);
+        _baseDefinition.setDefinedInDmsModule(this);
+        addAttributeDefinition(_baseDefinition);
 
         AttributeDefinitionDMO _baseTypeOBJ = new AttributeDefinitionDMO();
         _baseType = new AttributeDefinition(_baseTypeOBJ);
@@ -1073,8 +1073,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _baseTypeOBJ.setDotName("meta.baseType.AttributeDefinition");
         _baseTypeOBJ.setName("baseType");
         _baseTypeOBJ.setType("meta.BaseTypeEnum");
-        _baseType.setDefinedIn(this);
-        addAttributeDefList(_baseType);
+        _baseType.setDefinedInDmsModule(this);
+        addAttributeDefinition(_baseType);
 
         AttributeDefinitionDMO _camelCaseNameOBJ = new AttributeDefinitionDMO();
         _camelCaseName = new AttributeDefinition(_camelCaseNameOBJ);
@@ -1085,8 +1085,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _camelCaseNameOBJ.setDotName("meta.camelCaseName.AttributeDefinition");
         _camelCaseNameOBJ.setName("camelCaseName");
         _camelCaseNameOBJ.setType("meta.CamelCaseName");
-        _camelCaseName.setDefinedIn(this);
-        addAttributeDefList(_camelCaseName);
+        _camelCaseName.setDefinedInDmsModule(this);
+        addAttributeDefinition(_camelCaseName);
 
         AttributeDefinitionDMO _classDefListOBJ = new AttributeDefinitionDMO();
         _classDefList = new AttributeDefinition(_classDefListOBJ);
@@ -1098,8 +1098,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _classDefListOBJ.setName("classDefList");
         _classDefListOBJ.setType("meta.ClassDefinition");
         _classDefListOBJ.setValueType("MULTI");
-        _classDefList.setDefinedIn(this);
-        addAttributeDefList(_classDefList);
+        _classDefList.setDefinedInDmsModule(this);
+        addAttributeDefinition(_classDefList);
 
         AttributeDefinitionDMO _classFilterOBJ = new AttributeDefinitionDMO();
         _classFilter = new AttributeDefinition(_classFilterOBJ);
@@ -1110,8 +1110,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _classFilterOBJ.setDotName("meta.classFilter.AttributeDefinition");
         _classFilterOBJ.setName("classFilter");
         _classFilterOBJ.setType("meta.ClassFilter");
-        _classFilter.setDefinedIn(this);
-        addAttributeDefList(_classFilter);
+        _classFilter.setDefinedInDmsModule(this);
+        addAttributeDefinition(_classFilter);
 
         AttributeDefinitionDMO _classInfoFromParamOBJ = new AttributeDefinitionDMO();
         _classInfoFromParam = new AttributeDefinition(_classInfoFromParamOBJ);
@@ -1121,8 +1121,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _classInfoFromParamOBJ.setDotName("meta.classInfoFromParam.AttributeDefinition");
         _classInfoFromParamOBJ.setName("classInfoFromParam");
         _classInfoFromParamOBJ.setType("meta.String");
-        _classInfoFromParam.setDefinedIn(this);
-        addAttributeDefList(_classInfoFromParam);
+        _classInfoFromParam.setDefinedInDmsModule(this);
+        addAttributeDefinition(_classInfoFromParam);
 
         AttributeDefinitionDMO _classTypeOBJ = new AttributeDefinitionDMO();
         _classType = new AttributeDefinition(_classTypeOBJ);
@@ -1132,8 +1132,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _classTypeOBJ.setDotName("meta.classType.AttributeDefinition");
         _classTypeOBJ.setName("classType");
         _classTypeOBJ.setType("meta.ClassTypeEnum");
-        _classType.setDefinedIn(this);
-        addAttributeDefList(_classType);
+        _classType.setDefinedInDmsModule(this);
+        addAttributeDefinition(_classType);
 
         AttributeDefinitionDMO _codeCommentOBJ = new AttributeDefinitionDMO();
         _codeComment = new AttributeDefinition(_codeCommentOBJ);
@@ -1144,8 +1144,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _codeCommentOBJ.setName("codeComment");
         _codeCommentOBJ.setType("meta.String");
         _codeCommentOBJ.setValueType("MULTI");
-        _codeComment.setDefinedIn(this);
-        addAttributeDefList(_codeComment);
+        _codeComment.setDefinedInDmsModule(this);
+        addAttributeDefinition(_codeComment);
 
         AttributeDefinitionDMO _commentOBJ = new AttributeDefinitionDMO();
         _comment = new AttributeDefinition(_commentOBJ);
@@ -1156,8 +1156,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _commentOBJ.setName("comment");
         _commentOBJ.setType("meta.String");
         _commentOBJ.setValueType("MULTI");
-        _comment.setDefinedIn(this);
-        addAttributeDefList(_comment);
+        _comment.setDefinedInDmsModule(this);
+        addAttributeDefinition(_comment);
 
         AttributeDefinitionDMO _complexTypeDefListOBJ = new AttributeDefinitionDMO();
         _complexTypeDefList = new AttributeDefinition(_complexTypeDefListOBJ);
@@ -1169,8 +1169,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _complexTypeDefListOBJ.setName("complexTypeDefList");
         _complexTypeDefListOBJ.setType("meta.ComplexTypeDefinition");
         _complexTypeDefListOBJ.setValueType("MULTI");
-        _complexTypeDefList.setDefinedIn(this);
-        addAttributeDefList(_complexTypeDefList);
+        _complexTypeDefList.setDefinedInDmsModule(this);
+        addAttributeDefinition(_complexTypeDefList);
 
         AttributeDefinitionDMO _createAttributeFactoryOBJ = new AttributeDefinitionDMO();
         _createAttributeFactory = new AttributeDefinition(_createAttributeFactoryOBJ);
@@ -1180,8 +1180,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _createAttributeFactoryOBJ.setDotName("meta.createAttributeFactory.AttributeDefinition");
         _createAttributeFactoryOBJ.setName("createAttributeFactory");
         _createAttributeFactoryOBJ.setType("meta.Boolean");
-        _createAttributeFactory.setDefinedIn(this);
-        addAttributeDefList(_createAttributeFactory);
+        _createAttributeFactory.setDefinedInDmsModule(this);
+        addAttributeDefinition(_createAttributeFactory);
 
         AttributeDefinitionDMO _dataTypeOBJ = new AttributeDefinitionDMO();
         _dataType = new AttributeDefinition(_dataTypeOBJ);
@@ -1191,8 +1191,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _dataTypeOBJ.setDotName("meta.dataType.AttributeDefinition");
         _dataTypeOBJ.setName("dataType");
         _dataTypeOBJ.setType("meta.DataTypeEnum");
-        _dataType.setDefinedIn(this);
-        addAttributeDefList(_dataType);
+        _dataType.setDefinedInDmsModule(this);
+        addAttributeDefinition(_dataType);
 
         AttributeDefinitionDMO _defFilesOBJ = new AttributeDefinitionDMO();
         _defFiles = new AttributeDefinition(_defFilesOBJ);
@@ -1203,8 +1203,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _defFilesOBJ.setName("defFiles");
         _defFilesOBJ.setType("meta.String");
         _defFilesOBJ.setValueType("MULTI");
-        _defFiles.setDefinedIn(this);
-        addAttributeDefList(_defFiles);
+        _defFiles.setDefinedInDmsModule(this);
+        addAttributeDefinition(_defFiles);
 
         AttributeDefinitionDMO _definedInOBJ = new AttributeDefinitionDMO();
         _definedIn = new AttributeDefinition(_definedInOBJ);
@@ -1215,8 +1215,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _definedInOBJ.setInternalUse("true");
         _definedInOBJ.setName("definedIn");
         _definedInOBJ.setType("meta.SchemaDefinition");
-        _definedIn.setDefinedIn(this);
-        addAttributeDefList(_definedIn);
+        _definedIn.setDefinedInDmsModule(this);
+        addAttributeDefinition(_definedIn);
 
         AttributeDefinitionDMO _definedInDmsModuleOBJ = new AttributeDefinitionDMO();
         _definedInDmsModule = new AttributeDefinition(_definedInDmsModuleOBJ);
@@ -1226,8 +1226,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _definedInDmsModuleOBJ.setDotName("meta.definedInDmsModule.AttributeDefinition");
         _definedInDmsModuleOBJ.setName("definedInDmsModule");
         _definedInDmsModuleOBJ.setType("meta.DmsModule");
-        _definedInDmsModule.setDefinedIn(this);
-        addAttributeDefList(_definedInDmsModule);
+        _definedInDmsModule.setDefinedInDmsModule(this);
+        addAttributeDefinition(_definedInDmsModule);
 
         AttributeDefinitionDMO _definedInModuleAttributeOBJ = new AttributeDefinitionDMO();
         _definedInModuleAttribute = new AttributeDefinition(_definedInModuleAttributeOBJ);
@@ -1237,8 +1237,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _definedInModuleAttributeOBJ.setDotName("meta.definedInModuleAttribute.AttributeDefinition");
         _definedInModuleAttributeOBJ.setName("definedInModuleAttribute");
         _definedInModuleAttributeOBJ.setType("meta.AttributeDefinition");
-        _definedInModuleAttribute.setDefinedIn(this);
-        addAttributeDefList(_definedInModuleAttribute);
+        _definedInModuleAttribute.setDefinedInDmsModule(this);
+        addAttributeDefinition(_definedInModuleAttribute);
 
         AttributeDefinitionDMO _dependenciesOBJ = new AttributeDefinitionDMO();
         _dependencies = new AttributeDefinition(_dependenciesOBJ);
@@ -1249,8 +1249,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _dependenciesOBJ.setName("dependencies");
         _dependenciesOBJ.setType("meta.Dependency");
         _dependenciesOBJ.setValueType("MULTI");
-        _dependencies.setDefinedIn(this);
-        addAttributeDefList(_dependencies);
+        _dependencies.setDefinedInDmsModule(this);
+        addAttributeDefinition(_dependencies);
 
         AttributeDefinitionDMO _dependencyOBJ = new AttributeDefinitionDMO();
         _dependency = new AttributeDefinition(_dependencyOBJ);
@@ -1260,8 +1260,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _dependencyOBJ.setDotName("meta.dependency.AttributeDefinition");
         _dependencyOBJ.setName("dependency");
         _dependencyOBJ.setType("meta.Dependency");
-        _dependency.setDefinedIn(this);
-        addAttributeDefList(_dependency);
+        _dependency.setDefinedInDmsModule(this);
+        addAttributeDefinition(_dependency);
 
         AttributeDefinitionDMO _dependsOnOBJ = new AttributeDefinitionDMO();
         _dependsOn = new AttributeDefinition(_dependsOnOBJ);
@@ -1272,8 +1272,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _dependsOnOBJ.setName("dependsOn");
         _dependsOnOBJ.setType("meta.String");
         _dependsOnOBJ.setValueType("MULTI");
-        _dependsOn.setDefinedIn(this);
-        addAttributeDefList(_dependsOn);
+        _dependsOn.setDefinedInDmsModule(this);
+        addAttributeDefinition(_dependsOn);
 
         AttributeDefinitionDMO _dependsOnDmsModuleOBJ = new AttributeDefinitionDMO();
         _dependsOnDmsModule = new AttributeDefinition(_dependsOnDmsModuleOBJ);
@@ -1284,8 +1284,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _dependsOnDmsModuleOBJ.setName("dependsOnDmsModule");
         _dependsOnDmsModuleOBJ.setType("meta.DmsModule");
         _dependsOnDmsModuleOBJ.setValueType("MULTI");
-        _dependsOnDmsModule.setDefinedIn(this);
-        addAttributeDefList(_dependsOnDmsModule);
+        _dependsOnDmsModule.setDefinedInDmsModule(this);
+        addAttributeDefinition(_dependsOnDmsModule);
 
         AttributeDefinitionDMO _dependsOnRefOBJ = new AttributeDefinitionDMO();
         _dependsOnRef = new AttributeDefinition(_dependsOnRefOBJ);
@@ -1297,8 +1297,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _dependsOnRefOBJ.setName("dependsOnRef");
         _dependsOnRefOBJ.setType("meta.SchemaDefinition");
         _dependsOnRefOBJ.setValueType("MULTI");
-        _dependsOnRef.setDefinedIn(this);
-        addAttributeDefList(_dependsOnRef);
+        _dependsOnRef.setDefinedInDmsModule(this);
+        addAttributeDefinition(_dependsOnRef);
 
         AttributeDefinitionDMO _dependsOnSchemaOBJ = new AttributeDefinitionDMO();
         _dependsOnSchema = new AttributeDefinition(_dependsOnSchemaOBJ);
@@ -1309,8 +1309,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _dependsOnSchemaOBJ.setName("dependsOnSchema");
         _dependsOnSchemaOBJ.setType("meta.String");
         _dependsOnSchemaOBJ.setValueType("MULTI");
-        _dependsOnSchema.setDefinedIn(this);
-        addAttributeDefList(_dependsOnSchema);
+        _dependsOnSchema.setDefinedInDmsModule(this);
+        addAttributeDefinition(_dependsOnSchema);
 
         AttributeDefinitionDMO _derivedClassesOBJ = new AttributeDefinitionDMO();
         _derivedClasses = new AttributeDefinition(_derivedClassesOBJ);
@@ -1322,8 +1322,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _derivedClassesOBJ.setName("derivedClasses");
         _derivedClassesOBJ.setType("meta.ClassDefinition");
         _derivedClassesOBJ.setValueType("MULTI");
-        _derivedClasses.setDefinedIn(this);
-        addAttributeDefList(_derivedClasses);
+        _derivedClasses.setDefinedInDmsModule(this);
+        addAttributeDefinition(_derivedClasses);
 
         AttributeDefinitionDMO _derivedFromOBJ = new AttributeDefinitionDMO();
         _derivedFrom = new AttributeDefinition(_derivedFromOBJ);
@@ -1333,8 +1333,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _derivedFromOBJ.setDotName("meta.derivedFrom.AttributeDefinition");
         _derivedFromOBJ.setName("derivedFrom");
         _derivedFromOBJ.setType("meta.ClassDefinition");
-        _derivedFrom.setDefinedIn(this);
-        addAttributeDefList(_derivedFrom);
+        _derivedFrom.setDefinedInDmsModule(this);
+        addAttributeDefinition(_derivedFrom);
 
         AttributeDefinitionDMO _descriptionOBJ = new AttributeDefinitionDMO();
         _description = new AttributeDefinition(_descriptionOBJ);
@@ -1347,8 +1347,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _descriptionOBJ.setPreserveNewlines("true");
         _descriptionOBJ.setType("meta.String");
         _descriptionOBJ.setValueType("MULTI");
-        _description.setDefinedIn(this);
-        addAttributeDefList(_description);
+        _description.setDefinedInDmsModule(this);
+        addAttributeDefinition(_description);
 
         AttributeDefinitionDMO _designatedFilterAttributeOBJ = new AttributeDefinitionDMO();
         _designatedFilterAttribute = new AttributeDefinition(_designatedFilterAttributeOBJ);
@@ -1358,8 +1358,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _designatedFilterAttributeOBJ.setDotName("meta.designatedFilterAttribute.AttributeDefinition");
         _designatedFilterAttributeOBJ.setName("designatedFilterAttribute");
         _designatedFilterAttributeOBJ.setType("meta.Boolean");
-        _designatedFilterAttribute.setDefinedIn(this);
-        addAttributeDefList(_designatedFilterAttribute);
+        _designatedFilterAttribute.setDefinedInDmsModule(this);
+        addAttributeDefinition(_designatedFilterAttribute);
 
         AttributeDefinitionDMO _designatedNameAttributeOBJ = new AttributeDefinitionDMO();
         _designatedNameAttribute = new AttributeDefinition(_designatedNameAttributeOBJ);
@@ -1369,8 +1369,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _designatedNameAttributeOBJ.setDotName("meta.designatedNameAttribute.AttributeDefinition");
         _designatedNameAttributeOBJ.setName("designatedNameAttribute");
         _designatedNameAttributeOBJ.setType("meta.Boolean");
-        _designatedNameAttribute.setDefinedIn(this);
-        addAttributeDefList(_designatedNameAttribute);
+        _designatedNameAttribute.setDefinedInDmsModule(this);
+        addAttributeDefinition(_designatedNameAttribute);
 
         AttributeDefinitionDMO _dmdIDOBJ = new AttributeDefinitionDMO();
         _dmdID = new AttributeDefinition(_dmdIDOBJ);
@@ -1381,8 +1381,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _dmdIDOBJ.setDotName("meta.dmdID.AttributeDefinition");
         _dmdIDOBJ.setName("dmdID");
         _dmdIDOBJ.setType("meta.Integer");
-        _dmdID.setDefinedIn(this);
-        addAttributeDefList(_dmdID);
+        _dmdID.setDefinedInDmsModule(this);
+        addAttributeDefinition(_dmdID);
 
         AttributeDefinitionDMO _dmeClassOBJ = new AttributeDefinitionDMO();
         _dmeClass = new AttributeDefinition(_dmeClassOBJ);
@@ -1393,8 +1393,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _dmeClassOBJ.setInternalUse("true");
         _dmeClassOBJ.setName("dmeClass");
         _dmeClassOBJ.setType("meta.String");
-        _dmeClass.setDefinedIn(this);
-        addAttributeDefList(_dmeClass);
+        _dmeClass.setDefinedInDmsModule(this);
+        addAttributeDefinition(_dmeClass);
 
         AttributeDefinitionDMO _dmeImportOBJ = new AttributeDefinitionDMO();
         _dmeImport = new AttributeDefinition(_dmeImportOBJ);
@@ -1405,8 +1405,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _dmeImportOBJ.setInternalUse("true");
         _dmeImportOBJ.setName("dmeImport");
         _dmeImportOBJ.setType("meta.String");
-        _dmeImport.setDefinedIn(this);
-        addAttributeDefList(_dmeImport);
+        _dmeImport.setDefinedInDmsModule(this);
+        addAttributeDefinition(_dmeImport);
 
         AttributeDefinitionDMO _dmoAuxClassOBJ = new AttributeDefinitionDMO();
         _dmoAuxClass = new AttributeDefinition(_dmoAuxClassOBJ);
@@ -1417,8 +1417,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _dmoAuxClassOBJ.setInternalUse("true");
         _dmoAuxClassOBJ.setName("dmoAuxClass");
         _dmoAuxClassOBJ.setType("meta.String");
-        _dmoAuxClass.setDefinedIn(this);
-        addAttributeDefList(_dmoAuxClass);
+        _dmoAuxClass.setDefinedInDmsModule(this);
+        addAttributeDefinition(_dmoAuxClass);
 
         AttributeDefinitionDMO _dmoAuxClassImportOBJ = new AttributeDefinitionDMO();
         _dmoAuxClassImport = new AttributeDefinition(_dmoAuxClassImportOBJ);
@@ -1429,8 +1429,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _dmoAuxClassImportOBJ.setInternalUse("true");
         _dmoAuxClassImportOBJ.setName("dmoAuxClassImport");
         _dmoAuxClassImportOBJ.setType("meta.String");
-        _dmoAuxClassImport.setDefinedIn(this);
-        addAttributeDefList(_dmoAuxClassImport);
+        _dmoAuxClassImport.setDefinedInDmsModule(this);
+        addAttributeDefinition(_dmoAuxClassImport);
 
         AttributeDefinitionDMO _dmoClassOBJ = new AttributeDefinitionDMO();
         _dmoClass = new AttributeDefinition(_dmoClassOBJ);
@@ -1441,8 +1441,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _dmoClassOBJ.setInternalUse("true");
         _dmoClassOBJ.setName("dmoClass");
         _dmoClassOBJ.setType("meta.String");
-        _dmoClass.setDefinedIn(this);
-        addAttributeDefList(_dmoClass);
+        _dmoClass.setDefinedInDmsModule(this);
+        addAttributeDefinition(_dmoClass);
 
         AttributeDefinitionDMO _dmoImportOBJ = new AttributeDefinitionDMO();
         _dmoImport = new AttributeDefinition(_dmoImportOBJ);
@@ -1453,8 +1453,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _dmoImportOBJ.setInternalUse("true");
         _dmoImportOBJ.setName("dmoImport");
         _dmoImportOBJ.setType("meta.String");
-        _dmoImport.setDefinedIn(this);
-        addAttributeDefList(_dmoImport);
+        _dmoImport.setDefinedInDmsModule(this);
+        addAttributeDefinition(_dmoImport);
 
         AttributeDefinitionDMO _dmtClassOBJ = new AttributeDefinitionDMO();
         _dmtClass = new AttributeDefinition(_dmtClassOBJ);
@@ -1465,8 +1465,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _dmtClassOBJ.setInternalUse("true");
         _dmtClassOBJ.setName("dmtClass");
         _dmtClassOBJ.setType("meta.String");
-        _dmtClass.setDefinedIn(this);
-        addAttributeDefList(_dmtClass);
+        _dmtClass.setDefinedInDmsModule(this);
+        addAttributeDefinition(_dmtClass);
 
         AttributeDefinitionDMO _dmtImportOBJ = new AttributeDefinitionDMO();
         _dmtImport = new AttributeDefinition(_dmtImportOBJ);
@@ -1477,8 +1477,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _dmtImportOBJ.setInternalUse("true");
         _dmtImportOBJ.setName("dmtImport");
         _dmtImportOBJ.setType("meta.String");
-        _dmtImport.setDefinedIn(this);
-        addAttributeDefList(_dmtImport);
+        _dmtImport.setDefinedInDmsModule(this);
+        addAttributeDefinition(_dmtImport);
 
         AttributeDefinitionDMO _dmtREFImportOBJ = new AttributeDefinitionDMO();
         _dmtREFImport = new AttributeDefinition(_dmtREFImportOBJ);
@@ -1489,8 +1489,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _dmtREFImportOBJ.setInternalUse("true");
         _dmtREFImportOBJ.setName("dmtREFImport");
         _dmtREFImportOBJ.setType("meta.String");
-        _dmtREFImport.setDefinedIn(this);
-        addAttributeDefList(_dmtREFImport);
+        _dmtREFImport.setDefinedInDmsModule(this);
+        addAttributeDefinition(_dmtREFImport);
 
         AttributeDefinitionDMO _dmwAuxClassOBJ = new AttributeDefinitionDMO();
         _dmwAuxClass = new AttributeDefinition(_dmwAuxClassOBJ);
@@ -1501,8 +1501,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _dmwAuxClassOBJ.setInternalUse("true");
         _dmwAuxClassOBJ.setName("dmwAuxClass");
         _dmwAuxClassOBJ.setType("meta.String");
-        _dmwAuxClass.setDefinedIn(this);
-        addAttributeDefList(_dmwAuxClass);
+        _dmwAuxClass.setDefinedInDmsModule(this);
+        addAttributeDefinition(_dmwAuxClass);
 
         AttributeDefinitionDMO _dmwAuxClassImportOBJ = new AttributeDefinitionDMO();
         _dmwAuxClassImport = new AttributeDefinition(_dmwAuxClassImportOBJ);
@@ -1513,8 +1513,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _dmwAuxClassImportOBJ.setInternalUse("true");
         _dmwAuxClassImportOBJ.setName("dmwAuxClassImport");
         _dmwAuxClassImportOBJ.setType("meta.String");
-        _dmwAuxClassImport.setDefinedIn(this);
-        addAttributeDefList(_dmwAuxClassImport);
+        _dmwAuxClassImport.setDefinedInDmsModule(this);
+        addAttributeDefinition(_dmwAuxClassImport);
 
         AttributeDefinitionDMO _dmwClassOBJ = new AttributeDefinitionDMO();
         _dmwClass = new AttributeDefinition(_dmwClassOBJ);
@@ -1525,8 +1525,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _dmwClassOBJ.setInternalUse("true");
         _dmwClassOBJ.setName("dmwClass");
         _dmwClassOBJ.setType("meta.String");
-        _dmwClass.setDefinedIn(this);
-        addAttributeDefList(_dmwClass);
+        _dmwClass.setDefinedInDmsModule(this);
+        addAttributeDefinition(_dmwClass);
 
         AttributeDefinitionDMO _dmwImportOBJ = new AttributeDefinitionDMO();
         _dmwImport = new AttributeDefinition(_dmwImportOBJ);
@@ -1537,8 +1537,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _dmwImportOBJ.setInternalUse("true");
         _dmwImportOBJ.setName("dmwImport");
         _dmwImportOBJ.setType("meta.String");
-        _dmwImport.setDefinedIn(this);
-        addAttributeDefList(_dmwImport);
+        _dmwImport.setDefinedInDmsModule(this);
+        addAttributeDefinition(_dmwImport);
 
         AttributeDefinitionDMO _dmwIteratorClassOBJ = new AttributeDefinitionDMO();
         _dmwIteratorClass = new AttributeDefinition(_dmwIteratorClassOBJ);
@@ -1549,8 +1549,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _dmwIteratorClassOBJ.setInternalUse("true");
         _dmwIteratorClassOBJ.setName("dmwIteratorClass");
         _dmwIteratorClassOBJ.setType("meta.String");
-        _dmwIteratorClass.setDefinedIn(this);
-        addAttributeDefList(_dmwIteratorClass);
+        _dmwIteratorClass.setDefinedInDmsModule(this);
+        addAttributeDefinition(_dmwIteratorClass);
 
         AttributeDefinitionDMO _dmwIteratorImportOBJ = new AttributeDefinitionDMO();
         _dmwIteratorImport = new AttributeDefinition(_dmwIteratorImportOBJ);
@@ -1561,8 +1561,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _dmwIteratorImportOBJ.setInternalUse("true");
         _dmwIteratorImportOBJ.setName("dmwIteratorImport");
         _dmwIteratorImportOBJ.setType("meta.String");
-        _dmwIteratorImport.setDefinedIn(this);
-        addAttributeDefList(_dmwIteratorImport);
+        _dmwIteratorImport.setDefinedInDmsModule(this);
+        addAttributeDefinition(_dmwIteratorImport);
 
         AttributeDefinitionDMO _dmwPackageOBJ = new AttributeDefinitionDMO();
         _dmwPackage = new AttributeDefinition(_dmwPackageOBJ);
@@ -1572,8 +1572,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _dmwPackageOBJ.setDotName("meta.dmwPackage.AttributeDefinition");
         _dmwPackageOBJ.setName("dmwPackage");
         _dmwPackageOBJ.setType("meta.String");
-        _dmwPackage.setDefinedIn(this);
-        addAttributeDefList(_dmwPackage);
+        _dmwPackage.setDefinedInDmsModule(this);
+        addAttributeDefinition(_dmwPackage);
 
         AttributeDefinitionDMO _dmwTypeToPackageOBJ = new AttributeDefinitionDMO();
         _dmwTypeToPackage = new AttributeDefinition(_dmwTypeToPackageOBJ);
@@ -1584,8 +1584,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _dmwTypeToPackageOBJ.setName("dmwTypeToPackage");
         _dmwTypeToPackageOBJ.setType("meta.StringToString");
         _dmwTypeToPackageOBJ.setValueType("MULTI");
-        _dmwTypeToPackage.setDefinedIn(this);
-        addAttributeDefList(_dmwTypeToPackage);
+        _dmwTypeToPackage.setDefinedInDmsModule(this);
+        addAttributeDefinition(_dmwTypeToPackage);
 
         AttributeDefinitionDMO _dmwWrapperTypeOBJ = new AttributeDefinitionDMO();
         _dmwWrapperType = new AttributeDefinition(_dmwWrapperTypeOBJ);
@@ -1596,8 +1596,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _dmwWrapperTypeOBJ.setName("dmwWrapperType");
         _dmwWrapperTypeOBJ.setType("meta.DmwTypeToWrapperType");
         _dmwWrapperTypeOBJ.setValueType("MULTI");
-        _dmwWrapperType.setDefinedIn(this);
-        addAttributeDefList(_dmwWrapperType);
+        _dmwWrapperType.setDefinedInDmsModule(this);
+        addAttributeDefinition(_dmwWrapperType);
 
         AttributeDefinitionDMO _dotNameOBJ = new AttributeDefinitionDMO();
         _dotName = new AttributeDefinition(_dotNameOBJ);
@@ -1608,8 +1608,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _dotNameOBJ.setDotName("meta.dotName.AttributeDefinition");
         _dotNameOBJ.setName("dotName");
         _dotNameOBJ.setType("meta.DotName");
-        _dotName.setDefinedIn(this);
-        addAttributeDefList(_dotName);
+        _dotName.setDefinedInDmsModule(this);
+        addAttributeDefinition(_dotName);
 
         AttributeDefinitionDMO _dsdModuleDefinitionOBJ = new AttributeDefinitionDMO();
         _dsdModuleDefinition = new AttributeDefinition(_dsdModuleDefinitionOBJ);
@@ -1620,8 +1620,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _dsdModuleDefinitionOBJ.setInternalUse("true");
         _dsdModuleDefinitionOBJ.setName("dsdModuleDefinition");
         _dsdModuleDefinitionOBJ.setType("meta.DSDefinitionModule");
-        _dsdModuleDefinition.setDefinedIn(this);
-        addAttributeDefList(_dsdModuleDefinition);
+        _dsdModuleDefinition.setDefinedInDmsModule(this);
+        addAttributeDefinition(_dsdModuleDefinition);
 
         AttributeDefinitionDMO _dsdModuleListOBJ = new AttributeDefinitionDMO();
         _dsdModuleList = new AttributeDefinition(_dsdModuleListOBJ);
@@ -1632,8 +1632,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _dsdModuleListOBJ.setName("dsdModuleList");
         _dsdModuleListOBJ.setType("meta.DSDefinitionModule");
         _dsdModuleListOBJ.setValueType("MULTI");
-        _dsdModuleList.setDefinedIn(this);
-        addAttributeDefList(_dsdModuleList);
+        _dsdModuleList.setDefinedInDmsModule(this);
+        addAttributeDefinition(_dsdModuleList);
 
         AttributeDefinitionDMO _enumDefListOBJ = new AttributeDefinitionDMO();
         _enumDefList = new AttributeDefinition(_enumDefListOBJ);
@@ -1645,8 +1645,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _enumDefListOBJ.setName("enumDefList");
         _enumDefListOBJ.setType("meta.EnumDefinition");
         _enumDefListOBJ.setValueType("MULTI");
-        _enumDefList.setDefinedIn(this);
-        addAttributeDefList(_enumDefList);
+        _enumDefList.setDefinedInDmsModule(this);
+        addAttributeDefinition(_enumDefList);
 
         AttributeDefinitionDMO _enumIntOBJ = new AttributeDefinitionDMO();
         _enumInt = new AttributeDefinition(_enumIntOBJ);
@@ -1656,8 +1656,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _enumIntOBJ.setDotName("meta.enumInt.AttributeDefinition");
         _enumIntOBJ.setName("enumInt");
         _enumIntOBJ.setType("meta.Integer");
-        _enumInt.setDefinedIn(this);
-        addAttributeDefList(_enumInt);
+        _enumInt.setDefinedInDmsModule(this);
+        addAttributeDefinition(_enumInt);
 
         AttributeDefinitionDMO _enumNameOBJ = new AttributeDefinitionDMO();
         _enumName = new AttributeDefinition(_enumNameOBJ);
@@ -1668,8 +1668,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _enumNameOBJ.setInternalUse("true");
         _enumNameOBJ.setName("enumName");
         _enumNameOBJ.setType("meta.String");
-        _enumName.setDefinedIn(this);
-        addAttributeDefList(_enumName);
+        _enumName.setDefinedInDmsModule(this);
+        addAttributeDefinition(_enumName);
 
         AttributeDefinitionDMO _enumStringOBJ = new AttributeDefinitionDMO();
         _enumString = new AttributeDefinition(_enumStringOBJ);
@@ -1679,8 +1679,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _enumStringOBJ.setDotName("meta.enumString.AttributeDefinition");
         _enumStringOBJ.setName("enumString");
         _enumStringOBJ.setType("meta.String");
-        _enumString.setDefinedIn(this);
-        addAttributeDefList(_enumString);
+        _enumString.setDefinedInDmsModule(this);
+        addAttributeDefinition(_enumString);
 
         AttributeDefinitionDMO _enumValueOBJ = new AttributeDefinitionDMO();
         _enumValue = new AttributeDefinition(_enumValueOBJ);
@@ -1691,8 +1691,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _enumValueOBJ.setName("enumValue");
         _enumValueOBJ.setType("meta.EnumValue");
         _enumValueOBJ.setValueType("MULTI");
-        _enumValue.setDefinedIn(this);
-        addAttributeDefList(_enumValue);
+        _enumValue.setDefinedInDmsModule(this);
+        addAttributeDefinition(_enumValue);
 
         AttributeDefinitionDMO _exampleOBJ = new AttributeDefinitionDMO();
         _example = new AttributeDefinition(_exampleOBJ);
@@ -1704,8 +1704,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _exampleOBJ.setPreserveNewlines("true");
         _exampleOBJ.setType("meta.Example");
         _exampleOBJ.setValueType("MULTI");
-        _example.setDefinedIn(this);
-        addAttributeDefList(_example);
+        _example.setDefinedInDmsModule(this);
+        addAttributeDefinition(_example);
 
         AttributeDefinitionDMO _excludeFromContextOBJ = new AttributeDefinitionDMO();
         _excludeFromContext = new AttributeDefinition(_excludeFromContextOBJ);
@@ -1716,8 +1716,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _excludeFromContextOBJ.setName("excludeFromContext");
         _excludeFromContextOBJ.setType("meta.String");
         _excludeFromContextOBJ.setValueType("MULTI");
-        _excludeFromContext.setDefinedIn(this);
-        addAttributeDefList(_excludeFromContext);
+        _excludeFromContext.setDefinedInDmsModule(this);
+        addAttributeDefinition(_excludeFromContext);
 
         AttributeDefinitionDMO _extendedClassOBJ = new AttributeDefinitionDMO();
         _extendedClass = new AttributeDefinition(_extendedClassOBJ);
@@ -1727,8 +1727,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _extendedClassOBJ.setDotName("meta.extendedClass.AttributeDefinition");
         _extendedClassOBJ.setName("extendedClass");
         _extendedClassOBJ.setType("meta.String");
-        _extendedClass.setDefinedIn(this);
-        addAttributeDefList(_extendedClass);
+        _extendedClass.setDefinedInDmsModule(this);
+        addAttributeDefinition(_extendedClass);
 
         AttributeDefinitionDMO _extendedReferenceClassOBJ = new AttributeDefinitionDMO();
         _extendedReferenceClass = new AttributeDefinition(_extendedReferenceClassOBJ);
@@ -1738,8 +1738,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _extendedReferenceClassOBJ.setDotName("meta.extendedReferenceClass.AttributeDefinition");
         _extendedReferenceClassOBJ.setName("extendedReferenceClass");
         _extendedReferenceClassOBJ.setType("meta.ClassDefinition");
-        _extendedReferenceClass.setDefinedIn(this);
-        addAttributeDefList(_extendedReferenceClass);
+        _extendedReferenceClass.setDefinedInDmsModule(this);
+        addAttributeDefinition(_extendedReferenceClass);
 
         AttributeDefinitionDMO _extendedReferenceTypeDefListOBJ = new AttributeDefinitionDMO();
         _extendedReferenceTypeDefList = new AttributeDefinition(_extendedReferenceTypeDefListOBJ);
@@ -1751,8 +1751,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _extendedReferenceTypeDefListOBJ.setName("extendedReferenceTypeDefList");
         _extendedReferenceTypeDefListOBJ.setType("meta.ExtendedReferenceTypeDefinition");
         _extendedReferenceTypeDefListOBJ.setValueType("MULTI");
-        _extendedReferenceTypeDefList.setDefinedIn(this);
-        addAttributeDefList(_extendedReferenceTypeDefList);
+        _extendedReferenceTypeDefList.setDefinedInDmsModule(this);
+        addAttributeDefinition(_extendedReferenceTypeDefList);
 
         AttributeDefinitionDMO _extendsInterfaceOBJ = new AttributeDefinitionDMO();
         _extendsInterface = new AttributeDefinition(_extendsInterfaceOBJ);
@@ -1763,8 +1763,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _extendsInterfaceOBJ.setName("extendsInterface");
         _extendsInterfaceOBJ.setType("meta.String");
         _extendsInterfaceOBJ.setValueType("MULTI");
-        _extendsInterface.setDefinedIn(this);
-        addAttributeDefList(_extendsInterface);
+        _extendsInterface.setDefinedInDmsModule(this);
+        addAttributeDefinition(_extendsInterface);
 
         AttributeDefinitionDMO _fieldSeparatorOBJ = new AttributeDefinitionDMO();
         _fieldSeparator = new AttributeDefinition(_fieldSeparatorOBJ);
@@ -1774,8 +1774,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _fieldSeparatorOBJ.setDotName("meta.fieldSeparator.AttributeDefinition");
         _fieldSeparatorOBJ.setName("fieldSeparator");
         _fieldSeparatorOBJ.setType("meta.String");
-        _fieldSeparator.setDefinedIn(this);
-        addAttributeDefList(_fieldSeparator);
+        _fieldSeparator.setDefinedInDmsModule(this);
+        addAttributeDefinition(_fieldSeparator);
 
         AttributeDefinitionDMO _fileOBJ = new AttributeDefinitionDMO();
         _file = new AttributeDefinition(_fileOBJ);
@@ -1786,8 +1786,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _fileOBJ.setInternalUse("true");
         _fileOBJ.setName("file");
         _fileOBJ.setType("meta.String");
-        _file.setDefinedIn(this);
-        addAttributeDefList(_file);
+        _file.setDefinedInDmsModule(this);
+        addAttributeDefinition(_file);
 
         AttributeDefinitionDMO _fileExtensionOBJ = new AttributeDefinitionDMO();
         _fileExtension = new AttributeDefinition(_fileExtensionOBJ);
@@ -1797,8 +1797,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _fileExtensionOBJ.setDotName("meta.fileExtension.AttributeDefinition");
         _fileExtensionOBJ.setName("fileExtension");
         _fileExtensionOBJ.setType("meta.String");
-        _fileExtension.setDefinedIn(this);
-        addAttributeDefList(_fileExtension);
+        _fileExtension.setDefinedInDmsModule(this);
+        addAttributeDefinition(_fileExtension);
 
         AttributeDefinitionDMO _filterAttributeDefOBJ = new AttributeDefinitionDMO();
         _filterAttributeDef = new AttributeDefinition(_filterAttributeDefOBJ);
@@ -1809,8 +1809,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _filterAttributeDefOBJ.setInternalUse("true");
         _filterAttributeDefOBJ.setName("filterAttributeDef");
         _filterAttributeDefOBJ.setType("meta.AttributeDefinition");
-        _filterAttributeDef.setDefinedIn(this);
-        addAttributeDefList(_filterAttributeDef);
+        _filterAttributeDef.setDefinedInDmsModule(this);
+        addAttributeDefinition(_filterAttributeDef);
 
         AttributeDefinitionDMO _generatedFileHeaderOBJ = new AttributeDefinitionDMO();
         _generatedFileHeader = new AttributeDefinition(_generatedFileHeaderOBJ);
@@ -1820,8 +1820,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _generatedFileHeaderOBJ.setDotName("meta.generatedFileHeader.AttributeDefinition");
         _generatedFileHeaderOBJ.setName("generatedFileHeader");
         _generatedFileHeaderOBJ.setType("meta.String");
-        _generatedFileHeader.setDefinedIn(this);
-        addAttributeDefList(_generatedFileHeader);
+        _generatedFileHeader.setDefinedInDmsModule(this);
+        addAttributeDefinition(_generatedFileHeader);
 
         AttributeDefinitionDMO _genericArgsOBJ = new AttributeDefinitionDMO();
         _genericArgs = new AttributeDefinition(_genericArgsOBJ);
@@ -1831,8 +1831,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _genericArgsOBJ.setDotName("meta.genericArgs.AttributeDefinition");
         _genericArgsOBJ.setName("genericArgs");
         _genericArgsOBJ.setType("meta.String");
-        _genericArgs.setDefinedIn(this);
-        addAttributeDefList(_genericArgs);
+        _genericArgs.setDefinedInDmsModule(this);
+        addAttributeDefinition(_genericArgs);
 
         AttributeDefinitionDMO _genericArgsImportOBJ = new AttributeDefinitionDMO();
         _genericArgsImport = new AttributeDefinition(_genericArgsImportOBJ);
@@ -1842,8 +1842,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _genericArgsImportOBJ.setDotName("meta.genericArgsImport.AttributeDefinition");
         _genericArgsImportOBJ.setName("genericArgsImport");
         _genericArgsImportOBJ.setType("meta.String");
-        _genericArgsImport.setDefinedIn(this);
-        addAttributeDefList(_genericArgsImport);
+        _genericArgsImport.setDefinedInDmsModule(this);
+        addAttributeDefinition(_genericArgsImport);
 
         AttributeDefinitionDMO _getMethodOBJ = new AttributeDefinitionDMO();
         _getMethod = new AttributeDefinition(_getMethodOBJ);
@@ -1853,8 +1853,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _getMethodOBJ.setDotName("meta.getMethod.AttributeDefinition");
         _getMethodOBJ.setName("getMethod");
         _getMethodOBJ.setType("meta.String");
-        _getMethod.setDefinedIn(this);
-        addAttributeDefList(_getMethod);
+        _getMethod.setDefinedInDmsModule(this);
+        addAttributeDefinition(_getMethod);
 
         AttributeDefinitionDMO _getTypeOBJ = new AttributeDefinitionDMO();
         _getType = new AttributeDefinition(_getTypeOBJ);
@@ -1864,8 +1864,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _getTypeOBJ.setDotName("meta.getType.AttributeDefinition");
         _getTypeOBJ.setName("getType");
         _getTypeOBJ.setType("meta.String");
-        _getType.setDefinedIn(this);
-        addAttributeDefList(_getType);
+        _getType.setDefinedInDmsModule(this);
+        addAttributeDefinition(_getType);
 
         AttributeDefinitionDMO _helperClassNameOBJ = new AttributeDefinitionDMO();
         _helperClassName = new AttributeDefinition(_helperClassNameOBJ);
@@ -1876,8 +1876,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _helperClassNameOBJ.setInternalUse("true");
         _helperClassNameOBJ.setName("helperClassName");
         _helperClassNameOBJ.setType("meta.String");
-        _helperClassName.setDefinedIn(this);
-        addAttributeDefList(_helperClassName);
+        _helperClassName.setDefinedInDmsModule(this);
+        addAttributeDefinition(_helperClassName);
 
         AttributeDefinitionDMO _hintOBJ = new AttributeDefinitionDMO();
         _hint = new AttributeDefinition(_hintOBJ);
@@ -1887,8 +1887,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _hintOBJ.setDotName("meta.hint.AttributeDefinition");
         _hintOBJ.setName("hint");
         _hintOBJ.setType("meta.String");
-        _hint.setDefinedIn(this);
-        addAttributeDefList(_hint);
+        _hint.setDefinedInDmsModule(this);
+        addAttributeDefinition(_hint);
 
         AttributeDefinitionDMO _immediateHaltOBJ = new AttributeDefinitionDMO();
         _immediateHalt = new AttributeDefinition(_immediateHaltOBJ);
@@ -1898,8 +1898,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _immediateHaltOBJ.setDotName("meta.immediateHalt.AttributeDefinition");
         _immediateHaltOBJ.setName("immediateHalt");
         _immediateHaltOBJ.setType("meta.Boolean");
-        _immediateHalt.setDefinedIn(this);
-        addAttributeDefList(_immediateHalt);
+        _immediateHalt.setDefinedInDmsModule(this);
+        addAttributeDefinition(_immediateHalt);
 
         AttributeDefinitionDMO _indexSizeOBJ = new AttributeDefinitionDMO();
         _indexSize = new AttributeDefinition(_indexSizeOBJ);
@@ -1909,8 +1909,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _indexSizeOBJ.setDotName("meta.indexSize.AttributeDefinition");
         _indexSizeOBJ.setName("indexSize");
         _indexSizeOBJ.setType("meta.Integer");
-        _indexSize.setDefinedIn(this);
-        addAttributeDefList(_indexSize);
+        _indexSize.setDefinedInDmsModule(this);
+        addAttributeDefinition(_indexSize);
 
         AttributeDefinitionDMO _instantiationOBJ = new AttributeDefinitionDMO();
         _instantiation = new AttributeDefinition(_instantiationOBJ);
@@ -1920,8 +1920,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _instantiationOBJ.setDotName("meta.instantiation.AttributeDefinition");
         _instantiationOBJ.setName("instantiation");
         _instantiationOBJ.setType("meta.String");
-        _instantiation.setDefinedIn(this);
-        addAttributeDefList(_instantiation);
+        _instantiation.setDefinedInDmsModule(this);
+        addAttributeDefinition(_instantiation);
 
         AttributeDefinitionDMO _integerNameOBJ = new AttributeDefinitionDMO();
         _integerName = new AttributeDefinition(_integerNameOBJ);
@@ -1932,8 +1932,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _integerNameOBJ.setDotName("meta.integerName.AttributeDefinition");
         _integerNameOBJ.setName("integerName");
         _integerNameOBJ.setType("meta.IntegerName");
-        _integerName.setDefinedIn(this);
-        addAttributeDefList(_integerName);
+        _integerName.setDefinedInDmsModule(this);
+        addAttributeDefinition(_integerName);
 
         AttributeDefinitionDMO _intendedToExtendOBJ = new AttributeDefinitionDMO();
         _intendedToExtend = new AttributeDefinition(_intendedToExtendOBJ);
@@ -1944,8 +1944,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _intendedToExtendOBJ.setName("intendedToExtend");
         _intendedToExtendOBJ.setType("meta.ClassDefinition");
         _intendedToExtendOBJ.setValueType("MULTI");
-        _intendedToExtend.setDefinedIn(this);
-        addAttributeDefList(_intendedToExtend);
+        _intendedToExtend.setDefinedInDmsModule(this);
+        addAttributeDefinition(_intendedToExtend);
 
         AttributeDefinitionDMO _internalTypeDefListOBJ = new AttributeDefinitionDMO();
         _internalTypeDefList = new AttributeDefinition(_internalTypeDefListOBJ);
@@ -1957,8 +1957,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _internalTypeDefListOBJ.setName("internalTypeDefList");
         _internalTypeDefListOBJ.setType("meta.TypeDefinition");
         _internalTypeDefListOBJ.setValueType("MULTI");
-        _internalTypeDefList.setDefinedIn(this);
-        addAttributeDefList(_internalTypeDefList);
+        _internalTypeDefList.setDefinedInDmsModule(this);
+        addAttributeDefinition(_internalTypeDefList);
 
         AttributeDefinitionDMO _internalTypeRefOBJ = new AttributeDefinitionDMO();
         _internalTypeRef = new AttributeDefinition(_internalTypeRefOBJ);
@@ -1969,8 +1969,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _internalTypeRefOBJ.setInternalUse("true");
         _internalTypeRefOBJ.setName("internalTypeRef");
         _internalTypeRefOBJ.setType("meta.TypeDefinition");
-        _internalTypeRef.setDefinedIn(this);
-        addAttributeDefList(_internalTypeRef);
+        _internalTypeRef.setDefinedInDmsModule(this);
+        addAttributeDefinition(_internalTypeRef);
 
         AttributeDefinitionDMO _internalUseOBJ = new AttributeDefinitionDMO();
         _internalUse = new AttributeDefinition(_internalUseOBJ);
@@ -1980,8 +1980,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _internalUseOBJ.setDotName("meta.internalUse.AttributeDefinition");
         _internalUseOBJ.setName("internalUse");
         _internalUseOBJ.setType("meta.Boolean");
-        _internalUse.setDefinedIn(this);
-        addAttributeDefList(_internalUse);
+        _internalUse.setDefinedInDmsModule(this);
+        addAttributeDefinition(_internalUse);
 
         AttributeDefinitionDMO _internallyGeneratedOBJ = new AttributeDefinitionDMO();
         _internallyGenerated = new AttributeDefinition(_internallyGeneratedOBJ);
@@ -1992,8 +1992,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _internallyGeneratedOBJ.setInternalUse("true");
         _internallyGeneratedOBJ.setName("internallyGenerated");
         _internallyGeneratedOBJ.setType("meta.Boolean");
-        _internallyGenerated.setDefinedIn(this);
-        addAttributeDefList(_internallyGenerated);
+        _internallyGenerated.setDefinedInDmsModule(this);
+        addAttributeDefinition(_internallyGenerated);
 
         AttributeDefinitionDMO _isDSDefinitionOBJ = new AttributeDefinitionDMO();
         _isDSDefinition = new AttributeDefinition(_isDSDefinitionOBJ);
@@ -2003,8 +2003,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _isDSDefinitionOBJ.setDotName("meta.isDSDefinition.AttributeDefinition");
         _isDSDefinitionOBJ.setName("isDSDefinition");
         _isDSDefinitionOBJ.setType("meta.Boolean");
-        _isDSDefinition.setDefinedIn(this);
-        addAttributeDefList(_isDSDefinition);
+        _isDSDefinition.setDefinedInDmsModule(this);
+        addAttributeDefinition(_isDSDefinition);
 
         AttributeDefinitionDMO _isDefaultValueOBJ = new AttributeDefinitionDMO();
         _isDefaultValue = new AttributeDefinition(_isDefaultValueOBJ);
@@ -2014,8 +2014,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _isDefaultValueOBJ.setDotName("meta.isDefaultValue.AttributeDefinition");
         _isDefaultValueOBJ.setName("isDefaultValue");
         _isDefaultValueOBJ.setType("meta.Boolean");
-        _isDefaultValue.setDefinedIn(this);
-        addAttributeDefList(_isDefaultValue);
+        _isDefaultValue.setDefinedInDmsModule(this);
+        addAttributeDefinition(_isDefaultValue);
 
         AttributeDefinitionDMO _isEnumTypeOBJ = new AttributeDefinitionDMO();
         _isEnumType = new AttributeDefinition(_isEnumTypeOBJ);
@@ -2026,8 +2026,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _isEnumTypeOBJ.setInternalUse("true");
         _isEnumTypeOBJ.setName("isEnumType");
         _isEnumTypeOBJ.setType("meta.Boolean");
-        _isEnumType.setDefinedIn(this);
-        addAttributeDefList(_isEnumType);
+        _isEnumType.setDefinedInDmsModule(this);
+        addAttributeDefinition(_isEnumType);
 
         AttributeDefinitionDMO _isExtendedRefTypeOBJ = new AttributeDefinitionDMO();
         _isExtendedRefType = new AttributeDefinition(_isExtendedRefTypeOBJ);
@@ -2038,8 +2038,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _isExtendedRefTypeOBJ.setInternalUse("true");
         _isExtendedRefTypeOBJ.setName("isExtendedRefType");
         _isExtendedRefTypeOBJ.setType("meta.Boolean");
-        _isExtendedRefType.setDefinedIn(this);
-        addAttributeDefList(_isExtendedRefType);
+        _isExtendedRefType.setDefinedInDmsModule(this);
+        addAttributeDefinition(_isExtendedRefType);
 
         AttributeDefinitionDMO _isExtensibleOBJ = new AttributeDefinitionDMO();
         _isExtensible = new AttributeDefinition(_isExtensibleOBJ);
@@ -2049,8 +2049,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _isExtensibleOBJ.setDotName("meta.isExtensible.AttributeDefinition");
         _isExtensibleOBJ.setName("isExtensible");
         _isExtensibleOBJ.setType("meta.Boolean");
-        _isExtensible.setDefinedIn(this);
-        addAttributeDefList(_isExtensible);
+        _isExtensible.setDefinedInDmsModule(this);
+        addAttributeDefinition(_isExtensible);
 
         AttributeDefinitionDMO _isFilterTypeOBJ = new AttributeDefinitionDMO();
         _isFilterType = new AttributeDefinition(_isFilterTypeOBJ);
@@ -2060,8 +2060,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _isFilterTypeOBJ.setDotName("meta.isFilterType.AttributeDefinition");
         _isFilterTypeOBJ.setName("isFilterType");
         _isFilterTypeOBJ.setType("meta.Boolean");
-        _isFilterType.setDefinedIn(this);
-        addAttributeDefList(_isFilterType);
+        _isFilterType.setDefinedInDmsModule(this);
+        addAttributeDefinition(_isFilterType);
 
         AttributeDefinitionDMO _isGetActionOBJ = new AttributeDefinitionDMO();
         _isGetAction = new AttributeDefinition(_isGetActionOBJ);
@@ -2071,8 +2071,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _isGetActionOBJ.setDotName("meta.isGetAction.AttributeDefinition");
         _isGetActionOBJ.setName("isGetAction");
         _isGetActionOBJ.setType("meta.Boolean");
-        _isGetAction.setDefinedIn(this);
-        addAttributeDefList(_isGetAction);
+        _isGetAction.setDefinedInDmsModule(this);
+        addAttributeDefinition(_isGetAction);
 
         AttributeDefinitionDMO _isHierarchicNameOBJ = new AttributeDefinitionDMO();
         _isHierarchicName = new AttributeDefinition(_isHierarchicNameOBJ);
@@ -2083,8 +2083,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _isHierarchicNameOBJ.setInternalUse("true");
         _isHierarchicNameOBJ.setName("isHierarchicName");
         _isHierarchicNameOBJ.setType("meta.Boolean");
-        _isHierarchicName.setDefinedIn(this);
-        addAttributeDefList(_isHierarchicName);
+        _isHierarchicName.setDefinedInDmsModule(this);
+        addAttributeDefinition(_isHierarchicName);
 
         AttributeDefinitionDMO _isNameTypeOBJ = new AttributeDefinitionDMO();
         _isNameType = new AttributeDefinition(_isNameTypeOBJ);
@@ -2094,8 +2094,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _isNameTypeOBJ.setDotName("meta.isNameType.AttributeDefinition");
         _isNameTypeOBJ.setName("isNameType");
         _isNameTypeOBJ.setType("meta.Boolean");
-        _isNameType.setDefinedIn(this);
-        addAttributeDefList(_isNameType);
+        _isNameType.setDefinedInDmsModule(this);
+        addAttributeDefinition(_isNameType);
 
         AttributeDefinitionDMO _isNamedByOBJ = new AttributeDefinitionDMO();
         _isNamedBy = new AttributeDefinition(_isNamedByOBJ);
@@ -2105,8 +2105,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _isNamedByOBJ.setDotName("meta.isNamedBy.AttributeDefinition");
         _isNamedByOBJ.setName("isNamedBy");
         _isNamedByOBJ.setType("meta.AttributeDefinition");
-        _isNamedBy.setDefinedIn(this);
-        addAttributeDefList(_isNamedBy);
+        _isNamedBy.setDefinedInDmsModule(this);
+        addAttributeDefinition(_isNamedBy);
 
         AttributeDefinitionDMO _isRefTypeOBJ = new AttributeDefinitionDMO();
         _isRefType = new AttributeDefinition(_isRefTypeOBJ);
@@ -2117,8 +2117,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _isRefTypeOBJ.setInternalUse("true");
         _isRefTypeOBJ.setName("isRefType");
         _isRefTypeOBJ.setType("meta.Boolean");
-        _isRefType.setDefinedIn(this);
-        addAttributeDefList(_isRefType);
+        _isRefType.setDefinedInDmsModule(this);
+        addAttributeDefinition(_isRefType);
 
         AttributeDefinitionDMO _isSchemaRtypeOBJ = new AttributeDefinitionDMO();
         _isSchemaRtype = new AttributeDefinition(_isSchemaRtypeOBJ);
@@ -2129,8 +2129,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _isSchemaRtypeOBJ.setInternalUse("true");
         _isSchemaRtypeOBJ.setName("isSchemaRtype");
         _isSchemaRtypeOBJ.setType("meta.Boolean");
-        _isSchemaRtype.setDefinedIn(this);
-        addAttributeDefList(_isSchemaRtype);
+        _isSchemaRtype.setDefinedInDmsModule(this);
+        addAttributeDefinition(_isSchemaRtype);
 
         AttributeDefinitionDMO _javaClassOBJ = new AttributeDefinitionDMO();
         _javaClass = new AttributeDefinition(_javaClassOBJ);
@@ -2141,8 +2141,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _javaClassOBJ.setInternalUse("true");
         _javaClassOBJ.setName("javaClass");
         _javaClassOBJ.setType("meta.String");
-        _javaClass.setDefinedIn(this);
-        addAttributeDefList(_javaClass);
+        _javaClass.setDefinedInDmsModule(this);
+        addAttributeDefinition(_javaClass);
 
         AttributeDefinitionDMO _keyClassOBJ = new AttributeDefinitionDMO();
         _keyClass = new AttributeDefinition(_keyClassOBJ);
@@ -2152,8 +2152,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _keyClassOBJ.setDotName("meta.keyClass.AttributeDefinition");
         _keyClassOBJ.setName("keyClass");
         _keyClassOBJ.setType("meta.String");
-        _keyClass.setDefinedIn(this);
-        addAttributeDefList(_keyClass);
+        _keyClass.setDefinedInDmsModule(this);
+        addAttributeDefinition(_keyClass);
 
         AttributeDefinitionDMO _keyImportOBJ = new AttributeDefinitionDMO();
         _keyImport = new AttributeDefinition(_keyImportOBJ);
@@ -2163,8 +2163,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _keyImportOBJ.setDotName("meta.keyImport.AttributeDefinition");
         _keyImportOBJ.setName("keyImport");
         _keyImportOBJ.setType("meta.String");
-        _keyImport.setDefinedIn(this);
-        addAttributeDefList(_keyImport);
+        _keyImport.setDefinedInDmsModule(this);
+        addAttributeDefinition(_keyImport);
 
         AttributeDefinitionDMO _lineNumberOBJ = new AttributeDefinitionDMO();
         _lineNumber = new AttributeDefinition(_lineNumberOBJ);
@@ -2175,8 +2175,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _lineNumberOBJ.setInternalUse("true");
         _lineNumberOBJ.setName("lineNumber");
         _lineNumberOBJ.setType("meta.Integer");
-        _lineNumber.setDefinedIn(this);
-        addAttributeDefList(_lineNumber);
+        _lineNumber.setDefinedInDmsModule(this);
+        addAttributeDefinition(_lineNumber);
 
         AttributeDefinitionDMO _loadSchemaClassOBJ = new AttributeDefinitionDMO();
         _loadSchemaClass = new AttributeDefinition(_loadSchemaClassOBJ);
@@ -2187,8 +2187,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _loadSchemaClassOBJ.setName("loadSchemaClass");
         _loadSchemaClassOBJ.setType("meta.SchemaAndReason");
         _loadSchemaClassOBJ.setValueType("MULTI");
-        _loadSchemaClass.setDefinedIn(this);
-        addAttributeDefList(_loadSchemaClass);
+        _loadSchemaClass.setDefinedInDmsModule(this);
+        addAttributeDefinition(_loadSchemaClass);
 
         AttributeDefinitionDMO _longNameOBJ = new AttributeDefinitionDMO();
         _longName = new AttributeDefinition(_longNameOBJ);
@@ -2199,8 +2199,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _longNameOBJ.setDotName("meta.longName.AttributeDefinition");
         _longNameOBJ.setName("longName");
         _longNameOBJ.setType("meta.LongName");
-        _longName.setDefinedIn(this);
-        addAttributeDefList(_longName);
+        _longName.setDefinedInDmsModule(this);
+        addAttributeDefinition(_longName);
 
         AttributeDefinitionDMO _mayOBJ = new AttributeDefinitionDMO();
         _may = new AttributeDefinition(_mayOBJ);
@@ -2211,8 +2211,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _mayOBJ.setName("may");
         _mayOBJ.setType("meta.AttributeDefinition");
         _mayOBJ.setValueType("MULTI");
-        _may.setDefinedIn(this);
-        addAttributeDefList(_may);
+        _may.setDefinedInDmsModule(this);
+        addAttributeDefinition(_may);
 
         AttributeDefinitionDMO _mayParmOBJ = new AttributeDefinitionDMO();
         _mayParm = new AttributeDefinition(_mayParmOBJ);
@@ -2223,8 +2223,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _mayParmOBJ.setName("mayParm");
         _mayParmOBJ.setType("meta.AttributeDefinition");
         _mayParmOBJ.setValueType("MULTI");
-        _mayParm.setDefinedIn(this);
-        addAttributeDefList(_mayParm);
+        _mayParm.setDefinedInDmsModule(this);
+        addAttributeDefinition(_mayParm);
 
         AttributeDefinitionDMO _mayReturnOBJ = new AttributeDefinitionDMO();
         _mayReturn = new AttributeDefinition(_mayReturnOBJ);
@@ -2235,8 +2235,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _mayReturnOBJ.setName("mayReturn");
         _mayReturnOBJ.setType("meta.AttributeDefinition");
         _mayReturnOBJ.setValueType("MULTI");
-        _mayReturn.setDefinedIn(this);
-        addAttributeDefList(_mayReturn);
+        _mayReturn.setDefinedInDmsModule(this);
+        addAttributeDefinition(_mayReturn);
 
         AttributeDefinitionDMO _maySendProgressOBJ = new AttributeDefinitionDMO();
         _maySendProgress = new AttributeDefinition(_maySendProgressOBJ);
@@ -2246,8 +2246,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _maySendProgressOBJ.setDotName("meta.maySendProgress.AttributeDefinition");
         _maySendProgressOBJ.setName("maySendProgress");
         _maySendProgressOBJ.setType("meta.Boolean");
-        _maySendProgress.setDefinedIn(this);
-        addAttributeDefList(_maySendProgress);
+        _maySendProgress.setDefinedInDmsModule(this);
+        addAttributeDefinition(_maySendProgress);
 
         AttributeDefinitionDMO _modifyOBJ = new AttributeDefinitionDMO();
         _modify = new AttributeDefinition(_modifyOBJ);
@@ -2258,8 +2258,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _modifyOBJ.setName("modify");
         _modifyOBJ.setType("meta.Modifier");
         _modifyOBJ.setValueType("MULTI");
-        _modify.setDefinedIn(this);
-        addAttributeDefList(_modify);
+        _modify.setDefinedInDmsModule(this);
+        addAttributeDefinition(_modify);
 
         AttributeDefinitionDMO _moduleClassNameOBJ = new AttributeDefinitionDMO();
         _moduleClassName = new AttributeDefinition(_moduleClassNameOBJ);
@@ -2269,8 +2269,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _moduleClassNameOBJ.setDotName("meta.moduleClassName.AttributeDefinition");
         _moduleClassNameOBJ.setName("moduleClassName");
         _moduleClassNameOBJ.setType("meta.String");
-        _moduleClassName.setDefinedIn(this);
-        addAttributeDefList(_moduleClassName);
+        _moduleClassName.setDefinedInDmsModule(this);
+        addAttributeDefinition(_moduleClassName);
 
         AttributeDefinitionDMO _moduleDependenceAttributeOBJ = new AttributeDefinitionDMO();
         _moduleDependenceAttribute = new AttributeDefinition(_moduleDependenceAttributeOBJ);
@@ -2280,8 +2280,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _moduleDependenceAttributeOBJ.setDotName("meta.moduleDependenceAttribute.AttributeDefinition");
         _moduleDependenceAttributeOBJ.setName("moduleDependenceAttribute");
         _moduleDependenceAttributeOBJ.setType("meta.AttributeDefinition");
-        _moduleDependenceAttribute.setDefinedIn(this);
-        addAttributeDefList(_moduleDependenceAttribute);
+        _moduleDependenceAttribute.setDefinedInDmsModule(this);
+        addAttributeDefinition(_moduleDependenceAttribute);
 
         AttributeDefinitionDMO _msgKeyOBJ = new AttributeDefinitionDMO();
         _msgKey = new AttributeDefinition(_msgKeyOBJ);
@@ -2291,8 +2291,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _msgKeyOBJ.setDotName("meta.msgKey.AttributeDefinition");
         _msgKeyOBJ.setName("msgKey");
         _msgKeyOBJ.setType("meta.String");
-        _msgKey.setDefinedIn(this);
-        addAttributeDefList(_msgKey);
+        _msgKey.setDefinedInDmsModule(this);
+        addAttributeDefinition(_msgKey);
 
         AttributeDefinitionDMO _msgParamOBJ = new AttributeDefinitionDMO();
         _msgParam = new AttributeDefinition(_msgParamOBJ);
@@ -2303,8 +2303,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _msgParamOBJ.setName("msgParam");
         _msgParamOBJ.setType("meta.String");
         _msgParamOBJ.setValueType("MULTI");
-        _msgParam.setDefinedIn(this);
-        addAttributeDefList(_msgParam);
+        _msgParam.setDefinedInDmsModule(this);
+        addAttributeDefinition(_msgParam);
 
         AttributeDefinitionDMO _mustOBJ = new AttributeDefinitionDMO();
         _must = new AttributeDefinition(_mustOBJ);
@@ -2315,8 +2315,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _mustOBJ.setName("must");
         _mustOBJ.setType("meta.AttributeDefinition");
         _mustOBJ.setValueType("MULTI");
-        _must.setDefinedIn(this);
-        addAttributeDefList(_must);
+        _must.setDefinedInDmsModule(this);
+        addAttributeDefinition(_must);
 
         AttributeDefinitionDMO _mustParmOBJ = new AttributeDefinitionDMO();
         _mustParm = new AttributeDefinition(_mustParmOBJ);
@@ -2327,8 +2327,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _mustParmOBJ.setName("mustParm");
         _mustParmOBJ.setType("meta.AttributeDefinition");
         _mustParmOBJ.setValueType("MULTI");
-        _mustParm.setDefinedIn(this);
-        addAttributeDefList(_mustParm);
+        _mustParm.setDefinedInDmsModule(this);
+        addAttributeDefinition(_mustParm);
 
         AttributeDefinitionDMO _mustReturnOBJ = new AttributeDefinitionDMO();
         _mustReturn = new AttributeDefinition(_mustReturnOBJ);
@@ -2339,8 +2339,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _mustReturnOBJ.setName("mustReturn");
         _mustReturnOBJ.setType("meta.AttributeDefinition");
         _mustReturnOBJ.setValueType("MULTI");
-        _mustReturn.setDefinedIn(this);
-        addAttributeDefList(_mustReturn);
+        _mustReturn.setDefinedInDmsModule(this);
+        addAttributeDefinition(_mustReturn);
 
         AttributeDefinitionDMO _nameOBJ = new AttributeDefinitionDMO();
         _name = new AttributeDefinition(_nameOBJ);
@@ -2352,8 +2352,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _nameOBJ.setDotName("meta.name.AttributeDefinition");
         _nameOBJ.setName("name");
         _nameOBJ.setType("meta.DefinitionName");
-        _name.setDefinedIn(this);
-        addAttributeDefList(_name);
+        _name.setDefinedInDmsModule(this);
+        addAttributeDefinition(_name);
 
         AttributeDefinitionDMO _nameAttributeDefOBJ = new AttributeDefinitionDMO();
         _nameAttributeDef = new AttributeDefinition(_nameAttributeDefOBJ);
@@ -2364,8 +2364,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _nameAttributeDefOBJ.setInternalUse("true");
         _nameAttributeDefOBJ.setName("nameAttributeDef");
         _nameAttributeDefOBJ.setType("meta.AttributeDefinition");
-        _nameAttributeDef.setDefinedIn(this);
-        addAttributeDefList(_nameAttributeDef);
+        _nameAttributeDef.setDefinedInDmsModule(this);
+        addAttributeDefinition(_nameAttributeDef);
 
         AttributeDefinitionDMO _namingAttributeOBJ = new AttributeDefinitionDMO();
         _namingAttribute = new AttributeDefinition(_namingAttributeOBJ);
@@ -2375,8 +2375,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _namingAttributeOBJ.setDotName("meta.namingAttribute.AttributeDefinition");
         _namingAttributeOBJ.setName("namingAttribute");
         _namingAttributeOBJ.setType("meta.AttributeDefinition");
-        _namingAttribute.setDefinedIn(this);
-        addAttributeDefList(_namingAttribute);
+        _namingAttribute.setDefinedInDmsModule(this);
+        addAttributeDefinition(_namingAttribute);
 
         AttributeDefinitionDMO _nullReturnValueOBJ = new AttributeDefinitionDMO();
         _nullReturnValue = new AttributeDefinition(_nullReturnValueOBJ);
@@ -2386,8 +2386,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _nullReturnValueOBJ.setDotName("meta.nullReturnValue.AttributeDefinition");
         _nullReturnValueOBJ.setName("nullReturnValue");
         _nullReturnValueOBJ.setType("meta.String");
-        _nullReturnValue.setDefinedIn(this);
-        addAttributeDefList(_nullReturnValue);
+        _nullReturnValue.setDefinedInDmsModule(this);
+        addAttributeDefinition(_nullReturnValue);
 
         AttributeDefinitionDMO _nvpOBJ = new AttributeDefinitionDMO();
         _nvp = new AttributeDefinition(_nvpOBJ);
@@ -2398,8 +2398,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _nvpOBJ.setName("nvp");
         _nvpOBJ.setType("meta.NameValuePair");
         _nvpOBJ.setValueType("MULTI");
-        _nvp.setDefinedIn(this);
-        addAttributeDefList(_nvp);
+        _nvp.setDefinedInDmsModule(this);
+        addAttributeDefinition(_nvp);
 
         AttributeDefinitionDMO _objectClassOBJ = new AttributeDefinitionDMO();
         _objectClass = new AttributeDefinition(_objectClassOBJ);
@@ -2410,8 +2410,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _objectClassOBJ.setName("objectClass");
         _objectClassOBJ.setType("meta.ClassDefinition");
         _objectClassOBJ.setValueType("MULTI");
-        _objectClass.setDefinedIn(this);
-        addAttributeDefList(_objectClass);
+        _objectClass.setDefinedInDmsModule(this);
+        addAttributeDefinition(_objectClass);
 
         AttributeDefinitionDMO _obsoleteOBJ = new AttributeDefinitionDMO();
         _obsolete = new AttributeDefinition(_obsoleteOBJ);
@@ -2421,8 +2421,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _obsoleteOBJ.setDotName("meta.obsolete.AttributeDefinition");
         _obsoleteOBJ.setName("obsolete");
         _obsoleteOBJ.setType("meta.String");
-        _obsolete.setDefinedIn(this);
-        addAttributeDefList(_obsolete);
+        _obsolete.setDefinedInDmsModule(this);
+        addAttributeDefinition(_obsolete);
 
         AttributeDefinitionDMO _obsoleteVersionOBJ = new AttributeDefinitionDMO();
         _obsoleteVersion = new AttributeDefinition(_obsoleteVersionOBJ);
@@ -2432,8 +2432,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _obsoleteVersionOBJ.setDotName("meta.obsoleteVersion.AttributeDefinition");
         _obsoleteVersionOBJ.setName("obsoleteVersion");
         _obsoleteVersionOBJ.setType("meta.String");
-        _obsoleteVersion.setDefinedIn(this);
-        addAttributeDefList(_obsoleteVersion);
+        _obsoleteVersion.setDefinedInDmsModule(this);
+        addAttributeDefinition(_obsoleteVersion);
 
         AttributeDefinitionDMO _opContextOBJ = new AttributeDefinitionDMO();
         _opContext = new AttributeDefinition(_opContextOBJ);
@@ -2443,8 +2443,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _opContextOBJ.setDotName("meta.opContext.AttributeDefinition");
         _opContextOBJ.setName("opContext");
         _opContextOBJ.setType("meta.OperationalContextEnum");
-        _opContext.setDefinedIn(this);
-        addAttributeDefList(_opContext);
+        _opContext.setDefinedInDmsModule(this);
+        addAttributeDefinition(_opContext);
 
         AttributeDefinitionDMO _optimizeOBJ = new AttributeDefinitionDMO();
         _optimize = new AttributeDefinition(_optimizeOBJ);
@@ -2455,8 +2455,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _optimizeOBJ.setName("optimize");
         _optimizeOBJ.setType("meta.String");
         _optimizeOBJ.setValueType("MULTI");
-        _optimize.setDefinedIn(this);
-        addAttributeDefList(_optimize);
+        _optimize.setDefinedInDmsModule(this);
+        addAttributeDefinition(_optimize);
 
         AttributeDefinitionDMO _optionalPartOBJ = new AttributeDefinitionDMO();
         _optionalPart = new AttributeDefinition(_optionalPartOBJ);
@@ -2467,8 +2467,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _optionalPartOBJ.setName("optionalPart");
         _optionalPartOBJ.setType("meta.Part");
         _optionalPartOBJ.setValueType("MULTI");
-        _optionalPart.setDefinedIn(this);
-        addAttributeDefList(_optionalPart);
+        _optionalPart.setDefinedInDmsModule(this);
+        addAttributeDefinition(_optionalPart);
 
         AttributeDefinitionDMO _originalClassOBJ = new AttributeDefinitionDMO();
         _originalClass = new AttributeDefinition(_originalClassOBJ);
@@ -2479,8 +2479,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _originalClassOBJ.setInternalUse("true");
         _originalClassOBJ.setName("originalClass");
         _originalClassOBJ.setType("meta.ClassDefinition");
-        _originalClass.setDefinedIn(this);
-        addAttributeDefList(_originalClass);
+        _originalClass.setDefinedInDmsModule(this);
+        addAttributeDefinition(_originalClass);
 
         AttributeDefinitionDMO _partOfDefinitionModuleOBJ = new AttributeDefinitionDMO();
         _partOfDefinitionModule = new AttributeDefinition(_partOfDefinitionModuleOBJ);
@@ -2490,8 +2490,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _partOfDefinitionModuleOBJ.setDotName("meta.partOfDefinitionModule.AttributeDefinition");
         _partOfDefinitionModuleOBJ.setName("partOfDefinitionModule");
         _partOfDefinitionModuleOBJ.setType("meta.DSDefinitionModule");
-        _partOfDefinitionModule.setDefinedIn(this);
-        addAttributeDefList(_partOfDefinitionModule);
+        _partOfDefinitionModule.setDefinedInDmsModule(this);
+        addAttributeDefinition(_partOfDefinitionModule);
 
         AttributeDefinitionDMO _preserveNewlinesOBJ = new AttributeDefinitionDMO();
         _preserveNewlines = new AttributeDefinition(_preserveNewlinesOBJ);
@@ -2501,8 +2501,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _preserveNewlinesOBJ.setDotName("meta.preserveNewlines.AttributeDefinition");
         _preserveNewlinesOBJ.setName("preserveNewlines");
         _preserveNewlinesOBJ.setType("meta.Boolean");
-        _preserveNewlines.setDefinedIn(this);
-        addAttributeDefList(_preserveNewlines);
+        _preserveNewlines.setDefinedInDmsModule(this);
+        addAttributeDefinition(_preserveNewlines);
 
         AttributeDefinitionDMO _primitiveTypeOBJ = new AttributeDefinitionDMO();
         _primitiveType = new AttributeDefinition(_primitiveTypeOBJ);
@@ -2512,8 +2512,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _primitiveTypeOBJ.setDotName("meta.primitiveType.AttributeDefinition");
         _primitiveTypeOBJ.setName("primitiveType");
         _primitiveTypeOBJ.setType("meta.String");
-        _primitiveType.setDefinedIn(this);
-        addAttributeDefList(_primitiveType);
+        _primitiveType.setDefinedInDmsModule(this);
+        addAttributeDefinition(_primitiveType);
 
         AttributeDefinitionDMO _questionOBJ = new AttributeDefinitionDMO();
         _question = new AttributeDefinition(_questionOBJ);
@@ -2524,8 +2524,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _questionOBJ.setName("question");
         _questionOBJ.setType("meta.String");
         _questionOBJ.setValueType("MULTI");
-        _question.setDefinedIn(this);
-        addAttributeDefList(_question);
+        _question.setDefinedInDmsModule(this);
+        addAttributeDefinition(_question);
 
         AttributeDefinitionDMO _refersToDefsFromDSDOBJ = new AttributeDefinitionDMO();
         _refersToDefsFromDSD = new AttributeDefinition(_refersToDefsFromDSDOBJ);
@@ -2536,8 +2536,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _refersToDefsFromDSDOBJ.setName("refersToDefsFromDSD");
         _refersToDefsFromDSDOBJ.setType("meta.DSDefinitionModule");
         _refersToDefsFromDSDOBJ.setValueType("MULTI");
-        _refersToDefsFromDSD.setDefinedIn(this);
-        addAttributeDefList(_refersToDefsFromDSD);
+        _refersToDefsFromDSD.setDefinedInDmsModule(this);
+        addAttributeDefinition(_refersToDefsFromDSD);
 
         AttributeDefinitionDMO _relatedToConceptOBJ = new AttributeDefinitionDMO();
         _relatedToConcept = new AttributeDefinition(_relatedToConceptOBJ);
@@ -2548,8 +2548,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _relatedToConceptOBJ.setName("relatedToConcept");
         _relatedToConceptOBJ.setType("meta.Concinnity");
         _relatedToConceptOBJ.setValueType("MULTI");
-        _relatedToConcept.setDefinedIn(this);
-        addAttributeDefList(_relatedToConcept);
+        _relatedToConcept.setDefinedInDmsModule(this);
+        addAttributeDefinition(_relatedToConcept);
 
         AttributeDefinitionDMO _requiredBaseModuleOBJ = new AttributeDefinitionDMO();
         _requiredBaseModule = new AttributeDefinition(_requiredBaseModuleOBJ);
@@ -2560,8 +2560,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _requiredBaseModuleOBJ.setName("requiredBaseModule");
         _requiredBaseModuleOBJ.setType("meta.String");
         _requiredBaseModuleOBJ.setValueType("MULTI");
-        _requiredBaseModule.setDefinedIn(this);
-        addAttributeDefList(_requiredBaseModule);
+        _requiredBaseModule.setDefinedInDmsModule(this);
+        addAttributeDefinition(_requiredBaseModule);
 
         AttributeDefinitionDMO _requiredPartOBJ = new AttributeDefinitionDMO();
         _requiredPart = new AttributeDefinition(_requiredPartOBJ);
@@ -2572,8 +2572,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _requiredPartOBJ.setName("requiredPart");
         _requiredPartOBJ.setType("meta.Part");
         _requiredPartOBJ.setValueType("MULTI");
-        _requiredPart.setDefinedIn(this);
-        addAttributeDefList(_requiredPart);
+        _requiredPart.setDefinedInDmsModule(this);
+        addAttributeDefinition(_requiredPart);
 
         AttributeDefinitionDMO _ruleCategoryOBJ = new AttributeDefinitionDMO();
         _ruleCategory = new AttributeDefinition(_ruleCategoryOBJ);
@@ -2584,8 +2584,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _ruleCategoryOBJ.setName("ruleCategory");
         _ruleCategoryOBJ.setType("meta.RuleCategory");
         _ruleCategoryOBJ.setValueType("MULTI");
-        _ruleCategory.setDefinedIn(this);
-        addAttributeDefList(_ruleCategory);
+        _ruleCategory.setDefinedInDmsModule(this);
+        addAttributeDefinition(_ruleCategory);
 
         AttributeDefinitionDMO _ruleCategoryIDOBJ = new AttributeDefinitionDMO();
         _ruleCategoryID = new AttributeDefinition(_ruleCategoryIDOBJ);
@@ -2595,8 +2595,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _ruleCategoryIDOBJ.setDotName("meta.ruleCategoryID.AttributeDefinition");
         _ruleCategoryIDOBJ.setName("ruleCategoryID");
         _ruleCategoryIDOBJ.setType("meta.Integer");
-        _ruleCategoryID.setDefinedIn(this);
-        addAttributeDefList(_ruleCategoryID);
+        _ruleCategoryID.setDefinedInDmsModule(this);
+        addAttributeDefinition(_ruleCategoryID);
 
         AttributeDefinitionDMO _ruleCategoryListOBJ = new AttributeDefinitionDMO();
         _ruleCategoryList = new AttributeDefinition(_ruleCategoryListOBJ);
@@ -2607,8 +2607,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _ruleCategoryListOBJ.setName("ruleCategoryList");
         _ruleCategoryListOBJ.setType("meta.RuleCategory");
         _ruleCategoryListOBJ.setValueType("MULTI");
-        _ruleCategoryList.setDefinedIn(this);
-        addAttributeDefList(_ruleCategoryList);
+        _ruleCategoryList.setDefinedInDmsModule(this);
+        addAttributeDefinition(_ruleCategoryList);
 
         AttributeDefinitionDMO _ruleDataListOBJ = new AttributeDefinitionDMO();
         _ruleDataList = new AttributeDefinition(_ruleDataListOBJ);
@@ -2619,8 +2619,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _ruleDataListOBJ.setName("ruleDataList");
         _ruleDataListOBJ.setType("meta.RuleData");
         _ruleDataListOBJ.setValueType("MULTI");
-        _ruleDataList.setDefinedIn(this);
-        addAttributeDefList(_ruleDataList);
+        _ruleDataList.setDefinedInDmsModule(this);
+        addAttributeDefinition(_ruleDataList);
 
         AttributeDefinitionDMO _ruleDefinitionOBJ = new AttributeDefinitionDMO();
         _ruleDefinition = new AttributeDefinition(_ruleDefinitionOBJ);
@@ -2631,8 +2631,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _ruleDefinitionOBJ.setInternalUse("true");
         _ruleDefinitionOBJ.setName("ruleDefinition");
         _ruleDefinitionOBJ.setType("meta.RuleDefinition");
-        _ruleDefinition.setDefinedIn(this);
-        addAttributeDefList(_ruleDefinition);
+        _ruleDefinition.setDefinedInDmsModule(this);
+        addAttributeDefinition(_ruleDefinition);
 
         AttributeDefinitionDMO _ruleDefinitionListOBJ = new AttributeDefinitionDMO();
         _ruleDefinitionList = new AttributeDefinition(_ruleDefinitionListOBJ);
@@ -2643,8 +2643,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _ruleDefinitionListOBJ.setName("ruleDefinitionList");
         _ruleDefinitionListOBJ.setType("meta.RuleDefinition");
         _ruleDefinitionListOBJ.setValueType("MULTI");
-        _ruleDefinitionList.setDefinedIn(this);
-        addAttributeDefList(_ruleDefinitionList);
+        _ruleDefinitionList.setDefinedInDmsModule(this);
+        addAttributeDefinition(_ruleDefinitionList);
 
         AttributeDefinitionDMO _ruleImportOBJ = new AttributeDefinitionDMO();
         _ruleImport = new AttributeDefinition(_ruleImportOBJ);
@@ -2655,8 +2655,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _ruleImportOBJ.setName("ruleImport");
         _ruleImportOBJ.setType("meta.String");
         _ruleImportOBJ.setValueType("MULTI");
-        _ruleImport.setDefinedIn(this);
-        addAttributeDefList(_ruleImport);
+        _ruleImport.setDefinedInDmsModule(this);
+        addAttributeDefinition(_ruleImport);
 
         AttributeDefinitionDMO _ruleNameOBJ = new AttributeDefinitionDMO();
         _ruleName = new AttributeDefinition(_ruleNameOBJ);
@@ -2667,8 +2667,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _ruleNameOBJ.setDotName("meta.ruleName.AttributeDefinition");
         _ruleNameOBJ.setName("ruleName");
         _ruleNameOBJ.setType("meta.RuleName");
-        _ruleName.setDefinedIn(this);
-        addAttributeDefList(_ruleName);
+        _ruleName.setDefinedInDmsModule(this);
+        addAttributeDefinition(_ruleName);
 
         AttributeDefinitionDMO _ruleParamOBJ = new AttributeDefinitionDMO();
         _ruleParam = new AttributeDefinition(_ruleParamOBJ);
@@ -2679,8 +2679,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _ruleParamOBJ.setName("ruleParam");
         _ruleParamOBJ.setType("meta.RuleParam");
         _ruleParamOBJ.setValueType("MULTI");
-        _ruleParam.setDefinedIn(this);
-        addAttributeDefList(_ruleParam);
+        _ruleParam.setDefinedInDmsModule(this);
+        addAttributeDefinition(_ruleParam);
 
         AttributeDefinitionDMO _ruleTitleOBJ = new AttributeDefinitionDMO();
         _ruleTitle = new AttributeDefinition(_ruleTitleOBJ);
@@ -2690,8 +2690,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _ruleTitleOBJ.setDotName("meta.ruleTitle.AttributeDefinition");
         _ruleTitleOBJ.setName("ruleTitle");
         _ruleTitleOBJ.setType("meta.String");
-        _ruleTitle.setDefinedIn(this);
-        addAttributeDefList(_ruleTitle);
+        _ruleTitle.setDefinedInDmsModule(this);
+        addAttributeDefinition(_ruleTitle);
 
         AttributeDefinitionDMO _ruleTypeOBJ = new AttributeDefinitionDMO();
         _ruleType = new AttributeDefinition(_ruleTypeOBJ);
@@ -2701,8 +2701,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _ruleTypeOBJ.setDotName("meta.ruleType.AttributeDefinition");
         _ruleTypeOBJ.setName("ruleType");
         _ruleTypeOBJ.setType("meta.RuleTypeEnum");
-        _ruleType.setDefinedIn(this);
-        addAttributeDefList(_ruleType);
+        _ruleType.setDefinedInDmsModule(this);
+        addAttributeDefinition(_ruleType);
 
         AttributeDefinitionDMO _runContextOBJ = new AttributeDefinitionDMO();
         _runContext = new AttributeDefinition(_runContextOBJ);
@@ -2712,8 +2712,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _runContextOBJ.setDotName("meta.runContext.AttributeDefinition");
         _runContextOBJ.setName("runContext");
         _runContextOBJ.setType("meta.RunContext");
-        _runContext.setDefinedIn(this);
-        addAttributeDefList(_runContext);
+        _runContext.setDefinedInDmsModule(this);
+        addAttributeDefinition(_runContext);
 
         AttributeDefinitionDMO _schemaBaseIDOBJ = new AttributeDefinitionDMO();
         _schemaBaseID = new AttributeDefinition(_schemaBaseIDOBJ);
@@ -2723,8 +2723,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _schemaBaseIDOBJ.setDotName("meta.schemaBaseID.AttributeDefinition");
         _schemaBaseIDOBJ.setName("schemaBaseID");
         _schemaBaseIDOBJ.setType("meta.Integer");
-        _schemaBaseID.setDefinedIn(this);
-        addAttributeDefList(_schemaBaseID);
+        _schemaBaseID.setDefinedInDmsModule(this);
+        addAttributeDefinition(_schemaBaseID);
 
         AttributeDefinitionDMO _schemaExtensionOBJ = new AttributeDefinitionDMO();
         _schemaExtension = new AttributeDefinition(_schemaExtensionOBJ);
@@ -2735,8 +2735,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _schemaExtensionOBJ.setName("schemaExtension");
         _schemaExtensionOBJ.setType("meta.String");
         _schemaExtensionOBJ.setValueType("MULTI");
-        _schemaExtension.setDefinedIn(this);
-        addAttributeDefList(_schemaExtension);
+        _schemaExtension.setDefinedInDmsModule(this);
+        addAttributeDefinition(_schemaExtension);
 
         AttributeDefinitionDMO _schemaIDRangeOBJ = new AttributeDefinitionDMO();
         _schemaIDRange = new AttributeDefinition(_schemaIDRangeOBJ);
@@ -2746,8 +2746,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _schemaIDRangeOBJ.setDotName("meta.schemaIDRange.AttributeDefinition");
         _schemaIDRangeOBJ.setName("schemaIDRange");
         _schemaIDRangeOBJ.setType("meta.Integer");
-        _schemaIDRange.setDefinedIn(this);
-        addAttributeDefList(_schemaIDRange);
+        _schemaIDRange.setDefinedInDmsModule(this);
+        addAttributeDefinition(_schemaIDRange);
 
         AttributeDefinitionDMO _schemaPackageOBJ = new AttributeDefinitionDMO();
         _schemaPackage = new AttributeDefinition(_schemaPackageOBJ);
@@ -2757,8 +2757,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _schemaPackageOBJ.setDotName("meta.schemaPackage.AttributeDefinition");
         _schemaPackageOBJ.setName("schemaPackage");
         _schemaPackageOBJ.setType("meta.String");
-        _schemaPackage.setDefinedIn(this);
-        addAttributeDefList(_schemaPackage);
+        _schemaPackage.setDefinedInDmsModule(this);
+        addAttributeDefinition(_schemaPackage);
 
         AttributeDefinitionDMO _secureOBJ = new AttributeDefinitionDMO();
         _secure = new AttributeDefinition(_secureOBJ);
@@ -2768,8 +2768,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _secureOBJ.setDotName("meta.secure.AttributeDefinition");
         _secureOBJ.setName("secure");
         _secureOBJ.setType("meta.Boolean");
-        _secure.setDefinedIn(this);
-        addAttributeDefList(_secure);
+        _secure.setDefinedInDmsModule(this);
+        addAttributeDefinition(_secure);
 
         AttributeDefinitionDMO _selectAttributeOBJ = new AttributeDefinitionDMO();
         _selectAttribute = new AttributeDefinition(_selectAttributeOBJ);
@@ -2780,8 +2780,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _selectAttributeOBJ.setName("selectAttribute");
         _selectAttributeOBJ.setType("meta.AttributeDefinition");
         _selectAttributeOBJ.setValueType("MULTI");
-        _selectAttribute.setDefinedIn(this);
-        addAttributeDefList(_selectAttribute);
+        _selectAttribute.setDefinedInDmsModule(this);
+        addAttributeDefinition(_selectAttribute);
 
         AttributeDefinitionDMO _skipOBJ = new AttributeDefinitionDMO();
         _skip = new AttributeDefinition(_skipOBJ);
@@ -2792,8 +2792,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _skipOBJ.setName("skip");
         _skipOBJ.setType("meta.String");
         _skipOBJ.setValueType("MULTI");
-        _skip.setDefinedIn(this);
-        addAttributeDefList(_skip);
+        _skip.setDefinedInDmsModule(this);
+        addAttributeDefinition(_skip);
 
         AttributeDefinitionDMO _sliceDefListOBJ = new AttributeDefinitionDMO();
         _sliceDefList = new AttributeDefinition(_sliceDefListOBJ);
@@ -2805,8 +2805,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _sliceDefListOBJ.setName("sliceDefList");
         _sliceDefListOBJ.setType("meta.SliceDefinition");
         _sliceDefListOBJ.setValueType("MULTI");
-        _sliceDefList.setDefinedIn(this);
-        addAttributeDefList(_sliceDefList);
+        _sliceDefList.setDefinedInDmsModule(this);
+        addAttributeDefinition(_sliceDefList);
 
         AttributeDefinitionDMO _sortNameOBJ = new AttributeDefinitionDMO();
         _sortName = new AttributeDefinition(_sortNameOBJ);
@@ -2816,8 +2816,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _sortNameOBJ.setDotName("meta.sortName.AttributeDefinition");
         _sortNameOBJ.setName("sortName");
         _sortNameOBJ.setType("meta.DotName");
-        _sortName.setDefinedIn(this);
-        addAttributeDefList(_sortName);
+        _sortName.setDefinedInDmsModule(this);
+        addAttributeDefinition(_sortName);
 
         AttributeDefinitionDMO _stringNameOBJ = new AttributeDefinitionDMO();
         _stringName = new AttributeDefinition(_stringNameOBJ);
@@ -2828,8 +2828,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _stringNameOBJ.setDotName("meta.stringName.AttributeDefinition");
         _stringNameOBJ.setName("stringName");
         _stringNameOBJ.setType("meta.StringName");
-        _stringName.setDefinedIn(this);
-        addAttributeDefList(_stringName);
+        _stringName.setDefinedInDmsModule(this);
+        addAttributeDefinition(_stringName);
 
         AttributeDefinitionDMO _subpackageOBJ = new AttributeDefinitionDMO();
         _subpackage = new AttributeDefinition(_subpackageOBJ);
@@ -2839,8 +2839,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _subpackageOBJ.setDotName("meta.subpackage.AttributeDefinition");
         _subpackageOBJ.setName("subpackage");
         _subpackageOBJ.setType("meta.String");
-        _subpackage.setDefinedIn(this);
-        addAttributeDefList(_subpackage);
+        _subpackage.setDefinedInDmsModule(this);
+        addAttributeDefinition(_subpackage);
 
         AttributeDefinitionDMO _supportDynamicSchemaLoadingOBJ = new AttributeDefinitionDMO();
         _supportDynamicSchemaLoading = new AttributeDefinition(_supportDynamicSchemaLoadingOBJ);
@@ -2850,8 +2850,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _supportDynamicSchemaLoadingOBJ.setDotName("meta.supportDynamicSchemaLoading.AttributeDefinition");
         _supportDynamicSchemaLoadingOBJ.setName("supportDynamicSchemaLoading");
         _supportDynamicSchemaLoadingOBJ.setType("meta.Boolean");
-        _supportDynamicSchemaLoading.setDefinedIn(this);
-        addAttributeDefList(_supportDynamicSchemaLoading);
+        _supportDynamicSchemaLoading.setDefinedInDmsModule(this);
+        addAttributeDefinition(_supportDynamicSchemaLoading);
 
         AttributeDefinitionDMO _supportsBackrefTrackingOBJ = new AttributeDefinitionDMO();
         _supportsBackrefTracking = new AttributeDefinition(_supportsBackrefTrackingOBJ);
@@ -2862,8 +2862,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _supportsBackrefTrackingOBJ.setName("supportsBackrefTracking");
         _supportsBackrefTrackingOBJ.setNullReturnValue("true");
         _supportsBackrefTrackingOBJ.setType("meta.Boolean");
-        _supportsBackrefTracking.setDefinedIn(this);
-        addAttributeDefList(_supportsBackrefTracking);
+        _supportsBackrefTracking.setDefinedInDmsModule(this);
+        addAttributeDefinition(_supportsBackrefTracking);
 
         AttributeDefinitionDMO _tagsOBJ = new AttributeDefinitionDMO();
         _tags = new AttributeDefinition(_tagsOBJ);
@@ -2874,8 +2874,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _tagsOBJ.setName("tags");
         _tagsOBJ.setType("meta.String");
         _tagsOBJ.setValueType("TREESET");
-        _tags.setDefinedIn(this);
-        addAttributeDefList(_tags);
+        _tags.setDefinedInDmsModule(this);
+        addAttributeDefinition(_tags);
 
         AttributeDefinitionDMO _typeOBJ = new AttributeDefinitionDMO();
         _type = new AttributeDefinition(_typeOBJ);
@@ -2885,8 +2885,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _typeOBJ.setDotName("meta.type.AttributeDefinition");
         _typeOBJ.setName("type");
         _typeOBJ.setType("meta.TypeDefinition");
-        _type.setDefinedIn(this);
-        addAttributeDefList(_type);
+        _type.setDefinedInDmsModule(this);
+        addAttributeDefinition(_type);
 
         AttributeDefinitionDMO _typeClassNameOBJ = new AttributeDefinitionDMO();
         _typeClassName = new AttributeDefinition(_typeClassNameOBJ);
@@ -2896,8 +2896,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _typeClassNameOBJ.setDotName("meta.typeClassName.AttributeDefinition");
         _typeClassNameOBJ.setName("typeClassName");
         _typeClassNameOBJ.setType("meta.String");
-        _typeClassName.setDefinedIn(this);
-        addAttributeDefList(_typeClassName);
+        _typeClassName.setDefinedInDmsModule(this);
+        addAttributeDefinition(_typeClassName);
 
         AttributeDefinitionDMO _typeDefListOBJ = new AttributeDefinitionDMO();
         _typeDefList = new AttributeDefinition(_typeDefListOBJ);
@@ -2909,8 +2909,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _typeDefListOBJ.setName("typeDefList");
         _typeDefListOBJ.setType("meta.TypeDefinition");
         _typeDefListOBJ.setValueType("MULTI");
-        _typeDefList.setDefinedIn(this);
-        addAttributeDefList(_typeDefList);
+        _typeDefList.setDefinedInDmsModule(this);
+        addAttributeDefinition(_typeDefList);
 
         AttributeDefinitionDMO _useInterfaceOBJ = new AttributeDefinitionDMO();
         _useInterface = new AttributeDefinition(_useInterfaceOBJ);
@@ -2920,8 +2920,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _useInterfaceOBJ.setDotName("meta.useInterface.AttributeDefinition");
         _useInterfaceOBJ.setName("useInterface");
         _useInterfaceOBJ.setType("meta.String");
-        _useInterface.setDefinedIn(this);
-        addAttributeDefList(_useInterface);
+        _useInterface.setDefinedInDmsModule(this);
+        addAttributeDefinition(_useInterface);
 
         AttributeDefinitionDMO _useWrapperTypeOBJ = new AttributeDefinitionDMO();
         _useWrapperType = new AttributeDefinition(_useWrapperTypeOBJ);
@@ -2931,8 +2931,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _useWrapperTypeOBJ.setDotName("meta.useWrapperType.AttributeDefinition");
         _useWrapperTypeOBJ.setName("useWrapperType");
         _useWrapperTypeOBJ.setType("meta.WrapperTypeEnum");
-        _useWrapperType.setDefinedIn(this);
-        addAttributeDefList(_useWrapperType);
+        _useWrapperType.setDefinedInDmsModule(this);
+        addAttributeDefinition(_useWrapperType);
 
         AttributeDefinitionDMO _usesInterfaceOBJ = new AttributeDefinitionDMO();
         _usesInterface = new AttributeDefinition(_usesInterfaceOBJ);
@@ -2942,8 +2942,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _usesInterfaceOBJ.setDotName("meta.usesInterface.AttributeDefinition");
         _usesInterfaceOBJ.setName("usesInterface");
         _usesInterfaceOBJ.setType("meta.String");
-        _usesInterface.setDefinedIn(this);
-        addAttributeDefList(_usesInterface);
+        _usesInterface.setDefinedInDmsModule(this);
+        addAttributeDefinition(_usesInterface);
 
         AttributeDefinitionDMO _uuidNameOBJ = new AttributeDefinitionDMO();
         _uuidName = new AttributeDefinition(_uuidNameOBJ);
@@ -2954,8 +2954,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _uuidNameOBJ.setDotName("meta.uuidName.AttributeDefinition");
         _uuidNameOBJ.setName("uuidName");
         _uuidNameOBJ.setType("meta.UUIDName");
-        _uuidName.setDefinedIn(this);
-        addAttributeDefList(_uuidName);
+        _uuidName.setDefinedInDmsModule(this);
+        addAttributeDefinition(_uuidName);
 
         AttributeDefinitionDMO _valueTypeOBJ = new AttributeDefinitionDMO();
         _valueType = new AttributeDefinition(_valueTypeOBJ);
@@ -2965,8 +2965,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _valueTypeOBJ.setDotName("meta.valueType.AttributeDefinition");
         _valueTypeOBJ.setName("valueType");
         _valueTypeOBJ.setType("meta.ValueTypeEnum");
-        _valueType.setDefinedIn(this);
-        addAttributeDefList(_valueType);
+        _valueType.setDefinedInDmsModule(this);
+        addAttributeDefinition(_valueType);
 
         AttributeDefinitionDMO _versionOBJ = new AttributeDefinitionDMO();
         _version = new AttributeDefinition(_versionOBJ);
@@ -2976,8 +2976,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _versionOBJ.setDotName("meta.version.AttributeDefinition");
         _versionOBJ.setName("version");
         _versionOBJ.setType("meta.String");
-        _version.setDefinedIn(this);
-        addAttributeDefList(_version);
+        _version.setDefinedInDmsModule(this);
+        addAttributeDefinition(_version);
 
         AttributeDefinitionDMO _weakReferenceOBJ = new AttributeDefinitionDMO();
         _weakReference = new AttributeDefinition(_weakReferenceOBJ);
@@ -2987,8 +2987,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _weakReferenceOBJ.setDotName("meta.weakReference.AttributeDefinition");
         _weakReferenceOBJ.setName("weakReference");
         _weakReferenceOBJ.setType("meta.Boolean");
-        _weakReference.setDefinedIn(this);
-        addAttributeDefList(_weakReference);
+        _weakReference.setDefinedInDmsModule(this);
+        addAttributeDefinition(_weakReference);
 
         AttributeDefinitionDMO _whyOBJ = new AttributeDefinitionDMO();
         _why = new AttributeDefinition(_whyOBJ);
@@ -2999,8 +2999,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _whyOBJ.setName("why");
         _whyOBJ.setType("meta.Concinnity");
         _whyOBJ.setWeakReference("true");
-        _why.setDefinedIn(this);
-        addAttributeDefList(_why);
+        _why.setDefinedInDmsModule(this);
+        addAttributeDefinition(_why);
 
         AttributeDefinitionDMO _wrapperClassNameOBJ = new AttributeDefinitionDMO();
         _wrapperClassName = new AttributeDefinition(_wrapperClassNameOBJ);
@@ -3011,11 +3011,11 @@ public class MetaSchemaAG extends SchemaDefinition {
         _wrapperClassNameOBJ.setInternalUse("true");
         _wrapperClassNameOBJ.setName("wrapperClassName");
         _wrapperClassNameOBJ.setType("meta.String");
-        _wrapperClassName.setDefinedIn(this);
-        addAttributeDefList(_wrapperClassName);
+        _wrapperClassName.setDefinedInDmsModule(this);
+        addAttributeDefinition(_wrapperClassName);
 
     }
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatter.dumpInitTypes(MetaSchemaFormatter.java:223)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitTypes(MetaSchemaFormatterNew.java:225)
     private void initTypes() throws DMFeedbackSet {
 
         TypeDefinitionDMO _AttributeIDOBJ = new TypeDefinitionDMO();
@@ -3028,8 +3028,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _AttributeIDOBJ.setName("AttributeID");
         _AttributeIDOBJ.setPrimitiveType("org.dmd.dms.shared.types.AttributeID");
         _AttributeIDOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeAttributeID");
-        _AttributeID.setDefinedIn(this);
-        addTypeDefList(_AttributeID);
+        _AttributeID.setDefinedInDmsModule(this);
+        addTypeDefinition(_AttributeID);
 
         TypeDefinitionDMO _BooleanOBJ = new TypeDefinitionDMO();
         _Boolean = new TypeDefinition(_BooleanOBJ);
@@ -3039,8 +3039,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _BooleanOBJ.setName("Boolean");
         _BooleanOBJ.setNullReturnValue("false");
         _BooleanOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeBoolean");
-        _Boolean.setDefinedIn(this);
-        addTypeDefList(_Boolean);
+        _Boolean.setDefinedInDmsModule(this);
+        addTypeDefinition(_Boolean);
 
         TypeDefinitionDMO _ByteOBJ = new TypeDefinitionDMO();
         _Byte = new TypeDefinition(_ByteOBJ);
@@ -3049,8 +3049,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _ByteOBJ.setDotName("meta.Byte.TypeDefinition");
         _ByteOBJ.setName("Byte");
         _ByteOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeByte");
-        _Byte.setDefinedIn(this);
-        addTypeDefList(_Byte);
+        _Byte.setDefinedInDmsModule(this);
+        addTypeDefinition(_Byte);
 
         TypeDefinitionDMO _CamelCaseNameOBJ = new TypeDefinitionDMO();
         _CamelCaseName = new TypeDefinition(_CamelCaseNameOBJ);
@@ -3062,8 +3062,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _CamelCaseNameOBJ.setNameAttributeDef("meta.camelCaseName");
         _CamelCaseNameOBJ.setPrimitiveType("org.dmd.dms.shared.types.CamelCaseName");
         _CamelCaseNameOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeCamelCaseName");
-        _CamelCaseName.setDefinedIn(this);
-        addTypeDefList(_CamelCaseName);
+        _CamelCaseName.setDefinedInDmsModule(this);
+        addTypeDefinition(_CamelCaseName);
 
         TypeDefinitionDMO _ClassFilterOBJ = new TypeDefinitionDMO();
         _ClassFilter = new TypeDefinition(_ClassFilterOBJ);
@@ -3075,8 +3075,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _ClassFilterOBJ.setName("ClassFilter");
         _ClassFilterOBJ.setPrimitiveType("org.dmd.dms.shared.types.ClassFilter");
         _ClassFilterOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeClassFilter");
-        _ClassFilter.setDefinedIn(this);
-        addTypeDefList(_ClassFilter);
+        _ClassFilter.setDefinedInDmsModule(this);
+        addTypeDefinition(_ClassFilter);
 
         TypeDefinitionDMO _ClassInfoRefOBJ = new TypeDefinitionDMO();
         _ClassInfoRef = new TypeDefinition(_ClassInfoRefOBJ);
@@ -3086,8 +3086,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _ClassInfoRefOBJ.setName("ClassInfoRef");
         _ClassInfoRefOBJ.setPrimitiveType("org.dmd.dms.shared.types.ClassInfoRef");
         _ClassInfoRefOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeClassInfoRef");
-        _ClassInfoRef.setDefinedIn(this);
-        addTypeDefList(_ClassInfoRef);
+        _ClassInfoRef.setDefinedInDmsModule(this);
+        addTypeDefinition(_ClassInfoRef);
 
         TypeDefinitionDMO _DateOBJ = new TypeDefinitionDMO();
         _Date = new TypeDefinition(_DateOBJ);
@@ -3097,8 +3097,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _DateOBJ.setName("Date");
         _DateOBJ.setPrimitiveType("java.util.Date");
         _DateOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeDate");
-        _Date.setDefinedIn(this);
-        addTypeDefList(_Date);
+        _Date.setDefinedInDmsModule(this);
+        addTypeDefinition(_Date);
 
         TypeDefinitionDMO _DefinitionNameOBJ = new TypeDefinitionDMO();
         _DefinitionName = new TypeDefinition(_DefinitionNameOBJ);
@@ -3110,8 +3110,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _DefinitionNameOBJ.setNameAttributeDef("meta.name");
         _DefinitionNameOBJ.setPrimitiveType("org.dmd.dms.shared.types.DefinitionName");
         _DefinitionNameOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeDefinitionName");
-        _DefinitionName.setDefinedIn(this);
-        addTypeDefList(_DefinitionName);
+        _DefinitionName.setDefinedInDmsModule(this);
+        addTypeDefinition(_DefinitionName);
 
         TypeDefinitionDMO _DmcObjectOBJ = new TypeDefinitionDMO();
         _DmcObject = new TypeDefinition(_DmcObjectOBJ);
@@ -3121,8 +3121,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _DmcObjectOBJ.setName("DmcObject");
         _DmcObjectOBJ.setPrimitiveType("org.dmd.core.DmcObject");
         _DmcObjectOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeDmcObject");
-        _DmcObject.setDefinedIn(this);
-        addTypeDefList(_DmcObject);
+        _DmcObject.setDefinedInDmsModule(this);
+        addTypeDefinition(_DmcObject);
 
         TypeDefinitionDMO _DotNameOBJ = new TypeDefinitionDMO();
         _DotName = new TypeDefinition(_DotNameOBJ);
@@ -3135,8 +3135,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _DotNameOBJ.setNameAttributeDef("meta.dotName");
         _DotNameOBJ.setPrimitiveType("org.dmd.dms.shared.types.DotName");
         _DotNameOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeDotName");
-        _DotName.setDefinedIn(this);
-        addTypeDefList(_DotName);
+        _DotName.setDefinedInDmsModule(this);
+        addTypeDefinition(_DotName);
 
         TypeDefinitionDMO _DoubleOBJ = new TypeDefinitionDMO();
         _Double = new TypeDefinition(_DoubleOBJ);
@@ -3145,8 +3145,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _DoubleOBJ.setDotName("meta.Double.TypeDefinition");
         _DoubleOBJ.setName("Double");
         _DoubleOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeDouble");
-        _Double.setDefinedIn(this);
-        addTypeDefList(_Double);
+        _Double.setDefinedInDmsModule(this);
+        addTypeDefinition(_Double);
 
         TypeDefinitionDMO _EnumValueOBJ = new TypeDefinitionDMO();
         _EnumValue = new TypeDefinition(_EnumValueOBJ);
@@ -3156,8 +3156,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _EnumValueOBJ.setName("EnumValue");
         _EnumValueOBJ.setPrimitiveType("org.dmd.dms.shared.types.EnumValue");
         _EnumValueOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeEnumValue");
-        _EnumValue.setDefinedIn(this);
-        addTypeDefList(_EnumValue);
+        _EnumValue.setDefinedInDmsModule(this);
+        addTypeDefinition(_EnumValue);
 
         TypeDefinitionDMO _FilterContainerOBJ = new TypeDefinitionDMO();
         _FilterContainer = new TypeDefinition(_FilterContainerOBJ);
@@ -3169,8 +3169,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _FilterContainerOBJ.setName("FilterContainer");
         _FilterContainerOBJ.setPrimitiveType("org.dmd.dms.shared.types.FilterContainer");
         _FilterContainerOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeFilterContainer");
-        _FilterContainer.setDefinedIn(this);
-        addTypeDefList(_FilterContainer);
+        _FilterContainer.setDefinedInDmsModule(this);
+        addTypeDefinition(_FilterContainer);
 
         TypeDefinitionDMO _FloatOBJ = new TypeDefinitionDMO();
         _Float = new TypeDefinition(_FloatOBJ);
@@ -3179,8 +3179,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _FloatOBJ.setDotName("meta.Float.TypeDefinition");
         _FloatOBJ.setName("Float");
         _FloatOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeFloat");
-        _Float.setDefinedIn(this);
-        addTypeDefList(_Float);
+        _Float.setDefinedInDmsModule(this);
+        addTypeDefinition(_Float);
 
         TypeDefinitionDMO _FullyQualifiedNameOBJ = new TypeDefinitionDMO();
         _FullyQualifiedName = new TypeDefinition(_FullyQualifiedNameOBJ);
@@ -3191,8 +3191,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _FullyQualifiedNameOBJ.setNameAttributeDef("meta.FQN");
         _FullyQualifiedNameOBJ.setPrimitiveType("org.dmd.dms.shared.types.FullyQualifiedName");
         _FullyQualifiedNameOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeFullyQualifiedName");
-        _FullyQualifiedName.setDefinedIn(this);
-        addTypeDefList(_FullyQualifiedName);
+        _FullyQualifiedName.setDefinedInDmsModule(this);
+        addTypeDefinition(_FullyQualifiedName);
 
         TypeDefinitionDMO _IntegerOBJ = new TypeDefinitionDMO();
         _Integer = new TypeDefinition(_IntegerOBJ);
@@ -3201,8 +3201,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _IntegerOBJ.setDotName("meta.Integer.TypeDefinition");
         _IntegerOBJ.setName("Integer");
         _IntegerOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeInteger");
-        _Integer.setDefinedIn(this);
-        addTypeDefList(_Integer);
+        _Integer.setDefinedInDmsModule(this);
+        addTypeDefinition(_Integer);
 
         TypeDefinitionDMO _IntegerNameOBJ = new TypeDefinitionDMO();
         _IntegerName = new TypeDefinition(_IntegerNameOBJ);
@@ -3214,8 +3214,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _IntegerNameOBJ.setNameAttributeDef("meta.integerName");
         _IntegerNameOBJ.setPrimitiveType("org.dmd.dms.shared.types.IntegerName");
         _IntegerNameOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeIntegerName");
-        _IntegerName.setDefinedIn(this);
-        addTypeDefList(_IntegerName);
+        _IntegerName.setDefinedInDmsModule(this);
+        addTypeDefinition(_IntegerName);
 
         TypeDefinitionDMO _IntegerToBooleanOBJ = new TypeDefinitionDMO();
         _IntegerToBoolean = new TypeDefinition(_IntegerToBooleanOBJ);
@@ -3226,8 +3226,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _IntegerToBooleanOBJ.setName("IntegerToBoolean");
         _IntegerToBooleanOBJ.setPrimitiveType("org.dmd.dms.shared.types.IntegerToBoolean");
         _IntegerToBooleanOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeIntegerToBoolean");
-        _IntegerToBoolean.setDefinedIn(this);
-        addTypeDefList(_IntegerToBoolean);
+        _IntegerToBoolean.setDefinedInDmsModule(this);
+        addTypeDefinition(_IntegerToBoolean);
 
         TypeDefinitionDMO _IntegerToStringOBJ = new TypeDefinitionDMO();
         _IntegerToString = new TypeDefinition(_IntegerToStringOBJ);
@@ -3238,8 +3238,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _IntegerToStringOBJ.setName("IntegerToString");
         _IntegerToStringOBJ.setPrimitiveType("org.dmd.dms.shared.types.IntegerToString");
         _IntegerToStringOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeIntegerToString");
-        _IntegerToString.setDefinedIn(this);
-        addTypeDefList(_IntegerToString);
+        _IntegerToString.setDefinedInDmsModule(this);
+        addTypeDefinition(_IntegerToString);
 
         TypeDefinitionDMO _IntegerToUUIDLiteOBJ = new TypeDefinitionDMO();
         _IntegerToUUIDLite = new TypeDefinition(_IntegerToUUIDLiteOBJ);
@@ -3250,8 +3250,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _IntegerToUUIDLiteOBJ.setName("IntegerToUUIDLite");
         _IntegerToUUIDLiteOBJ.setPrimitiveType("org.dmd.dms.shared.types.IntegerToUUIDLite");
         _IntegerToUUIDLiteOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeIntegerToUUIDLite");
-        _IntegerToUUIDLite.setDefinedIn(this);
-        addTypeDefList(_IntegerToUUIDLite);
+        _IntegerToUUIDLite.setDefinedInDmsModule(this);
+        addTypeDefinition(_IntegerToUUIDLite);
 
         TypeDefinitionDMO _LabelledIntegerDataPointOBJ = new TypeDefinitionDMO();
         _LabelledIntegerDataPoint = new TypeDefinition(_LabelledIntegerDataPointOBJ);
@@ -3261,8 +3261,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _LabelledIntegerDataPointOBJ.setName("LabelledIntegerDataPoint");
         _LabelledIntegerDataPointOBJ.setPrimitiveType("org.dmd.dms.shared.types.LabelledIntegerDataPoint");
         _LabelledIntegerDataPointOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeLabelledIntegerDataPoint");
-        _LabelledIntegerDataPoint.setDefinedIn(this);
-        addTypeDefList(_LabelledIntegerDataPoint);
+        _LabelledIntegerDataPoint.setDefinedInDmsModule(this);
+        addTypeDefinition(_LabelledIntegerDataPoint);
 
         TypeDefinitionDMO _LongOBJ = new TypeDefinitionDMO();
         _Long = new TypeDefinition(_LongOBJ);
@@ -3271,8 +3271,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _LongOBJ.setDotName("meta.Long.TypeDefinition");
         _LongOBJ.setName("Long");
         _LongOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeLong");
-        _Long.setDefinedIn(this);
-        addTypeDefList(_Long);
+        _Long.setDefinedInDmsModule(this);
+        addTypeDefinition(_Long);
 
         TypeDefinitionDMO _LongNameOBJ = new TypeDefinitionDMO();
         _LongName = new TypeDefinition(_LongNameOBJ);
@@ -3284,8 +3284,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _LongNameOBJ.setNameAttributeDef("meta.longName");
         _LongNameOBJ.setPrimitiveType("org.dmd.dms.shared.types.LongName");
         _LongNameOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeLongName");
-        _LongName.setDefinedIn(this);
-        addTypeDefList(_LongName);
+        _LongName.setDefinedInDmsModule(this);
+        addTypeDefinition(_LongName);
 
         TypeDefinitionDMO _ModifierOBJ = new TypeDefinitionDMO();
         _Modifier = new TypeDefinition(_ModifierOBJ);
@@ -3295,8 +3295,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _ModifierOBJ.setName("Modifier");
         _ModifierOBJ.setPrimitiveType("org.dmd.dms.shared.types.Modifier");
         _ModifierOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeModifier");
-        _Modifier.setDefinedIn(this);
-        addTypeDefList(_Modifier);
+        _Modifier.setDefinedInDmsModule(this);
+        addTypeDefinition(_Modifier);
 
         TypeDefinitionDMO _NameContainerOBJ = new TypeDefinitionDMO();
         _NameContainer = new TypeDefinition(_NameContainerOBJ);
@@ -3308,8 +3308,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _NameContainerOBJ.setName("NameContainer");
         _NameContainerOBJ.setPrimitiveType("org.dmd.dms.shared.types.NameContainer");
         _NameContainerOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeNameContainer");
-        _NameContainer.setDefinedIn(this);
-        addTypeDefList(_NameContainer);
+        _NameContainer.setDefinedInDmsModule(this);
+        addTypeDefinition(_NameContainer);
 
         TypeDefinitionDMO _RuleNameOBJ = new TypeDefinitionDMO();
         _RuleName = new TypeDefinition(_RuleNameOBJ);
@@ -3321,8 +3321,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _RuleNameOBJ.setNameAttributeDef("meta.ruleName");
         _RuleNameOBJ.setPrimitiveType("org.dmd.dms.shared.types.RuleName");
         _RuleNameOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeRuleName");
-        _RuleName.setDefinedIn(this);
-        addTypeDefList(_RuleName);
+        _RuleName.setDefinedInDmsModule(this);
+        addTypeDefinition(_RuleName);
 
         TypeDefinitionDMO _ShortOBJ = new TypeDefinitionDMO();
         _Short = new TypeDefinition(_ShortOBJ);
@@ -3331,8 +3331,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _ShortOBJ.setDotName("meta.Short.TypeDefinition");
         _ShortOBJ.setName("Short");
         _ShortOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeShort");
-        _Short.setDefinedIn(this);
-        addTypeDefList(_Short);
+        _Short.setDefinedInDmsModule(this);
+        addTypeDefinition(_Short);
 
         TypeDefinitionDMO _StringOBJ = new TypeDefinitionDMO();
         _String = new TypeDefinition(_StringOBJ);
@@ -3341,8 +3341,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _StringOBJ.setDotName("meta.String.TypeDefinition");
         _StringOBJ.setName("String");
         _StringOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeString");
-        _String.setDefinedIn(this);
-        addTypeDefList(_String);
+        _String.setDefinedInDmsModule(this);
+        addTypeDefinition(_String);
 
         TypeDefinitionDMO _StringNameOBJ = new TypeDefinitionDMO();
         _StringName = new TypeDefinition(_StringNameOBJ);
@@ -3354,8 +3354,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _StringNameOBJ.setNameAttributeDef("meta.stringName");
         _StringNameOBJ.setPrimitiveType("org.dmd.dms.shared.types.StringName");
         _StringNameOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeStringName");
-        _StringName.setDefinedIn(this);
-        addTypeDefList(_StringName);
+        _StringName.setDefinedInDmsModule(this);
+        addTypeDefinition(_StringName);
 
         TypeDefinitionDMO _StringToStringOBJ = new TypeDefinitionDMO();
         _StringToString = new TypeDefinition(_StringToStringOBJ);
@@ -3366,8 +3366,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _StringToStringOBJ.setName("StringToString");
         _StringToStringOBJ.setPrimitiveType("org.dmd.dms.shared.types.StringToString");
         _StringToStringOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeStringToString");
-        _StringToString.setDefinedIn(this);
-        addTypeDefList(_StringToString);
+        _StringToString.setDefinedInDmsModule(this);
+        addTypeDefinition(_StringToString);
 
         TypeDefinitionDMO _TimeDoubleDataPointOBJ = new TypeDefinitionDMO();
         _TimeDoubleDataPoint = new TypeDefinition(_TimeDoubleDataPointOBJ);
@@ -3377,8 +3377,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _TimeDoubleDataPointOBJ.setName("TimeDoubleDataPoint");
         _TimeDoubleDataPointOBJ.setPrimitiveType("org.dmd.dms.shared.types.TimeDoubleDataPoint");
         _TimeDoubleDataPointOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeTimeDoubleDataPoint");
-        _TimeDoubleDataPoint.setDefinedIn(this);
-        addTypeDefList(_TimeDoubleDataPoint);
+        _TimeDoubleDataPoint.setDefinedInDmsModule(this);
+        addTypeDefinition(_TimeDoubleDataPoint);
 
         TypeDefinitionDMO _UUIDLiteOBJ = new TypeDefinitionDMO();
         _UUIDLite = new TypeDefinition(_UUIDLiteOBJ);
@@ -3388,8 +3388,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _UUIDLiteOBJ.setName("UUIDLite");
         _UUIDLiteOBJ.setPrimitiveType("org.dmd.dms.shared.types.UUIDLite");
         _UUIDLiteOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeUUIDLite");
-        _UUIDLite.setDefinedIn(this);
-        addTypeDefList(_UUIDLite);
+        _UUIDLite.setDefinedInDmsModule(this);
+        addTypeDefinition(_UUIDLite);
 
         TypeDefinitionDMO _UUIDNameOBJ = new TypeDefinitionDMO();
         _UUIDName = new TypeDefinition(_UUIDNameOBJ);
@@ -3401,11 +3401,11 @@ public class MetaSchemaAG extends SchemaDefinition {
         _UUIDNameOBJ.setNameAttributeDef("meta.uuidName");
         _UUIDNameOBJ.setPrimitiveType("org.dmd.dms.shared.types.UUIDName");
         _UUIDNameOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeUUIDName");
-        _UUIDName.setDefinedIn(this);
-        addTypeDefList(_UUIDName);
+        _UUIDName.setDefinedInDmsModule(this);
+        addTypeDefinition(_UUIDName);
 
     }
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatter.dumpInitEnums(MetaSchemaFormatter.java:247)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitEnums(MetaSchemaFormatterNew.java:249)
     private void initEnums() throws DMFeedbackSet {
 
         EnumDefinitionDMO _BaseTypeEnumOBJ = new EnumDefinitionDMO();
@@ -3420,8 +3420,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _BaseTypeEnumOBJ.addEnumValue("4 KEYED			Indicates a type that has a defined key type.");
         _BaseTypeEnumOBJ.setName("BaseTypeEnum");
         _BaseTypeEnumOBJ.setNullReturnValue("BaseTypeEnum.PRIMITIVE");
-        _BaseTypeEnum.setDefinedIn(this);
-        addEnumDefList(_BaseTypeEnum);
+        _BaseTypeEnum.setDefinedInDmsModule(this);
+        addEnumDefinition(_BaseTypeEnum);
 
         EnumDefinitionDMO _ClassTypeEnumOBJ = new EnumDefinitionDMO();
         _ClassTypeEnum = new EnumDefinition(_ClassTypeEnumOBJ);
@@ -3436,8 +3436,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _ClassTypeEnumOBJ.addEnumValue("5 INTERFACE		An interface class provides an interface for a set of implementing classes.");
         _ClassTypeEnumOBJ.setName("ClassTypeEnum");
         _ClassTypeEnumOBJ.setNullReturnValue("ClassTypeEnum.UNKNOWN");
-        _ClassTypeEnum.setDefinedIn(this);
-        addEnumDefList(_ClassTypeEnum);
+        _ClassTypeEnum.setDefinedInDmsModule(this);
+        addEnumDefinition(_ClassTypeEnum);
 
         EnumDefinitionDMO _DataTypeEnumOBJ = new EnumDefinitionDMO();
         _DataTypeEnum = new EnumDefinition(_DataTypeEnumOBJ);
@@ -3450,8 +3450,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _DataTypeEnumOBJ.addEnumValue("3 NONPERSISTENT Indicates that the data is used within your system and  transmitted to remote systems but is not persisted.");
         _DataTypeEnumOBJ.setName("DataTypeEnum");
         _DataTypeEnumOBJ.setNullReturnValue("DataTypeEnum.PERSISTENT");
-        _DataTypeEnum.setDefinedIn(this);
-        addEnumDefList(_DataTypeEnum);
+        _DataTypeEnum.setDefinedInDmsModule(this);
+        addEnumDefinition(_DataTypeEnum);
 
         EnumDefinitionDMO _DebugEnumOBJ = new EnumDefinitionDMO();
         _DebugEnum = new EnumDefinition(_DebugEnumOBJ);
@@ -3463,8 +3463,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _DebugEnumOBJ.addEnumValue("2 SCHEMA Allows fine control over printing of debug messages associated with schema loading operations.");
         _DebugEnumOBJ.setName("DebugEnum");
         _DebugEnumOBJ.setNullReturnValue("DebugEnum.NONE");
-        _DebugEnum.setDefinedIn(this);
-        addEnumDefList(_DebugEnum);
+        _DebugEnum.setDefinedInDmsModule(this);
+        addEnumDefinition(_DebugEnum);
 
         EnumDefinitionDMO _FilterTypeEnumOBJ = new EnumDefinitionDMO();
         _FilterTypeEnum = new EnumDefinition(_FilterTypeEnumOBJ);
@@ -3480,8 +3480,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _FilterTypeEnumOBJ.addEnumValue("6 NP   Performs a test to see if an attribute is not present.");
         _FilterTypeEnumOBJ.setName("FilterTypeEnum");
         _FilterTypeEnumOBJ.setNullReturnValue("FilterTypeEnum.NONE");
-        _FilterTypeEnum.setDefinedIn(this);
-        addEnumDefList(_FilterTypeEnum);
+        _FilterTypeEnum.setDefinedInDmsModule(this);
+        addEnumDefinition(_FilterTypeEnum);
 
         EnumDefinitionDMO _ModifyTypeEnumOBJ = new EnumDefinitionDMO();
         _ModifyTypeEnum = new EnumDefinition(_ModifyTypeEnumOBJ);
@@ -3496,8 +3496,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _ModifyTypeEnumOBJ.addEnumValue("5 NTH  The NTH operation sets the value at the specified index.");
         _ModifyTypeEnumOBJ.setName("ModifyTypeEnum");
         _ModifyTypeEnumOBJ.setNullReturnValue("ModifyTypeEnum.NONE");
-        _ModifyTypeEnum.setDefinedIn(this);
-        addEnumDefList(_ModifyTypeEnum);
+        _ModifyTypeEnum.setDefinedInDmsModule(this);
+        addEnumDefinition(_ModifyTypeEnum);
 
         EnumDefinitionDMO _OperationalContextEnumOBJ = new EnumDefinitionDMO();
         _OperationalContextEnum = new EnumDefinition(_OperationalContextEnumOBJ);
@@ -3508,8 +3508,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _OperationalContextEnumOBJ.addEnumValue("1 FULLJAVA  indicates that the component operates in a ful Java environment; no restrictions.");
         _OperationalContextEnumOBJ.setName("OperationalContextEnum");
         _OperationalContextEnumOBJ.setNullReturnValue("OperationalContextEnum.DMO");
-        _OperationalContextEnum.setDefinedIn(this);
-        addEnumDefList(_OperationalContextEnum);
+        _OperationalContextEnum.setDefinedInDmsModule(this);
+        addEnumDefinition(_OperationalContextEnum);
 
         EnumDefinitionDMO _OriginalTypeEnumOBJ = new EnumDefinitionDMO();
         _OriginalTypeEnum = new EnumDefinition(_OriginalTypeEnumOBJ);
@@ -3525,8 +3525,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _OriginalTypeEnumOBJ.addEnumValue("6 NAMETYPE The type is a name type.");
         _OriginalTypeEnumOBJ.setName("OriginalTypeEnum");
         _OriginalTypeEnumOBJ.setNullReturnValue("OriginalTypeEnum.TYPE");
-        _OriginalTypeEnum.setDefinedIn(this);
-        addEnumDefList(_OriginalTypeEnum);
+        _OriginalTypeEnum.setDefinedInDmsModule(this);
+        addEnumDefinition(_OriginalTypeEnum);
 
         EnumDefinitionDMO _RuleTypeEnumOBJ = new EnumDefinitionDMO();
         _RuleTypeEnum = new EnumDefinition(_RuleTypeEnumOBJ);
@@ -3537,8 +3537,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _RuleTypeEnumOBJ.addEnumValue("1 CLASS     Indicates that this is a class level rule.");
         _RuleTypeEnumOBJ.setName("RuleTypeEnum");
         _RuleTypeEnumOBJ.setNullReturnValue("RuleTypeEnum.ATTRIBUTE");
-        _RuleTypeEnum.setDefinedIn(this);
-        addEnumDefList(_RuleTypeEnum);
+        _RuleTypeEnum.setDefinedInDmsModule(this);
+        addEnumDefinition(_RuleTypeEnum);
 
         EnumDefinitionDMO _ValueTypeEnumOBJ = new EnumDefinitionDMO();
         _ValueTypeEnum = new EnumDefinition(_ValueTypeEnumOBJ);
@@ -3553,8 +3553,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _ValueTypeEnumOBJ.addEnumValue("5 TREESET Indicates that the attribute values are stored in a TreeSet.");
         _ValueTypeEnumOBJ.setName("ValueTypeEnum");
         _ValueTypeEnumOBJ.setNullReturnValue("ValueTypeEnum.SINGLE");
-        _ValueTypeEnum.setDefinedIn(this);
-        addEnumDefList(_ValueTypeEnum);
+        _ValueTypeEnum.setDefinedInDmsModule(this);
+        addEnumDefinition(_ValueTypeEnum);
 
         EnumDefinitionDMO _WrapperTypeEnumOBJ = new EnumDefinitionDMO();
         _WrapperTypeEnum = new EnumDefinition(_WrapperTypeEnumOBJ);
@@ -3566,11 +3566,11 @@ public class MetaSchemaAG extends SchemaDefinition {
         _WrapperTypeEnumOBJ.addEnumValue("2 EXTENDED Indicates that you want to use your own extended class.");
         _WrapperTypeEnumOBJ.setName("WrapperTypeEnum");
         _WrapperTypeEnumOBJ.setNullReturnValue("WrapperTypeEnum.BASE");
-        _WrapperTypeEnum.setDefinedIn(this);
-        addEnumDefList(_WrapperTypeEnum);
+        _WrapperTypeEnum.setDefinedInDmsModule(this);
+        addEnumDefinition(_WrapperTypeEnum);
 
     }
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatter.dumpInitRuleCategories(MetaSchemaFormatter.java:266)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitRuleCategories(MetaSchemaFormatterNew.java:268)
     private void initRuleCategories() throws DMFeedbackSet {
 
         RuleCategoryDMO _AttributeValidationOBJ = new RuleCategoryDMO();
@@ -3586,8 +3586,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _AttributeValidationOBJ.addRuleParam("org.dmd.core.DmcObject:\" \":obj:The object in which the attribute exists");
         _AttributeValidationOBJ.addRuleParam("org.dmd.core.DmcAttribute:\"<?>\":attribute:The attribute to be validated");
         _AttributeValidationOBJ.setRuleType("ATTRIBUTE");
-        _AttributeValidation.setDefinedIn(this);
-        addRuleCategoryList(_AttributeValidation);
+        _AttributeValidation.setDefinedInDmsModule(this);
+        addRuleCategory(_AttributeValidation);
 
         RuleCategoryDMO _AttributeValidationWithResolverOBJ = new RuleCategoryDMO();
         _AttributeValidationWithResolver = new RuleCategory(_AttributeValidationWithResolverOBJ);
@@ -3603,8 +3603,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _AttributeValidationWithResolverOBJ.addRuleParam("org.dmd.core.DmcAttribute:\"<?>\":attribute:The attribute to be validated");
         _AttributeValidationWithResolverOBJ.addRuleParam("org.dmd.core.interfaces.DmcUniqueNameResolverIF:\" \":resolver:The name resolver");
         _AttributeValidationWithResolverOBJ.setRuleType("ATTRIBUTE");
-        _AttributeValidationWithResolver.setDefinedIn(this);
-        addRuleCategoryList(_AttributeValidationWithResolver);
+        _AttributeValidationWithResolver.setDefinedInDmsModule(this);
+        addRuleCategory(_AttributeValidationWithResolver);
 
         RuleCategoryDMO _InitializationOBJ = new RuleCategoryDMO();
         _Initialization = new RuleCategory(_InitializationOBJ);
@@ -3617,8 +3617,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _InitializationOBJ.setRuleCategoryID("1");
         _InitializationOBJ.addRuleParam("org.dmd.core.DmcObject:\" \":obj:The object to be initialized");
         _InitializationOBJ.setRuleType("CLASS");
-        _Initialization.setDefinedIn(this);
-        addRuleCategoryList(_Initialization);
+        _Initialization.setDefinedInDmsModule(this);
+        addRuleCategory(_Initialization);
 
         RuleCategoryDMO _ObjectValidationOBJ = new RuleCategoryDMO();
         _ObjectValidation = new RuleCategory(_ObjectValidationOBJ);
@@ -3631,8 +3631,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _ObjectValidationOBJ.setRuleCategoryID("2");
         _ObjectValidationOBJ.addRuleParam("org.dmd.core.DmcObject:\" \":obj:The object to be validated");
         _ObjectValidationOBJ.setRuleType("CLASS");
-        _ObjectValidation.setDefinedIn(this);
-        addRuleCategoryList(_ObjectValidation);
+        _ObjectValidation.setDefinedInDmsModule(this);
+        addRuleCategory(_ObjectValidation);
 
         RuleCategoryDMO _UCOValidationOBJ = new RuleCategoryDMO();
         _UCOValidation = new RuleCategory(_UCOValidationOBJ);
@@ -3646,11 +3646,11 @@ public class MetaSchemaAG extends SchemaDefinition {
         _UCOValidationOBJ.addRuleImport("org.dmd.core.DmcOmni");
         _UCOValidationOBJ.addRuleParam("org.dmd.core.util.DMUncheckedObject:\" \":obj:The object to be validated:");
         _UCOValidationOBJ.setRuleType("CLASS");
-        _UCOValidation.setDefinedIn(this);
-        addRuleCategoryList(_UCOValidation);
+        _UCOValidation.setDefinedInDmsModule(this);
+        addRuleCategory(_UCOValidation);
 
     }
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatter.dumpInitComplexTypes(MetaSchemaFormatter.java:285)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitComplexTypes(MetaSchemaFormatterNew.java:287)
     private void initComplexTypes() throws DMFeedbackSet {
 
         ComplexTypeDefinitionDMO _DmwTypeToWrapperTypeOBJ = new ComplexTypeDefinitionDMO();
@@ -3661,8 +3661,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _DmwTypeToWrapperTypeOBJ.setName("DmwTypeToWrapperType");
         _DmwTypeToWrapperTypeOBJ.addRequiredPart("String          dmwType     \"The Dark Matter Wrapper type\"");
         _DmwTypeToWrapperTypeOBJ.addRequiredPart("WrapperTypeEnum wrapperType \"The type of wrapper to be used in this context\"");
-        _DmwTypeToWrapperType.setDefinedIn(this);
-        addComplexTypeDefList(_DmwTypeToWrapperType);
+        _DmwTypeToWrapperType.setDefinedInDmsModule(this);
+        addComplexTypeDefinition(_DmwTypeToWrapperType);
 
         ComplexTypeDefinitionDMO _ExampleOBJ = new ComplexTypeDefinitionDMO();
         _Example = new ComplexTypeDefinition(_ExampleOBJ);
@@ -3674,8 +3674,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _ExampleOBJ.addRequiredPart("String			type		\"The type of the example - this is just a single token string that gives a hint to your example formatter of what to do with the content\"");
         _ExampleOBJ.addRequiredPart("String			title		\"A title for the example - this doesn't have to be used by your example formatter\"");
         _ExampleOBJ.addRequiredPart("String			content		\"The textual content of the example - this can be anything you want\" greedy=true");
-        _Example.setDefinedIn(this);
-        addComplexTypeDefList(_Example);
+        _Example.setDefinedInDmsModule(this);
+        addComplexTypeDefinition(_Example);
 
         ComplexTypeDefinitionDMO _NameValuePairOBJ = new ComplexTypeDefinitionDMO();
         _NameValuePair = new ComplexTypeDefinition(_NameValuePairOBJ);
@@ -3685,8 +3685,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _NameValuePairOBJ.setName("NameValuePair");
         _NameValuePairOBJ.addRequiredPart("String			name		\"The name of the value\"");
         _NameValuePairOBJ.addRequiredPart("String			value		\"The value\" quoted=true");
-        _NameValuePair.setDefinedIn(this);
-        addComplexTypeDefList(_NameValuePair);
+        _NameValuePair.setDefinedInDmsModule(this);
+        addComplexTypeDefinition(_NameValuePair);
 
         ComplexTypeDefinitionDMO _OptimizeOBJ = new ComplexTypeDefinitionDMO();
         _Optimize = new ComplexTypeDefinition(_OptimizeOBJ);
@@ -3700,8 +3700,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _OptimizeOBJ.addOptionalPart("String			when	\"A suggested timeframe for the change\" quoted=true");
         _OptimizeOBJ.addOptionalPart("Concinnity		why		\"A suggested timeframe for the change\" weakref=true multivalued=true");
         _OptimizeOBJ.addRequiredPart("String			what	\"A description of the change to be made\"");
-        _Optimize.setDefinedIn(this);
-        addComplexTypeDefList(_Optimize);
+        _Optimize.setDefinedInDmsModule(this);
+        addComplexTypeDefinition(_Optimize);
 
         ComplexTypeDefinitionDMO _PartOBJ = new ComplexTypeDefinitionDMO();
         _Part = new ComplexTypeDefinition(_PartOBJ);
@@ -3716,8 +3716,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _PartOBJ.addRequiredPart("TypeDefinition	type        \"The type of the Part\"");
         _PartOBJ.addRequiredPart("String			name        \"The name of the Part\"");
         _PartOBJ.addRequiredPart("String			description \"The description of the Part\"  quoted=true");
-        _Part.setDefinedIn(this);
-        addComplexTypeDefList(_Part);
+        _Part.setDefinedInDmsModule(this);
+        addComplexTypeDefinition(_Part);
 
         ComplexTypeDefinitionDMO _RuleParamOBJ = new ComplexTypeDefinitionDMO();
         _RuleParam = new ComplexTypeDefinition(_RuleParamOBJ);
@@ -3730,8 +3730,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _RuleParamOBJ.addRequiredPart("String         genericArgs     \"The generic arguments associated with this parameter\" quoted=true");
         _RuleParamOBJ.addRequiredPart("String         name            \"The name of the parameter\"");
         _RuleParamOBJ.addRequiredPart("String         description     \"A description of the parameter\"");
-        _RuleParam.setDefinedIn(this);
-        addComplexTypeDefList(_RuleParam);
+        _RuleParam.setDefinedInDmsModule(this);
+        addComplexTypeDefinition(_RuleParam);
 
         ComplexTypeDefinitionDMO _SchemaAndReasonOBJ = new ComplexTypeDefinitionDMO();
         _SchemaAndReason = new ComplexTypeDefinition(_SchemaAndReasonOBJ);
@@ -3741,8 +3741,8 @@ public class MetaSchemaAG extends SchemaDefinition {
         _SchemaAndReasonOBJ.setName("SchemaAndReason");
         _SchemaAndReasonOBJ.addRequiredPart("String			schema		\"The fully qualified name of the schema to load\"");
         _SchemaAndReasonOBJ.addRequiredPart("String			hint		\"A hint as to why the schema is required\" quoted=true");
-        _SchemaAndReason.setDefinedIn(this);
-        addComplexTypeDefList(_SchemaAndReason);
+        _SchemaAndReason.setDefinedInDmsModule(this);
+        addComplexTypeDefinition(_SchemaAndReason);
 
     }
 }
