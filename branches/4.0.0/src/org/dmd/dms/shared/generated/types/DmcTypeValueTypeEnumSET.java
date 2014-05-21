@@ -33,7 +33,7 @@ import org.dmd.dms.shared.generated.enums.ValueTypeEnum;         //  - (SETTypeF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:68)
- *    Called from: org.dmd.dms.tools.generation.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:61)
+ *    Called from: org.dmd.dms.tools.generation.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:62)
  */
 @SuppressWarnings("serial")
 public class DmcTypeValueTypeEnumSET extends DmcTypeValueTypeEnum implements Serializable {

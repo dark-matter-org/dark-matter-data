@@ -249,7 +249,7 @@ public class RuleCategoryDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinit
     public OperationalContextEnum getOpContext(){
         DmcTypeOperationalContextEnumSV attr = (DmcTypeOperationalContextEnumSV) get(MetaDMSAG.__opContext);
         if (attr == null)
-            return(OperationalContextEnum.DMO);
+            return(null);
 
         return(attr.getSV());
     }
@@ -330,7 +330,7 @@ public class RuleCategoryDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinit
     public RuleTypeEnum getRuleType(){
         DmcTypeRuleTypeEnumSV attr = (DmcTypeRuleTypeEnumSV) get(MetaDMSAG.__ruleType);
         if (attr == null)
-            return(RuleTypeEnum.ATTRIBUTE);
+            return(null);
 
         return(attr.getSV());
     }

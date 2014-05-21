@@ -27,6 +27,7 @@ public class MetaSchemaFormatterNew {
 	static ArrayList<String> origOrderEnums;
 	static ArrayList<String> origOrderComplexTypes;
 	static ArrayList<String> origOrderCategories;
+	static ArrayList<String> origOrderModules;
 
 	static TreeMap<String,DMUncheckedObject>	ucoClassDefs;
 	static TreeMap<String,DMUncheckedObject>	ucoAttributeDefs;
@@ -34,14 +35,25 @@ public class MetaSchemaFormatterNew {
 	static TreeMap<String,DMUncheckedObject>	ucoEnumDefs;
 	static TreeMap<String,DMUncheckedObject>	ucoComplexTypeDefs;
 	static TreeMap<String,DMUncheckedObject>	ucoCategoryDefs;
+	static TreeMap<String,DMUncheckedObject>	ucoModuleDefs;
+	
+	// The actual module definition isn't stored in the ucoManager - it is actually removed so 
+	// that it won't clash with the class definition, so, it gets injected separately and we
+	// fake things out so that we follow the same pattern as the other definitions.
+	static DMUncheckedObject	ucoModule;
 
-	public static void dumpMetaSchemaAG(DMUncheckedObjectManager ucoManager, String od, String LGPL) throws IOException, DMFeedbackSet {
+	public static void dumpMetaSchemaAG(DMUncheckedObjectManager ucoManager, DMUncheckedObject module, String od, String LGPL) throws IOException, DMFeedbackSet {
+		ucoModule = module;
+		
 		ucoClassDefs 		= ucoManager.getObjects("ClassDefinition");
 		ucoAttributeDefs 	= ucoManager.getObjects("AttributeDefinition");
 		ucoTypeDefs 		= ucoManager.getObjects("TypeDefinition");
 		ucoEnumDefs 		= ucoManager.getObjects("EnumDefinition");
 		ucoComplexTypeDefs 	= ucoManager.getObjects("ComplexTypeDefinition");
 		ucoCategoryDefs 	= ucoManager.getObjects("RuleCategory");
+		
+		ucoModuleDefs 		= new TreeMap<String, DMUncheckedObject>();
+		ucoModuleDefs.put(ucoModule.getSV("name"), ucoModule);
 
 		BufferedWriter out = null;
 		ImportManager		imports = new ImportManager();
@@ -52,6 +64,9 @@ public class MetaSchemaFormatterNew {
 		origOrderEnums 			= ucoManager.getOriginalOrder("EnumDefinition");
 		origOrderComplexTypes 	= ucoManager.getOriginalOrder("ComplexTypeDefinition");
 		origOrderCategories 	= ucoManager.getOriginalOrder("RuleCategory");
+		
+		origOrderModules 		= new ArrayList<String>();
+		origOrderModules.add(ucoModule.getSV("name"));
 		
 		imports.addImport("org.dmd.core.feedback.DMFeedbackSet", "To handle potential value exceptions.");
 		imports.addImport("org.dmd.dms.server.extended.*", "Access to meta schema extended classes");
@@ -85,7 +100,7 @@ public class MetaSchemaFormatterNew {
 		out.write("            staticRefName = new String(\"MetaDmsModule._\");\n\n");
 		out.write("            this.addDescription(\"The meta schema defines the elements used to define schemas.\");\n");
 		out.write("            this.setName(\"meta\");\n");
-		out.write("            this.setDotName(\"meta\");\n");
+		out.write("            this.setDotName(\"meta.meta.DmsModule\");\n");
 		out.write("            this.setDefinedInDmsModule(this);\n");
 //		out.write("            this.setNameAndTypeName(\"meta.SchemaDefinition\");\n");
 
@@ -104,6 +119,7 @@ public class MetaSchemaFormatterNew {
 		out.write("            initEnums();\n");
 		out.write("            initRuleCategories();\n");
 		out.write("            initComplexTypes();\n");
+		out.write("            initModules();\n");
 		
 		out.write("        }\n");
 		
@@ -115,6 +131,7 @@ public class MetaSchemaFormatterNew {
 		dumpInitEnums(out);
 		dumpInitRuleCategories(out);
 		dumpInitComplexTypes(out);
+		dumpInitModules(out);
 		
 		out.write("}\n");
 		
@@ -129,35 +146,35 @@ public class MetaSchemaFormatterNew {
 	static void dumpStaticDefinitions(BufferedWriter out) throws IOException {
 		out.write("    public static DmsModule    _metaSchema;\n\n");
 
-		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
-				+ "\n");
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		for (int i = 0; i < origOrderClasses.size(); i++) {
 			out.write("    public static ClassDefinition     _" + origOrderClasses.get(i) + ";\n");
 		}
 		out.write("\n");
 
-		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
-				+ "\n");
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		for (int i = 0; i < origOrderEnums.size(); i++)
 			out.write("    public static EnumDefinition      _" + origOrderEnums.get(i) + ";\n");
 		out.write("\n");
 
-		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
-				+ "\n");
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		
 		
 		for (int i = 0; i < origOrderTypes.size(); i++){
 			DMUncheckedObject td = ucoTypeDefs.get(origOrderTypes.get(i));
 			String internallyGenerated = td.getSV("internallyGenerated");
-			if (internallyGenerated != null)
-				continue;
+			if (internallyGenerated != null){
+				out.write("    public static TypeDefinition      _" + origOrderTypes.get(i) + "_Type;\n");
+//				continue;
+			}
+			else{
 			out.write("    public static TypeDefinition      _" + origOrderTypes.get(i) + ";\n");
+			}
 		}
 		out.write("\n");
 
 
-		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
-				+ "\n");
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		for (int i = 0; i < origOrderAttrs.size(); i++)
 			out.write("    public static AttributeDefinition _" + origOrderAttrs.get(i) + ";\n");
 		out.write("\n");
@@ -167,10 +184,16 @@ public class MetaSchemaFormatterNew {
 			out.write("    public static ComplexTypeDefinition _" + origOrderComplexTypes.get(i) + ";\n");
 		out.write("\n");
 
-		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
-				+ "\n");
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		for (int i = 0; i < origOrderCategories.size(); i++)
 			out.write("    public static RuleCategory        _" + origOrderCategories.get(i) + ";\n");
+		out.write("\n");
+
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    // NOTE: we add the _DSDM suffix so as not to clash with the module's ClassDefinition\n");
+		for (int i = 0; i < origOrderModules.size(); i++)
+			out.write("    public static DSDefinitionModule  _" + origOrderModules.get(i) + "_DSDM;\n");
+		out.write("\n");
 		out.write("\n");
 
 //		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
@@ -198,7 +221,7 @@ public class MetaSchemaFormatterNew {
 			out.write("\n");
 		}
 		
-		out.write("    }\n");
+		out.write("    }\n\n");
 		
 	}
 	
@@ -218,7 +241,7 @@ public class MetaSchemaFormatterNew {
 			out.write("\n");
 		}
 		
-		out.write("    }\n");
+		out.write("    }\n\n");
 	}
 	
 	static void dumpInitTypes(BufferedWriter out) throws IOException {
@@ -227,22 +250,36 @@ public class MetaSchemaFormatterNew {
 		
 		for (DMUncheckedObject typeDef: ucoTypeDefs.values()) {
 			String internallyGenerated = typeDef.getSV("internallyGenerated");
+			String isEnumType = typeDef.getSV("isEnumType");
 			
-			if (internallyGenerated != null)
-				continue;
-			
-			String name = typeDef.getSV("name");
-			String dmoName = "_" + name + "OBJ";
-			
-			out.write("        TypeDefinitionDMO " + dmoName + " = new TypeDefinitionDMO();\n");
-			out.write("        _" + name + " = new TypeDefinition(" + dmoName + ");\n");
-			dumpAttrValues("        ", dmoName, typeDef, out);
-			out.write("        _" + name + ".setDefinedInDmsModule(this);\n");
-			out.write("        addTypeDefinition(_" + name + ");\n");
-			out.write("\n");
+			if (internallyGenerated == null){
+				String name = typeDef.getSV("name");
+				String dmoName = "_" + name + "OBJ";
+				
+				out.write("        TypeDefinitionDMO " + dmoName + " = new TypeDefinitionDMO();\n");
+				out.write("        _" + name + " = new TypeDefinition(" + dmoName + ");\n");
+				dumpAttrValues("        ", dmoName, typeDef, out);
+				out.write("        _" + name + ".setDefinedInDmsModule(this);\n");
+				out.write("        addTypeDefinition(_" + name + ");\n");
+				out.write("\n");
+			}
+			else if (isEnumType != null){
+				String name = typeDef.getSV("name");
+				String dmoName = "_" + name + "OBJ";
+				
+				out.write("        TypeDefinitionDMO " + dmoName + " = new TypeDefinitionDMO();\n");
+				out.write("        _" + name + "_Type = new TypeDefinition(" + dmoName + ");\n");
+				dumpAttrValues("        ", dmoName, typeDef, out);
+				out.write("        _" + name + "_Type.setDefinedInDmsModule(this);\n");
+				out.write("        addTypeDefinition(_" + name + "_Type);\n");
+				out.write("\n");
+			}
+			else{
+				System.err.println("Need to add internal type initialization for: " + typeDef.getSV("name"));
+			}
 		}
 		
-		out.write("    }\n");
+		out.write("    }\n\n");
 	}
 	
 	static void dumpInitEnums(BufferedWriter out) throws IOException {
@@ -261,7 +298,7 @@ public class MetaSchemaFormatterNew {
 			out.write("\n");
 		}
 				
-		out.write("    }\n");
+		out.write("    }\n\n");
 	}
 	
 	static void dumpInitRuleCategories(BufferedWriter out) throws IOException {
@@ -280,7 +317,7 @@ public class MetaSchemaFormatterNew {
 			out.write("\n");
 		}
 		
-		out.write("    }\n");
+		out.write("    }\n\n");
 	}
 	
 	static void dumpInitComplexTypes(BufferedWriter out) throws IOException {
@@ -299,7 +336,26 @@ public class MetaSchemaFormatterNew {
 			out.write("\n");
 		}
 		
-		out.write("    }\n");
+		out.write("    }\n\n");
+	}
+	
+	static void dumpInitModules(BufferedWriter out) throws IOException {
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    private void initModules() throws DMFeedbackSet {\n\n");
+		
+		for (DMUncheckedObject moduleDef: ucoModuleDefs.values()) {
+			String name = moduleDef.getSV("name");
+			String dmoName = "_" + name + "OBJ";
+			
+			out.write("        DSDefinitionModuleDMO " + dmoName + " = new DSDefinitionModuleDMO();\n");
+			out.write("        _" + name + "_DSDM = new DSDefinitionModule(" + dmoName + ");\n");
+			dumpAttrValues("        ", dmoName, moduleDef, out);
+			out.write("        _" + name + "_DSDM.setDefinedInDmsModule(this);\n");
+			out.write("        addDSDefinitionModule(_" + name + "_DSDM);\n");
+			out.write("\n");
+		}
+		
+		out.write("    }\n\n");
 	}
 	
 	static void dumpAttrValues(String prefix, String dmoName, DMUncheckedObject obj, BufferedWriter out) throws IOException{

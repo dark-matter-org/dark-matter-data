@@ -463,7 +463,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
         return(mycore.getObjectNameAttribute());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpAdditionalWrapperFunctions(MetaDSDHelper.java:927)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpAdditionalWrapperFunctions(MetaDSDHelper.java:946)
     /**
      * This method indicates the name of the module from which this definition was loaded.
      */

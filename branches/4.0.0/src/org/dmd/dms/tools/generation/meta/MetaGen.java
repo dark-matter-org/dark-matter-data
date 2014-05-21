@@ -171,6 +171,7 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 		// Create the TypeDefinitions to represent things that can be referred to as types
 		// when defining attributes
 		createInternalReferenceTypesForClasses();
+//		createInternalTypesForEnums();
 		createInternaReferenceTypesForEnums();
 		createInternalTypesForComplexTypes();
 		setDesignatedNameAndFilterAttributesOnTypes();
@@ -191,9 +192,9 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 		
 		DmwFormatter.dumpTypeIterables(dmwDir, LGPL.toString());
 		
-		MetaSchemaFormatter.dumpMetaSchemaAG(ucoManager, serverGenDir, LGPL.toString());
+//		MetaSchemaFormatter.dumpMetaSchemaAG(ucoManager, serverGenDir, LGPL.toString());
 		
-		MetaSchemaFormatterNew.dumpMetaSchemaAG(ucoManager, serverGenDir, LGPL.toString());
+		MetaSchemaFormatterNew.dumpMetaSchemaAG(ucoManager, ucoModule, serverGenDir, LGPL.toString());
 		
 		MetaRuleFormatter.dumpRuleCategoryInterfaces(ucoRuleCategoryDefs, sharedGenRulesDir, LGPL.toString());
 
@@ -229,7 +230,7 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 		
 		cd.addValue("file", 				ucoModule.getFile());
 		cd.addValue("lineNumber", 			ucoModule.getLineNumber() + "");
-		cd.addValue("definedIn", 			"meta");
+//		cd.addValue("definedIn", 			"meta");
 		cd.addValue("useWrapperType", 		"EXTENDED");
 		
 		cd.addValue("must", 				"name");
@@ -327,14 +328,43 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 		}
 	}
 	
+//	void createInternalTypesForEnums() throws DMFeedbackSet{
+//		for(DMUncheckedObject enumDef: ucoManager.getObjects("EnumDefinition").values()){
+//			String tn = enumDef.getSV("name");
+//
+//			DMUncheckedObject typeDef = new DMUncheckedObject("TypeDefinition");
+//			typeDef.addValue("name", 				tn);
+//			typeDef.addValue("internallyGenerated", "true");
+//			typeDef.addValue("dotName", 			"meta." + tn + ".TypeDefinition");
+//			typeDef.addValue("enumName", 			tn);
+//			typeDef.addValue("description",			"This is an internally generated type for the " + tn + " enumeration.");
+//			typeDef.addValue("typeClassName",		sharedGenTypesPackage + ".DmcType" + tn);
+//			typeDef.addValue("primitiveType", 		sharedGenEnumsPackage + "." + tn);
+//			typeDef.addValue("isEnumType", 			"true");
+////			typeDef.addValue("definedInDmsModule", 	"meta");
+//			
+//			String nrv = enumDef.getSV("nullReturnValue");
+//			if (nrv != null)
+//				typeDef.addValue("nullReturnValue", nrv);
+//			
+//			if (tn.equals("WrapperTypeEnum")){
+//        		DebugInfo.debug("ADDING WRAPPER TYPE ENUM: \n\n");
+//			}
+//			
+//			ucoTypeDefs.put("tn", typeDef);
+//			ucoManager.add(typeDef, false);
+//		}
+//	}
+	
 	void createInternaReferenceTypesForEnums() throws DMFeedbackSet{
 		for(DMUncheckedObject enumDef: ucoManager.getObjects("EnumDefinition").values()){
 			String cn = enumDef.getSV("name");
-			String tn = cn + "REF";
+//			String tn = cn + "REF";
+			String tn = cn;
 
 			DMUncheckedObject typeDef = new DMUncheckedObject("TypeDefinition");
-			typeDef.addValue("name", 				cn + "REF");
-			typeDef.addValue("dotName", 			"meta." + cn + "REF.TypeDefinition");
+			typeDef.addValue("name", 				tn);
+			typeDef.addValue("dotName", 			"meta." + tn + ".TypeDefinition");
 			typeDef.addValue("enumName", 			cn);
 			typeDef.addValue("typeClassName",		sharedGenTypesPackage + ".DmcType" + cn);
 			typeDef.addValue("primitiveType", 		sharedGenEnumsPackage + "." + cn);
@@ -343,9 +373,9 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 			typeDef.addValue("isEnumType", 			"true");
 			typeDef.addValue("description",			"This is an internally generated type to allow references to " + cn + " objects.");
 
-			checkForDuplicateType("EnumDefinition", tn);
+			checkForDuplicateType("EnumDefinition", cn);
 
-			ucoTypeDefs.put(tn, typeDef);
+			ucoManager.add(typeDef, false);
 		}
 	}
 		

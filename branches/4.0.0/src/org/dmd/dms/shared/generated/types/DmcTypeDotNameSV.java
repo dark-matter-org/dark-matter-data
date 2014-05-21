@@ -30,7 +30,7 @@ import org.dmd.dms.shared.types.DotName;                // Base type import - (S
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:74)
- *    Called from: org.dmd.dms.tools.generation.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:111)
+ *    Called from: org.dmd.dms.tools.generation.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:112)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDotNameSV extends DmcTypeDotName implements Serializable {

@@ -184,6 +184,9 @@ public class CompactSchemaFormatter {
 	        	String internallyGenerated	= uco.getSV("internallyGenerated");
 	        	String originalClass		= uco.getSV("originalClass");
 	        	
+	        	if (name.equals("WrapperTypeEnum")){
+	        		DebugInfo.debug("WRAPPER TYPE ENUM: " + uco.toOIF() + "\n\n");
+	        	}
 	        	if (internallyGenerated == null){
 	        		// This is a straightforward type definition
 	        		

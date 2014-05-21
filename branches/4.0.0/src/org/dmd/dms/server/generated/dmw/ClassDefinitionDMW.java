@@ -719,6 +719,60 @@ public class ClassDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinitio
     }
 
     /**
+     * Indicates if a definition may be generated internally as a result of the
+     * existence of another kind of definition. This is fairly complicated stuff
+     * that has to do with the way in which object name resolution is performed
+     * using DmcDefinitionSets. For instance we generate internal TypeDefinitions
+     * for ClassDefinitions, EnumDefinitions etc. so that they may be referred to
+     * as types in attribute definitions. When definitions are added to the
+     * generated ModuleDefinitionManager for a DSL, they are added up the
+     * derivation hierarchy to allow for type based matching of a reference to an
+     * object. This is tricky. <p/> You may have an attribute called classRef
+     * that has a type of ClassDefinition. If you have ClassDefinition for  Book,
+     * an instance of the classRef attribute may be set to Book. <p/> You may
+     * have an attribute called typeRef that has a type of TypeDefinition. You
+     * may also set typeRef to the value Book. <p/> This is because Book can be
+     * either a reference to a ClassDefinition or its internally generated
+     * TypeDefinition. When object resolution is performed, the type of the
+     * attribute is used to determine what kind of thing we're looking for
+     * (context is everything). For the classRef attribute, we will take the name
+     * of the value - Book - and append the type of the attribute, -
+     * ClassDefinition - to come up with the DotName of the object we're trying
+     * to resolve, in this case Book.ClassDefinition (this is the name-type
+     * representation of a definition object name). Side Note: If you happend to
+     * have a Book class in different dark-matter schemas, that's not a problem,
+     * because we can, based on usage context, determine which definition from
+     * which schema should be used (this is a whole other discussion). <p/> If
+     * we're trying to resolve the typeRef attribute, the DotName will be
+     * Book.TypeDefinition. <p/> This attribute comes in to play when generating
+     * code for the ModuleDefinitionManager beacsue, although we add the
+     * definitions up the definition derivation chain, we don't what to try and
+     * add internally generated definitions to the DmcDefinitionSet for the base
+     * definition e.g. DmsDefinition. This is because it would cause a name clash
+     * at that level. At the top level definition, we not be able to distinguish
+     * between the class definition and its intenally generated type because
+     * their fully qualified names would both appear as
+     * schema.Book.DmsDefinition. For that reason, we don't add internally
+     * generated definitions to the base definition set and having this flag on
+     * definitions that may be generated internally allows us to do checking in
+     * the ModuledefinitionManager. <p/> I know. Clear as mud, but hopefully, you
+     * never have to look at this because the tricky bits have been dealt with! 
+     */
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:133)
+    public Boolean getMayBeInternallyGenerated(){
+        return(mycore.getMayBeInternallyGenerated());
+    }
+
+    /**
+     * Sets mayBeInternallyGenerated to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:206)
+    public void setMayBeInternallyGenerated(Object value) throws DMFeedbackSet {
+        mycore.setMayBeInternallyGenerated(value);
+    }
+
+    /**
      * This flag indicates if the associated definition was internally generated.
      * This is the case for TypeDefinitions generated for ClassDefinitions and
      * EnumDefinitions that allow for references to these objects. 
@@ -1173,7 +1227,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinitio
         return(mycore.getObjectNameAttribute());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpAdditionalWrapperFunctions(MetaDSDHelper.java:927)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpAdditionalWrapperFunctions(MetaDSDHelper.java:946)
     /**
      * This method indicates the name of the module from which this definition was loaded.
      */

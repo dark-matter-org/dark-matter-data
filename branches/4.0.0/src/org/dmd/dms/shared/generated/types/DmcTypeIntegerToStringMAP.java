@@ -36,7 +36,7 @@ import org.dmd.dms.shared.types.IntegerToString;                 // Primitive im
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.tools.generation.util.MAPTypeFormatter.dumpMAPType(MAPTypeFormatter.java:64)
- *    Called from: org.dmd.dms.tools.generation.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:126)
+ *    Called from: org.dmd.dms.tools.generation.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:127)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString<IntegerToString> {

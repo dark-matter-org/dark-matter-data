@@ -32,7 +32,7 @@ import org.dmd.dms.shared.types.EnumValue;                // Base type import - 
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:73)
- *    Called from: org.dmd.dms.tools.generation.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:116)
+ *    Called from: org.dmd.dms.tools.generation.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:117)
  */
 @SuppressWarnings("serial")
 public class DmcTypeEnumValueMV extends DmcTypeEnumValue implements Serializable {

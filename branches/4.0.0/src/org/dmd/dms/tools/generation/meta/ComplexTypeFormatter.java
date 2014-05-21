@@ -308,8 +308,7 @@ public class ComplexTypeFormatter {
 		///////////////////////////////////////////////////////////////////////
 
 		for (Part field : parts) {
-			out.write("    public " + field.type + " get"
-					+ Manipulator.capFirstChar(field.name) + "(){\n");
+			out.write("    public " + field.type + " get" + Manipulator.capFirstChar(field.name) + "(){\n");
 			out.write("        return(" + field.name + ");\n");
 			out.write("    }\n\n");
 		}
@@ -344,17 +343,12 @@ public class ComplexTypeFormatter {
 				out.write("        if ((" + fn + " != null) && (!" + fn + ".isResolved())){\n");
 				out.write("            obj = resolver.findNamedObjectMayClash(object, " + fn + ".getObjectName(), ncr, " + fn + "AI);\n");
 				out.write("            if (obj == null)\n");
-				out.write("                throw(new DMFeedbackSet(\"Could not resolve reference to: \" + "
-						+ fn
-						+ ".getObjectName() + \" via attribute: \" + ai.name));\n");
+				out.write("                throw(new DMFeedbackSet(\"Could not resolve reference to: \" + " + fn + ".getObjectName() + \" via attribute: \" + ai.name));\n");
 				out.write("        \n");
 				out.write("            if (obj instanceof DmcContainerIF)\n");
-				out.write("                ((DmcNamedObjectREF)"
-						+ fn
-						+ ").setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());\n");
+				out.write("                ((DmcNamedObjectREF)" + fn + ").setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());\n");
 				out.write("            else\n");
-				out.write("                ((DmcNamedObjectREF)" + fn
-						+ ").setObject(obj);\n");
+				out.write("                ((DmcNamedObjectREF)" + fn + ").setObject(obj);\n");
 				out.write("        }\n");
 				out.write("        \n");
 			}
@@ -381,20 +375,26 @@ public class ComplexTypeFormatter {
 
 			DMUncheckedObject typeDef = typeDefs.get(field.type);
 
-			if (typeDef == null) {
-				typeDef = enumDefs.get(field.type);
-				if (typeDef != null) {
-					String imp = "org.dmd.dms.shared.generated.enums." + field.type;
-					imports.addImport(imp, "Type for field: " + field.name);
-				} else {
-					typeDef = typeDefs.get(field.type + "REF");
-					String primitiveType = typeDef.getSV("primitiveType");
+			String primitiveType = typeDef.getSV("primitiveType");
 
-					if (primitiveType != null){
-						imports.addImport(primitiveType, "Type for field: " + field.name);
-					}
-				}
+			if (primitiveType != null){
+				imports.addImport(primitiveType, "Type for field: " + field.name);
 			}
+			
+//			if (typeDef == null) {
+//				typeDef = enumDefs.get(field.type);
+//				if (typeDef != null) {
+//					String imp = "org.dmd.dms.shared.generated.enums." + field.type;
+//					imports.addImport(imp, "Type for field: " + field.name);
+//				} else {
+//					typeDef = typeDefs.get(field.type + "REF");
+//					String primitiveType = typeDef.getSV("primitiveType");
+//
+//					if (primitiveType != null){
+//						imports.addImport(primitiveType, "Type for field: " + field.name);
+//					}
+//				}
+//			}
 
 		}
 	}
