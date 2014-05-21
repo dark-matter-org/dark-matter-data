@@ -46,8 +46,9 @@ public class DerivedTypeFormatter {
 
 			if (typedef.getSV("isEnumType") != null) {
 				String tmp = typedef.getSV("name");
-				int refPos = tmp.indexOf("REF");
-				String tn = tmp.substring(0, refPos);
+//				int refPos = tmp.indexOf("REF");
+//				String tn = tmp.substring(0, refPos);
+				String tn = tmp;
 				// dmotypedir basePackage baseTypeImport typeName
 				// primitiveImport nameAttrImport nameAttr nameAttrID generic
 				// isRef isNameType, isFilterType fileHeader progress

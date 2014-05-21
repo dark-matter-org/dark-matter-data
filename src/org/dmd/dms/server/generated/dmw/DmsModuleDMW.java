@@ -19,35 +19,35 @@ package org.dmd.dms.server.generated.dmw;
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:105)
 import java.util.*;                                                         // To support access functions - (DmwFormatter.java:75)
-import java.util.Iterator;                                                  // To allow access to our definitions - (MetaDSDHelper.java:880)
+import java.util.Iterator;                                                  // To allow access to our definitions - (MetaDSDHelper.java:899)
 import org.dmd.core.*;                                                      // Basic dark-matter infrastructure - (DmwFormatter.java:77)
 import org.dmd.core.feedback.*;                                             // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:83)
 import org.dmd.core.interfaces.DmcDefinitionIF;                             // Because this is a DS definition - (DmwFormatter.java:95)
 import org.dmd.core.interfaces.DmcNamedObjectIF;                            // Required when managing definitions - (DmwFormatter.java:94)
 import org.dmd.dms.server.extended.*;                                       // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:79)
-import org.dmd.dms.server.extended.ActionDefinition;                        // A definition from the DmsModule Module - (MetaDSDHelper.java:892)
-import org.dmd.dms.server.extended.AttributeDefinition;                     // A definition from the DmsModule Module - (MetaDSDHelper.java:892)
-import org.dmd.dms.server.extended.ClassDefinition;                         // A definition from the DmsModule Module - (MetaDSDHelper.java:892)
-import org.dmd.dms.server.extended.ComplexTypeDefinition;                   // A definition from the DmsModule Module - (MetaDSDHelper.java:892)
-import org.dmd.dms.server.extended.DSDefinitionModule;                      // A definition from the DmsModule Module - (MetaDSDHelper.java:892)
-import org.dmd.dms.server.extended.Dependency;                              // A definition from the DmsModule Module - (MetaDSDHelper.java:892)
-import org.dmd.dms.server.extended.DependencyImplementation;                // A definition from the DmsModule Module - (MetaDSDHelper.java:892)
-import org.dmd.dms.server.extended.DmsDefinition;                           // A definition from the DmsModule Module - (MetaDSDHelper.java:878)
-import org.dmd.dms.server.extended.EnumDefinition;                          // A definition from the DmsModule Module - (MetaDSDHelper.java:892)
-import org.dmd.dms.server.extended.ExtendedReferenceTypeDefinition;         // A definition from the DmsModule Module - (MetaDSDHelper.java:892)
-import org.dmd.dms.server.extended.RuleCategory;                            // A definition from the DmsModule Module - (MetaDSDHelper.java:892)
-import org.dmd.dms.server.extended.RuleDefinition;                          // A definition from the DmsModule Module - (MetaDSDHelper.java:892)
-import org.dmd.dms.server.extended.RunContext;                              // A definition from the DmsModule Module - (MetaDSDHelper.java:892)
-import org.dmd.dms.server.extended.SchemaDefinition;                        // A definition from the DmsModule Module - (MetaDSDHelper.java:892)
-import org.dmd.dms.server.extended.SliceDefinition;                         // A definition from the DmsModule Module - (MetaDSDHelper.java:892)
-import org.dmd.dms.server.extended.TypeDefinition;                          // A definition from the DmsModule Module - (MetaDSDHelper.java:892)
-import org.dmd.dms.server.generated.dsd.DmsModuleScopedInterface;           // Because this is a DS module - (MetaDSDHelper.java:865)
-import org.dmd.dms.server.util.DmcDefinitionSet;                            // Our base to provide definition set storage - (MetaDSDHelper.java:866)
+import org.dmd.dms.server.extended.ActionDefinition;                        // A definition from the DmsModule Module - (MetaDSDHelper.java:911)
+import org.dmd.dms.server.extended.AttributeDefinition;                     // A definition from the DmsModule Module - (MetaDSDHelper.java:911)
+import org.dmd.dms.server.extended.ClassDefinition;                         // A definition from the DmsModule Module - (MetaDSDHelper.java:911)
+import org.dmd.dms.server.extended.ComplexTypeDefinition;                   // A definition from the DmsModule Module - (MetaDSDHelper.java:911)
+import org.dmd.dms.server.extended.DSDefinitionModule;                      // A definition from the DmsModule Module - (MetaDSDHelper.java:911)
+import org.dmd.dms.server.extended.Dependency;                              // A definition from the DmsModule Module - (MetaDSDHelper.java:911)
+import org.dmd.dms.server.extended.DependencyImplementation;                // A definition from the DmsModule Module - (MetaDSDHelper.java:911)
+import org.dmd.dms.server.extended.DmsDefinition;                           // A definition from the DmsModule Module - (MetaDSDHelper.java:897)
+import org.dmd.dms.server.extended.EnumDefinition;                          // A definition from the DmsModule Module - (MetaDSDHelper.java:911)
+import org.dmd.dms.server.extended.ExtendedReferenceTypeDefinition;         // A definition from the DmsModule Module - (MetaDSDHelper.java:911)
+import org.dmd.dms.server.extended.RuleCategory;                            // A definition from the DmsModule Module - (MetaDSDHelper.java:911)
+import org.dmd.dms.server.extended.RuleDefinition;                          // A definition from the DmsModule Module - (MetaDSDHelper.java:911)
+import org.dmd.dms.server.extended.RunContext;                              // A definition from the DmsModule Module - (MetaDSDHelper.java:911)
+import org.dmd.dms.server.extended.SchemaDefinition;                        // A definition from the DmsModule Module - (MetaDSDHelper.java:911)
+import org.dmd.dms.server.extended.SliceDefinition;                         // A definition from the DmsModule Module - (MetaDSDHelper.java:911)
+import org.dmd.dms.server.extended.TypeDefinition;                          // A definition from the DmsModule Module - (MetaDSDHelper.java:911)
+import org.dmd.dms.server.generated.dsd.DmsModuleScopedInterface;           // Because this is a DS module - (MetaDSDHelper.java:884)
+import org.dmd.dms.server.util.DmcDefinitionSet;                            // Our base to provide definition set storage - (MetaDSDHelper.java:885)
 import org.dmd.dms.shared.generated.dmo.*;                                  // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:80)
 import org.dmd.dms.shared.generated.enums.*;                                // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:81)
 import org.dmd.dms.shared.generated.types.*;                                // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:82)
 import org.dmd.dms.shared.types.*;                                          // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:76)
-import org.dmd.dms.shared.types.DotName;                                    // To support the find method for definitions - (MetaDSDHelper.java:881)
+import org.dmd.dms.shared.types.DotName;                                    // To support the find method for definitions - (MetaDSDHelper.java:900)
 import org.dmd.dmw.*;                                                       // Base wrapper capabilities - (DmwFormatter.java:78)
 
 /**
@@ -58,7 +58,7 @@ import org.dmd.dmw.*;                                                       // B
 public class DmsModuleDMW extends org.dmd.dms.server.extended.DmsDefinition implements DmcDefinitionIF, DmcNamedObjectIF, DmsModuleScopedInterface  {
 
     // Generated from: org.dmd.util.artifact.java.MemberManager.getFormattedMembers(MemberManager.java:68)
-    // Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpAdditionalWrapperDefinitions(MetaDSDHelper.java:901)
+    // Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpAdditionalWrapperDefinitions(MetaDSDHelper.java:920)
 
     DmcDefinitionSet<DmsDefinition>                       DmsDefinitionDefs                      = new DmcDefinitionSet<DmsDefinition>("DmsModule-allDefinitions");                                          // All definitions associated with this module
     DmcDefinitionSet<ActionDefinition>                    ActionDefinitionDefs                   = new DmcDefinitionSet<ActionDefinition>("DmsModule-ActionDefinitionDefs");                                 // All ActionDefinition definitions
@@ -432,8 +432,8 @@ public class DmsModuleDMW extends org.dmd.dms.server.extended.DmsDefinition impl
         return(mycore.getObjectNameAttribute());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:449)
-    // Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpAdditionalWrapperFunctions(MetaDSDHelper.java:917)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:455)
+    // Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpAdditionalWrapperFunctions(MetaDSDHelper.java:936)
     /**
      * All definitions are added to the base definition collection.
      */
@@ -453,7 +453,7 @@ public class DmsModuleDMW extends org.dmd.dms.server.extended.DmsDefinition impl
         return(DmsDefinitionDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:479)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
     public void addActionDefinition(ActionDefinition def){
         ActionDefinitionDefs.add(def);
         addDmsDefinition(def);
@@ -471,7 +471,7 @@ public class DmsModuleDMW extends org.dmd.dms.server.extended.DmsDefinition impl
         return(ActionDefinitionDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:479)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
     public void addAttributeDefinition(AttributeDefinition def){
         AttributeDefinitionDefs.add(def);
         addDmsDefinition(def);
@@ -489,10 +489,13 @@ public class DmsModuleDMW extends org.dmd.dms.server.extended.DmsDefinition impl
         return(AttributeDefinitionDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:479)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
     public void addClassDefinition(ClassDefinition def){
         ClassDefinitionDefs.add(def);
-        addDmsDefinition(def);
+        // We only add the definition up the chain if it isn't internally generated
+        // this prevents clashing names further up the definition set hierarchy
+        if (!def.getInternallyGenerated())
+            addDmsDefinition(def);
     }
 
     public int getClassDefinitionCount(){
@@ -507,7 +510,7 @@ public class DmsModuleDMW extends org.dmd.dms.server.extended.DmsDefinition impl
         return(ClassDefinitionDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:479)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
     public void addComplexTypeDefinition(ComplexTypeDefinition def){
         ComplexTypeDefinitionDefs.add(def);
         addDmsDefinition(def);
@@ -525,7 +528,7 @@ public class DmsModuleDMW extends org.dmd.dms.server.extended.DmsDefinition impl
         return(ComplexTypeDefinitionDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:479)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
     public void addExtendedReferenceTypeDefinition(ExtendedReferenceTypeDefinition def){
         ExtendedReferenceTypeDefinitionDefs.add(def);
         addComplexTypeDefinition(def);
@@ -543,10 +546,10 @@ public class DmsModuleDMW extends org.dmd.dms.server.extended.DmsDefinition impl
         return(ExtendedReferenceTypeDefinitionDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:479)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
     public void addDSDefinitionModule(DSDefinitionModule def){
         DSDefinitionModuleDefs.add(def);
-        addDmsDefinition(def);
+        // We don't add the DSDefinitionModule (DmsModule) because it would clash with the DmsModule ClassDefinition
     }
 
     public int getDSDefinitionModuleCount(){
@@ -561,7 +564,7 @@ public class DmsModuleDMW extends org.dmd.dms.server.extended.DmsDefinition impl
         return(DSDefinitionModuleDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:479)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
     public void addDependency(Dependency def){
         DependencyDefs.add(def);
         addDmsDefinition(def);
@@ -579,7 +582,7 @@ public class DmsModuleDMW extends org.dmd.dms.server.extended.DmsDefinition impl
         return(DependencyDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:479)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
     public void addDependencyImplementation(DependencyImplementation def){
         DependencyImplementationDefs.add(def);
         addDmsDefinition(def);
@@ -597,7 +600,7 @@ public class DmsModuleDMW extends org.dmd.dms.server.extended.DmsDefinition impl
         return(DependencyImplementationDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:479)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
     public void addEnumDefinition(EnumDefinition def){
         EnumDefinitionDefs.add(def);
         addDmsDefinition(def);
@@ -615,7 +618,7 @@ public class DmsModuleDMW extends org.dmd.dms.server.extended.DmsDefinition impl
         return(EnumDefinitionDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:479)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
     public void addRuleCategory(RuleCategory def){
         RuleCategoryDefs.add(def);
         addDmsDefinition(def);
@@ -633,7 +636,7 @@ public class DmsModuleDMW extends org.dmd.dms.server.extended.DmsDefinition impl
         return(RuleCategoryDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:479)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
     public void addRuleDefinition(RuleDefinition def){
         RuleDefinitionDefs.add(def);
         addDmsDefinition(def);
@@ -651,7 +654,7 @@ public class DmsModuleDMW extends org.dmd.dms.server.extended.DmsDefinition impl
         return(RuleDefinitionDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:479)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
     public void addRunContext(RunContext def){
         RunContextDefs.add(def);
         addDmsDefinition(def);
@@ -669,7 +672,7 @@ public class DmsModuleDMW extends org.dmd.dms.server.extended.DmsDefinition impl
         return(RunContextDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:479)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
     public void addSchemaDefinition(SchemaDefinition def){
         SchemaDefinitionDefs.add(def);
         addDmsDefinition(def);
@@ -687,7 +690,7 @@ public class DmsModuleDMW extends org.dmd.dms.server.extended.DmsDefinition impl
         return(SchemaDefinitionDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:479)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
     public void addSliceDefinition(SliceDefinition def){
         SliceDefinitionDefs.add(def);
         addDmsDefinition(def);
@@ -705,10 +708,13 @@ public class DmsModuleDMW extends org.dmd.dms.server.extended.DmsDefinition impl
         return(SliceDefinitionDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:479)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
     public void addTypeDefinition(TypeDefinition def){
         TypeDefinitionDefs.add(def);
-        addDmsDefinition(def);
+        // We only add the definition up the chain if it isn't internally generated
+        // this prevents clashing names further up the definition set hierarchy
+        if (!def.getInternallyGenerated())
+            addDmsDefinition(def);
     }
 
     public int getTypeDefinitionCount(){
@@ -723,7 +729,7 @@ public class DmsModuleDMW extends org.dmd.dms.server.extended.DmsDefinition impl
         return(TypeDefinitionDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpAdditionalWrapperFunctions(MetaDSDHelper.java:927)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpAdditionalWrapperFunctions(MetaDSDHelper.java:946)
     /**
      * This method indicates the name of the module from which this definition was loaded.
      */

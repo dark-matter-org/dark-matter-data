@@ -61,6 +61,46 @@ public class DMUncheckedObjectManager {
 	 * of the object clashes with an object that has already been read.
 	 */
 	public void add(DMUncheckedObject uco) throws DMFeedbackSet {
+		add(uco, true);
+//		TreeMap<String,DMUncheckedObject> objmap = objectsByClass.get(uco.getConstructionClass());
+//		ArrayList<String> order = objectsByClassOriginalOrder.get(uco.getConstructionClass());
+//		
+//		if (objmap == null){
+//			objmap = new TreeMap<String, DMUncheckedObject>();
+//			objectsByClass.put(uco.getConstructionClass(), objmap);
+//			order = new ArrayList<String>();
+//			objectsByClassOriginalOrder.put(uco.getConstructionClass(), order);
+//		}
+//		
+//		String name = uco.getSV(namingAttribute);
+//		
+//		if (name == null){
+//			throw(new DMFeedbackSet("The naming attribute: " + namingAttribute + " is missing from: " + uco.toOIF()));
+//		}
+//		
+//		DMUncheckedObject existing = objectsByName.get(name);
+//		
+//		if (existing != null){
+//			DMFeedback f = new DMFeedback("Clashing names for the following objects:\n");
+//			f.addToMessage(existing.toOIF() + "\n");
+//			f.addToMessage(uco.toOIF());
+//			throw(new DMFeedbackSet(f));
+//		}
+//		
+//		objmap.put(name, uco);
+//		order.add(name);
+//		
+//		objectsByName.put(name, uco);
+	}
+	
+	/**
+	 * Attempts to add the object to our collection of objects.
+	 * @param uco the object to be added.
+	 * @param global whether the object should be added to our global name map or just to its class based map
+	 * @throws DMFeedbackSet if the naming attribute isn't specified or if the name
+	 * of the object clashes with an object that has already been read.
+	 */
+	public void add(DMUncheckedObject uco, boolean global) throws DMFeedbackSet {
 		TreeMap<String,DMUncheckedObject> objmap = objectsByClass.get(uco.getConstructionClass());
 		ArrayList<String> order = objectsByClassOriginalOrder.get(uco.getConstructionClass());
 		
@@ -77,20 +117,32 @@ public class DMUncheckedObjectManager {
 			throw(new DMFeedbackSet("The naming attribute: " + namingAttribute + " is missing from: " + uco.toOIF()));
 		}
 		
-		DMUncheckedObject existing = objectsByName.get(name);
+		DMUncheckedObject existing = objmap.get(name);
 		
 		if (existing != null){
-			DMFeedback f = new DMFeedback("Clashing names for the following objects:\n");
+			DMFeedback f = new DMFeedback("Clashing names for objects of type " + uco.getConstructionClass() + ":\n");
 			f.addToMessage(existing.toOIF() + "\n");
 			f.addToMessage(uco.toOIF());
-			throw(new DMFeedbackSet(f));
+			throw(new DMFeedbackSet(f));			
 		}
 		
 		objmap.put(name, uco);
 		order.add(name);
-		
-		objectsByName.put(name, uco);
+
+		if (global){
+			existing = objectsByName.get(name);
+			
+			if (existing != null){
+				DMFeedback f = new DMFeedback("Clashing names for the following objects:\n");
+				f.addToMessage(existing.toOIF() + "\n");
+				f.addToMessage(uco.toOIF());
+				throw(new DMFeedbackSet(f));
+			}
+			objectsByName.put(name, uco);
+		}		
 	}
+	
+	
 	
 	/**
 	 * Deletes the specified object. 

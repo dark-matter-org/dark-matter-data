@@ -27,7 +27,7 @@ import org.dmd.core.util.ComplexTypeSplitter;                      // For parsin
 import org.dmd.core.util.ParsedNameValuePair;                      // To store values parsed from initial input - (ComplexTypeFormatter.java:87)
 import org.dmd.dms.shared.generated.enums.DataTypeEnum;            // For fake DmcAttributeInfo - (ComplexTypeFormatter.java:82)
 import org.dmd.dms.shared.generated.enums.ValueTypeEnum;           // For fake DmcAttributeInfo - (ComplexTypeFormatter.java:83)
-import org.dmd.dms.shared.generated.enums.WrapperTypeEnum;         // Type for field: wrapperType - (ComplexTypeFormatter.java:388)
+import org.dmd.dms.shared.generated.enums.WrapperTypeEnum;         // Type for field: wrapperType - (ComplexTypeFormatter.java:381)
 
 
 

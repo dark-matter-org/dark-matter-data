@@ -137,7 +137,8 @@ useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.server.extended.ClassDefinition
 dmoImport		org.dmd.dms.shared.generated.dmo.ClassDefinitionDMO
 derivedFrom     DmsDefinition
-isDSDefinition	true 
+isDSDefinition	true
+mayBeInternallyGenerated true
 isNamedBy       name
 must         	name
 may         	description
@@ -162,6 +163,7 @@ may           	abbrev
 may         	obsoleteVersion
 may				isDSDefinition
 may				partOfDefinitionModule
+may				mayBeInternallyGenerated
 //may				isDSModule
 // Auto generated/set
 may             internallyGenerated
@@ -215,6 +217,7 @@ javaClass     	org.dmd.dms.server.extended.TypeDefinition
 dmoImport		org.dmd.dms.shared.generated.dmo.TypeDefinitionDMO
 derivedFrom     DmsDefinition
 isDSDefinition	true
+mayBeInternallyGenerated	true
 isNamedBy       name
 must          	name
 must            typeClassName

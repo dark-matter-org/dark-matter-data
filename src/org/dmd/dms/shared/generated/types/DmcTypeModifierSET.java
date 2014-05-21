@@ -35,7 +35,7 @@ import org.dmd.dms.shared.types.Modifier;                        // Base type im
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:68)
- *    Called from: org.dmd.dms.tools.generation.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:120)
+ *    Called from: org.dmd.dms.tools.generation.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:121)
  */
 @SuppressWarnings("serial")
 public class DmcTypeModifierSET extends DmcTypeModifier implements Serializable {

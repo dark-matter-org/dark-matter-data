@@ -25,6 +25,12 @@ import org.dmd.util.runtime.DebugInfo;
  */
 public class MetaDSDHelper {
 	
+	// This is the name of the DSDefinitionModule for the dark-matter schema 
+	// DON'T confuse this with the name of the instance of the meta schema!
+	// ALSO: we don't put in the leading "meta." here because it's added
+	// automatically when formatting reference attributes in MetaSchemaFormatter.dumpAttrValues
+	static String metaModuleDefinitionName = "DmsModule";
+	
 	DMUncheckedObjectManager 	ucoManager;
 	DMUncheckedObject			ucoModule;
 	TreeMap<String,DMUncheckedObject>	ucoClassDefs;
@@ -57,11 +63,11 @@ public class MetaDSDHelper {
     	// attribute so that we can use this information in the DMWGenerator later.
 		
 		DMUncheckedObject base = ucoClassDefs.get(ucoModule.getSV("baseDefinition"));
-		base.addValue("partOfDefinitionModule", "meta.DmsModule");
+		base.addValue("partOfDefinitionModule", metaModuleDefinitionName);
 		
 		ArrayList<ClassInfo> derived = getAllDerived(ucoModule.getSV("baseDefinition"));
 		for(ClassInfo ci: derived){
-			ci.cd.addValue("partOfDefinitionModule", "meta.DmsModule");
+			ci.cd.addValue("partOfDefinitionModule", metaModuleDefinitionName);
 		}
 		
 //		// All objects that are based on classes derived from the baseDefinition
@@ -73,12 +79,12 @@ public class MetaDSDHelper {
 //			allDerivedFromBase.put(ci.cd.getSV("name"), ci.cd);
 //		}
 		
-		// All objects are marked as being defined in the meta DmsModule
-		Iterator<DMUncheckedObject> allIT = ucoManager.getAllObjectsIterator();
-		while(allIT.hasNext()){
-			DMUncheckedObject obj = allIT.next();
-			obj.addValue("definedInDmsModule", "meta");
-		}
+//		// All objects are marked as being defined in the meta DmsModule
+//		Iterator<DMUncheckedObject> allIT = ucoManager.getAllObjectsIterator();
+//		while(allIT.hasNext()){
+//			DMUncheckedObject obj = allIT.next();
+//			obj.addValue("definedInDmsModule", "meta");
+//		}
 		
 	}
 	
@@ -479,7 +485,10 @@ public class MetaDSDHelper {
 			sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public void add" + ci.cd.getSV("name") + "(" + ci.cd.getSV("name") + " def){\n");
 			sb.append("        " + ci.cd.getSV("name") + "Defs.add(def);\n");
-			getBaseClassAddCall(ci.cd.getSV("derivedFrom"), sb);
+			if (ci.cd.getSV("name").equals("DSDefinitionModule"))
+				sb.append("        // We don't add the DSDefinitionModule (DmsModule) because it would clash with the DmsModule ClassDefinition\n");
+			else
+				getBaseClassAddCall(ci, ci.cd.getSV("derivedFrom"), sb);
 			sb.append("    }\n\n");
 			
 			sb.append("    public int get" + ci.cd.getSV("name") + "Count(){\n");
@@ -501,14 +510,24 @@ public class MetaDSDHelper {
 	/**
 	 * If we have a base class, we add this definition to its index as well. This allows us
 	 * to access all instances of any particular class type, even if it's abstract.
-	 * @param cd
+	 * @param ci the class info for the class at the current level of the definition chain
+	 * @param cd the class from we're derived, or null
 	 * @param sb
 	 */
-	void getBaseClassAddCall(String cd, StringBuffer sb){
+	void getBaseClassAddCall(ClassInfo ci, String cd, StringBuffer sb){
 		if (cd == null)
 			return;
 		
-		sb.append("        add" + cd + "(def);\n");
+		String mayBeInternallyGenerated = ci.cd.getSV("mayBeInternallyGenerated");
+		
+		if (mayBeInternallyGenerated != null){
+			sb.append("        // We only add the definition up the chain if it isn't internally generated\n");
+			sb.append("        // this prevents clashing names further up the definition set hierarchy\n");
+			sb.append("        if (!def.getInternallyGenerated())\n");
+			sb.append("            add" + cd + "(def);\n");
+		}
+		else
+			sb.append("        add" + cd + "(def);\n");
 	}
 
 	///////////////////////////////////////////////////////////////////////////
@@ -920,9 +939,9 @@ public class MetaDSDHelper {
 			if (cd.getSV("classType").equals("STRUCTURAL")){
 				String definedInModuleAttribute = ucoModule.getSV("definedInModuleAttribute");
 				String attrNamePart = Manipulator.capFirstChar(definedInModuleAttribute);
-				String temp = cd.getSV("partOfDefinitionModule");
-				int period = temp.indexOf(".");
-				String podm = temp.substring(period+1);
+//				String temp = cd.getSV("partOfDefinitionModule");
+//				int period = temp.indexOf(".");
+//				String podm = temp.substring(period+1);
 				
 				out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 				out.write("    /**\n");
@@ -930,7 +949,7 @@ public class MetaDSDHelper {
 				out.write("     */\n");
 				out.write("    @Override\n");
 				out.write("    public String getNameOfModuleWhereThisCameFrom(){\n");
-				out.write("        " + podm + "REF ref = ((" + cd.getSV("name") + "DMO) core).get" + attrNamePart + "();\n");
+				out.write("        " + ucoModule.getSV("name") + "REF ref = ((" + cd.getSV("name") + "DMO) core).get" + attrNamePart + "();\n");
 				out.write("        return(ref.getName().getNameString());\n");
 				out.write("    }\n\n");
 			}

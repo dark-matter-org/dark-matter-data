@@ -342,7 +342,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.shared.generated.dmo.Dms
     public DataTypeEnum getDataType(){
         DmcTypeDataTypeEnumSV attr = (DmcTypeDataTypeEnumSV) get(MetaDMSAG.__dataType);
         if (attr == null)
-            return(DataTypeEnum.PERSISTENT);
+            return(null);
 
         return(attr.getSV());
     }
@@ -1149,7 +1149,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.shared.generated.dmo.Dms
     public ValueTypeEnum getValueType(){
         DmcTypeValueTypeEnumSV attr = (DmcTypeValueTypeEnumSV) get(MetaDMSAG.__valueType);
         if (attr == null)
-            return(ValueTypeEnum.SINGLE);
+            return(null);
 
         return(attr.getSV());
     }

@@ -31,7 +31,7 @@ import org.dmd.dms.shared.generated.enums.DataTypeEnum;         // DmcType impor
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:73)
- *    Called from: org.dmd.dms.tools.generation.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:58)
+ *    Called from: org.dmd.dms.tools.generation.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:59)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDataTypeEnumMV extends DmcTypeDataTypeEnum implements Serializable {

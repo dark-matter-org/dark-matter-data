@@ -91,6 +91,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDefi
         _ImAp.put(MetaDMSAG.__javaClass.id,MetaDMSAG.__javaClass);
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
         _ImAp.put(MetaDMSAG.__may.id,MetaDMSAG.__may);
+        _ImAp.put(MetaDMSAG.__mayBeInternallyGenerated.id,MetaDMSAG.__mayBeInternallyGenerated);
         _ImAp.put(MetaDMSAG.__must.id,MetaDMSAG.__must);
         _ImAp.put(MetaDMSAG.__nvp.id,MetaDMSAG.__nvp);
         _ImAp.put(MetaDMSAG.__obsolete.id,MetaDMSAG.__obsolete);
@@ -155,6 +156,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDefi
         _SmAp.put(MetaDMSAG.__javaClass.name,MetaDMSAG.__javaClass);
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
         _SmAp.put(MetaDMSAG.__may.name,MetaDMSAG.__may);
+        _SmAp.put(MetaDMSAG.__mayBeInternallyGenerated.name,MetaDMSAG.__mayBeInternallyGenerated);
         _SmAp.put(MetaDMSAG.__must.name,MetaDMSAG.__must);
         _SmAp.put(MetaDMSAG.__nvp.name,MetaDMSAG.__nvp);
         _SmAp.put(MetaDMSAG.__obsolete.name,MetaDMSAG.__obsolete);
@@ -212,7 +214,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDefi
     public ClassTypeEnum getClassType(){
         DmcTypeClassTypeEnumSV attr = (DmcTypeClassTypeEnumSV) get(MetaDMSAG.__classType);
         if (attr == null)
-            return(ClassTypeEnum.UNKNOWN);
+            return(null);
 
         return(attr.getSV());
     }
@@ -482,7 +484,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDefi
     public DataTypeEnum getDataType(){
         DmcTypeDataTypeEnumSV attr = (DmcTypeDataTypeEnumSV) get(MetaDMSAG.__dataType);
         if (attr == null)
-            return(DataTypeEnum.PERSISTENT);
+            return(null);
 
         return(attr.getSV());
     }
@@ -1472,6 +1474,69 @@ public class ClassDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDefi
     }
 
     /**
+     * Indicates if a definition may be generated internally as a result of the
+     * existence of another kind of definition. This is fairly complicated stuff
+     * that has to do with the way in which object name resolution is performed
+     * using DmcDefinitionSets. For instance we generate internal TypeDefinitions
+     * for ClassDefinitions, EnumDefinitions etc. so that they may be referred to
+     * as types in attribute definitions. When definitions are added to the
+     * generated ModuleDefinitionManager for a DSL, they are added up the
+     * derivation hierarchy to allow for type based matching of a reference to an
+     * object. This is tricky. <p/> You may have an attribute called classRef
+     * that has a type of ClassDefinition. If you have ClassDefinition for  Book,
+     * an instance of the classRef attribute may be set to Book. <p/> You may
+     * have an attribute called typeRef that has a type of TypeDefinition. You
+     * may also set typeRef to the value Book. <p/> This is because Book can be
+     * either a reference to a ClassDefinition or its internally generated
+     * TypeDefinition. When object resolution is performed, the type of the
+     * attribute is used to determine what kind of thing we're looking for
+     * (context is everything). For the classRef attribute, we will take the name
+     * of the value - Book - and append the type of the attribute, -
+     * ClassDefinition - to come up with the DotName of the object we're trying
+     * to resolve, in this case Book.ClassDefinition (this is the name-type
+     * representation of a definition object name). Side Note: If you happend to
+     * have a Book class in different dark-matter schemas, that's not a problem,
+     * because we can, based on usage context, determine which definition from
+     * which schema should be used (this is a whole other discussion). <p/> If
+     * we're trying to resolve the typeRef attribute, the DotName will be
+     * Book.TypeDefinition. <p/> This attribute comes in to play when generating
+     * code for the ModuleDefinitionManager beacsue, although we add the
+     * definitions up the definition derivation chain, we don't what to try and
+     * add internally generated definitions to the DmcDefinitionSet for the base
+     * definition e.g. DmsDefinition. This is because it would cause a name clash
+     * at that level. At the top level definition, we not be able to distinguish
+     * between the class definition and its intenally generated type because
+     * their fully qualified names would both appear as
+     * schema.Book.DmsDefinition. For that reason, we don't add internally
+     * generated definitions to the base definition set and having this flag on
+     * definitions that may be generated internally allows us to do checking in
+     * the ModuledefinitionManager. <p/> I know. Clear as mud, but hopefully, you
+     * never have to look at this because the tricky bits have been dealt with! 
+     */
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:80)
+    public Boolean getMayBeInternallyGenerated(){
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaDMSAG.__mayBeInternallyGenerated);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets mayBeInternallyGenerated to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:172)
+    public void setMayBeInternallyGenerated(Object value) throws DMFeedbackSet {
+        DmcAttribute<?> attr = get(MetaDMSAG.__mayBeInternallyGenerated);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(MetaDMSAG.__mayBeInternallyGenerated);
+        
+        attr.set(value);
+        set(MetaDMSAG.__mayBeInternallyGenerated,attr);
+    }
+
+    /**
      * Indicates the set of attributes that an instance of a class MUST have. 
      * @return An Iterator of AttributeDefinitionDMO objects.
      */
@@ -1886,7 +1951,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDefi
     public WrapperTypeEnum getUseWrapperType(){
         DmcTypeWrapperTypeEnumSV attr = (DmcTypeWrapperTypeEnumSV) get(MetaDMSAG.__useWrapperType);
         if (attr == null)
-            return(WrapperTypeEnum.BASE);
+            return(null);
 
         return(attr.getSV());
     }

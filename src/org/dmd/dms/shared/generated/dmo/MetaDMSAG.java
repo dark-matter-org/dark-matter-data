@@ -1,19 +1,19 @@
 package org.dmd.dms.shared.generated.dmo;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.meta.CompactSchemaFormatter.dumpHeaderMETA(CompactSchemaFormatter.java:356)
-import java.util.ArrayList;                                         // For rule instances - (CompactSchemaFormatter.java:344)
-import java.util.HashMap;                                           // To store our various schema info - (CompactSchemaFormatter.java:343)
-import java.util.Iterator;                                          // To allow iteration - (CompactSchemaFormatter.java:345)
-import org.dmd.core.interfaces.DmcFilterBuilderIF;                  // For filter builders - (CompactSchemaFormatter.java:348)
-import org.dmd.core.interfaces.DmcNameBuilderIF;                    // For name builders - (CompactSchemaFormatter.java:347)
-import org.dmd.core.rules.RuleIF;                                   // For rule instances - (CompactSchemaFormatter.java:354)
-import org.dmd.core.schema.*;                                       // Access to the various schema info - (CompactSchemaFormatter.java:346)
-import org.dmd.dms.shared.generated.enums.ClassTypeEnum;            // For class type specification - (CompactSchemaFormatter.java:349)
-import org.dmd.dms.shared.generated.enums.DataTypeEnum;             // For data type specification - (CompactSchemaFormatter.java:351)
-import org.dmd.dms.shared.generated.enums.OriginalTypeEnum;         // For original base types for internally created types - (CompactSchemaFormatter.java:352)
-import org.dmd.dms.shared.generated.enums.ValueTypeEnum;            // For value type specification - (CompactSchemaFormatter.java:350)
-import org.dmd.dms.shared.generated.types.*;                        // Easy access to all types - (CompactSchemaFormatter.java:353)
+// Called from: org.dmd.dms.tools.generation.meta.CompactSchemaFormatter.dumpHeaderMETA(CompactSchemaFormatter.java:359)
+import java.util.ArrayList;                                         // For rule instances - (CompactSchemaFormatter.java:347)
+import java.util.HashMap;                                           // To store our various schema info - (CompactSchemaFormatter.java:346)
+import java.util.Iterator;                                          // To allow iteration - (CompactSchemaFormatter.java:348)
+import org.dmd.core.interfaces.DmcFilterBuilderIF;                  // For filter builders - (CompactSchemaFormatter.java:351)
+import org.dmd.core.interfaces.DmcNameBuilderIF;                    // For name builders - (CompactSchemaFormatter.java:350)
+import org.dmd.core.rules.RuleIF;                                   // For rule instances - (CompactSchemaFormatter.java:357)
+import org.dmd.core.schema.*;                                       // Access to the various schema info - (CompactSchemaFormatter.java:349)
+import org.dmd.dms.shared.generated.enums.ClassTypeEnum;            // For class type specification - (CompactSchemaFormatter.java:352)
+import org.dmd.dms.shared.generated.enums.DataTypeEnum;             // For data type specification - (CompactSchemaFormatter.java:354)
+import org.dmd.dms.shared.generated.enums.OriginalTypeEnum;         // For original base types for internally created types - (CompactSchemaFormatter.java:355)
+import org.dmd.dms.shared.generated.enums.ValueTypeEnum;            // For value type specification - (CompactSchemaFormatter.java:353)
+import org.dmd.dms.shared.generated.types.*;                        // Easy access to all types - (CompactSchemaFormatter.java:356)
 
 
 
@@ -144,6 +144,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __loadSchemaClass = new DmcAttributeInfo("meta","loadSchemaClass",173,"SchemaAndReason",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __longName = new DmcAttributeInfo("meta","longName",134,"LongName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __may = new DmcAttributeInfo("meta","may",27,"AttributeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,0,false);
+    public final static DmcAttributeInfo __mayBeInternallyGenerated = new DmcAttributeInfo("meta","mayBeInternallyGenerated",191,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __mayParm = new DmcAttributeInfo("meta","mayParm",29,"AttributeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __mayReturn = new DmcAttributeInfo("meta","mayReturn",31,"AttributeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __maySendProgress = new DmcAttributeInfo("meta","maySendProgress",76,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
@@ -218,21 +219,21 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcTypeInfo __type_ActionDefinition = new DmcTypeInfo("ActionDefinition", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_AttributeDefinition = new DmcTypeInfo("AttributeDefinition", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_AttributeID = new DmcTypeInfo("AttributeID", OriginalTypeEnum.TYPE);
-    public final static DmcTypeInfo __type_BaseTypeEnumREF = new DmcTypeInfo("BaseTypeEnumREF", OriginalTypeEnum.ENUM);
+    public final static DmcTypeInfo __type_BaseTypeEnum = new DmcTypeInfo("BaseTypeEnum", OriginalTypeEnum.ENUM);
     public final static DmcTypeInfo __type_Boolean = new DmcTypeInfo("Boolean", OriginalTypeEnum.TYPE);
     public final static DmcTypeInfo __type_Byte = new DmcTypeInfo("Byte", OriginalTypeEnum.TYPE);
     public final static DmcTypeInfo __type_CamelCaseName = new DmcTypeInfo("CamelCaseName", OriginalTypeEnum.NAMETYPE);
     public final static DmcTypeInfo __type_ClassDefinition = new DmcTypeInfo("ClassDefinition", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_ClassFilter = new DmcTypeInfo("ClassFilter", OriginalTypeEnum.TYPE);
     public final static DmcTypeInfo __type_ClassInfoRef = new DmcTypeInfo("ClassInfoRef", OriginalTypeEnum.TYPE);
-    public final static DmcTypeInfo __type_ClassTypeEnumREF = new DmcTypeInfo("ClassTypeEnumREF", OriginalTypeEnum.ENUM);
+    public final static DmcTypeInfo __type_ClassTypeEnum = new DmcTypeInfo("ClassTypeEnum", OriginalTypeEnum.ENUM);
     public final static DmcTypeInfo __type_ComplexTypeDefinition = new DmcTypeInfo("ComplexTypeDefinition", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_Concinnity = new DmcTypeInfo("Concinnity", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_DSDefinitionModule = new DmcTypeInfo("DSDefinitionModule", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_DSDefinition = new DmcTypeInfo("DSDefinition", OriginalTypeEnum.REFERENCE);
-    public final static DmcTypeInfo __type_DataTypeEnumREF = new DmcTypeInfo("DataTypeEnumREF", OriginalTypeEnum.ENUM);
+    public final static DmcTypeInfo __type_DataTypeEnum = new DmcTypeInfo("DataTypeEnum", OriginalTypeEnum.ENUM);
     public final static DmcTypeInfo __type_Date = new DmcTypeInfo("Date", OriginalTypeEnum.TYPE);
-    public final static DmcTypeInfo __type_DebugEnumREF = new DmcTypeInfo("DebugEnumREF", OriginalTypeEnum.ENUM);
+    public final static DmcTypeInfo __type_DebugEnum = new DmcTypeInfo("DebugEnum", OriginalTypeEnum.ENUM);
     public final static DmcTypeInfo __type_DefinitionName = new DmcTypeInfo("DefinitionName", OriginalTypeEnum.NAMETYPE);
     public final static DmcTypeInfo __type_DependencyImplementation = new DmcTypeInfo("DependencyImplementation", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_Dependency = new DmcTypeInfo("Dependency", OriginalTypeEnum.REFERENCE);
@@ -247,7 +248,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcTypeInfo __type_Example = new DmcTypeInfo("Example", OriginalTypeEnum.COMPLEXTYPE);
     public final static DmcTypeInfo __type_ExtendedReferenceTypeDefinition = new DmcTypeInfo("ExtendedReferenceTypeDefinition", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_FilterContainer = new DmcTypeInfo("FilterContainer", OriginalTypeEnum.TYPE);
-    public final static DmcTypeInfo __type_FilterTypeEnumREF = new DmcTypeInfo("FilterTypeEnumREF", OriginalTypeEnum.ENUM);
+    public final static DmcTypeInfo __type_FilterTypeEnum = new DmcTypeInfo("FilterTypeEnum", OriginalTypeEnum.ENUM);
     public final static DmcTypeInfo __type_Float = new DmcTypeInfo("Float", OriginalTypeEnum.TYPE);
     public final static DmcTypeInfo __type_FullyQualifiedName = new DmcTypeInfo("FullyQualifiedName", OriginalTypeEnum.NAMETYPE);
     public final static DmcTypeInfo __type_Integer = new DmcTypeInfo("Integer", OriginalTypeEnum.TYPE);
@@ -259,19 +260,19 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcTypeInfo __type_Long = new DmcTypeInfo("Long", OriginalTypeEnum.TYPE);
     public final static DmcTypeInfo __type_LongName = new DmcTypeInfo("LongName", OriginalTypeEnum.NAMETYPE);
     public final static DmcTypeInfo __type_Modifier = new DmcTypeInfo("Modifier", OriginalTypeEnum.TYPE);
-    public final static DmcTypeInfo __type_ModifyTypeEnumREF = new DmcTypeInfo("ModifyTypeEnumREF", OriginalTypeEnum.ENUM);
+    public final static DmcTypeInfo __type_ModifyTypeEnum = new DmcTypeInfo("ModifyTypeEnum", OriginalTypeEnum.ENUM);
     public final static DmcTypeInfo __type_NameContainer = new DmcTypeInfo("NameContainer", OriginalTypeEnum.TYPE);
     public final static DmcTypeInfo __type_NameValuePair = new DmcTypeInfo("NameValuePair", OriginalTypeEnum.COMPLEXTYPE);
-    public final static DmcTypeInfo __type_OperationalContextEnumREF = new DmcTypeInfo("OperationalContextEnumREF", OriginalTypeEnum.ENUM);
+    public final static DmcTypeInfo __type_OperationalContextEnum = new DmcTypeInfo("OperationalContextEnum", OriginalTypeEnum.ENUM);
     public final static DmcTypeInfo __type_Optimize = new DmcTypeInfo("Optimize", OriginalTypeEnum.COMPLEXTYPE);
-    public final static DmcTypeInfo __type_OriginalTypeEnumREF = new DmcTypeInfo("OriginalTypeEnumREF", OriginalTypeEnum.ENUM);
+    public final static DmcTypeInfo __type_OriginalTypeEnum = new DmcTypeInfo("OriginalTypeEnum", OriginalTypeEnum.ENUM);
     public final static DmcTypeInfo __type_Part = new DmcTypeInfo("Part", OriginalTypeEnum.COMPLEXTYPE);
     public final static DmcTypeInfo __type_RuleCategory = new DmcTypeInfo("RuleCategory", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_RuleData = new DmcTypeInfo("RuleData", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_RuleDefinition = new DmcTypeInfo("RuleDefinition", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_RuleName = new DmcTypeInfo("RuleName", OriginalTypeEnum.NAMETYPE);
     public final static DmcTypeInfo __type_RuleParam = new DmcTypeInfo("RuleParam", OriginalTypeEnum.COMPLEXTYPE);
-    public final static DmcTypeInfo __type_RuleTypeEnumREF = new DmcTypeInfo("RuleTypeEnumREF", OriginalTypeEnum.ENUM);
+    public final static DmcTypeInfo __type_RuleTypeEnum = new DmcTypeInfo("RuleTypeEnum", OriginalTypeEnum.ENUM);
     public final static DmcTypeInfo __type_RunContext = new DmcTypeInfo("RunContext", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_SchemaAndReason = new DmcTypeInfo("SchemaAndReason", OriginalTypeEnum.COMPLEXTYPE);
     public final static DmcTypeInfo __type_SchemaDefinition = new DmcTypeInfo("SchemaDefinition", OriginalTypeEnum.REFERENCE);
@@ -284,9 +285,9 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcTypeInfo __type_TypeDefinition = new DmcTypeInfo("TypeDefinition", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_UUIDLite = new DmcTypeInfo("UUIDLite", OriginalTypeEnum.TYPE);
     public final static DmcTypeInfo __type_UUIDName = new DmcTypeInfo("UUIDName", OriginalTypeEnum.NAMETYPE);
-    public final static DmcTypeInfo __type_ValueTypeEnumREF = new DmcTypeInfo("ValueTypeEnumREF", OriginalTypeEnum.ENUM);
-    public final static DmcTypeInfo __type_WrapperTypeEnumREF = new DmcTypeInfo("WrapperTypeEnumREF", OriginalTypeEnum.ENUM);
-// Generated from: org.dmd.dms.tools.generation.meta.CompactSchemaFormatter.dumpSchema(CompactSchemaFormatter.java:211)
+    public final static DmcTypeInfo __type_ValueTypeEnum = new DmcTypeInfo("ValueTypeEnum", OriginalTypeEnum.ENUM);
+    public final static DmcTypeInfo __type_WrapperTypeEnum = new DmcTypeInfo("WrapperTypeEnum", OriginalTypeEnum.ENUM);
+// Generated from: org.dmd.dms.tools.generation.meta.CompactSchemaFormatter.dumpSchema(CompactSchemaFormatter.java:214)
 
     public final static DmcClassInfo __ActionTriggerInfo = new DmcClassInfo("ActionTriggerInfo","org.dmd.dms.shared.generated.dmo.ActionTriggerInfoDMO",14,ClassTypeEnum.ABSTRACT,DataTypeEnum.PERSISTENT,null,null);
     public final static DmcClassInfo __DSDefinition = new DmcClassInfo("DSDefinition","org.dmd.dms.shared.generated.dmo.DSDefinitionDMO",1,ClassTypeEnum.ABSTRACT,DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
@@ -340,7 +341,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _RmAp = new ArrayList<RuleIF>();
 
 
-        // Generated from: org.dmd.dms.tools.generation.meta.CompactSchemaFormatter.dumpSchema(CompactSchemaFormatter.java:238)
+        // Generated from: org.dmd.dms.tools.generation.meta.CompactSchemaFormatter.dumpSchema(CompactSchemaFormatter.java:241)
         _SmAp.put(__FQN.id,__FQN);
         _SmAp.put(__abbrev.id,__abbrev);
         _SmAp.put(__actionDefList.id,__actionDefList);
@@ -452,6 +453,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__loadSchemaClass.id,__loadSchemaClass);
         _SmAp.put(__longName.id,__longName);
         _SmAp.put(__may.id,__may);
+        _SmAp.put(__mayBeInternallyGenerated.id,__mayBeInternallyGenerated);
         _SmAp.put(__mayParm.id,__mayParm);
         _SmAp.put(__mayReturn.id,__mayReturn);
         _SmAp.put(__maySendProgress.id,__maySendProgress);
@@ -521,7 +523,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__weakReference.id,__weakReference);
         _SmAp.put(__why.id,__why);
         _SmAp.put(__wrapperClassName.id,__wrapperClassName);
-        // Generated from: org.dmd.dms.tools.generation.meta.CompactSchemaFormatter.dumpSchema(CompactSchemaFormatter.java:247)
+        // Generated from: org.dmd.dms.tools.generation.meta.CompactSchemaFormatter.dumpSchema(CompactSchemaFormatter.java:250)
         _CmAp.put(__ActionDefinition.id,__ActionDefinition);
         _CmAp.put(__ActionTriggerInfo.id,__ActionTriggerInfo);
         _CmAp.put(__AttributeDefinition.id,__AttributeDefinition);
@@ -544,7 +546,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _CmAp.put(__SliceDefinition.id,__SliceDefinition);
         _CmAp.put(__TypeDefinition.id,__TypeDefinition);
 
-        // Generated from: org.dmd.dms.tools.generation.meta.CompactSchemaFormatter.dumpSchema(CompactSchemaFormatter.java:254)
+        // Generated from: org.dmd.dms.tools.generation.meta.CompactSchemaFormatter.dumpSchema(CompactSchemaFormatter.java:257)
 
         __ActionDefinition.addMust(__definedInDmsModule);
         __ActionDefinition.addMust(__name);
@@ -660,6 +662,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __ClassDefinition.addMay(__javaClass);
         __ClassDefinition.addMay(__lineNumber);
         __ClassDefinition.addMay(__may);
+        __ClassDefinition.addMay(__mayBeInternallyGenerated);
         __ClassDefinition.addMay(__must);
         __ClassDefinition.addMay(__nvp);
         __ClassDefinition.addMay(__obsolete);
