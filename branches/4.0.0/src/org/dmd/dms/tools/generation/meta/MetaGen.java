@@ -49,9 +49,11 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 	
 	// org/dmd/dms/shared/generated/dmo
 	String	dmoDir;
+	String	sharedGenDmoPackage			= "org.dmd.dms.shared.generated.dmo";
 	
 	// org/dmd/dms/server/generated/dmw
 	String	dmwDir;
+	String	serverGenDmwPackage			= "org.dmd.dms.server.generated.dmw";
 	
 	// org/dmd/dms/server/generated/dsd
 	String	dsdDir;
@@ -308,24 +310,62 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 		for(DMUncheckedObject classDef: ucoManager.getObjects("ClassDefinition").values()){
 			String 				cn 			= classDef.getSV("name");
 			String 				isNamedBy 	= classDef.getSV("isNamedBy");
+			String 				javaClass 	= classDef.getSV("javaClass");
 			String 				tn 			= null;
 			DMUncheckedObject 	typeDef 	= null;
 
 			if (isNamedBy != null) {
 				tn = cn + "REF";
 				typeDef = new DMUncheckedObject("TypeDefinition");
-				typeDef.addValue("name", cn + "REF");
+				typeDef.addValue("name", tn);
 				typeDef.addValue("dotName", 			"meta." + cn + "REF.TypeDefinition");
-				typeDef.addValue("typeClassName",		sharedGenTypesPackage + ".DmcType" + cn + "REF");
+				typeDef.addValue("typeClassName",		sharedGenTypesPackage + ".DmcType" + tn);
 				typeDef.addValue("wrapperClassName",	classDef.getSV("javaClass"));
 				typeDef.addValue("internallyGenerated", "true");
 				typeDef.addValue("isRefType", 			"true");
 				typeDef.addValue("description", 		"This is an internally generated type to allow references to " + cn + " objects.");
 				typeDef.addValue("originalClass", 		cn);
+				
+				typeDef.addValue("helperClassName", 	sharedGenTypesPackage + "." + tn);
+//				typeDef.addValue("primitiveType", 		sharedGenDmoPackage + "." + cn + "DMO");
+				typeDef.addValue("definedInDmsModule", 	"meta");
+				
+				if (javaClass != null){
+		        	// Tricky stuff needed for code generation. If the ClassDefinition has a javaClass specified,
+		        	// it means that the object is wrapped and we need this javaClass to know what the auxHolder
+		        	// type should be in the generated wrapper class.
+					
+					// Note: in the original code this was handled via methods in the TypeDefinition
+					// However, we don't want to do special processing when DmsModules are loaded,
+					// so we're adding these as attributes.
+					typeDef.addValue("auxHolderImport", 	javaClass);
+					int lastDot = javaClass.lastIndexOf(".");
+					String auxHolderClass = javaClass.substring(lastDot+1);
+					typeDef.addValue("auxHolderClass", 		auxHolderClass);			
+				}
+				
+				typeDef.addValue("dmwIteratorClass", 	cn + "IterableDMW");
+				typeDef.addValue("dmwIteratorImport", 	serverGenDmwPackage + "." + cn + "IterableDMW");
+				
+//				TypeDefinition
+//				definedIn             meta
+//				description           This is an internally generated type to allow references to AttributeDefinition values.
+//				dmwIteratorClass      AttributeDefinitionIterableDMW
+//				dmwIteratorImport     org.dmd.dms.generated.dmw.AttributeDefinitionIterableDMW
+//				dotName               meta.AttributeDefinition.TypeDefinition
+//				helperClassName       org.dmd.dms.generated.types.AttributeDefinitionREF
+//				internallyGenerated   true
+//				isEnumType            false
+//				isRefType             true
+//				name                  AttributeDefinition
+//				originalClass         AttributeDefinition
+//				primitiveType         org.dmd.dms.generated.dmo.AttributeDefinitionDMO
+//				typeClassName         org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREF
 
 				checkForDuplicateType("ClassDefinition", tn);
 
-				ucoTypeDefs.put(tn, typeDef);
+				ucoManager.add(typeDef, false);
+//				ucoTypeDefs.put(tn, typeDef);
 //				origOrderTypes.add(tn);
 			}
 		}

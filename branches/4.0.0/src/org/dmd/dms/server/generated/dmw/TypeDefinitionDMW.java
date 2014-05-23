@@ -462,6 +462,41 @@ public class TypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
     }
 
     /**
+     * Indicates the import for the class of object being wrapped by a DMW
+     * wrapper. 
+     */
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:128)
+    public String getAuxHolderImport(){
+        return(mycore.getAuxHolderImport());
+    }
+
+    /**
+     * Sets auxHolderImport to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:186)
+    public void setAuxHolderImport(Object value) throws DMFeedbackSet {
+        mycore.setAuxHolderImport(value);
+    }
+
+    /**
+     * Indicates the name of the class of object being wrapped by a DMW wrapper. 
+     */
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:128)
+    public String getAuxHolderClass(){
+        return(mycore.getAuxHolderClass());
+    }
+
+    /**
+     * Sets auxHolderClass to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:186)
+    public void setAuxHolderClass(Object value) throws DMFeedbackSet {
+        mycore.setAuxHolderClass(value);
+    }
+
+    /**
      * This flag is set to true for type definitions that define enumerations. 
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:128)
