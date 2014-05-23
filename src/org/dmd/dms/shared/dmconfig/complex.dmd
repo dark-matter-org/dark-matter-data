@@ -63,7 +63,7 @@ fieldSeparator	:
 requiredPart	String			what	"A description of the change to be made"
 optionalPart	String			who		"Who made the suggestion" quoted=true
 optionalPart	String			when	"A suggested timeframe for the change" quoted=true
-optionalPart	Concinnity		why		"A suggested timeframe for the change" weakref=true multivalued=true
+optionalPart	Concinnity		why		"A description of why the change should be considered or a reference to a Concinnity definition e.g. a feature request" weakref=true multivalued=true
 description		Allows for capture of optimization notes.
 example			code : Specifying an Optimization/Improvement : 
  <pre>

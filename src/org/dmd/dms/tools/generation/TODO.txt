@@ -1,0 +1,4 @@
+
+2014/05/23
+The SchemaDefinition class needs to be deleted once the new SchemaManager based on DmsModule is up and running.
+

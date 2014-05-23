@@ -93,7 +93,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
      * Language (DSL) concepts will indicate the rules that apply to a name in
      * that DSL. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:133)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:128)
     public DefinitionName getName(){
         return(mycore.getName());
     }
@@ -102,7 +102,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:206)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:186)
     public void setName(Object value) throws DMFeedbackSet {
         mycore.setName(value);
     }
@@ -111,7 +111,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
      * The category of a rule. 
      * @return An Iterator of RuleCategory objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:320)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:298)
     public RuleCategoryIterableDMW getRuleCategory(){
         DmcTypeRuleCategoryREFMV attr = (DmcTypeRuleCategoryREFMV) mycore.get(MetaDMSAG.__ruleCategory);
         if (attr == null)
@@ -124,7 +124,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
      * Adds another ruleCategory value.
      * @param value A value compatible with RuleCategory
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:402)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:380)
     public DmcAttribute<?> addRuleCategory(RuleCategory value) throws DMFeedbackSet {
         DmcAttribute<?> attr = mycore.addRuleCategory(value.getDmcObject());
         return(attr);
@@ -133,7 +133,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
     /**
      * Returns the number of ruleCategory values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:421)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:399)
     public int getRuleCategorySize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__ruleCategory);
         if (attr == null)
@@ -144,7 +144,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
     /**
      * Returns true if ruleCategory has values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:432)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:410)
     public boolean getRuleCategoryHasValue(){
         return(getRuleCategorySize() > 0);
     }
@@ -161,7 +161,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
      * how it's achieved. <p/> However, if you're curious, have a look at the
      * Compact Schema documentation. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:133)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:128)
     public Integer getDmdID(){
         return(mycore.getDmdID());
     }
@@ -170,7 +170,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
      * Sets dmdID to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:206)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:186)
     public void setDmdID(Object value) throws DMFeedbackSet {
         mycore.setDmdID(value);
     }
@@ -179,7 +179,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
      * Indicates the set of attributes that an instance of a class MUST have. 
      * @return An Iterator of AttributeDefinition objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:320)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:298)
     public AttributeDefinitionIterableDMW getMust(){
         DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaDMSAG.__must);
         if (attr == null)
@@ -192,7 +192,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
      * Adds another must value.
      * @param value A value compatible with AttributeDefinition
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:402)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:380)
     public DmcAttribute<?> addMust(AttributeDefinition value) throws DMFeedbackSet {
         DmcAttribute<?> attr = mycore.addMust(value.getDmcObject());
         return(attr);
@@ -201,7 +201,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
     /**
      * Returns the number of must values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:421)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:399)
     public int getMustSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__must);
         if (attr == null)
@@ -212,7 +212,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
     /**
      * Returns true if must has values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:432)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:410)
     public boolean getMustHasValue(){
         return(getMustSize() > 0);
     }
@@ -223,7 +223,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
      * objects. 
      * @return An Iterator of AttributeDefinition objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:320)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:298)
     public AttributeDefinitionIterableDMW getMay(){
         DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaDMSAG.__may);
         if (attr == null)
@@ -236,7 +236,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
      * Adds another may value.
      * @param value A value compatible with AttributeDefinition
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:402)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:380)
     public DmcAttribute<?> addMay(AttributeDefinition value) throws DMFeedbackSet {
         DmcAttribute<?> attr = mycore.addMay(value.getDmcObject());
         return(attr);
@@ -245,7 +245,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
     /**
      * Returns the number of may values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:421)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:399)
     public int getMaySize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__may);
         if (attr == null)
@@ -256,7 +256,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
     /**
      * Returns true if may has values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:432)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:410)
     public boolean getMayHasValue(){
         return(getMaySize() > 0);
     }
@@ -268,7 +268,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
      * must be flexible. The best example is the InitRule where any set of
      * attributes can be specified as value for the rule. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:133)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:128)
     public Boolean getIsExtensible(){
         return(mycore.getIsExtensible());
     }
@@ -277,7 +277,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
      * Sets isExtensible to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:206)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:186)
     public void setIsExtensible(Object value) throws DMFeedbackSet {
         mycore.setIsExtensible(value);
     }
@@ -285,7 +285,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
     /**
      * A reference to a single Dependency. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:133)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:128)
     public Dependency getDependency(){
         DmcTypeDependencyREFSV attr = (DmcTypeDependencyREFSV) mycore.get(MetaDMSAG.__dependency);
         if (attr == null)
@@ -298,7 +298,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
      * Sets dependency to the specified value.
      * @param value A value compatible with Dependency
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:193)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:177)
     public void setDependency(Dependency value) throws DMFeedbackSet {
         mycore.setDependency(value.getDmcObject());
     }

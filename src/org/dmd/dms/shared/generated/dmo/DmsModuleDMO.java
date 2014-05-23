@@ -59,6 +59,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
         _ImAp.put(MetaDMSAG.__dotName.id,MetaDMSAG.__dotName);
         _ImAp.put(MetaDMSAG.__example.id,MetaDMSAG.__example);
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
+        _ImAp.put(MetaDMSAG.__generatedFileHeader.id,MetaDMSAG.__generatedFileHeader);
         _ImAp.put(MetaDMSAG.__hint.id,MetaDMSAG.__hint);
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
         _ImAp.put(MetaDMSAG.__nvp.id,MetaDMSAG.__nvp);
@@ -89,6 +90,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
         _SmAp.put(MetaDMSAG.__dotName.name,MetaDMSAG.__dotName);
         _SmAp.put(MetaDMSAG.__example.name,MetaDMSAG.__example);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
+        _SmAp.put(MetaDMSAG.__generatedFileHeader.name,MetaDMSAG.__generatedFileHeader);
         _SmAp.put(MetaDMSAG.__hint.name,MetaDMSAG.__hint);
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
         _SmAp.put(MetaDMSAG.__nvp.name,MetaDMSAG.__nvp);
@@ -136,7 +138,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
     /**
      * The dark-matter schema module (DmsModule) in which something is defined. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:80)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:79)
     public DmsModuleREF getDefinedInDmsModule(){
         DmcTypeDmsModuleREFSV attr = (DmcTypeDmsModuleREFSV) get(MetaDMSAG.__definedInDmsModule);
         if (attr == null)
@@ -149,7 +151,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Sets definedInDmsModule to the specified value.
      * @param value A value compatible with DmcTypeDmsModuleREFSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:172)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:161)
     public void setDefinedInDmsModule(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__definedInDmsModule);
         if (attr == null)
@@ -167,7 +169,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Language (DSL) concepts will indicate the rules that apply to a name in
      * that DSL. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:80)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:79)
     public DefinitionName getName(){
         DmcTypeDefinitionNameSV attr = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -180,7 +182,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:172)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:161)
     public void setName(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -195,7 +197,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * value associated with the AttributeDefinitions defined by the schema. This
      * allows for easy rebasing of identifier values if required. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:80)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:79)
     public Integer getSchemaBaseID(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaDMSAG.__schemaBaseID);
         if (attr == null)
@@ -208,7 +210,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Sets schemaBaseID to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:172)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:161)
     public void setSchemaBaseID(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__schemaBaseID);
         if (attr == null)
@@ -223,7 +225,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * will provide immediate feedback if you exceed the given ID range for your
      * schema. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:80)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:79)
     public Integer getSchemaIDRange(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaDMSAG.__schemaIDRange);
         if (attr == null)
@@ -236,7 +238,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Sets schemaIDRange to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:172)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:161)
     public void setSchemaIDRange(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__schemaIDRange);
         if (attr == null)
@@ -250,7 +252,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Indicates the package that a schema will be part of when its code is
      * generated using DMO generator tool. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:80)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:79)
     public String getSchemaPackage(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__schemaPackage);
         if (attr == null)
@@ -263,7 +265,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Sets schemaPackage to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:172)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:161)
     public void setSchemaPackage(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__schemaPackage);
         if (attr == null)
@@ -283,7 +285,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * provided. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:281)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:260)
     public Iterator<String> getCodeComment(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__codeComment);
         if (attr == null)
@@ -296,7 +298,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Adds another codeComment value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:386)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:364)
     public DmcAttribute<?> addCodeComment(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__codeComment);
         if (attr == null)
@@ -315,7 +317,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * how comments are used. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:281)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:260)
     public Iterator<String> getComment(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__comment);
         if (attr == null)
@@ -328,7 +330,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Adds another comment value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:386)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:364)
     public DmcAttribute<?> addComment(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__comment);
         if (attr == null)
@@ -344,7 +346,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * that comprise a schema. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:281)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:260)
     public Iterator<String> getDefFiles(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__defFiles);
         if (attr == null)
@@ -357,7 +359,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Adds another defFiles value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:386)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:364)
     public DmcAttribute<?> addDefFiles(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__defFiles);
         if (attr == null)
@@ -371,7 +373,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
     /**
      * Indicates the schema in which a type, attribute or class is defined. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:80)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:79)
     public SchemaDefinitionREF getDefinedIn(){
         DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) get(MetaDMSAG.__definedIn);
         if (attr == null)
@@ -384,7 +386,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Sets definedIn to the specified value.
      * @param value A value compatible with DmcTypeSchemaDefinitionREFSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:172)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:161)
     public void setDefinedIn(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__definedIn);
         if (attr == null)
@@ -398,7 +400,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * The dark-matter schema modules on which a module depends. 
      * @return An Iterator of DmsModuleDMO objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:276)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:255)
     public Iterator<DmsModuleREF> getDependsOnDmsModule(){
         DmcTypeDmsModuleREFMV attr = (DmcTypeDmsModuleREFMV) get(MetaDMSAG.__dependsOnDmsModule);
         if (attr == null)
@@ -411,7 +413,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Adds another dependsOnDmsModule value.
      * @param value A value compatible with DmcTypeDmsModuleREFMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:386)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:364)
     public DmcAttribute<?> addDependsOnDmsModule(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__dependsOnDmsModule);
         if (attr == null)
@@ -435,7 +437,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * conventions make sense for your purposes. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:281)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:260)
     public Iterator<String> getDescription(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -444,7 +446,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
         return(attr.getMV());
     }
 
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:295)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:273)
     public Iterator<String> getDescriptionWithNewlines(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -467,7 +469,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Adds another description value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:386)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:364)
     public DmcAttribute<?> addDescription(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -483,7 +485,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * were generated for this schema. This is used when we're generating derived
      * wrapper classes. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:80)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:79)
     public String getDmwPackage(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__dmwPackage);
         if (attr == null)
@@ -496,7 +498,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Sets dmwPackage to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:172)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:161)
     public void setDmwPackage(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__dmwPackage);
         if (attr == null)
@@ -517,7 +519,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * ClassDefintion.adjustClass() method to see how this is used. 
      * @return An Iterator of StringToString objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:281)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:260)
     public Iterator<StringToString> getDmwTypeToPackage(){
         DmcTypeStringToStringMV attr = (DmcTypeStringToStringMV) get(MetaDMSAG.__dmwTypeToPackage);
         if (attr == null)
@@ -530,7 +532,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Adds another dmwTypeToPackage value.
      * @param value A value compatible with DmcTypeStringToStringMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:386)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:364)
     public DmcAttribute<?> addDmwTypeToPackage(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__dmwTypeToPackage);
         if (attr == null)
@@ -544,7 +546,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
     /**
      * The dotName attribute is used to store dot separated names. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:80)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:79)
     public DotName getDotName(){
         DmcTypeDotNameSV attr = (DmcTypeDotNameSV) get(MetaDMSAG.__dotName);
         if (attr == null)
@@ -557,7 +559,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Sets dotName to the specified value.
      * @param value A value compatible with DmcTypeDotNameSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:172)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:161)
     public void setDotName(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__dotName);
         if (attr == null)
@@ -572,7 +574,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * defined thing is to be used. 
      * @return An Iterator of Example objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:281)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:260)
     public Iterator<Example> getExample(){
         DmcTypeExampleMV attr = (DmcTypeExampleMV) get(MetaDMSAG.__example);
         if (attr == null)
@@ -585,7 +587,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Adds another example value.
      * @param value A value compatible with DmcTypeExampleMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:386)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:364)
     public DmcAttribute<?> addExample(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__example);
         if (attr == null)
@@ -599,7 +601,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
     /**
      * Indicates the file from which a definition was loaded. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:80)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:79)
     public String getFile(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__file);
         if (attr == null)
@@ -612,7 +614,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:172)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:161)
     public void setFile(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__file);
         if (attr == null)
@@ -623,10 +625,38 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
     }
 
     /**
+     * The name of file that coresides with the schema.dms file that contains a
+     * common header to be applied to all generated code. For instance, you might
+     * want a common licensing comment at the top of your generated files. 
+     */
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:79)
+    public String getGeneratedFileHeader(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__generatedFileHeader);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets generatedFileHeader to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:161)
+    public void setGeneratedFileHeader(Object value) throws DMFeedbackSet {
+        DmcAttribute<?> attr = get(MetaDMSAG.__generatedFileHeader);
+        if (attr == null)
+            attr = new DmcTypeStringSV(MetaDMSAG.__generatedFileHeader);
+        
+        attr.set(value);
+        set(MetaDMSAG.__generatedFileHeader,attr);
+    }
+
+    /**
      * A short description of something that can be dumped as one line summary of
      * something. For longer explanations, use the description attribute. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:80)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:79)
     public String getHint(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__hint);
         if (attr == null)
@@ -639,7 +669,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Sets hint to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:172)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:161)
     public void setHint(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__hint);
         if (attr == null)
@@ -652,7 +682,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
     /**
      * Indicates the line number of the file from which a definition was loaded. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:80)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:79)
     public Integer getLineNumber(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaDMSAG.__lineNumber);
         if (attr == null)
@@ -665,7 +695,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:172)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:161)
     public void setLineNumber(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__lineNumber);
         if (attr == null)
@@ -680,7 +710,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * object. 
      * @return An Iterator of NameValuePair objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:281)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:260)
     public Iterator<NameValuePair> getNvp(){
         DmcTypeNameValuePairMV attr = (DmcTypeNameValuePairMV) get(MetaDMSAG.__nvp);
         if (attr == null)
@@ -693,7 +723,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Adds another nvp value.
      * @param value A value compatible with DmcTypeNameValuePairMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:386)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:364)
     public DmcAttribute<?> addNvp(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__nvp);
         if (attr == null)
@@ -707,7 +737,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
     /**
      * The version at which something became obsolete. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:80)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:79)
     public String getObsolete(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__obsolete);
         if (attr == null)
@@ -720,7 +750,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Sets obsolete to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:172)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:161)
     public void setObsolete(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__obsolete);
         if (attr == null)
@@ -740,7 +770,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * optimize notes. These notes provide 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:281)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:260)
     public Iterator<String> getOptimize(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__optimize);
         if (attr == null)
@@ -753,7 +783,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Adds another optimize value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:386)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:364)
     public DmcAttribute<?> addOptimize(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__optimize);
         if (attr == null)
@@ -768,7 +798,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * A question associated with the definition of something. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:281)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:260)
     public Iterator<String> getQuestion(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__question);
         if (attr == null)
@@ -781,7 +811,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Adds another question value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:386)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:364)
     public DmcAttribute<?> addQuestion(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__question);
         if (attr == null)
@@ -799,7 +829,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * direct reference to Concinnity concepts. 
      * @return An Iterator of ConcinnityDMO objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:276)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:255)
     public Iterator<ConcinnityREF> getRelatedToConcept(){
         DmcTypeConcinnityREFMV attr = (DmcTypeConcinnityREFMV) get(MetaDMSAG.__relatedToConcept);
         if (attr == null)
@@ -812,7 +842,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Adds another relatedToConcept value.
      * @param value A value compatible with DmcTypeConcinnityREFMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:386)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:364)
     public DmcAttribute<?> addRelatedToConcept(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__relatedToConcept);
         if (attr == null)
@@ -829,7 +859,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * approached with extreme caution! 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:281)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:260)
     public Iterator<String> getSkip(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__skip);
         if (attr == null)
@@ -842,7 +872,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Adds another skip value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:386)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:364)
     public DmcAttribute<?> addSkip(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__skip);
         if (attr == null)
@@ -861,7 +891,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * definition...module.type. So, for things like documentation generation,
      * the sortName provides a more  natural ordering. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:80)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:79)
     public DotName getSortName(){
         DmcTypeDotNameSV attr = (DmcTypeDotNameSV) get(MetaDMSAG.__sortName);
         if (attr == null)
@@ -874,7 +904,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Sets sortName to the specified value.
      * @param value A value compatible with DmcTypeDotNameSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:172)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:161)
     public void setSortName(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__sortName);
         if (attr == null)
@@ -889,7 +919,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * values are limited to a-zA-Z0-9 and the space character. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:281)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:260)
     public Iterator<String> getTags(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__tags);
         if (attr == null)
@@ -902,7 +932,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Adds another tags value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:386)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:364)
     public DmcAttribute<?> addTags(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__tags);
         if (attr == null)
@@ -918,7 +948,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * to be lexicographically sortable i.e. the name of a version must have a
      * nautral sort order that increases. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:80)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:79)
     public String getVersion(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__version);
         if (attr == null)
@@ -931,7 +961,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Sets version to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:172)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:161)
     public void setVersion(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__version);
         if (attr == null)
@@ -948,7 +978,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * you may also just put in free form text, since it will simply be treated
      * as an unresolved reference. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:80)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:79)
     public ConcinnityREF getWhy(){
         DmcTypeConcinnityREFSV attr = (DmcTypeConcinnityREFSV) get(MetaDMSAG.__why);
         if (attr == null)
@@ -961,7 +991,7 @@ public class DmsModuleDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinition
      * Sets why to the specified value.
      * @param value A value compatible with DmcTypeConcinnityREFSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:172)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:161)
     public void setWhy(Object value) throws DMFeedbackSet {
         DmcAttribute<?> attr = get(MetaDMSAG.__why);
         if (attr == null)

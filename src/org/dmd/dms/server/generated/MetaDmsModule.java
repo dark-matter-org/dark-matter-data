@@ -896,6 +896,7 @@ public class MetaDmsModule extends DmsModule {
         _DmsModuleOBJ.setLineNumber("1");
         _DmsModuleOBJ.addMay("meta.description");
         _DmsModuleOBJ.addMay("meta.defFiles");
+        _DmsModuleOBJ.addMay("meta.generatedFileHeader");
         _DmsModuleOBJ.addMay("meta.dmwPackage");
         _DmsModuleOBJ.addMay("meta.dmwTypeToPackage");
         _DmsModuleOBJ.addMay("meta.dependsOnDmsModule");
@@ -3623,7 +3624,7 @@ public class MetaDmsModule extends DmsModule {
         _OptimizeOBJ.setName("Optimize");
         _OptimizeOBJ.addOptionalPart("String			who		\"Who made the suggestion\" quoted=true");
         _OptimizeOBJ.addOptionalPart("String			when	\"A suggested timeframe for the change\" quoted=true");
-        _OptimizeOBJ.addOptionalPart("Concinnity		why		\"A suggested timeframe for the change\" weakref=true multivalued=true");
+        _OptimizeOBJ.addOptionalPart("Concinnity		why		\"A description of why the change should be considered or a reference to a Concinnity definition e.g. a feature request\" weakref=true multivalued=true");
         _OptimizeOBJ.addRequiredPart("String			what	\"A description of the change to be made\"");
         _Optimize.setDefinedInDmsModule(this);
         addComplexTypeDefinition(_Optimize);
@@ -3680,6 +3681,7 @@ public class MetaDmsModule extends DmsModule {
         _DmsModuleOBJ.setDmdID("21");
         _DmsModuleOBJ.setDotName("meta.DmsModule.DSDefinitionModule");
         _DmsModuleOBJ.setFileExtension("dms");
+        _DmsModuleOBJ.addMay("meta.generatedFileHeader");
         _DmsModuleOBJ.addMay("meta.dmwPackage");
         _DmsModuleOBJ.addMay("meta.dmwTypeToPackage");
         _DmsModuleOBJ.addMay("meta.dependsOnDmsModule");

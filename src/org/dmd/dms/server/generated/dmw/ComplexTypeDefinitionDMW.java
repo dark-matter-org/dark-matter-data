@@ -99,7 +99,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDef
      * Language (DSL) concepts will indicate the rules that apply to a name in
      * that DSL. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:133)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:128)
     public DefinitionName getName(){
         return(mycore.getName());
     }
@@ -108,7 +108,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDef
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:206)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:186)
     public void setName(Object value) throws DMFeedbackSet {
         mycore.setName(value);
     }
@@ -117,7 +117,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDef
      * Indicates a required part of a complex type definition. 
      * @return An Iterator of Part objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:344)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:322)
     public PartIterableDMW getRequiredPartIterable(){
         DmcTypePartMV attr = (DmcTypePartMV) mycore.get(MetaDMSAG.__requiredPart);
         if (attr == null)
@@ -130,7 +130,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDef
      * Adds another requiredPart value.
      * @param value A value compatible with DmcTypePartMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:412)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:390)
     public void addRequiredPart(Object value) throws DMFeedbackSet {
         mycore.addRequiredPart(value);
     }
@@ -138,7 +138,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDef
     /**
      * Returns the number of requiredPart values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:421)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:399)
     public int getRequiredPartSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__requiredPart);
         if (attr == null)
@@ -149,7 +149,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDef
     /**
      * Returns true if requiredPart has values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:432)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:410)
     public boolean getRequiredPartHasValue(){
         return(getRequiredPartSize() > 0);
     }
@@ -158,7 +158,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDef
      * Indicates an optional part of a complex type definition. 
      * @return An Iterator of Part objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:344)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:322)
     public PartIterableDMW getOptionalPartIterable(){
         DmcTypePartMV attr = (DmcTypePartMV) mycore.get(MetaDMSAG.__optionalPart);
         if (attr == null)
@@ -171,7 +171,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDef
      * Adds another optionalPart value.
      * @param value A value compatible with DmcTypePartMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:412)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:390)
     public void addOptionalPart(Object value) throws DMFeedbackSet {
         mycore.addOptionalPart(value);
     }
@@ -179,7 +179,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDef
     /**
      * Returns the number of optionalPart values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:421)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:399)
     public int getOptionalPartSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__optionalPart);
         if (attr == null)
@@ -190,7 +190,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDef
     /**
      * Returns true if optionalPart has values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:432)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:410)
     public boolean getOptionalPartHasValue(){
         return(getOptionalPartSize() > 0);
     }
@@ -200,7 +200,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDef
      * a ComplexType is represented as a String. If a fieldSeparator isn't
      * specified, it is assumed to be a space. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:133)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:128)
     public String getFieldSeparator(){
         return(mycore.getFieldSeparator());
     }
@@ -209,7 +209,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDef
      * Sets fieldSeparator to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:206)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:186)
     public void setFieldSeparator(Object value) throws DMFeedbackSet {
         mycore.setFieldSeparator(value);
     }
@@ -218,7 +218,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDef
      * The extendedClass indicates the fully qualified name of the class that is
      * derived from the generated ComplexType to provide additional behaviour. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:133)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:128)
     public String getExtendedClass(){
         return(mycore.getExtendedClass());
     }
@@ -227,7 +227,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDef
      * Sets extendedClass to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:206)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:186)
     public void setExtendedClass(Object value) throws DMFeedbackSet {
         mycore.setExtendedClass(value);
     }
@@ -245,7 +245,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDef
      * conventions make sense for your purposes. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:344)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:322)
     public StringIterableDMW getDescriptionIterable(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
         if (attr == null)
@@ -254,7 +254,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDef
         return(new StringIterableDMW(attr.getMV()));
     }
 
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:357)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:335)
     public Iterator<String> getDescriptionWithNewlines(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
         if (attr == null)
@@ -277,7 +277,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDef
      * Adds another description value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:412)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:390)
     public void addDescription(Object value) throws DMFeedbackSet {
         mycore.addDescription(value);
     }
@@ -285,7 +285,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDef
     /**
      * Returns the number of description values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:421)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:399)
     public int getDescriptionSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__description);
         if (attr == null)
@@ -296,7 +296,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDef
     /**
      * Returns true if description has values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:432)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:410)
     public boolean getDescriptionHasValue(){
         return(getDescriptionSize() > 0);
     }
