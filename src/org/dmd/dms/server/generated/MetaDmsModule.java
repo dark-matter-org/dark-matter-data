@@ -100,6 +100,26 @@ public class MetaDmsModule extends DmsModule {
     public static TypeDefinition      _FullyQualifiedName;
     public static TypeDefinition      _LabelledIntegerDataPoint;
     public static TypeDefinition      _TimeDoubleDataPoint;
+    public static TypeDefinition      _ActionDefinitionREF;
+    public static TypeDefinition      _AttributeDefinitionREF;
+    public static TypeDefinition      _ClassDefinitionREF;
+    public static TypeDefinition      _ComplexTypeDefinitionREF;
+    public static TypeDefinition      _ConcinnityREF;
+    public static TypeDefinition      _DSDefinitionREF;
+    public static TypeDefinition      _DSDefinitionModuleREF;
+    public static TypeDefinition      _DependencyREF;
+    public static TypeDefinition      _DependencyImplementationREF;
+    public static TypeDefinition      _DmsDefinitionREF;
+    public static TypeDefinition      _DmsModuleREF;
+    public static TypeDefinition      _EnumDefinitionREF;
+    public static TypeDefinition      _ExtendedReferenceTypeDefinitionREF;
+    public static TypeDefinition      _RuleCategoryREF;
+    public static TypeDefinition      _RuleDataREF;
+    public static TypeDefinition      _RuleDefinitionREF;
+    public static TypeDefinition      _RunContextREF;
+    public static TypeDefinition      _SchemaDefinitionREF;
+    public static TypeDefinition      _SliceDefinitionREF;
+    public static TypeDefinition      _TypeDefinitionREF;
     public static TypeDefinition      _BaseTypeEnum_Type;
     public static TypeDefinition      _ClassTypeEnum_Type;
     public static TypeDefinition      _DataTypeEnum_Type;
@@ -112,7 +132,7 @@ public class MetaDmsModule extends DmsModule {
     public static TypeDefinition      _ValueTypeEnum_Type;
     public static TypeDefinition      _WrapperTypeEnum_Type;
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:177)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:182)
     public static AttributeDefinition _name;
     public static AttributeDefinition _dmdID;
     public static AttributeDefinition _schemaExtension;
@@ -293,9 +313,11 @@ public class MetaDmsModule extends DmsModule {
     public static AttributeDefinition _definedInDmsModule;
     public static AttributeDefinition _dependsOnDmsModule;
     public static AttributeDefinition _mayBeInternallyGenerated;
+    public static AttributeDefinition _auxHolderImport;
+    public static AttributeDefinition _auxHolderClass;
     public static AttributeDefinition _objectClass;
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:182)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:187)
     public static ComplexTypeDefinition _Part;
     public static ComplexTypeDefinition _NameValuePair;
     public static ComplexTypeDefinition _SchemaAndReason;
@@ -304,14 +326,14 @@ public class MetaDmsModule extends DmsModule {
     public static ComplexTypeDefinition _DmwTypeToWrapperType;
     public static ComplexTypeDefinition _RuleParam;
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:187)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:192)
     public static RuleCategory        _Initialization;
     public static RuleCategory        _ObjectValidation;
     public static RuleCategory        _AttributeValidation;
     public static RuleCategory        _AttributeValidationWithResolver;
     public static RuleCategory        _UCOValidation;
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:192)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:197)
     // NOTE: we add the _DSDM suffix so as not to clash with the module's ClassDefinition
     public static DSDefinitionModule  _DmsModule_DSDM;
 
@@ -342,7 +364,7 @@ public class MetaDmsModule extends DmsModule {
         }
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitClasses(MetaSchemaFormatterNew.java:208)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitClasses(MetaSchemaFormatterNew.java:213)
     private void initClasses() throws DMFeedbackSet {
 
         ClassDefinitionDMO _ActionTriggerInfoOBJ = new ClassDefinitionDMO();
@@ -545,6 +567,8 @@ public class MetaDmsModule extends DmsModule {
         _TypeDefinitionOBJ.addMay("meta.helperClassName");
         _TypeDefinitionOBJ.addMay("meta.dmwIteratorImport");
         _TypeDefinitionOBJ.addMay("meta.dmwIteratorClass");
+        _TypeDefinitionOBJ.addMay("meta.auxHolderImport");
+        _TypeDefinitionOBJ.addMay("meta.auxHolderClass");
         _TypeDefinitionOBJ.addMay("meta.isEnumType");
         _TypeDefinitionOBJ.addMay("meta.isNameType");
         _TypeDefinitionOBJ.addMay("meta.isHierarchicName");
@@ -912,7 +936,7 @@ public class MetaDmsModule extends DmsModule {
 
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitAttributes(MetaSchemaFormatterNew.java:229)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitAttributes(MetaSchemaFormatterNew.java:234)
     private void initAttributes() throws DMFeedbackSet {
 
         AttributeDefinitionDMO _FQNOBJ = new AttributeDefinitionDMO();
@@ -1042,6 +1066,28 @@ public class MetaDmsModule extends DmsModule {
         _attributeInfoFromParamOBJ.setType("meta.String");
         _attributeInfoFromParam.setDefinedInDmsModule(this);
         addAttributeDefinition(_attributeInfoFromParam);
+
+        AttributeDefinitionDMO _auxHolderClassOBJ = new AttributeDefinitionDMO();
+        _auxHolderClass = new AttributeDefinition(_auxHolderClassOBJ);
+        _auxHolderClassOBJ.addDescription("Indicates the name of the class of object being wrapped by a DMW wrapper.");
+        _auxHolderClassOBJ.setDmdID("193");
+        _auxHolderClassOBJ.setDotName("meta.auxHolderClass.AttributeDefinition");
+        _auxHolderClassOBJ.setInternalUse("true");
+        _auxHolderClassOBJ.setName("auxHolderClass");
+        _auxHolderClassOBJ.setType("meta.String");
+        _auxHolderClass.setDefinedInDmsModule(this);
+        addAttributeDefinition(_auxHolderClass);
+
+        AttributeDefinitionDMO _auxHolderImportOBJ = new AttributeDefinitionDMO();
+        _auxHolderImport = new AttributeDefinition(_auxHolderImportOBJ);
+        _auxHolderImportOBJ.addDescription("Indicates the import for the class of object being wrapped by a DMW wrapper.");
+        _auxHolderImportOBJ.setDmdID("192");
+        _auxHolderImportOBJ.setDotName("meta.auxHolderImport.AttributeDefinition");
+        _auxHolderImportOBJ.setInternalUse("true");
+        _auxHolderImportOBJ.setName("auxHolderImport");
+        _auxHolderImportOBJ.setType("meta.String");
+        _auxHolderImport.setDefinedInDmsModule(this);
+        addAttributeDefinition(_auxHolderImport);
 
         AttributeDefinitionDMO _baseDefinitionOBJ = new AttributeDefinitionDMO();
         _baseDefinition = new AttributeDefinition(_baseDefinitionOBJ);
@@ -2848,8 +2894,46 @@ public class MetaDmsModule extends DmsModule {
 
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitTypes(MetaSchemaFormatterNew.java:248)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitTypes(MetaSchemaFormatterNew.java:253)
     private void initTypes() throws DMFeedbackSet {
+
+        TypeDefinitionDMO _ActionDefinitionREFOBJ = new TypeDefinitionDMO();
+        _ActionDefinitionREF = new TypeDefinition(_ActionDefinitionREFOBJ);
+        _ActionDefinitionREFOBJ.setAuxHolderClass("ActionDefinition");
+        _ActionDefinitionREFOBJ.setAuxHolderImport("org.dmd.dms.server.extended.ActionDefinition");
+        _ActionDefinitionREFOBJ.setDefinedInDmsModule("meta.meta");
+        _ActionDefinitionREFOBJ.addDescription("This is an internally generated type to allow references to ActionDefinition objects.");
+        _ActionDefinitionREFOBJ.setDmwIteratorClass("ActionDefinitionIterableDMW");
+        _ActionDefinitionREFOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.ActionDefinitionIterableDMW");
+        _ActionDefinitionREFOBJ.setDotName("meta.ActionDefinitionREF.TypeDefinition");
+        _ActionDefinitionREFOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.ActionDefinitionREF");
+        _ActionDefinitionREFOBJ.setInternallyGenerated("true");
+        _ActionDefinitionREFOBJ.setIsRefType("true");
+        _ActionDefinitionREFOBJ.setName("ActionDefinitionREF");
+        _ActionDefinitionREFOBJ.setOriginalClass("meta.ActionDefinition");
+        _ActionDefinitionREFOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeActionDefinitionREF");
+        _ActionDefinitionREFOBJ.setWrapperClassName("org.dmd.dms.server.extended.ActionDefinition");
+        _ActionDefinitionREF.setDefinedInDmsModule(this);
+        addTypeDefinition(_ActionDefinitionREF);
+
+        TypeDefinitionDMO _AttributeDefinitionREFOBJ = new TypeDefinitionDMO();
+        _AttributeDefinitionREF = new TypeDefinition(_AttributeDefinitionREFOBJ);
+        _AttributeDefinitionREFOBJ.setAuxHolderClass("AttributeDefinition");
+        _AttributeDefinitionREFOBJ.setAuxHolderImport("org.dmd.dms.server.extended.AttributeDefinition");
+        _AttributeDefinitionREFOBJ.setDefinedInDmsModule("meta.meta");
+        _AttributeDefinitionREFOBJ.addDescription("This is an internally generated type to allow references to AttributeDefinition objects.");
+        _AttributeDefinitionREFOBJ.setDmwIteratorClass("AttributeDefinitionIterableDMW");
+        _AttributeDefinitionREFOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.AttributeDefinitionIterableDMW");
+        _AttributeDefinitionREFOBJ.setDotName("meta.AttributeDefinitionREF.TypeDefinition");
+        _AttributeDefinitionREFOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.AttributeDefinitionREF");
+        _AttributeDefinitionREFOBJ.setInternallyGenerated("true");
+        _AttributeDefinitionREFOBJ.setIsRefType("true");
+        _AttributeDefinitionREFOBJ.setName("AttributeDefinitionREF");
+        _AttributeDefinitionREFOBJ.setOriginalClass("meta.AttributeDefinition");
+        _AttributeDefinitionREFOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeAttributeDefinitionREF");
+        _AttributeDefinitionREFOBJ.setWrapperClassName("org.dmd.dms.server.extended.AttributeDefinition");
+        _AttributeDefinitionREF.setDefinedInDmsModule(this);
+        addTypeDefinition(_AttributeDefinitionREF);
 
         TypeDefinitionDMO _AttributeIDOBJ = new TypeDefinitionDMO();
         _AttributeID = new TypeDefinition(_AttributeIDOBJ);
@@ -2907,6 +2991,25 @@ public class MetaDmsModule extends DmsModule {
         _CamelCaseName.setDefinedInDmsModule(this);
         addTypeDefinition(_CamelCaseName);
 
+        TypeDefinitionDMO _ClassDefinitionREFOBJ = new TypeDefinitionDMO();
+        _ClassDefinitionREF = new TypeDefinition(_ClassDefinitionREFOBJ);
+        _ClassDefinitionREFOBJ.setAuxHolderClass("ClassDefinition");
+        _ClassDefinitionREFOBJ.setAuxHolderImport("org.dmd.dms.server.extended.ClassDefinition");
+        _ClassDefinitionREFOBJ.setDefinedInDmsModule("meta.meta");
+        _ClassDefinitionREFOBJ.addDescription("This is an internally generated type to allow references to ClassDefinition objects.");
+        _ClassDefinitionREFOBJ.setDmwIteratorClass("ClassDefinitionIterableDMW");
+        _ClassDefinitionREFOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.ClassDefinitionIterableDMW");
+        _ClassDefinitionREFOBJ.setDotName("meta.ClassDefinitionREF.TypeDefinition");
+        _ClassDefinitionREFOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.ClassDefinitionREF");
+        _ClassDefinitionREFOBJ.setInternallyGenerated("true");
+        _ClassDefinitionREFOBJ.setIsRefType("true");
+        _ClassDefinitionREFOBJ.setName("ClassDefinitionREF");
+        _ClassDefinitionREFOBJ.setOriginalClass("meta.ClassDefinition");
+        _ClassDefinitionREFOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeClassDefinitionREF");
+        _ClassDefinitionREFOBJ.setWrapperClassName("org.dmd.dms.server.extended.ClassDefinition");
+        _ClassDefinitionREF.setDefinedInDmsModule(this);
+        addTypeDefinition(_ClassDefinitionREF);
+
         TypeDefinitionDMO _ClassFilterOBJ = new TypeDefinitionDMO();
         _ClassFilter = new TypeDefinition(_ClassFilterOBJ);
         _ClassFilterOBJ.addDescription("The ClassFilter is used to perform matches against objects based on their class or auxiliary classes.");
@@ -2941,6 +3044,82 @@ public class MetaDmsModule extends DmsModule {
         _ClassTypeEnumOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeClassTypeEnum");
         _ClassTypeEnum_Type.setDefinedInDmsModule(this);
         addTypeDefinition(_ClassTypeEnum_Type);
+
+        TypeDefinitionDMO _ComplexTypeDefinitionREFOBJ = new TypeDefinitionDMO();
+        _ComplexTypeDefinitionREF = new TypeDefinition(_ComplexTypeDefinitionREFOBJ);
+        _ComplexTypeDefinitionREFOBJ.setAuxHolderClass("ComplexTypeDefinition");
+        _ComplexTypeDefinitionREFOBJ.setAuxHolderImport("org.dmd.dms.server.extended.ComplexTypeDefinition");
+        _ComplexTypeDefinitionREFOBJ.setDefinedInDmsModule("meta.meta");
+        _ComplexTypeDefinitionREFOBJ.addDescription("This is an internally generated type to allow references to ComplexTypeDefinition objects.");
+        _ComplexTypeDefinitionREFOBJ.setDmwIteratorClass("ComplexTypeDefinitionIterableDMW");
+        _ComplexTypeDefinitionREFOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.ComplexTypeDefinitionIterableDMW");
+        _ComplexTypeDefinitionREFOBJ.setDotName("meta.ComplexTypeDefinitionREF.TypeDefinition");
+        _ComplexTypeDefinitionREFOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.ComplexTypeDefinitionREF");
+        _ComplexTypeDefinitionREFOBJ.setInternallyGenerated("true");
+        _ComplexTypeDefinitionREFOBJ.setIsRefType("true");
+        _ComplexTypeDefinitionREFOBJ.setName("ComplexTypeDefinitionREF");
+        _ComplexTypeDefinitionREFOBJ.setOriginalClass("meta.ComplexTypeDefinition");
+        _ComplexTypeDefinitionREFOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeComplexTypeDefinitionREF");
+        _ComplexTypeDefinitionREFOBJ.setWrapperClassName("org.dmd.dms.server.extended.ComplexTypeDefinition");
+        _ComplexTypeDefinitionREF.setDefinedInDmsModule(this);
+        addTypeDefinition(_ComplexTypeDefinitionREF);
+
+        TypeDefinitionDMO _ConcinnityREFOBJ = new TypeDefinitionDMO();
+        _ConcinnityREF = new TypeDefinition(_ConcinnityREFOBJ);
+        _ConcinnityREFOBJ.setAuxHolderClass("Concinnity");
+        _ConcinnityREFOBJ.setAuxHolderImport("org.dmd.dms.server.extended.Concinnity");
+        _ConcinnityREFOBJ.setDefinedInDmsModule("meta.meta");
+        _ConcinnityREFOBJ.addDescription("This is an internally generated type to allow references to Concinnity objects.");
+        _ConcinnityREFOBJ.setDmwIteratorClass("ConcinnityIterableDMW");
+        _ConcinnityREFOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.ConcinnityIterableDMW");
+        _ConcinnityREFOBJ.setDotName("meta.ConcinnityREF.TypeDefinition");
+        _ConcinnityREFOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.ConcinnityREF");
+        _ConcinnityREFOBJ.setInternallyGenerated("true");
+        _ConcinnityREFOBJ.setIsRefType("true");
+        _ConcinnityREFOBJ.setName("ConcinnityREF");
+        _ConcinnityREFOBJ.setOriginalClass("meta.Concinnity");
+        _ConcinnityREFOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeConcinnityREF");
+        _ConcinnityREFOBJ.setWrapperClassName("org.dmd.dms.server.extended.Concinnity");
+        _ConcinnityREF.setDefinedInDmsModule(this);
+        addTypeDefinition(_ConcinnityREF);
+
+        TypeDefinitionDMO _DSDefinitionModuleREFOBJ = new TypeDefinitionDMO();
+        _DSDefinitionModuleREF = new TypeDefinition(_DSDefinitionModuleREFOBJ);
+        _DSDefinitionModuleREFOBJ.setAuxHolderClass("DSDefinitionModule");
+        _DSDefinitionModuleREFOBJ.setAuxHolderImport("org.dmd.dms.server.extended.DSDefinitionModule");
+        _DSDefinitionModuleREFOBJ.setDefinedInDmsModule("meta.meta");
+        _DSDefinitionModuleREFOBJ.addDescription("This is an internally generated type to allow references to DSDefinitionModule objects.");
+        _DSDefinitionModuleREFOBJ.setDmwIteratorClass("DSDefinitionModuleIterableDMW");
+        _DSDefinitionModuleREFOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.DSDefinitionModuleIterableDMW");
+        _DSDefinitionModuleREFOBJ.setDotName("meta.DSDefinitionModuleREF.TypeDefinition");
+        _DSDefinitionModuleREFOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.DSDefinitionModuleREF");
+        _DSDefinitionModuleREFOBJ.setInternallyGenerated("true");
+        _DSDefinitionModuleREFOBJ.setIsRefType("true");
+        _DSDefinitionModuleREFOBJ.setName("DSDefinitionModuleREF");
+        _DSDefinitionModuleREFOBJ.setOriginalClass("meta.DSDefinitionModule");
+        _DSDefinitionModuleREFOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeDSDefinitionModuleREF");
+        _DSDefinitionModuleREFOBJ.setWrapperClassName("org.dmd.dms.server.extended.DSDefinitionModule");
+        _DSDefinitionModuleREF.setDefinedInDmsModule(this);
+        addTypeDefinition(_DSDefinitionModuleREF);
+
+        TypeDefinitionDMO _DSDefinitionREFOBJ = new TypeDefinitionDMO();
+        _DSDefinitionREF = new TypeDefinition(_DSDefinitionREFOBJ);
+        _DSDefinitionREFOBJ.setAuxHolderClass("DSDefinition");
+        _DSDefinitionREFOBJ.setAuxHolderImport("org.dmd.dms.server.extended.DSDefinition");
+        _DSDefinitionREFOBJ.setDefinedInDmsModule("meta.meta");
+        _DSDefinitionREFOBJ.addDescription("This is an internally generated type to allow references to DSDefinition objects.");
+        _DSDefinitionREFOBJ.setDmwIteratorClass("DSDefinitionIterableDMW");
+        _DSDefinitionREFOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.DSDefinitionIterableDMW");
+        _DSDefinitionREFOBJ.setDotName("meta.DSDefinitionREF.TypeDefinition");
+        _DSDefinitionREFOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.DSDefinitionREF");
+        _DSDefinitionREFOBJ.setInternallyGenerated("true");
+        _DSDefinitionREFOBJ.setIsRefType("true");
+        _DSDefinitionREFOBJ.setName("DSDefinitionREF");
+        _DSDefinitionREFOBJ.setOriginalClass("meta.DSDefinition");
+        _DSDefinitionREFOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeDSDefinitionREF");
+        _DSDefinitionREFOBJ.setWrapperClassName("org.dmd.dms.server.extended.DSDefinition");
+        _DSDefinitionREF.setDefinedInDmsModule(this);
+        addTypeDefinition(_DSDefinitionREF);
 
         TypeDefinitionDMO _DataTypeEnumOBJ = new TypeDefinitionDMO();
         _DataTypeEnum_Type = new TypeDefinition(_DataTypeEnumOBJ);
@@ -2990,6 +3169,44 @@ public class MetaDmsModule extends DmsModule {
         _DefinitionName.setDefinedInDmsModule(this);
         addTypeDefinition(_DefinitionName);
 
+        TypeDefinitionDMO _DependencyImplementationREFOBJ = new TypeDefinitionDMO();
+        _DependencyImplementationREF = new TypeDefinition(_DependencyImplementationREFOBJ);
+        _DependencyImplementationREFOBJ.setAuxHolderClass("DependencyImplementation");
+        _DependencyImplementationREFOBJ.setAuxHolderImport("org.dmd.dms.server.extended.DependencyImplementation");
+        _DependencyImplementationREFOBJ.setDefinedInDmsModule("meta.meta");
+        _DependencyImplementationREFOBJ.addDescription("This is an internally generated type to allow references to DependencyImplementation objects.");
+        _DependencyImplementationREFOBJ.setDmwIteratorClass("DependencyImplementationIterableDMW");
+        _DependencyImplementationREFOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.DependencyImplementationIterableDMW");
+        _DependencyImplementationREFOBJ.setDotName("meta.DependencyImplementationREF.TypeDefinition");
+        _DependencyImplementationREFOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.DependencyImplementationREF");
+        _DependencyImplementationREFOBJ.setInternallyGenerated("true");
+        _DependencyImplementationREFOBJ.setIsRefType("true");
+        _DependencyImplementationREFOBJ.setName("DependencyImplementationREF");
+        _DependencyImplementationREFOBJ.setOriginalClass("meta.DependencyImplementation");
+        _DependencyImplementationREFOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeDependencyImplementationREF");
+        _DependencyImplementationREFOBJ.setWrapperClassName("org.dmd.dms.server.extended.DependencyImplementation");
+        _DependencyImplementationREF.setDefinedInDmsModule(this);
+        addTypeDefinition(_DependencyImplementationREF);
+
+        TypeDefinitionDMO _DependencyREFOBJ = new TypeDefinitionDMO();
+        _DependencyREF = new TypeDefinition(_DependencyREFOBJ);
+        _DependencyREFOBJ.setAuxHolderClass("Dependency");
+        _DependencyREFOBJ.setAuxHolderImport("org.dmd.dms.server.extended.Dependency");
+        _DependencyREFOBJ.setDefinedInDmsModule("meta.meta");
+        _DependencyREFOBJ.addDescription("This is an internally generated type to allow references to Dependency objects.");
+        _DependencyREFOBJ.setDmwIteratorClass("DependencyIterableDMW");
+        _DependencyREFOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.DependencyIterableDMW");
+        _DependencyREFOBJ.setDotName("meta.DependencyREF.TypeDefinition");
+        _DependencyREFOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.DependencyREF");
+        _DependencyREFOBJ.setInternallyGenerated("true");
+        _DependencyREFOBJ.setIsRefType("true");
+        _DependencyREFOBJ.setName("DependencyREF");
+        _DependencyREFOBJ.setOriginalClass("meta.Dependency");
+        _DependencyREFOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeDependencyREF");
+        _DependencyREFOBJ.setWrapperClassName("org.dmd.dms.server.extended.Dependency");
+        _DependencyREF.setDefinedInDmsModule(this);
+        addTypeDefinition(_DependencyREF);
+
         TypeDefinitionDMO _DmcObjectOBJ = new TypeDefinitionDMO();
         _DmcObject = new TypeDefinition(_DmcObjectOBJ);
         _DmcObjectOBJ.addDescription("The DmcObject type allows for the storage of raw DmcObjects.");
@@ -2999,6 +3216,44 @@ public class MetaDmsModule extends DmsModule {
         _DmcObjectOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeDmcObject");
         _DmcObject.setDefinedInDmsModule(this);
         addTypeDefinition(_DmcObject);
+
+        TypeDefinitionDMO _DmsDefinitionREFOBJ = new TypeDefinitionDMO();
+        _DmsDefinitionREF = new TypeDefinition(_DmsDefinitionREFOBJ);
+        _DmsDefinitionREFOBJ.setAuxHolderClass("DmsDefinition");
+        _DmsDefinitionREFOBJ.setAuxHolderImport("org.dmd.dms.server.extended.DmsDefinition");
+        _DmsDefinitionREFOBJ.setDefinedInDmsModule("meta.meta");
+        _DmsDefinitionREFOBJ.addDescription("This is an internally generated type to allow references to DmsDefinition objects.");
+        _DmsDefinitionREFOBJ.setDmwIteratorClass("DmsDefinitionIterableDMW");
+        _DmsDefinitionREFOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.DmsDefinitionIterableDMW");
+        _DmsDefinitionREFOBJ.setDotName("meta.DmsDefinitionREF.TypeDefinition");
+        _DmsDefinitionREFOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.DmsDefinitionREF");
+        _DmsDefinitionREFOBJ.setInternallyGenerated("true");
+        _DmsDefinitionREFOBJ.setIsRefType("true");
+        _DmsDefinitionREFOBJ.setName("DmsDefinitionREF");
+        _DmsDefinitionREFOBJ.setOriginalClass("meta.DmsDefinition");
+        _DmsDefinitionREFOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeDmsDefinitionREF");
+        _DmsDefinitionREFOBJ.setWrapperClassName("org.dmd.dms.server.extended.DmsDefinition");
+        _DmsDefinitionREF.setDefinedInDmsModule(this);
+        addTypeDefinition(_DmsDefinitionREF);
+
+        TypeDefinitionDMO _DmsModuleREFOBJ = new TypeDefinitionDMO();
+        _DmsModuleREF = new TypeDefinition(_DmsModuleREFOBJ);
+        _DmsModuleREFOBJ.setAuxHolderClass("DmsModule");
+        _DmsModuleREFOBJ.setAuxHolderImport("org.dmd.dms.server.extended.DmsModule");
+        _DmsModuleREFOBJ.setDefinedInDmsModule("meta.meta");
+        _DmsModuleREFOBJ.addDescription("This is an internally generated type to allow references to DmsModule objects.");
+        _DmsModuleREFOBJ.setDmwIteratorClass("DmsModuleIterableDMW");
+        _DmsModuleREFOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.DmsModuleIterableDMW");
+        _DmsModuleREFOBJ.setDotName("meta.DmsModuleREF.TypeDefinition");
+        _DmsModuleREFOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.DmsModuleREF");
+        _DmsModuleREFOBJ.setInternallyGenerated("true");
+        _DmsModuleREFOBJ.setIsRefType("true");
+        _DmsModuleREFOBJ.setName("DmsModuleREF");
+        _DmsModuleREFOBJ.setOriginalClass("meta.DmsModule");
+        _DmsModuleREFOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeDmsModuleREF");
+        _DmsModuleREFOBJ.setWrapperClassName("org.dmd.dms.server.extended.DmsModule");
+        _DmsModuleREF.setDefinedInDmsModule(this);
+        addTypeDefinition(_DmsModuleREF);
 
         TypeDefinitionDMO _DotNameOBJ = new TypeDefinitionDMO();
         _DotName = new TypeDefinition(_DotNameOBJ);
@@ -3022,6 +3277,25 @@ public class MetaDmsModule extends DmsModule {
         _Double.setDefinedInDmsModule(this);
         addTypeDefinition(_Double);
 
+        TypeDefinitionDMO _EnumDefinitionREFOBJ = new TypeDefinitionDMO();
+        _EnumDefinitionREF = new TypeDefinition(_EnumDefinitionREFOBJ);
+        _EnumDefinitionREFOBJ.setAuxHolderClass("EnumDefinition");
+        _EnumDefinitionREFOBJ.setAuxHolderImport("org.dmd.dms.server.extended.EnumDefinition");
+        _EnumDefinitionREFOBJ.setDefinedInDmsModule("meta.meta");
+        _EnumDefinitionREFOBJ.addDescription("This is an internally generated type to allow references to EnumDefinition objects.");
+        _EnumDefinitionREFOBJ.setDmwIteratorClass("EnumDefinitionIterableDMW");
+        _EnumDefinitionREFOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.EnumDefinitionIterableDMW");
+        _EnumDefinitionREFOBJ.setDotName("meta.EnumDefinitionREF.TypeDefinition");
+        _EnumDefinitionREFOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.EnumDefinitionREF");
+        _EnumDefinitionREFOBJ.setInternallyGenerated("true");
+        _EnumDefinitionREFOBJ.setIsRefType("true");
+        _EnumDefinitionREFOBJ.setName("EnumDefinitionREF");
+        _EnumDefinitionREFOBJ.setOriginalClass("meta.EnumDefinition");
+        _EnumDefinitionREFOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeEnumDefinitionREF");
+        _EnumDefinitionREFOBJ.setWrapperClassName("org.dmd.dms.server.extended.EnumDefinition");
+        _EnumDefinitionREF.setDefinedInDmsModule(this);
+        addTypeDefinition(_EnumDefinitionREF);
+
         TypeDefinitionDMO _EnumValueOBJ = new TypeDefinitionDMO();
         _EnumValue = new TypeDefinition(_EnumValueOBJ);
         _EnumValueOBJ.addDescription("The EnumValue type is used to store the definition of one enumerated value that comprises part of an overall EnumDefinition. <p/> The value of an EnumValue is comprised of at least three tokens and possibly a label: <pre> [enum integer value] [enum value name] [enum description] <: label> </pre> For example: <pre> 0 ABSTRACT Here is the definition of abstract. : Abstract </pre> Within an EnumDefinition, each EnumValue must have a unique integer identifier and a unique value name. <p/> The enum value name is automatically set to uppercase, even if it is specified in lower or mixed case.");
@@ -3031,6 +3305,25 @@ public class MetaDmsModule extends DmsModule {
         _EnumValueOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeEnumValue");
         _EnumValue.setDefinedInDmsModule(this);
         addTypeDefinition(_EnumValue);
+
+        TypeDefinitionDMO _ExtendedReferenceTypeDefinitionREFOBJ = new TypeDefinitionDMO();
+        _ExtendedReferenceTypeDefinitionREF = new TypeDefinition(_ExtendedReferenceTypeDefinitionREFOBJ);
+        _ExtendedReferenceTypeDefinitionREFOBJ.setAuxHolderClass("ExtendedReferenceTypeDefinition");
+        _ExtendedReferenceTypeDefinitionREFOBJ.setAuxHolderImport("org.dmd.dms.server.extended.ExtendedReferenceTypeDefinition");
+        _ExtendedReferenceTypeDefinitionREFOBJ.setDefinedInDmsModule("meta.meta");
+        _ExtendedReferenceTypeDefinitionREFOBJ.addDescription("This is an internally generated type to allow references to ExtendedReferenceTypeDefinition objects.");
+        _ExtendedReferenceTypeDefinitionREFOBJ.setDmwIteratorClass("ExtendedReferenceTypeDefinitionIterableDMW");
+        _ExtendedReferenceTypeDefinitionREFOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.ExtendedReferenceTypeDefinitionIterableDMW");
+        _ExtendedReferenceTypeDefinitionREFOBJ.setDotName("meta.ExtendedReferenceTypeDefinitionREF.TypeDefinition");
+        _ExtendedReferenceTypeDefinitionREFOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.ExtendedReferenceTypeDefinitionREF");
+        _ExtendedReferenceTypeDefinitionREFOBJ.setInternallyGenerated("true");
+        _ExtendedReferenceTypeDefinitionREFOBJ.setIsRefType("true");
+        _ExtendedReferenceTypeDefinitionREFOBJ.setName("ExtendedReferenceTypeDefinitionREF");
+        _ExtendedReferenceTypeDefinitionREFOBJ.setOriginalClass("meta.ExtendedReferenceTypeDefinition");
+        _ExtendedReferenceTypeDefinitionREFOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeExtendedReferenceTypeDefinitionREF");
+        _ExtendedReferenceTypeDefinitionREFOBJ.setWrapperClassName("org.dmd.dms.server.extended.ExtendedReferenceTypeDefinition");
+        _ExtendedReferenceTypeDefinitionREF.setDefinedInDmsModule(this);
+        addTypeDefinition(_ExtendedReferenceTypeDefinitionREF);
 
         TypeDefinitionDMO _FilterContainerOBJ = new TypeDefinitionDMO();
         _FilterContainer = new TypeDefinition(_FilterContainerOBJ);
@@ -3223,6 +3516,63 @@ public class MetaDmsModule extends DmsModule {
         _OriginalTypeEnum_Type.setDefinedInDmsModule(this);
         addTypeDefinition(_OriginalTypeEnum_Type);
 
+        TypeDefinitionDMO _RuleCategoryREFOBJ = new TypeDefinitionDMO();
+        _RuleCategoryREF = new TypeDefinition(_RuleCategoryREFOBJ);
+        _RuleCategoryREFOBJ.setAuxHolderClass("RuleCategory");
+        _RuleCategoryREFOBJ.setAuxHolderImport("org.dmd.dms.server.extended.RuleCategory");
+        _RuleCategoryREFOBJ.setDefinedInDmsModule("meta.meta");
+        _RuleCategoryREFOBJ.addDescription("This is an internally generated type to allow references to RuleCategory objects.");
+        _RuleCategoryREFOBJ.setDmwIteratorClass("RuleCategoryIterableDMW");
+        _RuleCategoryREFOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.RuleCategoryIterableDMW");
+        _RuleCategoryREFOBJ.setDotName("meta.RuleCategoryREF.TypeDefinition");
+        _RuleCategoryREFOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.RuleCategoryREF");
+        _RuleCategoryREFOBJ.setInternallyGenerated("true");
+        _RuleCategoryREFOBJ.setIsRefType("true");
+        _RuleCategoryREFOBJ.setName("RuleCategoryREF");
+        _RuleCategoryREFOBJ.setOriginalClass("meta.RuleCategory");
+        _RuleCategoryREFOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeRuleCategoryREF");
+        _RuleCategoryREFOBJ.setWrapperClassName("org.dmd.dms.server.extended.RuleCategory");
+        _RuleCategoryREF.setDefinedInDmsModule(this);
+        addTypeDefinition(_RuleCategoryREF);
+
+        TypeDefinitionDMO _RuleDataREFOBJ = new TypeDefinitionDMO();
+        _RuleDataREF = new TypeDefinition(_RuleDataREFOBJ);
+        _RuleDataREFOBJ.setAuxHolderClass("RuleData");
+        _RuleDataREFOBJ.setAuxHolderImport("org.dmd.dms.server.extended.RuleData");
+        _RuleDataREFOBJ.setDefinedInDmsModule("meta.meta");
+        _RuleDataREFOBJ.addDescription("This is an internally generated type to allow references to RuleData objects.");
+        _RuleDataREFOBJ.setDmwIteratorClass("RuleDataIterableDMW");
+        _RuleDataREFOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.RuleDataIterableDMW");
+        _RuleDataREFOBJ.setDotName("meta.RuleDataREF.TypeDefinition");
+        _RuleDataREFOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.RuleDataREF");
+        _RuleDataREFOBJ.setInternallyGenerated("true");
+        _RuleDataREFOBJ.setIsRefType("true");
+        _RuleDataREFOBJ.setName("RuleDataREF");
+        _RuleDataREFOBJ.setOriginalClass("meta.RuleData");
+        _RuleDataREFOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeRuleDataREF");
+        _RuleDataREFOBJ.setWrapperClassName("org.dmd.dms.server.extended.RuleData");
+        _RuleDataREF.setDefinedInDmsModule(this);
+        addTypeDefinition(_RuleDataREF);
+
+        TypeDefinitionDMO _RuleDefinitionREFOBJ = new TypeDefinitionDMO();
+        _RuleDefinitionREF = new TypeDefinition(_RuleDefinitionREFOBJ);
+        _RuleDefinitionREFOBJ.setAuxHolderClass("RuleDefinition");
+        _RuleDefinitionREFOBJ.setAuxHolderImport("org.dmd.dms.server.extended.RuleDefinition");
+        _RuleDefinitionREFOBJ.setDefinedInDmsModule("meta.meta");
+        _RuleDefinitionREFOBJ.addDescription("This is an internally generated type to allow references to RuleDefinition objects.");
+        _RuleDefinitionREFOBJ.setDmwIteratorClass("RuleDefinitionIterableDMW");
+        _RuleDefinitionREFOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.RuleDefinitionIterableDMW");
+        _RuleDefinitionREFOBJ.setDotName("meta.RuleDefinitionREF.TypeDefinition");
+        _RuleDefinitionREFOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.RuleDefinitionREF");
+        _RuleDefinitionREFOBJ.setInternallyGenerated("true");
+        _RuleDefinitionREFOBJ.setIsRefType("true");
+        _RuleDefinitionREFOBJ.setName("RuleDefinitionREF");
+        _RuleDefinitionREFOBJ.setOriginalClass("meta.RuleDefinition");
+        _RuleDefinitionREFOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeRuleDefinitionREF");
+        _RuleDefinitionREFOBJ.setWrapperClassName("org.dmd.dms.server.extended.RuleDefinition");
+        _RuleDefinitionREF.setDefinedInDmsModule(this);
+        addTypeDefinition(_RuleDefinitionREF);
+
         TypeDefinitionDMO _RuleNameOBJ = new TypeDefinitionDMO();
         _RuleName = new TypeDefinition(_RuleNameOBJ);
         _RuleNameOBJ.addDescription("The RuleName is a string based name that must start with an alpha character which is followed by a mix of alphanumerics.");
@@ -3248,6 +3598,44 @@ public class MetaDmsModule extends DmsModule {
         _RuleTypeEnum_Type.setDefinedInDmsModule(this);
         addTypeDefinition(_RuleTypeEnum_Type);
 
+        TypeDefinitionDMO _RunContextREFOBJ = new TypeDefinitionDMO();
+        _RunContextREF = new TypeDefinition(_RunContextREFOBJ);
+        _RunContextREFOBJ.setAuxHolderClass("Dependency");
+        _RunContextREFOBJ.setAuxHolderImport("org.dmd.dms.server.extended.Dependency");
+        _RunContextREFOBJ.setDefinedInDmsModule("meta.meta");
+        _RunContextREFOBJ.addDescription("This is an internally generated type to allow references to RunContext objects.");
+        _RunContextREFOBJ.setDmwIteratorClass("RunContextIterableDMW");
+        _RunContextREFOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.RunContextIterableDMW");
+        _RunContextREFOBJ.setDotName("meta.RunContextREF.TypeDefinition");
+        _RunContextREFOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.RunContextREF");
+        _RunContextREFOBJ.setInternallyGenerated("true");
+        _RunContextREFOBJ.setIsRefType("true");
+        _RunContextREFOBJ.setName("RunContextREF");
+        _RunContextREFOBJ.setOriginalClass("meta.RunContext");
+        _RunContextREFOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeRunContextREF");
+        _RunContextREFOBJ.setWrapperClassName("org.dmd.dms.server.extended.Dependency");
+        _RunContextREF.setDefinedInDmsModule(this);
+        addTypeDefinition(_RunContextREF);
+
+        TypeDefinitionDMO _SchemaDefinitionREFOBJ = new TypeDefinitionDMO();
+        _SchemaDefinitionREF = new TypeDefinition(_SchemaDefinitionREFOBJ);
+        _SchemaDefinitionREFOBJ.setAuxHolderClass("SchemaDefinition");
+        _SchemaDefinitionREFOBJ.setAuxHolderImport("org.dmd.dms.server.extended.SchemaDefinition");
+        _SchemaDefinitionREFOBJ.setDefinedInDmsModule("meta.meta");
+        _SchemaDefinitionREFOBJ.addDescription("This is an internally generated type to allow references to SchemaDefinition objects.");
+        _SchemaDefinitionREFOBJ.setDmwIteratorClass("SchemaDefinitionIterableDMW");
+        _SchemaDefinitionREFOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.SchemaDefinitionIterableDMW");
+        _SchemaDefinitionREFOBJ.setDotName("meta.SchemaDefinitionREF.TypeDefinition");
+        _SchemaDefinitionREFOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.SchemaDefinitionREF");
+        _SchemaDefinitionREFOBJ.setInternallyGenerated("true");
+        _SchemaDefinitionREFOBJ.setIsRefType("true");
+        _SchemaDefinitionREFOBJ.setName("SchemaDefinitionREF");
+        _SchemaDefinitionREFOBJ.setOriginalClass("meta.SchemaDefinition");
+        _SchemaDefinitionREFOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeSchemaDefinitionREF");
+        _SchemaDefinitionREFOBJ.setWrapperClassName("org.dmd.dms.server.extended.SchemaDefinition");
+        _SchemaDefinitionREF.setDefinedInDmsModule(this);
+        addTypeDefinition(_SchemaDefinitionREF);
+
         TypeDefinitionDMO _ShortOBJ = new TypeDefinitionDMO();
         _Short = new TypeDefinition(_ShortOBJ);
         _ShortOBJ.addDescription("Provides support for Short values.");
@@ -3256,6 +3644,25 @@ public class MetaDmsModule extends DmsModule {
         _ShortOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeShort");
         _Short.setDefinedInDmsModule(this);
         addTypeDefinition(_Short);
+
+        TypeDefinitionDMO _SliceDefinitionREFOBJ = new TypeDefinitionDMO();
+        _SliceDefinitionREF = new TypeDefinition(_SliceDefinitionREFOBJ);
+        _SliceDefinitionREFOBJ.setAuxHolderClass("SliceDefinition");
+        _SliceDefinitionREFOBJ.setAuxHolderImport("org.dmd.dms.server.extended.SliceDefinition");
+        _SliceDefinitionREFOBJ.setDefinedInDmsModule("meta.meta");
+        _SliceDefinitionREFOBJ.addDescription("This is an internally generated type to allow references to SliceDefinition objects.");
+        _SliceDefinitionREFOBJ.setDmwIteratorClass("SliceDefinitionIterableDMW");
+        _SliceDefinitionREFOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.SliceDefinitionIterableDMW");
+        _SliceDefinitionREFOBJ.setDotName("meta.SliceDefinitionREF.TypeDefinition");
+        _SliceDefinitionREFOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.SliceDefinitionREF");
+        _SliceDefinitionREFOBJ.setInternallyGenerated("true");
+        _SliceDefinitionREFOBJ.setIsRefType("true");
+        _SliceDefinitionREFOBJ.setName("SliceDefinitionREF");
+        _SliceDefinitionREFOBJ.setOriginalClass("meta.SliceDefinition");
+        _SliceDefinitionREFOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeSliceDefinitionREF");
+        _SliceDefinitionREFOBJ.setWrapperClassName("org.dmd.dms.server.extended.SliceDefinition");
+        _SliceDefinitionREF.setDefinedInDmsModule(this);
+        addTypeDefinition(_SliceDefinitionREF);
 
         TypeDefinitionDMO _StringOBJ = new TypeDefinitionDMO();
         _String = new TypeDefinition(_StringOBJ);
@@ -3298,6 +3705,25 @@ public class MetaDmsModule extends DmsModule {
         _TimeDoubleDataPointOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeTimeDoubleDataPoint");
         _TimeDoubleDataPoint.setDefinedInDmsModule(this);
         addTypeDefinition(_TimeDoubleDataPoint);
+
+        TypeDefinitionDMO _TypeDefinitionREFOBJ = new TypeDefinitionDMO();
+        _TypeDefinitionREF = new TypeDefinition(_TypeDefinitionREFOBJ);
+        _TypeDefinitionREFOBJ.setAuxHolderClass("TypeDefinition");
+        _TypeDefinitionREFOBJ.setAuxHolderImport("org.dmd.dms.server.extended.TypeDefinition");
+        _TypeDefinitionREFOBJ.setDefinedInDmsModule("meta.meta");
+        _TypeDefinitionREFOBJ.addDescription("This is an internally generated type to allow references to TypeDefinition objects.");
+        _TypeDefinitionREFOBJ.setDmwIteratorClass("TypeDefinitionIterableDMW");
+        _TypeDefinitionREFOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.TypeDefinitionIterableDMW");
+        _TypeDefinitionREFOBJ.setDotName("meta.TypeDefinitionREF.TypeDefinition");
+        _TypeDefinitionREFOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.TypeDefinitionREF");
+        _TypeDefinitionREFOBJ.setInternallyGenerated("true");
+        _TypeDefinitionREFOBJ.setIsRefType("true");
+        _TypeDefinitionREFOBJ.setName("TypeDefinitionREF");
+        _TypeDefinitionREFOBJ.setOriginalClass("meta.TypeDefinition");
+        _TypeDefinitionREFOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeTypeDefinitionREF");
+        _TypeDefinitionREFOBJ.setWrapperClassName("org.dmd.dms.server.extended.TypeDefinition");
+        _TypeDefinitionREF.setDefinedInDmsModule(this);
+        addTypeDefinition(_TypeDefinitionREF);
 
         TypeDefinitionDMO _UUIDLiteOBJ = new TypeDefinitionDMO();
         _UUIDLite = new TypeDefinition(_UUIDLiteOBJ);
@@ -3349,7 +3775,7 @@ public class MetaDmsModule extends DmsModule {
 
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitEnums(MetaSchemaFormatterNew.java:286)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitEnums(MetaSchemaFormatterNew.java:303)
     private void initEnums() throws DMFeedbackSet {
 
         EnumDefinitionDMO _BaseTypeEnumOBJ = new EnumDefinitionDMO();
@@ -3504,7 +3930,7 @@ public class MetaDmsModule extends DmsModule {
 
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitRuleCategories(MetaSchemaFormatterNew.java:305)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitRuleCategories(MetaSchemaFormatterNew.java:322)
     private void initRuleCategories() throws DMFeedbackSet {
 
         RuleCategoryDMO _AttributeValidationOBJ = new RuleCategoryDMO();
@@ -3580,7 +4006,7 @@ public class MetaDmsModule extends DmsModule {
 
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitComplexTypes(MetaSchemaFormatterNew.java:324)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitComplexTypes(MetaSchemaFormatterNew.java:341)
     private void initComplexTypes() throws DMFeedbackSet {
 
         ComplexTypeDefinitionDMO _DmwTypeToWrapperTypeOBJ = new ComplexTypeDefinitionDMO();
@@ -3669,7 +4095,7 @@ public class MetaDmsModule extends DmsModule {
 
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitModules(MetaSchemaFormatterNew.java:343)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitModules(MetaSchemaFormatterNew.java:360)
     private void initModules() throws DMFeedbackSet {
 
         DSDefinitionModuleDMO _DmsModuleOBJ = new DSDefinitionModuleDMO();

@@ -163,8 +163,13 @@ public class MetaSchemaFormatterNew {
 		for (int i = 0; i < origOrderTypes.size(); i++){
 			DMUncheckedObject td = ucoTypeDefs.get(origOrderTypes.get(i));
 			String internallyGenerated = td.getSV("internallyGenerated");
+			String isRefType = td.getSV("isRefType");
+			
 			if (internallyGenerated != null){
-				out.write("    public static TypeDefinition      _" + origOrderTypes.get(i) + "_Type;\n");
+				if (isRefType == null)
+					out.write("    public static TypeDefinition      _" + origOrderTypes.get(i) + "_Type;\n");
+				else
+					out.write("    public static TypeDefinition      _" + origOrderTypes.get(i) + ";\n");
 //				continue;
 			}
 			else{
@@ -251,6 +256,7 @@ public class MetaSchemaFormatterNew {
 		for (DMUncheckedObject typeDef: ucoTypeDefs.values()) {
 			String internallyGenerated = typeDef.getSV("internallyGenerated");
 			String isEnumType = typeDef.getSV("isEnumType");
+			String isRefType = typeDef.getSV("isRefType");
 			
 			if (internallyGenerated == null){
 				String name = typeDef.getSV("name");
@@ -273,6 +279,17 @@ public class MetaSchemaFormatterNew {
 				out.write("        _" + name + "_Type.setDefinedInDmsModule(this);\n");
 				out.write("        addTypeDefinition(_" + name + "_Type);\n");
 				out.write("\n");
+			}
+			else if (isRefType != null){
+					String name = typeDef.getSV("name");
+					String dmoName = "_" + name + "OBJ";
+					
+					out.write("        TypeDefinitionDMO " + dmoName + " = new TypeDefinitionDMO();\n");
+					out.write("        _" + name + " = new TypeDefinition(" + dmoName + ");\n");
+					dumpAttrValues("        ", dmoName, typeDef, out);
+					out.write("        _" + name + ".setDefinedInDmsModule(this);\n");
+					out.write("        addTypeDefinition(_" + name + ");\n");
+					out.write("\n");
 			}
 			else{
 				System.err.println("Need to add internal type initialization for: " + typeDef.getSV("name"));

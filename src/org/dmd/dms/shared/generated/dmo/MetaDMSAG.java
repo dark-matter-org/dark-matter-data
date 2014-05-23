@@ -45,6 +45,8 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __attachToClass = new DmcAttributeInfo("meta","attachToClass",65,"ClassDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __attributeDefList = new DmcAttributeInfo("meta","attributeDefList",59,"AttributeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __attributeInfoFromParam = new DmcAttributeInfo("meta","attributeInfoFromParam",155,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
+    public final static DmcAttributeInfo __auxHolderClass = new DmcAttributeInfo("meta","auxHolderClass",193,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
+    public final static DmcAttributeInfo __auxHolderImport = new DmcAttributeInfo("meta","auxHolderImport",192,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __baseDefinition = new DmcAttributeInfo("meta","baseDefinition",164,"DSDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __baseType = new DmcAttributeInfo("meta","baseType",135,"BaseTypeEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __camelCaseName = new DmcAttributeInfo("meta","camelCaseName",116,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
@@ -354,6 +356,8 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__attachToClass.id,__attachToClass);
         _SmAp.put(__attributeDefList.id,__attributeDefList);
         _SmAp.put(__attributeInfoFromParam.id,__attributeInfoFromParam);
+        _SmAp.put(__auxHolderClass.id,__auxHolderClass);
+        _SmAp.put(__auxHolderImport.id,__auxHolderImport);
         _SmAp.put(__baseDefinition.id,__baseDefinition);
         _SmAp.put(__baseType.id,__baseType);
         _SmAp.put(__camelCaseName.id,__camelCaseName);
@@ -1097,6 +1101,8 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __TypeDefinition.addMust(__typeClassName);
         __TypeDefinition.addMay(__altType);
         __TypeDefinition.addMay(__altTypeImport);
+        __TypeDefinition.addMay(__auxHolderClass);
+        __TypeDefinition.addMay(__auxHolderImport);
         __TypeDefinition.addMay(__codeComment);
         __TypeDefinition.addMay(__comment);
         __TypeDefinition.addMay(__definedIn);

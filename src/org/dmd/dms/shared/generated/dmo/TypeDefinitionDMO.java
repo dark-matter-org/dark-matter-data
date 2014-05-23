@@ -117,6 +117,8 @@ public class TypeDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDefin
         _ImAp.put(MetaDMSAG.__typeClassName.id,MetaDMSAG.__typeClassName);
         _ImAp.put(MetaDMSAG.__altType.id,MetaDMSAG.__altType);
         _ImAp.put(MetaDMSAG.__altTypeImport.id,MetaDMSAG.__altTypeImport);
+        _ImAp.put(MetaDMSAG.__auxHolderClass.id,MetaDMSAG.__auxHolderClass);
+        _ImAp.put(MetaDMSAG.__auxHolderImport.id,MetaDMSAG.__auxHolderImport);
         _ImAp.put(MetaDMSAG.__codeComment.id,MetaDMSAG.__codeComment);
         _ImAp.put(MetaDMSAG.__comment.id,MetaDMSAG.__comment);
         _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
@@ -163,6 +165,8 @@ public class TypeDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDefin
         _SmAp.put(MetaDMSAG.__typeClassName.name,MetaDMSAG.__typeClassName);
         _SmAp.put(MetaDMSAG.__altType.name,MetaDMSAG.__altType);
         _SmAp.put(MetaDMSAG.__altTypeImport.name,MetaDMSAG.__altTypeImport);
+        _SmAp.put(MetaDMSAG.__auxHolderClass.name,MetaDMSAG.__auxHolderClass);
+        _SmAp.put(MetaDMSAG.__auxHolderImport.name,MetaDMSAG.__auxHolderImport);
         _SmAp.put(MetaDMSAG.__codeComment.name,MetaDMSAG.__codeComment);
         _SmAp.put(MetaDMSAG.__comment.name,MetaDMSAG.__comment);
         _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
@@ -375,6 +379,59 @@ public class TypeDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDefin
         
         attr.set(value);
         set(MetaDMSAG.__altTypeImport,attr);
+    }
+
+    /**
+     * Indicates the name of the class of object being wrapped by a DMW wrapper. 
+     */
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:79)
+    public String getAuxHolderClass(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__auxHolderClass);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets auxHolderClass to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:161)
+    public void setAuxHolderClass(Object value) throws DMFeedbackSet {
+        DmcAttribute<?> attr = get(MetaDMSAG.__auxHolderClass);
+        if (attr == null)
+            attr = new DmcTypeStringSV(MetaDMSAG.__auxHolderClass);
+        
+        attr.set(value);
+        set(MetaDMSAG.__auxHolderClass,attr);
+    }
+
+    /**
+     * Indicates the import for the class of object being wrapped by a DMW
+     * wrapper. 
+     */
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:79)
+    public String getAuxHolderImport(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__auxHolderImport);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets auxHolderImport to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:161)
+    public void setAuxHolderImport(Object value) throws DMFeedbackSet {
+        DmcAttribute<?> attr = get(MetaDMSAG.__auxHolderImport);
+        if (attr == null)
+            attr = new DmcTypeStringSV(MetaDMSAG.__auxHolderImport);
+        
+        attr.set(value);
+        set(MetaDMSAG.__auxHolderImport,attr);
     }
 
     /**

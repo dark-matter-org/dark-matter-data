@@ -1553,6 +1553,22 @@ description					This is fairly complicated stuff that has to do with the way in 
  I know. Clear as mud, but hopefully, you never have to look at this because the tricky bits
  have been dealt with!
 
+AttributeDefinition
+name						auxHolderImport
+dmdID						192
+type						String
+internalUse					true
+description					Indicates the import for the class of object being wrapped
+ by a DMW wrapper.
+
+AttributeDefinition
+name						auxHolderClass
+dmdID						193
+type						String
+internalUse					true
+description					Indicates the name of the class of object being wrapped
+ by a DMW wrapper.
+
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
 AttributeDefinition
