@@ -69,7 +69,7 @@ public abstract class DmsDefinitionDMW extends org.dmd.dms.server.extended.DSDef
      * Language (DSL) concepts will indicate the rules that apply to a name in
      * that DSL. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:133)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:128)
     public DefinitionName getName(){
         return(mycore.getName());
     }
@@ -78,7 +78,7 @@ public abstract class DmsDefinitionDMW extends org.dmd.dms.server.extended.DSDef
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:206)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:186)
     public void setName(Object value) throws DMFeedbackSet {
         mycore.setName(value);
     }
@@ -86,7 +86,7 @@ public abstract class DmsDefinitionDMW extends org.dmd.dms.server.extended.DSDef
     /**
      * The dark-matter schema module (DmsModule) in which something is defined. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:133)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:128)
     public DmsModule getDefinedInDmsModule(){
         DmcTypeDmsModuleREFSV attr = (DmcTypeDmsModuleREFSV) mycore.get(MetaDMSAG.__definedInDmsModule);
         if (attr == null)
@@ -99,7 +99,7 @@ public abstract class DmsDefinitionDMW extends org.dmd.dms.server.extended.DSDef
      * Sets definedInDmsModule to the specified value.
      * @param value A value compatible with DmsModule
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:193)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:177)
     public void setDefinedInDmsModule(DmsModule value) throws DMFeedbackSet {
         mycore.setDefinedInDmsModule(value.getDmcObject());
     }
@@ -111,7 +111,7 @@ public abstract class DmsDefinitionDMW extends org.dmd.dms.server.extended.DSDef
      * direct reference to Concinnity concepts. 
      * @return An Iterator of Concinnity objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:320)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:298)
     public ConcinnityIterableDMW getRelatedToConcept(){
         DmcTypeConcinnityREFMV attr = (DmcTypeConcinnityREFMV) mycore.get(MetaDMSAG.__relatedToConcept);
         if (attr == null)
@@ -124,7 +124,7 @@ public abstract class DmsDefinitionDMW extends org.dmd.dms.server.extended.DSDef
      * Adds another relatedToConcept value.
      * @param value A value compatible with Concinnity
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:402)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:380)
     public DmcAttribute<?> addRelatedToConcept(Concinnity value) throws DMFeedbackSet {
         DmcAttribute<?> attr = mycore.addRelatedToConcept(value.getDmcObject());
         return(attr);
@@ -133,7 +133,7 @@ public abstract class DmsDefinitionDMW extends org.dmd.dms.server.extended.DSDef
     /**
      * Returns the number of relatedToConcept values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:421)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:399)
     public int getRelatedToConceptSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__relatedToConcept);
         if (attr == null)
@@ -144,7 +144,7 @@ public abstract class DmsDefinitionDMW extends org.dmd.dms.server.extended.DSDef
     /**
      * Returns true if relatedToConcept has values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:432)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:410)
     public boolean getRelatedToConceptHasValue(){
         return(getRelatedToConceptSize() > 0);
     }
@@ -159,7 +159,7 @@ public abstract class DmsDefinitionDMW extends org.dmd.dms.server.extended.DSDef
      * provided. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:344)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:322)
     public StringIterableDMW getCodeCommentIterable(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__codeComment);
         if (attr == null)
@@ -172,7 +172,7 @@ public abstract class DmsDefinitionDMW extends org.dmd.dms.server.extended.DSDef
      * Adds another codeComment value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:412)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:390)
     public void addCodeComment(Object value) throws DMFeedbackSet {
         mycore.addCodeComment(value);
     }
@@ -180,7 +180,7 @@ public abstract class DmsDefinitionDMW extends org.dmd.dms.server.extended.DSDef
     /**
      * Returns the number of codeComment values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:421)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:399)
     public int getCodeCommentSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__codeComment);
         if (attr == null)
@@ -191,7 +191,7 @@ public abstract class DmsDefinitionDMW extends org.dmd.dms.server.extended.DSDef
     /**
      * Returns true if codeComment has values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:432)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:410)
     public boolean getCodeCommentHasValue(){
         return(getCodeCommentSize() > 0);
     }

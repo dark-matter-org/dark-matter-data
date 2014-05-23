@@ -58,7 +58,7 @@ public class Optimize implements Serializable {
     String when;
     final static DmcAttributeInfo whenAI = new DmcAttributeInfo("when",0,"String",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN);
 
-    // A suggested timeframe for the change
+    // A description of why the change should be considered or a reference to a Concinnity definition e.g. a feature request
     ConcinnityREF why;
     final static DmcAttributeInfo whyAI = new DmcAttributeInfo("why",0,"Concinnity",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN);
 

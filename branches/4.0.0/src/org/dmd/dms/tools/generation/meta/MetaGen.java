@@ -19,7 +19,8 @@ import org.dmd.util.runtime.DebugInfo;
 
 public class MetaGen implements DMUncheckedObjectHandlerIF {
 	
-	final static String SCHEMA_DEFINITION 	= "SchemaDefinition";
+//	final static String SCHEMA_DEFINITION 	= "SchemaDefinition";
+	final static String DMS_MODULE 			= "DmsModule";
 	final static String DEF_FILES			= "defFiles";
 	private final static int META_BASE_ID = 0;
 
@@ -80,7 +81,9 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 	//  The schema module definition
 	DMUncheckedObject					ucoModule;
 	
-	DMUncheckedObject					metaSchema;
+//	DMUncheckedObject					metaSchema;
+	
+	DMUncheckedObject					metaModule;
 	
 	MetaDSDHelper						dsdHelper;
 
@@ -117,11 +120,11 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 		
 		ucoParser.parseFile(dmconfigDir + "/meta.dms", false);
 		
-		if (metaSchema == null){
-			throw(new DMFeedbackSet("The meta schema SchemaDefinition wasn't found!"));
+		if (metaModule == null){
+			throw(new DMFeedbackSet("The meta DmsModule wasn't found!"));
 		}
 		
-		NamedStringArray defFiles = metaSchema.get(DEF_FILES);
+		NamedStringArray defFiles = metaModule.get(DEF_FILES);
 		for(String fn: defFiles){
 			ucoParser.parseFile(dmconfigDir + "/" + fn);
 		}
@@ -461,12 +464,20 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 		
 		uco.addValue("dotName", "meta." + uco.getSV("name") + "." + uco.getConstructionClass());
 		
-		if (uco.getConstructionClass().equals(SCHEMA_DEFINITION)){
-			if (metaSchema != null){
-				DMParsingFeedback pf = new DMParsingFeedback("Multiple SchemaDefinitions found.", infile, lineNumber);
+//		if (uco.getConstructionClass().equals(SCHEMA_DEFINITION)){
+//			if (metaSchema != null){
+//				DMParsingFeedback pf = new DMParsingFeedback("Multiple SchemaDefinitions found.", infile, lineNumber);
+//				throw(new DMFeedbackSet(pf));
+//			}
+//			metaSchema = uco;
+//		}
+		
+		if (uco.getConstructionClass().equals(DMS_MODULE)){
+			if (metaModule != null){
+				DMParsingFeedback pf = new DMParsingFeedback("Multiple DmsModules found.", infile, lineNumber);
 				throw(new DMFeedbackSet(pf));
 			}
-			metaSchema = uco;
+			metaModule = uco;
 		}
 		
 	}

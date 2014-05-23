@@ -867,6 +867,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __DmsModule.addMay(__dotName);
         __DmsModule.addMay(__example);
         __DmsModule.addMay(__file);
+        __DmsModule.addMay(__generatedFileHeader);
         __DmsModule.addMay(__hint);
         __DmsModule.addMay(__lineNumber);
         __DmsModule.addMay(__nvp);

@@ -9,6 +9,7 @@ definedInModuleAttribute	definedInDmsModule
 must						schemaPackage
 must						schemaBaseID
 must						schemaIDRange
+may							generatedFileHeader
 may							dmwPackage
 may							dmwTypeToPackage
 may							dependsOnDmsModule
