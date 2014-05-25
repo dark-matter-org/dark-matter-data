@@ -16,9 +16,9 @@
 package org.dmd.dms.server.generated.dmw;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpIterable(DmwFormatter.java:459)
-import java.util.Iterator;                // Because we're iterating - (DmwFormatter.java:452)
-import org.dmd.dmw.DmwMVIterator;         // The base multi-value iterator - (DmwFormatter.java:453)
+// Called from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpIterable(DmwFormatter.java:464)
+import java.util.Iterator;                // Because we're iterating - (DmwFormatter.java:457)
+import org.dmd.dmw.DmwMVIterator;         // The base multi-value iterator - (DmwFormatter.java:458)
 
 
 /**
@@ -26,8 +26,8 @@ import org.dmd.dmw.DmwMVIterator;         // The base multi-value iterator - (Dm
  * it Iterable.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpIterable(DmwFormatter.java:475)
- *    Called from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpTypeIterables(DmwFormatter.java:434)
+ * Generated from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpIterable(DmwFormatter.java:480)
+ *    Called from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpTypeIterables(DmwFormatter.java:439)
  */
 public class ByteIterableDMW extends DmwMVIterator<Byte> {
 

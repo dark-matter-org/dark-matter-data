@@ -92,7 +92,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * Language (DSL) concepts will indicate the rules that apply to a name in
      * that DSL. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:128)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public DefinitionName getName(){
         return(mycore.getName());
     }
@@ -101,7 +101,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:186)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setName(Object value) throws DMFeedbackSet {
         mycore.setName(value);
     }
@@ -119,7 +119,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * conventions make sense for your purposes. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:322)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
     public StringIterableDMW getDescriptionIterable(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
         if (attr == null)
@@ -128,7 +128,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
         return(new StringIterableDMW(attr.getMV()));
     }
 
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:335)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:341)
     public Iterator<String> getDescriptionWithNewlines(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
         if (attr == null)
@@ -151,7 +151,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * Adds another description value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:390)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:396)
     public void addDescription(Object value) throws DMFeedbackSet {
         mycore.addDescription(value);
     }
@@ -159,7 +159,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Returns the number of description values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:399)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getDescriptionSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__description);
         if (attr == null)
@@ -170,7 +170,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Returns true if description has values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:410)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:416)
     public boolean getDescriptionHasValue(){
         return(getDescriptionSize() > 0);
     }
@@ -183,7 +183,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * how comments are used. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:322)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
     public StringIterableDMW getCommentIterable(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__comment);
         if (attr == null)
@@ -196,7 +196,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * Adds another comment value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:390)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:396)
     public void addComment(Object value) throws DMFeedbackSet {
         mycore.addComment(value);
     }
@@ -204,7 +204,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Returns the number of comment values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:399)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getCommentSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__comment);
         if (attr == null)
@@ -215,7 +215,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Returns true if comment has values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:410)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:416)
     public boolean getCommentHasValue(){
         return(getCommentSize() > 0);
     }
@@ -224,7 +224,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * A question associated with the definition of something. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:322)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
     public StringIterableDMW getQuestionIterable(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__question);
         if (attr == null)
@@ -237,7 +237,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * Adds another question value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:390)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:396)
     public void addQuestion(Object value) throws DMFeedbackSet {
         mycore.addQuestion(value);
     }
@@ -245,7 +245,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Returns the number of question values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:399)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getQuestionSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__question);
         if (attr == null)
@@ -256,7 +256,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Returns true if question has values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:410)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:416)
     public boolean getQuestionHasValue(){
         return(getQuestionSize() > 0);
     }
@@ -266,7 +266,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * defined thing is to be used. 
      * @return An Iterator of Example objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:322)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
     public ExampleIterableDMW getExampleIterable(){
         DmcTypeExampleMV attr = (DmcTypeExampleMV) mycore.get(MetaDMSAG.__example);
         if (attr == null)
@@ -279,7 +279,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * Adds another example value.
      * @param value A value compatible with DmcTypeExampleMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:390)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:396)
     public void addExample(Object value) throws DMFeedbackSet {
         mycore.addExample(value);
     }
@@ -287,7 +287,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Returns the number of example values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:399)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getExampleSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__example);
         if (attr == null)
@@ -298,7 +298,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Returns true if example has values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:410)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:416)
     public boolean getExampleHasValue(){
         return(getExampleSize() > 0);
     }
@@ -307,7 +307,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * A short description of something that can be dumped as one line summary of
      * something. For longer explanations, use the description attribute. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:128)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public String getHint(){
         return(mycore.getHint());
     }
@@ -316,7 +316,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * Sets hint to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:186)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setHint(Object value) throws DMFeedbackSet {
         mycore.setHint(value);
     }
@@ -329,7 +329,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * definition...module.type. So, for things like documentation generation,
      * the sortName provides a more  natural ordering. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:128)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public DotName getSortName(){
         return(mycore.getSortName());
     }
@@ -338,7 +338,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * Sets sortName to the specified value.
      * @param value A value compatible with DmcTypeDotNameSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:186)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setSortName(Object value) throws DMFeedbackSet {
         mycore.setSortName(value);
     }
@@ -348,7 +348,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * values are limited to a-zA-Z0-9 and the space character. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:322)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
     public StringIterableDMW getTagsIterable(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__tags);
         if (attr == null)
@@ -361,7 +361,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * Adds another tags value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:390)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:396)
     public void addTags(Object value) throws DMFeedbackSet {
         mycore.addTags(value);
     }
@@ -369,7 +369,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Returns the number of tags values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:399)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getTagsSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__tags);
         if (attr == null)
@@ -380,7 +380,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Returns true if tags has values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:410)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:416)
     public boolean getTagsHasValue(){
         return(getTagsSize() > 0);
     }
@@ -390,7 +390,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * object. 
      * @return An Iterator of NameValuePair objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:322)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
     public NameValuePairIterableDMW getNvpIterable(){
         DmcTypeNameValuePairMV attr = (DmcTypeNameValuePairMV) mycore.get(MetaDMSAG.__nvp);
         if (attr == null)
@@ -403,7 +403,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * Adds another nvp value.
      * @param value A value compatible with DmcTypeNameValuePairMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:390)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:396)
     public void addNvp(Object value) throws DMFeedbackSet {
         mycore.addNvp(value);
     }
@@ -411,7 +411,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Returns the number of nvp values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:399)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getNvpSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__nvp);
         if (attr == null)
@@ -422,7 +422,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Returns true if nvp has values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:410)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:416)
     public boolean getNvpHasValue(){
         return(getNvpSize() > 0);
     }
@@ -437,7 +437,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * optimize notes. These notes provide 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:322)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
     public StringIterableDMW getOptimizeIterable(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__optimize);
         if (attr == null)
@@ -450,7 +450,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * Adds another optimize value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:390)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:396)
     public void addOptimize(Object value) throws DMFeedbackSet {
         mycore.addOptimize(value);
     }
@@ -458,7 +458,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Returns the number of optimize values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:399)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getOptimizeSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__optimize);
         if (attr == null)
@@ -469,7 +469,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Returns true if optimize has values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:410)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:416)
     public boolean getOptimizeHasValue(){
         return(getOptimizeSize() > 0);
     }
@@ -479,7 +479,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * to be lexicographically sortable i.e. the name of a version must have a
      * nautral sort order that increases. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:128)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public String getVersion(){
         return(mycore.getVersion());
     }
@@ -488,7 +488,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * Sets version to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:186)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setVersion(Object value) throws DMFeedbackSet {
         mycore.setVersion(value);
     }
@@ -499,7 +499,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * approached with extreme caution! 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:322)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
     public StringIterableDMW getSkipIterable(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__skip);
         if (attr == null)
@@ -512,7 +512,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * Adds another skip value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:390)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:396)
     public void addSkip(Object value) throws DMFeedbackSet {
         mycore.addSkip(value);
     }
@@ -520,7 +520,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Returns the number of skip values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:399)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getSkipSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__skip);
         if (attr == null)
@@ -531,7 +531,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Returns true if skip has values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:410)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:416)
     public boolean getSkipHasValue(){
         return(getSkipSize() > 0);
     }
@@ -539,7 +539,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * The version at which something became obsolete. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:128)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public String getObsolete(){
         return(mycore.getObsolete());
     }
@@ -548,7 +548,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * Sets obsolete to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:186)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setObsolete(Object value) throws DMFeedbackSet {
         mycore.setObsolete(value);
     }
@@ -560,7 +560,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * you may also just put in free form text, since it will simply be treated
      * as an unresolved reference. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:128)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public Concinnity getWhy(){
         DmcTypeConcinnityREFSV attr = (DmcTypeConcinnityREFSV) mycore.get(MetaDMSAG.__why);
         if (attr == null)
@@ -573,7 +573,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * Sets why to the specified value.
      * @param value A value compatible with Concinnity
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:177)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:180)
     public void setWhy(Concinnity value) throws DMFeedbackSet {
         mycore.setWhy(value.getDmcObject());
     }
@@ -581,7 +581,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Indicates the schema in which a type, attribute or class is defined. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:128)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public SchemaDefinition getDefinedIn(){
         DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) mycore.get(MetaDMSAG.__definedIn);
         if (attr == null)
@@ -594,7 +594,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * Sets definedIn to the specified value.
      * @param value A value compatible with SchemaDefinition
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:177)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:180)
     public void setDefinedIn(SchemaDefinition value) throws DMFeedbackSet {
         mycore.setDefinedIn(value.getDmcObject());
     }
@@ -602,7 +602,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Indicates the file from which a definition was loaded. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:128)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public String getFile(){
         return(mycore.getFile());
     }
@@ -611,7 +611,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:186)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setFile(Object value) throws DMFeedbackSet {
         mycore.setFile(value);
     }
@@ -619,7 +619,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Indicates the line number of the file from which a definition was loaded. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:128)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public Integer getLineNumber(){
         return(mycore.getLineNumber());
     }
@@ -628,7 +628,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:186)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setLineNumber(Object value) throws DMFeedbackSet {
         mycore.setLineNumber(value);
     }
@@ -636,7 +636,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * The dotName attribute is used to store dot separated names. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:128)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public DotName getDotName(){
         return(mycore.getDotName());
     }
@@ -645,7 +645,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      * Sets dotName to the specified value.
      * @param value A value compatible with DmcTypeDotNameSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:186)
+    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setDotName(Object value) throws DMFeedbackSet {
         mycore.setDotName(value);
     }

@@ -182,6 +182,10 @@ public class DmcDefinitionSet<DEF extends DSDefinition> {
 			else
 				DebugInfo.debug(" - " + setName + " : " + fullName);
 		}
+		
+		if (def.getName().getNameString().equals("DmsDefinition"))
+			DebugInfo.debug("HERE");
+		
 //		addByName(def);
 		addByNameAndType(def, nameAndTypeName);
 		addByFullName(def, fullName);
