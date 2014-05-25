@@ -231,14 +231,14 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcTypeInfo __type_ClassTypeEnum = new DmcTypeInfo("ClassTypeEnum", OriginalTypeEnum.ENUM);
     public final static DmcTypeInfo __type_ComplexTypeDefinition = new DmcTypeInfo("ComplexTypeDefinition", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_Concinnity = new DmcTypeInfo("Concinnity", OriginalTypeEnum.REFERENCE);
-    public final static DmcTypeInfo __type_DSDefinitionModule = new DmcTypeInfo("DSDefinitionModule", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_DSDefinition = new DmcTypeInfo("DSDefinition", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_DSDefinitionModule = new DmcTypeInfo("DSDefinitionModule", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_DataTypeEnum = new DmcTypeInfo("DataTypeEnum", OriginalTypeEnum.ENUM);
     public final static DmcTypeInfo __type_Date = new DmcTypeInfo("Date", OriginalTypeEnum.TYPE);
     public final static DmcTypeInfo __type_DebugEnum = new DmcTypeInfo("DebugEnum", OriginalTypeEnum.ENUM);
     public final static DmcTypeInfo __type_DefinitionName = new DmcTypeInfo("DefinitionName", OriginalTypeEnum.NAMETYPE);
-    public final static DmcTypeInfo __type_DependencyImplementation = new DmcTypeInfo("DependencyImplementation", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_Dependency = new DmcTypeInfo("Dependency", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_DependencyImplementation = new DmcTypeInfo("DependencyImplementation", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_DmcObject = new DmcTypeInfo("DmcObject", OriginalTypeEnum.TYPE);
     public final static DmcTypeInfo __type_DmsDefinition = new DmcTypeInfo("DmsDefinition", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_DmsModule = new DmcTypeInfo("DmsModule", OriginalTypeEnum.REFERENCE);

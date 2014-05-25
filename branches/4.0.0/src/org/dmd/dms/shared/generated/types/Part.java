@@ -48,7 +48,7 @@ public class Part implements Serializable {
 
     // The type of the Part
     TypeDefinitionREF type;
-    final static DmcAttributeInfo typeAI = new DmcAttributeInfo("type",0,"TypeDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN);
+    final static DmcAttributeInfo typeAI = new DmcAttributeInfo("type",0,"TypeDefinitionREF",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN);
 
     // The name of the Part
     String name;

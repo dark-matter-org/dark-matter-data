@@ -54,15 +54,15 @@ public class ComplexTypeFormatter {
 		ArrayList<String> refFields = new ArrayList<String>();
 		for (Part field : parts) {
 //			DMUncheckedObject type = meta.typeDefs.get(field.type);
-			DMUncheckedObject type = typeDefs.get(field.type);
-			if (type == null) {
-				type = enumDefs.get(field.type);
-				if (type == null) {
-					System.err.println("Unknown type in ComplexTypeDefinition: " + field.type);
-					System.exit(1);
-				}
-			}
-			String isRefType = type.getSV("isRefType");
+//			DMUncheckedObject type = typeDefs.get(field.type);
+//			if (type == null) {
+//				type = enumDefs.get(field.type);
+//				if (type == null) {
+//					System.err.println("Unknown type in ComplexTypeDefinition: " + field.type);
+//					System.exit(1);
+//				}
+//			}
+			String isRefType = field.typeDef.getSV("isRefType");
 			if (isRefType != null) {
 				hasRefs = true;
 				refFields.add(field.name);
@@ -373,9 +373,9 @@ public class ComplexTypeFormatter {
 		for (Part field : fields) {
 			// DebugInfo.debug("field type = " + field.type);
 
-			DMUncheckedObject typeDef = typeDefs.get(field.type);
+//			DMUncheckedObject typeDef = typeDefs.get(field.type);
 
-			String primitiveType = typeDef.getSV("primitiveType");
+			String primitiveType = field.typeDef.getSV("primitiveType");
 
 			if (primitiveType != null){
 				imports.addImport(primitiveType, "Type for field: " + field.name);
@@ -408,7 +408,7 @@ public class ComplexTypeFormatter {
 //			DmcAttributeInfo("type",19,"TypeDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
 			
 			String type = field.type;
-			type = type.replaceAll("REF", "");
+//			type = type.replaceAll("REF", "");
 			sb.append("    final static DmcAttributeInfo " + field.name + "AI = new DmcAttributeInfo(\""+ field.name + "\",0,\"" + type + "\",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN);\n\n");
 		}
 
@@ -456,8 +456,16 @@ public class ComplexTypeFormatter {
 				if (enumDefs.get(type) == null)
 					type = type + "REF";
 			}
+			
+			if (type.equals("TypeDefinition"))
+				DebugInfo.debug(typeDef.toOIF());
+			
+			if (typeDef.getSV("isRefType") != null){
+				DebugInfo.debug("Adjusting type: " + type);
+				type = type + "REF";
+			}
 
-			rc.add(new Part(type, name, descr, quoted, multivalued, weakref, greedy));
+			rc.add(new Part(type, name, descr, quoted, multivalued, weakref, greedy, typeDef));
 		}
 
 //		return (rc);
@@ -613,11 +621,13 @@ public class ComplexTypeFormatter {
 		boolean multivalued;
 		boolean weakref;
 		boolean greedy;
+		DMUncheckedObject typeDef;
 
-		Part(String t, String n, String d, String q, String m, String w, String g) {
+		Part(String t, String n, String d, String q, String m, String w, String g, DMUncheckedObject td) {
 			type = t;
 			name = n;
 			descr = d;
+			typeDef = td;
 			if (q != null){
 				if (q.toLowerCase().equals("true"))
 					quoted = true;

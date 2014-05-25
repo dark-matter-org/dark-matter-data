@@ -429,9 +429,14 @@ public class DmwFormatter {
 			if (tn.endsWith("EnumREF"))
 				continue;
 			
-			String ti = typedef.getSV("primitiveType");
+			String isRefType = typedef.getSV("isRefType");
+			if (isRefType != null)
+				continue;
+			
+			String primitiveType = typedef.getSV("primitiveType");
 			String genericArgs = typedef.getSV("genericArgs");
-			dumpIterable(dmwdir, "org.dmd.dms.server", ti, tn, genericArgs, LGPL, System.out);
+			
+			dumpIterable(dmwdir, "org.dmd.dms.server", primitiveType, tn, genericArgs, LGPL, System.out);
 		}
 	}
 	
@@ -496,5 +501,6 @@ public class DmwFormatter {
 
 	}
 
+	
 
 }

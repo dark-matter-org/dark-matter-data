@@ -169,7 +169,7 @@ public class MetaSchemaFormatterNew {
 				if (isRefType == null)
 					out.write("    public static TypeDefinition      _" + origOrderTypes.get(i) + "_Type;\n");
 				else
-					out.write("    public static TypeDefinition      _" + origOrderTypes.get(i) + ";\n");
+					out.write("    public static TypeDefinition      _" + origOrderTypes.get(i) + "_REF;\n");
 //				continue;
 			}
 			else{
@@ -285,10 +285,10 @@ public class MetaSchemaFormatterNew {
 					String dmoName = "_" + name + "OBJ";
 					
 					out.write("        TypeDefinitionDMO " + dmoName + " = new TypeDefinitionDMO();\n");
-					out.write("        _" + name + " = new TypeDefinition(" + dmoName + ");\n");
+					out.write("        _" + name + "_REF = new TypeDefinition(" + dmoName + ");\n");
 					dumpAttrValues("        ", dmoName, typeDef, out);
 					out.write("        _" + name + ".setDefinedInDmsModule(this);\n");
-					out.write("        addTypeDefinition(_" + name + ");\n");
+					out.write("        addTypeDefinition(_" + name + "_REF);\n");
 					out.write("\n");
 			}
 			else{

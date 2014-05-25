@@ -311,22 +311,23 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 			String 				cn 			= classDef.getSV("name");
 			String 				isNamedBy 	= classDef.getSV("isNamedBy");
 			String 				javaClass 	= classDef.getSV("javaClass");
-			String 				tn 			= null;
+			String 				gtn 		= null;	// The generated type name
 			DMUncheckedObject 	typeDef 	= null;
 
 			if (isNamedBy != null) {
-				tn = cn + "REF";
+				// NOTE: 
+				gtn = cn + "REF";
 				typeDef = new DMUncheckedObject("TypeDefinition");
-				typeDef.addValue("name", tn);
-				typeDef.addValue("dotName", 			"meta." + cn + "REF.TypeDefinition");
-				typeDef.addValue("typeClassName",		sharedGenTypesPackage + ".DmcType" + tn);
+				typeDef.addValue("name", cn);
+				typeDef.addValue("dotName", 			"meta." + gtn + ".TypeDefinition");
+				typeDef.addValue("typeClassName",		sharedGenTypesPackage + ".DmcType" + gtn);
 				typeDef.addValue("wrapperClassName",	classDef.getSV("javaClass"));
 				typeDef.addValue("internallyGenerated", "true");
 				typeDef.addValue("isRefType", 			"true");
 				typeDef.addValue("description", 		"This is an internally generated type to allow references to " + cn + " objects.");
 				typeDef.addValue("originalClass", 		cn);
 				
-				typeDef.addValue("helperClassName", 	sharedGenTypesPackage + "." + tn);
+				typeDef.addValue("helperClassName", 	sharedGenTypesPackage + "." + gtn);
 //				typeDef.addValue("primitiveType", 		sharedGenDmoPackage + "." + cn + "DMO");
 				typeDef.addValue("definedInDmsModule", 	"meta");
 				
@@ -362,9 +363,10 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 //				primitiveType         org.dmd.dms.generated.dmo.AttributeDefinitionDMO
 //				typeClassName         org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREF
 
-				checkForDuplicateType("ClassDefinition", tn);
+//				checkForDuplicateType("ClassDefinition", tn);
 
 				ucoManager.add(typeDef, false);
+				
 //				ucoTypeDefs.put(tn, typeDef);
 //				origOrderTypes.add(tn);
 			}

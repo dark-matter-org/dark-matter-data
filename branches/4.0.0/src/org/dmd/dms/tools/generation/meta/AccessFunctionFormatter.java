@@ -35,8 +35,11 @@ public class AccessFunctionFormatter {
 			DMParsingFeedback dfp = new DMParsingFeedback("No type specified for attribute: " + attrname, attributeDef.getFile(), attributeDef.getLineNumber());
 			throw(new DMFeedbackSet(dfp));
 		}
-
+		
 		DMUncheckedObject typeDef = ucoTypeDefs.get(typeName);
+
+		if ((typeDef != null) && (typeDef.getSV("isRefType") != null))
+				isObjREF = true;
 
 		// If we can't find this as a type def, look for it as an enum def
 		if (typeDef == null) {
@@ -54,7 +57,7 @@ public class AccessFunctionFormatter {
 			DMParsingFeedback dfp = new DMParsingFeedback("Unknown type: " + typeName + " for attribute: " + attrname, attributeDef.getFile(), attributeDef.getLineNumber());
 			throw(new DMFeedbackSet(dfp));
 		}
-
+		
 		String typeClassName = typeDef.getSV("typeClassName");
 		String attrType = "DmcType" + typeName;
 
@@ -238,6 +241,9 @@ public class AccessFunctionFormatter {
 			DMParsingFeedback dfp = new DMParsingFeedback("Unknown type: " + typeName + " for attribute: " + attrname, attributeDef.getFile(), attributeDef.getLineNumber());
 			throw(new DMFeedbackSet(dfp));
 		}
+		
+		if ((typeDef != null) && (typeDef.getSV("isRefType") != null))
+			isObjREF = true;
 
 		String attrType = "DmcType" + typeName;
 
