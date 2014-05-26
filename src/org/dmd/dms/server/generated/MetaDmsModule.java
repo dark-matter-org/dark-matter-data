@@ -131,6 +131,13 @@ public class MetaDmsModule extends DmsModule {
     public static TypeDefinition      _RuleTypeEnum_Type;
     public static TypeDefinition      _ValueTypeEnum_Type;
     public static TypeDefinition      _WrapperTypeEnum_Type;
+    public static TypeDefinition      _DmwTypeToWrapperType_Type;
+    public static TypeDefinition      _Example_Type;
+    public static TypeDefinition      _NameValuePair_Type;
+    public static TypeDefinition      _Optimize_Type;
+    public static TypeDefinition      _Part_Type;
+    public static TypeDefinition      _RuleParam_Type;
+    public static TypeDefinition      _SchemaAndReason_Type;
 
     // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:182)
     public static AttributeDefinition _name;
@@ -3255,6 +3262,17 @@ public class MetaDmsModule extends DmsModule {
         _DmsModule.setDefinedInDmsModule(this);
         addTypeDefinition(_DmsModule_REF);
 
+        TypeDefinitionDMO _DmwTypeToWrapperTypeOBJ = new TypeDefinitionDMO();
+        _DmwTypeToWrapperType_Type = new TypeDefinition(_DmwTypeToWrapperTypeOBJ);
+        _DmwTypeToWrapperTypeOBJ.addDescription("This is an internally generated type to represent complex type DmwTypeToWrapperType.");
+        _DmwTypeToWrapperTypeOBJ.setDotName("meta.DmwTypeToWrapperType.TypeDefinition");
+        _DmwTypeToWrapperTypeOBJ.setInternallyGenerated("true");
+        _DmwTypeToWrapperTypeOBJ.setName("DmwTypeToWrapperType");
+        _DmwTypeToWrapperTypeOBJ.setPrimitiveType("org.dmd.dms.shared.generated.types.DmwTypeToWrapperType");
+        _DmwTypeToWrapperTypeOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeDmwTypeToWrapperType");
+        _DmwTypeToWrapperType_Type.setDefinedInDmsModule(this);
+        addTypeDefinition(_DmwTypeToWrapperType_Type);
+
         TypeDefinitionDMO _DotNameOBJ = new TypeDefinitionDMO();
         _DotName = new TypeDefinition(_DotNameOBJ);
         _DotNameOBJ.addDescription("The DotName provides standard mechanisms to deal with hierarchic names composed of strings interspersed with periods (dots) to separate the name elements. For example a dot name might be one.two.three");
@@ -3305,6 +3323,17 @@ public class MetaDmsModule extends DmsModule {
         _EnumValueOBJ.setTypeClassName("org.dmd.dms.shared.types.DmcTypeEnumValue");
         _EnumValue.setDefinedInDmsModule(this);
         addTypeDefinition(_EnumValue);
+
+        TypeDefinitionDMO _ExampleOBJ = new TypeDefinitionDMO();
+        _Example_Type = new TypeDefinition(_ExampleOBJ);
+        _ExampleOBJ.addDescription("This is an internally generated type to represent complex type Example.");
+        _ExampleOBJ.setDotName("meta.Example.TypeDefinition");
+        _ExampleOBJ.setInternallyGenerated("true");
+        _ExampleOBJ.setName("Example");
+        _ExampleOBJ.setPrimitiveType("org.dmd.dms.shared.generated.types.Example");
+        _ExampleOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeExample");
+        _Example_Type.setDefinedInDmsModule(this);
+        addTypeDefinition(_Example_Type);
 
         TypeDefinitionDMO _ExtendedReferenceTypeDefinitionOBJ = new TypeDefinitionDMO();
         _ExtendedReferenceTypeDefinition_REF = new TypeDefinition(_ExtendedReferenceTypeDefinitionOBJ);
@@ -3490,6 +3519,17 @@ public class MetaDmsModule extends DmsModule {
         _NameContainer.setDefinedInDmsModule(this);
         addTypeDefinition(_NameContainer);
 
+        TypeDefinitionDMO _NameValuePairOBJ = new TypeDefinitionDMO();
+        _NameValuePair_Type = new TypeDefinition(_NameValuePairOBJ);
+        _NameValuePairOBJ.addDescription("This is an internally generated type to represent complex type NameValuePair.");
+        _NameValuePairOBJ.setDotName("meta.NameValuePair.TypeDefinition");
+        _NameValuePairOBJ.setInternallyGenerated("true");
+        _NameValuePairOBJ.setName("NameValuePair");
+        _NameValuePairOBJ.setPrimitiveType("org.dmd.dms.shared.generated.types.NameValuePair");
+        _NameValuePairOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeNameValuePair");
+        _NameValuePair_Type.setDefinedInDmsModule(this);
+        addTypeDefinition(_NameValuePair_Type);
+
         TypeDefinitionDMO _OperationalContextEnumOBJ = new TypeDefinitionDMO();
         _OperationalContextEnum_Type = new TypeDefinition(_OperationalContextEnumOBJ);
         _OperationalContextEnumOBJ.addDescription("This is an internally generated type to allow references to OperationalContextEnum objects.");
@@ -3503,6 +3543,17 @@ public class MetaDmsModule extends DmsModule {
         _OperationalContextEnum_Type.setDefinedInDmsModule(this);
         addTypeDefinition(_OperationalContextEnum_Type);
 
+        TypeDefinitionDMO _OptimizeOBJ = new TypeDefinitionDMO();
+        _Optimize_Type = new TypeDefinition(_OptimizeOBJ);
+        _OptimizeOBJ.addDescription("This is an internally generated type to represent complex type Optimize.");
+        _OptimizeOBJ.setDotName("meta.Optimize.TypeDefinition");
+        _OptimizeOBJ.setInternallyGenerated("true");
+        _OptimizeOBJ.setName("Optimize");
+        _OptimizeOBJ.setPrimitiveType("org.dmd.dms.shared.generated.types.Optimize");
+        _OptimizeOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeOptimize");
+        _Optimize_Type.setDefinedInDmsModule(this);
+        addTypeDefinition(_Optimize_Type);
+
         TypeDefinitionDMO _OriginalTypeEnumOBJ = new TypeDefinitionDMO();
         _OriginalTypeEnum_Type = new TypeDefinition(_OriginalTypeEnumOBJ);
         _OriginalTypeEnumOBJ.addDescription("This is an internally generated type to allow references to OriginalTypeEnum objects.");
@@ -3515,6 +3566,17 @@ public class MetaDmsModule extends DmsModule {
         _OriginalTypeEnumOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeOriginalTypeEnum");
         _OriginalTypeEnum_Type.setDefinedInDmsModule(this);
         addTypeDefinition(_OriginalTypeEnum_Type);
+
+        TypeDefinitionDMO _PartOBJ = new TypeDefinitionDMO();
+        _Part_Type = new TypeDefinition(_PartOBJ);
+        _PartOBJ.addDescription("This is an internally generated type to represent complex type Part.");
+        _PartOBJ.setDotName("meta.Part.TypeDefinition");
+        _PartOBJ.setInternallyGenerated("true");
+        _PartOBJ.setName("Part");
+        _PartOBJ.setPrimitiveType("org.dmd.dms.shared.generated.types.Part");
+        _PartOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypePart");
+        _Part_Type.setDefinedInDmsModule(this);
+        addTypeDefinition(_Part_Type);
 
         TypeDefinitionDMO _RuleCategoryOBJ = new TypeDefinitionDMO();
         _RuleCategory_REF = new TypeDefinition(_RuleCategoryOBJ);
@@ -3585,6 +3647,17 @@ public class MetaDmsModule extends DmsModule {
         _RuleName.setDefinedInDmsModule(this);
         addTypeDefinition(_RuleName);
 
+        TypeDefinitionDMO _RuleParamOBJ = new TypeDefinitionDMO();
+        _RuleParam_Type = new TypeDefinition(_RuleParamOBJ);
+        _RuleParamOBJ.addDescription("This is an internally generated type to represent complex type RuleParam.");
+        _RuleParamOBJ.setDotName("meta.RuleParam.TypeDefinition");
+        _RuleParamOBJ.setInternallyGenerated("true");
+        _RuleParamOBJ.setName("RuleParam");
+        _RuleParamOBJ.setPrimitiveType("org.dmd.dms.shared.generated.types.RuleParam");
+        _RuleParamOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeRuleParam");
+        _RuleParam_Type.setDefinedInDmsModule(this);
+        addTypeDefinition(_RuleParam_Type);
+
         TypeDefinitionDMO _RuleTypeEnumOBJ = new TypeDefinitionDMO();
         _RuleTypeEnum_Type = new TypeDefinition(_RuleTypeEnumOBJ);
         _RuleTypeEnumOBJ.addDescription("This is an internally generated type to allow references to RuleTypeEnum objects.");
@@ -3616,6 +3689,17 @@ public class MetaDmsModule extends DmsModule {
         _RunContextOBJ.setWrapperClassName("org.dmd.dms.server.extended.Dependency");
         _RunContext.setDefinedInDmsModule(this);
         addTypeDefinition(_RunContext_REF);
+
+        TypeDefinitionDMO _SchemaAndReasonOBJ = new TypeDefinitionDMO();
+        _SchemaAndReason_Type = new TypeDefinition(_SchemaAndReasonOBJ);
+        _SchemaAndReasonOBJ.addDescription("This is an internally generated type to represent complex type SchemaAndReason.");
+        _SchemaAndReasonOBJ.setDotName("meta.SchemaAndReason.TypeDefinition");
+        _SchemaAndReasonOBJ.setInternallyGenerated("true");
+        _SchemaAndReasonOBJ.setName("SchemaAndReason");
+        _SchemaAndReasonOBJ.setPrimitiveType("org.dmd.dms.shared.generated.types.SchemaAndReason");
+        _SchemaAndReasonOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeSchemaAndReason");
+        _SchemaAndReason_Type.setDefinedInDmsModule(this);
+        addTypeDefinition(_SchemaAndReason_Type);
 
         TypeDefinitionDMO _SchemaDefinitionOBJ = new TypeDefinitionDMO();
         _SchemaDefinition_REF = new TypeDefinition(_SchemaDefinitionOBJ);
@@ -3775,7 +3859,7 @@ public class MetaDmsModule extends DmsModule {
 
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitEnums(MetaSchemaFormatterNew.java:303)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitEnums(MetaSchemaFormatterNew.java:313)
     private void initEnums() throws DMFeedbackSet {
 
         EnumDefinitionDMO _BaseTypeEnumOBJ = new EnumDefinitionDMO();
@@ -3930,7 +4014,7 @@ public class MetaDmsModule extends DmsModule {
 
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitRuleCategories(MetaSchemaFormatterNew.java:322)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitRuleCategories(MetaSchemaFormatterNew.java:332)
     private void initRuleCategories() throws DMFeedbackSet {
 
         RuleCategoryDMO _AttributeValidationOBJ = new RuleCategoryDMO();
@@ -4006,7 +4090,7 @@ public class MetaDmsModule extends DmsModule {
 
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitComplexTypes(MetaSchemaFormatterNew.java:341)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitComplexTypes(MetaSchemaFormatterNew.java:351)
     private void initComplexTypes() throws DMFeedbackSet {
 
         ComplexTypeDefinitionDMO _DmwTypeToWrapperTypeOBJ = new ComplexTypeDefinitionDMO();
@@ -4095,7 +4179,7 @@ public class MetaDmsModule extends DmsModule {
 
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitModules(MetaSchemaFormatterNew.java:360)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitModules(MetaSchemaFormatterNew.java:370)
     private void initModules() throws DMFeedbackSet {
 
         DSDefinitionModuleDMO _DmsModuleOBJ = new DSDefinitionModuleDMO();

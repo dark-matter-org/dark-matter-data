@@ -408,7 +408,7 @@ public class ComplexTypeFormatter {
 //			DmcAttributeInfo("type",19,"TypeDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
 			
 			String type = field.type;
-//			type = type.replaceAll("REF", "");
+			type = type.replaceAll("REF", "");
 			sb.append("    final static DmcAttributeInfo " + field.name + "AI = new DmcAttributeInfo(\""+ field.name + "\",0,\"" + type + "\",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN);\n\n");
 		}
 

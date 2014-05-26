@@ -16,15 +16,15 @@
 package org.dmd.dms.server.generated.dsd;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateGeneratorInterface(MetaDSDHelper.java:558)
-import java.io.IOException;                                                 // May occur during artifact generation - (MetaDSDHelper.java:553)
-import org.dmd.core.feedback.DMFeedbackSet;                                 // For problems found after parsing - (MetaDSDHelper.java:555)
-import org.dmd.dms.server.extended.DmsModule;                               // The base module for generation - (MetaDSDHelper.java:551)
-import org.dmd.dms.server.generated.dsd.DmsModuleDefinitionManager;         // All parsed definition - (MetaDSDHelper.java:556)
-import org.dmd.util.parsing.ConfigLocation;                                 // Where the config was loaded from - (MetaDSDHelper.java:554)
+// Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateGeneratorInterface(MetaDSDHelper.java:583)
+import java.io.IOException;                                                 // May occur during artifact generation - (MetaDSDHelper.java:578)
+import org.dmd.core.feedback.DMFeedbackSet;                                 // For problems found after parsing - (MetaDSDHelper.java:580)
+import org.dmd.dms.server.extended.DmsModule;                               // The base module for generation - (MetaDSDHelper.java:576)
+import org.dmd.dms.server.generated.dsd.DmsModuleDefinitionManager;         // All parsed definition - (MetaDSDHelper.java:581)
+import org.dmd.util.parsing.ConfigLocation;                                 // Where the config was loaded from - (MetaDSDHelper.java:579)
 
 
-// Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateGeneratorInterface(MetaDSDHelper.java:560)
+// Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateGeneratorInterface(MetaDSDHelper.java:585)
 public interface DmsModuleGeneratorInterface {
 
     /**

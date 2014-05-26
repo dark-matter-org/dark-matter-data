@@ -60,7 +60,7 @@ public class Optimize implements Serializable {
 
     // A description of why the change should be considered or a reference to a Concinnity definition e.g. a feature request
     ConcinnityREF why;
-    final static DmcAttributeInfo whyAI = new DmcAttributeInfo("why",0,"ConcinnityREF",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN);
+    final static DmcAttributeInfo whyAI = new DmcAttributeInfo("why",0,"Concinnity",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN);
 
     final static int requiredParts = 1;
 

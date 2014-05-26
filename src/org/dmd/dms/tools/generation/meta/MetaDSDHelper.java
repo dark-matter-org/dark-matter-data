@@ -116,6 +116,7 @@ public class MetaDSDHelper {
 
 		imports.addImport("java.util.Iterator", "To provide iterators over definitions");
 		imports.addImport("org.dmd.dms.shared.types.DotName", "To support the find method for definitions");
+		imports.addImport("org.dmd.core.feedback.DMFeedbackSet", "To handle errors/warnings");
 		
 		imports.addImport("org.dmd.dms.server.extended." + ucoModule.getSV("baseDefinition"), "A definition from the " + ucoModule.getSV("name") + " Module");		
 		
@@ -167,6 +168,7 @@ public class MetaDSDHelper {
 
 		imports.addImport("java.util.Iterator", "To provide iterators over definitions");
 		imports.addImport("org.dmd.dms.shared.types.DotName", "To support the find method for definitions");
+		imports.addImport("org.dmd.core.feedback.DMFeedbackSet", "To handle errors/warnings");
 		
 		imports.addImport("org.dmd.dms.server.extended." + ucoModule.getSV("baseDefinition"), "A definition from the " + ucoModule.getSV("name") + " Module");		
 		
@@ -224,7 +226,7 @@ public class MetaDSDHelper {
 			}
 			
 			String cn = ci.cd.getSV("name");
-			sb.append("    public void add" + cn + "(" + cn +" def);\n");
+			sb.append("    public void add" + cn + "(" + cn +" def) throws DMFeedbackSet;\n");
 			sb.append("    public int get" + cn + "Count();\n");
 			sb.append("    public " + cn + " get" + cn + "(DotName name);\n");
 			sb.append("    public Iterator<" + cn + "> getAll" + cn + "();\n\n");
@@ -264,6 +266,7 @@ public class MetaDSDHelper {
 		
 		imports.addImport("org.dmd.dms.server.extended.DSDefinition", "The base of all definitions");
 		imports.addImport("org.dmd.dms.server.util.DmcDefinitionSet", "Our base to provide definition set storage");
+		imports.addImport("org.dmd.dms.server.util.DmcDefinitionSetNew", "Our base to provide definition set storage");
 		imports.addImport("java.util.Iterator", "To allow access to our definitions");
 		imports.addImport("org.dmd.dms.shared.types.DotName", "To support the find method for definitions");
 		imports.addImport("org.dmd.core.interfaces.DmcNameClashResolverIF", "To support object resolution");
@@ -407,35 +410,57 @@ public class MetaDSDHelper {
 //		out.write("\n");
 //	}
 
+//	private void dumpDefinitionManagerMembers(ManagedFileWriter out, DMUncheckedObject boing) throws IOException, DMFeedbackSet {
+//		String defname = null;
+//		String construct = null;
+//		
+//		MemberManager	members = new MemberManager();
+//		members.addComment("This will be populated as a result of adding definitions to the definition sets for each definition type");
+//		members.addMember("protected DmcDefinitionSet<DSDefinition>", "allDefinitions", "new DmcDefinitionSet<DSDefinition>(\"allDefinitions\")", "Maintains all definitions");
+//		members.addSpacer();
+//		
+//		defname = ucoModule.getSV("baseDefinition");
+//		construct = "new DmcDefinitionSet<" + defname + ">(\"" + defname + "\", allDefinitions)";
+//		members.addMember("protected DmcDefinitionSet<" + defname + ">", defname + "Defs", construct, "The set of all " + defname + " definitions");
+//		
+//		ArrayList<ClassInfo> derived = getAllDerived(ucoModule.getSV("baseDefinition"));
+//		for(ClassInfo ci: derived){
+//			defname = ci.cd.getSV("name");
+//			construct = "new DmcDefinitionSet<" + defname + ">(\"" + defname + "\", allDefinitions)";
+//			members.addMember("protected DmcDefinitionSet<" + defname + ">", defname + "Defs", construct, "The set of all " + defname + " definitions");
+//		}
+//		
+//		out.write(members.getFormattedMembers());
+//		out.write("\n");
+//	}
+	
 	private void dumpDefinitionManagerMembers(ManagedFileWriter out, DMUncheckedObject boing) throws IOException, DMFeedbackSet {
 		String defname = null;
 		String construct = null;
 		
 		MemberManager	members = new MemberManager();
 		members.addComment("This will be populated as a result of adding definitions to the definition sets for each definition type");
-		members.addMember("protected DmcDefinitionSet<DSDefinition>", "allDefinitions", "new DmcDefinitionSet<DSDefinition>(\"allDefinitions\")", "Maintains all definitions");
+		members.addMember("protected DmcDefinitionSetNew<DSDefinition>", "allDefinitions", "new DmcDefinitionSetNew<DSDefinition>(\"DSDefinition\")", "Maintains all definitions");
 		members.addSpacer();
 		
 		defname = ucoModule.getSV("baseDefinition");
-		construct = "new DmcDefinitionSet<" + defname + ">(\"" + defname + "\", allDefinitions)";
-		members.addMember("protected DmcDefinitionSet<" + defname + ">", defname + "Defs", construct, "The set of all " + defname + " definitions");
+		String derivedFrom = "";
 		
-//		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-//		out.write("    DmcDefinitionSet<DSDefinition>	allDefinitions;\n");
-//		out.write("\n");
-//		
-//		out.write("    DmcDefinitionSet<" + ucoModule.getSV("baseDefinition") + "> " + ucoModule.getSV("baseDefinition") + "Defs;\n");
-//
-//		ArrayList<ClassInfo> derived = getAllDerived(ucoModule.getSV("baseDefinition"));
-//		for(ClassInfo ci: derived){
-//			out.write("    DmcDefinitionSet<" + ci.cd.getSV("name") + "> " + ci.cd.getSV("name") + "Defs;\n");			
-//		}
+		construct = "new DmcDefinitionSetNew<" + defname + ">(\"" + defname + "\", false, allDefinitions,allDefinitions)";
+		members.addMember("protected DmcDefinitionSetNew<" + defname + ">", defname + "Defs", construct, "The set of all " + defname + " definitions");
 		
 		ArrayList<ClassInfo> derived = getAllDerived(ucoModule.getSV("baseDefinition"));
 		for(ClassInfo ci: derived){
 			defname = ci.cd.getSV("name");
-			construct = "new DmcDefinitionSet<" + defname + ">(\"" + defname + "\", allDefinitions)";
-			members.addMember("protected DmcDefinitionSet<" + defname + ">", defname + "Defs", construct, "The set of all " + defname + " definitions");
+			derivedFrom = ci.cd.getSV("derivedFrom");
+			
+			String classType = ci.cd.getSV("classType");
+			String structural = "true";
+			if (classType.equals("ABSTRACT"))
+				structural = "false";
+			
+			construct = "new DmcDefinitionSetNew<" + defname + ">(\"" + defname + "\", " + structural + ", " + derivedFrom + "Defs,allDefinitions)";
+			members.addMember("protected DmcDefinitionSetNew<" + defname + ">", defname + "Defs", construct, "The set of all " + defname + " definitions");
 		}
 		
 		out.write(members.getFormattedMembers());
@@ -457,7 +482,7 @@ public class MetaDSDHelper {
 		sb.append("    /**\n");
 		sb.append("     * All definitions are added to the base definition collection.\n");
 		sb.append("     */\n");
-		sb.append("    void add" + dsdName + "(" + dsdName + " def){\n");
+		sb.append("    void add" + dsdName + "(" + dsdName + " def) throws DMFeedbackSet {\n");
 		sb.append("        " + dsdName + "Defs.add(def);\n");
 		sb.append("    }\n\n");
 		
@@ -483,12 +508,12 @@ public class MetaDSDHelper {
 					continue;
 			}
 			sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    public void add" + ci.cd.getSV("name") + "(" + ci.cd.getSV("name") + " def){\n");
+			sb.append("    public void add" + ci.cd.getSV("name") + "(" + ci.cd.getSV("name") + " def) throws DMFeedbackSet {\n");
 			sb.append("        " + ci.cd.getSV("name") + "Defs.add(def);\n");
-			if (ci.cd.getSV("name").equals("DSDefinitionModule"))
-				sb.append("        // We don't add the DSDefinitionModule (DmsModule) because it would clash with the DmsModule ClassDefinition\n");
-			else
-				getBaseClassAddCall(ci, ci.cd.getSV("derivedFrom"), sb);
+//			if (ci.cd.getSV("name").equals("DSDefinitionModule"))
+//				sb.append("        // We don't add the DSDefinitionModule (DmsModule) because it would clash with the DmsModule ClassDefinition\n");
+//			else
+//				getBaseClassAddCall(ci, ci.cd.getSV("derivedFrom"), sb);
 			sb.append("    }\n\n");
 			
 			sb.append("    public int get" + ci.cd.getSV("name") + "Count(){\n");

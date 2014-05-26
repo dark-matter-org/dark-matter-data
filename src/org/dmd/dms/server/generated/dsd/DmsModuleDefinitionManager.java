@@ -16,79 +16,80 @@
 package org.dmd.dms.server.generated.dsd;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateDefinitionManager(MetaDSDHelper.java:279)
-import java.util.Iterator;                                                  // To allow access to our definitions - (MetaDSDHelper.java:267)
-import org.dmd.core.DmcNameClashObjectSet;                                  // Used when resolving clashes - (MetaDSDHelper.java:276)
-import org.dmd.core.DmcObject;                                              // To support object resolution - (MetaDSDHelper.java:272)
-import org.dmd.core.DmcObjectName;                                          // To support object resolution - (MetaDSDHelper.java:273)
-import org.dmd.core.feedback.DMFeedbackSet;                                 // Can be thrown when we try to resolve references - (MetaDSDHelper.java:274)
-import org.dmd.core.feedback.DmcNameClashException;                         // Used when resolving clashes - (MetaDSDHelper.java:277)
-import org.dmd.core.interfaces.DmcNameClashResolverIF;                      // To support object resolution - (MetaDSDHelper.java:269)
-import org.dmd.core.interfaces.DmcNameResolverWithClashSupportIF;           // To support object resolution - (MetaDSDHelper.java:270)
-import org.dmd.core.interfaces.DmcNamedObjectIF;                            // To support object resolution - (MetaDSDHelper.java:271)
-import org.dmd.core.schema.DmcAttributeInfo;                                // Used when resolving clashes - (MetaDSDHelper.java:275)
-import org.dmd.dms.server.extended.ActionDefinition;                        // A definition from the DmsModule Module - (MetaDSDHelper.java:252)
-import org.dmd.dms.server.extended.AttributeDefinition;                     // A definition from the DmsModule Module - (MetaDSDHelper.java:252)
-import org.dmd.dms.server.extended.ClassDefinition;                         // A definition from the DmsModule Module - (MetaDSDHelper.java:252)
-import org.dmd.dms.server.extended.ComplexTypeDefinition;                   // A definition from the DmsModule Module - (MetaDSDHelper.java:252)
-import org.dmd.dms.server.extended.DSDefinition;                            // The base of all definitions - (MetaDSDHelper.java:265)
-import org.dmd.dms.server.extended.DSDefinitionModule;                      // A definition from the DmsModule Module - (MetaDSDHelper.java:252)
-import org.dmd.dms.server.extended.Dependency;                              // A definition from the DmsModule Module - (MetaDSDHelper.java:252)
-import org.dmd.dms.server.extended.DependencyImplementation;                // A definition from the DmsModule Module - (MetaDSDHelper.java:252)
-import org.dmd.dms.server.extended.DmsDefinition;                           // The base definition of the DmsModule Module - (MetaDSDHelper.java:248)
-import org.dmd.dms.server.extended.DmsModule;                               // A definition from the DmsModule Module - (MetaDSDHelper.java:252)
-import org.dmd.dms.server.extended.EnumDefinition;                          // A definition from the DmsModule Module - (MetaDSDHelper.java:252)
-import org.dmd.dms.server.extended.ExtendedReferenceTypeDefinition;         // A definition from the DmsModule Module - (MetaDSDHelper.java:252)
-import org.dmd.dms.server.extended.RuleCategory;                            // A definition from the DmsModule Module - (MetaDSDHelper.java:252)
-import org.dmd.dms.server.extended.RuleDefinition;                          // A definition from the DmsModule Module - (MetaDSDHelper.java:252)
-import org.dmd.dms.server.extended.RunContext;                              // A definition from the DmsModule Module - (MetaDSDHelper.java:252)
-import org.dmd.dms.server.extended.SchemaDefinition;                        // A definition from the DmsModule Module - (MetaDSDHelper.java:252)
-import org.dmd.dms.server.extended.SliceDefinition;                         // A definition from the DmsModule Module - (MetaDSDHelper.java:252)
-import org.dmd.dms.server.extended.TypeDefinition;                          // A definition from the DmsModule Module - (MetaDSDHelper.java:252)
-import org.dmd.dms.server.generated.dsd.DmsModuleGlobalInterface;           // Interface for DmsModuledefinitions - (MetaDSDHelper.java:255)
-import org.dmd.dms.server.util.DmcDefinitionSet;                            // Our base to provide definition set storage - (MetaDSDHelper.java:266)
-import org.dmd.dms.shared.types.DotName;                                    // To support the find method for definitions - (MetaDSDHelper.java:268)
+// Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateDefinitionManager(MetaDSDHelper.java:282)
+import java.util.Iterator;                                                  // To allow access to our definitions - (MetaDSDHelper.java:270)
+import org.dmd.core.DmcNameClashObjectSet;                                  // Used when resolving clashes - (MetaDSDHelper.java:279)
+import org.dmd.core.DmcObject;                                              // To support object resolution - (MetaDSDHelper.java:275)
+import org.dmd.core.DmcObjectName;                                          // To support object resolution - (MetaDSDHelper.java:276)
+import org.dmd.core.feedback.DMFeedbackSet;                                 // Can be thrown when we try to resolve references - (MetaDSDHelper.java:277)
+import org.dmd.core.feedback.DmcNameClashException;                         // Used when resolving clashes - (MetaDSDHelper.java:280)
+import org.dmd.core.interfaces.DmcNameClashResolverIF;                      // To support object resolution - (MetaDSDHelper.java:272)
+import org.dmd.core.interfaces.DmcNameResolverWithClashSupportIF;           // To support object resolution - (MetaDSDHelper.java:273)
+import org.dmd.core.interfaces.DmcNamedObjectIF;                            // To support object resolution - (MetaDSDHelper.java:274)
+import org.dmd.core.schema.DmcAttributeInfo;                                // Used when resolving clashes - (MetaDSDHelper.java:278)
+import org.dmd.dms.server.extended.ActionDefinition;                        // A definition from the DmsModule Module - (MetaDSDHelper.java:254)
+import org.dmd.dms.server.extended.AttributeDefinition;                     // A definition from the DmsModule Module - (MetaDSDHelper.java:254)
+import org.dmd.dms.server.extended.ClassDefinition;                         // A definition from the DmsModule Module - (MetaDSDHelper.java:254)
+import org.dmd.dms.server.extended.ComplexTypeDefinition;                   // A definition from the DmsModule Module - (MetaDSDHelper.java:254)
+import org.dmd.dms.server.extended.DSDefinition;                            // The base of all definitions - (MetaDSDHelper.java:267)
+import org.dmd.dms.server.extended.DSDefinitionModule;                      // A definition from the DmsModule Module - (MetaDSDHelper.java:254)
+import org.dmd.dms.server.extended.Dependency;                              // A definition from the DmsModule Module - (MetaDSDHelper.java:254)
+import org.dmd.dms.server.extended.DependencyImplementation;                // A definition from the DmsModule Module - (MetaDSDHelper.java:254)
+import org.dmd.dms.server.extended.DmsDefinition;                           // The base definition of the DmsModule Module - (MetaDSDHelper.java:250)
+import org.dmd.dms.server.extended.DmsModule;                               // A definition from the DmsModule Module - (MetaDSDHelper.java:254)
+import org.dmd.dms.server.extended.EnumDefinition;                          // A definition from the DmsModule Module - (MetaDSDHelper.java:254)
+import org.dmd.dms.server.extended.ExtendedReferenceTypeDefinition;         // A definition from the DmsModule Module - (MetaDSDHelper.java:254)
+import org.dmd.dms.server.extended.RuleCategory;                            // A definition from the DmsModule Module - (MetaDSDHelper.java:254)
+import org.dmd.dms.server.extended.RuleDefinition;                          // A definition from the DmsModule Module - (MetaDSDHelper.java:254)
+import org.dmd.dms.server.extended.RunContext;                              // A definition from the DmsModule Module - (MetaDSDHelper.java:254)
+import org.dmd.dms.server.extended.SchemaDefinition;                        // A definition from the DmsModule Module - (MetaDSDHelper.java:254)
+import org.dmd.dms.server.extended.SliceDefinition;                         // A definition from the DmsModule Module - (MetaDSDHelper.java:254)
+import org.dmd.dms.server.extended.TypeDefinition;                          // A definition from the DmsModule Module - (MetaDSDHelper.java:254)
+import org.dmd.dms.server.generated.dsd.DmsModuleGlobalInterface;           // Interface for DmsModuledefinitions - (MetaDSDHelper.java:257)
+import org.dmd.dms.server.util.DmcDefinitionSet;                            // Our base to provide definition set storage - (MetaDSDHelper.java:268)
+import org.dmd.dms.server.util.DmcDefinitionSetNew;                         // Our base to provide definition set storage - (MetaDSDHelper.java:269)
+import org.dmd.dms.shared.types.DotName;                                    // To support the find method for definitions - (MetaDSDHelper.java:271)
 
 
-// Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateDefinitionManager(MetaDSDHelper.java:283)
+// Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateDefinitionManager(MetaDSDHelper.java:286)
 public class DmsModuleDefinitionManager implements DmcNameClashResolverIF, DmcNameResolverWithClashSupportIF, DmsModuleGlobalInterface {
 
     // Generated from: org.dmd.util.artifact.java.MemberManager.getFormattedMembers(MemberManager.java:68)
-    // Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpDefinitionManagerMembers(MetaDSDHelper.java:441)
+    // Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpDefinitionManagerMembers(MetaDSDHelper.java:466)
 
     // This will be populated as a result of adding definitions to the definition sets for each definition type
-    protected DmcDefinitionSet<DSDefinition>                       allDefinitions                         = new DmcDefinitionSet<DSDefinition>("allDefinitions");                                                       // Maintains all definitions
-                                                                                                                                                                                                                        // 
-    protected DmcDefinitionSet<DmsDefinition>                      DmsDefinitionDefs                      = new DmcDefinitionSet<DmsDefinition>("DmsDefinition", allDefinitions);                                       // The set of all DmsDefinition definitions
-    protected DmcDefinitionSet<ActionDefinition>                   ActionDefinitionDefs                   = new DmcDefinitionSet<ActionDefinition>("ActionDefinition", allDefinitions);                                 // The set of all ActionDefinition definitions
-    protected DmcDefinitionSet<AttributeDefinition>                AttributeDefinitionDefs                = new DmcDefinitionSet<AttributeDefinition>("AttributeDefinition", allDefinitions);                           // The set of all AttributeDefinition definitions
-    protected DmcDefinitionSet<ClassDefinition>                    ClassDefinitionDefs                    = new DmcDefinitionSet<ClassDefinition>("ClassDefinition", allDefinitions);                                   // The set of all ClassDefinition definitions
-    protected DmcDefinitionSet<ComplexTypeDefinition>              ComplexTypeDefinitionDefs              = new DmcDefinitionSet<ComplexTypeDefinition>("ComplexTypeDefinition", allDefinitions);                       // The set of all ComplexTypeDefinition definitions
-    protected DmcDefinitionSet<ExtendedReferenceTypeDefinition>    ExtendedReferenceTypeDefinitionDefs    = new DmcDefinitionSet<ExtendedReferenceTypeDefinition>("ExtendedReferenceTypeDefinition", allDefinitions);   // The set of all ExtendedReferenceTypeDefinition definitions
-    protected DmcDefinitionSet<DSDefinitionModule>                 DSDefinitionModuleDefs                 = new DmcDefinitionSet<DSDefinitionModule>("DSDefinitionModule", allDefinitions);                             // The set of all DSDefinitionModule definitions
-    protected DmcDefinitionSet<Dependency>                         DependencyDefs                         = new DmcDefinitionSet<Dependency>("Dependency", allDefinitions);                                             // The set of all Dependency definitions
-    protected DmcDefinitionSet<DependencyImplementation>           DependencyImplementationDefs           = new DmcDefinitionSet<DependencyImplementation>("DependencyImplementation", allDefinitions);                 // The set of all DependencyImplementation definitions
-    protected DmcDefinitionSet<DmsModule>                          DmsModuleDefs                          = new DmcDefinitionSet<DmsModule>("DmsModule", allDefinitions);                                               // The set of all DmsModule definitions
-    protected DmcDefinitionSet<EnumDefinition>                     EnumDefinitionDefs                     = new DmcDefinitionSet<EnumDefinition>("EnumDefinition", allDefinitions);                                     // The set of all EnumDefinition definitions
-    protected DmcDefinitionSet<RuleCategory>                       RuleCategoryDefs                       = new DmcDefinitionSet<RuleCategory>("RuleCategory", allDefinitions);                                         // The set of all RuleCategory definitions
-    protected DmcDefinitionSet<RuleDefinition>                     RuleDefinitionDefs                     = new DmcDefinitionSet<RuleDefinition>("RuleDefinition", allDefinitions);                                     // The set of all RuleDefinition definitions
-    protected DmcDefinitionSet<RunContext>                         RunContextDefs                         = new DmcDefinitionSet<RunContext>("RunContext", allDefinitions);                                             // The set of all RunContext definitions
-    protected DmcDefinitionSet<SchemaDefinition>                   SchemaDefinitionDefs                   = new DmcDefinitionSet<SchemaDefinition>("SchemaDefinition", allDefinitions);                                 // The set of all SchemaDefinition definitions
-    protected DmcDefinitionSet<SliceDefinition>                    SliceDefinitionDefs                    = new DmcDefinitionSet<SliceDefinition>("SliceDefinition", allDefinitions);                                   // The set of all SliceDefinition definitions
-    protected DmcDefinitionSet<TypeDefinition>                     TypeDefinitionDefs                     = new DmcDefinitionSet<TypeDefinition>("TypeDefinition", allDefinitions);                                     // The set of all TypeDefinition definitions
+    protected DmcDefinitionSetNew<DSDefinition>                       allDefinitions                         = new DmcDefinitionSetNew<DSDefinition>("DSDefinition");                                                                                         // Maintains all definitions
+                                                                                                                                                                                                                                                              // 
+    protected DmcDefinitionSetNew<DmsDefinition>                      DmsDefinitionDefs                      = new DmcDefinitionSetNew<DmsDefinition>("DmsDefinition", false, allDefinitions,allDefinitions);                                                 // The set of all DmsDefinition definitions
+    protected DmcDefinitionSetNew<ActionDefinition>                   ActionDefinitionDefs                   = new DmcDefinitionSetNew<ActionDefinition>("ActionDefinition", true, DmsDefinitionDefs,allDefinitions);                                         // The set of all ActionDefinition definitions
+    protected DmcDefinitionSetNew<AttributeDefinition>                AttributeDefinitionDefs                = new DmcDefinitionSetNew<AttributeDefinition>("AttributeDefinition", true, DmsDefinitionDefs,allDefinitions);                                   // The set of all AttributeDefinition definitions
+    protected DmcDefinitionSetNew<ClassDefinition>                    ClassDefinitionDefs                    = new DmcDefinitionSetNew<ClassDefinition>("ClassDefinition", true, DmsDefinitionDefs,allDefinitions);                                           // The set of all ClassDefinition definitions
+    protected DmcDefinitionSetNew<ComplexTypeDefinition>              ComplexTypeDefinitionDefs              = new DmcDefinitionSetNew<ComplexTypeDefinition>("ComplexTypeDefinition", true, DmsDefinitionDefs,allDefinitions);                               // The set of all ComplexTypeDefinition definitions
+    protected DmcDefinitionSetNew<ExtendedReferenceTypeDefinition>    ExtendedReferenceTypeDefinitionDefs    = new DmcDefinitionSetNew<ExtendedReferenceTypeDefinition>("ExtendedReferenceTypeDefinition", true, ComplexTypeDefinitionDefs,allDefinitions);   // The set of all ExtendedReferenceTypeDefinition definitions
+    protected DmcDefinitionSetNew<DSDefinitionModule>                 DSDefinitionModuleDefs                 = new DmcDefinitionSetNew<DSDefinitionModule>("DSDefinitionModule", true, DmsDefinitionDefs,allDefinitions);                                     // The set of all DSDefinitionModule definitions
+    protected DmcDefinitionSetNew<Dependency>                         DependencyDefs                         = new DmcDefinitionSetNew<Dependency>("Dependency", true, DmsDefinitionDefs,allDefinitions);                                                     // The set of all Dependency definitions
+    protected DmcDefinitionSetNew<DependencyImplementation>           DependencyImplementationDefs           = new DmcDefinitionSetNew<DependencyImplementation>("DependencyImplementation", true, DmsDefinitionDefs,allDefinitions);                         // The set of all DependencyImplementation definitions
+    protected DmcDefinitionSetNew<DmsModule>                          DmsModuleDefs                          = new DmcDefinitionSetNew<DmsModule>("DmsModule", true, DmsDefinitionDefs,allDefinitions);                                                       // The set of all DmsModule definitions
+    protected DmcDefinitionSetNew<EnumDefinition>                     EnumDefinitionDefs                     = new DmcDefinitionSetNew<EnumDefinition>("EnumDefinition", true, DmsDefinitionDefs,allDefinitions);                                             // The set of all EnumDefinition definitions
+    protected DmcDefinitionSetNew<RuleCategory>                       RuleCategoryDefs                       = new DmcDefinitionSetNew<RuleCategory>("RuleCategory", true, DmsDefinitionDefs,allDefinitions);                                                 // The set of all RuleCategory definitions
+    protected DmcDefinitionSetNew<RuleDefinition>                     RuleDefinitionDefs                     = new DmcDefinitionSetNew<RuleDefinition>("RuleDefinition", true, DmsDefinitionDefs,allDefinitions);                                             // The set of all RuleDefinition definitions
+    protected DmcDefinitionSetNew<RunContext>                         RunContextDefs                         = new DmcDefinitionSetNew<RunContext>("RunContext", true, DmsDefinitionDefs,allDefinitions);                                                     // The set of all RunContext definitions
+    protected DmcDefinitionSetNew<SchemaDefinition>                   SchemaDefinitionDefs                   = new DmcDefinitionSetNew<SchemaDefinition>("SchemaDefinition", true, DmsDefinitionDefs,allDefinitions);                                         // The set of all SchemaDefinition definitions
+    protected DmcDefinitionSetNew<SliceDefinition>                    SliceDefinitionDefs                    = new DmcDefinitionSetNew<SliceDefinition>("SliceDefinition", true, DmsDefinitionDefs,allDefinitions);                                           // The set of all SliceDefinition definitions
+    protected DmcDefinitionSetNew<TypeDefinition>                     TypeDefinitionDefs                     = new DmcDefinitionSetNew<TypeDefinition>("TypeDefinition", true, DmsDefinitionDefs,allDefinitions);                                             // The set of all TypeDefinition definitions
 
     public DmsModuleDefinitionManager(){
 
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateDefinitionManager(MetaDSDHelper.java:296)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateDefinitionManager(MetaDSDHelper.java:299)
     public void resolveReferences() throws DMFeedbackSet {
         for(DSDefinition def: allDefinitions.values()){
             def.resolveReferences(this,this);
         }
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateDefinitionManager(MetaDSDHelper.java:304)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateDefinitionManager(MetaDSDHelper.java:307)
     @Override
     public DmcNamedObjectIF findNamedObject(DmcObjectName name) {
         DSDefinition def = null;
@@ -105,13 +106,13 @@ public class DmsModuleDefinitionManager implements DmcNameClashResolverIF, DmcNa
         return(def);
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateDefinitionManager(MetaDSDHelper.java:321)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateDefinitionManager(MetaDSDHelper.java:324)
     @Override
     public DmcNamedObjectIF findNamedObject(DmcObjectName name, int attributeID) {
         throw(new IllegalStateException("This method is not supported on generated definition managers"));
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateDefinitionManager(MetaDSDHelper.java:327)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateDefinitionManager(MetaDSDHelper.java:330)
     @Override
     public DmcObject findNamedDMO(DmcObjectName name) {
         DSDefinition def = null;
@@ -131,7 +132,7 @@ public class DmsModuleDefinitionManager implements DmcNameClashResolverIF, DmcNa
         return(def.getDMO());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateDefinitionManager(MetaDSDHelper.java:347)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateDefinitionManager(MetaDSDHelper.java:350)
     @Override
     public DmcNamedObjectIF findNamedObjectMayClash(DmcObject object, DmcObjectName name, DmcNameClashResolverIF resolver, DmcAttributeInfo ai) throws DMFeedbackSet {
         DmcNamedObjectIF rc = null;
@@ -154,7 +155,7 @@ public class DmsModuleDefinitionManager implements DmcNameClashResolverIF, DmcNa
         return(rc);
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateDefinitionManager(MetaDSDHelper.java:370)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateDefinitionManager(MetaDSDHelper.java:373)
     @Override
     public DmcNamedObjectIF resolveClash(DmcObject obj, DmcAttributeInfo ai, DmcNameClashObjectSet<?> ncos) throws DMFeedbackSet {
         DmcNamedObjectIF rc = null;
@@ -171,12 +172,12 @@ public class DmsModuleDefinitionManager implements DmcNameClashResolverIF, DmcNa
         return(rc);
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:455)
-    // Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpDefinitionInterfaceMethods(MetaDSDHelper.java:395)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:480)
+    // Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpDefinitionInterfaceMethods(MetaDSDHelper.java:398)
     /**
      * All definitions are added to the base definition collection.
      */
-    void addDmsDefinition(DmsDefinition def){
+    void addDmsDefinition(DmsDefinition def) throws DMFeedbackSet {
         DmsDefinitionDefs.add(def);
     }
 
@@ -192,10 +193,9 @@ public class DmsModuleDefinitionManager implements DmcNameClashResolverIF, DmcNa
         return(DmsDefinitionDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
-    public void addActionDefinition(ActionDefinition def){
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:510)
+    public void addActionDefinition(ActionDefinition def) throws DMFeedbackSet {
         ActionDefinitionDefs.add(def);
-        addDmsDefinition(def);
     }
 
     public int getActionDefinitionCount(){
@@ -210,10 +210,9 @@ public class DmsModuleDefinitionManager implements DmcNameClashResolverIF, DmcNa
         return(ActionDefinitionDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
-    public void addAttributeDefinition(AttributeDefinition def){
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:510)
+    public void addAttributeDefinition(AttributeDefinition def) throws DMFeedbackSet {
         AttributeDefinitionDefs.add(def);
-        addDmsDefinition(def);
     }
 
     public int getAttributeDefinitionCount(){
@@ -228,13 +227,9 @@ public class DmsModuleDefinitionManager implements DmcNameClashResolverIF, DmcNa
         return(AttributeDefinitionDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
-    public void addClassDefinition(ClassDefinition def){
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:510)
+    public void addClassDefinition(ClassDefinition def) throws DMFeedbackSet {
         ClassDefinitionDefs.add(def);
-        // We only add the definition up the chain if it isn't internally generated
-        // this prevents clashing names further up the definition set hierarchy
-        if (!def.getInternallyGenerated())
-            addDmsDefinition(def);
     }
 
     public int getClassDefinitionCount(){
@@ -249,10 +244,9 @@ public class DmsModuleDefinitionManager implements DmcNameClashResolverIF, DmcNa
         return(ClassDefinitionDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
-    public void addComplexTypeDefinition(ComplexTypeDefinition def){
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:510)
+    public void addComplexTypeDefinition(ComplexTypeDefinition def) throws DMFeedbackSet {
         ComplexTypeDefinitionDefs.add(def);
-        addDmsDefinition(def);
     }
 
     public int getComplexTypeDefinitionCount(){
@@ -267,10 +261,9 @@ public class DmsModuleDefinitionManager implements DmcNameClashResolverIF, DmcNa
         return(ComplexTypeDefinitionDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
-    public void addExtendedReferenceTypeDefinition(ExtendedReferenceTypeDefinition def){
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:510)
+    public void addExtendedReferenceTypeDefinition(ExtendedReferenceTypeDefinition def) throws DMFeedbackSet {
         ExtendedReferenceTypeDefinitionDefs.add(def);
-        addComplexTypeDefinition(def);
     }
 
     public int getExtendedReferenceTypeDefinitionCount(){
@@ -285,10 +278,9 @@ public class DmsModuleDefinitionManager implements DmcNameClashResolverIF, DmcNa
         return(ExtendedReferenceTypeDefinitionDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
-    public void addDSDefinitionModule(DSDefinitionModule def){
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:510)
+    public void addDSDefinitionModule(DSDefinitionModule def) throws DMFeedbackSet {
         DSDefinitionModuleDefs.add(def);
-        // We don't add the DSDefinitionModule (DmsModule) because it would clash with the DmsModule ClassDefinition
     }
 
     public int getDSDefinitionModuleCount(){
@@ -303,10 +295,9 @@ public class DmsModuleDefinitionManager implements DmcNameClashResolverIF, DmcNa
         return(DSDefinitionModuleDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
-    public void addDependency(Dependency def){
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:510)
+    public void addDependency(Dependency def) throws DMFeedbackSet {
         DependencyDefs.add(def);
-        addDmsDefinition(def);
     }
 
     public int getDependencyCount(){
@@ -321,10 +312,9 @@ public class DmsModuleDefinitionManager implements DmcNameClashResolverIF, DmcNa
         return(DependencyDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
-    public void addDependencyImplementation(DependencyImplementation def){
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:510)
+    public void addDependencyImplementation(DependencyImplementation def) throws DMFeedbackSet {
         DependencyImplementationDefs.add(def);
-        addDmsDefinition(def);
     }
 
     public int getDependencyImplementationCount(){
@@ -339,10 +329,9 @@ public class DmsModuleDefinitionManager implements DmcNameClashResolverIF, DmcNa
         return(DependencyImplementationDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
-    public void addDmsModule(DmsModule def){
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:510)
+    public void addDmsModule(DmsModule def) throws DMFeedbackSet {
         DmsModuleDefs.add(def);
-        addDmsDefinition(def);
     }
 
     public int getDmsModuleCount(){
@@ -357,10 +346,9 @@ public class DmsModuleDefinitionManager implements DmcNameClashResolverIF, DmcNa
         return(DmsModuleDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
-    public void addEnumDefinition(EnumDefinition def){
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:510)
+    public void addEnumDefinition(EnumDefinition def) throws DMFeedbackSet {
         EnumDefinitionDefs.add(def);
-        addDmsDefinition(def);
     }
 
     public int getEnumDefinitionCount(){
@@ -375,10 +363,9 @@ public class DmsModuleDefinitionManager implements DmcNameClashResolverIF, DmcNa
         return(EnumDefinitionDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
-    public void addRuleCategory(RuleCategory def){
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:510)
+    public void addRuleCategory(RuleCategory def) throws DMFeedbackSet {
         RuleCategoryDefs.add(def);
-        addDmsDefinition(def);
     }
 
     public int getRuleCategoryCount(){
@@ -393,10 +380,9 @@ public class DmsModuleDefinitionManager implements DmcNameClashResolverIF, DmcNa
         return(RuleCategoryDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
-    public void addRuleDefinition(RuleDefinition def){
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:510)
+    public void addRuleDefinition(RuleDefinition def) throws DMFeedbackSet {
         RuleDefinitionDefs.add(def);
-        addDmsDefinition(def);
     }
 
     public int getRuleDefinitionCount(){
@@ -411,10 +397,9 @@ public class DmsModuleDefinitionManager implements DmcNameClashResolverIF, DmcNa
         return(RuleDefinitionDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
-    public void addRunContext(RunContext def){
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:510)
+    public void addRunContext(RunContext def) throws DMFeedbackSet {
         RunContextDefs.add(def);
-        addDmsDefinition(def);
     }
 
     public int getRunContextCount(){
@@ -429,10 +414,9 @@ public class DmsModuleDefinitionManager implements DmcNameClashResolverIF, DmcNa
         return(RunContextDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
-    public void addSchemaDefinition(SchemaDefinition def){
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:510)
+    public void addSchemaDefinition(SchemaDefinition def) throws DMFeedbackSet {
         SchemaDefinitionDefs.add(def);
-        addDmsDefinition(def);
     }
 
     public int getSchemaDefinitionCount(){
@@ -447,10 +431,9 @@ public class DmsModuleDefinitionManager implements DmcNameClashResolverIF, DmcNa
         return(SchemaDefinitionDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
-    public void addSliceDefinition(SliceDefinition def){
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:510)
+    public void addSliceDefinition(SliceDefinition def) throws DMFeedbackSet {
         SliceDefinitionDefs.add(def);
-        addDmsDefinition(def);
     }
 
     public int getSliceDefinitionCount(){
@@ -465,13 +448,9 @@ public class DmsModuleDefinitionManager implements DmcNameClashResolverIF, DmcNa
         return(SliceDefinitionDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:485)
-    public void addTypeDefinition(TypeDefinition def){
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.getInterfaceMethodsImplementations(MetaDSDHelper.java:510)
+    public void addTypeDefinition(TypeDefinition def) throws DMFeedbackSet {
         TypeDefinitionDefs.add(def);
-        // We only add the definition up the chain if it isn't internally generated
-        // this prevents clashing names further up the definition set hierarchy
-        if (!def.getInternallyGenerated())
-            addDmsDefinition(def);
     }
 
     public int getTypeDefinitionCount(){

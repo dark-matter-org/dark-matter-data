@@ -16,27 +16,27 @@
 package org.dmd.dms.server.generated.dsd;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParsingCoordinator(MetaDSDHelper.java:1026)
-import java.io.IOException;                                                  // If we run it to problems finding configs - (MetaDSDHelper.java:990)
-import java.util.ArrayList;                                                  // To handle lists of things - (MetaDSDHelper.java:992)
-import java.util.Iterator;                                                   // To iterate over collections - (MetaDSDHelper.java:991)
-import java.util.TreeMap;                                                    // To handle loaded configs - (MetaDSDHelper.java:993)
-import org.dmd.core.feedback.DMFeedback;                                     // To handle exceptions from value handling - (MetaDSDHelper.java:997)
-import org.dmd.core.feedback.DMFeedbackSet;                                  // To handle exceptions from value handling - (MetaDSDHelper.java:998)
-import org.dmd.core.feedback.DmcNameClashException;                          // To handle exceptions from parsing objects - (MetaDSDHelper.java:999)
-import org.dmd.dms.server.extended.DSDefinition;                             // The common base for all modules - so that we can get error location info - (MetaDSDHelper.java:996)
-import org.dmd.dms.server.extended.DmsModule;                                // One of the DDS modules we might load - (MetaDSDHelper.java:1016)
-import org.dmd.dms.server.generated.dsd.DmsModuleDefinitionManager;          // Maintains all parsed definitions - (MetaDSDHelper.java:1007)
-import org.dmd.dms.server.generated.dsd.DmsModuleGeneratorInterface;         // The generator we call - (MetaDSDHelper.java:1010)
-import org.dmd.dms.server.generated.dsd.DmsModuleParser;                     // Required to parse DmsModule definitions - (MetaDSDHelper.java:1020)
-import org.dmd.dms.shared.generated.types.DmsModuleREF;                      // To access references to DmsModule - (MetaDSDHelper.java:1018)
-import org.dmd.dms.shared.types.DefinitionName;                              // Allows storage of parsed configs by name - (MetaDSDHelper.java:995)
-import org.dmd.dmv.shared.DmvRuleManager;                                    // Allows for application of rules to our definitions - (MetaDSDHelper.java:1004)
-import org.dmd.util.parsing.ConfigFinder;                                    // Finds configs we may need to parse - (MetaDSDHelper.java:1001)
-import org.dmd.util.parsing.ConfigLocation;                                  // Handle to a discovered configuration - (MetaDSDHelper.java:1002)
+// Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParsingCoordinator(MetaDSDHelper.java:1051)
+import java.io.IOException;                                                  // If we run it to problems finding configs - (MetaDSDHelper.java:1015)
+import java.util.ArrayList;                                                  // To handle lists of things - (MetaDSDHelper.java:1017)
+import java.util.Iterator;                                                   // To iterate over collections - (MetaDSDHelper.java:1016)
+import java.util.TreeMap;                                                    // To handle loaded configs - (MetaDSDHelper.java:1018)
+import org.dmd.core.feedback.DMFeedback;                                     // To handle exceptions from value handling - (MetaDSDHelper.java:1022)
+import org.dmd.core.feedback.DMFeedbackSet;                                  // To handle exceptions from value handling - (MetaDSDHelper.java:1023)
+import org.dmd.core.feedback.DmcNameClashException;                          // To handle exceptions from parsing objects - (MetaDSDHelper.java:1024)
+import org.dmd.dms.server.extended.DSDefinition;                             // The common base for all modules - so that we can get error location info - (MetaDSDHelper.java:1021)
+import org.dmd.dms.server.extended.DmsModule;                                // One of the DDS modules we might load - (MetaDSDHelper.java:1041)
+import org.dmd.dms.server.generated.dsd.DmsModuleDefinitionManager;          // Maintains all parsed definitions - (MetaDSDHelper.java:1032)
+import org.dmd.dms.server.generated.dsd.DmsModuleGeneratorInterface;         // The generator we call - (MetaDSDHelper.java:1035)
+import org.dmd.dms.server.generated.dsd.DmsModuleParser;                     // Required to parse DmsModule definitions - (MetaDSDHelper.java:1045)
+import org.dmd.dms.shared.generated.types.DmsModuleREF;                      // To access references to DmsModule - (MetaDSDHelper.java:1043)
+import org.dmd.dms.shared.types.DefinitionName;                              // Allows storage of parsed configs by name - (MetaDSDHelper.java:1020)
+import org.dmd.dmv.shared.DmvRuleManager;                                    // Allows for application of rules to our definitions - (MetaDSDHelper.java:1029)
+import org.dmd.util.parsing.ConfigFinder;                                    // Finds configs we may need to parse - (MetaDSDHelper.java:1026)
+import org.dmd.util.parsing.ConfigLocation;                                  // Handle to a discovered configuration - (MetaDSDHelper.java:1027)
 
 
-// Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParsingCoordinator(MetaDSDHelper.java:1030)
+// Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParsingCoordinator(MetaDSDHelper.java:1055)
 /**
  * The parsing coordinator will find all config files associated with the DmsModule DSD
  * and coordinate the parsing of the initial config file and all files on which it depends.
@@ -44,7 +44,7 @@ import org.dmd.util.parsing.ConfigLocation;                                  // 
 public class DmsModuleParsingCoordinator {
 
     // Generated from: org.dmd.util.artifact.java.MemberManager.getFormattedMembers(MemberManager.java:68)
-    // Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParsingCoordinator(MetaDSDHelper.java:1037)
+    // Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParsingCoordinator(MetaDSDHelper.java:1062)
 
     DmvRuleManager                            rules                     = new DmvRuleManager();                           // Rule manager
     DmsModuleDefinitionManager                definitions               = new DmsModuleDefinitionManager();               // Maintains all parsed definitions
@@ -55,7 +55,7 @@ public class DmsModuleParsingCoordinator {
     TreeMap<DefinitionName, DmsModuleInfo>    loadedDmsModuleConfigs    = new TreeMap<DefinitionName, DmsModuleInfo>();   // The names/location of the DmsModule modules that have been loaded
 
 
-// Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParsingCoordinator(MetaDSDHelper.java:1039)
+// Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParsingCoordinator(MetaDSDHelper.java:1064)
     public DmsModuleParsingCoordinator(DmsModuleGeneratorInterface g, ArrayList<String> sourceDirs, ArrayList<String> jars) throws DMFeedbackSet, IOException {
 
         generator = g;
@@ -67,7 +67,7 @@ public class DmsModuleParsingCoordinator {
     }
 
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParsingCoordinator(MetaDSDHelper.java:1092)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParsingCoordinator(MetaDSDHelper.java:1117)
     public void generateForConfig(String configName) throws DMFeedbackSet, DmcNameClashException, IOException {
         ConfigLocation location = finderForDmsModule.getConfig(configName);
         
@@ -91,7 +91,7 @@ public class DmsModuleParsingCoordinator {
         generator.generate(loaded,location,definitions);
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParsingCoordinator(MetaDSDHelper.java:1118)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParsingCoordinator(MetaDSDHelper.java:1143)
     public void generateForAllConfigs() throws DMFeedbackSet, DmcNameClashException, IOException {
         DmsModule loaded = null;
         DmsModuleInfo loadedInfo = null;
@@ -121,7 +121,7 @@ public class DmsModuleParsingCoordinator {
 
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParsingCoordinator(MetaDSDHelper.java:1150)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParsingCoordinator(MetaDSDHelper.java:1175)
     DmsModule loadDmsModuleModule(ConfigLocation location)  throws DMFeedbackSet, DmcNameClashException {
         // If we've already loaded the file, skip it
         DmsModuleInfo info = loadedDmsModuleConfigs.get(new DefinitionName(location.getConfigName()));
@@ -138,7 +138,7 @@ public class DmsModuleParsingCoordinator {
         return(loaded);
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParsingCoordinator(MetaDSDHelper.java:1167)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParsingCoordinator(MetaDSDHelper.java:1192)
     public ConfigLocation getLocation(DmsModule module){
         DmsModuleInfo info = loadedDmsModuleConfigs.get(module.getName());
         if (info == null)
@@ -147,7 +147,7 @@ public class DmsModuleParsingCoordinator {
         return(info.location);
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParsingCoordinator(MetaDSDHelper.java:1178)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParsingCoordinator(MetaDSDHelper.java:1203)
     void loadModuleDependencies(ModuleInfoBase mi) throws DMFeedbackSet, DmcNameClashException {
 
         if (mi.dependenciesLoaded)
@@ -175,20 +175,20 @@ public class DmsModuleParsingCoordinator {
 
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParsingCoordinator(MetaDSDHelper.java:1208)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParsingCoordinator(MetaDSDHelper.java:1233)
     void missingConfigError(String missing) throws DMFeedbackSet {
         DMFeedbackSet ex = new DMFeedbackSet("Could not find config: " + missing);
         throw(ex);
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParsingCoordinator(MetaDSDHelper.java:1214)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParsingCoordinator(MetaDSDHelper.java:1239)
     void missingConfigError(DSDefinition module, String missing) throws DMFeedbackSet {
         DMFeedbackSet ex = new DMFeedbackSet("Could not find config: " + missing);
         ex.setLocation(module.getFile(), module.getLineNumber());
         throw(ex);
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParsingCoordinator(MetaDSDHelper.java:1222)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParsingCoordinator(MetaDSDHelper.java:1247)
     class ModuleInfoBase {
         ConfigLocation location;
         boolean        dependenciesLoaded;

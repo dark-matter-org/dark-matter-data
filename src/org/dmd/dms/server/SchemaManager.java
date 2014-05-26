@@ -49,7 +49,7 @@ public class SchemaManager extends DmsModuleDefinitionManager {
     	return(super.findNamedObjectMayClash(object, name, resolver, ai));
     }
 	
-	public void manageSchema(DmsModule mod){
+	public void manageSchema(DmsModule mod) throws DMFeedbackSet {
 		// If we've already loaded the schema, return
 		if (findNamedObject(mod.getName()) != null)
 			return;
