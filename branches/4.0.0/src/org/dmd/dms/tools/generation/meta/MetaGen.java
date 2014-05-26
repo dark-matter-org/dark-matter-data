@@ -444,7 +444,8 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 
 			checkForDuplicateType("ComplexTypeDefinition", tn);
 		
-			ucoTypeDefs.put(tn, typeDef);
+			ucoManager.add(typeDef, false);
+//			ucoTypeDefs.put(tn, typeDef);
 			
 //			origOrderTypes.add(tn);
 		}

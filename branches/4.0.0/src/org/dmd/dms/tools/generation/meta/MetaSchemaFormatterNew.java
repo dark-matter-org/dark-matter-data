@@ -292,7 +292,17 @@ public class MetaSchemaFormatterNew {
 					out.write("\n");
 			}
 			else{
-				System.err.println("Need to add internal type initialization for: " + typeDef.getSV("name"));
+				// Complex types
+//				System.err.println("Need to add internal type initialization for: " + typeDef.getSV("name"));
+				String name = typeDef.getSV("name");
+				String dmoName = "_" + name + "OBJ";
+				
+				out.write("        TypeDefinitionDMO " + dmoName + " = new TypeDefinitionDMO();\n");
+				out.write("        _" + name + "_Type = new TypeDefinition(" + dmoName + ");\n");
+				dumpAttrValues("        ", dmoName, typeDef, out);
+				out.write("        _" + name + "_Type.setDefinedInDmsModule(this);\n");
+				out.write("        addTypeDefinition(_" + name + "_Type);\n");
+				out.write("\n");
 			}
 		}
 		
