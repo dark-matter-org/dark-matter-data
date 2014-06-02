@@ -22,7 +22,6 @@ import org.dmd.core.DmcAttribute;
 import org.dmd.core.DmcObjectName;
 import org.dmd.core.feedback.DMFeedbackSet;
 import org.dmd.core.schema.DmcAttributeInfo;
-import org.dmd.dms.server.generated.MetaSchemaAG;
 import org.dmd.dms.server.generated.dmw.TypeDefinitionDMW;
 import org.dmd.dms.shared.generated.dmo.MetaDMSAG;
 import org.dmd.dms.shared.generated.dmo.TypeDefinitionDMO;
@@ -55,40 +54,48 @@ public class TypeDefinition extends TypeDefinitionDMW {
      * Default constructor.
      */
     public TypeDefinition(){
-    	super(new TypeDefinitionDMO(),MetaSchemaAG._TypeDefinition);
+    	super();
     }
     
+    public TypeDefinition(TypeDefinitionDMO obj, ClassDefinition cd){
+    	super(obj,cd);
+    }
+    
+    /**
+     * This constructor is used when constructing definitions in a static DmsModule.
+     * @param obj the DMO associated with this definition.
+     */
     public TypeDefinition(TypeDefinitionDMO obj){
     	super(obj);
     }
     
-	protected TypeDefinition(String mn, Class<?> c) throws DMFeedbackSet {
-		super(mn);
-		attributeClass 		= c;
-		
-		attributeClassSV 	= null;
-		attributeClassMV 	= null;
-		attributeClassMAP	= null;
-		attributeClassSET	= null;
-	}
-
-	/**
-	 * This constructor is used for internally generated reference types.
-	 * @param mn
-	 * @param c 
-	 * @param w
-	 * @throws DMFeedbackSet 
-	 */
-	protected TypeDefinition(String mn, Class<?> c, Class<?> w) throws DMFeedbackSet {
-		super(mn);
-		attributeClass 		= c;
-		wrapperClass 		= w;
-		
-		attributeClassSV 	= null;
-		attributeClassMV 	= null;
-		attributeClassMAP	= null;
-		attributeClassSET	= null;
-	}
+//	protected TypeDefinition(String mn, Class<?> c) throws DMFeedbackSet {
+//		super(mn);
+//		attributeClass 		= c;
+//		
+//		attributeClassSV 	= null;
+//		attributeClassMV 	= null;
+//		attributeClassMAP	= null;
+//		attributeClassSET	= null;
+//	}
+//
+//	/**
+//	 * This constructor is used for internally generated reference types.
+//	 * @param mn
+//	 * @param c 
+//	 * @param w
+//	 * @throws DMFeedbackSet 
+//	 */
+//	protected TypeDefinition(String mn, Class<?> c, Class<?> w) throws DMFeedbackSet {
+//		super(mn);
+//		attributeClass 		= c;
+//		wrapperClass 		= w;
+//		
+//		attributeClassSV 	= null;
+//		attributeClassMV 	= null;
+//		attributeClassMAP	= null;
+//		attributeClassSET	= null;
+//	}
 
 	public void setAuxHolderImport(String c){
 		auxHolderImport = c;
@@ -190,17 +197,17 @@ public class TypeDefinition extends TypeDefinitionDMW {
 	}
 	
 	String getTypeName(String suffix){
-		String tn = getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + getName().getNameString() + suffix;
+		String tn = getDefinedInDmsModule().getSchemaPackage() + ".shared.generated.types.DmcType" + getName().getNameString() + suffix;
 		
 		// If it's an extended reference type, we're good at this stage
 		if (getIsExtendedRefType())
 			return(tn);
 
 		if (getIsRefType() && (!getName().getNameString().endsWith("REF"))){
-			tn = getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + getName().getNameString() + "REF" + suffix;
+			tn = getDefinedInDmsModule().getSchemaPackage() + ".shared.generated.types.DmcType" + getName().getNameString() + "REF" + suffix;
 		}
 		if (getIsEnumType()){
-			tn = getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + getEnumName() + suffix;
+			tn = getDefinedInDmsModule().getSchemaPackage() + ".shared.generated.types.DmcType" + getEnumName() + suffix;
 		}
 		
 		return(tn);
@@ -279,7 +286,7 @@ public class TypeDefinition extends TypeDefinitionDMW {
 		}
 		else if (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED){
 			try {
-				if (cd.getDefinedIn().getName().getNameString().equals(MetaDMSAG.instance().getSchemaName())){
+				if (cd.getDefinedInDmsModule().getName().getNameString().equals(MetaDMSAG.instance().getSchemaName())){
 					// For meta schema classes, there is no extended subpackage
 					cd.setJavaClass(genPackage + "." + cd.getName());
 				}

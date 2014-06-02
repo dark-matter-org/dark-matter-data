@@ -20,10 +20,8 @@ import java.util.Iterator;
 
 import org.dmd.core.DmcAttribute;
 import org.dmd.core.DmcObject;
-import org.dmd.core.feedback.DMFeedbackSet;
 import org.dmd.core.schema.DmcAttributeInfo;
 import org.dmd.core.util.NamedStringArray;
-import org.dmd.dms.server.generated.MetaSchemaAG;
 import org.dmd.dms.server.generated.dmw.AttributeDefinitionDMW;
 import org.dmd.dms.shared.generated.dmo.AttributeDefinitionDMO;
 import org.dmd.dms.shared.generated.dmo.MetaDMSAG;
@@ -61,10 +59,19 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
      * Default constructor.
      */
     public AttributeDefinition(){
-    	super(new AttributeDefinitionDMO(),MetaSchemaAG._AttributeDefinition);
+    	super();
     	attrInfo = null;
     }
     
+    public AttributeDefinition(AttributeDefinitionDMO obj, ClassDefinition cd){
+    	super(obj,cd);
+    	attrInfo = null;
+    }
+    
+    /**
+     * This constructor is used when constructing definitions in a static DmsModule.
+     * @param obj the DMO associated with this definition.
+     */
     public AttributeDefinition(AttributeDefinitionDMO obj){
     	super(obj);
     	attrInfo = null;
@@ -140,22 +147,22 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
     	return(globalRules.iterator());
     }
     
-	/**
-	 * Default constructor used in creating the meta schema.
-	 * @param mn The meta name of the definition.
-	 * @throws DMFeedbackSet 
-	 */
-	AttributeDefinition(String n, TypeDefinition td) throws DMFeedbackSet{
-		super(n);
-		typeDef = td;
-		attrInfo = null;
-	}
-	
-
-	protected AttributeDefinition(String mn) throws DMFeedbackSet {
-		super(mn);
-		attrInfo = null;
-	}
+//	/**
+//	 * Default constructor used in creating the meta schema.
+//	 * @param mn The meta name of the definition.
+//	 * @throws DMFeedbackSet 
+//	 */
+//	AttributeDefinition(String n, TypeDefinition td) throws DMFeedbackSet{
+//		super(n);
+//		typeDef = td;
+//		attrInfo = null;
+//	}
+//	
+//
+//	protected AttributeDefinition(String mn) throws DMFeedbackSet {
+//		super(mn);
+//		attrInfo = null;
+//	}
 
     /**
      * Adds a class to our list of classes that use this attribute.
@@ -188,7 +195,7 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
      */
     public DmcAttributeInfo getAttributeInfo(){
     	if (attrInfo == null)
-    		attrInfo = new DmcAttributeInfo(getDefinedIn().getName().getNameString(),getName().getNameString(), getDmdID(), getType().getName().getNameString(), getValueType(), getDataType());
+    		attrInfo = new DmcAttributeInfo(getDefinedInDmsModule().getName().getNameString(),getName().getNameString(), getDmdID(), getType().getName().getNameString(), getValueType(), getDataType());
     	
     	return(attrInfo);
     }
@@ -200,11 +207,11 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
     }
     
     public String getDMSAGReference(){
-    	return(getDefinedIn().getDMSASGName() + ".__" + getName());
+    	return(getDefinedInDmsModule().getDMSASGName() + ".__" + getName());
     }
     
     public String getAdapterClassImport(){
-    	return(getType().getDefinedIn().getSchemaPackage() + ".generated.types.adapters." + getAdapterClassName());
+    	return(getType().getDefinedInDmsModule().getSchemaPackage() + ".generated.types.adapters." + getAdapterClassName());
     }
     
     public String getAdapterClassName(){

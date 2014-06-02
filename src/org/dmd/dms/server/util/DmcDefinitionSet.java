@@ -26,7 +26,7 @@ import org.dmd.util.runtime.DebugInfo;
  */
 public class DmcDefinitionSet<DEF extends DSDefinition> {
 	
-	static boolean debug = true;
+	static boolean debug = false;
 	
 	// The definitions keyed by DefinitionName, there could be more than one definition with the same name.
 	// The name is simply the name of the definition.

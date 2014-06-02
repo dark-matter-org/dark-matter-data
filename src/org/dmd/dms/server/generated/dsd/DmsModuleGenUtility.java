@@ -1,26 +1,26 @@
 package org.dmd.dms.server.generated.dsd;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateBaseUtility(MetaDSDHelper.java:1352)
-import java.io.File;                                                         // To access the separator character - (MetaDSDHelper.java:1325)
-import java.io.IOException;                                                  // In case we have problems opening/writin got files - (MetaDSDHelper.java:1324)
-import org.dmd.core.feedback.DMFeedbackSet;                                  // Standard feedback mechanism for errors/warnings - (MetaDSDHelper.java:1328)
-import org.dmd.core.feedback.DmcNameClashException;                          // To handle parsing errors - (MetaDSDHelper.java:1326)
-import org.dmd.core.rules.DmcRuleExceptionSet;                               // To handle rule errors - (MetaDSDHelper.java:1327)
-import org.dmd.dms.server.extended.DmsModule;                                // One of the DDS modules we might load - (MetaDSDHelper.java:1333)
-import org.dmd.dms.server.generated.dsd.DmsModuleGeneratorInterface;         // Called by the parsing coordinator as configs are read - (MetaDSDHelper.java:1320)
-import org.dmd.dms.server.generated.dsd.DmsModuleParsingCoordinator;         // Parses modules required for generation - (MetaDSDHelper.java:1319)
-import org.dmd.dms.shared.types.BooleanVar;                                  // Commandline flags - (MetaDSDHelper.java:1322)
-import org.dmd.util.parsing.CommandLine;                                     // Commandline parsing - (MetaDSDHelper.java:1321)
-import org.dmd.util.parsing.ConfigLocation;                                  // Where a module was loaded from - (MetaDSDHelper.java:1329)
-import org.dmd.util.parsing.StringArrayList;                                 // Commandline string values - (MetaDSDHelper.java:1323)
+// Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateBaseUtility(MetaDSDHelper.java:1410)
+import java.io.File;                                                         // To access the separator character - (MetaDSDHelper.java:1383)
+import java.io.IOException;                                                  // In case we have problems opening/writin got files - (MetaDSDHelper.java:1382)
+import org.dmd.core.feedback.DMFeedbackSet;                                  // Standard feedback mechanism for errors/warnings - (MetaDSDHelper.java:1386)
+import org.dmd.core.feedback.DmcNameClashException;                          // To handle parsing errors - (MetaDSDHelper.java:1384)
+import org.dmd.core.rules.DmcRuleExceptionSet;                               // To handle rule errors - (MetaDSDHelper.java:1385)
+import org.dmd.dms.server.extended.DmsModule;                                // One of the DDS modules we might load - (MetaDSDHelper.java:1391)
+import org.dmd.dms.server.generated.dsd.DmsModuleGeneratorInterface;         // Called by the parsing coordinator as configs are read - (MetaDSDHelper.java:1378)
+import org.dmd.dms.server.generated.dsd.DmsModuleParsingCoordinator;         // Parses modules required for generation - (MetaDSDHelper.java:1377)
+import org.dmd.dms.shared.types.BooleanVar;                                  // Commandline flags - (MetaDSDHelper.java:1380)
+import org.dmd.util.parsing.CommandLine;                                     // Commandline parsing - (MetaDSDHelper.java:1379)
+import org.dmd.util.parsing.ConfigLocation;                                  // Where a module was loaded from - (MetaDSDHelper.java:1387)
+import org.dmd.util.parsing.StringArrayList;                                 // Commandline string values - (MetaDSDHelper.java:1381)
 
 
-// Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateBaseUtility(MetaDSDHelper.java:1354)
+// Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateBaseUtility(MetaDSDHelper.java:1412)
 public abstract class DmsModuleGenUtility implements DmsModuleGeneratorInterface {
 
     // Generated from: org.dmd.util.artifact.java.MemberManager.getFormattedMembers(MemberManager.java:68)
-    // Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateBaseUtility(MetaDSDHelper.java:1357)
+    // Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateBaseUtility(MetaDSDHelper.java:1415)
 
     DmsModuleParsingCoordinator    parser;                                   // Module parser
     protected CommandLine          commandLine    = new CommandLine();       // Commandline parser
@@ -86,7 +86,7 @@ public abstract class DmsModuleGenUtility implements DmsModuleGeneratorInterface
     	 
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateBaseUtility(MetaDSDHelper.java:1414)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateBaseUtility(MetaDSDHelper.java:1472)
     public ConfigLocation getLocation(DmsModule module){
         return(parser.getLocation(module));
     }

@@ -16,21 +16,22 @@
 package org.dmd.dms.server.generated;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpMetaSchemaAG(MetaSchemaFormatterNew.java:80)
+// Called from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpMetaSchemaAG(MetaSchemaFormatterNew.java:81)
 import org.dmd.core.feedback.DMFeedbackSet;         // To handle potential value exceptions. - (MetaSchemaFormatterNew.java:71)
 import org.dmd.dms.server.extended.*;               // Access to meta schema extended classes - (MetaSchemaFormatterNew.java:72)
+import org.dmd.dms.server.util.DmsModuleIF;         // The standard module interface - (MetaSchemaFormatterNew.java:74)
 import org.dmd.dms.shared.generated.dmo.*;          // Access to meta schema DMOs - (MetaSchemaFormatterNew.java:73)
 
 
 
 /**
   * This class creates the basic definitions that allow for the definition of schemas.
-  * Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpMetaSchemaAG(MetaSchemaFormatterNew.java:84)
+  * Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpMetaSchemaAG(MetaSchemaFormatterNew.java:85)
   */
-public class MetaDmsModule extends DmsModule {
+public class MetaDmsModule extends DmsModule implements DmsModuleIF {
     public static DmsModule    _metaSchema;
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:149)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:150)
     public static ClassDefinition     _ActionTriggerInfo;
     public static ClassDefinition     _DSDefinition;
     public static ClassDefinition     _DmsDefinition;
@@ -53,7 +54,7 @@ public class MetaDmsModule extends DmsModule {
     public static ClassDefinition     _Concinnity;
     public static ClassDefinition     _DmsModule;
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:155)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:156)
     public static EnumDefinition      _ClassTypeEnum;
     public static EnumDefinition      _ModifyTypeEnum;
     public static EnumDefinition      _OperationalContextEnum;
@@ -66,7 +67,7 @@ public class MetaDmsModule extends DmsModule {
     public static EnumDefinition      _WrapperTypeEnum;
     public static EnumDefinition      _OriginalTypeEnum;
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:160)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:161)
     public static TypeDefinition      _String;
     public static TypeDefinition      _DmcObject;
     public static TypeDefinition      _ClassInfoRef;
@@ -139,7 +140,7 @@ public class MetaDmsModule extends DmsModule {
     public static TypeDefinition      _RuleParam_Type;
     public static TypeDefinition      _SchemaAndReason_Type;
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:182)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:183)
     public static AttributeDefinition _name;
     public static AttributeDefinition _dmdID;
     public static AttributeDefinition _schemaExtension;
@@ -174,10 +175,6 @@ public class MetaDmsModule extends DmsModule {
     public static AttributeDefinition _javaClass;
     public static AttributeDefinition _dmoImport;
     public static AttributeDefinition _dmoClass;
-    public static AttributeDefinition _dmoAuxClass;
-    public static AttributeDefinition _dmoAuxClassImport;
-    public static AttributeDefinition _dmwAuxClass;
-    public static AttributeDefinition _dmwAuxClassImport;
     public static AttributeDefinition _dmwImport;
     public static AttributeDefinition _dmwClass;
     public static AttributeDefinition _dmeImport;
@@ -198,7 +195,6 @@ public class MetaDmsModule extends DmsModule {
     public static AttributeDefinition _enumDefList;
     public static AttributeDefinition _attributeDefList;
     public static AttributeDefinition _actionDefList;
-    public static AttributeDefinition _definedIn;
     public static AttributeDefinition _allowedParents;
     public static AttributeDefinition _example;
     public static AttributeDefinition _namingAttribute;
@@ -289,7 +285,6 @@ public class MetaDmsModule extends DmsModule {
     public static AttributeDefinition _attributeInfoFromParam;
     public static AttributeDefinition _ruleDataList;
     public static AttributeDefinition _applyToAttribute;
-    public static AttributeDefinition _isDSDefinition;
     public static AttributeDefinition _stringName;
     public static AttributeDefinition _fileExtension;
     public static AttributeDefinition _moduleClassName;
@@ -324,7 +319,7 @@ public class MetaDmsModule extends DmsModule {
     public static AttributeDefinition _auxHolderClass;
     public static AttributeDefinition _objectClass;
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:187)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:188)
     public static ComplexTypeDefinition _Part;
     public static ComplexTypeDefinition _NameValuePair;
     public static ComplexTypeDefinition _SchemaAndReason;
@@ -333,18 +328,25 @@ public class MetaDmsModule extends DmsModule {
     public static ComplexTypeDefinition _DmwTypeToWrapperType;
     public static ComplexTypeDefinition _RuleParam;
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:192)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:193)
     public static RuleCategory        _Initialization;
     public static RuleCategory        _ObjectValidation;
     public static RuleCategory        _AttributeValidation;
     public static RuleCategory        _AttributeValidationWithResolver;
     public static RuleCategory        _UCOValidation;
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:197)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:198)
     // NOTE: we add the _DSDM suffix so as not to clash with the module's ClassDefinition
     public static DSDefinitionModule  _DmsModule_DSDM;
 
 
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:205)
+    public DmsModule dmsModuleInstance() throws DMFeedbackSet {
+        if (_metaSchema == null){
+            new MetaDmsModule();
+        }
+        return(_metaSchema);
+    }
     public MetaDmsModule() throws DMFeedbackSet {
 
         // We only ever want to initialize the schema once, so check
@@ -371,7 +373,7 @@ public class MetaDmsModule extends DmsModule {
         }
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitClasses(MetaSchemaFormatterNew.java:213)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitClasses(MetaSchemaFormatterNew.java:222)
     private void initClasses() throws DMFeedbackSet {
 
         ClassDefinitionDMO _ActionTriggerInfoOBJ = new ClassDefinitionDMO();
@@ -409,7 +411,6 @@ public class MetaDmsModule extends DmsModule {
         _DSDefinitionOBJ.addMay("skip");
         _DSDefinitionOBJ.addMay("obsolete");
         _DSDefinitionOBJ.addMay("why");
-        _DSDefinitionOBJ.addMay("definedIn");
         _DSDefinitionOBJ.addMay("file");
         _DSDefinitionOBJ.addMay("lineNumber");
         _DSDefinitionOBJ.addMay("dotName");
@@ -455,7 +456,6 @@ public class MetaDmsModule extends DmsModule {
         _DSDefinitionModuleOBJ.addMay("must");
         _DSDefinitionModuleOBJ.addMay("supportDynamicSchemaLoading");
         _DSDefinitionModuleOBJ.addMay("requiredBaseModule");
-        _DSDefinitionModuleOBJ.addMay("definedIn");
         _DSDefinitionModuleOBJ.addMust("name");
         _DSDefinitionModuleOBJ.addMust("fileExtension");
         _DSDefinitionModuleOBJ.addMust("dmdID");
@@ -476,7 +476,6 @@ public class MetaDmsModule extends DmsModule {
         _ClassDefinitionOBJ.setDmdID("4");
         _ClassDefinitionOBJ.setDmoImport("org.dmd.dms.shared.generated.dmo.ClassDefinitionDMO");
         _ClassDefinitionOBJ.setDotName("meta.ClassDefinition.ClassDefinition");
-        _ClassDefinitionOBJ.setIsDSDefinition("true");
         _ClassDefinitionOBJ.setIsNamedBy("name");
         _ClassDefinitionOBJ.setJavaClass("org.dmd.dms.server.extended.ClassDefinition");
         _ClassDefinitionOBJ.addMay("description");
@@ -496,7 +495,6 @@ public class MetaDmsModule extends DmsModule {
         _ClassDefinitionOBJ.addMay("excludeFromContext");
         _ClassDefinitionOBJ.addMay("abbrev");
         _ClassDefinitionOBJ.addMay("obsoleteVersion");
-        _ClassDefinitionOBJ.addMay("isDSDefinition");
         _ClassDefinitionOBJ.addMay("partOfDefinitionModule");
         _ClassDefinitionOBJ.addMay("mayBeInternallyGenerated");
         _ClassDefinitionOBJ.addMay("internallyGenerated");
@@ -514,10 +512,6 @@ public class MetaDmsModule extends DmsModule {
         _ClassDefinitionOBJ.addMay("dmtImport");
         _ClassDefinitionOBJ.addMay("dmtREFImport");
         _ClassDefinitionOBJ.addMay("dmtClass");
-        _ClassDefinitionOBJ.addMay("dmoAuxClass");
-        _ClassDefinitionOBJ.addMay("dmoAuxClassImport");
-        _ClassDefinitionOBJ.addMay("dmwAuxClass");
-        _ClassDefinitionOBJ.addMay("dmwAuxClassImport");
         _ClassDefinitionOBJ.addMay("dmwIteratorImport");
         _ClassDefinitionOBJ.addMay("dmwIteratorClass");
         _ClassDefinitionOBJ.setMayBeInternallyGenerated("true");
@@ -538,7 +532,6 @@ public class MetaDmsModule extends DmsModule {
         _EnumDefinitionOBJ.setDmdID("5");
         _EnumDefinitionOBJ.setDmoImport("org.dmd.dms.shared.generated.dmo.EnumDefinitionDMO");
         _EnumDefinitionOBJ.setDotName("meta.EnumDefinition.ClassDefinition");
-        _EnumDefinitionOBJ.setIsDSDefinition("true");
         _EnumDefinitionOBJ.setIsNamedBy("name");
         _EnumDefinitionOBJ.setJavaClass("org.dmd.dms.server.extended.EnumDefinition");
         _EnumDefinitionOBJ.addMay("description");
@@ -559,7 +552,6 @@ public class MetaDmsModule extends DmsModule {
         _TypeDefinitionOBJ.setDmdID("6");
         _TypeDefinitionOBJ.setDmoImport("org.dmd.dms.shared.generated.dmo.TypeDefinitionDMO");
         _TypeDefinitionOBJ.setDotName("meta.TypeDefinition.ClassDefinition");
-        _TypeDefinitionOBJ.setIsDSDefinition("true");
         _TypeDefinitionOBJ.setIsNamedBy("name");
         _TypeDefinitionOBJ.setJavaClass("org.dmd.dms.server.extended.TypeDefinition");
         _TypeDefinitionOBJ.addMay("description");
@@ -604,7 +596,6 @@ public class MetaDmsModule extends DmsModule {
         _ComplexTypeDefinitionOBJ.setDmdID("7");
         _ComplexTypeDefinitionOBJ.setDmoImport("org.dmd.dms.shared.generated.dmo.ComplexTypeDefinitionDMO");
         _ComplexTypeDefinitionOBJ.setDotName("meta.ComplexTypeDefinition.ClassDefinition");
-        _ComplexTypeDefinitionOBJ.setIsDSDefinition("true");
         _ComplexTypeDefinitionOBJ.setIsNamedBy("name");
         _ComplexTypeDefinitionOBJ.setJavaClass("org.dmd.dms.server.extended.ComplexTypeDefinition");
         _ComplexTypeDefinitionOBJ.addMay("requiredPart");
@@ -627,7 +618,6 @@ public class MetaDmsModule extends DmsModule {
         _ExtendedReferenceTypeDefinitionOBJ.setDmdID("8");
         _ExtendedReferenceTypeDefinitionOBJ.setDmoImport("org.dmd.dms.shared.generated.dmo.ExtendedReferenceTypeDefinitionDMO");
         _ExtendedReferenceTypeDefinitionOBJ.setDotName("meta.ExtendedReferenceTypeDefinition.ClassDefinition");
-        _ExtendedReferenceTypeDefinitionOBJ.setIsDSDefinition("true");
         _ExtendedReferenceTypeDefinitionOBJ.setIsNamedBy("name");
         _ExtendedReferenceTypeDefinitionOBJ.setJavaClass("org.dmd.dms.server.extended.ExtendedReferenceTypeDefinition");
         _ExtendedReferenceTypeDefinitionOBJ.addMust("name");
@@ -646,7 +636,6 @@ public class MetaDmsModule extends DmsModule {
         _AttributeDefinitionOBJ.setDmdID("9");
         _AttributeDefinitionOBJ.setDmoImport("org.dmd.dms.shared.generated.dmo.AttributeDefinitionDMO");
         _AttributeDefinitionOBJ.setDotName("meta.AttributeDefinition.ClassDefinition");
-        _AttributeDefinitionOBJ.setIsDSDefinition("true");
         _AttributeDefinitionOBJ.setIsNamedBy("name");
         _AttributeDefinitionOBJ.setJavaClass("org.dmd.dms.server.extended.AttributeDefinition");
         _AttributeDefinitionOBJ.addMay("description");
@@ -681,7 +670,6 @@ public class MetaDmsModule extends DmsModule {
         _SliceDefinitionOBJ.setDmdID("10");
         _SliceDefinitionOBJ.setDmoImport("org.dmd.dms.shared.generated.dmo.SliceDefinitionDMO");
         _SliceDefinitionOBJ.setDotName("meta.SliceDefinition.ClassDefinition");
-        _SliceDefinitionOBJ.setIsDSDefinition("true");
         _SliceDefinitionOBJ.setIsNamedBy("name");
         _SliceDefinitionOBJ.setJavaClass("org.dmd.dms.server.extended.SliceDefinition");
         _SliceDefinitionOBJ.addMay("description");
@@ -701,7 +689,6 @@ public class MetaDmsModule extends DmsModule {
         _ActionDefinitionOBJ.setDmdID("11");
         _ActionDefinitionOBJ.setDmoImport("org.dmd.dms.shared.generated.dmo.ActionDefinitionDMO");
         _ActionDefinitionOBJ.setDotName("meta.ActionDefinition.ClassDefinition");
-        _ActionDefinitionOBJ.setIsDSDefinition("true");
         _ActionDefinitionOBJ.setIsNamedBy("name");
         _ActionDefinitionOBJ.setJavaClass("org.dmd.dms.server.extended.ActionDefinition");
         _ActionDefinitionOBJ.addMay("description");
@@ -769,7 +756,6 @@ public class MetaDmsModule extends DmsModule {
         _RuleCategoryOBJ.setDmdID("15");
         _RuleCategoryOBJ.setDmoImport("org.dmd.dms.shared.generated.dmo.RuleCategoryDMO");
         _RuleCategoryOBJ.setDotName("meta.RuleCategory.ClassDefinition");
-        _RuleCategoryOBJ.setIsDSDefinition("true");
         _RuleCategoryOBJ.setIsNamedBy("name");
         _RuleCategoryOBJ.setJavaClass("org.dmd.dms.server.extended.RuleCategory");
         _RuleCategoryOBJ.addMay("ruleImport");
@@ -794,7 +780,6 @@ public class MetaDmsModule extends DmsModule {
         _RuleDefinitionOBJ.setDmdID("16");
         _RuleDefinitionOBJ.setDmoImport("org.dmd.dms.shared.generated.dmo.RuleDefinitionDMO");
         _RuleDefinitionOBJ.setDotName("meta.RuleDefinition.ClassDefinition");
-        _RuleDefinitionOBJ.setIsDSDefinition("true");
         _RuleDefinitionOBJ.setIsNamedBy("name");
         _RuleDefinitionOBJ.setJavaClass("org.dmd.dms.server.extended.RuleDefinition");
         _RuleDefinitionOBJ.addMay("must");
@@ -820,7 +805,6 @@ public class MetaDmsModule extends DmsModule {
         _RuleDataOBJ.setIsNamedBy("ruleName");
         _RuleDataOBJ.setJavaClass("org.dmd.dms.server.extended.RuleData");
         _RuleDataOBJ.addMay("description");
-        _RuleDataOBJ.addMay("definedIn");
         _RuleDataOBJ.addMay("file");
         _RuleDataOBJ.addMay("lineNumber");
         _RuleDataOBJ.addMay("applyToClass");
@@ -842,7 +826,6 @@ public class MetaDmsModule extends DmsModule {
         _DependencyOBJ.setDmdID("18");
         _DependencyOBJ.setDmoImport("org.dmd.dms.shared.generated.dmo.DependencyDMO");
         _DependencyOBJ.setDotName("meta.Dependency.ClassDefinition");
-        _DependencyOBJ.setIsDSDefinition("true");
         _DependencyOBJ.setIsNamedBy("name");
         _DependencyOBJ.setJavaClass("org.dmd.dms.server.extended.Dependency");
         _DependencyOBJ.addMay("dependencies");
@@ -863,7 +846,6 @@ public class MetaDmsModule extends DmsModule {
         _DependencyImplementationOBJ.setDmdID("19");
         _DependencyImplementationOBJ.setDmoImport("org.dmd.dms.shared.generated.dmo.DependencyImplementationDMO");
         _DependencyImplementationOBJ.setDotName("meta.DependencyImplementation.ClassDefinition");
-        _DependencyImplementationOBJ.setIsDSDefinition("true");
         _DependencyImplementationOBJ.setIsNamedBy("name");
         _DependencyImplementationOBJ.setJavaClass("org.dmd.dms.server.extended.DependencyImplementation");
         _DependencyImplementationOBJ.addMay("description");
@@ -884,7 +866,6 @@ public class MetaDmsModule extends DmsModule {
         _RunContextOBJ.setDmdID("20");
         _RunContextOBJ.setDmoImport("org.dmd.dms.shared.generated.dmo.DependencyDMO");
         _RunContextOBJ.setDotName("meta.RunContext.ClassDefinition");
-        _RunContextOBJ.setIsDSDefinition("true");
         _RunContextOBJ.setIsNamedBy("name");
         _RunContextOBJ.setJavaClass("org.dmd.dms.server.extended.Dependency");
         _RunContextOBJ.addMay("description");
@@ -943,7 +924,7 @@ public class MetaDmsModule extends DmsModule {
 
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitAttributes(MetaSchemaFormatterNew.java:234)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitAttributes(MetaSchemaFormatterNew.java:243)
     private void initAttributes() throws DMFeedbackSet {
 
         AttributeDefinitionDMO _FQNOBJ = new AttributeDefinitionDMO();
@@ -1235,17 +1216,6 @@ public class MetaDmsModule extends DmsModule {
         _defFiles.setDefinedInDmsModule(this);
         addAttributeDefinition(_defFiles);
 
-        AttributeDefinitionDMO _definedInOBJ = new AttributeDefinitionDMO();
-        _definedIn = new AttributeDefinition(_definedInOBJ);
-        _definedInOBJ.addDescription("Indicates the schema in which a type, attribute or class is defined.");
-        _definedInOBJ.setDmdID("61");
-        _definedInOBJ.setDotName("meta.definedIn.AttributeDefinition");
-        _definedInOBJ.setInternalUse("true");
-        _definedInOBJ.setName("definedIn");
-        _definedInOBJ.setType("SchemaDefinition");
-        _definedIn.setDefinedInDmsModule(this);
-        addAttributeDefinition(_definedIn);
-
         AttributeDefinitionDMO _definedInDmsModuleOBJ = new AttributeDefinitionDMO();
         _definedInDmsModule = new AttributeDefinition(_definedInDmsModuleOBJ);
         _definedInDmsModuleOBJ.addDescription("The dark-matter schema module (DmsModule) in which something is defined.");
@@ -1420,28 +1390,6 @@ public class MetaDmsModule extends DmsModule {
         _dmeImport.setDefinedInDmsModule(this);
         addAttributeDefinition(_dmeImport);
 
-        AttributeDefinitionDMO _dmoAuxClassOBJ = new AttributeDefinitionDMO();
-        _dmoAuxClass = new AttributeDefinition(_dmoAuxClassOBJ);
-        _dmoAuxClassOBJ.addDescription("This attribute indicates just the DMO class name e.g. MyClassAUXDMO");
-        _dmoAuxClassOBJ.setDmdID("37");
-        _dmoAuxClassOBJ.setDotName("meta.dmoAuxClass.AttributeDefinition");
-        _dmoAuxClassOBJ.setInternalUse("true");
-        _dmoAuxClassOBJ.setName("dmoAuxClass");
-        _dmoAuxClassOBJ.setType("String");
-        _dmoAuxClass.setDefinedInDmsModule(this);
-        addAttributeDefinition(_dmoAuxClass);
-
-        AttributeDefinitionDMO _dmoAuxClassImportOBJ = new AttributeDefinitionDMO();
-        _dmoAuxClassImport = new AttributeDefinition(_dmoAuxClassImportOBJ);
-        _dmoAuxClassImportOBJ.addDescription("This attribute indicates the full name of the MyClassAUXDMO class");
-        _dmoAuxClassImportOBJ.setDmdID("38");
-        _dmoAuxClassImportOBJ.setDotName("meta.dmoAuxClassImport.AttributeDefinition");
-        _dmoAuxClassImportOBJ.setInternalUse("true");
-        _dmoAuxClassImportOBJ.setName("dmoAuxClassImport");
-        _dmoAuxClassImportOBJ.setType("String");
-        _dmoAuxClassImport.setDefinedInDmsModule(this);
-        addAttributeDefinition(_dmoAuxClassImport);
-
         AttributeDefinitionDMO _dmoClassOBJ = new AttributeDefinitionDMO();
         _dmoClass = new AttributeDefinition(_dmoClassOBJ);
         _dmoClassOBJ.addDescription("This attribute indicates just the DMO class name e.g. MyClassDMO");
@@ -1496,28 +1444,6 @@ public class MetaDmsModule extends DmsModule {
         _dmtREFImportOBJ.setType("String");
         _dmtREFImport.setDefinedInDmsModule(this);
         addAttributeDefinition(_dmtREFImport);
-
-        AttributeDefinitionDMO _dmwAuxClassOBJ = new AttributeDefinitionDMO();
-        _dmwAuxClass = new AttributeDefinition(_dmwAuxClassOBJ);
-        _dmwAuxClassOBJ.addDescription("This attribute indicates just the DMO class name e.g. MyClassAUX");
-        _dmwAuxClassOBJ.setDmdID("39");
-        _dmwAuxClassOBJ.setDotName("meta.dmwAuxClass.AttributeDefinition");
-        _dmwAuxClassOBJ.setInternalUse("true");
-        _dmwAuxClassOBJ.setName("dmwAuxClass");
-        _dmwAuxClassOBJ.setType("String");
-        _dmwAuxClass.setDefinedInDmsModule(this);
-        addAttributeDefinition(_dmwAuxClass);
-
-        AttributeDefinitionDMO _dmwAuxClassImportOBJ = new AttributeDefinitionDMO();
-        _dmwAuxClassImport = new AttributeDefinition(_dmwAuxClassImportOBJ);
-        _dmwAuxClassImportOBJ.addDescription("This attribute indicates the full name of the MyClassAUX class");
-        _dmwAuxClassImportOBJ.setDmdID("40");
-        _dmwAuxClassImportOBJ.setDotName("meta.dmwAuxClassImport.AttributeDefinition");
-        _dmwAuxClassImportOBJ.setInternalUse("true");
-        _dmwAuxClassImportOBJ.setName("dmwAuxClassImport");
-        _dmwAuxClassImportOBJ.setType("String");
-        _dmwAuxClassImport.setDefinedInDmsModule(this);
-        addAttributeDefinition(_dmwAuxClassImport);
 
         AttributeDefinitionDMO _dmwClassOBJ = new AttributeDefinitionDMO();
         _dmwClass = new AttributeDefinition(_dmwClassOBJ);
@@ -1956,16 +1882,6 @@ public class MetaDmsModule extends DmsModule {
         _internallyGeneratedOBJ.setType("Boolean");
         _internallyGenerated.setDefinedInDmsModule(this);
         addAttributeDefinition(_internallyGenerated);
-
-        AttributeDefinitionDMO _isDSDefinitionOBJ = new AttributeDefinitionDMO();
-        _isDSDefinition = new AttributeDefinition(_isDSDefinitionOBJ);
-        _isDSDefinitionOBJ.addDescription("Indicates if the class defined by a ClassDefinition and its derivatives are part of a domain specific set of definitions. For instance, the definitions associated with the meta schema are considered a set of domain specific definitions for defining data objects; the dark-matter Model View Whatever (MVW) definitions describe a set of domain specific concepts for defining aspects of a GWT application. <p/> A domain specific definition must be named by name and must have dotName as an attribute because the  generated class will implement the DmcDefinitionIF which assumes that these attributes exist. This interface allows these definitions to be managed as part of a set of definitions.");
-        _isDSDefinitionOBJ.setDmdID("158");
-        _isDSDefinitionOBJ.setDotName("meta.isDSDefinition.AttributeDefinition");
-        _isDSDefinitionOBJ.setName("isDSDefinition");
-        _isDSDefinitionOBJ.setType("Boolean");
-        _isDSDefinition.setDefinedInDmsModule(this);
-        addAttributeDefinition(_isDSDefinition);
 
         AttributeDefinitionDMO _isDefaultValueOBJ = new AttributeDefinitionDMO();
         _isDefaultValue = new AttributeDefinition(_isDefaultValueOBJ);
@@ -2901,7 +2817,7 @@ public class MetaDmsModule extends DmsModule {
 
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitTypes(MetaSchemaFormatterNew.java:253)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitTypes(MetaSchemaFormatterNew.java:262)
     private void initTypes() throws DMFeedbackSet {
 
         TypeDefinitionDMO _ActionDefinitionOBJ = new TypeDefinitionDMO();
@@ -2912,7 +2828,7 @@ public class MetaDmsModule extends DmsModule {
         _ActionDefinitionOBJ.addDescription("This is an internally generated type to allow references to ActionDefinition objects.");
         _ActionDefinitionOBJ.setDmwIteratorClass("ActionDefinitionIterableDMW");
         _ActionDefinitionOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.ActionDefinitionIterableDMW");
-        _ActionDefinitionOBJ.setDotName("meta.ActionDefinitionREF.TypeDefinition");
+        _ActionDefinitionOBJ.setDotName("meta.ActionDefinition.TypeDefinition");
         _ActionDefinitionOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.ActionDefinitionREF");
         _ActionDefinitionOBJ.setInternallyGenerated("true");
         _ActionDefinitionOBJ.setIsRefType("true");
@@ -2931,7 +2847,7 @@ public class MetaDmsModule extends DmsModule {
         _AttributeDefinitionOBJ.addDescription("This is an internally generated type to allow references to AttributeDefinition objects.");
         _AttributeDefinitionOBJ.setDmwIteratorClass("AttributeDefinitionIterableDMW");
         _AttributeDefinitionOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.AttributeDefinitionIterableDMW");
-        _AttributeDefinitionOBJ.setDotName("meta.AttributeDefinitionREF.TypeDefinition");
+        _AttributeDefinitionOBJ.setDotName("meta.AttributeDefinition.TypeDefinition");
         _AttributeDefinitionOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.AttributeDefinitionREF");
         _AttributeDefinitionOBJ.setInternallyGenerated("true");
         _AttributeDefinitionOBJ.setIsRefType("true");
@@ -2962,6 +2878,7 @@ public class MetaDmsModule extends DmsModule {
         _BaseTypeEnumOBJ.setInternallyGenerated("true");
         _BaseTypeEnumOBJ.setIsEnumType("true");
         _BaseTypeEnumOBJ.setName("BaseTypeEnum");
+        _BaseTypeEnumOBJ.setNullReturnValue("BaseTypeEnum.PRIMITIVE");
         _BaseTypeEnumOBJ.setPrimitiveType("org.dmd.dms.shared.generated.enums.BaseTypeEnum");
         _BaseTypeEnumOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeBaseTypeEnum");
         _BaseTypeEnum_Type.setDefinedInDmsModule(this);
@@ -3006,7 +2923,7 @@ public class MetaDmsModule extends DmsModule {
         _ClassDefinitionOBJ.addDescription("This is an internally generated type to allow references to ClassDefinition objects.");
         _ClassDefinitionOBJ.setDmwIteratorClass("ClassDefinitionIterableDMW");
         _ClassDefinitionOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.ClassDefinitionIterableDMW");
-        _ClassDefinitionOBJ.setDotName("meta.ClassDefinitionREF.TypeDefinition");
+        _ClassDefinitionOBJ.setDotName("meta.ClassDefinition.TypeDefinition");
         _ClassDefinitionOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.ClassDefinitionREF");
         _ClassDefinitionOBJ.setInternallyGenerated("true");
         _ClassDefinitionOBJ.setIsRefType("true");
@@ -3047,6 +2964,7 @@ public class MetaDmsModule extends DmsModule {
         _ClassTypeEnumOBJ.setInternallyGenerated("true");
         _ClassTypeEnumOBJ.setIsEnumType("true");
         _ClassTypeEnumOBJ.setName("ClassTypeEnum");
+        _ClassTypeEnumOBJ.setNullReturnValue("ClassTypeEnum.UNKNOWN");
         _ClassTypeEnumOBJ.setPrimitiveType("org.dmd.dms.shared.generated.enums.ClassTypeEnum");
         _ClassTypeEnumOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeClassTypeEnum");
         _ClassTypeEnum_Type.setDefinedInDmsModule(this);
@@ -3060,7 +2978,7 @@ public class MetaDmsModule extends DmsModule {
         _ComplexTypeDefinitionOBJ.addDescription("This is an internally generated type to allow references to ComplexTypeDefinition objects.");
         _ComplexTypeDefinitionOBJ.setDmwIteratorClass("ComplexTypeDefinitionIterableDMW");
         _ComplexTypeDefinitionOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.ComplexTypeDefinitionIterableDMW");
-        _ComplexTypeDefinitionOBJ.setDotName("meta.ComplexTypeDefinitionREF.TypeDefinition");
+        _ComplexTypeDefinitionOBJ.setDotName("meta.ComplexTypeDefinition.TypeDefinition");
         _ComplexTypeDefinitionOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.ComplexTypeDefinitionREF");
         _ComplexTypeDefinitionOBJ.setInternallyGenerated("true");
         _ComplexTypeDefinitionOBJ.setIsRefType("true");
@@ -3079,7 +2997,7 @@ public class MetaDmsModule extends DmsModule {
         _ConcinnityOBJ.addDescription("This is an internally generated type to allow references to Concinnity objects.");
         _ConcinnityOBJ.setDmwIteratorClass("ConcinnityIterableDMW");
         _ConcinnityOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.ConcinnityIterableDMW");
-        _ConcinnityOBJ.setDotName("meta.ConcinnityREF.TypeDefinition");
+        _ConcinnityOBJ.setDotName("meta.Concinnity.TypeDefinition");
         _ConcinnityOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.ConcinnityREF");
         _ConcinnityOBJ.setInternallyGenerated("true");
         _ConcinnityOBJ.setIsRefType("true");
@@ -3098,7 +3016,7 @@ public class MetaDmsModule extends DmsModule {
         _DSDefinitionOBJ.addDescription("This is an internally generated type to allow references to DSDefinition objects.");
         _DSDefinitionOBJ.setDmwIteratorClass("DSDefinitionIterableDMW");
         _DSDefinitionOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.DSDefinitionIterableDMW");
-        _DSDefinitionOBJ.setDotName("meta.DSDefinitionREF.TypeDefinition");
+        _DSDefinitionOBJ.setDotName("meta.DSDefinition.TypeDefinition");
         _DSDefinitionOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.DSDefinitionREF");
         _DSDefinitionOBJ.setInternallyGenerated("true");
         _DSDefinitionOBJ.setIsRefType("true");
@@ -3117,7 +3035,7 @@ public class MetaDmsModule extends DmsModule {
         _DSDefinitionModuleOBJ.addDescription("This is an internally generated type to allow references to DSDefinitionModule objects.");
         _DSDefinitionModuleOBJ.setDmwIteratorClass("DSDefinitionModuleIterableDMW");
         _DSDefinitionModuleOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.DSDefinitionModuleIterableDMW");
-        _DSDefinitionModuleOBJ.setDotName("meta.DSDefinitionModuleREF.TypeDefinition");
+        _DSDefinitionModuleOBJ.setDotName("meta.DSDefinitionModule.TypeDefinition");
         _DSDefinitionModuleOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.DSDefinitionModuleREF");
         _DSDefinitionModuleOBJ.setInternallyGenerated("true");
         _DSDefinitionModuleOBJ.setIsRefType("true");
@@ -3136,6 +3054,7 @@ public class MetaDmsModule extends DmsModule {
         _DataTypeEnumOBJ.setInternallyGenerated("true");
         _DataTypeEnumOBJ.setIsEnumType("true");
         _DataTypeEnumOBJ.setName("DataTypeEnum");
+        _DataTypeEnumOBJ.setNullReturnValue("DataTypeEnum.PERSISTENT");
         _DataTypeEnumOBJ.setPrimitiveType("org.dmd.dms.shared.generated.enums.DataTypeEnum");
         _DataTypeEnumOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeDataTypeEnum");
         _DataTypeEnum_Type.setDefinedInDmsModule(this);
@@ -3159,6 +3078,7 @@ public class MetaDmsModule extends DmsModule {
         _DebugEnumOBJ.setInternallyGenerated("true");
         _DebugEnumOBJ.setIsEnumType("true");
         _DebugEnumOBJ.setName("DebugEnum");
+        _DebugEnumOBJ.setNullReturnValue("DebugEnum.NONE");
         _DebugEnumOBJ.setPrimitiveType("org.dmd.dms.shared.generated.enums.DebugEnum");
         _DebugEnumOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeDebugEnum");
         _DebugEnum_Type.setDefinedInDmsModule(this);
@@ -3184,7 +3104,7 @@ public class MetaDmsModule extends DmsModule {
         _DependencyOBJ.addDescription("This is an internally generated type to allow references to Dependency objects.");
         _DependencyOBJ.setDmwIteratorClass("DependencyIterableDMW");
         _DependencyOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.DependencyIterableDMW");
-        _DependencyOBJ.setDotName("meta.DependencyREF.TypeDefinition");
+        _DependencyOBJ.setDotName("meta.Dependency.TypeDefinition");
         _DependencyOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.DependencyREF");
         _DependencyOBJ.setInternallyGenerated("true");
         _DependencyOBJ.setIsRefType("true");
@@ -3203,7 +3123,7 @@ public class MetaDmsModule extends DmsModule {
         _DependencyImplementationOBJ.addDescription("This is an internally generated type to allow references to DependencyImplementation objects.");
         _DependencyImplementationOBJ.setDmwIteratorClass("DependencyImplementationIterableDMW");
         _DependencyImplementationOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.DependencyImplementationIterableDMW");
-        _DependencyImplementationOBJ.setDotName("meta.DependencyImplementationREF.TypeDefinition");
+        _DependencyImplementationOBJ.setDotName("meta.DependencyImplementation.TypeDefinition");
         _DependencyImplementationOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.DependencyImplementationREF");
         _DependencyImplementationOBJ.setInternallyGenerated("true");
         _DependencyImplementationOBJ.setIsRefType("true");
@@ -3232,7 +3152,7 @@ public class MetaDmsModule extends DmsModule {
         _DmsDefinitionOBJ.addDescription("This is an internally generated type to allow references to DmsDefinition objects.");
         _DmsDefinitionOBJ.setDmwIteratorClass("DmsDefinitionIterableDMW");
         _DmsDefinitionOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.DmsDefinitionIterableDMW");
-        _DmsDefinitionOBJ.setDotName("meta.DmsDefinitionREF.TypeDefinition");
+        _DmsDefinitionOBJ.setDotName("meta.DmsDefinition.TypeDefinition");
         _DmsDefinitionOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.DmsDefinitionREF");
         _DmsDefinitionOBJ.setInternallyGenerated("true");
         _DmsDefinitionOBJ.setIsRefType("true");
@@ -3251,7 +3171,7 @@ public class MetaDmsModule extends DmsModule {
         _DmsModuleOBJ.addDescription("This is an internally generated type to allow references to DmsModule objects.");
         _DmsModuleOBJ.setDmwIteratorClass("DmsModuleIterableDMW");
         _DmsModuleOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.DmsModuleIterableDMW");
-        _DmsModuleOBJ.setDotName("meta.DmsModuleREF.TypeDefinition");
+        _DmsModuleOBJ.setDotName("meta.DmsModule.TypeDefinition");
         _DmsModuleOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.DmsModuleREF");
         _DmsModuleOBJ.setInternallyGenerated("true");
         _DmsModuleOBJ.setIsRefType("true");
@@ -3303,7 +3223,7 @@ public class MetaDmsModule extends DmsModule {
         _EnumDefinitionOBJ.addDescription("This is an internally generated type to allow references to EnumDefinition objects.");
         _EnumDefinitionOBJ.setDmwIteratorClass("EnumDefinitionIterableDMW");
         _EnumDefinitionOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.EnumDefinitionIterableDMW");
-        _EnumDefinitionOBJ.setDotName("meta.EnumDefinitionREF.TypeDefinition");
+        _EnumDefinitionOBJ.setDotName("meta.EnumDefinition.TypeDefinition");
         _EnumDefinitionOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.EnumDefinitionREF");
         _EnumDefinitionOBJ.setInternallyGenerated("true");
         _EnumDefinitionOBJ.setIsRefType("true");
@@ -3343,7 +3263,7 @@ public class MetaDmsModule extends DmsModule {
         _ExtendedReferenceTypeDefinitionOBJ.addDescription("This is an internally generated type to allow references to ExtendedReferenceTypeDefinition objects.");
         _ExtendedReferenceTypeDefinitionOBJ.setDmwIteratorClass("ExtendedReferenceTypeDefinitionIterableDMW");
         _ExtendedReferenceTypeDefinitionOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.ExtendedReferenceTypeDefinitionIterableDMW");
-        _ExtendedReferenceTypeDefinitionOBJ.setDotName("meta.ExtendedReferenceTypeDefinitionREF.TypeDefinition");
+        _ExtendedReferenceTypeDefinitionOBJ.setDotName("meta.ExtendedReferenceTypeDefinition.TypeDefinition");
         _ExtendedReferenceTypeDefinitionOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.ExtendedReferenceTypeDefinitionREF");
         _ExtendedReferenceTypeDefinitionOBJ.setInternallyGenerated("true");
         _ExtendedReferenceTypeDefinitionOBJ.setIsRefType("true");
@@ -3374,6 +3294,7 @@ public class MetaDmsModule extends DmsModule {
         _FilterTypeEnumOBJ.setInternallyGenerated("true");
         _FilterTypeEnumOBJ.setIsEnumType("true");
         _FilterTypeEnumOBJ.setName("FilterTypeEnum");
+        _FilterTypeEnumOBJ.setNullReturnValue("FilterTypeEnum.NONE");
         _FilterTypeEnumOBJ.setPrimitiveType("org.dmd.dms.shared.generated.enums.FilterTypeEnum");
         _FilterTypeEnumOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeFilterTypeEnum");
         _FilterTypeEnum_Type.setDefinedInDmsModule(this);
@@ -3502,6 +3423,7 @@ public class MetaDmsModule extends DmsModule {
         _ModifyTypeEnumOBJ.setInternallyGenerated("true");
         _ModifyTypeEnumOBJ.setIsEnumType("true");
         _ModifyTypeEnumOBJ.setName("ModifyTypeEnum");
+        _ModifyTypeEnumOBJ.setNullReturnValue("ModifyTypeEnum.NONE");
         _ModifyTypeEnumOBJ.setPrimitiveType("org.dmd.dms.shared.generated.enums.ModifyTypeEnum");
         _ModifyTypeEnumOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeModifyTypeEnum");
         _ModifyTypeEnum_Type.setDefinedInDmsModule(this);
@@ -3538,6 +3460,7 @@ public class MetaDmsModule extends DmsModule {
         _OperationalContextEnumOBJ.setInternallyGenerated("true");
         _OperationalContextEnumOBJ.setIsEnumType("true");
         _OperationalContextEnumOBJ.setName("OperationalContextEnum");
+        _OperationalContextEnumOBJ.setNullReturnValue("OperationalContextEnum.DMO");
         _OperationalContextEnumOBJ.setPrimitiveType("org.dmd.dms.shared.generated.enums.OperationalContextEnum");
         _OperationalContextEnumOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeOperationalContextEnum");
         _OperationalContextEnum_Type.setDefinedInDmsModule(this);
@@ -3562,6 +3485,7 @@ public class MetaDmsModule extends DmsModule {
         _OriginalTypeEnumOBJ.setInternallyGenerated("true");
         _OriginalTypeEnumOBJ.setIsEnumType("true");
         _OriginalTypeEnumOBJ.setName("OriginalTypeEnum");
+        _OriginalTypeEnumOBJ.setNullReturnValue("OriginalTypeEnum.TYPE");
         _OriginalTypeEnumOBJ.setPrimitiveType("org.dmd.dms.shared.generated.enums.OriginalTypeEnum");
         _OriginalTypeEnumOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeOriginalTypeEnum");
         _OriginalTypeEnum_Type.setDefinedInDmsModule(this);
@@ -3586,7 +3510,7 @@ public class MetaDmsModule extends DmsModule {
         _RuleCategoryOBJ.addDescription("This is an internally generated type to allow references to RuleCategory objects.");
         _RuleCategoryOBJ.setDmwIteratorClass("RuleCategoryIterableDMW");
         _RuleCategoryOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.RuleCategoryIterableDMW");
-        _RuleCategoryOBJ.setDotName("meta.RuleCategoryREF.TypeDefinition");
+        _RuleCategoryOBJ.setDotName("meta.RuleCategory.TypeDefinition");
         _RuleCategoryOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.RuleCategoryREF");
         _RuleCategoryOBJ.setInternallyGenerated("true");
         _RuleCategoryOBJ.setIsRefType("true");
@@ -3605,7 +3529,7 @@ public class MetaDmsModule extends DmsModule {
         _RuleDataOBJ.addDescription("This is an internally generated type to allow references to RuleData objects.");
         _RuleDataOBJ.setDmwIteratorClass("RuleDataIterableDMW");
         _RuleDataOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.RuleDataIterableDMW");
-        _RuleDataOBJ.setDotName("meta.RuleDataREF.TypeDefinition");
+        _RuleDataOBJ.setDotName("meta.RuleData.TypeDefinition");
         _RuleDataOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.RuleDataREF");
         _RuleDataOBJ.setInternallyGenerated("true");
         _RuleDataOBJ.setIsRefType("true");
@@ -3624,7 +3548,7 @@ public class MetaDmsModule extends DmsModule {
         _RuleDefinitionOBJ.addDescription("This is an internally generated type to allow references to RuleDefinition objects.");
         _RuleDefinitionOBJ.setDmwIteratorClass("RuleDefinitionIterableDMW");
         _RuleDefinitionOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.RuleDefinitionIterableDMW");
-        _RuleDefinitionOBJ.setDotName("meta.RuleDefinitionREF.TypeDefinition");
+        _RuleDefinitionOBJ.setDotName("meta.RuleDefinition.TypeDefinition");
         _RuleDefinitionOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.RuleDefinitionREF");
         _RuleDefinitionOBJ.setInternallyGenerated("true");
         _RuleDefinitionOBJ.setIsRefType("true");
@@ -3666,6 +3590,7 @@ public class MetaDmsModule extends DmsModule {
         _RuleTypeEnumOBJ.setInternallyGenerated("true");
         _RuleTypeEnumOBJ.setIsEnumType("true");
         _RuleTypeEnumOBJ.setName("RuleTypeEnum");
+        _RuleTypeEnumOBJ.setNullReturnValue("RuleTypeEnum.ATTRIBUTE");
         _RuleTypeEnumOBJ.setPrimitiveType("org.dmd.dms.shared.generated.enums.RuleTypeEnum");
         _RuleTypeEnumOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeRuleTypeEnum");
         _RuleTypeEnum_Type.setDefinedInDmsModule(this);
@@ -3679,7 +3604,7 @@ public class MetaDmsModule extends DmsModule {
         _RunContextOBJ.addDescription("This is an internally generated type to allow references to RunContext objects.");
         _RunContextOBJ.setDmwIteratorClass("RunContextIterableDMW");
         _RunContextOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.RunContextIterableDMW");
-        _RunContextOBJ.setDotName("meta.RunContextREF.TypeDefinition");
+        _RunContextOBJ.setDotName("meta.RunContext.TypeDefinition");
         _RunContextOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.RunContextREF");
         _RunContextOBJ.setInternallyGenerated("true");
         _RunContextOBJ.setIsRefType("true");
@@ -3709,7 +3634,7 @@ public class MetaDmsModule extends DmsModule {
         _SchemaDefinitionOBJ.addDescription("This is an internally generated type to allow references to SchemaDefinition objects.");
         _SchemaDefinitionOBJ.setDmwIteratorClass("SchemaDefinitionIterableDMW");
         _SchemaDefinitionOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.SchemaDefinitionIterableDMW");
-        _SchemaDefinitionOBJ.setDotName("meta.SchemaDefinitionREF.TypeDefinition");
+        _SchemaDefinitionOBJ.setDotName("meta.SchemaDefinition.TypeDefinition");
         _SchemaDefinitionOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.SchemaDefinitionREF");
         _SchemaDefinitionOBJ.setInternallyGenerated("true");
         _SchemaDefinitionOBJ.setIsRefType("true");
@@ -3737,7 +3662,7 @@ public class MetaDmsModule extends DmsModule {
         _SliceDefinitionOBJ.addDescription("This is an internally generated type to allow references to SliceDefinition objects.");
         _SliceDefinitionOBJ.setDmwIteratorClass("SliceDefinitionIterableDMW");
         _SliceDefinitionOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.SliceDefinitionIterableDMW");
-        _SliceDefinitionOBJ.setDotName("meta.SliceDefinitionREF.TypeDefinition");
+        _SliceDefinitionOBJ.setDotName("meta.SliceDefinition.TypeDefinition");
         _SliceDefinitionOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.SliceDefinitionREF");
         _SliceDefinitionOBJ.setInternallyGenerated("true");
         _SliceDefinitionOBJ.setIsRefType("true");
@@ -3798,7 +3723,7 @@ public class MetaDmsModule extends DmsModule {
         _TypeDefinitionOBJ.addDescription("This is an internally generated type to allow references to TypeDefinition objects.");
         _TypeDefinitionOBJ.setDmwIteratorClass("TypeDefinitionIterableDMW");
         _TypeDefinitionOBJ.setDmwIteratorImport("org.dmd.dms.server.generated.dmw.TypeDefinitionIterableDMW");
-        _TypeDefinitionOBJ.setDotName("meta.TypeDefinitionREF.TypeDefinition");
+        _TypeDefinitionOBJ.setDotName("meta.TypeDefinition.TypeDefinition");
         _TypeDefinitionOBJ.setHelperClassName("org.dmd.dms.shared.generated.types.TypeDefinitionREF");
         _TypeDefinitionOBJ.setInternallyGenerated("true");
         _TypeDefinitionOBJ.setIsRefType("true");
@@ -3839,6 +3764,7 @@ public class MetaDmsModule extends DmsModule {
         _ValueTypeEnumOBJ.setInternallyGenerated("true");
         _ValueTypeEnumOBJ.setIsEnumType("true");
         _ValueTypeEnumOBJ.setName("ValueTypeEnum");
+        _ValueTypeEnumOBJ.setNullReturnValue("ValueTypeEnum.SINGLE");
         _ValueTypeEnumOBJ.setPrimitiveType("org.dmd.dms.shared.generated.enums.ValueTypeEnum");
         _ValueTypeEnumOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeValueTypeEnum");
         _ValueTypeEnum_Type.setDefinedInDmsModule(this);
@@ -3852,6 +3778,7 @@ public class MetaDmsModule extends DmsModule {
         _WrapperTypeEnumOBJ.setInternallyGenerated("true");
         _WrapperTypeEnumOBJ.setIsEnumType("true");
         _WrapperTypeEnumOBJ.setName("WrapperTypeEnum");
+        _WrapperTypeEnumOBJ.setNullReturnValue("WrapperTypeEnum.BASE");
         _WrapperTypeEnumOBJ.setPrimitiveType("org.dmd.dms.shared.generated.enums.WrapperTypeEnum");
         _WrapperTypeEnumOBJ.setTypeClassName("org.dmd.dms.shared.generated.types.DmcTypeWrapperTypeEnum");
         _WrapperTypeEnum_Type.setDefinedInDmsModule(this);
@@ -3859,7 +3786,7 @@ public class MetaDmsModule extends DmsModule {
 
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitEnums(MetaSchemaFormatterNew.java:313)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitEnums(MetaSchemaFormatterNew.java:322)
     private void initEnums() throws DMFeedbackSet {
 
         EnumDefinitionDMO _BaseTypeEnumOBJ = new EnumDefinitionDMO();
@@ -4014,7 +3941,7 @@ public class MetaDmsModule extends DmsModule {
 
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitRuleCategories(MetaSchemaFormatterNew.java:332)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitRuleCategories(MetaSchemaFormatterNew.java:341)
     private void initRuleCategories() throws DMFeedbackSet {
 
         RuleCategoryDMO _AttributeValidationOBJ = new RuleCategoryDMO();
@@ -4090,7 +4017,7 @@ public class MetaDmsModule extends DmsModule {
 
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitComplexTypes(MetaSchemaFormatterNew.java:351)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitComplexTypes(MetaSchemaFormatterNew.java:360)
     private void initComplexTypes() throws DMFeedbackSet {
 
         ComplexTypeDefinitionDMO _DmwTypeToWrapperTypeOBJ = new ComplexTypeDefinitionDMO();
@@ -4179,7 +4106,7 @@ public class MetaDmsModule extends DmsModule {
 
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitModules(MetaSchemaFormatterNew.java:370)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitModules(MetaSchemaFormatterNew.java:379)
     private void initModules() throws DMFeedbackSet {
 
         DSDefinitionModuleDMO _DmsModuleOBJ = new DSDefinitionModuleDMO();

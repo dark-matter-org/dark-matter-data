@@ -17,8 +17,6 @@ package org.dmd.dms.server.extended;
 
 import java.util.ArrayList;
 
-import org.dmd.core.feedback.DMFeedbackSet;
-import org.dmd.dms.server.generated.MetaSchemaAG;
 import org.dmd.dms.server.generated.dmw.ActionDefinitionDMW;
 import org.dmd.dms.shared.generated.dmo.ActionDefinitionDMO;
 
@@ -35,16 +33,16 @@ public class ActionDefinition extends ActionDefinitionDMW {
      * Default constructor.
      */
     public ActionDefinition(){
-    	super(new ActionDefinitionDMO(),MetaSchemaAG._ActionDefinition);
+    	
     }
     
-    public ActionDefinition(ActionDefinitionDMO obj){
-    	super(obj);
+    public ActionDefinition(ActionDefinitionDMO obj, ClassDefinition cd){
+    	super(obj,cd);
     }
     
-	protected ActionDefinition(String mn) throws DMFeedbackSet {
-		super(mn);
-	}
+//	protected ActionDefinition(String mn) throws DMFeedbackSet {
+//		super(mn);
+//	}
 
     /**
      * Adds a class to our list of classes that use this action.

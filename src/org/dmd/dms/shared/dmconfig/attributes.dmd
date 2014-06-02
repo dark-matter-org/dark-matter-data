@@ -293,33 +293,33 @@ type                String
 internalUse			true
 description    		This attribute indicates just the DMO class name e.g. MyClassDMO
 
-AttributeDefinition
-name                dmoAuxClass
-dmdID				37
-type                String
-internalUse			true
-description    		This attribute indicates just the DMO class name e.g. MyClassAUXDMO
-
-AttributeDefinition
-name                dmoAuxClassImport
-dmdID				38
-type                String
-internalUse			true
-description    		This attribute indicates the full name of the MyClassAUXDMO class
-
-AttributeDefinition
-dmdID				39
-name                dmwAuxClass
-type                String
-internalUse			true
-description    		This attribute indicates just the DMO class name e.g. MyClassAUX
-
-AttributeDefinition
-name                dmwAuxClassImport
-dmdID				40
-type                String
-internalUse			true
-description    		This attribute indicates the full name of the MyClassAUX class
+//AttributeDefinition
+//name                dmoAuxClass
+//dmdID				37
+//type                String
+//internalUse			true
+//description    		This attribute indicates just the DMO class name e.g. MyClassAUXDMO
+//
+//AttributeDefinition
+//name                dmoAuxClassImport
+//dmdID				38
+//type                String
+//internalUse			true
+//description    		This attribute indicates the full name of the MyClassAUXDMO class
+//
+//AttributeDefinition
+//dmdID				39
+//name                dmwAuxClass
+//type                String
+//internalUse			true
+//description    		This attribute indicates just the DMO class name e.g. MyClassAUX
+//
+//AttributeDefinition
+//name                dmwAuxClassImport
+//dmdID				40
+//type                String
+//internalUse			true
+//description    		This attribute indicates the full name of the MyClassAUX class
 
 AttributeDefinition
 name                dmwImport
@@ -482,12 +482,12 @@ valueType			MULTI
 internalUse			true
 description A list of action definition references.
 
-AttributeDefinition
-name            	definedIn
-dmdID				61
-type             	SchemaDefinition
-internalUse			true
-description Indicates the schema in which a type, attribute or class is defined.
+//AttributeDefinition
+//name            	definedIn
+//dmdID				61
+//type             	SchemaDefinition
+//internalUse			true
+//description Indicates the schema in which a type, attribute or class is defined.
 
 AttributeDefinition
 name              	allowedParents
@@ -1222,19 +1222,19 @@ dmdID						157
 type                		AttributeDefinition
 description    				Indicates the attribute to which an ATTRIBUTE type rule is applied.
 
-AttributeDefinition
-name                		isDSDefinition
-dmdID						158
-type                		Boolean
-description    				Indicates if the class defined by a ClassDefinition and its derivatives are part
- of a domain specific set of definitions. For instance, the definitions associated with the meta schema are
- considered a set of domain specific definitions for defining data objects; the dark-matter Model View
- Whatever (MVW) definitions describe a set of domain specific concepts for defining aspects of a GWT
- application.
- <p/>
- A domain specific definition must be named by name and must have dotName as an attribute because the 
- generated class will implement the DmcDefinitionIF which assumes that these attributes exist. This
- interface allows these definitions to be managed as part of a set of definitions.
+//AttributeDefinition
+//name                		isDSDefinition
+//dmdID						158
+//type                		Boolean
+//description    				Indicates if the class defined by a ClassDefinition and its derivatives are part
+// of a domain specific set of definitions. For instance, the definitions associated with the meta schema are
+// considered a set of domain specific definitions for defining data objects; the dark-matter Model View
+// Whatever (MVW) definitions describe a set of domain specific concepts for defining aspects of a GWT
+// application.
+// <p/>
+// A domain specific definition must be named by name and must have dotName as an attribute because the 
+// generated class will implement the DmcDefinitionIF which assumes that these attributes exist. This
+// interface allows these definitions to be managed as part of a set of definitions.
 
 //AttributeDefinition
 //name                		isDSModule

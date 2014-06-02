@@ -64,14 +64,6 @@ public abstract class SchemaDefinitionDMW extends org.dmd.dms.server.extended.Dm
         super(cd);
     }
 
-    protected SchemaDefinitionDMW(String mn) throws DMFeedbackSet {
-        super(new SchemaDefinitionDMO());
-        mycore = (SchemaDefinitionDMO) core;
-        mycore.setContainer(this);
-        mycore.setName(mn);
-        metaname = mn;
-    }
-
     /**
      * How a name is composed will depend on the context in which it used. For
      * instance, the names of definitions specified as part of a dark-matter
@@ -992,7 +984,7 @@ public abstract class SchemaDefinitionDMW extends org.dmd.dms.server.extended.Dm
         return(mycore.getObjectNameAttribute());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpAdditionalWrapperFunctions(MetaDSDHelper.java:971)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpAdditionalWrapperFunctions(MetaDSDHelper.java:1029)
     /**
      * This method indicates the name of the module from which this definition was loaded.
      */

@@ -38,7 +38,7 @@ public class DmoFormatter {
 		String baseClass;
 		String derivedFrom;
 		String isNamedBy;
-		String isDSDefinition;
+//		String isDSDefinition;
 		boolean isDmsDefinition = false;
 
 		TreeSet<String> must = new TreeSet<String>();
@@ -46,7 +46,7 @@ public class DmoFormatter {
 
 		derivedFrom = cdef.getSV("derivedFrom");
 		isNamedBy = cdef.getSV("isNamedBy");
-		isDSDefinition = cdef.getSV("isDSDefinition");
+//		isDSDefinition = cdef.getSV("isDSDefinition");
 
 		BufferedWriter out = FileUpdateManager.instance().getWriter(od, cn + "DMO.java");
 
@@ -86,9 +86,9 @@ public class DmoFormatter {
 			imports.addImport("org.dmd.dms.shared.generated.types.*", "Enum support");
 		}
 		
-		if (isDSDefinition != null){
-			imports.addImport("org.dmd.core.interfaces.DmcDefinitionIF", "This is a domain specific definition");
-		}
+//		if (isDSDefinition != null){
+//			imports.addImport("org.dmd.core.interfaces.DmcDefinitionIF", "This is a domain specific definition");
+//		}
 
 		imports.addImport("org.dmd.dms.shared.generated.types.*", "Generated type access");
 
@@ -111,9 +111,9 @@ public class DmoFormatter {
 		out.write("@SuppressWarnings(\"serial\")\n");
 		
 		String additionalInterfaces = " ";
-		if (isDSDefinition != null){
-			additionalInterfaces = ", DmcDefinitionIF";
-		}
+//		if (isDSDefinition != null){
+//			additionalInterfaces = ", DmcDefinitionIF";
+//		}
 
 		if (derivedFrom == null) {
 			if (isNamedBy == null) {

@@ -50,7 +50,6 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
         _ImAp.put(MetaDMSAG.__ruleName.id,MetaDMSAG.__ruleName);
         _ImAp.put(MetaDMSAG.__ruleTitle.id,MetaDMSAG.__ruleTitle);
         _ImAp.put(MetaDMSAG.__applyToClass.id,MetaDMSAG.__applyToClass);
-        _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
         _ImAp.put(MetaDMSAG.__description.id,MetaDMSAG.__description);
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
         _ImAp.put(MetaDMSAG.__immediateHalt.id,MetaDMSAG.__immediateHalt);
@@ -62,7 +61,6 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
         _SmAp.put(MetaDMSAG.__ruleName.name,MetaDMSAG.__ruleName);
         _SmAp.put(MetaDMSAG.__ruleTitle.name,MetaDMSAG.__ruleTitle);
         _SmAp.put(MetaDMSAG.__applyToClass.name,MetaDMSAG.__applyToClass);
-        _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
         _SmAp.put(MetaDMSAG.__description.name,MetaDMSAG.__description);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
         _SmAp.put(MetaDMSAG.__immediateHalt.name,MetaDMSAG.__immediateHalt);
@@ -179,32 +177,6 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
         
         attr.set(value);
         set(MetaDMSAG.__applyToClass,attr);
-    }
-
-    /**
-     * Indicates the schema in which a type, attribute or class is defined. 
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
-    public SchemaDefinitionREF getDefinedIn(){
-        DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) get(MetaDMSAG.__definedIn);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets definedIn to the specified value.
-     * @param value A value compatible with DmcTypeSchemaDefinitionREFSV
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
-    public void setDefinedIn(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__definedIn);
-        if (attr == null)
-            attr = new DmcTypeSchemaDefinitionREFSV(MetaDMSAG.__definedIn);
-        
-        attr.set(value);
-        set(MetaDMSAG.__definedIn,attr);
     }
 
     /**

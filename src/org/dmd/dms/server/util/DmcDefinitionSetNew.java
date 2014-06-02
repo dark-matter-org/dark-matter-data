@@ -26,7 +26,7 @@ import org.dmd.util.runtime.DebugInfo;
  */
 public class DmcDefinitionSetNew<DEF extends DSDefinition> {
 	
-	static boolean debug = true;
+	static boolean debug = false;
 	
 	// The name of the definition class stored in this collection
 	String 										className;

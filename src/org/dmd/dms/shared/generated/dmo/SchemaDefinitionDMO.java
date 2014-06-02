@@ -57,7 +57,6 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
         _ImAp.put(MetaDMSAG.__complexTypeDefList.id,MetaDMSAG.__complexTypeDefList);
         _ImAp.put(MetaDMSAG.__createAttributeFactory.id,MetaDMSAG.__createAttributeFactory);
         _ImAp.put(MetaDMSAG.__defFiles.id,MetaDMSAG.__defFiles);
-        _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
         _ImAp.put(MetaDMSAG.__dependsOn.id,MetaDMSAG.__dependsOn);
         _ImAp.put(MetaDMSAG.__dependsOnRef.id,MetaDMSAG.__dependsOnRef);
         _ImAp.put(MetaDMSAG.__description.id,MetaDMSAG.__description);
@@ -104,7 +103,6 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
         _SmAp.put(MetaDMSAG.__complexTypeDefList.name,MetaDMSAG.__complexTypeDefList);
         _SmAp.put(MetaDMSAG.__createAttributeFactory.name,MetaDMSAG.__createAttributeFactory);
         _SmAp.put(MetaDMSAG.__defFiles.name,MetaDMSAG.__defFiles);
-        _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
         _SmAp.put(MetaDMSAG.__dependsOn.name,MetaDMSAG.__dependsOn);
         _SmAp.put(MetaDMSAG.__dependsOnRef.name,MetaDMSAG.__dependsOnRef);
         _SmAp.put(MetaDMSAG.__description.name,MetaDMSAG.__description);
@@ -542,32 +540,6 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
         attr.add(value);
         add(MetaDMSAG.__defFiles,attr);
         return(attr);
-    }
-
-    /**
-     * Indicates the schema in which a type, attribute or class is defined. 
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
-    public SchemaDefinitionREF getDefinedIn(){
-        DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) get(MetaDMSAG.__definedIn);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets definedIn to the specified value.
-     * @param value A value compatible with DmcTypeSchemaDefinitionREFSV
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
-    public void setDefinedIn(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__definedIn);
-        if (attr == null)
-            attr = new DmcTypeSchemaDefinitionREFSV(MetaDMSAG.__definedIn);
-        
-        attr.set(value);
-        set(MetaDMSAG.__definedIn,attr);
     }
 
     /**

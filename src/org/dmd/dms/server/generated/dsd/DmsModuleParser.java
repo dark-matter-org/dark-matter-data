@@ -1,53 +1,51 @@
 package org.dmd.dms.server.generated.dsd;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParser(MetaDSDHelper.java:689)
-import org.dmd.core.feedback.DMFeedbackSet;                                     // May be thrown when parsing objects - (MetaDSDHelper.java:662)
-import org.dmd.core.feedback.DmcNameClashException;                             // May be thrown when instantiating objects - (MetaDSDHelper.java:663)
-import org.dmd.core.feedback.SourceInfo;                                        // To indicate the source of rule problems - (MetaDSDHelper.java:668)
-import org.dmd.core.rules.DmcRuleExceptionSet;                                  // May be thrown by rule manager - (MetaDSDHelper.java:665)
-import org.dmd.core.util.DMUncheckedObject;                                     // Basic parsing of objects - (MetaDSDHelper.java:645)
-import org.dmd.dms.server.extended.ActionDefinition;                            // A definition from the DmsModule Module - (MetaDSDHelper.java:900)
-import org.dmd.dms.server.extended.AttributeDefinition;                         // A definition from the DmsModule Module - (MetaDSDHelper.java:900)
-import org.dmd.dms.server.extended.ClassDefinition;                             // A definition from the DmsModule Module - (MetaDSDHelper.java:900)
-import org.dmd.dms.server.extended.ComplexTypeDefinition;                       // A definition from the DmsModule Module - (MetaDSDHelper.java:900)
-import org.dmd.dms.server.extended.DSDefinitionModule;                          // A definition from the DmsModule Module - (MetaDSDHelper.java:900)
-import org.dmd.dms.server.extended.Dependency;                                  // A definition from the DmsModule Module - (MetaDSDHelper.java:900)
-import org.dmd.dms.server.extended.DependencyImplementation;                    // A definition from the DmsModule Module - (MetaDSDHelper.java:900)
-import org.dmd.dms.server.extended.DmsDefinition;                               // The base definition from the DmsModule Module - (MetaDSDHelper.java:893)
-import org.dmd.dms.server.extended.DmsModule;                                   // The kind of DDM we're reading - (MetaDSDHelper.java:675)
-import org.dmd.dms.server.extended.EnumDefinition;                              // A definition from the DmsModule Module - (MetaDSDHelper.java:900)
-import org.dmd.dms.server.extended.ExtendedReferenceTypeDefinition;             // A definition from the DmsModule Module - (MetaDSDHelper.java:900)
-import org.dmd.dms.server.extended.MetaSchema;                                  // So that we can preserve newlines - (MetaDSDHelper.java:670)
-import org.dmd.dms.server.extended.RuleCategory;                                // A definition from the DmsModule Module - (MetaDSDHelper.java:900)
-import org.dmd.dms.server.extended.RuleDefinition;                              // A definition from the DmsModule Module - (MetaDSDHelper.java:900)
-import org.dmd.dms.server.extended.RunContext;                                  // A definition from the DmsModule Module - (MetaDSDHelper.java:900)
-import org.dmd.dms.server.extended.SchemaDefinition;                            // A definition from the DmsModule Module - (MetaDSDHelper.java:900)
-import org.dmd.dms.server.extended.SchemaManager;                               // Manages the schemas we use - (MetaDSDHelper.java:642)
-import org.dmd.dms.server.extended.SliceDefinition;                             // A definition from the DmsModule Module - (MetaDSDHelper.java:900)
-import org.dmd.dms.server.extended.TypeDefinition;                              // A definition from the DmsModule Module - (MetaDSDHelper.java:900)
-import org.dmd.dms.server.generated.MetaSchemaAG;                               // The schema recognized by this parser - (MetaDSDHelper.java:661)
-import org.dmd.dms.server.generated.dmw.AttributeDefinitionIterableDMW;         // To allow addition of preserve newline attributes - (MetaDSDHelper.java:684)
-import org.dmd.dms.server.generated.dmw.StringIterableDMW;                      // To iterate over defFiles - (MetaDSDHelper.java:667)
-import org.dmd.dms.server.generated.dsd.DmsModuleGlobalInterface;               // Interface to our definition storage - (MetaDSDHelper.java:649)
-import org.dmd.dms.server.util.DsdParserInterface;                              // Standard parser interface - (MetaDSDHelper.java:646)
-import org.dmd.dms.shared.generated.dmo.MetaDMSAG;                              // To allow loading of rules from the meta schema - (MetaDSDHelper.java:671)
-import org.dmd.dmv.shared.DmvRuleManager;                                       // The injected rule manager used for initializations - (MetaDSDHelper.java:666)
-import org.dmd.dmw.DmwObjectFactory;                                            // Constructs wrapped objects - (MetaDSDHelper.java:648)
-import org.dmd.dmw.DmwWrapper;                                                  // To handle factory created objects - (MetaDSDHelper.java:669)
-import org.dmd.util.parsing.ConfigLocation;                                     // Config file location info - (MetaDSDHelper.java:647)
-import org.dmd.util.parsing.DMUncheckedObjectHandlerIF;                         // Basic parsing of objects - (MetaDSDHelper.java:644)
-import org.dmd.util.parsing.DMUncheckedObjectParser;                            // Basic parsing of objects - (MetaDSDHelper.java:643)
+// Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParser(MetaDSDHelper.java:734)
+import java.util.Iterator;                                                  // To allow itteration over collections - (MetaDSDHelper.java:686)
+import org.dmd.core.feedback.DMFeedbackSet;                                 // May be thrown when parsing objects - (MetaDSDHelper.java:707)
+import org.dmd.core.feedback.DmcNameClashException;                         // May be thrown when instantiating objects - (MetaDSDHelper.java:708)
+import org.dmd.core.feedback.SourceInfo;                                    // To indicate the source of rule problems - (MetaDSDHelper.java:713)
+import org.dmd.core.rules.DmcRuleExceptionSet;                              // May be thrown by rule manager - (MetaDSDHelper.java:710)
+import org.dmd.core.util.DMUncheckedObject;                                 // Basic parsing of objects - (MetaDSDHelper.java:690)
+import org.dmd.dms.server.SchemaManager;                                    // Manages the schemas we use - (MetaDSDHelper.java:687)
+import org.dmd.dms.server.extended.ActionDefinition;                        // A definition from the DmsModule Module - (MetaDSDHelper.java:946)
+import org.dmd.dms.server.extended.AttributeDefinition;                     // A definition from the DmsModule Module - (MetaDSDHelper.java:946)
+import org.dmd.dms.server.extended.ClassDefinition;                         // A definition from the DmsModule Module - (MetaDSDHelper.java:946)
+import org.dmd.dms.server.extended.ComplexTypeDefinition;                   // A definition from the DmsModule Module - (MetaDSDHelper.java:946)
+import org.dmd.dms.server.extended.DSDefinitionModule;                      // A definition from the DmsModule Module - (MetaDSDHelper.java:946)
+import org.dmd.dms.server.extended.Dependency;                              // A definition from the DmsModule Module - (MetaDSDHelper.java:946)
+import org.dmd.dms.server.extended.DependencyImplementation;                // A definition from the DmsModule Module - (MetaDSDHelper.java:946)
+import org.dmd.dms.server.extended.DmsDefinition;                           // The base definition from the DmsModule Module - (MetaDSDHelper.java:939)
+import org.dmd.dms.server.extended.DmsModule;                               // The kind of DDM we're reading - (MetaDSDHelper.java:720)
+import org.dmd.dms.server.extended.EnumDefinition;                          // A definition from the DmsModule Module - (MetaDSDHelper.java:946)
+import org.dmd.dms.server.extended.ExtendedReferenceTypeDefinition;         // A definition from the DmsModule Module - (MetaDSDHelper.java:946)
+import org.dmd.dms.server.extended.RuleCategory;                            // A definition from the DmsModule Module - (MetaDSDHelper.java:946)
+import org.dmd.dms.server.extended.RuleDefinition;                          // A definition from the DmsModule Module - (MetaDSDHelper.java:946)
+import org.dmd.dms.server.extended.RunContext;                              // A definition from the DmsModule Module - (MetaDSDHelper.java:946)
+import org.dmd.dms.server.extended.SchemaDefinition;                        // A definition from the DmsModule Module - (MetaDSDHelper.java:946)
+import org.dmd.dms.server.extended.SliceDefinition;                         // A definition from the DmsModule Module - (MetaDSDHelper.java:946)
+import org.dmd.dms.server.extended.TypeDefinition;                          // A definition from the DmsModule Module - (MetaDSDHelper.java:946)
+import org.dmd.dms.server.generated.dmw.StringIterableDMW;                  // To iterate over defFiles - (MetaDSDHelper.java:712)
+import org.dmd.dms.server.generated.dsd.DmsModuleGlobalInterface;           // Interface to our definition storage - (MetaDSDHelper.java:694)
+import org.dmd.dms.server.util.DsdParserInterface;                          // Standard parser interface - (MetaDSDHelper.java:691)
+import org.dmd.dms.shared.generated.dmo.MetaDMSAG;                          // To allow loading of rules from the meta schema - (MetaDSDHelper.java:716)
+import org.dmd.dmv.shared.DmvRuleManager;                                   // The injected rule manager used for initializations - (MetaDSDHelper.java:711)
+import org.dmd.dmw.DmwObjectFactory;                                        // Constructs wrapped objects - (MetaDSDHelper.java:693)
+import org.dmd.dmw.DmwWrapper;                                              // To handle factory created objects - (MetaDSDHelper.java:714)
+import org.dmd.util.parsing.ConfigLocation;                                 // Config file location info - (MetaDSDHelper.java:692)
+import org.dmd.util.parsing.DMUncheckedObjectHandlerIF;                     // Basic parsing of objects - (MetaDSDHelper.java:689)
+import org.dmd.util.parsing.DMUncheckedObjectParser;                        // Basic parsing of objects - (MetaDSDHelper.java:688)
 
 
 
-// Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParser(MetaDSDHelper.java:692)
+// Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParser(MetaDSDHelper.java:737)
 public class DmsModuleParser implements DsdParserInterface, DMUncheckedObjectHandlerIF {
 
     final static String fileExtension = "dms";
 
     // Generated from: org.dmd.util.artifact.java.MemberManager.getFormattedMembers(MemberManager.java:68)
-    // Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParser(MetaDSDHelper.java:706)
+    // Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParser(MetaDSDHelper.java:751)
 
     SchemaManager               schema;                                               // Manages the schema for this DSD
     DMUncheckedObjectParser     parser         = new DMUncheckedObjectParser(this);   // Parses objects from the config file
@@ -57,15 +55,13 @@ public class DmsModuleParser implements DsdParserInterface, DMUncheckedObjectHan
     ConfigLocation              location;                                             // The location of the config being parsed
     DmsModule                   module;                                               // The DDM module
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParser(MetaDSDHelper.java:709)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParser(MetaDSDHelper.java:754)
     public DmsModuleParser(DmsModuleGlobalInterface d, DmvRuleManager r) throws DMFeedbackSet, DmcNameClashException {
+        // The SchemaManager automatically loads the meta schema
         schema = new SchemaManager();
-        MetaSchemaAG sd = new MetaSchemaAG();
-        schema.manageSchema(sd.getInstance());
-        if (sd.getAttributeDefListSize() > 0){
-            preserveNewLines(sd.getAttributeDefList());
+        if (schema.getAttributeDefinitionCount() > 0){
+            preserveNewLines(schema.getAllAttributeDefinition());
         }
-        preserveNewLines(MetaSchema._metaSchema.getAttributeDefList());
         
         factory      = new DmwObjectFactory(schema);
         
@@ -74,9 +70,9 @@ public class DmsModuleParser implements DsdParserInterface, DMUncheckedObjectHan
         rules.loadRules(MetaDMSAG.instance());
     }
 
-    void preserveNewLines(AttributeDefinitionIterableDMW attrs){
+    void preserveNewLines(Iterator<AttributeDefinition> attrs){
         while(attrs.hasNext()){
-            AttributeDefinition ad = attrs.getNext();
+            AttributeDefinition ad = attrs.next();
             if (ad.getPreserveNewlines()){
                 parser.addPreserveNewlinesAttribute(ad.getName().getNameString());
             }
@@ -87,7 +83,7 @@ public class DmsModuleParser implements DsdParserInterface, DMUncheckedObjectHan
         return(fileExtension);
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParser(MetaDSDHelper.java:739)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParser(MetaDSDHelper.java:785)
     public DmsModule parseConfig(ConfigLocation l) throws DMFeedbackSet, DmcNameClashException {
         location = l;
 
@@ -118,7 +114,7 @@ public class DmsModuleParser implements DsdParserInterface, DMUncheckedObjectHan
         return(module);
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParser(MetaDSDHelper.java:772)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParser(MetaDSDHelper.java:818)
     @Override
     public void handleObject(DMUncheckedObject uco, String infile, int lineNumber) throws DMFeedbackSet, DmcNameClashException {
         DmsDefinition definition = null;
@@ -170,7 +166,7 @@ public class DmsModuleParser implements DsdParserInterface, DMUncheckedObjectHan
             }
         }
         else{
-            // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParser(MetaDSDHelper.java:846)
+            // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParser(MetaDSDHelper.java:892)
             if (definition instanceof DmsModule){
                 DMFeedbackSet ex = new DMFeedbackSet("Multiple DmsModule definitions while parsing config: " + location.getFileName(), infile, lineNumber);
                 throw(ex);

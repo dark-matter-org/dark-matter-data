@@ -1,11 +1,10 @@
-SchemaDefinition
+DmsModule
 name       		dmp
 schemaBaseID	500
 schemaIDRange	50
-dependsOn		dmrbase
 defFiles		types.dmd
-defFiles    	attributes2.dmd
-defFiles    	classes2.dmd
+defFiles    	attributes.dmd
+defFiles    	classes.dmd
 defFiles    	actions.dmd
 generatedFileHeader LGPL.txt
 //

@@ -71,6 +71,7 @@ public class MetaSchemaFormatterNew {
 		imports.addImport("org.dmd.core.feedback.DMFeedbackSet", "To handle potential value exceptions.");
 		imports.addImport("org.dmd.dms.server.extended.*", "Access to meta schema extended classes");
 		imports.addImport("org.dmd.dms.shared.generated.dmo.*", "Access to meta schema DMOs");
+		imports.addImport("org.dmd.dms.server.util.DmsModuleIF", "The standard module interface");
 
 		out = FileUpdateManager.instance().getWriter(od, "MetaDmsModule.java");
 
@@ -84,7 +85,7 @@ public class MetaSchemaFormatterNew {
 		out.write("  * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("  */\n");
 
-		out.write("public class MetaDmsModule extends DmsModule {\n");
+		out.write("public class MetaDmsModule extends DmsModule implements DmsModuleIF {\n");
 
 		dumpStaticDefinitions(out);
 		
@@ -200,6 +201,14 @@ public class MetaSchemaFormatterNew {
 			out.write("    public static DSDefinitionModule  _" + origOrderModules.get(i) + "_DSDM;\n");
 		out.write("\n");
 		out.write("\n");
+
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    public DmsModule dmsModuleInstance() throws DMFeedbackSet {\n");
+		out.write("        if (_metaSchema == null){\n");
+		out.write("            new MetaDmsModule();\n");
+		out.write("        }\n");
+		out.write("        return(_metaSchema);\n");
+		out.write("    }\n");
 
 //		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 //		for (int i = 0; i < origOrderRules.size(); i++)

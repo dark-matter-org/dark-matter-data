@@ -1,11 +1,10 @@
 package org.dmd.dms.server.extended;
 
 import org.dmd.core.DmcObject;
-import org.dmd.core.interfaces.DmcDefinitionIF;
 import org.dmd.dms.server.generated.dmw.DSDefinitionDMW;
 
 
-public class DSDefinition extends DSDefinitionDMW implements DmcDefinitionIF {
+public class DSDefinition extends DSDefinitionDMW {
 
 	protected DSDefinition(){
 		
