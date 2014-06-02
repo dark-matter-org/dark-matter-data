@@ -41,7 +41,7 @@ public class DmwFormatter {
 		String baseClass;
 		String derivedFrom;
 		String isNamedBy;
-		String isDSDefinition;
+//		String isDSDefinition;
 		String dsdModuleDefinition;
 
 //		for (int i = 0; i < origOrderClasses.size(); i++) {
@@ -50,7 +50,7 @@ public class DmwFormatter {
 
 			derivedFrom 		= ucoCD.getSV("derivedFrom");
 			isNamedBy 			= ucoCD.getSV("isNamedBy");
-			isDSDefinition 		= ucoCD.getSV("isDSDefinition");
+//			isDSDefinition 		= ucoCD.getSV("isDSDefinition");
 			dsdModuleDefinition = ucoCD.getSV("dsdModuleDefinition");
 			
 
@@ -87,12 +87,12 @@ public class DmwFormatter {
 						imports.addImport("org.dmd.dms.shared.types.*", "Required for EnumDefinition");
 					}
 					
-					if (isDSDefinition != null){
-						imports.addImport("org.dmd.core.interfaces.DmcDefinitionIF", "Because this is a DS definition");
-					}
+//					if (isDSDefinition != null){
+//						imports.addImport("org.dmd.core.interfaces.DmcDefinitionIF", "Because this is a DS definition");
+//					}
 					if (dsdModuleDefinition != null){
 						imports.addImport("org.dmd.core.interfaces.DmcNamedObjectIF", "Required when managing definitions");
-						imports.addImport("org.dmd.core.interfaces.DmcDefinitionIF", "Because this is a DS definition");
+//						imports.addImport("org.dmd.core.interfaces.DmcDefinitionIF", "Because this is a DS definition");
 						dsdHelper.getAdditionalWrapperImports(imports,ucoCD);
 					}
 
@@ -116,11 +116,11 @@ public class DmwFormatter {
 					
 					ImplementsManager impl = new ImplementsManager();
 					
-					if (isDSDefinition != null){
-						impl.addImplements("DmcDefinitionIF");
-					}
+//					if (isDSDefinition != null){
+//						impl.addImplements("DmcDefinitionIF");
+//					}
 					if (dsdModuleDefinition != null){
-						impl.addImplements("DmcDefinitionIF");
+//						impl.addImplements("DmcDefinitionIF");
 						impl.addImplements("DmcNamedObjectIF");
 						impl.addImplements(dsdModuleDefinition + "ScopedInterface");
 					}
@@ -211,13 +211,13 @@ public class DmwFormatter {
 						out.write("        super(cd);\n");
 						out.write("    }\n\n");
 
-						out.write("    protected " + cn + "DMW(String mn) throws DMFeedbackSet {\n");
-						out.write("        super(new " + cn + "DMO());\n");
-						out.write("        mycore = (" + cn + "DMO) core;\n");
-						out.write("        mycore.setContainer(this);\n");
-						out.write("        mycore.setName(mn);\n");
-						out.write("        metaname = mn;\n");
-						out.write("    }\n\n");
+//						out.write("    protected " + cn + "DMW(String mn) throws DMFeedbackSet {\n");
+//						out.write("        super(new " + cn + "DMO());\n");
+//						out.write("        mycore = (" + cn + "DMO) core;\n");
+//						out.write("        mycore.setContainer(this);\n");
+//						out.write("        mycore.setName(mn);\n");
+//						out.write("        metaname = mn;\n");
+//						out.write("    }\n\n");
 					}
 
 					// Gather the attributes together

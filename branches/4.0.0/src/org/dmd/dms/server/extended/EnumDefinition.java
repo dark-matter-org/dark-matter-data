@@ -17,8 +17,6 @@ package org.dmd.dms.server.extended;
 
 import java.util.Iterator;
 
-import org.dmd.core.feedback.DMFeedbackSet;
-import org.dmd.dms.server.generated.MetaSchemaAG;
 import org.dmd.dms.server.generated.dmw.EnumDefinitionDMW;
 import org.dmd.dms.shared.generated.dmo.EnumDefinitionDMO;
 import org.dmd.dms.shared.types.EnumValue;
@@ -30,16 +28,24 @@ public class EnumDefinition extends EnumDefinitionDMW {
      * Default constructor.
      */
     public EnumDefinition(){
-    	super(new EnumDefinitionDMO(),MetaSchemaAG._EnumDefinition);
+    	super();
     }
     
+    public EnumDefinition(EnumDefinitionDMO obj, ClassDefinition cd){
+    	super(obj,cd);
+    }
+    
+    /**
+     * This constructor is used when constructing definitions in a static DmsModule.
+     * @param obj the DMO associated with this definition.
+     */
     public EnumDefinition(EnumDefinitionDMO obj){
     	super(obj);
     }
     
-	protected EnumDefinition(String mn) throws DMFeedbackSet {
-		super(mn);
-	}
+//	protected EnumDefinition(String mn) throws DMFeedbackSet {
+//		super(mn);
+//	}
 	
 	public EnumValue getEnumValue(String valueName){
 		EnumValue rc = null;

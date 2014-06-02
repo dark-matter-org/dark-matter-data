@@ -39,7 +39,7 @@ may				skip
 may				obsolete
 may				why
 // Auto generated/set
-may           	definedIn
+//may           	definedIn
 may          	file
 may        		lineNumber
 may				dotName
@@ -105,7 +105,7 @@ may				must
 may				supportDynamicSchemaLoading
 may				requiredBaseModule
 // Auto generated/set
-may           	definedIn
+//may           	definedIn
 description		The DSDefinitionModule is a definition that defines a collection of definitions
  and provides a basis for the generation of various artifacts that allow for parsing and
  management of that set of definitions.
@@ -137,7 +137,7 @@ useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.server.extended.ClassDefinition
 dmoImport		org.dmd.dms.shared.generated.dmo.ClassDefinitionDMO
 derivedFrom     DmsDefinition
-isDSDefinition	true
+//isDSDefinition	true
 mayBeInternallyGenerated true
 isNamedBy       name
 must         	name
@@ -161,7 +161,7 @@ may				supportsBackrefTracking
 may				excludeFromContext
 may           	abbrev
 may         	obsoleteVersion
-may				isDSDefinition
+//may				isDSDefinition
 may				partOfDefinitionModule
 may				mayBeInternallyGenerated
 //may				isDSModule
@@ -181,10 +181,10 @@ may				dmeClass
 may				dmtImport
 may				dmtREFImport
 may				dmtClass
-may				dmoAuxClass
-may				dmoAuxClassImport
-may				dmwAuxClass
-may				dmwAuxClassImport
+//may				dmoAuxClass
+//may				dmoAuxClassImport
+//may				dmwAuxClass
+//may				dmwAuxClassImport
 may				dmwIteratorImport
 may				dmwIteratorClass
 description    This class provides the basic mechanism to define new classes for a schema.
@@ -197,7 +197,7 @@ useWrapperType	EXTENDED
 javaClass     	org.dmd.dms.server.extended.EnumDefinition
 dmoImport		org.dmd.dms.shared.generated.dmo.EnumDefinitionDMO
 derivedFrom     DmsDefinition
-isDSDefinition	true
+//isDSDefinition	true
 isNamedBy       name
 may            	description
 must          	name
@@ -216,7 +216,7 @@ useWrapperType	EXTENDED
 javaClass     	org.dmd.dms.server.extended.TypeDefinition
 dmoImport		org.dmd.dms.shared.generated.dmo.TypeDefinitionDMO
 derivedFrom     DmsDefinition
-isDSDefinition	true
+//isDSDefinition	true
 mayBeInternallyGenerated	true
 isNamedBy       name
 must          	name
@@ -348,7 +348,7 @@ useWrapperType	EXTENDED
 javaClass     	org.dmd.dms.server.extended.ComplexTypeDefinition
 dmoImport		org.dmd.dms.shared.generated.dmo.ComplexTypeDefinitionDMO
 derivedFrom     DmsDefinition
-isDSDefinition	true
+//isDSDefinition	true
 isNamedBy       name
 must          	name
 //may				field
@@ -391,7 +391,7 @@ useWrapperType	EXTENDED
 javaClass     	org.dmd.dms.server.extended.ExtendedReferenceTypeDefinition
 dmoImport		org.dmd.dms.shared.generated.dmo.ExtendedReferenceTypeDefinitionDMO
 derivedFrom     ComplexTypeDefinition
-isDSDefinition	true
+//isDSDefinition	true
 isNamedBy       name
 must          	name
 must			extendedReferenceClass
@@ -408,7 +408,7 @@ useWrapperType	EXTENDED
 javaClass      	org.dmd.dms.server.extended.AttributeDefinition
 dmoImport		org.dmd.dms.shared.generated.dmo.AttributeDefinitionDMO
 derivedFrom     DmsDefinition
-isDSDefinition	true
+//isDSDefinition	true
 isNamedBy       name
 must          	name
 must          	type
@@ -440,7 +440,7 @@ useWrapperType	EXTENDED
 javaClass      	org.dmd.dms.server.extended.SliceDefinition
 dmoImport		org.dmd.dms.shared.generated.dmo.SliceDefinitionDMO
 derivedFrom     DmsDefinition
-isDSDefinition	true
+//isDSDefinition	true
 must			name
 must 			selectAttribute
 may				description
@@ -457,7 +457,7 @@ useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.server.extended.ActionDefinition
 dmoImport		org.dmd.dms.shared.generated.dmo.ActionDefinitionDMO
 derivedFrom     DmsDefinition
-isDSDefinition	true
+//isDSDefinition	true
 isNamedBy       name
 must          	name
 may          	description
@@ -533,7 +533,7 @@ useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.server.extended.RuleCategory
 dmoImport		org.dmd.dms.shared.generated.dmo.RuleCategoryDMO
 derivedFrom     DmsDefinition
-isDSDefinition	true
+//isDSDefinition	true
 isNamedBy       name
 must        	name
 must			opContext
@@ -577,7 +577,7 @@ useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.server.extended.RuleDefinition
 dmoImport		org.dmd.dms.shared.generated.dmo.RuleDefinitionDMO
 derivedFrom     DmsDefinition
-isDSDefinition	true
+//isDSDefinition	true
 isNamedBy       name
 must        	name
 //must			ruleType
@@ -614,7 +614,7 @@ isNamedBy		ruleName
 must			ruleTitle
 must			ruleName
 may				description
-may           	definedIn
+//may           	definedIn
 may          	file
 may        		lineNumber
 //may				applyToAttribute
@@ -633,7 +633,7 @@ useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.server.extended.Dependency
 dmoImport		org.dmd.dms.shared.generated.dmo.DependencyDMO
 derivedFrom     DmsDefinition
-isDSDefinition	true
+//isDSDefinition	true
 isNamedBy       name
 must        	name
 must			useInterface
@@ -665,7 +665,7 @@ useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.server.extended.DependencyImplementation
 dmoImport		org.dmd.dms.shared.generated.dmo.DependencyImplementationDMO
 derivedFrom     DmsDefinition
-isDSDefinition	true
+//isDSDefinition	true
 isNamedBy       name
 must        	name
 must			dependency
@@ -685,7 +685,7 @@ dmdID			20
 useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.server.extended.Dependency
 dmoImport		org.dmd.dms.shared.generated.dmo.DependencyDMO
-isDSDefinition	true
+//isDSDefinition	true
 derivedFrom     DmsDefinition
 isNamedBy       name
 must        	name

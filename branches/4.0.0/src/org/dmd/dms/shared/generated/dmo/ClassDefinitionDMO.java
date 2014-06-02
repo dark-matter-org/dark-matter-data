@@ -17,16 +17,15 @@ package org.dmd.dms.shared.generated.dmo;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dms.tools.generation.meta.DmoFormatter.formatDMOForClass(DmoFormatter.java:100)
-import java.io.Serializable;                            // Serializable marker interface - (DmoFormatter.java:58)
-import java.util.*;                                     // Attribute info support - (DmoFormatter.java:59)
-import org.dmd.core.*;                                  // dark-matter core - (DmoFormatter.java:80)
-import org.dmd.core.feedback.DMFeedbackSet;             // To allow error feedback - (DmoFormatter.java:79)
-import org.dmd.core.interfaces.DmcDefinitionIF;         // This is a domain specific definition - (DmoFormatter.java:90)
-import org.dmd.core.schema.DmcAttributeInfo;            // To access attribute info - (DmoFormatter.java:81)
-import org.dmd.core.schema.DmcSliceInfo;                // To allow object slicing - (DmoFormatter.java:82)
-import org.dmd.dms.shared.generated.enums.*;            // Has enum attributes - (DmoFormatter.java:96)
-import org.dmd.dms.shared.generated.types.*;            // Generated type access - (DmoFormatter.java:93)
-import org.dmd.dms.shared.types.*;                      // For common types - (DmoFormatter.java:83)
+import java.io.Serializable;                         // Serializable marker interface - (DmoFormatter.java:58)
+import java.util.*;                                  // Attribute info support - (DmoFormatter.java:59)
+import org.dmd.core.*;                               // dark-matter core - (DmoFormatter.java:80)
+import org.dmd.core.feedback.DMFeedbackSet;          // To allow error feedback - (DmoFormatter.java:79)
+import org.dmd.core.schema.DmcAttributeInfo;         // To access attribute info - (DmoFormatter.java:81)
+import org.dmd.core.schema.DmcSliceInfo;             // To allow object slicing - (DmoFormatter.java:82)
+import org.dmd.dms.shared.generated.enums.*;         // Has enum attributes - (DmoFormatter.java:96)
+import org.dmd.dms.shared.generated.types.*;         // Generated type access - (DmoFormatter.java:93)
+import org.dmd.dms.shared.types.*;                   // For common types - (DmoFormatter.java:83)
 
 
 
@@ -36,7 +35,7 @@ import org.dmd.dms.shared.types.*;                      // For common types - (D
  * Generated from: org.dmd.dms.tools.generation.meta.DmoFormatter.formatDMOForClass(DmoFormatter.java:108)
  */
 @SuppressWarnings("serial")
-public class ClassDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinitionDMO implements Serializable, DmcDefinitionIF {
+public class ClassDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinitionDMO implements Serializable  {
 
 
 
@@ -57,21 +56,16 @@ public class ClassDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDefi
         _ImAp.put(MetaDMSAG.__codeComment.id,MetaDMSAG.__codeComment);
         _ImAp.put(MetaDMSAG.__comment.id,MetaDMSAG.__comment);
         _ImAp.put(MetaDMSAG.__dataType.id,MetaDMSAG.__dataType);
-        _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
         _ImAp.put(MetaDMSAG.__derivedClasses.id,MetaDMSAG.__derivedClasses);
         _ImAp.put(MetaDMSAG.__derivedFrom.id,MetaDMSAG.__derivedFrom);
         _ImAp.put(MetaDMSAG.__description.id,MetaDMSAG.__description);
         _ImAp.put(MetaDMSAG.__dmeClass.id,MetaDMSAG.__dmeClass);
         _ImAp.put(MetaDMSAG.__dmeImport.id,MetaDMSAG.__dmeImport);
-        _ImAp.put(MetaDMSAG.__dmoAuxClass.id,MetaDMSAG.__dmoAuxClass);
-        _ImAp.put(MetaDMSAG.__dmoAuxClassImport.id,MetaDMSAG.__dmoAuxClassImport);
         _ImAp.put(MetaDMSAG.__dmoClass.id,MetaDMSAG.__dmoClass);
         _ImAp.put(MetaDMSAG.__dmoImport.id,MetaDMSAG.__dmoImport);
         _ImAp.put(MetaDMSAG.__dmtClass.id,MetaDMSAG.__dmtClass);
         _ImAp.put(MetaDMSAG.__dmtImport.id,MetaDMSAG.__dmtImport);
         _ImAp.put(MetaDMSAG.__dmtREFImport.id,MetaDMSAG.__dmtREFImport);
-        _ImAp.put(MetaDMSAG.__dmwAuxClass.id,MetaDMSAG.__dmwAuxClass);
-        _ImAp.put(MetaDMSAG.__dmwAuxClassImport.id,MetaDMSAG.__dmwAuxClassImport);
         _ImAp.put(MetaDMSAG.__dmwClass.id,MetaDMSAG.__dmwClass);
         _ImAp.put(MetaDMSAG.__dmwImport.id,MetaDMSAG.__dmwImport);
         _ImAp.put(MetaDMSAG.__dmwIteratorClass.id,MetaDMSAG.__dmwIteratorClass);
@@ -86,7 +80,6 @@ public class ClassDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDefi
         _ImAp.put(MetaDMSAG.__intendedToExtend.id,MetaDMSAG.__intendedToExtend);
         _ImAp.put(MetaDMSAG.__internalTypeRef.id,MetaDMSAG.__internalTypeRef);
         _ImAp.put(MetaDMSAG.__internallyGenerated.id,MetaDMSAG.__internallyGenerated);
-        _ImAp.put(MetaDMSAG.__isDSDefinition.id,MetaDMSAG.__isDSDefinition);
         _ImAp.put(MetaDMSAG.__isNamedBy.id,MetaDMSAG.__isNamedBy);
         _ImAp.put(MetaDMSAG.__javaClass.id,MetaDMSAG.__javaClass);
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
@@ -122,21 +115,16 @@ public class ClassDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDefi
         _SmAp.put(MetaDMSAG.__codeComment.name,MetaDMSAG.__codeComment);
         _SmAp.put(MetaDMSAG.__comment.name,MetaDMSAG.__comment);
         _SmAp.put(MetaDMSAG.__dataType.name,MetaDMSAG.__dataType);
-        _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
         _SmAp.put(MetaDMSAG.__derivedClasses.name,MetaDMSAG.__derivedClasses);
         _SmAp.put(MetaDMSAG.__derivedFrom.name,MetaDMSAG.__derivedFrom);
         _SmAp.put(MetaDMSAG.__description.name,MetaDMSAG.__description);
         _SmAp.put(MetaDMSAG.__dmeClass.name,MetaDMSAG.__dmeClass);
         _SmAp.put(MetaDMSAG.__dmeImport.name,MetaDMSAG.__dmeImport);
-        _SmAp.put(MetaDMSAG.__dmoAuxClass.name,MetaDMSAG.__dmoAuxClass);
-        _SmAp.put(MetaDMSAG.__dmoAuxClassImport.name,MetaDMSAG.__dmoAuxClassImport);
         _SmAp.put(MetaDMSAG.__dmoClass.name,MetaDMSAG.__dmoClass);
         _SmAp.put(MetaDMSAG.__dmoImport.name,MetaDMSAG.__dmoImport);
         _SmAp.put(MetaDMSAG.__dmtClass.name,MetaDMSAG.__dmtClass);
         _SmAp.put(MetaDMSAG.__dmtImport.name,MetaDMSAG.__dmtImport);
         _SmAp.put(MetaDMSAG.__dmtREFImport.name,MetaDMSAG.__dmtREFImport);
-        _SmAp.put(MetaDMSAG.__dmwAuxClass.name,MetaDMSAG.__dmwAuxClass);
-        _SmAp.put(MetaDMSAG.__dmwAuxClassImport.name,MetaDMSAG.__dmwAuxClassImport);
         _SmAp.put(MetaDMSAG.__dmwClass.name,MetaDMSAG.__dmwClass);
         _SmAp.put(MetaDMSAG.__dmwImport.name,MetaDMSAG.__dmwImport);
         _SmAp.put(MetaDMSAG.__dmwIteratorClass.name,MetaDMSAG.__dmwIteratorClass);
@@ -151,7 +139,6 @@ public class ClassDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDefi
         _SmAp.put(MetaDMSAG.__intendedToExtend.name,MetaDMSAG.__intendedToExtend);
         _SmAp.put(MetaDMSAG.__internalTypeRef.name,MetaDMSAG.__internalTypeRef);
         _SmAp.put(MetaDMSAG.__internallyGenerated.name,MetaDMSAG.__internallyGenerated);
-        _SmAp.put(MetaDMSAG.__isDSDefinition.name,MetaDMSAG.__isDSDefinition);
         _SmAp.put(MetaDMSAG.__isNamedBy.name,MetaDMSAG.__isNamedBy);
         _SmAp.put(MetaDMSAG.__javaClass.name,MetaDMSAG.__javaClass);
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
@@ -214,7 +201,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDefi
     public ClassTypeEnum getClassType(){
         DmcTypeClassTypeEnumSV attr = (DmcTypeClassTypeEnumSV) get(MetaDMSAG.__classType);
         if (attr == null)
-            return(null);
+            return(ClassTypeEnum.UNKNOWN);
 
         return(attr.getSV());
     }
@@ -484,7 +471,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDefi
     public DataTypeEnum getDataType(){
         DmcTypeDataTypeEnumSV attr = (DmcTypeDataTypeEnumSV) get(MetaDMSAG.__dataType);
         if (attr == null)
-            return(null);
+            return(DataTypeEnum.PERSISTENT);
 
         return(attr.getSV());
     }
@@ -501,32 +488,6 @@ public class ClassDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDefi
         
         attr.set(value);
         set(MetaDMSAG.__dataType,attr);
-    }
-
-    /**
-     * Indicates the schema in which a type, attribute or class is defined. 
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
-    public SchemaDefinitionREF getDefinedIn(){
-        DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) get(MetaDMSAG.__definedIn);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets definedIn to the specified value.
-     * @param value A value compatible with DmcTypeSchemaDefinitionREFSV
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
-    public void setDefinedIn(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__definedIn);
-        if (attr == null)
-            attr = new DmcTypeSchemaDefinitionREFSV(MetaDMSAG.__definedIn);
-        
-        attr.set(value);
-        set(MetaDMSAG.__definedIn,attr);
     }
 
     /**
@@ -694,58 +655,6 @@ public class ClassDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDefi
     }
 
     /**
-     * This attribute indicates just the DMO class name e.g. MyClassAUXDMO 
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
-    public String getDmoAuxClass(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__dmoAuxClass);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets dmoAuxClass to the specified value.
-     * @param value A value compatible with DmcTypeStringSV
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
-    public void setDmoAuxClass(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__dmoAuxClass);
-        if (attr == null)
-            attr = new DmcTypeStringSV(MetaDMSAG.__dmoAuxClass);
-        
-        attr.set(value);
-        set(MetaDMSAG.__dmoAuxClass,attr);
-    }
-
-    /**
-     * This attribute indicates the full name of the MyClassAUXDMO class 
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
-    public String getDmoAuxClassImport(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__dmoAuxClassImport);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets dmoAuxClassImport to the specified value.
-     * @param value A value compatible with DmcTypeStringSV
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
-    public void setDmoAuxClassImport(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__dmoAuxClassImport);
-        if (attr == null)
-            attr = new DmcTypeStringSV(MetaDMSAG.__dmoAuxClassImport);
-        
-        attr.set(value);
-        set(MetaDMSAG.__dmoAuxClassImport,attr);
-    }
-
-    /**
      * This attribute indicates just the DMO class name e.g. MyClassDMO 
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
@@ -878,58 +787,6 @@ public class ClassDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDefi
         
         attr.set(value);
         set(MetaDMSAG.__dmtREFImport,attr);
-    }
-
-    /**
-     * This attribute indicates just the DMO class name e.g. MyClassAUX 
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
-    public String getDmwAuxClass(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__dmwAuxClass);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets dmwAuxClass to the specified value.
-     * @param value A value compatible with DmcTypeStringSV
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
-    public void setDmwAuxClass(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__dmwAuxClass);
-        if (attr == null)
-            attr = new DmcTypeStringSV(MetaDMSAG.__dmwAuxClass);
-        
-        attr.set(value);
-        set(MetaDMSAG.__dmwAuxClass,attr);
-    }
-
-    /**
-     * This attribute indicates the full name of the MyClassAUX class 
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
-    public String getDmwAuxClassImport(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__dmwAuxClassImport);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets dmwAuxClassImport to the specified value.
-     * @param value A value compatible with DmcTypeStringSV
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
-    public void setDmwAuxClassImport(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__dmwAuxClassImport);
-        if (attr == null)
-            attr = new DmcTypeStringSV(MetaDMSAG.__dmwAuxClassImport);
-        
-        attr.set(value);
-        set(MetaDMSAG.__dmwAuxClassImport,attr);
     }
 
     /**
@@ -1322,41 +1179,6 @@ public class ClassDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDefi
         
         attr.set(value);
         set(MetaDMSAG.__internallyGenerated,attr);
-    }
-
-    /**
-     * Indicates if the class defined by a ClassDefinition and its derivatives
-     * are part of a domain specific set of definitions. For instance, the
-     * definitions associated with the meta schema are considered a set of domain
-     * specific definitions for defining data objects; the dark-matter Model View
-     * Whatever (MVW) definitions describe a set of domain specific concepts for
-     * defining aspects of a GWT application. <p/> A domain specific definition
-     * must be named by name and must have dotName as an attribute because the 
-     * generated class will implement the DmcDefinitionIF which assumes that
-     * these attributes exist. This interface allows these definitions to be
-     * managed as part of a set of definitions. 
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
-    public Boolean getIsDSDefinition(){
-        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaDMSAG.__isDSDefinition);
-        if (attr == null)
-            return(false);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets isDSDefinition to the specified value.
-     * @param value A value compatible with DmcTypeBooleanSV
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
-    public void setIsDSDefinition(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__isDSDefinition);
-        if (attr == null)
-            attr = new DmcTypeBooleanSV(MetaDMSAG.__isDSDefinition);
-        
-        attr.set(value);
-        set(MetaDMSAG.__isDSDefinition,attr);
     }
 
     /**
@@ -1951,7 +1773,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDefi
     public WrapperTypeEnum getUseWrapperType(){
         DmcTypeWrapperTypeEnumSV attr = (DmcTypeWrapperTypeEnumSV) get(MetaDMSAG.__useWrapperType);
         if (attr == null)
-            return(null);
+            return(WrapperTypeEnum.BASE);
 
         return(attr.getSV());
     }

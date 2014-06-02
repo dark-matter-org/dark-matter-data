@@ -114,7 +114,7 @@ public class DMFeedback {
 			sb.append("Warning: " + message.toString());
 		
 		if (source != null)
-			sb.append(source.toString() + "\n");
+			sb.append("\n" + source.toString() + "\n");
 		
 		return(sb.toString());
 	}

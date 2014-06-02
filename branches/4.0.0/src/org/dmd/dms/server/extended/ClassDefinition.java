@@ -27,7 +27,6 @@ import org.dmd.core.feedback.DMFeedbackSet;
 import org.dmd.core.schema.DmcAttributeInfo;
 import org.dmd.core.schema.DmcClassInfo;
 import org.dmd.core.util.DMUncheckedObject;
-import org.dmd.dms.server.generated.MetaSchemaAG;
 import org.dmd.dms.server.generated.dmw.ClassDefinitionDMW;
 import org.dmd.dms.shared.generated.dmo.ClassDefinitionDMO;
 import org.dmd.dms.shared.generated.dmo.MetaDMSAG;
@@ -179,17 +178,22 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * Default constructor.
      */
     public ClassDefinition(){
-    	super(new ClassDefinitionDMO(),MetaSchemaAG._ClassDefinition);
+    	super();
     	init();
     	classInfo = null;
     }
     
-    public ClassDefinition(ClassDefinitionDMO obj){
-    	super(obj);
+    public ClassDefinition(ClassDefinitionDMO obj, ClassDefinition cd){
+    	super(obj,cd);
     	init();
     	classInfo = null;
     }
     
+    /**
+     * This constructor is used when instantiated the meta schema.
+     * @param obj the DMO associated with this class definition.
+     * @param dci the class info from the DMO compact schema
+     */
     public ClassDefinition(ClassDefinitionDMO obj, DmcClassInfo dci){
     	super(obj);
     	init();
@@ -253,15 +257,15 @@ public class ClassDefinition extends ClassDefinitionDMW {
     	return(rc);
     }
     
-    /**
-	 * Default constructor used in creating the meta schema.
-	 * @param mn The meta name of the definition.
-     * @throws DMFeedbackSet 
-	 */
-	protected ClassDefinition(String mn) throws DMFeedbackSet{
-		super(mn);
-		init();
-	}
+//    /**
+//	 * Default constructor used in creating the meta schema.
+//	 * @param mn The meta name of the definition.
+//     * @throws DMFeedbackSet 
+//	 */
+//	protected ClassDefinition(String mn) throws DMFeedbackSet{
+//		super(mn);
+//		init();
+//	}
 	
     private void init(){
         attrMap = null;
@@ -718,7 +722,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
 	public String getDMWPackage(){
 		String rc = null;
 		
-		rc = getDefinedIn().getDmwPackage();
+		rc = getDefinedInDmsModule().getDmwPackage();
 		
 		return(rc);
 	}
@@ -743,7 +747,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
 		}
 		else if (getUseWrapperType() == WrapperTypeEnum.EXTENDED){
 			try {
-				if (getDefinedIn().getName().getNameString().equals(MetaDMSAG.instance().getSchemaName())){
+				if (getDefinedInDmsModule().getName().getNameString().equals(MetaDMSAG.instance().getSchemaName())){
 					setJavaClass(genPackage + "." + getName());
 					setDmeImport(genPackage + "." + getName());
 				}
@@ -771,7 +775,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
 	}
 	
 	public String getDmwPackage(String context){
-		return(getDefinedIn().getDmwPackage(context));
+		return(getDefinedInDmsModule().getDmwPackage(context));
 	}
 	
 	public WrapperTypeEnum getDmwWrapperType(String context){

@@ -18,16 +18,15 @@ package org.dmd.dms.server.generated.dmw;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:105)
-import java.util.*;                                     // To support access functions - (DmwFormatter.java:75)
-import org.dmd.core.*;                                  // Basic dark-matter infrastructure - (DmwFormatter.java:77)
-import org.dmd.core.feedback.*;                         // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:83)
-import org.dmd.core.interfaces.DmcDefinitionIF;         // Because this is a DS definition - (DmwFormatter.java:91)
-import org.dmd.dms.server.extended.*;                   // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:79)
-import org.dmd.dms.shared.generated.dmo.*;              // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:80)
-import org.dmd.dms.shared.generated.enums.*;            // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:81)
-import org.dmd.dms.shared.generated.types.*;            // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:82)
-import org.dmd.dms.shared.types.*;                      // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:76)
-import org.dmd.dmw.*;                                   // Base wrapper capabilities - (DmwFormatter.java:78)
+import java.util.*;                                  // To support access functions - (DmwFormatter.java:75)
+import org.dmd.core.*;                               // Basic dark-matter infrastructure - (DmwFormatter.java:77)
+import org.dmd.core.feedback.*;                      // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:83)
+import org.dmd.dms.server.extended.*;                // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:79)
+import org.dmd.dms.shared.generated.dmo.*;           // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:80)
+import org.dmd.dms.shared.generated.enums.*;         // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:81)
+import org.dmd.dms.shared.generated.types.*;         // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:82)
+import org.dmd.dms.shared.types.*;                   // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:76)
+import org.dmd.dmw.*;                                // Base wrapper capabilities - (DmwFormatter.java:78)
 
 /**
  * The Dependency class allows for the definition of a named dependency on
@@ -48,7 +47,7 @@ import org.dmd.dmw.*;                                   // Base wrapper capabili
  * Generated from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:113)
  */
 @SuppressWarnings("unused")
-public class DependencyDMW extends org.dmd.dms.server.extended.DmsDefinition implements DmcDefinitionIF  {
+public class DependencyDMW extends org.dmd.dms.server.extended.DmsDefinition  {
 
     private DependencyDMO mycore;
 
@@ -76,14 +75,6 @@ public class DependencyDMW extends org.dmd.dms.server.extended.DmsDefinition imp
 
     protected DependencyDMW(ClassDefinition cd) {
         super(cd);
-    }
-
-    protected DependencyDMW(String mn) throws DMFeedbackSet {
-        super(new DependencyDMO());
-        mycore = (DependencyDMO) core;
-        mycore.setContainer(this);
-        mycore.setName(mn);
-        metaname = mn;
     }
 
     /**
@@ -205,7 +196,7 @@ public class DependencyDMW extends org.dmd.dms.server.extended.DmsDefinition imp
         return(mycore.getObjectNameAttribute());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpAdditionalWrapperFunctions(MetaDSDHelper.java:971)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpAdditionalWrapperFunctions(MetaDSDHelper.java:1029)
     /**
      * This method indicates the name of the module from which this definition was loaded.
      */

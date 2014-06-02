@@ -25,7 +25,7 @@ import org.dmd.core.util.DMUncheckedObject;
 import org.dmd.core.util.NamedStringArray;
 import org.dmd.dms.server.extended.AttributeDefinition;
 import org.dmd.dms.server.extended.ClassDefinition;
-import org.dmd.dms.server.extended.SchemaManager;
+import org.dmd.dms.server.SchemaManager;
 import org.dmd.dms.shared.types.DotName;
 import org.dmd.util.runtime.DebugInfo;
 
@@ -66,7 +66,7 @@ public class DmwObjectFactory {
 		ClassDefinition		cd	= null;
 		AttributeDefinition	ad	= null;
 		
-		if ((cd = schema.isClass(uco.getConstructionClass())) == null){
+		if ((cd = schema.getClassDefinition(uco.getConstructionClass())) == null){
 			DebugInfo.debug("UncheckedObject:\n\n" + uco.toOIF());
         	DMFeedbackSet ex = new DMFeedbackSet("Unknown class: " + uco.getConstructionClass());
             throw(ex);
@@ -78,7 +78,7 @@ public class DmwObjectFactory {
 						
 		// And add any auxiliary classes if we have them
 		for(int i=1; i<uco.getClasses().size(); i++){
-			if ((cd = schema.isClass((String)uco.getClasses().get(i))) == null){
+			if ((cd = schema.getClassDefinition((String)uco.getClasses().get(i))) == null){
 //				DebugInfo.debug("UncheckedObject AUX:\n\n" + uco.toOIF());
 				throw(new DMFeedbackSet("Unknown auxiliary class: " + uco.getClasses().get(i)));
 			}
@@ -95,7 +95,7 @@ public class DmwObjectFactory {
 			}
 			
 			DotName dn = new DotName(ai.qualifiedName, "AttributeDefinition");
-			ad = schema.adef(dn);
+			ad = schema.getAttributeDefinition(dn);
 			
 			if (ad == null){
 				throw(new DMFeedbackSet("Couldn't find attribute definition for: " + n + " in object:\n\n" + uco.toOIF()));

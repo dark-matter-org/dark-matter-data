@@ -72,14 +72,6 @@ public class DSDefinitionModuleDMW extends org.dmd.dms.server.extended.DmsDefini
         super(cd);
     }
 
-    protected DSDefinitionModuleDMW(String mn) throws DMFeedbackSet {
-        super(new DSDefinitionModuleDMO());
-        mycore = (DSDefinitionModuleDMO) core;
-        mycore.setContainer(this);
-        mycore.setName(mn);
-        metaname = mn;
-    }
-
     /**
      * How a name is composed will depend on the context in which it used. For
      * instance, the names of definitions specified as part of a dark-matter
@@ -435,27 +427,6 @@ public class DSDefinitionModuleDMW extends org.dmd.dms.server.extended.DmsDefini
         return(getRequiredBaseModuleSize() > 0);
     }
 
-    /**
-     * Indicates the schema in which a type, attribute or class is defined. 
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
-    public SchemaDefinition getDefinedIn(){
-        DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) mycore.get(MetaDMSAG.__definedIn);
-        if (attr == null)
-            return(null);
-        SchemaDefinitionDMO obj = attr.getSV().getObject();
-        return((SchemaDefinition)obj.getContainer());
-    }
-
-    /**
-     * Sets definedIn to the specified value.
-     * @param value A value compatible with SchemaDefinition
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:180)
-    public void setDefinedIn(SchemaDefinition value) throws DMFeedbackSet {
-        mycore.setDefinedIn(value.getDmcObject());
-    }
-
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation
@@ -476,7 +447,7 @@ public class DSDefinitionModuleDMW extends org.dmd.dms.server.extended.DmsDefini
         return(mycore.getObjectNameAttribute());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpAdditionalWrapperFunctions(MetaDSDHelper.java:971)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpAdditionalWrapperFunctions(MetaDSDHelper.java:1029)
     /**
      * This method indicates the name of the module from which this definition was loaded.
      */

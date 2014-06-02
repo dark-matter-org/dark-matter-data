@@ -265,7 +265,7 @@ public class MetaDSDHelper {
 		out.write("package org.dmd.dms.server.generated.dsd;\n\n");
 		
 		imports.addImport("org.dmd.dms.server.extended.DSDefinition", "The base of all definitions");
-		imports.addImport("org.dmd.dms.server.util.DmcDefinitionSet", "Our base to provide definition set storage");
+//		imports.addImport("org.dmd.dms.server.util.DmcDefinitionSet", "Our base to provide definition set storage");
 		imports.addImport("org.dmd.dms.server.util.DmcDefinitionSetNew", "Our base to provide definition set storage");
 		imports.addImport("java.util.Iterator", "To allow access to our definitions");
 		imports.addImport("org.dmd.dms.shared.types.DotName", "To support the find method for definitions");
@@ -278,6 +278,7 @@ public class MetaDSDHelper {
 		imports.addImport("org.dmd.core.schema.DmcAttributeInfo", "Used when resolving clashes");
 		imports.addImport("org.dmd.core.DmcNameClashObjectSet", "Used when resolving clashes");
 		imports.addImport("org.dmd.core.feedback.DmcNameClashException", "Used when resolving clashes");
+		imports.addImport("org.dmd.dms.server.generated.MetaDmsModule", "Because we always load the meta schema");
 		
 		out.write(imports.getFormattedImports());
 		
@@ -288,7 +289,11 @@ public class MetaDSDHelper {
 		
 		dumpDefinitionManagerMembers(out, ucoModule);
 		
-		out.write("    public " + ucoModule.getSV("name") + "DefinitionManager(){\n\n");
+		out.write("    public " + ucoModule.getSV("name") + "DefinitionManager() throws DMFeedbackSet {\n\n");
+		out.write("\n");
+		out.write("        // The meta schema is always loaded by default\n");
+		out.write("        MetaDmsModule meta = new MetaDmsModule();\n");
+		out.write("        manageSchema(meta.dmsModuleInstance());\n");
 		
 //		out.write("        // This will be populated as a result of adding definitions to the definition sets for each definition type\n");
 //		out.write("        allDefinitions = new DmcDefinitionSet<DSDefinition>(\"allDefinitions\");\n\n");
@@ -387,11 +392,50 @@ public class MetaDSDHelper {
 		out.write("        return(rc);\n");
 		out.write("    }\n\n");
 		
+		dumpManageSchema(out);
+		
 		dumpDefinitionInterfaceMethods(out);
 		
 		out.write("}\n\n");
 		
 		out.close();
+	}
+	
+	/**
+	 * Dump sth emethod that allows us to manage a set of definition's loaded from a static schema.
+	 * @param out the output file handle.
+	 * @throws IOException 
+	 * @throws DMFeedbackSet  
+	 */
+	private void dumpManageSchema(ManagedFileWriter out) throws IOException, DMFeedbackSet {
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    protected void manageSchema(DmsModule mod) throws DMFeedbackSet {");
+		out.write("        // If we've already loaded the schema, return\n");
+		out.write("        if (findNamedObject(mod.getName()) != null)\n");
+		out.write("            return;\n");
+		out.write("\n");
+		out.write("        addDmsModule(mod);\n");
+		
+//		String dsdName = ucoModule.getSV("baseDefinition");
+		
+		ArrayList<ClassInfo> derived = getAllDerived(ucoModule.getSV("baseDefinition"));
+		for(ClassInfo ci: derived){
+			String name = ci.cd.getSV("name");
+			String lower = name.toLowerCase();
+			
+			// Skip the module - we add that separately at the beginning
+			if (name.equals("DmsModule"))
+				continue;
+			
+			out.write("\n");
+			out.write("        Iterator<" + name + ">    " + lower + "IT = mod.getAll" + name + "();\n");
+			out.write("        while(" + lower + "IT.hasNext())\n");
+			out.write("            add" + name + "(" + lower + "IT.next());\n");
+		}
+		
+		out.write("    }\n\n");
+		
+
 	}
 
 	private void dumpDefinitionInterfaceMethods(ManagedFileWriter out) throws DMFeedbackSet, IOException {
@@ -639,7 +683,8 @@ public class MetaDSDHelper {
 		
 		ImportManager imports = new ImportManager();
 		
-		imports.addImport("org.dmd.dms.server.extended.SchemaManager", "Manages the schemas we use");
+		imports.addImport("java.util.Iterator", "To allow itteration over collections");
+		imports.addImport("org.dmd.dms.server.SchemaManager", "Manages the schemas we use");
 		imports.addImport("org.dmd.util.parsing.DMUncheckedObjectParser", "Basic parsing of objects");
 		imports.addImport("org.dmd.util.parsing.DMUncheckedObjectHandlerIF", "Basic parsing of objects");
 		imports.addImport("org.dmd.core.util.DMUncheckedObject", "Basic parsing of objects");
@@ -658,7 +703,7 @@ public class MetaDSDHelper {
 //		SchemaDefinition sd = ddm.getDefinedIn();
 		String schemaName = "Meta";
 		
-		imports.addImport("org.dmd.dms.server.generated.MetaSchemaAG", "The schema recognized by this parser");
+//		imports.addImport("org.dmd.dms.server.generated.MetaSchemaAG", "The schema recognized by this parser");
 		imports.addImport("org.dmd.core.feedback.DMFeedbackSet", "May be thrown when parsing objects");
 		imports.addImport("org.dmd.core.feedback.DmcNameClashException", "May be thrown when instantiating objects");
 //		imports.addImport("org.dmd.util.exceptions.ResultException", "May be thrown by schema management");
@@ -667,7 +712,7 @@ public class MetaDSDHelper {
 		imports.addImport("org.dmd.dms.server.generated.dmw.StringIterableDMW", "To iterate over defFiles");
 		imports.addImport("org.dmd.core.feedback.SourceInfo", "To indicate the source of rule problems");
 		imports.addImport("org.dmd.dmw.DmwWrapper", "To handle factory created objects");
-		imports.addImport("org.dmd.dms.server.extended.MetaSchema", "So that we can preserve newlines");
+//		imports.addImport("org.dmd.dms.server.extended.MetaSchema", "So that we can preserve newlines");
 		imports.addImport("org.dmd.dms.shared.generated.dmo.MetaDMSAG","To allow loading of rules from the meta schema");
 		
 		// Get the class that was generated for the module
@@ -681,7 +726,7 @@ public class MetaDSDHelper {
 		getImportsForDefinitionsInSingleModule(imports, ucoModule, structuralDefs);
 		
 		imports.addImport("org.dmd.dms.server.extended.AttributeDefinition", "To allow addition of preserve newline attributes");
-		imports.addImport("org.dmd.dms.server.generated.dmw.AttributeDefinitionIterableDMW", "To allow addition of preserve newline attributes");
+//		imports.addImport("org.dmd.dms.server.generated.dmw.AttributeDefinitionIterableDMW", "To allow addition of preserve newline attributes");
 //		if (ddm.getSupportDynamicSchemaLoading()){
 //			imports.addImport("org.dmd.dms.generated.types.SchemaAndReason", "To allow dynamic schema loading");
 //		}
@@ -708,13 +753,14 @@ public class MetaDSDHelper {
 		
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("    public " + ucoModule.getSV("name") + "Parser(" + ucoModule.getSV("name") + "GlobalInterface" + " d, DmvRuleManager r) throws DMFeedbackSet, DmcNameClashException {\n");
+		out.write("        // The SchemaManager automatically loads the meta schema\n");
 		out.write("        schema = new SchemaManager();\n");
-		out.write("        " + schemaName + "SchemaAG sd = new " + schemaName + "SchemaAG();\n");	
-		out.write("        schema.manageSchema(sd.getInstance());\n");
-		out.write("        if (sd.getAttributeDefListSize() > 0){\n");
-		out.write("            preserveNewLines(sd.getAttributeDefList());\n");
+//		out.write("        " + schemaName + "SchemaAG sd = new " + schemaName + "SchemaAG();\n");	
+//		out.write("        schema.manageSchema(sd.getInstance());\n");
+		out.write("        if (schema.getAttributeDefinitionCount() > 0){\n");
+		out.write("            preserveNewLines(schema.getAllAttributeDefinition());\n");
 		out.write("        }\n");
-		out.write("        preserveNewLines(MetaSchema._metaSchema.getAttributeDefList());\n");
+//		out.write("        preserveNewLines(MetaSchema._metaSchema.getAttributeDefList());\n");
 		out.write("        \n");
 		out.write("        factory      = new DmwObjectFactory(schema);\n");
 		out.write("        \n");
@@ -723,9 +769,9 @@ public class MetaDSDHelper {
 		out.write("        rules.loadRules(" + schemaName + "DMSAG.instance());\n");			
 		out.write("    }\n\n");
 		
-		out.write("    void preserveNewLines(AttributeDefinitionIterableDMW attrs){\n");
+		out.write("    void preserveNewLines(Iterator<AttributeDefinition> attrs){\n");
 		out.write("        while(attrs.hasNext()){\n");
-		out.write("            AttributeDefinition ad = attrs.getNext();\n");
+		out.write("            AttributeDefinition ad = attrs.next();\n");
 		out.write("            if (ad.getPreserveNewlines()){\n");
 		out.write("                parser.addPreserveNewlinesAttribute(ad.getName().getNameString());\n");
 		out.write("            }\n");
@@ -907,7 +953,7 @@ public class MetaDSDHelper {
 	
 	public void getAdditionalWrapperImports(ImportManager imports, DMUncheckedObject cd) throws DMFeedbackSet{
 		imports.addImport("org.dmd.dms.server.generated.dsd." + ucoModule.getSV("name") + "ScopedInterface", "Because this is a DS module");
-		imports.addImport("org.dmd.dms.server.util.DmcDefinitionSet", "Our base to provide definition set storage");
+		imports.addImport("org.dmd.dms.server.util.DmcDefinitionSetNew", "Our base to provide definition set storage");
 		getImportsForInterface(imports, true);
 	}
 	
@@ -948,10 +994,22 @@ public class MetaDSDHelper {
 
 	// Based on the DSDefinitionModule function
 	public void getScopedInterfaceMembers(MemberManager members) throws DMFeedbackSet{
-		members.addMember("DmcDefinitionSet<" + ucoModule.getSV("baseDefinition") + "> ", ucoModule.getSV("baseDefinition") + "Defs", "new " + "DmcDefinitionSet<" + ucoModule.getSV("baseDefinition") + ">(\"" + ucoModule.getSV("name") + "-allDefinitions\")", "All definitions associated with this module");
+//		String basename = ucoModule.getSV("baseDefinition");
+		String name = ucoModule.getSV("baseDefinition");
+		
+		members.addMember("protected DmcDefinitionSetNew<DSDefinition> ", "allDefinitions", "new " + "DmcDefinitionSetNew<DSDefinition>(\"DSDefinition\")", "All definitions associated with this module");
+		
+		members.addMember("protected DmcDefinitionSetNew<" + name + "> ", name + "Defs", "new " + "DmcDefinitionSetNew<" + name + ">(\"" + name + "\", false, allDefinitions, allDefinitions)", "The base definition");
 		ArrayList<ClassInfo> derived = getAllDerived(ucoModule.getSV("baseDefinition"));
 		for(ClassInfo ci: derived){
-			members.addMember("DmcDefinitionSet<" + ci.cd.getSV("name") + "> ", ci.cd.getSV("name") + "Defs", "new " + "DmcDefinitionSet<" + ci.cd.getSV("name") + ">(\"" + ucoModule.getSV("name") + "-" + ci.cd.getSV("name") + "Defs\")", "All " + ci.cd.getSV("name") + " definitions");			
+			name = ci.cd.getSV("name");
+			String derivedFrom = ci.cd.getSV("derivedFrom");
+			String classType = ci.cd.getSV("classType");
+			String structural = "true";
+			if (!classType.equals("STRUCTURAL"))
+				structural = "false";
+			
+			members.addMember("protected DmcDefinitionSetNew<" + name + "> ", name + "Defs", "new " + "DmcDefinitionSetNew<" + name + ">(\"" + name + "\"," + structural + ", " + derivedFrom + "Defs, allDefinitions)", "All " + name + " definitions");			
 		}
 	}
 	

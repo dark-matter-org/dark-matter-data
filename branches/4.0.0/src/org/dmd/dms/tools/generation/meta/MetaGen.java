@@ -319,7 +319,10 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 				gtn = cn + "REF";
 				typeDef = new DMUncheckedObject("TypeDefinition");
 				typeDef.addValue("name", cn);
-				typeDef.addValue("dotName", 			"meta." + gtn + ".TypeDefinition");
+// Second guessing this while building the new dmogen - the dotname should match the actual type, we
+// would on use the REF stuff when referring to the generated Java type
+//				typeDef.addValue("dotName", 			"meta." + gtn + ".TypeDefinition");
+				typeDef.addValue("dotName", 			"meta." + cn + ".TypeDefinition");
 				typeDef.addValue("typeClassName",		sharedGenTypesPackage + ".DmcType" + gtn);
 				typeDef.addValue("wrapperClassName",	classDef.getSV("javaClass"));
 				typeDef.addValue("internallyGenerated", "true");
@@ -406,6 +409,7 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 			String cn = enumDef.getSV("name");
 //			String tn = cn + "REF";
 			String tn = cn;
+			String	nullReturnValue = enumDef.getSV("nullReturnValue");
 
 			DMUncheckedObject typeDef = new DMUncheckedObject("TypeDefinition");
 			typeDef.addValue("name", 				tn);
@@ -418,6 +422,9 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 			typeDef.addValue("isEnumType", 			"true");
 			typeDef.addValue("description",			"This is an internally generated type to allow references to " + cn + " objects.");
 
+			if (nullReturnValue != null)
+				typeDef.addValue("nullReturnValue", nullReturnValue);
+			
 			checkForDuplicateType("EnumDefinition", cn);
 
 			ucoManager.add(typeDef, false);

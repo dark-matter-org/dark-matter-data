@@ -18,16 +18,15 @@ package org.dmd.dms.server.generated.dmw;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:105)
-import java.util.*;                                     // To support access functions - (DmwFormatter.java:75)
-import org.dmd.core.*;                                  // Basic dark-matter infrastructure - (DmwFormatter.java:77)
-import org.dmd.core.feedback.*;                         // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:83)
-import org.dmd.core.interfaces.DmcDefinitionIF;         // Because this is a DS definition - (DmwFormatter.java:91)
-import org.dmd.dms.server.extended.*;                   // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:79)
-import org.dmd.dms.shared.generated.dmo.*;              // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:80)
-import org.dmd.dms.shared.generated.enums.*;            // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:81)
-import org.dmd.dms.shared.generated.types.*;            // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:82)
-import org.dmd.dms.shared.types.*;                      // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:76)
-import org.dmd.dmw.*;                                   // Base wrapper capabilities - (DmwFormatter.java:78)
+import java.util.*;                                  // To support access functions - (DmwFormatter.java:75)
+import org.dmd.core.*;                               // Basic dark-matter infrastructure - (DmwFormatter.java:77)
+import org.dmd.core.feedback.*;                      // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:83)
+import org.dmd.dms.server.extended.*;                // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:79)
+import org.dmd.dms.shared.generated.dmo.*;           // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:80)
+import org.dmd.dms.shared.generated.enums.*;         // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:81)
+import org.dmd.dms.shared.generated.types.*;         // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:82)
+import org.dmd.dms.shared.types.*;                   // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:76)
+import org.dmd.dmw.*;                                // Base wrapper capabilities - (DmwFormatter.java:78)
 
 /**
  * This class provides the basic mechanism to define new classes for a
@@ -36,7 +35,7 @@ import org.dmd.dmw.*;                                   // Base wrapper capabili
  * Generated from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:113)
  */
 @SuppressWarnings("unused")
-public class ClassDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition implements DmcDefinitionIF  {
+public class ClassDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition  {
 
     private ClassDefinitionDMO mycore;
 
@@ -64,14 +63,6 @@ public class ClassDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinitio
 
     protected ClassDefinitionDMW(ClassDefinition cd) {
         super(cd);
-    }
-
-    protected ClassDefinitionDMW(String mn) throws DMFeedbackSet {
-        super(new ClassDefinitionDMO());
-        mycore = (ClassDefinitionDMO) core;
-        mycore.setContainer(this);
-        mycore.setName(mn);
-        metaname = mn;
     }
 
     /**
@@ -670,32 +661,6 @@ public class ClassDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinitio
     }
 
     /**
-     * Indicates if the class defined by a ClassDefinition and its derivatives
-     * are part of a domain specific set of definitions. For instance, the
-     * definitions associated with the meta schema are considered a set of domain
-     * specific definitions for defining data objects; the dark-matter Model View
-     * Whatever (MVW) definitions describe a set of domain specific concepts for
-     * defining aspects of a GWT application. <p/> A domain specific definition
-     * must be named by name and must have dotName as an attribute because the 
-     * generated class will implement the DmcDefinitionIF which assumes that
-     * these attributes exist. This interface allows these definitions to be
-     * managed as part of a set of definitions. 
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
-    public Boolean getIsDSDefinition(){
-        return(mycore.getIsDSDefinition());
-    }
-
-    /**
-     * Sets isDSDefinition to the specified value.
-     * @param value A value compatible with DmcTypeBooleanSV
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
-    public void setIsDSDefinition(Object value) throws DMFeedbackSet {
-        mycore.setIsDSDefinition(value);
-    }
-
-    /**
      * For classes that defined as part of a definition module, this indicates
      * the module they belong to. This allows for generation of a standard method
      * to get the name of the module from which they were loaded. 
@@ -1103,74 +1068,6 @@ public class ClassDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinitio
     }
 
     /**
-     * This attribute indicates just the DMO class name e.g. MyClassAUXDMO 
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
-    public String getDmoAuxClass(){
-        return(mycore.getDmoAuxClass());
-    }
-
-    /**
-     * Sets dmoAuxClass to the specified value.
-     * @param value A value compatible with DmcTypeStringSV
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
-    public void setDmoAuxClass(Object value) throws DMFeedbackSet {
-        mycore.setDmoAuxClass(value);
-    }
-
-    /**
-     * This attribute indicates the full name of the MyClassAUXDMO class 
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
-    public String getDmoAuxClassImport(){
-        return(mycore.getDmoAuxClassImport());
-    }
-
-    /**
-     * Sets dmoAuxClassImport to the specified value.
-     * @param value A value compatible with DmcTypeStringSV
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
-    public void setDmoAuxClassImport(Object value) throws DMFeedbackSet {
-        mycore.setDmoAuxClassImport(value);
-    }
-
-    /**
-     * This attribute indicates just the DMO class name e.g. MyClassAUX 
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
-    public String getDmwAuxClass(){
-        return(mycore.getDmwAuxClass());
-    }
-
-    /**
-     * Sets dmwAuxClass to the specified value.
-     * @param value A value compatible with DmcTypeStringSV
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
-    public void setDmwAuxClass(Object value) throws DMFeedbackSet {
-        mycore.setDmwAuxClass(value);
-    }
-
-    /**
-     * This attribute indicates the full name of the MyClassAUX class 
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
-    public String getDmwAuxClassImport(){
-        return(mycore.getDmwAuxClassImport());
-    }
-
-    /**
-     * Sets dmwAuxClassImport to the specified value.
-     * @param value A value compatible with DmcTypeStringSV
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
-    public void setDmwAuxClassImport(Object value) throws DMFeedbackSet {
-        mycore.setDmwAuxClassImport(value);
-    }
-
-    /**
      * This attribute indicates the full name of the DmcContainerIterator 
      * derived class that allows us to iterate over a set of object references
      * and get back the DMW wrapper object instead of the DMO. 
@@ -1227,7 +1124,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinitio
         return(mycore.getObjectNameAttribute());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpAdditionalWrapperFunctions(MetaDSDHelper.java:971)
+    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpAdditionalWrapperFunctions(MetaDSDHelper.java:1029)
     /**
      * This method indicates the name of the module from which this definition was loaded.
      */

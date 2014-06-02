@@ -168,27 +168,6 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
     }
 
     /**
-     * Indicates the schema in which a type, attribute or class is defined. 
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
-    public SchemaDefinition getDefinedIn(){
-        DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) mycore.get(MetaDMSAG.__definedIn);
-        if (attr == null)
-            return(null);
-        SchemaDefinitionDMO obj = attr.getSV().getObject();
-        return((SchemaDefinition)obj.getContainer());
-    }
-
-    /**
-     * Sets definedIn to the specified value.
-     * @param value A value compatible with SchemaDefinition
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:180)
-    public void setDefinedIn(SchemaDefinition value) throws DMFeedbackSet {
-        mycore.setDefinedIn(value.getDmcObject());
-    }
-
-    /**
      * Indicates the file from which a definition was loaded. 
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)

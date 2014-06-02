@@ -68,7 +68,7 @@ public class ConfigFinder {
 	// The length of the longest schema name we found
 	int	longest;
 	
-	boolean	debug = false;
+	boolean	debug = true;
 	
 	public ConfigFinder(){
 		init();
@@ -363,6 +363,7 @@ public class ConfigFinder {
 		debugMessage("found config: " + cl.getConfigName());
 		
 		allConfigs.add(cl);
+		configs.put(cl.configName,cl);
 	}
 	
 	/**

@@ -17,16 +17,15 @@ package org.dmd.dms.shared.generated.dmo;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dms.tools.generation.meta.DmoFormatter.formatDMOForClass(DmoFormatter.java:100)
-import java.io.Serializable;                            // Serializable marker interface - (DmoFormatter.java:58)
-import java.util.*;                                     // Attribute info support - (DmoFormatter.java:59)
-import org.dmd.core.*;                                  // dark-matter core - (DmoFormatter.java:80)
-import org.dmd.core.feedback.DMFeedbackSet;             // To allow error feedback - (DmoFormatter.java:79)
-import org.dmd.core.interfaces.DmcDefinitionIF;         // This is a domain specific definition - (DmoFormatter.java:90)
-import org.dmd.core.schema.DmcAttributeInfo;            // To access attribute info - (DmoFormatter.java:81)
-import org.dmd.core.schema.DmcSliceInfo;                // To allow object slicing - (DmoFormatter.java:82)
-import org.dmd.dms.shared.generated.enums.*;            // Has enum attributes - (DmoFormatter.java:96)
-import org.dmd.dms.shared.generated.types.*;            // Generated type access - (DmoFormatter.java:93)
-import org.dmd.dms.shared.types.*;                      // For common types - (DmoFormatter.java:83)
+import java.io.Serializable;                         // Serializable marker interface - (DmoFormatter.java:58)
+import java.util.*;                                  // Attribute info support - (DmoFormatter.java:59)
+import org.dmd.core.*;                               // dark-matter core - (DmoFormatter.java:80)
+import org.dmd.core.feedback.DMFeedbackSet;          // To allow error feedback - (DmoFormatter.java:79)
+import org.dmd.core.schema.DmcAttributeInfo;         // To access attribute info - (DmoFormatter.java:81)
+import org.dmd.core.schema.DmcSliceInfo;             // To allow object slicing - (DmoFormatter.java:82)
+import org.dmd.dms.shared.generated.enums.*;         // Has enum attributes - (DmoFormatter.java:96)
+import org.dmd.dms.shared.generated.types.*;         // Generated type access - (DmoFormatter.java:93)
+import org.dmd.dms.shared.types.*;                   // For common types - (DmoFormatter.java:83)
 
 
 
@@ -36,7 +35,7 @@ import org.dmd.dms.shared.types.*;                      // For common types - (D
  * Generated from: org.dmd.dms.tools.generation.meta.DmoFormatter.formatDMOForClass(DmoFormatter.java:108)
  */
 @SuppressWarnings("serial")
-public class AttributeDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinitionDMO implements Serializable, DmcDefinitionIF {
+public class AttributeDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDefinitionDMO implements Serializable  {
 
 
 
@@ -54,7 +53,6 @@ public class AttributeDefinitionDMO extends org.dmd.dms.shared.generated.dmo.Dms
         _ImAp.put(MetaDMSAG.__codeComment.id,MetaDMSAG.__codeComment);
         _ImAp.put(MetaDMSAG.__comment.id,MetaDMSAG.__comment);
         _ImAp.put(MetaDMSAG.__dataType.id,MetaDMSAG.__dataType);
-        _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
         _ImAp.put(MetaDMSAG.__description.id,MetaDMSAG.__description);
         _ImAp.put(MetaDMSAG.__designatedFilterAttribute.id,MetaDMSAG.__designatedFilterAttribute);
         _ImAp.put(MetaDMSAG.__designatedNameAttribute.id,MetaDMSAG.__designatedNameAttribute);
@@ -93,7 +91,6 @@ public class AttributeDefinitionDMO extends org.dmd.dms.shared.generated.dmo.Dms
         _SmAp.put(MetaDMSAG.__codeComment.name,MetaDMSAG.__codeComment);
         _SmAp.put(MetaDMSAG.__comment.name,MetaDMSAG.__comment);
         _SmAp.put(MetaDMSAG.__dataType.name,MetaDMSAG.__dataType);
-        _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
         _SmAp.put(MetaDMSAG.__description.name,MetaDMSAG.__description);
         _SmAp.put(MetaDMSAG.__designatedFilterAttribute.name,MetaDMSAG.__designatedFilterAttribute);
         _SmAp.put(MetaDMSAG.__designatedNameAttribute.name,MetaDMSAG.__designatedNameAttribute);
@@ -342,7 +339,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.shared.generated.dmo.Dms
     public DataTypeEnum getDataType(){
         DmcTypeDataTypeEnumSV attr = (DmcTypeDataTypeEnumSV) get(MetaDMSAG.__dataType);
         if (attr == null)
-            return(null);
+            return(DataTypeEnum.PERSISTENT);
 
         return(attr.getSV());
     }
@@ -359,32 +356,6 @@ public class AttributeDefinitionDMO extends org.dmd.dms.shared.generated.dmo.Dms
         
         attr.set(value);
         set(MetaDMSAG.__dataType,attr);
-    }
-
-    /**
-     * Indicates the schema in which a type, attribute or class is defined. 
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
-    public SchemaDefinitionREF getDefinedIn(){
-        DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) get(MetaDMSAG.__definedIn);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets definedIn to the specified value.
-     * @param value A value compatible with DmcTypeSchemaDefinitionREFSV
-     */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
-    public void setDefinedIn(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__definedIn);
-        if (attr == null)
-            attr = new DmcTypeSchemaDefinitionREFSV(MetaDMSAG.__definedIn);
-        
-        attr.set(value);
-        set(MetaDMSAG.__definedIn,attr);
     }
 
     /**
@@ -1149,7 +1120,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.shared.generated.dmo.Dms
     public ValueTypeEnum getValueType(){
         DmcTypeValueTypeEnumSV attr = (DmcTypeValueTypeEnumSV) get(MetaDMSAG.__valueType);
         if (attr == null)
-            return(null);
+            return(ValueTypeEnum.SINGLE);
 
         return(attr.getSV());
     }

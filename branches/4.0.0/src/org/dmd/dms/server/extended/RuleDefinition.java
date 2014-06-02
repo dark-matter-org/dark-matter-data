@@ -3,7 +3,6 @@ package org.dmd.dms.server.extended;
 import org.dmd.core.feedback.DMFeedback;
 import org.dmd.core.feedback.DMFeedbackSet;
 import org.dmd.core.rules.RuleIF;
-import org.dmd.dms.server.generated.MetaSchemaAG;
 import org.dmd.dms.server.generated.dmw.RuleDefinitionDMW;
 import org.dmd.dms.shared.generated.dmo.RuleDefinitionDMO;
 import org.dmd.dms.shared.generated.enums.OperationalContextEnum;
@@ -14,16 +13,16 @@ import org.dmd.util.runtime.DebugInfo;
 public class RuleDefinition extends RuleDefinitionDMW {
 
 	public RuleDefinition(){
-		super(new RuleDefinitionDMO(), MetaSchemaAG._RuleDefinition);
+		super();
 	}
 	
-	public RuleDefinition(RuleDefinitionDMO obj){
+	public RuleDefinition(RuleDefinitionDMO obj, ClassDefinition cd){
 		super(obj);
 	}
 	
-	protected RuleDefinition(String mn) throws DMFeedbackSet {
-		super(mn);
-	}
+//	protected RuleDefinition(String mn) throws DMFeedbackSet {
+//		super(mn);
+//	}
 	
 	/**
 	 * @return true if all categories associated with the rule are DMO context and false
@@ -59,10 +58,10 @@ public class RuleDefinition extends RuleDefinitionDMW {
 		StringBuffer sb = new StringBuffer();
 		
 		if (isDMOCompliant()){
-			sb.append(getDefinedIn().getSchemaPackage() + ".extended.rulesdmo." + getName());
+			sb.append(getDefinedInDmsModule().getSchemaPackage() + ".extended.rulesdmo." + getName());
 		}
 		else{
-			sb.append(getDefinedIn().getSchemaPackage() + ".extended.rulesfulljava." + getName());
+			sb.append(getDefinedInDmsModule().getSchemaPackage() + ".extended.rulesfulljava." + getName());
 		}
 		
 		return(sb.toString());
