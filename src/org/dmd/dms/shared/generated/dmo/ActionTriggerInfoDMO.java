@@ -52,10 +52,10 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable  {
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
-        _ImAp.put(MetaDMSAG.__name.id,MetaDMSAG.__name);
+        _ImAp.put(MetaCompactSchema.__name.id,MetaCompactSchema.__name);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
-        _SmAp.put(MetaDMSAG.__name.name,MetaDMSAG.__name);
+        _SmAp.put(MetaCompactSchema.__name.name,MetaCompactSchema.__name);
     }
 
 
@@ -98,7 +98,7 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable  {
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
     public DefinitionName getName(){
-        DmcTypeDefinitionNameSV attr = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
+        DmcTypeDefinitionNameSV attr = (DmcTypeDefinitionNameSV) get(MetaCompactSchema.__name);
         if (attr == null)
             return(null);
 
@@ -111,12 +111,12 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable  {
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
     public void setName(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__name);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__name);
         if (attr == null)
-            attr = new DmcTypeDefinitionNameSV(MetaDMSAG.__name);
+            attr = new DmcTypeDefinitionNameSV(MetaCompactSchema.__name);
         
         attr.set(value);
-        set(MetaDMSAG.__name,attr);
+        set(MetaCompactSchema.__name,attr);
     }
 
 

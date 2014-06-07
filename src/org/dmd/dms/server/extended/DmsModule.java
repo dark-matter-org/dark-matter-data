@@ -31,9 +31,14 @@ public class DmsModule extends DmsModuleDMW {
 	public String getStaticRefName(){
 		return(staticRefName);
 	}
+	
+	public String getCompactSchemaImport(){
+		String name = Manipulator.dotNameToCamelCase(getName().getNameString()) + "CompactSchema";
+		return(getSchemaPackage() + ".generated.dmo." + name);
+	}
 
-	public String getDMSASGName(){
-		String rc = Manipulator.dotNameToCamelCase(getName().getNameString()) + "DMSAG";
+	public String getCompactSchemaName(){
+		String rc = Manipulator.dotNameToCamelCase(getName().getNameString()) + "CompactSchema";
 		return(rc);
 	}
 	

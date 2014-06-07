@@ -95,7 +95,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.server.extended.Dms
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public Dependency getDependency(){
-        DmcTypeDependencyREFSV attr = (DmcTypeDependencyREFSV) mycore.get(MetaDMSAG.__dependency);
+        DmcTypeDependencyREFSV attr = (DmcTypeDependencyREFSV) mycore.get(MetaCompactSchema.__dependency);
         if (attr == null)
             return(null);
         DependencyDMO obj = attr.getSV().getObject();
@@ -116,7 +116,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.server.extended.Dms
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public RunContext getRunContext(){
-        DmcTypeRunContextREFSV attr = (DmcTypeRunContextREFSV) mycore.get(MetaDMSAG.__runContext);
+        DmcTypeRunContextREFSV attr = (DmcTypeRunContextREFSV) mycore.get(MetaCompactSchema.__runContext);
         if (attr == null)
             return(null);
         RunContextDMO obj = attr.getSV().getObject();
@@ -164,7 +164,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.server.extended.Dms
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
     public StringIterableDMW getDescriptionIterable(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaCompactSchema.__description);
         if (attr == null)
             return(StringIterableDMW.emptyList);
 
@@ -173,7 +173,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.server.extended.Dms
 
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:341)
     public Iterator<String> getDescriptionWithNewlines(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaCompactSchema.__description);
         if (attr == null)
             return(null);
 
@@ -204,7 +204,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.server.extended.Dms
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getDescriptionSize(){
-        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__description);
+        DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__description);
         if (attr == null)
             return(0);
         return(attr.getMVSize());

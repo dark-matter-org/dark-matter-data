@@ -44,96 +44,96 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
-        _ImAp.put(MetaDMSAG.__definedInDmsModule.id,MetaDMSAG.__definedInDmsModule);
-        _ImAp.put(MetaDMSAG.__name.id,MetaDMSAG.__name);
-        _ImAp.put(MetaDMSAG.__schemaBaseID.id,MetaDMSAG.__schemaBaseID);
-        _ImAp.put(MetaDMSAG.__schemaIDRange.id,MetaDMSAG.__schemaIDRange);
-        _ImAp.put(MetaDMSAG.__schemaPackage.id,MetaDMSAG.__schemaPackage);
-        _ImAp.put(MetaDMSAG.__actionDefList.id,MetaDMSAG.__actionDefList);
-        _ImAp.put(MetaDMSAG.__attributeDefList.id,MetaDMSAG.__attributeDefList);
-        _ImAp.put(MetaDMSAG.__classDefList.id,MetaDMSAG.__classDefList);
-        _ImAp.put(MetaDMSAG.__codeComment.id,MetaDMSAG.__codeComment);
-        _ImAp.put(MetaDMSAG.__comment.id,MetaDMSAG.__comment);
-        _ImAp.put(MetaDMSAG.__complexTypeDefList.id,MetaDMSAG.__complexTypeDefList);
-        _ImAp.put(MetaDMSAG.__createAttributeFactory.id,MetaDMSAG.__createAttributeFactory);
-        _ImAp.put(MetaDMSAG.__defFiles.id,MetaDMSAG.__defFiles);
-        _ImAp.put(MetaDMSAG.__dependsOn.id,MetaDMSAG.__dependsOn);
-        _ImAp.put(MetaDMSAG.__dependsOnRef.id,MetaDMSAG.__dependsOnRef);
-        _ImAp.put(MetaDMSAG.__description.id,MetaDMSAG.__description);
-        _ImAp.put(MetaDMSAG.__dmwPackage.id,MetaDMSAG.__dmwPackage);
-        _ImAp.put(MetaDMSAG.__dmwTypeToPackage.id,MetaDMSAG.__dmwTypeToPackage);
-        _ImAp.put(MetaDMSAG.__dotName.id,MetaDMSAG.__dotName);
-        _ImAp.put(MetaDMSAG.__dsdModuleList.id,MetaDMSAG.__dsdModuleList);
-        _ImAp.put(MetaDMSAG.__enumDefList.id,MetaDMSAG.__enumDefList);
-        _ImAp.put(MetaDMSAG.__example.id,MetaDMSAG.__example);
-        _ImAp.put(MetaDMSAG.__extendedReferenceTypeDefList.id,MetaDMSAG.__extendedReferenceTypeDefList);
-        _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
-        _ImAp.put(MetaDMSAG.__generatedFileHeader.id,MetaDMSAG.__generatedFileHeader);
-        _ImAp.put(MetaDMSAG.__hint.id,MetaDMSAG.__hint);
-        _ImAp.put(MetaDMSAG.__internalTypeDefList.id,MetaDMSAG.__internalTypeDefList);
-        _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
-        _ImAp.put(MetaDMSAG.__nvp.id,MetaDMSAG.__nvp);
-        _ImAp.put(MetaDMSAG.__obsolete.id,MetaDMSAG.__obsolete);
-        _ImAp.put(MetaDMSAG.__optimize.id,MetaDMSAG.__optimize);
-        _ImAp.put(MetaDMSAG.__question.id,MetaDMSAG.__question);
-        _ImAp.put(MetaDMSAG.__relatedToConcept.id,MetaDMSAG.__relatedToConcept);
-        _ImAp.put(MetaDMSAG.__ruleCategoryList.id,MetaDMSAG.__ruleCategoryList);
-        _ImAp.put(MetaDMSAG.__ruleDataList.id,MetaDMSAG.__ruleDataList);
-        _ImAp.put(MetaDMSAG.__ruleDefinitionList.id,MetaDMSAG.__ruleDefinitionList);
-        _ImAp.put(MetaDMSAG.__schemaExtension.id,MetaDMSAG.__schemaExtension);
-        _ImAp.put(MetaDMSAG.__skip.id,MetaDMSAG.__skip);
-        _ImAp.put(MetaDMSAG.__sliceDefList.id,MetaDMSAG.__sliceDefList);
-        _ImAp.put(MetaDMSAG.__sortName.id,MetaDMSAG.__sortName);
-        _ImAp.put(MetaDMSAG.__tags.id,MetaDMSAG.__tags);
-        _ImAp.put(MetaDMSAG.__typeDefList.id,MetaDMSAG.__typeDefList);
-        _ImAp.put(MetaDMSAG.__version.id,MetaDMSAG.__version);
-        _ImAp.put(MetaDMSAG.__why.id,MetaDMSAG.__why);
+        _ImAp.put(MetaCompactSchema.__definedInDmsModule.id,MetaCompactSchema.__definedInDmsModule);
+        _ImAp.put(MetaCompactSchema.__name.id,MetaCompactSchema.__name);
+        _ImAp.put(MetaCompactSchema.__schemaBaseID.id,MetaCompactSchema.__schemaBaseID);
+        _ImAp.put(MetaCompactSchema.__schemaIDRange.id,MetaCompactSchema.__schemaIDRange);
+        _ImAp.put(MetaCompactSchema.__schemaPackage.id,MetaCompactSchema.__schemaPackage);
+        _ImAp.put(MetaCompactSchema.__actionDefList.id,MetaCompactSchema.__actionDefList);
+        _ImAp.put(MetaCompactSchema.__attributeDefList.id,MetaCompactSchema.__attributeDefList);
+        _ImAp.put(MetaCompactSchema.__classDefList.id,MetaCompactSchema.__classDefList);
+        _ImAp.put(MetaCompactSchema.__codeComment.id,MetaCompactSchema.__codeComment);
+        _ImAp.put(MetaCompactSchema.__comment.id,MetaCompactSchema.__comment);
+        _ImAp.put(MetaCompactSchema.__complexTypeDefList.id,MetaCompactSchema.__complexTypeDefList);
+        _ImAp.put(MetaCompactSchema.__createAttributeFactory.id,MetaCompactSchema.__createAttributeFactory);
+        _ImAp.put(MetaCompactSchema.__defFiles.id,MetaCompactSchema.__defFiles);
+        _ImAp.put(MetaCompactSchema.__dependsOn.id,MetaCompactSchema.__dependsOn);
+        _ImAp.put(MetaCompactSchema.__dependsOnRef.id,MetaCompactSchema.__dependsOnRef);
+        _ImAp.put(MetaCompactSchema.__description.id,MetaCompactSchema.__description);
+        _ImAp.put(MetaCompactSchema.__dmwPackage.id,MetaCompactSchema.__dmwPackage);
+        _ImAp.put(MetaCompactSchema.__dmwTypeToPackage.id,MetaCompactSchema.__dmwTypeToPackage);
+        _ImAp.put(MetaCompactSchema.__dotName.id,MetaCompactSchema.__dotName);
+        _ImAp.put(MetaCompactSchema.__dsdModuleList.id,MetaCompactSchema.__dsdModuleList);
+        _ImAp.put(MetaCompactSchema.__enumDefList.id,MetaCompactSchema.__enumDefList);
+        _ImAp.put(MetaCompactSchema.__example.id,MetaCompactSchema.__example);
+        _ImAp.put(MetaCompactSchema.__extendedReferenceTypeDefList.id,MetaCompactSchema.__extendedReferenceTypeDefList);
+        _ImAp.put(MetaCompactSchema.__file.id,MetaCompactSchema.__file);
+        _ImAp.put(MetaCompactSchema.__generatedFileHeader.id,MetaCompactSchema.__generatedFileHeader);
+        _ImAp.put(MetaCompactSchema.__hint.id,MetaCompactSchema.__hint);
+        _ImAp.put(MetaCompactSchema.__internalTypeDefList.id,MetaCompactSchema.__internalTypeDefList);
+        _ImAp.put(MetaCompactSchema.__lineNumber.id,MetaCompactSchema.__lineNumber);
+        _ImAp.put(MetaCompactSchema.__nvp.id,MetaCompactSchema.__nvp);
+        _ImAp.put(MetaCompactSchema.__obsolete.id,MetaCompactSchema.__obsolete);
+        _ImAp.put(MetaCompactSchema.__optimize.id,MetaCompactSchema.__optimize);
+        _ImAp.put(MetaCompactSchema.__question.id,MetaCompactSchema.__question);
+        _ImAp.put(MetaCompactSchema.__relatedToConcept.id,MetaCompactSchema.__relatedToConcept);
+        _ImAp.put(MetaCompactSchema.__ruleCategoryList.id,MetaCompactSchema.__ruleCategoryList);
+        _ImAp.put(MetaCompactSchema.__ruleDataList.id,MetaCompactSchema.__ruleDataList);
+        _ImAp.put(MetaCompactSchema.__ruleDefinitionList.id,MetaCompactSchema.__ruleDefinitionList);
+        _ImAp.put(MetaCompactSchema.__schemaExtension.id,MetaCompactSchema.__schemaExtension);
+        _ImAp.put(MetaCompactSchema.__skip.id,MetaCompactSchema.__skip);
+        _ImAp.put(MetaCompactSchema.__sliceDefList.id,MetaCompactSchema.__sliceDefList);
+        _ImAp.put(MetaCompactSchema.__sortName.id,MetaCompactSchema.__sortName);
+        _ImAp.put(MetaCompactSchema.__tags.id,MetaCompactSchema.__tags);
+        _ImAp.put(MetaCompactSchema.__typeDefList.id,MetaCompactSchema.__typeDefList);
+        _ImAp.put(MetaCompactSchema.__version.id,MetaCompactSchema.__version);
+        _ImAp.put(MetaCompactSchema.__why.id,MetaCompactSchema.__why);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
-        _SmAp.put(MetaDMSAG.__definedInDmsModule.name,MetaDMSAG.__definedInDmsModule);
-        _SmAp.put(MetaDMSAG.__name.name,MetaDMSAG.__name);
-        _SmAp.put(MetaDMSAG.__schemaBaseID.name,MetaDMSAG.__schemaBaseID);
-        _SmAp.put(MetaDMSAG.__schemaIDRange.name,MetaDMSAG.__schemaIDRange);
-        _SmAp.put(MetaDMSAG.__schemaPackage.name,MetaDMSAG.__schemaPackage);
-        _SmAp.put(MetaDMSAG.__actionDefList.name,MetaDMSAG.__actionDefList);
-        _SmAp.put(MetaDMSAG.__attributeDefList.name,MetaDMSAG.__attributeDefList);
-        _SmAp.put(MetaDMSAG.__classDefList.name,MetaDMSAG.__classDefList);
-        _SmAp.put(MetaDMSAG.__codeComment.name,MetaDMSAG.__codeComment);
-        _SmAp.put(MetaDMSAG.__comment.name,MetaDMSAG.__comment);
-        _SmAp.put(MetaDMSAG.__complexTypeDefList.name,MetaDMSAG.__complexTypeDefList);
-        _SmAp.put(MetaDMSAG.__createAttributeFactory.name,MetaDMSAG.__createAttributeFactory);
-        _SmAp.put(MetaDMSAG.__defFiles.name,MetaDMSAG.__defFiles);
-        _SmAp.put(MetaDMSAG.__dependsOn.name,MetaDMSAG.__dependsOn);
-        _SmAp.put(MetaDMSAG.__dependsOnRef.name,MetaDMSAG.__dependsOnRef);
-        _SmAp.put(MetaDMSAG.__description.name,MetaDMSAG.__description);
-        _SmAp.put(MetaDMSAG.__dmwPackage.name,MetaDMSAG.__dmwPackage);
-        _SmAp.put(MetaDMSAG.__dmwTypeToPackage.name,MetaDMSAG.__dmwTypeToPackage);
-        _SmAp.put(MetaDMSAG.__dotName.name,MetaDMSAG.__dotName);
-        _SmAp.put(MetaDMSAG.__dsdModuleList.name,MetaDMSAG.__dsdModuleList);
-        _SmAp.put(MetaDMSAG.__enumDefList.name,MetaDMSAG.__enumDefList);
-        _SmAp.put(MetaDMSAG.__example.name,MetaDMSAG.__example);
-        _SmAp.put(MetaDMSAG.__extendedReferenceTypeDefList.name,MetaDMSAG.__extendedReferenceTypeDefList);
-        _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
-        _SmAp.put(MetaDMSAG.__generatedFileHeader.name,MetaDMSAG.__generatedFileHeader);
-        _SmAp.put(MetaDMSAG.__hint.name,MetaDMSAG.__hint);
-        _SmAp.put(MetaDMSAG.__internalTypeDefList.name,MetaDMSAG.__internalTypeDefList);
-        _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
-        _SmAp.put(MetaDMSAG.__nvp.name,MetaDMSAG.__nvp);
-        _SmAp.put(MetaDMSAG.__obsolete.name,MetaDMSAG.__obsolete);
-        _SmAp.put(MetaDMSAG.__optimize.name,MetaDMSAG.__optimize);
-        _SmAp.put(MetaDMSAG.__question.name,MetaDMSAG.__question);
-        _SmAp.put(MetaDMSAG.__relatedToConcept.name,MetaDMSAG.__relatedToConcept);
-        _SmAp.put(MetaDMSAG.__ruleCategoryList.name,MetaDMSAG.__ruleCategoryList);
-        _SmAp.put(MetaDMSAG.__ruleDataList.name,MetaDMSAG.__ruleDataList);
-        _SmAp.put(MetaDMSAG.__ruleDefinitionList.name,MetaDMSAG.__ruleDefinitionList);
-        _SmAp.put(MetaDMSAG.__schemaExtension.name,MetaDMSAG.__schemaExtension);
-        _SmAp.put(MetaDMSAG.__skip.name,MetaDMSAG.__skip);
-        _SmAp.put(MetaDMSAG.__sliceDefList.name,MetaDMSAG.__sliceDefList);
-        _SmAp.put(MetaDMSAG.__sortName.name,MetaDMSAG.__sortName);
-        _SmAp.put(MetaDMSAG.__tags.name,MetaDMSAG.__tags);
-        _SmAp.put(MetaDMSAG.__typeDefList.name,MetaDMSAG.__typeDefList);
-        _SmAp.put(MetaDMSAG.__version.name,MetaDMSAG.__version);
-        _SmAp.put(MetaDMSAG.__why.name,MetaDMSAG.__why);
+        _SmAp.put(MetaCompactSchema.__definedInDmsModule.name,MetaCompactSchema.__definedInDmsModule);
+        _SmAp.put(MetaCompactSchema.__name.name,MetaCompactSchema.__name);
+        _SmAp.put(MetaCompactSchema.__schemaBaseID.name,MetaCompactSchema.__schemaBaseID);
+        _SmAp.put(MetaCompactSchema.__schemaIDRange.name,MetaCompactSchema.__schemaIDRange);
+        _SmAp.put(MetaCompactSchema.__schemaPackage.name,MetaCompactSchema.__schemaPackage);
+        _SmAp.put(MetaCompactSchema.__actionDefList.name,MetaCompactSchema.__actionDefList);
+        _SmAp.put(MetaCompactSchema.__attributeDefList.name,MetaCompactSchema.__attributeDefList);
+        _SmAp.put(MetaCompactSchema.__classDefList.name,MetaCompactSchema.__classDefList);
+        _SmAp.put(MetaCompactSchema.__codeComment.name,MetaCompactSchema.__codeComment);
+        _SmAp.put(MetaCompactSchema.__comment.name,MetaCompactSchema.__comment);
+        _SmAp.put(MetaCompactSchema.__complexTypeDefList.name,MetaCompactSchema.__complexTypeDefList);
+        _SmAp.put(MetaCompactSchema.__createAttributeFactory.name,MetaCompactSchema.__createAttributeFactory);
+        _SmAp.put(MetaCompactSchema.__defFiles.name,MetaCompactSchema.__defFiles);
+        _SmAp.put(MetaCompactSchema.__dependsOn.name,MetaCompactSchema.__dependsOn);
+        _SmAp.put(MetaCompactSchema.__dependsOnRef.name,MetaCompactSchema.__dependsOnRef);
+        _SmAp.put(MetaCompactSchema.__description.name,MetaCompactSchema.__description);
+        _SmAp.put(MetaCompactSchema.__dmwPackage.name,MetaCompactSchema.__dmwPackage);
+        _SmAp.put(MetaCompactSchema.__dmwTypeToPackage.name,MetaCompactSchema.__dmwTypeToPackage);
+        _SmAp.put(MetaCompactSchema.__dotName.name,MetaCompactSchema.__dotName);
+        _SmAp.put(MetaCompactSchema.__dsdModuleList.name,MetaCompactSchema.__dsdModuleList);
+        _SmAp.put(MetaCompactSchema.__enumDefList.name,MetaCompactSchema.__enumDefList);
+        _SmAp.put(MetaCompactSchema.__example.name,MetaCompactSchema.__example);
+        _SmAp.put(MetaCompactSchema.__extendedReferenceTypeDefList.name,MetaCompactSchema.__extendedReferenceTypeDefList);
+        _SmAp.put(MetaCompactSchema.__file.name,MetaCompactSchema.__file);
+        _SmAp.put(MetaCompactSchema.__generatedFileHeader.name,MetaCompactSchema.__generatedFileHeader);
+        _SmAp.put(MetaCompactSchema.__hint.name,MetaCompactSchema.__hint);
+        _SmAp.put(MetaCompactSchema.__internalTypeDefList.name,MetaCompactSchema.__internalTypeDefList);
+        _SmAp.put(MetaCompactSchema.__lineNumber.name,MetaCompactSchema.__lineNumber);
+        _SmAp.put(MetaCompactSchema.__nvp.name,MetaCompactSchema.__nvp);
+        _SmAp.put(MetaCompactSchema.__obsolete.name,MetaCompactSchema.__obsolete);
+        _SmAp.put(MetaCompactSchema.__optimize.name,MetaCompactSchema.__optimize);
+        _SmAp.put(MetaCompactSchema.__question.name,MetaCompactSchema.__question);
+        _SmAp.put(MetaCompactSchema.__relatedToConcept.name,MetaCompactSchema.__relatedToConcept);
+        _SmAp.put(MetaCompactSchema.__ruleCategoryList.name,MetaCompactSchema.__ruleCategoryList);
+        _SmAp.put(MetaCompactSchema.__ruleDataList.name,MetaCompactSchema.__ruleDataList);
+        _SmAp.put(MetaCompactSchema.__ruleDefinitionList.name,MetaCompactSchema.__ruleDefinitionList);
+        _SmAp.put(MetaCompactSchema.__schemaExtension.name,MetaCompactSchema.__schemaExtension);
+        _SmAp.put(MetaCompactSchema.__skip.name,MetaCompactSchema.__skip);
+        _SmAp.put(MetaCompactSchema.__sliceDefList.name,MetaCompactSchema.__sliceDefList);
+        _SmAp.put(MetaCompactSchema.__sortName.name,MetaCompactSchema.__sortName);
+        _SmAp.put(MetaCompactSchema.__tags.name,MetaCompactSchema.__tags);
+        _SmAp.put(MetaCompactSchema.__typeDefList.name,MetaCompactSchema.__typeDefList);
+        _SmAp.put(MetaCompactSchema.__version.name,MetaCompactSchema.__version);
+        _SmAp.put(MetaCompactSchema.__why.name,MetaCompactSchema.__why);
     }
 
 
@@ -171,7 +171,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
     public DmsModuleREF getDefinedInDmsModule(){
-        DmcTypeDmsModuleREFSV attr = (DmcTypeDmsModuleREFSV) get(MetaDMSAG.__definedInDmsModule);
+        DmcTypeDmsModuleREFSV attr = (DmcTypeDmsModuleREFSV) get(MetaCompactSchema.__definedInDmsModule);
         if (attr == null)
             return(null);
 
@@ -184,12 +184,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
     public void setDefinedInDmsModule(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__definedInDmsModule);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__definedInDmsModule);
         if (attr == null)
-            attr = new DmcTypeDmsModuleREFSV(MetaDMSAG.__definedInDmsModule);
+            attr = new DmcTypeDmsModuleREFSV(MetaCompactSchema.__definedInDmsModule);
         
         attr.set(value);
-        set(MetaDMSAG.__definedInDmsModule,attr);
+        set(MetaCompactSchema.__definedInDmsModule,attr);
     }
 
     /**
@@ -202,7 +202,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
     public DefinitionName getName(){
-        DmcTypeDefinitionNameSV attr = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
+        DmcTypeDefinitionNameSV attr = (DmcTypeDefinitionNameSV) get(MetaCompactSchema.__name);
         if (attr == null)
             return(null);
 
@@ -215,12 +215,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
     public void setName(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__name);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__name);
         if (attr == null)
-            attr = new DmcTypeDefinitionNameSV(MetaDMSAG.__name);
+            attr = new DmcTypeDefinitionNameSV(MetaCompactSchema.__name);
         
         attr.set(value);
-        set(MetaDMSAG.__name,attr);
+        set(MetaCompactSchema.__name,attr);
     }
 
     /**
@@ -230,7 +230,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
     public Integer getSchemaBaseID(){
-        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaDMSAG.__schemaBaseID);
+        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaCompactSchema.__schemaBaseID);
         if (attr == null)
             return(null);
 
@@ -243,12 +243,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
     public void setSchemaBaseID(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__schemaBaseID);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__schemaBaseID);
         if (attr == null)
-            attr = new DmcTypeIntegerSV(MetaDMSAG.__schemaBaseID);
+            attr = new DmcTypeIntegerSV(MetaCompactSchema.__schemaBaseID);
         
         attr.set(value);
-        set(MetaDMSAG.__schemaBaseID,attr);
+        set(MetaCompactSchema.__schemaBaseID,attr);
     }
 
     /**
@@ -258,7 +258,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
     public Integer getSchemaIDRange(){
-        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaDMSAG.__schemaIDRange);
+        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaCompactSchema.__schemaIDRange);
         if (attr == null)
             return(null);
 
@@ -271,12 +271,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
     public void setSchemaIDRange(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__schemaIDRange);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__schemaIDRange);
         if (attr == null)
-            attr = new DmcTypeIntegerSV(MetaDMSAG.__schemaIDRange);
+            attr = new DmcTypeIntegerSV(MetaCompactSchema.__schemaIDRange);
         
         attr.set(value);
-        set(MetaDMSAG.__schemaIDRange,attr);
+        set(MetaCompactSchema.__schemaIDRange,attr);
     }
 
     /**
@@ -285,7 +285,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
     public String getSchemaPackage(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__schemaPackage);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaCompactSchema.__schemaPackage);
         if (attr == null)
             return(null);
 
@@ -298,12 +298,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
     public void setSchemaPackage(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__schemaPackage);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__schemaPackage);
         if (attr == null)
-            attr = new DmcTypeStringSV(MetaDMSAG.__schemaPackage);
+            attr = new DmcTypeStringSV(MetaCompactSchema.__schemaPackage);
         
         attr.set(value);
-        set(MetaDMSAG.__schemaPackage,attr);
+        set(MetaCompactSchema.__schemaPackage,attr);
     }
 
     /**
@@ -312,7 +312,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:261)
     public Iterator<ActionDefinitionREF> getActionDefList(){
-        DmcTypeActionDefinitionREFMV attr = (DmcTypeActionDefinitionREFMV) get(MetaDMSAG.__actionDefList);
+        DmcTypeActionDefinitionREFMV attr = (DmcTypeActionDefinitionREFMV) get(MetaCompactSchema.__actionDefList);
         if (attr == null)
             return(null);
 
@@ -325,12 +325,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addActionDefList(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__actionDefList);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__actionDefList);
         if (attr == null)
-            attr = new DmcTypeActionDefinitionREFMV(MetaDMSAG.__actionDefList);
+            attr = new DmcTypeActionDefinitionREFMV(MetaCompactSchema.__actionDefList);
         
         attr.add(value);
-        add(MetaDMSAG.__actionDefList,attr);
+        add(MetaCompactSchema.__actionDefList,attr);
         return(attr);
     }
 
@@ -340,7 +340,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:261)
     public Iterator<AttributeDefinitionREF> getAttributeDefList(){
-        DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) get(MetaDMSAG.__attributeDefList);
+        DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) get(MetaCompactSchema.__attributeDefList);
         if (attr == null)
             return(null);
 
@@ -353,12 +353,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addAttributeDefList(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__attributeDefList);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__attributeDefList);
         if (attr == null)
-            attr = new DmcTypeAttributeDefinitionREFMV(MetaDMSAG.__attributeDefList);
+            attr = new DmcTypeAttributeDefinitionREFMV(MetaCompactSchema.__attributeDefList);
         
         attr.add(value);
-        add(MetaDMSAG.__attributeDefList,attr);
+        add(MetaCompactSchema.__attributeDefList,attr);
         return(attr);
     }
 
@@ -368,7 +368,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:261)
     public Iterator<ClassDefinitionREF> getClassDefList(){
-        DmcTypeClassDefinitionREFMV attr = (DmcTypeClassDefinitionREFMV) get(MetaDMSAG.__classDefList);
+        DmcTypeClassDefinitionREFMV attr = (DmcTypeClassDefinitionREFMV) get(MetaCompactSchema.__classDefList);
         if (attr == null)
             return(null);
 
@@ -381,12 +381,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addClassDefList(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__classDefList);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__classDefList);
         if (attr == null)
-            attr = new DmcTypeClassDefinitionREFMV(MetaDMSAG.__classDefList);
+            attr = new DmcTypeClassDefinitionREFMV(MetaCompactSchema.__classDefList);
         
         attr.add(value);
-        add(MetaDMSAG.__classDefList,attr);
+        add(MetaCompactSchema.__classDefList,attr);
         return(attr);
     }
 
@@ -402,7 +402,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:266)
     public Iterator<String> getCodeComment(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__codeComment);
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaCompactSchema.__codeComment);
         if (attr == null)
             return(null);
 
@@ -415,12 +415,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addCodeComment(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__codeComment);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__codeComment);
         if (attr == null)
-            attr = new DmcTypeStringMV(MetaDMSAG.__codeComment);
+            attr = new DmcTypeStringMV(MetaCompactSchema.__codeComment);
         
         attr.add(value);
-        add(MetaDMSAG.__codeComment,attr);
+        add(MetaCompactSchema.__codeComment,attr);
         return(attr);
     }
 
@@ -434,7 +434,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:266)
     public Iterator<String> getComment(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__comment);
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaCompactSchema.__comment);
         if (attr == null)
             return(null);
 
@@ -447,12 +447,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addComment(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__comment);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__comment);
         if (attr == null)
-            attr = new DmcTypeStringMV(MetaDMSAG.__comment);
+            attr = new DmcTypeStringMV(MetaCompactSchema.__comment);
         
         attr.add(value);
-        add(MetaDMSAG.__comment,attr);
+        add(MetaCompactSchema.__comment,attr);
         return(attr);
     }
 
@@ -462,7 +462,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:261)
     public Iterator<ComplexTypeDefinitionREF> getComplexTypeDefList(){
-        DmcTypeComplexTypeDefinitionREFMV attr = (DmcTypeComplexTypeDefinitionREFMV) get(MetaDMSAG.__complexTypeDefList);
+        DmcTypeComplexTypeDefinitionREFMV attr = (DmcTypeComplexTypeDefinitionREFMV) get(MetaCompactSchema.__complexTypeDefList);
         if (attr == null)
             return(null);
 
@@ -475,12 +475,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addComplexTypeDefList(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__complexTypeDefList);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__complexTypeDefList);
         if (attr == null)
-            attr = new DmcTypeComplexTypeDefinitionREFMV(MetaDMSAG.__complexTypeDefList);
+            attr = new DmcTypeComplexTypeDefinitionREFMV(MetaCompactSchema.__complexTypeDefList);
         
         attr.add(value);
-        add(MetaDMSAG.__complexTypeDefList,attr);
+        add(MetaCompactSchema.__complexTypeDefList,attr);
         return(attr);
     }
 
@@ -492,7 +492,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
     public Boolean getCreateAttributeFactory(){
-        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaDMSAG.__createAttributeFactory);
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaCompactSchema.__createAttributeFactory);
         if (attr == null)
             return(false);
 
@@ -505,12 +505,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
     public void setCreateAttributeFactory(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__createAttributeFactory);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__createAttributeFactory);
         if (attr == null)
-            attr = new DmcTypeBooleanSV(MetaDMSAG.__createAttributeFactory);
+            attr = new DmcTypeBooleanSV(MetaCompactSchema.__createAttributeFactory);
         
         attr.set(value);
-        set(MetaDMSAG.__createAttributeFactory,attr);
+        set(MetaCompactSchema.__createAttributeFactory,attr);
     }
 
     /**
@@ -520,7 +520,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:266)
     public Iterator<String> getDefFiles(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__defFiles);
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaCompactSchema.__defFiles);
         if (attr == null)
             return(null);
 
@@ -533,12 +533,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addDefFiles(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__defFiles);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__defFiles);
         if (attr == null)
-            attr = new DmcTypeStringMV(MetaDMSAG.__defFiles);
+            attr = new DmcTypeStringMV(MetaCompactSchema.__defFiles);
         
         attr.add(value);
-        add(MetaDMSAG.__defFiles,attr);
+        add(MetaCompactSchema.__defFiles,attr);
         return(attr);
     }
 
@@ -548,7 +548,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:266)
     public Iterator<String> getDependsOn(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__dependsOn);
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaCompactSchema.__dependsOn);
         if (attr == null)
             return(null);
 
@@ -561,12 +561,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addDependsOn(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__dependsOn);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__dependsOn);
         if (attr == null)
-            attr = new DmcTypeStringMV(MetaDMSAG.__dependsOn);
+            attr = new DmcTypeStringMV(MetaCompactSchema.__dependsOn);
         
         attr.add(value);
-        add(MetaDMSAG.__dependsOn,attr);
+        add(MetaCompactSchema.__dependsOn,attr);
         return(attr);
     }
 
@@ -577,7 +577,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:261)
     public Iterator<SchemaDefinitionREF> getDependsOnRef(){
-        DmcTypeSchemaDefinitionREFMV attr = (DmcTypeSchemaDefinitionREFMV) get(MetaDMSAG.__dependsOnRef);
+        DmcTypeSchemaDefinitionREFMV attr = (DmcTypeSchemaDefinitionREFMV) get(MetaCompactSchema.__dependsOnRef);
         if (attr == null)
             return(null);
 
@@ -590,12 +590,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addDependsOnRef(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__dependsOnRef);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__dependsOnRef);
         if (attr == null)
-            attr = new DmcTypeSchemaDefinitionREFMV(MetaDMSAG.__dependsOnRef);
+            attr = new DmcTypeSchemaDefinitionREFMV(MetaCompactSchema.__dependsOnRef);
         
         attr.add(value);
-        add(MetaDMSAG.__dependsOnRef,attr);
+        add(MetaCompactSchema.__dependsOnRef,attr);
         return(attr);
     }
 
@@ -614,7 +614,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:266)
     public Iterator<String> getDescription(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaCompactSchema.__description);
         if (attr == null)
             return(null);
 
@@ -623,7 +623,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
 
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:279)
     public Iterator<String> getDescriptionWithNewlines(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaCompactSchema.__description);
         if (attr == null)
             return(null);
 
@@ -646,12 +646,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addDescription(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__description);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__description);
         if (attr == null)
-            attr = new DmcTypeStringMV(MetaDMSAG.__description);
+            attr = new DmcTypeStringMV(MetaCompactSchema.__description);
         
         attr.add(value);
-        add(MetaDMSAG.__description,attr);
+        add(MetaCompactSchema.__description,attr);
         return(attr);
     }
 
@@ -662,7 +662,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
     public String getDmwPackage(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__dmwPackage);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaCompactSchema.__dmwPackage);
         if (attr == null)
             return(null);
 
@@ -675,12 +675,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
     public void setDmwPackage(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__dmwPackage);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__dmwPackage);
         if (attr == null)
-            attr = new DmcTypeStringSV(MetaDMSAG.__dmwPackage);
+            attr = new DmcTypeStringSV(MetaCompactSchema.__dmwPackage);
         
         attr.set(value);
-        set(MetaDMSAG.__dmwPackage,attr);
+        set(MetaCompactSchema.__dmwPackage,attr);
     }
 
     /**
@@ -696,7 +696,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:266)
     public Iterator<StringToString> getDmwTypeToPackage(){
-        DmcTypeStringToStringMV attr = (DmcTypeStringToStringMV) get(MetaDMSAG.__dmwTypeToPackage);
+        DmcTypeStringToStringMV attr = (DmcTypeStringToStringMV) get(MetaCompactSchema.__dmwTypeToPackage);
         if (attr == null)
             return(null);
 
@@ -709,12 +709,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addDmwTypeToPackage(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__dmwTypeToPackage);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__dmwTypeToPackage);
         if (attr == null)
-            attr = new DmcTypeStringToStringMV(MetaDMSAG.__dmwTypeToPackage);
+            attr = new DmcTypeStringToStringMV(MetaCompactSchema.__dmwTypeToPackage);
         
         attr.add(value);
-        add(MetaDMSAG.__dmwTypeToPackage,attr);
+        add(MetaCompactSchema.__dmwTypeToPackage,attr);
         return(attr);
     }
 
@@ -723,7 +723,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
     public DotName getDotName(){
-        DmcTypeDotNameSV attr = (DmcTypeDotNameSV) get(MetaDMSAG.__dotName);
+        DmcTypeDotNameSV attr = (DmcTypeDotNameSV) get(MetaCompactSchema.__dotName);
         if (attr == null)
             return(null);
 
@@ -736,12 +736,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
     public void setDotName(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__dotName);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__dotName);
         if (attr == null)
-            attr = new DmcTypeDotNameSV(MetaDMSAG.__dotName);
+            attr = new DmcTypeDotNameSV(MetaCompactSchema.__dotName);
         
         attr.set(value);
-        set(MetaDMSAG.__dotName,attr);
+        set(MetaCompactSchema.__dotName,attr);
     }
 
     /**
@@ -750,7 +750,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:261)
     public Iterator<DSDefinitionModuleREF> getDsdModuleList(){
-        DmcTypeDSDefinitionModuleREFMV attr = (DmcTypeDSDefinitionModuleREFMV) get(MetaDMSAG.__dsdModuleList);
+        DmcTypeDSDefinitionModuleREFMV attr = (DmcTypeDSDefinitionModuleREFMV) get(MetaCompactSchema.__dsdModuleList);
         if (attr == null)
             return(null);
 
@@ -763,12 +763,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addDsdModuleList(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__dsdModuleList);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__dsdModuleList);
         if (attr == null)
-            attr = new DmcTypeDSDefinitionModuleREFMV(MetaDMSAG.__dsdModuleList);
+            attr = new DmcTypeDSDefinitionModuleREFMV(MetaCompactSchema.__dsdModuleList);
         
         attr.add(value);
-        add(MetaDMSAG.__dsdModuleList,attr);
+        add(MetaCompactSchema.__dsdModuleList,attr);
         return(attr);
     }
 
@@ -778,7 +778,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:261)
     public Iterator<EnumDefinitionREF> getEnumDefList(){
-        DmcTypeEnumDefinitionREFMV attr = (DmcTypeEnumDefinitionREFMV) get(MetaDMSAG.__enumDefList);
+        DmcTypeEnumDefinitionREFMV attr = (DmcTypeEnumDefinitionREFMV) get(MetaCompactSchema.__enumDefList);
         if (attr == null)
             return(null);
 
@@ -791,12 +791,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addEnumDefList(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__enumDefList);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__enumDefList);
         if (attr == null)
-            attr = new DmcTypeEnumDefinitionREFMV(MetaDMSAG.__enumDefList);
+            attr = new DmcTypeEnumDefinitionREFMV(MetaCompactSchema.__enumDefList);
         
         attr.add(value);
-        add(MetaDMSAG.__enumDefList,attr);
+        add(MetaCompactSchema.__enumDefList,attr);
         return(attr);
     }
 
@@ -807,7 +807,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:266)
     public Iterator<Example> getExample(){
-        DmcTypeExampleMV attr = (DmcTypeExampleMV) get(MetaDMSAG.__example);
+        DmcTypeExampleMV attr = (DmcTypeExampleMV) get(MetaCompactSchema.__example);
         if (attr == null)
             return(null);
 
@@ -820,12 +820,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addExample(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__example);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__example);
         if (attr == null)
-            attr = new DmcTypeExampleMV(MetaDMSAG.__example);
+            attr = new DmcTypeExampleMV(MetaCompactSchema.__example);
         
         attr.add(value);
-        add(MetaDMSAG.__example,attr);
+        add(MetaCompactSchema.__example,attr);
         return(attr);
     }
 
@@ -835,7 +835,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:261)
     public Iterator<ExtendedReferenceTypeDefinitionREF> getExtendedReferenceTypeDefList(){
-        DmcTypeExtendedReferenceTypeDefinitionREFMV attr = (DmcTypeExtendedReferenceTypeDefinitionREFMV) get(MetaDMSAG.__extendedReferenceTypeDefList);
+        DmcTypeExtendedReferenceTypeDefinitionREFMV attr = (DmcTypeExtendedReferenceTypeDefinitionREFMV) get(MetaCompactSchema.__extendedReferenceTypeDefList);
         if (attr == null)
             return(null);
 
@@ -848,12 +848,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addExtendedReferenceTypeDefList(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__extendedReferenceTypeDefList);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__extendedReferenceTypeDefList);
         if (attr == null)
-            attr = new DmcTypeExtendedReferenceTypeDefinitionREFMV(MetaDMSAG.__extendedReferenceTypeDefList);
+            attr = new DmcTypeExtendedReferenceTypeDefinitionREFMV(MetaCompactSchema.__extendedReferenceTypeDefList);
         
         attr.add(value);
-        add(MetaDMSAG.__extendedReferenceTypeDefList,attr);
+        add(MetaCompactSchema.__extendedReferenceTypeDefList,attr);
         return(attr);
     }
 
@@ -862,7 +862,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
     public String getFile(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__file);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaCompactSchema.__file);
         if (attr == null)
             return(null);
 
@@ -875,12 +875,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
     public void setFile(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__file);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__file);
         if (attr == null)
-            attr = new DmcTypeStringSV(MetaDMSAG.__file);
+            attr = new DmcTypeStringSV(MetaCompactSchema.__file);
         
         attr.set(value);
-        set(MetaDMSAG.__file,attr);
+        set(MetaCompactSchema.__file,attr);
     }
 
     /**
@@ -890,7 +890,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
     public String getGeneratedFileHeader(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__generatedFileHeader);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaCompactSchema.__generatedFileHeader);
         if (attr == null)
             return(null);
 
@@ -903,12 +903,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
     public void setGeneratedFileHeader(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__generatedFileHeader);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__generatedFileHeader);
         if (attr == null)
-            attr = new DmcTypeStringSV(MetaDMSAG.__generatedFileHeader);
+            attr = new DmcTypeStringSV(MetaCompactSchema.__generatedFileHeader);
         
         attr.set(value);
-        set(MetaDMSAG.__generatedFileHeader,attr);
+        set(MetaCompactSchema.__generatedFileHeader,attr);
     }
 
     /**
@@ -917,7 +917,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
     public String getHint(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__hint);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaCompactSchema.__hint);
         if (attr == null)
             return(null);
 
@@ -930,12 +930,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
     public void setHint(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__hint);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__hint);
         if (attr == null)
-            attr = new DmcTypeStringSV(MetaDMSAG.__hint);
+            attr = new DmcTypeStringSV(MetaCompactSchema.__hint);
         
         attr.set(value);
-        set(MetaDMSAG.__hint,attr);
+        set(MetaCompactSchema.__hint,attr);
     }
 
     /**
@@ -945,7 +945,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:261)
     public Iterator<TypeDefinitionREF> getInternalTypeDefList(){
-        DmcTypeTypeDefinitionREFMV attr = (DmcTypeTypeDefinitionREFMV) get(MetaDMSAG.__internalTypeDefList);
+        DmcTypeTypeDefinitionREFMV attr = (DmcTypeTypeDefinitionREFMV) get(MetaCompactSchema.__internalTypeDefList);
         if (attr == null)
             return(null);
 
@@ -958,12 +958,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addInternalTypeDefList(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__internalTypeDefList);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__internalTypeDefList);
         if (attr == null)
-            attr = new DmcTypeTypeDefinitionREFMV(MetaDMSAG.__internalTypeDefList);
+            attr = new DmcTypeTypeDefinitionREFMV(MetaCompactSchema.__internalTypeDefList);
         
         attr.add(value);
-        add(MetaDMSAG.__internalTypeDefList,attr);
+        add(MetaCompactSchema.__internalTypeDefList,attr);
         return(attr);
     }
 
@@ -972,7 +972,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
     public Integer getLineNumber(){
-        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaDMSAG.__lineNumber);
+        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaCompactSchema.__lineNumber);
         if (attr == null)
             return(null);
 
@@ -985,12 +985,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
     public void setLineNumber(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__lineNumber);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__lineNumber);
         if (attr == null)
-            attr = new DmcTypeIntegerSV(MetaDMSAG.__lineNumber);
+            attr = new DmcTypeIntegerSV(MetaCompactSchema.__lineNumber);
         
         attr.set(value);
-        set(MetaDMSAG.__lineNumber,attr);
+        set(MetaCompactSchema.__lineNumber,attr);
     }
 
     /**
@@ -1000,7 +1000,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:266)
     public Iterator<NameValuePair> getNvp(){
-        DmcTypeNameValuePairMV attr = (DmcTypeNameValuePairMV) get(MetaDMSAG.__nvp);
+        DmcTypeNameValuePairMV attr = (DmcTypeNameValuePairMV) get(MetaCompactSchema.__nvp);
         if (attr == null)
             return(null);
 
@@ -1013,12 +1013,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addNvp(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__nvp);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__nvp);
         if (attr == null)
-            attr = new DmcTypeNameValuePairMV(MetaDMSAG.__nvp);
+            attr = new DmcTypeNameValuePairMV(MetaCompactSchema.__nvp);
         
         attr.add(value);
-        add(MetaDMSAG.__nvp,attr);
+        add(MetaCompactSchema.__nvp,attr);
         return(attr);
     }
 
@@ -1027,7 +1027,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
     public String getObsolete(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__obsolete);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaCompactSchema.__obsolete);
         if (attr == null)
             return(null);
 
@@ -1040,12 +1040,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
     public void setObsolete(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__obsolete);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__obsolete);
         if (attr == null)
-            attr = new DmcTypeStringSV(MetaDMSAG.__obsolete);
+            attr = new DmcTypeStringSV(MetaCompactSchema.__obsolete);
         
         attr.set(value);
-        set(MetaDMSAG.__obsolete,attr);
+        set(MetaCompactSchema.__obsolete,attr);
     }
 
     /**
@@ -1060,7 +1060,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:266)
     public Iterator<String> getOptimize(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__optimize);
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaCompactSchema.__optimize);
         if (attr == null)
             return(null);
 
@@ -1073,12 +1073,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addOptimize(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__optimize);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__optimize);
         if (attr == null)
-            attr = new DmcTypeStringMV(MetaDMSAG.__optimize);
+            attr = new DmcTypeStringMV(MetaCompactSchema.__optimize);
         
         attr.add(value);
-        add(MetaDMSAG.__optimize,attr);
+        add(MetaCompactSchema.__optimize,attr);
         return(attr);
     }
 
@@ -1088,7 +1088,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:266)
     public Iterator<String> getQuestion(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__question);
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaCompactSchema.__question);
         if (attr == null)
             return(null);
 
@@ -1101,12 +1101,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addQuestion(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__question);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__question);
         if (attr == null)
-            attr = new DmcTypeStringMV(MetaDMSAG.__question);
+            attr = new DmcTypeStringMV(MetaCompactSchema.__question);
         
         attr.add(value);
-        add(MetaDMSAG.__question,attr);
+        add(MetaCompactSchema.__question,attr);
         return(attr);
     }
 
@@ -1119,7 +1119,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:261)
     public Iterator<ConcinnityREF> getRelatedToConcept(){
-        DmcTypeConcinnityREFMV attr = (DmcTypeConcinnityREFMV) get(MetaDMSAG.__relatedToConcept);
+        DmcTypeConcinnityREFMV attr = (DmcTypeConcinnityREFMV) get(MetaCompactSchema.__relatedToConcept);
         if (attr == null)
             return(null);
 
@@ -1132,12 +1132,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addRelatedToConcept(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__relatedToConcept);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__relatedToConcept);
         if (attr == null)
-            attr = new DmcTypeConcinnityREFMV(MetaDMSAG.__relatedToConcept);
+            attr = new DmcTypeConcinnityREFMV(MetaCompactSchema.__relatedToConcept);
         
         attr.add(value);
-        add(MetaDMSAG.__relatedToConcept,attr);
+        add(MetaCompactSchema.__relatedToConcept,attr);
         return(attr);
     }
 
@@ -1147,7 +1147,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:261)
     public Iterator<RuleCategoryREF> getRuleCategoryList(){
-        DmcTypeRuleCategoryREFMV attr = (DmcTypeRuleCategoryREFMV) get(MetaDMSAG.__ruleCategoryList);
+        DmcTypeRuleCategoryREFMV attr = (DmcTypeRuleCategoryREFMV) get(MetaCompactSchema.__ruleCategoryList);
         if (attr == null)
             return(null);
 
@@ -1160,12 +1160,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addRuleCategoryList(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__ruleCategoryList);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__ruleCategoryList);
         if (attr == null)
-            attr = new DmcTypeRuleCategoryREFMV(MetaDMSAG.__ruleCategoryList);
+            attr = new DmcTypeRuleCategoryREFMV(MetaCompactSchema.__ruleCategoryList);
         
         attr.add(value);
-        add(MetaDMSAG.__ruleCategoryList,attr);
+        add(MetaCompactSchema.__ruleCategoryList,attr);
         return(attr);
     }
 
@@ -1175,7 +1175,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:261)
     public Iterator<RuleDataREF> getRuleDataList(){
-        DmcTypeRuleDataREFMV attr = (DmcTypeRuleDataREFMV) get(MetaDMSAG.__ruleDataList);
+        DmcTypeRuleDataREFMV attr = (DmcTypeRuleDataREFMV) get(MetaCompactSchema.__ruleDataList);
         if (attr == null)
             return(null);
 
@@ -1188,12 +1188,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addRuleDataList(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__ruleDataList);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__ruleDataList);
         if (attr == null)
-            attr = new DmcTypeRuleDataREFMV(MetaDMSAG.__ruleDataList);
+            attr = new DmcTypeRuleDataREFMV(MetaCompactSchema.__ruleDataList);
         
         attr.add(value);
-        add(MetaDMSAG.__ruleDataList,attr);
+        add(MetaCompactSchema.__ruleDataList,attr);
         return(attr);
     }
 
@@ -1203,7 +1203,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:261)
     public Iterator<RuleDefinitionREF> getRuleDefinitionList(){
-        DmcTypeRuleDefinitionREFMV attr = (DmcTypeRuleDefinitionREFMV) get(MetaDMSAG.__ruleDefinitionList);
+        DmcTypeRuleDefinitionREFMV attr = (DmcTypeRuleDefinitionREFMV) get(MetaCompactSchema.__ruleDefinitionList);
         if (attr == null)
             return(null);
 
@@ -1216,12 +1216,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addRuleDefinitionList(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__ruleDefinitionList);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__ruleDefinitionList);
         if (attr == null)
-            attr = new DmcTypeRuleDefinitionREFMV(MetaDMSAG.__ruleDefinitionList);
+            attr = new DmcTypeRuleDefinitionREFMV(MetaCompactSchema.__ruleDefinitionList);
         
         attr.add(value);
-        add(MetaDMSAG.__ruleDefinitionList,attr);
+        add(MetaCompactSchema.__ruleDefinitionList,attr);
         return(attr);
     }
 
@@ -1233,7 +1233,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:266)
     public Iterator<String> getSchemaExtension(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__schemaExtension);
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaCompactSchema.__schemaExtension);
         if (attr == null)
             return(null);
 
@@ -1246,12 +1246,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addSchemaExtension(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__schemaExtension);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__schemaExtension);
         if (attr == null)
-            attr = new DmcTypeStringMV(MetaDMSAG.__schemaExtension);
+            attr = new DmcTypeStringMV(MetaCompactSchema.__schemaExtension);
         
         attr.add(value);
-        add(MetaDMSAG.__schemaExtension,attr);
+        add(MetaCompactSchema.__schemaExtension,attr);
         return(attr);
     }
 
@@ -1263,7 +1263,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:266)
     public Iterator<String> getSkip(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__skip);
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaCompactSchema.__skip);
         if (attr == null)
             return(null);
 
@@ -1276,12 +1276,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addSkip(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__skip);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__skip);
         if (attr == null)
-            attr = new DmcTypeStringMV(MetaDMSAG.__skip);
+            attr = new DmcTypeStringMV(MetaCompactSchema.__skip);
         
         attr.add(value);
-        add(MetaDMSAG.__skip,attr);
+        add(MetaCompactSchema.__skip,attr);
         return(attr);
     }
 
@@ -1291,7 +1291,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:261)
     public Iterator<SliceDefinitionREF> getSliceDefList(){
-        DmcTypeSliceDefinitionREFMV attr = (DmcTypeSliceDefinitionREFMV) get(MetaDMSAG.__sliceDefList);
+        DmcTypeSliceDefinitionREFMV attr = (DmcTypeSliceDefinitionREFMV) get(MetaCompactSchema.__sliceDefList);
         if (attr == null)
             return(null);
 
@@ -1304,12 +1304,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addSliceDefList(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__sliceDefList);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__sliceDefList);
         if (attr == null)
-            attr = new DmcTypeSliceDefinitionREFMV(MetaDMSAG.__sliceDefList);
+            attr = new DmcTypeSliceDefinitionREFMV(MetaCompactSchema.__sliceDefList);
         
         attr.add(value);
-        add(MetaDMSAG.__sliceDefList,attr);
+        add(MetaCompactSchema.__sliceDefList,attr);
         return(attr);
     }
 
@@ -1323,7 +1323,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
     public DotName getSortName(){
-        DmcTypeDotNameSV attr = (DmcTypeDotNameSV) get(MetaDMSAG.__sortName);
+        DmcTypeDotNameSV attr = (DmcTypeDotNameSV) get(MetaCompactSchema.__sortName);
         if (attr == null)
             return(null);
 
@@ -1336,12 +1336,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
     public void setSortName(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__sortName);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__sortName);
         if (attr == null)
-            attr = new DmcTypeDotNameSV(MetaDMSAG.__sortName);
+            attr = new DmcTypeDotNameSV(MetaCompactSchema.__sortName);
         
         attr.set(value);
-        set(MetaDMSAG.__sortName,attr);
+        set(MetaCompactSchema.__sortName,attr);
     }
 
     /**
@@ -1351,7 +1351,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:266)
     public Iterator<String> getTags(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__tags);
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaCompactSchema.__tags);
         if (attr == null)
             return(null);
 
@@ -1364,12 +1364,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addTags(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__tags);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__tags);
         if (attr == null)
-            attr = new DmcTypeStringMV(MetaDMSAG.__tags);
+            attr = new DmcTypeStringMV(MetaCompactSchema.__tags);
         
         attr.add(value);
-        add(MetaDMSAG.__tags,attr);
+        add(MetaCompactSchema.__tags,attr);
         return(attr);
     }
 
@@ -1379,7 +1379,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:261)
     public Iterator<TypeDefinitionREF> getTypeDefList(){
-        DmcTypeTypeDefinitionREFMV attr = (DmcTypeTypeDefinitionREFMV) get(MetaDMSAG.__typeDefList);
+        DmcTypeTypeDefinitionREFMV attr = (DmcTypeTypeDefinitionREFMV) get(MetaCompactSchema.__typeDefList);
         if (attr == null)
             return(null);
 
@@ -1392,12 +1392,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addTypeDefList(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__typeDefList);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__typeDefList);
         if (attr == null)
-            attr = new DmcTypeTypeDefinitionREFMV(MetaDMSAG.__typeDefList);
+            attr = new DmcTypeTypeDefinitionREFMV(MetaCompactSchema.__typeDefList);
         
         attr.add(value);
-        add(MetaDMSAG.__typeDefList,attr);
+        add(MetaCompactSchema.__typeDefList,attr);
         return(attr);
     }
 
@@ -1408,7 +1408,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
     public String getVersion(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__version);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaCompactSchema.__version);
         if (attr == null)
             return(null);
 
@@ -1421,12 +1421,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
     public void setVersion(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__version);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__version);
         if (attr == null)
-            attr = new DmcTypeStringSV(MetaDMSAG.__version);
+            attr = new DmcTypeStringSV(MetaCompactSchema.__version);
         
         attr.set(value);
-        set(MetaDMSAG.__version,attr);
+        set(MetaCompactSchema.__version,attr);
     }
 
     /**
@@ -1438,7 +1438,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
     public ConcinnityREF getWhy(){
-        DmcTypeConcinnityREFSV attr = (DmcTypeConcinnityREFSV) get(MetaDMSAG.__why);
+        DmcTypeConcinnityREFSV attr = (DmcTypeConcinnityREFSV) get(MetaCompactSchema.__why);
         if (attr == null)
             return(null);
 
@@ -1451,12 +1451,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
     public void setWhy(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__why);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__why);
         if (attr == null)
-            attr = new DmcTypeConcinnityREFSV(MetaDMSAG.__why);
+            attr = new DmcTypeConcinnityREFSV(MetaCompactSchema.__why);
         
         attr.set(value);
-        set(MetaDMSAG.__why,attr);
+        set(MetaCompactSchema.__why,attr);
     }
 
 
@@ -1469,7 +1469,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     @Override
     public DefinitionName getObjectName(){
-        DmcTypeDefinitionName attr = (DmcTypeDefinitionName) get(MetaDMSAG.__name);
+        DmcTypeDefinitionName attr = (DmcTypeDefinitionName) get(MetaCompactSchema.__name);
         if (attr == null)
             return(null);
         return(attr.getSV());
@@ -1481,7 +1481,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.shared.generated.dmo.DmsDef
      */
     @Override
     public DmcAttribute<?> getObjectNameAttribute(){
-        DmcAttribute<?> attr = (DmcTypeDefinitionName) get(MetaDMSAG.__name);
+        DmcAttribute<?> attr = (DmcTypeDefinitionName) get(MetaCompactSchema.__name);
         return(attr);
     }
 

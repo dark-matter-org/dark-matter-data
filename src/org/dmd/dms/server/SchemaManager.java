@@ -1,28 +1,15 @@
 package org.dmd.dms.server;
 
-import java.util.Iterator;
-
 import org.dmd.core.DmcObject;
 import org.dmd.core.DmcObjectName;
 import org.dmd.core.feedback.DMFeedbackSet;
 import org.dmd.core.interfaces.DmcNameClashResolverIF;
 import org.dmd.core.interfaces.DmcNamedObjectIF;
 import org.dmd.core.schema.DmcAttributeInfo;
-import org.dmd.dms.server.extended.ActionDefinition;
 import org.dmd.dms.server.extended.AttributeDefinition;
 import org.dmd.dms.server.extended.ClassDefinition;
-import org.dmd.dms.server.extended.ComplexTypeDefinition;
-import org.dmd.dms.server.extended.DSDefinitionModule;
-import org.dmd.dms.server.extended.DmsModule;
-import org.dmd.dms.server.extended.EnumDefinition;
-import org.dmd.dms.server.extended.ExtendedReferenceTypeDefinition;
-import org.dmd.dms.server.extended.RuleCategory;
-import org.dmd.dms.server.extended.RuleDefinition;
-import org.dmd.dms.server.extended.SliceDefinition;
-import org.dmd.dms.server.extended.TypeDefinition;
-import org.dmd.dms.server.generated.MetaDmsModule;
 import org.dmd.dms.server.generated.dsd.DmsModuleDefinitionManager;
-import org.dmd.dms.shared.generated.dmo.MetaDMSAG;
+import org.dmd.dms.shared.generated.dmo.MetaCompactSchema;
 import org.dmd.util.runtime.DebugInfo;
 
 public class SchemaManager extends DmsModuleDefinitionManager {
@@ -36,13 +23,13 @@ public class SchemaManager extends DmsModuleDefinitionManager {
 	
     @Override
     public DmcNamedObjectIF findNamedObjectMayClash(DmcObject object, DmcObjectName name, DmcNameClashResolverIF resolver, DmcAttributeInfo ai) throws DMFeedbackSet {
-    	if (ai.id == MetaDMSAG.__baseDefinition.id){
+    	if (ai.id == MetaCompactSchema.__baseDefinition.id){
     		if (name.getNameString().equals("meta.DmsDefinition")){
     			return(getClassDefinition("DmsDefinition"));
     		}
     	}
     	
-    	if (ai.id == MetaDMSAG.__requiredPart.id){
+    	if (ai.id == MetaCompactSchema.__requiredPart.id){
     		DebugInfo.debug("HERE");
     	}
     		

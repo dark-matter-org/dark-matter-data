@@ -29,7 +29,7 @@ import org.dmd.dms.server.extended.TypeDefinition;                          // A
 import org.dmd.dms.server.generated.dmw.StringIterableDMW;                  // To iterate over defFiles - (MetaDSDHelper.java:712)
 import org.dmd.dms.server.generated.dsd.DmsModuleGlobalInterface;           // Interface to our definition storage - (MetaDSDHelper.java:694)
 import org.dmd.dms.server.util.DsdParserInterface;                          // Standard parser interface - (MetaDSDHelper.java:691)
-import org.dmd.dms.shared.generated.dmo.MetaDMSAG;                          // To allow loading of rules from the meta schema - (MetaDSDHelper.java:716)
+import org.dmd.dms.shared.generated.dmo.MetaCompactSchema;                  // To allow loading of rules from the meta schema - (MetaDSDHelper.java:716)
 import org.dmd.dmv.shared.DmvRuleManager;                                   // The injected rule manager used for initializations - (MetaDSDHelper.java:711)
 import org.dmd.dmw.DmwObjectFactory;                                        // Constructs wrapped objects - (MetaDSDHelper.java:693)
 import org.dmd.dmw.DmwWrapper;                                              // To handle factory created objects - (MetaDSDHelper.java:714)
@@ -67,7 +67,7 @@ public class DmsModuleParser implements DsdParserInterface, DMUncheckedObjectHan
         
         definitions  = d;
         rules        = r;
-        rules.loadRules(MetaDMSAG.instance());
+        rules.loadRules(MetaCompactSchema.instance());
     }
 
     void preserveNewLines(Iterator<AttributeDefinition> attrs){

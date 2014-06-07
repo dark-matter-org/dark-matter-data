@@ -23,7 +23,7 @@ import org.dmd.core.DmcObjectName;
 import org.dmd.core.feedback.DMFeedbackSet;
 import org.dmd.core.schema.DmcAttributeInfo;
 import org.dmd.dms.server.generated.dmw.TypeDefinitionDMW;
-import org.dmd.dms.shared.generated.dmo.MetaDMSAG;
+import org.dmd.dms.shared.generated.dmo.MetaCompactSchema;
 import org.dmd.dms.shared.generated.dmo.TypeDefinitionDMO;
 import org.dmd.dms.shared.generated.enums.WrapperTypeEnum;
 import org.dmd.util.runtime.DebugInfo;
@@ -176,6 +176,7 @@ public class TypeDefinition extends TypeDefinitionDMW {
 		}
 		}
 		catch (ClassNotFoundException e) {
+			DebugInfo.debug(e.toString());
 			DebugInfo.debug("Class not found while trying to get holder for: " + ai.toString());
 			DebugInfo.debug(System.getProperty("java.class.path"));
 			ClassLoader cl = ClassLoader.getSystemClassLoader();
@@ -197,17 +198,17 @@ public class TypeDefinition extends TypeDefinitionDMW {
 	}
 	
 	String getTypeName(String suffix){
-		String tn = getDefinedInDmsModule().getSchemaPackage() + ".shared.generated.types.DmcType" + getName().getNameString() + suffix;
+		String tn = getDefinedInDmsModule().getSchemaPackage() + ".generated.types.DmcType" + getName().getNameString() + suffix;
 		
 		// If it's an extended reference type, we're good at this stage
 		if (getIsExtendedRefType())
 			return(tn);
 
 		if (getIsRefType() && (!getName().getNameString().endsWith("REF"))){
-			tn = getDefinedInDmsModule().getSchemaPackage() + ".shared.generated.types.DmcType" + getName().getNameString() + "REF" + suffix;
+			tn = getDefinedInDmsModule().getSchemaPackage() + ".generated.types.DmcType" + getName().getNameString() + "REF" + suffix;
 		}
 		if (getIsEnumType()){
-			tn = getDefinedInDmsModule().getSchemaPackage() + ".shared.generated.types.DmcType" + getEnumName() + suffix;
+			tn = getDefinedInDmsModule().getSchemaPackage() + ".generated.types.DmcType" + getEnumName() + suffix;
 		}
 		
 		return(tn);
@@ -286,7 +287,7 @@ public class TypeDefinition extends TypeDefinitionDMW {
 		}
 		else if (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED){
 			try {
-				if (cd.getDefinedInDmsModule().getName().getNameString().equals(MetaDMSAG.instance().getSchemaName())){
+				if (cd.getDefinedInDmsModule().getName().getNameString().equals(MetaCompactSchema.instance().getSchemaName())){
 					// For meta schema classes, there is no extended subpackage
 					cd.setJavaClass(genPackage + "." + cd.getName());
 				}

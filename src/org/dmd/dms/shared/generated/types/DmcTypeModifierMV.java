@@ -17,15 +17,15 @@ package org.dmd.dms.shared.generated.types;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:67)
-import java.io.Serializable;                               //  - (MVTypeFormatter.java:47)
-import java.util.ArrayList;                                //  - (MVTypeFormatter.java:48)
-import java.util.Iterator;                                 //  - (MVTypeFormatter.java:49)
-import org.dmd.core.DmcAttribute;                          //  - (MVTypeFormatter.java:50)
-import org.dmd.core.feedback.DMFeedbackSet;                //  - (MVTypeFormatter.java:52)
-import org.dmd.core.schema.DmcAttributeInfo;               //  - (MVTypeFormatter.java:51)
-import org.dmd.dms.shared.generated.dmo.MetaDMSAG;         //  - (MVTypeFormatter.java:55)
-import org.dmd.dms.shared.types.DmcTypeModifier;           // DmcType import - (MVTypeFormatter.java:64)
-import org.dmd.dms.shared.types.Modifier;                  // Base type import - (MVTypeFormatter.java:59)
+import java.io.Serializable;                                       //  - (MVTypeFormatter.java:47)
+import java.util.ArrayList;                                        //  - (MVTypeFormatter.java:48)
+import java.util.Iterator;                                         //  - (MVTypeFormatter.java:49)
+import org.dmd.core.DmcAttribute;                                  //  - (MVTypeFormatter.java:50)
+import org.dmd.core.feedback.DMFeedbackSet;                        //  - (MVTypeFormatter.java:52)
+import org.dmd.core.schema.DmcAttributeInfo;                       //  - (MVTypeFormatter.java:51)
+import org.dmd.dms.shared.generated.dmo.MetaCompactSchema;         //  - (MVTypeFormatter.java:55)
+import org.dmd.dms.shared.types.DmcTypeModifier;                   // DmcType import - (MVTypeFormatter.java:64)
+import org.dmd.dms.shared.types.Modifier;                          // Base type import - (MVTypeFormatter.java:59)
 
 
 /**
@@ -43,7 +43,7 @@ public class DmcTypeModifierMV extends DmcTypeModifier implements Serializable {
     protected ArrayList<Modifier> value;
     
     public DmcTypeModifierMV(){
-        super(MetaDMSAG.__modify);
+        super(MetaCompactSchema.__modify);
     
     }
     

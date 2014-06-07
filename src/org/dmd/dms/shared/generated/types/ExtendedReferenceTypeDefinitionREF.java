@@ -25,7 +25,7 @@ import org.dmd.core.feedback.DMFeedbackSet;                                     
 import org.dmd.core.interfaces.DmcInputStreamIF;                                    // To support serialization - (TypeFormatter.java:174)
 import org.dmd.core.interfaces.DmcOutputStreamIF;                                   // To support serialization - (TypeFormatter.java:171)
 import org.dmd.dms.shared.generated.dmo.ExtendedReferenceTypeDefinitionDMO;         // The type of object we refer to - (TypeFormatter.java:173)
-import org.dmd.dms.shared.generated.dmo.MetaDMSAG;                                  // dark-matter core - (TypeFormatter.java:178)
+import org.dmd.dms.shared.generated.dmo.MetaCompactSchema;                          // dark-matter core - (TypeFormatter.java:178)
 import org.dmd.dms.shared.types.DefinitionName;                                     // The base type of our naming attribute - (TypeFormatter.java:176)
 import org.dmd.dms.shared.types.DmcTypeDefinitionName;                              // The type of our naming attribute - (TypeFormatter.java:175)
 
@@ -84,7 +84,7 @@ public class ExtendedReferenceTypeDefinitionREF extends DmcNamedObjectREF<Extend
     @Override
     public void setName(DmcObjectName n) throws DMFeedbackSet {
         if (myName == null);
-            myName = new  DmcTypeDefinitionNameSV(MetaDMSAG.__name);
+            myName = new  DmcTypeDefinitionNameSV(MetaCompactSchema.__name);
         myName.set(n);
     }
 

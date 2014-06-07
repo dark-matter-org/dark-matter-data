@@ -121,7 +121,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
     public StringIterableDMW getDescriptionIterable(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaCompactSchema.__description);
         if (attr == null)
             return(StringIterableDMW.emptyList);
 
@@ -130,7 +130,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
 
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:341)
     public Iterator<String> getDescriptionWithNewlines(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaCompactSchema.__description);
         if (attr == null)
             return(null);
 
@@ -161,7 +161,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getDescriptionSize(){
-        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__description);
+        DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__description);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
@@ -185,7 +185,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
     public StringIterableDMW getCommentIterable(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__comment);
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaCompactSchema.__comment);
         if (attr == null)
             return(StringIterableDMW.emptyList);
 
@@ -206,7 +206,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getCommentSize(){
-        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__comment);
+        DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__comment);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
@@ -226,7 +226,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
     public StringIterableDMW getQuestionIterable(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__question);
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaCompactSchema.__question);
         if (attr == null)
             return(StringIterableDMW.emptyList);
 
@@ -247,7 +247,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getQuestionSize(){
-        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__question);
+        DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__question);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
@@ -268,7 +268,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
     public ExampleIterableDMW getExampleIterable(){
-        DmcTypeExampleMV attr = (DmcTypeExampleMV) mycore.get(MetaDMSAG.__example);
+        DmcTypeExampleMV attr = (DmcTypeExampleMV) mycore.get(MetaCompactSchema.__example);
         if (attr == null)
             return(ExampleIterableDMW.emptyList);
 
@@ -289,7 +289,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getExampleSize(){
-        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__example);
+        DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__example);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
@@ -350,7 +350,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
     public StringIterableDMW getTagsIterable(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__tags);
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaCompactSchema.__tags);
         if (attr == null)
             return(StringIterableDMW.emptyList);
 
@@ -371,7 +371,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getTagsSize(){
-        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__tags);
+        DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__tags);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
@@ -392,7 +392,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
     public NameValuePairIterableDMW getNvpIterable(){
-        DmcTypeNameValuePairMV attr = (DmcTypeNameValuePairMV) mycore.get(MetaDMSAG.__nvp);
+        DmcTypeNameValuePairMV attr = (DmcTypeNameValuePairMV) mycore.get(MetaCompactSchema.__nvp);
         if (attr == null)
             return(NameValuePairIterableDMW.emptyList);
 
@@ -413,7 +413,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getNvpSize(){
-        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__nvp);
+        DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__nvp);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
@@ -439,7 +439,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
     public StringIterableDMW getOptimizeIterable(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__optimize);
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaCompactSchema.__optimize);
         if (attr == null)
             return(StringIterableDMW.emptyList);
 
@@ -460,7 +460,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getOptimizeSize(){
-        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__optimize);
+        DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__optimize);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
@@ -501,7 +501,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
     public StringIterableDMW getSkipIterable(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__skip);
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaCompactSchema.__skip);
         if (attr == null)
             return(StringIterableDMW.emptyList);
 
@@ -522,7 +522,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getSkipSize(){
-        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__skip);
+        DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__skip);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
@@ -562,7 +562,7 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public Concinnity getWhy(){
-        DmcTypeConcinnityREFSV attr = (DmcTypeConcinnityREFSV) mycore.get(MetaDMSAG.__why);
+        DmcTypeConcinnityREFSV attr = (DmcTypeConcinnityREFSV) mycore.get(MetaCompactSchema.__why);
         if (attr == null)
             return(null);
         ConcinnityDMO obj = attr.getSV().getObject();

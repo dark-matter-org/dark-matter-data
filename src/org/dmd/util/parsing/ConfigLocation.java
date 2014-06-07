@@ -78,12 +78,16 @@ public class ConfigLocation {
 	 * @param s  The config file suffix.
 	 */
 	public ConfigLocation(String n, String dir, String s){
+		int lastSlash = -1;
 		int dotpos = n.indexOf(".");
 		
 		configName 	= n.substring(0,dotpos);
 		directory	= dir;
 		fileName 	= directory + File.separatorChar + n;
 		suffix 		= s;
+		
+		lastSlash 	= directory.lastIndexOf(File.separatorChar);
+		configParentDirectory = directory.substring(0,lastSlash);
 		
 		// Not used in this case
 		jarFileName 	= null;
@@ -119,7 +123,8 @@ public class ConfigLocation {
 		directory 	= dir;
 		suffix 		= s;
 		
-		lastSlash = directory.lastIndexOf("/");
+		lastSlash = directory.lastIndexOf(File.separatorChar);
+		configParentDirectory = directory.substring(0,lastSlash);
 
 		jarFileName 	= j;
 		jarDirectory	= dir;

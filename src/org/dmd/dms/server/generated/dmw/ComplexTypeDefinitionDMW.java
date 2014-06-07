@@ -110,7 +110,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
     public PartIterableDMW getRequiredPartIterable(){
-        DmcTypePartMV attr = (DmcTypePartMV) mycore.get(MetaDMSAG.__requiredPart);
+        DmcTypePartMV attr = (DmcTypePartMV) mycore.get(MetaCompactSchema.__requiredPart);
         if (attr == null)
             return(PartIterableDMW.emptyList);
 
@@ -131,7 +131,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getRequiredPartSize(){
-        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__requiredPart);
+        DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__requiredPart);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
@@ -151,7 +151,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
     public PartIterableDMW getOptionalPartIterable(){
-        DmcTypePartMV attr = (DmcTypePartMV) mycore.get(MetaDMSAG.__optionalPart);
+        DmcTypePartMV attr = (DmcTypePartMV) mycore.get(MetaCompactSchema.__optionalPart);
         if (attr == null)
             return(PartIterableDMW.emptyList);
 
@@ -172,7 +172,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getOptionalPartSize(){
-        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__optionalPart);
+        DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__optionalPart);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
@@ -238,7 +238,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
     public StringIterableDMW getDescriptionIterable(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaCompactSchema.__description);
         if (attr == null)
             return(StringIterableDMW.emptyList);
 
@@ -247,7 +247,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDef
 
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:341)
     public Iterator<String> getDescriptionWithNewlines(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaCompactSchema.__description);
         if (attr == null)
             return(null);
 
@@ -278,7 +278,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDef
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getDescriptionSize(){
-        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__description);
+        DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__description);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
