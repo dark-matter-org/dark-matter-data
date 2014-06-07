@@ -38,16 +38,6 @@ dmdID				6
 type                String
 description         Textual information associated with a response.
 
-AttributeDefinition
-name                userName
-type                String
-description         The login name of a user.
-
-AttributeDefinition
-name                password
-type                String
-description         The password associated with a user.
-
 //AttributeDefinition
 //name				FQN
 //type				String
@@ -335,6 +325,19 @@ dmdID				45
 type                Boolean
 description			Used in conjunction with the primeEventChannel action to indicate that the
  response has come via the event channel.
+
+AttributeDefinition
+name                userName
+dmdID				46
+type                String
+description         The login name of a user.
+
+AttributeDefinition
+name                password
+dmdID				47
+type                String
+description         The password associated with a user.
+
 
 //AttributeDefinition
 //name                targetObject

@@ -91,7 +91,7 @@ public class RunContextDMW extends org.dmd.dms.server.extended.DmsDefinition  {
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:304)
     public DependencyIterableDMW getDependencies(){
-        DmcTypeDependencyREFMV attr = (DmcTypeDependencyREFMV) mycore.get(MetaDMSAG.__dependencies);
+        DmcTypeDependencyREFMV attr = (DmcTypeDependencyREFMV) mycore.get(MetaCompactSchema.__dependencies);
         if (attr == null)
             return(DependencyIterableDMW.emptyList);
 
@@ -113,7 +113,7 @@ public class RunContextDMW extends org.dmd.dms.server.extended.DmsDefinition  {
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getDependenciesSize(){
-        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__dependencies);
+        DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__dependencies);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
@@ -142,7 +142,7 @@ public class RunContextDMW extends org.dmd.dms.server.extended.DmsDefinition  {
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
     public StringIterableDMW getDescriptionIterable(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaCompactSchema.__description);
         if (attr == null)
             return(StringIterableDMW.emptyList);
 
@@ -151,7 +151,7 @@ public class RunContextDMW extends org.dmd.dms.server.extended.DmsDefinition  {
 
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:341)
     public Iterator<String> getDescriptionWithNewlines(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaCompactSchema.__description);
         if (attr == null)
             return(null);
 
@@ -182,7 +182,7 @@ public class RunContextDMW extends org.dmd.dms.server.extended.DmsDefinition  {
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getDescriptionSize(){
-        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__description);
+        DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__description);
         if (attr == null)
             return(0);
         return(attr.getMVSize());

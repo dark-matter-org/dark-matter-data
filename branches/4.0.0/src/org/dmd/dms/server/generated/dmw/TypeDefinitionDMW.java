@@ -188,7 +188,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
     public StringIterableDMW getDescriptionIterable(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaCompactSchema.__description);
         if (attr == null)
             return(StringIterableDMW.emptyList);
 
@@ -197,7 +197,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
 
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:341)
     public Iterator<String> getDescriptionWithNewlines(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaCompactSchema.__description);
         if (attr == null)
             return(null);
 
@@ -228,7 +228,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getDescriptionSize(){
-        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__description);
+        DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__description);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
@@ -615,7 +615,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public ClassDefinition getOriginalClass(){
-        DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) mycore.get(MetaDMSAG.__originalClass);
+        DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) mycore.get(MetaCompactSchema.__originalClass);
         if (attr == null)
             return(null);
         ClassDefinitionDMO obj = attr.getSV().getObject();
@@ -638,7 +638,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public AttributeDefinition getNameAttributeDef(){
-        DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) mycore.get(MetaDMSAG.__nameAttributeDef);
+        DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) mycore.get(MetaCompactSchema.__nameAttributeDef);
         if (attr == null)
             return(null);
         AttributeDefinitionDMO obj = attr.getSV().getObject();
@@ -662,7 +662,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public AttributeDefinition getFilterAttributeDef(){
-        DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) mycore.get(MetaDMSAG.__filterAttributeDef);
+        DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) mycore.get(MetaCompactSchema.__filterAttributeDef);
         if (attr == null)
             return(null);
         AttributeDefinitionDMO obj = attr.getSV().getObject();

@@ -104,7 +104,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:304)
     public RuleCategoryIterableDMW getRuleCategory(){
-        DmcTypeRuleCategoryREFMV attr = (DmcTypeRuleCategoryREFMV) mycore.get(MetaDMSAG.__ruleCategory);
+        DmcTypeRuleCategoryREFMV attr = (DmcTypeRuleCategoryREFMV) mycore.get(MetaCompactSchema.__ruleCategory);
         if (attr == null)
             return(RuleCategoryIterableDMW.emptyList);
 
@@ -126,7 +126,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getRuleCategorySize(){
-        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__ruleCategory);
+        DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__ruleCategory);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
@@ -172,7 +172,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:304)
     public AttributeDefinitionIterableDMW getMust(){
-        DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaDMSAG.__must);
+        DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaCompactSchema.__must);
         if (attr == null)
             return(AttributeDefinitionIterableDMW.emptyList);
 
@@ -194,7 +194,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getMustSize(){
-        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__must);
+        DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__must);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
@@ -216,7 +216,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:304)
     public AttributeDefinitionIterableDMW getMay(){
-        DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaDMSAG.__may);
+        DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaCompactSchema.__may);
         if (attr == null)
             return(AttributeDefinitionIterableDMW.emptyList);
 
@@ -238,7 +238,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getMaySize(){
-        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__may);
+        DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__may);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
@@ -278,7 +278,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public Dependency getDependency(){
-        DmcTypeDependencyREFSV attr = (DmcTypeDependencyREFSV) mycore.get(MetaDMSAG.__dependency);
+        DmcTypeDependencyREFSV attr = (DmcTypeDependencyREFSV) mycore.get(MetaCompactSchema.__dependency);
         if (attr == null)
             return(null);
         DependencyDMO obj = attr.getSV().getObject();

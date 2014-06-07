@@ -29,7 +29,7 @@ import org.dmd.core.schema.DmcClassInfo;
 import org.dmd.core.util.DMUncheckedObject;
 import org.dmd.dms.server.generated.dmw.ClassDefinitionDMW;
 import org.dmd.dms.shared.generated.dmo.ClassDefinitionDMO;
-import org.dmd.dms.shared.generated.dmo.MetaDMSAG;
+import org.dmd.dms.shared.generated.dmo.MetaCompactSchema;
 import org.dmd.dms.shared.generated.dmo.RuleDataDMO;
 import org.dmd.dms.shared.generated.enums.ClassTypeEnum;
 import org.dmd.dms.shared.generated.enums.WrapperTypeEnum;
@@ -747,7 +747,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
 		}
 		else if (getUseWrapperType() == WrapperTypeEnum.EXTENDED){
 			try {
-				if (getDefinedInDmsModule().getName().getNameString().equals(MetaDMSAG.instance().getSchemaName())){
+				if (getDefinedInDmsModule().getName().getNameString().equals(MetaCompactSchema.instance().getSchemaName())){
 					setJavaClass(genPackage + "." + getName());
 					setDmeImport(genPackage + "." + getName());
 				}
@@ -819,7 +819,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
 		boolean rc = true;
 		
 		if (getExcludeFromContextSize() > 0){
-			DmcAttribute<?> exclude = getDMO().get(MetaDMSAG.__excludeFromContext);
+			DmcAttribute<?> exclude = getDMO().get(MetaCompactSchema.__excludeFromContext);
 			if (exclude.contains(context))
 				rc = false;
 		}
@@ -911,8 +911,8 @@ public class ClassDefinition extends ClassDefinitionDMW {
     
     void setExceptionLocation(DMFeedback ex, DMUncheckedObject uco){
     	try {
-			int ln = Integer.parseInt(uco.getSV(MetaDMSAG.__lineNumber.name));
-			String file = uco.getSV(MetaDMSAG.__file.name);
+			int ln = Integer.parseInt(uco.getSV(MetaCompactSchema.__lineNumber.name));
+			String file = uco.getSV(MetaCompactSchema.__file.name);
 			ex.setLocation(file, ln);
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
@@ -934,7 +934,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
     		classRules = new ArrayList<RuleDataDMO>();
     		
     		// Get any objects that are referring to us via the applyToClass attribute
-			ArrayList<DmcObject> referring = getDMO().getReferringObjectsViaAttribute(MetaDMSAG.__applyToClass);
+			ArrayList<DmcObject> referring = getDMO().getReferringObjectsViaAttribute(MetaCompactSchema.__applyToClass);
 			
 			DebugInfo.debug("\n" +getDMO().getBackRefs());
 			
@@ -947,7 +947,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
 					if (obj instanceof RuleDataDMO){
 						RuleDataDMO rd = (RuleDataDMO) obj;
 						
-						if (rd.get(MetaDMSAG.__applyToAttribute) == null)
+						if (rd.get(MetaCompactSchema.__applyToAttribute) == null)
 							classRules.add(rd);
 					}
 				}

@@ -17,17 +17,17 @@ package org.dmd.dms.shared.generated.types;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dms.tools.generation.meta.TypeFormatter.dumpREF(TypeFormatter.java:184)
-import java.io.Serializable;                                   // Marker for serializable - (TypeFormatter.java:167)
-import org.dmd.core.DmcAttribute;                              // Used when retrieving the naming attribute - (TypeFormatter.java:168)
-import org.dmd.core.DmcNamedObjectREF;                         // Our base type - (TypeFormatter.java:177)
-import org.dmd.core.DmcObjectName;                             // Because we're a named object - (TypeFormatter.java:170)
-import org.dmd.core.feedback.DMFeedbackSet;                    // To facilitate error handling - (TypeFormatter.java:169)
-import org.dmd.core.interfaces.DmcInputStreamIF;               // To support serialization - (TypeFormatter.java:174)
-import org.dmd.core.interfaces.DmcOutputStreamIF;              // To support serialization - (TypeFormatter.java:171)
-import org.dmd.dms.shared.generated.dmo.MetaDMSAG;             // dark-matter core - (TypeFormatter.java:178)
-import org.dmd.dms.shared.generated.dmo.RunContextDMO;         // The type of object we refer to - (TypeFormatter.java:173)
-import org.dmd.dms.shared.types.DefinitionName;                // The base type of our naming attribute - (TypeFormatter.java:176)
-import org.dmd.dms.shared.types.DmcTypeDefinitionName;         // The type of our naming attribute - (TypeFormatter.java:175)
+import java.io.Serializable;                                       // Marker for serializable - (TypeFormatter.java:167)
+import org.dmd.core.DmcAttribute;                                  // Used when retrieving the naming attribute - (TypeFormatter.java:168)
+import org.dmd.core.DmcNamedObjectREF;                             // Our base type - (TypeFormatter.java:177)
+import org.dmd.core.DmcObjectName;                                 // Because we're a named object - (TypeFormatter.java:170)
+import org.dmd.core.feedback.DMFeedbackSet;                        // To facilitate error handling - (TypeFormatter.java:169)
+import org.dmd.core.interfaces.DmcInputStreamIF;                   // To support serialization - (TypeFormatter.java:174)
+import org.dmd.core.interfaces.DmcOutputStreamIF;                  // To support serialization - (TypeFormatter.java:171)
+import org.dmd.dms.shared.generated.dmo.MetaCompactSchema;         // dark-matter core - (TypeFormatter.java:178)
+import org.dmd.dms.shared.generated.dmo.RunContextDMO;             // The type of object we refer to - (TypeFormatter.java:173)
+import org.dmd.dms.shared.types.DefinitionName;                    // The base type of our naming attribute - (TypeFormatter.java:176)
+import org.dmd.dms.shared.types.DmcTypeDefinitionName;             // The type of our naming attribute - (TypeFormatter.java:175)
 
 
 /**
@@ -84,7 +84,7 @@ public class RunContextREF extends DmcNamedObjectREF<RunContextDMO> implements S
     @Override
     public void setName(DmcObjectName n) throws DMFeedbackSet {
         if (myName == null);
-            myName = new  DmcTypeDefinitionNameSV(MetaDMSAG.__name);
+            myName = new  DmcTypeDefinitionNameSV(MetaCompactSchema.__name);
         myName.set(n);
     }
 

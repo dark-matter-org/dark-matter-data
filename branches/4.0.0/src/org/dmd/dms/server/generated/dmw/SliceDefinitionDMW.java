@@ -96,7 +96,7 @@ public class SliceDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinitio
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:304)
     public AttributeDefinitionIterableDMW getSelectAttribute(){
-        DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaDMSAG.__selectAttribute);
+        DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaCompactSchema.__selectAttribute);
         if (attr == null)
             return(AttributeDefinitionIterableDMW.emptyList);
 
@@ -118,7 +118,7 @@ public class SliceDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinitio
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getSelectAttributeSize(){
-        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__selectAttribute);
+        DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__selectAttribute);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
@@ -147,7 +147,7 @@ public class SliceDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinitio
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
     public StringIterableDMW getDescriptionIterable(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaCompactSchema.__description);
         if (attr == null)
             return(StringIterableDMW.emptyList);
 
@@ -156,7 +156,7 @@ public class SliceDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinitio
 
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:341)
     public Iterator<String> getDescriptionWithNewlines(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaCompactSchema.__description);
         if (attr == null)
             return(null);
 
@@ -187,7 +187,7 @@ public class SliceDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinitio
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getDescriptionSize(){
-        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__description);
+        DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__description);
         if (attr == null)
             return(0);
         return(attr.getMVSize());

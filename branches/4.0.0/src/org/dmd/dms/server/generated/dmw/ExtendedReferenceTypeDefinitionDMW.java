@@ -91,7 +91,7 @@ public class ExtendedReferenceTypeDefinitionDMW extends org.dmd.dms.server.exten
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public ClassDefinition getExtendedReferenceClass(){
-        DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) mycore.get(MetaDMSAG.__extendedReferenceClass);
+        DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) mycore.get(MetaCompactSchema.__extendedReferenceClass);
         if (attr == null)
             return(null);
         ClassDefinitionDMO obj = attr.getSV().getObject();

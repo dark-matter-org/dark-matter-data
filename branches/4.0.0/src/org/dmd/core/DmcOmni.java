@@ -36,7 +36,7 @@ import org.dmd.core.rules.RuleTracerIF;
 import org.dmd.dms.shared.types.DmcTypeDmcObjectName;
 import org.dmd.dms.shared.types.DotName;
 import org.dmd.dms.shared.types.Modifier;
-import org.dmd.dms.shared.generated.dmo.MetaDMSAG;
+import org.dmd.dms.shared.generated.dmo.MetaCompactSchema;
 import org.dmd.dms.shared.generated.types.DmcTypeModifierMV;
 
 /**
@@ -170,7 +170,7 @@ public class DmcOmni implements DmcNameResolverIF {
 		loadedCompactSchemas	= new TreeMap<String, DmcCompactSchemaIF>();
 		
 //		addAttributeSchema(MetaASAG.instance());
-		addCompactSchema(MetaDMSAG.instance());
+		addCompactSchema(MetaCompactSchema.instance());
 	}
 	
 	static public synchronized DmcOmni instance(){
@@ -203,7 +203,7 @@ public class DmcOmni implements DmcNameResolverIF {
 		// If trackSchemaReferences is turned off (the default), we will only
 		// attempt back reference tracking if the attribute ID is beyond the
 		// maximum ID of the meta schema.
-		else if (attributeID > MetaDMSAG.instance().getSchemaMaxID())
+		else if (attributeID > MetaCompactSchema.instance().getSchemaMaxID())
 			return(true);
 		return(false);
 	}

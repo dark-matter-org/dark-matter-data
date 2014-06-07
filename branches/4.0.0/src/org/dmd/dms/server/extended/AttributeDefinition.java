@@ -24,7 +24,7 @@ import org.dmd.core.schema.DmcAttributeInfo;
 import org.dmd.core.util.NamedStringArray;
 import org.dmd.dms.server.generated.dmw.AttributeDefinitionDMW;
 import org.dmd.dms.shared.generated.dmo.AttributeDefinitionDMO;
-import org.dmd.dms.shared.generated.dmo.MetaDMSAG;
+import org.dmd.dms.shared.generated.dmo.MetaCompactSchema;
 import org.dmd.dms.shared.generated.dmo.RuleDataDMO;
 import org.dmd.dms.shared.generated.enums.ValueTypeEnum;
 
@@ -127,7 +127,7 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
 						
 						// We only look at attribute rules - they will always have
 						// the applyToAttribute attribute.
-						if (rd.get(MetaDMSAG.__applyToAttribute) != null){
+						if (rd.get(MetaCompactSchema.__applyToAttribute) != null){
 							if (rd.getApplyToClass() == null)
 								globalRules.add(rd);
 							else
@@ -207,7 +207,7 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
     }
     
     public String getDMSAGReference(){
-    	return(getDefinedInDmsModule().getDMSASGName() + ".__" + getName());
+    	return(getDefinedInDmsModule().getCompactSchemaName() + ".__" + getName());
     }
     
     public String getAdapterClassImport(){

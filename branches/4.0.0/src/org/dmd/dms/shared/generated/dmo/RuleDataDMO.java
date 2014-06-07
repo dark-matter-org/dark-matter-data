@@ -47,26 +47,26 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
-        _ImAp.put(MetaDMSAG.__ruleName.id,MetaDMSAG.__ruleName);
-        _ImAp.put(MetaDMSAG.__ruleTitle.id,MetaDMSAG.__ruleTitle);
-        _ImAp.put(MetaDMSAG.__applyToClass.id,MetaDMSAG.__applyToClass);
-        _ImAp.put(MetaDMSAG.__description.id,MetaDMSAG.__description);
-        _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
-        _ImAp.put(MetaDMSAG.__immediateHalt.id,MetaDMSAG.__immediateHalt);
-        _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
-        _ImAp.put(MetaDMSAG.__msgKey.id,MetaDMSAG.__msgKey);
-        _ImAp.put(MetaDMSAG.__msgParam.id,MetaDMSAG.__msgParam);
+        _ImAp.put(MetaCompactSchema.__ruleName.id,MetaCompactSchema.__ruleName);
+        _ImAp.put(MetaCompactSchema.__ruleTitle.id,MetaCompactSchema.__ruleTitle);
+        _ImAp.put(MetaCompactSchema.__applyToClass.id,MetaCompactSchema.__applyToClass);
+        _ImAp.put(MetaCompactSchema.__description.id,MetaCompactSchema.__description);
+        _ImAp.put(MetaCompactSchema.__file.id,MetaCompactSchema.__file);
+        _ImAp.put(MetaCompactSchema.__immediateHalt.id,MetaCompactSchema.__immediateHalt);
+        _ImAp.put(MetaCompactSchema.__lineNumber.id,MetaCompactSchema.__lineNumber);
+        _ImAp.put(MetaCompactSchema.__msgKey.id,MetaCompactSchema.__msgKey);
+        _ImAp.put(MetaCompactSchema.__msgParam.id,MetaCompactSchema.__msgParam);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
-        _SmAp.put(MetaDMSAG.__ruleName.name,MetaDMSAG.__ruleName);
-        _SmAp.put(MetaDMSAG.__ruleTitle.name,MetaDMSAG.__ruleTitle);
-        _SmAp.put(MetaDMSAG.__applyToClass.name,MetaDMSAG.__applyToClass);
-        _SmAp.put(MetaDMSAG.__description.name,MetaDMSAG.__description);
-        _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
-        _SmAp.put(MetaDMSAG.__immediateHalt.name,MetaDMSAG.__immediateHalt);
-        _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
-        _SmAp.put(MetaDMSAG.__msgKey.name,MetaDMSAG.__msgKey);
-        _SmAp.put(MetaDMSAG.__msgParam.name,MetaDMSAG.__msgParam);
+        _SmAp.put(MetaCompactSchema.__ruleName.name,MetaCompactSchema.__ruleName);
+        _SmAp.put(MetaCompactSchema.__ruleTitle.name,MetaCompactSchema.__ruleTitle);
+        _SmAp.put(MetaCompactSchema.__applyToClass.name,MetaCompactSchema.__applyToClass);
+        _SmAp.put(MetaCompactSchema.__description.name,MetaCompactSchema.__description);
+        _SmAp.put(MetaCompactSchema.__file.name,MetaCompactSchema.__file);
+        _SmAp.put(MetaCompactSchema.__immediateHalt.name,MetaCompactSchema.__immediateHalt);
+        _SmAp.put(MetaCompactSchema.__lineNumber.name,MetaCompactSchema.__lineNumber);
+        _SmAp.put(MetaCompactSchema.__msgKey.name,MetaCompactSchema.__msgKey);
+        _SmAp.put(MetaCompactSchema.__msgParam.name,MetaCompactSchema.__msgParam);
     }
 
 
@@ -106,7 +106,7 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
     public RuleName getRuleName(){
-        DmcTypeRuleNameSV attr = (DmcTypeRuleNameSV) get(MetaDMSAG.__ruleName);
+        DmcTypeRuleNameSV attr = (DmcTypeRuleNameSV) get(MetaCompactSchema.__ruleName);
         if (attr == null)
             return(null);
 
@@ -119,12 +119,12 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
     public void setRuleName(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__ruleName);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__ruleName);
         if (attr == null)
-            attr = new DmcTypeRuleNameSV(MetaDMSAG.__ruleName);
+            attr = new DmcTypeRuleNameSV(MetaCompactSchema.__ruleName);
         
         attr.set(value);
-        set(MetaDMSAG.__ruleName,attr);
+        set(MetaCompactSchema.__ruleName,attr);
     }
 
     /**
@@ -132,7 +132,7 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
     public String getRuleTitle(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__ruleTitle);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaCompactSchema.__ruleTitle);
         if (attr == null)
             return(null);
 
@@ -145,12 +145,12 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
     public void setRuleTitle(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__ruleTitle);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__ruleTitle);
         if (attr == null)
-            attr = new DmcTypeStringSV(MetaDMSAG.__ruleTitle);
+            attr = new DmcTypeStringSV(MetaCompactSchema.__ruleTitle);
         
         attr.set(value);
-        set(MetaDMSAG.__ruleTitle,attr);
+        set(MetaCompactSchema.__ruleTitle,attr);
     }
 
     /**
@@ -158,7 +158,7 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
     public ClassDefinitionREF getApplyToClass(){
-        DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) get(MetaDMSAG.__applyToClass);
+        DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) get(MetaCompactSchema.__applyToClass);
         if (attr == null)
             return(null);
 
@@ -171,12 +171,12 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
     public void setApplyToClass(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__applyToClass);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__applyToClass);
         if (attr == null)
-            attr = new DmcTypeClassDefinitionREFSV(MetaDMSAG.__applyToClass);
+            attr = new DmcTypeClassDefinitionREFSV(MetaCompactSchema.__applyToClass);
         
         attr.set(value);
-        set(MetaDMSAG.__applyToClass,attr);
+        set(MetaCompactSchema.__applyToClass,attr);
     }
 
     /**
@@ -194,7 +194,7 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:266)
     public Iterator<String> getDescription(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaCompactSchema.__description);
         if (attr == null)
             return(null);
 
@@ -203,7 +203,7 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
 
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:279)
     public Iterator<String> getDescriptionWithNewlines(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaCompactSchema.__description);
         if (attr == null)
             return(null);
 
@@ -226,12 +226,12 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addDescription(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__description);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__description);
         if (attr == null)
-            attr = new DmcTypeStringMV(MetaDMSAG.__description);
+            attr = new DmcTypeStringMV(MetaCompactSchema.__description);
         
         attr.add(value);
-        add(MetaDMSAG.__description,attr);
+        add(MetaCompactSchema.__description,attr);
         return(attr);
     }
 
@@ -240,7 +240,7 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
     public String getFile(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__file);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaCompactSchema.__file);
         if (attr == null)
             return(null);
 
@@ -253,12 +253,12 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
     public void setFile(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__file);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__file);
         if (attr == null)
-            attr = new DmcTypeStringSV(MetaDMSAG.__file);
+            attr = new DmcTypeStringSV(MetaCompactSchema.__file);
         
         attr.set(value);
-        set(MetaDMSAG.__file,attr);
+        set(MetaCompactSchema.__file,attr);
     }
 
     /**
@@ -270,7 +270,7 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
     public Boolean getImmediateHalt(){
-        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaDMSAG.__immediateHalt);
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaCompactSchema.__immediateHalt);
         if (attr == null)
             return(false);
 
@@ -283,12 +283,12 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
     public void setImmediateHalt(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__immediateHalt);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__immediateHalt);
         if (attr == null)
-            attr = new DmcTypeBooleanSV(MetaDMSAG.__immediateHalt);
+            attr = new DmcTypeBooleanSV(MetaCompactSchema.__immediateHalt);
         
         attr.set(value);
-        set(MetaDMSAG.__immediateHalt,attr);
+        set(MetaCompactSchema.__immediateHalt,attr);
     }
 
     /**
@@ -296,7 +296,7 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
     public Integer getLineNumber(){
-        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaDMSAG.__lineNumber);
+        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaCompactSchema.__lineNumber);
         if (attr == null)
             return(null);
 
@@ -309,12 +309,12 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
     public void setLineNumber(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__lineNumber);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__lineNumber);
         if (attr == null)
-            attr = new DmcTypeIntegerSV(MetaDMSAG.__lineNumber);
+            attr = new DmcTypeIntegerSV(MetaCompactSchema.__lineNumber);
         
         attr.set(value);
-        set(MetaDMSAG.__lineNumber,attr);
+        set(MetaCompactSchema.__lineNumber,attr);
     }
 
     /**
@@ -324,7 +324,7 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:82)
     public String getMsgKey(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__msgKey);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaCompactSchema.__msgKey);
         if (attr == null)
             return(null);
 
@@ -337,12 +337,12 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:164)
     public void setMsgKey(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__msgKey);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__msgKey);
         if (attr == null)
-            attr = new DmcTypeStringSV(MetaDMSAG.__msgKey);
+            attr = new DmcTypeStringSV(MetaCompactSchema.__msgKey);
         
         attr.set(value);
-        set(MetaDMSAG.__msgKey,attr);
+        set(MetaCompactSchema.__msgKey,attr);
     }
 
     /**
@@ -352,7 +352,7 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:266)
     public Iterator<String> getMsgParam(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__msgParam);
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaCompactSchema.__msgParam);
         if (attr == null)
             return(null);
 
@@ -365,12 +365,12 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:370)
     public DmcAttribute<?> addMsgParam(Object value) throws DMFeedbackSet {
-        DmcAttribute<?> attr = get(MetaDMSAG.__msgParam);
+        DmcAttribute<?> attr = get(MetaCompactSchema.__msgParam);
         if (attr == null)
-            attr = new DmcTypeStringMV(MetaDMSAG.__msgParam);
+            attr = new DmcTypeStringMV(MetaCompactSchema.__msgParam);
         
         attr.add(value);
-        add(MetaDMSAG.__msgParam,attr);
+        add(MetaCompactSchema.__msgParam,attr);
         return(attr);
     }
 
@@ -384,7 +384,7 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      */
     @Override
     public RuleName getObjectName(){
-        DmcTypeRuleName attr = (DmcTypeRuleName) get(MetaDMSAG.__ruleName);
+        DmcTypeRuleName attr = (DmcTypeRuleName) get(MetaCompactSchema.__ruleName);
         if (attr == null)
             return(null);
         return(attr.getSV());
@@ -396,7 +396,7 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
      */
     @Override
     public DmcAttribute<?> getObjectNameAttribute(){
-        DmcAttribute<?> attr = (DmcTypeRuleName) get(MetaDMSAG.__ruleName);
+        DmcAttribute<?> attr = (DmcTypeRuleName) get(MetaCompactSchema.__ruleName);
         return(attr);
     }
 

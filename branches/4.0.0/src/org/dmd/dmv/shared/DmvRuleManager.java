@@ -13,7 +13,7 @@ import org.dmd.core.rules.DmcRuleManager;
 import org.dmd.core.rules.RuleCollection;
 import org.dmd.core.schema.DmcCompactSchemaIF;
 import org.dmd.core.util.DMUncheckedObject;
-import org.dmd.dms.shared.generated.dmo.MetaDMSAG;
+import org.dmd.dms.shared.generated.dmo.MetaCompactSchema;
 import org.dmd.dms.shared.generated.rulesdmo.AttributeValidationRuleCollection;
 import org.dmd.dms.shared.generated.rulesdmo.AttributeValidationWithResolverRuleCollection;
 import org.dmd.dms.shared.generated.rulesdmo.InitializationRuleCollection;
@@ -65,7 +65,7 @@ public class DmvRuleManager extends DmcRuleManager {
 		ucoObjectvalidators	= new UCOValidationRuleCollection();
 		ruleCollections.add(ucoObjectvalidators);
 				
-		loadRules(MetaDMSAG.instance());
+		loadRules(MetaCompactSchema.instance());
 		
 		// We have to load the DmcOmni with the DMV schema before we attempt
 		// to load the rules because we depend on it to find DmcClassInfo

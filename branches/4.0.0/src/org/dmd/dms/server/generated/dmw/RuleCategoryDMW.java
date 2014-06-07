@@ -164,7 +164,7 @@ public class RuleCategoryDMW extends org.dmd.dms.server.extended.DmsDefinition  
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
     public RuleParamIterableDMW getRuleParamIterable(){
-        DmcTypeRuleParamMV attr = (DmcTypeRuleParamMV) mycore.get(MetaDMSAG.__ruleParam);
+        DmcTypeRuleParamMV attr = (DmcTypeRuleParamMV) mycore.get(MetaCompactSchema.__ruleParam);
         if (attr == null)
             return(RuleParamIterableDMW.emptyList);
 
@@ -185,7 +185,7 @@ public class RuleCategoryDMW extends org.dmd.dms.server.extended.DmsDefinition  
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getRuleParamSize(){
-        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__ruleParam);
+        DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__ruleParam);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
@@ -226,7 +226,7 @@ public class RuleCategoryDMW extends org.dmd.dms.server.extended.DmsDefinition  
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
     public StringIterableDMW getRuleImportIterable(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__ruleImport);
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaCompactSchema.__ruleImport);
         if (attr == null)
             return(StringIterableDMW.emptyList);
 
@@ -247,7 +247,7 @@ public class RuleCategoryDMW extends org.dmd.dms.server.extended.DmsDefinition  
      */
     // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getRuleImportSize(){
-        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__ruleImport);
+        DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__ruleImport);
         if (attr == null)
             return(0);
         return(attr.getMVSize());

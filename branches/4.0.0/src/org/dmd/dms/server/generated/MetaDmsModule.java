@@ -359,8 +359,8 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
             this.setName("meta");
             this.setDotName("meta.meta.DmsModule");
             this.setDefinedInDmsModule(this);
-            this.setSchemaPackage("org.dmd.dms");
-            this.setDmwPackage("org.dmd.dms");
+            this.setSchemaPackage("org.dmd.dms.shared");
+            this.setDmwPackage("org.dmd.dms.server");
             this.setSchemaBaseID(0);
             this.setSchemaIDRange(200);
             initClasses();
@@ -377,7 +377,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
     private void initClasses() throws DMFeedbackSet {
 
         ClassDefinitionDMO _ActionTriggerInfoOBJ = new ClassDefinitionDMO();
-        _ActionTriggerInfo = new ClassDefinition(_ActionTriggerInfoOBJ,MetaDMSAG.__ActionTriggerInfo);
+        _ActionTriggerInfo = new ClassDefinition(_ActionTriggerInfoOBJ,MetaCompactSchema.__ActionTriggerInfo);
         _ActionTriggerInfoOBJ.setClassType("ABSTRACT");
         _ActionTriggerInfoOBJ.addDescription("The ActionTriggerInfo class simply provides a common base for the bundle of information required to remotely trigger an action on an object.  Derivatives of this class are generated as part of the DMO generation process and have action specific interfaces to handle the parameters  required by an ActionDefinition. <p/> This mechanism is a replacement for the concept that ActionRequests were EXTENSIBLE objects. This way, the user can ask an object for the  ActionTriggerInfo (ATI) for a particular action and have a well defined interface to specify the parameters for the action.");
         _ActionTriggerInfoOBJ.setDmdID("14");
@@ -390,7 +390,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
         addClassDefinition(_ActionTriggerInfo);
 
         ClassDefinitionDMO _DSDefinitionOBJ = new ClassDefinitionDMO();
-        _DSDefinition = new ClassDefinition(_DSDefinitionOBJ,MetaDMSAG.__DSDefinition);
+        _DSDefinition = new ClassDefinition(_DSDefinitionOBJ,MetaCompactSchema.__DSDefinition);
         _DSDefinitionOBJ.setClassType("ABSTRACT");
         _DSDefinitionOBJ.addDescription("The domain specific definition (DSDefinition) forms the basis for all definitions that use dark-matter as their basis. The initial dark-matter mechanisms were focussed only on  schema for data objects, but, as the project developed, other, domain specific sets of definitions were added. Eventually, a pattern emerged in terms of these various sets of definitions and some additional higher order concepts were introduced to make the creation of new, domain specific definition sets easier and to allow them to build on and use each others' definitions in a  coherent manner. <p/> For instance, the Model View Whatever (MVW) framework, builds on the dark-matter schema  concepts and introduces definitions that align with the Google Web Toolkit (GWT) conceptual model of the elements that comprise GWT applications and the various relationships that exist between them. The infrastructure needed to parse, manage and use those definitions to generate code and documentation are very similar to those used in the base dark-matter schema mechanisms, but they had to be hand built for the domain. <p/> Other kinds of domain specific definitions started to emerge, Google Protocol Buffer (GPB), Simple Network Management Protocol (SNMP) etc. Having to build the infrastructure for these  definitions each time was tedious and, in the spirit of the rest of dark-matter, lent themselves to being defined, generated and extended to make the process the easier. <p/> Likewise, the code generation mechanisms originally employed have evolved and the more generic concept of artifact generation, based on definition sets, was introduced to allow for more rapid creation of utilities that generate code or documentation or other types of specifications.");
         _DSDefinitionOBJ.setDmdID("1");
@@ -421,7 +421,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
         addClassDefinition(_DSDefinition);
 
         ClassDefinitionDMO _DmsDefinitionOBJ = new ClassDefinitionDMO();
-        _DmsDefinition = new ClassDefinition(_DmsDefinitionOBJ,MetaDMSAG.__DmsDefinition);
+        _DmsDefinition = new ClassDefinition(_DmsDefinitionOBJ,MetaCompactSchema.__DmsDefinition);
         _DmsDefinitionOBJ.setClassType("ABSTRACT");
         _DmsDefinitionOBJ.setDerivedFrom("DSDefinition");
         _DmsDefinitionOBJ.addDescription("The DmsDefinition class provides a common base for all dark-matter schema (DMS) definition classes.");
@@ -441,7 +441,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
         addClassDefinition(_DmsDefinition);
 
         ClassDefinitionDMO _DSDefinitionModuleOBJ = new ClassDefinitionDMO();
-        _DSDefinitionModule = new ClassDefinition(_DSDefinitionModuleOBJ,MetaDMSAG.__DSDefinitionModule);
+        _DSDefinitionModule = new ClassDefinition(_DSDefinitionModuleOBJ,MetaCompactSchema.__DSDefinitionModule);
         _DSDefinitionModuleOBJ.setClassType("STRUCTURAL");
         _DSDefinitionModuleOBJ.setDerivedFrom("DmsDefinition");
         _DSDefinitionModuleOBJ.addDescription("The DSDefinitionModule is a definition that defines a collection of definitions and provides a basis for the generation of various artifacts that allow for parsing and management of that set of definitions. <p/> The specific of a definition module will result in the generation of a ClassDefinition for the specified module type and thus, the dmdID associated with it must be unique across the set of classes that comprise the definitions encompassed by the module. <p/> The ClassDefinition will be named by name and will have the may and must attributes specified as part of the DSDefinitionModule.");
@@ -469,7 +469,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
         addClassDefinition(_DSDefinitionModule);
 
         ClassDefinitionDMO _ClassDefinitionOBJ = new ClassDefinitionDMO();
-        _ClassDefinition = new ClassDefinition(_ClassDefinitionOBJ,MetaDMSAG.__ClassDefinition);
+        _ClassDefinition = new ClassDefinition(_ClassDefinitionOBJ,MetaCompactSchema.__ClassDefinition);
         _ClassDefinitionOBJ.setClassType("STRUCTURAL");
         _ClassDefinitionOBJ.setDerivedFrom("DmsDefinition");
         _ClassDefinitionOBJ.addDescription("This class provides the basic mechanism to define new classes for a schema.");
@@ -525,7 +525,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
         addClassDefinition(_ClassDefinition);
 
         ClassDefinitionDMO _EnumDefinitionOBJ = new ClassDefinitionDMO();
-        _EnumDefinition = new ClassDefinition(_EnumDefinitionOBJ,MetaDMSAG.__EnumDefinition);
+        _EnumDefinition = new ClassDefinition(_EnumDefinitionOBJ,MetaCompactSchema.__EnumDefinition);
         _EnumDefinitionOBJ.setClassType("STRUCTURAL");
         _EnumDefinitionOBJ.setDerivedFrom("DmsDefinition");
         _EnumDefinitionOBJ.addDescription("The EnumDefinition allows for the definition of real Java enums that provide inherent mapping of the string and integer values of the enum into actual enum values. Once defined, EnumDefinitions can be used where ever you would use a TypeDefinition name i.e. they can be used in the type attribute of AttributeDefinitions.");
@@ -545,7 +545,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
         addClassDefinition(_EnumDefinition);
 
         ClassDefinitionDMO _TypeDefinitionOBJ = new ClassDefinitionDMO();
-        _TypeDefinition = new ClassDefinition(_TypeDefinitionOBJ,MetaDMSAG.__TypeDefinition);
+        _TypeDefinition = new ClassDefinition(_TypeDefinitionOBJ,MetaCompactSchema.__TypeDefinition);
         _TypeDefinitionOBJ.setClassType("STRUCTURAL");
         _TypeDefinitionOBJ.setDerivedFrom("DmsDefinition");
         _TypeDefinitionOBJ.addDescription("The <code> TypeDefinition </code> is used to define the types of attributes that can be used as the basis for attribute values. The name of the type definition should be the same as the actual Java class that is used to store the value of an attribute e.g. the name of the type used to store strings is String. The <code> typeClassName </code> is the fully qualified name of the class derived from <code>DmcAttribute</code> that stores this type of value; they are always, by convention, named <code>DmcTypeXXX</code>. <p/> <code> TypeDefinitions </code> are automatically generated internally for <code>ClassDefinitions</code>,  <code>ComplexTypeDefinitions</code>, <code>ExtendedReferenceTypeDefinitions</code> and <code>EnumDefinitions</code> so that these objects can be referred to via the <code>type</code> attribute of <code> AttributeDefinitions</code>. These definitions are marked as <code> internallyGenerated </code>. <p/> The simplest <code> TypeDefinition </code> would look something like: <pre> TypeDefinition name           String typeClassName  org.dmd.dmc.types.DmcTypeString description    Provides support for String values. </pre> This form would be used for attribute types whose base type originates in <code> java.lang</code>. The dark-matter base types include: Boolean, Byte, Double, Float, Integer, Long, Short and String. <p/> <code>TypeDefinitions</code> also support the concept of specifying a <code> nullReturnValue </code> for the entire type i.e. whenever an attribute of the specified type is accessed, it will return that value when the attribute doesn't exist in the object. An example of this is the <code> Boolean </code> type: <pre> TypeDefinition name            Boolean typeClassName   org.dmd.dmc.types.DmcTypeBoolean nullReturnValue false description     Provides support for Boolean values. This type makes use of the                 nullReturnValue flag so that, even if there is no                 value for an attribute of this type, a value of false will                 be returned. </pre> <p/> The next most common form of <code> TypeDefinition </code> adds the <code> primitiveType </code> attribute. This is required for code generation so that we can import the appropriate type for use in the various getter/setter methods. An example would be the <code> Date </code> type. <pre> TypeDefinition name           Date typeClassName  org.dmd.dmc.types.DmcTypeDate primitiveType  java.util.Date description    Provides support for Date values. </pre> Another common form of <code>TypeDefinition</code> is the definition of a name type. Object naming is a fundamental aspect of DMOs, with all object names being based on the <code>DmcObjectName</code>. Flagging a type as being a name type also implies the definition of a designated naming attribute associated with the type. This mechanism allows for the transport of names that are self describing in terms of their implementation type. This feature supports the <code>NameContainer</code> type that allows any name to be transported in things like dark-matter protocol <code>GetRequest</code>. An example of a naming type would be: <pre> TypeDefinition name           CamelCaseName typeClassName  org.dmd.dmc.types.DmcTypeCamelCaseName primitiveType  org.dmd.dmc.types.CamelCaseName isNameType     true description    The CamelCaseName is a string based name that must start with                an alpha character which is followed by a mix of alphanumerics. </pre> And its associated designated naming attribute would be: <pre> AttributeDefinition name                     camelCaseName dmdID                    116 type                     CamelCaseName designatedNameAttribute  true description              The camelCaseName attribute is used to store a single camelCase                          format name for something. The name starts with a single letter                          and can be followed by a mix of letters and numbers. No spaces or                           other characters are allowed. </pre> The last form of type definition is one that includes some additional information to provide a convenient, alternate interface for the generation of member functions associated with a container type; this concept is pretty much limited to the meta-schema, so it is unlikely that non-contributors to dark-matter will make use of this concept. However, here is an example: <pre> TypeDefinition name           NameContainer typeClassName  org.dmd.dmc.types.DmcTypeNameContainer primitiveType  org.dmd.dmc.types.NameContainer altType        DmcObjectName altTypeImport  org.dmd.dmc.DmcObjectName description    The NameContainer type allows for the storage of object names of different types... </pre>");
@@ -589,7 +589,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
         addClassDefinition(_TypeDefinition);
 
         ClassDefinitionDMO _ComplexTypeDefinitionOBJ = new ClassDefinitionDMO();
-        _ComplexTypeDefinition = new ClassDefinition(_ComplexTypeDefinitionOBJ,MetaDMSAG.__ComplexTypeDefinition);
+        _ComplexTypeDefinition = new ClassDefinition(_ComplexTypeDefinitionOBJ,MetaCompactSchema.__ComplexTypeDefinition);
         _ComplexTypeDefinitionOBJ.setClassType("STRUCTURAL");
         _ComplexTypeDefinitionOBJ.setDerivedFrom("DmsDefinition");
         _ComplexTypeDefinitionOBJ.addDescription("The ComplexTypeDefinition provides a mechanism for defining the structure of a complex type composed of other types. From this definition, a new DmcType is generated that has all of the required methods automatically defined. <p/> An example definition is the RuleParam: <pre> ComplexTypeDefinition name			RuleParam fieldSeparator : field String importStatement The import for the type of parameter field String genericArgs     The generic arguments associated with this parameter field String name            The name of the parameter field String description     A description of the parameter description The RuleParam type is used to succintly describe a parameter  to be supplied to a rule when it is executed. </pre> In this case, the type has four fields, all of String type. An example of the String format of the field might be: <pre> org.dmc.DmcObject::obj:The object to be validated</pre> In this case, the generic args field isn't available and will be the empty string. When a field seperator is specified, all fields are, more or less optional, but the underlying type must be able to handle the empty string as a valid value. This wouldn't work with Integer. <p/> If no field separator is specified, the separator is assumed to be whitespace and additional whitespace is consumed during the parsing.");
@@ -611,7 +611,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
         addClassDefinition(_ComplexTypeDefinition);
 
         ClassDefinitionDMO _ExtendedReferenceTypeDefinitionOBJ = new ClassDefinitionDMO();
-        _ExtendedReferenceTypeDefinition = new ClassDefinition(_ExtendedReferenceTypeDefinitionOBJ,MetaDMSAG.__ExtendedReferenceTypeDefinition);
+        _ExtendedReferenceTypeDefinition = new ClassDefinition(_ExtendedReferenceTypeDefinitionOBJ,MetaCompactSchema.__ExtendedReferenceTypeDefinition);
         _ExtendedReferenceTypeDefinitionOBJ.setClassType("STRUCTURAL");
         _ExtendedReferenceTypeDefinitionOBJ.setDerivedFrom("ComplexTypeDefinition");
         _ExtendedReferenceTypeDefinitionOBJ.addDescription("The ExtendedReferenceTypeDefinition provides a mechanism for extending  the automatically generated named object reference attribute types with additional information. This can be seen as adding additional information to the relationship between two objects.");
@@ -629,7 +629,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
         addClassDefinition(_ExtendedReferenceTypeDefinition);
 
         ClassDefinitionDMO _AttributeDefinitionOBJ = new ClassDefinitionDMO();
-        _AttributeDefinition = new ClassDefinition(_AttributeDefinitionOBJ,MetaDMSAG.__AttributeDefinition);
+        _AttributeDefinition = new ClassDefinition(_AttributeDefinitionOBJ,MetaCompactSchema.__AttributeDefinition);
         _AttributeDefinitionOBJ.setClassType("STRUCTURAL");
         _AttributeDefinitionOBJ.setDerivedFrom("DmsDefinition");
         _AttributeDefinitionOBJ.addDescription("This class is used to define attributes to be used as part of a class definition.");
@@ -663,7 +663,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
         addClassDefinition(_AttributeDefinition);
 
         ClassDefinitionDMO _SliceDefinitionOBJ = new ClassDefinitionDMO();
-        _SliceDefinition = new ClassDefinition(_SliceDefinitionOBJ,MetaDMSAG.__SliceDefinition);
+        _SliceDefinition = new ClassDefinition(_SliceDefinitionOBJ,MetaCompactSchema.__SliceDefinition);
         _SliceDefinitionOBJ.setClassType("STRUCTURAL");
         _SliceDefinitionOBJ.setDerivedFrom("DmsDefinition");
         _SliceDefinitionOBJ.addDescription("The SliceDefinition class is used to define a named set of attributes that are used to retrieve a slice of an object i.e. an abbreviated set of values. These are used in the generation of static, named DmcSliceInfo instances.");
@@ -682,7 +682,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
         addClassDefinition(_SliceDefinition);
 
         ClassDefinitionDMO _ActionDefinitionOBJ = new ClassDefinitionDMO();
-        _ActionDefinition = new ClassDefinition(_ActionDefinitionOBJ,MetaDMSAG.__ActionDefinition);
+        _ActionDefinition = new ClassDefinition(_ActionDefinitionOBJ,MetaCompactSchema.__ActionDefinition);
         _ActionDefinitionOBJ.setClassType("STRUCTURAL");
         _ActionDefinitionOBJ.setDerivedFrom("DmsDefinition");
         _ActionDefinitionOBJ.addDescription("This class is used to define the actions that may be triggered on an object.");
@@ -708,7 +708,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
         addClassDefinition(_ActionDefinition);
 
         ClassDefinitionDMO _SchemaDefinitionOBJ = new ClassDefinitionDMO();
-        _SchemaDefinition = new ClassDefinition(_SchemaDefinitionOBJ,MetaDMSAG.__SchemaDefinition);
+        _SchemaDefinition = new ClassDefinition(_SchemaDefinitionOBJ,MetaCompactSchema.__SchemaDefinition);
         _SchemaDefinitionOBJ.setClassType("STRUCTURAL");
         _SchemaDefinitionOBJ.setDerivedFrom("DmsDefinition");
         _SchemaDefinitionOBJ.addDescription("This class is used to define a schema as a discrete, nameable entity.");
@@ -749,7 +749,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
         addClassDefinition(_SchemaDefinition);
 
         ClassDefinitionDMO _RuleCategoryOBJ = new ClassDefinitionDMO();
-        _RuleCategory = new ClassDefinition(_RuleCategoryOBJ,MetaDMSAG.__RuleCategory);
+        _RuleCategory = new ClassDefinition(_RuleCategoryOBJ,MetaCompactSchema.__RuleCategory);
         _RuleCategoryOBJ.setClassType("STRUCTURAL");
         _RuleCategoryOBJ.setDerivedFrom("DmsDefinition");
         _RuleCategoryOBJ.addDescription("The RuleCategory allows for the definition of categories of rules to be applied to various objects and indicates the expected interface to be implemented by a rule instance. A RuleDefinition may belong to multiple categories.  <p/> RuleCategories fall into two broad types, ATTRIBUTE and CLASS level, as specified via the ruleType attribute. When a RuleDefinition belongs to an ATTRIBUTE level category, its instances will have a mandatory applyToAttribute attribute. Both ATTRIBUTE and CLASS level RuleDefinitions have an optional applyToClass attribute by default. <p/> Specifying a RuleCategory will cause the generation of several artifacts including: <ul> <li> a category interface: this interface will be created based on the ruleParam values and will be implemented by RuleDefinitions that are part of the category </li> a rule collection: this is a category specific collection of rules that organize the rule instances in this category. </ul> Exactly how a RuleCategory applies rule instances is category specific and this behaviour should be part of the description of a rule category. <p/> For CLASS level rules, you must specify the classInfoFromParam attribute to indicate how to  get the DmcClassInfo from whatever object you are passing to the rule. For ATTRIBUTE level rules, you must specify both attributeInfoFromParam and classInfoFromParam.");
@@ -773,7 +773,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
         addClassDefinition(_RuleCategory);
 
         ClassDefinitionDMO _RuleDefinitionOBJ = new ClassDefinitionDMO();
-        _RuleDefinition = new ClassDefinition(_RuleDefinitionOBJ,MetaDMSAG.__RuleDefinition);
+        _RuleDefinition = new ClassDefinition(_RuleDefinitionOBJ,MetaCompactSchema.__RuleDefinition);
         _RuleDefinitionOBJ.setClassType("STRUCTURAL");
         _RuleDefinitionOBJ.setDerivedFrom("DmsDefinition");
         _RuleDefinitionOBJ.addDescription("The RuleDefinition allows for the definition of rules that can be applied to attributes or classes. Rules are not just for validation, they can be applied to objects at different times in an object's life cycle e.g.  the InitRule can initialize a set of attributes to known values. <p/> RuleDefinitions will result in the generation of ClassDefinitions that define the  DMOs that will carry the parameters associated with the rule and the expectation that you will define an implementation class for the rule that derives from an abstract BaseImpl (base implementation) of the rule that provides common rule infrastructure and appropriate abstract methods that must be filled in. <p/> RuleDefinitions and ClassDefinitions share the same dmdID space and the IDs must be unique. This is because each RuleDefinition results in the creation of a  ClassDefinition for the DMO part of the rule that carries the rule parameters.");
@@ -796,7 +796,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
         addClassDefinition(_RuleDefinition);
 
         ClassDefinitionDMO _RuleDataOBJ = new ClassDefinitionDMO();
-        _RuleData = new ClassDefinition(_RuleDataOBJ,MetaDMSAG.__RuleData);
+        _RuleData = new ClassDefinition(_RuleDataOBJ,MetaCompactSchema.__RuleData);
         _RuleDataOBJ.setClassType("ABSTRACT");
         _RuleDataOBJ.addDescription("The RuleData class serves as a common base for all ClassDefinitions that are generated internally to represent the data associated with RuleDefinitions.");
         _RuleDataOBJ.setDmdID("17");
@@ -819,7 +819,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
         addClassDefinition(_RuleData);
 
         ClassDefinitionDMO _DependencyOBJ = new ClassDefinitionDMO();
-        _Dependency = new ClassDefinition(_DependencyOBJ,MetaDMSAG.__Dependency);
+        _Dependency = new ClassDefinition(_DependencyOBJ,MetaCompactSchema.__Dependency);
         _DependencyOBJ.setClassType("STRUCTURAL");
         _DependencyOBJ.setDerivedFrom("DmsDefinition");
         _DependencyOBJ.addDescription("The Dependency class allows for the definition of a named dependency on something; usually an interface. In the current schema mechanisms, the only place that this mechanism is used is in the specification of RuleDefinitions. Rule instances are created by injecting RuleData into a rule implementation. If the rule implementation has dependencies on other objects, those dependencies are specified via references to Dependencies. <p/> A Dependency can be referred to via a RunContext definition which directs the generation of code that can instantiate the required object instances. Satisfying a Dependency relies on there being a DependencyImplementation that indicates how to instantiate the object that implements the interface defined by the dependency. <p/> If a Dependency specifies an instantiation, this is considered the default mechanism to fulfill the dependency. Other DependencyImplementations may be specified that override the specified instantiation in particular contexts.");
@@ -839,7 +839,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
         addClassDefinition(_Dependency);
 
         ClassDefinitionDMO _DependencyImplementationOBJ = new ClassDefinitionDMO();
-        _DependencyImplementation = new ClassDefinition(_DependencyImplementationOBJ,MetaDMSAG.__DependencyImplementation);
+        _DependencyImplementation = new ClassDefinition(_DependencyImplementationOBJ,MetaCompactSchema.__DependencyImplementation);
         _DependencyImplementationOBJ.setClassType("STRUCTURAL");
         _DependencyImplementationOBJ.setDerivedFrom("DmsDefinition");
         _DependencyImplementationOBJ.addDescription("The DependencyImplementation allows you to fulfill a defined Dependency. When a RunContext is specified, it will indicate a set of dependencies. For each of the specified dependencies, there must be at least one related DependencyImplementation, otherwise, we have no way to fulfill the dependency.");
@@ -860,7 +860,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
         addClassDefinition(_DependencyImplementation);
 
         ClassDefinitionDMO _RunContextOBJ = new ClassDefinitionDMO();
-        _RunContext = new ClassDefinition(_RunContextOBJ,MetaDMSAG.__RunContext);
+        _RunContext = new ClassDefinition(_RunContextOBJ,MetaCompactSchema.__RunContext);
         _RunContextOBJ.setClassType("STRUCTURAL");
         _RunContextOBJ.setDerivedFrom("DmsDefinition");
         _RunContextOBJ.setDmdID("20");
@@ -878,7 +878,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
         addClassDefinition(_RunContext);
 
         ClassDefinitionDMO _ConcinnityOBJ = new ClassDefinitionDMO();
-        _Concinnity = new ClassDefinition(_ConcinnityOBJ,MetaDMSAG.__Concinnity);
+        _Concinnity = new ClassDefinition(_ConcinnityOBJ,MetaCompactSchema.__Concinnity);
         _ConcinnityOBJ.setClassType("ABSTRACT");
         _ConcinnityOBJ.setDerivedFrom("DSDefinition");
         _ConcinnityOBJ.addDescription("When concinnity was conceived, it was conceived as a way of binding knowledge across different domains. As the newer approach to generating Domain Specific Definitions arose, it became easier to create DSLs for different domains and I wanted concinnity to make use of those mechanisms. However, to do that would have required significant changes to the meta schema generator and a great deal of hacking. I wanted to be able to refer to concinnity aspects from schema as well, so the compromise is to place the base class for Concinnity in the meta schema (so that reference attributes may refer to it).  <p/> Mechanisms exist to prevent any class other than ConcinnityDefinition from deriving directly from Concinnity, so you can be guaranteed that down casting a Concinnity reference will yield a ConcinnityDefinition.");
@@ -894,7 +894,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
         addClassDefinition(_Concinnity);
 
         ClassDefinitionDMO _DmsModuleOBJ = new ClassDefinitionDMO();
-        _DmsModule = new ClassDefinition(_DmsModuleOBJ,MetaDMSAG.__DmsModule);
+        _DmsModule = new ClassDefinition(_DmsModuleOBJ,MetaCompactSchema.__DmsModule);
         _DmsModuleOBJ.setClassType("STRUCTURAL");
         _DmsModuleOBJ.setDerivedFrom("DmsDefinition");
         _DmsModuleOBJ.setDmdID("21");
