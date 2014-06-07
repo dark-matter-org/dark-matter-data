@@ -107,8 +107,8 @@ public class MetaSchemaFormatterNew {
 
 		// Set the prefix for the generated output directory and the generated
 		// package prefixes
-		out.write("            this.setSchemaPackage(\"org.dmd.dms\");\n");
-		out.write("            this.setDmwPackage(\"org.dmd.dms\");\n");
+		out.write("            this.setSchemaPackage(\"org.dmd.dms.shared\");\n");
+		out.write("            this.setDmwPackage(\"org.dmd.dms.server\");\n");
 
 		out.write("            this.setSchemaBaseID(" + META_BASE_ID + ");\n");
 		out.write("            this.setSchemaIDRange(" + META_ID_RANGE + ");\n");
@@ -228,7 +228,7 @@ public class MetaSchemaFormatterNew {
 			String dmoName = "_" + name + "OBJ";
 			
 			out.write("        ClassDefinitionDMO " + dmoName + " = new ClassDefinitionDMO();\n");
-			out.write("        _" + name + " = new ClassDefinition(" + dmoName + ",MetaDMSAG.__" + name + ");\n");
+			out.write("        _" + name + " = new ClassDefinition(" + dmoName + ",MetaCompactSchema.__" + name + ");\n");
 			dumpAttrValues("        ", dmoName, classDef, out);
 			out.write("        _" + name + ".setDefinedInDmsModule(this);\n");
 			out.write("        addClassDefinition(_" + name + ");\n");
