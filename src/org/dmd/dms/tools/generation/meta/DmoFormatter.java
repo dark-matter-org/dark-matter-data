@@ -158,7 +158,7 @@ public class DmoFormatter {
 		out.write("        _ImAp = new HashMap<Integer,DmcAttributeInfo>();\n");
 
 		for (String n : atlist) {
-			out.write("        _ImAp.put(MetaDMSAG.__" + n + ".id,MetaDMSAG.__" + n + ");\n");
+			out.write("        _ImAp.put(MetaCompactSchema.__" + n + ".id,MetaCompactSchema.__" + n + ");\n");
 		}
 
 		out.write("\n");
@@ -166,8 +166,8 @@ public class DmoFormatter {
 		out.write("        _SmAp = new HashMap<String ,DmcAttributeInfo>();\n");
 
 		for (String n : atlist) {
-			out.write("        _SmAp.put(MetaDMSAG.__" + n
-					+ ".name,MetaDMSAG.__" + n + ");\n");
+			out.write("        _SmAp.put(MetaCompactSchema.__" + n
+					+ ".name,MetaCompactSchema.__" + n + ");\n");
 		}
 
 		out.write("    }\n");
@@ -253,7 +253,7 @@ public class DmoFormatter {
 			out.write("     */\n");
 			out.write("    @Override\n");
 			out.write("    public " + nameType + " getObjectName(){\n");
-			out.write("        DmcType" + nameType + " attr = (DmcType" + nameType + ") get(MetaDMSAG.__" + isNamedBy + ");\n");
+			out.write("        DmcType" + nameType + " attr = (DmcType" + nameType + ") get(MetaCompactSchema.__" + isNamedBy + ");\n");
 			out.write("        if (attr == null)\n");
 			out.write("            return(null);\n");
 			out.write("        return(attr.getSV());\n");
@@ -265,7 +265,7 @@ public class DmoFormatter {
 
 			out.write("    @Override\n");
 			out.write("    public DmcAttribute<?> getObjectNameAttribute(){\n");
-			out.write("        DmcAttribute<?> attr = (DmcType" + nameType + ") get(MetaDMSAG.__" + isNamedBy + ");\n");
+			out.write("        DmcAttribute<?> attr = (DmcType" + nameType + ") get(MetaCompactSchema.__" + isNamedBy + ");\n");
 			out.write("        return(attr);\n");
 			out.write("    }\n\n");
 		}

@@ -175,7 +175,7 @@ public class TypeFormatter {
 		imports.addImport("org.dmd.dms.shared.types.DmcType" + nameType, 	"The type of our naming attribute");
 		imports.addImport("org.dmd.dms.shared.types." + nameType, 	        "The base type of our naming attribute");
 		imports.addImport("org.dmd.core.DmcNamedObjectREF", 				"Our base type");
-		imports.addImport("org.dmd.dms.shared.generated.dmo.MetaDMSAG", 	"dark-matter core");
+		imports.addImport("org.dmd.dms.shared.generated.dmo.MetaCompactSchema", 	"dark-matter core");
 
 		if (cn.equals("ClassDefinition")) {
 			imports.addImport("org.dmd.core.DmcOmni", 		"So that we can get DmcClassInfo");
@@ -243,7 +243,7 @@ public class TypeFormatter {
 		out.write("    @Override\n");
 		out.write("    public void setName(DmcObjectName n) throws DMFeedbackSet {\n");
 		out.write("        if (myName == null);\n");
-		out.write("            myName = new  DmcType" + nameType + "SV(MetaDMSAG.__name);\n");
+		out.write("            myName = new  DmcType" + nameType + "SV(MetaCompactSchema.__name);\n");
 		out.write("        myName.set(n);\n");
 		out.write("    }\n\n");
 

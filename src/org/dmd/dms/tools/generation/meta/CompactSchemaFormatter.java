@@ -87,7 +87,7 @@ public class CompactSchemaFormatter {
 	 */
 //	public void dumpSchema(String sn, String schemaPackage, TreeMap<String,DMUncheckedObject> classes, TreeMap<String,DMUncheckedObject> attributes, TreeMap<String,DMUncheckedObject> types, TreeMap<String,DMUncheckedObject> rules, String dmodir, int baseID, int idRange) throws IOException, DMFeedbackSet{
 	public void dumpSchema(String sn, String schemaPackage, TreeMap<String,DMUncheckedObject> classes, TreeMap<String,DMUncheckedObject> attributes, TreeMap<String,DMUncheckedObject> types, String dmodir, int baseID, int idRange) throws IOException, DMFeedbackSet{
-		String schemaName = Manipulator.dotNameToCamelCase(sn) + "DMSAG";
+		String schemaName = Manipulator.dotNameToCamelCase(sn) + "CompactSchema";
 		
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmodir, schemaName + ".java");
 
@@ -462,7 +462,7 @@ public class CompactSchemaFormatter {
 	   		if (isNamedBy == null)
 	   			out.write(",null");
 	   		else{
-	   			out.write(",MetaDMSAG.__" + isNamedBy);
+	   			out.write(",MetaCompactSchema.__" + isNamedBy);
 	   		}
 
 	    	out.write(");\n");	

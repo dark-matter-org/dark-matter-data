@@ -713,7 +713,7 @@ public class MetaDSDHelper {
 		imports.addImport("org.dmd.core.feedback.SourceInfo", "To indicate the source of rule problems");
 		imports.addImport("org.dmd.dmw.DmwWrapper", "To handle factory created objects");
 //		imports.addImport("org.dmd.dms.server.extended.MetaSchema", "So that we can preserve newlines");
-		imports.addImport("org.dmd.dms.shared.generated.dmo.MetaDMSAG","To allow loading of rules from the meta schema");
+		imports.addImport("org.dmd.dms.shared.generated.dmo.MetaCompactSchema","To allow loading of rules from the meta schema");
 		
 		// Get the class that was generated for the module
 //		ClassDefinition ddmClass = sm.isClass(ddm.getName().getNameString());
@@ -766,7 +766,7 @@ public class MetaDSDHelper {
 		out.write("        \n");
 		out.write("        definitions  = d;\n");
 		out.write("        rules        = r;\n");
-		out.write("        rules.loadRules(" + schemaName + "DMSAG.instance());\n");			
+		out.write("        rules.loadRules(" + schemaName + "CompactSchema.instance());\n");			
 		out.write("    }\n\n");
 		
 		out.write("    void preserveNewLines(Iterator<AttributeDefinition> attrs){\n");

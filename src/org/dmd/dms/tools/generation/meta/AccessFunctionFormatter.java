@@ -85,7 +85,7 @@ public class AccessFunctionFormatter {
 			else
 				out.write("    public " + typeName + " get" + functionName + "(){\n");
 
-			out.write("        " + attrType + " attr = (" + attrType + ") get(MetaDMSAG.__" + attrname + ");\n");
+			out.write("        " + attrType + " attr = (" + attrType + ") get(MetaCompactSchema.__" + attrname + ");\n");
 			out.write("        if (attr == null)\n");
 
 			String nullReturnValue = typeDef.getSV("nullReturnValue");
@@ -112,7 +112,7 @@ public class AccessFunctionFormatter {
 				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				out.write("    public " + typeName + " get" + functionName + "WithNewlines(){\n");
 	
-				out.write("        " + attrType + " attr = (" + attrType + ") get(MetaDMSAG.__" + attrname + ");\n");
+				out.write("        " + attrType + " attr = (" + attrType + ") get(MetaCompactSchema.__" + attrname + ");\n");
 				out.write("        if (attr == null)\n");
 	
 				if (attrNulReturnValue != null)
@@ -131,7 +131,7 @@ public class AccessFunctionFormatter {
 			out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			if (isObjREF) {
 				out.write("    public " + typeName + " get" + functionName + "(){\n");
-				out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(MetaDMSAG.__" + attrname + ");\n");
+				out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(MetaCompactSchema.__" + attrname + ");\n");
 
 				out.write("        if (attr == null)\n");
 				out.write("            return(null);\n");
@@ -164,12 +164,12 @@ public class AccessFunctionFormatter {
 			out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			// out.write("    @SuppressWarnings(\"unchecked\")\n");
 			out.write("    public void set" + functionName + "(Object value) throws DMFeedbackSet {\n");
-			out.write("        DmcAttribute<?> attr = get(MetaDMSAG.__" + attrname + ");\n");
+			out.write("        DmcAttribute<?> attr = get(MetaCompactSchema.__" + attrname + ");\n");
 			out.write("        if (attr == null)\n");
-			out.write("            attr = new " + attrType + "(MetaDMSAG.__" + attrname + ");\n");
+			out.write("            attr = new " + attrType + "(MetaCompactSchema.__" + attrname + ");\n");
 			out.write("        \n");
 			out.write("        attr.set(value);\n");
-			out.write("        set(MetaDMSAG.__" + attrname + ",attr);\n");
+			out.write("        set(MetaCompactSchema.__" + attrname + ",attr);\n");
 			out.write("    }\n\n");
 		} else {
 			if (isObjREF) {
@@ -266,7 +266,7 @@ public class AccessFunctionFormatter {
 				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				out.write("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
 			}
-			out.write("        " + attrType + " attr = (" + attrType + ") get(MetaDMSAG.__" + attrname + ");\n");
+			out.write("        " + attrType + " attr = (" + attrType + ") get(MetaCompactSchema.__" + attrname + ");\n");
 			out.write("        if (attr == null)\n");
 			out.write("            return(null);\n");
 			out.write("\n");
@@ -279,7 +279,7 @@ public class AccessFunctionFormatter {
 				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				out.write("    public Iterator<" + typeName + "> get" + functionName + "WithNewlines(){\n");
 	
-				out.write("        " + attrType + " attr = (" + attrType + ") get(MetaDMSAG.__" + attrname + ");\n");
+				out.write("        " + attrType + " attr = (" + attrType + ") get(MetaCompactSchema.__" + attrname + ");\n");
 				out.write("        if (attr == null)\n");
 				out.write("            return(null);\n");
 	
@@ -303,7 +303,7 @@ public class AccessFunctionFormatter {
 				out.write("     */\n");
 				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				out.write("    public " + typeName + "IterableDMW get" + functionName + "(){\n");
-				out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(MetaDMSAG.__" + attrname + ");\n");
+				out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(MetaCompactSchema.__" + attrname + ");\n");
 				out.write("        if (attr == null)\n");
 				out.write("            return(" + typeName + "IterableDMW.emptyList);\n");
 				out.write("\n");
@@ -315,7 +315,7 @@ public class AccessFunctionFormatter {
 					out.write("     */\n");
 					out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 					out.write("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
-					out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(MetaDMSAG.__" + attrname + ");\n");
+					out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(MetaCompactSchema.__" + attrname + ");\n");
 					out.write("        if (attr == null)\n");
 					out.write("            return(null);\n");
 					out.write("\n");
@@ -327,7 +327,7 @@ public class AccessFunctionFormatter {
 					out.write("     */\n");
 					out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 					out.write("    public " + typeName + "IterableDMW get" + functionName + "Iterable(){\n");
-					out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(MetaDMSAG.__" + attrname + ");\n");
+					out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(MetaCompactSchema.__" + attrname + ");\n");
 					out.write("        if (attr == null)\n");
 					out.write("            return(" + typeName + "IterableDMW.emptyList);\n");
 					out.write("\n");
@@ -341,7 +341,7 @@ public class AccessFunctionFormatter {
 					out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 					out.write("    public Iterator<" + typeName + "> get" + functionName + "WithNewlines(){\n");
 		
-					out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(MetaDMSAG.__" + attrname + ");\n");
+					out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(MetaCompactSchema.__" + attrname + ");\n");
 					out.write("        if (attr == null)\n");
 					out.write("            return(null);\n");
 		
@@ -369,12 +369,12 @@ public class AccessFunctionFormatter {
 			out.write("     */\n");
 			out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			out.write("    public DmcAttribute<?> add" + functionName + "(Object value) throws DMFeedbackSet {\n");
-			out.write("        DmcAttribute<?> attr = get(MetaDMSAG.__" + attrname + ");\n");
+			out.write("        DmcAttribute<?> attr = get(MetaCompactSchema.__" + attrname + ");\n");
 			out.write("        if (attr == null)\n");
-			out.write("            attr = new " + attrType + "(MetaDMSAG.__" + attrname + ");\n");
+			out.write("            attr = new " + attrType + "(MetaCompactSchema.__" + attrname + ");\n");
 			out.write("        \n");
 			out.write("        attr.add(value);\n");
-			out.write("        add(MetaDMSAG.__" + attrname + ",attr);\n");
+			out.write("        add(MetaCompactSchema.__" + attrname + ",attr);\n");
 			out.write("        return(attr);\n");
 			out.write("    }\n\n");
 		} else {
@@ -404,7 +404,7 @@ public class AccessFunctionFormatter {
 			out.write("     */\n");
 			out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			out.write("    public int get" + functionName + "Size(){\n");
-			out.write("        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__" + attrname + ");\n");
+			out.write("        DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__" + attrname + ");\n");
 			out.write("        if (attr == null)\n");
 			out.write("            return(0);\n");
 			out.write("        return(attr.getMVSize());\n");

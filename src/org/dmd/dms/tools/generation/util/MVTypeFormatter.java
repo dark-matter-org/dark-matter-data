@@ -52,7 +52,7 @@ public class MVTypeFormatter {
         imports.addImport("org.dmd.core.feedback.DMFeedbackSet","");
         
         if (typeName.equals("Modifier"))
-        	imports.addImport("org.dmd.dms.shared.generated.dmo.MetaDMSAG","");
+        	imports.addImport("org.dmd.dms.shared.generated.dmo.MetaCompactSchema","");
         	
 
         if ( (baseTypeImport != null) && (!baseTypeImport.endsWith("DmcAttribute")))
@@ -84,7 +84,7 @@ public class MVTypeFormatter {
         
         out.write("    public DmcType" + typeName + REF + "MV(){\n");
         if (typeName.equals("Modifier"))
-            out.write("        super(MetaDMSAG.__modify);\n");
+            out.write("        super(MetaCompactSchema.__modify);\n");
         out.write("    \n");
         out.write("    }\n");
         out.write("    \n");
