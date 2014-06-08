@@ -52,43 +52,23 @@ public class DerivedTypeFormatter {
 				// dmotypedir basePackage baseTypeImport typeName
 				// primitiveImport nameAttrImport nameAttr nameAttrID generic
 				// isRef isNameType, isFilterType fileHeader progress
-				SVTypeFormatter.dumpSVType(typedir, BASEPKG, null, tn,
-						"org.dmd.dms.shared.generated.enums." + tn, null, null, null,
-						genericArgs, false, nameType, false, LGPL,
-						System.out);
-				MVTypeFormatter.dumpMVType(typedir, BASEPKG, null, tn,
-						"org.dmd.dms.shared.generated.enums." + tn, null, null,
-						genericArgs, false, LGPL, System.out);
-				SETTypeFormatter.dumpSETType(typedir, BASEPKG, null, tn,
-						"org.dmd.dms.shared.generated.enums." + tn, null, null,
-						genericArgs, false, LGPL, System.out);
+				SVTypeFormatter.dumpSVType(typedir, BASEPKG, null, tn, "org.dmd.dms.shared.generated.enums." + tn, null, null, null, genericArgs, false, nameType, false, LGPL);
+				MVTypeFormatter.dumpMVType(typedir, BASEPKG, null, tn, "org.dmd.dms.shared.generated.enums." + tn, null, null,       genericArgs, false, LGPL);
+				SETTypeFormatter.dumpSETType(typedir, BASEPKG, null, tn, "org.dmd.dms.shared.generated.enums." + tn, null, null, genericArgs, false, LGPL);
 
 				if (keyClass != null)
-					MAPTypeFormatter.dumpMAPType(typedir, BASEPKG, null, tn,
-							"org.dmd.dms.shared.generated.enums." + tn, null, null,
-							genericArgs, keyClass, keyImport, LGPL,
-							System.out);
+					MAPTypeFormatter.dumpMAPType(typedir, BASEPKG, null, tn, "org.dmd.dms.shared.generated.enums." + tn, null, null, genericArgs, keyClass, keyImport, LGPL);
 			} else if (typedef.getSV("isRefType") != null) {
 				String tn = typedef.getSV("originalClass") + "REF";
 
 				// dmotypedir basePackage baseTypeImport typeName
 				// primitiveImport nameAttrImport nameAttr nameAttrID generic
 				// isRef isNameType isFilterType fileHeader progress
-				SVTypeFormatter.dumpSVType(typedir, BASEPKG, null, tn, null,
-						"org.dmd.dms.shared.types.DefinitionName", "DefinitionName", null,
-						genericArgs, true, nameType, false, LGPL,
-						System.out);
-				MVTypeFormatter.dumpMVType(typedir, BASEPKG, null, tn, null,
-						"org.dmd.dms.shared.types.DefinitionName", "DefinitionName",
-						genericArgs, true, LGPL, System.out);
-				SETTypeFormatter.dumpSETType(typedir, BASEPKG, null, tn, null,
-						"org.dmd.dms.shared.types.DefinitionName", "DefinitionName",
-						genericArgs, true, LGPL, System.out);
+				SVTypeFormatter.dumpSVType(typedir, BASEPKG, null, tn, null, "org.dmd.dms.shared.types.DefinitionName", "DefinitionName", null, genericArgs, true, nameType, false, LGPL);
+				MVTypeFormatter.dumpMVType(typedir, BASEPKG, null, tn, null, "org.dmd.dms.shared.types.DefinitionName", "DefinitionName", genericArgs, true, LGPL);
+				SETTypeFormatter.dumpSETType(typedir, BASEPKG, null, tn, null, "org.dmd.dms.shared.types.DefinitionName", "DefinitionName", genericArgs, true, LGPL);
 				if (keyClass != null)
-					MAPTypeFormatter.dumpMAPType(typedir, BASEPKG, null, tn,
-							null, "org.dmd.dms.shared.types.DefinitionName", "DefinitionName",
-							genericArgs, keyClass, keyImport, LGPL,
-							System.out);
+					MAPTypeFormatter.dumpMAPType(typedir, BASEPKG, null, tn, null, "org.dmd.dms.shared.types.DefinitionName", "DefinitionName", genericArgs, keyClass, keyImport, LGPL);
 			} else {
 				String nameAttrID = null;
 				String isNameType = typedef.getSV("isNameType");
@@ -109,27 +89,12 @@ public class DerivedTypeFormatter {
 				// dmotypedir basePackage baseTypeImport typeName dmcTypeImport
 				// nameAttrImport nameAttr nameAttrID generic isRef isNameType
 				// isFilterType fileHeader progress
-				SVTypeFormatter.dumpSVType(typedir, BASEPKG,
-						typedef.getSV("primitiveType"), typedef.getSV("name"),
-						typedef.getSV("typeClassName"), null, null, nameAttrID,
-						genericArgs, false, nameType, filterType,
-						LGPL, System.out);
-				MVTypeFormatter.dumpMVType(typedir, BASEPKG,
-						typedef.getSV("primitiveType"), typedef.getSV("name"),
-						typedef.getSV("typeClassName"), null, null,
-						genericArgs, false, LGPL, System.out);
-				SETTypeFormatter.dumpSETType(typedir, BASEPKG,
-						typedef.getSV("primitiveType"), typedef.getSV("name"),
-						typedef.getSV("typeClassName"), null, null,
-						genericArgs, false, LGPL, System.out);
+				SVTypeFormatter.dumpSVType(typedir, BASEPKG, typedef.getSV("primitiveType"), typedef.getSV("name"), typedef.getSV("typeClassName"), null, null, nameAttrID, genericArgs, false, nameType, filterType, LGPL);
+				MVTypeFormatter.dumpMVType(typedir, BASEPKG, typedef.getSV("primitiveType"), typedef.getSV("name"), typedef.getSV("typeClassName"), null, null, genericArgs, false, LGPL);
+				SETTypeFormatter.dumpSETType(typedir, BASEPKG, typedef.getSV("primitiveType"), typedef.getSV("name"), typedef.getSV("typeClassName"), null, null, genericArgs, false, LGPL);
 
 				if (keyClass != null)
-					MAPTypeFormatter.dumpMAPType(typedir, BASEPKG,
-							typedef.getSV("typeClassName"),
-							typedef.getSV("name"),
-							typedef.getSV("primitiveType"), null, null,
-							genericArgs, keyClass, keyImport, LGPL,
-							System.out);
+					MAPTypeFormatter.dumpMAPType(typedir, BASEPKG, typedef.getSV("typeClassName"), typedef.getSV("name"), typedef.getSV("primitiveType"), null, null, genericArgs, keyClass, keyImport, LGPL);
 			}
 		}
 	}

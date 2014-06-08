@@ -2,7 +2,6 @@ package org.dmd.dms.tools.generation.util;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.PrintStream;
 
 import org.dmd.util.artifact.FileUpdateManager;
 import org.dmd.util.artifact.java.ImportManager;
@@ -23,7 +22,7 @@ public class SETTypeFormatter {
 	 * @param progress
 	 * @throws IOException
 	 */
-	static public void dumpSETType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String dmcTypeImport, String nameAttrImport, String nameAttr, String genericArgs, boolean isRef, String fileHeader, PrintStream progress) throws IOException {
+	static public void dumpSETType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String dmcTypeImport, String nameAttrImport, String nameAttr, String genericArgs, boolean isRef, String fileHeader) throws IOException {
 		String DMO = "";
 		String REF = "";
 		boolean dmoREF = false;

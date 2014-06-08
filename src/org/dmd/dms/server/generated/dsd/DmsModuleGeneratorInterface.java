@@ -51,7 +51,7 @@ public interface DmsModuleGeneratorInterface {
      * @param location where the module was found
      * @param definitions the current set of definitions
      */
-    public void generate(DmsModule module, ConfigLocation location, DmsModuleDefinitionManager definitions) throws IOException;
+    public void generate(DmsModule module, ConfigLocation location, DmsModuleDefinitionManager definitions) throws IOException, DMFeedbackSet;
 
     /**
      * Derived classes should overload this method to perform artifact generation when no target module
@@ -59,7 +59,7 @@ public interface DmsModuleGeneratorInterface {
      * where you want to load and resolve objects across many modules.
      * @param definitions the current set of definitions
      */
-    public void generate(DmsModuleDefinitionManager definitions) throws IOException;
+    public void generate(DmsModuleDefinitionManager definitions) throws IOException, DMFeedbackSet;
 
     /**
      * Called if the help flag is found anywhere on the commandline.

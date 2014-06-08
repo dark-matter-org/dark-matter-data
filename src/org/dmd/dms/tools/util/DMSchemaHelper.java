@@ -40,11 +40,11 @@ public class DMSchemaHelper {
 	 */
 	static public void initializeInternals(DmsModule module, DmsModuleDefinitionManager definitions) throws DMFeedbackSet {
 		
-		dmoPackage 		= module.getSchemaPackage() + "generated.dmo";
-		dmwPackage 		= module.getDmwPackage() + "generated.dmw";
-		extPackage 		= module.getDmwPackage() + "extended";
-		typesPackage	= module.getSchemaPackage() + "generated.types";
-		enumsPackage	= module.getSchemaPackage() + "generated.enums";
+		dmoPackage 		= module.getSchemaPackage() + ".generated.dmo";
+		dmwPackage 		= module.getDmwPackage() + ".generated.dmw";
+		extPackage 		= module.getDmwPackage() + ".extended";
+		typesPackage	= module.getSchemaPackage() + ".generated.types";
+		enumsPackage	= module.getSchemaPackage() + ".generated.enums";
 		
 		setInternalClassAttributes(module, definitions);
 		createInternalTypesForClasses(module, definitions);
@@ -127,6 +127,7 @@ public class DMSchemaHelper {
 			// Common aspects for types
 	        TypeDefinition td  = new TypeDefinition();
 	        td.setInternallyGenerated(true);
+	        td.setIsRefType(true);
 	        td.setName(def.getName());
 			td.setDotName(getTypeDotName(def));
 			td.setTypeClassName(getTypeClassName(def) + REF);

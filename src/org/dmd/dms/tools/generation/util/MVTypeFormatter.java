@@ -2,7 +2,6 @@ package org.dmd.dms.tools.generation.util;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.PrintStream;
 
 import org.dmd.util.artifact.FileUpdateManager;
 import org.dmd.util.artifact.java.ImportManager;
@@ -24,7 +23,7 @@ public class MVTypeFormatter {
 	 * @param progress
 	 * @throws IOException
 	 */
-	static public void dumpMVType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String dmcTypeImport, String nameAttrImport, String nameAttr, String genericArgs, boolean isRef, String fileHeader, PrintStream progress) throws IOException {
+	static public void dumpMVType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String dmcTypeImport, String nameAttrImport, String nameAttr, String genericArgs, boolean isRef, String fileHeader) throws IOException {
 		String DMO = "";
 		String REF = "";
 		boolean dmoREF = false;
@@ -44,12 +43,12 @@ public class MVTypeFormatter {
         
         ImportManager imports = new ImportManager();
         
-        imports.addImport("java.io.Serializable","");
-        imports.addImport("java.util.ArrayList","");
-        imports.addImport("java.util.Iterator","");
-        imports.addImport("org.dmd.core.DmcAttribute","");
-        imports.addImport("org.dmd.core.schema.DmcAttributeInfo","");
-        imports.addImport("org.dmd.core.feedback.DMFeedbackSet","");
+        imports.addImport("java.io.Serializable","Standard marker interface");
+        imports.addImport("java.util.ArrayList","Storage of values");
+        imports.addImport("java.util.Iterator","Access to values");
+        imports.addImport("org.dmd.core.DmcAttribute","What we're derived from");
+        imports.addImport("org.dmd.core.schema.DmcAttributeInfo","To allow construction");
+        imports.addImport("org.dmd.core.feedback.DMFeedbackSet","To handle errors");
         
         if (typeName.equals("Modifier"))
         	imports.addImport("org.dmd.dms.shared.generated.dmo.MetaCompactSchema","");

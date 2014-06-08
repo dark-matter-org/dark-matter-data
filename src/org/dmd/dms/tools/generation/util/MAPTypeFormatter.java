@@ -2,7 +2,6 @@ package org.dmd.dms.tools.generation.util;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.PrintStream;
 
 import org.dmd.util.artifact.FileUpdateManager;
 import org.dmd.util.artifact.java.ImportManager;
@@ -23,7 +22,7 @@ public class MAPTypeFormatter {
 	 * @param progress
 	 * @throws IOException
 	 */
-	static public void dumpMAPType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String primitiveImport, String nameAttrImport, String nameAttr, String genericArgs, String keyClass, String keyImport, String fileHeader, PrintStream progress) throws IOException {		
+	static public void dumpMAPType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String primitiveImport, String nameAttrImport, String nameAttr, String genericArgs, String keyClass, String keyImport, String fileHeader) throws IOException {		
 		AdapterFormatter.dumpAdapterMAP(dmotypedir, typeName, basePackage);
 		
 		BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmotypedir, "DmcType" + typeName + "MAP.java");

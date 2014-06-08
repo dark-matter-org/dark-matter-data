@@ -16,22 +16,22 @@
 package org.dmd.dms.shared.generated.types;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:67)
-import java.io.Serializable;                                      //  - (MVTypeFormatter.java:47)
-import java.util.ArrayList;                                       //  - (MVTypeFormatter.java:48)
-import java.util.Iterator;                                        //  - (MVTypeFormatter.java:49)
-import org.dmd.core.DmcAttribute;                                 //  - (MVTypeFormatter.java:50)
-import org.dmd.core.feedback.DMFeedbackSet;                       //  - (MVTypeFormatter.java:52)
-import org.dmd.core.schema.DmcAttributeInfo;                      //  - (MVTypeFormatter.java:51)
-import org.dmd.dms.shared.generated.enums.FilterTypeEnum;         // DmcType import - (MVTypeFormatter.java:64)
+// Called from: org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:66)
+import java.io.Serializable;                                      // Standard marker interface - (MVTypeFormatter.java:46)
+import java.util.ArrayList;                                       // Storage of values - (MVTypeFormatter.java:47)
+import java.util.Iterator;                                        // Access to values - (MVTypeFormatter.java:48)
+import org.dmd.core.DmcAttribute;                                 // What we're derived from - (MVTypeFormatter.java:49)
+import org.dmd.core.feedback.DMFeedbackSet;                       // To handle errors - (MVTypeFormatter.java:51)
+import org.dmd.core.schema.DmcAttributeInfo;                      // To allow construction - (MVTypeFormatter.java:50)
+import org.dmd.dms.shared.generated.enums.FilterTypeEnum;         // DmcType import - (MVTypeFormatter.java:63)
 
 
 /**
  * The DmcTypeFilterTypeEnumMV provides storage for a multi-valued FilterTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:73)
- *    Called from: org.dmd.dms.tools.generation.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:59)
+ * Generated from: org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:72)
+ *    Called from: org.dmd.dms.tools.generation.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:56)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFilterTypeEnumMV extends DmcTypeFilterTypeEnum implements Serializable {
@@ -54,7 +54,7 @@ public class DmcTypeFilterTypeEnumMV extends DmcTypeFilterTypeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:104)
+    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:103)
     public DmcAttribute<FilterTypeEnum> cloneIt(){
         synchronized(this){
             DmcTypeFilterTypeEnumMV rc = getNew();
@@ -83,7 +83,7 @@ public class DmcTypeFilterTypeEnumMV extends DmcTypeFilterTypeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:137)
+    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:136)
     public FilterTypeEnum add(Object v) throws DMFeedbackSet {
         synchronized(this){
             FilterTypeEnum rc = typeCheck(v);
@@ -95,7 +95,7 @@ public class DmcTypeFilterTypeEnumMV extends DmcTypeFilterTypeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:150)
+    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:149)
     public FilterTypeEnum del(Object v){
         synchronized(this){
             if (value == null)
@@ -119,7 +119,7 @@ public class DmcTypeFilterTypeEnumMV extends DmcTypeFilterTypeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:177)
+    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:176)
     public Iterator<FilterTypeEnum> getMV(){
         synchronized(this){
             if (value == null)
@@ -130,7 +130,7 @@ public class DmcTypeFilterTypeEnumMV extends DmcTypeFilterTypeEnum implements Se
         }
     }
     
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:189)
+    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:188)
     public ArrayList<FilterTypeEnum> getMVCopy(){
         synchronized(this){
             if (value == null)
@@ -141,7 +141,7 @@ public class DmcTypeFilterTypeEnumMV extends DmcTypeFilterTypeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:201)
+    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:200)
     public int getMVSize(){
         synchronized(this){
             if (getAttributeInfo().indexSize == 0){
@@ -155,7 +155,7 @@ public class DmcTypeFilterTypeEnumMV extends DmcTypeFilterTypeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:216)
+    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:215)
     public FilterTypeEnum getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -165,7 +165,7 @@ public class DmcTypeFilterTypeEnumMV extends DmcTypeFilterTypeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:227)
+    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:226)
     public FilterTypeEnum setMVnth(int index, Object v) throws DMFeedbackSet {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
@@ -192,7 +192,7 @@ public class DmcTypeFilterTypeEnumMV extends DmcTypeFilterTypeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:255)
+    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:254)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -215,7 +215,7 @@ public class DmcTypeFilterTypeEnumMV extends DmcTypeFilterTypeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:279)
+    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:278)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

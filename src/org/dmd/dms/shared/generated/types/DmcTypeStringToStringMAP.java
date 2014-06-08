@@ -16,27 +16,27 @@
 package org.dmd.dms.shared.generated.types;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.util.MAPTypeFormatter.dumpMAPType(MAPTypeFormatter.java:58)
-import java.io.Serializable;                                     //  - (MAPTypeFormatter.java:38)
-import java.util.HashMap;                                        //  - (MAPTypeFormatter.java:40)
-import java.util.Iterator;                                       //  - (MAPTypeFormatter.java:42)
-import java.util.Map;                                            //  - (MAPTypeFormatter.java:39)
-import java.util.TreeMap;                                        //  - (MAPTypeFormatter.java:41)
-import org.dmd.core.DmcAttribute;                                //  - (MAPTypeFormatter.java:43)
-import org.dmd.core.feedback.DMFeedbackSet;                      //  - (MAPTypeFormatter.java:45)
-import org.dmd.core.interfaces.DmcMappedAttributeIF;             //  - (MAPTypeFormatter.java:46)
-import org.dmd.core.schema.DmcAttributeInfo;                     //  - (MAPTypeFormatter.java:44)
-import org.dmd.dms.shared.generated.enums.ValueTypeEnum;         //  - (MAPTypeFormatter.java:47)
-import org.dmd.dms.shared.types.DmcTypeStringToString;           // Base type import - (MAPTypeFormatter.java:50)
-import org.dmd.dms.shared.types.StringToString;                  // Primitive import - (MAPTypeFormatter.java:53)
+// Called from: org.dmd.dms.tools.generation.util.MAPTypeFormatter.dumpMAPType(MAPTypeFormatter.java:57)
+import java.io.Serializable;                                     //  - (MAPTypeFormatter.java:37)
+import java.util.HashMap;                                        //  - (MAPTypeFormatter.java:39)
+import java.util.Iterator;                                       //  - (MAPTypeFormatter.java:41)
+import java.util.Map;                                            //  - (MAPTypeFormatter.java:38)
+import java.util.TreeMap;                                        //  - (MAPTypeFormatter.java:40)
+import org.dmd.core.DmcAttribute;                                //  - (MAPTypeFormatter.java:42)
+import org.dmd.core.feedback.DMFeedbackSet;                      //  - (MAPTypeFormatter.java:44)
+import org.dmd.core.interfaces.DmcMappedAttributeIF;             //  - (MAPTypeFormatter.java:45)
+import org.dmd.core.schema.DmcAttributeInfo;                     //  - (MAPTypeFormatter.java:43)
+import org.dmd.dms.shared.generated.enums.ValueTypeEnum;         //  - (MAPTypeFormatter.java:46)
+import org.dmd.dms.shared.types.DmcTypeStringToString;           // Base type import - (MAPTypeFormatter.java:49)
+import org.dmd.dms.shared.types.StringToString;                  // Primitive import - (MAPTypeFormatter.java:52)
 
 
 /**
  * The DmcTypeStringToStringMAP provides storage for a map of StringToString
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.tools.generation.util.MAPTypeFormatter.dumpMAPType(MAPTypeFormatter.java:64)
- *    Called from: org.dmd.dms.tools.generation.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:127)
+ * Generated from: org.dmd.dms.tools.generation.util.MAPTypeFormatter.dumpMAPType(MAPTypeFormatter.java:63)
+ *    Called from: org.dmd.dms.tools.generation.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:97)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeStringToStringMAP extends DmcTypeStringToString<StringToString> {
@@ -78,7 +78,7 @@ public class DmcTypeStringToStringMAP extends DmcTypeStringToString implements S
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MAPTypeFormatter.dumpMAPType(MAPTypeFormatter.java:121)
+    // org.dmd.dms.tools.generation.util.MAPTypeFormatter.dumpMAPType(MAPTypeFormatter.java:120)
     public DmcAttribute<StringToString> cloneIt(){
         synchronized(this){
             DmcTypeStringToStringMAP rc = getNew();
@@ -97,7 +97,7 @@ public class DmcTypeStringToStringMAP extends DmcTypeStringToString implements S
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MAPTypeFormatter.dumpMAPType(MAPTypeFormatter.java:141)
+    // org.dmd.dms.tools.generation.util.MAPTypeFormatter.dumpMAPType(MAPTypeFormatter.java:140)
     public StringToString add(Object v) throws DMFeedbackSet {
         synchronized(this){
             StringToString newval = typeCheck(v);
@@ -117,7 +117,7 @@ public class DmcTypeStringToStringMAP extends DmcTypeStringToString implements S
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MAPTypeFormatter.dumpMAPType(MAPTypeFormatter.java:162)
+    // org.dmd.dms.tools.generation.util.MAPTypeFormatter.dumpMAPType(MAPTypeFormatter.java:161)
     public StringToString del(Object key){
         synchronized(this){
     
@@ -132,7 +132,7 @@ public class DmcTypeStringToStringMAP extends DmcTypeStringToString implements S
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MAPTypeFormatter.dumpMAPType(MAPTypeFormatter.java:178)
+    // org.dmd.dms.tools.generation.util.MAPTypeFormatter.dumpMAPType(MAPTypeFormatter.java:177)
     public Iterator<StringToString> getMV(){
         synchronized(this){
     
@@ -148,7 +148,7 @@ public class DmcTypeStringToStringMAP extends DmcTypeStringToString implements S
         }
     }
     
-    // org.dmd.dms.tools.generation.util.MAPTypeFormatter.dumpMAPType(MAPTypeFormatter.java:195)
+    // org.dmd.dms.tools.generation.util.MAPTypeFormatter.dumpMAPType(MAPTypeFormatter.java:194)
     public Map<String,StringToString> getMVCopy(){
         synchronized(this){
             Map<String,StringToString> clone = null;
@@ -168,7 +168,7 @@ public class DmcTypeStringToStringMAP extends DmcTypeStringToString implements S
         }
     }
     
-    // org.dmd.dms.tools.generation.util.MAPTypeFormatter.dumpMAPType(MAPTypeFormatter.java:216)
+    // org.dmd.dms.tools.generation.util.MAPTypeFormatter.dumpMAPType(MAPTypeFormatter.java:215)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -179,7 +179,7 @@ public class DmcTypeStringToStringMAP extends DmcTypeStringToString implements S
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MAPTypeFormatter.dumpMAPType(MAPTypeFormatter.java:228)
+    // org.dmd.dms.tools.generation.util.MAPTypeFormatter.dumpMAPType(MAPTypeFormatter.java:227)
     public StringToString getByKey(Object key){
         synchronized(this){
            if (value == null)
@@ -193,7 +193,7 @@ public class DmcTypeStringToStringMAP extends DmcTypeStringToString implements S
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MAPTypeFormatter.dumpMAPType(MAPTypeFormatter.java:243)
+    // org.dmd.dms.tools.generation.util.MAPTypeFormatter.dumpMAPType(MAPTypeFormatter.java:242)
     public boolean contains(Object v){
         synchronized(this){
            if (value == null)
@@ -209,7 +209,7 @@ public class DmcTypeStringToStringMAP extends DmcTypeStringToString implements S
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MAPTypeFormatter.dumpMAPType(MAPTypeFormatter.java:260)
+    // org.dmd.dms.tools.generation.util.MAPTypeFormatter.dumpMAPType(MAPTypeFormatter.java:259)
     public boolean containsKey(Object key){
         synchronized(this){
            if (value == null)

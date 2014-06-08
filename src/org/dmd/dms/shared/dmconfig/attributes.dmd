@@ -164,6 +164,8 @@ type                TypeDefinition
 internalUse			true
 description    		Indicates the internal type that's generated for all ClassDefinitions. This
  is set automatically on ClassDefinitions as they are parsed.
+optimize            We may not need this anymore since the internal type has the same name as the class
+ and we can access the helper class name via the internal type (see the ImportUtil line 373).
  
 AttributeDefinition
 name                derivedFrom
@@ -376,6 +378,7 @@ description    This attribute indicates the full name of the generated helper cl
  object references i.e. if you had a ClassDefinition X, the framework generates a 
  types/XREF class which is subsequently used by the DmcTypeXREF class to store references
  to objects of the defined class.
+optimize This should be called helperClassImport not helperClassName
 
 AttributeDefinition
 name              	getType

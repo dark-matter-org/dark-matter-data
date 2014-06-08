@@ -1,7 +1,11 @@
 package org.dmd.dms.tools.generation.dmogen;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.LineNumberReader;
+import java.net.URL;
 
 import org.dmd.core.feedback.DMFeedbackSet;
 import org.dmd.dms.server.extended.DmsModule;
@@ -38,16 +42,29 @@ public class DMOGen extends DmsModuleGenUtility {
 	}
 
 	@Override
-	public void generate(DmsModule module, ConfigLocation location, DmsModuleDefinitionManager definitions) throws IOException {
+	public void generate(DmsModule module, ConfigLocation location, DmsModuleDefinitionManager definitions) throws IOException, DMFeedbackSet {
 		// TODO Auto-generated method stub
 		DebugInfo.debug("");
 		
 		FileUpdateManager.instance().generationStarting();
 
 		String dmodir = location.getConfigParentDirectory() + "/generated/dmo";
+		String enumdir = location.getConfigParentDirectory() + "/generated/enums";
+		String typedir = location.getConfigParentDirectory() + "/generated/types";
+		String adapterdir = location.getConfigParentDirectory() + "/generated/types/adapters";
+		
 		createDir(dmodir);
+		createDir(enumdir);
+		createDir(typedir);
+		createDir(adapterdir);
 		
 		DmoCompactSchemaFormatter.dumpCompactSchema(module, dmodir);
+		
+		String fileHeader = readFileHeader(module, location);
+		
+		DmoFormatter.dumpDMOs(module, dmodir, fileHeader);
+		DmoEnumFormatter.dumpEnums(module, enumdir, fileHeader);
+		DmoTypeFormatter.dumpTypes(module, typedir, fileHeader);
 
 		FileUpdateManager.instance().generationComplete();
 	}
@@ -81,6 +98,40 @@ public class DMOGen extends DmsModuleGenUtility {
 			}
 		}
 		
+	}
+
+	/**
+	 * If the schema has a generatedFileHeader specified, we try to read the file.
+	 * @param sd The schema definition.
+	 * @param sl The schema location.
+	 * @throws IOException
+	 */
+	String readFileHeader(DmsModule module, ConfigLocation sl) throws IOException {
+		if (module.getGeneratedFileHeader() != null){
+            // Read the license header
+	        StringBuffer sb = new StringBuffer();
+            
+            if (sl.getJarFilename() != null){
+            	URL url = new URL("jar:file:" + sl.getJarFilename() + "!/" + sl.getJarDirectory() + "/" + module.getGeneratedFileHeader());
+        		LineNumberReader in = new LineNumberReader(new InputStreamReader(url.openStream()));
+                String str;
+                while ((str = in.readLine()) != null) {
+                	sb.append(str + "\n");
+                }
+                in.close();
+            }
+            else{
+	            LineNumberReader in = new LineNumberReader(new FileReader(sl.getDirectory() + File.separator + module.getGeneratedFileHeader()));
+	            String str;
+	            while ((str = in.readLine()) != null) {
+	            	sb.append(str + "\n");
+	            }
+	            in.close();
+            }
+            return(sb.toString());
+		}
+		
+		return(null);
 	}
 
 }

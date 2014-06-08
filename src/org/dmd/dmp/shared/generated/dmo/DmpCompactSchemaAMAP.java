@@ -1,13 +1,13 @@
 package org.dmd.dmp.shared.generated.dmo;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.dmogen.DmoCompactSchemaFormatter.dumpAttributeMapInitializer(DmoCompactSchemaFormatter.java:402)
-import java.util.HashMap;                            // For storage of schema info - (DmoCompactSchemaFormatter.java:399)
-import org.dmd.core.schema.DmcAttributeInfo;         // To allow population of the attribute map - (DmoCompactSchemaFormatter.java:400)
+// Called from: org.dmd.dms.tools.generation.dmogen.DmoCompactSchemaFormatter.dumpAttributeMapInitializer(DmoCompactSchemaFormatter.java:400)
+import java.util.HashMap;                            // For storage of schema info - (DmoCompactSchemaFormatter.java:397)
+import org.dmd.core.schema.DmcAttributeInfo;         // To allow population of the attribute map - (DmoCompactSchemaFormatter.java:398)
 
 
 
-// Generated from: org.dmd.dms.tools.generation.dmogen.DmoCompactSchemaFormatter.dumpAttributeMapInitializer(DmoCompactSchemaFormatter.java:406)
+// Generated from: org.dmd.dms.tools.generation.dmogen.DmoCompactSchemaFormatter.dumpAttributeMapInitializer(DmoCompactSchemaFormatter.java:404)
 public class DmpCompactSchemaAMAP {
 
     static protected void initSmAp(HashMap<Integer, DmcAttributeInfo> _SmAp){
