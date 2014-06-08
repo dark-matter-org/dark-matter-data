@@ -17,7 +17,7 @@ package org.dmd.dms.server.generated.dmw;
 
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:105)
+// Called from: org.dmd.dms.tools.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:105)
 import java.util.*;                                  // To support access functions - (DmwFormatter.java:75)
 import org.dmd.core.*;                               // Basic dark-matter infrastructure - (DmwFormatter.java:77)
 import org.dmd.core.feedback.*;                      // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:83)
@@ -35,7 +35,7 @@ import org.dmd.dmw.*;                                // Base wrapper capabilitie
  * DependencyImplementation, otherwise, we have no way to fulfill the
  * dependency. 
  * @author Auto Generated
- * Generated from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:113)
+ * Generated from: org.dmd.dms.tools.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:113)
  */
 @SuppressWarnings("unused")
 public class DependencyImplementationDMW extends org.dmd.dms.server.extended.DmsDefinition  {
@@ -76,7 +76,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.server.extended.Dms
      * Language (DSL) concepts will indicate the rules that apply to a name in
      * that DSL. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public DefinitionName getName(){
         return(mycore.getName());
     }
@@ -85,7 +85,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.server.extended.Dms
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setName(Object value) throws DMFeedbackSet {
         mycore.setName(value);
     }
@@ -93,7 +93,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.server.extended.Dms
     /**
      * A reference to a single Dependency. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public Dependency getDependency(){
         DmcTypeDependencyREFSV attr = (DmcTypeDependencyREFSV) mycore.get(MetaCompactSchema.__dependency);
         if (attr == null)
@@ -106,7 +106,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.server.extended.Dms
      * Sets dependency to the specified value.
      * @param value A value compatible with Dependency
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:180)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:180)
     public void setDependency(Dependency value) throws DMFeedbackSet {
         mycore.setDependency(value.getDmcObject());
     }
@@ -114,7 +114,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.server.extended.Dms
     /**
      * A reference to a RunContext. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public RunContext getRunContext(){
         DmcTypeRunContextREFSV attr = (DmcTypeRunContextREFSV) mycore.get(MetaCompactSchema.__runContext);
         if (attr == null)
@@ -127,7 +127,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.server.extended.Dms
      * Sets runContext to the specified value.
      * @param value A value compatible with RunContext
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:180)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:180)
     public void setRunContext(RunContext value) throws DMFeedbackSet {
         mycore.setRunContext(value.getDmcObject());
     }
@@ -135,7 +135,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.server.extended.Dms
     /**
      * The instantiation attribute specifies how something is to be instantiated. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public String getInstantiation(){
         return(mycore.getInstantiation());
     }
@@ -144,7 +144,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.server.extended.Dms
      * Sets instantiation to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setInstantiation(Object value) throws DMFeedbackSet {
         mycore.setInstantiation(value);
     }
@@ -162,7 +162,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.server.extended.Dms
      * conventions make sense for your purposes. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
     public StringIterableDMW getDescriptionIterable(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaCompactSchema.__description);
         if (attr == null)
@@ -171,7 +171,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.server.extended.Dms
         return(new StringIterableDMW(attr.getMV()));
     }
 
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:341)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:341)
     public Iterator<String> getDescriptionWithNewlines(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaCompactSchema.__description);
         if (attr == null)
@@ -194,7 +194,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.server.extended.Dms
      * Adds another description value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:396)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:396)
     public void addDescription(Object value) throws DMFeedbackSet {
         mycore.addDescription(value);
     }
@@ -202,7 +202,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.server.extended.Dms
     /**
      * Returns the number of description values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getDescriptionSize(){
         DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__description);
         if (attr == null)
@@ -213,7 +213,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.server.extended.Dms
     /**
      * Returns true if description has values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:416)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:416)
     public boolean getDescriptionHasValue(){
         return(getDescriptionSize() > 0);
     }
@@ -221,7 +221,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.server.extended.Dms
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation
-    // Generated from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:271)
+    // Generated from: org.dmd.dms.tools.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:271)
 
     /**
      * @return The name of this object from the name attribute.
@@ -238,7 +238,7 @@ public class DependencyImplementationDMW extends org.dmd.dms.server.extended.Dms
         return(mycore.getObjectNameAttribute());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpAdditionalWrapperFunctions(MetaDSDHelper.java:1029)
+    // Generated from: org.dmd.dms.tools.meta.MetaDSDHelper.dumpAdditionalWrapperFunctions(MetaDSDHelper.java:1029)
     /**
      * This method indicates the name of the module from which this definition was loaded.
      */

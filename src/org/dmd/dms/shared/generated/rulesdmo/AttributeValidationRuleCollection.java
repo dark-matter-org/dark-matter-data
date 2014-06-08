@@ -16,7 +16,7 @@
 package org.dmd.dms.shared.generated.rulesdmo;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.meta.MetaRuleFormatter.dumpRuleCategoryInterfaces(MetaRuleFormatter.java:143)
+// Called from: org.dmd.dms.tools.meta.MetaRuleFormatter.dumpRuleCategoryInterfaces(MetaRuleFormatter.java:143)
 import java.util.ArrayList;                                // Storage for the rules - (MetaRuleFormatter.java:117)
 import org.dmd.core.DmcAttribute;                          // Required for attribute - (MetaRuleFormatter.java:60)
 import org.dmd.core.DmcObject;                             // Required for obj - (MetaRuleFormatter.java:60)
@@ -33,7 +33,7 @@ public class AttributeValidationRuleCollection extends AttributeRuleCollection<A
     public AttributeValidationRuleCollection(){
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaRuleFormatter.dumpRuleCategoryInterfaces(MetaRuleFormatter.java:152)
+    // Generated from: org.dmd.dms.tools.meta.MetaRuleFormatter.dumpRuleCategoryInterfaces(MetaRuleFormatter.java:152)
     @Override
     public void addRule(RuleIF r){
 

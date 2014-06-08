@@ -16,7 +16,7 @@
 package org.dmd.dms.shared.generated.rulesdmo;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.meta.MetaRuleFormatter.dumpRuleCategoryInterfaces(MetaRuleFormatter.java:93)
+// Called from: org.dmd.dms.tools.meta.MetaRuleFormatter.dumpRuleCategoryInterfaces(MetaRuleFormatter.java:93)
 import org.dmd.core.DmcAttribute;                      // Required for attribute - (MetaRuleFormatter.java:60)
 import org.dmd.core.DmcObject;                         // Required for obj - (MetaRuleFormatter.java:60)
 import org.dmd.core.rules.DmcRuleExceptionSet;         // Rule type - (MetaRuleFormatter.java:48)
@@ -24,7 +24,7 @@ import org.dmd.core.rules.RuleIF;                      // All rules implement th
 
 
 
-// Generated from: org.dmd.dms.tools.generation.meta.MetaRuleFormatter.dumpRuleCategoryInterfaces(MetaRuleFormatter.java:95)
+// Generated from: org.dmd.dms.tools.meta.MetaRuleFormatter.dumpRuleCategoryInterfaces(MetaRuleFormatter.java:95)
 public interface AttributeValidationIF extends RuleIF {
 
     /**

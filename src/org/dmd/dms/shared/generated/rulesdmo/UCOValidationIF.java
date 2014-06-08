@@ -16,14 +16,14 @@
 package org.dmd.dms.shared.generated.rulesdmo;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.meta.MetaRuleFormatter.dumpRuleCategoryInterfaces(MetaRuleFormatter.java:93)
+// Called from: org.dmd.dms.tools.meta.MetaRuleFormatter.dumpRuleCategoryInterfaces(MetaRuleFormatter.java:93)
 import org.dmd.core.rules.DmcRuleExceptionSet;         // Rule type - (MetaRuleFormatter.java:48)
 import org.dmd.core.rules.RuleIF;                      // All rules implement this - (MetaRuleFormatter.java:49)
 import org.dmd.core.util.DMUncheckedObject;            // Required for obj - (MetaRuleFormatter.java:60)
 
 
 
-// Generated from: org.dmd.dms.tools.generation.meta.MetaRuleFormatter.dumpRuleCategoryInterfaces(MetaRuleFormatter.java:95)
+// Generated from: org.dmd.dms.tools.meta.MetaRuleFormatter.dumpRuleCategoryInterfaces(MetaRuleFormatter.java:95)
 public interface UCOValidationIF extends RuleIF {
 
     /**

@@ -16,7 +16,7 @@
 package org.dmd.dms.shared.generated.types;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:67)
+// Called from: org.dmd.dms.tools.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:67)
 import java.io.Serializable;                                  // Serialization marker interface - (SVTypeFormatter.java:56)
 import org.dmd.core.DmcAttribute;                             // To support cloning - (SVTypeFormatter.java:57)
 import org.dmd.core.feedback.DMFeedbackSet;                   // Error support - (SVTypeFormatter.java:59)
@@ -29,8 +29,8 @@ import org.dmd.dms.shared.types.DmcTypeCamelCaseName;         // DmcType import 
  * The DmcTypeCamelCaseNameSV provides storage for a single-valued CamelCaseName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:73)
- *    Called from: org.dmd.dms.tools.generation.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:92)
+ * Generated from: org.dmd.dms.tools.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:73)
+ *    Called from: org.dmd.dms.tools.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:92)
  */
 @SuppressWarnings("serial")
 public class DmcTypeCamelCaseNameSV extends DmcTypeCamelCaseName implements Serializable {
@@ -54,14 +54,14 @@ public class DmcTypeCamelCaseNameSV extends DmcTypeCamelCaseName implements Seri
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:105)
+    // org.dmd.dms.tools.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:105)
     public DmcAttribute<CamelCaseName> cloneIt(){
         DmcTypeCamelCaseNameSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:116)
+    // org.dmd.dms.tools.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:116)
     public CamelCaseName getSVCopy(){
         if (value == null)
             return(null);
@@ -69,7 +69,7 @@ public class DmcTypeCamelCaseNameSV extends DmcTypeCamelCaseName implements Seri
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:128)
+    // org.dmd.dms.tools.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:128)
     public CamelCaseName set(Object v) throws DMFeedbackSet {
         CamelCaseName rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

@@ -16,7 +16,7 @@
 package org.dmd.dmp.shared.generated.types;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:66)
+// Called from: org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:66)
 import java.io.Serializable;                                    // Standard marker interface - (MVTypeFormatter.java:46)
 import java.util.ArrayList;                                     // Storage of values - (MVTypeFormatter.java:47)
 import java.util.Iterator;                                      // Access to values - (MVTypeFormatter.java:48)
@@ -30,8 +30,8 @@ import org.dmd.dmp.shared.generated.enums.FileModeEnum;         // DmcType impor
  * The DmcTypeFileModeEnumMV provides storage for a multi-valued FileModeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:72)
- *    Called from: org.dmd.dms.tools.generation.dmogen.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:346)
+ * Generated from: org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:72)
+ *    Called from: org.dmd.dms.tools.dmogen.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:346)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFileModeEnumMV extends DmcTypeFileModeEnum implements Serializable {
@@ -54,7 +54,7 @@ public class DmcTypeFileModeEnumMV extends DmcTypeFileModeEnum implements Serial
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:103)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:103)
     public DmcAttribute<FileModeEnum> cloneIt(){
         synchronized(this){
             DmcTypeFileModeEnumMV rc = getNew();
@@ -83,7 +83,7 @@ public class DmcTypeFileModeEnumMV extends DmcTypeFileModeEnum implements Serial
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:136)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:136)
     public FileModeEnum add(Object v) throws DMFeedbackSet {
         synchronized(this){
             FileModeEnum rc = typeCheck(v);
@@ -95,7 +95,7 @@ public class DmcTypeFileModeEnumMV extends DmcTypeFileModeEnum implements Serial
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:149)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:149)
     public FileModeEnum del(Object v){
         synchronized(this){
             if (value == null)
@@ -119,7 +119,7 @@ public class DmcTypeFileModeEnumMV extends DmcTypeFileModeEnum implements Serial
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:176)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:176)
     public Iterator<FileModeEnum> getMV(){
         synchronized(this){
             if (value == null)
@@ -130,7 +130,7 @@ public class DmcTypeFileModeEnumMV extends DmcTypeFileModeEnum implements Serial
         }
     }
     
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:188)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:188)
     public ArrayList<FileModeEnum> getMVCopy(){
         synchronized(this){
             if (value == null)
@@ -141,7 +141,7 @@ public class DmcTypeFileModeEnumMV extends DmcTypeFileModeEnum implements Serial
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:200)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:200)
     public int getMVSize(){
         synchronized(this){
             if (getAttributeInfo().indexSize == 0){
@@ -155,7 +155,7 @@ public class DmcTypeFileModeEnumMV extends DmcTypeFileModeEnum implements Serial
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:215)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:215)
     public FileModeEnum getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -165,7 +165,7 @@ public class DmcTypeFileModeEnumMV extends DmcTypeFileModeEnum implements Serial
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:226)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:226)
     public FileModeEnum setMVnth(int index, Object v) throws DMFeedbackSet {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
@@ -192,7 +192,7 @@ public class DmcTypeFileModeEnumMV extends DmcTypeFileModeEnum implements Serial
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:254)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:254)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -215,7 +215,7 @@ public class DmcTypeFileModeEnumMV extends DmcTypeFileModeEnum implements Serial
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:278)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:278)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

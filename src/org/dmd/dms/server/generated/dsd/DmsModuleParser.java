@@ -1,7 +1,7 @@
 package org.dmd.dms.server.generated.dsd;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParser(MetaDSDHelper.java:734)
+// Called from: org.dmd.dms.tools.meta.MetaDSDHelper.generateParser(MetaDSDHelper.java:734)
 import java.util.Iterator;                                                  // To allow itteration over collections - (MetaDSDHelper.java:686)
 import org.dmd.core.feedback.DMFeedbackSet;                                 // May be thrown when parsing objects - (MetaDSDHelper.java:707)
 import org.dmd.core.feedback.DmcNameClashException;                         // May be thrown when instantiating objects - (MetaDSDHelper.java:708)
@@ -39,13 +39,13 @@ import org.dmd.util.parsing.DMUncheckedObjectParser;                        // B
 
 
 
-// Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParser(MetaDSDHelper.java:737)
+// Generated from: org.dmd.dms.tools.meta.MetaDSDHelper.generateParser(MetaDSDHelper.java:737)
 public class DmsModuleParser implements DsdParserInterface, DMUncheckedObjectHandlerIF {
 
     final static String fileExtension = "dms";
 
     // Generated from: org.dmd.util.artifact.java.MemberManager.getFormattedMembers(MemberManager.java:68)
-    // Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParser(MetaDSDHelper.java:751)
+    // Called from: org.dmd.dms.tools.meta.MetaDSDHelper.generateParser(MetaDSDHelper.java:751)
 
     SchemaManager               schema;                                               // Manages the schema for this DSD
     DMUncheckedObjectParser     parser         = new DMUncheckedObjectParser(this);   // Parses objects from the config file
@@ -55,7 +55,7 @@ public class DmsModuleParser implements DsdParserInterface, DMUncheckedObjectHan
     ConfigLocation              location;                                             // The location of the config being parsed
     DmsModule                   module;                                               // The DDM module
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParser(MetaDSDHelper.java:754)
+    // Generated from: org.dmd.dms.tools.meta.MetaDSDHelper.generateParser(MetaDSDHelper.java:754)
     public DmsModuleParser(DmsModuleGlobalInterface d, DmvRuleManager r) throws DMFeedbackSet, DmcNameClashException {
         // The SchemaManager automatically loads the meta schema
         schema = new SchemaManager();
@@ -83,7 +83,7 @@ public class DmsModuleParser implements DsdParserInterface, DMUncheckedObjectHan
         return(fileExtension);
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParser(MetaDSDHelper.java:785)
+    // Generated from: org.dmd.dms.tools.meta.MetaDSDHelper.generateParser(MetaDSDHelper.java:785)
     public DmsModule parseConfig(ConfigLocation l) throws DMFeedbackSet, DmcNameClashException {
         location = l;
 
@@ -114,7 +114,7 @@ public class DmsModuleParser implements DsdParserInterface, DMUncheckedObjectHan
         return(module);
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParser(MetaDSDHelper.java:818)
+    // Generated from: org.dmd.dms.tools.meta.MetaDSDHelper.generateParser(MetaDSDHelper.java:818)
     @Override
     public void handleObject(DMUncheckedObject uco, String infile, int lineNumber) throws DMFeedbackSet, DmcNameClashException {
         DmsDefinition definition = null;
@@ -166,7 +166,7 @@ public class DmsModuleParser implements DsdParserInterface, DMUncheckedObjectHan
             }
         }
         else{
-            // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateParser(MetaDSDHelper.java:892)
+            // Generated from: org.dmd.dms.tools.meta.MetaDSDHelper.generateParser(MetaDSDHelper.java:892)
             if (definition instanceof DmsModule){
                 DMFeedbackSet ex = new DMFeedbackSet("Multiple DmsModule definitions while parsing config: " + location.getFileName(), infile, lineNumber);
                 throw(ex);

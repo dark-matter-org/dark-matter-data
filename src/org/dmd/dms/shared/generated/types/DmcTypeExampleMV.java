@@ -16,7 +16,7 @@
 package org.dmd.dms.shared.generated.types;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:66)
+// Called from: org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:66)
 import java.io.Serializable;                                      // Standard marker interface - (MVTypeFormatter.java:46)
 import java.util.ArrayList;                                       // Storage of values - (MVTypeFormatter.java:47)
 import java.util.Iterator;                                        // Access to values - (MVTypeFormatter.java:48)
@@ -31,8 +31,8 @@ import org.dmd.dms.shared.generated.types.Example;                // Base type i
  * The DmcTypeExampleMV provides storage for a multi-valued Example
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:72)
- *    Called from: org.dmd.dms.tools.generation.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:93)
+ * Generated from: org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:72)
+ *    Called from: org.dmd.dms.tools.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:93)
  */
 @SuppressWarnings("serial")
 public class DmcTypeExampleMV extends DmcTypeExample implements Serializable {
@@ -55,7 +55,7 @@ public class DmcTypeExampleMV extends DmcTypeExample implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:103)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:103)
     public DmcAttribute<Example> cloneIt(){
         synchronized(this){
             DmcTypeExampleMV rc = getNew();
@@ -84,7 +84,7 @@ public class DmcTypeExampleMV extends DmcTypeExample implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:136)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:136)
     public Example add(Object v) throws DMFeedbackSet {
         synchronized(this){
             Example rc = typeCheck(v);
@@ -96,7 +96,7 @@ public class DmcTypeExampleMV extends DmcTypeExample implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:149)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:149)
     public Example del(Object v){
         synchronized(this){
             if (value == null)
@@ -120,7 +120,7 @@ public class DmcTypeExampleMV extends DmcTypeExample implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:176)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:176)
     public Iterator<Example> getMV(){
         synchronized(this){
             if (value == null)
@@ -131,7 +131,7 @@ public class DmcTypeExampleMV extends DmcTypeExample implements Serializable {
         }
     }
     
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:188)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:188)
     public ArrayList<Example> getMVCopy(){
         synchronized(this){
             if (value == null)
@@ -142,7 +142,7 @@ public class DmcTypeExampleMV extends DmcTypeExample implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:200)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:200)
     public int getMVSize(){
         synchronized(this){
             if (getAttributeInfo().indexSize == 0){
@@ -156,7 +156,7 @@ public class DmcTypeExampleMV extends DmcTypeExample implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:215)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:215)
     public Example getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -166,7 +166,7 @@ public class DmcTypeExampleMV extends DmcTypeExample implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:226)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:226)
     public Example setMVnth(int index, Object v) throws DMFeedbackSet {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
@@ -193,7 +193,7 @@ public class DmcTypeExampleMV extends DmcTypeExample implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:254)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:254)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -216,7 +216,7 @@ public class DmcTypeExampleMV extends DmcTypeExample implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:278)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:278)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

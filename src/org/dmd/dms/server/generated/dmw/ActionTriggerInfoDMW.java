@@ -17,7 +17,7 @@ package org.dmd.dms.server.generated.dmw;
 
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:105)
+// Called from: org.dmd.dms.tools.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:105)
 import java.util.*;                                  // To support access functions - (DmwFormatter.java:75)
 import org.dmd.core.*;                               // Basic dark-matter infrastructure - (DmwFormatter.java:77)
 import org.dmd.core.feedback.*;                      // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:83)
@@ -39,7 +39,7 @@ import org.dmd.dmw.*;                                // Base wrapper capabilitie
  * action and have a well defined interface to specify the parameters for the
  * action. 
  * @author Auto Generated
- * Generated from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:113)
+ * Generated from: org.dmd.dms.tools.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:113)
  */
 @SuppressWarnings("unused")
 public abstract class ActionTriggerInfoDMW extends DmwWrapper {
@@ -76,7 +76,7 @@ public abstract class ActionTriggerInfoDMW extends DmwWrapper {
      * Language (DSL) concepts will indicate the rules that apply to a name in
      * that DSL. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public DefinitionName getName(){
         return(mycore.getName());
     }
@@ -85,7 +85,7 @@ public abstract class ActionTriggerInfoDMW extends DmwWrapper {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setName(Object value) throws DMFeedbackSet {
         mycore.setName(value);
     }

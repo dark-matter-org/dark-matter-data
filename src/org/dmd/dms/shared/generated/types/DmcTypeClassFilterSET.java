@@ -16,7 +16,7 @@
 package org.dmd.dms.shared.generated.types;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:61)
+// Called from: org.dmd.dms.tools.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:61)
 import java.io.Serializable;                                     //  - (SETTypeFormatter.java:45)
 import java.util.HashSet;                                        //  - (SETTypeFormatter.java:47)
 import java.util.Iterator;                                       //  - (SETTypeFormatter.java:49)
@@ -34,8 +34,8 @@ import org.dmd.dms.shared.types.DmcTypeClassFilter;              // DmcType impo
  * The DmcTypeClassFilterSET provides storage for a set of ClassFilter
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:67)
- *    Called from: org.dmd.dms.tools.generation.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:94)
+ * Generated from: org.dmd.dms.tools.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:67)
+ *    Called from: org.dmd.dms.tools.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:94)
  */
 @SuppressWarnings("serial")
 public class DmcTypeClassFilterSET extends DmcTypeClassFilter implements Serializable {
@@ -67,7 +67,7 @@ public class DmcTypeClassFilterSET extends DmcTypeClassFilter implements Seriali
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:108)
+    // org.dmd.dms.tools.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:108)
     public DmcAttribute<ClassFilter> cloneIt(){
         synchronized(this){
             DmcTypeClassFilterSET rc = getNew();
@@ -86,7 +86,7 @@ public class DmcTypeClassFilterSET extends DmcTypeClassFilter implements Seriali
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:131)
+    // org.dmd.dms.tools.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:131)
     public ClassFilter add(Object v) throws DMFeedbackSet {
         synchronized(this){
             ClassFilter rc = typeCheck(v);
@@ -102,7 +102,7 @@ public class DmcTypeClassFilterSET extends DmcTypeClassFilter implements Seriali
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:148)
+    // org.dmd.dms.tools.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:148)
     public ClassFilter del(Object v){
         synchronized(this){
             ClassFilter rc = null;
@@ -126,7 +126,7 @@ public class DmcTypeClassFilterSET extends DmcTypeClassFilter implements Seriali
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:173)
+    // org.dmd.dms.tools.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:173)
     public Iterator<ClassFilter> getMV(){
         synchronized(this){
             if (value == null)
@@ -139,7 +139,7 @@ public class DmcTypeClassFilterSET extends DmcTypeClassFilter implements Seriali
         }
     }
     
-    // org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:187)
+    // org.dmd.dms.tools.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:187)
     public Set<ClassFilter> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -158,7 +158,7 @@ public class DmcTypeClassFilterSET extends DmcTypeClassFilter implements Seriali
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:207)
+    // org.dmd.dms.tools.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:207)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -168,7 +168,7 @@ public class DmcTypeClassFilterSET extends DmcTypeClassFilter implements Seriali
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:218)
+    // org.dmd.dms.tools.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:218)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

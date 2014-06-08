@@ -16,7 +16,7 @@
 package org.dmd.dmp.shared.generated.types;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:61)
+// Called from: org.dmd.dms.tools.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:61)
 import java.io.Serializable;                                      //  - (SETTypeFormatter.java:45)
 import java.util.HashSet;                                         //  - (SETTypeFormatter.java:47)
 import java.util.Iterator;                                        //  - (SETTypeFormatter.java:49)
@@ -33,8 +33,8 @@ import org.dmd.dms.shared.generated.enums.ValueTypeEnum;          //  - (SETType
  * The DmcTypeLogoutRequestREFSET provides storage for a set of LogoutRequestDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:67)
- *    Called from: org.dmd.dms.tools.generation.dmogen.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:251)
+ * Generated from: org.dmd.dms.tools.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:67)
+ *    Called from: org.dmd.dms.tools.dmogen.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:251)
  */
 @SuppressWarnings("serial")
 public class DmcTypeLogoutRequestREFSET extends DmcTypeLogoutRequestREF implements Serializable {
@@ -66,7 +66,7 @@ public class DmcTypeLogoutRequestREFSET extends DmcTypeLogoutRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:108)
+    // org.dmd.dms.tools.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:108)
     public DmcAttribute<LogoutRequestDMO> cloneIt(){
         synchronized(this){
             DmcTypeLogoutRequestREFSET rc = getNew();
@@ -85,7 +85,7 @@ public class DmcTypeLogoutRequestREFSET extends DmcTypeLogoutRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:131)
+    // org.dmd.dms.tools.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:131)
     public LogoutRequestDMO add(Object v) throws DMFeedbackSet {
         synchronized(this){
             LogoutRequestDMO rc = typeCheck(v);
@@ -101,7 +101,7 @@ public class DmcTypeLogoutRequestREFSET extends DmcTypeLogoutRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:148)
+    // org.dmd.dms.tools.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:148)
     public LogoutRequestDMO del(Object v){
         synchronized(this){
             LogoutRequestDMO rc = null;
@@ -125,7 +125,7 @@ public class DmcTypeLogoutRequestREFSET extends DmcTypeLogoutRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:173)
+    // org.dmd.dms.tools.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:173)
     public Iterator<LogoutRequestDMO> getMV(){
         synchronized(this){
             if (value == null)
@@ -138,7 +138,7 @@ public class DmcTypeLogoutRequestREFSET extends DmcTypeLogoutRequestREF implemen
         }
     }
     
-    // org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:187)
+    // org.dmd.dms.tools.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:187)
     public Set<LogoutRequestDMO> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -157,7 +157,7 @@ public class DmcTypeLogoutRequestREFSET extends DmcTypeLogoutRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:207)
+    // org.dmd.dms.tools.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:207)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -167,7 +167,7 @@ public class DmcTypeLogoutRequestREFSET extends DmcTypeLogoutRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:218)
+    // org.dmd.dms.tools.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:218)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

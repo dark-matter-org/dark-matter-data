@@ -16,7 +16,7 @@
 package org.dmd.dms.server.generated;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpMetaSchemaAG(MetaSchemaFormatterNew.java:81)
+// Called from: org.dmd.dms.tools.meta.MetaSchemaFormatterNew.dumpMetaSchemaAG(MetaSchemaFormatterNew.java:81)
 import org.dmd.core.feedback.DMFeedbackSet;         // To handle potential value exceptions. - (MetaSchemaFormatterNew.java:71)
 import org.dmd.dms.server.extended.*;               // Access to meta schema extended classes - (MetaSchemaFormatterNew.java:72)
 import org.dmd.dms.server.util.DmsModuleIF;         // The standard module interface - (MetaSchemaFormatterNew.java:74)
@@ -26,12 +26,12 @@ import org.dmd.dms.shared.generated.dmo.*;          // Access to meta schema DMO
 
 /**
   * This class creates the basic definitions that allow for the definition of schemas.
-  * Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpMetaSchemaAG(MetaSchemaFormatterNew.java:85)
+  * Generated from: org.dmd.dms.tools.meta.MetaSchemaFormatterNew.dumpMetaSchemaAG(MetaSchemaFormatterNew.java:85)
   */
 public class MetaDmsModule extends DmsModule implements DmsModuleIF {
     public static DmsModule    _metaSchema;
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:150)
+    // Generated from: org.dmd.dms.tools.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:150)
     public static ClassDefinition     _ActionTriggerInfo;
     public static ClassDefinition     _DSDefinition;
     public static ClassDefinition     _DmsDefinition;
@@ -54,7 +54,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
     public static ClassDefinition     _Concinnity;
     public static ClassDefinition     _DmsModule;
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:156)
+    // Generated from: org.dmd.dms.tools.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:156)
     public static EnumDefinition      _ClassTypeEnum;
     public static EnumDefinition      _ModifyTypeEnum;
     public static EnumDefinition      _OperationalContextEnum;
@@ -67,7 +67,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
     public static EnumDefinition      _WrapperTypeEnum;
     public static EnumDefinition      _OriginalTypeEnum;
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:161)
+    // Generated from: org.dmd.dms.tools.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:161)
     public static TypeDefinition      _String;
     public static TypeDefinition      _DmcObject;
     public static TypeDefinition      _ClassInfoRef;
@@ -140,7 +140,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
     public static TypeDefinition      _RuleParam_Type;
     public static TypeDefinition      _SchemaAndReason_Type;
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:183)
+    // Generated from: org.dmd.dms.tools.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:183)
     public static AttributeDefinition _name;
     public static AttributeDefinition _dmdID;
     public static AttributeDefinition _schemaExtension;
@@ -319,7 +319,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
     public static AttributeDefinition _auxHolderClass;
     public static AttributeDefinition _objectClass;
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:188)
+    // Generated from: org.dmd.dms.tools.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:188)
     public static ComplexTypeDefinition _Part;
     public static ComplexTypeDefinition _NameValuePair;
     public static ComplexTypeDefinition _SchemaAndReason;
@@ -328,19 +328,19 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
     public static ComplexTypeDefinition _DmwTypeToWrapperType;
     public static ComplexTypeDefinition _RuleParam;
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:193)
+    // Generated from: org.dmd.dms.tools.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:193)
     public static RuleCategory        _Initialization;
     public static RuleCategory        _ObjectValidation;
     public static RuleCategory        _AttributeValidation;
     public static RuleCategory        _AttributeValidationWithResolver;
     public static RuleCategory        _UCOValidation;
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:198)
+    // Generated from: org.dmd.dms.tools.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:198)
     // NOTE: we add the _DSDM suffix so as not to clash with the module's ClassDefinition
     public static DSDefinitionModule  _DmsModule_DSDM;
 
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:205)
+    // Generated from: org.dmd.dms.tools.meta.MetaSchemaFormatterNew.dumpStaticDefinitions(MetaSchemaFormatterNew.java:205)
     public DmsModule dmsModuleInstance() throws DMFeedbackSet {
         if (_metaSchema == null){
             new MetaDmsModule();
@@ -373,7 +373,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
         }
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitClasses(MetaSchemaFormatterNew.java:222)
+    // Generated from: org.dmd.dms.tools.meta.MetaSchemaFormatterNew.dumpInitClasses(MetaSchemaFormatterNew.java:222)
     private void initClasses() throws DMFeedbackSet {
 
         ClassDefinitionDMO _ActionTriggerInfoOBJ = new ClassDefinitionDMO();
@@ -1133,7 +1133,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
 
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitAttributes(MetaSchemaFormatterNew.java:243)
+    // Generated from: org.dmd.dms.tools.meta.MetaSchemaFormatterNew.dumpInitAttributes(MetaSchemaFormatterNew.java:243)
     private void initAttributes() throws DMFeedbackSet {
 
         AttributeDefinitionDMO _FQNOBJ = new AttributeDefinitionDMO();
@@ -3028,7 +3028,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
 
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitTypes(MetaSchemaFormatterNew.java:262)
+    // Generated from: org.dmd.dms.tools.meta.MetaSchemaFormatterNew.dumpInitTypes(MetaSchemaFormatterNew.java:262)
     private void initTypes() throws DMFeedbackSet {
 
         TypeDefinitionDMO _ActionDefinitionOBJ = new TypeDefinitionDMO();
@@ -3997,7 +3997,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
 
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitEnums(MetaSchemaFormatterNew.java:322)
+    // Generated from: org.dmd.dms.tools.meta.MetaSchemaFormatterNew.dumpInitEnums(MetaSchemaFormatterNew.java:322)
     private void initEnums() throws DMFeedbackSet {
 
         EnumDefinitionDMO _BaseTypeEnumOBJ = new EnumDefinitionDMO();
@@ -4152,7 +4152,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
 
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitRuleCategories(MetaSchemaFormatterNew.java:341)
+    // Generated from: org.dmd.dms.tools.meta.MetaSchemaFormatterNew.dumpInitRuleCategories(MetaSchemaFormatterNew.java:341)
     private void initRuleCategories() throws DMFeedbackSet {
 
         RuleCategoryDMO _AttributeValidationOBJ = new RuleCategoryDMO();
@@ -4228,7 +4228,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
 
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitComplexTypes(MetaSchemaFormatterNew.java:360)
+    // Generated from: org.dmd.dms.tools.meta.MetaSchemaFormatterNew.dumpInitComplexTypes(MetaSchemaFormatterNew.java:360)
     private void initComplexTypes() throws DMFeedbackSet {
 
         ComplexTypeDefinitionDMO _DmwTypeToWrapperTypeOBJ = new ComplexTypeDefinitionDMO();
@@ -4317,7 +4317,7 @@ public class MetaDmsModule extends DmsModule implements DmsModuleIF {
 
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaSchemaFormatterNew.dumpInitModules(MetaSchemaFormatterNew.java:379)
+    // Generated from: org.dmd.dms.tools.meta.MetaSchemaFormatterNew.dumpInitModules(MetaSchemaFormatterNew.java:379)
     private void initModules() throws DMFeedbackSet {
 
         DSDefinitionModuleDMO _DmsModuleOBJ = new DSDefinitionModuleDMO();

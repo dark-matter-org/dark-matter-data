@@ -17,7 +17,7 @@ package org.dmd.dms.server.generated.dmw;
 
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:105)
+// Called from: org.dmd.dms.tools.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:105)
 import java.util.*;                                  // To support access functions - (DmwFormatter.java:75)
 import org.dmd.core.*;                               // Basic dark-matter infrastructure - (DmwFormatter.java:77)
 import org.dmd.core.feedback.*;                      // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:83)
@@ -32,7 +32,7 @@ import org.dmd.dmw.*;                                // Base wrapper capabilitie
  * This class is used to define attributes to be used as part of a class
  * definition. 
  * @author Auto Generated
- * Generated from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:113)
+ * Generated from: org.dmd.dms.tools.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:113)
  */
 @SuppressWarnings("unused")
 public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition  {
@@ -73,7 +73,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * Language (DSL) concepts will indicate the rules that apply to a name in
      * that DSL. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public DefinitionName getName(){
         return(mycore.getName());
     }
@@ -82,7 +82,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setName(Object value) throws DMFeedbackSet {
         mycore.setName(value);
     }
@@ -92,7 +92,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * previously defined TypeDefinition, ClassDefinition, EnumDefinition or
      * ComplexTypeDefinition. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public TypeDefinition getType(){
         DmcTypeTypeDefinitionREFSV attr = (DmcTypeTypeDefinitionREFSV) mycore.get(MetaCompactSchema.__type);
         if (attr == null)
@@ -105,7 +105,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * Sets type to the specified value.
      * @param value A value compatible with TypeDefinition
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:180)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:180)
     public void setType(TypeDefinition value) throws DMFeedbackSet {
         mycore.setType(value.getDmcObject());
     }
@@ -123,7 +123,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * conventions make sense for your purposes. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
     public StringIterableDMW getDescriptionIterable(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaCompactSchema.__description);
         if (attr == null)
@@ -132,7 +132,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
         return(new StringIterableDMW(attr.getMV()));
     }
 
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:341)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:341)
     public Iterator<String> getDescriptionWithNewlines(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaCompactSchema.__description);
         if (attr == null)
@@ -155,7 +155,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * Adds another description value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:396)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:396)
     public void addDescription(Object value) throws DMFeedbackSet {
         mycore.addDescription(value);
     }
@@ -163,7 +163,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
     /**
      * Returns the number of description values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getDescriptionSize(){
         DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__description);
         if (attr == null)
@@ -174,7 +174,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
     /**
      * Returns true if description has values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:416)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:416)
     public boolean getDescriptionHasValue(){
         return(getDescriptionSize() > 0);
     }
@@ -183,7 +183,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * This attribute indicates the cardinality and storage mechanism for an
      * attribute. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public ValueTypeEnum getValueType(){
         return(mycore.getValueType());
     }
@@ -192,7 +192,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * Sets valueType to the specified value.
      * @param value A value compatible with DmcTypeValueTypeEnumSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setValueType(Object value) throws DMFeedbackSet {
         mycore.setValueType(value);
     }
@@ -204,7 +204,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * when they aren't actually set on an object. This just gives a convenient
      * mechanism to provide a default value for non-existent attribute values. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public String getNullReturnValue(){
         return(mycore.getNullReturnValue());
     }
@@ -213,7 +213,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * Sets nullReturnValue to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setNullReturnValue(Object value) throws DMFeedbackSet {
         mycore.setNullReturnValue(value);
     }
@@ -223,7 +223,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * class. This concept is borrowed from directory technology where shortened
      * name forms are often used as part of distinguished names (DNs). 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public String getAbbrev(){
         return(mycore.getAbbrev());
     }
@@ -232,7 +232,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * Sets abbrev to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setAbbrev(Object value) throws DMFeedbackSet {
         mycore.setAbbrev(value);
     }
@@ -243,7 +243,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * released to the field, this may break backwards compatibility. Instead,
      * you should mark them as obsolete. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public String getObsoleteVersion(){
         return(mycore.getObsoleteVersion());
     }
@@ -252,7 +252,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * Sets obsoleteVersion to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setObsoleteVersion(Object value) throws DMFeedbackSet {
         mycore.setObsoleteVersion(value);
     }
@@ -261,7 +261,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * This attribute indicates whether or not the attribute should be encrypted
      * before being transported over the wire or stored in a file or repository 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public Boolean getSecure(){
         return(mycore.getSecure());
     }
@@ -270,7 +270,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * Sets secure to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setSecure(Object value) throws DMFeedbackSet {
         mycore.setSecure(value);
     }
@@ -279,7 +279,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * This attribute indicates the persistence characteristics of an attribute
      * or class of object. How this information is used is application dependent. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public DataTypeEnum getDataType(){
         return(mycore.getDataType());
     }
@@ -288,7 +288,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * Sets dataType to the specified value.
      * @param value A value compatible with DmcTypeDataTypeEnumSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setDataType(Object value) throws DMFeedbackSet {
         mycore.setDataType(value);
     }
@@ -305,7 +305,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * how it's achieved. <p/> However, if you're curious, have a look at the
      * Compact Schema documentation. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public Integer getDmdID(){
         return(mycore.getDmdID());
     }
@@ -314,7 +314,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * Sets dmdID to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setDmdID(Object value) throws DMFeedbackSet {
         mycore.setDmdID(value);
     }
@@ -323,7 +323,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * This attribute indicates the generic arguments to be supplied in the use
      * of a class in an autogenerated Iterable. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public String getGenericArgs(){
         return(mycore.getGenericArgs());
     }
@@ -332,7 +332,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * Sets genericArgs to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setGenericArgs(Object value) throws DMFeedbackSet {
         mycore.setGenericArgs(value);
     }
@@ -342,7 +342,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * if you're not specifying something like <?>, an additional import may be
      * required. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public String getGenericArgsImport(){
         return(mycore.getGenericArgsImport());
     }
@@ -351,7 +351,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * Sets genericArgsImport to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setGenericArgsImport(Object value) throws DMFeedbackSet {
         mycore.setGenericArgsImport(value);
     }
@@ -362,7 +362,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * and only one, attribute definition can be the designatedNameAttribute for
      * a TypeDefinition that has isNameType true. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public Boolean getDesignatedNameAttribute(){
         return(mycore.getDesignatedNameAttribute());
     }
@@ -371,7 +371,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * Sets designatedNameAttribute to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setDesignatedNameAttribute(Object value) throws DMFeedbackSet {
         mycore.setDesignatedNameAttribute(value);
     }
@@ -382,7 +382,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * and only one, attribute definition can be the designatedFilterAttribute
      * for a  TypeDefinition that is identified as isFilterType. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public Boolean getDesignatedFilterAttribute(){
         return(mycore.getDesignatedFilterAttribute());
     }
@@ -391,7 +391,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * Sets designatedFilterAttribute to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setDesignatedFilterAttribute(Object value) throws DMFeedbackSet {
         mycore.setDesignatedFilterAttribute(value);
     }
@@ -402,7 +402,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * marked as internalUse WILL NOT be displayed unless you set the
      * -internalUse flag is indicated. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public Boolean getInternalUse(){
         return(mycore.getInternalUse());
     }
@@ -411,7 +411,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * Sets internalUse to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setInternalUse(Object value) throws DMFeedbackSet {
         mycore.setInternalUse(value);
     }
@@ -425,7 +425,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * usual add() interface. If you attempt to use add() with an indexed
      * attribute, an exception will be thrown. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public Integer getIndexSize(){
         return(mycore.getIndexSize());
     }
@@ -434,7 +434,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * Sets indexSize to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setIndexSize(Object value) throws DMFeedbackSet {
         mycore.setIndexSize(value);
     }
@@ -447,7 +447,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * dumped as part of  HTML documentation and, if the newlines are stripped,
      * it won't be properly formatted. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public Boolean getPreserveNewlines(){
         return(mycore.getPreserveNewlines());
     }
@@ -456,7 +456,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * Sets preserveNewlines to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setPreserveNewlines(Object value) throws DMFeedbackSet {
         mycore.setPreserveNewlines(value);
     }
@@ -465,7 +465,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * A flag to indicate that a reference attribute is weak i.e.  if the object
      * can't be resolved, no exception is thrown. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public Boolean getWeakReference(){
         return(mycore.getWeakReference());
     }
@@ -474,7 +474,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
      * Sets weakReference to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setWeakReference(Object value) throws DMFeedbackSet {
         mycore.setWeakReference(value);
     }
@@ -482,7 +482,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation
-    // Generated from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:271)
+    // Generated from: org.dmd.dms.tools.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:271)
 
     /**
      * @return The name of this object from the name attribute.
@@ -499,7 +499,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.server.extended.DmsDefin
         return(mycore.getObjectNameAttribute());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpAdditionalWrapperFunctions(MetaDSDHelper.java:1029)
+    // Generated from: org.dmd.dms.tools.meta.MetaDSDHelper.dumpAdditionalWrapperFunctions(MetaDSDHelper.java:1029)
     /**
      * This method indicates the name of the module from which this definition was loaded.
      */
