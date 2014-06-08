@@ -16,7 +16,7 @@
 package org.dmd.dms.server.generated.dsd;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateGlobalInterface(MetaDSDHelper.java:139)
+// Called from: org.dmd.dms.tools.meta.MetaDSDHelper.generateGlobalInterface(MetaDSDHelper.java:139)
 import java.util.Iterator;                                                  // To provide iterators over definitions - (MetaDSDHelper.java:117)
 import org.dmd.core.feedback.DMFeedbackSet;                                 // To handle errors/warnings - (MetaDSDHelper.java:119)
 import org.dmd.dms.server.extended.ActionDefinition;                        // A definition from the DmsModule Module - (MetaDSDHelper.java:130)
@@ -38,7 +38,7 @@ import org.dmd.dms.server.extended.SliceDefinition;                         // A
 import org.dmd.dms.server.extended.TypeDefinition;                          // A definition from the DmsModule Module - (MetaDSDHelper.java:130)
 import org.dmd.dms.shared.types.DotName;                                    // To support the find method for definitions - (MetaDSDHelper.java:118)
 
-// Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateGlobalInterface(MetaDSDHelper.java:141)
+// Generated from: org.dmd.dms.tools.meta.MetaDSDHelper.generateGlobalInterface(MetaDSDHelper.java:141)
 /**
  * This interface is implemented by definition managers that store definitions from the DmsModule module.
  */

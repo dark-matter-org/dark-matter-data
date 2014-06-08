@@ -16,7 +16,7 @@
 package org.dmd.dmp.shared.generated.types;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:67)
+// Called from: org.dmd.dms.tools.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:67)
 import java.io.Serializable;                                     // Serialization marker interface - (SVTypeFormatter.java:56)
 import org.dmd.core.DmcAttribute;                                // To support cloning - (SVTypeFormatter.java:57)
 import org.dmd.core.feedback.DMFeedbackSet;                      // Error support - (SVTypeFormatter.java:59)
@@ -28,8 +28,8 @@ import org.dmd.dmp.shared.generated.dmo.LoginRequestDMO;         // DmcType impo
  * The DmcTypeLoginRequestREFSV provides storage for a single-valued LoginRequest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:73)
- *    Called from: org.dmd.dms.tools.generation.dmogen.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:249)
+ * Generated from: org.dmd.dms.tools.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:73)
+ *    Called from: org.dmd.dms.tools.dmogen.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:249)
  */
 @SuppressWarnings("serial")
 public class DmcTypeLoginRequestREFSV extends DmcTypeLoginRequestREF implements Serializable {
@@ -53,14 +53,14 @@ public class DmcTypeLoginRequestREFSV extends DmcTypeLoginRequestREF implements 
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:105)
+    // org.dmd.dms.tools.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:105)
     public DmcAttribute<LoginRequestDMO> cloneIt(){
         DmcTypeLoginRequestREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:116)
+    // org.dmd.dms.tools.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:116)
     public LoginRequestDMO getSVCopy(){
         if (value == null)
             return(null);
@@ -68,7 +68,7 @@ public class DmcTypeLoginRequestREFSV extends DmcTypeLoginRequestREF implements 
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:128)
+    // org.dmd.dms.tools.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:128)
     public LoginRequestDMO set(Object v) throws DMFeedbackSet {
         LoginRequestDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

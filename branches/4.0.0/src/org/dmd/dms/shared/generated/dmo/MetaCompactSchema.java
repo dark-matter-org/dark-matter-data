@@ -1,7 +1,7 @@
 package org.dmd.dms.shared.generated.dmo;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.meta.CompactSchemaFormatter.dumpHeaderMETA(CompactSchemaFormatter.java:359)
+// Called from: org.dmd.dms.tools.meta.CompactSchemaFormatter.dumpHeaderMETA(CompactSchemaFormatter.java:359)
 import java.util.ArrayList;                                         // For rule instances - (CompactSchemaFormatter.java:347)
 import java.util.HashMap;                                           // To store our various schema info - (CompactSchemaFormatter.java:346)
 import java.util.Iterator;                                          // To allow iteration - (CompactSchemaFormatter.java:348)
@@ -17,7 +17,7 @@ import org.dmd.dms.shared.generated.types.*;                        // Easy acce
 
 
 
-// Generated from: org.dmd.dms.tools.generation.meta.CompactSchemaFormatter.dumpSchema(CompactSchemaFormatter.java:134)
+// Generated from: org.dmd.dms.tools.meta.CompactSchemaFormatter.dumpSchema(CompactSchemaFormatter.java:134)
 public class MetaCompactSchema implements DmcCompactSchemaIF {
 
 
@@ -32,7 +32,7 @@ public class MetaCompactSchema implements DmcCompactSchemaIF {
 
     static int schemaMaxID = 200;
 
-// Generated from: org.dmd.dms.tools.generation.meta.CompactSchemaFormatter.dumpSchema(CompactSchemaFormatter.java:156)
+// Generated from: org.dmd.dms.tools.meta.CompactSchemaFormatter.dumpSchema(CompactSchemaFormatter.java:156)
     public final static DmcAttributeInfo __FQN = new DmcAttributeInfo("meta","FQN",84,"FullyQualifiedName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __abbrev = new DmcAttributeInfo("meta","abbrev",9,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __actionDefList = new DmcAttributeInfo("meta","actionDefList",60,"ActionDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,0,false);
@@ -211,7 +211,7 @@ public class MetaCompactSchema implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __why = new DmcAttributeInfo("meta","why",184,"Concinnity",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,true);
     public final static DmcAttributeInfo __wrapperClassName = new DmcAttributeInfo("meta","wrapperClassName",6,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
 
-// Generated from: org.dmd.dms.tools.generation.meta.CompactSchemaFormatter.dumpSchema(CompactSchemaFormatter.java:177)
+// Generated from: org.dmd.dms.tools.meta.CompactSchemaFormatter.dumpSchema(CompactSchemaFormatter.java:177)
     public final static DmcTypeInfo __type_ActionDefinition = new DmcTypeInfo("ActionDefinition", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_AttributeDefinition = new DmcTypeInfo("AttributeDefinition", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_AttributeID = new DmcTypeInfo("AttributeID", OriginalTypeEnum.TYPE);
@@ -283,7 +283,7 @@ public class MetaCompactSchema implements DmcCompactSchemaIF {
     public final static DmcTypeInfo __type_UUIDName = new DmcTypeInfo("UUIDName", OriginalTypeEnum.NAMETYPE);
     public final static DmcTypeInfo __type_ValueTypeEnum = new DmcTypeInfo("ValueTypeEnum", OriginalTypeEnum.ENUM);
     public final static DmcTypeInfo __type_WrapperTypeEnum = new DmcTypeInfo("WrapperTypeEnum", OriginalTypeEnum.ENUM);
-// Generated from: org.dmd.dms.tools.generation.meta.CompactSchemaFormatter.dumpSchema(CompactSchemaFormatter.java:214)
+// Generated from: org.dmd.dms.tools.meta.CompactSchemaFormatter.dumpSchema(CompactSchemaFormatter.java:214)
 
     public final static DmcClassInfo __ActionTriggerInfo = new DmcClassInfo("ActionTriggerInfo","org.dmd.dms.shared.generated.dmo.ActionTriggerInfoDMO",14,ClassTypeEnum.ABSTRACT,DataTypeEnum.PERSISTENT,null,null);
     public final static DmcClassInfo __DSDefinition = new DmcClassInfo("DSDefinition","org.dmd.dms.shared.generated.dmo.DSDefinitionDMO",1,ClassTypeEnum.ABSTRACT,DataTypeEnum.PERSISTENT,null,MetaCompactSchema.__name);
@@ -337,7 +337,7 @@ public class MetaCompactSchema implements DmcCompactSchemaIF {
         _RmAp = new ArrayList<RuleIF>();
 
 
-        // Generated from: org.dmd.dms.tools.generation.meta.CompactSchemaFormatter.dumpSchema(CompactSchemaFormatter.java:241)
+        // Generated from: org.dmd.dms.tools.meta.CompactSchemaFormatter.dumpSchema(CompactSchemaFormatter.java:241)
         _SmAp.put(__FQN.id,__FQN);
         _SmAp.put(__abbrev.id,__abbrev);
         _SmAp.put(__actionDefList.id,__actionDefList);
@@ -515,7 +515,7 @@ public class MetaCompactSchema implements DmcCompactSchemaIF {
         _SmAp.put(__weakReference.id,__weakReference);
         _SmAp.put(__why.id,__why);
         _SmAp.put(__wrapperClassName.id,__wrapperClassName);
-        // Generated from: org.dmd.dms.tools.generation.meta.CompactSchemaFormatter.dumpSchema(CompactSchemaFormatter.java:250)
+        // Generated from: org.dmd.dms.tools.meta.CompactSchemaFormatter.dumpSchema(CompactSchemaFormatter.java:250)
         _CmAp.put(__ActionDefinition.id,__ActionDefinition);
         _CmAp.put(__ActionTriggerInfo.id,__ActionTriggerInfo);
         _CmAp.put(__AttributeDefinition.id,__AttributeDefinition);
@@ -538,7 +538,7 @@ public class MetaCompactSchema implements DmcCompactSchemaIF {
         _CmAp.put(__SliceDefinition.id,__SliceDefinition);
         _CmAp.put(__TypeDefinition.id,__TypeDefinition);
 
-        // Generated from: org.dmd.dms.tools.generation.meta.CompactSchemaFormatter.dumpSchema(CompactSchemaFormatter.java:257)
+        // Generated from: org.dmd.dms.tools.meta.CompactSchemaFormatter.dumpSchema(CompactSchemaFormatter.java:257)
 
         __ActionDefinition.addMust(__definedInDmsModule);
         __ActionDefinition.addMust(__name);

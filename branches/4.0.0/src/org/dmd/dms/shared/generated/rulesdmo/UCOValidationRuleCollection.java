@@ -16,7 +16,7 @@
 package org.dmd.dms.shared.generated.rulesdmo;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.meta.MetaRuleFormatter.dumpRuleCategoryInterfaces(MetaRuleFormatter.java:143)
+// Called from: org.dmd.dms.tools.meta.MetaRuleFormatter.dumpRuleCategoryInterfaces(MetaRuleFormatter.java:143)
 import java.util.ArrayList;                            // Storage for the rules - (MetaRuleFormatter.java:117)
 import org.dmd.core.DmcOmni;                           // Rule tracing support - (MetaRuleFormatter.java:120)
 import org.dmd.core.rules.ClassRuleCollection;         // Class rule - (MetaRuleFormatter.java:134)
@@ -31,7 +31,7 @@ public class UCOValidationRuleCollection extends ClassRuleCollection<UCOValidati
     public UCOValidationRuleCollection(){
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaRuleFormatter.dumpRuleCategoryInterfaces(MetaRuleFormatter.java:223)
+    // Generated from: org.dmd.dms.tools.meta.MetaRuleFormatter.dumpRuleCategoryInterfaces(MetaRuleFormatter.java:223)
     @Override
     public void addRule(RuleIF r){
 

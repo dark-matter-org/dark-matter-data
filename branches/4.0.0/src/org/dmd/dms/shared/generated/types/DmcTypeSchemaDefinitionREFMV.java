@@ -16,7 +16,7 @@
 package org.dmd.dms.shared.generated.types;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:66)
+// Called from: org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:66)
 import java.io.Serializable;                         // Standard marker interface - (MVTypeFormatter.java:46)
 import java.util.ArrayList;                          // Storage of values - (MVTypeFormatter.java:47)
 import java.util.Iterator;                           // Access to values - (MVTypeFormatter.java:48)
@@ -29,8 +29,8 @@ import org.dmd.core.schema.DmcAttributeInfo;         // To allow construction - 
  * The DmcTypeSchemaDefinitionREFMV provides storage for a multi-valued SchemaDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:72)
- *    Called from: org.dmd.dms.tools.generation.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:68)
+ * Generated from: org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:72)
+ *    Called from: org.dmd.dms.tools.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:68)
  */
 @SuppressWarnings("serial")
 public class DmcTypeSchemaDefinitionREFMV extends DmcTypeSchemaDefinitionREF implements Serializable {
@@ -53,7 +53,7 @@ public class DmcTypeSchemaDefinitionREFMV extends DmcTypeSchemaDefinitionREF imp
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:103)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:103)
     public DmcAttribute<SchemaDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeSchemaDefinitionREFMV rc = getNew();
@@ -82,7 +82,7 @@ public class DmcTypeSchemaDefinitionREFMV extends DmcTypeSchemaDefinitionREF imp
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:136)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:136)
     public SchemaDefinitionREF add(Object v) throws DMFeedbackSet {
         synchronized(this){
             SchemaDefinitionREF rc = typeCheck(v);
@@ -94,7 +94,7 @@ public class DmcTypeSchemaDefinitionREFMV extends DmcTypeSchemaDefinitionREF imp
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:149)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:149)
     public SchemaDefinitionREF del(Object v){
         synchronized(this){
             if (value == null)
@@ -118,7 +118,7 @@ public class DmcTypeSchemaDefinitionREFMV extends DmcTypeSchemaDefinitionREF imp
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:176)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:176)
     public Iterator<SchemaDefinitionREF> getMV(){
         synchronized(this){
             if (value == null)
@@ -129,7 +129,7 @@ public class DmcTypeSchemaDefinitionREFMV extends DmcTypeSchemaDefinitionREF imp
         }
     }
     
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:188)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:188)
     public ArrayList<SchemaDefinitionREF> getMVCopy(){
         synchronized(this){
             if (value == null)
@@ -140,7 +140,7 @@ public class DmcTypeSchemaDefinitionREFMV extends DmcTypeSchemaDefinitionREF imp
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:200)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:200)
     public int getMVSize(){
         synchronized(this){
             if (getAttributeInfo().indexSize == 0){
@@ -154,7 +154,7 @@ public class DmcTypeSchemaDefinitionREFMV extends DmcTypeSchemaDefinitionREF imp
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:215)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:215)
     public SchemaDefinitionREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -164,7 +164,7 @@ public class DmcTypeSchemaDefinitionREFMV extends DmcTypeSchemaDefinitionREF imp
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:226)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:226)
     public SchemaDefinitionREF setMVnth(int index, Object v) throws DMFeedbackSet {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
@@ -191,7 +191,7 @@ public class DmcTypeSchemaDefinitionREFMV extends DmcTypeSchemaDefinitionREF imp
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:254)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:254)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -214,7 +214,7 @@ public class DmcTypeSchemaDefinitionREFMV extends DmcTypeSchemaDefinitionREF imp
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:278)
+    // org.dmd.dms.tools.util.MVTypeFormatter.dumpMVType(MVTypeFormatter.java:278)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

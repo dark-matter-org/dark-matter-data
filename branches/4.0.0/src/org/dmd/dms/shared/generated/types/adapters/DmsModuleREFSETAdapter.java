@@ -1,7 +1,7 @@
 package org.dmd.dms.shared.generated.types.adapters;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:62)
+// Called from: org.dmd.dms.tools.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:62)
 import org.dmd.core.DmcAttribute;                                         //  - (AdapterFormatter.java:52)
 import org.dmd.core.presentation.DmcAdapterIF;                            //  - (AdapterFormatter.java:51)
 import org.dmd.core.schema.DmcAttributeInfo;                              //  - (AdapterFormatter.java:53)
@@ -10,8 +10,8 @@ import org.dmd.dms.shared.generated.types.DmcTypeModifierMV;              //  - 
 
 
 @SuppressWarnings("serial")
-// org.dmd.dms.tools.generation.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:65)
-// Called from: org.dmd.dms.tools.generation.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:22)
+// org.dmd.dms.tools.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:65)
+// Called from: org.dmd.dms.tools.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:22)
 public class DmsModuleREFSETAdapter extends DmcTypeDmsModuleREFSET implements DmcAdapterIF {
 
     transient DmcTypeDmsModuleREFSET existingValue;

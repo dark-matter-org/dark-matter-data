@@ -16,7 +16,7 @@
 package org.dmd.dms.server.generated.dsd;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateGeneratorInterface(MetaDSDHelper.java:627)
+// Called from: org.dmd.dms.tools.meta.MetaDSDHelper.generateGeneratorInterface(MetaDSDHelper.java:627)
 import java.io.IOException;                                                 // May occur during artifact generation - (MetaDSDHelper.java:622)
 import org.dmd.core.feedback.DMFeedbackSet;                                 // For problems found after parsing - (MetaDSDHelper.java:624)
 import org.dmd.dms.server.extended.DmsModule;                               // The base module for generation - (MetaDSDHelper.java:620)
@@ -24,7 +24,7 @@ import org.dmd.dms.server.generated.dsd.DmsModuleDefinitionManager;         // A
 import org.dmd.util.parsing.ConfigLocation;                                 // Where the config was loaded from - (MetaDSDHelper.java:623)
 
 
-// Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateGeneratorInterface(MetaDSDHelper.java:629)
+// Generated from: org.dmd.dms.tools.meta.MetaDSDHelper.generateGeneratorInterface(MetaDSDHelper.java:629)
 public interface DmsModuleGeneratorInterface {
 
     /**

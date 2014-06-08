@@ -16,7 +16,7 @@
 package org.dmd.dmp.shared.generated.types;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:67)
+// Called from: org.dmd.dms.tools.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:67)
 import java.io.Serializable;                                 // Serialization marker interface - (SVTypeFormatter.java:56)
 import org.dmd.core.DmcAttribute;                            // To support cloning - (SVTypeFormatter.java:57)
 import org.dmd.core.feedback.DMFeedbackSet;                  // Error support - (SVTypeFormatter.java:59)
@@ -28,8 +28,8 @@ import org.dmd.dmp.shared.generated.dmo.ResponseDMO;         // DmcType import -
  * The DmcTypeResponseREFSV provides storage for a single-valued Response
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:73)
- *    Called from: org.dmd.dms.tools.generation.dmogen.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:249)
+ * Generated from: org.dmd.dms.tools.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:73)
+ *    Called from: org.dmd.dms.tools.dmogen.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:249)
  */
 @SuppressWarnings("serial")
 public class DmcTypeResponseREFSV extends DmcTypeResponseREF implements Serializable {
@@ -53,14 +53,14 @@ public class DmcTypeResponseREFSV extends DmcTypeResponseREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:105)
+    // org.dmd.dms.tools.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:105)
     public DmcAttribute<ResponseDMO> cloneIt(){
         DmcTypeResponseREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:116)
+    // org.dmd.dms.tools.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:116)
     public ResponseDMO getSVCopy(){
         if (value == null)
             return(null);
@@ -68,7 +68,7 @@ public class DmcTypeResponseREFSV extends DmcTypeResponseREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:128)
+    // org.dmd.dms.tools.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:128)
     public ResponseDMO set(Object v) throws DMFeedbackSet {
         ResponseDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

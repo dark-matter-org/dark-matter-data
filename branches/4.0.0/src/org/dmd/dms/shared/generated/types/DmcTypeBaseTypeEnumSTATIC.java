@@ -16,7 +16,7 @@
 package org.dmd.dms.shared.generated.types;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.util.STATICTypeFormatter.dumpSTATICType(STATICTypeFormatter.java:73)
+// Called from: org.dmd.dms.tools.util.STATICTypeFormatter.dumpSTATICType(STATICTypeFormatter.java:73)
 import org.dmd.core.feedback.DMFeedbackSet;                     //  - (STATICTypeFormatter.java:44)
 import org.dmd.core.interfaces.DmcInputStreamIF;                //  - (STATICTypeFormatter.java:45)
 import org.dmd.core.interfaces.DmcOutputStreamIF;               //  - (STATICTypeFormatter.java:46)
@@ -29,8 +29,8 @@ import org.dmd.dms.shared.generated.enums.BaseTypeEnum;         // DmcType impor
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.tools.generation.util.STATICTypeFormatter.dumpSTATICType(STATICTypeFormatter.java:81)
- *    Called from: org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:162)
+ * Generated from: org.dmd.dms.tools.util.STATICTypeFormatter.dumpSTATICType(STATICTypeFormatter.java:81)
+ *    Called from: org.dmd.dms.tools.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:162)
  */
 public class DmcTypeBaseTypeEnumSTATIC {
     

@@ -1,7 +1,7 @@
 package org.dmd.dms.server.generated.dsd;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateBaseUtility(MetaDSDHelper.java:1410)
+// Called from: org.dmd.dms.tools.meta.MetaDSDHelper.generateBaseUtility(MetaDSDHelper.java:1410)
 import java.io.File;                                                         // To access the separator character - (MetaDSDHelper.java:1383)
 import java.io.IOException;                                                  // In case we have problems opening/writin got files - (MetaDSDHelper.java:1382)
 import org.dmd.core.feedback.DMFeedbackSet;                                  // Standard feedback mechanism for errors/warnings - (MetaDSDHelper.java:1386)
@@ -16,11 +16,11 @@ import org.dmd.util.parsing.ConfigLocation;                                  // 
 import org.dmd.util.parsing.StringArrayList;                                 // Commandline string values - (MetaDSDHelper.java:1381)
 
 
-// Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateBaseUtility(MetaDSDHelper.java:1412)
+// Generated from: org.dmd.dms.tools.meta.MetaDSDHelper.generateBaseUtility(MetaDSDHelper.java:1412)
 public abstract class DmsModuleGenUtility implements DmsModuleGeneratorInterface {
 
     // Generated from: org.dmd.util.artifact.java.MemberManager.getFormattedMembers(MemberManager.java:68)
-    // Called from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateBaseUtility(MetaDSDHelper.java:1415)
+    // Called from: org.dmd.dms.tools.meta.MetaDSDHelper.generateBaseUtility(MetaDSDHelper.java:1415)
 
     DmsModuleParsingCoordinator    parser;                                   // Module parser
     protected CommandLine          commandLine    = new CommandLine();       // Commandline parser
@@ -86,7 +86,7 @@ public abstract class DmsModuleGenUtility implements DmsModuleGeneratorInterface
     	 
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.generateBaseUtility(MetaDSDHelper.java:1472)
+    // Generated from: org.dmd.dms.tools.meta.MetaDSDHelper.generateBaseUtility(MetaDSDHelper.java:1472)
     public ConfigLocation getLocation(DmsModule module){
         return(parser.getLocation(module));
     }

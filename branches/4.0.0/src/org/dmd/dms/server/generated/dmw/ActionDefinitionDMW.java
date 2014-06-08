@@ -17,7 +17,7 @@ package org.dmd.dms.server.generated.dmw;
 
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:105)
+// Called from: org.dmd.dms.tools.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:105)
 import java.util.*;                                  // To support access functions - (DmwFormatter.java:75)
 import org.dmd.core.*;                               // Basic dark-matter infrastructure - (DmwFormatter.java:77)
 import org.dmd.core.feedback.*;                      // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (DmwFormatter.java:83)
@@ -32,7 +32,7 @@ import org.dmd.dmw.*;                                // Base wrapper capabilitie
  * This class is used to define the actions that may be triggered on an
  * object. 
  * @author Auto Generated
- * Generated from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:113)
+ * Generated from: org.dmd.dms.tools.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:113)
  */
 @SuppressWarnings("unused")
 public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefinition  {
@@ -73,7 +73,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
      * Language (DSL) concepts will indicate the rules that apply to a name in
      * that DSL. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public DefinitionName getName(){
         return(mycore.getName());
     }
@@ -82,7 +82,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setName(Object value) throws DMFeedbackSet {
         mycore.setName(value);
     }
@@ -100,7 +100,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
      * conventions make sense for your purposes. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:328)
     public StringIterableDMW getDescriptionIterable(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaCompactSchema.__description);
         if (attr == null)
@@ -109,7 +109,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
         return(new StringIterableDMW(attr.getMV()));
     }
 
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:341)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:341)
     public Iterator<String> getDescriptionWithNewlines(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaCompactSchema.__description);
         if (attr == null)
@@ -132,7 +132,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
      * Adds another description value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:396)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:396)
     public void addDescription(Object value) throws DMFeedbackSet {
         mycore.addDescription(value);
     }
@@ -140,7 +140,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
     /**
      * Returns the number of description values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getDescriptionSize(){
         DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__description);
         if (attr == null)
@@ -151,7 +151,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
     /**
      * Returns true if description has values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:416)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:416)
     public boolean getDescriptionHasValue(){
         return(getDescriptionSize() > 0);
     }
@@ -161,7 +161,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
      * Java, this is a set of references to AttributeDefinition objects. 
      * @return An Iterator of AttributeDefinition objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:304)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:304)
     public AttributeDefinitionIterableDMW getMustParm(){
         DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaCompactSchema.__mustParm);
         if (attr == null)
@@ -174,7 +174,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
      * Adds another mustParm value.
      * @param value A value compatible with AttributeDefinition
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:386)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:386)
     public DmcAttribute<?> addMustParm(AttributeDefinition value) throws DMFeedbackSet {
         DmcAttribute<?> attr = mycore.addMustParm(value.getDmcObject());
         return(attr);
@@ -183,7 +183,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
     /**
      * Returns the number of mustParm values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getMustParmSize(){
         DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__mustParm);
         if (attr == null)
@@ -194,7 +194,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
     /**
      * Returns true if mustParm has values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:416)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:416)
     public boolean getMustParmHasValue(){
         return(getMustParmSize() > 0);
     }
@@ -204,7 +204,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
      * Java, this is a set of references to AttributeDefinition objects. 
      * @return An Iterator of AttributeDefinition objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:304)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:304)
     public AttributeDefinitionIterableDMW getMayParm(){
         DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaCompactSchema.__mayParm);
         if (attr == null)
@@ -217,7 +217,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
      * Adds another mayParm value.
      * @param value A value compatible with AttributeDefinition
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:386)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:386)
     public DmcAttribute<?> addMayParm(AttributeDefinition value) throws DMFeedbackSet {
         DmcAttribute<?> attr = mycore.addMayParm(value.getDmcObject());
         return(attr);
@@ -226,7 +226,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
     /**
      * Returns the number of mayParm values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getMayParmSize(){
         DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__mayParm);
         if (attr == null)
@@ -237,7 +237,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
     /**
      * Returns true if mayParm has values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:416)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:416)
     public boolean getMayParmHasValue(){
         return(getMayParmSize() > 0);
     }
@@ -247,7 +247,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
      * particular action response message. 
      * @return An Iterator of AttributeDefinition objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:304)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:304)
     public AttributeDefinitionIterableDMW getMustReturn(){
         DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaCompactSchema.__mustReturn);
         if (attr == null)
@@ -260,7 +260,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
      * Adds another mustReturn value.
      * @param value A value compatible with AttributeDefinition
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:386)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:386)
     public DmcAttribute<?> addMustReturn(AttributeDefinition value) throws DMFeedbackSet {
         DmcAttribute<?> attr = mycore.addMustReturn(value.getDmcObject());
         return(attr);
@@ -269,7 +269,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
     /**
      * Returns the number of mustReturn values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getMustReturnSize(){
         DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__mustReturn);
         if (attr == null)
@@ -280,7 +280,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
     /**
      * Returns true if mustReturn has values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:416)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:416)
     public boolean getMustReturnHasValue(){
         return(getMustReturnSize() > 0);
     }
@@ -290,7 +290,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
      * particular action response message. 
      * @return An Iterator of AttributeDefinition objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:304)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:304)
     public AttributeDefinitionIterableDMW getMayReturn(){
         DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaCompactSchema.__mayReturn);
         if (attr == null)
@@ -303,7 +303,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
      * Adds another mayReturn value.
      * @param value A value compatible with AttributeDefinition
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:386)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:386)
     public DmcAttribute<?> addMayReturn(AttributeDefinition value) throws DMFeedbackSet {
         DmcAttribute<?> attr = mycore.addMayReturn(value.getDmcObject());
         return(attr);
@@ -312,7 +312,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
     /**
      * Returns the number of mayReturn values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getMayReturnSize(){
         DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__mayReturn);
         if (attr == null)
@@ -323,7 +323,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
     /**
      * Returns true if mayReturn has values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:416)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:416)
     public boolean getMayReturnHasValue(){
         return(getMayReturnSize() > 0);
     }
@@ -335,7 +335,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
      * auxiliary class equivalent for behaviour. 
      * @return An Iterator of ClassDefinition objects.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:304)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:304)
     public ClassDefinitionIterableDMW getAttachToClass(){
         DmcTypeClassDefinitionREFMV attr = (DmcTypeClassDefinitionREFMV) mycore.get(MetaCompactSchema.__attachToClass);
         if (attr == null)
@@ -348,7 +348,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
      * Adds another attachToClass value.
      * @param value A value compatible with ClassDefinition
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:386)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:386)
     public DmcAttribute<?> addAttachToClass(ClassDefinition value) throws DMFeedbackSet {
         DmcAttribute<?> attr = mycore.addAttachToClass(value.getDmcObject());
         return(attr);
@@ -357,7 +357,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
     /**
      * Returns the number of attachToClass values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:405)
     public int getAttachToClassSize(){
         DmcAttribute<?> attr = mycore.get(MetaCompactSchema.__attachToClass);
         if (attr == null)
@@ -368,7 +368,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
     /**
      * Returns true if attachToClass has values.
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:416)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpMVAccessFunction(AccessFunctionFormatter.java:416)
     public boolean getAttachToClassHasValue(){
         return(getAttachToClassSize() > 0);
     }
@@ -379,7 +379,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
      * executable even when the server is in a read-only mode because they don't
      * actually alter data. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public Boolean getIsGetAction(){
         return(mycore.getIsGetAction());
     }
@@ -388,7 +388,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
      * Sets isGetAction to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setIsGetAction(Object value) throws DMFeedbackSet {
         mycore.setIsGetAction(value);
     }
@@ -399,7 +399,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
      * released to the field, this may break backwards compatibility. Instead,
      * you should mark them as obsolete. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public String getObsoleteVersion(){
         return(mycore.getObsoleteVersion());
     }
@@ -408,7 +408,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
      * Sets obsoleteVersion to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setObsoleteVersion(Object value) throws DMFeedbackSet {
         mycore.setObsoleteVersion(value);
     }
@@ -420,7 +420,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
      * for the creation of a response handler for node requests that send
      * progress text. 
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:131)
     public Boolean getMaySendProgress(){
         return(mycore.getMaySendProgress());
     }
@@ -429,7 +429,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
      * Sets maySendProgress to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.tools.generation.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
+    // org.dmd.dms.tools.meta.AccessFunctionFormatter.dumpSVAccessFunction(AccessFunctionFormatter.java:189)
     public void setMaySendProgress(Object value) throws DMFeedbackSet {
         mycore.setMaySendProgress(value);
     }
@@ -437,7 +437,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation
-    // Generated from: org.dmd.dms.tools.generation.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:271)
+    // Generated from: org.dmd.dms.tools.meta.DmwFormatter.dumpDMWClasses(DmwFormatter.java:271)
 
     /**
      * @return The name of this object from the name attribute.
@@ -454,7 +454,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.server.extended.DmsDefiniti
         return(mycore.getObjectNameAttribute());
     }
 
-    // Generated from: org.dmd.dms.tools.generation.meta.MetaDSDHelper.dumpAdditionalWrapperFunctions(MetaDSDHelper.java:1029)
+    // Generated from: org.dmd.dms.tools.meta.MetaDSDHelper.dumpAdditionalWrapperFunctions(MetaDSDHelper.java:1029)
     /**
      * This method indicates the name of the module from which this definition was loaded.
      */
