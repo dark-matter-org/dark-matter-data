@@ -653,7 +653,7 @@ public class MetaDSDHelper {
 		out.write("     * @param location where the module was found\n");
 		out.write("     * @param definitions the current set of definitions\n");
 		out.write("     */\n");
-		out.write("    public void generate(" + ucoModule.getSV("name") + " module, ConfigLocation location, " + ucoModule.getSV("name") + "DefinitionManager definitions) throws IOException;\n");
+		out.write("    public void generate(" + ucoModule.getSV("name") + " module, ConfigLocation location, " + ucoModule.getSV("name") + "DefinitionManager definitions) throws IOException, DMFeedbackSet;\n");
 		out.write("\n");
 		out.write("    /**\n");
 		out.write("     * Derived classes should overload this method to perform artifact generation when no target module\n");
@@ -661,7 +661,7 @@ public class MetaDSDHelper {
 		out.write("     * where you want to load and resolve objects across many modules.\n");
 		out.write("     * @param definitions the current set of definitions\n");
 		out.write("     */\n");
-		out.write("    public void generate(" + ucoModule.getSV("name") + "DefinitionManager definitions) throws IOException;\n");
+		out.write("    public void generate(" + ucoModule.getSV("name") + "DefinitionManager definitions) throws IOException, DMFeedbackSet;\n");
 		out.write("\n");
 		out.write("    /**\n");
 		out.write("     * Called if the help flag is found anywhere on the commandline.\n");

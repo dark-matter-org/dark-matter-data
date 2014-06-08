@@ -21,7 +21,6 @@ import java.io.PrintStream;
 import java.util.Iterator;
 import java.util.TreeMap;
 
-import org.dmd.core.DmcAttribute;
 import org.dmd.core.feedback.DMFeedbackSet;
 import org.dmd.dms.server.SchemaManager;
 import org.dmd.dms.server.extended.AttributeDefinition;
@@ -30,7 +29,6 @@ import org.dmd.dms.server.extended.DmsModule;
 import org.dmd.dms.server.extended.RuleDefinition;
 import org.dmd.dms.server.extended.SliceDefinition;
 import org.dmd.dms.server.extended.TypeDefinition;
-import org.dmd.dms.shared.generated.dmo.MetaCompactSchema;
 import org.dmd.dms.shared.generated.dmo.RuleDataDMO;
 import org.dmd.dms.shared.types.DefinitionName;
 import org.dmd.dms.tools.generation.util.CompactSchemaHelper;

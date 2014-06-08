@@ -175,6 +175,7 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 		
 		// Create the TypeDefinitions to represent things that can be referred to as types
 		// when defining attributes
+		setInternalClassAttributes();
 		createInternalReferenceTypesForClasses();
 //		createInternalTypesForEnums();
 		createInternaReferenceTypesForEnums();
@@ -203,6 +204,27 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 		
 		MetaRuleFormatter.dumpRuleCategoryInterfaces(ucoRuleCategoryDefs, sharedGenRulesDir, LGPL.toString());
 
+	}
+	
+	private void setInternalClassAttributes(){
+		for(DMUncheckedObject cd: ucoManager.getObjects("ClassDefinition").values()){
+			String 				cn 			= cd.getSV("name");
+			
+			cd.addValue("dmoClass", "org.dmd.dms.shared.generated.dmo." + cn + "DMO");
+			
+			cd.addValue("dmwImport", "org.dmd.dms.server.generated.dmw." + cn + "DMW");
+			cd.addValue("dmwClass",  cn + "DMW");
+			
+			cd.addValue("dmwIteratorImport", "org.dmd.dms.server.generated.dmw." + cn + "IterableDMW");
+			cd.addValue("dmwIteratorClass",  cn + "IterableDMW");
+			
+			cd.addValue("dmtImport", "org.dmd.dms.shared.generated.types.DmcType" + cn + "REF");
+			cd.addValue("dmtClass",  cn + "REF");
+			cd.addValue("dmtREFImport",  "org.dmd.dms.shared.generated.types" + cn + "REF");
+			
+			cd.addValue("dmeImport", "org.dmd.dms.server.extended." + cn);
+			
+		}		
 	}
 	
 	/**
@@ -367,6 +389,9 @@ public class MetaGen implements DMUncheckedObjectHandlerIF {
 //				typeClassName         org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREF
 
 //				checkForDuplicateType("ClassDefinition", tn);
+				
+				// Set the reference from the class to its internal type, which has the same name
+				classDef.addValue("internalTypeRef", cn);
 
 				ucoManager.add(typeDef, false);
 				

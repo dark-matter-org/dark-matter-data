@@ -16,19 +16,19 @@
 package org.dmd.dms.shared.generated.types;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:68)
-import java.io.Serializable;                                      // Serialization marker interface - (SVTypeFormatter.java:57)
-import org.dmd.core.DmcAttribute;                                 // To support cloning - (SVTypeFormatter.java:58)
-import org.dmd.core.feedback.DMFeedbackSet;                       // Error support - (SVTypeFormatter.java:60)
-import org.dmd.core.schema.DmcAttributeInfo;                      // To support new instances - (SVTypeFormatter.java:59)
-import org.dmd.dms.shared.generated.enums.FilterTypeEnum;         // DmcType import - (SVTypeFormatter.java:66)
+// Called from: org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:67)
+import java.io.Serializable;                                      // Serialization marker interface - (SVTypeFormatter.java:56)
+import org.dmd.core.DmcAttribute;                                 // To support cloning - (SVTypeFormatter.java:57)
+import org.dmd.core.feedback.DMFeedbackSet;                       // Error support - (SVTypeFormatter.java:59)
+import org.dmd.core.schema.DmcAttributeInfo;                      // To support new instances - (SVTypeFormatter.java:58)
+import org.dmd.dms.shared.generated.enums.FilterTypeEnum;         // DmcType import - (SVTypeFormatter.java:65)
 
 
 /**
  * The DmcTypeFilterTypeEnumSV provides storage for a single-valued FilterTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:74)
+ * Generated from: org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:73)
  *    Called from: org.dmd.dms.tools.generation.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:55)
  */
 @SuppressWarnings("serial")
@@ -53,14 +53,14 @@ public class DmcTypeFilterTypeEnumSV extends DmcTypeFilterTypeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:106)
+    // org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:105)
     public DmcAttribute<FilterTypeEnum> cloneIt(){
         DmcTypeFilterTypeEnumSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:117)
+    // org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:116)
     public FilterTypeEnum getSVCopy(){
         if (value == null)
             return(null);
@@ -68,7 +68,7 @@ public class DmcTypeFilterTypeEnumSV extends DmcTypeFilterTypeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:129)
+    // org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:128)
     public FilterTypeEnum set(Object v) throws DMFeedbackSet {
         FilterTypeEnum rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

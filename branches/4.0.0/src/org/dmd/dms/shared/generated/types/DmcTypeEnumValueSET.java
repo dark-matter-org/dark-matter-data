@@ -16,26 +16,26 @@
 package org.dmd.dms.shared.generated.types;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:62)
-import java.io.Serializable;                                     //  - (SETTypeFormatter.java:46)
-import java.util.HashSet;                                        //  - (SETTypeFormatter.java:48)
-import java.util.Iterator;                                       //  - (SETTypeFormatter.java:50)
-import java.util.Set;                                            //  - (SETTypeFormatter.java:47)
-import java.util.TreeSet;                                        //  - (SETTypeFormatter.java:49)
-import org.dmd.core.DmcAttribute;                                //  - (SETTypeFormatter.java:51)
-import org.dmd.core.feedback.DMFeedbackSet;                      //  - (SETTypeFormatter.java:53)
-import org.dmd.core.schema.DmcAttributeInfo;                     //  - (SETTypeFormatter.java:52)
-import org.dmd.dms.shared.generated.enums.ValueTypeEnum;         //  - (SETTypeFormatter.java:54)
-import org.dmd.dms.shared.types.DmcTypeEnumValue;                // DmcType import - (SETTypeFormatter.java:60)
-import org.dmd.dms.shared.types.EnumValue;                       // Base type import - (SETTypeFormatter.java:57)
+// Called from: org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:61)
+import java.io.Serializable;                                     //  - (SETTypeFormatter.java:45)
+import java.util.HashSet;                                        //  - (SETTypeFormatter.java:47)
+import java.util.Iterator;                                       //  - (SETTypeFormatter.java:49)
+import java.util.Set;                                            //  - (SETTypeFormatter.java:46)
+import java.util.TreeSet;                                        //  - (SETTypeFormatter.java:48)
+import org.dmd.core.DmcAttribute;                                //  - (SETTypeFormatter.java:50)
+import org.dmd.core.feedback.DMFeedbackSet;                      //  - (SETTypeFormatter.java:52)
+import org.dmd.core.schema.DmcAttributeInfo;                     //  - (SETTypeFormatter.java:51)
+import org.dmd.dms.shared.generated.enums.ValueTypeEnum;         //  - (SETTypeFormatter.java:53)
+import org.dmd.dms.shared.types.DmcTypeEnumValue;                // DmcType import - (SETTypeFormatter.java:59)
+import org.dmd.dms.shared.types.EnumValue;                       // Base type import - (SETTypeFormatter.java:56)
 
 
 /**
  * The DmcTypeEnumValueSET provides storage for a set of EnumValue
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:68)
- *    Called from: org.dmd.dms.tools.generation.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:121)
+ * Generated from: org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:67)
+ *    Called from: org.dmd.dms.tools.generation.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:94)
  */
 @SuppressWarnings("serial")
 public class DmcTypeEnumValueSET extends DmcTypeEnumValue implements Serializable {
@@ -67,7 +67,7 @@ public class DmcTypeEnumValueSET extends DmcTypeEnumValue implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:109)
+    // org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:108)
     public DmcAttribute<EnumValue> cloneIt(){
         synchronized(this){
             DmcTypeEnumValueSET rc = getNew();
@@ -86,7 +86,7 @@ public class DmcTypeEnumValueSET extends DmcTypeEnumValue implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:132)
+    // org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:131)
     public EnumValue add(Object v) throws DMFeedbackSet {
         synchronized(this){
             EnumValue rc = typeCheck(v);
@@ -102,7 +102,7 @@ public class DmcTypeEnumValueSET extends DmcTypeEnumValue implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:149)
+    // org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:148)
     public EnumValue del(Object v){
         synchronized(this){
             EnumValue rc = null;
@@ -126,7 +126,7 @@ public class DmcTypeEnumValueSET extends DmcTypeEnumValue implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:174)
+    // org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:173)
     public Iterator<EnumValue> getMV(){
         synchronized(this){
             if (value == null)
@@ -139,7 +139,7 @@ public class DmcTypeEnumValueSET extends DmcTypeEnumValue implements Serializabl
         }
     }
     
-    // org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:188)
+    // org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:187)
     public Set<EnumValue> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -158,7 +158,7 @@ public class DmcTypeEnumValueSET extends DmcTypeEnumValue implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:208)
+    // org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:207)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -168,7 +168,7 @@ public class DmcTypeEnumValueSET extends DmcTypeEnumValue implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:219)
+    // org.dmd.dms.tools.generation.util.SETTypeFormatter.dumpSETType(SETTypeFormatter.java:218)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

@@ -16,15 +16,15 @@
 package org.dmd.dms.shared.generated.types;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.util.STATICTypeFormatter.dumpSTATICType(STATICTypeFormatter.java:74)
-import org.dmd.core.DmcFilter;                             //  - (STATICTypeFormatter.java:58)
-import org.dmd.core.feedback.DMFeedbackSet;                //  - (STATICTypeFormatter.java:45)
-import org.dmd.core.interfaces.DmcFilterBuilderIF;         //  - (STATICTypeFormatter.java:59)
-import org.dmd.core.interfaces.DmcInputStreamIF;           //  - (STATICTypeFormatter.java:46)
-import org.dmd.core.interfaces.DmcOutputStreamIF;          //  - (STATICTypeFormatter.java:47)
-import org.dmd.core.schema.DmcAttributeInfo;               //  - (STATICTypeFormatter.java:57)
-import org.dmd.dms.shared.types.ClassFilter;               // Base type import - (STATICTypeFormatter.java:66)
-import org.dmd.dms.shared.types.DmcTypeDmcFilter;          //  - (STATICTypeFormatter.java:60)
+// Called from: org.dmd.dms.tools.generation.util.STATICTypeFormatter.dumpSTATICType(STATICTypeFormatter.java:73)
+import org.dmd.core.DmcFilter;                             //  - (STATICTypeFormatter.java:57)
+import org.dmd.core.feedback.DMFeedbackSet;                //  - (STATICTypeFormatter.java:44)
+import org.dmd.core.interfaces.DmcFilterBuilderIF;         //  - (STATICTypeFormatter.java:58)
+import org.dmd.core.interfaces.DmcInputStreamIF;           //  - (STATICTypeFormatter.java:45)
+import org.dmd.core.interfaces.DmcOutputStreamIF;          //  - (STATICTypeFormatter.java:46)
+import org.dmd.core.schema.DmcAttributeInfo;               //  - (STATICTypeFormatter.java:56)
+import org.dmd.dms.shared.types.ClassFilter;               // Base type import - (STATICTypeFormatter.java:65)
+import org.dmd.dms.shared.types.DmcTypeDmcFilter;          //  - (STATICTypeFormatter.java:59)
 
 
 
@@ -33,8 +33,8 @@ import org.dmd.dms.shared.types.DmcTypeDmcFilter;          //  - (STATICTypeForm
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.tools.generation.util.STATICTypeFormatter.dumpSTATICType(STATICTypeFormatter.java:82)
- *    Called from: org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:163)
+ * Generated from: org.dmd.dms.tools.generation.util.STATICTypeFormatter.dumpSTATICType(STATICTypeFormatter.java:81)
+ *    Called from: org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:162)
  */
 public class DmcTypeClassFilterSTATIC implements DmcFilterBuilderIF {
     

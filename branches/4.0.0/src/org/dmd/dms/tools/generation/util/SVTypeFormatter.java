@@ -2,7 +2,6 @@ package org.dmd.dms.tools.generation.util;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.PrintStream;
 
 import org.dmd.util.artifact.FileUpdateManager;
 import org.dmd.util.artifact.java.ImportManager;
@@ -33,7 +32,7 @@ public class SVTypeFormatter {
 	 * @param progress
 	 * @throws IOException
 	 */
-	static public void dumpSVType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String dmcTypeImport, String nameAttrImport, String nameAttr, String nameAttrID, String genericArgs, boolean isRef, boolean isNameType, boolean isFilterType, String fileHeader, PrintStream progress) throws IOException {
+	static public void dumpSVType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String dmcTypeImport, String nameAttrImport, String nameAttr, String nameAttrID, String genericArgs, boolean isRef, boolean isNameType, boolean isFilterType, String fileHeader) throws IOException {
 
 		String DMO = "";
 		String REF = "";
@@ -160,7 +159,7 @@ public class SVTypeFormatter {
         
         out.close();
 
-        STATICTypeFormatter.dumpSTATICType(dmotypedir, basePackage, baseTypeImport, typeName, dmcTypeImport, nameAttrImport, nameAttr, nameAttrID, genericArgs, isRef, isNameType, isFilterType, fileHeader, progress);
+        STATICTypeFormatter.dumpSTATICType(dmotypedir, basePackage, baseTypeImport, typeName, dmcTypeImport, nameAttrImport, nameAttr, nameAttrID, genericArgs, isRef, isNameType, isFilterType, fileHeader);
 
         AdapterFormatter.dumpAdapterSV(dmotypedir, typeName, basePackage, REF);
 

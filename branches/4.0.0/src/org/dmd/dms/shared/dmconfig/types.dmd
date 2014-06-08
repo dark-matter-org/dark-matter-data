@@ -62,7 +62,7 @@ name 			AttributeID
 typeClassName	org.dmd.dms.shared.types.DmcTypeAttributeID
 primitiveType   org.dmd.dms.shared.types.AttributeID
 altType			DmcAttributeInfo
-altTypeImport	org.dmd.core.DmcAttributeInfo
+altTypeImport	org.dmd.core.schema.DmcAttributeInfo
 description		The AttributeID type allows for the storage of unique attribute identifiers.
  Currently this is only used in the dark-matter protocol attributeSelector attribute.
 

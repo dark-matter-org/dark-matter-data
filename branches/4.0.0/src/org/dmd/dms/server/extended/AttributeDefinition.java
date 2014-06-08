@@ -206,7 +206,7 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
     	return(rc);
     }
     
-    public String getDMSAGReference(){
+    public String getCompactSchemaReference(){
     	return(getDefinedInDmsModule().getCompactSchemaName() + ".__" + getName());
     }
     
@@ -277,17 +277,17 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
     	if (getValueType() == ValueTypeEnum.SINGLE){
     		sb.append(indent + getContainerType() + " " + values.getName() + "Value" + uniqueNum + " = null;\n");
     		for(String value: values){
-    			sb.append(indent + values.getName() + "Value" + uniqueNum + " = new " + getContainerType() + "(" + getDMSAGReference() + ");\n");
+    			sb.append(indent + values.getName() + "Value" + uniqueNum + " = new " + getContainerType() + "(" + getCompactSchemaReference() + ");\n");
     			sb.append(indent + values.getName() + "Value" + uniqueNum + ".set(\"" + value + "\");\n");
-    			sb.append(prepend + ".set(" + getDMSAGReference() + ", " + values.getName() + "Value" + uniqueNum + ");\n");
+    			sb.append(prepend + ".set(" + getCompactSchemaReference() + ", " + values.getName() + "Value" + uniqueNum + ");\n");
     		}
     	}
     	else{
-    		sb.append(indent + getContainerType() + " " + values.getName() + "Value" + uniqueNum + " = new " + getContainerType() + "(" + getDMSAGReference() + ");\n");
+    		sb.append(indent + getContainerType() + " " + values.getName() + "Value" + uniqueNum + " = new " + getContainerType() + "(" + getCompactSchemaReference() + ");\n");
     		for(String value: values){
     			sb.append(indent + values.getName() + "Value" + uniqueNum + ".add(\"" + value + "\");\n");
     		}
-			sb.append(prepend + ".add(" + getDMSAGReference() + ", " + values.getName() + "Value" + uniqueNum + ");\n");
+			sb.append(prepend + ".add(" + getCompactSchemaReference() + ", " + values.getName() + "Value" + uniqueNum + ");\n");
     	}
     	
     	return(sb.toString());
@@ -310,19 +310,19 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
     	if (getValueType() == ValueTypeEnum.SINGLE){
     		sb.append(indent + getContainerType() + " " + attr.getName() + "Value" + uniqueNum + " = null;\n");
 
-			sb.append(indent + attr.getName() + "Value" + uniqueNum + " = new " + getContainerType() + "(" + getDMSAGReference() + ");\n");
+			sb.append(indent + attr.getName() + "Value" + uniqueNum + " = new " + getContainerType() + "(" + getCompactSchemaReference() + ");\n");
 			sb.append(indent + attr.getName() + "Value" + uniqueNum + ".set(\"" + attr.getSV().toString() + "\");\n");
-			sb.append(prepend + ".set(" + getDMSAGReference() + ", " + attr.getName() + "Value" + uniqueNum + ");\n");
+			sb.append(prepend + ".set(" + getCompactSchemaReference() + ", " + attr.getName() + "Value" + uniqueNum + ");\n");
 
     	}
     	else{
-    		sb.append(indent + getContainerType() + " " + attr.getName() + "Value" + uniqueNum + " = new " + getContainerType() + "(" + getDMSAGReference() + ");\n");
+    		sb.append(indent + getContainerType() + " " + attr.getName() + "Value" + uniqueNum + " = new " + getContainerType() + "(" + getCompactSchemaReference() + ");\n");
     		Iterator<?> vals = attr.getMV();
     		while(vals.hasNext()){
     			Object val = vals.next();
     			sb.append(indent + attr.getName() + "Value" + uniqueNum + ".add(\"" + val.toString() + "\");\n");
     		}
-			sb.append(prepend + ".add(" + getDMSAGReference() + ", " + attr.getName() + "Value" + uniqueNum + ");\n");
+			sb.append(prepend + ".add(" + getCompactSchemaReference() + ", " + attr.getName() + "Value" + uniqueNum + ");\n");
     	}
     	
     	return(sb.toString());

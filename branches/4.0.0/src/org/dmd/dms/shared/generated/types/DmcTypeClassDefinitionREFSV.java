@@ -16,19 +16,19 @@
 package org.dmd.dms.shared.generated.types;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:68)
-import java.io.Serializable;                         // Serialization marker interface - (SVTypeFormatter.java:57)
-import org.dmd.core.DmcAttribute;                    // To support cloning - (SVTypeFormatter.java:58)
-import org.dmd.core.feedback.DMFeedbackSet;          // Error support - (SVTypeFormatter.java:60)
-import org.dmd.core.schema.DmcAttributeInfo;         // To support new instances - (SVTypeFormatter.java:59)
+// Called from: org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:67)
+import java.io.Serializable;                         // Serialization marker interface - (SVTypeFormatter.java:56)
+import org.dmd.core.DmcAttribute;                    // To support cloning - (SVTypeFormatter.java:57)
+import org.dmd.core.feedback.DMFeedbackSet;          // Error support - (SVTypeFormatter.java:59)
+import org.dmd.core.schema.DmcAttributeInfo;         // To support new instances - (SVTypeFormatter.java:58)
 
 
 /**
  * The DmcTypeClassDefinitionREFSV provides storage for a single-valued ClassDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:74)
- *    Called from: org.dmd.dms.tools.generation.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:77)
+ * Generated from: org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:73)
+ *    Called from: org.dmd.dms.tools.generation.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:67)
  */
 @SuppressWarnings("serial")
 public class DmcTypeClassDefinitionREFSV extends DmcTypeClassDefinitionREF implements Serializable {
@@ -52,14 +52,14 @@ public class DmcTypeClassDefinitionREFSV extends DmcTypeClassDefinitionREF imple
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:106)
+    // org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:105)
     public DmcAttribute<ClassDefinitionREF> cloneIt(){
         DmcTypeClassDefinitionREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:117)
+    // org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:116)
     public ClassDefinitionREF getSVCopy(){
         if (value == null)
             return(null);
@@ -67,7 +67,7 @@ public class DmcTypeClassDefinitionREFSV extends DmcTypeClassDefinitionREF imple
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:129)
+    // org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:128)
     public ClassDefinitionREF set(Object v) throws DMFeedbackSet {
         ClassDefinitionREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

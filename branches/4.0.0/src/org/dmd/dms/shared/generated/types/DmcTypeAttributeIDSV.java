@@ -16,21 +16,21 @@
 package org.dmd.dms.shared.generated.types;
 
 // Generated from: org.dmd.util.artifact.java.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:68)
-import java.io.Serializable;                                // Serialization marker interface - (SVTypeFormatter.java:57)
-import org.dmd.core.DmcAttribute;                           // To support cloning - (SVTypeFormatter.java:58)
-import org.dmd.core.feedback.DMFeedbackSet;                 // Error support - (SVTypeFormatter.java:60)
-import org.dmd.core.schema.DmcAttributeInfo;                // To support new instances - (SVTypeFormatter.java:59)
-import org.dmd.dms.shared.types.AttributeID;                // Base type import - (SVTypeFormatter.java:63)
-import org.dmd.dms.shared.types.DmcTypeAttributeID;         // DmcType import - (SVTypeFormatter.java:66)
+// Called from: org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:67)
+import java.io.Serializable;                                // Serialization marker interface - (SVTypeFormatter.java:56)
+import org.dmd.core.DmcAttribute;                           // To support cloning - (SVTypeFormatter.java:57)
+import org.dmd.core.feedback.DMFeedbackSet;                 // Error support - (SVTypeFormatter.java:59)
+import org.dmd.core.schema.DmcAttributeInfo;                // To support new instances - (SVTypeFormatter.java:58)
+import org.dmd.dms.shared.types.AttributeID;                // Base type import - (SVTypeFormatter.java:62)
+import org.dmd.dms.shared.types.DmcTypeAttributeID;         // DmcType import - (SVTypeFormatter.java:65)
 
 
 /**
  * The DmcTypeAttributeIDSV provides storage for a single-valued AttributeID
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:74)
- *    Called from: org.dmd.dms.tools.generation.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:112)
+ * Generated from: org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:73)
+ *    Called from: org.dmd.dms.tools.generation.meta.DerivedTypeFormatter.dumpDerivedTypes(DerivedTypeFormatter.java:92)
  */
 @SuppressWarnings("serial")
 public class DmcTypeAttributeIDSV extends DmcTypeAttributeID implements Serializable {
@@ -54,14 +54,14 @@ public class DmcTypeAttributeIDSV extends DmcTypeAttributeID implements Serializ
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:106)
+    // org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:105)
     public DmcAttribute<AttributeID> cloneIt(){
         DmcTypeAttributeIDSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:117)
+    // org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:116)
     public AttributeID getSVCopy(){
         if (value == null)
             return(null);
@@ -69,7 +69,7 @@ public class DmcTypeAttributeIDSV extends DmcTypeAttributeID implements Serializ
     }
     
     @Override
-    // org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:129)
+    // org.dmd.dms.tools.generation.util.SVTypeFormatter.dumpSVType(SVTypeFormatter.java:128)
     public AttributeID set(Object v) throws DMFeedbackSet {
         AttributeID rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
