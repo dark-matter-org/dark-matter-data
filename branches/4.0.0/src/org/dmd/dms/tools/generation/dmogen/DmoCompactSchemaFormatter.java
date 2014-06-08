@@ -31,7 +31,7 @@ import org.dmd.dms.server.extended.SliceDefinition;
 import org.dmd.dms.server.extended.TypeDefinition;
 import org.dmd.dms.shared.generated.dmo.RuleDataDMO;
 import org.dmd.dms.shared.types.DefinitionName;
-import org.dmd.dms.tools.generation.util.CompactSchemaHelper;
+import org.dmd.dms.tools.util.CompactSchemaHelper;
 import org.dmd.util.artifact.FileUpdateManager;
 import org.dmd.util.artifact.Manipulator;
 import org.dmd.util.artifact.java.ImportManager;
