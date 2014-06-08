@@ -27,7 +27,7 @@ import org.dmd.core.feedback.DMFeedbackSet;
 import org.dmd.core.util.DMUncheckedObject;
 import org.dmd.core.util.NamedStringArray;
 import org.dmd.dms.shared.types.DefinitionName;
-import org.dmd.dms.tools.generation.util.CompactSchemaHelper;
+import org.dmd.dms.tools.util.CompactSchemaHelper;
 import org.dmd.util.artifact.FileUpdateManager;
 import org.dmd.util.artifact.Manipulator;
 import org.dmd.util.artifact.java.ImportManager;

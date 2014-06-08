@@ -5,10 +5,10 @@ import java.util.TreeMap;
 
 import org.dmd.core.feedback.DMFeedbackSet;
 import org.dmd.core.util.DMUncheckedObject;
-import org.dmd.dms.tools.generation.util.MAPTypeFormatter;
-import org.dmd.dms.tools.generation.util.MVTypeFormatter;
-import org.dmd.dms.tools.generation.util.SETTypeFormatter;
-import org.dmd.dms.tools.generation.util.SVTypeFormatter;
+import org.dmd.dms.tools.util.MAPTypeFormatter;
+import org.dmd.dms.tools.util.MVTypeFormatter;
+import org.dmd.dms.tools.util.SETTypeFormatter;
+import org.dmd.dms.tools.util.SVTypeFormatter;
 import org.dmd.util.parsing.DMUncheckedObjectManager;
 
 

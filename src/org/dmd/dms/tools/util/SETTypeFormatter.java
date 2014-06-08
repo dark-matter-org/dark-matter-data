@@ -1,4 +1,4 @@
-package org.dmd.dms.tools.generation.util;
+package org.dmd.dms.tools.util;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
