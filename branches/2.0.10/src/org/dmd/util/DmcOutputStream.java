@@ -78,6 +78,9 @@ public class DmcOutputStream extends DataOutputStream implements DmcOutputStream
 
 	@Override
 	public void writeValueCount(int size) throws Exception {
+		if (size > 65535){
+			throw(new IllegalStateException("The maximum number of attribute values is 65535. You tried to encode: " + size));
+		}
 		super.writeShort(size);
 	}
 
