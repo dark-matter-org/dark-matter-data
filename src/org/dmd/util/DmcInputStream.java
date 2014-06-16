@@ -105,7 +105,12 @@ public class DmcInputStream extends DataInputStream implements DmcInputStreamIF 
 
 	@Override
 	public int readValueCount() throws Exception {
-		return(readShort());
+		// Note: In cases where the number of values exceeds 32767, the short will be
+		// a negative number. We & the result of the short read with 0xFFFF to handle
+		// the short as unsigned - which gets us to 65535 values in an attribute.
+		// Likewise, in the DmcOutputStream.writeValueCount() which check to see if
+		// we exceed this value and throw an IllegalStateException.
+		return(readShort() & 0xFFFF);
 	}
 
 	@Override
