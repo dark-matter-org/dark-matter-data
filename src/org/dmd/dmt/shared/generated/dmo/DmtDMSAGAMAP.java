@@ -1,13 +1,12 @@
 package org.dmd.dmt.shared.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpAttributeMapInitializer(DmoCompactSchemaFormatter.java:456)
-import java.util.HashMap;         // For storage of schema info - (DmoCompactSchemaFormatter.java:453)
-import org.dmd.dmc.*;             // Basic DMC stuff - (DmoCompactSchemaFormatter.java:454)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpAttributeMapInitializer(DmoCompactSchemaFormatter.java:413)
+import java.util.HashMap;         // For storage of schema info - (DmoCompactSchemaFormatter.java:410)
+import org.dmd.dmc.*;             // Basic DMC stuff - (DmoCompactSchemaFormatter.java:411)
 
 
-
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpAttributeMapInitializer(DmoCompactSchemaFormatter.java:460)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpAttributeMapInitializer(DmoCompactSchemaFormatter.java:417)
 public class DmtDMSAGAMAP {
 
     static protected void initSmAp(HashMap<Integer, DmcAttributeInfo> _SmAp){
@@ -93,7 +92,6 @@ public class DmtDMSAGAMAP {
         _SmAp.put(DmtDMSAG.__tsNamedObj.id,DmtDMSAG.__tsNamedObj);
         _SmAp.put(DmtDMSAG.__tsString.id,DmtDMSAG.__tsString);
         _SmAp.put(DmtDMSAG.__tsUnnamedObj.id,DmtDMSAG.__tsUnnamedObj);
-        _SmAp.put(DmtDMSAG.__userName.id,DmtDMSAG.__userName);
     }
 
 }

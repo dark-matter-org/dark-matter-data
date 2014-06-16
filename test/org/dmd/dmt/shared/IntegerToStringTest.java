@@ -2,7 +2,6 @@ package org.dmd.dmt.shared;
 
 import java.io.IOException;
 
-import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
@@ -21,7 +20,7 @@ public class IntegerToStringTest {
 	static private SchemaManager schema;
 	
 	@Before
-	public void initialize() throws ResultException, DmcValueException, IOException, DmcNameClashException {
+	public void initialize() throws ResultException, DmcValueException, IOException{
 		if (!initialized){
 			schema = new SchemaManager();
 			schema.manageSchema(new DmpSchemaAG());

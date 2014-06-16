@@ -19,42 +19,37 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.TreeMap;
-import java.util.TreeSet;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
-import org.dmd.dmc.DmcClassInfo;
-import org.dmd.dmc.DmcNameClashException;
-import org.dmd.dmc.DmcNameClashObjectSet;
-import org.dmd.dmc.DmcNameClashResolverIF;
-import org.dmd.dmc.DmcNameResolverWithClashSupportIF;
+import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
+import org.dmd.dmc.DmcNamedObjectREF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcOmni;
-import org.dmd.dmc.DmcUniqueNameResolverIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
-import org.dmd.dmc.definitions.DmcDefinitionSet;
-import org.dmd.dmc.rules.RuleIF;
-import org.dmd.dmc.types.DefinitionName;
-import org.dmd.dmc.types.DotName;
 import org.dmd.dmc.types.RuleName;
+import org.dmd.dmc.types.StringName;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmc.util.NamedStringArray;
-import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
-import org.dmd.dms.generated.dmw.DSDefinitionModuleIterableDMW;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.RuleTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
+import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFSV;
+import org.dmd.dms.generated.types.Field;
 import org.dmd.dmw.DmwWrapper;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
+import org.dmd.util.exceptions.ResultSet;
 import org.dmd.util.formatting.PrintfFormat;
+import org.dmd.util.parsing.Dictionary;
+import org.dmd.util.parsing.Token;
 
 
 /**
@@ -62,50 +57,47 @@ import org.dmd.util.formatting.PrintfFormat;
  * classes and schemas themselves.
  */
 
-public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcNameClashResolverIF, DmcUniqueNameResolverIF {
+public class SchemaManager implements DmcNameResolverIF {
 
     /**
      * The schema of classes that are used to describe schemas.
      */
     SchemaDefinition  								meta;
-    
-    // Key: the fully qualified dotname of a definition i.e. schema.defname.type
-    public HashMap<DotName, DmsDefinition>				globallyUniqueMAP;
-    
-    // Key: DotNames of the form definition_name.definition_type - these keys could potentially clash
-    //      across schemas, so we maintain an array list of the defs at this level
-    public HashMap<DotName, ArrayList<DmsDefinition>>	clashMAP;
-    boolean	debugClashmap = false;
-    
-    // When definitions are being added via the schema parser, it will attempt to
-    // to resolve clashes. If we're loading generated schemas, the SchemaManager will
-    // act as the clash resolver.
-    DmcNameClashResolverIF	currentResolver;
+
+    /**
+     * This map contains all type, attribute, class and schema definitions keyed on
+     * their respective name attributes.
+     * Key: StringName
+     * Value: TypeDefinition, ClassDefinition, AttributeDefinition, ActionDefinition, SchemaDefinition, EnumDefinition
+     */
+    public HashMap<StringName,DmsDefinition>    	allDefs;
 
     /**
      * This map contains all enum  definitions keyed on their respective name attributes.
-     * Key: DefinitionName
+     * Key: StringName
      * Value: DmdEnumValueDef
      */
-    public HashMap<DefinitionName,EnumDefinition>     	enumDefs;
+    public HashMap<StringName,EnumDefinition>     	enumDefs;
     public int  longestEnumName;
 
     /**
      * This map contains all type definitions keyed on their respective name attributes.
-     * Key: DefinitionName
+     * Key: StringName
      * Value: TypeDefinition
      */
-    public HashMap<DefinitionName,TypeDefinition>     	typeDefs;
+    public HashMap<StringName,TypeDefinition>     	typeDefs;
     public int  longestTypeName;
 
     // Internally generated types for classes
-    public HashMap<DefinitionName,TypeDefinition>     	internalTypeDefs;
+    public HashMap<StringName,TypeDefinition>     	internalTypeDefs;
     
-    
-    public DmcDefinitionSet<AttributeDefinition> 		attributeDefinitions;
-    
-    
-    
+    /**
+     * This map contains all attribute definitions keyed on their respective name attributes.
+     * Key: StringName
+     * Value: AttributeDefinition
+     */
+    public HashMap<StringName,AttributeDefinition>	attrDefs;
+    public int  longestAttrName;
     
     public TreeMap<Integer,ClassDefinition>			classesByID;
 
@@ -115,88 +107,87 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 
     public TreeMap<Integer,AttributeDefinition>		attrByID;
 
-    
-    
-    
     /**
      * This map contains all action definitions keyed on their respective name attributes.
-     * Key: DefinitionName
+     * Key: StringName
      * Value: ActionDefinition
      */
-    public HashMap<DefinitionName,ActionDefinition>     		actionDefs;
+    public HashMap<StringName,ActionDefinition>     		actionDefs;
     public int  longestActionName;
 
     /**
      * This map contains all class definitions keyed on their respective name attributes.
-     * Key: DefinitionName
+     * Key: StringName
      * Value: ClassDefinition
      */
-    DmcDefinitionSet<ClassDefinition>							classDefinitions;
-//    public HashMap<DefinitionName,ClassDefinition>     			classDefs;
+    public HashMap<StringName,ClassDefinition>     			classDefs;
     public int  longestClassName;
-    boolean debugClassAdditions;
 
-    // Key: DefinitionName
+    // Key: StringName
     // Value: ComplexTypeDefinition
-    public HashMap<DefinitionName,ComplexTypeDefinition>     	complexTypeDefs;
+    public HashMap<StringName,ComplexTypeDefinition>     	complexTypeDefs;
     public int  longestComplexTypeName;
 
-    // Key: DefinitionName
+    // Key: StringName
     // Value: ExtendedReferenceTypeDefinition
-    public HashMap<DefinitionName,ExtendedReferenceTypeDefinition>	extendedReferenceTypeDefs;
+    public HashMap<StringName,ExtendedReferenceTypeDefinition>	extendedReferenceTypeDefs;
     public int  longestExtendedReferenceTypeName;
 
-    // Key: DefinitionName
+    // Key: StringName
     // Value: SliceDefinition
-    public HashMap<DefinitionName,SliceDefinition>     			sliceDefs;
+    public HashMap<StringName,SliceDefinition>     			sliceDefs;
     public int  longestSliceName;
 
-    // Key: DefinitionName
+    // Key: StringName
     // Value: RuleCategory
-    public HashMap<DefinitionName,RuleCategory>     			ruleCategoryDefs;
+    public HashMap<StringName,RuleCategory>     			ruleCategoryDefs;
     public int  											longestRuleCategoryName;
     public TreeMap<Integer,RuleCategory>					ruleCategoriesByID;
 
     public TreeMap<RuleName,RuleData>						ruleData;
 
 
-    // Key: DefinitionName
+    // Key: StringName
     // Value: RuleDefinition
-    public HashMap<DefinitionName,RuleDefinition>     			ruleDefs;
-    public HashMap<DotName,RuleDefinition>     				ruleDefsByDot;
+    public HashMap<StringName,RuleDefinition>     			ruleDefs;
     public int  longestRuleName;
     
     // The top level hierarchic objects i.e. ones that don't have allowedParents
-    TreeMap<DefinitionName,ClassDefinition>						hierarchicObjects;
+    TreeMap<StringName,ClassDefinition>						hierarchicObjects;
 
     /**
      * This map contains all class abbreviations.
-     * Key:   DefinitionName
+     * Key:   StringName
      * Value: ClassDefinition
      */
-    public HashMap<DefinitionName,ClassDefinition>     			classAbbrevs;
+    public HashMap<StringName,ClassDefinition>     			classAbbrevs;
 
     /**
      * This map contains all attribute abbreviations.
-     * Key:   DefinitionName
+     * Key:   StringName
      * Value: ClassDefinition
      */
-    public HashMap<DefinitionName,AttributeDefinition>			attrAbbrevs;
+    public HashMap<StringName,AttributeDefinition>			attrAbbrevs;
+
+//    /**
+//     * This map contains all repository names.
+//     * Key:   String
+//     * Value: AttributeDefinition
+//     */
+//    public HashMap<String,DmsDefinition>     	reposNames;
 
     /**
      * This map contains all schema definitions keyed on their respective name attributes.
      * Key:   String (schema name)
      * Value: SchemaDefinition
      */
-    TreeMap<DefinitionName,SchemaDefinition>     		schemaDefs;
+    TreeMap<StringName,SchemaDefinition>     		schemaDefs;
     public int  longestSchemaName;
-    
+
     /**
-     * This map contains all Domain Specific Definition Modules. 
-     * Key:   DefinitionName
-     * Value: DSDefinitionModule
+     * A dictionary that can be used in conjunction with the Classifier class.
      */
-    TreeMap<DefinitionName,DSDefinitionModule>			definitionModuleDefs;
+    Dictionary  								dict;
 
     /**
      * The schema that we're in the process of managing.
@@ -218,14 +209,10 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     /**
      * Creates a new SchemaManager.
      * @throws DmcValueException 
-     * @throws DmcNameClashException 
      * @throws DmcValueExceptionSet 
      */
-    public SchemaManager() throws ResultException, DmcValueException, DmcNameClashException {
+    public SchemaManager() throws ResultException, DmcValueException {
     	init();
-    	
-    	debugClashmap = false;
-    	debugClassAdditions = false;
     }
     
     /**
@@ -234,52 +221,44 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * @param sd The schema to be managed.
      * @throws ResultException
      * @throws DmcValueException
-     * @throws DmcNameClashException 
      */
-    public SchemaManager(SchemaDefinition sd) throws ResultException, DmcValueException, DmcNameClashException {
+    public SchemaManager(SchemaDefinition sd) throws ResultException, DmcValueException {
     	init();
     	manageSchema(sd);
     }
     
-    void init() throws ResultException, DmcValueException, DmcNameClashException {
+    void init() throws ResultException, DmcValueException{
         // Create our various hashmaps
-        globallyUniqueMAP     				= new HashMap<DotName,DmsDefinition>();
-        clashMAP				= new HashMap<DotName, ArrayList<DmsDefinition>>();
-        
-        // We default to use ourselves as the clash resolver
-        currentResolver				= this;
-        
-        enumDefs 					= new HashMap<DefinitionName,EnumDefinition>();
-        typeDefs    				= new HashMap<DefinitionName,TypeDefinition>();
-        internalTypeDefs    		= new HashMap<DefinitionName,TypeDefinition>();
-        
-        attributeDefinitions		= new DmcDefinitionSet<AttributeDefinition>();
-        classDefinitions			= new DmcDefinitionSet<ClassDefinition>();
-        
+        allDefs     				= new HashMap<StringName,DmsDefinition>();
+        enumDefs 					= new HashMap<StringName,EnumDefinition>();
+        typeDefs    				= new HashMap<StringName,TypeDefinition>();
+        internalTypeDefs    		= new HashMap<StringName,TypeDefinition>();
+        attrDefs    				= new HashMap<StringName,AttributeDefinition>();
         attrByID					= new TreeMap<Integer, AttributeDefinition>();
         classesByID					= new TreeMap<Integer, ClassDefinition>();
         classesByJavaClass			= new TreeMap<String, ClassDefinition>();
-        actionDefs  				= new HashMap<DefinitionName,ActionDefinition>();
-//        classDefs   				= new HashMap<DefinitionName,ClassDefinition>();
-        complexTypeDefs   			= new HashMap<DefinitionName,ComplexTypeDefinition>();
-        extendedReferenceTypeDefs   = new HashMap<DefinitionName,ExtendedReferenceTypeDefinition>();
-        sliceDefs   				= new HashMap<DefinitionName,SliceDefinition>();
-        ruleCategoryDefs   			= new HashMap<DefinitionName,RuleCategory>();
+        actionDefs  				= new HashMap<StringName,ActionDefinition>();
+        classDefs   				= new HashMap<StringName,ClassDefinition>();
+        complexTypeDefs   			= new HashMap<StringName,ComplexTypeDefinition>();
+        extendedReferenceTypeDefs   = new HashMap<StringName,ExtendedReferenceTypeDefinition>();
+        sliceDefs   				= new HashMap<StringName,SliceDefinition>();
+        ruleCategoryDefs   			= new HashMap<StringName,RuleCategory>();
         ruleCategoriesByID			= new TreeMap<Integer, RuleCategory>();
-        ruleDefs   					= new HashMap<DefinitionName,RuleDefinition>();
-        ruleDefsByDot   			= new HashMap<DotName, RuleDefinition>();
+        ruleDefs   					= new HashMap<StringName,RuleDefinition>();
         ruleData					= new TreeMap<RuleName, RuleData>();
-        schemaDefs  				= new TreeMap<DefinitionName,SchemaDefinition>();
-        definitionModuleDefs  		= new TreeMap<DefinitionName,DSDefinitionModule>();
-        classAbbrevs				= new HashMap<DefinitionName,ClassDefinition>();
-        attrAbbrevs 				= new HashMap<DefinitionName,AttributeDefinition>();
+        schemaDefs  				= new TreeMap<StringName,SchemaDefinition>();
+        classAbbrevs				= new HashMap<StringName,ClassDefinition>();
+        attrAbbrevs 				= new HashMap<StringName,AttributeDefinition>();
         hierarchicObjects			= null;
         
+//        reposNames  = new HashMap<String,DmsDefinition>();
+        dict        			= null;
         extensions				= new TreeMap<String, SchemaExtensionIF>();
         
         performIDChecks = true;
         
-
+//        nameKey = new StringName();
+        
         // Create the global metaschema
         if (MetaSchema._metaSchema == null){
             meta = new MetaSchema();
@@ -287,15 +266,30 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         }
         else
             meta = MetaSchema._metaSchema;
-        
-        // Manage the meta schema so that we have a starting point for schema management
-        manageSchemaInternal(meta);
-        
-        resolveReferences(meta,this);
 
-        // Now that everything's resolved, we have some unfinished business to take care of
-    	Iterator<AttributeDefinition> adl = meta.getAttributeDefList();
-    	resolveNameTypes(adl);
+        ((MetaSchema)meta).setSchemaManager(this);
+
+//        ((MetaSchema)meta).traceLog.setDebugLevels(MetaSchema._DEBUGE.getIntToStringMap().size(),MetaSchema._DEBUGE.getIntToStringMap().values().iterator());
+
+//        if (rs.worst() == Result.NONE){
+            // There should be no warnings/errors during the creation of the
+            // meta-schema
+
+//        DebugInfo.debugWithTrace("LOADING META");
+        
+            // Manage the meta schema so that we have a starting point for schema management
+            manageSchemaInternal(meta);
+            
+            resolveReferences(meta);
+
+            // Now that everything's resolved, we have some unfinished business to take care of
+        	Iterator<AttributeDefinition> adl = meta.getAttributeDefList();
+//        	DebugInfo.debug("\n\n*** Trying to resolve name attributes for schema " + meta.getName().getNameString() + "\n\n");
+        	resolveNameTypes(adl);
+
+
+//        }
+    	
     }
     
     public void addDefinitionListener(SchemaDefinitionListenerIF listener){
@@ -304,12 +298,11 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     	listeners.add(listener);
     }
     
-    public TreeMap<DefinitionName, ClassDefinition> getHierarchicObjects(){
+    public TreeMap<StringName, ClassDefinition> getHierarchicObjects(){
     	if (hierarchicObjects == null){
-    		hierarchicObjects = new TreeMap<DefinitionName, ClassDefinition>();
+    		hierarchicObjects = new TreeMap<StringName, ClassDefinition>();
     		
-//    		for(ClassDefinition cd: classDefs.values()){
-        	for(ClassDefinition cd: classDefinitions.values()){
+    		for(ClassDefinition cd: classDefs.values()){
     			if (cd.getIsNamedBy() != null){
     				if (cd.getIsNamedBy().getType().getIsHierarchicName()){
     					if (cd.getAllowedParentsSize() == 0)
@@ -329,10 +322,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     /**
      * @param dmo the object to be wrapped.
      * @return the DMO wrapped with the appropriate wrapper type.
-     * @throws DmcNameClashException 
-     * @throws DmcValueException 
      */
-    public DmwWrapper wrapIt(DmcObject dmo) throws DmcNameClashException, DmcValueException {
+    public DmwWrapper wrapIt(DmcObject dmo){
     	ClassDefinition cd = isClass(dmo.getConstructionClassName());
     	if (cd == null){
     		throw(new IllegalStateException("Cannot create DmwWrapper for unknown class: " + dmo.getConstructionClassName()));
@@ -346,7 +337,16 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     	rc.setDmcObject(dmo);
     	return(rc);
     }
-            
+    
+//    public DmcAttributeInfo getAttributeInfo(Integer id){
+//    	AttributeDefinition ad = attrByID.get(id);
+//    	
+//    	if (ad == null)
+//    		return(null);
+//    	
+//    	return(ad.getAttributeInfo());
+//    }
+        
     public DmcObjectName getNameValueInstance(Integer id) throws Exception {
     	AttributeDefinition ad = attrByID.get(id);
     	
@@ -376,6 +376,9 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     		throw(new IllegalStateException("Tried to deserialize attribute with unknown ID: " + id));
     	}
     	
+//    	DmcAttribute<?> rc = (DmcAttribute<?>) ad.getType().getAttributeHolder(ad.getAttributeInfo());
+//    	rc.setAttributeInfo(ad.getAttributeInfo());
+    	
     	if (ai == null){
     		throw(new IllegalStateException("Tried to deserialize attribute with unknown ID: " + id));
     	}
@@ -391,7 +394,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * @param name the name of the type
      * @return the type definition or null if it's not found.
      */
-    public TypeDefinition findInternalType(DefinitionName name){
+    public TypeDefinition findInternalType(StringName name){
     	return(internalTypeDefs.get(name));
     }
     
@@ -423,6 +426,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     	
     	DmcAttribute<DmcObjectNameIF> rc;
 		try {
+//			rc = (DmcAttribute<DmcObjectNameIF>) ad.getType().getAttributeHolder(ad.getAttributeInfo());
 			rc = (DmcAttribute<DmcObjectNameIF>) ad.getType().getAttributeHolder(ai);
 		} catch (Exception e) {
 			throw(new IllegalStateException("Unable to instantiate naming attribute of type: " + oni.getNameClass(),e));
@@ -464,15 +468,17 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * @param sd The schema about to be loaded.
      * @throws ResultException  
      * @throws DmcValueException 
-     * @throws DmcNameClashException 
      */
-	public void schemaPreAdd(DmcUncheckedObject sd) throws ResultException, DmcValueException, DmcNameClashException {
+	public void schemaPreAdd(DmcUncheckedObject sd) throws ResultException, DmcValueException {
     	NamedStringArray attr = sd.get(MetaSchema._schemaExtension.getName().getNameString());
     	
      	if (attr != null){
     		Class<?> extclass;
+//    		Iterator<String> extList = attr.getMV();
     		
     		for(String ext: attr){
+//    		while(extList.hasNext()){
+//    			String ext = extList.next();
                 try{
                 	extclass = Class.forName(ext);
                 }
@@ -511,6 +517,11 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
                     // Let the schema extension know that it has been instantiated against this schema
                     extInstance.definitionPreAdd(sd);
                 }
+                
+//            	for(SchemaExtensionIF currext : extensions.values()){
+//            		currext.schemaBeingLoaded(sd);
+//            	}
+
     		}
     	}
     }
@@ -521,9 +532,10 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * @param sd A SchemaDefinition.
      * @throws DmcValueException 
      * @throws ResultException 
-     * @throws DmcNameClashException 
      */
-	private void loadGeneratedSchema(SchemaDefinition sd) throws ResultException, DmcValueException, DmcNameClashException {
+	private void loadGeneratedSchema(SchemaDefinition sd) throws ResultException, DmcValueException {
+    	
+//    	DebugInfo.debug(sd.getClass().getName());
     	
     	for(String schemaName : sd.dependsOnSchemaClasses.keySet()){
     		String schemaClassName = sd.dependsOnSchemaClasses.get(schemaName);
@@ -562,23 +574,115 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     	
     	SchemaDefinition theInstance = sd.getInstance();
     	
+//    	DebugInfo.debug(sd.getName() + " is being managed...\n");
+    	
         manageSchemaInternal(theInstance);
         
-        resolveReferences(theInstance,this);
+        resolveReferences(theInstance);
         
     	// Now that everything's resolved, we have some unfinished business to take care of
     	Iterator<AttributeDefinition> adl = sd.getAttributeDefList();
+//    	DebugInfo.debug("\n\n*** Trying to resolve name attributes for schema " + sd.getName().getNameString() + "\n\n");
     	resolveNameTypes(adl);
+
+
+        
+        //    	Iterator<String> deps = sd.getDependsOn();
+//    	if (deps != null){
+//    		while(deps.hasNext()){
+//    			String dep = deps.next();
+//    			SchemaDefinition depSchema = isSchema(dep);
+//    			
+//    			if (depSchema == null){
+//    				String depClass = sd.getDependsOnClass(dep);
+//    				Class schemaClass = null;
+//    				
+//                    try{
+//                    	schemaClass = Class.forName(depClass);
+//                    }
+//                    catch(Exception e){
+//                    	ResultException ex = new ResultException();
+//                    	ex.result.addResult(Result.FATAL,"Couldn't load generated schema class: " + depClass);
+//                        ex.result.lastResult().moreMessages(e.getMessage());
+//                        ex.result.lastResult().moreMessages(DebugInfo.extractTheStack(e));
+//                        throw(ex);
+//                    }
+//
+//                    try{
+//                    	depSchema = (SchemaDefinition) schemaClass.newInstance();
+//                    }
+//                    catch(Exception e){
+//                    	ResultException ex = new ResultException();
+//                    	ex.result.addResult(Result.FATAL,"Couldn't instantiate Java class: " + depClass);
+//                    	ex.result.lastResult().moreMessages("This may be because the class doesn't have a constructor that takes no arguments.");
+//                    	ex.result.lastResult().moreMessages("Or it may be that the class isn't derived from SchemaDefinition.");
+//                    	throw(ex);
+//                    }
+//
+//                    loadGeneratedSchema(depSchema);
+//    			}
+//    		}
+//    	}
+//        manageSchemaInternal(sd);
+//        resolveReferences(sd);
    }
+    
+    
+
+//	public void schemaBeingLoaded(SchemaDefinition sd) throws ResultException {
+//    	Iterator<String> extList = sd.getSchemaExtension();
+//    	if (extList != null){
+//    		Class extclass;
+//    		
+//    		while(extList.hasNext()){
+//    			String ext = extList.next();
+//                try{
+//                	extclass = Class.forName(ext);
+//                }
+//                catch(Exception e){
+//                	ResultException ex = new ResultException();
+//                	ex.result.addResult(Result.FATAL,"Couldn't load schemaExtension class: " + ext);
+//                    ex.result.lastResult().moreMessages(e.getMessage());
+//                    ex.result.lastResult().moreMessages(DebugInfo.extractTheStack(e));
+//                    throw(ex);
+//                }
+//
+//                int lastDot = ext.lastIndexOf(".");
+//                String className = ext.substring(lastDot + 1);
+//                
+//                if (extensions.get(className) == null){
+//                	SchemaExtensionIF extInstance = null;
+//                	// We don't have the extension yet, try to instantiate it
+//                    try{
+//                    	extInstance = (SchemaExtensionIF) extclass.newInstance();
+//                    }
+//                    catch(Exception e){
+//                    	ResultException ex = new ResultException();
+//                    	ex.result.addResult(Result.FATAL,"Couldn't instantiate Java class: " + ext);
+//                    	ex.result.lastResult().moreMessages("This may be because the class doesn't have a constructor that takes no arguments.");
+//                    	ex.result.lastResult().moreMessages("Or it may be that the class doesn't implement the SchemaExtensionIF interface.");
+//                    	throw(ex);
+//                    }
+//
+//                    extensions.put(className, extInstance);
+//                    extInstance.setManager(this);
+//                }
+//                
+//            	for(SchemaExtensionIF currext : extensions.values()){
+//            		currext.schemaBeingLoaded(sd);
+//            	}
+//
+//    		}
+//    	}
+//    }
 
     /**
      * This function integrates a new set of definitions into the schema manager.
      * @param sd The schema definition to be managed.
      * @throws DmcValueException 
-     * @throws DmcNameClashException 
      * @throws DmcValueExceptionSet 
      */
-    public void manageSchema(SchemaDefinition sd) throws ResultException, DmcValueException, DmcNameClashException {
+    public void manageSchema(SchemaDefinition sd) throws ResultException, DmcValueException {
     	
     	if (sd.generatedSchema)
     		performIDChecks = false;
@@ -596,7 +700,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     	
     }
     
-    public void manageSchemaInternal(SchemaDefinition sd, boolean checkIDs) throws ResultException, DmcValueException, DmcNameClashException {
+    public void manageSchemaInternal(SchemaDefinition sd, boolean checkIDs) throws ResultException, DmcValueException {
     	performIDChecks = checkIDs;
     	manageSchemaInternal(sd);
     }
@@ -604,10 +708,9 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * This function integrates a new set of definitions into the schema manager.
      * @param sd The schema definition to be managed.
      * @throws DmcValueException 
-    	 * @throws DmcNameClashException 
      * @throws DmcValueExceptionSet 
      */
-    public void manageSchemaInternal(SchemaDefinition sd) throws ResultException, DmcValueException, DmcNameClashException {
+    public void manageSchemaInternal(SchemaDefinition sd) throws ResultException, DmcValueException {
         ClassDefinition         		cd  		= null;
         EnumDefinition     				evd 		= null;
         TypeDefinition          		td  		= null;
@@ -618,7 +721,6 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         SliceDefinition 				slice		= null;
         RuleCategory 					category	= null;
         RuleDefinition 					rule		= null;
-        DSDefinitionModule 				dsdModule	= null;
         
         Iterator<ActionDefinition>					itACD  		= null;
         Iterator<AttributeDefinition>				itATD  		= null;
@@ -630,10 +732,12 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         Iterator<SliceDefinition>					sliceIT		= null;
         Iterator<RuleCategory>						categoryIT	= null;
         Iterator<RuleDefinition>					ruleIT		= null;
-        Iterator<DSDefinitionModule>				dsdModuleIT		= null;
 
         currentSchema       = sd;
-        
+        // schemaDefs.put(sd.getName(),sd);
+
+//System.out.println("The schema object:\n\n" + sd.toOIF(20) + "\n\n");
+
         if ( (itTD = sd.getTypeDefList()) != null){
             while(itTD.hasNext()){
                 td = itTD.next();
@@ -683,13 +787,6 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
             }
         }
         
-        if ( (dsdModuleIT = sd.getDsdModuleList()) != null){
-            while(dsdModuleIT.hasNext()){
-            	dsdModule = dsdModuleIT.next();
-                this.addDefinitionModule(dsdModule, true);
-            }
-        }
-        
         if ( (itCD = sd.getClassDefList()) != null){
             while(itCD.hasNext()){
                 cd = itCD.next();
@@ -719,6 +816,66 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         }
         
         this.addSchema(sd);
+        
+
+    }
+
+    /**
+     * Resolves references between schemas.
+     */
+    public boolean resolveSchemaRefs(ResultSet rs){
+    	// TODO The whole issue of unresolved references is up in the air.
+    	
+    	
+//        // Iterator it = schemaDefs.values().iterator();
+//        Iterator<DmsDefinition> it = allDefs.values().iterator();
+//
+//  //System.out.println("SchemaManager.resolveRefs() ==>");
+//        while(it.hasNext()){
+//            // SchemaDefinition sd = (SchemaDefinition)it.next();
+//            GenericObject sd = (GenericObject)it.next();
+//            // Resolve references to other schemas
+//  //System.out.println("Resolving refs for: " + sd.getName());
+//            if (!sd.resolveReferences(rs,this,"Unknown object: ")){
+//  System.out.println("ERROR:\n " + rs);
+//                return(false);
+//            }
+//
+//            // We also do something tricky here. If we've loaded schemas from
+//            // file, we make it so that we can instantiate the enums by ensuring
+//            // that their genattrclass member is set. This was added to allow
+//            // documentation generation that involved dynamically loaded rules
+//            // that contained enum values.
+//            if (sd instanceof TypeDefinition){
+//                TypeDefinition td = (TypeDefinition)sd;
+//                if (td.genattrclass == null){
+//                    if (!td.initEnumClassAndValues(rs))
+//                        return(false);
+//                }
+//            }
+//        }
+//
+//        // More interesting bits! We have the concept of being able to extend
+//        // the actions available on a class using the efAttachToClass member
+//        // of the efActionDef. We now cycle through all actions to see if any
+//        // of them need to be "attached" to classes from other schemas.
+//        Iterator<ActionDefinition> actit = actionDefs.values().iterator();
+//
+//        while(actit.hasNext()){
+//            Iterator<ClassDefinitionRefValue> attachIT;
+//            ActionDefinition ad = actit.next();
+//
+//            if ( (attachIT = ad.getAttachToClass()) != null){
+//                while(attachIT.hasNext()){
+//                    ClassDefinition cd = attachIT.next().getRef();
+//                    if (!cd.attachAction(rs,ad))
+//                        return(false);
+//                }
+//            }
+//        }
+//
+//  //System.out.println("SchemaManager.resolveRefs() <==");
+        return(true);
     }
 
     /**
@@ -734,7 +891,13 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * @return If the name is a type, its TypeDefinition is returned; otherwise null is returned.
      */
     public TypeDefinition isType(String name){
-        return((TypeDefinition)typeDefs.get(getDefName(name)));
+    	StringName nameKey = new StringName(name);
+//    	try {
+//			nameKey.setNameString(name);
+//		} catch (DmcValueException e) {
+//			e.printStackTrace();
+//		}
+        return((TypeDefinition)typeDefs.get(nameKey));
     }
 
     /**
@@ -743,32 +906,18 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * @return If the name is an attribute, its AttributeDefinition is returned; otherwise null is returned.
      */
     public AttributeDefinition isAttribute(String name){
-    	AttributeDefinition rc = null;
-		DotName dn;
-		try {
-			dn = new DotName(name + "." + MetaDMSAG.__AttributeDefinition.name);
-			ArrayList<DmsDefinition> defs = clashMAP.get(dn);
-			if (defs == null)
-				return(rc);
-			if (defs.size() == 1)
-				rc = (AttributeDefinition) (defs.get(0));
-			else{
-				StringBuffer sb = new StringBuffer();
-				for(DmsDefinition def : defs){
-					sb.append(def.getDotName().getNameString() + " ");
-				}
-				throw(new IllegalStateException("Looking for attribute: " + name + " resulted in multiple definitions: " + sb.toString()));
-			}
-		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return(rc);
+    	StringName nameKey = new StringName(name);
+//    	try {
+//			nameKey.setNameString(name);
+//		} catch (DmcValueException e) {
+//			e.printStackTrace();
+//		}
+        return((AttributeDefinition)attrDefs.get(nameKey));
     }
     
     public EnumDefinition isEnum(String name){
-    	return(enumDefs.get(getDefName(name)));
+    	StringName nameKey = new StringName(name);
+    	return(enumDefs.get(nameKey));
     }
     
     /**
@@ -804,19 +953,28 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * @return If the name is an action, its ActionDefinition is returned; otherwise null is returned.
      */
     public ActionDefinition isAction(String name){
-        return((ActionDefinition)actionDefs.get(getDefName(name)));
+    	StringName nameKey = new StringName(name);
+//    	try {
+//			nameKey.setNameString(name);
+//		} catch (DmcValueException e) {
+//			e.printStackTrace();
+//		}
+        return((ActionDefinition)actionDefs.get(nameKey));
     }
 
     /**
      * This function indicates if the specified string the name of a ClassDefinition.
      * @param name the name of a suspected class definition.
      * @return If the name is a class, its ClassDefinition is returned; otherwise null is returned.
-     * @throws DmcNameClashException  
-     * @throws DmcValueException 
      */
-    public ClassDefinition isClass(String name) throws DmcNameClashException, DmcValueException {
-    	return(classDefinitions.getDefinition(name));
-//        return((ClassDefinition)classDefs.get(getDefName(name)));
+    public ClassDefinition isClass(String name){
+    	StringName nameKey = new StringName(name);
+//    	try {
+//			nameKey.setNameString(name);
+//		} catch (DmcValueException e) {
+//			e.printStackTrace();
+//		}
+        return((ClassDefinition)classDefs.get(nameKey));
     }
 
     /**
@@ -825,7 +983,30 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * @return If the name is a schema, its SchemaDefinition is returned; otherwise null is returned.
      */
     public SchemaDefinition isSchema(String name){
-        return((SchemaDefinition)schemaDefs.get(getDefName(name)));
+    	StringName nameKey = new StringName(name);
+//    	try {
+//			nameKey.setNameString(name);
+//		} catch (DmcValueException e) {
+//			e.printStackTrace();
+//		}
+        return((SchemaDefinition)schemaDefs.get(nameKey));
+    }
+
+    /**
+     * This function indicates if the specified string the name of any class,
+     * attribute or type definition.
+     * @param name the name of a suspected definition.
+     * @return If the name is that of any kind of definition, the definition is
+     * returned as a generic object; otherwise null is returned.
+     */
+    public DmsDefinition isDefinition(String name){
+    	StringName nameKey = new StringName(name);
+//    	try {
+//			nameKey.setNameString(name);
+//		} catch (DmcValueException e) {
+//			e.printStackTrace();
+//		}
+        return(allDefs.get(nameKey));
     }
 
     /**
@@ -841,14 +1022,13 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
             currentSchema = null;
         	throw(ex);
         }
-
-        if (checkAndAddDOT(sd.getDotName(),sd,globallyUniqueMAP,null) == false){
+        if (checkAndAdd(sd.getObjectName(),sd,allDefs) == false){
         	ResultException ex = new ResultException();
-        	ex.addError(clashMsgDOT(sd.getObjectName(),sd,globallyUniqueMAP,"definition names"));
+        	ex.addError(clashMsg(sd.getObjectName(),sd,allDefs,"definition names"));
             currentSchema = null;
         	throw(ex);
         }
-        
+
         if (sd.getObjectName().getNameString().length() > longestSchemaName)
             longestSchemaName = sd.getObjectName().getNameString().length();
 
@@ -862,143 +1042,6 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 
     }
     
-    /**
-     * Adds the definition module. If we're managing this as part of a loaded schema, we don't
-     * attempt to generate the internal class that represents the module.
-     * @param ddm the modulew being added 
-     * @param managingSchema whether we're managing a schema or parsing a schema
-     * @throws ResultException
-     * @throws DmcValueException
-     */
-    void addDefinitionModule(DSDefinitionModule ddm, boolean managingSchema) throws ResultException, DmcValueException {
-
-        if (checkAndAdd(ddm.getObjectName(),ddm,definitionModuleDefs) == false){
-        	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(ddm.getObjectName(),ddm,definitionModuleDefs,"DSDefinitionModule names"));
-            currentSchema = null;
-        	throw(ex);
-        }
-        
-        if (checkAndAddDOT(ddm.getDotName(),ddm,globallyUniqueMAP,null) == false){
-        	ResultException ex = new ResultException();
-        	ex.addError(clashMsgDOT(ddm.getObjectName(),ddm,globallyUniqueMAP,"definition names"));
-            throw(ex);
-        }
-        
-        if (managingSchema)
-        	return;
-        
-        ////////////////////////////////////////////////////////////////////////
-        // Eventual rules
-        
-        if (ddm.getDmdID() != null){
-        	if (ddm.getDmdID() != 1){
-        		ResultException ex = new ResultException("The dmdID of a DSDefinitionModule must be 1");
-        		ex.setLocationInfo(ddm.getFile(), ddm.getLineNumber());
-        		throw(ex);
-        	}
-        }
-        
-        ///////////////////////////////////////////////////////////////////////
-        
-    	// Again, some trickiness, we have to resolve the module so that we can access and use the must/may
-    	// attributes that are defined for it and add them to the class definition we create
-        try {
-        	ddm.resolveReferences(this,currentResolver);
-		} catch (DmcValueExceptionSet e) {			
-			ResultException ex = new ResultException();
-			ex.addError("Unresolved references in DSDefinitionModule: " + ddm.getName());
-			
-			for(DmcValueException dve : e.getExceptions()){
-				ex.moreMessages(dve.getMessage());
-			}
-			throw(ex);
-		}
-
-    	DefinitionName moduleClassName = new DefinitionName(ddm.getModuleClassName());
-
-    	// And now we generate a class that represents the module
-        ClassDefinition cd = new ClassDefinition();
-        cd.setName(moduleClassName);
-        cd.setClassType(ClassTypeEnum.STRUCTURAL);
-        cd.setDmdID(ddm.getDmdID());
-        cd.setIsNamedBy(MetaSchemaAG._name);
-        cd.setInternallyGenerated(true);
-        cd.setDsdModuleDefinition(ddm);
-        
-        if (ddm.getSupportDynamicSchemaLoading()){
-        	// If the module supports dynamic schema loading, we add the loadSchemaClass attribute to the module
-        	cd.addMay(MetaSchema._loadSchemaClass);
-        }
-        
-        // We derive the module from the base definition class for the module!
-        cd.setDerivedFrom((ClassDefinition) ddm.getBaseDefinition());
-        
-        // The name of a domain specific definition module is schema.dsdmodulename.DSDefinitionModule
-        // For the associated class, it will be schema.dsdmodulename.ClassDefinition
-        DotName className = new DotName(((DotName) ddm.getDotName().getParentName()).getNameString() + ".ClassDefinition");
-//        DotName nameAndTypeName = new DotName(cd.getName() + ".ClassDefinition");
-        cd.setDotName(className);
-//        cd.setNameAndTypeName(nameAndTypeName);
-
-        cd.addMust(MetaSchemaAG._name);
-        cd.addMay(MetaSchemaAG._description);
-        cd.addMay(MetaSchemaAG._defFiles);
-
-        cd.setFile(ddm.getFile());
-        cd.setLineNumber(ddm.getLineNumber());
-        cd.setDefinedIn(ddm.getDefinedIn());
-        cd.setUseWrapperType(WrapperTypeEnum.EXTENDED);
-        
-        if (ddm.getDescription() != null){
-	    	Iterator<String> it = ddm.getDescription();
-	    	while(it.hasNext()){
-	    		cd.addDescription(it.next());
-	    	}
-        }
-        
-        // Add the attribute that lets us refer to other modules of this kind
-//        cd.addMay(ddm.getModuleDependenceAttribute());
-        
-        for(AttributeDefinition ad: ddm.getMay()){
-        	cd.addMay(ad);
-        }
-        
-        for(AttributeDefinition ad: ddm.getMust()){
-        	cd.addMust(ad);
-        }
-        
-        // Add the required attributes that indicate dependence on other modules
-        addDependenceAttributes(cd, ddm, new TreeSet<String>());
-        
-        addClass(cd);
-        
-        // We add the new class to the schema's list of classes
-        ddm.getDefinedIn().addClassDefList(cd);
-
-    }
-    
-    /**
-     * We recursively add the required dependence attribute to the class definition.
-     * @param cd the class that represents the DSD module being added
-     * @param module the current module
-     * @param modules the set of modules for which we've already added the dependence attribute
-     * @throws DmcValueException  
-     */
-    void addDependenceAttributes(ClassDefinition cd, DSDefinitionModule module, TreeSet<String> modules) throws DmcValueException {
-    	cd.addMay(module.getModuleDependenceAttribute());
-    	modules.add(module.getName().getNameString());
-    	
-		if (module.getRefersToDefsFromDSDSize() > 0){
-			DSDefinitionModuleIterableDMW it = module.getRefersToDefsFromDSD();
-			while(it.hasNext()){
-				DSDefinitionModule mod = it.next();
-				if (!modules.contains(mod.getName().getNameString()))
-					addDependenceAttributes(cd, mod, modules);
-			}
-		}
-
-    }
 
     /**
      * Adds the specified slice definition to the schema if it doesn't already exist.
@@ -1012,25 +1055,10 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         	throw(ex);
         }
         
-        if (checkAndAddDOT(ctd.getDotName(),ctd,globallyUniqueMAP,null) == false){
-        	ResultException ex = new ResultException();
-        	ex.addError(clashMsgDOT(ctd.getObjectName(),ctd,globallyUniqueMAP,"definition names"));
-            currentSchema = null;
-        	throw(ex);
-        }        
-        
         TypeDefinition td  = new TypeDefinition();
         td.setInternallyGenerated(true);
         td.setName(ctd.getName());
-        
-        // The name of a complex type definition is schema.complextype.ComplexTypeDefinition
-        // For the associated type, it will be schema.complextype.TypeDefinition
-        DotName typeName = new DotName((DotName) ctd.getDotName().getParentName(),"TypeDefinition");
-//        DotName nameAndTypeName = new DotName(td.getName() + ".TypeDefinition");
-        td.setDotName(typeName);
-//        td.setNameAndTypeName(nameAndTypeName);
-
-        td.addDescription("This is an internally generated type to represent complex type " + ctd.getName() + " values.");
+        td.setDescription("This is an internally generated type to represent complex type " + ctd.getName() + " values.");
         td.setIsEnumType(false);
         td.setIsRefType(false);
         
@@ -1038,8 +1066,12 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         td.setPrimitiveType(ctd.getDefinedIn().getSchemaPackage() + ".generated.types." + ctd.getName());
         td.setDefinedIn(ctd.getDefinedIn());
                 
+//        td.setDmwIteratorClass(cd.getDmwIteratorClass());
+//        td.setDmwIteratorImport(cd.getDmwIteratorImport());
+                
         // We add the new type to the schema's list of internally generated types
         ctd.getDefinedIn().addInternalTypeDefList(td);
+//        ctd.getDefinedIn().addTypeDefList(td);
         
         internalTypeDefs.put(td.getName(), td);
         
@@ -1062,30 +1094,11 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         	throw(ex);
         }
         
-        if (checkAndAddDOT(ertd.getDotName(),ertd,globallyUniqueMAP,null) == false){
-        	ResultException ex = new ResultException();
-        	ex.addError(clashMsgDOT(ertd.getObjectName(),ertd,globallyUniqueMAP,"definition names"));
-            currentSchema = null;
-        	throw(ex);
-        }        
-        
         TypeDefinition td  = new TypeDefinition();
         td.setInternallyGenerated(true);
         td.setIsExtendedRefType(true);
         td.setName(ertd.getName());
-        
-        // NOTE: At this stage, the extendedReferenceClass attribute hasn't been resolved,
-        // so we're setting the original class based on the name of the extendedReferenceClass
-        td.getDMO().setOriginalClass(ertd.getDMO().getExtendedReferenceClass().cloneMe());
-        
-        // The name of an extended reference definition is schema.extreftype.ExtendedReferenceTypeDefinition
-        // For the associated class, it will be schema.extreftype.TypeDefinition
-        DotName typeName = new DotName((DotName) ertd.getDotName().getParentName(),"TypeDefinition");
-//        DotName nameAndTypeName = new DotName(td.getName() + ".TypeDefinition");
-        td.setDotName(typeName);
-//        td.setNameAndTypeName(nameAndTypeName);
-
-        td.addDescription("This is an internally generated type to represent extendedreference type " + ertd.getName() + " values.");
+        td.setDescription("This is an internally generated type to represent extendedreference type " + ertd.getName() + " values.");
         td.setIsEnumType(false);
         td.setIsRefType(true);
         
@@ -1093,9 +1106,14 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         td.setPrimitiveType(ertd.getDefinedIn().getSchemaPackage() + ".generated.types." + ertd.getName());
         td.setDefinedIn(ertd.getDefinedIn());
                 
+//        td.setDmwIteratorClass(cd.getDmwIteratorClass());
+//        td.setDmwIteratorImport(cd.getDmwIteratorImport());
+                
         // We add the new type to the schema's list of internally generated types
         ertd.getDefinedIn().addInternalTypeDefList(td);
         ertd.getDefinedIn().addTypeDefList(td);
+        
+//        DebugInfo.debug("\n\nAdding EXTENDED REF TYPE: " + td.getName().getNameString() + "  " +  System.identityHashCode(this) +"\n\n");
         
         internalTypeDefs.put(td.getName(), td);
         
@@ -1120,10 +1138,9 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         	ex.addError(clashMsg(sd.getObjectName(),sd,sliceDefs,"slice names"));
         	throw(ex);
         }
-        
-        if (checkAndAddDOT(sd.getDotName(),sd,globallyUniqueMAP,null) == false){
+        if (checkAndAdd(sd.getObjectName(),sd,allDefs) == false){
         	ResultException ex = new ResultException();
-        	ex.addError(clashMsgDOT(sd.getObjectName(),sd,globallyUniqueMAP,"definition names"));
+        	ex.addError(clashMsg(sd.getObjectName(),sd,allDefs,"definition names"));
             throw(ex);
         }
     }
@@ -1139,13 +1156,12 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         	ex.addError(clashMsg(rc.getObjectName(),rc,ruleCategoryDefs,"rule categories"));
         	throw(ex);
         }
-        
-        if (checkAndAddDOT(rc.getDotName(),rc,globallyUniqueMAP,null) == false){
+        if (checkAndAdd(rc.getObjectName(),rc,allDefs) == false){
         	ResultException ex = new ResultException();
-        	ex.addError(clashMsgDOT(rc.getObjectName(),rc,globallyUniqueMAP,"definition names"));
+        	ex.addError(clashMsg(rc.getObjectName(),rc,allDefs,"definition names"));
             throw(ex);
         }
-
+        
         if (performIDChecks){
 	        // Bump up the rule category ID by the amount of schemaBaseID
 	        int base = rc.getDefinedIn().getSchemaBaseID();
@@ -1162,7 +1178,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 
         if (ruleCategoriesByID.get(rc.getRuleCategoryID()) != null){
         	ResultException ex = new ResultException();
-        	ex.addError(clashingIDsMsg(rc.getRuleCategoryID(),rc,ruleCategoriesByID,"ruleCategoryID"));
+        	ex.addError(clashMsg(rc.getRuleCategoryID(),rc,ruleCategoriesByID,"ruleCategoryID"));
         	throw(ex);      	
         }
     }
@@ -1174,14 +1190,17 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * payload for the rule, so the name of the RuleDefinition will be changed to have DEF
      * added to it.
      * @throws DmcValueException 
-     * @throws DmcNameClashException 
      * @throws DmcValueExceptionSet 
      */
-    void addRuleDefinition(RuleDefinition rd) throws ResultException, DmcValueException, DmcNameClashException {
+    void addRuleDefinition(RuleDefinition rd) throws ResultException, DmcValueException {
+    	
+//    	if (rd.getName().getNameString().equals("IntegerRangeRule"))
+//    		DebugInfo.debug("ADDING RULE");
+    	
     	// Again, some trickiness, we have to resolve the rule so that we can access and use the must/may
     	// attributes that are defined for it and add them to the class definition we create
         try {
-			rd.resolveReferences(this,currentResolver);
+			rd.resolveReferences(this);
 		} catch (DmcValueExceptionSet e) {			
 			ResultException ex = new ResultException();
 			ex.addError("Unresolved references in RuleDefinition: " + rd.getName());
@@ -1192,23 +1211,19 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 			throw(ex);
 		}
     	
-    	DefinitionName ruleClassName = new DefinitionName(rd.getName().getNameString() + "Data");
+    	StringName ruleClassName = new StringName(rd.getName().getNameString() + "Data");
     	
         if (checkAndAdd(rd.getObjectName(),rd,ruleDefs) == false){
         	ResultException ex = new ResultException();
         	ex.addError(clashMsg(rd.getObjectName(),rd,ruleDefs,"rule definitions"));
         	throw(ex);
         }
-        
-        // dot name is current schema.ruledef.RuleDefinition. We want just schema.ruledef
-        ruleDefsByDot.put((DotName) rd.getDotName().getParentName(), rd);
-        
-        if (checkAndAddDOT(rd.getDotName(),rd,globallyUniqueMAP,null) == false){
+        if (checkAndAdd(rd.getObjectName(),rd,allDefs) == false){
         	ResultException ex = new ResultException();
-        	ex.addError(clashMsgDOT(rd.getObjectName(),rd,globallyUniqueMAP,"definition names"));
+        	ex.addError(clashMsg(rd.getObjectName(),rd,allDefs,"definition names"));
             throw(ex);
         }
-
+        
         if (performIDChecks){
 	        // Bump up the DMD ID by the amount of schemaBaseID
 	        int base = rd.getDefinedIn().getSchemaBaseID();
@@ -1223,8 +1238,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 	        rd.setDmdID(base + current);
         }
         
-//        ClassDefinition existing = classDefs.get(ruleClassName);
-        ClassDefinition existing = classDefinitions.getDefinition(ruleClassName.getNameString());
+        ClassDefinition existing = classDefs.get(ruleClassName);
         if (existing != null){
         	// We have the class for this rule, just check that it's auto generated
         	if (existing.getInternallyGenerated()){
@@ -1239,7 +1253,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         // going to create a class for this rule with the rule's ID.
         if (classesByID.get(rd.getDmdID()) != null){
         	ResultException ex = new ResultException();
-        	ex.addError(clashingIDsMsg(rd.getDmdID(),rd,classesByID,"dmdID"));
+        	ex.addError(clashMsg(rd.getDmdID(),rd,classesByID,"dmdID"));
         	throw(ex);
         }
         
@@ -1257,13 +1271,6 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         cd.setInternallyGenerated(true);
         cd.setRuleDefinition(rd);
         cd.setIsNamedBy(MetaSchemaAG._ruleName);
-        
-        // The name of a rule definition is schema.ruledef.RuleDefinition
-        // For the associated class, it will be schema.ruledefData.ClassDefinition
-        DotName className = new DotName(((DotName) rd.getDotName().getParentName()).getNameString() + "Data.ClassDefinition");
-//        DotName nameAndTypeName = new DotName(cd.getName() + "Data.ClassDefinition");
-        cd.setDotName(className);
-//        cd.setNameAndTypeName(nameAndTypeName);
 
         cd.addMust(MetaSchemaAG._ruleName);
         cd.addMust(MetaSchemaAG._ruleTitle);
@@ -1276,12 +1283,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         cd.setLineNumber(rd.getLineNumber());
         cd.setDefinedIn(rd.getDefinedIn());
         
-        if (rd.getDescription() != null){
-        	Iterator<String> it = rd.getDescription();
-        	while(it.hasNext()){
-        		cd.addDescription(it.next());
-        	}
-        }
+        if (rd.getDescription() != null)
+        	cd.setDescription(rd.getDescription());
         
         for(AttributeDefinition ad: rd.getMay()){
         	cd.addMay(ad);
@@ -1304,49 +1307,34 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      */
     void addClass(ClassDefinition cd) throws ResultException, DmcValueException {
 
-//        if (checkAndAdd(cd.getObjectName(),cd,classDefs) == false){
-//        	ResultException ex = new ResultException();
-//        	ex.addError(clashMsg(cd.getObjectName(),cd,classDefs,"class names"));
-//        	throw(ex);
-//        }
-        
-        classDefinitions.add(cd);
-        
-        // This name is used to identify references to the class
-        DotName refName 	= new DotName((DotName) cd.getDotName().getParentName(),"ClassDefinitionREF");
-               
-        if (debugClassAdditions)
-        	DebugInfo.debug("Adding class: " + cd.getDotName() + "   " + refName);
-        
-        if (checkAndAddDOT(cd.getDotName(),cd,globallyUniqueMAP,refName) == false){
+        if (checkAndAdd(cd.getObjectName(),cd,classDefs) == false){
         	ResultException ex = new ResultException();
-        	ex.addError(clashMsgDOT(cd.getObjectName(),cd,globallyUniqueMAP,"definition names"));
-            throw(ex);
+        	ex.addError(clashMsg(cd.getObjectName(),cd,classDefs,"class names"));
+        	throw(ex);
         }
-
-        // TODO: revisit abbreviations - this was originally required for LDAP naming, which, if
-        // it's ever done, should be handled in the LDAP mechanisms.
-//        if (cd.getAbbrev() != null){
-//            // We have an abbreviation - so it must also be unique and
-//            // added to the appropriate maps
-//        	DefinitionName abbrevName = new DefinitionName(cd.getAbbrev());
-//            if (checkAndAdd(abbrevName,cd,classDefs) == false){
-//            	ResultException ex = new ResultException();
-//            	ex.addError(clashMsg(abbrevName,cd,classDefs,"class abbreviations"));
-//            	throw(ex);
-//            }
-//            
-//            DotName dotAbbrevName = new DotName(cd.getDefinedIn().getName() + "." + cd.getAbbrev());
-//            
-//            if (checkAndAddDOT(dotAbbrevName,cd,globallyUniqueMAP,null) == false){
-//                DefinitionName errName = new DefinitionName(cd.getDefinedIn().getName() + "." + cd.getAbbrev());
-//            	ResultException ex = new ResultException();
-//            	ex.addError(clashMsgDOT(errName,cd,globallyUniqueMAP,"definition names"));
-//                throw(ex);
-//            }
-//            
-//            classAbbrevs.put(abbrevName,cd);
-//        }
+        
+        if (checkAndAdd(cd.getObjectName(),cd,allDefs) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsg(cd.getObjectName(),cd,allDefs,"definition names"));
+        	throw(ex);
+        }
+        
+        if (cd.getAbbrev() != null){
+            // We have an abbreviation - so it must also be unique and
+            // added to the appropriate maps
+        	StringName abbrevName = new StringName(cd.getAbbrev());
+            if (checkAndAdd(abbrevName,cd,classDefs) == false){
+            	ResultException ex = new ResultException();
+            	ex.addError(clashMsg(abbrevName,cd,classDefs,"class abbreviations"));
+            	throw(ex);
+            }
+            if (checkAndAdd(abbrevName,cd,allDefs) == false){
+            	ResultException ex = new ResultException();
+            	ex.addError(clashMsg(abbrevName,cd,allDefs,"definition names"));
+            	throw(ex);
+            }
+            classAbbrevs.put(abbrevName,cd);
+        }
         
         ///////////////////////////////////////////////////////////////////////
         
@@ -1388,7 +1376,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         
         if (classesByID.get(cd.getDmdID()) != null){
         	ResultException ex = new ResultException();
-        	ex.addError(clashingIDsMsg(cd.getDmdID(),cd,classesByID,"dmdID"));
+        	ex.addError(clashMsg(cd.getDmdID(),cd,classesByID,"dmdID"));
         	throw(ex);
         }
         classesByID.put(cd.getDmdID(), cd);
@@ -1403,11 +1391,11 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         // the ClassDefinition - which should be okay, because classes are the last things
         // that're loaded.
         try {
-			cd.resolveReferences(this,currentResolver);
+			cd.resolveReferences(this);
 		} catch (DmcValueExceptionSet e) {			
 			ResultException ex = new ResultException();
 			ex.addError("Unresolved references in ClassDefinition: " + cd.getName());
-			ex.addError(cd.toOIF());
+//			ex.setLocationInfo(cd.getFile(), cd.getLineNumber());
 			
 			for(DmcValueException dve : e.getExceptions()){
 				ex.moreMessages(dve.getMessage());
@@ -1454,11 +1442,14 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         	}
         }
         
+//        cd.updateImplemented();
+
         // And now, set the java class that will be used with the DmwObjectFactory
         if (cd.getJavaClass() == null){
         	if (cd.getUseWrapperType() == WrapperTypeEnum.BASE)
         		cd.setJavaClass(cd.getDmwImport());
         	else if (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED){
+//        		DebugInfo.debug("    --- JAVA CLASS  " + cd.getDmeImport());
         		cd.setJavaClass(cd.getDmeImport());
         	}
         }
@@ -1481,6 +1472,22 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
             }
         }
         
+
+//        Iterator<ClassDefinition> cdit = null;
+//        if ( (cdit = cd.getAllowedParents()) != null){
+//            while(cdit.hasNext()){
+//                ClassDefinition p = cdit.next();
+//                p.updateAllowedSubcomps(cd);
+//            }
+//        }
+//
+//        if ( (cdit = cd.getAllowedChildren()) != null){
+//            while(cdit.hasNext()){
+//                ClassDefinition c = cdit.next();
+//                cd.updateAllowedSubcomps(c);
+//            }
+//        }
+
         Iterator<ActionDefinition> acdit = null;
         if ( (acdit = cd.getActions()) != null){
             while(acdit.hasNext()){
@@ -1498,28 +1505,19 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 	        // for them. The internal type is DmcType<classname>REF.
 	        
 	        TypeDefinition td  = new TypeDefinition();
+//	        td.addObjectClass(MetaSchemaAG._TypeDefinition);
 	        
 	        td.setInternallyGenerated(true);
 	        td.setName(cd.getName());
-	        
-	        // The name of a class definition is schema.class.ClassDefinition
-	        // For the associated type, it will be schema.class.TypeDefinition
-	        DotName typeName 	= new DotName((DotName) cd.getDotName().getParentName(),"TypeDefinition");
-//	        DotName nameAndTypeName 	= new DotName(td.getName() + ".TypeDefinition");
-	        
-	        td.setDotName(typeName);
-//	        td.setNameAndTypeName(nameAndTypeName);
-	        
-	        td.addDescription("This is an internally generated type to allow references to " + cd.getName() + " values.");
+	        td.setDescription("This is an internally generated type to allow references to " + cd.getName() + " values.");
 	        td.setIsEnumType(false);
 	        td.setIsRefType(true);
 	        
 	        if (cd.getIsNamedBy() != null){
-	        	// We only need a helper class when we have named objects - regular old object references
+	        	// We only need a help class when we have named objects - regular old object references
 	        	// can get by without this
 	        	td.setHelperClassName(cd.getDefinedIn().getSchemaPackage() + ".generated.types." + cd.getName() + "REF");
 	        	
-	        	// TODO: MAKE THIS A RULE
 	        	if (cd.getIsNamedBy().getValueType() != ValueTypeEnum.SINGLE){
 	        		ResultException ex = new ResultException();
 	        		ex.addError("The naming attribute: " + cd.getIsNamedBy().getName() + " for class: " + cd.getName() + " must be valueType SINGLE");
@@ -1537,6 +1535,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 	        	// Tricky stuff needed for code generation. If the ClassDefinition has a javaClass specified,
 	        	// it means that the object is wrapped and we need this javaClass to know what the auxHolder
 	        	// type should be in the generated wrapper class.
+	        	
+//	        	DebugInfo.debug("    >>> AUX HOLDER  " + cd.getJavaClass());
 	        	td.setAuxHolderImport(cd.getJavaClass());
 	        }
 	        
@@ -1555,13 +1555,6 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 	        cd.getDefinedIn().addInternalTypeDefList(td);
 	        
 	        internalTypeDefs.put(td.getName(), td);
-	        
-	        if (checkAndAddDOT(td.getDotName(),td,globallyUniqueMAP,null) == false){
-	        	ResultException ex = new ResultException();
-	        	ex.addError(clashMsgDOT(td.getObjectName(),td,globallyUniqueMAP,"definition names"));
-	        	throw(ex);
-	        }
-
         }
 
         if (extensions.size() > 0){
@@ -1578,11 +1571,14 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      */
     void addAttribute(AttributeDefinition ad) throws ResultException, DmcValueException {
     	
-    	attributeDefinitions.add(ad);
-    	
-        if (checkAndAddDOT(ad.getDotName(),ad,globallyUniqueMAP,null) == false){
+        if (checkAndAdd(ad.getObjectName(),ad,attrDefs) == false){
         	ResultException ex = new ResultException();
-        	ex.addError(clashMsgDOT(ad.getObjectName(),ad,globallyUniqueMAP,"definition names"));
+        	ex.addError(clashMsg(ad.getObjectName(),ad,attrDefs,"attribute names"));
+        	throw(ex);
+        }
+        if (checkAndAdd(ad.getObjectName(),ad,allDefs) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsg(ad.getObjectName(),ad,allDefs,"definition names"));
         	throw(ex);
         }
         
@@ -1622,7 +1618,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         
     	if (attrByID.get(ad.getDmdID()) != null){
         	ResultException ex = new ResultException();
-        	ex.addError(clashingIDsMsg(ad.getDmdID(),ad,attrByID,"dmdID"));
+        	ex.addError(clashMsg(ad.getDmdID(),ad,attrByID,"dmdID"));
         	throw(ex);
         }
         attrByID.put(ad.getDmdID(), ad);
@@ -1630,18 +1626,39 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         if (ad.getAbbrev() != null){
             // We have an abbreviation - so it must also be unique and
             // added to the appropriate maps
-        	DefinitionName abbrevName = new DefinitionName(ad.getAbbrev());
-        	
-            DotName dotAbbrevName = new DotName(ad.getDefinedIn().getName() + "." + ad.getAbbrev());
-            if (checkAndAddDOT(dotAbbrevName,ad,globallyUniqueMAP,null) == false){
-            	DefinitionName errName = new DefinitionName(ad.getDefinedIn().getName() + "." + ad.getAbbrev());
+        	StringName abbrevName = new StringName(ad.getAbbrev());
+            if (checkAndAdd(abbrevName,ad,attrDefs) == false){
             	ResultException ex = new ResultException();
-            	ex.addError(clashMsgDOT(errName,ad,globallyUniqueMAP,"definition names"));
+            	ex.addError(clashMsg(ad.getObjectName(),ad,attrDefs,"attribute abbreviation"));
             	throw(ex);
             }
-
+            if (checkAndAdd(abbrevName,ad,allDefs) == false){
+            	ResultException ex = new ResultException();
+            	ex.addError(clashMsg(ad.getObjectName(),ad,allDefs,"definition names"));
+            	throw(ex);
+            }
             attrAbbrevs.put(abbrevName,ad);
         }
+        
+// reposName moved to the DMR SCHEMA
+//        if (ad.getReposName() != null){
+//            // We have a repository name - so it must also be unique and
+//            // added to the appropriate maps
+//            if (checkAndAdd(ad.getReposName(),ad,attrDefs) == false){
+//            	ResultException ex = new ResultException();
+//            	ex.addError(clashMsg(ad.getObjectName(),ad,attrDefs,"repository names"));
+//            	throw(ex);
+//            }
+//            if (checkAndAdd(ad.getReposName(),ad,allDefs) == false){
+//            	ResultException ex = new ResultException();
+//            	ex.addError(clashMsg(ad.getObjectName(),ad,allDefs,"definition names"));
+//            	throw(ex);
+//            }
+//            reposNames.put(ad.getReposName(),ad);
+//        }
+
+        if (ad.getObjectName().getNameString().length() > longestAttrName)
+            longestAttrName = ad.getObjectName().getNameString().length();
         
         if (extensions.size() > 0){
         	for(SchemaExtensionIF ext : extensions.values()){
@@ -1656,19 +1673,24 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * @throws DmcValueException 
      */
     void addType(TypeDefinition td) throws ResultException, DmcValueException {
-
+    	
+//    	if (td.getObjectName().getNameString().equals("SomeRelation")){
+//    		DebugInfo.debug("HERE " + System.identityHashCode(this));
+//    	}
+    	
+//    	DebugInfo.debugWithTrace("addType() - " + td.getObjectName());
+    	
         if (checkAndAdd(td.getObjectName(),td,typeDefs) == false){
         	ResultException ex = new ResultException();
             ex.addError(clashMsg(td.getObjectName(),td,typeDefs,"type names"));
             throw(ex);
         }
-
-        if (checkAndAddDOT(td.getDotName(),td,globallyUniqueMAP,null) == false){
+        if (checkAndAdd(td.getObjectName(),td,allDefs) == false){
         	ResultException ex = new ResultException();
-        	ex.addError(clashMsgDOT(td.getObjectName(),td,globallyUniqueMAP,"definition names"));
-        	throw(ex);
+        	ex.addError(clashMsg(td.getObjectName(),td,allDefs,"definition names"));
+            throw(ex);
         }
-        
+
         if (td.getObjectName().getNameString().length() > longestTypeName)
             longestTypeName = td.getObjectName().getNameString().length();
      
@@ -1686,33 +1708,13 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         }
     }
     
-    
     /**
      * Attempts to add the specified definition. If the definition clashes with
      * any existing definition, we throw an exception.
      * @throws DmcValueException 
-     * @throws DmcNameClashException 
      * @throws DmcValueExceptionSet 
      */
-    public void addDefinition(DmsDefinition def, DmcNameClashResolverIF clashResolver) throws ResultException, DmcValueException, DmcNameClashException {
-    	currentResolver = clashResolver;
-    	
-    	addDefinition(def);
-    	
-    	currentResolver = this;
-    }
-    
-    /**
-     * Attempts to add the specified definition. If the definition clashes with
-     * any existing definition, we throw an exception.
-     * @throws DmcValueException 
-     * @throws DmcNameClashException 
-     * @throws DmcValueExceptionSet 
-     */
-    void addDefinition(DmsDefinition def) throws ResultException, DmcValueException, DmcNameClashException {
-    	
-    	if (def.getDotName() == null)
-    		DebugInfo.debug("NO DOT NAME");
+    public void addDefinition(DmsDefinition def) throws ResultException, DmcValueException {
     	
     	if (def instanceof AttributeDefinition)
     		this.addAttribute((AttributeDefinition) def);
@@ -1730,15 +1732,13 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     		this.addRuleCategory((RuleCategory) def);
     	else if (def instanceof RuleDefinition)
     		this.addRuleDefinition((RuleDefinition) def);
-    	// Note: test for extended ref before complex type because it is derived from complex type
+    	// Note: test for extended ref before conplex type because it is derived from complex type
     	else if (def instanceof ExtendedReferenceTypeDefinition)
     		this.addExtendedReferenceType((ExtendedReferenceTypeDefinition) def);
     	else if (def instanceof ComplexTypeDefinition)
     		this.addComplexType((ComplexTypeDefinition) def);
     	else if (def instanceof SchemaDefinition)
     		this.addSchema((SchemaDefinition) def);
-    	else if (def instanceof DSDefinitionModule)
-    		this.addDefinitionModule((DSDefinitionModule) def, false);
         else{
         	ResultException ex = new ResultException();
         	ex.addError("The specified object is not a DmsDefinition object: \n" + def.toOIF());
@@ -1769,6 +1769,34 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     }
     
     /**
+     * This generic method checks that the name of the existing definition type doesn't
+     * already exist in the specified map or in the allDefs map. If so, the
+     * definition is added to the map and to the allDefs map, if not, an exception is thrown.
+     * @param def     A definition to be added.
+     * @param defmap  The map containing these types of definitions.
+     * @param mapName The string to use in error messages to describe the type of definition
+     * @param longest The length of the longest name of this type yet found.
+     * being added e.g. "types names".
+     * @throws ResultException
+     */
+//    void addDefinition(DmsDefinition def, HashMap<String,? extends DmsDefinition> defmap, String mapName, IntegerVar longest) throws ResultException {
+//        if (checkAndAdd(def.getObjectName(),def,defmap) == false){
+//        	ResultException ex = new ResultException();
+//            ex.addError(clashMsg(def.getObjectName(),def,defmap,mapName));
+//            throw(ex);
+//        }
+//        if (checkAndAdd(def.getObjectName(),def,allDefs) == false){
+//        	ResultException ex = new ResultException();
+//        	ex.addError(clashMsg(def.getObjectName(),def,allDefs,"definition names"));
+//            throw(ex);
+//        }
+//
+//        if (def.getObjectName().length() > longest.intValue())
+//            longest.set(def.getObjectName().length());
+//    
+//    }
+
+    /**
      * Adds the specified attribute definition to the schema if it doesn't already exist.
      * @throws DmcValueException 
      */
@@ -1779,44 +1807,53 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
             throw(ex);
         }
         
-        if (checkAndAddDOT(evd.getDotName(),evd,globallyUniqueMAP,null) == false){
-        	ResultException ex = new ResultException();
-        	ex.addError(clashMsgDOT(evd.getObjectName(),evd,globallyUniqueMAP,"definition names"));
-        	throw(ex);
-        }
+//        DebugInfo.debug(evd.getName().toString());
+        
+//        if (evd.getDefinedIn() == MetaSchemaAG._metaSchema){
+//        	
+//        }
+//        else{
+            // Things get a little tricky here - although EnumDefinitions are enums, they get
+            // turned into internally generated TypeDefinitions, so we don't add them to the
+            // allDefs map as EnumDefinitions.
+	        TypeDefinition td  = new TypeDefinition();
+	        td.setInternallyGenerated(true);
+	        td.setName(evd.getName());
+	        td.setEnumName(evd.getName().getNameString());
+	        td.setDescription("This is an internally generated type to allow references to " + evd.getName() + " values.");
+	        td.setIsEnumType(true);
+	        td.setTypeClassName(evd.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + evd.getName());
+	        td.setPrimitiveType(evd.getDefinedIn().getSchemaPackage() + ".generated.enums." + evd.getName());
+	//        td.addObjectClass(MetaSchemaAG._TypeDefinition);
+	        td.setDefinedIn(evd.getDefinedIn());
+	        
+	        // Issue 4 fix
+	        if (evd.getNullReturnValue() != null)
+	        	td.setNullReturnValue(evd.getNullReturnValue());
+	        
+	        internalTypeDefs.put(td.getName(), td);
+	        
+	        // We add the new type to the schema's list of internally generated types
+	        evd.getDefinedIn().addInternalTypeDefList(td);
+        
+// Example
+//        _ClassTypeEnumReference      .addObjectClass(_TypeDefinition);
+//        _ClassTypeEnumReference      .setDescription("This is an internally generated type to allow references to ClassTypeEnum objects.");
+//        _ClassTypeEnumReference      .setInternallyGenerated("true");
+//        _ClassTypeEnumReference      .setIsEnumType("true");
+//        _ClassTypeEnumReference      .setName("ClassTypeEnumReference");
+//        _ClassTypeEnumReference      .setTypeClassName("org.dmd.dms.generated.types.DmcTypeClassTypeEnum");
+//        _ClassTypeEnumReference      .setDefinedIn(this);
 
-        // Things get a little tricky here - although EnumDefinitions are enums, they get
-        // turned into internally generated TypeDefinitions, so we don't add them to the
-        // allDefs map as EnumDefinitions.
-        TypeDefinition td  = new TypeDefinition();
-        td.setInternallyGenerated(true);
-        td.setName(evd.getName());
+//        if (checkAndAdd(evd.getObjectName(),evd,allDefs) == false){
+//        	ResultException ex = new ResultException();
+//        	ex.addError(clashMsg(evd.getObjectName(),evd,allDefs,"definition names"));
+//            throw(ex);
+//        }
         
-        // The name of an enum definition is schema.enum.EnumDefinition
-        // For the associated type, it will be schema.enum.TypeDefinition
-        DotName typeName = new DotName((DotName) evd.getDotName().getParentName(),"TypeDefinition");
-//        DotName nameAndTypeName = new DotName(td.getName() + ".TypeDefinition");
-        td.setDotName(typeName);
-//        td.setNameAndTypeName(nameAndTypeName);
-
-        td.setEnumName(evd.getName().getNameString());
-        td.addDescription("This is an internally generated type to allow references to " + evd.getName() + " values.");
-        td.setIsEnumType(true);
-        td.setTypeClassName(evd.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + evd.getName());
-        td.setPrimitiveType(evd.getDefinedIn().getSchemaPackage() + ".generated.enums." + evd.getName());
-        td.setDefinedIn(evd.getDefinedIn());
-        
-        // Issue 4 fix
-        if (evd.getNullReturnValue() != null)
-        	td.setNullReturnValue(evd.getNullReturnValue());
-        
-        internalTypeDefs.put(td.getName(), td);
-        
-        // We add the new type to the schema's list of internally generated types
-        evd.getDefinedIn().addInternalTypeDefList(td);
-    
-        // Add the type
-        addType(td);
+	        // Add the type
+	        addType(td);
+//        }
 
         if (evd.getObjectName().getNameString().length() > longestEnumName)
             longestActionName = evd.getObjectName().getNameString().length();
@@ -1826,6 +1863,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         		ext.addEnum(evd);
         	}
         }
+
 
         return(true);
     }
@@ -1840,7 +1878,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     	// references that it contains. This should be okay because the attributes
     	// should have been loaded first
     	try {
-			actd.resolveReferences(this,currentResolver);
+			actd.resolveReferences(this);
 		} catch (DmcValueExceptionSet e) {
 			e.printStackTrace();
 		}
@@ -1850,13 +1888,12 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         	ex.addError(clashMsg(actd.getObjectName(),actd,actionDefs,"action names"));
             throw(ex);
         }
-
-        if (checkAndAddDOT(actd.getDotName(),actd,globallyUniqueMAP,null) == false){
+        if (checkAndAdd(actd.getObjectName(),actd,allDefs) == false){
         	ResultException ex = new ResultException();
-        	ex.addError(clashMsgDOT(actd.getObjectName(),actd,globallyUniqueMAP,"definition names"));
-        	throw(ex);
+        	ex.addError(clashMsg(actd.getObjectName(),actd,allDefs,"definition names"));
+            throw(ex);
         }
-        
+
         if (actd.getObjectName().getNameString().length() > longestActionName)
             longestActionName = actd.getObjectName().getNameString().length();
 
@@ -1899,8 +1936,9 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * @param map the map that may be updated
      * @returns false if the key already exists and true otherwise
      */
+//    private boolean checkAndAdd(Object key, Object obj, HashMap map){
     @SuppressWarnings({ "unchecked", "rawtypes" })
-	private boolean checkAndAdd(DefinitionName key, DmsDefinition obj, HashMap map){
+	private boolean checkAndAdd(StringName key, DmsDefinition obj, HashMap map){
         if (map.containsKey(key))
             return(false);
         else
@@ -1908,134 +1946,6 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 
         return(true);
     }
-
-    /**
-     * 
-     * @param key
-     * @param obj
-     * @param map
-     * @param refName specified in the case of class definitions
-     * @return
-     */
-	private boolean checkAndAddDOT(DotName key, DmsDefinition obj, HashMap<DotName,DmsDefinition> map, DotName refName){
-//		defsByTypeDOT
-//		DebugInfo.debug("Adding: " + key);
-		
-//		if (key.getNameString().contains("TypeDefinition.TypeDefinition")){
-//			DebugInfo.debugWithTrace(key.getNameString());
-//		}
-//		if (refName != null)
-//			DebugInfo.debug("Adding REF Type: " + refName);
-			
-        if (map.containsKey(key)){
-    		DebugInfo.debug("Could not add to globallyUniqueMAP: " + key);
-        	
-            return(false);
-        }
-        else{
-//    		DebugInfo.debug("Adding to globallyUniqueMAP - " + obj.getConstructionClassName() + ": " + key);
-            map.put(key,obj);
-    		if (refName != null)
-    			map.put(refName, obj);
-            
-            DotName defAndType 	= key.trimRoot();
-            
-            //TODO: this should be generalized to handle any "module"
-            if (obj instanceof SchemaDefinition){
-            	defAndType = (DotName) key.getParentName();
-            }
-            
-            ArrayList<DmsDefinition>	defs = clashMAP.get(defAndType);
-            
-            if (debugClashmap)
-            	DebugInfo.debug("Adding to clashMAP - " + obj.getConstructionClassName() + ": " + defAndType + "\n\n");
-    		
-            if (defs == null){
-            	defs = new ArrayList<DmsDefinition>(1);
-            	defs.add(obj);
-            	clashMAP.put(defAndType, defs);
-            	
-            	// When creating new domain specific definition modules, we need genericity when
-            	// it comes to defining the modules and indicating which definitions are part
-            	// of the module. The usesDefinition attribute is of type DSDefinition, but
-            	// when a new ClassDefinition is added (which indicates new kind of domain related 
-            	// definition, it's added as definition.ClassDefinition. However, when we try to 
-            	// resolve a reference via the usesDefinition attribute, it's expecting to refer
-            	// to definition.DSDefinition - so, we add these variants here.
-            	if (obj.getConstructionClassInfo() == MetaDMSAG.__ClassDefinition){
-            		addBaseClassVariants(obj, obj.getConstructionClassInfo().derivedFrom, map);
-            	}
-            }
-            else{
-            	if (debugClashmap)
-            		DebugInfo.debug("CLASHING definition");
-            	defs.add(obj);
-            }
-            
-            //
-            
-            if (refName != null){
-                DotName classRefKey 	= refName.trimRoot();
-                
-            	if (debugClashmap)
-            		DebugInfo.debug("Adding REF Type: " + refName + "    *" + classRefKey + "*" + "   clashMap: " + System.identityHashCode(clashMAP));
-
-                defs = clashMAP.get(classRefKey);            	
-                if (defs == null){
-                	defs = new ArrayList<DmsDefinition>(1);
-                	defs.add(obj);
-                	
-                	clashMAP.put(classRefKey, defs);
-                }
-                else{
-                	if (debugClashmap)
-                		DebugInfo.debug("CLASHING CLASSREF definition");
-                	
-                	defs.add(obj);
-                }
-            }
-            
-        }
-
-        return(true);
-    }
-	
-	/**
-	 * 
-	 * @param obj the definition being added
-	 * @param ci the class info for the variant being added
-	 * @param map the map to which we're adding the definition
-	 */
-	void addBaseClassVariants(DmsDefinition obj, DmcClassInfo ci, HashMap<DotName,DmsDefinition> map){
-		
-		if (ci != null){
-			try {
-				DotName dn = new DotName(obj.getName() + "." + ci.name);				
-	            ArrayList<DmsDefinition>	defs = clashMAP.get(dn);
-	            
-	            if (debugClassAdditions)
-	            	DebugInfo.debug("Adding to VARIANT clashMAP - " + obj.getConstructionClassName() + ": " + dn + "\n\n");
-	            
-	            if (defs == null){
-	            	defs = new ArrayList<DmsDefinition>(1);
-	            	defs.add(obj);
-	            	clashMAP.put(dn, defs);
-	            }
-	            else{
-	                if (debugClassAdditions)
-	                	DebugInfo.debug("CLASHING definition");
-	                
-	            	defs.add(obj);
-	            }
-			} catch (DmcValueException e) {
-				throw(new IllegalStateException("Couldn't construct a DotName from \"" + obj.getName() + "." + ci.name + "\""));
-			}
-		}
-		
-		if (ci.derivedFrom != null){
-			addBaseClassVariants(obj, ci.derivedFrom, map);
-		}
-	}
 
     /**
      * This function checks to see whether the specified key exists in the hashmap. If not,
@@ -2060,52 +1970,68 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      */
     public String toString(){
     	int longest = longestClassName;
+//        Iterator<AttributeDefinition> adit = attrDefs.values().iterator();
+//        Iterator<ClassDefinition> cdit = classDefs.values().iterator();
+//        AttributeDefinition ad  = null;
+//        ClassDefinition     cd  = null;
         StringBuffer    sb  = new StringBuffer();
         PrintfFormat	format = null;
         
-        if (attributeDefinitions.getLongestName() > longest)
-        	longest = attributeDefinitions.getLongestName();
+        if (longestAttrName > longest)
+        	longest = longestAttrName;
         
         String	longestStr = "" + longest;
         format = new PrintfFormat("%-" + longestStr + "s ");
 
         sb.append("*** Attributes\n");
-        TreeMap<DefinitionName,AttributeDefinition> sattrs = new TreeMap<DefinitionName, AttributeDefinition>();
+        TreeMap<StringName,AttributeDefinition> sattrs = new TreeMap<StringName, AttributeDefinition>();
         
-        for(AttributeDefinition ad: attributeDefinitions.values())
+        for(AttributeDefinition ad : attrDefs.values())
         	sattrs.put(ad.getName(), ad);
         
         for(AttributeDefinition ad : sattrs.values())
             sb.append(format.sprintf(ad.getObjectName()) + ad.getDefinedIn().getName() + "\n");
         
+
         sb.append("*** Classes\n");
-//        TreeMap<DefinitionName,ClassDefinition> scdefs = new TreeMap<DefinitionName, ClassDefinition>();
-//        
-//        for(ClassDefinition cd : classDefs.values())
-//        	scdefs.put(cd.getName(), cd);
-//        
-//        for(ClassDefinition cd : scdefs.values()){
-//            sb.append(format.sprintf(cd.getObjectName()));
-//            if (cd.getAbbrev() != null)
-//                sb.append(" AB " + cd.getAbbrev());
-//            sb.append(cd.getDefinedIn().getName() + "\n");
-//        }
-       
-        for(ClassDefinition cd : classDefinitions.values()){
-          sb.append(format.sprintf(cd.getObjectName()));
-          if (cd.getAbbrev() != null)
-              sb.append(" AB " + cd.getAbbrev());
-          sb.append(cd.getDefinedIn().getName() + "\n");
-        }
+        TreeMap<StringName,ClassDefinition> scdefs = new TreeMap<StringName, ClassDefinition>();
         
+        for(ClassDefinition cd : classDefs.values())
+        	scdefs.put(cd.getName(), cd);
+        
+        for(ClassDefinition cd : scdefs.values()){
+            sb.append(format.sprintf(cd.getObjectName()));
+            if (cd.getAbbrev() != null)
+                sb.append(" AB " + cd.getAbbrev());
+            sb.append(cd.getDefinedIn().getName() + "\n");
+        }
+       
         return(new String(sb.toString()));
     }
     
     
 	@Override
 	public DmcNamedObjectIF findNamedObject(DmcObjectName name) {
-		throw(new IllegalStateException("The SchemaManager is designed to work with ambiguous naming. Use DmcObject.resolveReferences(DmcNameResolverWithClashSupportIF, DmcNameClashResolverIF)\n\n" + DebugInfo.getCurrentStack()));
+    	// HACK HACK HACK
+    	// When we added actual support for the __objectClass attribute in DmcObject, we
+    	// got into a bit of trouble with the meta schema. We needed to resolve the objectClass,
+    	// but we hadn't yet loaded the ClassDefinition for ClassDefinition! We circumvent this
+    	// issue here by directly accessing the the meta schema's instantiated ClassDefinition.
+    	if (name.getNameString().equals("ClassDefinition")){
+    		return(MetaSchema._ClassDefinition);
+    	}
+//    	else if (name.getNameString().equals("metaSchema")){
+        else if (name.getNameString().equals("meta")){
+//DebugInfo.debug("META SCHEMA NAME CHANGE!!!!");
+    		// And another bit of magic - the class definitions of the metaSchema are
+    		// loaded before the schema definition for the meta schema
+//    		DebugInfo.debug("METASCHEMA");
+    		return(MetaSchema._metaSchema);
+    	}
+
+        return((DmcNamedObjectIF)allDefs.get(name));
 	}
+	
 
 	@Override
 	public DmcNamedObjectIF findNamedObject(DmcObjectName name, int attributeID) {
@@ -2171,20 +2097,59 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     
 	@Override
 	public DmcObject findNamedDMO(DmcObjectName name) {
-		throw(new IllegalStateException("The SchemaManager is designed to work with ambiguous naming. Use DmcObject.resolveReferences(DmcNameResolverWithClashSupportIF, DmcNameClashResolverIF)\n\n" + DebugInfo.getCurrentStack()));
+		DmsDefinition def = allDefs.get(name);
+		if (def == null)
+			return(null);
+		return(def.getDmcObject());
 	}
 
     /**
      * Returns the definition with the specified name if it exists.
      */
     public DmcNamedObjectIF findNamedObject(String name){
-		throw(new IllegalStateException("The SchemaManager is designed to work with ambiguous naming. Use DmcObject.resolveReferences(DmcNameResolverWithClashSupportIF, DmcNameClashResolverIF)\n\n" + DebugInfo.getCurrentStack()));
+//    	DebugInfo.debug("Looking for: " + name);
+    	StringName key = new StringName(name);
+//    	try {
+//			nameKey.setNameString(name);
+//		} catch (DmcValueException e) {
+//			e.printStackTrace();
+//		}
+    	
+    	// HACK HACK HACK
+    	// When we added actual support for the __objectClass attribute in DmcObject, we
+    	// got into a bit of trouble with the meta schema. We needed to resolve the objectClass,
+    	// but we hadn't yet loaded the ClassDefinition for ClassDefinition! We circumvent this
+    	// issue here by directly accessing the the meta schema's instantiated ClassDefinition.
+    	if (name.equals("ClassDefinition")){
+    		return(MetaSchema._ClassDefinition);
+    	}
+    	
+        return((DmcNamedObjectIF)allDefs.get(key));
+    }
+
+    /**
+     * If the global dictionary hasn't been created, it's generated from the
+     * hash of all identifiers.
+     */
+    public Dictionary getDict(){
+        if (dict == null){
+            Iterator<StringName>    it  = allDefs.keySet().iterator();
+            int         id = Token.CUSTOM+1;
+            StringName  key = null;
+
+            dict = new Dictionary();
+            while(it.hasNext()){
+                key = (StringName)it.next();
+                dict.add(new Token(key.getNameString(),id++,allDefs.get(key)));
+            }
+        }
+        return(dict);
     }
 
     /**
      * Returns a nice error message for a clashing definition name.
      */
-    String clashMsg(DefinitionName defName, DmsDefinition newDef, HashMap<DefinitionName, ? extends DmsDefinition> defMap, String defType){
+    String clashMsg(StringName defName, DmsDefinition newDef, HashMap<StringName, ? extends DmsDefinition> defMap, String defType){
         DmsDefinition    existing = defMap.get(defName);
         SchemaDefinition ga1      = existing.getDefinedIn();
         SchemaDefinition ga2      = newDef.getDefinedIn();
@@ -2195,21 +2160,10 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
             return(new String("Clashing " + defType + ": " + defName + " - Initially defined as part of " + ga1.getObjectName() + " - Redefined in " + ga2.getObjectName()));
     }
 
-    String clashMsgDOT(DefinitionName defName, DmsDefinition newDef, HashMap<DotName, ? extends DmsDefinition> defMap, String defType){
-        DmsDefinition    existing = defMap.get(defName);
-        SchemaDefinition ga1      = existing.getDefinedIn();
-        SchemaDefinition ga2      = newDef.getDefinedIn();
-
-        if (ga2 == null)
-            return(new String("Clashing " + defType + ": " + defName + " - Initially defined as part of " + ga1.getObjectName() + " - Redefined in " + currentSchema.getObjectName()));
-        else
-            return(new String("Clashing " + defType + ": " + defName + " - Initially defined as part of " + ga1.getObjectName() + " - Redefined in " + ga2.getObjectName()));
-    }
-
     /**
      * Returns a nice error message for a clashing definition name.
      */
-    String clashMsg(DefinitionName defName, DmsDefinition newDef, TreeMap<DefinitionName, ? extends DmsDefinition> defMap, String defType){
+    String clashMsg(StringName defName, DmsDefinition newDef, TreeMap<StringName, ? extends DmsDefinition> defMap, String defType){
     	DmsDefinition    existing = defMap.get(defName);
     	SchemaDefinition ga1      = existing.getDefinedIn();
     	SchemaDefinition ga2      = newDef.getDefinedIn();
@@ -2228,7 +2182,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     /**
      * Returns a nice error message for a clashing definition identifier.
      */
-    String clashingIDsMsg(Integer defID, DmsDefinition newDef, TreeMap<Integer, ? extends DmsDefinition> defMap, String defType){
+    String clashMsg(Integer defID, DmsDefinition newDef, TreeMap<Integer, ? extends DmsDefinition> defMap, String defType){
     	DmsDefinition    existing = defMap.get(defID);
     	SchemaDefinition ga1      = existing.getDefinedIn();
     	SchemaDefinition ga2      = newDef.getDefinedIn();
@@ -2404,41 +2358,29 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * given name.
      */
     public AttributeDefinition adef(String n){
+//    	DebugInfo.debug("Looking for attribute: " + n);
         AttributeDefinition rc = isAttribute(n);
         if (rc == null){
+//        	DebugInfo.debug("    Couldn't find it\n");
+//            MetaSchema.traceLog.error("Attribute definition not found - corresponding schema may not be loaded: " + n);
+//            MetaSchema.traceLog.error(DebugInfo.getCurrentStack());
             return(null);
         }
         else{
+//        	DebugInfo.debug("    Found it\n");
             return(rc);
         }
-    }
-    
-    public AttributeDefinition adef(DotName dn){
-    	return(attributeDefinitions.getDefinition(dn));
     }
     
     /**
      * This function will return the class definition associated with the
      * given name.
-     * @throws DmcNameClashException 
-     * @throws DmcValueException  
      */
-    public ClassDefinition cdef(String n) throws DmcNameClashException, DmcValueException {
-    	if (n.contains(".")){
-    		try {
-				DefinitionName dn = new DefinitionName(n);
-	    		DmsDefinition def = globallyUniqueMAP.get(dn);
-	    		if (def instanceof ClassDefinition)
-	    			return (ClassDefinition) (def);
-	    		return(null);
-			} catch (DmcValueException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-    	}
-    	
+    public ClassDefinition cdef(String n){
         ClassDefinition rc = isClass(n);
         if (rc == null){
+//            MetaSchema.traceLog.error("Class definition not found - corresponding schema may not be loaded: " + n);
+//            MetaSchema.traceLog.error(DebugInfo.getCurrentStack());
             return(null);
         }
         else
@@ -2452,6 +2394,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     public TypeDefinition tdef(String n){
         TypeDefinition rc = isType(n);
         if (rc == null){
+//            MetaSchema.traceLog.error("Invalid type definition access: " + n);
+//            MetaSchema.traceLog.error(DebugInfo.getCurrentStack());
             return(null);
         }
         else
@@ -2465,25 +2409,12 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     public ActionDefinition actdef(String n){
         ActionDefinition rc = isAction(n);
         if (rc == null){
+//            MetaSchema.traceLog.error("Invalid action definition access: " + n);
+//            MetaSchema.traceLog.error(DebugInfo.getCurrentStack());
             return(null);
         }
         else
             return(rc);
-    }
-    
-    /**
-     * Convenience method to create a DefinitionName.
-     * @param n the name string
-     * @return a defniition name based on the string.
-     */
-    DefinitionName getDefName(String n){
-    	DefinitionName rc = null;
-    	try {
-			rc = new DefinitionName(n);
-		} catch (DmcValueException e) {
-			e.printStackTrace();
-		}
-		return(rc);
     }
 
     /**
@@ -2491,40 +2422,102 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * be resolved.
      * @param sd The schema to be resolved.
      * @throws ResultException  
-     * @throws DmcNameClashException 
-     * @throws DmcValueException 
      * @throws DmcValueExceptionSet 
      */
-	public void resolveReferences(SchemaDefinition sd, DmcNameClashResolverIF clashResolver) throws ResultException, DmcNameClashException, DmcValueException {
-
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	public void resolveReferences(SchemaDefinition sd) throws ResultException {
+    	// OK, here's some tricky stuff. Attributes can refer to defined classes
+    	// as types e.g. 
+    	// AttributeDefinition
+    	// name something
+    	// type SomeClassName
+    	//
+    	// Now, if SomeClassName is a valid class, when we try to resolve the references
+    	// in the attribute, the resolver code is expecting SomeClassName to be the
+    	// name of a TypeDefinition, and it is, but it's an internally generated type.
+    	// So, we have to pre-resolve the type references by referring to the internally
+    	// generated type of the class.
     	Iterator<AttributeDefinition> preadl = sd.getAttributeDefList();
     	if (preadl != null){
     		while(preadl.hasNext()){
     			AttributeDefinition d = preadl.next();
-    			try {
-					d.resolveReferences(this,clashResolver);
-				} catch (DmcValueExceptionSet e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+    			DmcAttribute<?> attr = d.getDmcObject().get("type");
+    			
+    			if (attr == null){
+					ResultException ex = new ResultException();
+					ex.addError("The AttributeDefinition " + d.getName() + " has no type attribute.");
+					ex.result.lastResult().fileName(d.getFile());
+					ex.result.lastResult().lineNumber(d.getLineNumber());
+					throw(ex);
+    			}
+    			
+    			DmcNamedObjectREF ref = (DmcNamedObjectREF) attr.getSV();
+    			
+    			// It might be a "real" type, so try that first
+    			TypeDefinition td = tdef(ref.getObjectName().getNameString());
+    			
+    			if( td == null){
+    				ClassDefinition cd = cdef(ref.getObjectName().getNameString());
+    				if (cd == null){
+    					ResultException ex = new ResultException();
+    					ex.addError("The type: " + ref.getObjectName() + " referred to in AttributeDefinition " + d.getName() + " is invalid.");
+    					ex.result.lastResult().fileName(d.getFile());
+    					ex.result.lastResult().lineNumber(d.getLineNumber());
+    					throw(ex);
+    				}
+    				else{
+        				ref.setObject((DmcNamedObjectIF) cd.getInternalTypeRef().getDmcObject());
+    				}
+    			}
+    			else{
+    				ref.setObject((DmcNamedObjectIF) td.getDmcObject());
+    			}
     		}
     	}
     	
+    	// And more of the same kind of magic with complex types - we have to
+    	// preresolve the type references in the same way as with attributes
     	Iterator<ComplexTypeDefinition> ctdl = sd.getComplexTypeDefList();
     	if (ctdl != null){
     		while(ctdl.hasNext()){
     			ComplexTypeDefinition ctd = ctdl.next();
     			
+    			// The usual resolution mechanisms don't work for the fields, we have to 
+    			// handle that manually.
+    			Iterator<Field> fields = ctd.getField();
+    			while(fields.hasNext()){
+    				Field field = fields.next();
+    				DmcNamedObjectREF ref = (DmcNamedObjectREF)field.getType();
+    				
+        			// It might be a "real" type, so try that first
+        			TypeDefinition td = tdef(ref.getObjectName().getNameString());
+        			
+        			if( td == null){
+        				ClassDefinition cd = cdef(ref.getObjectName().getNameString());
+        				if (cd == null){
+        					ResultException ex = new ResultException();
+        					ex.addError("The type: " + ref.getObjectName() + " referred to in ComplexTypeDefinition " + ctd.getName() + " is invalid.");
+        					ex.result.lastResult().fileName(ctd.getFile());
+        					ex.result.lastResult().lineNumber(ctd.getLineNumber());
+        					throw(ex);
+        				}
+        				else{
+            				ref.setObject((DmcNamedObjectIF) cd.getInternalTypeRef().getDmcObject());
+        				}
+        			}
+        			else{
+        				ref.setObject((DmcNamedObjectIF) td.getDmcObject());
+        			}
+
+    			}
+    			
     			// And finally, the complex type def has to have it object class resolved so that
     			// we don't run into problems later when generating the DMW schema
     			try {
-					ctd.resolveReferences(this,clashResolver);
+					ctd.resolveReferences(this);
 				} catch (DmcValueExceptionSet e) {
-					ResultException ex = new ResultException();
-					ex.addError(e.toString());
-					ex.result.lastResult().fileName(ctd.getFile());
-					ex.result.lastResult().lineNumber(ctd.getLineNumber());
-					throw(ex);
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
     		}
     	}
@@ -2536,14 +2529,43 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     		while(ertdl.hasNext()){
     			ExtendedReferenceTypeDefinition ertd = ertdl.next();
     			
-    			try {
-					ertd.resolveReferences(this, clashResolver);
-				} catch (DmcValueExceptionSet e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+    	        DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) ertd.getDMO().get(MetaDMSAG.__extendedReferenceClass);
+    			if (attr == null){
+					ResultException ex = new ResultException();
+					ex.addError("Missing extendedReferenceClass for ExtendedReferenceTypeDefinition: " + ertd.getName());
+					ex.result.lastResult().fileName(ertd.getFile());
+					ex.result.lastResult().lineNumber(ertd.getLineNumber());
+					throw(ex);    				
+    			}
     			
-    			// TODO: need a rule for this
+    			try {
+					attr.resolveReferences(this);
+				} catch (DmcValueException e) {
+					ResultException ex = new ResultException();
+					ex.addError("Unknown class referred to by extendedReferenceClass: " + attr.getSV().getObjectName().getNameString());
+					ex.result.lastResult().fileName(ertd.getFile());
+					ex.result.lastResult().lineNumber(ertd.getLineNumber());
+					throw(ex);
+				}
+				
+				try {
+					ertd.getInternalType().setOriginalClass(ertd.getExtendedReferenceClass());
+				} catch (DmcValueException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+
+//				ClassDefinition cd = cdef(attr.getName());
+//				if (cd == null){
+//					ResultException ex = new ResultException();
+//					ex.addError("Missing extendedReferenceClass for ExtendedReferenceTypeDefinition: " + ertd.getName());
+//					ex.result.lastResult().fileName(ertd.getFile());
+//					ex.result.lastResult().lineNumber(ertd.getLineNumber());
+//					throw(ex);
+//				}
+    			
+    			
 				if (ertd.getExtendedReferenceClass().getIsNamedBy() == null){
 					ResultException ex = new ResultException();
 					ex.addError("The class: " + ertd.getExtendedReferenceClass().getObjectName().getNameString() + " referred to in ExtendedReferenceTypeDefinition " + ertd.getName() + " is not a named object.");
@@ -2551,6 +2573,32 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 					ex.result.lastResult().lineNumber(ertd.getLineNumber());
 					throw(ex);
 				}
+
+    			Iterator<Field> fields = ertd.getField();
+    			while(fields.hasNext()){
+    				Field field = fields.next();
+    				DmcNamedObjectREF ref = (DmcNamedObjectREF)field.getType();
+    				
+        			// It might be a "real" type, so try that first
+        			TypeDefinition td = tdef(ref.getObjectName().getNameString());
+        			
+        			if( td == null){
+        				ClassDefinition cd = cdef(ref.getObjectName().getNameString());
+        				if (cd == null){
+        					ResultException ex = new ResultException();
+        					ex.addError("The type: " + ref.getObjectName() + " referred to in ExtendedReferenceTypeDefinition " + ertd.getName() + " is invalid.");
+        					ex.result.lastResult().fileName(ertd.getFile());
+        					ex.result.lastResult().lineNumber(ertd.getLineNumber());
+        					throw(ex);
+        				}
+        				else{
+            				ref.setObject((DmcNamedObjectIF) cd.getInternalTypeRef().getDmcObject());
+        				}
+        			}
+        			else{
+        				ref.setObject((DmcNamedObjectIF) td.getDmcObject());
+        			}
+    			}
     		}
     	}
     	
@@ -2559,7 +2607,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     		while(actdl.hasNext()){
     			ActionDefinition d = actdl.next();
     			try {
-					d.resolveReferences(this,clashResolver);
+					d.resolveReferences(this);
 				} catch (DmcValueExceptionSet e) {
 					ResultException ex = new ResultException();
 					ex.addError("Unresolved references in ActionDefinition: " + d.getName());
@@ -2578,8 +2626,12 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     		while(adl.hasNext()){
     			AttributeDefinition d = adl.next();
     			
+    			if (d.getName().getNameString().equals("field")){
+    				DebugInfo.debug("HERE");
+    			}
+    			
     			try {
-					d.resolveReferences(this,clashResolver);
+					d.resolveReferences(this);
 				} catch (DmcValueExceptionSet e) {
 					ResultException ex = new ResultException();
 					ex.addError("Unresolved references in AttributeDefinition: " + d.getName());
@@ -2591,7 +2643,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 					throw(ex);
 				}
 				
-				// TODO: MAKE THIS A RULE
+				// TODO move towards generic object validation mechanisms - this check should be a rule
 		        if ( (d.getValueType() == ValueTypeEnum.HASHMAPPED) || (d.getValueType() == ValueTypeEnum.TREEMAPPED)){
 		        	if (d.getType().getKeyClass() == null){
 		        		if (d.getType().getIsRefType()){
@@ -2616,6 +2668,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 		        		}
 		        	}
 		        }
+		        
     		}
     	}
     	
@@ -2624,9 +2677,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     		while(cdl.hasNext()){
     			ClassDefinition d = cdl.next();
     			try {
-					d.resolveReferences(this,clashResolver);
+					d.resolveReferences(this);
 					
-					// TODO: MAKE THIS A RULE
 		            if (d.getAllowedParentsSize() > 0){
 		            	// The name must be hierarchic
 		            	if (d.getIsNamedBy() == null){
@@ -2662,7 +2714,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     		while(edl.hasNext()){
     			EnumDefinition d = edl.next();
     			try {
-    				d.resolveReferences(this,clashResolver);
+					d.resolveReferences(this);
 				} catch (DmcValueExceptionSet e) {
 					ResultException ex = new ResultException();
 					ex.addError("Unresolved references in EnumDefinition: " + d.getName());
@@ -2681,7 +2733,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     		while(tdl.hasNext()){
     			TypeDefinition d = tdl.next();
     			try {
-    				d.resolveReferences(this,clashResolver);
+					d.resolveReferences(this);
 				} catch (DmcValueExceptionSet e) {
 					ResultException ex = new ResultException();
 					ex.addError("Unresolved references in TypeDefinition: " + d.getName());
@@ -2694,13 +2746,32 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 				}
     		}
     	}
-    	    	
+    	
+//    	ctdl = sd.getComplexTypeDefList();
+//    	if (ctdl != null){
+//    		while(ctdl.hasNext()){
+//    			ComplexTypeDefinition d = ctdl.next();
+//    			try {
+//					d.resolveReferences(this);
+//				} catch (DmcValueExceptionSet e) {
+//					ResultException ex = new ResultException();
+//					ex.addError("Unresolved references in ComplexTypeDefinition: " + d.getName());
+//					ex.setLocationInfo(d.getFile(), d.getLineNumber());
+//					
+//					for(DmcValueException dve : e.getExceptions()){
+//						ex.moreMessages(dve.getMessage());
+//					}
+//					throw(ex);
+//				}
+//    		}
+//    	}
+    	
     	Iterator<SliceDefinition> sdl = sd.getSliceDefList();
     	if (sdl != null){
     		while(sdl.hasNext()){
     			SliceDefinition s = sdl.next();
     			try {
-    				s.resolveReferences(this,clashResolver);
+					s.resolveReferences(this);
 				} catch (DmcValueExceptionSet e) {
 					ResultException ex = new ResultException();
 					ex.addError("Unresolved references in SliceDefinition: " + s.getName());
@@ -2712,54 +2783,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 					throw(ex);
 				}
     		}
-    	}
-    	
-    	TreeMap<RuleName,RuleIF> theRules = sd.getRuleInstances(this);
-    	for(RuleIF rule: theRules.values()){
-    		try {
-				rule.getRuleDataDMO().resolveReferences(this, clashResolver);
-			} catch (DmcValueExceptionSet e) {
-				ResultException ex = new ResultException();
-				ex.addError("Unresolved references in rule data: " + rule.getRuleDataDMO().getRuleName());
-//				ex.setLocationInfo(s.getFile(), s.getLineNumber());
-				
-				for(DmcValueException dve : e.getExceptions()){
-					ex.moreMessages(dve.getMessage());
-				}
-				throw(ex);
-			}
-    	}
-    	sd.setResolvedRules(theRules);
-    	
-    	///////////////////////////////////////////////////////////////////////
-    	// Some additional work required to allow for name clash resolution
-    	// mechanisms in auto generated definition managers. All structural 
-    	// DSDefinition derived classes must have a standard mechanism to get
-    	// the name of the  module from which they were loaded. In order to
-    	// do this, we have to know the DSDModule with which they are associated
-    	// so that we can get the definedInModuleAttribute. Tricky!
-    	// We find the base definition for the module and then add the partOfDefinitionModule
-    	// attribute so that we can use this information in the DMWGenerator later.
-    	if (sd.isGeneratedSchema() == false){
-    		// TODO: the module definitions need to be added to the schema - boy I wish
-    		// I had the infrastructure for schemas that I do for other DSDs!
-	    	cdl = sd.getClassDefList();
-	    	if (cdl != null){
-	    		while(cdl.hasNext()){
-	    			ClassDefinition cd = cdl.next();
-	    			if (cd.getDsdModuleDefinition() != null){
-	    				// This is the base class definition that represents the module
-	    				ClassDefinition base = (ClassDefinition) cd.getDsdModuleDefinition().getBaseDefinition();
-	    				base.setPartOfDefinitionModule(cd.getDsdModuleDefinition());
-	    				
-	    				TreeMap<DefinitionName,ClassDefinition> derived = base.getAllDerived();
-	    				for(ClassDefinition d: derived.values()){
-	    					d.setPartOfDefinitionModule(cd.getDsdModuleDefinition());
-	    				}
-	    			}
-	    		}
-	    	}
-    	}
+    	}    	
     	
     }
 
@@ -2835,17 +2859,6 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     public Iterator<ComplexTypeDefinition> getComplexTypes(){
     	return(complexTypeDefs.values().iterator());
     }
-    
-    /**
-     * @return the domain specific definition modules
-     */
-    public Iterator<DSDefinitionModule> getDSDefinitionModules(){
-    	return(definitionModuleDefs.values().iterator());
-    }
-    
-    public int getDSDefinitionModulesCount(){
-    	return(definitionModuleDefs.size());
-    }
 
     /**
      * @return the defined extended references.
@@ -2853,128 +2866,5 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     public Iterator<ExtendedReferenceTypeDefinition> getExtendedReferenceTypes(){
     	return(extendedReferenceTypeDefs.values().iterator());
     }
-
-	@Override
-	public DmcNamedObjectIF findNamedObjectMayClash(DmcObject object, DmcObjectName name, DmcNameClashResolverIF resolver, DmcAttributeInfo ai) throws DmcValueException {
-		DmcNamedObjectIF rc = null;
-		DotName dn = null;
-		try {
-			
-			dn = new DotName(name.getNameString() + "." + ai.type);
-			
-//			DebugInfo.debug("LOOKING FOR: *" + dn + "*" + "   clashMap: " + System.identityHashCode(clashMAP));
-						
-//	    	if (dn.getNameString().equals("ClassDefinition.ClassDefinitionREF")){
-		    if (dn.getNameString().equals("ClassDefinition.ClassDefinition")){
-	    		
-//	    		DebugInfo.debug("\n\nHACK HACK HACK\n\n");
-//	    		DebugInfo.debug(DebugInfo.getCurrentStack());
-		    	// HACK HACK HACK
-		    	// When we added actual support for the __objectClass attribute in DmcObject, we
-		    	// got into a bit of trouble with the meta schema. We needed to resolve the objectClass,
-		    	// but we hadn't yet loaded the ClassDefinition for ClassDefinition! We circumvent this
-		    	// issue here by directly accessing the the meta schema's instantiated ClassDefinition.
-	    		return(MetaSchema._ClassDefinition);
-	    	}
-//	    	else if (name.getNameString().equals("meta")){
-//	    		// And another bit of magic - the class definitions of the metaSchema are
-//	    		// loaded before the schema definition for the meta schema
-//	    		return(MetaSchema._metaSchema);
-//	    	}
-			
-			// We hunt for the definition in the possibly clashing map first. If we find it
-			// and there's only one entry (the usual case) we're done. Otherwise, we'll have 
-			// to call on the clash resolver.
-			ArrayList<DmsDefinition> defs = clashMAP.get(dn);
-			if (defs == null){
-				// We couldn't find the definition based on just definition.type, so it may 
-				// have been specified as module.definition (to which we've added the type)
-				// to get the fully qualified name - so now search for that.
-				rc = globallyUniqueMAP.get(dn);
-				
-//				if (rc != null)
-//					DebugInfo.debug("FOUND IN GLOBAL MAP = " + dn);
-//				else
-//					DebugInfo.debug("NOT FOUND IN GLOBAL MAP = " + dn);
-				
-				// If rc is null at this point, that's fine, it's an unresolved reference
-			}
-			else{
-				if (defs.size() == 1){
-//					DebugInfo.debug("FOUND IN CLASH MAP = " + dn);
-					rc = defs.get(0);
-				}
-				else{
-					DmcNameClashObjectSet<DmsDefinition> nce = new DmcNameClashObjectSet<DmsDefinition>(defs);
-					
-					rc = resolver.resolveClash(object, ai, nce);
-				}
-			}
-		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-//		if (rc == null)
-//			DebugInfo.debugWithTrace("    Couldn't find: " + dn + "\n");
-		
-		return(rc);
-	}
-
-	/**
-	 * We implement this because we need to pass in a clash resolver when we resolve
-	 * schema references on auto-generated schemas. There shouldn't be clashes, but
-	 * there could be if someone is combining schemas that have been generated in
-	 * entirely different environments.
-	 * @param obj
-	 * @param attr
-	 * @param ex
-	 * @return
-	 * @throws DmcValueException
-	 */
-	@Override
-	public DmcNamedObjectIF resolveClash(DmcObject obj, DmcAttributeInfo ai, DmcNameClashObjectSet<?> ncos) throws DmcValueException {
-		DmcNamedObjectIF rc = null;
-		Iterator<DmcNamedObjectIF> matches = ncos.getMatches();
-		
-		DebugInfo.debug("\nResolving " + ai.name + " in:\n\n" + obj.toOIF() + "\n");
-		
-		obj.getConstructionClassInfo().getAttributeInfo(ai.name);
-		
-		if (obj instanceof DmsDefinitionDMO){
-			// We're resolving references within a set of definitions, if we aren't, there's not much we can do
-			DmsDefinitionDMO defObj = (DmsDefinitionDMO) obj;
-			
-			while(matches.hasNext()){
-				DmcNamedObjectIF objif = matches.next();
-				
-				DebugInfo.debug(objif.toString());
-				if (objif instanceof DmsDefinitionDMO){
-					DmsDefinitionDMO matchDef = (DmsDefinitionDMO) objif;
-					if (defObj.getDefinedIn().getObjectName().getNameString().equals(matchDef.getDefinedIn().getObjectName().getNameString())){
-						rc = matchDef;
-						break;
-					}
-					
-				}
-				else if (objif instanceof DmsDefinition){
-					DmsDefinition matchDef = (DmsDefinition) objif;
-					
-					if (defObj.getDefinedIn().getObjectName().getNameString().equals(matchDef.getDefinedIn().getName().getNameString())){
-						rc = matchDef;
-						break;
-					}
-				}
-			}
-		}
-		return(rc);
-	}
-
-	@Override
-	public DmcObject findUniqueObject(DmcObjectName name) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }
 

@@ -97,7 +97,7 @@ public enum ResponseCategoryEnum implements DmcEnumIF
      * a valid member of this enum.
      */
     public static ResponseCategoryEnum get(String str) {
-        return(lookupString.get(str.toUpperCase()));
+        return(lookupString.get(str));
     }
 
 }

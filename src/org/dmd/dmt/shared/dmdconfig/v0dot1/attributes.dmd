@@ -658,12 +658,4 @@ type					MenuElementTypeAndComment
 dmdID					929
 valueType				MULTI
 
-///////////////////////////////////////////////////////////////////////////////
-
-AttributeDefinition
-name					userName
-type					String
-dmdID					1000
-description				An attribute that's meant to clash with the userName in the dmp schema.
-
 

@@ -24,7 +24,6 @@ import java.io.LineNumberReader;
 import java.net.URL;
 import java.util.Iterator;
 
-import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
@@ -84,9 +83,8 @@ public class DmgGenUtility {
 	StringBuffer	cfg			= new StringBuffer();
 	BooleanVar		debug 		= new BooleanVar();
 	StringArrayList	jars 		= new StringArrayList();
-	StringArrayList	targets 	= new StringArrayList();
 	
-	public DmgGenUtility(String[] args) throws ResultException, IOException, DmcValueException, DmcValueExceptionSet, DmcRuleExceptionSet, DmcNameClashException {
+	public DmgGenUtility(String[] args) throws ResultException, IOException, DmcValueException, DmcValueExceptionSet, DmcRuleExceptionSet {
 		initHelp();
 		cl = new CommandLine();
         cl.addOption("-h",     		helpFlag,	"Dumps the help message.");
@@ -96,7 +94,6 @@ public class DmgGenUtility {
         cl.addOption("-cfg",   		cfg,     	"The configuration file to load.");
         cl.addOption("-debug",   	debug,     	"Dump debug information.");
         cl.addOption("-jars",   	jars,     	"The prefixs of jars to search for .dms config files.");
-        cl.addOption("-targets",   	targets,    "Indicates you only want to generate for the specified configs.");
 		
 		cl.parseArgs(args);
 		
@@ -195,7 +192,7 @@ public class DmgGenUtility {
         help.append("\n");
 	}
 	
-	public void run() throws DmcValueExceptionSet, DmcRuleExceptionSet, DmcNameClashException {
+	public void run() throws DmcValueExceptionSet, DmcRuleExceptionSet {
         BufferedReader  in = new BufferedReader(new InputStreamReader(System.in));
         String          currLine    = null;
         
@@ -208,16 +205,11 @@ public class DmgGenUtility {
             		if (!loc.isFromJAR()){
             			// Wasn't in a jar, so try to generate
 //            			DebugInfo.debug("Generating: " + loc.getConfigName());
-            			if (targets.contains(loc.getConfigName())){
-            				generateFromConfig(version);
-            			}
-            			else{
-            				System.out.println("DMWGEN: " + loc.getConfigName() + " is not in the -targets list - not generating:  " + loc.getDirectory() + "\n");
-            			}
+            			generateFromConfig(version);
             		}
             	}
             	
-            	return;
+            	System.exit(0);
             }
         	
         	System.exit(0);
@@ -311,7 +303,7 @@ public class DmgGenUtility {
 
 	}
 	
-	void loadRequiredSchemas() throws ResultException, DmcValueException, DmcValueExceptionSet, DmcRuleExceptionSet, DmcNameClashException {
+	void loadRequiredSchemas() throws ResultException, DmcValueException, DmcValueExceptionSet, DmcRuleExceptionSet {
 		readSchemas = new SchemaManager();
 		schemaParser.parseSchema(readSchemas, parser.getTheConfig().getSchemaToLoad(), true);
 	}
@@ -351,7 +343,7 @@ public class DmgGenUtility {
 		}
 	}
 	
-	void generateFromConfig(ConfigVersion currConfig) throws DmcRuleExceptionSet, DmcNameClashException{
+	void generateFromConfig(ConfigVersion currConfig) throws DmcRuleExceptionSet{
     	try {
 			parser.parseConfig(currConfig.getLatestVersion());
 			

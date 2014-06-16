@@ -9,10 +9,8 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
-import org.dmd.dmc.DmcNameClashException;
-import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.rules.RuleIF;
-import org.dmd.dmc.types.DotName;
+import org.dmd.dmc.types.StringName;
 import org.dmd.dms.RuleDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
@@ -21,7 +19,7 @@ import org.dmd.dms.generated.dmo.RuleDataDMO;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREFSV;
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFSV;
-import org.dmd.dms.generated.types.DmcTypeStringMV;
+import org.dmd.dms.generated.types.DmcTypeStringSV;
 import org.dmd.util.exceptions.DebugInfo;
 
 public class RuleInstanceFormatter {
@@ -43,7 +41,7 @@ public class RuleInstanceFormatter {
 		skip.add(MetaDMSAG.__description);
 	}
 
-	static public void dumpRuleInstanceDetails(BufferedWriter out, SchemaManager sm, SchemaDefinition sd) throws IOException, DmcNameClashException {
+	static public void dumpRuleInstanceDetails(BufferedWriter out, SchemaManager sm, SchemaDefinition sd) throws IOException {
 		if (sd.hasParsedRules()){
 			TreeMap<String,ArrayList<RuleIF>>	sortedRules = new TreeMap<String, ArrayList<RuleIF>>();
 			
@@ -72,17 +70,8 @@ public class RuleInstanceFormatter {
 			for(String key: sortedRules.keySet()){
 				ArrayList<RuleIF> ruleset = sortedRules.get(key);
 				String base = key.substring(0, key.length()-4);
-				DotName rdn = null;
-				try {
-					rdn = new DotName(base);
-					
-					DebugInfo.debug("LOOKING FOR RULE DEFINITION: " + rdn);
-				} catch (DmcValueException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-//				RuleDefinition rd = sm.ruleDefs.get(rdn);
-				RuleDefinition rd = (RuleDefinition) sm.ruleDefsByDot.get(rdn);
+				StringName rdn = new StringName(base);
+				RuleDefinition rd = sm.ruleDefs.get(rdn);
 				dumpRuleInstances(out, rd, ruleset);
 			}
 			
@@ -115,7 +104,7 @@ public class RuleInstanceFormatter {
 			
 			DmcTypeClassDefinitionREFSV 	applyToClass 	= (DmcTypeClassDefinitionREFSV) ruleDMO.get(MetaDMSAG.__applyToClass);
 			DmcTypeAttributeDefinitionREFSV	applyToAttr 	= (DmcTypeAttributeDefinitionREFSV) ruleDMO.get(MetaDMSAG.__applyToAttribute);
-			DmcTypeStringMV					description 	= (DmcTypeStringMV) ruleDMO.get(MetaDMSAG.__description);
+			DmcTypeStringSV					description 	= (DmcTypeStringSV) ruleDMO.get(MetaDMSAG.__description);
 			
 			if (applyToClass != null){
 				out.write("    <tr>\n");
@@ -140,7 +129,7 @@ public class RuleInstanceFormatter {
 				out.write("      <td class=\"spacer\"> </td>\n");
 				out.write("      <td class=\"spacer\"> </td>\n");
 				out.write("      <td> Description: </td>\n");
-				out.write("      <td> " + convertIteratorToString(ruleDMO.getDescriptionWithNewlines()) + " </td>\n");
+				out.write("      <td> " + ruleDMO.getDescriptionWithNewlines() + " </td>\n");
 				out.write("    </tr>\n");
 			}
 			
@@ -190,16 +179,6 @@ public class RuleInstanceFormatter {
 			
 		}
 		
-	}
-	
-	static String convertIteratorToString(Iterator<String> it){
-		StringBuffer sb = new StringBuffer();
-		
-		while(it.hasNext()){
-			sb.append(it.next() + "\n");
-		}
-		
-		return(sb.toString());
 	}
 	
 	static void definitionName(BufferedWriter out, RuleDefinition rd) throws IOException {

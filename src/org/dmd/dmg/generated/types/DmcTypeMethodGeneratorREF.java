@@ -20,7 +20,7 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
-import org.dmd.dmc.types.DefinitionName;
+import org.dmd.dmc.types.StringName;
 
 import org.dmd.dmg.generated.types.MethodGeneratorREF;
 
@@ -35,7 +35,7 @@ import org.dmd.dmg.generated.dmo.MethodGeneratorDMO;
  * Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREFHelperType(DmoTypeFormatter.java:585)
  */
 @SuppressWarnings("serial")
-abstract public class DmcTypeMethodGeneratorREF extends DmcTypeNamedObjectREF<MethodGeneratorREF, DefinitionName> {
+abstract public class DmcTypeMethodGeneratorREF extends DmcTypeNamedObjectREF<MethodGeneratorREF, StringName> {
 
     public DmcTypeMethodGeneratorREF(){
     
@@ -51,8 +51,8 @@ abstract public class DmcTypeMethodGeneratorREF extends DmcTypeNamedObjectREF<Me
     }
 
     @Override
-    protected DefinitionName getNewName(){
-        return(new DefinitionName());
+    protected StringName getNewName(){
+        return(new StringName());
     }
 
     @Override
@@ -75,8 +75,8 @@ abstract public class DmcTypeMethodGeneratorREF extends DmcTypeNamedObjectREF<Me
             rc = (MethodGeneratorREF)value;
         else if (value instanceof MethodGeneratorDMO)
             rc = new MethodGeneratorREF((MethodGeneratorDMO)value);
-        else if (value instanceof DefinitionName)
-            rc = new MethodGeneratorREF((DefinitionName)value);
+        else if (value instanceof StringName)
+            rc = new MethodGeneratorREF((StringName)value);
         else if (value instanceof String)
             rc = new MethodGeneratorREF((String)value);
         else

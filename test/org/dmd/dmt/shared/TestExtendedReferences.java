@@ -4,7 +4,7 @@ package org.dmd.dmt.shared;
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
-import org.dmd.dmc.types.DefinitionName;
+import org.dmd.dmc.types.StringName;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
 import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;
 import org.dmd.dmp.shared.generated.dmo.SetRequestDMO;
@@ -28,7 +28,7 @@ public class TestExtendedReferences {
 
 	@Test
 	public void testCreation() throws DmcValueException{
-		SomeRelation	rel = new SomeRelation(new DefinitionName("somename"), 4, 2);
+		SomeRelation	rel = new SomeRelation(new StringName("some name"), 4, 2);
 		
 		assertNotNull(rel.getName());
 		
@@ -37,9 +37,9 @@ public class TestExtendedReferences {
 	
 	@Test
 	public void testParsing() throws DmcValueException{
-		SomeRelation	rel = new SomeRelation("somename:4:2");
+		SomeRelation	rel = new SomeRelation("some name:4:2");
 		
-		assertEquals("somename", rel.getName().getNameString());
+		assertEquals("some name", rel.getName().getNameString());
 		assertEquals(4,rel.getCount().intValue());
 		assertEquals(2,rel.getOrder().intValue());
 		
@@ -48,10 +48,10 @@ public class TestExtendedReferences {
 	
 	@Test
 	public void testSetRequest() throws DmcValueException{
-		SomeRelation	rel = new SomeRelation(new DefinitionName("somename"), 4, 2);
+		SomeRelation	rel = new SomeRelation(new StringName("some name"), 4, 2);
 
 		ObjWithRefsDMO	owr = new ObjWithRefsDMO();
-		owr.setName(new DefinitionName("obj1"));
+		owr.setName(new StringName("obj1"));
 		
 		ObjWithRefsDMO modrec = owr.getModificationRecorder();
 		modrec.setNthSomeRelationMVI(0, rel);
@@ -69,13 +69,13 @@ public class TestExtendedReferences {
 		DmwOmni.instance().addSchema(dmp);
 		DmwOmni.instance().addSchema(dmt);
 
-		SomeRelation	rel = new SomeRelation(new DefinitionName("somename"), 4, 2);
+		SomeRelation	rel = new SomeRelation(new StringName("some name"), 4, 2);
 
 		ObjWithRefs	owr1 = new ObjWithRefs();
-		owr1.setName(new DefinitionName("obj1"));
+		owr1.setName(new StringName("obj1"));
 		
 		ObjWithRefs	owr2 = new ObjWithRefs();
-		owr2.setName(new DefinitionName("obj2"));
+		owr2.setName(new StringName("obj2"));
 		
 		ObjWithRefs modrec = owr1.getModificationRecorder();
 		modrec.setNthSomeRelationMVI(0, rel);

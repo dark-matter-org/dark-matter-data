@@ -78,8 +78,8 @@ public class TestField {
 		ctd.addField("String         description A description of the field");
 		
 		System.out.println(ctd.toOIF());
-		ctd.resolveReferences(schema, schema);
-//		ctd.resolveReferences(schema);
+		
+		ctd.resolveReferences(schema);
 		assertTrue("No exceptions thrown",true);
 		
 		Iterator<Field> fields = ctd.getField();

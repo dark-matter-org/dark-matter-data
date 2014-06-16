@@ -31,7 +31,6 @@ import org.dmd.dms.generated.enums.DataTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.util.BooleanVar;
 import org.dmd.util.FileUpdateManager;
-import org.dmd.util.codegen.Manipulator;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.CodeFormatter;
@@ -213,7 +212,7 @@ public class DmoFormatter {
 		        out.write("    }\n\n");
 	        }
 	        else{
-	        	String upper = Manipulator.capFirstChar(cd.getIsNamedBy().getObjectName().toString());
+	        	String upper = GenUtility.capTheName(cd.getIsNamedBy().getObjectName().toString());
 	        	
 		        out.write("    public " + cd.getName() + "DMO getModificationRecorder(){\n");
 		        out.write("        " + cd.getName() + "DMO rc = new " + cd.getName() + "DMO();\n");
@@ -298,7 +297,7 @@ public class DmoFormatter {
 		if (actions != null){
 			while(actions.hasNext()){
 				ActionDefinition ad = actions.next();
-				String capped = Manipulator.capFirstChar(ad.getName().getNameString());
+				String capped = GenUtility.capTheName(ad.getName().getNameString());
 				sb.append("\n");
 				sb.append("    /**\n");
 				sb.append("     * Returns the parameter container for the " + ad.getName() + " action.\n");
@@ -675,7 +674,6 @@ public class DmoFormatter {
 	String getClassHeader(ClassDefinition cd, String where){
 		StringBuffer sb = new StringBuffer();
 		
-		sb.append("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("/**\n");
         CodeFormatter.dumpCodeComment(cd.getDescription(),sb," * ");
         sb.append(" * <P>\n");
@@ -696,12 +694,6 @@ public class DmoFormatter {
 		case EXTENSIBLE:
 		case STRUCTURAL:
 			sb.append("public class ");
-			break;
-		case INTERFACE:
-			// Not currently using this - may get rid of it
-			break;
-		case UNKNOWN:
-			// Shouldn't ever happen
 			break;
 		}
 		
@@ -825,10 +817,9 @@ public class DmoFormatter {
 				formatMVAUX(ad,sb);
 				break;
 			case HASHMAPPED:
+				break;
 			case TREEMAPPED:
-			case HASHSET:
-			case TREESET:
-				throw(new IllegalStateException("Mapped and Set attributes aren't currently supported on AUXILIARY classes. Occurred with:\n" + cd.toOIF()));
+				break;
 			}
 		}
 		
@@ -841,10 +832,6 @@ public class DmoFormatter {
     	String attrType = "DmcType" + ad.getType().getName();
     	String nullReturnValue = ad.getType().getNullReturnValue();
     	String typeName = ad.getType().getName().getNameString();
-    	
-    	if (ad.getNullReturnValue() != null){
-    		nullReturnValue = ad.getNullReturnValue();
-    	}
     	
     	if (ad.getType().getIsRefType()){
     		attrType = attrType + "REF";
@@ -1033,7 +1020,6 @@ public class DmoFormatter {
 		else{
 			sb.append("     * @return An Iterator of " + typeName + " objects.\n");
 			sb.append("     */\n");
-	    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    static public Iterator<" + typeName + "> get" + functionName + "(DmcObject core){\n");
 			sb.append("        " + attrType + " attr = (" + attrType + ") get(core, " + ad.getDMSAGReference() + ");\n");
@@ -1058,7 +1044,7 @@ public class DmoFormatter {
     	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
     	sb.append("        \n");
     	sb.append("        attr.add(value);\n");
-    	sb.append("        add(core, " + ad.getDMSAGReference() + ",attr);\n");
+    	sb.append("        add(core, __" + ad.getName() + ",attr);\n");
     	sb.append("        return(attr);\n");
 		sb.append("    }\n\n");
 

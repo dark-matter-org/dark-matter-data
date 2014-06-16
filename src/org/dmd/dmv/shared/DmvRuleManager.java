@@ -8,14 +8,12 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcCompactSchemaIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcOmni;
-import org.dmd.dmc.DmcUniqueNameResolverIF;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmc.rules.DmcRuleManager;
 import org.dmd.dmc.rules.RuleCollection;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.rulesdmo.AttributeValidationRuleCollection;
-import org.dmd.dms.generated.rulesdmo.AttributeValidationWithResolverRuleCollection;
 import org.dmd.dms.generated.rulesdmo.InitializationRuleCollection;
 import org.dmd.dms.generated.rulesdmo.ObjectValidationRuleCollection;
 import org.dmd.dms.generated.rulesdmo.UCOValidationRuleCollection;
@@ -32,23 +30,21 @@ import org.dmd.dmv.shared.generated.dmo.DmvDMSAG;
  */
 public class DmvRuleManager extends DmcRuleManager {
 	
-	AttributeValidationRuleCollection				attributeValidators;
+	AttributeValidationRuleCollection			attributeValidators;
 	
-	ObjectValidationRuleCollection					objectValidators;
-	
-	AttributeValidationWithResolverRuleCollection	attributeValidatorsWithResolver;
+	ObjectValidationRuleCollection				objectValidators;
 	
 //	AttributeModifierValidationRuleCollection	attrModValidators;
 	
 //	ObjectModifierValidationRuleCollection		objModValidators;
 	
-	InitializationRuleCollection					initializers;
+	InitializationRuleCollection				initializers;
 	
-	UCOValidationRuleCollection						ucoObjectvalidators;
+	UCOValidationRuleCollection					ucoObjectvalidators;
 	
 	
-	ArrayList<RuleCollection<?>>					ruleCollections;
-	TreeMap<String,DmcCompactSchemaIF>				loadedSchemas;
+	ArrayList<RuleCollection<?>>				ruleCollections;
+	TreeMap<String,DmcCompactSchemaIF>			loadedSchemas;
 
 	public DmvRuleManager() {
 		ruleCollections = new ArrayList<RuleCollection<?>>();
@@ -56,9 +52,6 @@ public class DmvRuleManager extends DmcRuleManager {
 		
 		attributeValidators = new AttributeValidationRuleCollection();
 		ruleCollections.add(attributeValidators);
-		
-		attributeValidatorsWithResolver = new AttributeValidationWithResolverRuleCollection();
-		ruleCollections.add(attributeValidatorsWithResolver);
 		
 		objectValidators	= new ObjectValidationRuleCollection();
 		ruleCollections.add(objectValidators);
@@ -105,33 +98,6 @@ public class DmvRuleManager extends DmcRuleManager {
 		while(attrs.hasNext()){
 			try {
 				attributeValidators.execute(obj, attrs.next());
-			} catch (DmcRuleExceptionSet e) {
-				if (rc == null)
-					rc = e;
-				else
-					rc.add(e);
-				
-				if (rc.immediateHalt())
-					break;
-			}
-		}
-		
-		if (rc != null)
-			throw(rc);
-	}
-	
-	/**
-	 * Executes the attribute validation rules with name resolver for the specified object.
-	 * @param obj the object whose attributes need checking.
-	 * @throws DmcRuleExceptionSet
-	 */
-	public void executeAttributeValidationWithResolver(DmcObject obj, DmcUniqueNameResolverIF resolver) throws DmcRuleExceptionSet {
-		DmcRuleExceptionSet rc = null;
-		
-		Iterator<DmcAttribute<?>> attrs = obj.getAttributeIterator();
-		while(attrs.hasNext()){
-			try {
-				attributeValidatorsWithResolver.execute(obj, attrs.next(), resolver);
 			} catch (DmcRuleExceptionSet e) {
 				if (rc == null)
 					rc = e;

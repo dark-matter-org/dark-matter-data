@@ -108,14 +108,6 @@ public class ResultException extends Exception {
     }
 
     /**
-     * A convenience method to add a Result.ERROR.
-     * @param msg String the error message
-     */
-    public void addError(String msg, String file, int line){
-        result.addResult(new Result(msg, file, line));
-    }
-
-    /**
      * A convenience method to add a Result.ERROR with a stack trace in the
      * moreMessages part.
      * @param msg String the error message

@@ -17,7 +17,6 @@ import org.dmd.dms.generated.enums.RuleTypeEnum;
 import org.dmd.dms.generated.types.RuleParam;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
-import org.dmd.util.codegen.Manipulator;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
@@ -51,7 +50,7 @@ public class RuleFormatter {
 		ImportManager factoryImports = new ImportManager();
 		
 		for(DmcUncheckedObject rule: ruleDefs.values()){
-    		String name = Manipulator.capFirstChar(rule.getSV("name"));
+    		String name = GenUtility.capTheName(rule.getSV("name"));
     		NamedStringArray categories = rule.get("ruleCategory");
     		
     		String scope = rule.getSV("ruleScope");
@@ -153,7 +152,7 @@ public class RuleFormatter {
 		
 		
 		
-		String factoryName = Manipulator.capFirstChar(schemaName) + "RulesFactoryAG";
+		String factoryName = GenUtility.capTheName(schemaName) + "RulesFactoryAG";
 		
 		BufferedWriter 	out = FileUpdateManager.instance().getWriter(rulesDir, factoryName + ".java");
 		
@@ -168,7 +167,7 @@ public class RuleFormatter {
 		out.write("    public " + factoryName + "(){\n\n");
 		
 		for(DmcUncheckedObject rule: ruleDefs.values()){
-    		String name = Manipulator.capFirstChar(rule.getSV("name"));
+    		String name = GenUtility.capTheName(rule.getSV("name"));
 
     		out.write("        " + name + " " + name + "Instance = new " + name + "(new " + name + "DataDMO());\n\n");
 		}
@@ -193,7 +192,7 @@ public class RuleFormatter {
 	public void dumpRuleCategoryInterfaces(String schemaName, String schemaPackage, TreeMap<String,DmcUncheckedObject> ruleCategoryDefs, String rulesDir) throws ResultException, IOException{
 		
 		for(DmcUncheckedObject category: ruleCategoryDefs.values()){
-    		String 				name 					= Manipulator.capFirstChar(category.getSV("name"));
+    		String 				name 					= GenUtility.capTheName(category.getSV("name"));
     		String 				ruleType 				= category.getSV("ruleType");
     		String 				classInfoFromParam		= category.getSV("classInfoFromParam");
     		String 				attributeInfoFromParam	= category.getSV("attributeInfoFromParam");

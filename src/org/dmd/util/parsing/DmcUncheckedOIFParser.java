@@ -23,7 +23,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.StringTokenizer;
 
-import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmc.util.DmcUncheckedObject;
@@ -63,9 +62,6 @@ public class DmcUncheckedOIFParser {
     
     // Indicates the attributes that should have their newlines preserved
     HashMap<String, String> 	preserveNL;
-    
-    // A flag that indicates we should drop the leading space on continued lines
-    boolean dropLineContinuation;
 
     /**
       * Creates a new Object Instance Format parser. As new BasicObjects are created,
@@ -80,15 +76,6 @@ public class DmcUncheckedOIFParser {
     
     public void addPreserveNewlinesAttribute(String an){
     	preserveNL.put(an, an);
-    }
-    
-    /**
-     * The OIF format uses the idea of continuing an attribute value across multiple lines
-     * by starting subsequent lines with a space. By setting this option, the leading space will
-     * be dropped from attribute value input.
-     */
-    public void dropLineContinuations(){
-    	dropLineContinuation = true;
     }
 
     /**
@@ -109,9 +96,8 @@ public class DmcUncheckedOIFParser {
      * @param fileName The file to be parsed.
      * @throws ResultException, DmcValueException 
      * @throws DmcRuleExceptionSet 
-     * @throws DmcNameClashException 
      */
-    public void parseFile(String fileName) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
+    public void parseFile(String fileName) throws ResultException, DmcValueException, DmcRuleExceptionSet {
     	parseFile(fileName,false);
     }
 
@@ -123,9 +109,8 @@ public class DmcUncheckedOIFParser {
      * we have to approach the opening of the file differently.
      * @throws ResultException, DmcValueException 
      * @throws DmcRuleExceptionSet 
-     * @throws DmcNameClashException 
      */
-    public void parseFile(String fileName, boolean isResource) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
+    public void parseFile(String fileName, boolean isResource) throws ResultException, DmcValueException, DmcRuleExceptionSet {
         boolean         	inObject    = false;
         String          	attrName    = null;
         DmcUncheckedObject  uco     = null;
@@ -143,15 +128,7 @@ public class DmcUncheckedOIFParser {
             // BufferedReader in = new BufferedReader(new FileReader(fileName));
         	
         	if (isResource){
-        		InputStreamReader isr = null;
-        		try{
-        			isr = new InputStreamReader(getClass().getResourceAsStream(fn));
-        		}
-        		catch(Exception e){
-        			ResultException ex = new ResultException("Tried to open this file as a resource from a JAR, but failed: " + fn);
-        			ex.moreMessages("This may be because you're using ConfigFinder but not passing in the name of the resource based on the JAR");
-        			throw(ex);
-        		}
+    			InputStreamReader isr = new InputStreamReader(getClass().getResourceAsStream(fn));
     			in = new LineNumberReader(isr);        		
         	}
         	else
@@ -180,21 +157,12 @@ public class DmcUncheckedOIFParser {
                         }
                         else{
                             // We have tokens
-//                            if (str.startsWith(" ")){
-                            if (Character.isWhitespace(str.charAt(0))){
+                            if (str.startsWith(" ")){
                                 // Line continuation
-                            	if (preserveNL.get(attrName) != null){
-                            		if (dropLineContinuation)
-                                        attrVal.append("\n" + str.substring(1));
-                            		else
-                            			attrVal.append("\n" + str);
-                            	}
-                            	else{
-                            		if (dropLineContinuation)
-                            			attrVal.append(str.substring(1));
-                            		else
-                            			attrVal.append(str);
-                            	}
+                            	if (preserveNL.get(attrName) != null)
+                                    attrVal.append("\n" + str);
+                            	else
+                            		attrVal.append(str);
                             }
                             else{
                                 // A new attribute line
