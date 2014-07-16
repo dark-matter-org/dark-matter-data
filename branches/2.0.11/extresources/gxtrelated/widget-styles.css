@@ -1,0 +1,15 @@
+.alarm-warning {
+    background-color: #00ffff !important;
+  }
+
+.alarm-minor {
+    background-color: #ffff00 !important;
+  }
+  
+.alarm-major {
+    background-color: #ff8010 !important;
+  }
+  
+.alarm-critical {
+    background-color: #ff0000 !important;
+  }

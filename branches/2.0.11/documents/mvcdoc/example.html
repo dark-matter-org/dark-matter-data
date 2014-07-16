@@ -1,0 +1,354 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+<link rel="stylesheet" type="text/css" href="mvcstyle.css" />
+<title>Example MVC Doc Format</title>
+</head>
+
+<body>
+
+<div id="header"> <div class="headerBar"> </div> </div>
+
+<div id="main">
+
+	<div class="application" id="bodycopy">
+	
+		<div class="appHeader">
+			<div class="appName">
+				Application Name
+			</div>
+			<div class="description">
+				Lorem ipsum dolor sit amet, consectetur
+				adipiscing elit. Vivamus pulvinar ipsum ac diam ullamcorper in mattis
+				metus interdum. Proin pharetra eros vitae eros adipiscing imperdiet.
+				Cras auctor neque nec elit aliquam quis elementum neque pulvinar.
+				Integer nec neque odio. Morbi malesuada velit quis lacus imperdiet vitae
+				mattis purus placerat. Nam blandit dignissim ipsum nec pellentesque.
+				Proin ante ipsum, lacinia in mattis a, congue nec nulla.
+			</div>
+		</div> <!-- app header -->
+		
+        <div class="controllerSummary">
+		
+          <div class="controllerListTitle">
+			Controllers 
+		  </div>
+			
+	      <table class="controllerList">
+			<tr>
+			  <td class="controllerListItem">
+				  <a href="#controllera"> ControllerA </a>
+				  </td>
+			</tr>
+			<tr>
+			  <td class="controllerListItem">
+			    <a href="#controllerb"> ControllerB </a>
+		      </td>
+		    </tr>
+			<tr>
+			  <td class="controllerListItem">
+				<a href="#controllerc"> ControllerC </a>
+			  </td>
+			</tr>
+			
+		  </table>
+			
+	    </div> <!--  controller summary -->
+
+        <div class="controllerSection">
+		
+		<!-- CONTROLLERS -->
+		
+		<table>
+			<tr class="line"> 
+				<td class="line" colspan="4" > </td>
+			</tr>
+			
+			<tr>
+				<td class="controllerName" colspan="4">ControllerA</td>
+			</tr>
+			
+			<tr>
+				<td class="spacer"> </td>
+				<td class="description" colspan="3">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Vivamus pulvinar ipsum ac diam ullamcorper in mattis metus interdum.
+				Proin pharetra eros vitae eros adipiscing imperdiet. Cras auctor neque
+				nec elit aliquam quis elementum neque pulvinar. Integer nec neque
+				odio. Morbi malesuada velit quis lacus imperdiet vitae mattis purus
+				placerat. Nam blandit dignissim ipsum nec pellentesque. Proin ante
+				ipsum, lacinia in mattis a, congue nec nulla.
+				</td>
+			</tr>
+			
+			<!-- HANDLES EVENTS -->
+			<tr>
+				<td> </td>
+				<td class="eventCategory" colspan="3">Handles Events</td>
+			</tr>
+			
+			<!-- EVENT -->
+			<tr>
+				<td> </td>
+				<td class="spacer"> </td>
+				<td> <a href="#commonInit"> common.init </a></td>
+				<td > 
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Vivamus pulvinar ipsum ac diam ullamcorper in mattis metus interdum.
+				</td>
+			</tr>
+			
+			<tr>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+				<td class="datatype"> data type</td>
+			</tr>
+			
+			<!-- EVENT -->
+			<tr>
+				<td> </td>
+				<td> </td>
+				<td> <a href="#commonInit"> common.vertical </a></td>
+				<td class="description anotherItem"> 
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Vivamus pulvinar ipsum ac diam ullamcorper in mattis metus interdum.
+				</td>
+			</tr>
+			
+			<tr>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+				<td class="datatype"> </td>
+			</tr>
+			
+			<!-- DISPATCHES EVENTS -->
+			
+			<tr>
+				<td class="spacer"> </td>
+				<td class="eventCategory" colspan="3">Dispatches Events</td>
+			</tr>
+			<tr>
+				<td class="spacer"> </td>
+				<td class="spacer"> </td>
+				<td> <a href="#commonInit"> dev.bang </a></td>
+				<td class="description"> 
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Vivamus pulvinar ipsum ac diam ullamcorper in mattis metus interdum.
+				</td>
+			</tr>
+			<tr>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+				<td class="datatype"> data type</td>
+			</tr>
+			
+			<!-- USES REGISTRY ITEMS -->
+			
+			<tr>
+				<td class="spacer"> </td>
+				<td class="eventCategory" colspan="3">Uses Registry Items</td>
+			</tr>
+			<tr>
+				<td class="spacer"> </td>
+				<td class="spacer"> </td>
+				<td> <a href="#commonInit"> mvc.serverEventManager </a></td>
+				<td class="description"> 
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Vivamus pulvinar ipsum ac diam ullamcorper in mattis metus interdum.
+				</td>
+			</tr>
+			<tr>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+				<td class="datatype"> org.dmd.features.extgwt.client.ServerEventManager </td>
+			</tr>
+			
+				
+			<!-- CREATES REGISTRY ITEMS -->
+			
+			<tr>
+				<td class="spacer"> </td>
+				<td class="eventCategory" colspan="3">Creates Registry Items</td>
+			</tr>
+			<tr>
+				<td class="spacer"> </td>
+				<td class="spacer"> </td>
+				<td> <a href="#commonInit"> portlet.test </a></td>
+				<td class="description"> 
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Vivamus pulvinar ipsum ac diam ullamcorper in mattis metus interdum.
+				</td>
+			</tr>
+			<tr>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+				<td class="datatype"> com.acme.client.features.info.InfoPortlet </td>
+			</tr>
+			
+				
+				
+				
+				
+			<tr>
+				<td class="viewName">View1</td>
+			</tr>
+			<tr>
+				<td class="spacer"> </td>
+				<td colspan="3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Vivamus pulvinar ipsum ac diam ullamcorper in mattis metus interdum.
+				Proin pharetra eros vitae eros adipiscing imperdiet. Cras auctor
+				neque nec elit aliquam quis elementum neque pulvinar. Integer nec
+				neque odio. Morbi malesuada velit quis lacus imperdiet vitae mattis
+				purus placerat. Nam blandit dignissim ipsum nec pellentesque. Proin
+				ante ipsum, lacinia in mattis a, congue nec nulla.</td>
+			</tr>
+			
+			<!-- HANDLES EVENTS -->
+			<tr>
+				<td> </td>
+				<td class="eventCategory" colspan="3">Handles Events</td>
+			</tr>
+			
+			<!-- EVENT -->
+			<tr>
+				<td> </td>
+				<td class="spacer"> </td>
+				<td> <a href="#commonInit"> common.init </a></td>
+				<td > 
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Vivamus pulvinar ipsum ac diam ullamcorper in mattis metus interdum.
+				</td>
+			</tr>
+			
+			<tr>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+				<td class="datatype"> data type</td>
+			</tr>
+			
+			<!-- EVENT -->
+			<tr>
+				<td> </td>
+				<td> </td>
+				<td> <a href="#commonInit"> common.vertical </a></td>
+				<td class="description anotherItem"> 
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Vivamus pulvinar ipsum ac diam ullamcorper in mattis metus interdum.
+				</td>
+			</tr>
+			
+			<tr>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+				<td class="datatype"> </td>
+			</tr>
+			
+			<!-- DISPATCHES EVENTS -->
+			
+			<tr>
+				<td class="spacer"> </td>
+				<td class="eventCategory" colspan="3">Dispatches Events</td>
+			</tr>
+			<tr>
+				<td class="spacer"> </td>
+				<td class="spacer"> </td>
+				<td> <a href="#commonInit"> dev.bang </a></td>
+				<td class="description"> 
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Vivamus pulvinar ipsum ac diam ullamcorper in mattis metus interdum.
+				</td>
+			</tr>
+			<tr>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+				<td class="datatype"> data type</td>
+			</tr>
+			
+			<!-- USES REGISTRY ITEMS -->
+			
+			<tr>
+				<td class="spacer"> </td>
+				<td class="eventCategory" colspan="3">Uses Registry Items</td>
+			</tr>
+			<tr>
+				<td class="spacer"> </td>
+				<td class="spacer"> </td>
+				<td> <a href="#commonInit"> mvc.serverEventManager </a></td>
+				<td class="description"> 
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Vivamus pulvinar ipsum ac diam ullamcorper in mattis metus interdum.
+				</td>
+			</tr>
+			<tr>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+				<td class="datatype"> org.dmd.features.extgwt.client.ServerEventManager </td>
+			</tr>
+			
+				
+			<!-- CREATES REGISTRY ITEMS -->
+			
+			<tr>
+				<td class="spacer"> </td>
+				<td class="eventCategory" colspan="3">Creates Registry Items</td>
+			</tr>
+			<tr>
+				<td class="spacer"> </td>
+				<td class="spacer"> </td>
+				<td> <a href="#commonInit"> portlet.test </a></td>
+				<td class="description"> 
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Vivamus pulvinar ipsum ac diam ullamcorper in mattis metus interdum.
+				</td>
+			</tr>
+			<tr>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+				<td class="datatype"> com.acme.client.features.info.InfoPortlet </td>
+			</tr>
+			
+			
+					
+					
+		</table>
+		
+      </div> <!-- controller section -->
+      
+    </div> <!-- bodycopy -->
+	
+	<div id="sidebar">
+		<ul class="navList">
+			<li class="navItem"><a class="navLink" href="applications.html">
+			Applications </a></li>
+			<li class="navItem"><a class="navLink" href="controllers.html">
+			Controllers </a></li>
+			<li class="navItem"><a class="navLink" href="views.html">
+			Views </a></li>
+			<li class="navItem"><a class="navLink" href="events.html">
+			Events </a></li>
+			<li class="navItem"><a class="navLink" href="serverEvents.html">
+			Server Events </a></li>
+			<li class="navItem"><a class="navLink" href="registry.html">
+			Registry </a></li>
+	</ul>
+	</div>
+	
+
+  </div> <!-- main -->
+
+  <div id="footer"> </div>
+
+</body>
+
+</html>
