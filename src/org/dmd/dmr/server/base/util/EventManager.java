@@ -49,9 +49,6 @@ public class EventManager {
 			case MODIFIED:
 				listener.objectModified(event);
 				break;
-			case LOADED:
-				// Don't do anything with load events currently
-				break;
 			}
 		}
 	}

@@ -172,7 +172,7 @@ public class DmoEnumFormatter {
         out.write("     * a valid member of this enum.\n");
         out.write("     */\n");
         out.write("    public static " + cn + " get(String str) {\n");
-        out.write("        return(lookupString.get(str.toUpperCase()));\n");
+        out.write("        return(lookupString.get(str));\n");
       	out.write("    }\n\n");
         
         out.write("}");

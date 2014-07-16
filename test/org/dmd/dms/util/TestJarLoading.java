@@ -55,7 +55,6 @@ public class TestJarLoading {
 		            
 		            readSchemaFile(fu);
 		        }
-		        jar.close();
 			}
 			System.out.println("");
 		}

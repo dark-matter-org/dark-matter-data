@@ -30,8 +30,8 @@ import org.dmd.dmc.types.DmcTypeNameContainer;    // DmcType import
  * The DmcTypeNameContainerSET provides storage for a set of NameContainer
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2625)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:673)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:641)
  */
 @SuppressWarnings("serial")
 public class DmcTypeNameContainerSET extends DmcTypeNameContainer implements Serializable {
@@ -63,7 +63,7 @@ public class DmcTypeNameContainerSET extends DmcTypeNameContainer implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2666)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
     public DmcAttribute<NameContainer> cloneIt(){
         synchronized(this){
             DmcTypeNameContainerSET rc = getNew();
@@ -82,7 +82,7 @@ public class DmcTypeNameContainerSET extends DmcTypeNameContainer implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2689)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
     public NameContainer add(Object v) throws DmcValueException {
         synchronized(this){
             NameContainer rc = typeCheck(v);
@@ -98,7 +98,7 @@ public class DmcTypeNameContainerSET extends DmcTypeNameContainer implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2706)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
     public NameContainer del(Object v){
         synchronized(this){
             NameContainer rc = null;
@@ -122,7 +122,7 @@ public class DmcTypeNameContainerSET extends DmcTypeNameContainer implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2731)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public Iterator<NameContainer> getMV(){
         synchronized(this){
             if (value == null)
@@ -135,7 +135,7 @@ public class DmcTypeNameContainerSET extends DmcTypeNameContainer implements Ser
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2745)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Set<NameContainer> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -154,7 +154,7 @@ public class DmcTypeNameContainerSET extends DmcTypeNameContainer implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2765)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -164,7 +164,7 @@ public class DmcTypeNameContainerSET extends DmcTypeNameContainer implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2776)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

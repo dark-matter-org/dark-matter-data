@@ -24,8 +24,6 @@ public class DmcValueException extends Exception {
 
 	String attrName;
 	
-	StringBuffer moreInfo;
-	
 	public DmcValueException(String message){
 		super(message);
 //		attrName = "";
@@ -37,12 +35,6 @@ public class DmcValueException extends Exception {
 	
 	public String getAttributeName(){
 		return(attrName);
-	}
-	
-	public void addMoreInfo(String info){
-		if (moreInfo == null)
-			moreInfo = new StringBuffer();
-		moreInfo.append(info + "\n");
 	}
 	
 //	public DmcValueException(String an, String message){
@@ -62,10 +54,7 @@ public class DmcValueException extends Exception {
         String s = getClass().getName();
         String message = getLocalizedMessage();
 //        if (attrName == null){
-        if (moreInfo == null)
             return (message == null) ? s : (s + ": " + message + "\n");
-        else
-        	return (message == null) ? (s + "\n\n" + moreInfo.toString()) : (s + ": " + message + "\n\n" + moreInfo.toString());
 //        }
 //        else{
 //            return (message == null) ? s : (s + ": " + message + "\n");        	

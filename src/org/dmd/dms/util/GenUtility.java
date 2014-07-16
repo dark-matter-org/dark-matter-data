@@ -24,9 +24,8 @@ import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.IntegerVar;
-import org.dmd.dmc.types.DefinitionName;
+import org.dmd.dmc.types.StringName;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
@@ -70,14 +69,14 @@ public class GenUtility {
 		boolean								anyAttributes	= false;
 		boolean								anyAttributesAtThisLevel = false;
 		IntegerVar							longestImport	= new IntegerVar();
-		TreeMap<DefinitionName,TypeDefinition>	types 			= new TreeMap<DefinitionName,TypeDefinition>();
+		TreeMap<StringName,TypeDefinition>	types 			= new TreeMap<StringName,TypeDefinition>();
 		TreeMap<String,TypeAndAttr>			typeAndAttr 	= new TreeMap<String,TypeAndAttr>();
 		TreeSet<String>						genericImports	= new TreeSet<String>();
 		
 		anyMVAttributes.set(false);
 		anySVAttributes.set(false);
-		if ((cd != null) && cd.getName().getNameString().startsWith("WifiStatsInfo"))
-			DebugInfo.debug("HERE");
+//		if ((cd != null) && cd.getName().getNameString().startsWith("ExtendedRefSV"))
+//			DebugInfo.debug("HERE");
 		
 //		boolean interested = false;
 //		String	theType = " ";
@@ -206,19 +205,16 @@ public class GenUtility {
 		if ( (cd != null) && (cd.getFullAttrMap().size() > 0) )
 			anyAttributes = true;
 		
-//		if (cd == null){
-//			if (anyMVAttributes.booleanValue())
-//				addImport(uniqueImports, longestImport, "java.util.*", "Always required if we have any MV attributes");
-//		}
-//		else{
-//			if (cd.getClassType() != ClassTypeEnum.AUXILIARY){
-//				if (anyMVAttributes.booleanValue())
-//					addImport(uniqueImports, longestImport, "java.util.*", "Always required if we have any MV attributes");
-//			}
-//		}
-		
-		if (anyMVAttributes.booleanValue())
-			addImport(uniqueImports, longestImport, "java.util.*", "Always required if we have any MV attributes");
+		if (cd == null){
+			if (anyMVAttributes.booleanValue())
+				addImport(uniqueImports, longestImport, "java.util.*", "Always required if we have any MV attributes");
+		}
+		else{
+			if (cd.getClassType() != ClassTypeEnum.AUXILIARY){
+				if (anyMVAttributes.booleanValue())
+					addImport(uniqueImports, longestImport, "java.util.*", "Always required if we have any MV attributes");
+			}
+		}
 			
 		if ( (cd != null) && (cd.getClassType() != ClassTypeEnum.AUXILIARY))
 			addImport(uniqueImports, longestImport, "java.io.Serializable", "Always required");
@@ -373,7 +369,6 @@ public class GenUtility {
 					addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcHierarchicNamedObjectIF", "Named object");
 				
 				addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcNamedObjectIF", "Named object");
-				addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcAttribute", "Named object");
 			}
 		}
 
@@ -471,7 +466,7 @@ public class GenUtility {
 		ClassDefinition	cd 				= null;
 		boolean			needJavaUtil	= false;
 		boolean			anyAttributes	= false;
-		TreeMap<DefinitionName,TypeDefinition>	types = new TreeMap<DefinitionName,TypeDefinition>();
+		TreeMap<StringName,TypeDefinition>	types = new TreeMap<StringName,TypeDefinition>();
 		TreeSet<String>	genericImports	= new TreeSet<String>();
 		
 		anyMVAttributes.set(false);
@@ -560,12 +555,7 @@ public class GenUtility {
 		// If the class is auxiliary, we need the DmcTypeString to manipulate the ocl attribute
 		if (cd != null){
 			if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
-				try {
-					types.put(new DefinitionName("String"), MetaSchema._String);
-				} catch (DmcValueException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				types.put(new StringName("String"), MetaSchema._String);
 			}
 		}
 
@@ -1704,16 +1694,12 @@ public class GenUtility {
 		
 	}
 
-//	/**
-//	 * @param value the string who first letter should be capitalized.
-//	 * @return take a string like hello and return Hello
-//	 */
-//	static public String capTheName(String value){
-//    	StringBuffer 	name 	= new StringBuffer();
-//    	name.append(value);
-//    	name.setCharAt(0,Character.toUpperCase(name.charAt(0)));
-//    	return(name.toString());
-//	}
+	static public String capTheName(String value){
+    	StringBuffer 	name 	= new StringBuffer();
+    	name.append(value);
+    	name.setCharAt(0,Character.toUpperCase(name.charAt(0)));
+    	return(name.toString());
+	}
 	
 	/**
 	 * Returns the class or interface name after the last dot in an import statement.
@@ -1733,16 +1719,10 @@ public class GenUtility {
         
         out.write("package " + basePackage + ".generated.dmw;\n\n");
         
-        ImportManager imports = new ImportManager();
-        	
-        imports.addImport("java.util.Iterator", "Beacuse we're iterating");
-        imports.addImport("org.dmd.dmw.DmwMVIterator", "The base multi-value iterator");
-        
-        if (typeImport != null){
-            imports.addImport(typeImport, "This is the type we're iterating");
-        }
-        
-        out.write(imports.getFormattedImports() + "\n");
+        out.write("import java.util.Iterator;\n\n");
+        out.write("import org.dmd.dmw.DmwMVIterator;\n");
+        if (typeImport != null)
+        	out.write("import " + typeImport + ";\n");
         
         String suffix = "";
         if ( (typeImport != null) && (typeImport.endsWith("DMO"))){
@@ -1865,27 +1845,17 @@ public class GenUtility {
         
         out.write("package " + basePackage + ".generated.dmw;\n\n");
         
-        ImportManager imports = new ImportManager();
-        
-        imports.addImport("java.util.Iterator", "Because we're iterating!");
-        imports.addImport("org.dmd.dmw.DmwContainerIterator", "Because we're extending the parameterized class");
-        imports.addImport(basePackage + ".generated.types." + className + "REF", "To access our reference type");
-        
-//        out.write("import java.util.Iterator;\n\n");
-//        out.write("import org.dmd.dmw.DmwContainerIterator;\n");
-//        out.write("import " + basePackage + ".generated.types." + className + "REF;\n");
+        out.write("import java.util.Iterator;\n\n");
+        out.write("import org.dmd.dmw.DmwContainerIterator;\n");
+        out.write("import " + basePackage + ".generated.types." + className + "REF;\n");
         
         if (extended){
-            imports.addImport(extendedPackage + "." + className, "Because " + className + " uses extended wrappers");
-//            out.write("import " + extendedPackage + "." + className + ";\n");
+            out.write("import " + extendedPackage + "." + className + ";\n");
             CAST = className;
         }
         else{
-            imports.addImport(basePackage + ".generated.dmw." + className + "DMW", "Because " + className + " is not extended");
-//            out.write("import " + basePackage + ".generated.dmw." + className + "DMW;\n");
+            out.write("import " + basePackage + ".generated.dmw." + className + "DMW;\n");
         }
-        
-        out.write(imports.getFormattedImports() + "\n");
           	                
         out.write("/**\n");
         out.write(" * The " + className + "IteratorDMW will cast from an underlying " + REF + " class to \n");
@@ -3085,29 +3055,22 @@ public class GenUtility {
     	if (header != null)
     		out.write(header);
     	
-    	ImportManager imports = new ImportManager();
-    	
     	out.write("package " + basePackage + ".generated.types;\n\n");
       
-		imports.addImport("java.io.Serializable","Marker interface for serialization");
-		imports.addImport("org.dmd.dmc.DmcInputStreamIF","To support serialization");
-		imports.addImport("org.dmd.dmc.DmcOutputStreamIF","To support serialization");
+    	out.write("import java.io.Serializable;\n");
+    	out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
+      	out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
 
-		imports.addImport("org.dmd.dmc.DmcAttributeInfo","Constructor support");
-		imports.addImport("org.dmd.dmc.DmcValueException","Type checking");
+      	out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
+      	out.write("import org.dmd.dmc.DmcValueException;\n");
       	
       	if (containsRefs){
-			imports.addImport("org.dmd.dmc.types.DmcTypeComplexTypeWithRefs","Derivation base");
-			imports.addImport("org.dmd.dmc.DmcNameResolverWithClashSupportIF","Ambiguous reference resolution");
-			imports.addImport("org.dmd.dmc.DmcNameClashResolverIF","Ambiguous reference resolution");
-			imports.addImport("org.dmd.dmc.DmcNameResolverIF","Reference resolution");
-			imports.addImport("org.dmd.dmc.DmcObject","Ambiguous reference resolution");
-			imports.addImport("org.dmd.dmc.DmcValueExceptionSet","Ambiguous reference resolution");
+          	out.write("import org.dmd.dmc.types.DmcTypeComplexTypeWithRefs;\n");
+          	out.write("import org.dmd.dmc.DmcNameResolverIF;\n");
       	}
       	else
-			imports.addImport("org.dmd.dmc.DmcAttribute","Derivation base");
+          	out.write("import org.dmd.dmc.DmcAttribute;\n");
 
-      	out.write(imports.getFormattedImports() + "\n\n");
 
   		out.write("@SuppressWarnings(\"serial\")\n");
 
@@ -3189,15 +3152,6 @@ public class GenUtility {
 	  		out.write("    public void resolveValue(DmcNameResolverIF resolver, " + cn + " value, String attrName) throws DmcValueException {\n");
 	  		out.write("        value.resolve(resolver,attrName);\n");
 	  		out.write("    }\n\n");
-	  		
-	  		out.write("    /**\n");
-	  		out.write("     * Resolves a " + cn + ".\n");
-	  		out.write("     */\n");
-	  		out.write("    @Override\n");
-	  		out.write("    public void resolveValue(DmcNameResolverWithClashSupportIF resolver, " + cn + " value, DmcObject object, DmcNameClashResolverIF ncr, DmcAttributeInfo ai) throws DmcValueException, DmcValueExceptionSet {\n");
-	  		out.write("        value.resolve(resolver,object,ncr,ai);\n");
-	  		out.write("    }\n\n");
-
       	}
 
   	        		

@@ -1,7 +1,5 @@
 package org.dmd.dms.doc.web;
 
-import java.util.Iterator;
-
 /**
  * The Wiki utility class provides some useful translation functionality for alterring
  * descriptions to conform to the Google Code Wiki format. In particular, the following
@@ -42,26 +40,6 @@ public class Converter {
 	
 	static public void wiki(boolean f){
 		wiki = f;
-	}
-
-	public static String convert(Iterator<String> descriptionWithNewlines) {
-		StringBuffer sb = new StringBuffer();
-		
-		while(descriptionWithNewlines.hasNext()){
-			String rc = descriptionWithNewlines.next();
-			
-			if (wiki){
-				rc = rc.replaceAll("<pre>", "{{{");
-				rc = rc.replaceAll("</pre>", "}}}");
-				
-				rc = rc.replaceAll("<code>", "`");
-				rc = rc.replaceAll("</code>", "`");
-			}
-			
-			sb.append(rc + "\n");
-		}
-		
-		return(sb.toString());
 	}
 	
 	

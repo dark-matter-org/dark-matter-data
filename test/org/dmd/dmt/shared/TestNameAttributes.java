@@ -3,7 +3,6 @@ package org.dmd.dmt.shared;
 import static org.junit.Assert.assertNotNull;
 
 import org.dmd.dmc.DmcAttribute;
-import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.StringName;
@@ -17,7 +16,7 @@ public class TestNameAttributes {
 
 	
 	@Test
-	public void testNameAttributes() throws ResultException, DmcValueException, DmcNameClashException {
+	public void testNameAttributes() throws ResultException, DmcValueException{
 		SchemaManager schema = new SchemaManager();
 		
 //		schema.manageSchema(new DmpSchemaAG());

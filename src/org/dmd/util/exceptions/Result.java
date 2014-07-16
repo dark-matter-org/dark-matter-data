@@ -156,13 +156,6 @@ public class Result {
         attrNameV       = new StringBuffer();
         uniqueIDV       = -1;
     }
-	
-	Result(String msg, String file, int line){
-		severityV = ERROR;
-		messageV = new StringBuffer(msg);
-		fileNameV = new StringBuffer(file);
-		lineNumberV = line;
-	}
 
     /**
     * Creates a new RResult container from an existing one.

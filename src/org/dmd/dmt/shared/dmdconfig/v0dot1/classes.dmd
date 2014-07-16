@@ -61,7 +61,6 @@ may				tsString
 may				svTestBasicNamedObjectFixed
 may				hsTestEnum
 may				mvIdxUnnamedObj
-may				dmrbase.userName
 description     The TestBasicObjectFixed class provides a test bed for all types of basic
  attribute values.
 

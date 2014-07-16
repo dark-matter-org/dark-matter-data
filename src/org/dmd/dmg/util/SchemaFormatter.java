@@ -23,25 +23,19 @@ import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
-import org.dmd.dmc.DmcNamedObjectREF;
 import org.dmd.dmc.DmcObject;
-import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.types.DefinitionName;
-import org.dmd.dmc.types.DotName;
+import org.dmd.dmc.types.StringName;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.ComplexTypeDefinition;
-import org.dmd.dms.DSDefinitionModule;
 import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.EnumDefinition;
 import org.dmd.dms.RuleDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
-import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
-import org.dmd.dms.generated.dmo.SchemaDefinitionDMO;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.DebugInfo;
@@ -78,15 +72,13 @@ public class SchemaFormatter {
 	
 	ArrayList<VarToObject>		ruleVars;
 	
-	ArrayList<VarToObject>		dsdModuleVars;
-	
 	SchemaManager				schemaManager;
 	
 	// When we call getInstantiations() we also add the import for any AUX
 	// classes we need to this tree
 	// Key:   aux class name
 	// Value: aux class package
-	TreeMap<DefinitionName,String>	auxImports;
+	TreeMap<StringName,String>	auxImports;
 	
 	// The names of attributes that we don't dump as code - these are generated internally
 	// by the SchemaManager
@@ -103,7 +95,6 @@ public class SchemaFormatter {
 		actionVars 		= new ArrayList<VarToObject>();
 		enumVars 		= new ArrayList<VarToObject>();
 		ruleVars 		= new ArrayList<VarToObject>();
-		dsdModuleVars 	= new ArrayList<VarToObject>();
 		
 		skip = new TreeMap<String, String>();
 		skip.put(DmcObject.__objectClass.name, DmcObject.__objectClass.name);
@@ -132,7 +123,7 @@ public class SchemaFormatter {
 	public void dumpSchema(String genDir, String genPackage, SchemaDefinition schema, SchemaManager sm) throws IOException{
 		boolean	hasDependency = false;
 		
-		auxImports = new TreeMap<DefinitionName, String>();
+		auxImports = new TreeMap<StringName, String>();
 		
 		if (schema.getDependsOn() != null)
 			hasDependency = true;
@@ -167,7 +158,7 @@ public class SchemaFormatter {
         out.write("import org.dmd.dms.generated.dmo.*;\n");
         out.write("import " + schema.getSchemaPackage() + ".generated.dmo." + asagName + ";\n\n");
         
-        for(DefinitionName key : auxImports.keySet()){
+        for(StringName key : auxImports.keySet()){
         	out.write("import " + auxImports.get(key) + ";\n");
         }
         
@@ -205,14 +196,12 @@ public class SchemaFormatter {
 
         out.write("    }\n\n");
         
-		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    private void initialize() throws DmcValueException {\n");
         out.write("        if (instance == null){\n");
         out.write("            instance        = this;\n");
         
         out.write("            SchemaDefinitionDMO me = (SchemaDefinitionDMO) this.getDmcObject();\n");
         out.write("            me.setName(\"" + 			schema.getName() + "\");\n");
-        out.write("            me.setDotName(\"" + 			schema.getName() + "\");\n");
         out.write("            me.setSchemaPackage(\"" + 	schema.getSchemaPackage() + "\");\n");
         out.write("            me.setDmwPackage(\"" + 		schema.getDmwPackage() + "\");\n");
         out.write("            me.setFile(\"" + 			schema.getFile() + "\");\n\n");
@@ -242,7 +231,6 @@ public class SchemaFormatter {
         out.write("            initActions();\n");
         out.write("            initEnums();\n");
         out.write("            initRules();\n");
-        out.write("            initDSDModules();\n");
        
         out.write("            DmcOmni.instance().addCompactSchema(" + asagName + ".instance());\n");
         
@@ -266,10 +254,7 @@ public class SchemaFormatter {
         
         dumpInitFunction(out,"initRules", ruleVars);
         
-        dumpInitFunction(out,"initDSDModules", dsdModuleVars);
-        
                 
-		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("\n");
         out.write("    @Override\n");
         out.write("    public synchronized " + schemaName + " getInstance() throws DmcValueException{\n");
@@ -310,7 +295,6 @@ public class SchemaFormatter {
 	}
 		
 	void dumpInitFunction(BufferedWriter out, String funcName, ArrayList<VarToObject> vars) throws IOException {
-		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    private void " + funcName + "() throws DmcValueException {\n");
         out.write(getInstantiations(vars));
         out.write("    }\n\n");
@@ -344,7 +328,6 @@ public class SchemaFormatter {
 	String getInstantiations(){
 		StringBuffer sb = new StringBuffer();
 		
-		sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		for(VarToObject var : allVars){
 			if (var.name.length() == 0){
 				sb.append("\n");
@@ -372,9 +355,6 @@ public class SchemaFormatter {
 				}
 				else if (var.type.equals("RuleDefinition")){
 					sb.append("            addRuleDefinitionList(" + var.name + ");\n");
-				}
-				else if (var.type.equals("DSDefinitionModule")){
-					sb.append("            addDsdModuleList(" + var.name + ");\n");
 				}
 				sb.append("\n");
 			}
@@ -420,9 +400,6 @@ public class SchemaFormatter {
 				}
 				else if (var.type.equals("RuleDefinition")){
 					sb.append("            addRuleDefinitionList(" + var.name + ");\n");
-				}
-				else if (var.type.equals("DSDefinitionModule")){
-					sb.append("            addDsdModuleList(" + var.name + ");\n");
 				}
 				sb.append("\n");
 			}
@@ -560,20 +537,6 @@ public class SchemaFormatter {
 			sb.append("\n");
 			allVars.add(new VarToObject("", null, null));
 		}
-
-		Iterator<DSDefinitionModule> dsdModules = schema.getDsdModuleList();
-		if (dsdModules != null){
-			while(dsdModules.hasNext()){
-				DSDefinitionModule dsdm = dsdModules.next();
-				// NOTE: we append DSD to the module name to differentiate it from the
-				// the internally generated ClassDefinition of the same name.
-				sb.append("    public static DSDefinitionModule _" + dsdm.getName()  + "DSD;\n");
-				allVars.add(new VarToObject("_" + dsdm.getName() + "DSD", dsdm, "DSDefinitionModule"));
-				dsdModuleVars.add(new VarToObject("_" + dsdm.getName() + "DSD", dsdm, "DSDefinitionModule"));
-			}
-			sb.append("\n");
-			allVars.add(new VarToObject("", null, null));
-		}
 		
 		
 		return(sb.toString());
@@ -592,63 +555,22 @@ public class SchemaFormatter {
 
 		for (DmcAttribute<?> attr : var.def.getDmcObject().getAttributes().values()){
 			String an = GeneratorUtils.dotNameToCamelCase(attr.getName());
-			String prefix = "";
 			
 			if (skip.get(attr.getName()) != null)
 				continue;
 			
-			DotName dn = null;
-			try {
-				dn = new DotName(attr.getAttributeInfo().qualifiedName + ".AttributeDefinition");
-			} catch (DmcValueException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-//			DebugInfo.debug("Identity hash: " + System.identityHashCode(schemaManager.attributeDefinitions));
-			
-			AttributeDefinition ad = schemaManager.attributeDefinitions.getDefinition(dn);
-//			AttributeDefinition ad = schemaManager.isAttribute(attr.getName());
+			AttributeDefinition ad = schemaManager.isAttribute(attr.getName());
 			ClassDefinition aux = isAuxAttribute(var.def, ad);
-			
-			TypeDefinition td = ad.getType();
 			
 			if (aux == null){
 				if (attr.getMVSize() > 0){
 					// Multi-value attribute
 					Iterator<?> vals = attr.getMV();
 					while(vals.hasNext()){
-						prefix = "";
-						Object val = vals.next();
-						if (td.getIsRefType()){
-							DmcNamedObjectREF<?> ref = (DmcNamedObjectREF<?>) val;
-							if (ref.getObject() instanceof DmsDefinitionDMO){
-								if ( !(ref.getObject() instanceof SchemaDefinitionDMO)){
-									DmsDefinitionDMO def = (DmsDefinitionDMO) ref.getObject();
-									if (!val.toString().contains("."))
-										prefix =  def.getDefinedIn().getObjectName().getNameString() + ".";
-								}
-							}
-						}
-						String value = val.toString();
-						if (value.indexOf("\"") != -1){
-							value = value.replaceAll("\"", "\\\\\"");
-						}
-						sb.append(indent + obj + ".add" + an + "(\"" + prefix + value + "\");\n");
+						sb.append(indent + obj + ".add" + an + "(\"" + vals.next().toString() + "\");\n");
 					}
 				}
 				else{
-					prefix = "";
-					if (td.getIsRefType()){
-						DmcNamedObjectREF<?> ref = (DmcNamedObjectREF<?>) attr.getSV();
-						if (ref.getObject() instanceof DmsDefinitionDMO){
-							if ( !(ref.getObject() instanceof SchemaDefinitionDMO)){
-								DmsDefinitionDMO def = (DmsDefinitionDMO) ref.getObject();
-								if (!attr.getSV().toString().contains("."))
-									prefix = def.getDefinedIn().getObjectName().getNameString() + ".";
-							}
-						}
-					}
 					// HACK HACK HACK
 					// In order to handle the concept of the empty string as a nullReturn value, we have to check
 					// to see if the nullReturnValue attribute is "" because if we don't, we wind up with
@@ -667,13 +589,8 @@ public class SchemaFormatter {
 					else{
 						if (doubleQuotes)
 							sb.append(indent + obj + ".set" + an + "(" + attr.getSV().toString() + ");\n");
-						else{
-							String value = attr.getSV().toString();
-							if (value.indexOf("\"") != -1){
-								value = value.replaceAll("\"", "\\\"");
-							}
-							sb.append(indent + obj + ".set" + an + "(\"" + prefix + value + "\");\n");
-						}
+						else
+							sb.append(indent + obj + ".set" + an + "(\"" + attr.getSV().toString() + "\");\n");
 					}
 				}
 			}
@@ -690,7 +607,7 @@ public class SchemaFormatter {
 				}
 				else{
 					// HACK HACK HACK
-					// In order to handle the concept of the empty string as a nullReturn value, we have to check
+					// In order to handle the concept of teh empty string as a nullReturn value, we have to check
 					// to see if the nullReturnValue attribute is "" because if we don't, we wind up with
 					//             _ATTRDEF.setNullReturnValue("""");
 					boolean doubleQuotes = false;
@@ -702,13 +619,8 @@ public class SchemaFormatter {
 						
 					if (doubleQuotes)
 						sb.append(indent + aux.getDmwAuxClass() + ".set" + an + "(" + var.name + ", " + attr.getSV().toString() + ");\n");
-					else{
-						String value = attr.getSV().toString();
-						if (value.indexOf("\"") != -1){
-							value = value.replaceAll("\"", "\\\"");
-						}
-						sb.append(indent + aux.getDmwAuxClass() + ".set" + an + "(" + var.name + ", \"" + value + "\");\n");
-					}
+					else
+						sb.append(indent + aux.getDmwAuxClass() + ".set" + an + "(" + var.name + ", \"" + attr.getSV().toString() + "\");\n");
 //					sb.append(indent + aux.getDmoAuxClass() + ".set" + an + "(" + obj + ", \"" + attr.getSV().toString() + "\");\n");
 				}
 			}

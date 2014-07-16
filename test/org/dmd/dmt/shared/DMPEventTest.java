@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.IOException;
 
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.types.DefinitionName;
+import org.dmd.dmc.types.StringName;
 import org.dmd.dmp.server.extended.DMPEvent;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
 import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
@@ -65,7 +65,7 @@ public class DMPEventTest {
 	public void testPersistentFormCreate() throws Exception{
 		
 		ObjWithRefs	obj1 = new ObjWithRefs();
-		obj1.setName(new DefinitionName("obj1"));
+		obj1.setName(new StringName("obj1"));
 		obj1.setSvString("some string");
 		obj1.addNonperString("value 1");
 		obj1.addNonperString("value 2");
@@ -88,7 +88,7 @@ public class DMPEventTest {
 	public void testPersistentFormModify() throws Exception {
 		
 		ObjWithRefs	obj1 = new ObjWithRefs();
-		obj1.setName(new DefinitionName("obj1"));
+		obj1.setName(new StringName("obj1"));
 		obj1.setSvString("some string");
 		
 		ObjWithRefs mods = obj1.getModificationRecorder();

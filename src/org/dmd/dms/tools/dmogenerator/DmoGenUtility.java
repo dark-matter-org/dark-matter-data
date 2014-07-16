@@ -20,7 +20,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Iterator;
 
-import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
@@ -82,9 +81,8 @@ public class DmoGenUtility {
 	StringArrayList	jars 		= new StringArrayList();
 	BooleanVar		checkRules 	= new BooleanVar();
 	BooleanVar		checkOnly 	= new BooleanVar();
-	StringArrayList	targets		= new StringArrayList();
 	
-	public DmoGenUtility(String[] args) throws ResultException, IOException, DmcValueException, DmcValueExceptionSet, DmcNameClashException {
+	public DmoGenUtility(String[] args) throws ResultException, IOException, DmcValueException, DmcValueExceptionSet {
 		initHelp();
 		cl = new CommandLine();
         cl.addOption("-h",     		helpFlag,	"Dumps the help message.");
@@ -97,14 +95,8 @@ public class DmoGenUtility {
         cl.addOption("-jars",   	jars,     	"The prefixs of jars to search for .dms config files.");
         cl.addOption("-checkRules",	checkRules,	"Indicates if you want to dynamically instantiate and validate rule definitions.");
         cl.addOption("-checkOnly",	checkOnly,	"Indicates if you want to only check rule definitions, not generate code.");
-        cl.addOption("-targets",	targets,	"Indicates you only want to generate for the specified configs");
 		
 		cl.parseArgs(args);
-		
-		System.out.print("TARGETS: ");
-		for(int i=0; i<targets.size(); i++)
-			System.out.print(targets.get(i) + " ");
-		System.out.println();
 		
 		dmsSchema = new SchemaManager();
 		
@@ -192,7 +184,7 @@ public class DmoGenUtility {
         help.append("\n");
 	}
 	
-	public void run() throws DmcValueExceptionSet, DmcRuleExceptionSet, DmcNameClashException {
+	public void run() throws DmcValueExceptionSet, DmcRuleExceptionSet {
         BufferedReader  in = new BufferedReader(new InputStreamReader(System.in));
         String          currLine    = null;
         TokenArrayList	tokens		= null;
@@ -204,13 +196,7 @@ public class DmoGenUtility {
         		ConfigLocation loc = version.getLatestVersion();
         		if (!loc.isFromJAR()){
         			// Wasn't in a jar, so try to generate
-        			
-        			if (targets.contains(loc.getConfigName())){
-        				generateFromConfig(loc);
-        			}
-        			else{
-        				System.out.println("DMOGEN: " + loc.getConfigName() + " is not in the -targets list - not generating:  " + loc.getDirectory() + "\n");
-        			}
+        			generateFromConfig(loc);
         		}
         	}
         	
@@ -227,7 +213,7 @@ public class DmoGenUtility {
 				System.exit(1);
 			}
         	
-        	return;
+        	System.exit(0);
         }
 
         System.out.println("\n-- dmo generator utility --\n");
@@ -303,10 +289,6 @@ public class DmoGenUtility {
 						
 						FileUpdateManager.instance().generationComplete();
 						
-						if ((sd != null) && checkRules.booleanValue()){
-							parser.checkRules(sd);
-						}
-						
 					} catch (ResultException e) {
 						System.err.println(e.toString());
 					} catch (DmcValueException e) {
@@ -325,7 +307,7 @@ public class DmoGenUtility {
         }
 	}
 	
-	void generateFromConfig(ConfigLocation location) throws DmcNameClashException{
+	void generateFromConfig(ConfigLocation location){
     	try {
     		// Create a new manager into which the parsed schemas will be loaded
     		readSchemas = new SchemaManager();

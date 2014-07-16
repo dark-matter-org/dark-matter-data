@@ -22,7 +22,6 @@ import java.util.TreeMap;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmc.rules.RuleTracerIF;
 import org.dmd.dmc.types.DmcTypeDmcObjectName;
-import org.dmd.dmc.types.DotName;
 import org.dmd.dmc.types.Modifier;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
@@ -80,11 +79,7 @@ public class DmcOmni implements DmcNameResolverIF {
 	// (DMSAGs) that have been loaded
 	TreeMap<Integer,DmcAttributeInfo>	idToAttr;
 	
-	// Key: just the attribute name
-	TreeMap<String,ArrayList<DmcAttributeInfo>>	stringToAttribute;
-	
-	// Key: the qualified name of the attribute i.e schema.attribute
-	TreeMap<DotName,DmcAttributeInfo>	dotnameToAttribute;
+	TreeMap<String,DmcAttributeInfo>	stringToAttribute;
 	
 	// A map of the name builders for each naming type. The key is the name of
 	// of the type e.g. StringName, DotName etc. For any DmcObjectName instance,
@@ -147,8 +142,7 @@ public class DmcOmni implements DmcNameResolverIF {
 		idToClass				= new TreeMap<Integer, DmcClassInfo>();
 		stringToClass			= new TreeMap<String, DmcClassInfo>();
 		idToAttr				= new TreeMap<Integer, DmcAttributeInfo>();
-		stringToAttribute		= new TreeMap<String, ArrayList<DmcAttributeInfo>>();
-		dotnameToAttribute		= new TreeMap<DotName, DmcAttributeInfo>();
+		stringToAttribute		= new TreeMap<String, DmcAttributeInfo>();
 		nameBuilders			= new TreeMap<String, DmcNameBuilderIF>();
 		filterBuilders			= new TreeMap<String, DmcFilterBuilderIF>();
 		slices					= new TreeMap<String, DmcSliceInfo>();
@@ -326,21 +320,10 @@ public class DmcOmni implements DmcNameResolverIF {
 				
 				idToAttr.put(ai.id, ai);
 				
-				ArrayList<DmcAttributeInfo>	mapping = stringToAttribute.get(ai.name);
-				
-				if (mapping == null){
-					mapping = new ArrayList<DmcAttributeInfo>(1);
-					stringToAttribute.put(ai.name, mapping);
-				}
-				mapping.add(ai);
-				
-				DmcAttributeInfo fqai = dotnameToAttribute.get(ai.qualifiedName);
-				if (fqai == null){
-					dotnameToAttribute.put(ai.qualifiedName, ai);
-				}
-				else{
-					throw(new IllegalStateException("Clashing attributes: " + fqai + "  <>  " + ai));					
-				}
+				existing = stringToAttribute.get(ai.name);
+				if (existing != null)
+					throw(new IllegalStateException("Clashing attribute names: " + existing + "  <>  " + ai));
+				stringToAttribute.put(ai.name, ai);
 			}
 		}
 		
@@ -430,17 +413,8 @@ public class DmcOmni implements DmcNameResolverIF {
 		// to it. We don;t attempt to reuse the same modifier because these may be used in events.
 		Iterator<Modifier> it = mods.getMV();
 		while(it.hasNext()){
-			Modifier mod = it.next();
-			
-			// Things are a little different for references from complex types.
-			// Since complex types are invariable, all we do is unresolve the references
-			// that are part of the complex type.
-			if (mod.getRefFromComplexType() != null){
-				mod.getRefFromComplexType().setObject(null);
-				continue;
-			}
-			
 			DmcTypeModifierMV single = new DmcTypeModifierMV();
+			Modifier mod = it.next();
 			try {
 				// Add the Modifier to our temporary
 				single.add(mod);
@@ -510,22 +484,7 @@ public class DmcOmni implements DmcNameResolverIF {
 	 * @return The attribute info if it's available.
 	 */
 	public DmcAttributeInfo getAttributeInfo(String an){
-		ArrayList<DmcAttributeInfo>	mapping = stringToAttribute.get(an);
-		
-		if (mapping == null){
-			// It might be a fully qualified name, so try to find it in the dotname mapping
-			try {
-				DotName dn = new DotName(an);
-				return(dotnameToAttribute.get(dn));
-			} catch (DmcValueException e) {
-				e.printStackTrace();
-			}
-		}
-		else{
-			if (mapping.size() == 1)
-				return(mapping.get(0));
-		}
-		return(null);
+		return(stringToAttribute.get(an));
 	}
 	
 	/**

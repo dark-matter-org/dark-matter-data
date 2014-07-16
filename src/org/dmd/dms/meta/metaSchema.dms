@@ -160,13 +160,6 @@ isNameType		true
 description		The StringName is the simplest naming mechanism available; it's just a String.
 
 TypeDefinition
-name			DefinitionName
-typeClassName	org.dmd.dmc.types.DmcTypeDefinitionName
-primitiveType	org.dmd.dmc.types.DefinitionName
-isNameType		true
-description		The DefinitionName provides naming of dark-matter definitions.
-
-TypeDefinition
 name			CamelCaseName
 typeClassName	org.dmd.dmc.types.DmcTypeCamelCaseName
 primitiveType	org.dmd.dmc.types.CamelCaseName
@@ -299,61 +292,6 @@ description     The Field complex type is used to describe the fields of a Compl
  followed by the description.
 
 ComplexTypeDefinition
-name			Part
-// fieldSeparator - no separator, so space is used
-requiredPart	TypeDefinition	type        "The type of the Part"
-requiredPart	String			name        "The name of the Part"
-requiredPart	String			description "The description of the Part"  quoted=true
-//optionalPart	String			label 		"The label of the Part"			quoted=true
-optionalPart	Boolean			quoted 		"Indicates if the Part allows for a quoted value or if it's intended to be a single token"
-optionalPart	Boolean			multivalued	"Indicates if the Part is multivalued. This can be specified on any optionalPart
- but can only be used on a requiredPart if it's the only part in the ComplexTypeDefinition"
-optionalPart	Boolean			weakref		"Indicates that a reference type is weak i.e. that no exception will be thrown if the reference can't be resolved - this is only applicable to optional Parts."
-optionalPart	Boolean			greedy		"This flag can only be used on a Part composed of requiredParts and only on the last requiredPart. It is not compatible
- with other flags such as quoted, multivalued or weakref. It allows for a set of required parts followed by chunk of text that extends to the end of the attribute value."
-description     The Part complex type is used to describe the Parts of a ComplexTypeDefinition.
-// NOTE: IF YOU ADD A NEW PART TO PART, UPDATE MetaComplexTypeFormatter
-
-ComplexTypeDefinition
-name			NameValuePair
-requiredPart	String			name		"The name of the value"
-requiredPart	String			value		"The value" quoted=true
-description		The NameValuePair type provides a general extensibility mechanism for DMOs
- by allowing for the addition of name value pairs to an object. This is a quick and dirty
- alternative to using auxiliary classes to extend an object especially the DSDefinition object
- that provides a common base class for all domain specific definitions.
-
-ComplexTypeDefinition
-name			SchemaAndReason
-requiredPart	String			schema		"The fully qualified name of the schema to load"
-requiredPart	String			hint		"A hint as to why the schema is required" quoted=true
-description		The SchemaAndReason type is used when schemas are loaded dynamically by
- some piece of software. For documentation purposes, it's useful to know why the schema
- is being loaded, since the class name may not informative enough.
-
-ComplexTypeDefinition
-name			Example
-fieldSeparator	:
-requiredPart	String			type		"The type of the example - this is just a single token string that gives a
- hint to your example formatter of what to do with the content"
-requiredPart	String			title		"A title for the example - this doesn't have to be used by your example formatter"
-requiredPart	String			content		"The textual content of the example - this can be anything you want" greedy=true
-description If you want to get rid of the &#92;n use: .replaceAll("&#92;&#92;&#92;&#92;n","&#92;&#92;&#92;n")
-
-ComplexTypeDefinition
-name			Optimize
-fieldSeparator	:
-requiredPart	String			what	"A description of the change to be made"
-optionalPart	String			who		"Who made the suggestion" quoted=true
-optionalPart	String			when	"A suggested timeframe for the change" quoted=true
-optionalPart	Concinnity		why		"A suggested timeframe for the change" weakref=true multivalued=true
-description		Allows for capture of optimization notes.
-example			code : Specifying an Optimization/Improvement : 
- <pre>
- optimize We could improve compression if we indicated the blah, blah, blah who="Me" when="release 5" why="reduce bandwidth charges"
- </pre>
-
-ComplexTypeDefinition
 name			DmwTypeToWrapperType
 field           String          dmwType     The Dark Matter Wrapper type
 field           WrapperTypeEnum wrapperType The type of wrapper to be used in this context
@@ -371,17 +309,17 @@ field           String         description     A description of the parameter
 description The RuleParam type is used to succintly describe a parameter
  to be supplied to a rule when it is executed.
  
-//ComplexTypeDefinition
-//name			GPBField
-//field			GPBFieldTypeEnum	fieldType       The type of GPB field
-//field			AttributeDefinition	attribute		The attribute to be stored in this field. The attribute type must specify the gpbFieldType .
-//field			Integer				fieldTag		Unique field ID excluding values 19000 to 19999 which are reserved.
-//description		The GPBField type is used to specify a mapping between the attributes
-// of an object and a Google Protocol Buffer field. An example might be:
-// <pre>
-// gpbField STRING firstName 1
-// </pre>
-// This mechanism allows for generation of GPB compatible dark-matter objects.
+ComplexTypeDefinition
+name			GPBField
+field			GPBFieldTypeEnum	fieldType       The type of GPB field
+field			AttributeDefinition	attribute		The attribute to be stored in this field. The attribute type must specify the gpbFieldType .
+field			Integer				fieldTag		Unique field ID excluding values 19000 to 19999 which are reserved.
+description		The GPBField type is used to specify a mapping between the attributes
+ of an object and a Google Protocol Buffer field. An example might be:
+ <pre>
+ gpbField STRING firstName 1
+ </pre>
+ This mechanism allows for generation of GPB compatible dark-matter objects.
 
 ///////////////////////////////////////////////////////////////////////////////
 // Enumeration Definitions
@@ -474,7 +412,7 @@ enumValue		3 TREEMAPPED Indicates that the attribute values implement the DmcMap
  and are stored in a TreeMap.
 enumValue		4 HASHSET Indicates that the attribute values are stored in a HashSet.
 enumValue		5 TREESET Indicates that the attribute values are stored in a TreeSet.
-//enumValue		6 INDEXED Indicates that the attribute is multi-valued and indexed i.e. it has predefined slots for a fix number of values.
+enumValue		6 INDEXED Indicates that the attribute is multi-valued and indexed i.e. it has predefined slots for a fix number of values.
 description		The ValueTypeEnum indicates the cardinality of an attribute as
  well as the type of Map to be used if the attribute is keyed. This is an extension
  to original concept of single-valued versus multi-valued. Hashsets are also supported.
@@ -601,22 +539,6 @@ classInfoFromParam		obj.getConstructionClassInfo()
 attributeInfoFromParam	attribute.getAttributeInfo()
 description				Rules in this category are used to validate individual attributes.
 
-RuleCategory
-name					AttributeValidationWithResolver
-opContext				DMO
-ruleCategoryID			4
-ruleType				ATTRIBUTE
-ruleParam				org.dmd.dmc.DmcObject::obj:The object in which the attribute exists
-ruleParam				org.dmd.dmc.DmcAttribute:<?>:attribute:The attribute to be validated
-ruleParam				org.dmd.dmc.DmcUniqueNameResolverIF::resolver:The name resolver
-classInfoFromParam		obj.getConstructionClassInfo()
-attributeInfoFromParam	attribute.getAttributeInfo()
-description				Rules in this category are used to validate individual attributes, but
- may require information that can be accessed from a given namespace provided by the name resolver.
- <p>
- For now, we've a way around having this category - see ReferencedAttributeTypeRule, but we may have
- to return to this mechanism.
-
 //RuleCategory
 //name					ObjectModifierValidation
 //opContext				DMO
@@ -688,11 +610,11 @@ description				Rules in this category are used to validate DmcUncheckedObjects (
 AttributeDefinition
 name                name
 dmdID				2
-type                DefinitionName
+type                StringName
 designatedNameAttribute true
 description    The name attribute is used to store a single string token that represents a unique name
- for an object with the set of definitions of which it is a part. A name starts with a letter followed
- by letters and numbers.
+ for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All names must start with a character.
 
 AttributeDefinition
 name                dmdID
@@ -805,7 +727,6 @@ name            	description
 dmdID				18
 preserveNewlines	true
 type                String
-valueType			MULTI
 description    		The description attribute is used to provide descriptive
  documentation for schema related definitions. The text provided should conform
  to XHTML concepts since it will be dumped in the context of the generated HTML
@@ -1158,14 +1079,7 @@ valueType			MULTI
 description Indicates the classes of object that may be parents of the
  current class when objects are created in an instance hierarchy.
 
-AttributeDefinition
-name            	example
-dmdID				63
-preserveNewlines	true
-type                Example
-valueType			MULTI
-description    		The example attribute is used to provide additional
- examples of how some defined thing is to be used.
+// 63
 
 AttributeDefinition
 name       			namingAttribute
@@ -1541,21 +1455,11 @@ valueType			MULTI
 internalUse			true
 description    		A list of slice definition references.
 
-AttributeDefinition
-name             	requiredPart
-dmdID				112
-type				Part
-valueType			MULTI
-description			Indicates a required part of a complex type definition.
+// 112
 
 // 113
 
-AttributeDefinition
-name             	optionalPart
-dmdID				114
-type				Part
-valueType			MULTI
-description			Indicates an optional part of a complex type definition.
+// 114
 
 AttributeDefinition
 name             	opContext
@@ -1761,8 +1665,7 @@ AttributeDefinition
 name                		ruleCategoryID
 dmdID						140
 type                		Integer
-description    				The numeric ID of a rule category. Category IDs must be unique for all RuleDefinitions defined
- within a schema.
+description    				The numeric ID of a rule category.
 
 //AttributeDefinition
 //name                		ruleInterface
@@ -1883,284 +1786,6 @@ dmdID						157
 type                		AttributeDefinition
 description    				Indicates the attribute to which an ATTRIBUTE type rule is applied.
 
-AttributeDefinition
-name                		isDSDefinition
-dmdID						158
-type                		Boolean
-description    				Indicates if the class defined by a ClassDefinition and its derivatives are part
- of a domain specific set of definitions. For instance, the definitions associated with the meta schema are
- considered a set of domain specific definitions for defining data objects; the dark-matter Model View
- Whatever (MVW) definitions describe a set of domain specific concepts for defining aspects of a GWT
- application.
- <p/>
- A domain specific definition must be named by name and must have dotName as an attribute because the 
- generated class will implement the DmcDefinitionIF which assumes that these attributes exist. This
- interface allows these definitions to be managed as part of a set of definitions.
-
-//AttributeDefinition
-//name                		isDSModule
-//dmdID						159
-//type                		Boolean
-//description    				Indicates if the class defined by a ClassDefinition is considered to be a 
-// module-level entity in terms of a set of domain specific definitions. The generated dark-matter wrapper
-// for the class will indicate that it implements the DmcModuleIF.  
-
-AttributeDefinition
-name                stringName
-dmdID				160
-type                StringName
-designatedNameAttribute true
-description    The stringName attribute is used to store a simple name for something. It starts
- with a letter followed letters or numbers.
-
-AttributeDefinition
-name                fileExtension
-dmdID				161
-type                String
-description    		Indicates the extension of files of a particular type.
-
-//AttributeDefinition
-//name                usesDefinition
-//dmdID				162
-//type                DSDefinition
-//valueType			MULTI
-//description    		A reference to the DSDefinition derived class that is part of
-// the abstract syntax of a dark-matter definition module.
-
-AttributeDefinition
-name                moduleClassName
-dmdID				163
-type                String
-description    		The name of the class that will be generated as a result of a DSDefinitionModule definition.
-
-AttributeDefinition
-name                baseDefinition
-dmdID				164
-type                DSDefinition
-description    		A reference to the DSDefinition derived class that is the base class for a 
- set of definition classes.
-
-AttributeDefinition
-name                moduleDependenceAttribute
-dmdID				165
-type                AttributeDefinition
-description    		The name of the attribute in a DSDefinitionModule that
- indicates a dependence on another module of the same type. For example, in
- dark-matter schemas, the SchemaDefinition uses the dependsOn attribute to
- refer to oher schemas.
-
-AttributeDefinition
-name                refersToDefsFromDSD
-dmdID				166
-type                DSDefinitionModule
-valueType			MULTI
-description    		A reference to another DSDefinitionModule from which the current
- module makes use of definitions. For instance, the Model View Whatever DSD includes references
- to schema related definitions. As a result of specifying this, the module
- class that's generated for the DSDefinitionModule will include the moduleDependenceAttribute
- of the module from which definitions are used. Likewise, the generated parser
- will be primed with the schema of the required definition module.
-
-AttributeDefinition
-name                definedInModuleAttribute
-dmdID				167
-type                AttributeDefinition
-description    		The name of the attribute that will be set on all definitions associated with a DSD
- to indicate the module from which a definition was loaded.
-
-AttributeDefinition
-name                		dsdModuleDefinition
-dmdID						168
-type                		DSDefinitionModule
-internalUse					true
-description    				The DSDefinitionModule that resulted in the creation of an
- internally generated ClassDefinition.
-
-AttributeDefinition
-name                		dsdModuleList
-dmdID						169
-type                		DSDefinitionModule
-valueType					MULTI
-description    				The set of DSDefinitionModules defined in a schema.
-
-AttributeDefinition
-name                		sortName
-dmdID						170
-type                		DotName
-description    				The sortName is used in siutations where we need a name
- for storage of a definition that is globally unique but can be sorted on the basis
- of the definition name, not the module name. The dotName for a definition is
- module.definition...type, whereas the sortName would be definition...module.type.
- So, for things like documentation generation, the sortName provides a more 
- natural ordering.
-
-//AttributeDefinition
-//name                		mandatoryFields
-//dmdID						171
-//type                		Integer
-//description    				The number of fields in a ComplexTypeDefinition that
-// are considered mandatory. By default, all fields are considered mandatory.
-
-AttributeDefinition
-name                		supportDynamicSchemaLoading
-dmdID						172
-type                		Boolean
-description    				If this flag is set to true, the loadSchemaClass attribute
- will be added to the generated domain specific module definition class so that additional schemas
- (usually containg auxiliary classes) can be loaded dynamically. This allows the generated
- module parser to handle auxiliary information on the domain specific definitions.
-
-AttributeDefinition
-name                		loadSchemaClass
-dmdID						173
-type                		SchemaAndReason
-valueType					MULTI
-description    				The fully qualified name of a schema that is to 
- be loaded dynamically as part of module definition, along a description
- of why the schema is being loaded. This is generally used
- when auxiliary class information is used in conjunction with a set of
- domain specific definitions.
- <p/>
- An example would be org.dmd.gpb.tools.generation.generated.GpbauxtestSchemaAG "Because we need the aux classes"
-
-AttributeDefinition
-name                		requiredBaseModule
-dmdID						174
-type                		String
-valueType					MULTI
-description    				A set of base module files that should be loaded before
- parsing of any other modules associated with the DSD being defined. For example,
- the dmdgpb (augmented Googoe Protocol Buffer specifications) DSD always requires
- that the gpbbase.gpb file is loaded because it defines the base types of the fields
- that comprise messages. By specifying gpbbase.gpb as a requiredBaseModule, the
- generated parsing coordinator will ensure that this module is loaded on start-up.
- <p/>
- You should specify just the name of the module file to be loaded, not the file extension.
- The file extension is assumed to be fileExtension associated with the DSD.
-
-AttributeDefinition
-name                		partOfDefinitionModule
-dmdID						175
-type                		DSDefinitionModule
-description					For classes that defined as part of a definition module,
- this indicates the module they belong to. This allows for generation of a standard
- method to get the name of the module from which they were loaded.
-
-AttributeDefinition
-name                		relatedToConcept
-dmdID						176
-type                		Concinnity
-valueType					MULTI
-description					Allows for references to base concepts that relate this
- definition to another definition in the Concinnity domain. This mechanism is only used
- in the domain of dark-matter schema definitions; other DSLs will allow for direct
- reference to Concinnity concepts.
-
-AttributeDefinition
-name                		tags
-dmdID						177
-type                		String
-valueType					TREESET
-description					A collection of tags that can facilitate searching for
- definitions. The values are limited to a-zA-Z0-9 and the space character.
-
-AttributeDefinition
-name                		nvp
-dmdID						178
-type                		NameValuePair
-valueType					MULTI
-description					A set of additional name value pairs that can be associated with an object.
-
-AttributeDefinition
-name                		weakReference
-dmdID						179
-type                		Boolean
-description					A flag to indicate that a reference attribute is weak i.e. 
- if the object can't be resolved, no exception is thrown.
-
-AttributeDefinition
-name                		optimize
-dmdID						180
-type                		String
-valueType					MULTI
-description					Depending on what you're modelling, you often come across
- places where you can see an opportunity to optimize, streamline or improve something e.g. merging
- concepts together, representing something differently, adding a relationship - whatever.
- However, these ideas often get lost in the shuffle or, if you add them into an overall
- description of something, they don't stand out.
- <p/>
- Any dark-matter definition can be decorated with optimize notes. These notes provide
-
-AttributeDefinition
-name						version
-dmdID						181
-type						String
-description 				The version at which something was introduced. Version names
- are assumed to be lexicographically sortable i.e. the name of a version must have a nautral
- sort order that increases.
-
-AttributeDefinition
-name						skip
-dmdID						182
-type						String
-valueType					MULTI
-description 				A version from which something should be excluded (even though it is included
- in later versions). This is an unusual situation, and should be approached with extreme caution!
-
-AttributeDefinition
-name						obsolete
-dmdID						183
-type						String
-description 				The version at which something became obsolete.
-
-AttributeDefinition
-name						why
-dmdID						184
-type						Concinnity
-weakReference				true
-description 				An indication of why something was added to a specification or a system.
- This might be a reference to a requirement or feature concept. How this is used will depend on context.
- Due to the fact that it is a weak reference, you may also just put in free form text, since it
- will simply be treated as an unresolved reference.
-
-AttributeDefinition
-name						comment
-dmdID						185
-type						String
-valueType					MULTI
-description					A comment or note associated with the definition of something. For
- code that's generated from a definition, comments may be added to the code, as opposed to 
- descriptions which are meant to assist in generating documentation. In the end, it's up to
- the designer of a DSL to determine how comments are used.
-
-AttributeDefinition
-name						hint
-dmdID						186
-type						String
-description					A short description of something that can be dumped as one line summary of something.
- For longer explanations, use the description attribute.
-
-AttributeDefinition
-name						question
-dmdID						187
-type						String
-valueType					MULTI
-description					A question associated with the definition of something.
-
-//AttributeDefinition
-//name                		nameAndTypeName
-//dmdID						176
-//type                		DotName
-//description					For a DSDefinition, this attribute holds just the 
-// defname.type of the definition. This is used to facilitate object resolution 
-// using the findNamedObjectMayClash mechanisms. In that case we have the name of 
-// and object and the attribute via which the reference is being made. These are
-// concatenated to form the defname.type.
-//
-// NOTE: this turned out to be insufficient for adding a definition to the indices
-//       of all of its base classes so that we could support references to base
-//       and abstract classes in reference attributes.
-
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
 AttributeDefinition
@@ -2179,6 +1804,7 @@ description    Used to indicate the classes that an object instance supports.
 // Class Definitions
 //
 
+ 
 ClassDefinition
 name			ActionTriggerInfo
 classType		ABSTRACT
@@ -2190,7 +1816,7 @@ description		The ActionTriggerInfo class simply provides a common base for the b
  of information required to remotely trigger an action on an object. 
  Derivatives of this class are generated as part of the DMO generation
  process and have action specific interfaces to handle the parameters 
- required by an ActionDefinition.
+ required by an action.
  <p/>
  This mechanism is a replacement for the concept that ActionRequests were
  EXTENSIBLE objects. This way, the user can ask an object for the 
@@ -2198,136 +1824,28 @@ description		The ActionTriggerInfo class simply provides a common base for the b
  interface to specify the parameters for the action.
 
 ClassDefinition
-name			DSDefinition
-classType     	ABSTRACT
-dmdID			1
-useWrapperType	EXTENDED
-javaClass    	org.dmd.dms.DSDefinition
-dmoImport		org.dmd.dms.generated.dmo.DSDefinitionDMO
-isNamedBy       name
-must         	name
-may				description
-may				comment
-may				question
-may				example
-may				hint
-may				sortName
-may				tags
-may				nvp
-may				optimize
-may				version
-may				skip
-may				obsolete
-may				why
-// Auto generated/set
-may           	definedIn
-may          	file
-may        		lineNumber
-may				dotName
-description		The domain specific definition (DSDefinition) forms the basis for all definitions
- that use dark-matter as their basis. The initial dark-matter mechanisms were focussed only on 
- schema for data objects, but, as the project developed, other, domain specific sets of definitions
- were added. Eventually, a pattern emerged in terms of these various sets of definitions and
- some additional higher order concepts were introduced to make the creation of new, domain specific
- definition sets easier and to allow them to build on and use each others' definitions in a 
- coherent manner.
- <p/>
- For instance, the Model View Whatever (MVW) framework, builds on the dark-matter schema 
- concepts and introduces definitions that align with the Google Web Toolkit (GWT) conceptual model
- of the elements that comprise GWT applications and the various relationships that exist between
- them. The infrastructure needed to parse, manage and use those definitions to generate code
- and documentation are very similar to those used in the base dark-matter schema mechanisms, but
- they had to be hand built for the domain.
- <p/>
- Other kinds of domain specific definitions started to emerge, Google Protocol Buffer (GPB),
- Simple Network Management Protocol (SNMP) etc. Having to build the infrastructure for these 
- definitions each time was tedious and, in the spirit of the rest of dark-matter, lent themselves
- to being defined, generated and extended to make the process the easier.
- <p/>
- Likewise, the code generation mechanisms originally employed have evolved and the more generic
- concept of artifact generation, based on definition sets, was introduced to allow for more rapid
- creation of utilities that generate code or documentation or other types of specifications.
-
-ClassDefinition
 name			DmsDefinition
 classType     	ABSTRACT
-derivedFrom     DSDefinition
-dmdID			2
+dmdID			1
 useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.DmsDefinition
 dmoImport		org.dmd.dms.generated.dmo.DmsDefinitionDMO
 isNamedBy       name
 must         	name
-may				relatedToConcept
-description     The DmsDefinition class provides a common base for all dark-matter schema (DMS) definition classes.
-
-ClassDefinition
-name			DSDefinitionModule
-classType     	STRUCTURAL
-derivedFrom     DmsDefinition
-dmdID			3
-useWrapperType	EXTENDED
-javaClass    	org.dmd.dms.DSDefinitionModule
-dmoImport		org.dmd.dms.generated.dmo.DSDefinitionModuleDMO
-isNamedBy       name
-must         	name
-must			fileExtension
-must			dmdID
-must			moduleClassName
-must			moduleDependenceAttribute
-must			baseDefinition
-//must			usesDefinition
-may				refersToDefsFromDSD
-may				definedInModuleAttribute
-may				may
-may				must
-may				supportDynamicSchemaLoading
-may				requiredBaseModule
 // Auto generated/set
 may           	definedIn
-description		The DSDefinitionModule is a definition that defines a collection of definitions
- and provides a basis for the generation of various artifacts that allow for parsing and
- management of that set of definitions.
- <p/>
- The specific of a definition module will result in the generation of a ClassDefinition for
- the specified module type and thus, the dmdID associated with it must be unique across the
- set of classes that comprise the definitions encompassed by the module.
- <p/>
- The ClassDefinition will be named by name and will have the may and must attributes specified
- as part of the DSDefinitionModule.
-
-DSDefinitionModule
-name						DMS
-fileExtension				dms
-baseDefinition				DmsDefinition
-dmdID						21
-moduleClassName				DmSchema
-moduleDependenceAttribute 	dependsOn
-definedInModuleAttribute	definedIn
-//usesDefinition				ActionDefinition
-//usesDefinition				AttributeDefinition
-//usesDefinition				ClassDefinition
-//usesDefinition				ComplexTypeDefinition
-//usesDefinition				DSDefinitionModule
-//usesDefinition				EnumDefinition
-//usesDefinition				ExtendedReferenceTypeDefinition
-//usesDefinition				RuleCategory
-//usesDefinition				RuleDefinition
-//usesDefinition				SchemaDefinition
-//usesDefinition				SliceDefinition
-//usesDefinition				TypeDefinition
-description		The DMS definition module defines the base schema modelling language
- associated with dark-matter.
+may          	file
+may        		lineNumber
+description     The DmsDefinition class provides a common base for all definition classes.
 
 ClassDefinition
 name           	ClassDefinition
 classType     	STRUCTURAL
-dmdID			4
+dmdID			2
 useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.ClassDefinition
 dmoImport		org.dmd.dms.generated.dmo.ClassDefinitionDMO
 derivedFrom     DmsDefinition
-isDSDefinition	true
 isNamedBy       name
 must         	name
 may         	description
@@ -2350,13 +1868,9 @@ may				supportsBackrefTracking
 may				excludeFromContext
 may           	abbrev
 may         	obsoleteVersion
-may				isDSDefinition
-may				partOfDefinitionModule
-//may				isDSModule
 // Auto generated/set
 may             internallyGenerated
 may				ruleDefinition
-may				dsdModuleDefinition
 may           	derivedClasses
 may           	actions
 may				internalTypeRef
@@ -2380,12 +1894,11 @@ description    This class provides the basic mechanism to define new classes for
 ClassDefinition
 name         	EnumDefinition
 classType      	STRUCTURAL
-dmdID			5
+dmdID			3
 useWrapperType	EXTENDED
 javaClass     	org.dmd.dms.EnumDefinition
 dmoImport		org.dmd.dms.generated.dmo.EnumDefinitionDMO
 derivedFrom     DmsDefinition
-isDSDefinition	true
 isNamedBy       name
 may            	description
 must          	name
@@ -2399,44 +1912,40 @@ description    The EnumDefinition allows for the definition of real Java enums t
 ClassDefinition
 name         	TypeDefinition
 classType      	STRUCTURAL
-dmdID			6
+dmdID			4
 useWrapperType	EXTENDED
 javaClass     	org.dmd.dms.TypeDefinition
 dmoImport		org.dmd.dms.generated.dmo.TypeDefinitionDMO
 derivedFrom     DmsDefinition
-isDSDefinition	true
 isNamedBy       name
 must          	name
 must            typeClassName
 may            	description
-may             primitiveType
 may             nullReturnValue
-may				altType
-may				altTypeImport
-// These must be specified if you want to use this type in TREEMAPPED or HASHMAPPED attributes
-may				keyClass
-may				keyImport
 // Auto generated/set
 // wrapperClass is used for internal types and refers to the original
 // class definition's javaClass
 may             wrapperClassName
+may             primitiveType
 may             internallyGenerated
+may             isEnumType
+may				enumName
+may				isRefType
 may				helperClassName
+may				originalClass
 may				dmwIteratorImport
 may				dmwIteratorClass
-// 
-may             isEnumType
+may				genericArgs
 may				isNameType
-may				isHierarchicName
 may				isFilterType
-may				isExtendedRefType
-may				isRefType
-may				enumName
-may				originalClass
+may				isHierarchicName
+may				keyClass
+may				keyImport
 may				nameAttributeDef
 may				filterAttributeDef
-// generic args may be obsolete
-may				genericArgs
+may				altType
+may				altTypeImport
+may				isExtendedRefType
 description     The <code> TypeDefinition </code> is used to define the types of attributes that can be used
  as the basis for attribute values. The name of the type definition should be the same as the
  actual Java class that is used to store the value of an attribute e.g. the name of the type
@@ -2528,21 +2037,17 @@ description     The <code> TypeDefinition </code> is used to define the types of
 ClassDefinition
 name			ComplexTypeDefinition
 classType		STRUCTURAL
-dmdID			7
+dmdID			5
 useWrapperType	EXTENDED
 javaClass     	org.dmd.dms.ComplexTypeDefinition
 dmoImport		org.dmd.dms.generated.dmo.ComplexTypeDefinitionDMO
 derivedFrom     DmsDefinition
-isDSDefinition	true
 isNamedBy       name
 must          	name
-may				field
-may				requiredPart
-may				optionalPart
+must			field
 may				fieldSeparator
 may				extendedClass
 may             description
-//may				mandatoryFields
 description		The ComplexTypeDefinition provides a mechanism for defining the structure of
  a complex type composed of other types. From this definition, a new DmcType is generated that
  has all of the required methods automatically defined.
@@ -2571,12 +2076,11 @@ description		The ComplexTypeDefinition provides a mechanism for defining the str
 ClassDefinition
 name			ExtendedReferenceTypeDefinition
 classType		STRUCTURAL
-dmdID			8
+dmdID			6
 useWrapperType	EXTENDED
 javaClass     	org.dmd.dms.ExtendedReferenceTypeDefinition
 dmoImport		org.dmd.dms.generated.dmo.ExtendedReferenceTypeDefinitionDMO
 derivedFrom     ComplexTypeDefinition
-isDSDefinition	true
 isNamedBy       name
 must          	name
 must			extendedReferenceClass
@@ -2588,12 +2092,11 @@ description		The ExtendedReferenceTypeDefinition provides a mechanism for extend
 ClassDefinition
 name         	AttributeDefinition
 classType     	STRUCTURAL
-dmdID			9
+dmdID			7
 useWrapperType	EXTENDED
 javaClass      	org.dmd.dms.AttributeDefinition
 dmoImport		org.dmd.dms.generated.dmo.AttributeDefinitionDMO
 derivedFrom     DmsDefinition
-isDSDefinition	true
 isNamedBy       name
 must          	name
 must          	type
@@ -2612,7 +2115,6 @@ may				designatedFilterAttribute
 may				internalUse
 may				indexSize
 may				preserveNewlines
-may				weakReference
 description    This class is used to define attributes to be used
  as part of a class definition.
  
@@ -2620,18 +2122,47 @@ ClassDefinition
 name			SliceDefinition
 isNamedBy		name
 classType     	STRUCTURAL
-dmdID			10
+dmdID			8
 useWrapperType	EXTENDED
 javaClass      	org.dmd.dms.SliceDefinition
 dmoImport		org.dmd.dms.generated.dmo.SliceDefinitionDMO
 derivedFrom     DmsDefinition
-isDSDefinition	true
 must			name
 must 			selectAttribute
 may				description
 description		The SliceDefinition class is used to define a named set of attributes
  that are used to retrieve a slice of an object i.e. an abbreviated set of
  values. These are used in the generation of static, named DmcSliceInfo instances.
+ 
+//ClassDefinition
+//name			ObjectValidatorDefinition
+//isNamedBy		name
+//classType		STRUCTURAL
+//dmdID			9
+//javaClass      	org.dmd.dms.ObjectValidatorDefinition
+//dmoImport		org.dmd.dms.generated.dmo.ObjectValidatorDefinitionDMO
+//derivedFrom     DmsDefinition
+//must			name
+//must            validatorClass
+//may				opContext
+//may				description
+//description		The ObjectValidatorDefinition allows for the the definition of object
+// level validation logic.
+
+//ClassDefinition
+//name			AttributeValidatorDefinition
+//isNamedBy		name
+//classType		STRUCTURAL
+//dmdID			10
+//javaClass      	org.dmd.dms.AttributeValidatorDefinition
+//dmoImport		org.dmd.dms.generated.dmo.AttributeValidatorDefinitionDMO
+//derivedFrom     DmsDefinition
+//must			name
+//must            validatorClass
+//may				opContext
+//may				description
+//description		The AttributeValidatorDefinition allows for the the definition of attribute
+// level validation logic.
 
 ClassDefinition
 name        	ActionDefinition
@@ -2642,7 +2173,6 @@ useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.ActionDefinition
 dmoImport		org.dmd.dms.generated.dmo.ActionDefinitionDMO
 derivedFrom     DmsDefinition
-isDSDefinition	true
 isNamedBy       name
 must          	name
 may          	description
@@ -2661,8 +2191,6 @@ description       This class is used to define the actions that may be triggered
  an object.
 //label     		Attribute
 
-
-
 ClassDefinition
 name           	SchemaDefinition
 classType      	STRUCTURAL
@@ -2671,12 +2199,10 @@ useWrapperType	EXTENDED
 //dataType      	TRANSIENT
 javaClass    	org.dmd.dms.SchemaDefinition
 dmoImport		org.dmd.dms.generated.dmo.SchemaDefinitionDMO
-//derivedFrom     DmsDefinition
 derivedFrom     DmsDefinition
 isNamedBy       name
-// module attribute
 must        	name
-//must        	description
+must        	description
 must          	schemaPackage
 must			schemaBaseID
 must			schemaIDRange
@@ -2703,7 +2229,6 @@ may           	dependsOnRef
 may				ruleCategoryList
 may				ruleDefinitionList
 may				ruleDataList
-may				dsdModuleList
 // obsolete
 //must            genDirPrefix
 //must            genPackagePrefix
@@ -2718,7 +2243,6 @@ useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.RuleCategory
 dmoImport		org.dmd.dms.generated.dmo.RuleCategoryDMO
 derivedFrom     DmsDefinition
-isDSDefinition	true
 isNamedBy       name
 must        	name
 must			opContext
@@ -2730,7 +2254,7 @@ may				ruleImport
 must            ruleParam
 must            classInfoFromParam
 may             attributeInfoFromParam
-//must			description
+must			description
 description		The RuleCategory allows for the definition of categories of rules to be applied
  to various objects and indicates the expected interface to be implemented by a rule instance.
  A RuleDefinition may belong to multiple categories. 
@@ -2762,13 +2286,12 @@ useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.RuleDefinition
 dmoImport		org.dmd.dms.generated.dmo.RuleDefinitionDMO
 derivedFrom     DmsDefinition
-isDSDefinition	true
 isNamedBy       name
 must        	name
 //must			ruleType
 must			ruleCategory
 must			dmdID
-//must			description
+must			description
 may           	must
 may            	may
 may				isExtensible
@@ -2818,7 +2341,6 @@ useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.Dependency
 dmoImport		org.dmd.dms.generated.dmo.DependencyDMO
 derivedFrom     DmsDefinition
-isDSDefinition	true
 isNamedBy       name
 must        	name
 must			useInterface
@@ -2850,7 +2372,6 @@ useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.DependencyImplementation
 dmoImport		org.dmd.dms.generated.dmo.DependencyImplementationDMO
 derivedFrom     DmsDefinition
-isDSDefinition	true
 isNamedBy       name
 must        	name
 must			dependency
@@ -2870,33 +2391,11 @@ dmdID			20
 useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.Dependency
 dmoImport		org.dmd.dms.generated.dmo.DependencyDMO
-isDSDefinition	true
 derivedFrom     DmsDefinition
 isNamedBy       name
 must        	name
 must			dependencies
 may				description
-
-ClassDefinition
-name			Concinnity
-classType     	ABSTRACT
-dmdID			42
-useWrapperType	EXTENDED
-javaClass    	org.dmd.dms.Concinnity
-dmoImport		org.dmd.dms.generated.dmo.ConcinnityDMO
-derivedFrom     DSDefinition
-isNamedBy       name
-must         	name
-description		When concinnity was conceived, it was conceived as a way of binding knowledge across
- different domains. As the newer approach to generating Domain Specific Definitions arose, it became
- easier to create DSLs for different domains and I wanted concinnity to make use of those mechanisms.
- However, to do that would have required significant changes to the meta schema generator and a great
- deal of hacking. I wanted to be able to refer to concinnity aspects from schema as well, so the
- compromise is to place the base class for Concinnity in the meta schema (so that reference attributes
- may refer to it). 
- <p/>
- Mechanisms exist to prevent any class other than ConcinnityDefinition from deriving directly from
- Concinnity, so you can be guaranteed that down casting a Concinnity reference will yield a ConcinnityDefinition.
 
 ********************************************************************************
 *

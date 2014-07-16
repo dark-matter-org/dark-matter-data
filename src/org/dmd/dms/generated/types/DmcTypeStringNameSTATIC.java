@@ -29,15 +29,15 @@ import org.dmd.dmc.types.StringName;    // base type import
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:2160)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2075)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:2130)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2045)
  */
 public class DmcTypeStringNameSTATIC implements DmcNameBuilderIF {
     
     public static DmcTypeStringNameSTATIC instance;
     static DmcTypeStringNameSV typeHelper;
     static String    nameClass = "StringName";
-    static final int attrID    = 160;
+    static final int attrID    = 2;
     
     static {
         instance = new DmcTypeStringNameSTATIC();

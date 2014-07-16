@@ -10,7 +10,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Iterator;
 
-import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
@@ -48,7 +47,7 @@ public class TestModifiers {
 	static private SchemaManager schema;
 	
 	@Before
-	public void initialize() throws ResultException, DmcValueException, IOException, DmcNameClashException {
+	public void initialize() throws ResultException, DmcValueException, IOException{
 		if (!initialized){
 			schema = new SchemaManager();
 			schema.manageSchema(new DmpSchemaAG());
@@ -216,7 +215,7 @@ public class TestModifiers {
 
 		mods = new DmcTypeModifierMV();
 		obj1.setModifier(mods);
-		obj1.setName("name1");
+		obj1.setName("name 1");
 		
 		anyChanges = obj2.applyModifier(mods);
 		assertEquals("Expecting applyModifier() to return true.", true, anyChanges);
@@ -281,7 +280,7 @@ public class TestModifiers {
 		
 		ObjWithRefs	obj = new ObjWithRefs();
 		
-		obj.setName("object1");
+		obj.setName("object 1");
 		obj.setSvString("one value");
 		obj.addMvString("value1");
 		obj.addMvString("value2");
@@ -323,7 +322,7 @@ public class TestModifiers {
 		System.out.println("\n***** testDelFromMissingMappedAttribute\n");
 		
 		ObjWithRefs	obj = new ObjWithRefs();
-		obj.setName("object1");
+		obj.setName("object 1");
 
 		ObjWithRefs modrec = obj.getModificationRecorder();
 		modrec.delIntToString(5);
@@ -334,7 +333,7 @@ public class TestModifiers {
 		System.out.println("Modify missing intToString:\n\n" + request);
 		
 		ObjWithRefs	obj2 = new ObjWithRefs();
-		obj2.setName("object2");
+		obj2.setName("object 2");
 		obj2.addIntToString(new IntegerToString(10,"ten"));
 		obj2.addIntToString(new IntegerToString(5,"five"));
 		
@@ -351,7 +350,7 @@ public class TestModifiers {
 		System.out.println("\n***** testDuplicateValueInHashSetValue\n");
 		
 		ObjWithRefs	obj = new ObjWithRefs();
-		obj.setName("object1");
+		obj.setName("object 1");
 
 		ObjWithRefs modrec = obj.getModificationRecorder();
 		
@@ -369,7 +368,7 @@ public class TestModifiers {
 		System.out.println("\n***** testOIFObjectWithModifier\n");
 		
 		ObjWithRefs	obj = new ObjWithRefs();
-		obj.setName("object1");
+		obj.setName("object 1");
 
 		ObjWithRefs modrec = obj.getModificationRecorder();
 		
@@ -387,7 +386,7 @@ public class TestModifiers {
 	}
 	
 	@Test
-	public void testHashSetChangesRecorded() throws DmcValueException {
+	public void testHashSetChangesRecorded(){
 		ObjWithRefs obj1 = new ObjWithRefs();
 		
 		DmcTypeModifierMV mods = new DmcTypeModifierMV();

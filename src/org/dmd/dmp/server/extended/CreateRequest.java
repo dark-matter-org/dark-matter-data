@@ -17,7 +17,6 @@ package org.dmd.dmp.server.extended;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.server.generated.dmw.CreateRequestDMW;
@@ -93,10 +92,8 @@ public class CreateRequest extends CreateRequestDMW {
 	 * If the new object has generated/extended DMW code, this method will return the 
 	 * DMO wrapped in its associated DMW object.
 	 * @return The wrapped DMO.
-	 * @throws DmcNameClashException 
-	 * @throws DmcValueException  
 	 */
-	public DmwWrapper getNewObjectWrapped() throws DmcNameClashException, DmcValueException {
+	public DmwWrapper getNewObjectWrapped(){
 		if (getNewObject() == null)
 			return(null);
 		return(DmwOmni.instance().wrapIt(getNewObject()));

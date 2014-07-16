@@ -20,7 +20,7 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
-import org.dmd.dmc.types.DefinitionName;
+import org.dmd.dmc.types.StringName;
 
 import org.dmd.dmg.generated.types.WrapperGeneratorREF;
 
@@ -35,7 +35,7 @@ import org.dmd.dmg.generated.dmo.WrapperGeneratorDMO;
  * Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREFHelperType(DmoTypeFormatter.java:585)
  */
 @SuppressWarnings("serial")
-abstract public class DmcTypeWrapperGeneratorREF extends DmcTypeNamedObjectREF<WrapperGeneratorREF, DefinitionName> {
+abstract public class DmcTypeWrapperGeneratorREF extends DmcTypeNamedObjectREF<WrapperGeneratorREF, StringName> {
 
     public DmcTypeWrapperGeneratorREF(){
     
@@ -51,8 +51,8 @@ abstract public class DmcTypeWrapperGeneratorREF extends DmcTypeNamedObjectREF<W
     }
 
     @Override
-    protected DefinitionName getNewName(){
-        return(new DefinitionName());
+    protected StringName getNewName(){
+        return(new StringName());
     }
 
     @Override
@@ -75,8 +75,8 @@ abstract public class DmcTypeWrapperGeneratorREF extends DmcTypeNamedObjectREF<W
             rc = (WrapperGeneratorREF)value;
         else if (value instanceof WrapperGeneratorDMO)
             rc = new WrapperGeneratorREF((WrapperGeneratorDMO)value);
-        else if (value instanceof DefinitionName)
-            rc = new WrapperGeneratorREF((DefinitionName)value);
+        else if (value instanceof StringName)
+            rc = new WrapperGeneratorREF((StringName)value);
         else if (value instanceof String)
             rc = new WrapperGeneratorREF((String)value);
         else

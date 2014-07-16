@@ -94,7 +94,7 @@ public enum DMPEventTypeEnum implements DmcEnumIF
      * a valid member of this enum.
      */
     public static DMPEventTypeEnum get(String str) {
-        return(lookupString.get(str.toUpperCase()));
+        return(lookupString.get(str));
     }
 
 }

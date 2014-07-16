@@ -14,16 +14,16 @@
 
     <div id="content">
 
-<!-- org.dmd.dms.doc.web.SchemaPage.writeSchemaSummary(SchemaPage.java:336) -->
+<!-- org.dmd.dms.doc.web.SchemaPage.writeSchemaSummary(SchemaPage.java:335) -->
 
   <div class="schemaName"> dmt </div>
 
   <div class="summary">
 
-<!-- org.dmd.dms.doc.web.SchemaPage.writeClassSummary(SchemaPage.java:371) -->
+<!-- org.dmd.dms.doc.web.SchemaPage.writeClassSummary(SchemaPage.java:370) -->
 
     <div class="classList">
-    <h2> Classes (46)</h2>
+    <h2> Classes (44)</h2>
     <table>
       <tr>
       <td class="spacer"> </td>
@@ -37,10 +37,6 @@
       <tr>
       <td class="spacer"> </td>
       <td> <a class="deflink" href="#ClientCountFilterRequest"> ClientCountFilterRequest </a></td>
-      </tr>
-      <tr>
-      <td class="spacer"> </td>
-      <td> <a class="deflink" href="#ComplexTypeTest"> ComplexTypeTest </a></td>
       </tr>
       <tr>
       <td class="spacer"> </td>
@@ -103,10 +99,6 @@
       <td class="spacer"> </td>
       <td> <a class="deflink" href="#ObjWithRefs"> ObjWithRefs </a></td>
       <td> name </td>
-      </tr>
-      <tr>
-      <td class="spacer"> </td>
-      <td> <a class="deflink" href="#ParseTest"> ParseTest </a></td>
       </tr>
       <tr>
       <td class="spacer"> </td>
@@ -221,38 +213,28 @@
       <td> <a class="deflink" href="#UsingObjRefHM"> UsingObjRefHM </a></td>
       </tr>
     </table>
-    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeTypeSummary(SchemaPage.java:413) -->
+    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeTypeSummary(SchemaPage.java:412) -->
 
     <div class="typeList">
     <h2>Types (2)</h2>
     <ul>
       <li> <a class="deflink" href="#DmtStringName"> DmtStringName </a></li>
     </ul>
-    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeComplexTypeSummary(SchemaPage.java:433) -->
-
-    <div class="complextypeList">
-    <h2>Complex Types (4)</h2>
-    <ul>
-      <li> <a class="deflink" href="#DmtField"> DmtField </a></li>
-      <li> <a class="deflink" href="#DmtOptionalValueFieldWithColons"> DmtOptionalValueFieldWithColons </a></li>
-      <li> <a class="deflink" href="#DmtOptionalValueFieldWithSpaces"> DmtOptionalValueFieldWithSpaces </a></li>
-      <li> <a class="deflink" href="#MenuElementTypeAndComment"> MenuElementTypeAndComment </a></li>
-    </ul>
-    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeExtendedRefTypeSummary(SchemaPage.java:450) -->
+    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeExtendedRefTypeSummary(SchemaPage.java:449) -->
 
     <div class="extendedreftypeList">
     <h2>Extended Reference Types (1)</h2>
     <ul>
       <li> <a class="deflink" href="#SomeRelation"> SomeRelation </a></li>
     </ul>
-    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeEnumSummary(SchemaPage.java:467) -->
+    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeEnumSummary(SchemaPage.java:466) -->
 
     <div class="enumList">
     <h2>Enums (1)</h2>
     <ul>
       <li> <a class="deflink" href="#DmtTestEnum"> DmtTestEnum </a></li>
     </ul>
-    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeSliceSummary(SchemaPage.java:484) -->
+    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeSliceSummary(SchemaPage.java:483) -->
 
     <div class="sliceList">
     <h2> Slices (2)</h2>
@@ -260,7 +242,7 @@
       <li> <a class="deflink" href="#slice1"> slice1 </a></li>
       <li> <a class="deflink" href="#sliceOfNamed"> sliceOfNamed </a></li>
     </ul>
-    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeRuleInstancesSummary(SchemaPage.java:535) -->
+    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeRuleInstancesSummary(SchemaPage.java:534) -->
 
     <div class="ruledefs">
     <h2> Rule Instances (3)</h2>
@@ -271,7 +253,7 @@
     </ul>
     </div>  </div> <!--  summary -->
 
-<!-- org.dmd.dms.doc.web.SchemaPage.writeClasses(SchemaPage.java:203) -->
+<!-- org.dmd.dms.doc.web.SchemaPage.writeClasses(SchemaPage.java:202) -->
 
 <div class="classDetails">
 
@@ -321,16 +303,12 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
- for an object with the set of definitions of which it is a part. A name starts with a letter followed
- by letters and numbers.
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+ for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
-<tr> <td class="attributeRule">
-<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
-
 </table>
       </td>
     </tr>
@@ -346,8 +324,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svDate">svDate</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Date">Date</a> </td>
-      <td> A sv Date.
-      </td>
+      <td> A sv Date.      </td>
     </tr>
 
   </table>
@@ -441,8 +418,7 @@
       <td> <a href="dmp.html#requestID">requestID</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> A unique identifier that is generated on a client to distinguish the
- responses that are associated with a given request.
-      </td>
+ responses that are associated with a given request.      </td>
     </tr>
 
     <tr>
@@ -467,8 +443,7 @@
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The handlerID is a convenience attribute on requests that allows
  for routing of responses back to the appropriate response handler. This is used in
- the Dark Matter MVC framework.
-      </td>
+ the Dark Matter MVC framework.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -477,8 +452,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmp.html#notifyOriginator">notifyOriginator</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
-      <td> Indicates if an originator wants its own event.
-      </td>
+      <td> Indicates if an originator wants its own event.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -487,8 +461,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmp.html#originatorID">originatorID</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
-      <td> The thing that originated a request.
-      </td>
+      <td> The thing that originated a request.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -499,8 +472,7 @@
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A flag that indicates if you want a response in a human readable format with 
  formatting. The default is to use the most compact form - no additional whitespace and no
- newlines.
-      </td>
+ newlines.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -511,8 +483,7 @@
       <td class="valueType"> P SV </td>      <td> <a href="dmp.html#ResponseFormatEnum">ResponseFormatEnum</a> </td>
       <td> When the protocol is used for a JSON interface, the response format indicates
  whether the client wants the results as a flat set of objects (STANDARD) or as hierarchy of child
- objects embedded in arrays beneath their parents (DOM).
-      </td>
+ objects embedded in arrays beneath their parents (DOM).      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -521,8 +492,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmp.html#sessionID">sessionID</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> A unique identifier that identifies a client session with the server.
-      </td>
+      <td> A unique identifier that identifies a client session with the server.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -531,8 +501,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmp.html#timeMS">timeMS</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
-      <td> A time stamp in milliseconds.
-      </td>
+      <td> A time stamp in milliseconds.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -541,8 +510,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmp.html#timeoutSeconds">timeoutSeconds</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
-      <td> A timeout flag that may be set on messages.
-      </td>
+      <td> A timeout flag that may be set on messages.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -551,60 +519,16 @@
       <td class="spacer"> </td>
       <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
-      <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages.
-      </td>
+      <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
-      <td> <a href="dmrbase.html#userName">userName</a> </td>
+      <td> <a href="dmr.base.html#userName">userName</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The name of a user.
-      </td>
-    </tr>
-
-  </table>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.dumpDetails(ClassFormatter.java:23) -->
-
-  <table>
-
-    <tr> <td class="className" colspan="4"> <a name="ComplexTypeTest"> ComplexTypeTest </a> </td></tr>
-<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Type</td>
-      <td colspan="2">STRUCTURAL</td>
-    </tr>
-
-  </table>
-
-  <table>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> <a href="dmt.html#mvComplex">mvComplex</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="dmt.html#MenuElementTypeAndComment">MenuElementTypeAndComment</a> </td>
-      <td>       </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> <a href="dmt.html#svComplex">svComplex</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="dmt.html#MenuElementTypeAndComment">MenuElementTypeAndComment</a> </td>
-      <td>       </td>
+      <td> The name of a user.      </td>
     </tr>
 
   </table>
@@ -636,9 +560,8 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="dmt.html#hsExtendedRef">hsExtendedRef</a> </td>
-      <td class="valueType"> P HS </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
-      <td> A HashSet of SomeRelation.
-      </td>
+      <td class="valueType"> P HS </td>      <td> <a href="dmt.html#SomeRelation">SomeRelation</a> </td>
+      <td> A HashSet of SomeRelation.      </td>
     </tr>
 
   </table>
@@ -670,9 +593,8 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="dmt.html#mvExtendedRef">mvExtendedRef</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
-      <td> An mv SomeRelation.
-      </td>
+      <td class="valueType"> P MV </td>      <td> <a href="dmt.html#SomeRelation">SomeRelation</a> </td>
+      <td> An mv SomeRelation.      </td>
     </tr>
 
   </table>
@@ -704,9 +626,8 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="dmt.html#mvIdxExtendedRef">mvIdxExtendedRef</a> </td>
-      <td class="valueType"> P MV[10] </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
-      <td> An indexed mv SomeRelation.
-      </td>
+      <td class="valueType"> P MV[10] </td>      <td> <a href="dmt.html#SomeRelation">SomeRelation</a> </td>
+      <td> An indexed mv SomeRelation.      </td>
     </tr>
 
   </table>
@@ -738,9 +659,8 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svExtendedRef">svExtendedRef</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
-      <td> An sv SomeRelation.
-      </td>
+      <td class="valueType"> P SV </td>      <td> <a href="dmt.html#SomeRelation">SomeRelation</a> </td>
+      <td> An sv SomeRelation.      </td>
     </tr>
 
   </table>
@@ -772,9 +692,8 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="dmt.html#tsExtendedRef">tsExtendedRef</a> </td>
-      <td class="valueType"> P TS </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
-      <td> A TreeSet of SomeRelation.
-      </td>
+      <td class="valueType"> P TS </td>      <td> <a href="dmt.html#SomeRelation">SomeRelation</a> </td>
+      <td> A TreeSet of SomeRelation.      </td>
     </tr>
 
   </table>
@@ -815,8 +734,7 @@
       <td class="spacer"> </td>
       <td> <a href="meta.html#integerName">integerName</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#IntegerName">IntegerName</a> </td>
-      <td> The object name for objects uniquely identified with an integer.
-      </td>
+      <td> The object name for objects uniquely identified with an integer.      </td>
     </tr>
 
     <tr>
@@ -830,8 +748,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> A sv String.
-      </td>
+      <td> A sv String.      </td>
     </tr>
 
   </table>
@@ -864,8 +781,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#anObjName">anObjName</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#NameContainer">NameContainer</a> </td>
-      <td> A single-valued NameContainer.
-      </td>
+      <td> A single-valued NameContainer.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -874,8 +790,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#dmtStringName">dmtStringName</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="dmt.html#DmtStringName">DmtStringName</a> </td>
-      <td> The naming attribute for DmtNameStrings.
-      </td>
+      <td> The naming attribute for DmtNameStrings.      </td>
     </tr>
 
     <tr>
@@ -889,8 +804,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#anotherDmtName">anotherDmtName</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="dmt.html#DmtStringName">DmtStringName</a> </td>
-      <td> Another DmtStringName attribute.
-      </td>
+      <td> Another DmtStringName attribute.      </td>
     </tr>
 
   </table>
@@ -923,8 +837,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#hmNamedObj">hmNamedObj</a> </td>
       <td class="valueType"> P HM </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
-      <td> A hashmap of ObjWithRefs.
-      </td>
+      <td> A hashmap of ObjWithRefs.      </td>
     </tr>
 
   </table>
@@ -957,8 +870,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#hsNamedObj">hsNamedObj</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
-      <td> A HashSet of ObjWithRefs.
-      </td>
+      <td> A HashSet of ObjWithRefs.      </td>
     </tr>
 
   </table>
@@ -991,8 +903,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#mvNamedObj">mvNamedObj</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
-      <td> An mv ObjWithRefs.
-      </td>
+      <td> An mv ObjWithRefs.      </td>
     </tr>
 
   </table>
@@ -1025,8 +936,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#mvIdxNamedObj">mvIdxNamedObj</a> </td>
       <td class="valueType"> P MV[10] </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
-      <td> An indexed mv ObjWithRefs.
-      </td>
+      <td> An indexed mv ObjWithRefs.      </td>
     </tr>
 
   </table>
@@ -1059,8 +969,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svNamedObj">svNamedObj</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
-      <td> An sv ObjWithRefs.
-      </td>
+      <td> An sv ObjWithRefs.      </td>
     </tr>
 
   </table>
@@ -1093,8 +1002,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#tmNamedObj">tmNamedObj</a> </td>
       <td class="valueType"> P TM </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
-      <td> A TreeMap of ObjWithRefs.
-      </td>
+      <td> A TreeMap of ObjWithRefs.      </td>
     </tr>
 
   </table>
@@ -1127,8 +1035,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#tsNamedObj">tsNamedObj</a> </td>
       <td class="valueType"> P TS </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
-      <td> A TreeSet of ObjWithRefs.
-      </td>
+      <td> A TreeSet of ObjWithRefs.      </td>
     </tr>
 
   </table>
@@ -1195,16 +1102,12 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
- for an object with the set of definitions of which it is a part. A name starts with a letter followed
- by letters and numbers.
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+ for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
-<tr> <td class="attributeRule">
-<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
-
 </table>
       </td>
     </tr>
@@ -1215,8 +1118,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> A sv String.
-      </td>
+      <td> A sv String.      </td>
     </tr>
 
     <tr>
@@ -1230,8 +1132,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#anotherSVString">anotherSVString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> A sv String.
-      </td>
+      <td> A sv String.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -1267,8 +1168,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#hsDate">hsDate</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="meta.html#Date">Date</a> </td>
-      <td> A hs Date.
-      </td>
+      <td> A hs Date.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -1286,8 +1186,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#hsString">hsString</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> A HashSet of Strings.
-      </td>
+      <td> A HashSet of Strings.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -1314,8 +1213,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#indexedObjRef">indexedObjRef</a> </td>
       <td class="valueType"> P MV[10] </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
-      <td> Indexed references to ObjWithRefs objects.
-      </td>
+      <td> Indexed references to ObjWithRefs objects.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -1324,8 +1222,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#indexedPlainObjRef">indexedPlainObjRef</a> </td>
       <td class="valueType"> P MV[10] </td>      <td> <a href="dmt.html#TestBasicObjectFixed">TestBasicObjectFixed</a> </td>
-      <td> Indexed references to unnamed objects.
-      </td>
+      <td> Indexed references to unnamed objects.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -1343,8 +1240,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#intToString">intToString</a> </td>
       <td class="valueType"> P HM </td>      <td> <a href="meta.html#IntegerToString">IntegerToString</a> </td>
-      <td> A hash mapping of an integer to a string.
-      </td>
+      <td> A hash mapping of an integer to a string.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -1362,8 +1258,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> An mv String.
-      </td>
+      <td> An mv String.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -1381,8 +1276,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#objRef">objRef</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
-      <td> Another ObjWithRefs object.
-      </td>
+      <td> Another ObjWithRefs object.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -1391,8 +1285,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#objRefHM">objRefHM</a> </td>
       <td class="valueType"> P HM </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
-      <td> Other ObjWithRefs objects.
-      </td>
+      <td> Other ObjWithRefs objects.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -1401,8 +1294,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#objRefMV">objRefMV</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
-      <td> Other ObjWithRefs objects.
-      </td>
+      <td> Other ObjWithRefs objects.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -1420,8 +1312,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#plainObjRef">plainObjRef</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="dmt.html#TestBasicObjectFixed">TestBasicObjectFixed</a> </td>
-      <td> References to unnamed objects.
-      </td>
+      <td> References to unnamed objects.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -1429,7 +1320,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="dmt.html#someRelationMV">someRelationMV</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="dmt.html#SomeRelation">SomeRelation</a> </td>
       <td>       </td>
     </tr>
 
@@ -1438,7 +1329,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="dmt.html#someRelationMVI">someRelationMVI</a> </td>
-      <td class="valueType"> P MV[8] </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
+      <td class="valueType"> P MV[8] </td>      <td> <a href="dmt.html#SomeRelation">SomeRelation</a> </td>
       <td>       </td>
     </tr>
 
@@ -1447,7 +1338,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="dmt.html#someRelationSV">someRelationSV</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="dmt.html#SomeRelation">SomeRelation</a> </td>
       <td>       </td>
     </tr>
 
@@ -1457,8 +1348,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svBoolean">svBoolean</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
-      <td> A single valued Boolean.
-      </td>
+      <td> A single valued Boolean.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -1467,8 +1357,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svDate">svDate</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Date">Date</a> </td>
-      <td> A sv Date.
-      </td>
+      <td> A sv Date.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -1487,89 +1376,6 @@
       <td> <a href="dmt.html#transString">transString</a> </td>
       <td class="valueType"> T HS </td>      <td> <a href="meta.html#String">String</a> </td>
       <td>       </td>
-    </tr>
-
-  </table>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.dumpDetails(ClassFormatter.java:23) -->
-
-  <table>
-
-    <tr> <td class="className" colspan="4"> <a name="ParseTest"> ParseTest </a> </td></tr>
-<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:54) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td>Description</td>
-      <td colspan="2">Used to test the DmcUncheckedOIFParser in the creation of DmcUncheckedObjects within DmcUncheckedObjects.
-</td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Type</td>
-      <td colspan="2">STRUCTURAL</td>
-    </tr>
-
-  </table>
-
-  <table>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> <a href="dmt.html#mvIdxNamedObj">mvIdxNamedObj</a> </td>
-      <td class="valueType"> P MV[10] </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
-      <td> An indexed mv ObjWithRefs.
-      </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> <a href="dmt.html#mvIdxUnnamedObj">mvIdxUnnamedObj</a> </td>
-      <td class="valueType"> P MV[10] </td>      <td> <a href="dmt.html#TestBasicObjectFixed">TestBasicObjectFixed</a> </td>
-      <td> An indexed mv TestBasicObjectFixed.
-      </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> <a href="dmt.html#mvUnnamedObj">mvUnnamedObj</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="dmt.html#TestBasicObjectFixed">TestBasicObjectFixed</a> </td>
-      <td> An mv TestBasicObjectFixed.
-      </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> <a href="dmt.html#svBoolean">svBoolean</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
-      <td> A single valued Boolean.
-      </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> <a href="dmt.html#svUnnamedObj">svUnnamedObj</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="dmt.html#TestBasicObjectFixed">TestBasicObjectFixed</a> </td>
-      <td> An sv TestBasicObjectFixed.
-      </td>
     </tr>
 
   </table>
@@ -1602,8 +1408,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#hmString">hmString</a> </td>
       <td class="valueType"> P HM </td>      <td> <a href="meta.html#StringToString">StringToString</a> </td>
-      <td> A hashmap of StringToStrings.
-      </td>
+      <td> A hashmap of StringToStrings.      </td>
     </tr>
 
   </table>
@@ -1636,8 +1441,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#hsString">hsString</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> A HashSet of Strings.
-      </td>
+      <td> A HashSet of Strings.      </td>
     </tr>
 
   </table>
@@ -1670,8 +1474,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> An mv String.
-      </td>
+      <td> An mv String.      </td>
     </tr>
 
   </table>
@@ -1704,8 +1507,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#mvIdxString">mvIdxString</a> </td>
       <td class="valueType"> P MV[10] </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> An indexed mv String.
-      </td>
+      <td> An indexed mv String.      </td>
     </tr>
 
   </table>
@@ -1738,8 +1540,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> A sv String.
-      </td>
+      <td> A sv String.      </td>
     </tr>
 
   </table>
@@ -1772,8 +1573,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#tmString">tmString</a> </td>
       <td class="valueType"> P TM </td>      <td> <a href="meta.html#StringToString">StringToString</a> </td>
-      <td> A TreeMap of StringToStrings.
-      </td>
+      <td> A TreeMap of StringToStrings.      </td>
     </tr>
 
   </table>
@@ -1806,8 +1606,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#tsString">tsString</a> </td>
       <td class="valueType"> P TS </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> A TreeSet of Strings.
-      </td>
+      <td> A TreeSet of Strings.      </td>
     </tr>
 
   </table>
@@ -1823,8 +1622,7 @@
       <td class="spacer"> </td>
       <td>Description</td>
       <td colspan="2">The TestAbstract class just defines an abstract base class from which
- other test classes can be derived to tes this type of derivation.
-</td>
+ other test classes can be derived to tes this type of derivation.</td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
@@ -1858,8 +1656,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> A sv String.
-      </td>
+      <td> A sv String.      </td>
     </tr>
 
     <tr>
@@ -1899,7 +1696,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="dmt.html#someRelationMVI">someRelationMVI</a> </td>
-      <td class="valueType"> P MV[8] </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
+      <td class="valueType"> P MV[8] </td>      <td> <a href="dmt.html#SomeRelation">SomeRelation</a> </td>
       <td>       </td>
     </tr>
 
@@ -1908,7 +1705,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="dmt.html#someRelationSV">someRelationSV</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="dmt.html#SomeRelation">SomeRelation</a> </td>
       <td>       </td>
     </tr>
 
@@ -1925,8 +1722,7 @@
       <td class="spacer"> </td>
       <td>Description</td>
       <td colspan="2">The TestAbstract class just defines an abstract base class from which
- other test classes can be derived to tes this type of derivation.
-</td>
+ other test classes can be derived to tes this type of derivation.</td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
@@ -1952,8 +1748,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> A sv String.
-      </td>
+      <td> A sv String.      </td>
     </tr>
 
   </table>
@@ -1968,8 +1763,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The TestBasicAuxiliary class allows us to test basic auxiliary class functionality.
-</td>
+      <td colspan="2">The TestBasicAuxiliary class allows us to test basic auxiliary class functionality.</td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
@@ -1995,8 +1789,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> A sv String.
-      </td>
+      <td> A sv String.      </td>
     </tr>
 
   </table>
@@ -2012,8 +1805,7 @@
       <td class="spacer"> </td>
       <td>Description</td>
       <td colspan="2">The TestBasicNamedObjectExtended class provides a test bed for a named object
- that's extended.
-</td>
+ that's extended.</td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
@@ -2046,16 +1838,12 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
- for an object with the set of definitions of which it is a part. A name starts with a letter followed
- by letters and numbers.
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+ for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
-<tr> <td class="attributeRule">
-<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
-
 </table>
       </td>
     </tr>
@@ -2066,8 +1854,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> A sv String.
-      </td>
+      <td> A sv String.      </td>
     </tr>
 
     <tr>
@@ -2081,8 +1868,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> An mv String.
-      </td>
+      <td> An mv String.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2091,8 +1877,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#mvTestBasicNamedObjectFixed">mvTestBasicNamedObjectFixed</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="dmt.html#TestBasicNamedObjectFixed">TestBasicNamedObjectFixed</a> </td>
-      <td> A multi-valued TestBasicNamedObjectFixed.
-      </td>
+      <td> A multi-valued TestBasicNamedObjectFixed.      </td>
     </tr>
 
   </table>
@@ -2107,8 +1892,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The TestBasicNamedObjectFixed class provides a test bed for a named object.
-</td>
+      <td colspan="2">The TestBasicNamedObjectFixed class provides a test bed for a named object.</td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
@@ -2141,16 +1925,12 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
- for an object with the set of definitions of which it is a part. A name starts with a letter followed
- by letters and numbers.
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+ for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
-<tr> <td class="attributeRule">
-<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
-
 </table>
       </td>
     </tr>
@@ -2161,8 +1941,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> A sv String.
-      </td>
+      <td> A sv String.      </td>
     </tr>
 
     <tr>
@@ -2174,20 +1953,9 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td> <a href="dmt.html#mvIdxUnnamedObj">mvIdxUnnamedObj</a> </td>
-      <td class="valueType"> P MV[10] </td>      <td> <a href="dmt.html#TestBasicObjectFixed">TestBasicObjectFixed</a> </td>
-      <td> An indexed mv TestBasicObjectFixed.
-      </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> An mv String.
-      </td>
+      <td> An mv String.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2196,8 +1964,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#mvTestBasicNamedObjectFixed">mvTestBasicNamedObjectFixed</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="dmt.html#TestBasicNamedObjectFixed">TestBasicNamedObjectFixed</a> </td>
-      <td> A multi-valued TestBasicNamedObjectFixed.
-      </td>
+      <td> A multi-valued TestBasicNamedObjectFixed.      </td>
     </tr>
 
   </table>
@@ -2213,8 +1980,7 @@
       <td class="spacer"> </td>
       <td>Description</td>
       <td colspan="2">The TestBasicObjectFixed class provides a test bed for all types of basic
- attribute values.
-</td>
+ attribute values.</td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
@@ -2252,8 +2018,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#hsDate">hsDate</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="meta.html#Date">Date</a> </td>
-      <td> A hs Date.
-      </td>
+      <td> A hs Date.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2262,8 +2027,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#hsDouble">hsDouble</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="meta.html#Double">Double</a> </td>
-      <td> An hs Double.
-      </td>
+      <td> An hs Double.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2272,8 +2036,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#hsFloat">hsFloat</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="meta.html#Float">Float</a> </td>
-      <td> An hs Float.
-      </td>
+      <td> An hs Float.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2282,8 +2045,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#hsInteger">hsInteger</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
-      <td> An hs Integer.
-      </td>
+      <td> An hs Integer.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2292,8 +2054,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#hsLong">hsLong</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="meta.html#Long">Long</a> </td>
-      <td> An hs Long.
-      </td>
+      <td> An hs Long.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2302,17 +2063,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#hsString">hsString</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> A HashSet of Strings.
-      </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> <a href="dmt.html#hsTestEnum">hsTestEnum</a> </td>
-      <td class="valueType"> P HS </td>      <td> <a href="dmt.html#DmtTestEnum">DmtTestEnum</a> </td>
-      <td>       </td>
+      <td> A HashSet of Strings.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2321,8 +2072,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#intToString">intToString</a> </td>
       <td class="valueType"> P HM </td>      <td> <a href="meta.html#IntegerToString">IntegerToString</a> </td>
-      <td> A hash mapping of an integer to a string.
-      </td>
+      <td> A hash mapping of an integer to a string.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2331,8 +2081,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#mvBoolean">mvBoolean</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
-      <td> A multi-valued Boolean.
-      </td>
+      <td> A multi-valued Boolean.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2341,8 +2090,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#mvDate">mvDate</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#Date">Date</a> </td>
-      <td> A mv Date.
-      </td>
+      <td> A mv Date.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2351,8 +2099,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#mvDouble">mvDouble</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#Double">Double</a> </td>
-      <td> An mv Double.
-      </td>
+      <td> An mv Double.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2361,18 +2108,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#mvFloat">mvFloat</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#Float">Float</a> </td>
-      <td> An mv Float.
-      </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> <a href="dmt.html#mvIdxUnnamedObj">mvIdxUnnamedObj</a> </td>
-      <td class="valueType"> P MV[10] </td>      <td> <a href="dmt.html#TestBasicObjectFixed">TestBasicObjectFixed</a> </td>
-      <td> An indexed mv TestBasicObjectFixed.
-      </td>
+      <td> An mv Float.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2381,8 +2117,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#mvInteger">mvInteger</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
-      <td> An mv Integer.
-      </td>
+      <td> An mv Integer.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2391,8 +2126,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#mvLong">mvLong</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#Long">Long</a> </td>
-      <td> An mv Long.
-      </td>
+      <td> An mv Long.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2401,8 +2135,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> An mv String.
-      </td>
+      <td> An mv String.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2411,8 +2144,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svBoolean">svBoolean</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
-      <td> A single valued Boolean.
-      </td>
+      <td> A single valued Boolean.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2421,8 +2153,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svDate">svDate</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Date">Date</a> </td>
-      <td> A sv Date.
-      </td>
+      <td> A sv Date.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2431,8 +2162,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svDouble">svDouble</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Double">Double</a> </td>
-      <td> A sv Double.
-      </td>
+      <td> A sv Double.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2441,8 +2171,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svFloat">svFloat</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Float">Float</a> </td>
-      <td> A sv Float.
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+      <td> A sv Float.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
 <tr> <td class="attributeRule">
@@ -2458,8 +2187,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svInteger">svInteger</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
-      <td> A sv Integer.
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+      <td> A sv Integer.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
 <tr> <td class="attributeRule">
@@ -2475,8 +2203,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svLong">svLong</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
-      <td> A sv Long.
-      </td>
+      <td> A sv Long.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2485,8 +2212,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> A sv String.
-      </td>
+      <td> A sv String.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2495,8 +2221,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svTestBasicNamedObjectFixed">svTestBasicNamedObjectFixed</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="dmt.html#TestBasicNamedObjectFixed">TestBasicNamedObjectFixed</a> </td>
-      <td> A single valued TestBasicNamedObjectFixed.
-      </td>
+      <td> A single valued TestBasicNamedObjectFixed.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2505,8 +2230,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#tsDate">tsDate</a> </td>
       <td class="valueType"> P TS </td>      <td> <a href="meta.html#Date">Date</a> </td>
-      <td> A ts Date.
-      </td>
+      <td> A ts Date.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2515,8 +2239,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#tsDouble">tsDouble</a> </td>
       <td class="valueType"> P TS </td>      <td> <a href="meta.html#Double">Double</a> </td>
-      <td> A ts Double.
-      </td>
+      <td> A ts Double.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2525,8 +2248,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#tsFloat">tsFloat</a> </td>
       <td class="valueType"> P TS </td>      <td> <a href="meta.html#Float">Float</a> </td>
-      <td> A ts Float.
-      </td>
+      <td> A ts Float.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2535,8 +2257,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#tsInteger">tsInteger</a> </td>
       <td class="valueType"> P TS </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
-      <td> A ts Integer.
-      </td>
+      <td> A ts Integer.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2545,8 +2266,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#tsLong">tsLong</a> </td>
       <td class="valueType"> P TS </td>      <td> <a href="meta.html#Long">Long</a> </td>
-      <td> A ts Long.
-      </td>
+      <td> A ts Long.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2555,18 +2275,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#tsString">tsString</a> </td>
       <td class="valueType"> P TS </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> A TreeSet of Strings.
-      </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> <a href="dmrbase.html#userName">userName</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The name of a user.
-      </td>
+      <td> A TreeSet of Strings.      </td>
     </tr>
 
   </table>
@@ -2581,8 +2290,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The TestDerivedDiffSubpackage test derivation from a different subpackage.
-</td>
+      <td colspan="2">The TestDerivedDiffSubpackage test derivation from a different subpackage.</td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
@@ -2633,16 +2341,12 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
- for an object with the set of definitions of which it is a part. A name starts with a letter followed
- by letters and numbers.
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+ for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
-<tr> <td class="attributeRule">
-<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
-
 </table>
       </td>
     </tr>
@@ -2653,8 +2357,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> A sv String.
-      </td>
+      <td> A sv String.      </td>
     </tr>
 
     <tr>
@@ -2668,8 +2371,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> An mv String.
-      </td>
+      <td> An mv String.      </td>
     </tr>
 
   </table>
@@ -2684,8 +2386,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The TestDerivedSubpackage tests derivation within the same subpackage.
-</td>
+      <td colspan="2">The TestDerivedSubpackage tests derivation within the same subpackage.</td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
@@ -2728,16 +2429,12 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
- for an object with the set of definitions of which it is a part. A name starts with a letter followed
- by letters and numbers.
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+ for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
-<tr> <td class="attributeRule">
-<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
-
 </table>
       </td>
     </tr>
@@ -2748,8 +2445,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> A sv String.
-      </td>
+      <td> A sv String.      </td>
     </tr>
 
     <tr>
@@ -2763,8 +2459,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> An mv String.
-      </td>
+      <td> An mv String.      </td>
     </tr>
 
   </table>
@@ -2779,8 +2474,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The TestOneLevelSubpackage class provides a test bed for generating DMWs in different subpackages.
-</td>
+      <td colspan="2">The TestOneLevelSubpackage class provides a test bed for generating DMWs in different subpackages.</td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
@@ -2822,16 +2516,12 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
- for an object with the set of definitions of which it is a part. A name starts with a letter followed
- by letters and numbers.
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+ for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
-<tr> <td class="attributeRule">
-<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
-
 </table>
       </td>
     </tr>
@@ -2842,8 +2532,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> A sv String.
-      </td>
+      <td> A sv String.      </td>
     </tr>
 
     <tr>
@@ -2857,8 +2546,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> An mv String.
-      </td>
+      <td> An mv String.      </td>
     </tr>
 
   </table>
@@ -2873,8 +2561,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The TestOneLevelSubpackage class provides a test bed for generating DMWs in different subpackages.
-</td>
+      <td colspan="2">The TestOneLevelSubpackage class provides a test bed for generating DMWs in different subpackages.</td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
@@ -2916,16 +2603,12 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
- for an object with the set of definitions of which it is a part. A name starts with a letter followed
- by letters and numbers.
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+ for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
-<tr> <td class="attributeRule">
-<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
-
 </table>
       </td>
     </tr>
@@ -2936,8 +2619,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> A sv String.
-      </td>
+      <td> A sv String.      </td>
     </tr>
 
     <tr>
@@ -2951,8 +2633,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> An mv String.
-      </td>
+      <td> An mv String.      </td>
     </tr>
 
   </table>
@@ -2967,8 +2648,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The TestOneLevelSubpackage class provides a test bed for generating DMWs in different subpackages.
-</td>
+      <td colspan="2">The TestOneLevelSubpackage class provides a test bed for generating DMWs in different subpackages.</td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
@@ -3009,16 +2689,12 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
- for an object with the set of definitions of which it is a part. A name starts with a letter followed
- by letters and numbers.
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+ for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All names must start with a character.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
-<tr> <td class="attributeRule">
-<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
-
 </table>
       </td>
     </tr>
@@ -3029,8 +2705,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> A sv String.
-      </td>
+      <td> A sv String.      </td>
     </tr>
 
     <tr>
@@ -3044,8 +2719,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> An mv String.
-      </td>
+      <td> An mv String.      </td>
     </tr>
 
   </table>
@@ -3086,8 +2760,7 @@
       <td class="spacer"> </td>
       <td> <a href="meta.html#uuidName">uuidName</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#UUIDName">UUIDName</a> </td>
-      <td> The object name for objects uniquely identified with a UUID.
-      </td>
+      <td> The object name for objects uniquely identified with a UUID.      </td>
     </tr>
 
     <tr>
@@ -3101,8 +2774,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#mvBoolean">mvBoolean</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
-      <td> A multi-valued Boolean.
-      </td>
+      <td> A multi-valued Boolean.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -3111,8 +2783,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#mvDate">mvDate</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#Date">Date</a> </td>
-      <td> A mv Date.
-      </td>
+      <td> A mv Date.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -3121,8 +2792,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#mvDouble">mvDouble</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#Double">Double</a> </td>
-      <td> An mv Double.
-      </td>
+      <td> An mv Double.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -3131,8 +2801,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> An mv String.
-      </td>
+      <td> An mv String.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -3141,8 +2810,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svBoolean">svBoolean</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
-      <td> A single valued Boolean.
-      </td>
+      <td> A single valued Boolean.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -3151,8 +2819,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svDate">svDate</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Date">Date</a> </td>
-      <td> A sv Date.
-      </td>
+      <td> A sv Date.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -3161,8 +2828,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svDouble">svDouble</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Double">Double</a> </td>
-      <td> A sv Double.
-      </td>
+      <td> A sv Double.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -3171,8 +2837,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> A sv String.
-      </td>
+      <td> A sv String.      </td>
     </tr>
 
   </table>
@@ -3205,8 +2870,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#hsUnnamedObj">hsUnnamedObj</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="dmt.html#TestBasicObjectFixed">TestBasicObjectFixed</a> </td>
-      <td> A HashSet of TestBasicObjectFixed.
-      </td>
+      <td> A HashSet of TestBasicObjectFixed.      </td>
     </tr>
 
   </table>
@@ -3239,8 +2903,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#mvUnnamedObj">mvUnnamedObj</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="dmt.html#TestBasicObjectFixed">TestBasicObjectFixed</a> </td>
-      <td> An mv TestBasicObjectFixed.
-      </td>
+      <td> An mv TestBasicObjectFixed.      </td>
     </tr>
 
   </table>
@@ -3273,8 +2936,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#mvIdxUnnamedObj">mvIdxUnnamedObj</a> </td>
       <td class="valueType"> P MV[10] </td>      <td> <a href="dmt.html#TestBasicObjectFixed">TestBasicObjectFixed</a> </td>
-      <td> An indexed mv TestBasicObjectFixed.
-      </td>
+      <td> An indexed mv TestBasicObjectFixed.      </td>
     </tr>
 
   </table>
@@ -3307,8 +2969,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#svUnnamedObj">svUnnamedObj</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="dmt.html#TestBasicObjectFixed">TestBasicObjectFixed</a> </td>
-      <td> An sv TestBasicObjectFixed.
-      </td>
+      <td> An sv TestBasicObjectFixed.      </td>
     </tr>
 
   </table>
@@ -3341,8 +3002,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#tsUnnamedObj">tsUnnamedObj</a> </td>
       <td class="valueType"> P TS </td>      <td> <a href="dmt.html#TestBasicObjectFixed">TestBasicObjectFixed</a> </td>
-      <td> A TreeSet of TestBasicObjectFixed.
-      </td>
+      <td> A TreeSet of TestBasicObjectFixed.      </td>
     </tr>
 
   </table>
@@ -3383,7 +3043,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="dmt.html#someRelationIndexed">someRelationIndexed</a> </td>
-      <td class="valueType"> P MV[8] </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
+      <td class="valueType"> P MV[8] </td>      <td> <a href="dmt.html#SomeRelation">SomeRelation</a> </td>
       <td>       </td>
     </tr>
 
@@ -3417,15 +3077,14 @@
       <td class="spacer"> </td>
       <td> <a href="dmt.html#objRefHM">objRefHM</a> </td>
       <td class="valueType"> P HM </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
-      <td> Other ObjWithRefs objects.
-      </td>
+      <td> Other ObjWithRefs objects.      </td>
     </tr>
 
   </table>
 
 </div> <!-- classDetails -->
 
-<!-- org.dmd.dms.doc.web.SchemaPage.writeAttributes(SchemaPage.java:223) -->
+<!-- org.dmd.dms.doc.web.SchemaPage.writeAttributes(SchemaPage.java:222) -->
 
 <div class="attributeDetails">
 
@@ -3433,7 +3092,7 @@
 
   <table>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="OUIFilter"> OUIFilter </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -3453,7 +3112,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="anObjName"> anObjName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -3464,9 +3123,7 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A single-valued NameContainer.
-<p/>
+      <td>A single-valued NameContainer.<p/>
       </td>
     </tr>
 
@@ -3482,7 +3139,7 @@ A single-valued NameContainer.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="anotherDmtName"> anotherDmtName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -3493,9 +3150,7 @@ A single-valued NameContainer.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-Another DmtStringName attribute.
-<p/>
+      <td>Another DmtStringName attribute.<p/>
       </td>
     </tr>
 
@@ -3511,7 +3166,7 @@ Another DmtStringName attribute.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="anotherSVString"> anotherSVString </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -3522,9 +3177,7 @@ Another DmtStringName attribute.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A sv String.
-<p/>
+      <td>A sv String.<p/>
       </td>
     </tr>
 
@@ -3540,7 +3193,7 @@ A sv String.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="attrIDs"> attrIDs </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -3560,7 +3213,7 @@ A sv String.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="clientCountFilter"> clientCountFilter </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -3580,7 +3233,7 @@ A sv String.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="clientCountFilters"> clientCountFilters </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -3601,7 +3254,7 @@ A sv String.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="dmtStringName"> dmtStringName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -3612,9 +3265,7 @@ A sv String.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-The naming attribute for DmtNameStrings.
-<p/>
+      <td>The naming attribute for DmtNameStrings.<p/>
       </td>
     </tr>
 
@@ -3630,7 +3281,7 @@ The naming attribute for DmtNameStrings.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="enabledDisabled"> enabledDisabled </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -3650,7 +3301,7 @@ The naming attribute for DmtNameStrings.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="hmNamedObj"> hmNamedObj </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -3661,9 +3312,7 @@ The naming attribute for DmtNameStrings.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A hashmap of ObjWithRefs.
-<p/>
+      <td>A hashmap of ObjWithRefs.<p/>
       </td>
     </tr>
 
@@ -3679,7 +3328,7 @@ A hashmap of ObjWithRefs.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="hmString"> hmString </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -3690,9 +3339,7 @@ A hashmap of ObjWithRefs.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A hashmap of StringToStrings.
-<p/>
+      <td>A hashmap of StringToStrings.<p/>
       </td>
     </tr>
 
@@ -3708,7 +3355,7 @@ A hashmap of StringToStrings.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="hsDate"> hsDate </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -3719,9 +3366,7 @@ A hashmap of StringToStrings.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A hs Date.
-<p/>
+      <td>A hs Date.<p/>
       </td>
     </tr>
 
@@ -3738,7 +3383,7 @@ A hs Date.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="hsDouble"> hsDouble </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -3749,9 +3394,7 @@ A hs Date.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-An hs Double.
-<p/>
+      <td>An hs Double.<p/>
       </td>
     </tr>
 
@@ -3767,20 +3410,18 @@ An hs Double.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="hsExtendedRef"> hsExtendedRef </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P HS </div> <div class="attrType"> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </div> 
+      <td colspan="2"> <div class="valueType"> P HS </div> <div class="attrType"> <a href="dmt.html#SomeRelation">SomeRelation</a> </div> 
       </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A HashSet of SomeRelation.
-<p/>
+      <td>A HashSet of SomeRelation.<p/>
       </td>
     </tr>
 
@@ -3796,7 +3437,7 @@ A HashSet of SomeRelation.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="hsFloat"> hsFloat </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -3807,9 +3448,7 @@ A HashSet of SomeRelation.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-An hs Float.
-<p/>
+      <td>An hs Float.<p/>
       </td>
     </tr>
 
@@ -3825,7 +3464,7 @@ An hs Float.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="hsInteger"> hsInteger </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -3836,9 +3475,7 @@ An hs Float.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-An hs Integer.
-<p/>
+      <td>An hs Integer.<p/>
       </td>
     </tr>
 
@@ -3854,7 +3491,7 @@ An hs Integer.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="hsLong"> hsLong </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -3865,9 +3502,7 @@ An hs Integer.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-An hs Long.
-<p/>
+      <td>An hs Long.<p/>
       </td>
     </tr>
 
@@ -3883,7 +3518,7 @@ An hs Long.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="hsNamedObj"> hsNamedObj </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -3894,9 +3529,7 @@ An hs Long.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A HashSet of ObjWithRefs.
-<p/>
+      <td>A HashSet of ObjWithRefs.<p/>
       </td>
     </tr>
 
@@ -3912,7 +3545,7 @@ A HashSet of ObjWithRefs.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="hsNames"> hsNames </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -3932,7 +3565,7 @@ A HashSet of ObjWithRefs.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="hsString"> hsString </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -3943,9 +3576,7 @@ A HashSet of ObjWithRefs.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A HashSet of Strings.
-<p/>
+      <td>A HashSet of Strings.<p/>
       </td>
     </tr>
 
@@ -3963,7 +3594,7 @@ A HashSet of Strings.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="hsStringName"> hsStringName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -3984,7 +3615,7 @@ A HashSet of Strings.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="hsTestEnum"> hsTestEnum </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -3999,13 +3630,12 @@ A HashSet of Strings.
         <table>
         <tr>
           <td> ObjWithRefs (<a href="dmt.html#ObjWithRefs">dmt</a>) </td>
-          <td> TestBasicObjectFixed (<a href="dmt.html#TestBasicObjectFixed">dmt</a>) </td>
         </tr>
         </table>
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="hsUnnamedObj"> hsUnnamedObj </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4016,9 +3646,7 @@ A HashSet of Strings.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A HashSet of TestBasicObjectFixed.
-<p/>
+      <td>A HashSet of TestBasicObjectFixed.<p/>
       </td>
     </tr>
 
@@ -4034,7 +3662,7 @@ A HashSet of TestBasicObjectFixed.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="indexedObjRef"> indexedObjRef </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4045,9 +3673,7 @@ A HashSet of TestBasicObjectFixed.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-Indexed references to ObjWithRefs objects.
-<p/>
+      <td>Indexed references to ObjWithRefs objects.<p/>
       </td>
     </tr>
 
@@ -4063,7 +3689,7 @@ Indexed references to ObjWithRefs objects.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="indexedPlainObjRef"> indexedPlainObjRef </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4074,9 +3700,7 @@ Indexed references to ObjWithRefs objects.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-Indexed references to unnamed objects.
-<p/>
+      <td>Indexed references to unnamed objects.<p/>
       </td>
     </tr>
 
@@ -4092,7 +3716,7 @@ Indexed references to unnamed objects.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="indexedString"> indexedString </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4113,7 +3737,7 @@ Indexed references to unnamed objects.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="intToString"> intToString </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4124,9 +3748,7 @@ Indexed references to unnamed objects.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A hash mapping of an integer to a string.
-<p/>
+      <td>A hash mapping of an integer to a string.<p/>
       </td>
     </tr>
 
@@ -4143,7 +3765,7 @@ A hash mapping of an integer to a string.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="intToStringMAP"> intToStringMAP </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4164,7 +3786,7 @@ A hash mapping of an integer to a string.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="mvBoolean"> mvBoolean </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4175,9 +3797,7 @@ A hash mapping of an integer to a string.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A multi-valued Boolean.
-<p/>
+      <td>A multi-valued Boolean.<p/>
       </td>
     </tr>
 
@@ -4194,27 +3814,7 @@ A multi-valued Boolean.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
-    <tr> <td class="className" colspan="3"> <a name="mvComplex"> mvComplex </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P MV </div> <div class="attrType"> <a href="dmt.html#MenuElementTypeAndComment">MenuElementTypeAndComment</a> </div> 
-      </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Used in:</td>
-      <td>
-        <table>
-        <tr>
-          <td> ComplexTypeTest (<a href="dmt.html#ComplexTypeTest">dmt</a>) </td>
-        </tr>
-        </table>
-      </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="mvDate"> mvDate </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4225,9 +3825,7 @@ A multi-valued Boolean.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A mv Date.
-<p/>
+      <td>A mv Date.<p/>
       </td>
     </tr>
 
@@ -4244,7 +3842,7 @@ A mv Date.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="mvDmcObject"> mvDmcObject </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4255,13 +3853,11 @@ A mv Date.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A multi-valued DmcObject.
-<p/>
+      <td>A multi-valued DmcObject.<p/>
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="mvDouble"> mvDouble </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4272,9 +3868,7 @@ A multi-valued DmcObject.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-An mv Double.
-<p/>
+      <td>An mv Double.<p/>
       </td>
     </tr>
 
@@ -4291,20 +3885,18 @@ An mv Double.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="mvExtendedRef"> mvExtendedRef </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P MV </div> <div class="attrType"> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </div> 
+      <td colspan="2"> <div class="valueType"> P MV </div> <div class="attrType"> <a href="dmt.html#SomeRelation">SomeRelation</a> </div> 
       </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-An mv SomeRelation.
-<p/>
+      <td>An mv SomeRelation.<p/>
       </td>
     </tr>
 
@@ -4320,7 +3912,7 @@ An mv SomeRelation.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="mvFloat"> mvFloat </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4331,9 +3923,7 @@ An mv SomeRelation.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-An mv Float.
-<p/>
+      <td>An mv Float.<p/>
       </td>
     </tr>
 
@@ -4349,20 +3939,18 @@ An mv Float.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="mvIdxExtendedRef"> mvIdxExtendedRef </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P MV[10] </div> <div class="attrType"> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </div> 
+      <td colspan="2"> <div class="valueType"> P MV[10] </div> <div class="attrType"> <a href="dmt.html#SomeRelation">SomeRelation</a> </div> 
       </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-An indexed mv SomeRelation.
-<p/>
+      <td>An indexed mv SomeRelation.<p/>
       </td>
     </tr>
 
@@ -4378,7 +3966,7 @@ An indexed mv SomeRelation.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="mvIdxNamedObj"> mvIdxNamedObj </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4389,9 +3977,7 @@ An indexed mv SomeRelation.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-An indexed mv ObjWithRefs.
-<p/>
+      <td>An indexed mv ObjWithRefs.<p/>
       </td>
     </tr>
 
@@ -4402,13 +3988,12 @@ An indexed mv ObjWithRefs.
         <table>
         <tr>
           <td> NamedObjMVIDX (<a href="dmt.html#NamedObjMVIDX">dmt</a>) </td>
-          <td> ParseTest (<a href="dmt.html#ParseTest">dmt</a>) </td>
         </tr>
         </table>
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="mvIdxString"> mvIdxString </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4419,9 +4004,7 @@ An indexed mv ObjWithRefs.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-An indexed mv String.
-<p/>
+      <td>An indexed mv String.<p/>
       </td>
     </tr>
 
@@ -4437,7 +4020,7 @@ An indexed mv String.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="mvIdxUnnamedObj"> mvIdxUnnamedObj </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4448,9 +4031,7 @@ An indexed mv String.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-An indexed mv TestBasicObjectFixed.
-<p/>
+      <td>An indexed mv TestBasicObjectFixed.<p/>
       </td>
     </tr>
 
@@ -4460,17 +4041,13 @@ An indexed mv TestBasicObjectFixed.
       <td>
         <table>
         <tr>
-          <td> ParseTest (<a href="dmt.html#ParseTest">dmt</a>) </td>
-          <td> TestBasicNamedObjectFixed (<a href="dmt.html#TestBasicNamedObjectFixed">dmt</a>) </td>
-          <td> TestBasicObjectFixed (<a href="dmt.html#TestBasicObjectFixed">dmt</a>) </td>
-        <tr>
           <td> UnnamedObjMVIDX (<a href="dmt.html#UnnamedObjMVIDX">dmt</a>) </td>
         </tr>
         </table>
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="mvInteger"> mvInteger </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4481,9 +4058,7 @@ An indexed mv TestBasicObjectFixed.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-An mv Integer.
-<p/>
+      <td>An mv Integer.<p/>
       </td>
     </tr>
 
@@ -4499,7 +4074,7 @@ An mv Integer.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="mvLong"> mvLong </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4510,9 +4085,7 @@ An mv Integer.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-An mv Long.
-<p/>
+      <td>An mv Long.<p/>
       </td>
     </tr>
 
@@ -4528,7 +4101,7 @@ An mv Long.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="mvNamedObj"> mvNamedObj </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4539,9 +4112,7 @@ An mv Long.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-An mv ObjWithRefs.
-<p/>
+      <td>An mv ObjWithRefs.<p/>
       </td>
     </tr>
 
@@ -4557,7 +4128,7 @@ An mv ObjWithRefs.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="mvString"> mvString </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4568,9 +4139,7 @@ An mv ObjWithRefs.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-An mv String.
-<p/>
+      <td>An mv String.<p/>
       </td>
     </tr>
 
@@ -4601,7 +4170,7 @@ An mv String.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="mvTestBasicNamedObjectFixed"> mvTestBasicNamedObjectFixed </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4612,9 +4181,7 @@ An mv String.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A multi-valued TestBasicNamedObjectFixed.
-<p/>
+      <td>A multi-valued TestBasicNamedObjectFixed.<p/>
       </td>
     </tr>
 
@@ -4631,7 +4198,7 @@ A multi-valued TestBasicNamedObjectFixed.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="mvTestEnum"> mvTestEnum </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4651,7 +4218,7 @@ A multi-valued TestBasicNamedObjectFixed.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="mvUnnamedObj"> mvUnnamedObj </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4662,9 +4229,7 @@ A multi-valued TestBasicNamedObjectFixed.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-An mv TestBasicObjectFixed.
-<p/>
+      <td>An mv TestBasicObjectFixed.<p/>
       </td>
     </tr>
 
@@ -4674,14 +4239,13 @@ An mv TestBasicObjectFixed.
       <td>
         <table>
         <tr>
-          <td> ParseTest (<a href="dmt.html#ParseTest">dmt</a>) </td>
           <td> UnnamedObjMV (<a href="dmt.html#UnnamedObjMV">dmt</a>) </td>
         </tr>
         </table>
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="nonperString"> nonperString </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4701,7 +4265,7 @@ An mv TestBasicObjectFixed.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="objRef"> objRef </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4712,9 +4276,7 @@ An mv TestBasicObjectFixed.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-Another ObjWithRefs object.
-<p/>
+      <td>Another ObjWithRefs object.<p/>
       </td>
     </tr>
 
@@ -4730,7 +4292,7 @@ Another ObjWithRefs object.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="objRefHM"> objRefHM </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4741,9 +4303,7 @@ Another ObjWithRefs object.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-Other ObjWithRefs objects.
-<p/>
+      <td>Other ObjWithRefs objects.<p/>
       </td>
     </tr>
 
@@ -4760,7 +4320,7 @@ Other ObjWithRefs objects.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="objRefMV"> objRefMV </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4771,9 +4331,7 @@ Other ObjWithRefs objects.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-Other ObjWithRefs objects.
-<p/>
+      <td>Other ObjWithRefs objects.<p/>
       </td>
     </tr>
 
@@ -4789,7 +4347,7 @@ Other ObjWithRefs objects.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="onOff"> onOff </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4809,7 +4367,7 @@ Other ObjWithRefs objects.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="plainObjRef"> plainObjRef </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4820,9 +4378,7 @@ Other ObjWithRefs objects.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-References to unnamed objects.
-<p/>
+      <td>References to unnamed objects.<p/>
       </td>
     </tr>
 
@@ -4838,11 +4394,11 @@ References to unnamed objects.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="someRelationIndexed"> someRelationIndexed </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P MV[8] </div> <div class="attrType"> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </div> 
+      <td colspan="2"> <div class="valueType"> P MV[8] </div> <div class="attrType"> <a href="dmt.html#SomeRelation">SomeRelation</a> </div> 
       </td>
     </tr>
 
@@ -4858,11 +4414,11 @@ References to unnamed objects.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="someRelationMV"> someRelationMV </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P MV </div> <div class="attrType"> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </div> 
+      <td colspan="2"> <div class="valueType"> P MV </div> <div class="attrType"> <a href="dmt.html#SomeRelation">SomeRelation</a> </div> 
       </td>
     </tr>
 
@@ -4878,11 +4434,11 @@ References to unnamed objects.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="someRelationMVI"> someRelationMVI </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P MV[8] </div> <div class="attrType"> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </div> 
+      <td colspan="2"> <div class="valueType"> P MV[8] </div> <div class="attrType"> <a href="dmt.html#SomeRelation">SomeRelation</a> </div> 
       </td>
     </tr>
 
@@ -4899,11 +4455,11 @@ References to unnamed objects.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="someRelationSV"> someRelationSV </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </div> 
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="dmt.html#SomeRelation">SomeRelation</a> </div> 
       </td>
     </tr>
 
@@ -4920,7 +4476,7 @@ References to unnamed objects.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="svBoolean"> svBoolean </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4931,9 +4487,7 @@ References to unnamed objects.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A single valued Boolean.
-<p/>
+      <td>A single valued Boolean.<p/>
       </td>
     </tr>
 
@@ -4944,9 +4498,7 @@ A single valued Boolean.
         <table>
         <tr>
           <td> ObjWithRefs (<a href="dmt.html#ObjWithRefs">dmt</a>) </td>
-          <td> ParseTest (<a href="dmt.html#ParseTest">dmt</a>) </td>
           <td> TestBasicObjectFixed (<a href="dmt.html#TestBasicObjectFixed">dmt</a>) </td>
-        <tr>
           <td> UUIDNamedObject (<a href="dmt.html#UUIDNamedObject">dmt</a>) </td>
         </tr>
       <tr>
@@ -4956,27 +4508,7 @@ A single valued Boolean.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
-    <tr> <td class="className" colspan="3"> <a name="svComplex"> svComplex </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="dmt.html#MenuElementTypeAndComment">MenuElementTypeAndComment</a> </div> 
-      </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Used in:</td>
-      <td>
-        <table>
-        <tr>
-          <td> ComplexTypeTest (<a href="dmt.html#ComplexTypeTest">dmt</a>) </td>
-        </tr>
-        </table>
-      </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="svDate"> svDate </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4987,9 +4519,7 @@ A single valued Boolean.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A sv Date.
-<p/>
+      <td>A sv Date.<p/>
       </td>
     </tr>
 
@@ -5007,7 +4537,7 @@ A sv Date.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="svDmcObject"> svDmcObject </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5018,13 +4548,11 @@ A sv Date.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A single valued DmcObject.
-<p/>
+      <td>A single valued DmcObject.<p/>
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="svDouble"> svDouble </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5035,9 +4563,7 @@ A single valued DmcObject.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A sv Double.
-<p/>
+      <td>A sv Double.<p/>
       </td>
     </tr>
 
@@ -5054,20 +4580,18 @@ A sv Double.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="svExtendedRef"> svExtendedRef </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </div> 
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="dmt.html#SomeRelation">SomeRelation</a> </div> 
       </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-An sv SomeRelation.
-<p/>
+      <td>An sv SomeRelation.<p/>
       </td>
     </tr>
 
@@ -5083,7 +4607,7 @@ An sv SomeRelation.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="svFloat"> svFloat </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5094,9 +4618,7 @@ An sv SomeRelation.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A sv Float.
-<p/>
+      <td>A sv Float.<p/>
 svFloat must be in the range 1.5 - 2.5
 <p/>      </td>
     </tr>
@@ -5113,7 +4635,7 @@ svFloat must be in the range 1.5 - 2.5
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="svInteger"> svInteger </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5124,9 +4646,7 @@ svFloat must be in the range 1.5 - 2.5
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A sv Integer.
-<p/>
+      <td>A sv Integer.<p/>
 svInteger must be in the range 1-10
 <p/>      </td>
     </tr>
@@ -5143,7 +4663,7 @@ svInteger must be in the range 1-10
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="svLong"> svLong </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5154,9 +4674,7 @@ svInteger must be in the range 1-10
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A sv Long.
-<p/>
+      <td>A sv Long.<p/>
       </td>
     </tr>
 
@@ -5172,7 +4690,7 @@ A sv Long.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="svNamedObj"> svNamedObj </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5183,9 +4701,7 @@ A sv Long.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-An sv ObjWithRefs.
-<p/>
+      <td>An sv ObjWithRefs.<p/>
       </td>
     </tr>
 
@@ -5201,7 +4717,7 @@ An sv ObjWithRefs.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="svString"> svString </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5212,9 +4728,7 @@ An sv ObjWithRefs.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A sv String.
-<p/>
+      <td>A sv String.<p/>
       </td>
     </tr>
 
@@ -5251,7 +4765,7 @@ A sv String.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="svTestBasicNamedObjectFixed"> svTestBasicNamedObjectFixed </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5262,9 +4776,7 @@ A sv String.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A single valued TestBasicNamedObjectFixed.
-<p/>
+      <td>A single valued TestBasicNamedObjectFixed.<p/>
       </td>
     </tr>
 
@@ -5280,7 +4792,7 @@ A single valued TestBasicNamedObjectFixed.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="svTestEnum"> svTestEnum </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5300,7 +4812,7 @@ A single valued TestBasicNamedObjectFixed.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="svUnnamedObj"> svUnnamedObj </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5311,9 +4823,7 @@ A single valued TestBasicNamedObjectFixed.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-An sv TestBasicObjectFixed.
-<p/>
+      <td>An sv TestBasicObjectFixed.<p/>
       </td>
     </tr>
 
@@ -5323,14 +4833,13 @@ An sv TestBasicObjectFixed.
       <td>
         <table>
         <tr>
-          <td> ParseTest (<a href="dmt.html#ParseTest">dmt</a>) </td>
           <td> UnnamedObjSV (<a href="dmt.html#UnnamedObjSV">dmt</a>) </td>
         </tr>
         </table>
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="tmNamedObj"> tmNamedObj </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5341,9 +4850,7 @@ An sv TestBasicObjectFixed.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A TreeMap of ObjWithRefs.
-<p/>
+      <td>A TreeMap of ObjWithRefs.<p/>
       </td>
     </tr>
 
@@ -5359,7 +4866,7 @@ A TreeMap of ObjWithRefs.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="tmString"> tmString </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5370,9 +4877,7 @@ A TreeMap of ObjWithRefs.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A TreeMap of StringToStrings.
-<p/>
+      <td>A TreeMap of StringToStrings.<p/>
       </td>
     </tr>
 
@@ -5388,7 +4893,7 @@ A TreeMap of StringToStrings.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="transString"> transString </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5408,7 +4913,7 @@ A TreeMap of StringToStrings.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="tsDate"> tsDate </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5419,9 +4924,7 @@ A TreeMap of StringToStrings.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A ts Date.
-<p/>
+      <td>A ts Date.<p/>
       </td>
     </tr>
 
@@ -5437,7 +4940,7 @@ A ts Date.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="tsDouble"> tsDouble </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5448,9 +4951,7 @@ A ts Date.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A ts Double.
-<p/>
+      <td>A ts Double.<p/>
       </td>
     </tr>
 
@@ -5466,20 +4967,18 @@ A ts Double.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="tsExtendedRef"> tsExtendedRef </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P TS </div> <div class="attrType"> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </div> 
+      <td colspan="2"> <div class="valueType"> P TS </div> <div class="attrType"> <a href="dmt.html#SomeRelation">SomeRelation</a> </div> 
       </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A TreeSet of SomeRelation.
-<p/>
+      <td>A TreeSet of SomeRelation.<p/>
       </td>
     </tr>
 
@@ -5495,7 +4994,7 @@ A TreeSet of SomeRelation.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="tsFloat"> tsFloat </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5506,9 +5005,7 @@ A TreeSet of SomeRelation.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A ts Float.
-<p/>
+      <td>A ts Float.<p/>
       </td>
     </tr>
 
@@ -5524,7 +5021,7 @@ A ts Float.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="tsInteger"> tsInteger </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5535,9 +5032,7 @@ A ts Float.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A ts Integer.
-<p/>
+      <td>A ts Integer.<p/>
       </td>
     </tr>
 
@@ -5553,7 +5048,7 @@ A ts Integer.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="tsLong"> tsLong </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5564,9 +5059,7 @@ A ts Integer.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A ts Long.
-<p/>
+      <td>A ts Long.<p/>
       </td>
     </tr>
 
@@ -5582,7 +5075,7 @@ A ts Long.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="tsNamedObj"> tsNamedObj </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5593,9 +5086,7 @@ A ts Long.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A TreeSet of ObjWithRefs.
-<p/>
+      <td>A TreeSet of ObjWithRefs.<p/>
       </td>
     </tr>
 
@@ -5611,7 +5102,7 @@ A TreeSet of ObjWithRefs.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="tsString"> tsString </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5622,9 +5113,7 @@ A TreeSet of ObjWithRefs.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A TreeSet of Strings.
-<p/>
+      <td>A TreeSet of Strings.<p/>
       </td>
     </tr>
 
@@ -5641,7 +5130,7 @@ A TreeSet of Strings.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="tsUnnamedObj"> tsUnnamedObj </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5652,9 +5141,7 @@ A TreeSet of Strings.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>
-A TreeSet of TestBasicObjectFixed.
-<p/>
+      <td>A TreeSet of TestBasicObjectFixed.<p/>
       </td>
     </tr>
 
@@ -5670,28 +5157,11 @@ A TreeSet of TestBasicObjectFixed.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
-    <tr> <td class="className" colspan="3"> <a name="userName"> userName </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
-      </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Description</td>
-      <td>
-An attribute that's meant to clash with the userName in the dmp schema.
-<p/>
-      </td>
-    </tr>
-
   </table>
 
 </div> <!-- attributeDetails -->
 
-<!-- org.dmd.dms.doc.web.SchemaPage.writeTypes(SchemaPage.java:243) -->
+<!-- org.dmd.dms.doc.web.SchemaPage.writeTypes(SchemaPage.java:242) -->
 
 <div class="typeDetails">
 
@@ -5703,7 +5173,7 @@ An attribute that's meant to clash with the userName in the dmp schema.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@48ea48be </td>
+      <td> The DmtStringName type was created to test the definition of name types. </td>
     </tr>
 
     <tr>
@@ -5747,132 +5217,7 @@ An attribute that's meant to clash with the userName in the dmp schema.
 
 </div> <!-- typeDetails -->
 
-<!-- org.dmd.dms.doc.web.SchemaPage.writeComplexTypes(SchemaPage.java:263) -->
-
-<div class="complexTypeDetails">
-
-<h2> Complex Type Details </h2>
-
-  <table>
-
-    <tr> <td class="typeName" colspan="5"> <a name="DmtField"> DmtField </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Description</td>
-      <td colspan="4"> The DmtField complex type is used to test generation of 
- complex types that contain object references.
- </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label" colspan="3">Field Separator: 
-SPACE</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> Field 1</td>
-      <td> type </td>
-      <td class="attrType"> <a href="meta.html#TypeDefinition">TypeDefinition</a> </td>
-      <td> The type of the field </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> Field 2</td>
-      <td> name </td>
-      <td class="attrType"> <a href="meta.html#String">String</a> </td>
-      <td> The name of the field </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> Field 3</td>
-      <td> description </td>
-      <td class="attrType"> <a href="meta.html#String">String</a> </td>
-      <td> The description of the field </td>
-    </tr>
-
-    <tr> <td class="typeName" colspan="5"> <a name="DmtOptionalValueFieldWithColons"> DmtOptionalValueFieldWithColons </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Description</td>
-      <td colspan="4"> The DmtOptionalValueFieldWithSpaces complex type is used to test generation of 
- complex types that use spaces as separators and have optional values
- </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label" colspan="3">Field Separator: 
-<strong> :</strong></td>
-    </tr>
-
-    <tr> <td class="typeName" colspan="5"> <a name="DmtOptionalValueFieldWithSpaces"> DmtOptionalValueFieldWithSpaces </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Description</td>
-      <td colspan="4"> The DmtOptionalValueFieldWithSpaces complex type is used to test generation of 
- complex types that use spaces as separators and have optional values
- </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label" colspan="3">Field Separator: 
-SPACE</td>
-    </tr>
-
-    <tr> <td class="typeName" colspan="5"> <a name="MenuElementTypeAndComment"> MenuElementTypeAndComment </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Description</td>
-      <td colspan="4"> The MenuElementTypeAndComment type is used to indicate the strings that map to 
- various menu and menu item implementations supported by a a particular menu implementation.
- </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label" colspan="3">Field Separator: 
-<strong> :</strong></td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> Field 1</td>
-      <td> type </td>
-      <td class="attrType"> <a href="meta.html#String">String</a> </td>
-      <td> The name of this implementation. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> Field 2</td>
-      <td> comment </td>
-      <td class="attrType"> <a href="meta.html#String">String</a> </td>
-      <td> The class used to implement the required behaviour. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Used in:</td>
-      <td colspan ="3">
-<table>
-  <tr>
-    <td> mvComplex (<a href="dmt.html#mvComplex">dmt</a>) </td>
-    <td> svComplex (<a href="dmt.html#svComplex">dmt</a>) </td>
-</tr>
-</table>
-      </td>
-    </tr>
-
-  </table>
-
-</div> <!-- typeDetails -->
-
-<!-- org.dmd.dms.doc.web.SchemaPage.writeExtendedReferenceTypes(SchemaPage.java:283) -->
+<!-- org.dmd.dms.doc.web.SchemaPage.writeExtendedReferenceTypes(SchemaPage.java:282) -->
 
 <div class="extendedReferenceTypeDetails">
 
@@ -5884,7 +5229,8 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td colspan="4"> java.util.AbstractList$Itr@7174d93a </td>
+      <td colspan="4"> The SomeRelation type is used to specify a count and an ordering
+ on some relation between objects. </td>
     </tr>
 
     <tr>
@@ -5915,11 +5261,34 @@ SPACE</td>
       <td> The order in which something is done. </td>
     </tr>
 
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td colspan ="3">
+<table>
+  <tr>
+    <td> hsExtendedRef (<a href="dmt.html#hsExtendedRef">dmt</a>) </td>
+    <td> mvExtendedRef (<a href="dmt.html#mvExtendedRef">dmt</a>) </td>
+    <td> mvIdxExtendedRef (<a href="dmt.html#mvIdxExtendedRef">dmt</a>) </td>
+  <tr>
+    <td> someRelationIndexed (<a href="dmt.html#someRelationIndexed">dmt</a>) </td>
+    <td> someRelationMV (<a href="dmt.html#someRelationMV">dmt</a>) </td>
+    <td> someRelationMVI (<a href="dmt.html#someRelationMVI">dmt</a>) </td>
+</tr>
+  <tr>
+    <td> someRelationSV (<a href="dmt.html#someRelationSV">dmt</a>) </td>
+    <td> svExtendedRef (<a href="dmt.html#svExtendedRef">dmt</a>) </td>
+    <td> tsExtendedRef (<a href="dmt.html#tsExtendedRef">dmt</a>) </td>
+</tr>
+</table>
+      </td>
+    </tr>
+
   </table>
 
 </div> <!-- typeDetails -->
 
-<!-- org.dmd.dms.doc.web.SchemaPage.writeEnums(SchemaPage.java:303) -->
+<!-- org.dmd.dms.doc.web.SchemaPage.writeEnums(SchemaPage.java:302) -->
 
 <div class="enumDetails">
 
@@ -5933,7 +5302,7 @@ SPACE</td>
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>java.util.AbstractList$Itr@2e61a907</td>
+      <td>The DmtTestEnum is used for testing operations on enumerated types</td>
     </tr>
 
     <tr>
@@ -5968,15 +5337,15 @@ SPACE</td>
 
 </div> <!-- enumDetails -->
 
-<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstanceDetails(RuleInstanceFormatter.java:50) -->
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstanceDetails(RuleInstanceFormatter.java:48) -->
 <div class="ruleInstances">
 
 <h2> Rule Instances </h2>
 
-<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstanceDetails(RuleInstanceFormatter.java:56) -->
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstanceDetails(RuleInstanceFormatter.java:54) -->
   <table>
 
-<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:97) -->
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:86) -->
     <tr> <td class="ruleDefName" colspan="4"> InitRule (CLASS)</td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5990,7 +5359,7 @@ SPACE</td>
       <td class="spacer"> </td>
       <td class="spacer"> </td>
       <td> Apply to class: </td>
-      <td> dmt.TestBasicObjectFixed </td>
+      <td> TestBasicObjectFixed </td>
     </tr>
     <tr>
       <td class="spacer"> </td>
@@ -5998,15 +5367,6 @@ SPACE</td>
       <td colspan="5"class="attributeSectionLabel"> Rule arguments </td>
     </tr>
 
-    <tr>
-      <td class="spacer"> </td>
-      <td class="spacer"> </td>
-      <td> hsTestEnum </td>
-      <td>
-TEST1
-<br>TEST2
-      </td>
-    </tr>
     <tr>
       <td class="spacer"> </td>
       <td class="spacer"> </td>
@@ -6026,7 +5386,7 @@ first value
 <br>second value
       </td>
     </tr>
-<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:97) -->
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:86) -->
     <tr> <td class="ruleDefName" colspan="4"> NumericRangeRule (ATTRIBUTE)</td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6040,13 +5400,13 @@ first value
       <td class="spacer"> </td>
       <td class="spacer"> </td>
       <td> Apply to class: </td>
-      <td> dmt.TestBasicObjectFixed </td>
+      <td> TestBasicObjectFixed </td>
     </tr>
     <tr>
       <td class="spacer"> </td>
       <td class="spacer"> </td>
       <td> Apply to attribute: </td>
-      <td> dmt.svFloat </td>
+      <td> svFloat </td>
     </tr>
     <tr>
       <td class="spacer"> </td>
@@ -6076,13 +5436,13 @@ first value
       <td class="spacer"> </td>
       <td class="spacer"> </td>
       <td> Apply to class: </td>
-      <td> dmt.TestBasicObjectFixed </td>
+      <td> TestBasicObjectFixed </td>
     </tr>
     <tr>
       <td class="spacer"> </td>
       <td class="spacer"> </td>
       <td> Apply to attribute: </td>
-      <td> dmt.svInteger </td>
+      <td> svInteger </td>
     </tr>
     <tr>
       <td class="spacer"> </td>
@@ -6106,17 +5466,14 @@ first value
 
     </div>
 
-<!-- org.dmd.dms.doc.web.Summarizer.buildSidebar(Summarizer.java:227) -->
+<!-- org.dmd.dms.doc.web.Summarizer.buildSidebar(Summarizer.java:98) -->
     <div id="sidebar">
         <a class="navLink" href="dmg.html"> dmg</a>
         <a class="navLink" href="dmp.html"> dmp</a>
-        <a class="navLink" href="dmrbase.html"> dmrbase</a>
-        <a class="navLink" href="dmrldap.html"> dmrldap</a>
+        <a class="navLink" href="dmr.base.html"> dmr.base</a>
+        <a class="navLink" href="dmr.ldap.html"> dmr.ldap</a>
         <a class="navLink" href="dmt.html"> dmt</a>
         <a class="navLink" href="dmv.html"> dmv</a>
-        <a class="navLink" href="dsdA.html"> dsdA</a>
-        <a class="navLink" href="dsdB.html"> dsdB</a>
-        <a class="navLink" href="dsdC.html"> dsdC</a>
         <a class="navLink" href="map.html"> map</a>
         <a class="navLink" href="meta.html"> meta</a>
         <a class="navLink" href="SchemaSummaryPage.html"> Summary </a>

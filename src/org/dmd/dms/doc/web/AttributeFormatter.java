@@ -3,11 +3,10 @@ package org.dmd.dms.doc.web;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcObject;
-import org.dmd.dmc.types.DefinitionName;
+import org.dmd.dmc.types.StringName;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
@@ -119,8 +118,7 @@ public class AttributeFormatter {
 	}
 
 	static void description(BufferedWriter out, AttributeDefinition ad) throws IOException{
-//		if (ad.getDescription() != null){
-		if (ad.getDescriptionSize() > 0){
+		if (ad.getDescription() != null){
 //			ArrayList<DmwWrapper> referring = ad.getReferringObjects();
 			
 			ArrayList<DmcObject> referring = ad.getDMO().getReferringObjects();
@@ -128,14 +126,7 @@ public class AttributeFormatter {
 			out.write("    <tr>\n");
 			out.write("      <td class=\"spacer\"> </td>\n");
 			out.write("      <td class=\"label\">Description</td>\n");
-			out.write("      <td>\n");
-			
-			Iterator<String> descr = ad.getDescription();
-			while(descr.hasNext()){
-				out.write(descr.next() + "\n");
-				if (descr.hasNext())
-					out.write("<p/>\n");
-			}
+			out.write("      <td>" + ad.getDescription());
 			
 			if (referring != null){
 				out.write("<p/>\n");
@@ -144,6 +135,18 @@ public class AttributeFormatter {
 						RuleDataDMO rd = (RuleDataDMO) obj;
 						out.write(rd.getRuleTitle() + "\n<p/>");
 					}
+//					if (obj instanceof RuleDataDMO){
+//						
+//					}
+//					DebugInfo.debug("REF FROM: " + obj.getClass().getName());
+//					if (wrapper instanceof RuleDefinition){
+//						RuleDefinition rd = (RuleDefinition) wrapper;
+//						DebugInfo.debug(rd.toOIF());
+//					}
+//					else if (wrapper instanceof RuleData){
+//						RuleData rd = (RuleData) wrapper;
+//						DebugInfo.debug(rd.toOIF());
+//					}
 					
 				}
 				
@@ -159,9 +162,9 @@ public class AttributeFormatter {
 		
 		// There's always one reference because the schema refers to its attributes
 		if ( (referring != null) && (referring.size() > 1) ){
-			TreeMap<DefinitionName,ClassDefinition>	classes = new TreeMap<DefinitionName, ClassDefinition>();
-			TreeMap<DefinitionName,RuleDefinition>	rules = new TreeMap<DefinitionName, RuleDefinition>();
-			TreeMap<DefinitionName,ActionDefinition>	actions = new TreeMap<DefinitionName, ActionDefinition>();
+			TreeMap<StringName,ClassDefinition>	classes = new TreeMap<StringName, ClassDefinition>();
+			TreeMap<StringName,RuleDefinition>	rules = new TreeMap<StringName, RuleDefinition>();
+			TreeMap<StringName,ActionDefinition>	actions = new TreeMap<StringName, ActionDefinition>();
 			
 			out.write("    <tr>\n");
 			out.write("      <td class=\"spacer\"> </td>\n");
@@ -190,7 +193,7 @@ public class AttributeFormatter {
 		}
 	}
 
-	static String formatUsage(TreeMap<DefinitionName,ClassDefinition> cds, TreeMap<DefinitionName,RuleDefinition> rds, TreeMap<DefinitionName,ActionDefinition> ads){
+	static String formatUsage(TreeMap<StringName,ClassDefinition> cds, TreeMap<StringName,RuleDefinition> rds, TreeMap<StringName,ActionDefinition> ads){
 		StringBuffer sb = new StringBuffer();
 		
 		sb.append("        <table>\n");

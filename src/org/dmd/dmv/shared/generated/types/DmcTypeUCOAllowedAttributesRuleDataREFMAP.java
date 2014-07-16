@@ -30,7 +30,7 @@ import org.dmd.dmc.types.RuleName;    // key type import
  * The DmcTypeUCOAllowedAttributesRuleDataREFMAP provides storage for a map of UCOAllowedAttributesRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2858)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2828)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
@@ -73,7 +73,7 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFMAP extends DmcTypeUCOAllowed
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2915)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2885)
     public DmcAttribute<UCOAllowedAttributesRuleDataREF> cloneIt(){
         synchronized(this){
             DmcTypeUCOAllowedAttributesRuleDataREFMAP rc = getNew();
@@ -92,7 +92,7 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFMAP extends DmcTypeUCOAllowed
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2935)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2905)
     public UCOAllowedAttributesRuleDataREF add(Object v) throws DmcValueException {
         synchronized(this){
             UCOAllowedAttributesRuleDataREF newval = typeCheck(v);
@@ -112,7 +112,7 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFMAP extends DmcTypeUCOAllowed
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2956)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2926)
     public UCOAllowedAttributesRuleDataREF del(Object key){
         synchronized(this){
     
@@ -127,7 +127,7 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFMAP extends DmcTypeUCOAllowed
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2972)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2942)
     public Iterator<UCOAllowedAttributesRuleDataREF> getMV(){
         synchronized(this){
     
@@ -143,7 +143,7 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFMAP extends DmcTypeUCOAllowed
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2989)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2959)
     public Map<RuleName,UCOAllowedAttributesRuleDataREF> getMVCopy(){
         synchronized(this){
             Map<RuleName,UCOAllowedAttributesRuleDataREF> clone = null;
@@ -163,7 +163,7 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFMAP extends DmcTypeUCOAllowed
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3010)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2980)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -174,7 +174,7 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFMAP extends DmcTypeUCOAllowed
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3022)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2992)
     public UCOAllowedAttributesRuleDataREF getByKey(Object key){
         synchronized(this){
            if (value == null)
@@ -188,7 +188,7 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFMAP extends DmcTypeUCOAllowed
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3037)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3007)
     public boolean contains(Object v){
         synchronized(this){
            if (value == null)
@@ -204,7 +204,7 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFMAP extends DmcTypeUCOAllowed
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3054)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3024)
     public boolean containsKey(Object key){
         synchronized(this){
            if (value == null)

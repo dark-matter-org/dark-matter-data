@@ -15,30 +15,27 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.generated.dmw;
 
+import java.util.*;
 
-// Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1637)
-import java.util.*;                                     // To support access functions - (MetaGenerator.java:1610)
-import org.dmd.dmc.*;                                   // Basic dark-matter infrastructure - (MetaGenerator.java:1612)
-import org.dmd.dmc.definitions.DmcDefinitionIF;         // Because this is a DS definition - (MetaGenerator.java:1625)
-import org.dmd.dmc.types.*;                             // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1611)
-import org.dmd.dms.*;                                   // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1618)
-import org.dmd.dms.generated.dmo.*;                     // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1614)
-import org.dmd.dms.generated.enums.*;                   // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1615)
-import org.dmd.dms.generated.types.*;                   // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1616)
-import org.dmd.dmw.*;                                   // Base wrapper capabilities - (MetaGenerator.java:1613)
-import org.dmd.util.exceptions.*;                       // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1617)
+import org.dmd.dmc.types.*;
+import org.dmd.dmc.*;
+import org.dmd.dmw.*;
+import org.dmd.dms.generated.dmo.*;
+import org.dmd.dms.generated.enums.*;
+import org.dmd.dms.generated.types.*;
+import org.dmd.util.exceptions.*;
+import org.dmd.dms.*;
 
 /**
  * The SliceDefinition class is used to define a named set of attributes\n
  * that are used to retrieve a slice of an object i.e. an abbreviated set
  * of\n values. These are used in the generation of static, named
- * DmcSliceInfo instances. 
+ * DmcSliceInfo instances.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1646)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1561)
  */
 @SuppressWarnings("unused")
-public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcDefinitionIF {
+public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     private SliceDefinitionDMO mycore;
 
@@ -78,29 +75,30 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition implements Dmc
 
     /**
      * The name attribute is used to store a single string token that represents
-     * a unique name\n for an object with the set of definitions of which it is a
-     * part. A name starts with a letter followed\n by letters and numbers. 
+     * a unique name\n for an object. A name should be composed of characters in
+     * the range, [a-z] [A-Z] [0-9]. No whitespace\n characters are allowed. All
+     * names must start with a character.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2393)
-    public DefinitionName getName(){
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2286)
+    public StringName getName(){
         return(mycore.getName());
     }
 
     /**
      * Sets name to the specified value.
-     * @param value A value compatible with DmcTypeDefinitionNameSV
+     * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2466)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2359)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
 
     /**
      * The selectAttribute indicates an attribute to be used in the definition\n
-     * of a Slice. 
+     * of a Slice.
      * @return An Iterator of AttributeDefinition objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2584)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2447)
     public AttributeDefinitionIterableDMW getSelectAttribute(){
         DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaDMSAG.__selectAttribute);
         if (attr == null)
@@ -113,7 +111,7 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition implements Dmc
      * Adds another selectAttribute value.
      * @param value A value compatible with AttributeDefinition
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2668)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2506)
     public DmcAttribute<?> addSelectAttribute(AttributeDefinition value) throws DmcValueException {
         DmcAttribute<?> attr = mycore.addSelectAttribute(value.getDmcObject());
         return(attr);
@@ -122,7 +120,7 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition implements Dmc
     /**
      * Returns the number of selectAttribute values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2695)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2532)
     public int getSelectAttributeSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__selectAttribute);
         if (attr == null)
@@ -134,66 +132,35 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition implements Dmc
      * The description attribute is used to provide descriptive\n documentation
      * for schema related definitions. The text provided should conform\n to
      * XHTML concepts since it will be dumped in the context of the generated
-     * HTML\n documentation. 
-     * @return An Iterator of String objects.
+     * HTML\n documentation.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2602)
-    public Iterator<String> getDescription(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
-        if (attr == null)
-            return(null);
-
-        return(attr.getMV());
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2286)
+    public String getDescription(){
+        return(mycore.getDescription());
     }
 
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2616)
-    public Iterator<String> getDescriptionWithNewlines(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
-        if (attr == null)
-            return(null);
-
-        DmcTypeStringMV withNewLines = new DmcTypeStringMV();
-        Iterator<String> it = attr.getMV();
-        while(it.hasNext()){
-            try{
-                withNewLines.add(it.next().replaceAll("\\\\n","\\\n"));
-            } catch (DmcValueException e) {
-                e.printStackTrace();
-            }
-        }
-
-        return(withNewLines.getMV());
+    public String getDescriptionWithNewlines(){
+        return(mycore.getDescriptionWithNewlines());
     }
 
     /**
-     * Adds another description value.
-     * @param value A value compatible with DmcTypeStringMV
+     * Sets description to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2682)
-    public void addDescription(Object value) throws DmcValueException {
-        mycore.addDescription(value);
-    }
-
-    /**
-     * Returns the number of description values.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2695)
-    public int getDescriptionSize(){
-        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__description);
-        if (attr == null)
-            return(0);
-        return(attr.getMVSize());
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2359)
+    public void setDescription(Object value) throws DmcValueException {
+        mycore.setDescription(value);
     }
 
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1807)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1712)
 
     /**
      * @return The name of this object from the name attribute.
      */
-    public DefinitionName getObjectName(){
+    public StringName getObjectName(){
         return(mycore.getObjectName());
     }
 

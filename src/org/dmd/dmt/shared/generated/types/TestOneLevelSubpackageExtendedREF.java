@@ -8,8 +8,8 @@ import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcNamedObjectNontransportableREF; // base import
 import org.dmd.dmt.shared.generated.dmo.TestOneLevelSubpackageExtendedDMO; // primitive type
-import org.dmd.dmc.types.DefinitionName;
-import org.dmd.dms.generated.types.DmcTypeDefinitionNameSV; 
+import org.dmd.dmc.types.StringName;
+import org.dmd.dms.generated.types.DmcTypeStringNameSV; 
 
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.DataTypeEnum;
@@ -24,27 +24,27 @@ import org.dmd.dms.generated.enums.DataTypeEnum;
 @SuppressWarnings("serial")
 public class TestOneLevelSubpackageExtendedREF extends DmcNamedObjectNontransportableREF<TestOneLevelSubpackageExtendedDMO> {
 
-    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"DefinitionName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"StringName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     
-    DmcTypeDefinitionNameSV myName;    
+    DmcTypeStringNameSV myName;    
     
     public TestOneLevelSubpackageExtendedREF(){
     }
 
     public TestOneLevelSubpackageExtendedREF(TestOneLevelSubpackageExtendedDMO o){
          object = o;
-         myName = (DmcTypeDefinitionNameSV)o.getObjectNameAttribute();
+         myName = (DmcTypeStringNameSV)o.getObjectNameAttribute();
     }
 
-    public TestOneLevelSubpackageExtendedREF(DefinitionName n) throws DmcValueException {
+    public TestOneLevelSubpackageExtendedREF(StringName n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeDefinitionNameSV(__name);
+         myName = new DmcTypeStringNameSV(__name);
          myName.set(n);
     }
 
     public TestOneLevelSubpackageExtendedREF(String n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeDefinitionNameSV(__name);
+         myName = new DmcTypeStringNameSV(__name);
          myName.set(n);
     }
 
@@ -56,7 +56,7 @@ public class TestOneLevelSubpackageExtendedREF extends DmcNamedObjectNontranspor
     public void setObject(TestOneLevelSubpackageExtendedDMO o){
          object = o;
          if (object != null)
-             myName = (DmcTypeDefinitionNameSV)o.getObjectNameAttribute();
+             myName = (DmcTypeStringNameSV)o.getObjectNameAttribute();
     }
 
     /**
@@ -72,7 +72,7 @@ public class TestOneLevelSubpackageExtendedREF extends DmcNamedObjectNontranspor
     @Override
     public void setName(DmcObjectName n) throws DmcValueException {
         if (myName == null)
-            myName = new DmcTypeDefinitionNameSV(__name);
+            myName = new DmcTypeStringNameSV(__name);
         myName.set(n);
     }
 
@@ -84,7 +84,7 @@ public class TestOneLevelSubpackageExtendedREF extends DmcNamedObjectNontranspor
         return(myName.getSV());
     }
 
-    public DefinitionName getName(){
+    public StringName getName(){
         if (myName == null)
             throw(new IllegalStateException("You've tried to access the name of an object but the name attribute hasn't been set."));
         
@@ -104,7 +104,7 @@ public class TestOneLevelSubpackageExtendedREF extends DmcNamedObjectNontranspor
     }
 
     public void deserializeIt(DmcInputStreamIF dis) throws Exception {
-        myName = (DmcTypeDefinitionNameSV) dis.getAttributeInstance();
+        myName = (DmcTypeStringNameSV) dis.getAttributeInstance();
         myName.deserializeIt(dis);
     }
 
