@@ -1,0 +1,13 @@
+SchemaDefinition
+name       			dsdB
+schemaBaseID		-500100
+schemaIDRange		50
+// Note: we need this because we're referring to ModuleA in the ModuleB definition.
+dependsOn			dsdA
+defFiles    		attributes.dmd
+defFiles    		classes.dmd
+defFiles			module.dmd
+schemaPackage 		org.dmd.dmt.dsd.dsdb.shared
+dmwPackage 			org.dmd.dmt.dsd.dsdb.server
+generatedFileHeader LGPL.txt
+description			A domain specific definition schema for test purposes. 

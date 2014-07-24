@@ -1,0 +1,8 @@
+DSDefinitionModule
+name						ModuleA
+fileExtension				tma
+dmdID						1
+moduleClassName				ModuleA
+moduleDependenceAttribute 	dependsOnModuleA
+definedInModuleAttribute	definedInModuleA
+baseDefinition				AConceptBase

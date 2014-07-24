@@ -1,0 +1,145 @@
+Template
+name 	DmtdlFile
+format	TdlModule
+ name 			::dslName::
+ package		::package::
+ templateFile	::dslName::
+ commentFormat	<!-- ::comment:: -->
+ description		These Sections and their associated Templates are used to format HTML
+  documentation pages for dark-matter Google Protocol Buffer (GPB) definitions.
+ ///
+ TextualArtifact
+ name 			HtmlDoc
+ contains		static DocType
+ contains		static HtmlContent
+ description 	The HtmlDoc interface defines the overall form of a documentation page for something.
+ ///
+ Section
+ name			DocType
+ description		Standard front matter for an XHTML document.
+ ///
+ Section
+ name			HtmlContent
+ contains		static HtmlHead
+ contains		static Body
+ endsWithText	</html>
+ description		The main html content.
+ ///
+ Section
+ name			HtmlHead
+ value			styleSheet	"The name of the CSS style sheet to use."
+ value			moduleName	"The name of the module." 
+ ///
+ Section
+ name			Body
+ startsWithText	<body> <div class="center">
+ contains		static DivHeader
+ contains		static DivMain
+ endsWithText	</div> </body> 
+ description		The body of the document.
+ ///
+ Section
+ name			DivHeader
+ description		Colored bar across the top
+ ///
+ Section
+ name			DivMain
+ startsWithText	<div id="main">
+ contains		static DivContent
+ endsWithText	</div> <!-- main -->
+ description		Contains the main content of the page.
+ ///
+ Section
+ name			DivContent
+ startsWithText	<div id="content">
+ contains		static ModuleHeader
+ contains		static DivSummary
+ // You will probably want to include a section that covers the details of your various DSL objects.
+ //contains		static DivDetails
+ endsWithText	</div> <!-- content -->
+ ///
+ Section
+ name			ModuleHeader
+ contains		one DescriptionSection
+ value			moduleName 			"Just the name of the module"
+ ///
+ Section
+ name			DivSummary
+ startsWithText	<div class="summaryDiv">
+ contains		static	DivSeparator
+ contains		many 	SummarySection
+ endsWithText	</div> <!-- summaryDiv -->
+ ///
+ Section
+ name			DivSeparator
+ value			title "The tile text to be placed in the separator region"
+ description		Just a separator area.
+ ///
+ //Section
+ //name			DivDetails
+ //startsWithText	<div class="details">
+ //contains		one 	Concept1Part1Section
+ //contains		one 	Concept1Part2Section
+ //contains		one		Concept1Part3Section
+ //endsWithText	</div> <!-- details -->
+ ///
+ //
+ // Summary formatting
+ //
+ ///
+ Section
+ name			SummarySection
+ startsWith		SummaryHeader
+ contains		many SummaryItem
+ endsWith		SummaryFooter
+ ///
+ Section
+ name			SummaryHeader
+ value			summaryTitle		"The items being summarized"
+ description		The table heading section for a summary.
+ ///
+ Section
+ name			SummaryItem
+ description	A reference to some item defined in the current module.
+ value			itemName		"The name of the summary item"
+ value			hint			"A short description of the item"
+ value			version			"The version when something was introduced"
+ value			obsolete		"The version when something became obsolete"
+ ///
+ Section
+ name			SummaryFooter
+ description		The table closure for a SummarySection.
+ ///
+ ///
+ Section
+ name			DescriptionSection
+ startsWith		DescriptionStart
+ contains		many	AttributeInfo
+ // Check out the description of ExtensionHooks - a very handy concept!
+ // contains		many	DescriptionExtension
+ endsWith		DescriptionEnd
+ description		Provides an area to describe something.
+ ///
+ Section
+ name			DescriptionStart
+ description		Starts the div and the table to hold the attribute info.
+ ///
+ Section
+ name			AttributeInfo
+ value			label	"A label for the information"
+ value			info	"The actual information"
+ description	These are just rows in a table.
+ ///
+ Section
+ name			DescriptionEnd
+ description		Closes the table and the div.
+ ///
+ ///
+ //ExtensionHook
+ //name               DescriptionExtension
+ //usesSection        AttributeInfo
+ //targetObjectClass	org.dmd.gpb.server.extended.GpbDefinition
+ //description        This hook allows you to include additional description information
+ // on any GpbDefinition that's formatted by the GpbDocGenerator.
+ 
+
