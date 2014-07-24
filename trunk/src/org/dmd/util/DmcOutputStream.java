@@ -78,7 +78,23 @@ public class DmcOutputStream extends DataOutputStream implements DmcOutputStream
 
 	@Override
 	public void writeValueCount(int size) throws Exception {
-		super.writeShort(size);
+		if (size < 0)
+			throw(new IllegalStateException("Can't encode a negative integer value count."));
+		
+		// Note: previous versions wrote the value count as a single short. However, situations
+		// arose where the value count exceeded 32767. To handle this situation we split the value
+		// into 2 short values where the high order short is always negative. When we read the value
+		// count in DmcInputStream, we check to see if the first short we read is negative and, if
+		// so, read another short and combine the values back to an integer.
+		// Why: because we had to remain backwards compatible with serialized values that used the
+		// single short encoding schema.
+		if (size > 32767){
+			super.writeShort((short) ((size >> 16) | 0x8000));
+			super.writeShort(size);
+		}
+		else{
+			super.writeShort(size);
+		}
 	}
 
 	@Override

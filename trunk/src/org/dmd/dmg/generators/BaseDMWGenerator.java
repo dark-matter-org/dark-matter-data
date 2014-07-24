@@ -3075,11 +3075,15 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("    /**\n");
 			sb.append("     * @return An Iterator of " + typeName + " objects.\n");
 			sb.append("     */\n");
-			sb.append("     @SuppressWarnings(\"unchecked\")\n");
+//			sb.append("     @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 //			sb.append("    static public " + itClass + " get" + functionName + "(" + baseWrapper + " corew){\n");
 			sb.append("    static public Iterator<" + typeName + "> get" + functionName + "(" + baseWrapper + " corew){\n");
-			sb.append("        return((Iterator<" + typeName + ">)corew.getDmcObject().get(__" + ad.getName() + "));\n");
+			sb.append("        " + attrType + " attr = (" + attrType + ") corew.getDmcObject().get(__" + ad.getName() + ");\n");
+			sb.append("        if(attr == null)\n");
+			sb.append("            return(null);\n");
+			sb.append("        return(attr.getMV());\n");
+//			sb.append("        return((Iterator<" + typeName + ">)corew.getDmcObject().get(__" + ad.getName() + "));\n");
 			sb.append("    }\n\n");
 			
 	    	////////////////////////////////////////////////////////////////////////////////

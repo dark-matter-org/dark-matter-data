@@ -220,6 +220,26 @@ public class Modifier implements Serializable {
 		refFromComplexType	= ctr;
 	}
 	
+	/**
+	 * Same as above, but with the attribute ID passed in so that we can support 
+	 * DmcObject.getReferringObjectsViaAttribute().
+	 * @param pn       the name of the part in the complex type that's doing the referring.
+	 * @param referrer the object that is now referring to another object.
+	 * @param ctr      the reference in the complex type.
+	 */
+	public Modifier(String pn, DmcObject referrer, DmcNamedObjectREF<?> ctr, int ai){
+		operation = ModifyTypeEnum.NONE;
+		
+		haveAttribute		= false;
+		attributeName 		= null;
+		attributeID			= ai;
+		value				= null;
+		index				= -1;
+		attribute 			= null;
+		referringObject		= (DmcNamedObjectIF) referrer;
+		refFromComplexType	= ctr;
+	}
+	
 	public DmcNamedObjectREF<?> getRefFromComplexType(){
 		return(refFromComplexType);
 	}

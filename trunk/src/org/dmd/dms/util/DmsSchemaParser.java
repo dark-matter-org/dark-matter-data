@@ -252,6 +252,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
         if (config == null){
         	ResultException ex = new ResultException();
         	ex.addError("The specified schema couldn't be found: " + schemaName);
+        	ex.addError(DebugInfo.getCurrentStack());
         	throw(ex);
         }
         

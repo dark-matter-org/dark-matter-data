@@ -39,7 +39,8 @@ public class DmgGeneratorMain {
 			
 			utility.run();
 		} catch (ResultException e) {
-			e.printStackTrace();
+			System.err.println(e.toString());
+			System.exit(1);
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (DmcValueException e) {

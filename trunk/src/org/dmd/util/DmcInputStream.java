@@ -105,7 +105,17 @@ public class DmcInputStream extends DataInputStream implements DmcInputStreamIF 
 
 	@Override
 	public int readValueCount() throws Exception {
-		return(readShort());
+		// Note: In cases where the number of values exceeds 32767, the DmcOutputStream
+		// will write two shorts, where the first short is negative. that's our hint to
+		// read two shorts instead of one.
+		short high = readShort();
+		
+		if (high < 0){
+			short low = readShort();
+			return(((high & 0x7FFF) << 16) | (low & 0xFFFF));
+		}
+		
+		return(high);
 	}
 
 	@Override

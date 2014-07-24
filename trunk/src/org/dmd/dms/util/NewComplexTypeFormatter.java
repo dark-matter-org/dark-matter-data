@@ -305,9 +305,10 @@ public class NewComplexTypeFormatter {
 			if (fnum < requiredCount){
 				if (isMulti){
 					// This is a multi-valued required part, which means it's the only part
+					// 20140603 - fix to handle a single value - >= requiredParts and i=0
 					out.write("\n");
-					out.write("        if (nvp.size() > requiredParts){\n");
-					out.write("            for(int i=" + requiredCount + "; i<nvp.size(); i++){\n");
+					out.write("        if (nvp.size() >= requiredParts){\n");
+					out.write("            for(int i=0; i<nvp.size(); i++){\n");
 //					out.write("                if (nvp.get(i).getName() == null){\n");
 //					out.write("                    if (nvp.get(i).getValue() == null)\n");
 //					out.write("                        throw(new DmcValueException(\"Expecting a partname=\\\"some value\\\" in complex type: " + ctn + "\"));\n");
@@ -561,7 +562,7 @@ public class NewComplexTypeFormatter {
             	out.write("                ((DmcNamedObjectREF)" + fn + valSuffix + ").setObject(obj);\n");
             	out.write("        \n");
             	out.write("            if (DmcOmni.instance().backRefTracking()){\n");
-            	out.write("                Modifier backrefMod = new Modifier(\"" + fn + "\", object, " + fn + valSuffix + ");\n");
+            	out.write("                Modifier backrefMod = new Modifier(\"" + fn + "\", object, " + fn + valSuffix + ", ai.id);\n");
             	out.write("                if (obj instanceof DmcContainerIF)\n");
             	out.write("                    ((DmcContainerIF)obj).getDmcObject().addBackref(backrefMod);\n");
             	out.write("                else\n");
@@ -592,7 +593,7 @@ public class NewComplexTypeFormatter {
             	out.write("                    ((DmcNamedObjectREF)v).setObject(obj);\n");
             	out.write("        \n");
             	out.write("                if (DmcOmni.instance().backRefTracking()){\n");
-            	out.write("                    Modifier backrefMod = new Modifier(\"" + part.getName() + "\", object, v);\n");
+            	out.write("                    Modifier backrefMod = new Modifier(\"" + part.getName() + "\", object, v, ai.id);\n");
             	out.write("                    if (obj instanceof DmcContainerIF)\n");
             	out.write("                        ((DmcContainerIF)obj).getDmcObject().addBackref(backrefMod);\n");
             	out.write("                    else\n");
@@ -871,7 +872,8 @@ public class NewComplexTypeFormatter {
         	if (type.getInternallyGenerated()){
         		if (type.getIsEnumType()){
         		}
-        		else{
+        		else if (type.getIsRefType()){
+        			// 20140602 - added check for ref type because this would fail if the type was another complex type. 
         			imports.addImport(type.getOriginalClass().getDmtREFImport(), "Object reference");
         		}
         	}
