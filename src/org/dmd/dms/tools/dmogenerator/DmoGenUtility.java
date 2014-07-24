@@ -101,7 +101,7 @@ public class DmoGenUtility {
 		
 		cl.parseArgs(args);
 		
-		System.out.print("TARGETS: ");
+		System.out.print("TARGETS(" + targets.size() + "): ");
 		for(int i=0; i<targets.size(); i++)
 			System.out.print(targets.get(i) + " ");
 		System.out.println();

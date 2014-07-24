@@ -301,6 +301,14 @@ public class DmcUncheckedOIFParser {
             exG.result.lastResult().moreMessages("Occurred while reading file: " + fileName);
             uco = null;
         }
+        catch(Exception e){
+        	if (exG == null)
+        		exG = new ResultException();
+        	
+            exG.result.addResult(Result.FATAL,e.toString());
+            exG.result.lastResult().moreMessages("Occurred while reading file: " + fileName + " at line: " + in.getLineNumber());
+            uco = null;
+        }
 
         if (uco != null){
             // Finish off for the final attribute and object
