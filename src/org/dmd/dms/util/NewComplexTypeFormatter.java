@@ -7,7 +7,6 @@ import java.util.Iterator;
 
 import org.dmd.dms.ComplexTypeDefinition;
 import org.dmd.dms.TypeDefinition;
-import org.dmd.dms.generated.dmo.TypeDefinitionDMO;
 import org.dmd.dms.generated.types.Part;
 //import org.dmd.dms.generated.types.Field;
 import org.dmd.util.FileUpdateManager;
@@ -67,10 +66,10 @@ public class NewComplexTypeFormatter {
         // Determine if we have any reference fields
         boolean hasRefs = false;
         boolean isGreedy = false;
-        ArrayList<String> 	refFields 	= new ArrayList<String>();
+        ArrayList<Part> 	refFields 	= new ArrayList<Part>();
         ArrayList<Part> 	mvrefFields = new ArrayList<Part>();
         for(Part part: combinedParts){
-        	TypeDefinitionDMO type = part.getType().getObject();
+        	TypeDefinition type = (TypeDefinition) part.getType().getObject().getContainer();
         	
         	if (type == null){
         		DebugInfo.debug("Unknown type in ComplexTypeDefinition: " + part.getType().getObjectName());
@@ -83,8 +82,22 @@ public class NewComplexTypeFormatter {
         		if ((part.getMultivalued() != null) && part.getMultivalued())
         			mvrefFields.add(part);
         		else
-        			refFields.add(part.getName());
+        			refFields.add(part);
         	}
+        	
+        	if (type.getComplexType() != null){
+        		if (type.getComplexType().hasReferenceTypeParts()){
+            		if ((part.getMultivalued() != null) && part.getMultivalued()){
+//            			DebugInfo.debug(part.getName() + " - is multi-valued and has references");
+            			mvrefFields.add(part);
+            		}
+            		else{
+//            			DebugInfo.debug(part.getName() + " - is single-valued and has references");
+            			refFields.add(part);
+            		}
+        		}
+        	}
+
         	if ( (part.getGreedy() != null) && part.getGreedy()){
         		isGreedy = true;
         	}
@@ -411,13 +424,32 @@ public class NewComplexTypeFormatter {
 			
 			if (fnum < requiredCount){
 				// Required field, no need to test existence
-				
-				if (fnum == 0){
-						out.write(appendStatement);
+				if (isMulti){
+		        	TypeDefinition	type = (TypeDefinition) part.getType().getObject().getContainer();
+		        	String REF = "";
+		        	if (type.getIsRefType())
+		        		REF = "REF";
+
+					out.write("            boolean first = true;\n");
+					out.write("            for(" + type.getName() + REF + " v: " + pn + "){\n");
+					out.write("                if (first)\n");
+					out.write("                    first = false;\n");
+					out.write("                else\n");
+					out.write("                    sb.append('" + fieldSeparator +"');\n");
+					if (isQuoted)
+						out.write("                sb.append(\"\\\"\" + v.toString() + \"\\\"\");\n");
+					else
+						out.write("                sb.append(v.toString());\n");
+					out.write("            }\n");					
 				}
 				else{
-					out.write("        sb.append('" + fieldSeparator +"');\n");
-					out.write(appendStatement);
+					if (fnum == 0){
+							out.write(appendStatement);
+					}
+					else{
+						out.write("        sb.append('" + fieldSeparator +"');\n");
+						out.write(appendStatement);
+					}
 				}
 			}
 			else{
@@ -478,17 +510,40 @@ public class NewComplexTypeFormatter {
 				isMulti = true;
         	
 			if (isMulti){
+		        out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
                 out.write("    public Iterator<" + part.getType().getObjectName() + ref + "> get" + Manipulator.capFirstChar(part.getName()) + "(){\n");
             	out.write("        if (" + pn + " == null)\n");
             	out.write("            return(null);\n");
             	out.write("        return(" + pn + ".iterator());\n");
+            	out.write("    }\n\n");
+            	
+		        out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+                out.write("    public boolean has" + Manipulator.capFirstChar(part.getName()) + "(){\n");
+            	out.write("        if (" + pn + " == null)\n");
+            	out.write("            return(false);\n");
+            	out.write("        return(true);\n");
+            	out.write("    }\n\n");
+            	
+		        out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+                out.write("    public int get" + Manipulator.capFirstChar(part.getName()) + "Size(){\n");
+            	out.write("        if (" + pn + " == null)\n");
+            	out.write("            return(0);\n");
+            	out.write("        return(" + pn + ".size());\n");
+            	out.write("    }\n\n");
+            	
+		        out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+                out.write("    public " + part.getType().getObjectName() + ref + " get" + Manipulator.capFirstChar(part.getName()) + "(int index){\n");
+            	out.write("        if (" + pn + " == null)\n");
+            	out.write("            return(null);\n");
+            	out.write("        return(" + pn + ".get(index));\n");
+            	out.write("    }\n\n");
 			}
 			else{
                 out.write("    public " + part.getType().getObjectName() + ref + " get" + Manipulator.capFirstChar(part.getName()) + "(){\n");
             	out.write("        return(" + pn + ");\n");
+            	out.write("    }\n\n");
 			}
 			
-        	out.write("    }\n\n");
         }
         
         ///////////////////////////////////////////////////////////////////////
@@ -499,43 +554,59 @@ public class NewComplexTypeFormatter {
             out.write("    public void resolve(DmcNameResolverIF resolver, String attrName) throws DmcValueException {\n");
         	out.write("        DmcNamedObjectIF  obj = null;\n\n");
             
-            for(String fn: refFields){
-            	out.write("        if ((" + fn + valSuffix + " != null) && (!" + fn + valSuffix + ".isResolved())){\n");
-            	out.write("            obj = resolver.findNamedObject(" + fn + valSuffix + ".getObjectName());\n");
-            	out.write("            if (" + fn + "AI.weakReference)\n");
-            	out.write("                return;\n");
-            	out.write("            if (obj == null)\n");
-            	out.write("                throw(new DmcValueException(\"Could not resolve reference to: \" + " + fn + valSuffix + ".getObjectName() + \" via attribute: \" + attrName));\n");
-            	out.write("        \n");
-            	out.write("            if (obj instanceof DmcContainerIF)\n");
-            	out.write("                ((DmcNamedObjectREF)" + fn + valSuffix + ").setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());\n");
-            	out.write("            else\n");
-            	out.write("                ((DmcNamedObjectREF)" + fn + valSuffix + ").setObject(obj);\n");
-            	out.write("        }\n");
-            	out.write("        \n");
+            for(Part part: refFields){
+            	String pn = part.getName();
+            	TypeDefinition type = (TypeDefinition) part.getType().getObject().getContainer();
+            	
+            	if (type.getComplexType() == null){
+	            	out.write("        if ((" + pn + valSuffix + " != null) && (!" + pn + valSuffix + ".isResolved())){\n");
+	            	out.write("            obj = resolver.findNamedObject(" + pn + valSuffix + ".getObjectName());\n");
+	            	out.write("            if (" + pn + "AI.weakReference)\n");
+	            	out.write("                return;\n");
+	            	out.write("            if (obj == null)\n");
+	            	out.write("                throw(new DmcValueException(\"Could not resolve reference to: \" + " + pn + valSuffix + ".getObjectName() + \" via attribute: \" + attrName));\n");
+	            	out.write("        \n");
+	            	out.write("            if (obj instanceof DmcContainerIF)\n");
+	            	out.write("                ((DmcNamedObjectREF)" + pn + valSuffix + ").setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());\n");
+	            	out.write("            else\n");
+	            	out.write("                ((DmcNamedObjectREF)" + pn + valSuffix + ").setObject(obj);\n");
+	            	out.write("        }\n");
+	            	out.write("        \n");
+            	}
+            	else{
+	            	out.write("        if (" + pn + valSuffix + " != null){\n");
+	            	out.write("            " + pn + valSuffix + ".resolve(resolver, attrName);\n");
+	            	out.write("        }\n");
+	            	out.write("        \n");
+            	}
             }
 
             for(Part part: mvrefFields){
             	TypeDefinition	type = (TypeDefinition) part.getType().getObject().getContainer();
             	String pn = part.getName() + valSuffix;
             	
-            	out.write("        if (" + pn + " != null){\n");
-            	out.write("            for(" + type.getName() + "REF v: " + pn + "){\n");
-            	out.write("                if (v.isResolved())\n");
-            	out.write("                    continue;\n");
-            	out.write("                obj = resolver.findNamedObject(v.getObjectName());\n");
-            	out.write("                if (" + part.getName() + "AI.weakReference)\n");
-            	out.write("                    return;\n");
-            	out.write("                if (obj == null)\n");
-            	out.write("                    throw(new DmcValueException(\"Could not resolve reference to: \" + v.getObjectName() + \" via attribute: \" + attrName));\n");
-            	out.write("        \n");
-            	out.write("                if (obj instanceof DmcContainerIF)\n");
-            	out.write("                    ((DmcNamedObjectREF)v).setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());\n");
-            	out.write("                else\n");
-            	out.write("                    ((DmcNamedObjectREF)v).setObject(obj);\n");
-            	out.write("            }\n");
-            	out.write("        }\n");
-            	out.write("        \n");
+            	if (type.getComplexType() == null){
+	            	out.write("        if (" + pn + " != null){\n");
+	            	out.write("            for(" + type.getName() + "REF v: " + pn + "){\n");
+	            	out.write("                if (v.isResolved())\n");
+	            	out.write("                    continue;\n");
+	            	out.write("                obj = resolver.findNamedObject(v.getObjectName());\n");
+	            	out.write("                if (" + part.getName() + "AI.weakReference)\n");
+	            	out.write("                    return;\n");
+	            	out.write("                if (obj == null)\n");
+	            	out.write("                    throw(new DmcValueException(\"Could not resolve reference to: \" + v.getObjectName() + \" via attribute: \" + attrName));\n");
+	            	out.write("        \n");
+	            	out.write("                if (obj instanceof DmcContainerIF)\n");
+	            	out.write("                    ((DmcNamedObjectREF)v).setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());\n");
+	            	out.write("                else\n");
+	            	out.write("                    ((DmcNamedObjectREF)v).setObject(obj);\n");
+	            	out.write("            }\n");
+	            	out.write("        }\n");
+	            	out.write("        \n");
+            	}
+            	else{
+            		throw(new IllegalStateException("No support yet for multi-valued parts that are complex types with refs!"));
+            	}
             }
 
         	out.write("    }\n\n");
@@ -548,61 +619,77 @@ public class NewComplexTypeFormatter {
             out.write("    public void resolve(DmcNameResolverWithClashSupportIF resolver, DmcObject object, DmcNameClashResolverIF ncr, DmcAttributeInfo ai) throws DmcValueException, DmcValueExceptionSet {\n");
         	out.write("        DmcNamedObjectIF  obj = null;\n\n");
             
-            for(String fn: refFields){
-            	out.write("        if ((" + fn + valSuffix + " != null) && (!" + fn + valSuffix + ".isResolved())){\n");
-            	out.write("            obj = resolver.findNamedObjectMayClash(object, " + fn + valSuffix + ".getObjectName(), ncr, " + fn + "AI);\n");
-            	out.write("            if (" + fn + "AI.weakReference)\n");
-            	out.write("                return;\n");
-            	out.write("            if (obj == null)\n");
-            	out.write("                throw(new DmcValueException(\"Could not resolve reference to: \" + " + fn + valSuffix + ".getObjectName() + \" via attribute: \" + ai.name));\n");
-            	out.write("        \n");
-            	out.write("            if (obj instanceof DmcContainerIF)\n");
-            	out.write("                ((DmcNamedObjectREF)" + fn + valSuffix + ").setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());\n");
-            	out.write("            else\n");
-            	out.write("                ((DmcNamedObjectREF)" + fn + valSuffix + ").setObject(obj);\n");
-            	out.write("        \n");
-            	out.write("            if (DmcOmni.instance().backRefTracking()){\n");
-            	out.write("                Modifier backrefMod = new Modifier(\"" + fn + "\", object, " + fn + valSuffix + ", ai.id);\n");
-            	out.write("                if (obj instanceof DmcContainerIF)\n");
-            	out.write("                    ((DmcContainerIF)obj).getDmcObject().addBackref(backrefMod);\n");
-            	out.write("                else\n");
-            	out.write("                    ((DmcObject)obj).addBackref(backrefMod);\n");
-            	out.write("                " + fn + valSuffix + ".setBackrefModifier(backrefMod);\n");
-            	out.write("            }\n");
-            	out.write("        }\n");
-            	out.write("        \n");
+            for(Part part: refFields){
+            	TypeDefinition type = (TypeDefinition) part.getType().getObject().getContainer();
+            	String pn = part.getName();
+            	
+            	if (type.getComplexType() == null){
+	            	out.write("        if ((" + pn + valSuffix + " != null) && (!" + pn + valSuffix + ".isResolved())){\n");
+	            	out.write("            obj = resolver.findNamedObjectMayClash(object, " + pn + valSuffix + ".getObjectName(), ncr, " + pn + "AI);\n");
+	            	out.write("            if (" + pn + "AI.weakReference)\n");
+	            	out.write("                return;\n");
+	            	out.write("            if (obj == null)\n");
+	            	out.write("                throw(new DmcValueException(\"Could not resolve reference to: \" + " + pn + valSuffix + ".getObjectName() + \" via attribute: \" + ai.name));\n");
+	            	out.write("        \n");
+	            	out.write("            if (obj instanceof DmcContainerIF)\n");
+	            	out.write("                ((DmcNamedObjectREF)" + pn + valSuffix + ").setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());\n");
+	            	out.write("            else\n");
+	            	out.write("                ((DmcNamedObjectREF)" + pn + valSuffix + ").setObject(obj);\n");
+	            	out.write("        \n");
+	            	out.write("            if (DmcOmni.instance().backRefTracking()){\n");
+	            	out.write("                Modifier backrefMod = new Modifier(\"" + pn + "\", object, " + pn + valSuffix + ", ai.id);\n");
+	            	out.write("                if (obj instanceof DmcContainerIF)\n");
+	            	out.write("                    ((DmcContainerIF)obj).getDmcObject().addBackref(backrefMod);\n");
+	            	out.write("                else\n");
+	            	out.write("                    ((DmcObject)obj).addBackref(backrefMod);\n");
+	            	out.write("                " + pn + valSuffix + ".setBackrefModifier(backrefMod);\n");
+	            	out.write("            }\n");
+	            	out.write("        }\n");
+	            	out.write("        \n");
+            	}
+            	else{
+	            	out.write("        if (" + pn + valSuffix + " != null){\n");
+	            	out.write("            " + pn + valSuffix + ".resolve(resolver, object, ncr, ai);\n");
+	            	out.write("        }\n");
+	            	out.write("        \n");
+            	}
             }
             
             for(Part part: mvrefFields){
             	TypeDefinition	type = (TypeDefinition) part.getType().getObject().getContainer();
             	String pn = part.getName() + valSuffix;
             	
-            	out.write("        if (" + pn + " != null){\n");
-            	out.write("            for(" + type.getName() + "REF v: " + pn + "){\n");
-            	out.write("                if (v.isResolved())\n");
-            	out.write("                    continue;\n");
-            	out.write("                obj = resolver.findNamedObjectMayClash(object, v.getObjectName(), ncr, " + part.getName() + "AI);\n");
-            	out.write("                if (" + part.getName() + "AI.weakReference)\n");
-            	out.write("                    return;\n");
-            	out.write("                if (obj == null)\n");
-            	out.write("                    throw(new DmcValueException(\"Could not resolve reference to: \" + v.getObjectName() + \" via attribute: \" + ai.name));\n");
-            	out.write("        \n");
-            	out.write("                if (obj instanceof DmcContainerIF)\n");
-            	out.write("                    ((DmcNamedObjectREF)v).setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());\n");
-            	out.write("                else\n");
-            	out.write("                    ((DmcNamedObjectREF)v).setObject(obj);\n");
-            	out.write("        \n");
-            	out.write("                if (DmcOmni.instance().backRefTracking()){\n");
-            	out.write("                    Modifier backrefMod = new Modifier(\"" + part.getName() + "\", object, v, ai.id);\n");
-            	out.write("                    if (obj instanceof DmcContainerIF)\n");
-            	out.write("                        ((DmcContainerIF)obj).getDmcObject().addBackref(backrefMod);\n");
-            	out.write("                    else\n");
-            	out.write("                        ((DmcObject)obj).addBackref(backrefMod);\n");
-            	out.write("                    v.setBackrefModifier(backrefMod);\n");
-            	out.write("                }\n");
-            	out.write("            }\n");
-            	out.write("        }\n");
-            	out.write("        \n");
+            	if (type.getComplexType() == null){
+	            	out.write("        if (" + pn + " != null){\n");
+	            	out.write("            for(" + type.getName() + "REF v: " + pn + "){\n");
+	            	out.write("                if (v.isResolved())\n");
+	            	out.write("                    continue;\n");
+	            	out.write("                obj = resolver.findNamedObjectMayClash(object, v.getObjectName(), ncr, " + part.getName() + "AI);\n");
+	            	out.write("                if (" + part.getName() + "AI.weakReference)\n");
+	            	out.write("                    return;\n");
+	            	out.write("                if (obj == null)\n");
+	            	out.write("                    throw(new DmcValueException(\"Could not resolve reference to: \" + v.getObjectName() + \" via attribute: \" + ai.name));\n");
+	            	out.write("        \n");
+	            	out.write("                if (obj instanceof DmcContainerIF)\n");
+	            	out.write("                    ((DmcNamedObjectREF)v).setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());\n");
+	            	out.write("                else\n");
+	            	out.write("                    ((DmcNamedObjectREF)v).setObject(obj);\n");
+	            	out.write("        \n");
+	            	out.write("                if (DmcOmni.instance().backRefTracking()){\n");
+	            	out.write("                    Modifier backrefMod = new Modifier(\"" + part.getName() + "\", object, v, ai.id);\n");
+	            	out.write("                    if (obj instanceof DmcContainerIF)\n");
+	            	out.write("                        ((DmcContainerIF)obj).getDmcObject().addBackref(backrefMod);\n");
+	            	out.write("                    else\n");
+	            	out.write("                        ((DmcObject)obj).addBackref(backrefMod);\n");
+	            	out.write("                    v.setBackrefModifier(backrefMod);\n");
+	            	out.write("                }\n");
+	            	out.write("            }\n");
+	            	out.write("        }\n");
+	            	out.write("        \n");
+            	}
+            	else{
+            		throw(new IllegalStateException("No support yet for multi-valued parts that are complex types with refs!"));
+            	}
             }
 
 

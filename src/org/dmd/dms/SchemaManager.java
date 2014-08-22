@@ -1019,7 +1019,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         	throw(ex);
         }        
         
-        TypeDefinition td  = new TypeDefinition();
+        TypeDefinition td  = new TypeDefinition(ctd);
         td.setInternallyGenerated(true);
         td.setName(ctd.getName());
         
