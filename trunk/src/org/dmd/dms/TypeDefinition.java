@@ -49,6 +49,8 @@ public class TypeDefinition extends TypeDefinitionDMW {
 	String auxHolderImport;
 	String auxHolderClass;
 
+	ComplexTypeDefinition	complexType;
+
     /**
      * Default constructor.
      */
@@ -56,8 +58,20 @@ public class TypeDefinition extends TypeDefinitionDMW {
     	super(new TypeDefinitionDMO(),MetaSchemaAG._TypeDefinition);
     }
     
+    public TypeDefinition(ComplexTypeDefinition ctd){
+    	super();
+    	complexType = ctd;
+    }
+    
     public TypeDefinition(TypeDefinitionDMO obj){
     	super(obj);
+    }
+    
+    /**
+     * @return the complex type on which this type is based or null if that's not the case
+     */
+    public ComplexTypeDefinition getComplexType(){
+    	return(complexType);
     }
     
 	protected TypeDefinition(String mn, Class<?> c) throws DmcValueException {
