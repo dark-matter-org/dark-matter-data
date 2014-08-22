@@ -1,0 +1,20 @@
+ClassDefinition
+name			AConceptBase
+classType   	ABSTRACT
+dmdID			2
+useWrapperType	EXTENDED
+derivedFrom		DSDefinition
+isNamedBy		name
+must			name
+must			dotName
+must			definedInModuleA
+description		The base definition for this DSD module.
+
+ClassDefinition
+name 			AConceptX
+classType      	STRUCTURAL
+dmdID			3
+useWrapperType	EXTENDED
+derivedFrom		AConceptBase
+isNamedBy		name
+must			name
