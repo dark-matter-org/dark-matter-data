@@ -37,7 +37,7 @@ public class DsdwizardTemplateLoader implements DmcUncheckedOIFHandlerIF {
     DmcUncheckedOIFParser               parser       = new DmcUncheckedOIFParser(this);          // Parses objects from the config file
     DmwObjectFactory                    factory;                                                 // Instantiates wrapped objects
     DmvRuleManager                      rules        = new DmvRuleManager();                     // Rule manager
-    ConfigFinder                        finder       = new ConfigFinder("dmt");                  // Config finder for template files ending with .dmt
+    ConfigFinder                        finder       = new ConfigFinder(".dmt");                 // Config finder for template files ending with .dmt
     ConfigLocation                      location;                                                // The location of the config being parsed
     TreeMap<String,TemplateMediator>    mediators    = new TreeMap<String,TemplateMediator>();   // The mediators by name
                                                                                                  // 
@@ -49,8 +49,9 @@ public class DsdwizardTemplateLoader implements DmcUncheckedOIFHandlerIF {
     /**
      * Creates a new template loader for templates associated with the dsdwizard TdlModule.
      * @param paths the paths that we'll search for the template definition file.
+     * @param jars the prefixes of jars on the classpath that we'll search for configs
      */
-    public DsdwizardTemplateLoader(ArrayList<String> paths) throws ResultException, DmcValueException, DmcNameClashException {
+    public DsdwizardTemplateLoader(ArrayList<String> paths, ArrayList<String> jars) throws ResultException, DmcValueException, DmcNameClashException {
         schema = new SchemaManager();
         DmtdlSchemaAG sd = new DmtdlSchemaAG();
         schema.manageSchema(sd);
@@ -66,7 +67,7 @@ public class DsdwizardTemplateLoader implements DmcUncheckedOIFHandlerIF {
             }
         }
         
-        finder.setSourceInfo(paths);
+        finder.setSourceAndJarInfo(paths, jars);
 
         mediators.put("DmtdlFile",DmtdlFile);
         
@@ -80,7 +81,7 @@ public class DsdwizardTemplateLoader implements DmcUncheckedOIFHandlerIF {
         
     }
 
-    // Generated from: org.dmd.templates.server.extended.TdlModule.generateTemplateLoader(TdlModule.java:193)
+    // Generated from: org.dmd.templates.server.extended.TdlModule.generateTemplateLoader(TdlModule.java:194)
     /**
      * We attempt to find and load the dsdwizard.dmt file.
      */
@@ -98,10 +99,12 @@ public class DsdwizardTemplateLoader implements DmcUncheckedOIFHandlerIF {
         }
 
         location = version.getLatestVersion();
-        parser.parseFile(location.getFileName());
+
+        // How we read the file will depend on whether or not it's in a JAR
+        parser.parseFile(location.getFileName(),location.isFromJAR());
     }
 
-    // Generated from: org.dmd.templates.server.extended.TdlModule.generateTemplateLoader(TdlModule.java:254)
+    // Generated from: org.dmd.templates.server.extended.TdlModule.generateTemplateLoader(TdlModule.java:257)
     @Override
     public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
         Template template = null;
