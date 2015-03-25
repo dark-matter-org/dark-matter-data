@@ -162,11 +162,22 @@ public class DSLArtifactGenerator {
 	
 	void generateDslDocTemplates() throws ResultException, IOException{
 		StringArrayList searchPaths = new StringArrayList();
-		searchPaths.add(workspace + "/dark-matter-data/src/org/dmd/dsd/tools/dsdwizard");
+		StringArrayList jarPrefixes = new StringArrayList();
+		
+		File templateBaseDir = new File(workspace + "/dark-matter-data/src/org/dmd/dsd/tools/dsdwizard");
+		if (templateBaseDir.exists()){
+			// If we're running in test mode in the dark matter project, we'll have this
+			// path, otherwise, we'll want to hunt for it in the dark matter jar
+			searchPaths.add(workspace + "/dark-matter-data/src/org/dmd/dsd/tools/dsdwizard");
+		}
+		else{
+			jarPrefixes.add("dark-matter-data");
+		}
+
 		DsdwizardTemplateLoader loader;
 		
 		try{
-			loader = new DsdwizardTemplateLoader(searchPaths);
+			loader = new DsdwizardTemplateLoader(searchPaths, jarPrefixes);
 			loader.findAndLoadTemplate();
 		}
 		catch(Exception e){
@@ -194,24 +205,63 @@ public class DSLArtifactGenerator {
 	}
 	
 	void runDmoGenerator() throws ResultException, IOException, DmcValueException, DmcValueExceptionSet, DmcNameClashException, DmcRuleExceptionSet{
-		String[] args = {
-				"-workspace", workspace,
-				"-srcdir", dslProject + "/src", "dark-matter-data/src", "dark-matter-concinnity/src",
-				"-targets", dslAbbrev,
-				"-autogen"
-		};
+		String[] args = null;
+		
+		File dmdsrc = new File(workspace + "/dark-matter-data/src");
+		
+		if (dmdsrc.exists()){
+			// Again, running in test mode in dark matter dev is different than running
+			// out of the jar
+			String[] temp = {
+					"-workspace", workspace,
+					"-srcdir", dslProject + "/src", "dark-matter-data/src", "dark-matter-concinnity/src",
+					"-targets", dslAbbrev,
+					"-autogen"
+			};
+			args = temp;
+		}
+		else{
+			String[] temp = {
+					"-workspace", workspace,
+					"-srcdir", dslProject + "/src",
+					"-jars", "dark-matter-data", "dark-matter-concinnity",
+					"-targets", dslAbbrev,
+					"-autogen"
+			};
+			args = temp;			
+		}
 		
 		DmoGenUtility	gen = new DmoGenUtility(args);
 		gen.run();
 	}
 		
 	void runDmgGenerator() throws ResultException, IOException, DmcValueException, DmcValueExceptionSet, DmcNameClashException, DmcRuleExceptionSet{
-		String[] args = {
-				"-workspace", workspace,
-				"-srcdir", dslProject + "/src", "dark-matter-data/src", "dark-matter-concinnity/src",
-				"-targets", dslAbbrev,
-				"-autogen"
-		};
+		String[] args = null;
+		
+		File dmdsrc = new File(workspace + "/dark-matter-data/src");
+
+		if (dmdsrc.exists()){
+			// Again, running in test mode in dark matter dev is different than running
+			// out of the jar
+			String[] temp = {
+					"-workspace", workspace,
+					"-srcdir", dslProject + "/src", "dark-matter-data/src", "dark-matter-concinnity/src",
+					"-targets", dslAbbrev,
+					"-autogen"
+			};
+			args = temp;
+		}
+		else{
+			String[] temp = {
+					"-workspace", workspace,
+					"-srcdir", dslProject + "/src",
+					"-jars", "dark-matter-data", "dark-matter-concinnity",
+					"-targets", dslAbbrev,
+					"-autogen"
+			};
+			args = temp;
+			
+		}
 		
 		DmgGenUtility 	gen = new DmgGenUtility(args);
 		gen.run();
