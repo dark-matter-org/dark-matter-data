@@ -27,7 +27,7 @@ import org.dmd.dmc.DmcOutputStreamIF;
  *
  */
 @SuppressWarnings("serial")
-public class StringToString implements DmcMappedAttributeIF, Serializable {
+public class StringToString implements DmcMappedAttributeIF, Serializable, Comparable<StringToString> {
 	
 	String	key;
 	String	value;
@@ -38,11 +38,15 @@ public class StringToString implements DmcMappedAttributeIF, Serializable {
 	}
 	
 	public StringToString(String k){
+		if (k==null)
+			throw(new IllegalStateException("The key value of a StringToString cannot be null"));
 		key 	= k;
 		value 	= "";
 	}
 
 	public StringToString(String k, String v){
+		if (k==null)
+			throw(new IllegalStateException("The key value of a StringToString cannot be null"));
 		key = k;
 		value = v;
 	}
@@ -109,4 +113,14 @@ public class StringToString implements DmcMappedAttributeIF, Serializable {
 		}
 		return(rc);
 	}
+	
+	@Override
+	public int compareTo(StringToString o) {
+		if (key == null)
+			return(-1);
+		if (o.key == null)
+			return(1);
+		return(key.compareTo(o.key));
+	}
+
 }
