@@ -121,6 +121,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __tsLong = new DmcAttributeInfo("tsLong", 10113, "Long", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __tsNamedObj = new DmcAttributeInfo("tsNamedObj", 10247, "ObjWithRefs", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __tsString = new DmcAttributeInfo("tsString", 10147, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __tsStringToString = new DmcAttributeInfo("tsStringToString", 10149, "StringToString", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __tsUnnamedObj = new DmcAttributeInfo("tsUnnamedObj", 10347, "TestBasicObjectFixed", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
 
     // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:167)
@@ -434,6 +435,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         __PrimitiveHS.addMay(__hsString);
 
         __PrimitiveTS.addMay(__tsString);
+        __PrimitiveTS.addMay(__tsStringToString);
 
         __NamedObjSV.addMay(__svNamedObj);
 

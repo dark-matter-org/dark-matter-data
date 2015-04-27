@@ -280,6 +280,14 @@ dmdID		148
 type		String
 description	A sv String.
 
+AttributeDefinition
+name		tsStringToString
+dmdID		149
+type		StringToString
+valueType	TREESET
+description	A TreeSet of StringToStrings.
+
+
 //////////////////////////////////////////////////////////////////////////////
 //Named object references
 

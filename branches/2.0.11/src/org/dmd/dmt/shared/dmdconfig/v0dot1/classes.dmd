@@ -333,6 +333,7 @@ name            PrimitiveTS
 classType       STRUCTURAL
 dmdID			107
 may				tsString
+may				tsStringToString
 
 ///////////////////////////////////////////////////////////////////////////////
 // Named object attribute usage

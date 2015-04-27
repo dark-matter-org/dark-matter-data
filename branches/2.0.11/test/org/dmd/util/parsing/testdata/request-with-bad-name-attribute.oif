@@ -1,0 +1,5 @@
+GetRequest
+//cacheResponse       true
+//registerForEvents   true
+//scope               BASE
+targets             boing SystemConfig

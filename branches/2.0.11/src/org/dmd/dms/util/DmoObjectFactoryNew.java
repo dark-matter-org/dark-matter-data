@@ -21,6 +21,7 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.types.DmcTypeNameContainer;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmc.util.NamedStringArray;
 import org.dmd.dms.AttributeDefinition;
@@ -159,8 +160,13 @@ public class DmoObjectFactoryNew {
 					if (attr == null)
 						attr = ad.getType().getAttributeHolder(ai);
 					
-					// Set the value
-					attr.set(values.get(0));
+					if (attr instanceof DmcTypeNameContainer){
+						attr.set(getNameContainerValue(ad, values.get(0)));
+					}
+					else{
+						// Set the value
+						attr.set(values.get(0));
+					}
 					
 					// Store the attribute
 					dmo.set(ai, attr);
@@ -187,9 +193,14 @@ public class DmoObjectFactoryNew {
 						// If we can't find the attribute container, create it
 						if (attr == null)
 							attr = ad.getType().getAttributeHolder(ai);
-												
-						// Add the value to the container
-						attr.add(attrVal);
+						
+						if (attr instanceof DmcTypeNameContainer){
+							attr.add(getNameContainerValue(ad, attrVal));
+						}
+						else {					
+							// Add the value to the container
+							attr.add(attrVal);
+						}
 					
 						// Store the attribute
 						dmo.add(ai, attr);
@@ -202,10 +213,51 @@ public class DmoObjectFactoryNew {
 					}
 				}
 				break;
+			default:
+				throw(new IllegalStateException("Not handled INDEXED valueType"));
 			}
 						
 		}
 		
 		return(dmo);
+	}
+	
+	/**
+	 * This is tricky stuff to handle parsing of things of the form:
+	 * nameContainerAttribute nameAttributeName nameValue
+	 * @param ad
+	 * @param attrVal
+	 * @return
+	 * @throws ResultException
+	 * @throws DmcValueException
+	 * @throws ClassNotFoundException
+	 * @throws InstantiationException
+	 * @throws IllegalAccessException
+	 */
+	Object getNameContainerValue(AttributeDefinition ad, String attrVal) throws ResultException, DmcValueException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+		String v = ((String)attrVal).trim();
+		int space = v.indexOf(" ");
+		if (space == -1){
+        	ResultException ex = new ResultException();
+        	ex.result.addResult(Result.ERROR,"Malformed value: " + v + " - used in name container: " + ad.getName());
+            ex.result.lastResult().moreMessages(DebugInfo.getCurrentStack());
+        	throw(ex);
+		}
+		String an = v.substring(0, space);
+		
+		AttributeDefinition nad = schema.adef(an);
+		
+		if (nad == null){
+        	ResultException ex = new ResultException();
+        	ex.result.addResult(Result.ERROR,"Can't find name attribute: " + an + " - used in name container: " + ad.getName());
+            ex.result.lastResult().moreMessages(DebugInfo.getCurrentStack());
+        	throw(ex);
+		}
+		
+		DmcAttribute<?> nattr = nad.getType().getAttributeHolder(nad.getAttributeInfo());
+
+		nattr.set(v.substring(space+1).trim());
+		
+		return(nattr.getSV());
 	}
 }
