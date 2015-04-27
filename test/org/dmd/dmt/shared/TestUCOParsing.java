@@ -1,6 +1,7 @@
 package org.dmd.dmt.shared;
 
 import java.io.IOException;
+import java.util.Date;
 
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
@@ -9,6 +10,8 @@ import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;
 import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;
 import org.dmd.dmt.shared.generated.dmo.ParseTestDMO;
 import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;
+import org.dmd.dmt.shared.generated.dmo.UnnamedObjMVDMO;
+import org.dmd.dmt.shared.generated.dmo.UnnamedObjSVDMO;
 import org.dmd.dmv.shared.DmvRuleManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
@@ -63,8 +66,30 @@ public class TestUCOParsing {
 		dmo.setNthMvIdxUnnamedObj(5, tbof);
 		
 		System.out.println(dmo.toOIF());
+		
+		
+		
+		TestBasicObjectFixedDMO fdmo2 = new TestBasicObjectFixedDMO();
+		fdmo2.addHsDate(new Date());
+		fdmo2.setSvBoolean(true);
+		fdmo2.setSvInteger(56);
+		
+		TestBasicObjectFixedDMO fdmo3 = new TestBasicObjectFixedDMO();
+		fdmo3.setSvBoolean(true);
+		fdmo3.setSvInteger(78);
+		
+		UnnamedObjSVDMO	dmo2 = new UnnamedObjSVDMO();
+		dmo2.setSvUnnamedObj(fdmo2);
+		
+		System.out.println(dmo2.toOIF());
+		
+		
+		UnnamedObjMVDMO	dmo3 = new UnnamedObjMVDMO();
+		
+		dmo3.addMvUnnamedObj(fdmo2);
+		dmo3.addMvUnnamedObj(fdmo3);
+		System.out.println(dmo3.toOIF());
+	
 	}
-	
-	
-	
+		
 }

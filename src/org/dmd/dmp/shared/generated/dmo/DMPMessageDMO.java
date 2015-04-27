@@ -16,14 +16,17 @@
 package org.dmd.dmp.shared.generated.dmo;
 
 // Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:391)
-import java.io.Serializable;                                 // Always required - (GenUtility.java:220)
-import java.util.*;                                          // Always required if we have any MV attributes - (GenUtility.java:215)
-import org.dmd.dmc.DmcAttribute;                             // Any attributes - (GenUtility.java:236)
-import org.dmd.dmc.DmcObject;                                // Structural class - (GenUtility.java:347)
-import org.dmd.dmc.DmcValueException;                        // Any attributes - (GenUtility.java:237)
-import org.dmd.dms.generated.types.DmcTypeBooleanSV;         // Required type - (GenUtility.java:324)
-import org.dmd.dms.generated.types.DmcTypeIntegerMV;         // Required type - (GenUtility.java:324)
-import org.dmd.dms.generated.types.DmcTypeLongSV;            // Required type - (GenUtility.java:324)
+import java.io.Serializable;                                       // Always required - (GenUtility.java:220)
+import java.util.*;                                                // Always required if we have any MV attributes - (GenUtility.java:215)
+import org.dmd.dmc.DmcAttribute;                                   // Any attributes - (GenUtility.java:236)
+import org.dmd.dmc.DmcObject;                                      // Structural class - (GenUtility.java:347)
+import org.dmd.dmc.DmcValueException;                              // Any attributes - (GenUtility.java:237)
+import org.dmd.dmc.types.NameValuePair;                            // Primitive type and !auxiliary class - (GenUtility.java:267)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                        // Attribute from meta schema - (GenUtility.java:134)
+import org.dmd.dms.generated.types.DmcTypeBooleanSV;               // Required type - (GenUtility.java:324)
+import org.dmd.dms.generated.types.DmcTypeIntegerMV;               // Required type - (GenUtility.java:324)
+import org.dmd.dms.generated.types.DmcTypeLongSV;                  // Required type - (GenUtility.java:324)
+import org.dmd.dms.generated.types.DmcTypeNameValuePairMV;         // Required type - (GenUtility.java:324)
 
 /**
  * The DMPMessage class provides a common base for all messages that\n
@@ -154,6 +157,133 @@ abstract public class DMPMessageDMO  extends DmcObject  implements de.novanic.ev
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remTrackingEnabled(){
          rem(DmpDMSAG.__trackingEnabled);
+    }
+
+    /**
+     * @return An Iterator of NameValuePair objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1102)
+    public Iterator<NameValuePair> getNvp(){
+        DmcTypeNameValuePairMV attr = (DmcTypeNameValuePairMV) get(MetaDMSAG.__nvp);
+        if (attr == null)
+            return( ((List<NameValuePair>) Collections.EMPTY_LIST).iterator());
+
+        return(attr.getMV());
+    }
+
+    /**
+     * @return The nth NameValuePair value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1114)
+    public NameValuePair getNthNvp(int i){
+        DmcTypeNameValuePairMV attr = (DmcTypeNameValuePairMV) get(MetaDMSAG.__nvp);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMVnth(i));
+    }
+
+    /**
+     * Adds another nvp to the specified value.
+     * @param value NameValuePair
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1128)
+    public DmcAttribute<?> addNvp(NameValuePair value) {
+        DmcAttribute<?> attr = get(MetaDMSAG.__nvp);
+        if (attr == null)
+            attr = new DmcTypeNameValuePairMV(MetaDMSAG.__nvp);
+        
+        try{
+            setLastValue(attr.add(value));
+            add(MetaDMSAG.__nvp,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
+        }
+        return(attr);
+    }
+
+    /**
+     * Returns true if we contain a valued keyed by the specified NameValuePair.
+     * @param value NameValuePair
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1203)
+    public boolean nvpContains(NameValuePair value) {
+        DmcAttribute<?> attr = get(MetaDMSAG.__nvp);
+        if (attr == null)
+            return(false);
+        return(attr.contains(value));
+    }
+
+    /**
+     * Adds another nvp value.
+     * @param value A value compatible with NameValuePair
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1235)
+    public DmcAttribute<?> addNvp(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__nvp);
+        if (attr == null)
+            attr = new DmcTypeNameValuePairMV(MetaDMSAG.__nvp);
+        
+        setLastValue(attr.add(value));
+        add(MetaDMSAG.__nvp,attr);
+        return(attr);
+    }
+
+    /**
+     * Returns the number of values in nvp
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1252)
+    public int getNvpSize(){
+        DmcAttribute<?> attr = get(MetaDMSAG.__nvp);
+        if (attr == null){
+            if (MetaDMSAG.__nvp.indexSize == 0)
+                return(0);
+            else
+                return(MetaDMSAG.__nvp.indexSize);
+        }
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Deletes a nvp value.
+     * @param value The NameValuePair to be deleted from set of attribute values.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1310)
+    public DmcAttribute<?> delNvp(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__nvp);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeNameValuePairMV(MetaDMSAG.__nvp), value);
+        else
+            attr = del(MetaDMSAG.__nvp, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Deletes a nvp from the specified value.
+     * @param value NameValuePair
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1326)
+    public DmcAttribute<?> delNvp(NameValuePair value) {
+        DmcAttribute<?> attr = get(MetaDMSAG.__nvp);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeNameValuePairMV(MetaDMSAG.__nvp), value);
+        else
+            attr = del(MetaDMSAG.__nvp, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Removes the nvp attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1345)
+    public void remNvp(){
+         rem(MetaDMSAG.__nvp);
     }
 
     /**

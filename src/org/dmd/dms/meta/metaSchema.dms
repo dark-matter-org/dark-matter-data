@@ -271,6 +271,13 @@ primitiveType   org.dmd.dmc.types.TimeDoubleDataPoint
 description		Represents a single Double data point at a moment in time. Generally used
  for line or column chart data.
 
+TypeDefinition
+name    		NameValuePair
+typeClassName	org.dmd.dmc.types.DmcTypeNameValuePair
+primitiveType   org.dmd.dmc.types.NameValuePair
+description		NOTE: pulled back from dm 3.0 where it is defined as a complex type.
+
+
 ///////////////////////////////////////////////////////////////////////////////
 // Complex Type Definitions
 
@@ -1785,6 +1792,16 @@ name                		applyToAttribute
 dmdID						157
 type                		AttributeDefinition
 description    				Indicates the attribute to which an ATTRIBUTE type rule is applied.
+
+AttributeDefinition
+name                		nvp
+dmdID						178
+type                		NameValuePair
+valueType					MULTI
+description					A set of additional name value pairs that can be associated with an object.
+ </p>
+ NOTE: Support for this was pulled back from dm 3.0.
+
 
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.

@@ -26,6 +26,7 @@ import java.util.StringTokenizer;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmc.util.DmcUncheckedObject;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
 
@@ -188,14 +189,24 @@ public class DmcUncheckedOIFParser {
                                 // Trim the attribute name and leading spaces
                                 attrVal.delete(0,attrName.length());
                                 if (attrVal.length() == 0){
-                            		// We have a missing token value
-                            		ResultException ex = new ResultException();
-                            		ex.addError("No value for attribute: " + attrName);
-                            		ex.setLocationInfo(fileName, in.getLineNumber());
-                            		throw(ex);
+                                	// Just continue with the empty value - it's up to the attribute type to determine
+                                	// whether a 0 length string is an okay value
+                                	
+//                            		// We have a missing token value
+//                            		ResultException ex = new ResultException();
+//                            		ex.addError("No value for attribute: " + attrName);
+//                            		ex.setLocationInfo(fileName, in.getLineNumber());
+//                            		throw(ex);
                                 }
-                                while(attrVal.charAt(0) == ' '){
-                                    attrVal.delete(0,1);
+                                else{
+                                	try {
+		                                while(attrVal.charAt(0) == ' '){
+		                                    attrVal.delete(0,1);
+		                                }
+                                	} catch(Exception ex){
+                                		DebugInfo.debug("CURRENT LINE: *" + str + "*");
+                                		throw(new ResultException(ex));
+                                	}
                                 }
                             }
                         }

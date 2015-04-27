@@ -91,6 +91,7 @@ public class DmtDMSAGAMAP {
         _SmAp.put(DmtDMSAG.__tsLong.id,DmtDMSAG.__tsLong);
         _SmAp.put(DmtDMSAG.__tsNamedObj.id,DmtDMSAG.__tsNamedObj);
         _SmAp.put(DmtDMSAG.__tsString.id,DmtDMSAG.__tsString);
+        _SmAp.put(DmtDMSAG.__tsStringToString.id,DmtDMSAG.__tsStringToString);
         _SmAp.put(DmtDMSAG.__tsUnnamedObj.id,DmtDMSAG.__tsUnnamedObj);
     }
 

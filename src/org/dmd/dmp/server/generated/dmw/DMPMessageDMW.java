@@ -17,15 +17,18 @@ package org.dmd.dmp.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import java.util.ArrayList;                                    // To support getMVCopy() - (BaseDMWGeneratorNewest.java:999)
-import java.util.Iterator;                                     // Support copy of MV objects - (BaseDMWGeneratorNewest.java:2054)
-import org.dmd.dmc.*;                                          // If any attributes - (BaseDMWGeneratorNewest.java:905)
-import org.dmd.dmp.server.extended.DMPMessage;                 // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:898)
-import org.dmd.dmp.shared.generated.dmo.DMPMessageDMO;         // Abstract class - (BaseDMWGeneratorNewest.java:1048)
-import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;              // Attribute requestID from the dmp schema - (BaseDMWGeneratorNewest.java:720)
-import org.dmd.dms.ClassDefinition;                            // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:889)
-import org.dmd.dms.generated.dmw.IntegerIterableDMW;           // For multi-valued Integer - (BaseDMWGeneratorNewest.java:1919)
-import org.dmd.dmw.DmwWrapper;                                 // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1053)
+import java.util.ArrayList;                                        // To support getMVCopy() - (BaseDMWGeneratorNewest.java:999)
+import java.util.Iterator;                                         // Support copy of MV objects - (BaseDMWGeneratorNewest.java:2054)
+import org.dmd.dmc.*;                                              // If any attributes - (BaseDMWGeneratorNewest.java:905)
+import org.dmd.dmc.types.NameValuePair;                            // Primitive type - (BaseDMWGeneratorNewest.java:968)
+import org.dmd.dmp.server.extended.DMPMessage;                     // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:898)
+import org.dmd.dmp.shared.generated.dmo.DMPMessageDMO;             // Abstract class - (BaseDMWGeneratorNewest.java:1048)
+import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;                  // Attribute requestID from the dmp schema - (BaseDMWGeneratorNewest.java:720)
+import org.dmd.dms.ClassDefinition;                                // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:889)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                        // Attribute nvp from the meta schema - (BaseDMWGeneratorNewest.java:720)
+import org.dmd.dms.generated.dmw.IntegerIterableDMW;               // For multi-valued Integer - (BaseDMWGeneratorNewest.java:1919)
+import org.dmd.dms.generated.dmw.NameValuePairIterableDMW;         // For multi-valued NameValuePair - (BaseDMWGeneratorNewest.java:1919)
+import org.dmd.dmw.DmwWrapper;                                     // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1053)
 
 
 /**
@@ -52,6 +55,119 @@ abstract public class DMPMessageDMW extends DmwWrapper {
     // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:527)
     protected DMPMessageDMW(DMPMessageDMO obj, ClassDefinition cd) {
         super(obj,cd);
+    }
+
+    /**
+     * @return The number of NameValuePair items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1489)
+    public int getNvpSize(){
+        return(((DMPMessageDMO) core).getNvpSize());
+    }
+
+    /**
+     * @return true if there are no NameValuePairDMO items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1497)
+    public boolean getNvpIsEmpty(){
+        if (((DMPMessageDMO) core).getNvpSize() == 0)
+            return(true);
+        return(false);
+    }
+
+    /**
+     * @return true if there are any NameValuePairDMO items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1507)
+    public boolean getNvpHasValue(){
+        if (((DMPMessageDMO) core).getNvpSize() == 0)
+            return(false);
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of NameValuePair objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1923)
+    public NameValuePairIterableDMW getNvpIterable(){
+        DmcAttribute<?> attr = core.get(MetaDMSAG.__nvp);
+        if (attr == null)
+            return(NameValuePairIterableDMW.emptyList);
+        
+        return(new NameValuePairIterableDMW(((DMPMessageDMO) core).getNvp()));
+    }
+
+    /**
+     * Adds another nvp value.
+     * @param value A value compatible with NameValuePair
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1949)
+    public void addNvp(Object value) throws DmcValueException {
+        ((DMPMessageDMO) core).addNvp(value);
+    }
+
+    /**
+     * Adds another nvp value.
+     * @param value A value compatible with NameValuePair
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1959)
+    public void addNvp(NameValuePair value){
+        ((DMPMessageDMO) core).addNvp(value);
+    }
+
+    /**
+     * Returns true if the collection contains the nvp value.
+     * @param value A value compatible with NameValuePair
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2016)
+    public boolean nvpContains(NameValuePair value){
+        return(((DMPMessageDMO) core).nvpContains(value));
+    }
+
+    /**
+     * @return A COPY of the collection of NameValuePair objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2058)
+    @SuppressWarnings("unchecked")
+    public ArrayList<NameValuePair> getNvpCopy(){
+        DmcAttribute<?> attr = core.get(MetaDMSAG.__nvp);
+        if (attr == null)
+            return(new ArrayList<NameValuePair>());
+        
+        ArrayList<NameValuePair> rc = new ArrayList<NameValuePair>(attr.getMVSize());
+        
+        Iterator<NameValuePair> it = (Iterator<NameValuePair>) attr.getMV();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
+    }
+
+    /**
+     * Deletes a nvp value.
+     * @param value The NameValuePair to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2085)
+    public void delNvp(Object value) throws DmcValueException {
+        ((DMPMessageDMO) core).delNvp(value);
+    }
+
+    /**
+     * Deletes a nvp value.
+     * @param value The NameValuePair to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2094)
+    public void delNvp(NameValuePair value){
+        ((DMPMessageDMO) core).delNvp(value);
+    }
+
+    /**
+     * Removes the nvp attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2106)
+    public void remNvp(){
+        ((DMPMessageDMO) core).remNvp();
     }
 
     /**

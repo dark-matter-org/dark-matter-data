@@ -175,6 +175,7 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
         __DMPMessage.addMust(__requestID);
         __DMPMessage.addMay(__timeMS);
         __DMPMessage.addMay(__trackingEnabled);
+        __DMPMessage.addMay(MetaDMSAG.__nvp);
 
         __Request.addMay(__handlerID);
         __Request.addMay(__sessionID);

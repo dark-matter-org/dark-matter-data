@@ -1,15 +1,17 @@
 package org.dmd.dmt.shared.generated.dmo;
 
 // Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:391)
-import java.io.Serializable;                                  // Always required - (GenUtility.java:220)
-import java.util.*;                                           // Always required if we have any MV attributes - (GenUtility.java:215)
-import org.dmd.dmc.DmcAttribute;                              // Any attributes - (GenUtility.java:236)
-import org.dmd.dmc.DmcObject;                                 // Structural class - (GenUtility.java:347)
-import org.dmd.dmc.DmcSliceInfo;                              // Required for object slicing - (GenUtility.java:225)
-import org.dmd.dmc.DmcValueException;                         // Any attributes - (GenUtility.java:237)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                   // Required for MODREC constructor - (GenUtility.java:224)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor - (GenUtility.java:223)
-import org.dmd.dms.generated.types.DmcTypeStringSET;          // Required type - (GenUtility.java:324)
+import java.io.Serializable;                                         // Always required - (GenUtility.java:220)
+import java.util.*;                                                  // Always required if we have any MV attributes - (GenUtility.java:215)
+import org.dmd.dmc.DmcAttribute;                                     // Any attributes - (GenUtility.java:236)
+import org.dmd.dmc.DmcObject;                                        // Structural class - (GenUtility.java:347)
+import org.dmd.dmc.DmcSliceInfo;                                     // Required for object slicing - (GenUtility.java:225)
+import org.dmd.dmc.DmcValueException;                                // Any attributes - (GenUtility.java:237)
+import org.dmd.dmc.types.StringToString;                             // Primitive type and !auxiliary class - (GenUtility.java:267)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                          // Required for MODREC constructor - (GenUtility.java:224)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                // Required for MODREC constructor - (GenUtility.java:223)
+import org.dmd.dms.generated.types.DmcTypeStringSET;                 // Required type - (GenUtility.java:324)
+import org.dmd.dms.generated.types.DmcTypeStringToStringSET;         // Required type - (GenUtility.java:324)
 
 /**
  * null
@@ -187,6 +189,133 @@ public class PrimitiveTSDMO  extends DmcObject  implements Serializable  {
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1345)
     public void remTsString(){
          rem(DmtDMSAG.__tsString);
+    }
+
+    /**
+     * @return An Iterator of StringToString objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1102)
+    public Iterator<StringToString> getTsStringToString(){
+        DmcTypeStringToStringSET attr = (DmcTypeStringToStringSET) get(DmtDMSAG.__tsStringToString);
+        if (attr == null)
+            return( ((List<StringToString>) Collections.EMPTY_LIST).iterator());
+
+        return(attr.getMV());
+    }
+
+    /**
+     * @return The nth StringToString value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1114)
+    public StringToString getNthTsStringToString(int i){
+        DmcTypeStringToStringSET attr = (DmcTypeStringToStringSET) get(DmtDMSAG.__tsStringToString);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMVnth(i));
+    }
+
+    /**
+     * Adds another tsStringToString to the specified value.
+     * @param value StringToString
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1128)
+    public DmcAttribute<?> addTsStringToString(StringToString value) {
+        DmcAttribute<?> attr = get(DmtDMSAG.__tsStringToString);
+        if (attr == null)
+            attr = new DmcTypeStringToStringSET(DmtDMSAG.__tsStringToString);
+        
+        try{
+            setLastValue(attr.add(value));
+            add(DmtDMSAG.__tsStringToString,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
+        }
+        return(attr);
+    }
+
+    /**
+     * Returns true if we contain a valued keyed by the specified StringToString.
+     * @param value StringToString
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1203)
+    public boolean tsStringToStringContains(StringToString value) {
+        DmcAttribute<?> attr = get(DmtDMSAG.__tsStringToString);
+        if (attr == null)
+            return(false);
+        return(attr.contains(value));
+    }
+
+    /**
+     * Adds another tsStringToString value.
+     * @param value A value compatible with StringToString
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1235)
+    public DmcAttribute<?> addTsStringToString(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(DmtDMSAG.__tsStringToString);
+        if (attr == null)
+            attr = new DmcTypeStringToStringSET(DmtDMSAG.__tsStringToString);
+        
+        setLastValue(attr.add(value));
+        add(DmtDMSAG.__tsStringToString,attr);
+        return(attr);
+    }
+
+    /**
+     * Returns the number of values in tsStringToString
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1252)
+    public int getTsStringToStringSize(){
+        DmcAttribute<?> attr = get(DmtDMSAG.__tsStringToString);
+        if (attr == null){
+            if (DmtDMSAG.__tsStringToString.indexSize == 0)
+                return(0);
+            else
+                return(DmtDMSAG.__tsStringToString.indexSize);
+        }
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Deletes a tsStringToString value.
+     * @param value The StringToString to be deleted from set of attribute values.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1310)
+    public DmcAttribute<?> delTsStringToString(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(DmtDMSAG.__tsStringToString);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeStringToStringSET(DmtDMSAG.__tsStringToString), value);
+        else
+            attr = del(DmtDMSAG.__tsStringToString, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Deletes a tsStringToString from the specified value.
+     * @param value StringToString
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1326)
+    public DmcAttribute<?> delTsStringToString(StringToString value) {
+        DmcAttribute<?> attr = get(DmtDMSAG.__tsStringToString);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeStringToStringSET(DmtDMSAG.__tsStringToString), value);
+        else
+            attr = del(DmtDMSAG.__tsStringToString, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Removes the tsStringToString attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1345)
+    public void remTsStringToString(){
+         rem(DmtDMSAG.__tsStringToString);
     }
 
 
