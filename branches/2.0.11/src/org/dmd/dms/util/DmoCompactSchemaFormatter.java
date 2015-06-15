@@ -30,6 +30,7 @@ import org.dmd.dmc.util.NamedStringArray;
 import org.dmd.dmg.util.GeneratorUtils;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
+import org.dmd.dms.EnumDefinition;
 import org.dmd.dms.RuleDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
@@ -84,8 +85,20 @@ public class DmoCompactSchemaFormatter {
         
         StringBuffer filterBuilders = new StringBuffer();
         
-        dumpHeaderDMSAG(out, sm, sd.getSchemaPackage(), sd, nameBuilders, filterBuilders);
+        StringBuffer defaultDefs = new StringBuffer();
         
+        StringBuffer defaultInit = new StringBuffer();
+        
+        defaultInit.append("    static {\n");
+        defaultInit.append("        try {\n");
+        
+        dumpHeaderDMSAG(out, sm, sd.getSchemaPackage(), sd, nameBuilders, filterBuilders, defaultDefs, defaultInit);
+        
+        defaultInit.append("        } catch  (DmcValueException e) {\n");
+        defaultInit.append("            throw(new IllegalStateException(e));\n");
+        defaultInit.append("        }\n");
+        defaultInit.append("    }\n\n");
+
         Iterator<ClassDefinition> cds = sd.getClassDefList();
 		if (cds != null){
 			while(cds.hasNext()){
@@ -146,6 +159,13 @@ public class DmoCompactSchemaFormatter {
         out.write("\n");
         out.write("    static int schemaMaxID = " + max + ";\n");
         out.write("\n");
+        
+        if (defaultDefs.length() > 0){
+    		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+        	
+    		out.write(defaultDefs.toString() + "\n");
+    		out.write(defaultInit.toString());
+        }
 
         for(AttributeDefinition ad: attributes.values()){
 			//     public final static DmcAttributeInfo __monitoredBy = new DmcAttributeInfo("monitoredBy",2202,"DashboardPrefs",ValueTypeEnum.MULTI,false);
@@ -485,17 +505,25 @@ public class DmoCompactSchemaFormatter {
 	 * @throws ResultException 
 	 * @throws ResultException 
 	 */
-	public void dumpSchema(String sn, String schemaPackage, TreeMap<String,DmcUncheckedObject> classes, TreeMap<String,DmcUncheckedObject> attributes, TreeMap<String,DmcUncheckedObject> types, ArrayList<DmcUncheckedObject> rules, String dmodir, int baseID, int idRange) throws IOException, ResultException{
+	public void dumpSchema(String sn, String schemaPackage, TreeMap<String,DmcUncheckedObject> classes, TreeMap<String,DmcUncheckedObject> attributes, TreeMap<String,DmcUncheckedObject> types, TreeMap<String,DmcUncheckedObject> enums, ArrayList<DmcUncheckedObject> rules, String dmodir, int baseID, int idRange) throws IOException, ResultException{
 		String schemaName = GeneratorUtils.dotNameToCamelCase(sn) + "DMSAG";
+		StringBuilder defaultDefs = new StringBuilder();
+		StringBuilder defaultInit = new StringBuilder();
 		
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmodir, schemaName + ".java");
 
         dumpHeaderMETA(out,schemaPackage);
         
+        ImportManager defaultImports = new ImportManager();
+        
+        defaultInit.append("    static {\n");
+        defaultInit.append("        try {\n");
+        
         StringBuilder nameBuilders = new StringBuilder();
         if (types != null){
 	        for(DmcUncheckedObject td: types.values()){
 	        	String tname = td.getSV("name");
+	        	
 	        	String isNameType = td.getSV("isNameType");
 	        	
 	        	if (isNameType != null){
@@ -507,8 +535,71 @@ public class DmoCompactSchemaFormatter {
 					nameBuilders.append("        _NmAp.put(DmcType" + tname + "STATIC.instance.getNameClass(),DmcType" + tname + "STATIC.instance);\n");
 	        		
 	        	}
+	        	
+	        	String nullReturnValue = td.getSV("nullReturnValue");
+	        	String typeClassName = td.getSV("typeClassName");
+	        	String internallyGenerated = td.getSV("internallyGenerated");
+	        	
+	        	if (nullReturnValue != null){
+		        	if (typeClassName != null){
+		        		String sp = "org.dmd.dms";
+		        		String imp = null;
+		        		String comment = "";
+		        		String nrv = nullReturnValue;
+		        		
+		        		if (!nrv.startsWith("\""))
+		        			nrv = "\"" + nrv + "\"";
+	
+		        		if ( (internallyGenerated != null) && (internallyGenerated.equals("true"))){
+		        			imp = typeClassName + "STATIC";
+		        			comment = "To handle default values for internally generated type";
+		        		}
+		        		else{
+		        			imp = sp + ".generated.types.DmcType" + tname + "STATIC";
+		        			comment = "To handle default values for a standard type";
+		        		}
+		        		
+		        		defaultDefs.append("    public final static " + tname + " __nrv" + tname + ";\n");
+		        		
+		        		defaultInit.append("        __nrv" + tname + " = DmcType" + tname + "STATIC.instance.typeCheck(" + nrv + ");\n");
+		        		
+		    			defaultImports.addImport(imp, comment);
+		        	}
+	        	}
+
 	        }
         }
+        
+        if (enums != null){
+	        for(DmcUncheckedObject ed: enums.values()){
+	        	String ename = ed.getSV("name");
+	        	String nullReturnValue = ed.getSV("nullReturnValue");
+	        	
+	        	if (nullReturnValue != null){
+	        		String sp = "org.dmd.dms";
+	        		String imp = sp + ".generated.types.DmcType" + ename + "STATIC";
+	        		int dotPos = nullReturnValue.indexOf(".");
+	        		String nrv = "\"" + nullReturnValue.substring(dotPos+1) + "\"";
+	        		
+	        		defaultDefs.append("    public final static " + ename + " __nrv" + ename + ";\n");
+	        		
+	        		defaultInit.append("        __nrv" + ename + " = DmcType" + ename + "STATIC.instance.typeCheck(" + nrv + ");\n");
+	        		
+	    			defaultImports.addImport(imp, "To handle default values for an enumerated type");
+	        	}
+
+	        }        	
+        }
+        
+        defaultInit.append("        } catch  (DmcValueException e) {\n");
+        defaultInit.append("            throw(new IllegalStateException(e));\n");
+        defaultInit.append("        }\n");
+        defaultInit.append("    }\n\n");
+        
+
+        
+        out.write(defaultImports.getFormattedImports());
+        
         
         StringBuilder filterBuilders = new StringBuilder();
         if (types != null){
@@ -550,6 +641,13 @@ public class DmoCompactSchemaFormatter {
         out.write("\n");
         out.write("    static int schemaMaxID = " + max + ";\n");
         out.write("\n");
+        
+        if (defaultDefs.length() > 0){
+    		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+        	
+    		out.write(defaultDefs.toString() + "\n");
+    		out.write(defaultInit.toString());
+        }
 
         if (attributes != null){
     		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
@@ -883,10 +981,11 @@ public class DmoCompactSchemaFormatter {
         out.write("import java.util.ArrayList;\n");
         out.write("import java.util.Iterator;\n");
         out.write("import org.dmd.dmc.*;\n");
-        out.write("import org.dmd.dms.generated.enums.ClassTypeEnum;\n");
-        out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
-        out.write("import org.dmd.dms.generated.enums.DataTypeEnum;\n");
-        out.write("import org.dmd.dms.generated.enums.OriginalTypeEnum;\n");
+        out.write("import org.dmd.dms.generated.enums.*;\n");
+//        out.write("import org.dmd.dms.generated.enums.ClassTypeEnum;\n");
+//        out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
+//        out.write("import org.dmd.dms.generated.enums.DataTypeEnum;\n");
+//        out.write("import org.dmd.dms.generated.enums.OriginalTypeEnum;\n");
         out.write("import org.dmd.dms.generated.types.*;\n");
 //        out.write("import org.dmd.dms.extended.rules.*;\n");
         out.write("import org.dmd.dmc.rules.RuleIF;\n");
@@ -894,7 +993,7 @@ public class DmoCompactSchemaFormatter {
         
 	}
 	
-	void dumpHeaderDMSAG(BufferedWriter out, SchemaManager sm, String schemaPackage, SchemaDefinition sd, StringBuffer nameBuilders, StringBuffer filterBuilders) throws IOException, ResultException {
+	void dumpHeaderDMSAG(BufferedWriter out, SchemaManager sm, String schemaPackage, SchemaDefinition sd, StringBuffer nameBuilders, StringBuffer filterBuilders, StringBuffer defaultDefs, StringBuffer defaultInit) throws IOException, ResultException {
         out.write("package " + schemaPackage + ".generated.dmo;\n\n");
 
     	ImportManager manager = new ImportManager();
@@ -966,9 +1065,6 @@ public class DmoCompactSchemaFormatter {
 			}
 		}
 		
-        out.write(manager.getFormattedImports());
-    	out.write("\n");
-        
         
         Iterator<TypeDefinition> tds = sd.getTypeDefList();
 		if (tds != null){
@@ -988,9 +1084,98 @@ public class DmoCompactSchemaFormatter {
 					String adn = td.getName().getNameString();
 					nameBuilders.append("        _FmAp.put(DmcType" + adn + "STATIC.instance.getFilterClass(),DmcType" + adn + "STATIC.instance);\n");
 				}
+				
+				// To handle default values
+				if (td.getNullReturnValue() != null){
+					// TODO: This was grabbed from the ComplexTypeFormatter, but should be moved to the typedef itself
+		        	if (td.getTypeClassName() != null){
+		        		String sp = td.getDefinedIn().getSchemaPackage();
+		        		String imp = null;
+		        		String comment = "";
+
+		        		if (td.getInternallyGenerated()){
+		        			imp = td.getTypeClassName() + "STATIC";
+		        			comment = "To handle default values for internally generated type";
+		        		}
+		        		else{
+		        			imp = sp + ".generated.types.DmcType" + td.getName() + "STATIC";
+		        			comment = "To handle default values for a standard type";
+		        		}
+		        		
+		    			manager.addImport(imp, comment);
+		        	}
+
+				}
 			}
 		}
 		
+		Iterator<EnumDefinition> eds = sd.getEnumDefList();
+		if (eds != null){
+			while(eds.hasNext()){
+				EnumDefinition ed = eds.next();
+				
+				if (ed.getNullReturnValue() != null){
+					// TODO:
+	        		String sp = ed.getDefinedIn().getSchemaPackage();
+	        		String imp = sp + ".generated.types.DmcType" + ed.getName().getNameString() + "STATIC";
+	        		int dotPos = ed.getNullReturnValue().indexOf(".");
+	        		String nrv = "\"" + ed.getNullReturnValue().substring(dotPos+1) + "\"";
+	        		
+	        		defaultDefs.append("    public final static " + ed.getName().getNameString() + " __nrv" + ed.getName().getNameString() + ";\n");
+	        		
+	        		defaultInit.append("        __nrv" + ed.getName().getNameString() + " = DmcType" + ed.getName().getNameString() + "STATIC.instance.typeCheck(" + nrv + ");\n");
+	        		
+	    			manager.addImport(imp, "To handle default values for an enumerated type");
+	    			
+	    			imp = sp + ".generated.enums." + ed.getName().getNameString();
+	        		manager.addImport(imp, "To allow for enum default value");
+	    			
+				}
+			}
+		}
+		
+        Iterator<AttributeDefinition> ads = sd.getAttributeDefList();
+		if (ads != null){
+			while(ads.hasNext()){
+				AttributeDefinition ad = ads.next();
+
+				if (ad.getNullReturnValue() != null){
+					
+					String nrv = ad.getNullReturnValue();
+					if (!nrv.startsWith("\""))
+						nrv = "\"" + nrv + "\"";
+					
+					DebugInfo.debug(ad.toOIF() + "\n");
+					TypeDefinition td = ad.getType();
+					
+	        		String sp = td.getDefinedIn().getSchemaPackage();
+	        		String imp = null;
+	        		String comment = "";
+
+	        		if (td.getInternallyGenerated()){
+	        			imp = td.getTypeClassName() + "STATIC";
+	        			comment = "To handle default value for attribute " + ad.getName();
+	        		}
+	        		else{
+	        			imp = sp + ".generated.types.DmcType" + td.getName() + "STATIC";
+	        			comment = "To handle default value for attribute " + ad.getName();
+	        		}
+	        		
+	        		manager.addImport(td.getTypeImport(ad), "To allow for attribute level default value");
+	        		
+	    			manager.addImport(imp, comment);
+	    			
+	        		defaultDefs.append("    public final static " + td.getName().getNameString() + " __nrv" + ad.getName().getNameString() + ";\n");
+	        		
+	        		defaultInit.append("        __nrv" + ad.getName().getNameString() + " = DmcType" + td.getName().getNameString() + "STATIC.instance.typeCheck(" + nrv + ");\n");	    			
+					
+				}
+			}
+		}
+
+        out.write(manager.getFormattedImports());
+    	out.write("\n");
+        		
 		if (nameBuilders.length() > 0)
 	        out.write("import " + schemaPackage + ".generated.types.*;\n");
 		

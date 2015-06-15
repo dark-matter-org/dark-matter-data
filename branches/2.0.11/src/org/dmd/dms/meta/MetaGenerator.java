@@ -204,7 +204,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			DmoCompactSchemaFormatter csf = new DmoCompactSchemaFormatter(
 					System.out);
 			csf.dumpSchema("meta", "org.dmd.dms", classDefs, attributeDefs,
-					typeDefs, ruleInstances, curr.getCanonicalPath() + DMODIR,
+					typeDefs, enumDefs, ruleInstances, curr.getCanonicalPath() + DMODIR,
 					META_BASE_ID, META_ID_RANGE);
 
 			// DmoValidatorCollectionFormatter vcf = new

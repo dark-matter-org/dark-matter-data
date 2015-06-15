@@ -4,15 +4,26 @@ import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.dmd.dmc.*;
-import org.dmd.dms.generated.enums.ClassTypeEnum;
-import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dms.generated.enums.DataTypeEnum;
-import org.dmd.dms.generated.enums.OriginalTypeEnum;
+import org.dmd.dms.generated.enums.*;
 import org.dmd.dms.generated.types.*;
 import org.dmd.dmc.rules.RuleIF;
 
+// Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:581)
+import org.dmd.dms.generated.types.DmcTypeBaseTypeEnumSTATIC;                   // To handle default values for an enumerated type - (DmoCompactSchemaFormatter.java:568)
+import org.dmd.dms.generated.types.DmcTypeBooleanSTATIC;                        // To handle default values for a standard type - (DmoCompactSchemaFormatter.java:546)
+import org.dmd.dms.generated.types.DmcTypeClassTypeEnumSTATIC;                  // To handle default values for an enumerated type - (DmoCompactSchemaFormatter.java:568)
+import org.dmd.dms.generated.types.DmcTypeDataTypeEnumSTATIC;                   // To handle default values for an enumerated type - (DmoCompactSchemaFormatter.java:568)
+import org.dmd.dms.generated.types.DmcTypeDebugEnumSTATIC;                      // To handle default values for an enumerated type - (DmoCompactSchemaFormatter.java:568)
+import org.dmd.dms.generated.types.DmcTypeFilterTypeEnumSTATIC;                 // To handle default values for an enumerated type - (DmoCompactSchemaFormatter.java:568)
+import org.dmd.dms.generated.types.DmcTypeModifyTypeEnumSTATIC;                 // To handle default values for an enumerated type - (DmoCompactSchemaFormatter.java:568)
+import org.dmd.dms.generated.types.DmcTypeOperationalContextEnumSTATIC;         // To handle default values for an enumerated type - (DmoCompactSchemaFormatter.java:568)
+import org.dmd.dms.generated.types.DmcTypeOriginalTypeEnumSTATIC;               // To handle default values for an enumerated type - (DmoCompactSchemaFormatter.java:568)
+import org.dmd.dms.generated.types.DmcTypeRuleTypeEnumSTATIC;                   // To handle default values for an enumerated type - (DmoCompactSchemaFormatter.java:568)
+import org.dmd.dms.generated.types.DmcTypeValueTypeEnumSTATIC;                  // To handle default values for an enumerated type - (DmoCompactSchemaFormatter.java:568)
+import org.dmd.dms.generated.types.DmcTypeWrapperTypeEnumSTATIC;                // To handle default values for an enumerated type - (DmoCompactSchemaFormatter.java:568)
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:533)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:604)
 public class MetaDMSAG implements DmcCompactSchemaIF {
 
 
@@ -27,7 +38,40 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
 
     static int schemaMaxID = 200;
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:555)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:626)
+    public final static Boolean __nrvBoolean;
+    public final static BaseTypeEnum __nrvBaseTypeEnum;
+    public final static ClassTypeEnum __nrvClassTypeEnum;
+    public final static DataTypeEnum __nrvDataTypeEnum;
+    public final static DebugEnum __nrvDebugEnum;
+    public final static FilterTypeEnum __nrvFilterTypeEnum;
+    public final static ModifyTypeEnum __nrvModifyTypeEnum;
+    public final static OperationalContextEnum __nrvOperationalContextEnum;
+    public final static OriginalTypeEnum __nrvOriginalTypeEnum;
+    public final static RuleTypeEnum __nrvRuleTypeEnum;
+    public final static ValueTypeEnum __nrvValueTypeEnum;
+    public final static WrapperTypeEnum __nrvWrapperTypeEnum;
+
+    static {
+        try {
+        __nrvBoolean = DmcTypeBooleanSTATIC.instance.typeCheck("false");
+        __nrvBaseTypeEnum = DmcTypeBaseTypeEnumSTATIC.instance.typeCheck("PRIMITIVE");
+        __nrvClassTypeEnum = DmcTypeClassTypeEnumSTATIC.instance.typeCheck("UNKNOWN");
+        __nrvDataTypeEnum = DmcTypeDataTypeEnumSTATIC.instance.typeCheck("PERSISTENT");
+        __nrvDebugEnum = DmcTypeDebugEnumSTATIC.instance.typeCheck("NONE");
+        __nrvFilterTypeEnum = DmcTypeFilterTypeEnumSTATIC.instance.typeCheck("NONE");
+        __nrvModifyTypeEnum = DmcTypeModifyTypeEnumSTATIC.instance.typeCheck("NONE");
+        __nrvOperationalContextEnum = DmcTypeOperationalContextEnumSTATIC.instance.typeCheck("DMO");
+        __nrvOriginalTypeEnum = DmcTypeOriginalTypeEnumSTATIC.instance.typeCheck("TYPE");
+        __nrvRuleTypeEnum = DmcTypeRuleTypeEnumSTATIC.instance.typeCheck("ATTRIBUTE");
+        __nrvValueTypeEnum = DmcTypeValueTypeEnumSTATIC.instance.typeCheck("SINGLE");
+        __nrvWrapperTypeEnum = DmcTypeWrapperTypeEnumSTATIC.instance.typeCheck("BASE");
+        } catch  (DmcValueException e) {
+            throw(new IllegalStateException(e));
+        }
+    }
+
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:633)
     public final static DmcAttributeInfo __FQN = new DmcAttributeInfo("FQN",84,"FullyQualifiedName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __abbrev = new DmcAttributeInfo("abbrev",9,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __actionDefList = new DmcAttributeInfo("actionDefList",60,"ActionDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
@@ -178,7 +222,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __valueType = new DmcAttributeInfo("valueType",12,"ValueTypeEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __wrapperClassName = new DmcAttributeInfo("wrapperClassName",6,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:568)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:646)
     public final static DmcTypeInfo __type_ActionDefinition = new DmcTypeInfo("ActionDefinition", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_AttributeDefinition = new DmcTypeInfo("AttributeDefinition", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_AttributeID = new DmcTypeInfo("AttributeID", OriginalTypeEnum.TYPE);
@@ -245,7 +289,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcTypeInfo __type_UUIDName = new DmcTypeInfo("UUIDName", OriginalTypeEnum.NAMETYPE);
     public final static DmcTypeInfo __type_ValueTypeEnumREF = new DmcTypeInfo("ValueTypeEnumREF", OriginalTypeEnum.ENUM);
     public final static DmcTypeInfo __type_WrapperTypeEnumREF = new DmcTypeInfo("WrapperTypeEnumREF", OriginalTypeEnum.ENUM);
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:602)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:680)
 
     public final static DmcClassInfo __ActionTriggerInfo = new DmcClassInfo("ActionTriggerInfo","org.dmd.dms.generated.dmo.ActionTriggerInfoDMO",14,ClassTypeEnum.ABSTRACT,DataTypeEnum.PERSISTENT,null,null);
     public final static DmcClassInfo __DmsDefinition = new DmcClassInfo("DmsDefinition","org.dmd.dms.generated.dmo.DmsDefinitionDMO",1,ClassTypeEnum.ABSTRACT,DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
@@ -265,7 +309,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcClassInfo __TypeDefinition = new DmcClassInfo("TypeDefinition","org.dmd.dms.generated.dmo.TypeDefinitionDMO",4,ClassTypeEnum.STRUCTURAL,DataTypeEnum.PERSISTENT,__DmsDefinition,MetaDMSAG.__name);
     public final static DmcClassInfo __RuleData = new DmcClassInfo("RuleData","org.dmd.dms.generated.dmo.RuleDataDMO",17,ClassTypeEnum.ABSTRACT,DataTypeEnum.PERSISTENT,null,MetaDMSAG.__ruleName);
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:612)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:690)
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;
 
