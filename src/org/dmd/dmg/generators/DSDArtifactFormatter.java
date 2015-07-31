@@ -357,6 +357,8 @@ public class DSDArtifactFormatter {
 		out.write("package " + config.getGenPackage() + ".generated.dsd;\n\n");
 		
 		imports.addImport("java.util.Iterator", "To provide iterators over definitions");
+		imports.addImport("org.dmd.dmc.DmcNameClashException", "May be thrown when finding definitions");
+		imports.addImport("org.dmd.dmc.DmcValueException", "May be thrown when finding definitions");
 		ddm.getImportsForInterface(imports, false);
 		
 		out.write(imports.getFormattedImports());
@@ -382,7 +384,7 @@ public class DSDArtifactFormatter {
 	 * This method generates an interface that has the methods required to store and retrieve
 	 * just the definitions associated with a particular DSD module, NOT including the module
 	 * type itself. This interface is implemented by the module class so that we can, from 
-	 * a paticular module, access the definitions defined as part of that module.
+	 * a particular module, access the definitions defined as part of that module.
 	 * @param config
 	 * @param dir
 	 * @param ddm
@@ -394,6 +396,8 @@ public class DSDArtifactFormatter {
 		out.write("package " + config.getGenPackage() + ".generated.dsd;\n\n");
 		
 		imports.addImport("java.util.Iterator", "To provide iterators over definitions");
+		imports.addImport("org.dmd.dmc.DmcNameClashException", "May be thrown when finding definitions");
+		imports.addImport("org.dmd.dmc.DmcValueException", "May be thrown when finding definitions");
 		ddm.getImportsForInterface(imports, true);
 		
 		out.write(imports.getFormattedImports());
