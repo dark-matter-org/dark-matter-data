@@ -203,7 +203,8 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 			sb.append("    public void add" + cd.getName() + "(" + cd.getName() +" def);\n");
 			sb.append("    public int get" + cd.getName() + "Count();\n");
 			sb.append("    public " + cd.getName() + " get" + cd.getName() + "(DotName name);\n");
-			sb.append("    public Iterator<" + cd.getName() + "> getAll" + cd.getName() + "();\n\n");
+			sb.append("    public Iterator<" + cd.getName() + "> getAll" + cd.getName() + "();\n");
+			sb.append("    public " + cd.getName() + " get" + cd.getName() + "Definition(String name) throws DmcNameClashException, DmcValueException;\n\n");
 		}
 		
 		return(sb.toString());
@@ -268,6 +269,10 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 			
 			sb.append("    public Iterator<" + cd.getName() + "> getAll" + cd.getName() + "(){\n");
 			sb.append("        return(" + cd.getName() + "Defs.values().iterator());\n");
+			sb.append("    }\n\n");
+			
+			sb.append("    public " + cd.getName() + " get" + cd.getName() + "Definition(String name) throws DmcNameClashException, DmcValueException{\n");
+			sb.append("        return(" + cd.getName() + "Defs.getDefinition(name));\n");
 			sb.append("    }\n\n");
 		}
 		
