@@ -49,6 +49,8 @@ public class TypeDefinition extends TypeDefinitionDMW {
 	// referenced object class has its javaClass attribute set
 	String auxHolderImport;
 	String auxHolderClass;
+	
+	ComplexTypeDefinition	complexType;
 
     /**
      * Default constructor.
@@ -57,8 +59,20 @@ public class TypeDefinition extends TypeDefinitionDMW {
     	super();
     }
     
+    public TypeDefinition(ComplexTypeDefinition ctd){
+    	super();
+    	complexType = ctd;
+    }
+    
     public TypeDefinition(TypeDefinitionDMO obj, ClassDefinition cd){
     	super(obj,cd);
+    }
+    
+    /**
+     * @return the complex type on which this type is based or null if that's not the case
+     */
+    public ComplexTypeDefinition getComplexType(){
+    	return(complexType);
     }
     
     /**
