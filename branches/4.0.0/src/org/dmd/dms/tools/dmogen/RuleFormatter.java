@@ -5,21 +5,19 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.TreeMap;
 
-import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.util.DmcUncheckedObject;
-import org.dmd.dmc.util.NamedStringArray;
-import org.dmd.dms.RuleCategory;
-import org.dmd.dms.RuleDefinition;
-import org.dmd.dms.SchemaDefinition;
-import org.dmd.dms.SchemaManager;
-import org.dmd.dms.generated.enums.OperationalContextEnum;
-import org.dmd.dms.generated.enums.RuleTypeEnum;
-import org.dmd.dms.generated.types.RuleParam;
-import org.dmd.util.FileUpdateManager;
-import org.dmd.util.codegen.ImportManager;
-import org.dmd.util.codegen.Manipulator;
-import org.dmd.util.exceptions.DebugInfo;
-import org.dmd.util.exceptions.ResultException;
+import org.dmd.core.feedback.DMFeedback;
+import org.dmd.core.feedback.DMFeedbackSet;
+import org.dmd.core.util.DMUncheckedObject;
+import org.dmd.core.util.NamedStringArray;
+import org.dmd.dms.server.extended.RuleCategory;
+import org.dmd.dms.shared.generated.enums.OperationalContextEnum;
+import org.dmd.dms.shared.generated.enums.RuleTypeEnum;
+import org.dmd.dms.shared.generated.types.RuleParam;
+import org.dmd.util.artifact.FileUpdateManager;
+import org.dmd.util.artifact.Manipulator;
+import org.dmd.util.artifact.java.ImportManager;
+import org.dmd.util.runtime.DebugInfo;
+
 
 /**
  * The RuleFormatter will create the rule base implementation in generated/rules
@@ -46,11 +44,11 @@ public class RuleFormatter {
 	 * @throws ResultException 
 	 * @throws IOException 
 	 */
-	public void dumpBaseImplementations(String schemaName, String schemaPackage, TreeMap<String,DmcUncheckedObject> ruleDefs, TreeMap<String,DmcUncheckedObject> ruleCategoryDefs, String rulesDir) throws ResultException, IOException{
+	public void dumpBaseImplementations(String schemaName, String schemaPackage, TreeMap<String,DMUncheckedObject> ruleDefs, TreeMap<String,DMUncheckedObject> ruleCategoryDefs, String rulesDir) throws DMFeedbackSet, IOException{
 		
 		ImportManager factoryImports = new ImportManager();
 		
-		for(DmcUncheckedObject rule: ruleDefs.values()){
+		for(DMUncheckedObject rule: ruleDefs.values()){
     		String name = Manipulator.capFirstChar(rule.getSV("name"));
     		NamedStringArray categories = rule.get("ruleCategory");
     		
@@ -60,9 +58,8 @@ public class RuleFormatter {
     		ImportManager baseImports = new ImportManager();
     		StringBuffer interfaces = new StringBuffer();
     				
-//    		baseImports.addImport("org.dmd.dms.generated.enums.RuleScopeEnum", "Rule scope");
-    		baseImports.addImport("org.dmd.dms.generated.enums.RuleTypeEnum", "Rule type");
-    		baseImports.addImport("org.dmd.dmc.rules.RuleIF", "All rules implement this");
+    		baseImports.addImport("org.dmd.dms.shared.generated.enums.RuleTypeEnum", "Rule type");
+    		baseImports.addImport("org.dmd.core.rules.RuleIF", "All rules implement this");
     		baseImports.addImport("java.util.ArrayList", "To store category IDs");
     		baseImports.addImport("java.util.Iterator", "To access category IDs");
     		interfaces.append("RuleIF");
@@ -73,11 +70,10 @@ public class RuleFormatter {
     		StringBuffer categoryInit = new StringBuffer();
     		
     		for(String cname: categories){
-    			DmcUncheckedObject category = ruleCategoryDefs.get(cname);
+    			DMUncheckedObject category = ruleCategoryDefs.get(cname);
     			
     			if (category == null){
-    				ResultException ex = new ResultException("Unknown rule category: " + cname);
-    				throw(ex);
+    				throw(new DMFeedbackSet("Unknown rule category: " + cname));
     			}
     			
     			String categoryID = category.getSV("ruleCategoryID");
@@ -167,7 +163,7 @@ public class RuleFormatter {
 		
 		out.write("    public " + factoryName + "(){\n\n");
 		
-		for(DmcUncheckedObject rule: ruleDefs.values()){
+		for(DMUncheckedObject rule: ruleDefs.values()){
     		String name = Manipulator.capFirstChar(rule.getSV("name"));
 
     		out.write("        " + name + " " + name + "Instance = new " + name + "(new " + name + "DataDMO());\n\n");
@@ -190,9 +186,9 @@ public class RuleFormatter {
 	 * @throws ResultException 
 	 * @throws IOException 
 	 */
-	public void dumpRuleCategoryInterfaces(String schemaName, String schemaPackage, TreeMap<String,DmcUncheckedObject> ruleCategoryDefs, String rulesDir) throws ResultException, IOException{
+	public void dumpRuleCategoryInterfaces(String schemaName, String schemaPackage, TreeMap<String,DMUncheckedObject> ruleCategoryDefs, String rulesDir) throws DMFeedbackSet, IOException{
 		
-		for(DmcUncheckedObject category: ruleCategoryDefs.values()){
+		for(DMUncheckedObject category: ruleCategoryDefs.values()){
     		String 				name 					= Manipulator.capFirstChar(category.getSV("name"));
     		String 				ruleType 				= category.getSV("ruleType");
     		String 				classInfoFromParam		= category.getSV("classInfoFromParam");
@@ -224,7 +220,6 @@ public class RuleFormatter {
 	    			String ptype = param.getImportStatement().substring(lastDot + 1);
 	    			
 	    			if (!first){
-//	    				params.append(", ");
 	    				args.append(", ");
 	    				argValues.append(", ");
 	    			}
@@ -236,11 +231,9 @@ public class RuleFormatter {
 	    			argValues.append(param.getName());
 	    				
 	    			first = false;
-				} catch (DmcValueException e) {
-					System.err.println(e.toString());
-					e.printStackTrace();
-					System.err.println(category.toOIF());
-					System.exit(1);
+				} catch (DMFeedbackSet dfs) {
+					dfs.add(new DMFeedback("Occurred while generating rule category: \n" + category.toOIF()));
+					throw(dfs);
 				}
     			
     			
@@ -266,17 +259,9 @@ public class RuleFormatter {
 			
 			///////////////////////////////////////////////////////////////////
 			
-//			baseImports = new ImportManager();
-			
     		baseImports.addImport("org.dmd.dmc.rules.DmcRuleExceptionSet", "Rule type");
     		baseImports.addImport("org.dmd.dmc.rules.RuleIF", "All rules implement this");
-//    		baseImports.addImport("org.dmd.dmc.rules.RuleList", "Rules with flag to indicate that we've gathered info up the class hierarchy");
-//    		baseImports.addImport("org.dmd.dms.generated.enums.RuleTypeEnum", "To determine the type of a rule");
-//    		baseImports.addImport("org.dmd.dmc.rules.ClassRuleKey", "To determine the type of a rule");
-//    		baseImports.addImport("org.dmd.dmc.rules.AttributeRuleKey", "To determine the type of a rule");
     		baseImports.addImport("java.util.ArrayList", "Storage for the rules");
-//    		baseImports.addImport("java.util.TreeMap", "Storage for the rules");
-//    		baseImports.addImport("org.dmd.dmc.rules.RuleKey", "Generic rule key");
     		baseImports.addImport("org.dmd.dmc.DmcOmni", "Rule tracing support");
     		baseImports.addImport("org.dmd.dmc.DmcClassInfo", "Handle to class info");
     		
@@ -288,7 +273,6 @@ public class RuleFormatter {
     		if (isAttributeRule){
         		baseImports.addImport("org.dmd.dmc.rules.AttributeRuleCollection", "Attribute rule");
         		baseImports.addImport("org.dmd.dmc.DmcAttributeInfo", "Organizing global attribute rules");
-//        		baseImports.addImport("java.util.HashMap", "Storage for the rules");
     		}
     		else
         		baseImports.addImport("org.dmd.dmc.rules.ClassRuleCollection", "Class rule");
@@ -303,8 +287,6 @@ public class RuleFormatter {
 			if (isAttributeRule){
 				out.write("public class " + name + "RuleCollection extends AttributeRuleCollection<" + name + "IF> {" + "\n\n");
 				out.write("    public " + name + "RuleCollection(){\n");
-//				out.write("        globalRules = new HashMap<DmcAttributeInfo, ArrayList<" + name + "IF>>();\n");
-//				out.write("        rules = new TreeMap<RuleKey,RuleList<" + name + "IF>>();\n");
 				out.write("    }\n\n");
 				
 				out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
@@ -670,33 +652,33 @@ public class RuleFormatter {
 		dumpAutoTester(sm, sd, gendir, context);
 	}
 
-	void dumpAutoTester(SchemaManager sm, SchemaDefinition sd, String gendir, OperationalContextEnum context) throws ResultException {
-		String genpackage = sd.getSchemaPackage() + ".generated.rulesdmo";
-		ResultException	ex = null;
-		
-		for(RuleDefinition rd : sd.getRuleDefinitionList()){
-			if (context == OperationalContextEnum.DMO){
-				// Skip full java rules if we're generating for the DMO context
-				if (!rd.isDMOCompliant())
-					continue;
-			}
-			else{
-				if (rd.isDMOCompliant())
-					continue;
-			}
-			
-			try {
-				@SuppressWarnings("unused")
-				Class<?>	ruleClass = Class.forName(rd.getRuleDefinitionImport());
-			} catch (ClassNotFoundException e) {
-				if (ex == null)
-					ex = new ResultException();
-				ex.addError("You must create a rule implementation class: " + rd.getRuleDefinitionImport());
-				ex.result.lastResult().moreMessages("It must extend " + genpackage + "." + rd.getName() + "BaseImpl");
-			}
-		}
-		
-		if (ex != null)
-			throw(ex);
-	}
+//	void dumpAutoTester(SchemaManager sm, SchemaDefinition sd, String gendir, OperationalContextEnum context) throws ResultException {
+//		String genpackage = sd.getSchemaPackage() + ".generated.rulesdmo";
+//		ResultException	ex = null;
+//		
+//		for(RuleDefinition rd : sd.getRuleDefinitionList()){
+//			if (context == OperationalContextEnum.DMO){
+//				// Skip full java rules if we're generating for the DMO context
+//				if (!rd.isDMOCompliant())
+//					continue;
+//			}
+//			else{
+//				if (rd.isDMOCompliant())
+//					continue;
+//			}
+//			
+//			try {
+//				@SuppressWarnings("unused")
+//				Class<?>	ruleClass = Class.forName(rd.getRuleDefinitionImport());
+//			} catch (ClassNotFoundException e) {
+//				if (ex == null)
+//					ex = new ResultException();
+//				ex.addError("You must create a rule implementation class: " + rd.getRuleDefinitionImport());
+//				ex.result.lastResult().moreMessages("It must extend " + genpackage + "." + rd.getName() + "BaseImpl");
+//			}
+//		}
+//		
+//		if (ex != null)
+//			throw(ex);
+//	}
 }

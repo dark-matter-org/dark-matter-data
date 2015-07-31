@@ -33,7 +33,7 @@ import org.dmd.core.util.DMUncheckedObject;
  * <P>
  * Object Instance Format is a text-based format that allows for the capture
  * of just about any type of data. The kinds of objects that can be represented
- * depend on schemas that are defined as part of a Dark Matter Schema (DMS).
+ * depend on schemas that are defined as part of a dark-matter schema (DMS).
  * <P>
  * At this level of parsing, no real error checking is performed - that will be
  * taken care of by the object handler that understands the specifics of the
@@ -123,10 +123,9 @@ public class DMUncheckedObjectParser {
         	}
         	else
         		in = new LineNumberReader(new FileReader(fileName));
-// System.out.println("Reading " + fileName);
-            String str;
+
+        	String str;
             while ((str = in.readLine()) != null) {
-//DebugInfo.debug("Near line: " + in.getLineNumber());
                 if (str.startsWith("*") || str.startsWith("//")){
                     // It's a comment, skip it
                 }
@@ -147,7 +146,6 @@ public class DMUncheckedObjectParser {
                         }
                         else{
                             // We have tokens
-//                            if (str.startsWith(" ")){
                             if (Character.isWhitespace(str.charAt(0))){
                                 // Line continuation
                             	if (preserveNL.get(attrName) != null)
@@ -210,8 +208,6 @@ public class DMUncheckedObjectParser {
                             	handler.handleObject(uco,fn, in.getLineNumber());
                             }
                             catch(DMFeedbackSet ex){
-//                            	DebugInfo.debug(ex.toString());
-                            	
                             	// If this is the first exception, just hang on to it - we may
                             	// wind up adding to it later. Otherwise, just append the results
                             	// to our existing exception.
@@ -278,8 +274,6 @@ public class DMUncheckedObjectParser {
             	handler.handleObject(uco,fn,lastLine);
             }
             catch(DMFeedbackSet ex){
-//            	DebugInfo.debug(ex.toString());
-            	
             	// This is here to prevent problems when this same instance of the parser is used
             	// in multiple parsing exercises and we don't want to keep throwing/catching the 
             	// same exception.
