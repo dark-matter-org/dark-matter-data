@@ -1,0 +1,227 @@
+
+
+# Getting Started #
+
+This page outlines the steps required to recreate the behaviour of the [Tutorial Contacts2](http://code.google.com/webtoolkit/articles/mvp-architecture-2.html) example using Dark Matter mechanisms.
+
+## Create a New Web Application Project ##
+
+Create the new project:
+
+<img width='250' src='http://www.dark-matter-data.org/images/dmcNewWebApp.png' />
+
+In this case it's called dark-matter-contacts and we're using the same package structure as the contacts example.
+
+Ensure that Google App Engine is unchecked:
+
+<img width='450' src='http://www.dark-matter-data.org/images/dmcProject.png' />
+
+You can toast the `FieldVerifier.java` file in the `shared` package; we'll revisit [validation concepts](DMSValidation.md) at another point.
+
+## Get the Dark Matter jar ##
+
+Head on over the [Downloads Page](http://code.google.com/p/dark-matter-data/downloads/list) and grab the latest Dark Matter jar.
+
+Add the jar to your project and add it to the build path.
+
+## The Model ##
+
+We'll start with the [model](http://code.google.com/webtoolkit/articles/mvp-architecture.html#model), which, in the GWT Contacts example, is dealt with in a very sketchy manner; but we'll get a little more ambitious.
+
+After all, how can you talk about Model View Controller, Model View Presenter or [Model View Whatever](MVWOverview.md) without discussing the model?
+
+First, create the Dark Matter Data configuration folder (dmdconfig); you can actually call this whatever you want, it's just a convention to call it `dmdconfig`.
+
+Beneath this folder you'll create three files, `contacts.dms`, `attributes.dmd` and `classes.dmd`:
+
+```
+src
+    com.google.gwt.sample.contacts
+      client
+      server
+      shared
+          dmdconfig
+              contacts.dms
+              classes.dmd
+              attributes.dmd
+```
+
+### The Schema: contacts.dms ###
+
+The `contacts.dms` file contains a [SchemaDefinition](DMSSchemaDefinition.md) object that appears as follows:
+
+```
+SchemaDefinition
+name            contacts
+schemaPackage   com.google.gwt.sample.contacts.shared
+schemaBaseID    2000
+schemaIDRange   50
+defFiles        attributes.dmd
+defFiles        classes.dmd
+description     The contacts schema defines objects associated with the contacts
+ GWT application example.
+```
+
+The important aspects here include:
+
+  * the schema name must match the name of file (with the .dms suffix added
+  * the `schemaPackage` attribute must be specified correctly. This is used directly in the code generation process.
+  * the defFiles indicate the other files that will be loaded when the schema is parsed
+  * see the [Example Schema Definition](http://code.google.com/p/dark-matter-data/wiki/DMSSchemaDefinition#An_Example_Schema_Definition) for further explanation of the attributes
+
+### Attributes ###
+
+Which came first?
+
+It doesn't really matter, you can start defining your classes or you can start creating your attributes. Either way, you might want to check out a note about [Editting OIF Files](http://code.google.com/p/dark-matter-data/wiki/DMOOverview#Editting_OIF_Files) and set your file associations accordingly.
+
+I wanted to put a bit more meat on the contacts example, so I went to [GMail](http://mail.google.com/mail) and looked at the information associated with a contact. I've included the basics here.
+
+Here are the attribute definitions:
+
+```
+AttributeDefinition
+name		firstName
+type		String
+dmdID		0
+description     A contact's first name.
+
+AttributeDefinition
+name		middleName
+type		String
+dmdID		1
+description     A contact's middle name.
+
+AttributeDefinition
+name		lastName
+type		String
+dmdID		2
+description     A contact's last name.
+
+AttributeDefinition
+name		prefixCE
+type		String
+dmdID		3
+description     The prefix for a contact's name e.g. Mrs. Mr. Dr. etc.
+
+AttributeDefinition
+name		suffixCE
+type		String
+dmdID		4
+description     The suffix for a contact's name e.g. PhD. DMD. etc.
+
+AttributeDefinition
+name		nickName
+type		String
+dmdID		5
+description     The nickname for a contact.
+
+AttributeDefinition
+name		titleAndCompany
+type		String
+dmdID		6
+description     The person's job title and company info.
+
+AttributeDefinition
+name		phoneNumberCE
+type		String
+dmdID		7
+
+AttributeDefinition
+name		emailCE
+type		String
+dmdID		8
+
+AttributeDefinition
+name		birthdayCE
+type		Date
+dmdID		9
+
+AttributeDefinition
+name		urlCE
+type		String
+valueType 	MULTI
+dmdID		10
+description     A collection of URLs associated with a contact.
+
+AttributeDefinition
+name		notesCE
+type		String
+dmdID		11
+description     Random notes about the contact.
+```
+
+A couple of things to note:
+
+  * the `dmdID` (Dark Matter ID) is a mandatory attribute, just start at 0 and add as you go. See [a note about attribute and class identifiers](http://code.google.com/p/dark-matter-data/wiki/DMSSchemaDefinition#A_Note_About_Attribute_and_Class_Identifiers) for further info.
+  * if your attribute name is very common, consider adding a unique suffix. Eventually, as your application grows, you may start including schemas from other places; adding a suffix just keeps your names unique. I've done this here with `notesCE`, `birthdayCE` etc. CE just stands for Contact Example.
+
+## The Contact Class ##
+
+And now, our Contact class:
+
+```
+ClassDefinition
+name       	Contact
+classType	STRUCTURAL
+isNamedBy  	uuidName
+must		uuidName
+must       	firstName
+must       	lastName
+may       	middleName
+may       	prefixCE
+may        	suffixCE
+may		nickName
+may		titleAndCompany
+may		phoneNumberCE
+may		emailCE
+may		birthdayCE
+may		urlCE
+may		notesCE
+description	The Contact class is used to represent contact information for an individual.
+```
+
+A few things to note here:
+
+  * the `Contact` class is a named object, and the [naming of Dark Matter objects](http://code.google.com/p/dark-matter-data/wiki/DMONaming#The_Naming_of_Dark_Matter_Objects) is a topic in itself. However, since this a very simple example, we're going to use a built in attribute called `uuidName` to identify our `Contact` objects.
+  * whenever you create a named object class, it's name attribute will a mandatory attribute, as indicated by its inclusion in the list of `must` attributes.
+  * identify any other mandatory attributes, in this case `firstName` and `lastName`
+  * all other attributes can be considered optional
+  * if you care about documentation, you can include a `description` of your class
+
+And that's it to get started with your model/schema.
+
+Now, we generate some code...
+
+## Running the DMO Generator ##
+
+If you haven't already, have a look at how to setup and run the [DMO Generator](DMOGenerator.md) tool.
+
+If you've specified the `-autogen` option to simply generate code for all `.dms` configuration files, your output should look something like:
+
+```
+Parsing schema: contacts
+    Reading /Users/peter/darkmattertest/dark-matter-contacts/src/com/google/gwt/sample/contacts/shared/dmdconfig/contacts.dms
+      Reading /Users/peter/darkmattertest/dark-matter-contacts/src/com/google/gwt/sample/contacts/shared/dmdconfig/attributes.dmd
+      Reading /Users/peter/darkmattertest/dark-matter-contacts/src/com/google/gwt/sample/contacts/shared/dmdconfig/classes.dmd
+
+    Generating: /Users/peter/darkmattertest/dark-matter-contacts/src/com/google/gwt/sample/contacts/shared/generated/dmo/ContactDMO.java
+
+    Generating: /Users/peter/darkmattertest/dark-matter-contacts/src/com/google/gwt/sample/contacts/shared/generated/types/ContactREF.java
+    Generating: /Users/peter/darkmattertest/dark-matter-contacts/src/com/google/gwt/sample/contacts/shared/generated/types/DmcTypeContactREFSV.java
+    Generating: /Users/peter/darkmattertest/dark-matter-contacts/src/com/google/gwt/sample/contacts/shared/generated/types/DmcTypeContactREFSTATIC.java
+    Generating: /Users/peter/darkmattertest/dark-matter-contacts/src/com/google/gwt/sample/contacts/shared/generated/types/DmcTypeContactREFMV.java
+    Generating: /Users/peter/darkmattertest/dark-matter-contacts/src/com/google/gwt/sample/contacts/shared/generated/types/DmcTypeContactREFSET.java
+    Generating: /Users/peter/darkmattertest/dark-matter-contacts/src/com/google/gwt/sample/contacts/shared/generated/types/DmcTypeContactREFMAP.java
+    Generating: /Users/peter/darkmattertest/dark-matter-contacts/src/com/google/gwt/sample/contacts/shared/generated/types/DmcTypeContactREF.java
+
+    Generating: /Users/peter/darkmattertest/dark-matter-contacts/src/com/google/gwt/sample/contacts/shared/generated/dmo/ContactsASAG.java
+
+
+Files created:  9
+Files replaced: 0
+Files deleted:  0
+
+```
+
+Now let's look at [the code we've generated...](EXContacts2.md)

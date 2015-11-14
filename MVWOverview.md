@@ -1,0 +1,217 @@
+
+
+# Large scale application/site development with GWT #
+
+As I've mentioned before, I am eternally grateful to those folks who've developed [GWT](http://code.google.com/webtoolkit/).
+
+My first approach to web application development was based on [Sencha's](http://www.sencha.com/products/extgwt/) ExtGWT MVC mechanisms, and although this approach has been maligned by some, it allowed me to get started on a framework for developing a large scale web application.
+
+However, approaches to software design evolve and when I first saw the [Large scale application development and MVP](http://code.google.com/webtoolkit/articles/mvp-architecture.html) article by Chris Ramsdale, it gave me some other food for thought.
+
+Likewise, when the [GWT Development with Activities and Places](http://code.google.com/webtoolkit/doc/latest/DevGuideMvpActivitiesAndPlaces.html) page went up, I was again presented with a veritable banquet of ideas!
+
+However, trying to reconcile these ideas into something coherent and systematic was leaving me with conceptual indigestion.
+
+## Web Applications versus Web Sites ##
+
+As I mentioned in the [Dark Matter Data Overview](DMDOverview.md), I view <font color='#9E0B0F'> <b>web application development</b> </font> as being distinct from <font color='#9E0B0F'> <b>web site development</b> </font>. Now, although I view them as distinct, that's not to say that there aren't similarities between these concepts, there definitely are.
+
+The primary conceptual difference I see between web applications and web sites has to do with [Places](http://code.google.com/webtoolkit/doc/latest/DevGuideMvpActivitiesAndPlaces.html#Places). As a rule of thumb, I tend to see web applications as existing in a single `Place`. Web sites, on the other hand are comprised of many different `Places`.
+
+In a web application, the user's overall `View` tends to remain fairly consistent. Elements come and go from the view e.g. tabs, dialogs etc. but the overall structure tends to remain constant. Likewise, the backward and forward buttons tend not to be used. In short, the user's interaction is more like the interaction with a desktop application.
+
+Of course, this is a generalization, so don't get carried away if you don't agree; I'm merely trying to lay some basic groundwork here ;-)
+
+So, with that basic distinction made, I'll start describing Dark Matter's Model View Whatever conceptual model.
+
+# Model View Whatever #
+
+In order to achieve the architectures alluded to in the [MVP](http://code.google.com/webtoolkit/articles/mvp-architecture.html) and [Activities/Places](http://code.google.com/webtoolkit/doc/latest/DevGuideMvpActivitiesAndPlaces.html) scenarios, a fair amount of interface definition and wiring has to be done. One of the primary goals of what I have dubbed _Model View Whatever_ (MVW) is to help reduce the amount of manual work required to build large scale applications with GWT, while still adhering to these best practices.
+
+There is a delicate balance to strike here: on one hand, I want to reduce the effort involved and on the other, I don't want to force potential users of MVW into using a heavyweight framework.
+
+<font color='#9E0B0F'>
+<b>MVW can be used without dependence on any of the other Dark Matter Framework elements e.g. schema, protocol etc.</b>
+</font>
+
+That being said, the schema and protocol mechanisms bring significant benefits to application development.
+
+## Modularity ##
+
+A basic concept of MVW is that all definitions are associated with a named `Module`. Modules can then be aggregated to form complete web applications. Modules can depend on one another, so that including a single `Module` in your `WebApplication` may bring along additional functionality on which that `Module` depends.
+
+`Modules` can also depend on [Dark Matter Schemas](DMSOverview.md), which bring along a variety of benefits when defining other components. However, there is nothing forcing you to use any other aspect of the Dark Matter Framework if you decide to use MVW.
+
+A basic `Module` definition might appear as follows:
+
+```
+Module
+moduleName      contacts
+dependsOnSchema contacts
+genPackage      com.google.gwt.sample.contacts.client
+description     The contacts module defines components that let us manage a set of contacts.
+```
+
+Much more about `Modules` later on.
+
+## `WebApplications` and `WebSites` ##
+
+The whole point of defining `Modules` is to allow you to aggregate them to form complete web applications or websites. Depending on the type of applications you're building, `Modules` may be very reusable, or purpose built for particular applications. Regardless, by decomposing your application into well-defined modules you've taken steps towards creating an application that is testable, extensible and maintainable.
+
+There's a lot more to this concept, but an example definition might look like:
+
+```
+WebApplication
+appName Mail
+dependsOnModule commsmanager
+dependsOnModule selectionmanager
+dependsOnModule mailAppController
+dependsOnModule folderNavigator
+dependsOnModule messageDisplay
+dependsOnModule contacts
+description     The Mail application provides a complete mail client.
+```
+
+We'll discuss the `WebApplication` and `WebSite` at length later.
+
+## Events ##
+
+One aspect that is considered table stakes is that the `EventBus` and the `GwtEvents` it carries is at the heart of any MVW-based application.
+If events don't seem to hold any particular interest for you, read no further!
+
+All of the `GwtEvents` (and the associated handlers) you'll need to drive your `WebApplication` are generated on your behalf by the [MVW Generator Tool](MVWGenerator.md).
+
+A simple event, with no data can be defined as follows:
+
+```
+Event
+eventName   AddContactEvent
+description Fired when the Add Button in the ContactsView is clicked.
+```
+
+And this will result in the generation of:
+
+```
+package com.google.gwt.sample.contacts.client.generated.mvw.events;
+
+import com.google.gwt.event.shared.GwtEvent;         // The base event type
+
+public class AddContactEvent extends GwtEvent<AddContactEventHandler> {
+
+    public static Type<AddContactEventHandler> TYPE = new Type<AddContactEventHandler>();
+
+    public AddContactEvent() {
+    }
+
+    @Override
+    public Type<AddContactEventHandler> getAssociatedType() {
+        return TYPE;
+    }
+
+    @Override
+    protected void dispatch(AddContactEventHandler handler) {
+        handler.onAddContactEvent(this);
+    }
+
+}
+
+```
+
+and...
+
+```
+package com.google.gwt.sample.contacts.client.event;
+
+import com.google.gwt.event.shared.EventHandler;
+
+public interface AddContactEventHandler extends EventHandler {
+  void onAddContact(AddContactEvent event);
+}
+```
+
+Events with data can be defined in much the same way.
+
+Once defined, events can be referred to in other component definitions, to indicate that those components fire or handle the specified event. As a result, code is generated that simplifies firing, handling and registering for these events.
+
+## `RunContext` ##
+
+In the  [Activities/Places](http://code.google.com/webtoolkit/doc/latest/DevGuideMvpActivitiesAndPlaces.html) article, mention is made of the `ClientFactory`:
+
+<table width='600'>
+<tr>
+<td width='20' valign='top'>
+</td>
+<td valign='top'>
+<i>A <code>ClientFactory</code> is not strictly required in GWT 2.1; however, it is helpful to use a factory or dependency injection framework like GIN to obtain references to objects needed throughout your application like the event bus. Our example uses a <code>ClientFactory</code> to provide an <code>EventBus</code>, GWT <code>PlaceController</code>, and view implementations.</i>
+</td>
+</tr>
+</table>
+
+The basic idea here is very useful, although I found the nomenclature a bit confusing. When I see the a `SomethingFactory`, I expected to see it create a `Something`; maybe I'm too much of a literalist ;-)
+
+Anyway, MVW includes the concept of the `RunContext` which serves the same role as the `ClientFactory`.
+
+However, there is also a standard mechanism for defining the items that should be made available via the `RunContext`. For example:
+
+```
+RunContextItem
+itemName     eventBus
+useClass     com.google.web.bindery.event.shared.SimpleEventBus
+construction new SimpleEventBus();
+itemOrder    1
+contextImpl  Default
+```
+
+Now, different `Modules` may define a variety of different context items and when you aggregate these different `Modules` to form a `WebApplication`, the interface that represents your particular `RunContext` as well as the different possible implementations of that interface are generated for you automatically.
+
+Trust me, it saves a lot of work!
+
+## Views ##
+
+Finally - one of those concepts that's common to everything, the View.
+
+The [View](MVWView.md) interface and its closely related presenter interface are also generated by the [MVW Generator Tool](MVWGenerator.md) based on a definition that looks like:
+
+```
+View
+viewName       ContactListView
+broadcastOnly  AddContactEvent
+broadcastOnly  EditContactEvent
+local          DeleteContactsEvent
+local          ContactUpdatedEvent
+viewMethod     void displayContacts(List<ContactDMO> contacts)
+viewMethod     void deleteContact(ContactDMO contact)
+viewImport     java.util.List
+viewImport      com.google.gwt.sample.contacts.shared.generated.dmo.ContactDMO
+description    The ContactListView displays a list of Contacts and shows the first and
+ last names and the email address of the contact.
+```
+
+And this results in the generation of the interface:
+
+```
+package com.google.gwt.sample.contacts.client.generated.mvw.views;
+
+import com.google.gwt.sample.contacts.shared.generated.dmo.ContactDMO;         // View import
+import java.util.List;                                                         // View import
+
+public interface ContactListView {
+
+    public interface ContactListViewPresenter {
+
+        public void onContactUpdatedEvent(ContactDMO updatedContact);
+
+        public void onDeleteContactsEvent(List<ContactDMO> deletedContacts);
+
+    }
+
+    public void setPresenter(ContactListViewPresenter presenter);
+
+    public void displayContacts(List<ContactDMO> contacts);
+
+    public void deleteContact(ContactDMO contact);
+
+}
+```
+
+And, perhaps more importantly results in the generation of a base implementation of the View that handles standard things like injecting a handle to the `EventBus` (if required), defining standard methods for firing events, having a handle to a Presenter of the correct type etc.

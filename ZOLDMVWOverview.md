@@ -1,0 +1,86 @@
+
+
+# Model View Whatever #
+
+I've been using GWT for about a year now and am always on a learning curve; which is probably a good thing.
+
+When I started this documentation exercise, the only approach to overall application structure I had used was [Sencha's](http://www.sencha.com/products/extgwt/) ExtGWT MVC mechanisms. I had read the varying reviews of this approach and, although it wasn't perfect, it provided me with a clear path forward; it wasn't rocket science.
+
+I'm a relatively lazy sort, so to make my life easier I wrote some code generation tools around the ExtGWT MVC mechanisms so that I could cut down on the amount of hand coding I did for the basic plumbing.
+
+<table width='820'>
+
+<tr>
+<td valign='top'>
+<font color='#9E0B0F'>
+<b>NOTE:</b>
+</font>
+</td>
+<td valign='top'>
+Throughout this discussion I'll refer to the code generation framework that creates Sencha's style of MVC as Dark Matter MVC (DM-MVC). This is to distinguish it from Dark Matter Model View Whatever (DM-MVW) which is still in progress.<br>
+</td>
+</tr>
+
+</table>
+
+
+## DM-MVC High Level Structure - Controllers/Applications ##
+
+I wanted to be able to define the main aspects of the framework, namely Controllers, Views and Events (and some other bits) and be able to tie them together easily into an entire Application. I wanted the Controllers to be reusable across different Applications so that I could pick and choose the features I wanted. For instance, if I had built an Alarm Display, I'd like to be able to use that Alarm Display in different Applications that required such a beast.
+
+What emerged was a structure like this:
+
+<img src='http://www.dark-matter-data.org/images/mvwStructure.png' />
+
+The salient aspects of this approach are:
+<table width='820' cellspacing='10'>
+
+<tr>
+<td width='140' valign='top'>
+<b><i>You don't have anything<br>
+unless you have a model.</i></b>
+</td>
+<td valign='top'>
+There's a reason it's the first term in MVC and MVP. Regardless of what type of user interface you're building, make sure you have some clear concept of "model".<br>
+<br>
+The <a href='DMSOverview.md'>Dark Matter Schema</a> mechanisms give you a solid basis for your model.<br>
+<br>
+However, nothing prevents you from using any other form of "model" you want to use. The DM-MVC mechanisms do not directly depend on <a href='DMOOverview.md'>DMOs</a>.<br>
+</td>
+</tr>
+<tr>
+<td valign='top'>
+<b><i>Make your features reusable.</i></b>
+</td>
+<td valign='top'>
+I'm not saying that you have to make them reusuable for everyone, everywhere, but that they should at least be reusable within your software organization.<br>
+<br>
+Designing your features to be reusable (even if you only use them in one application) means that you've designed them to have distinct boundaries and interfaces. This sort of modularity also makes maintenance easier.<br>
+</td>
+</tr>
+<tr>
+<td valign='top'>
+<b><i>Understanding events is crucial in any large scale application.</i></b>
+</td>
+<td valign='top'>
+Okay. Perhaps that's blindingly obvious, but I've seen a variety of systems where event management wasn't on the designer's mind when they started building and things just went down hill from there!<br>
+<br>
+Events are first level definitions in DM-MVC. Controllers and Views clearly indicate which events they fire and which events they handle.<br>
+</td>
+</tr>
+<tr>
+<td valign='top'>
+<b><i>Any organizing principle is better than none at all.</i></b>
+</td>
+<td>
+Everyone has an opinion on the MVC/MVP debate and the nature of software development is to constantly look for better ways of doing things.<br>
+<br>
+That being said, I'd rather start with some organizing principle or concept, even if it is slightly flawed, because to be without one will definitely result in building an unextensible, unmaintainable system.<br>
+<br>
+DM-MVC isn't perfect, but DM-MVW will be better and most of the configuration will be forwards compatible.<br>
+</td>
+</tr>
+</table>
+
+
+

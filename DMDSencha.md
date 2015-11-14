@@ -1,0 +1,15 @@
+# Sencha's ExtGWT Library #
+
+Many of the Dark Matter GWT examples make use of the ExtGWT (aka GXT) Java library. The reasoning behind this is that, although GWT provides an amazing basis for developing AJAX applications, there is a huge amount of effort required to create a professional Look & Feel for such an application and I am certainly no expert in that regard.
+
+GXT provides an excellent Look and Feel and provides a framework that supports the creation of complex web applications. Although the framework is pretty light in the documentation department, most aspects can be understood by examining the sample code that Sencha provides. See [www.sencha.com](http://www.sencha.com) for further information.
+
+The one area that is perhaps most important in the creation of a complex application is, likewise, one of the areas that is most shrouded in mystery, the Model View Controller (MVC) framework. This framework is featured in the `Mail App` sample, but beyond the example, there isn't much information.
+
+Dark Matter addresses this mystery by providing a descriptive mechanism for defining the various aspects of the MVC framework and generating much of the code required to drive your application.
+
+Although it's using the GXT MVC farmework now, there are plans to also provide support for GWT's [MVP](http://code.google.com/webtoolkit/doc/latest/DevGuideMvpActivitiesAndPlaces.html) mechanisms as well.
+
+Have a look at the [Model View Whatever](MVWOverview.md) page for a discussion of MVC versus MVP.
+
+One step at a time.

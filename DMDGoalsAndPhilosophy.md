@@ -1,0 +1,49 @@
+
+
+# Goals & Philosophy #
+
+The concepts on which Dark Matter is based arise from a telecommunications data management background and may seem unusual to designers from other backgrounds. However, in the field of data management, data is data, regardless of its source or usage.
+
+Keep an open mind.
+
+## Dark Matter? ##
+
+Why the heck is this called Dark Matter?
+
+[Dark Matter](http://en.wikipedia.org/wiki/Dark_matter) is the invisible "glue" that binds our universe into the recognizable, visible chunks that we can observe. Without its influence, there would be insufficient mass to bind the visible aspects of our universe together and eventually, galaxies would lose their cohesion and everything would expand to the point of incoherence... or so we're told by astrophysicists!
+
+The visible aspects of the web are well understood and a plethora of frameworks and systems exist that let us define and manipulate these visible aspects. However, all of those visible aspects, whether presented via a web browser or an application are views of data, pure and simple. The data is persisted in different ways, it is transported in different ways and it is manipulated in different ways.
+
+Understanding the data that is managed by an application, be it a web application, a desktop application or any other type of application is crucial to building an application that meets the needs of the users. If you don't understand the data to be managed, you can't build the application; it's that simple. Dark Matter allows you to focus on the data being managed and then allows you to generate much of the infrastructure that's required to persist, transport, manipulate, present and be informed of changes in that data.
+
+And besides all that, Dark Matter's just a cool name ;-)
+
+## Define Your Data ##
+
+If you're managing data, you'd better be able to describe it clearly and concisely. For this reason, all aspects of the data associated with Dark Matter are defined via an extensible schema specification mechanism. This schema specification mechanism borrows concepts from some obscure sources: The Open Systems Interconnection (OSI) [Guidelines for the Definition of Managed Objects](http://www.cellsoft.de/telecom/gdmo.htm) (GDMO) and [Lightweight Directory Access Protocol](http://en.wikipedia.org/wiki/LDAP) (LDAP) Directory Server concepts. However, don't let the obscure sources put you off, the mechanisms are straight forward and can save you a great deal of time and coding effort.
+
+Once the schema is defined, Dark Matter Objects (DMOs) can be generated and used in a variety of contexts throughout your application.
+
+All aspects of schema definition are discussed on the [Dark Matter Schema](DMSOverview.md) page.
+
+## Manipulate Your Data in a Rational Way ##
+
+Many of the interfaces used between clients/servers are ad hoc and tend to grow and become complex as the application evolves. Dark Matter provides a well defined protocol based on concepts from yet another obscure technology, the [Common Management Information Service](http://en.wikipedia.org/wiki/Common_management_information_service) (CMIS) and [Common Management Information Protocol](http://en.wikipedia.org/wiki/Common_management_information_protocol) (CMIP). Again, although CMIS/CMIP were originally targeted at network management, they embody generically useful data management concepts that can be used in any data management context.
+
+All aspects of manipulating your data via [GWT RPC](http://code.google.com/webtoolkit/doc/latest/tutorial/RPC.html) or via communications using [Netty](http://www.jboss.org/netty) are discussed on the [Dark Matter Protocol](DMPOverview.md) page.
+
+## Events are Import ##
+
+If you're managing data, you're often interested in when that data changes. Dark Matter embeds some functionality provided by Sven Strohschein from his [GWT Event Service](http://code.google.com/p/gwteventservice/) project at [Google Code](http://code.google.com/). By using this framework, Dark Matter provides event notifications that indicate when data objects have been created, deleted or modified.
+
+## Remain Repository Agnostic ##
+
+So many frameworks claim to be repository agnostic, but that tends to be limited to being able to store your data in RDBMS X or RDBMS Y. Relational Database Management Systems are great for lots of things, but they aren't the only data repositories that exist and they can be complex to administer and maintain.
+
+Dark Matter attempts to break out of the RDBMS trap by exposing you to some other options for storing your data, especially if that data tends to be hierarchic. That being said, there's nothing to stop you from storing Dark Matter Objects in an RDBMS.
+
+See the [Dark Matter Repository](DMROverview.md) page for further discussion.
+
+## Stay Pragmatic ##
+
+The Dark Matter Data Framework is being used as the basis for a commercial network management product and, as such, is focused entirely on enabling the delivery of a solid, modular, maintainable product that spans standard Java servers/clients as well servlet containers and web browsers. Being able to manage data in each of these different contexts using a common infrastructure is pretty cool!
