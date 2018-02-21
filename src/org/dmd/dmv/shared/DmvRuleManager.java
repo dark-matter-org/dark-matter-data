@@ -13,11 +13,18 @@ import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmc.rules.DmcRuleManager;
 import org.dmd.dmc.rules.RuleCollection;
 import org.dmd.dmc.util.DmcUncheckedObject;
+import org.dmd.dmc.util.UcoDataStoreIF;
+import org.dmd.dmc.util.UcoFeedbackIF;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.rulesdmo.AttributeValidationRuleCollection;
 import org.dmd.dms.generated.rulesdmo.AttributeValidationWithResolverRuleCollection;
 import org.dmd.dms.generated.rulesdmo.InitializationRuleCollection;
 import org.dmd.dms.generated.rulesdmo.ObjectValidationRuleCollection;
+import org.dmd.dms.generated.rulesdmo.UCOAttributeAuditRuleCollection;
+import org.dmd.dms.generated.rulesdmo.UCOAttributeNormalizationRuleCollection;
+import org.dmd.dms.generated.rulesdmo.UCOMappingRuleCollection;
+import org.dmd.dms.generated.rulesdmo.UCOObjectAuditRuleCollection;
+import org.dmd.dms.generated.rulesdmo.UCOObjectNormalizationRuleCollection;
 import org.dmd.dms.generated.rulesdmo.UCOValidationRuleCollection;
 import org.dmd.dmv.shared.generated.dmo.DmvDMSAG;
 
@@ -45,6 +52,16 @@ public class DmvRuleManager extends DmcRuleManager {
 	InitializationRuleCollection					initializers;
 	
 	UCOValidationRuleCollection						ucoObjectvalidators;
+	
+	UCOAttributeNormalizationRuleCollection			ucoAttributeNormalizers;
+	
+	UCOObjectNormalizationRuleCollection			ucoObjectNormalizers;
+	
+	UCOMappingRuleCollection						ucoMappers;
+	
+	UCOAttributeAuditRuleCollection					ucoAttributeAuditors;
+	
+	UCOObjectAuditRuleCollection					ucoObjectAuditors;
 	
 	
 	ArrayList<RuleCollection<?>>					ruleCollections;
@@ -74,6 +91,21 @@ public class DmvRuleManager extends DmcRuleManager {
 		
 		ucoObjectvalidators	= new UCOValidationRuleCollection();
 		ruleCollections.add(ucoObjectvalidators);
+				
+		ucoAttributeNormalizers	= new UCOAttributeNormalizationRuleCollection();
+		ruleCollections.add(ucoAttributeNormalizers);
+		
+		ucoObjectNormalizers = new UCOObjectNormalizationRuleCollection();
+		ruleCollections.add(ucoObjectNormalizers);
+				
+		ucoMappers	= new UCOMappingRuleCollection();
+		ruleCollections.add(ucoMappers);
+				
+		ucoAttributeAuditors	= new UCOAttributeAuditRuleCollection();
+		ruleCollections.add(ucoAttributeAuditors);
+		
+		ucoObjectAuditors = new UCOObjectAuditRuleCollection();
+		ruleCollections.add(ucoObjectAuditors);
 				
 		loadRules(MetaDMSAG.instance());
 		
@@ -183,6 +215,26 @@ public class DmvRuleManager extends DmcRuleManager {
 	
 	public void executeUCOValidators(DmcUncheckedObject uco) throws DmcRuleExceptionSet{
 		ucoObjectvalidators.execute(uco);
+	}
+	
+	public void executeUCOAttributeNormalizers(DmcUncheckedObject uco, String attributeName, UcoDataStoreIF in, UcoFeedbackIF listener) throws DmcRuleExceptionSet{
+		ucoAttributeNormalizers.execute(uco,attributeName,in,listener);
+	}
+	
+	public void executeUCOObjectNormalizers(DmcUncheckedObject uco, UcoDataStoreIF in, UcoFeedbackIF listener) throws DmcRuleExceptionSet{
+		ucoObjectNormalizers.execute(uco,in,listener);
+	}
+	
+	public void executeUCOMappers(DmcUncheckedObject uco, UcoDataStoreIF in, UcoDataStoreIF out, UcoFeedbackIF listener) throws DmcRuleExceptionSet{
+		ucoMappers.execute(uco,in,out,listener);
+	}
+	
+	public void executeUCOAttributeAuditors(DmcUncheckedObject uco, String attributeName, UcoDataStoreIF in, UcoDataStoreIF out, UcoFeedbackIF listener) throws DmcRuleExceptionSet{
+		ucoAttributeAuditors.execute(uco,attributeName,in,out,listener);
+	}
+	
+	public void executeUCOObjectAuditors(DmcUncheckedObject uco, String attributeName, UcoDataStoreIF in, UcoDataStoreIF out, UcoFeedbackIF listener) throws DmcRuleExceptionSet{
+		ucoObjectAuditors.execute(uco,in,out,listener);
 	}
 	
 	public String toString(){

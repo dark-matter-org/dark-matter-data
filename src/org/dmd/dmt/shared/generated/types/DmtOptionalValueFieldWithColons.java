@@ -172,7 +172,7 @@ public class DmtOptionalValueFieldWithColons implements Serializable {
             if (typeAI.weakReference)
                 return;
             if (obj == null)
-                throw(new DmcValueException("Could not resolve reference to: " + typeV.getObjectName() + " via attribute: " + attrName));
+                throw(new DmcValueException("Could not resolve reference to: " + typeV.getObjectName() + " (of type: TypeDefinition) via attribute: " + attrName));
         
             if (obj instanceof DmcContainerIF)
                 ((DmcNamedObjectREF)typeV).setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());

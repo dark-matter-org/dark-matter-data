@@ -1,27 +1,33 @@
 package org.dmd.dmt.shared.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:1080)
-import java.util.ArrayList;                                              // For storage of schema info - (DmoCompactSchemaFormatter.java:1014)
-import java.util.HashMap;                                                // For storage of schema info - (DmoCompactSchemaFormatter.java:1013)
-import java.util.Iterator;                                               // For access of schema info - (DmoCompactSchemaFormatter.java:1015)
-import org.dmd.dmc.*;                                                    // Basic DMC stuff - (DmoCompactSchemaFormatter.java:1016)
-import org.dmd.dmc.rules.RuleIF;                                         // For rule info - (DmoCompactSchemaFormatter.java:1017)
-import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;                        // Required attribute from DmpDMSAG - (DmoCompactSchemaFormatter.java:1033)
-import org.dmd.dmr.shared.base.generated.dmo.DmrbaseDMSAG;               // Optional attribute from DmrbaseDMSAG - (DmoCompactSchemaFormatter.java:1037)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                              // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:1033)
-import org.dmd.dms.generated.enums.ClassTypeEnum;                        // Have class definitions - (DmoCompactSchemaFormatter.java:1021)
-import org.dmd.dms.generated.enums.DataTypeEnum;                         // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:1022)
-import org.dmd.dms.generated.enums.OriginalTypeEnum;                     // Have type/internal type definitions - (DmoCompactSchemaFormatter.java:1027)
-import org.dmd.dms.generated.enums.ValueTypeEnum;                        // Have attribute definitions - (DmoCompactSchemaFormatter.java:1048)
-import org.dmd.dms.generated.types.DmcTypeIntegerSV;                     // Support for addition of svInteger values to the extensible InitRuleData class - (ClassDefinition.java:968)
-import org.dmd.dms.generated.types.DmcTypeStringMV;                      // Support for addition of mvString values to the extensible InitRuleData class - (ClassDefinition.java:968)
-import org.dmd.dms.generated.types.DmcTypeStringSV;                      // Support for addition of svString values to the extensible InitRuleData class - (ClassDefinition.java:968)
-import org.dmd.dmt.shared.generated.types.DmcTypeDmtTestEnumSET;         // Support for addition of hsTestEnum values to the extensible InitRuleData class - (ClassDefinition.java:968)
-import org.dmd.dmv.shared.extended.rulesdmo.InitRule;                    // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:1074)
-import org.dmd.dmv.shared.extended.rulesdmo.NumericRangeRule;            // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:1074)
-import org.dmd.dmv.shared.generated.dmo.InitRuleDataDMO;                 // To instantiate InitRuleData rule data - (DmoCompactSchemaFormatter.java:1073)
-import org.dmd.dmv.shared.generated.dmo.NumericRangeRuleDataDMO;         // To instantiate NumericRangeRuleData rule data - (DmoCompactSchemaFormatter.java:1073)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:1088)
+import java.util.ArrayList;                                                    // For storage of schema info - (DmoCompactSchemaFormatter.java:1022)
+import java.util.HashMap;                                                      // For storage of schema info - (DmoCompactSchemaFormatter.java:1021)
+import java.util.Iterator;                                                     // For access of schema info - (DmoCompactSchemaFormatter.java:1023)
+import org.dmd.dmc.*;                                                          // Basic DMC stuff - (DmoCompactSchemaFormatter.java:1024)
+import org.dmd.dmc.rules.RuleIF;                                               // For rule info - (DmoCompactSchemaFormatter.java:1025)
+import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;                              // Required attribute from DmpDMSAG - (DmoCompactSchemaFormatter.java:1041)
+import org.dmd.dmr.shared.base.generated.dmo.DmrbaseDMSAG;                     // Optional attribute from DmrbaseDMSAG - (DmoCompactSchemaFormatter.java:1045)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                    // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:1041)
+import org.dmd.dms.generated.enums.ClassTypeEnum;                              // Have class definitions - (DmoCompactSchemaFormatter.java:1029)
+import org.dmd.dms.generated.enums.DataTypeEnum;                               // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:1030)
+import org.dmd.dms.generated.enums.OriginalTypeEnum;                           // Have type/internal type definitions - (DmoCompactSchemaFormatter.java:1035)
+import org.dmd.dms.generated.enums.ValueTypeEnum;                              // Have attribute definitions - (DmoCompactSchemaFormatter.java:1056)
+import org.dmd.dms.generated.types.DmcTypeIntegerSV;                           // Support for addition of svInteger values to the extensible InitRuleData class - (ClassDefinition.java:969)
+import org.dmd.dms.generated.types.DmcTypeStringMV;                            // Support for addition of mvString values to the extensible InitRuleData class - (ClassDefinition.java:969)
+import org.dmd.dms.generated.types.DmcTypeStringSV;                            // Support for addition of svString values to the extensible InitRuleData class - (ClassDefinition.java:969)
+import org.dmd.dmt.shared.generated.types.DmcTypeDmtTestEnumSET;               // Support for addition of hsTestEnum values to the extensible InitRuleData class - (ClassDefinition.java:969)
+import org.dmd.dmv.shared.extended.rulesdmo.CardinalityRule;                   // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:1082)
+import org.dmd.dmv.shared.extended.rulesdmo.InitRule;                          // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:1082)
+import org.dmd.dmv.shared.extended.rulesdmo.NumericRangeRule;                  // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:1082)
+import org.dmd.dmv.shared.extended.rulesdmo.RestrictReferencesRule;            // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:1082)
+import org.dmd.dmv.shared.extended.rulesdmo.StringSetRule;                     // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:1082)
+import org.dmd.dmv.shared.generated.dmo.CardinalityRuleDataDMO;                // To instantiate CardinalityRuleData rule data - (DmoCompactSchemaFormatter.java:1081)
+import org.dmd.dmv.shared.generated.dmo.InitRuleDataDMO;                       // To instantiate InitRuleData rule data - (DmoCompactSchemaFormatter.java:1081)
+import org.dmd.dmv.shared.generated.dmo.NumericRangeRuleDataDMO;               // To instantiate NumericRangeRuleData rule data - (DmoCompactSchemaFormatter.java:1081)
+import org.dmd.dmv.shared.generated.dmo.RestrictReferencesRuleDataDMO;         // To instantiate RestrictReferencesRuleData rule data - (DmoCompactSchemaFormatter.java:1081)
+import org.dmd.dmv.shared.generated.dmo.StringSetRuleDataDMO;                  // To instantiate StringSetRuleData rule data - (DmoCompactSchemaFormatter.java:1081)
 
 
 import org.dmd.dmt.shared.generated.types.*;
@@ -70,6 +76,8 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __indexedString = new DmcAttributeInfo("dmt", "indexedString", 10914, "String", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, 5, false);
     public final static DmcAttributeInfo __intToString = new DmcAttributeInfo("dmt", "intToString", 10080, "IntegerToString", ValueTypeEnum.HASHMAPPED, DataTypeEnum.PERSISTENT, 0, false);
     public final static DmcAttributeInfo __intToStringMAP = new DmcAttributeInfo("dmt", "intToStringMAP", 10924, "IntegerToString", ValueTypeEnum.TREEMAPPED, DataTypeEnum.PERSISTENT, 0, false);
+    public final static DmcAttributeInfo __limitedStringMV = new DmcAttributeInfo("dmt", "limitedStringMV", 10015, "String", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, 0, false);
+    public final static DmcAttributeInfo __limitedStringSV = new DmcAttributeInfo("dmt", "limitedStringSV", 10014, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, 0, false);
     public final static DmcAttributeInfo __mvBoolean = new DmcAttributeInfo("dmt", "mvBoolean", 10001, "Boolean", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, 0, false);
     public final static DmcAttributeInfo __mvComplex = new DmcAttributeInfo("dmt", "mvComplex", 10929, "MenuElementTypeAndComment", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, 0, false);
     public final static DmcAttributeInfo __mvDate = new DmcAttributeInfo("dmt", "mvDate", 10011, "Date", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, 0, false);
@@ -154,6 +162,8 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     public final static DmcTypeInfo __type_NamedObjTM = new DmcTypeInfo("NamedObjTM", OriginalTypeEnum.OBJECT);
     public final static DmcTypeInfo __type_NamedObjTS = new DmcTypeInfo("NamedObjTS", OriginalTypeEnum.OBJECT);
     public final static DmcTypeInfo __type_ObjWithRefs = new DmcTypeInfo("ObjWithRefs", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_ObjWithRefsDerivedA = new DmcTypeInfo("ObjWithRefsDerivedA", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_ObjWithRefsDerivedB = new DmcTypeInfo("ObjWithRefsDerivedB", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_ParseTest = new DmcTypeInfo("ParseTest", OriginalTypeEnum.OBJECT);
     public final static DmcTypeInfo __type_PrimitiveHM = new DmcTypeInfo("PrimitiveHM", OriginalTypeEnum.OBJECT);
     public final static DmcTypeInfo __type_PrimitiveHS = new DmcTypeInfo("PrimitiveHS", OriginalTypeEnum.OBJECT);
@@ -183,52 +193,54 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     public final static DmcTypeInfo __type_UsingObjRefHM = new DmcTypeInfo("UsingObjRefHM", OriginalTypeEnum.OBJECT);
 
     // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:225)
-    public final static DmcClassInfo __BaseObj = new DmcClassInfo("BaseObj","org.dmd.dmt.shared.generated.dmo.BaseObjDMO", 10015, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
-    public final static DmcClassInfo __ObjWithRefs = new DmcClassInfo("ObjWithRefs","org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO", 10016, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__BaseObj,MetaDMSAG.__name);
-    public final static DmcClassInfo __ClientCountFilter = new DmcClassInfo("ClientCountFilter","org.dmd.dmt.shared.generated.dmo.ClientCountFilterDMO", 10017, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __ClientCountFilterRequest = new DmcClassInfo("ClientCountFilterRequest","org.dmd.dmt.shared.generated.dmo.ClientCountFilterRequestDMO", 10018, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,DmpDMSAG.__Request,null);
-    public final static DmcClassInfo __ComplexTypeTest = new DmcClassInfo("ComplexTypeTest","org.dmd.dmt.shared.generated.dmo.ComplexTypeTestDMO", 10409, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __ExtendedRefHS = new DmcClassInfo("ExtendedRefHS","org.dmd.dmt.shared.generated.dmo.ExtendedRefHSDMO", 10406, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __ExtendedRefMV = new DmcClassInfo("ExtendedRefMV","org.dmd.dmt.shared.generated.dmo.ExtendedRefMVDMO", 10402, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __ExtendedRefMVIDX = new DmcClassInfo("ExtendedRefMVIDX","org.dmd.dmt.shared.generated.dmo.ExtendedRefMVIDXDMO", 10403, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __ExtendedRefSV = new DmcClassInfo("ExtendedRefSV","org.dmd.dmt.shared.generated.dmo.ExtendedRefSVDMO", 10401, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __ExtendedRefTS = new DmcClassInfo("ExtendedRefTS","org.dmd.dmt.shared.generated.dmo.ExtendedRefTSDMO", 10407, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __IntegerNamedObject = new DmcClassInfo("IntegerNamedObject","org.dmd.dmt.shared.generated.dmo.IntegerNamedObjectDMO", 10013, ClassTypeEnum.STRUCTURAL, DataTypeEnum.NONPERSISTENT,null,MetaDMSAG.__integerName);
-    public final static DmcClassInfo __NameContainerTest = new DmcClassInfo("NameContainerTest","org.dmd.dmt.shared.generated.dmo.NameContainerTestDMO", 10014, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __NamedObjHM = new DmcClassInfo("NamedObjHM","org.dmd.dmt.shared.generated.dmo.NamedObjHMDMO", 10204, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __NamedObjHS = new DmcClassInfo("NamedObjHS","org.dmd.dmt.shared.generated.dmo.NamedObjHSDMO", 10206, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __NamedObjMV = new DmcClassInfo("NamedObjMV","org.dmd.dmt.shared.generated.dmo.NamedObjMVDMO", 10202, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __NamedObjMVIDX = new DmcClassInfo("NamedObjMVIDX","org.dmd.dmt.shared.generated.dmo.NamedObjMVIDXDMO", 10203, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __NamedObjSV = new DmcClassInfo("NamedObjSV","org.dmd.dmt.shared.generated.dmo.NamedObjSVDMO", 10201, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __NamedObjTM = new DmcClassInfo("NamedObjTM","org.dmd.dmt.shared.generated.dmo.NamedObjTMDMO", 10205, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __NamedObjTS = new DmcClassInfo("NamedObjTS","org.dmd.dmt.shared.generated.dmo.NamedObjTSDMO", 10207, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __ParseTest = new DmcClassInfo("ParseTest","org.dmd.dmt.shared.generated.dmo.ParseTestDMO", 10408, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __PrimitiveHM = new DmcClassInfo("PrimitiveHM","org.dmd.dmt.shared.generated.dmo.PrimitiveHMDMO", 10104, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __PrimitiveHS = new DmcClassInfo("PrimitiveHS","org.dmd.dmt.shared.generated.dmo.PrimitiveHSDMO", 10106, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __PrimitiveMV = new DmcClassInfo("PrimitiveMV","org.dmd.dmt.shared.generated.dmo.PrimitiveMVDMO", 10102, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __PrimitiveMVIDX = new DmcClassInfo("PrimitiveMVIDX","org.dmd.dmt.shared.generated.dmo.PrimitiveMVIDXDMO", 10103, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __PrimitiveSV = new DmcClassInfo("PrimitiveSV","org.dmd.dmt.shared.generated.dmo.PrimitiveSVDMO", 10101, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __PrimitiveTM = new DmcClassInfo("PrimitiveTM","org.dmd.dmt.shared.generated.dmo.PrimitiveTMDMO", 10105, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __PrimitiveTS = new DmcClassInfo("PrimitiveTS","org.dmd.dmt.shared.generated.dmo.PrimitiveTSDMO", 10107, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __TestAbstractExtended = new DmcClassInfo("TestAbstractExtended","org.dmd.dmt.shared.generated.dmo.TestAbstractExtendedDMO", 10002, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __TestAbstractFixed = new DmcClassInfo("TestAbstractFixed","org.dmd.dmt.shared.generated.dmo.TestAbstractFixedDMO", 10001, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __TestBasicAuxiliary = new DmcClassInfo("TestBasicAuxiliary","org.dmd.dmt.shared.generated.dmo.TestBasicAuxiliaryDMO", 10006, ClassTypeEnum.AUXILIARY, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __TestBasicNamedObjectExtended = new DmcClassInfo("TestBasicNamedObjectExtended","org.dmd.dmt.shared.generated.dmo.TestBasicNamedObjectExtendedDMO", 10005, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
-    public final static DmcClassInfo __TestBasicNamedObjectFixed = new DmcClassInfo("TestBasicNamedObjectFixed","org.dmd.dmt.shared.generated.dmo.TestBasicNamedObjectFixedDMO", 10004, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
-    public final static DmcClassInfo __TestBasicObjectFixed = new DmcClassInfo("TestBasicObjectFixed","org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO", 10003, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __TestMultiLevelSubpackage = new DmcClassInfo("TestMultiLevelSubpackage","org.dmd.dmt.shared.generated.dmo.TestMultiLevelSubpackageDMO", 10009, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
-    public final static DmcClassInfo __TestDerivedSubpackage = new DmcClassInfo("TestDerivedSubpackage","org.dmd.dmt.shared.generated.dmo.TestDerivedSubpackageDMO", 10010, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__TestMultiLevelSubpackage,MetaDMSAG.__name);
-    public final static DmcClassInfo __TestOneLevelSubpackage = new DmcClassInfo("TestOneLevelSubpackage","org.dmd.dmt.shared.generated.dmo.TestOneLevelSubpackageDMO", 10007, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
-    public final static DmcClassInfo __TestDerivedDiffSubpackage = new DmcClassInfo("TestDerivedDiffSubpackage","org.dmd.dmt.shared.generated.dmo.TestDerivedDiffSubpackageDMO", 10011, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__TestOneLevelSubpackage,MetaDMSAG.__name);
-    public final static DmcClassInfo __TestOneLevelSubpackageExtended = new DmcClassInfo("TestOneLevelSubpackageExtended","org.dmd.dmt.shared.generated.dmo.TestOneLevelSubpackageExtendedDMO", 10008, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
-    public final static DmcClassInfo __UUIDNamedObject = new DmcClassInfo("UUIDNamedObject","org.dmd.dmt.shared.generated.dmo.UUIDNamedObjectDMO", 10012, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__uuidName);
-    public final static DmcClassInfo __UnnamedObjHS = new DmcClassInfo("UnnamedObjHS","org.dmd.dmt.shared.generated.dmo.UnnamedObjHSDMO", 10306, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __UnnamedObjMV = new DmcClassInfo("UnnamedObjMV","org.dmd.dmt.shared.generated.dmo.UnnamedObjMVDMO", 10302, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __UnnamedObjMVIDX = new DmcClassInfo("UnnamedObjMVIDX","org.dmd.dmt.shared.generated.dmo.UnnamedObjMVIDXDMO", 10303, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __UnnamedObjSV = new DmcClassInfo("UnnamedObjSV","org.dmd.dmt.shared.generated.dmo.UnnamedObjSVDMO", 10301, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __UnnamedObjTS = new DmcClassInfo("UnnamedObjTS","org.dmd.dmt.shared.generated.dmo.UnnamedObjTSDMO", 10307, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __UsingIndexedAttributes = new DmcClassInfo("UsingIndexedAttributes","org.dmd.dmt.shared.generated.dmo.UsingIndexedAttributesDMO", 10019, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __UsingObjRefHM = new DmcClassInfo("UsingObjRefHM","org.dmd.dmt.shared.generated.dmo.UsingObjRefHMDMO", 10020, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __BaseObj = new DmcClassInfo("BaseObj","org.dmd.dmt.shared.generated.dmo.BaseObjDMO", 20015, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
+    public final static DmcClassInfo __ObjWithRefs = new DmcClassInfo("ObjWithRefs","org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO", 20016, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__BaseObj,MetaDMSAG.__name);
+    public final static DmcClassInfo __ObjWithRefsDerivedA = new DmcClassInfo("ObjWithRefsDerivedA","org.dmd.dmt.shared.generated.dmo.ObjWithRefsDerivedADMO", 20021, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__ObjWithRefs,MetaDMSAG.__name);
+    public final static DmcClassInfo __ObjWithRefsDerivedB = new DmcClassInfo("ObjWithRefsDerivedB","org.dmd.dmt.shared.generated.dmo.ObjWithRefsDerivedBDMO", 20022, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__ObjWithRefs,MetaDMSAG.__name);
+    public final static DmcClassInfo __ClientCountFilter = new DmcClassInfo("ClientCountFilter","org.dmd.dmt.shared.generated.dmo.ClientCountFilterDMO", 20017, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __ClientCountFilterRequest = new DmcClassInfo("ClientCountFilterRequest","org.dmd.dmt.shared.generated.dmo.ClientCountFilterRequestDMO", 20018, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,DmpDMSAG.__Request,null);
+    public final static DmcClassInfo __ComplexTypeTest = new DmcClassInfo("ComplexTypeTest","org.dmd.dmt.shared.generated.dmo.ComplexTypeTestDMO", 20409, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __ExtendedRefHS = new DmcClassInfo("ExtendedRefHS","org.dmd.dmt.shared.generated.dmo.ExtendedRefHSDMO", 20406, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __ExtendedRefMV = new DmcClassInfo("ExtendedRefMV","org.dmd.dmt.shared.generated.dmo.ExtendedRefMVDMO", 20402, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __ExtendedRefMVIDX = new DmcClassInfo("ExtendedRefMVIDX","org.dmd.dmt.shared.generated.dmo.ExtendedRefMVIDXDMO", 20403, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __ExtendedRefSV = new DmcClassInfo("ExtendedRefSV","org.dmd.dmt.shared.generated.dmo.ExtendedRefSVDMO", 20401, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __ExtendedRefTS = new DmcClassInfo("ExtendedRefTS","org.dmd.dmt.shared.generated.dmo.ExtendedRefTSDMO", 20407, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __IntegerNamedObject = new DmcClassInfo("IntegerNamedObject","org.dmd.dmt.shared.generated.dmo.IntegerNamedObjectDMO", 20013, ClassTypeEnum.STRUCTURAL, DataTypeEnum.NONPERSISTENT,null,MetaDMSAG.__integerName);
+    public final static DmcClassInfo __NameContainerTest = new DmcClassInfo("NameContainerTest","org.dmd.dmt.shared.generated.dmo.NameContainerTestDMO", 20014, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __NamedObjHM = new DmcClassInfo("NamedObjHM","org.dmd.dmt.shared.generated.dmo.NamedObjHMDMO", 20204, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __NamedObjHS = new DmcClassInfo("NamedObjHS","org.dmd.dmt.shared.generated.dmo.NamedObjHSDMO", 20206, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __NamedObjMV = new DmcClassInfo("NamedObjMV","org.dmd.dmt.shared.generated.dmo.NamedObjMVDMO", 20202, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __NamedObjMVIDX = new DmcClassInfo("NamedObjMVIDX","org.dmd.dmt.shared.generated.dmo.NamedObjMVIDXDMO", 20203, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __NamedObjSV = new DmcClassInfo("NamedObjSV","org.dmd.dmt.shared.generated.dmo.NamedObjSVDMO", 20201, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __NamedObjTM = new DmcClassInfo("NamedObjTM","org.dmd.dmt.shared.generated.dmo.NamedObjTMDMO", 20205, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __NamedObjTS = new DmcClassInfo("NamedObjTS","org.dmd.dmt.shared.generated.dmo.NamedObjTSDMO", 20207, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __ParseTest = new DmcClassInfo("ParseTest","org.dmd.dmt.shared.generated.dmo.ParseTestDMO", 20408, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __PrimitiveHM = new DmcClassInfo("PrimitiveHM","org.dmd.dmt.shared.generated.dmo.PrimitiveHMDMO", 20104, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __PrimitiveHS = new DmcClassInfo("PrimitiveHS","org.dmd.dmt.shared.generated.dmo.PrimitiveHSDMO", 20106, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __PrimitiveMV = new DmcClassInfo("PrimitiveMV","org.dmd.dmt.shared.generated.dmo.PrimitiveMVDMO", 20102, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __PrimitiveMVIDX = new DmcClassInfo("PrimitiveMVIDX","org.dmd.dmt.shared.generated.dmo.PrimitiveMVIDXDMO", 20103, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __PrimitiveSV = new DmcClassInfo("PrimitiveSV","org.dmd.dmt.shared.generated.dmo.PrimitiveSVDMO", 20101, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __PrimitiveTM = new DmcClassInfo("PrimitiveTM","org.dmd.dmt.shared.generated.dmo.PrimitiveTMDMO", 20105, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __PrimitiveTS = new DmcClassInfo("PrimitiveTS","org.dmd.dmt.shared.generated.dmo.PrimitiveTSDMO", 20107, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __TestAbstractExtended = new DmcClassInfo("TestAbstractExtended","org.dmd.dmt.shared.generated.dmo.TestAbstractExtendedDMO", 20002, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __TestAbstractFixed = new DmcClassInfo("TestAbstractFixed","org.dmd.dmt.shared.generated.dmo.TestAbstractFixedDMO", 20001, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __TestBasicAuxiliary = new DmcClassInfo("TestBasicAuxiliary","org.dmd.dmt.shared.generated.dmo.TestBasicAuxiliaryDMO", 20006, ClassTypeEnum.AUXILIARY, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __TestBasicNamedObjectExtended = new DmcClassInfo("TestBasicNamedObjectExtended","org.dmd.dmt.shared.generated.dmo.TestBasicNamedObjectExtendedDMO", 20005, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
+    public final static DmcClassInfo __TestBasicNamedObjectFixed = new DmcClassInfo("TestBasicNamedObjectFixed","org.dmd.dmt.shared.generated.dmo.TestBasicNamedObjectFixedDMO", 20004, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
+    public final static DmcClassInfo __TestBasicObjectFixed = new DmcClassInfo("TestBasicObjectFixed","org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO", 20003, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __TestMultiLevelSubpackage = new DmcClassInfo("TestMultiLevelSubpackage","org.dmd.dmt.shared.generated.dmo.TestMultiLevelSubpackageDMO", 20009, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
+    public final static DmcClassInfo __TestDerivedSubpackage = new DmcClassInfo("TestDerivedSubpackage","org.dmd.dmt.shared.generated.dmo.TestDerivedSubpackageDMO", 20010, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__TestMultiLevelSubpackage,MetaDMSAG.__name);
+    public final static DmcClassInfo __TestOneLevelSubpackage = new DmcClassInfo("TestOneLevelSubpackage","org.dmd.dmt.shared.generated.dmo.TestOneLevelSubpackageDMO", 20007, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
+    public final static DmcClassInfo __TestDerivedDiffSubpackage = new DmcClassInfo("TestDerivedDiffSubpackage","org.dmd.dmt.shared.generated.dmo.TestDerivedDiffSubpackageDMO", 20011, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__TestOneLevelSubpackage,MetaDMSAG.__name);
+    public final static DmcClassInfo __TestOneLevelSubpackageExtended = new DmcClassInfo("TestOneLevelSubpackageExtended","org.dmd.dmt.shared.generated.dmo.TestOneLevelSubpackageExtendedDMO", 20008, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
+    public final static DmcClassInfo __UUIDNamedObject = new DmcClassInfo("UUIDNamedObject","org.dmd.dmt.shared.generated.dmo.UUIDNamedObjectDMO", 20012, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__uuidName);
+    public final static DmcClassInfo __UnnamedObjHS = new DmcClassInfo("UnnamedObjHS","org.dmd.dmt.shared.generated.dmo.UnnamedObjHSDMO", 20306, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __UnnamedObjMV = new DmcClassInfo("UnnamedObjMV","org.dmd.dmt.shared.generated.dmo.UnnamedObjMVDMO", 20302, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __UnnamedObjMVIDX = new DmcClassInfo("UnnamedObjMVIDX","org.dmd.dmt.shared.generated.dmo.UnnamedObjMVIDXDMO", 20303, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __UnnamedObjSV = new DmcClassInfo("UnnamedObjSV","org.dmd.dmt.shared.generated.dmo.UnnamedObjSVDMO", 20301, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __UnnamedObjTS = new DmcClassInfo("UnnamedObjTS","org.dmd.dmt.shared.generated.dmo.UnnamedObjTSDMO", 20307, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __UsingIndexedAttributes = new DmcClassInfo("UsingIndexedAttributes","org.dmd.dmt.shared.generated.dmo.UsingIndexedAttributesDMO", 20019, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __UsingObjRefHM = new DmcClassInfo("UsingObjRefHM","org.dmd.dmt.shared.generated.dmo.UsingObjRefHMDMO", 20020, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
 
     // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:236)
     public final static DmcSliceInfo __slice1 = new DmcSliceInfo("slice1");
@@ -242,9 +254,16 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
 
 
     // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:254)
+    public final static CardinalityRule __canOnlyHavemvInteger;
+    public final static StringSetRule __dmtCheckLimitedMV;
+    public final static StringSetRule __dmtCheckLimitedSV;
     public final static InitRule __dmtInitTestBasicObjectFixed;
     public final static NumericRangeRule __dmtSvFloatNumericRange;
     public final static NumericRangeRule __dmtSvIntegerNumericRange;
+    public final static RestrictReferencesRule __rrrDerivedA;
+    public final static RestrictReferencesRule __rrrDerivedA2;
+    public final static RestrictReferencesRule __rrrDerivedB;
+    public final static RestrictReferencesRule __rrrDerivedB2;
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;
 
@@ -298,49 +317,49 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         __TestAbstractFixed.addMust(__svString);
 
         __TestAbstractExtended.addMust(__svString);
-        __TestAbstractExtended.addMay(__someRelationSV);
-        __TestAbstractExtended.addMay(__someRelationMVI);
-        __TestAbstractExtended.addMay(__intToStringMAP);
-        __TestAbstractExtended.addMay(__hsStringName);
         __TestAbstractExtended.addMay(__clientCountFilters);
+        __TestAbstractExtended.addMay(__hsStringName);
+        __TestAbstractExtended.addMay(__intToStringMAP);
+        __TestAbstractExtended.addMay(__someRelationMVI);
+        __TestAbstractExtended.addMay(__someRelationSV);
 
-        __TestBasicObjectFixed.addMay(__svBoolean);
-        __TestBasicObjectFixed.addMay(__mvBoolean);
-        __TestBasicObjectFixed.addMay(__svDate);
-        __TestBasicObjectFixed.addMay(__mvDate);
         __TestBasicObjectFixed.addMay(__hsDate);
-        __TestBasicObjectFixed.addMay(__tsDate);
-        __TestBasicObjectFixed.addMay(__svDouble);
-        __TestBasicObjectFixed.addMay(__mvDouble);
         __TestBasicObjectFixed.addMay(__hsDouble);
-        __TestBasicObjectFixed.addMay(__tsDouble);
-        __TestBasicObjectFixed.addMay(__svFloat);
-        __TestBasicObjectFixed.addMay(__mvFloat);
         __TestBasicObjectFixed.addMay(__hsFloat);
-        __TestBasicObjectFixed.addMay(__tsFloat);
-        __TestBasicObjectFixed.addMay(__svInteger);
-        __TestBasicObjectFixed.addMay(__mvInteger);
         __TestBasicObjectFixed.addMay(__hsInteger);
-        __TestBasicObjectFixed.addMay(__tsInteger);
-        __TestBasicObjectFixed.addMay(__intToString);
-        __TestBasicObjectFixed.addMay(__svLong);
-        __TestBasicObjectFixed.addMay(__mvLong);
         __TestBasicObjectFixed.addMay(__hsLong);
-        __TestBasicObjectFixed.addMay(__tsLong);
-        __TestBasicObjectFixed.addMay(__svString);
-        __TestBasicObjectFixed.addMay(__mvString);
         __TestBasicObjectFixed.addMay(__hsString);
-        __TestBasicObjectFixed.addMay(__tsString);
-        __TestBasicObjectFixed.addMay(__svTestBasicNamedObjectFixed);
         __TestBasicObjectFixed.addMay(__hsTestEnum);
+        __TestBasicObjectFixed.addMay(__intToString);
+        __TestBasicObjectFixed.addMay(__mvBoolean);
+        __TestBasicObjectFixed.addMay(__mvDate);
+        __TestBasicObjectFixed.addMay(__mvDouble);
+        __TestBasicObjectFixed.addMay(__mvFloat);
         __TestBasicObjectFixed.addMay(__mvIdxUnnamedObj);
+        __TestBasicObjectFixed.addMay(__mvInteger);
+        __TestBasicObjectFixed.addMay(__mvLong);
+        __TestBasicObjectFixed.addMay(__mvString);
+        __TestBasicObjectFixed.addMay(__svBoolean);
+        __TestBasicObjectFixed.addMay(__svDate);
+        __TestBasicObjectFixed.addMay(__svDouble);
+        __TestBasicObjectFixed.addMay(__svFloat);
+        __TestBasicObjectFixed.addMay(__svInteger);
+        __TestBasicObjectFixed.addMay(__svLong);
+        __TestBasicObjectFixed.addMay(__svString);
+        __TestBasicObjectFixed.addMay(__svTestBasicNamedObjectFixed);
+        __TestBasicObjectFixed.addMay(__tsDate);
+        __TestBasicObjectFixed.addMay(__tsDouble);
+        __TestBasicObjectFixed.addMay(__tsFloat);
+        __TestBasicObjectFixed.addMay(__tsInteger);
+        __TestBasicObjectFixed.addMay(__tsLong);
+        __TestBasicObjectFixed.addMay(__tsString);
         __TestBasicObjectFixed.addMay(DmrbaseDMSAG.__userName);
 
         __TestBasicNamedObjectFixed.addMust(MetaDMSAG.__name);
         __TestBasicNamedObjectFixed.addMust(__svString);
+        __TestBasicNamedObjectFixed.addMay(__mvIdxUnnamedObj);
         __TestBasicNamedObjectFixed.addMay(__mvString);
         __TestBasicNamedObjectFixed.addMay(__mvTestBasicNamedObjectFixed);
-        __TestBasicNamedObjectFixed.addMay(__mvIdxUnnamedObj);
 
         __TestBasicNamedObjectExtended.addMust(MetaDMSAG.__name);
         __TestBasicNamedObjectExtended.addMust(__svString);
@@ -370,65 +389,147 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         __TestDerivedDiffSubpackage.addMay(__mvString);
 
         __UUIDNamedObject.addMust(MetaDMSAG.__uuidName);
-        __UUIDNamedObject.addMay(__svBoolean);
         __UUIDNamedObject.addMay(__mvBoolean);
-        __UUIDNamedObject.addMay(__svString);
-        __UUIDNamedObject.addMay(__mvString);
-        __UUIDNamedObject.addMay(__svDate);
         __UUIDNamedObject.addMay(__mvDate);
-        __UUIDNamedObject.addMay(__svDouble);
         __UUIDNamedObject.addMay(__mvDouble);
+        __UUIDNamedObject.addMay(__mvString);
+        __UUIDNamedObject.addMay(__svBoolean);
+        __UUIDNamedObject.addMay(__svDate);
+        __UUIDNamedObject.addMay(__svDouble);
+        __UUIDNamedObject.addMay(__svString);
 
         __IntegerNamedObject.addMust(MetaDMSAG.__integerName);
         __IntegerNamedObject.addMay(__svString);
 
-        __NameContainerTest.addMust(__dmtStringName);
         __NameContainerTest.addMust(__anObjName);
+        __NameContainerTest.addMust(__dmtStringName);
         __NameContainerTest.addMay(__anotherDmtName);
 
         __BaseObj.addMust(MetaDMSAG.__name);
         __BaseObj.addMay(__svDate);
 
+        __ObjWithRefs.addMust(__mvTestEnum);
         __ObjWithRefs.addMust(MetaDMSAG.__name);
         __ObjWithRefs.addMust(__svString);
-        __ObjWithRefs.addMust(__mvTestEnum);
         __ObjWithRefs.addMay(__anotherSVString);
-        __ObjWithRefs.addMay(__objRef);
-        __ObjWithRefs.addMay(__objRefMV);
-        __ObjWithRefs.addMay(__objRefHM);
-        __ObjWithRefs.addMay(__mvString);
-        __ObjWithRefs.addMay(__intToString);
         __ObjWithRefs.addMay(__attrIDs);
+        __ObjWithRefs.addMay(__clientCountFilters);
+        __ObjWithRefs.addMay(__enabledDisabled);
         __ObjWithRefs.addMay(__hsDate);
-        __ObjWithRefs.addMay(__hsString);
-        __ObjWithRefs.addMay(__hsTestEnum);
         __ObjWithRefs.addMay(__hsNames);
-        __ObjWithRefs.addMay(__nonperString);
-        __ObjWithRefs.addMay(__transString);
-        __ObjWithRefs.addMay(__indexedString);
+        __ObjWithRefs.addMay(__hsString);
+        __ObjWithRefs.addMay(__hsStringName);
+        __ObjWithRefs.addMay(__hsTestEnum);
         __ObjWithRefs.addMay(__indexedObjRef);
         __ObjWithRefs.addMay(__indexedPlainObjRef);
-        __ObjWithRefs.addMay(__plainObjRef);
-        __ObjWithRefs.addMay(__svTestEnum);
-        __ObjWithRefs.addMay(__svBoolean);
+        __ObjWithRefs.addMay(__indexedString);
+        __ObjWithRefs.addMay(__intToString);
+        __ObjWithRefs.addMay(__intToStringMAP);
+        __ObjWithRefs.addMay(__limitedStringMV);
+        __ObjWithRefs.addMay(__limitedStringSV);
+        __ObjWithRefs.addMay(__mvString);
+        __ObjWithRefs.addMay(__nonperString);
+        __ObjWithRefs.addMay(__objRef);
+        __ObjWithRefs.addMay(__objRefHM);
+        __ObjWithRefs.addMay(__objRefMV);
         __ObjWithRefs.addMay(__onOff);
-        __ObjWithRefs.addMay(__enabledDisabled);
-        __ObjWithRefs.addMay(__someRelationSV);
+        __ObjWithRefs.addMay(__plainObjRef);
         __ObjWithRefs.addMay(__someRelationMV);
         __ObjWithRefs.addMay(__someRelationMVI);
-        __ObjWithRefs.addMay(__intToStringMAP);
-        __ObjWithRefs.addMay(__hsStringName);
-        __ObjWithRefs.addMay(__clientCountFilters);
+        __ObjWithRefs.addMay(__someRelationSV);
+        __ObjWithRefs.addMay(__svBoolean);
+        __ObjWithRefs.addMay(__svDate);
+        __ObjWithRefs.addMay(__svTestEnum);
+        __ObjWithRefs.addMay(__transString);
 
         __ClientCountFilter.addMay(__OUIFilter);
 
         __ClientCountFilterRequest.addMust(DmpDMSAG.__requestID);
         __ClientCountFilterRequest.addMay(__clientCountFilter);
+        __ClientCountFilterRequest.addMay(DmpDMSAG.__handlerID);
+        __ClientCountFilterRequest.addMay(DmpDMSAG.__notifyOriginator);
+        __ClientCountFilterRequest.addMay(MetaDMSAG.__nvp);
+        __ClientCountFilterRequest.addMay(DmpDMSAG.__originatorID);
+        __ClientCountFilterRequest.addMay(DmpDMSAG.__readableFormat);
+        __ClientCountFilterRequest.addMay(DmpDMSAG.__responseFormat);
+        __ClientCountFilterRequest.addMay(DmpDMSAG.__sessionID);
+        __ClientCountFilterRequest.addMay(DmpDMSAG.__timeMS);
+        __ClientCountFilterRequest.addMay(DmpDMSAG.__timeoutSeconds);
+        __ClientCountFilterRequest.addMay(DmpDMSAG.__trackingEnabled);
+        __ClientCountFilterRequest.addMay(DmrbaseDMSAG.__userName);
 
-        __UsingIndexedAttributes.addMay(__someRelationIndexed);
         __UsingIndexedAttributes.addMay(__indexedString);
+        __UsingIndexedAttributes.addMay(__someRelationIndexed);
 
         __UsingObjRefHM.addMay(__objRefHM);
+
+        __ObjWithRefsDerivedA.addMust(__mvTestEnum);
+        __ObjWithRefsDerivedA.addMust(MetaDMSAG.__name);
+        __ObjWithRefsDerivedA.addMust(__svString);
+        __ObjWithRefsDerivedA.addMay(__anotherSVString);
+        __ObjWithRefsDerivedA.addMay(__attrIDs);
+        __ObjWithRefsDerivedA.addMay(__clientCountFilters);
+        __ObjWithRefsDerivedA.addMay(__enabledDisabled);
+        __ObjWithRefsDerivedA.addMay(__hsDate);
+        __ObjWithRefsDerivedA.addMay(__hsNames);
+        __ObjWithRefsDerivedA.addMay(__hsString);
+        __ObjWithRefsDerivedA.addMay(__hsStringName);
+        __ObjWithRefsDerivedA.addMay(__hsTestEnum);
+        __ObjWithRefsDerivedA.addMay(__indexedObjRef);
+        __ObjWithRefsDerivedA.addMay(__indexedPlainObjRef);
+        __ObjWithRefsDerivedA.addMay(__indexedString);
+        __ObjWithRefsDerivedA.addMay(__intToString);
+        __ObjWithRefsDerivedA.addMay(__intToStringMAP);
+        __ObjWithRefsDerivedA.addMay(__limitedStringMV);
+        __ObjWithRefsDerivedA.addMay(__limitedStringSV);
+        __ObjWithRefsDerivedA.addMay(__mvString);
+        __ObjWithRefsDerivedA.addMay(__nonperString);
+        __ObjWithRefsDerivedA.addMay(__objRef);
+        __ObjWithRefsDerivedA.addMay(__objRefHM);
+        __ObjWithRefsDerivedA.addMay(__objRefMV);
+        __ObjWithRefsDerivedA.addMay(__onOff);
+        __ObjWithRefsDerivedA.addMay(__plainObjRef);
+        __ObjWithRefsDerivedA.addMay(__someRelationMV);
+        __ObjWithRefsDerivedA.addMay(__someRelationMVI);
+        __ObjWithRefsDerivedA.addMay(__someRelationSV);
+        __ObjWithRefsDerivedA.addMay(__svBoolean);
+        __ObjWithRefsDerivedA.addMay(__svDate);
+        __ObjWithRefsDerivedA.addMay(__svTestEnum);
+        __ObjWithRefsDerivedA.addMay(__transString);
+
+        __ObjWithRefsDerivedB.addMust(__mvTestEnum);
+        __ObjWithRefsDerivedB.addMust(MetaDMSAG.__name);
+        __ObjWithRefsDerivedB.addMust(__svString);
+        __ObjWithRefsDerivedB.addMay(__anotherSVString);
+        __ObjWithRefsDerivedB.addMay(__attrIDs);
+        __ObjWithRefsDerivedB.addMay(__clientCountFilters);
+        __ObjWithRefsDerivedB.addMay(__enabledDisabled);
+        __ObjWithRefsDerivedB.addMay(__hsDate);
+        __ObjWithRefsDerivedB.addMay(__hsNames);
+        __ObjWithRefsDerivedB.addMay(__hsString);
+        __ObjWithRefsDerivedB.addMay(__hsStringName);
+        __ObjWithRefsDerivedB.addMay(__hsTestEnum);
+        __ObjWithRefsDerivedB.addMay(__indexedObjRef);
+        __ObjWithRefsDerivedB.addMay(__indexedPlainObjRef);
+        __ObjWithRefsDerivedB.addMay(__indexedString);
+        __ObjWithRefsDerivedB.addMay(__intToString);
+        __ObjWithRefsDerivedB.addMay(__intToStringMAP);
+        __ObjWithRefsDerivedB.addMay(__limitedStringMV);
+        __ObjWithRefsDerivedB.addMay(__limitedStringSV);
+        __ObjWithRefsDerivedB.addMay(__mvString);
+        __ObjWithRefsDerivedB.addMay(__nonperString);
+        __ObjWithRefsDerivedB.addMay(__objRef);
+        __ObjWithRefsDerivedB.addMay(__objRefHM);
+        __ObjWithRefsDerivedB.addMay(__objRefMV);
+        __ObjWithRefsDerivedB.addMay(__onOff);
+        __ObjWithRefsDerivedB.addMay(__plainObjRef);
+        __ObjWithRefsDerivedB.addMay(__someRelationMV);
+        __ObjWithRefsDerivedB.addMay(__someRelationMVI);
+        __ObjWithRefsDerivedB.addMay(__someRelationSV);
+        __ObjWithRefsDerivedB.addMay(__svBoolean);
+        __ObjWithRefsDerivedB.addMay(__svDate);
+        __ObjWithRefsDerivedB.addMay(__svTestEnum);
+        __ObjWithRefsDerivedB.addMay(__transString);
 
         __PrimitiveSV.addMay(__svString);
 
@@ -478,80 +579,181 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
 
         __ExtendedRefTS.addMay(__tsExtendedRef);
 
-        __ParseTest.addMay(__svUnnamedObj);
-        __ParseTest.addMay(__mvUnnamedObj);
-        __ParseTest.addMay(__svBoolean);
         __ParseTest.addMay(__mvIdxNamedObj);
         __ParseTest.addMay(__mvIdxUnnamedObj);
+        __ParseTest.addMay(__mvUnnamedObj);
+        __ParseTest.addMay(__svBoolean);
+        __ParseTest.addMay(__svUnnamedObj);
 
-        __ComplexTypeTest.addMay(__svComplex);
         __ComplexTypeTest.addMay(__mvComplex);
+        __ComplexTypeTest.addMay(__svComplex);
 
     }
 
-    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:352)
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:360)
     static {
 
 
-        // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:371)
+        // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:379)
         try{
+            CardinalityRuleDataDMO _canOnlyHavemvIntegerData = new CardinalityRuleDataDMO();
+            _canOnlyHavemvIntegerData    .setRuleName("canOnlyHavemvInteger");
+            _canOnlyHavemvIntegerData    .setApplyToClass("TestBasicObjectFixed");
+            _canOnlyHavemvIntegerData    .setCrMinimum("1.0");
+            _canOnlyHavemvIntegerData    .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _canOnlyHavemvIntegerData    .setRuleTitle("The mvInteger attribute must between 2 and 5 things in it.");
+            _canOnlyHavemvIntegerData    .setCrMaximum("5.0");
+            _canOnlyHavemvIntegerData    .setLineNumber("86");
+            _canOnlyHavemvIntegerData    .setApplyToAttribute("mvInteger");
+            _canOnlyHavemvIntegerData    .setDefinedIn("dmt");
+
+            __canOnlyHavemvInteger = new CardinalityRule(_canOnlyHavemvIntegerData);
+
+            _RmAp.add(__canOnlyHavemvInteger);
+
+            StringSetRuleDataDMO _dmtCheckLimitedMVData = new StringSetRuleDataDMO();
+            _dmtCheckLimitedMVData       .setRuleName("dmtCheckLimitedMV");
+            _dmtCheckLimitedMVData       .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _dmtCheckLimitedMVData       .setRuleTitle("The limitedStringMV attribute must be one of: left, right, over there.");
+            _dmtCheckLimitedMVData       .setLineNumber("290");
+            _dmtCheckLimitedMVData       .addAllowedString("left");
+            _dmtCheckLimitedMVData       .addAllowedString("over there");
+            _dmtCheckLimitedMVData       .addAllowedString("right");
+            _dmtCheckLimitedMVData       .setApplyToAttribute("limitedStringMV");
+            _dmtCheckLimitedMVData       .setDefinedIn("dmt");
+
+            __dmtCheckLimitedMV = new StringSetRule(_dmtCheckLimitedMVData);
+
+            _RmAp.add(__dmtCheckLimitedMV);
+
+            StringSetRuleDataDMO _dmtCheckLimitedSVData = new StringSetRuleDataDMO();
+            _dmtCheckLimitedSVData       .setRuleName("dmtCheckLimitedSV");
+            _dmtCheckLimitedSVData       .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _dmtCheckLimitedSVData       .setRuleTitle("The limitedStringSV attribute must be one of: Uno, Dos Fish, Hasta la vista.");
+            _dmtCheckLimitedSVData       .setLineNumber("282");
+            _dmtCheckLimitedSVData       .addAllowedString("Dos Fish");
+            _dmtCheckLimitedSVData       .addAllowedString("Uno");
+            _dmtCheckLimitedSVData       .addAllowedString("Hasta la vista");
+            _dmtCheckLimitedSVData       .setApplyToAttribute("limitedStringSV");
+            _dmtCheckLimitedSVData       .setDefinedIn("dmt");
+
+            __dmtCheckLimitedSV = new StringSetRule(_dmtCheckLimitedSVData);
+
+            _RmAp.add(__dmtCheckLimitedSV);
+
             InitRuleDataDMO _dmtInitTestBasicObjectFixedData = new InitRuleDataDMO();
-            DmcTypeDmtTestEnumSET hsTestEnumValue1 = new DmcTypeDmtTestEnumSET(DmtDMSAG.__hsTestEnum);
-            hsTestEnumValue1.add("TEST2");
-            hsTestEnumValue1.add("TEST1");
-            _dmtInitTestBasicObjectFixedData.add(DmtDMSAG.__hsTestEnum, hsTestEnumValue1);
             _dmtInitTestBasicObjectFixedData.setRuleName("dmtInitTestBasicObjectFixed");
             _dmtInitTestBasicObjectFixedData.setApplyToClass("TestBasicObjectFixed");
+            _dmtInitTestBasicObjectFixedData.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _dmtInitTestBasicObjectFixedData.setRuleTitle("Initialize TestBasicObjectFixed");
-            DmcTypeIntegerSV svIntegerValue2 = null;
-            svIntegerValue2 = new DmcTypeIntegerSV(DmtDMSAG.__svInteger);
-            svIntegerValue2.set("8");
-            _dmtInitTestBasicObjectFixedData.set(DmtDMSAG.__svInteger, svIntegerValue2);
-            DmcTypeStringSV svStringValue3 = null;
-            svStringValue3 = new DmcTypeStringSV(DmtDMSAG.__svString);
-            svStringValue3.set("the single valued string");
-            _dmtInitTestBasicObjectFixedData.set(DmtDMSAG.__svString, svStringValue3);
+            _dmtInitTestBasicObjectFixedData.setLineNumber("78");
+            DmcTypeIntegerSV svIntegerValue1 = null;
+            svIntegerValue1 = new DmcTypeIntegerSV(DmtDMSAG.__svInteger);
+            svIntegerValue1.set("8");
+            _dmtInitTestBasicObjectFixedData.set(DmtDMSAG.__svInteger, svIntegerValue1);
+            _dmtInitTestBasicObjectFixedData.setDefinedIn("dmt");
+            DmcTypeStringSV svStringValue2 = null;
+            svStringValue2 = new DmcTypeStringSV(DmtDMSAG.__svString);
+            svStringValue2.set("the single valued string");
+            _dmtInitTestBasicObjectFixedData.set(DmtDMSAG.__svString, svStringValue2);
+            DmcTypeDmtTestEnumSET hsTestEnumValue3 = new DmcTypeDmtTestEnumSET(DmtDMSAG.__hsTestEnum);
+            hsTestEnumValue3.add("TEST1");
+            hsTestEnumValue3.add("TEST2");
+            _dmtInitTestBasicObjectFixedData.add(DmtDMSAG.__hsTestEnum, hsTestEnumValue3);
             DmcTypeStringMV mvStringValue4 = new DmcTypeStringMV(DmtDMSAG.__mvString);
             mvStringValue4.add("first value");
             mvStringValue4.add("second value");
             _dmtInitTestBasicObjectFixedData.add(DmtDMSAG.__mvString, mvStringValue4);
-            _dmtInitTestBasicObjectFixedData.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _dmtInitTestBasicObjectFixedData.setDefinedIn("dmt");
-            _dmtInitTestBasicObjectFixedData.setLineNumber("78");
 
             __dmtInitTestBasicObjectFixed = new InitRule(_dmtInitTestBasicObjectFixedData);
 
             _RmAp.add(__dmtInitTestBasicObjectFixed);
 
             NumericRangeRuleDataDMO _dmtSvFloatNumericRangeData = new NumericRangeRuleDataDMO();
+            _dmtSvFloatNumericRangeData  .setNrrMinimum("1.5");
             _dmtSvFloatNumericRangeData  .setRuleName("dmtSvFloatNumericRange");
             _dmtSvFloatNumericRangeData  .setApplyToClass("TestBasicObjectFixed");
-            _dmtSvFloatNumericRangeData  .setRuleTitle("svFloat must be in the range 1.5 - 2.5");
-            _dmtSvFloatNumericRangeData  .setApplyToAttribute("svFloat");
-            _dmtSvFloatNumericRangeData  .setNrrMinimum("1.5");
-            _dmtSvFloatNumericRangeData  .setNrrMaximum("2.5");
             _dmtSvFloatNumericRangeData  .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _dmtSvFloatNumericRangeData  .setNrrMaximum("2.5");
+            _dmtSvFloatNumericRangeData  .setRuleTitle("svFloat must be in the range 1.5 - 2.5");
+            _dmtSvFloatNumericRangeData  .setLineNumber("102");
+            _dmtSvFloatNumericRangeData  .setApplyToAttribute("svFloat");
             _dmtSvFloatNumericRangeData  .setDefinedIn("dmt");
-            _dmtSvFloatNumericRangeData  .setLineNumber("94");
 
             __dmtSvFloatNumericRange = new NumericRangeRule(_dmtSvFloatNumericRangeData);
 
             _RmAp.add(__dmtSvFloatNumericRange);
 
             NumericRangeRuleDataDMO _dmtSvIntegerNumericRangeData = new NumericRangeRuleDataDMO();
+            _dmtSvIntegerNumericRangeData.setNrrMinimum("1.0");
             _dmtSvIntegerNumericRangeData.setRuleName("dmtSvIntegerNumericRange");
             _dmtSvIntegerNumericRangeData.setApplyToClass("TestBasicObjectFixed");
-            _dmtSvIntegerNumericRangeData.setRuleTitle("svInteger must be in the range 1-10");
-            _dmtSvIntegerNumericRangeData.setApplyToAttribute("svInteger");
-            _dmtSvIntegerNumericRangeData.setNrrMinimum("1.0");
-            _dmtSvIntegerNumericRangeData.setNrrMaximum("10.0");
             _dmtSvIntegerNumericRangeData.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _dmtSvIntegerNumericRangeData.setNrrMaximum("10.0");
+            _dmtSvIntegerNumericRangeData.setRuleTitle("svInteger must be in the range 1-10");
+            _dmtSvIntegerNumericRangeData.setLineNumber("94");
+            _dmtSvIntegerNumericRangeData.setApplyToAttribute("svInteger");
             _dmtSvIntegerNumericRangeData.setDefinedIn("dmt");
-            _dmtSvIntegerNumericRangeData.setLineNumber("86");
 
             __dmtSvIntegerNumericRange = new NumericRangeRule(_dmtSvIntegerNumericRangeData);
 
             _RmAp.add(__dmtSvIntegerNumericRange);
+
+            RestrictReferencesRuleDataDMO _rrrDerivedAData = new RestrictReferencesRuleDataDMO();
+            _rrrDerivedAData             .addAllowedReference("ObjWithRefsDerivedA");
+            _rrrDerivedAData             .setRuleName("rrrDerivedA");
+            _rrrDerivedAData             .setApplyToClass("ObjWithRefsDerivedA");
+            _rrrDerivedAData             .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _rrrDerivedAData             .setRuleTitle("The objRefMV attribute can only refer to other objects of type ObjWithRefsDerivedA when used in a ObjWithRefsDerivedA instance.");
+            _rrrDerivedAData             .setLineNumber("336");
+            _rrrDerivedAData             .setApplyToAttribute("objRefMV");
+            _rrrDerivedAData             .setDefinedIn("dmt");
+
+            __rrrDerivedA = new RestrictReferencesRule(_rrrDerivedAData);
+
+            _RmAp.add(__rrrDerivedA);
+
+            RestrictReferencesRuleDataDMO _rrrDerivedA2Data = new RestrictReferencesRuleDataDMO();
+            _rrrDerivedA2Data            .addAllowedReference("ObjWithRefsDerivedA");
+            _rrrDerivedA2Data            .setRuleName("rrrDerivedA2");
+            _rrrDerivedA2Data            .setApplyToClass("ObjWithRefsDerivedA");
+            _rrrDerivedA2Data            .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _rrrDerivedA2Data            .setRuleTitle("The objRef attribute can only refer to other objects of type ObjWithRefsDerivedA when used in a ObjWithRefsDerivedA instance.");
+            _rrrDerivedA2Data            .setLineNumber("343");
+            _rrrDerivedA2Data            .setApplyToAttribute("objRef");
+            _rrrDerivedA2Data            .setDefinedIn("dmt");
+
+            __rrrDerivedA2 = new RestrictReferencesRule(_rrrDerivedA2Data);
+
+            _RmAp.add(__rrrDerivedA2);
+
+            RestrictReferencesRuleDataDMO _rrrDerivedBData = new RestrictReferencesRuleDataDMO();
+            _rrrDerivedBData             .addAllowedReference("ObjWithRefsDerivedB");
+            _rrrDerivedBData             .setRuleName("rrrDerivedB");
+            _rrrDerivedBData             .setApplyToClass("ObjWithRefsDerivedB");
+            _rrrDerivedBData             .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _rrrDerivedBData             .setRuleTitle("The objRefMV attribute can only refer to other objects of type ObjWithRefsDerivedB when used in a ObjWithRefsDerivedB instance.");
+            _rrrDerivedBData             .setLineNumber("360");
+            _rrrDerivedBData             .setApplyToAttribute("objRefMV");
+            _rrrDerivedBData             .setDefinedIn("dmt");
+
+            __rrrDerivedB = new RestrictReferencesRule(_rrrDerivedBData);
+
+            _RmAp.add(__rrrDerivedB);
+
+            RestrictReferencesRuleDataDMO _rrrDerivedB2Data = new RestrictReferencesRuleDataDMO();
+            _rrrDerivedB2Data            .addAllowedReference("ObjWithRefsDerivedB");
+            _rrrDerivedB2Data            .setRuleName("rrrDerivedB2");
+            _rrrDerivedB2Data            .setApplyToClass("ObjWithRefsDerivedB");
+            _rrrDerivedB2Data            .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _rrrDerivedB2Data            .setRuleTitle("The objRef attribute can only refer to other objects of type ObjWithRefsDerivedB when used in a ObjWithRefsDerivedB instance.");
+            _rrrDerivedB2Data            .setLineNumber("367");
+            _rrrDerivedB2Data            .setApplyToAttribute("objRef");
+            _rrrDerivedB2Data            .setDefinedIn("dmt");
+
+            __rrrDerivedB2 = new RestrictReferencesRule(_rrrDerivedB2Data);
+
+            _RmAp.add(__rrrDerivedB2);
 
         } catch(DmcValueException ex){
             throw(new IllegalStateException(ex));

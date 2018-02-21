@@ -31,6 +31,13 @@ public class RelatedNumbersRule extends RelatedNumbersRuleBaseImpl {
 		DmcAttribute<?> lhs = obj.get(ruleDMO.getLhs().getObjectName().getNameString());
 		DmcAttribute<?> rhs = obj.get(ruleDMO.getRhs().getObjectName().getNameString());
 		
+		// In some cases we may be applying this rule in situations where one of the attributes
+		// is there and the other one isn't - in this case, don't continue with the comparison.
+		// For example, see the CardinalityRule where there must be a relationship between 
+		// crMinimum and crMaximum, but only if they both exist.
+		if ( (lhs == null) || (rhs == null))
+			return;
+		
 		if ( (lhs != null) && (rhs != null)){
 			Double 	lv 		= (Double) lhs.getSV();
 			Double 	rv 		= (Double) rhs.getSV();

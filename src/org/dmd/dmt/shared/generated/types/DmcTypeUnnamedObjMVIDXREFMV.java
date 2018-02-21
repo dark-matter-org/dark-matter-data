@@ -11,7 +11,7 @@ import org.dmd.dmt.shared.generated.dmo.UnnamedObjMVIDXDMO;    // DmcType import
  * The DmcTypeUnnamedObjMVIDXREFMV provides storage for a multi-valued UnnamedObjMVIDX
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2329)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2338)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:255)
  */
 @SuppressWarnings("serial")
@@ -35,7 +35,7 @@ public class DmcTypeUnnamedObjMVIDXREFMV extends DmcTypeUnnamedObjMVIDXREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2360)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2369)
     public DmcAttribute<UnnamedObjMVIDXDMO> cloneIt(){
         synchronized(this){
             DmcTypeUnnamedObjMVIDXREFMV rc = getNew();
@@ -64,7 +64,7 @@ public class DmcTypeUnnamedObjMVIDXREFMV extends DmcTypeUnnamedObjMVIDXREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2393)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2402)
     public UnnamedObjMVIDXDMO add(Object v) throws DmcValueException {
         synchronized(this){
             UnnamedObjMVIDXDMO rc = typeCheck(v);
@@ -76,7 +76,7 @@ public class DmcTypeUnnamedObjMVIDXREFMV extends DmcTypeUnnamedObjMVIDXREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2406)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2415)
     public UnnamedObjMVIDXDMO del(Object v){
         synchronized(this){
             if (value == null)
@@ -100,7 +100,7 @@ public class DmcTypeUnnamedObjMVIDXREFMV extends DmcTypeUnnamedObjMVIDXREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2440)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
     public Iterator<UnnamedObjMVIDXDMO> getMV(){
         synchronized(this){
             if (value == null)
@@ -111,7 +111,7 @@ public class DmcTypeUnnamedObjMVIDXREFMV extends DmcTypeUnnamedObjMVIDXREF imple
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2452)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2461)
     public ArrayList<UnnamedObjMVIDXDMO> getMVCopy(){
         synchronized(this){
             if (value == null)
@@ -122,7 +122,7 @@ public class DmcTypeUnnamedObjMVIDXREFMV extends DmcTypeUnnamedObjMVIDXREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2464)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2473)
     public int getMVSize(){
         synchronized(this){
             if (getAttributeInfo().indexSize == 0){
@@ -136,7 +136,7 @@ public class DmcTypeUnnamedObjMVIDXREFMV extends DmcTypeUnnamedObjMVIDXREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2479)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
     public UnnamedObjMVIDXDMO getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -146,7 +146,7 @@ public class DmcTypeUnnamedObjMVIDXREFMV extends DmcTypeUnnamedObjMVIDXREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2490)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2499)
     public UnnamedObjMVIDXDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
@@ -173,7 +173,7 @@ public class DmcTypeUnnamedObjMVIDXREFMV extends DmcTypeUnnamedObjMVIDXREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2518)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2527)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -196,7 +196,7 @@ public class DmcTypeUnnamedObjMVIDXREFMV extends DmcTypeUnnamedObjMVIDXREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2542)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2551)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

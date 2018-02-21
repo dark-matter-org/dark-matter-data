@@ -26,6 +26,7 @@ import org.dmd.dmc.DmcClassInfo;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.DefinitionName;
+import org.dmd.dmc.types.IntegerVar;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dms.generated.dmo.ClassDefinitionDMO;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
@@ -1029,4 +1030,25 @@ public class ClassDefinition extends ClassDefinitionDMW {
     	return(classRules.iterator());
     }
 
+    /**
+     * @return the depth of this class in a derivation hierarchy.
+     */
+    public int derivationDepth(){
+    	IntegerVar depth = new IntegerVar(0);
+    	
+    	determineDepth(depth);
+    	
+    	return(depth.intValue());
+    }
+    
+    /**
+     * If we're derived from something, we increment the depth and call this recursively.
+     * @param depth the current depth
+     */
+    void determineDepth(IntegerVar depth){
+    	if (getDerivedFrom() != null){
+        	depth.set(depth.intValue() + 1);
+    		getDerivedFrom().determineDepth(depth);
+    	}
+    }
 }

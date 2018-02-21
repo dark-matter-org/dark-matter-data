@@ -8,6 +8,7 @@ import org.dmd.dmc.rules.DmcRuleException;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmc.rules.SourceInfo;
 import org.dmd.dms.generated.dmo.DSDefinitionDMO;
+import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.types.AttributeDefinitionREF;
 import org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREFSV;
@@ -98,7 +99,8 @@ public class ReferencedAttributeTypeRule extends ReferencedAttributeTypeRuleBase
 			testType = ref.getObject().getType().getObject().getName().getNameString();
 		}
 		
-		if (ruleDMO.getAllowedValueType() != null){
+		if (ruleDMO.get(MetaDMSAG.__valueType) != null){
+//		if (ruleDMO.getAllowedValueType() != null){
 			// Check the value type if it was specified
 			if (ruleDMO.getAllowedValueType() != ref.getObject().getValueType()){
 				DmcRuleException rex = new DmcRuleException(this.getRuleTitle() + "\n" + "Expected valueType: " + ruleDMO.getAllowedValueType() + " but " + ref.getObjectName() + " has valueType: " + ref.getObject().getValueType(), this);

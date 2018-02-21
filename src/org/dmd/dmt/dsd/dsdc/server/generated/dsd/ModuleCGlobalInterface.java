@@ -16,15 +16,17 @@
 package org.dmd.dmt.dsd.dsdc.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGlobalInterface(DSDArtifactFormatter.java:362)
-import java.util.Iterator;                                        // To provide iterators over definitions - (DSDArtifactFormatter.java:359)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGlobalInterface(DSDArtifactFormatter.java:375)
+import java.util.Iterator;                                        // To provide iterators over definitions - (DSDArtifactFormatter.java:370)
+import org.dmd.dmc.DmcNameClashException;                         // May be thrown when finding definitions - (DSDArtifactFormatter.java:371)
+import org.dmd.dmc.DmcValueException;                             // May be thrown when finding definitions - (DSDArtifactFormatter.java:372)
 import org.dmd.dmc.types.DotName;                                 // To support the find method for definitions - (DSDefinitionModule.java:163)
 import org.dmd.dmt.dsd.dsdc.server.extended.CConceptBase;         // A definition from the ModuleC Module - (DSDefinitionModule.java:161)
 import org.dmd.dmt.dsd.dsdc.server.extended.CConceptX;            // A definition from the ModuleC Module - (DSDefinitionModule.java:174)
 import org.dmd.dmt.dsd.dsdc.server.extended.ModuleC;              // A definition from the ModuleC Module - (DSDefinitionModule.java:174)
 
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGlobalInterface(DSDArtifactFormatter.java:366)
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGlobalInterface(DSDArtifactFormatter.java:379)
 /**
  * This interface is implemented by definition managers that store definitions from the ModuleC module.
  */
@@ -38,11 +40,13 @@ public interface ModuleCGlobalInterface {
     public int getCConceptXCount();
     public CConceptX getCConceptX(DotName name);
     public Iterator<CConceptX> getAllCConceptX();
+    public CConceptX getCConceptXDefinition(String name) throws DmcNameClashException, DmcValueException;
 
     public void addModuleC(ModuleC def);
     public int getModuleCCount();
     public ModuleC getModuleC(DotName name);
     public Iterator<ModuleC> getAllModuleC();
+    public ModuleC getModuleCDefinition(String name) throws DmcNameClashException, DmcValueException;
 
 }
 

@@ -1,14 +1,14 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:396)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:405)
 import java.io.Serializable;                                  // Always required - (GenUtility.java:224)
-import org.dmd.dmc.DmcAttribute;                              // Any attributes - (GenUtility.java:240)
-import org.dmd.dmc.DmcObject;                                 // Structural class - (GenUtility.java:351)
+import org.dmd.dmc.DmcAttribute;                              // Any attributes - (GenUtility.java:245)
+import org.dmd.dmc.DmcObject;                                 // Structural class - (GenUtility.java:359)
 import org.dmd.dmc.DmcSliceInfo;                              // Required for object slicing - (GenUtility.java:229)
-import org.dmd.dmc.DmcValueException;                         // Any attributes - (GenUtility.java:241)
+import org.dmd.dmc.DmcValueException;                         // Any attributes - (GenUtility.java:246)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                   // Required for MODREC constructor - (GenUtility.java:228)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor - (GenUtility.java:227)
-import org.dmd.dms.generated.types.DmcTypeStringSV;           // Required type - (GenUtility.java:328)
+import org.dmd.dms.generated.types.DmcTypeStringSV;           // Required type - (GenUtility.java:336)
 
 // Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:678)
 /**
@@ -61,7 +61,7 @@ public class ClientCountFilterDMO  extends DmcObject  implements Serializable  {
         return(rc);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:784)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
     public String getOUIFilter(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmtDMSAG.__OUIFilter);
         if (attr == null)
@@ -74,7 +74,7 @@ public class ClientCountFilterDMO  extends DmcObject  implements Serializable  {
      * Sets OUIFilter to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:824)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:833)
     public void setOUIFilter(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__OUIFilter);
         if (attr == null)
@@ -93,7 +93,7 @@ public class ClientCountFilterDMO  extends DmcObject  implements Serializable  {
      * Sets OUIFilter to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:877)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
     public void setOUIFilter(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmtDMSAG.__OUIFilter);
         if (attr == null)
@@ -106,7 +106,7 @@ public class ClientCountFilterDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the OUIFilter attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:897)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
     public void remOUIFilter(){
          rem(DmtDMSAG.__OUIFilter);
     }

@@ -169,6 +169,13 @@ public class DmcOmni implements DmcNameResolverIF {
 	}
 	
 	/**
+	 * @return the loaded schemas.
+	 */
+	public TreeMap<String,DmcCompactSchemaIF>	loadedCompactSchemas(){
+		return(loadedCompactSchemas);
+	}
+	
+	/**
 	 * This method should be used with caution! Generally, we don't attempt to perform
 	 * back reference tracking on schema related references, but, in certain tools/utilities,
 	 * we make use of this functionality. 

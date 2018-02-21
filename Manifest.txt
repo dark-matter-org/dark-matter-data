@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Name: dark-matter-data
 Specification-Title: dark-matter-data
-Specification-Version: 3.0.4
+Specification-Version: 3.0.5
 Specification-Vendor: dark-matter-data committers
 Implementation-Title: org.dmd
-Implementation-Version: rev1553
+Implementation-Version: 
 Implementation-Vendor: dark-matter-data committers

@@ -98,39 +98,39 @@ public class DmgSchemaAG extends SchemaDefinition {
             ClassDefinitionDMO _DmgConfigOBJ = new ClassDefinitionDMO();
             _DmgConfig = new ClassDefinition(_DmgConfigOBJ,DmgDMSAG.__DmgConfig);
             _DmgConfigOBJ.setName("DmgConfig");
-            _DmgConfigOBJ.setDmdID("201");
+            _DmgConfigOBJ.setDmdID("401");
             _DmgConfigOBJ.setClassType("STRUCTURAL");
-            _DmgConfigOBJ.setDotName("dmg.DmgConfig.ClassDefinition");
             _DmgConfigOBJ.setFile("/src/org/dmd/dmg/schema/v0dot1/classes.dmd");
+            _DmgConfigOBJ.setDotName("dmg.DmgConfig.ClassDefinition");
             _DmgConfigOBJ.setLineNumber("14");
             _DmgConfigOBJ.addDescription("The DmgConfig class is used to specify a set of schemas and a set of \n code generators to be run when you want to generate various types of code.");
-            _DmgConfigOBJ.setDmtREFImport("org.dmd.dmg.generated.types.DmgConfigREF");
-            _DmgConfigOBJ.setDmwIteratorClass("DmgConfigIterableDMW");
+            _DmgConfigOBJ.addMust("dmg.generator");
+            _DmgConfigOBJ.addMust("dmg.genPackage");
             _DmgConfigOBJ.addMay("dmg.schemaToLoad");
             _DmgConfigOBJ.addMay("dmg.configSuffix");
             _DmgConfigOBJ.addMay("meta.description");
             _DmgConfigOBJ.addMay("meta.generatedFileHeader");
-            _DmgConfigOBJ.addMust("dmg.generator");
-            _DmgConfigOBJ.addMust("dmg.genPackage");
             _DmgConfigOBJ.setDmwIteratorImport("org.dmd.dmg.generated.dmw.DmgConfigIterableDMW");
+            _DmgConfigOBJ.setDmwIteratorClass("DmgConfigIterableDMW");
             _DmgConfig.setDefinedIn(this);
+            _DmgConfigOBJ.setDmtREFImport("org.dmd.dmg.generated.types.DmgConfigREF");
             addClassDefList(_DmgConfig);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
             ClassDefinitionDMO _GenerationContextOBJ = new ClassDefinitionDMO();
             _GenerationContext = new ClassDefinition(_GenerationContextOBJ,DmgDMSAG.__GenerationContext);
             _GenerationContextOBJ.setName("GenerationContext");
-            _GenerationContextOBJ.setDmdID("202");
+            _GenerationContextOBJ.setDmdID("402");
             _GenerationContextOBJ.setClassType("STRUCTURAL");
             _GenerationContextOBJ.setFile("/src/org/dmd/dmg/schema/v0dot1/classes.dmd");
             _GenerationContextOBJ.setLineNumber("24");
-            _GenerationContextOBJ.addDescription("The GenerationContext acts as a gathering point for a set of\n code generation components.");
             _GenerationContextOBJ.setIsNamedBy("dmg.genContextName");
+            _GenerationContextOBJ.addDescription("The GenerationContext acts as a gathering point for a set of\n code generation components.");
             _GenerationContextOBJ.setUseWrapperType("EXTENDED");
-            _GenerationContextOBJ.setDmtREFImport("org.dmd.dmg.generated.types.GenerationContextREF");
-            _GenerationContextOBJ.setDmwIteratorClass("GenerationContextIterableDMW");
             _GenerationContextOBJ.addMust("dmg.genContextName");
             _GenerationContextOBJ.setDmwIteratorImport("org.dmd.dmg.generated.dmw.GenerationContextIterableDMW");
+            _GenerationContextOBJ.setDmwIteratorClass("GenerationContextIterableDMW");
+            _GenerationContextOBJ.setDmtREFImport("org.dmd.dmg.generated.types.GenerationContextREF");
             _GenerationContextOBJ.setDotName("dmg.GenerationContext.ClassDefinition");
             _GenerationContext.setDefinedIn(this);
             addClassDefList(_GenerationContext);
@@ -139,20 +139,20 @@ public class DmgSchemaAG extends SchemaDefinition {
             ClassDefinitionDMO _WrapperGeneratorOBJ = new ClassDefinitionDMO();
             _WrapperGenerator = new ClassDefinition(_WrapperGeneratorOBJ,DmgDMSAG.__WrapperGenerator);
             _WrapperGeneratorOBJ.setName("WrapperGenerator");
-            _WrapperGeneratorOBJ.setDmdID("203");
+            _WrapperGeneratorOBJ.setDmdID("403");
             _WrapperGeneratorOBJ.setClassType("STRUCTURAL");
             _WrapperGeneratorOBJ.setFile("/src/org/dmd/dmg/schema/v0dot1/classes.dmd");
             _WrapperGeneratorOBJ.setLineNumber("37");
-            _WrapperGeneratorOBJ.addDescription("The WrapperGenerator allows for the definition of a code generation\n component that creates DMO wrappers for use in particular usage environments.");
             _WrapperGeneratorOBJ.setIsNamedBy("meta.name");
+            _WrapperGeneratorOBJ.addDescription("The WrapperGenerator allows for the definition of a code generation\n component that creates DMO wrappers for use in particular usage environments.");
             _WrapperGeneratorOBJ.setUseWrapperType("EXTENDED");
-            _WrapperGeneratorOBJ.setDmtREFImport("org.dmd.dmg.generated.types.WrapperGeneratorREF");
-            _WrapperGeneratorOBJ.setDmwIteratorClass("WrapperGeneratorIterableDMW");
             _WrapperGeneratorOBJ.addMust("meta.name");
             _WrapperGeneratorOBJ.addMust("dmg.genContext");
             _WrapperGeneratorOBJ.addMust("meta.classType");
             _WrapperGeneratorOBJ.addMust("dmg.genClass");
             _WrapperGeneratorOBJ.setDmwIteratorImport("org.dmd.dmg.generated.dmw.WrapperGeneratorIterableDMW");
+            _WrapperGeneratorOBJ.setDmwIteratorClass("WrapperGeneratorIterableDMW");
+            _WrapperGeneratorOBJ.setDmtREFImport("org.dmd.dmg.generated.types.WrapperGeneratorREF");
             _WrapperGeneratorOBJ.setDotName("dmg.WrapperGenerator.ClassDefinition");
             _WrapperGenerator.setDefinedIn(this);
             addClassDefList(_WrapperGenerator);
@@ -161,21 +161,21 @@ public class DmgSchemaAG extends SchemaDefinition {
             ClassDefinitionDMO _MethodGeneratorOBJ = new ClassDefinitionDMO();
             _MethodGenerator = new ClassDefinition(_MethodGeneratorOBJ,DmgDMSAG.__MethodGenerator);
             _MethodGeneratorOBJ.setName("MethodGenerator");
-            _MethodGeneratorOBJ.setDmdID("204");
+            _MethodGeneratorOBJ.setDmdID("404");
             _MethodGeneratorOBJ.setClassType("STRUCTURAL");
             _MethodGeneratorOBJ.setFile("/src/org/dmd/dmg/schema/v0dot1/classes.dmd");
             _MethodGeneratorOBJ.setLineNumber("52");
-            _MethodGeneratorOBJ.addDescription("The MethodGenerator allows for the definition of a code generation\n component that creates access methods for wrapper classes in different usage\n environments.");
             _MethodGeneratorOBJ.setIsNamedBy("meta.name");
+            _MethodGeneratorOBJ.addDescription("The MethodGenerator allows for the definition of a code generation\n component that creates access methods for wrapper classes in different usage\n environments.");
             _MethodGeneratorOBJ.setUseWrapperType("EXTENDED");
-            _MethodGeneratorOBJ.setDmtREFImport("org.dmd.dmg.generated.types.MethodGeneratorREF");
-            _MethodGeneratorOBJ.setDmwIteratorClass("MethodGeneratorIterableDMW");
             _MethodGeneratorOBJ.addMust("meta.name");
             _MethodGeneratorOBJ.addMust("dmg.genContext");
             _MethodGeneratorOBJ.addMust("meta.valueType");
             _MethodGeneratorOBJ.addMust("meta.baseType");
             _MethodGeneratorOBJ.addMust("dmg.genClass");
             _MethodGeneratorOBJ.setDmwIteratorImport("org.dmd.dmg.generated.dmw.MethodGeneratorIterableDMW");
+            _MethodGeneratorOBJ.setDmwIteratorClass("MethodGeneratorIterableDMW");
+            _MethodGeneratorOBJ.setDmtREFImport("org.dmd.dmg.generated.types.MethodGeneratorREF");
             _MethodGeneratorOBJ.setDotName("dmg.MethodGenerator.ClassDefinition");
             _MethodGenerator.setDefinedIn(this);
             addClassDefList(_MethodGenerator);
@@ -184,19 +184,19 @@ public class DmgSchemaAG extends SchemaDefinition {
             ClassDefinitionDMO _ActifactGeneratorOBJ = new ClassDefinitionDMO();
             _ActifactGenerator = new ClassDefinition(_ActifactGeneratorOBJ,DmgDMSAG.__ActifactGenerator);
             _ActifactGeneratorOBJ.setName("ActifactGenerator");
-            _ActifactGeneratorOBJ.setDmdID("205");
+            _ActifactGeneratorOBJ.setDmdID("405");
             _ActifactGeneratorOBJ.setClassType("STRUCTURAL");
-            _ActifactGeneratorOBJ.setDotName("dmg.ActifactGenerator.ClassDefinition");
             _ActifactGeneratorOBJ.setFile("/src/org/dmd/dmg/schema/v0dot1/classes.dmd");
+            _ActifactGeneratorOBJ.setDotName("dmg.ActifactGenerator.ClassDefinition");
             _ActifactGeneratorOBJ.setLineNumber("60");
             _ActifactGeneratorOBJ.setIsNamedBy("meta.name");
             _ActifactGeneratorOBJ.setUseWrapperType("EXTENDED");
-            _ActifactGeneratorOBJ.setDmtREFImport("org.dmd.dmg.generated.types.ActifactGeneratorREF");
-            _ActifactGeneratorOBJ.setDmwIteratorClass("ActifactGeneratorIterableDMW");
             _ActifactGeneratorOBJ.addMust("meta.name");
             _ActifactGeneratorOBJ.addMust("dmg.genClass");
             _ActifactGeneratorOBJ.setDmwIteratorImport("org.dmd.dmg.generated.dmw.ActifactGeneratorIterableDMW");
+            _ActifactGeneratorOBJ.setDmwIteratorClass("ActifactGeneratorIterableDMW");
             _ActifactGenerator.setDefinedIn(this);
+            _ActifactGeneratorOBJ.setDmtREFImport("org.dmd.dmg.generated.types.ActifactGeneratorREF");
             addClassDefList(_ActifactGenerator);
 
     }
@@ -205,120 +205,120 @@ public class DmgSchemaAG extends SchemaDefinition {
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
             AttributeDefinitionDMO _generatorOBJ = new AttributeDefinitionDMO();
             _generator = new AttributeDefinition(_generatorOBJ);
-            _generatorOBJ.setType("dmg.Generator");
+            _generatorOBJ.addDescription("The fully qualified name of a class that that implements the\n DarkMatterGeneratorIF interface. The DMG Generator utility will call\n on this object to generate code.");
             _generatorOBJ.setName("generator");
             _generatorOBJ.setDmdID("200");
-            _generatorOBJ.addDescription("The fully qualified name of a class that that implements the\n DarkMatterGeneratorIF interface. The DMG Generator utility will call\n on this object to generate code.");
-            _generatorOBJ.setValueType("MULTI");
-            _generatorOBJ.setDotName("dmg.generator.AttributeDefinition");
-            _generator.setDefinedIn(this);
+            _generatorOBJ.setType("dmg.Generator");
             _generatorOBJ.setFile("/src/org/dmd/dmg/schema/v0dot1/attributes.dmd");
+            _generatorOBJ.setDotName("dmg.generator.AttributeDefinition");
             _generatorOBJ.setLineNumber("9");
+            _generatorOBJ.setValueType("MULTI");
+            _generator.setDefinedIn(this);
             addAttributeDefList(_generator);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
             AttributeDefinitionDMO _schemaToLoadOBJ = new AttributeDefinitionDMO();
             _schemaToLoad = new AttributeDefinition(_schemaToLoadOBJ);
-            _schemaToLoadOBJ.setType("meta.String");
+            _schemaToLoadOBJ.addDescription("The name of schema for which code will be generated.");
             _schemaToLoadOBJ.setName("schemaToLoad");
             _schemaToLoadOBJ.setDmdID("201");
-            _schemaToLoadOBJ.addDescription("The name of schema for which code will be generated.");
-            _schemaToLoadOBJ.setDotName("dmg.schemaToLoad.AttributeDefinition");
-            _schemaToLoad.setDefinedIn(this);
+            _schemaToLoadOBJ.setType("meta.String");
             _schemaToLoadOBJ.setFile("/src/org/dmd/dmg/schema/v0dot1/attributes.dmd");
+            _schemaToLoadOBJ.setDotName("dmg.schemaToLoad.AttributeDefinition");
             _schemaToLoadOBJ.setLineNumber("15");
+            _schemaToLoad.setDefinedIn(this);
             addAttributeDefList(_schemaToLoad);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
             AttributeDefinitionDMO _configSuffixOBJ = new AttributeDefinitionDMO();
             _configSuffix = new AttributeDefinition(_configSuffixOBJ);
-            _configSuffixOBJ.setType("meta.String");
+            _configSuffixOBJ.addDescription("The suffix of an additional configuration files that are\n required by any of the specified generators. For example .mvc");
             _configSuffixOBJ.setName("configSuffix");
             _configSuffixOBJ.setDmdID("202");
-            _configSuffixOBJ.addDescription("The suffix of an additional configuration files that are\n required by any of the specified generators. For example .mvc");
-            _configSuffixOBJ.setValueType("MULTI");
-            _configSuffixOBJ.setDotName("dmg.configSuffix.AttributeDefinition");
-            _configSuffix.setDefinedIn(this);
+            _configSuffixOBJ.setType("meta.String");
             _configSuffixOBJ.setFile("/src/org/dmd/dmg/schema/v0dot1/attributes.dmd");
+            _configSuffixOBJ.setDotName("dmg.configSuffix.AttributeDefinition");
             _configSuffixOBJ.setLineNumber("23");
+            _configSuffixOBJ.setValueType("MULTI");
+            _configSuffix.setDefinedIn(this);
             addAttributeDefList(_configSuffix);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
             AttributeDefinitionDMO _genPackageOBJ = new AttributeDefinitionDMO();
             _genPackage = new AttributeDefinition(_genPackageOBJ);
-            _genPackageOBJ.setType("meta.String");
+            _genPackageOBJ.addDescription("The package name to be prepended to any generated code.");
             _genPackageOBJ.setName("genPackage");
             _genPackageOBJ.setDmdID("203");
-            _genPackageOBJ.addDescription("The package name to be prepended to any generated code.");
-            _genPackageOBJ.setDotName("dmg.genPackage.AttributeDefinition");
-            _genPackage.setDefinedIn(this);
+            _genPackageOBJ.setType("meta.String");
             _genPackageOBJ.setFile("/src/org/dmd/dmg/schema/v0dot1/attributes.dmd");
+            _genPackageOBJ.setDotName("dmg.genPackage.AttributeDefinition");
             _genPackageOBJ.setLineNumber("29");
+            _genPackage.setDefinedIn(this);
             addAttributeDefList(_genPackage);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
             AttributeDefinitionDMO _upperConstantNameOBJ = new AttributeDefinitionDMO();
             _upperConstantName = new AttributeDefinition(_upperConstantNameOBJ);
-            _upperConstantNameOBJ.setType("meta.String");
+            _upperConstantNameOBJ.addDescription("The name of something in upper case with underscores e.g. THIS_IS_UPPER_CONSTANT.");
             _upperConstantNameOBJ.setName("upperConstantName");
             _upperConstantNameOBJ.setDmdID("205");
-            _upperConstantNameOBJ.addDescription("The name of something in upper case with underscores e.g. THIS_IS_UPPER_CONSTANT.");
-            _upperConstantNameOBJ.setDotName("dmg.upperConstantName.AttributeDefinition");
-            _upperConstantName.setDefinedIn(this);
+            _upperConstantNameOBJ.setType("meta.String");
             _upperConstantNameOBJ.setFile("/src/org/dmd/dmg/schema/v0dot1/attributes.dmd");
+            _upperConstantNameOBJ.setDotName("dmg.upperConstantName.AttributeDefinition");
             _upperConstantNameOBJ.setLineNumber("41");
+            _upperConstantName.setDefinedIn(this);
             addAttributeDefList(_upperConstantName);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
             AttributeDefinitionDMO _aliasOBJ = new AttributeDefinitionDMO();
             _alias = new AttributeDefinition(_aliasOBJ);
-            _aliasOBJ.setType("meta.String");
+            _aliasOBJ.addDescription("An alternative name for something.");
             _aliasOBJ.setName("alias");
             _aliasOBJ.setDmdID("206");
-            _aliasOBJ.addDescription("An alternative name for something.");
-            _aliasOBJ.setDotName("dmg.alias.AttributeDefinition");
-            _alias.setDefinedIn(this);
+            _aliasOBJ.setType("meta.String");
             _aliasOBJ.setFile("/src/org/dmd/dmg/schema/v0dot1/attributes.dmd");
+            _aliasOBJ.setDotName("dmg.alias.AttributeDefinition");
             _aliasOBJ.setLineNumber("47");
+            _alias.setDefinedIn(this);
             addAttributeDefList(_alias);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
             AttributeDefinitionDMO _genContextNameOBJ = new AttributeDefinitionDMO();
             _genContextName = new AttributeDefinition(_genContextNameOBJ);
-            _genContextNameOBJ.setType("meta.CamelCaseName");
+            _genContextNameOBJ.addDescription("The name of a code generation context.");
             _genContextNameOBJ.setName("genContextName");
             _genContextNameOBJ.setDmdID("207");
-            _genContextNameOBJ.addDescription("The name of a code generation context.");
-            _genContextNameOBJ.setDotName("dmg.genContextName.AttributeDefinition");
-            _genContextName.setDefinedIn(this);
+            _genContextNameOBJ.setType("meta.CamelCaseName");
             _genContextNameOBJ.setFile("/src/org/dmd/dmg/schema/v0dot1/attributes.dmd");
+            _genContextNameOBJ.setDotName("dmg.genContextName.AttributeDefinition");
             _genContextNameOBJ.setLineNumber("53");
+            _genContextName.setDefinedIn(this);
             addAttributeDefList(_genContextName);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
             AttributeDefinitionDMO _genContextOBJ = new AttributeDefinitionDMO();
             _genContext = new AttributeDefinition(_genContextOBJ);
-            _genContextOBJ.setType("dmg.GenerationContext");
+            _genContextOBJ.addDescription("The generation context to which a code generation object belongs.");
             _genContextOBJ.setName("genContext");
             _genContextOBJ.setDmdID("208");
-            _genContextOBJ.addDescription("The generation context to which a code generation object belongs.");
-            _genContextOBJ.setDotName("dmg.genContext.AttributeDefinition");
-            _genContext.setDefinedIn(this);
+            _genContextOBJ.setType("dmg.GenerationContext");
             _genContextOBJ.setFile("/src/org/dmd/dmg/schema/v0dot1/attributes.dmd");
+            _genContextOBJ.setDotName("dmg.genContext.AttributeDefinition");
             _genContextOBJ.setLineNumber("59");
+            _genContext.setDefinedIn(this);
             addAttributeDefList(_genContext);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
             AttributeDefinitionDMO _genClassOBJ = new AttributeDefinitionDMO();
             _genClass = new AttributeDefinition(_genClassOBJ);
-            _genClassOBJ.setType("meta.String");
+            _genClassOBJ.addDescription("The fully qualified Java class name of a code generation component.");
             _genClassOBJ.setName("genClass");
             _genClassOBJ.setDmdID("209");
-            _genClassOBJ.addDescription("The fully qualified Java class name of a code generation component.");
-            _genClassOBJ.setDotName("dmg.genClass.AttributeDefinition");
-            _genClass.setDefinedIn(this);
+            _genClassOBJ.setType("meta.String");
             _genClassOBJ.setFile("/src/org/dmd/dmg/schema/v0dot1/attributes.dmd");
+            _genClassOBJ.setDotName("dmg.genClass.AttributeDefinition");
             _genClassOBJ.setLineNumber("65");
+            _genClass.setDefinedIn(this);
             addAttributeDefList(_genClass);
 
     }
@@ -328,16 +328,16 @@ public class DmgSchemaAG extends SchemaDefinition {
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
             TypeDefinitionDMO _GeneratorOBJ = new TypeDefinitionDMO();
             _Generator = new TypeDefinition(_GeneratorOBJ);
-            _GeneratorOBJ.setName("Generator");
             _GeneratorOBJ.addDescription("The Generator type stores the fully qualified name of a class that\n implements the DarkMatterGeneratorIF. It also proviv=des the mechanism to instantiate\n the generator.");
+            _GeneratorOBJ.setName("Generator");
             _GeneratorOBJ.setTypeClassName("org.dmd.dmg.types.DmcTypeGenerator");
             _GeneratorOBJ.setPrimitiveType("org.dmd.dmg.types.Generator");
-            _GeneratorOBJ.setDmwIteratorClass("GeneratorIterableDMW");
-            _GeneratorOBJ.setDotName("dmg.Generator.TypeDefinition");
-            _GeneratorOBJ.setDmwIteratorImport("org.dmd.dmg.generated.dmw.GeneratorIterableDMW");
-            _Generator.setDefinedIn(this);
             _GeneratorOBJ.setFile("/src/org/dmd/dmg/schema/v0dot1/types.dmd");
+            _GeneratorOBJ.setDotName("dmg.Generator.TypeDefinition");
             _GeneratorOBJ.setLineNumber("7");
+            _GeneratorOBJ.setDmwIteratorImport("org.dmd.dmg.generated.dmw.GeneratorIterableDMW");
+            _GeneratorOBJ.setDmwIteratorClass("GeneratorIterableDMW");
+            _Generator.setDefinedIn(this);
             addTypeDefList(_Generator);
 
     }

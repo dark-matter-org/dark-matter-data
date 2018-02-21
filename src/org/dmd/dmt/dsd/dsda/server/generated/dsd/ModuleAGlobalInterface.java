@@ -16,15 +16,18 @@
 package org.dmd.dmt.dsd.dsda.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGlobalInterface(DSDArtifactFormatter.java:362)
-import java.util.Iterator;                                        // To provide iterators over definitions - (DSDArtifactFormatter.java:359)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGlobalInterface(DSDArtifactFormatter.java:375)
+import java.util.Iterator;                                        // To provide iterators over definitions - (DSDArtifactFormatter.java:370)
+import org.dmd.dmc.DmcNameClashException;                         // May be thrown when finding definitions - (DSDArtifactFormatter.java:371)
+import org.dmd.dmc.DmcValueException;                             // May be thrown when finding definitions - (DSDArtifactFormatter.java:372)
 import org.dmd.dmc.types.DotName;                                 // To support the find method for definitions - (DSDefinitionModule.java:163)
+import org.dmd.dmt.dsd.dsda.server.extended.ABConceptX;           // A definition from the ModuleA Module - (DSDefinitionModule.java:174)
 import org.dmd.dmt.dsd.dsda.server.extended.AConceptBase;         // A definition from the ModuleA Module - (DSDefinitionModule.java:161)
 import org.dmd.dmt.dsd.dsda.server.extended.AConceptX;            // A definition from the ModuleA Module - (DSDefinitionModule.java:174)
 import org.dmd.dmt.dsd.dsda.server.extended.ModuleA;              // A definition from the ModuleA Module - (DSDefinitionModule.java:174)
 
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGlobalInterface(DSDArtifactFormatter.java:366)
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGlobalInterface(DSDArtifactFormatter.java:379)
 /**
  * This interface is implemented by definition managers that store definitions from the ModuleA module.
  */
@@ -34,15 +37,23 @@ public interface ModuleAGlobalInterface {
     public AConceptBase getAConceptBase(DotName name);
     public Iterator<AConceptBase> getAllAConceptBase();
 
+    public void addABConceptX(ABConceptX def);
+    public int getABConceptXCount();
+    public ABConceptX getABConceptX(DotName name);
+    public Iterator<ABConceptX> getAllABConceptX();
+    public ABConceptX getABConceptXDefinition(String name) throws DmcNameClashException, DmcValueException;
+
     public void addAConceptX(AConceptX def);
     public int getAConceptXCount();
     public AConceptX getAConceptX(DotName name);
     public Iterator<AConceptX> getAllAConceptX();
+    public AConceptX getAConceptXDefinition(String name) throws DmcNameClashException, DmcValueException;
 
     public void addModuleA(ModuleA def);
     public int getModuleACount();
     public ModuleA getModuleA(DotName name);
     public Iterator<ModuleA> getAllModuleA();
+    public ModuleA getModuleADefinition(String name) throws DmcNameClashException, DmcValueException;
 
 }
 

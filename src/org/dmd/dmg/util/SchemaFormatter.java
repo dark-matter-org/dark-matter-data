@@ -631,6 +631,12 @@ public class SchemaFormatter {
 							}
 						}
 						String value = val.toString();
+						
+						if (an.equals("Description") && value.length()>500){
+							DebugInfo.debug("Truncating description: " + value.length());
+							value = "Way too long!";
+						}
+						
 						if (value.indexOf("\"") != -1){
 							value = value.replaceAll("\"", "\\\\\"");
 						}

@@ -619,6 +619,9 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
 	public DmcNamedObjectIF resolveClash(DmcObject obj, DmcAttributeInfo ai, DmcNameClashObjectSet<?> ncos) throws DmcValueException {
 		DmcNamedObjectIF rc = null;
 		
+		// This is our fallback - if one of the places we find the def is in the meta schema, we'll use that
+		DmcNamedObjectIF fromMeta = null;
+		
 		Iterator<DmcNamedObjectIF> it = ncos.getMatches();
 		while(it.hasNext()){
 			try{
@@ -637,6 +640,10 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
 					break;
 				}
 				
+				// If we have a meta definition - hold on to it
+				if (def.getDefinedIn().getName().equals("meta"))
+					fromMeta = def;
+				
 			}
 			catch(ClassCastException e){
 				// We could wind up here if someone is using the schema parser in an incorrect context
@@ -646,19 +653,23 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
 		}
 		
 		if (rc == null){
-			// None of the definitions are in the schema we're loading, so the user is
-			// going to have qualify the name of the thing they're referring to i.e.
-			// instead of just defName, they'll have to specify schema.defName.
-			StringBuffer sb = new StringBuffer();
-			sb.append("You must qualify the name of the object you're referring to: ");
-			it = ncos.getMatches();
-			while(it.hasNext()){
-				DmsDefinition def = (DmsDefinition) it.next();
-				sb.append(def.getDMO().getDefinedIn().getObjectName() + "." + def.getName() + "  ");
+			if (fromMeta == null){
+				// None of the definitions are in the schema we're loading, so the user is
+				// going to have qualify the name of the thing they're referring to i.e.
+				// instead of just defName, they'll have to specify schema.defName.
+				StringBuffer sb = new StringBuffer();
+				sb.append("You must qualify the name of the object you're referring to: ");
+				it = ncos.getMatches();
+				while(it.hasNext()){
+					DmsDefinition def = (DmsDefinition) it.next();
+					sb.append(def.getDMO().getDefinedIn().getObjectName() + "." + def.getName() + "  ");
+				}
+	
+				DmcValueException ex = new DmcValueException(sb.toString());
+				throw(ex);
 			}
-
-			DmcValueException ex = new DmcValueException(sb.toString());
-			throw(ex);
+			else
+				rc = fromMeta;
 		}
 		
 		return(rc);

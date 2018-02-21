@@ -13,6 +13,7 @@ import org.dmd.dms.ClassDefinition;                                             
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                      // Attribute defFiles from the meta schema - (BaseDMWGenerator.java:897)
 import org.dmd.dms.generated.dmw.StringIterableDMW;                              // For multi-valued String - (BaseDMWGenerator.java:2103)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                            // Required for MODREC constructor - (BaseDMWGenerator.java:1071)
+import org.dmd.dmt.dsd.dsda.server.extended.ABConceptX;                          // A definition from the ModuleA Module - (DSDefinitionModule.java:174)
 import org.dmd.dmt.dsd.dsda.server.extended.AConceptBase;                        // Derived class - (BaseDMWGenerator.java:1248)
 import org.dmd.dmt.dsd.dsda.server.extended.AConceptX;                           // A definition from the ModuleA Module - (DSDefinitionModule.java:174)
 import org.dmd.dmt.dsd.dsda.server.extended.ModuleA;                             // Required for getModificationRecorder() - (BaseDMWGenerator.java:1076)
@@ -36,6 +37,7 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
     // Generated from: org.dmd.util.codegen.MemberManager.getFormattedMembers(MemberManager.java:64)
     // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperDefinitions(DMWGenerator.java:204)
     DmcDefinitionSet<AConceptBase>     AConceptBaseDefs    = new DmcDefinitionSet<AConceptBase>("ModuleA-allDefinitions");   // All definitions associated with this module
+    DmcDefinitionSet<ABConceptX>       ABConceptXDefs      = new DmcDefinitionSet<ABConceptX>("ModuleA-ABConceptXDefs");     // All ABConceptX definitions
     DmcDefinitionSet<AConceptX>        AConceptXDefs       = new DmcDefinitionSet<AConceptX>("ModuleA-AConceptXDefs");       // All AConceptX definitions
     DmcDefinitionSet<ModuleA>          ModuleADefs         = new DmcDefinitionSet<ModuleA>("ModuleA-ModuleADefs");           // All ModuleA definitions
 
@@ -440,7 +442,7 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
         ((ModuleADMO) core).remName();
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:219)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:220)
     // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperFunctions(DMWGenerator.java:212)
     /**
      * All definitions are added to the base definition collection.
@@ -461,7 +463,29 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
         return(AConceptBaseDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:254)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:255)
+    public void addABConceptX(ABConceptX def){
+        ABConceptXDefs.add(def);
+        addAConceptX(def);
+    }
+
+    public int getABConceptXCount(){
+        return(ABConceptXDefs.size());
+    }
+
+    public ABConceptX getABConceptX(DotName name){
+        return(ABConceptXDefs.getDefinition(name));
+    }
+
+    public Iterator<ABConceptX> getAllABConceptX(){
+        return(ABConceptXDefs.values().iterator());
+    }
+
+    public ABConceptX getABConceptXDefinition(String name) throws DmcNameClashException, DmcValueException{
+        return(ABConceptXDefs.getDefinition(name));
+    }
+
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:255)
     public void addAConceptX(AConceptX def){
         AConceptXDefs.add(def);
         addAConceptBase(def);
@@ -477,6 +501,10 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
 
     public Iterator<AConceptX> getAllAConceptX(){
         return(AConceptXDefs.values().iterator());
+    }
+
+    public AConceptX getAConceptXDefinition(String name) throws DmcNameClashException, DmcValueException{
+        return(AConceptXDefs.getDefinition(name));
     }
 
     // Generated from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperFunctions(DMWGenerator.java:222)

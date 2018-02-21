@@ -111,9 +111,36 @@ dmdID			16
 type        	ValueTypeEnum
 description		The allowedValueType indicates the allowed cardinality of an attribute.
 
+AttributeDefinition
+name   			allowedReference
+dmdID			17
+type        	ClassDefinition
+valueType		MULTI
+description		The allowedReference indicates the classes of objects that may be referenced via a reference attribute.
+
+AttributeDefinition
+name			crMinimum
+dmdID			18
+type			Double
+description		Indicates the minimum cardinality in a CardinalityRule. NOTE: although we're specifying the
+ type as Double, you should use integer compatible values for this.
+
+AttributeDefinition
+name			crMaximum
+dmdID			19
+type			Double
+description		Indicates the maximum cardinality in a CardinalityRule. NOTE: although we're specifying the
+ type as Double, you should use integer compatible values for this.
+
 //AttributeDefinition
 //name   			referringAttribute
 //dmdID			17
 //type        	AttributeDefinition
 //description		The referringAttribute indicates the attribute that refers to another attribute.
 
+AttributeDefinition
+name			allowedString
+dmdID			20
+type			String
+valueType		HASHSET
+description		The allowedString attribute indicates the strings that are allowed as part of a StringSetRule.

@@ -41,6 +41,7 @@ import org.dmd.dms.SliceDefinition;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.dmo.RuleDataDMO;
+import org.dmd.dms.generated.dmw.ClassDefinitionIterableDMW;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
@@ -54,6 +55,8 @@ import org.dmd.util.formatting.PrintfFormat;
  * for use in restricted Java environments, such as GWT.
  */
 public class DmoCompactSchemaFormatter {
+	
+	private final static int OBJECT_INIT_SPLIT = 100;
 
 	PrintStream	progress;
 	
@@ -132,6 +135,10 @@ public class DmoCompactSchemaFormatter {
         
         // Dump the separate class that initializes the _CmAp;
         dumpClassMapInitializer(sd, dmodir, classes);
+        
+        int objectInitializers = dumpSchemaObjectInitializers(sd, dmodir);
+        
+        DebugInfo.debug("Creating " + objectInitializers + " initilizers");
 		
         out.write("\n");
 
@@ -320,33 +327,46 @@ public class DmoCompactSchemaFormatter {
 			out.write("        _SImAp.put(\"" + slice.getName() + "\",__" + slice.getName().getNameString() + ");\n");
 		}
         
-        cds = sd.getClassDefList();
-		if (cds != null){
-			while(cds.hasNext()){
-				out.write("\n");
-				ClassDefinition cd = cds.next();
-				
-				String attr = null;
-				for (AttributeDefinition ad: cd.getMust()){
-					if (ad.getDefinedIn() == cd.getDefinedIn())
-						attr = "__" + ad.getName();
-					else
-						attr = ad.getDefinedIn().getDMSASGName() + ".__" + ad.getName();
-					out.write("        __" + cd.getName() + ".addMust(" + attr + ");\n");
-				}
-				
-				for (AttributeDefinition ad: cd.getMay()){
-					if (ad.getDefinedIn() == cd.getDefinedIn())
-						attr = "__" + ad.getName();
-					else
-						attr = ad.getDefinedIn().getDMSASGName() + ".__" + ad.getName();
-					out.write("        __" + cd.getName() + ".addMay(" + attr + ");\n");
-				}
-				
-			}
-			out.write("\n");
-			
-		}
+        out.write("\n");
+        for(int fileNumber=1; fileNumber<=objectInitializers; fileNumber++){
+        	out.write("        " + schemaName + "_INIT_" + fileNumber + ".initDefinitions();\n");        
+        }
+        
+//        cds = sd.getClassDefList();
+//		if (cds != null){
+//			while(cds.hasNext()){
+//				out.write("\n");
+//				ClassDefinition cd = cds.next();
+//				
+//				String attr = null;
+//				Iterator<AttributeDefinition> attrIT = null;
+//				
+//				attrIT = cd.getAllMust().values().iterator();
+//				while(attrIT.hasNext()){
+//					AttributeDefinition ad = attrIT.next();
+////				for (AttributeDefinition ad: cd.getMust()){
+//					if (ad.getDefinedIn() == cd.getDefinedIn())
+//						attr = "__" + ad.getName();
+//					else
+//						attr = ad.getDefinedIn().getDMSASGName() + ".__" + ad.getName();
+//					out.write("        __" + cd.getName() + ".addMust(" + attr + ");\n");
+//				}
+//				
+//				attrIT = cd.getAllMay().values().iterator();
+//				while(attrIT.hasNext()){
+//					AttributeDefinition ad = attrIT.next();
+////				for (AttributeDefinition ad: cd.getMay()){
+//					if (ad.getDefinedIn() == cd.getDefinedIn())
+//						attr = "__" + ad.getName();
+//					else
+//						attr = ad.getDefinedIn().getDMSASGName() + ".__" + ad.getName();
+//					out.write("        __" + cd.getName() + ".addMay(" + attr + ");\n");
+//				}
+//				
+//			}
+//			out.write("\n");
+//			
+//		}
 		
 		out.write("    }\n\n");
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
@@ -471,6 +491,117 @@ public class DmoCompactSchemaFormatter {
 		out.write("}\n\n");
 		
         out.close();
+	}
+	
+	/**
+	 * Once a schema gets beyond a certain size, the size of the static initializers gets to be be too much.
+	 * The initialization of the schema objects is thus broken into multiple files, 100 initializations per file.
+	 * @param sd the schema definition
+	 * @param dmodir the output directory
+	 * @throws IOException
+	 * @throws ResultException
+	 * @return the number of initialization files we created.
+	 */
+	int dumpSchemaObjectInitializers(SchemaDefinition sd, String dmodir) throws IOException, ResultException {
+		if (sd.getClassDefListSize() == 0)
+			return(0);
+		
+		int fileCount = sd.getClassDefListSize() / OBJECT_INIT_SPLIT;
+		int remainder = sd.getClassDefListSize() % OBJECT_INIT_SPLIT;
+		
+		if (remainder != 0)
+			fileCount += 1;
+		
+		ClassDefinitionIterableDMW	classIT = sd.getClassDefList();
+		
+		for(int fileNumber=1; fileNumber<=fileCount; fileNumber++){
+			String schemaName = GeneratorUtils.dotNameToCamelCase(sd.getName().getNameString()) + "DMSAG";
+	        BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmodir, schemaName + "_INIT_" + fileNumber + ".java");
+	        
+	        out.write("package " + sd.getSchemaPackage() + ".generated.dmo;\n\n");
+
+	    	ImportManager manager = new ImportManager();
+	    	
+	    	String init = getFormattedObjects(sd, classIT, manager);
+
+			out.write(manager.getFormattedImports());
+
+			out.write("\n\n");
+			
+			out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+	        out.write("public class " + schemaName + "_INIT_" + fileNumber + " {\n\n");
+	        
+	        out.write("    static protected void initDefinitions(){\n");
+	        
+	        out.write(init + "\n");
+	        
+			out.write("    }\n\n");
+			
+			out.write("}\n\n");
+			
+	        out.close();
+
+		}
+        
+        return(fileCount);
+	}
+	
+	String getFormattedObjects(SchemaDefinition sd, Iterator<ClassDefinition> classIT, ImportManager manager){
+		StringBuilder sb = new StringBuilder();
+		
+		manager.addImport("org.dmd.dms.generated.dmo.MetaDMSAG", "For Meta references");
+		
+		int currentObject = 0;
+		
+		while(classIT.hasNext()){
+			currentObject++;
+			ClassDefinition cd = classIT.next();
+			
+    		for(AttributeDefinition ad: cd.getMust()){
+//    			if (ad.getDefinedIn() != sd)
+    				manager.addImport(ad.getDefinedIn().getDMSASGImport(), "Required attribute from " + ad.getDefinedIn().getDMSASGName());
+    		}
+    		for(AttributeDefinition ad: cd.getMay()){
+//    			if (ad.getDefinedIn() != sd)
+    				manager.addImport(ad.getDefinedIn().getDMSASGImport(), "Optional attribute from " + ad.getDefinedIn().getDMSASGName());
+    		}
+    		if (cd.getDerivedFrom() != null){
+//    			if (cd.getDerivedFrom().getDefinedIn() != sd)
+       				manager.addImport(cd.getDerivedFrom().getDefinedIn().getDMSASGImport(), "Base class from " + cd.getDerivedFrom().getDefinedIn().getDMSASGName());    				
+    		}
+	    	
+			sb.append("    // " + currentObject + " -- " + cd.getName() + "\n");
+			
+			String attr = null;
+			Iterator<AttributeDefinition> attrIT = null;
+			
+			attrIT = cd.getAllMust().values().iterator();
+			while(attrIT.hasNext()){
+				AttributeDefinition ad = attrIT.next();
+//				if (ad.getDefinedIn() == cd.getDefinedIn())
+//					attr = "__" + ad.getName();
+//				else
+					attr = ad.getDefinedIn().getDMSASGName() + ".__" + ad.getName();
+				sb.append("        " + cd.getDefinedIn().getDMSASGName() + ".__" + cd.getName() + ".addMust(" + attr + ");\n");
+			}
+			
+			attrIT = cd.getAllMay().values().iterator();
+			while(attrIT.hasNext()){
+				AttributeDefinition ad = attrIT.next();
+//				if (ad.getDefinedIn() == cd.getDefinedIn())
+//					attr = "__" + ad.getName();
+//				else
+					attr = ad.getDefinedIn().getDMSASGName() + ".__" + ad.getName();
+				sb.append("        " + cd.getDefinedIn().getDMSASGName() + ".__" + cd.getName() + ".addMay(" + attr + ");\n");
+			}
+			
+			sb.append("\n");
+
+			if (currentObject == OBJECT_INIT_SPLIT)
+				break;
+		}
+		
+		return(sb.toString());
 	}
 	
 	/**
@@ -1028,14 +1159,22 @@ public class DmoCompactSchemaFormatter {
         }
             	 	
     	for(ClassDefinition cd: sd.getClassDefList()){
+//    		for(AttributeDefinition ad: cd.getMust()){
+//    			if (ad.getDefinedIn() != sd)
+//    				manager.addImport(ad.getDefinedIn().getDMSASGImport(), "Required attribute from " + ad.getDefinedIn().getDMSASGName());
+//    		}
+//    		for(AttributeDefinition ad: cd.getMay()){
+//    			if (ad.getDefinedIn() != sd)
+//    				manager.addImport(ad.getDefinedIn().getDMSASGImport(), "Optional attribute from " + ad.getDefinedIn().getDMSASGName());
+//    		}
     		for(AttributeDefinition ad: cd.getMust()){
-    			if (ad.getDefinedIn() != sd)
-    				manager.addImport(ad.getDefinedIn().getDMSASGImport(), "Required attribute from " + ad.getDefinedIn().getDMSASGName());
-    		}
-    		for(AttributeDefinition ad: cd.getMay()){
-    			if (ad.getDefinedIn() != sd)
-    				manager.addImport(ad.getDefinedIn().getDMSASGImport(), "Optional attribute from " + ad.getDefinedIn().getDMSASGName());
-    		}
+			if (ad.getDefinedIn() != sd)
+				manager.addImport(ad.getDefinedIn().getDMSASGImport(), "Required attribute from " + ad.getDefinedIn().getDMSASGName());
+			}
+			for(AttributeDefinition ad: cd.getMay()){
+				if (ad.getDefinedIn() != sd)
+					manager.addImport(ad.getDefinedIn().getDMSASGImport(), "Optional attribute from " + ad.getDefinedIn().getDMSASGName());
+			}
     		if (cd.getDerivedFrom() != null){
     			if (cd.getDerivedFrom().getDefinedIn() != sd)
        				manager.addImport(cd.getDerivedFrom().getDefinedIn().getDMSASGImport(), "Base class from " + cd.getDerivedFrom().getDefinedIn().getDMSASGName());    				

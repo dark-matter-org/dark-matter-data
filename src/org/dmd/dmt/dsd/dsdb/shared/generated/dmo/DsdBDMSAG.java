@@ -1,18 +1,18 @@
 package org.dmd.dmt.dsd.dsdb.shared.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:1080)
-import java.util.ArrayList;                                         // For storage of schema info - (DmoCompactSchemaFormatter.java:1014)
-import java.util.HashMap;                                           // For storage of schema info - (DmoCompactSchemaFormatter.java:1013)
-import java.util.Iterator;                                          // For access of schema info - (DmoCompactSchemaFormatter.java:1015)
-import org.dmd.dmc.*;                                               // Basic DMC stuff - (DmoCompactSchemaFormatter.java:1016)
-import org.dmd.dmc.rules.RuleIF;                                    // For rule info - (DmoCompactSchemaFormatter.java:1017)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                         // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:1033)
-import org.dmd.dms.generated.enums.ClassTypeEnum;                   // Have class definitions - (DmoCompactSchemaFormatter.java:1021)
-import org.dmd.dms.generated.enums.DataTypeEnum;                    // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:1022)
-import org.dmd.dms.generated.enums.OriginalTypeEnum;                // Have type/internal type definitions - (DmoCompactSchemaFormatter.java:1027)
-import org.dmd.dms.generated.enums.ValueTypeEnum;                   // Have attribute definitions - (DmoCompactSchemaFormatter.java:1048)
-import org.dmd.dmt.dsd.dsda.shared.generated.dmo.DsdADMSAG;         // Optional attribute from DsdADMSAG - (DmoCompactSchemaFormatter.java:1037)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:1088)
+import java.util.ArrayList;                                         // For storage of schema info - (DmoCompactSchemaFormatter.java:1022)
+import java.util.HashMap;                                           // For storage of schema info - (DmoCompactSchemaFormatter.java:1021)
+import java.util.Iterator;                                          // For access of schema info - (DmoCompactSchemaFormatter.java:1023)
+import org.dmd.dmc.*;                                               // Basic DMC stuff - (DmoCompactSchemaFormatter.java:1024)
+import org.dmd.dmc.rules.RuleIF;                                    // For rule info - (DmoCompactSchemaFormatter.java:1025)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                         // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:1041)
+import org.dmd.dms.generated.enums.ClassTypeEnum;                   // Have class definitions - (DmoCompactSchemaFormatter.java:1029)
+import org.dmd.dms.generated.enums.DataTypeEnum;                    // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:1030)
+import org.dmd.dms.generated.enums.OriginalTypeEnum;                // Have type/internal type definitions - (DmoCompactSchemaFormatter.java:1035)
+import org.dmd.dms.generated.enums.ValueTypeEnum;                   // Have attribute definitions - (DmoCompactSchemaFormatter.java:1056)
+import org.dmd.dmt.dsd.dsda.shared.generated.dmo.DsdADMSAG;         // Optional attribute from DsdADMSAG - (DmoCompactSchemaFormatter.java:1045)
 
 
 
@@ -41,9 +41,9 @@ public class DsdBDMSAG implements DmcCompactSchemaIF {
     public final static DmcTypeInfo __type_ModuleB = new DmcTypeInfo("ModuleB", OriginalTypeEnum.REFERENCE);
 
     // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:225)
-    public final static DmcClassInfo __BConceptBase = new DmcClassInfo("BConceptBase","org.dmd.dmt.dsd.dsdb.shared.generated.dmo.BConceptBaseDMO", -500098, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,MetaDMSAG.__DSDefinition,MetaDMSAG.__name);
-    public final static DmcClassInfo __BConceptX = new DmcClassInfo("BConceptX","org.dmd.dmt.dsd.dsdb.shared.generated.dmo.BConceptXDMO", -500097, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__BConceptBase,MetaDMSAG.__name);
-    public final static DmcClassInfo __ModuleB = new DmcClassInfo("ModuleB","org.dmd.dmt.dsd.dsdb.shared.generated.dmo.ModuleBDMO", -500099, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__BConceptBase,MetaDMSAG.__name);
+    public final static DmcClassInfo __BConceptBase = new DmcClassInfo("BConceptBase","org.dmd.dmt.dsd.dsdb.shared.generated.dmo.BConceptBaseDMO", -1000198, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,MetaDMSAG.__DSDefinition,MetaDMSAG.__name);
+    public final static DmcClassInfo __BConceptX = new DmcClassInfo("BConceptX","org.dmd.dmt.dsd.dsdb.shared.generated.dmo.BConceptXDMO", -1000197, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__BConceptBase,MetaDMSAG.__name);
+    public final static DmcClassInfo __ModuleB = new DmcClassInfo("ModuleB","org.dmd.dmt.dsd.dsdb.shared.generated.dmo.ModuleBDMO", -1000199, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__BConceptBase,MetaDMSAG.__name);
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;
 
@@ -84,21 +84,81 @@ public class DsdBDMSAG implements DmcCompactSchemaIF {
     static {
 
 
-        __BConceptBase.addMust(MetaDMSAG.__name);
-        __BConceptBase.addMust(MetaDMSAG.__dotName);
         __BConceptBase.addMust(__definedInModuleB);
+        __BConceptBase.addMust(MetaDMSAG.__dotName);
+        __BConceptBase.addMust(MetaDMSAG.__name);
+        __BConceptBase.addMay(MetaDMSAG.__comment);
+        __BConceptBase.addMay(MetaDMSAG.__definedIn);
+        __BConceptBase.addMay(MetaDMSAG.__description);
+        __BConceptBase.addMay(MetaDMSAG.__dotName);
+        __BConceptBase.addMay(MetaDMSAG.__example);
+        __BConceptBase.addMay(MetaDMSAG.__file);
+        __BConceptBase.addMay(MetaDMSAG.__hint);
+        __BConceptBase.addMay(MetaDMSAG.__lineNumber);
+        __BConceptBase.addMay(MetaDMSAG.__nvp);
+        __BConceptBase.addMay(MetaDMSAG.__obsolete);
+        __BConceptBase.addMay(MetaDMSAG.__optimize);
+        __BConceptBase.addMay(MetaDMSAG.__question);
+        __BConceptBase.addMay(MetaDMSAG.__relationship);
+        __BConceptBase.addMay(MetaDMSAG.__searchable);
+        __BConceptBase.addMay(MetaDMSAG.__skip);
+        __BConceptBase.addMay(MetaDMSAG.__sortName);
+        __BConceptBase.addMay(MetaDMSAG.__tags);
+        __BConceptBase.addMay(MetaDMSAG.__version);
+        __BConceptBase.addMay(MetaDMSAG.__why);
 
+        __BConceptX.addMust(__definedInModuleB);
+        __BConceptX.addMust(MetaDMSAG.__dotName);
         __BConceptX.addMust(MetaDMSAG.__name);
+        __BConceptX.addMay(MetaDMSAG.__comment);
+        __BConceptX.addMay(MetaDMSAG.__definedIn);
+        __BConceptX.addMay(MetaDMSAG.__description);
+        __BConceptX.addMay(MetaDMSAG.__dotName);
+        __BConceptX.addMay(MetaDMSAG.__example);
+        __BConceptX.addMay(MetaDMSAG.__file);
+        __BConceptX.addMay(MetaDMSAG.__hint);
+        __BConceptX.addMay(MetaDMSAG.__lineNumber);
+        __BConceptX.addMay(MetaDMSAG.__nvp);
+        __BConceptX.addMay(MetaDMSAG.__obsolete);
+        __BConceptX.addMay(MetaDMSAG.__optimize);
+        __BConceptX.addMay(MetaDMSAG.__question);
+        __BConceptX.addMay(MetaDMSAG.__relationship);
+        __BConceptX.addMay(MetaDMSAG.__searchable);
+        __BConceptX.addMay(MetaDMSAG.__skip);
+        __BConceptX.addMay(MetaDMSAG.__sortName);
+        __BConceptX.addMay(MetaDMSAG.__tags);
+        __BConceptX.addMay(MetaDMSAG.__version);
+        __BConceptX.addMay(MetaDMSAG.__why);
 
+        __ModuleB.addMust(__definedInModuleB);
+        __ModuleB.addMust(MetaDMSAG.__dotName);
         __ModuleB.addMust(MetaDMSAG.__name);
-        __ModuleB.addMay(MetaDMSAG.__description);
+        __ModuleB.addMay(MetaDMSAG.__comment);
         __ModuleB.addMay(MetaDMSAG.__defFiles);
-        __ModuleB.addMay(__dependsOnModuleB);
+        __ModuleB.addMay(MetaDMSAG.__definedIn);
         __ModuleB.addMay(DsdADMSAG.__dependsOnModuleA);
+        __ModuleB.addMay(__dependsOnModuleB);
+        __ModuleB.addMay(MetaDMSAG.__description);
+        __ModuleB.addMay(MetaDMSAG.__dotName);
+        __ModuleB.addMay(MetaDMSAG.__example);
+        __ModuleB.addMay(MetaDMSAG.__file);
+        __ModuleB.addMay(MetaDMSAG.__hint);
+        __ModuleB.addMay(MetaDMSAG.__lineNumber);
+        __ModuleB.addMay(MetaDMSAG.__nvp);
+        __ModuleB.addMay(MetaDMSAG.__obsolete);
+        __ModuleB.addMay(MetaDMSAG.__optimize);
+        __ModuleB.addMay(MetaDMSAG.__question);
+        __ModuleB.addMay(MetaDMSAG.__relationship);
+        __ModuleB.addMay(MetaDMSAG.__searchable);
+        __ModuleB.addMay(MetaDMSAG.__skip);
+        __ModuleB.addMay(MetaDMSAG.__sortName);
+        __ModuleB.addMay(MetaDMSAG.__tags);
+        __ModuleB.addMay(MetaDMSAG.__version);
+        __ModuleB.addMay(MetaDMSAG.__why);
 
     }
 
-    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:352)
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:360)
     static {
 
 

@@ -16,15 +16,17 @@
 package org.dmd.dmt.dsd.dsdb.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGlobalInterface(DSDArtifactFormatter.java:362)
-import java.util.Iterator;                                        // To provide iterators over definitions - (DSDArtifactFormatter.java:359)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGlobalInterface(DSDArtifactFormatter.java:375)
+import java.util.Iterator;                                        // To provide iterators over definitions - (DSDArtifactFormatter.java:370)
+import org.dmd.dmc.DmcNameClashException;                         // May be thrown when finding definitions - (DSDArtifactFormatter.java:371)
+import org.dmd.dmc.DmcValueException;                             // May be thrown when finding definitions - (DSDArtifactFormatter.java:372)
 import org.dmd.dmc.types.DotName;                                 // To support the find method for definitions - (DSDefinitionModule.java:163)
 import org.dmd.dmt.dsd.dsdb.server.extended.BConceptBase;         // A definition from the ModuleB Module - (DSDefinitionModule.java:161)
 import org.dmd.dmt.dsd.dsdb.server.extended.BConceptX;            // A definition from the ModuleB Module - (DSDefinitionModule.java:174)
 import org.dmd.dmt.dsd.dsdb.server.extended.ModuleB;              // A definition from the ModuleB Module - (DSDefinitionModule.java:174)
 
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGlobalInterface(DSDArtifactFormatter.java:366)
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGlobalInterface(DSDArtifactFormatter.java:379)
 /**
  * This interface is implemented by definition managers that store definitions from the ModuleB module.
  */
@@ -38,11 +40,13 @@ public interface ModuleBGlobalInterface {
     public int getBConceptXCount();
     public BConceptX getBConceptX(DotName name);
     public Iterator<BConceptX> getAllBConceptX();
+    public BConceptX getBConceptXDefinition(String name) throws DmcNameClashException, DmcValueException;
 
     public void addModuleB(ModuleB def);
     public int getModuleBCount();
     public ModuleB getModuleB(DotName name);
     public Iterator<ModuleB> getAllModuleB();
+    public ModuleB getModuleBDefinition(String name) throws DmcNameClashException, DmcValueException;
 
 }
 

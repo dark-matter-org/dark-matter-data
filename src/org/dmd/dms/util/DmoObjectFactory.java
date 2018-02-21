@@ -97,7 +97,9 @@ public class DmoObjectFactory {
 		Iterator<String> names = uco.getAttributeNames();
 		while(names.hasNext()){
 			String n = names.next();
-			ad = schema.adef(n);
+			
+//			ad = schema.adef(n);
+			ad = schema.adef(cd,n);
 			
 			if (ad == null){
 	        	ResultException ex = new ResultException();
@@ -105,7 +107,20 @@ public class DmoObjectFactory {
 	            throw(ex);
 			}
 			
-			DmcAttributeInfo ai = dmo.getAttributeInfo(n);
+			DmcAttributeInfo ai = null;
+			
+			// Very tricky stuff. In cases where we're parsing in rule data, usually when running
+			// the DMO/DMW code generation, we won't have the DmcOmni populated (that happens when
+			// you load generated schema). So, if the dmo barfs on getting the attribute info, we
+			// fall back and get it from the AttributeDefinition. This is a different case than
+			// just getting back null.
+			try{
+				ai = dmo.getAttributeInfo(n);
+			}
+			catch(IllegalStateException ex){
+				ai = ad.getAttributeInfo();
+			}
+			
 			if (ai == null){
 				ai = ad.getAttributeInfo();
 			}

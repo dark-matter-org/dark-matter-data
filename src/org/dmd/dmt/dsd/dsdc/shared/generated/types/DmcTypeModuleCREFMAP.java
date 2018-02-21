@@ -30,7 +30,7 @@ import org.dmd.dmc.types.DefinitionName;    // key type import
  * The DmcTypeModuleCREFMAP provides storage for a map of ModuleCREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2858)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2867)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
@@ -73,7 +73,7 @@ public class DmcTypeModuleCREFMAP extends DmcTypeModuleCREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2915)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2924)
     public DmcAttribute<ModuleCREF> cloneIt(){
         synchronized(this){
             DmcTypeModuleCREFMAP rc = getNew();
@@ -92,7 +92,7 @@ public class DmcTypeModuleCREFMAP extends DmcTypeModuleCREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2935)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2944)
     public ModuleCREF add(Object v) throws DmcValueException {
         synchronized(this){
             ModuleCREF newval = typeCheck(v);
@@ -112,7 +112,7 @@ public class DmcTypeModuleCREFMAP extends DmcTypeModuleCREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2956)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2965)
     public ModuleCREF del(Object key){
         synchronized(this){
     
@@ -127,7 +127,7 @@ public class DmcTypeModuleCREFMAP extends DmcTypeModuleCREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2972)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2981)
     public Iterator<ModuleCREF> getMV(){
         synchronized(this){
     
@@ -143,7 +143,7 @@ public class DmcTypeModuleCREFMAP extends DmcTypeModuleCREF implements Serializa
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2989)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2998)
     public Map<DefinitionName,ModuleCREF> getMVCopy(){
         synchronized(this){
             Map<DefinitionName,ModuleCREF> clone = null;
@@ -163,7 +163,7 @@ public class DmcTypeModuleCREFMAP extends DmcTypeModuleCREF implements Serializa
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3010)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3019)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -174,7 +174,7 @@ public class DmcTypeModuleCREFMAP extends DmcTypeModuleCREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3022)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3031)
     public ModuleCREF getByKey(Object key){
         synchronized(this){
            if (value == null)
@@ -188,7 +188,7 @@ public class DmcTypeModuleCREFMAP extends DmcTypeModuleCREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3037)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3046)
     public boolean contains(Object v){
         synchronized(this){
            if (value == null)
@@ -204,7 +204,7 @@ public class DmcTypeModuleCREFMAP extends DmcTypeModuleCREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3054)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3063)
     public boolean containsKey(Object key){
         synchronized(this){
            if (value == null)

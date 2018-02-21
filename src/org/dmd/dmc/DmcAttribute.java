@@ -975,15 +975,42 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
      */
     protected void formatValueAsJSON(StringBuffer sb, int padding, String indent) {
     	if (getMVSize() == 0){
-    		sb.append("\"" + getSV().toString() + "\"");
+    		String value = getSV().toString();
+    		if (value.contains("\\"))
+    			value = value.replace("\\", "\\\\");
+        	if (value.contains("\\\\n"))
+    			value = value.replace("\\\\n", "\\n");
+    		if (value.contains("\t"))
+    			value = value.replace("\t", "\\t");
+    		if (value.contains("\""))
+    			value = value.replace("\"", "\\\"");
+//    		sb.append("\"" + getSV().toString().replace("\"", "\\\"") + "\"");
+    		sb.append("\"" + value + "\"");
     	}
     	else {
-    		int max = getMVSize()- 1;
-    		for(int i=0; i<getMVSize(); i++){
-        		sb.append(indent + "  " + "\"" + getMVnth(i).toString() + "\"");
-        		if (i < max)
-        			sb.append(", \n");
+    		Iterator<VALUE> it = getMV();
+    		while(it.hasNext()){
+    			VALUE jvalue = it.next();
+    			String value = jvalue.toString();
+        		if (value.contains("\\"))
+        			value = value.replace("\\", "\\\\");
+            	if (value.contains("\\\\n"))
+        			value = value.replace("\\\\n", "\\n");
+        		if (value.contains("\t"))
+        			value = value.replace("\t", "\\t");
+        		if (value.contains("\""))
+        			value = value.replace("\"", "\\\"");
+//        		sb.append(indent + "  " + "\"" + value.toString().replace("\"", "\\\"") + "\"");
+        		sb.append(indent + "  " + "\"" + value + "\"");
+        		if (it.hasNext())
+        			sb.append(", \n");        			
     		}
+//    		int max = getMVSize()- 1;
+//    		for(int i=0; i<getMVSize(); i++){
+//        		sb.append(indent + "  " + "\"" + getMVnth(i).toString() + "\"");
+//        		if (i < max)
+//        			sb.append(", \n");
+//    		}
     	}
     }
     
@@ -993,12 +1020,12 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
      */
     protected void formatValueAsCompactJSON(StringBuffer sb) {
     	if (getMVSize() == 0){
-    		sb.append("\"" + getSV().toString() + "\"");
+    		sb.append("\"" + getSV().toString().replace("\"", "\\\"") + "\"");
     	}
     	else {
     		int max = getMVSize()- 1;
     		for(int i=0; i<getMVSize(); i++){
-        		sb.append("\"" + getMVnth(i).toString() + "\"");
+        		sb.append("\"" + getMVnth(i).toString().replace("\"", "\\\"") + "\"");
         		if (i < max)
         			sb.append(",");
     		}

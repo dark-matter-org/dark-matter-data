@@ -24,7 +24,7 @@ import org.dmd.dmp.shared.generated.dmo.SetResponseDMO;    // DmcType import
  * The DmcTypeSetResponseREFSV provides storage for a single-valued SetResponse
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1985)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1994)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:254)
  */
 @SuppressWarnings("serial")
@@ -49,14 +49,14 @@ public class DmcTypeSetResponseREFSV extends DmcTypeSetResponseREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2017)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2026)
     public DmcAttribute<SetResponseDMO> cloneIt(){
         DmcTypeSetResponseREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2028)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2037)
     public SetResponseDMO getSVCopy(){
         if (value == null)
             return(null);
@@ -64,7 +64,7 @@ public class DmcTypeSetResponseREFSV extends DmcTypeSetResponseREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2040)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2049)
     public SetResponseDMO set(Object v) throws DmcValueException {
         SetResponseDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

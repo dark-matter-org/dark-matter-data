@@ -650,6 +650,24 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition implements Dmc
     }
 
     /**
+     * A flag to indicate if you want your data repository to create an index for
+     * a named object. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2393)
+    public Boolean getCreateIndex(){
+        return(mycore.getCreateIndex());
+    }
+
+    /**
+     * Sets createIndex to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2466)
+    public void setCreateIndex(Object value) throws DmcValueException {
+        mycore.setCreateIndex(value);
+    }
+
+    /**
      * This flag indicates if the associated definition was internally
      * generated.\n This is the case for TypeDefinitions generated for
      * ClassDefinitions and EnumDefinitions\n that allow for references to these

@@ -351,7 +351,7 @@ dmdID				11
 ruleCategory		AttributeValidation
 may             	allowedType
 may					allowedValueType
-description			The ReferencedAttributeTypeRule allowes you to restrict the type of
+description			The ReferencedAttributeTypeRule allows you to restrict the type of
  an attribute referred to by an AttributeDefinition reference. Some examples include:
  <pre>
  ReferencedAttributeTypeRuleData
@@ -439,6 +439,104 @@ ruleTitle			The naming attribute must be a must have attribute.
 applyToClass		ClassDefinition
 description			If you're naming an object, you've got to have its name attribute.
 
+///////////////////////////////////////////////////////////////////////////////
+
+RuleDefinition
+name				RestrictReferencesRule
+dmdID				16
+ruleCategory		AttributeValidation
+must				allowedReference
+description			The RestrictReferencesRule allows you to restrict the types
+ of objects being referenced via a reference attribute. This is useful in situations
+ where a single reference attribute is being used in multiple contexts and you
+ want to restrict the types of objects it references in those contexts.
+ <p/>
+ Example:
+ <pre>
+ RestrictReferencesRuleData
+ ruleName           rrrDerivedA
+ ruleTitle          The X attribute can only refer to other objects of type SomeClassA and SomeClassB when used in a SomeOtherClass instance.
+ applyToAttribute   X
+ applyToClass 		SomeOtherClass
+ allowedReference	SomeClassA
+ allowedReference	SomeClassB
+ </pre>
+
+//ReferencedAttributeTypeRuleData
+//ruleName			dmvRRRApplyToAttribute
+//ruleTitle			The applyToAttribute attribute in a RestrictReferencesRule instance must refer to a ClassDefinitionREF
+//applyToAttribute	applyToAttribute
+//applyToClass 		RestrictReferencesRuleData
+//allowedType 		ClassDefinition
+ 
+ 
+
+///////////////////////////////////////////////////////////////////////////////
+
+RuleDefinition
+name			CardinalityRule
+dmdID			17
+ruleCategory	AttributeValidation
+must			crMinimum
+must			crMaximum
+description		The CardinalityRule lets you specify the required cardinality of a multi-valued attribute.
+ <pre>
+ CardinalityRuleData
+ ruleName          oneToFiveThingsAllowed
+ ruleTitle         The things attribute must have 1 to 5 things in it.
+ applyToAttribute  things
+ applyToClass      SomethingWithThings
+ crMinimum         1
+ crMaximum         5
+ </pre>
+ <p/>
+ <pre>
+ CardinalityRuleData
+ ruleName          minimumOfTwoThing
+ ruleTitle         The things attribute must have at least 2 things in it.
+ applyToAttribute  things
+ applyToClass      SomethingWithThings
+ crMinimum         2
+ </pre>
+ <p/>
+ <pre>
+ CardinalityRuleData
+ ruleName          maximumOfTenThings
+ ruleTitle         The things attribute must have a maximum of 10 things in it.
+ applyToAttribute  things
+ applyToClass      SomethingWithThings
+ crMaximum         10
+ </pre>
+
+
+RelatedNumbersRuleData
+ruleName        	dmvcrMinLessThanMax
+ruleTitle       	The crMinimum must be less than or equal to the crMaximum.
+applyToClass    	CardinalityRuleData
+lhs             	crMinimum
+rhs             	crMaximum
+numericRelation 	LTE
+description			Checks that the lower bound specified on the cardinality is less than or equal the maximum cardinality.
+
+ReferencedAttributeTypeRuleData
+ruleName          dmvcrAttributeMustBeMultivalued
+ruleTitle         The attribute referred to by a CardinalityRule must be multi-valued.
+applyToAttribute  applyToAttribute
+applyToClass      CardinalityRuleData
+allowedValueType  MULTI
+allowedValueType  HASHSET
+allowedValueType  HASHMAP
+allowedValueType  TREESET
+allowedValueType  TREEMAP
+description       It only makes sense to apply the CardinalityRule to multi-valued attributes.
+
+OneOfTheseAttributesRequiredRuleData
+ruleName			dmvcrMinimumOrMaximum
+ruleTitle			Either crMinimum or crMaximum or both must be specified.
+applyToClass		CardinalityRuleData
+onePossibility		crMinimum
+onePossibility		crMaximum
+description         The CardinalityRuleData can operate with one or both of the crMinimum and crMaximum values.
 
 ///////////////////////////////////////////////////////////////////////////////
  
@@ -550,3 +648,26 @@ ruleName         dmvHintLength
 ruleTitle        The hint for something should be at most 80 characters.
 applyToAttribute hint
 maxLength        80
+
+RuleDefinition
+name			StringSetRule
+dmdID			18
+ruleCategory	AttributeValidation
+must			allowedString
+description		The StringSetRule lets you specify a set of strings that are allowed as values for an attribute.
+ <pre>
+ StringSetRule
+ ruleName	fishRule
+ ruleTitle	The fish must be one of red fish, blue fish or green fish.
+ applyToAttribute fish
+ allowedString red fish
+ allowedString blue fish
+ allowedString green fish
+ </pre>
+
+ReferencedAttributeTypeRuleData
+ruleName          dmvSSR
+ruleTitle         The applyToAttribute attribute in a StringSetRule instance must refer to a String attribute
+applyToAttribute  applyToAttribute
+applyToClass      StringSetRuleData
+allowedType       String

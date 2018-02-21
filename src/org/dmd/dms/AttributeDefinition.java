@@ -184,8 +184,16 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
      * @return The attribute info.
      */
     public DmcAttributeInfo getAttributeInfo(){
-    	if (attrInfo == null)
-    		attrInfo = new DmcAttributeInfo(getDefinedIn().getName().getNameString(),getName().getNameString(), getDmdID(), getType().getName().getNameString(), getValueType(), getDataType());
+    	if (attrInfo == null){
+    		// Tricky fix to support dynamically loaded rules during code generation - see the DmoObjectFactory
+    		int indexSize = 0;
+    		if (getIndexSize() != null)
+    			indexSize = getIndexSize();
+    		boolean weakRef = false;
+    		if (getWeakReference() != null)
+    			weakRef = getWeakReference();
+    		attrInfo = new DmcAttributeInfo(getDefinedIn().getName().getNameString(),getName().getNameString(), getDmdID(), getType().getName().getNameString(), getValueType(), getDataType(), indexSize, weakRef);
+    	}
     	
     	return(attrInfo);
     }

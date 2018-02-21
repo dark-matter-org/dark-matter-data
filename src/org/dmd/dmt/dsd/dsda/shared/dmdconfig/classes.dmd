@@ -18,3 +18,12 @@ useWrapperType	EXTENDED
 derivedFrom		AConceptBase
 isNamedBy		name
 must			name
+
+ClassDefinition
+name 			ABConceptX
+classType      	STRUCTURAL
+dmdID			4
+useWrapperType	EXTENDED
+derivedFrom		AConceptX
+isNamedBy		name
+must			name

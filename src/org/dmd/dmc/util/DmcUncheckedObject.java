@@ -72,6 +72,19 @@ public class DmcUncheckedObject {
 		return(classes.get(0));
 	}
 	
+	/**
+	 * Wipes any existing classes and sets the construction class to the specified value.
+	 * @param cn the new class name
+	 */
+	public void setConstructionClass(String cn){
+		classes = new ArrayList<String>();
+		classes.add(cn);
+	}
+	
+	public Iterator<String> getClasses(){
+		return(classes.iterator());
+	}
+	
 	public void addToClasses(String c){
 //		addValue(_ocl,c);
 		classes.add(c);

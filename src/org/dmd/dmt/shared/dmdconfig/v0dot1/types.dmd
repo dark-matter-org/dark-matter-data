@@ -14,3 +14,14 @@ enumValue		2 TEST2 Second test
 enumValue		3 TEST3 Third test
 description		The DmtTestEnum is used for testing operations on enumerated types
 
+//EnumDefinition
+//name 			ScopeEnum
+//enumValue		0 NONE Indicates that no value has been set.
+//enumValue		1 BASE Applies the operation only to the object named in the request.
+//enumValue		2 NEXT Applies the operation to the children, or next layer, of objects
+// below the target object.
+//enumValue		3 ALL Applies the operation to the entire sub-tree of objects beneath
+// the target object.
+//description     The ScopeEnum indicates the scope of an operation when applied to
+// a hierarchy of objects.
+

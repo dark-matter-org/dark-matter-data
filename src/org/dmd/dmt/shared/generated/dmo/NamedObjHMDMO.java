@@ -1,18 +1,18 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:396)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:405)
 import java.io.Serializable;                                                // Always required - (GenUtility.java:224)
 import java.util.*;                                                         // Always required if we have any MV attributes - (GenUtility.java:221)
-import org.dmd.dmc.DmcAttribute;                                            // Any attributes - (GenUtility.java:240)
-import org.dmd.dmc.DmcObject;                                               // Structural class - (GenUtility.java:351)
-import org.dmd.dmc.DmcOmni;                                                 // Lazy resolution - (GenUtility.java:320)
+import org.dmd.dmc.DmcAttribute;                                            // Any attributes - (GenUtility.java:245)
+import org.dmd.dmc.DmcObject;                                               // Structural class - (GenUtility.java:359)
+import org.dmd.dmc.DmcOmni;                                                 // Lazy resolution - (GenUtility.java:328)
 import org.dmd.dmc.DmcSliceInfo;                                            // Required for object slicing - (GenUtility.java:229)
-import org.dmd.dmc.DmcValueException;                                       // Any attributes - (GenUtility.java:241)
+import org.dmd.dmc.DmcValueException;                                       // Any attributes - (GenUtility.java:246)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                 // Required for MODREC constructor - (GenUtility.java:228)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                       // Required for MODREC constructor - (GenUtility.java:227)
-import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;                     // Type specific set/add - (GenUtility.java:307)
-import org.dmd.dmt.shared.generated.types.DmcTypeObjWithRefsREFMAP;         // Reference type - (GenUtility.java:300)
-import org.dmd.dmt.shared.generated.types.ObjWithRefsREF;                   // Helper class - (GenUtility.java:335)
+import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;                     // Type specific set/add - (GenUtility.java:315)
+import org.dmd.dmt.shared.generated.types.DmcTypeObjWithRefsREFMAP;         // Reference type - (GenUtility.java:308)
+import org.dmd.dmt.shared.generated.types.ObjWithRefsREF;                   // Helper class - (GenUtility.java:343)
 
 // Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:678)
 /**
@@ -68,9 +68,9 @@ public class NamedObjHMDMO  extends DmcObject  implements Serializable  {
     /**
      * @return An Iterator of ObjWithRefsDMO objects.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1393)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1402)
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1405)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1414)
     public Iterator<ObjWithRefsREF> getHmNamedObj(){
         DmcTypeObjWithRefsREFMAP attr = (DmcTypeObjWithRefsREFMAP) get(DmtDMSAG.__hmNamedObj);
         if (attr == null)
@@ -89,7 +89,7 @@ public class NamedObjHMDMO  extends DmcObject  implements Serializable  {
     /**
      * @return An Iterator of ObjWithRefsREFs without attempting lazy resolution (if it's turned on).
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1424)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1433)
     @SuppressWarnings("unchecked")
     public Iterator<ObjWithRefsREF> getHmNamedObjREFs(){
         DmcTypeObjWithRefsREFMAP attr = (DmcTypeObjWithRefsREFMAP) get(DmtDMSAG.__hmNamedObj);
@@ -103,7 +103,7 @@ public class NamedObjHMDMO  extends DmcObject  implements Serializable  {
      * @param key The key of the value you want.
      * @return The ObjWithRefs associated with the specified key.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1458)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1467)
     public ObjWithRefsREF getHmNamedObj(Object key){
         DmcTypeObjWithRefsREFMAP attr = (DmcTypeObjWithRefsREFMAP) get(DmtDMSAG.__hmNamedObj);
         if (attr == null)
@@ -116,7 +116,7 @@ public class NamedObjHMDMO  extends DmcObject  implements Serializable  {
      * Adds another hmNamedObj value.
      * @param value A value compatible with ObjWithRefs
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1510)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1519)
     public DmcAttribute<?> addHmNamedObj(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__hmNamedObj);
         if (attr == null)
@@ -131,7 +131,7 @@ public class NamedObjHMDMO  extends DmcObject  implements Serializable  {
      * Adds another hmNamedObj value.
      * @param value ObjWithRefs
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1526)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1535)
     public DmcAttribute<?> addHmNamedObj(ObjWithRefsDMO value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__hmNamedObj);
         if (attr == null)
@@ -151,7 +151,7 @@ public class NamedObjHMDMO  extends DmcObject  implements Serializable  {
      * Deletes a hmNamedObj value.
      * @param value The ObjWithRefs to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1585)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1594)
     public DmcAttribute<?> delHmNamedObj(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__hmNamedObj);
         
@@ -167,7 +167,7 @@ public class NamedObjHMDMO  extends DmcObject  implements Serializable  {
      * Deletes a hmNamedObj value.
      * @param value The ObjWithRefs to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1603)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1612)
     public DmcAttribute<?> delHmNamedObj(ObjWithRefsDMO value){
         DmcAttribute<?> attr = get(DmtDMSAG.__hmNamedObj);
         
@@ -182,7 +182,7 @@ public class NamedObjHMDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the hmNamedObj attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1699)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1708)
     public void remHmNamedObj(){
          rem(DmtDMSAG.__hmNamedObj);
     }

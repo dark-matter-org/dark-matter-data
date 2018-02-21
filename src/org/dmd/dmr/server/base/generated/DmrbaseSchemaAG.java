@@ -82,19 +82,19 @@ public class DmrbaseSchemaAG extends SchemaDefinition {
             ClassDefinitionDMO _HierarchicObjectOBJ = new ClassDefinitionDMO();
             _HierarchicObject = new ClassDefinition(_HierarchicObjectOBJ,DmrbaseDMSAG.__HierarchicObject);
             _HierarchicObjectOBJ.setName("HierarchicObject");
-            _HierarchicObjectOBJ.setDmdID("401");
+            _HierarchicObjectOBJ.setDmdID("801");
             _HierarchicObjectOBJ.setClassType("STRUCTURAL");
             _HierarchicObjectOBJ.setFile("/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/classes.dmd");
             _HierarchicObjectOBJ.setLineNumber("15");
-            _HierarchicObjectOBJ.addDescription("A HierarchicObject is meant to represent any object that can\n be identified with a Fully Qualified Name (FQN) and exists in a containment\n relationship with other objects. The exact implementation of a HierarchicObject\n is application specific.");
             _HierarchicObjectOBJ.setIsNamedBy("meta.FQN");
+            _HierarchicObjectOBJ.addDescription("A HierarchicObject is meant to represent any object that can\n be identified with a Fully Qualified Name (FQN) and exists in a containment\n relationship with other objects. The exact implementation of a HierarchicObject\n is application specific.");
             _HierarchicObjectOBJ.setUseWrapperType("EXTENDED");
-            _HierarchicObjectOBJ.setDmtREFImport("org.dmd.dmr.shared.base.generated.types.HierarchicObjectREF");
-            _HierarchicObjectOBJ.setDmwIteratorClass("HierarchicObjectIterableDMW");
+            _HierarchicObjectOBJ.addMust("meta.FQN");
             _HierarchicObjectOBJ.addMay("meta.lineNumber");
             _HierarchicObjectOBJ.addMay("meta.file");
-            _HierarchicObjectOBJ.addMust("meta.FQN");
             _HierarchicObjectOBJ.setDmwIteratorImport("org.dmd.dmr.server.base.generated.dmw.HierarchicObjectIterableDMW");
+            _HierarchicObjectOBJ.setDmwIteratorClass("HierarchicObjectIterableDMW");
+            _HierarchicObjectOBJ.setDmtREFImport("org.dmd.dmr.shared.base.generated.types.HierarchicObjectREF");
             _HierarchicObjectOBJ.setDotName("dmrbase.HierarchicObject.ClassDefinition");
             _HierarchicObject.setDefinedIn(this);
             addClassDefList(_HierarchicObject);
@@ -103,18 +103,18 @@ public class DmrbaseSchemaAG extends SchemaDefinition {
             ClassDefinitionDMO _DotNamedObjectOBJ = new ClassDefinitionDMO();
             _DotNamedObject = new ClassDefinition(_DotNamedObjectOBJ,DmrbaseDMSAG.__DotNamedObject);
             _DotNamedObjectOBJ.setName("DotNamedObject");
-            _DotNamedObjectOBJ.setDmdID("402");
+            _DotNamedObjectOBJ.setDmdID("802");
             _DotNamedObjectOBJ.setClassType("STRUCTURAL");
             _DotNamedObjectOBJ.setFile("/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/classes.dmd");
             _DotNamedObjectOBJ.setLineNumber("33");
-            _DotNamedObjectOBJ.addDescription("A DotNamedObject is a hierarchic object whose fully qualified\n name is composed of naming attributes separated by periods. For example \n grandparent.parent.child.\n <p>\n The naming attribute of a DotNamedObject is name. Unlike LDAP objects, \n we don't bother making this configurable. When a DotNamedObject is parsed\n from a file, we check to see if the name attribute has a value; if not,\n we take the last portion of the FQN as the name. For example, if the FQN\n is x.y.z, the name of the object would be 'z'.");
-            _DotNamedObjectOBJ.setDerivedFrom("dmrbase.HierarchicObject");
             _DotNamedObjectOBJ.setIsNamedBy("meta.FQN");
+            _DotNamedObjectOBJ.addDescription("Way too long!");
             _DotNamedObjectOBJ.setUseWrapperType("EXTENDED");
-            _DotNamedObjectOBJ.setDmtREFImport("org.dmd.dmr.shared.base.generated.types.DotNamedObjectREF");
-            _DotNamedObjectOBJ.setDmwIteratorClass("DotNamedObjectIterableDMW");
+            _DotNamedObjectOBJ.setDerivedFrom("dmrbase.HierarchicObject");
             _DotNamedObjectOBJ.addMust("meta.FQN");
             _DotNamedObjectOBJ.setDmwIteratorImport("org.dmd.dmr.server.base.generated.dmw.DotNamedObjectIterableDMW");
+            _DotNamedObjectOBJ.setDmwIteratorClass("DotNamedObjectIterableDMW");
+            _DotNamedObjectOBJ.setDmtREFImport("org.dmd.dmr.shared.base.generated.types.DotNamedObjectREF");
             _DotNamedObjectOBJ.setDotName("dmrbase.DotNamedObject.ClassDefinition");
             _DotNamedObject.setDefinedIn(this);
             addClassDefList(_DotNamedObject);
@@ -125,29 +125,29 @@ public class DmrbaseSchemaAG extends SchemaDefinition {
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
             AttributeDefinitionDMO _userNameOBJ = new AttributeDefinitionDMO();
             _userName = new AttributeDefinition(_userNameOBJ);
-            _userNameOBJ.setType("meta.String");
+            _userNameOBJ.addDescription("The name of a user.");
             _userNameOBJ.setName("userName");
             _userNameOBJ.setDmdID("400");
-            _userNameOBJ.addDescription("The name of a user.");
+            _userNameOBJ.setType("meta.String");
+            _userNameOBJ.setFile("/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/attributes.dmd");
             _userNameOBJ.setDataType("PERSISTENT");
             _userNameOBJ.setDotName("dmrbase.userName.AttributeDefinition");
-            _userName.setDefinedIn(this);
-            _userNameOBJ.setFile("/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/attributes.dmd");
             _userNameOBJ.setLineNumber("47");
+            _userName.setDefinedIn(this);
             addAttributeDefList(_userName);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
             AttributeDefinitionDMO _passwordOBJ = new AttributeDefinitionDMO();
             _password = new AttributeDefinition(_passwordOBJ);
-            _passwordOBJ.setType("meta.String");
+            _passwordOBJ.addDescription("A user's password.");
             _passwordOBJ.setName("password");
             _passwordOBJ.setDmdID("401");
-            _passwordOBJ.addDescription("A user's password.");
+            _passwordOBJ.setType("meta.String");
+            _passwordOBJ.setFile("/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/attributes.dmd");
             _passwordOBJ.setDataType("PERSISTENT");
             _passwordOBJ.setDotName("dmrbase.password.AttributeDefinition");
-            _password.setDefinedIn(this);
-            _passwordOBJ.setFile("/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/attributes.dmd");
             _passwordOBJ.setLineNumber("54");
+            _password.setDefinedIn(this);
             addAttributeDefList(_password);
 
     }

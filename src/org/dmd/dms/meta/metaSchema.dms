@@ -648,11 +648,102 @@ name					UCOValidation
 opContext				DMO
 ruleCategoryID			6
 ruleType				CLASS
-ruleParam				org.dmd.dmc.util.DmcUncheckedObject: :obj:The object to be validated:
-classInfoFromParam		DmcOmni.instance().getClassInfo(obj.getConstructionClass())
+ruleParam				org.dmd.dmc.util.DmcUncheckedObject: :uco:The object to be validated:
+classInfoFromParam		DmcOmni.instance().getClassInfo(uco.getConstructionClass())
 ruleImport				org.dmd.dmc.DmcOmni
 description				Rules in this category are used to validate DmcUncheckedObjects (UCOs) which
  are basically just collections of attribute/value pairs.
+
+RuleCategory
+name					UCOAttributeNormalization
+opContext				DMO
+ruleCategoryID			7
+ruleType				ATTRIBUTE
+ruleParam				org.dmd.dmc.util.DmcUncheckedObject: :uco:The object in which attribute resides:
+ruleParam				java.lang.String: :attributeName:The attribute to be normalized:
+ruleParam				org.dmd.dmc.util.UcoDataStoreIF: :in:The data store from which objects can be retrieved:
+ruleParam				org.dmd.dmc.util.UcoFeedbackIF: :listener:The feedback listener:
+classInfoFromParam		DmcOmni.instance().getClassInfo(uco.getConstructionClass())
+attributeInfoFromParam	DmcOmni.instance().getAttributeInfo(attributeName)
+ruleImport				org.dmd.dmc.DmcOmni
+description				Rules in this category are used to normalize attribute values in DmcUncheckedObjects (UCOs)
+ and may use information from an external data store to facilitate that.
+
+RuleCategory
+name					UCOObjectNormalization
+opContext				DMO
+ruleCategoryID			8
+ruleType				CLASS
+ruleParam				org.dmd.dmc.util.DmcUncheckedObject: :uco:The object in which attribute resides:
+ruleParam				org.dmd.dmc.util.UcoDataStoreIF: :in:The data store from which objects can be retrieved:
+ruleParam				org.dmd.dmc.util.UcoFeedbackIF: :listener:The feedback listener:
+classInfoFromParam		DmcOmni.instance().getClassInfo(uco.getConstructionClass())
+ruleImport				org.dmd.dmc.DmcOmni
+description				Rules in this category are used to normalize DmcUncheckedObjects (UCOs)
+ and may use information from an external data store to facilitate that.
+ <p/>
+ While the UCOAttributeNormalization category focuses on a single attribute, object normalization
+ may manipulate many aspects of an object: adding/removing attributes and/or alterring existing
+ attributes.
+
+RuleCategory
+name					UCOMapping
+opContext				DMO
+ruleCategoryID			9
+ruleType				CLASS
+ruleParam				org.dmd.dmc.util.DmcUncheckedObject: :uco:The object to be mapped:
+ruleParam				org.dmd.dmc.util.UcoDataStoreIF: :in:The data store from which objects can be retrieved:
+ruleParam				org.dmd.dmc.util.UcoDataStoreIF: :out:The data store to which mapped objects should be written:
+ruleParam				org.dmd.dmc.util.UcoFeedbackIF: :listener:The feedback listener:
+classInfoFromParam		DmcOmni.instance().getClassInfo(uco.getConstructionClass())
+ruleImport				org.dmd.dmc.DmcOmni
+description				Rules in this category are used to perform mappings from a given base object into
+ one or more other objects. By convention, we provide handles to an input data store and an output datastore,
+ although they can actually refer to the same data store; that's up to the implementer of the rule.
+
+RuleCategory
+name					UCOAttributeAudit
+opContext				DMO
+ruleCategoryID			10
+ruleType				ATTRIBUTE
+ruleParam				org.dmd.dmc.util.DmcUncheckedObject: :uco:The object at which the audit begins:
+ruleParam				java.lang.String: :attributeName:The attribute to be audited:
+ruleParam				org.dmd.dmc.util.UcoDataStoreIF: :in:The data store from which objects can be retrieved:
+ruleParam				org.dmd.dmc.util.UcoDataStoreIF: :out:The data store to which objects may be written:
+ruleParam				org.dmd.dmc.util.UcoFeedbackIF: :listener:The feedback listener:
+classInfoFromParam		DmcOmni.instance().getClassInfo(uco.getConstructionClass())
+attributeInfoFromParam	DmcOmni.instance().getAttributeInfo(attributeName)
+ruleImport				org.dmd.dmc.DmcOmni
+description				Rules in this category are used to perform auditting of individual attributes.
+ In cases where the audit rule fails, there is a choice as to how to report the failure:
+ <ul>
+ <li>Send feedback to the listener</li>
+ <li>Throw a RuleExceptionSet</li>
+ <li>Write some sort of failure notification to the out data store</li>
+ </ul>
+ Follow whatever conventions are right for your application.
+
+RuleCategory
+name					UCOObjectAudit
+opContext				DMO
+ruleCategoryID			11
+ruleType				CLASS
+ruleParam				org.dmd.dmc.util.DmcUncheckedObject: :uco:The object at which the audit begins:
+ruleParam				org.dmd.dmc.util.UcoDataStoreIF: :in:The data store from which objects can be retrieved:
+ruleParam				org.dmd.dmc.util.UcoDataStoreIF: :out:The data store to which objects may be written:
+ruleParam				org.dmd.dmc.util.UcoFeedbackIF: :listener:The feedback listener:
+classInfoFromParam		DmcOmni.instance().getClassInfo(uco.getConstructionClass())
+ruleImport				org.dmd.dmc.DmcOmni
+description				Rules in this category are used to perform auditting of objects i.e. analysis of an
+ object and, potentially, its relationship with other objects. In cases where the audit rule fails, there is
+ a choice as to how to report the failure:
+ <ul>
+ <li>Send feedback to the listener</li>
+ <li>Throw a RuleExceptionSet</li>
+ <li>Write some sort of failure notification to the out data store</li>
+ </ul>
+ Follow whatever conventions are right for your application.
+
 
 ///////////////////////////////////////////////////////////////////////////////
 // RuleDefinitions
@@ -2147,6 +2238,30 @@ type						String
 valueType					MULTI
 description					A question associated with the definition of something.
 
+AttributeDefinition
+name						searchable
+dmdID						188
+type						Boolean
+version						3.0.5
+description					Indicates if something is searchable.
+
+AttributeDefinition
+name						relationship
+dmdID						189
+type						String
+version						3.0.5
+description					The name of the relationship established via a reference to some other named object.
+ <p/>
+ This is a minor hack to allow creation of named relationships in graph databases. Eventually, relationships
+ will become first class objects to which you can refer.
+
+AttributeDefinition
+name						createIndex
+dmdID						190
+type						Boolean
+version						3.0.5
+description					A flag to indicate if you want your data repository to create an index for a named object.
+
 //AttributeDefinition
 //name                		nameAndTypeName
 //dmdID						176
@@ -2219,6 +2334,8 @@ may				version
 may				skip
 may				obsolete
 may				why
+may				searchable
+may				relationship
 // Auto generated/set
 may           	definedIn
 may          	file
@@ -2352,6 +2469,7 @@ may           	abbrev
 may         	obsoleteVersion
 may				isDSDefinition
 may				partOfDefinitionModule
+may				createIndex
 //may				isDSModule
 // Auto generated/set
 may             internallyGenerated

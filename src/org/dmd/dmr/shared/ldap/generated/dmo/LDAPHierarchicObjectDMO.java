@@ -15,16 +15,16 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmr.shared.ldap.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:396)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:405)
 import java.io.Serializable;                                              // Always required - (GenUtility.java:224)
-import org.dmd.dmc.DmcAttribute;                                          // Named object - (GenUtility.java:376)
-import org.dmd.dmc.DmcNamedObjectIF;                                      // Named object - (GenUtility.java:375)
+import org.dmd.dmc.DmcAttribute;                                          // Named object - (GenUtility.java:385)
+import org.dmd.dmc.DmcNamedObjectIF;                                      // Named object - (GenUtility.java:384)
 import org.dmd.dmc.DmcSliceInfo;                                          // Required for object slicing - (GenUtility.java:229)
-import org.dmd.dmc.DmcValueException;                                     // Any attributes - (GenUtility.java:241)
-import org.dmd.dmc.types.FullyQualifiedName;                              // Naming attribute type - (GenUtility.java:370)
-import org.dmd.dmr.shared.base.generated.dmo.HierarchicObjectDMO;         // Base class - (GenUtility.java:355)
+import org.dmd.dmc.DmcValueException;                                     // Any attributes - (GenUtility.java:246)
+import org.dmd.dmc.types.FullyQualifiedName;                              // Naming attribute type - (GenUtility.java:379)
+import org.dmd.dmr.shared.base.generated.dmo.HierarchicObjectDMO;         // Base class - (GenUtility.java:364)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                               // Required for MODREC constructor - (GenUtility.java:228)
-import org.dmd.dms.generated.types.DmcTypeFullyQualifiedNameSV;           // Required type - (GenUtility.java:328)
+import org.dmd.dms.generated.types.DmcTypeFullyQualifiedNameSV;           // Required type - (GenUtility.java:336)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                     // Required for MODREC constructor - (GenUtility.java:227)
 
 // Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:678)
@@ -119,7 +119,7 @@ public class LDAPHierarchicObjectDMO  extends HierarchicObjectDMO  implements Dm
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:784)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
     public FullyQualifiedName getFQN(){
         DmcTypeFullyQualifiedNameSV attr = (DmcTypeFullyQualifiedNameSV) get(MetaDMSAG.__FQN);
         if (attr == null)
@@ -132,7 +132,7 @@ public class LDAPHierarchicObjectDMO  extends HierarchicObjectDMO  implements Dm
      * Sets FQN to the specified value.
      * @param value FullyQualifiedName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:824)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:833)
     public void setFQN(FullyQualifiedName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__FQN);
         if (attr == null)
@@ -151,7 +151,7 @@ public class LDAPHierarchicObjectDMO  extends HierarchicObjectDMO  implements Dm
      * Sets FQN to the specified value.
      * @param value A value compatible with DmcTypeFullyQualifiedNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:877)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
     public void setFQN(Object value) throws DmcValueException {
         DmcTypeFullyQualifiedNameSV attr  = (DmcTypeFullyQualifiedNameSV) get(MetaDMSAG.__FQN);
         if (attr == null)
@@ -164,7 +164,7 @@ public class LDAPHierarchicObjectDMO  extends HierarchicObjectDMO  implements Dm
     /**
      * Removes the FQN attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:897)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
     public void remFQN(){
          rem(MetaDMSAG.__FQN);
     }

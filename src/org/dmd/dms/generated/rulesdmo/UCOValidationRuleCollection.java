@@ -8,7 +8,7 @@ import org.dmd.dmc.DmcOmni;                           // Rule tracing support - 
 import org.dmd.dmc.rules.ClassRuleCollection;         // Class rule - (RuleFormatter.java:294)
 import org.dmd.dmc.rules.DmcRuleExceptionSet;         // Rule type - (RuleFormatter.java:210)
 import org.dmd.dmc.rules.RuleIF;                      // All rules implement this - (RuleFormatter.java:211)
-import org.dmd.dmc.util.DmcUncheckedObject;           // Required for obj - (RuleFormatter.java:222)
+import org.dmd.dmc.util.DmcUncheckedObject;           // Required for uco - (RuleFormatter.java:222)
 
 
 public class UCOValidationRuleCollection extends ClassRuleCollection<UCOValidationIF> {
@@ -26,11 +26,11 @@ public class UCOValidationRuleCollection extends ClassRuleCollection<UCOValidati
     }
 
     /**
-     * @param obj The object to be validated:
+     * @param uco The object to be validated:
      */
-    public void execute(DmcUncheckedObject obj) throws DmcRuleExceptionSet {
+    public void execute(DmcUncheckedObject uco) throws DmcRuleExceptionSet {
         DmcRuleExceptionSet rc = null;
-        DmcClassInfo        cI = DmcOmni.instance().getClassInfo(obj.getConstructionClass());
+        DmcClassInfo        cI = DmcOmni.instance().getClassInfo(uco.getConstructionClass());
         ArrayList<UCOValidationIF> ruleList = super.getRules(cI);
 
         if (ruleList != null){
@@ -38,7 +38,7 @@ public class UCOValidationRuleCollection extends ClassRuleCollection<UCOValidati
                 if (DmcOmni.instance().ruleTracing())
                     DmcOmni.instance().ruleExecuted("Applying: " + rule.getRuleTitle() + " to: " + cI.name);
                 try {
-                    rule.execute(obj);
+                    rule.execute(uco);
                 } catch (DmcRuleExceptionSet e) {
                     if (rc == null)
                         rc = e;
@@ -58,7 +58,7 @@ public class UCOValidationRuleCollection extends ClassRuleCollection<UCOValidati
             if (DmcOmni.instance().ruleTracing())
                 DmcOmni.instance().ruleExecuted("Applying global: " + rule.getRuleTitle() + " to: " + cI.name);
             try {
-                rule.execute(obj);
+                rule.execute(uco);
             } catch (DmcRuleExceptionSet e) {
                 if (rc == null)
                     rc = e;

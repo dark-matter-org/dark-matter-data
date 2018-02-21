@@ -31,7 +31,7 @@ public class EnumFormatter {
 			out.write("    <tr>\n");
 			out.write("      <td class=\"spacer\"> </td>\n");
 			out.write("      <td class=\"label\" colspan=\"2\">Description</td>\n");
-			out.write("      <td>" + ed.getDescription() + "</td>\n");
+			out.write("      <td>" + Converter.convert(ed.getDescriptionWithNewlines()) + "</td>\n");
 			out.write("    </tr>\n\n");
 		}
 	}

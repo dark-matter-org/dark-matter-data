@@ -119,6 +119,7 @@ public class NewComplexTypeFormatter {
 		imports.addImport("org.dmd.dmc.util.ComplexTypeSplitter","For parsing initial input");
 		imports.addImport("java.util.ArrayList","To store ParsedNameValuePairs");
 		imports.addImport("org.dmd.dmc.util.ParsedNameValuePair","To store values parsed from initial input");
+		imports.addImport("org.dmd.dmc.util.JSONUtil","To perform escaping of things in JSON");
 		
 		if (anyMultiValued)
 			imports.addImport("java.util.Iterator","To support multi-valued optional parts");
@@ -494,6 +495,145 @@ public class NewComplexTypeFormatter {
 
 		out.write("    }\n\n");
 		
+		
+		///////////////////////////////////////////////////////////////////////
+		// JSON
+    	
+        out.write("    /**\n");
+        out.write("     * JSON form.\n");
+        out.write("     * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write("     */\n");
+        out.write("    public void toJSON(StringBuffer sb, int padding, String indent){\n");
+        fnum = 0;
+
+        out.write("        sb.append(indent + \"{\\n\");\n");
+
+        Iterator<Part> partIT = combinedParts.iterator();
+        while(partIT.hasNext()){
+        	Part part = partIT.next();
+        	TypeDefinition	type = (TypeDefinition) part.getType().getObject().getContainer();
+        	
+//		for (Part part : combinedParts) {
+			boolean isMulti = false;
+			String key = part.getName();
+			String pn = part.getName() + valSuffix;
+			boolean isComplex = false;
+			
+			if (type.getComplexType() != null)
+				isComplex = true;
+			
+			if ((part.getMultivalued() != null) && part.getMultivalued())
+				isMulti = true;
+			
+			if (fnum < requiredCount){
+	        	String ENDING = "";
+				if ((fnum+1) < requiredCount)
+					ENDING = ",\\n";
+				
+				// Required field, no need to test existence
+				if (isMulti){		        		
+		        	String REF = "";
+		        	if (type.getIsRefType())
+		        		REF = "REF";
+		        	
+		        	////
+		        	if (isComplex){
+		        		out.write("            sb.append(indent + \"  \\\"" + key + "\\\": [\\n\");\n");
+						out.write("            Iterator<" + type.getName() + REF + "> it = " + pn + ".iterator();\n");
+						out.write("            while(it.hasNext()){\n");
+						out.write("                " + type.getName() + REF + " v = it.next();\n");
+//						out.write("                sb.append(indent + \"\\\"" + key + "\\\": \");\n");
+						out.write("                v.toJSON(sb, padding, indent + \"    \");\n");
+						out.write("                if (it.hasNext())\n");
+						out.write("                    sb.append(\",\\n\");\n");
+						out.write("            }" + ENDING + "\n");
+						out.write("            sb.append(\"\\n\" + indent + \"  ]\");\n");
+		        	}
+		        	else{
+						////
+		        		out.write("            sb.append(indent + \"  \\\"" + key + "\\\": [\\n\");\n");
+						out.write("            Iterator<" + type.getName() + REF + "> it = " + pn + ".iterator();\n");
+						out.write("            while(it.hasNext()){\n");
+						out.write("                " + type.getName() + REF + " v = it.next();\n");
+						out.write("                sb.append(indent + \"  \\\"\" + JSONUtil.escape(v.toString()) + \"\\\"\");\n");
+//						out.write("                sb.append(indent + \"  \\\"\" + v.toString().replace(\"\\\"\", \"\\\\\\\"\") + \"\\\"\");\n");
+//						out.write("                sb.append(indent + \"\\\"" + key + "\\\": \\\"\" + v.toString().replace(\"\\\"\", \"\\\\\\\"\") + \"\\\"\");\n");
+						out.write("                if (it.hasNext())\n");
+						out.write("                    sb.append(\",\");\n");
+						out.write("            }" + ENDING + "\n");
+						out.write("            sb.append(\"\\n\" + indent + \"]\");\n");
+		        	}
+					////
+				}
+				else{
+					if (isComplex){
+						out.write("        sb.append(indent + \"  \\\"" + key + "\\\": \");\n");
+						out.write("        " + pn + ".toJSON(sb, padding, indent);\n");
+						out.write("        sb.append(\"" + ENDING + "\");\n");
+					}
+					else
+								out.write("        sb.append(indent + \"  \\\"" + key + "\\\": \\\"\" + JSONUtil.escape(" + pn + ".toString()) + \"\\\"" + ENDING + "\");\n");
+//								out.write("        sb.append(indent + \"  \\\"" + key + "\\\": \\\"\" + " + pn + ".toString().replace(\"\\\"\", \"\\\\\\\"\") + \"\\\"" + ENDING + "\");\n");
+				}
+					
+			}
+			else{
+				out.write("        if (" + part.getName() + valSuffix + " != null){\n");
+				out.write("            sb.append(\",\\n\");\n");
+				
+				if (isMulti){
+		        	String REF = "";
+		        	if (type.getIsRefType())
+		        		REF = "REF";
+
+		        	if (isComplex){
+		        		out.write("            sb.append(indent + \"  \\\"" + key + "\\\": [\\n\");\n");
+						out.write("            Iterator<" + type.getName() + REF + "> it = " + pn + ".iterator();\n");
+						out.write("            while(it.hasNext()){\n");
+						out.write("                " + type.getName() + REF + " v = it.next();\n");
+//						out.write("                sb.append(indent + \"\\\"" + key + "\\\": \");\n");
+						out.write("                v.toJSON(sb, padding, indent + \"    \");\n");
+						out.write("                if (it.hasNext())\n");
+						out.write("                    sb.append(\",\\n\");\n");
+						out.write("            }\n");
+						out.write("            sb.append(\"\\n\" + indent + \"  ]\");\n");
+		        	}
+		        	else{
+						////
+		        		out.write("            sb.append(indent + \"  \\\"" + key + "\\\": [\\n\");\n");
+						out.write("            Iterator<" + type.getName() + REF + "> it = " + pn + ".iterator();\n");
+						out.write("            while(it.hasNext()){\n");
+						out.write("                " + type.getName() + REF + " v = it.next();\n");
+						out.write("                sb.append(indent + \"  \\\"\" + JSONUtil.escape(v.toString()) + \"\\\"\");\n");
+//						out.write("                sb.append(indent + \"  \\\"\" + v.toString().replace(\"\\\"\", \"\\\\\\\"\") + \"\\\"\");\n");
+//						out.write("                sb.append(indent + \"\\\"" + key + "\\\": \\\"\" + v.toString().replace(\"\\\"\", \"\\\\\\\"\") + \"\\\"\");\n");
+						out.write("                if (it.hasNext())\n");
+						out.write("                    sb.append(\",\");\n");
+						out.write("            }\n");
+						out.write("            sb.append(\"\\n\" + indent + \"]\");\n");
+		        	}
+					////
+				}
+				else{
+					if (isComplex){
+						out.write("        sb.append(indent + \"  \\\"" + key + "\\\": \");\n");
+						out.write("        " + pn + ".toJSON(sb, padding, indent);\n");
+					}
+					
+					out.write("            sb.append(indent + \"  \\\"" + key + "\\\": \\\"\" + JSONUtil.escape(" + pn + ".toString()) + \"\\\"\");\n");
+//					out.write("            sb.append(indent + \"  \\\"" + key + "\\\": \\\"\" + " + pn + ".toString().replace(\"\\\"\", \"\\\\\\\"\") + \"\\\"\");\n");
+				}
+				
+				out.write("        }\n\n");
+			}
+
+			fnum++;
+		}
+		
+		out.write("        sb.append(\"\\n\" + indent + \"}\");\n");
+
+		out.write("    }\n\n");
+		
 		///////////////////////////////////////////////////////////////////////
     	
         for(Part part: combinedParts){
@@ -564,7 +704,7 @@ public class NewComplexTypeFormatter {
 	            	out.write("            if (" + pn + "AI.weakReference)\n");
 	            	out.write("                return;\n");
 	            	out.write("            if (obj == null)\n");
-	            	out.write("                throw(new DmcValueException(\"Could not resolve reference to: \" + " + pn + valSuffix + ".getObjectName() + \" via attribute: \" + attrName));\n");
+	            	out.write("                throw(new DmcValueException(\"Could not resolve reference to: \" + " + pn + valSuffix + ".getObjectName() + \"(part: " + part.getName() + " - of type: " + type.getName() + ") via attribute: \" + attrName));\n");
 	            	out.write("        \n");
 	            	out.write("            if (obj instanceof DmcContainerIF)\n");
 	            	out.write("                ((DmcNamedObjectREF)" + pn + valSuffix + ").setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());\n");
@@ -594,7 +734,7 @@ public class NewComplexTypeFormatter {
 	            	out.write("                if (" + part.getName() + "AI.weakReference)\n");
 	            	out.write("                    return;\n");
 	            	out.write("                if (obj == null)\n");
-	            	out.write("                    throw(new DmcValueException(\"Could not resolve reference to: \" + v.getObjectName() + \" via attribute: \" + attrName));\n");
+	            	out.write("                    throw(new DmcValueException(\"Could not resolve reference to: \" + v.getObjectName() + \" (part: " + part.getName() + " - of type: " + type.getName() + ") via attribute: \" + attrName));\n");
 	            	out.write("        \n");
 	            	out.write("                if (obj instanceof DmcContainerIF)\n");
 	            	out.write("                    ((DmcNamedObjectREF)v).setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());\n");
@@ -605,7 +745,13 @@ public class NewComplexTypeFormatter {
 	            	out.write("        \n");
             	}
             	else{
-            		throw(new IllegalStateException("No support yet for multi-valued parts that are complex types with refs!"));
+//            		throw(new IllegalStateException("No support yet for multi-valued parts that are complex types with refs!"));
+	            	out.write("        if (" + pn + " != null){\n");
+	            	out.write("            for(" + type.getName() + " v: " + pn + "){\n");
+	            	out.write("                v.resolve(resolver, attrName);\n");
+	            	out.write("            }\n");
+	            	out.write("        }\n");
+	            	out.write("        \n");
             	}
             }
 
@@ -629,7 +775,7 @@ public class NewComplexTypeFormatter {
 	            	out.write("            if (" + pn + "AI.weakReference)\n");
 	            	out.write("                return;\n");
 	            	out.write("            if (obj == null)\n");
-	            	out.write("                throw(new DmcValueException(\"Could not resolve reference to: \" + " + pn + valSuffix + ".getObjectName() + \" via attribute: \" + ai.name));\n");
+	            	out.write("                throw(new DmcValueException(\"Could not resolve reference to: \" + " + pn + valSuffix + ".getObjectName() + \"(part: " + part.getName() + " - of type: " + type.getName() + ") via attribute: \" + ai.name));\n");
 	            	out.write("        \n");
 	            	out.write("            if (obj instanceof DmcContainerIF)\n");
 	            	out.write("                ((DmcNamedObjectREF)" + pn + valSuffix + ").setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());\n");
@@ -688,7 +834,13 @@ public class NewComplexTypeFormatter {
 	            	out.write("        \n");
             	}
             	else{
-            		throw(new IllegalStateException("No support yet for multi-valued parts that are complex types with refs!"));
+//            		throw(new IllegalStateException("No support yet for multi-valued parts that are complex types with refs!"));
+	            	out.write("        if (" + pn + " != null){\n");
+	            	out.write("            for(" + type.getName() + " v: " + pn + "){\n");
+	            	out.write("                v.resolve(resolver, object, ncr, ai);\n");
+	            	out.write("            }\n");
+	            	out.write("        }\n");
+	            	out.write("        \n");
             	}
             }
 

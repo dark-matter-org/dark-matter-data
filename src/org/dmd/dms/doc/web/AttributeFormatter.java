@@ -3,7 +3,6 @@ package org.dmd.dms.doc.web;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcObject;
@@ -130,27 +129,48 @@ public class AttributeFormatter {
 			out.write("      <td class=\"label\">Description</td>\n");
 			out.write("      <td>\n");
 			
-			Iterator<String> descr = ad.getDescription();
-			while(descr.hasNext()){
-				out.write(descr.next() + "\n");
-				if (descr.hasNext())
-					out.write("<p/>\n");
+			if (ad.getDescription() != null){
+				out.write("      " + Converter.convert(ad.getDescriptionWithNewlines()) + "\n");
 			}
-			
-			if (referring != null){
-				out.write("<p/>\n");
-				for(DmcObject obj: referring){
-					if (obj instanceof RuleDataDMO){
-						RuleDataDMO rd = (RuleDataDMO) obj;
-						out.write(rd.getRuleTitle() + "\n<p/>");
-					}
-					
-				}
-				
-			}
-			
 			out.write("      </td>\n");
 			out.write("    </tr>\n\n");
+
+			//			Iterator<String> descr = ad.getDescription();
+//			while(descr.hasNext()){
+//				out.write(descr.next() + "\n");
+//				if (descr.hasNext())
+//					out.write("<p/>\n");
+//			}
+			
+//			if (referring != null){
+//				out.write("<p/>\n");
+//				for(DmcObject obj: referring){
+//					if (obj instanceof RuleDataDMO){
+//						RuleDataDMO rd = (RuleDataDMO) obj;
+//						out.write(rd.getRuleTitle() + "\n<p/>");
+//					}
+//					
+//				}
+//				
+//			}
+			
+			if (referring != null){
+				StringBuilder sb = new StringBuilder();
+				for(DmcObject obj: referring){
+					if (obj instanceof RuleDataDMO){
+						
+						RuleDataDMO rd = (RuleDataDMO) obj;
+
+						sb.append("<tr> <td class=\"spacer\"> <td> </td> </td> <td class=\"attributeRule\">\n");
+						sb.append("<a class=\"blackText\" href=\"" + rd.getDefinedIn().getObjectName() + ".html#" + rd.getRuleName() + "\"> " + rd.getRuleTitle() + " </a>");
+						sb.append("</td> </tr>\n\n");
+
+					}
+				}
+				if (sb.length() > 0)
+					out.write(sb.toString());
+			}
+			
 		}
 	}
 

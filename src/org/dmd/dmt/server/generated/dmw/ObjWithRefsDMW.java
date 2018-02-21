@@ -1463,6 +1463,150 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
      * @return The number of String items.
      */
     // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1671)
+    public int getLimitedStringMVSize(){
+        return(((ObjWithRefsDMO) core).getLimitedStringMVSize());
+    }
+
+    /**
+     * @return true if there are no StringDMO items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1679)
+    public boolean getLimitedStringMVIsEmpty(){
+        if (((ObjWithRefsDMO) core).getLimitedStringMVSize() == 0)
+            return(true);
+        return(false);
+    }
+
+    /**
+     * @return true if there are any StringDMO items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1689)
+    public boolean getLimitedStringMVHasValue(){
+        if (((ObjWithRefsDMO) core).getLimitedStringMVSize() == 0)
+            return(false);
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2107)
+    public StringIterableDMW getLimitedStringMVIterable(){
+        DmcAttribute<?> attr = core.get(DmtDMSAG.__limitedStringMV);
+        if (attr == null)
+            return(StringIterableDMW.emptyList);
+        
+        return(new StringIterableDMW(((ObjWithRefsDMO) core).getLimitedStringMV()));
+    }
+
+    /**
+     * Adds another limitedStringMV value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2133)
+    public void addLimitedStringMV(Object value) throws DmcValueException {
+        ((ObjWithRefsDMO) core).addLimitedStringMV(value);
+    }
+
+    /**
+     * Adds another limitedStringMV value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2143)
+    public void addLimitedStringMV(String value){
+        ((ObjWithRefsDMO) core).addLimitedStringMV(value);
+    }
+
+    /**
+     * Returns true if the collection contains the limitedStringMV value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2200)
+    public boolean limitedStringMVContains(String value){
+        return(((ObjWithRefsDMO) core).limitedStringMVContains(value));
+    }
+
+    /**
+     * @return A COPY of the collection of String objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2244)
+    @SuppressWarnings("unchecked")
+    public ArrayList<String> getLimitedStringMVCopy(){
+        DmcAttribute<?> attr = core.get(DmtDMSAG.__limitedStringMV);
+        if (attr == null)
+            return(new ArrayList<String>());
+        
+        ArrayList<String> rc = new ArrayList<String>(attr.getMVSize());
+        
+        Iterator<String> it = (Iterator<String>) attr.getMV();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
+    }
+
+    /**
+     * Deletes a limitedStringMV value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2271)
+    public void delLimitedStringMV(Object value) throws DmcValueException {
+        ((ObjWithRefsDMO) core).delLimitedStringMV(value);
+    }
+
+    /**
+     * Deletes a limitedStringMV value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2280)
+    public void delLimitedStringMV(String value){
+        ((ObjWithRefsDMO) core).delLimitedStringMV(value);
+    }
+
+    /**
+     * Removes the limitedStringMV attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2292)
+    public void remLimitedStringMV(){
+        ((ObjWithRefsDMO) core).remLimitedStringMV();
+    }
+
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    public String getLimitedStringSV(){
+        return(((ObjWithRefsDMO) core).getLimitedStringSV());
+    }
+
+    /**
+     * Sets limitedStringSV to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1584)
+    public void setLimitedStringSV(Object value) throws DmcValueException {
+        ((ObjWithRefsDMO) core).setLimitedStringSV(value);
+    }
+
+    /**
+     * Sets limitedStringSV to the specified value.
+     * @param value String
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1593)
+    public void setLimitedStringSV(String value){
+        ((ObjWithRefsDMO) core).setLimitedStringSV(value);
+    }
+
+    /**
+     * Removes the limitedStringSV attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1619)
+    public void remLimitedStringSV(){
+        ((ObjWithRefsDMO) core).remLimitedStringSV();
+    }
+
+    /**
+     * @return The number of String items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1671)
     public int getMvStringSize(){
         return(((ObjWithRefsDMO) core).getMvStringSize());
     }

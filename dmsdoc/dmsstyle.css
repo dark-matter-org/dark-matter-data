@@ -103,6 +103,10 @@ td {
 	padding-top: 50px;
 }
 
+.schemaDescription {
+	padding-top: 30px;
+}
+
 .ruleDefName {
 	font-weight: bold;
 	font-size: larger;

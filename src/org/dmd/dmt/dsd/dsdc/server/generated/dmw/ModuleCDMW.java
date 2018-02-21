@@ -635,7 +635,7 @@ abstract public class ModuleCDMW extends CConceptBase implements DmcDefinitionIF
         ((ModuleCDMO) core).remName();
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:219)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:220)
     // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperFunctions(DMWGenerator.java:212)
     /**
      * All definitions are added to the base definition collection.
@@ -656,7 +656,7 @@ abstract public class ModuleCDMW extends CConceptBase implements DmcDefinitionIF
         return(CConceptBaseDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:254)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:255)
     public void addCConceptX(CConceptX def){
         CConceptXDefs.add(def);
         addCConceptBase(def);
@@ -672,6 +672,10 @@ abstract public class ModuleCDMW extends CConceptBase implements DmcDefinitionIF
 
     public Iterator<CConceptX> getAllCConceptX(){
         return(CConceptXDefs.values().iterator());
+    }
+
+    public CConceptX getCConceptXDefinition(String name) throws DmcNameClashException, DmcValueException{
+        return(CConceptXDefs.getDefinition(name));
     }
 
     // Generated from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperFunctions(DMWGenerator.java:222)
