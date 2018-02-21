@@ -3,6 +3,7 @@ package org.dmd.dms.doc.web;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.types.DefinitionName;
@@ -35,7 +36,17 @@ public class TypeFormatter {
 			out.write("    <tr>\n");
 			out.write("      <td class=\"spacer\"> </td>\n");
 			out.write("      <td class=\"label\">Description</td>\n");
-			out.write("      <td> " + td.getDescription() + " </td>\n");
+			out.write("      <td>\n");
+			
+			Iterator<String> descr = td.getDescription();
+			while(descr.hasNext()){
+				out.write(descr.next() + "\n");
+				if (descr.hasNext())
+					out.write("<p/>\n");
+			}
+			
+			out.write("      </td>\n");
+
 			out.write("    </tr>\n\n");
 		}
 	}

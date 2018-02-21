@@ -87,7 +87,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * Key: DefinitionName
      * Value: DmdEnumValueDef
      */
-    public HashMap<DefinitionName,EnumDefinition>     	enumDefs;
+    DmcDefinitionSet<EnumDefinition>							enumDefinitions;
+//    public HashMap<DefinitionName,EnumDefinition>     	enumDefs;
     public int  longestEnumName;
 
     /**
@@ -249,7 +250,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         // We default to use ourselves as the clash resolver
         currentResolver				= this;
         
-        enumDefs 					= new HashMap<DefinitionName,EnumDefinition>();
+//        enumDefs 					= new HashMap<DefinitionName,EnumDefinition>();
+        enumDefinitions				= new DmcDefinitionSet<EnumDefinition>();
         typeDefs    				= new HashMap<DefinitionName,TypeDefinition>();
         internalTypeDefs    		= new HashMap<DefinitionName,TypeDefinition>();
         
@@ -757,7 +759,7 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 				for(DmsDefinition def : defs){
 					sb.append(def.getDotName().getNameString() + " ");
 				}
-				throw(new IllegalStateException("Looking for attribute: " + name + " resulted in multiple definitions: " + sb.toString()));
+				throw(new IllegalStateException("Looking for attribute: " + name + " resulted in multiple definitions: " + sb.toString() + "\n\n" + DebugInfo.getCurrentStack()));
 			}
 		} catch (DmcValueException e) {
 			// TODO Auto-generated catch block
@@ -768,7 +770,18 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     }
     
     public EnumDefinition isEnum(String name){
-    	return(enumDefs.get(getDefName(name)));
+    	EnumDefinition rc = null;
+    	try {
+			rc = enumDefinitions.getDefinition(name);
+		} catch (DmcNameClashException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	return(rc);
+//    	return(enumDefs.get(getDefName(name)));
     }
     
     /**
@@ -1209,16 +1222,21 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
             throw(ex);
         }
 
+        // We hold on to this because we'll reuse it for the class we craete
+        int originalRefDefID = rd.getDmdID();
+        
         if (performIDChecks){
 	        // Bump up the DMD ID by the amount of schemaBaseID
 	        int base = rd.getDefinedIn().getSchemaBaseID();
 	        int range = rd.getDefinedIn().getSchemaIDRange();
-	        int current = rd.getDmdID();
+	        int current = base + rd.getDmdID();
 	        
-	        if (current >= range){
+	        if (current > (base+range)){
 	        	ResultException ex = new ResultException("Number of rules exceeds schema ID range: " + rd.getName());
+	        	ex.moreMessages("The dmdID must be less than " + range);
+	        	ex.setLocationInfo(rd.getFile(), rd.getLineNumber());
 	        	throw(ex);        	
-	        }
+	        }	        	
 	        
 	        rd.setDmdID(base + current);
         }
@@ -1251,9 +1269,9 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         	cd.setClassType(ClassTypeEnum.EXTENSIBLE);
         else
         	cd.setClassType(ClassTypeEnum.STRUCTURAL);
-        cd.setDmdID(rd.getDmdID());
+        // Note: we don't use the dmdID in the rule definition because it has already been bumped
+        cd.setDmdID(originalRefDefID);
         cd.setDerivedFrom(MetaSchemaAG._RuleData);
-        cd.setDmdID(rd.getDmdID());
         cd.setInternallyGenerated(true);
         cd.setRuleDefinition(rd);
         cd.setIsNamedBy(MetaSchemaAG._ruleName);
@@ -1376,13 +1394,15 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 	        // Bump up the DMD ID by the amount of schemaBaseID
 	        int base = cd.getDefinedIn().getSchemaBaseID();
 	        int range = cd.getDefinedIn().getSchemaIDRange();
-	        int current = cd.getDmdID();
+	        int current = base + cd.getDmdID();
 	        
-	        if (current >= range){
+	        if (current > (base+range)){
 	        	ResultException ex = new ResultException("Number of classes exceeds schema ID range: " + cd.getName());
+	        	ex.moreMessages("The dmdID must be less than " + range);
+	        	ex.setLocationInfo(cd.getFile(), cd.getLineNumber());
 	        	throw(ex);        	
-	        }
-	        
+	        }	        	
+
 	        cd.setDmdID(base + current);
         }
         
@@ -1773,11 +1793,13 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * @throws DmcValueException 
      */
     boolean addEnum(EnumDefinition evd)  throws ResultException, DmcValueException {
-        if (checkAndAdd(evd.getObjectName(),evd,enumDefs) == false){
-        	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(evd.getObjectName(),evd,enumDefs,"enum value names"));
-            throw(ex);
-        }
+//        if (checkAndAdd(evd.getObjectName(),evd,enumDefs) == false){
+//        	ResultException ex = new ResultException();
+//        	ex.addError(clashMsg(evd.getObjectName(),evd,enumDefs,"enum value names"));
+//            throw(ex);
+//        }
+        
+    	enumDefinitions.add(evd);
         
         if (checkAndAddDOT(evd.getDotName(),evd,globallyUniqueMAP,null) == false){
         	ResultException ex = new ResultException();
@@ -2128,7 +2150,19 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
 		}
 		else if (attributeID == MetaDMSAG.__enumDefList.id){
 //			DebugInfo.debug("enumDefList " + name.getNameString());
-			DmcNamedObjectIF def = (DmcNamedObjectIF)enumDefs.get(name);
+//			DmcNamedObjectIF def = (DmcNamedObjectIF)enumDefs.get(name);
+			
+			DmcNamedObjectIF def = null;
+			try {
+				def = enumDefinitions.getDefinition(name.getNameString());
+			} catch (DmcNameClashException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (DmcValueException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 			if (def != null)
 				return(def);
 		}
@@ -2411,6 +2445,50 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         else{
             return(rc);
         }
+    }
+    
+    /**
+     * This function will return the attribute definition associated with the given name.
+     * <p/>
+     * This function was updated to handle cases where attributes originally defined in the meta
+     * schema were redefined elsewhere. We now use the name clash based definition access and
+     * provide the context of where the attribute is being used (the class of the object where
+     * we found it).
+     * <p/>
+     * If we don't find an exact match for the attribute in the schema of the class, we fall back to use
+     * the definition from the meta schema if we have it. 
+     * @throws DmcValueException  
+     */
+    public AttributeDefinition adef(ClassDefinition cd, String n) throws DmcValueException {
+    	AttributeDefinition rc = null;
+    	
+    	try{
+    		rc = attributeDefinitions.getDefinition(n);
+    	}
+    	catch(DmcNameClashException ex){
+    		Iterator<DmcNamedObjectIF> matches = ex.getMatches();
+    		
+    		AttributeDefinition fromMeta 	= null;
+    		AttributeDefinition exact		= null;
+    		while(matches.hasNext()){
+    			AttributeDefinition adef = (AttributeDefinition) matches.next();
+    			
+    			if (adef.getDefinedIn().getName().equals(cd.getDefinedIn().getName())){
+    				exact = adef;
+    				break;
+    			}
+    			
+    			if (adef.getDefinedIn().getName().equals("meta"))
+    				fromMeta = adef;
+    		}
+    		
+    		if (exact != null)
+    			rc = exact;
+    		else
+    			rc = fromMeta;
+    	}
+
+    	return(rc);
     }
     
     public AttributeDefinition adef(DotName dn){
@@ -2717,6 +2795,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
     	TreeMap<RuleName,RuleIF> theRules = sd.getRuleInstances(this);
     	for(RuleIF rule: theRules.values()){
     		try {
+    			if (rule.getRuleDataDMO().getRuleName().equals("dmvRRRApplyToAttribute"))
+    				DebugInfo.debug("HERE");
 				rule.getRuleDataDMO().resolveReferences(this, clashResolver);
 			} catch (DmcValueExceptionSet e) {
 				ResultException ex = new ResultException();

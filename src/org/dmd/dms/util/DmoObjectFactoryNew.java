@@ -129,7 +129,7 @@ public class DmoObjectFactoryNew {
 		Iterator<String> names = uco.getAttributeNames();
 		while(names.hasNext()){
 			String n = names.next();
-			ad = schema.adef(n);
+			ad = schema.adef(cd,n);
 			
 			if (ad == null){
 	        	ResultException ex = new ResultException();

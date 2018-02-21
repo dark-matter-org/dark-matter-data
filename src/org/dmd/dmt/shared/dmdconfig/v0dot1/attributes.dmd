@@ -45,6 +45,19 @@ type		Date
 valueType	TREESET
 description	A ts Date.
 
+AttributeDefinition
+name		limitedStringSV
+dmdID		14
+type		String
+description	A single valued string used to test the StringSetRule.
+
+AttributeDefinition
+name		limitedStringMV
+dmdID		15
+type		String
+valueType	MULTI
+description	A multi valued string used to test the StringSetRule.
+
 //////////////////////////////////////////////////////////////////////////////
 // DmcObject
 

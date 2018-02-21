@@ -1513,7 +1513,7 @@ abstract public class DmcObject implements Serializable {
 	public void toJSON(StringBuffer sb, int padding, String indent){
 		String indentPlus = indent + "  ";
 		
-		sb.append(indent + "{ \"" + getConstructionClassName() + "\": {\n");
+		sb.append(indent + "{\n");
 		
         // We attempt to dump the object class information first. This
         // isn't guaranteed when we receive a JSON object parsing, but
@@ -1553,7 +1553,7 @@ abstract public class DmcObject implements Serializable {
    
 //        sb.append("\n" + indentPlus + "}");
         
-        sb.append(indent + "\n}}");
+        sb.append("\n" + indent + "}");
 
 	}
 	
@@ -1711,6 +1711,7 @@ abstract public class DmcObject implements Serializable {
 							try {
 								obj = ((DmcNameResolverWithClashSupportIF)rx).findNamedObjectMayClash(this, ref.getObjectName(), ncr, attr.attrInfo);
 							} catch (DmcValueException ex) {
+								ex.addMoreInfo(this.toOIF());
 								// If this is a weak reference, just continue
 								if (ai.weakReference)
 									continue;

@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="US-ASCII" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <jardesc>
-    <jar path="/Users/peterstrong/Desktop/dark-matter JARs/dark-matter-data.jar"/>
+    <jar path="/Users/peter.strong/Desktop/dark-matter-data.jar"/>
     <options buildIfNeeded="true" compress="true" descriptionLocation="/dark-matter-data/dark-matter-data.jardesc" exportErrors="false" exportWarnings="false" includeDirectoryEntries="false" overwrite="false" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
     <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
     <selectedProjects/>

@@ -52,6 +52,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         _ImAp.put(MetaDMSAG.__actions.id,MetaDMSAG.__actions);
         _ImAp.put(MetaDMSAG.__allowedParents.id,MetaDMSAG.__allowedParents);
         _ImAp.put(MetaDMSAG.__comment.id,MetaDMSAG.__comment);
+        _ImAp.put(MetaDMSAG.__createIndex.id,MetaDMSAG.__createIndex);
         _ImAp.put(MetaDMSAG.__dataType.id,MetaDMSAG.__dataType);
         _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
         _ImAp.put(MetaDMSAG.__derivedClasses.id,MetaDMSAG.__derivedClasses);
@@ -95,7 +96,9 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         _ImAp.put(MetaDMSAG.__partOfDefinitionModule.id,MetaDMSAG.__partOfDefinitionModule);
         _ImAp.put(MetaDMSAG.__question.id,MetaDMSAG.__question);
         _ImAp.put(MetaDMSAG.__relatedToConcept.id,MetaDMSAG.__relatedToConcept);
+        _ImAp.put(MetaDMSAG.__relationship.id,MetaDMSAG.__relationship);
         _ImAp.put(MetaDMSAG.__ruleDefinition.id,MetaDMSAG.__ruleDefinition);
+        _ImAp.put(MetaDMSAG.__searchable.id,MetaDMSAG.__searchable);
         _ImAp.put(MetaDMSAG.__skip.id,MetaDMSAG.__skip);
         _ImAp.put(MetaDMSAG.__sortName.id,MetaDMSAG.__sortName);
         _ImAp.put(MetaDMSAG.__subpackage.id,MetaDMSAG.__subpackage);
@@ -114,6 +117,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         _SmAp.put(MetaDMSAG.__actions.name,MetaDMSAG.__actions);
         _SmAp.put(MetaDMSAG.__allowedParents.name,MetaDMSAG.__allowedParents);
         _SmAp.put(MetaDMSAG.__comment.name,MetaDMSAG.__comment);
+        _SmAp.put(MetaDMSAG.__createIndex.name,MetaDMSAG.__createIndex);
         _SmAp.put(MetaDMSAG.__dataType.name,MetaDMSAG.__dataType);
         _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
         _SmAp.put(MetaDMSAG.__derivedClasses.name,MetaDMSAG.__derivedClasses);
@@ -157,7 +161,9 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         _SmAp.put(MetaDMSAG.__partOfDefinitionModule.name,MetaDMSAG.__partOfDefinitionModule);
         _SmAp.put(MetaDMSAG.__question.name,MetaDMSAG.__question);
         _SmAp.put(MetaDMSAG.__relatedToConcept.name,MetaDMSAG.__relatedToConcept);
+        _SmAp.put(MetaDMSAG.__relationship.name,MetaDMSAG.__relationship);
         _SmAp.put(MetaDMSAG.__ruleDefinition.name,MetaDMSAG.__ruleDefinition);
+        _SmAp.put(MetaDMSAG.__searchable.name,MetaDMSAG.__searchable);
         _SmAp.put(MetaDMSAG.__skip.name,MetaDMSAG.__skip);
         _SmAp.put(MetaDMSAG.__sortName.name,MetaDMSAG.__sortName);
         _SmAp.put(MetaDMSAG.__subpackage.name,MetaDMSAG.__subpackage);
@@ -397,6 +403,33 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         attr.add(value);
         add(MetaDMSAG.__comment,attr);
         return(attr);
+    }
+
+    /**
+     * A flag to indicate if you want your data repository to create an index for
+     * a named object. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2340)
+    public Boolean getCreateIndex(){
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaDMSAG.__createIndex);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets createIndex to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2432)
+    public void setCreateIndex(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__createIndex);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(MetaDMSAG.__createIndex);
+        
+        attr.set(value);
+        set(MetaDMSAG.__createIndex,attr);
     }
 
     /**
@@ -1627,6 +1660,35 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     }
 
     /**
+     * The name of the relationship established via a reference to some other
+     * named object.\n <p/>\n This is a minor hack to allow creation of named
+     * relationships in graph databases. Eventually, relationships\n will become
+     * first class objects to which you can refer. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2340)
+    public String getRelationship(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__relationship);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets relationship to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2432)
+    public void setRelationship(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__relationship);
+        if (attr == null)
+            attr = new DmcTypeStringSV(MetaDMSAG.__relationship);
+        
+        attr.set(value);
+        set(MetaDMSAG.__relationship,attr);
+    }
+
+    /**
      * The RuleDefinition that resulted in the creation of an\n internally
      * generated ClassDefinition. 
      */
@@ -1651,6 +1713,32 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         
         attr.set(value);
         set(MetaDMSAG.__ruleDefinition,attr);
+    }
+
+    /**
+     * Indicates if something is searchable. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2340)
+    public Boolean getSearchable(){
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaDMSAG.__searchable);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets searchable to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2432)
+    public void setSearchable(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__searchable);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(MetaDMSAG.__searchable);
+        
+        attr.set(value);
+        set(MetaDMSAG.__searchable,attr);
     }
 
     /**

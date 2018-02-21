@@ -18,9 +18,21 @@
 
   <div class="schemaName"> dmg </div>
 
+<!-- org.dmd.dms.doc.web.SchemaPage.writeDescription(SchemaPage.java:371) -->
+
+    <div class="schemaDescription">
+    The dmg schema defines classes used by the Dark Matter Generator framework.
+ The concept of the framework is to allow users to extend the overall code generation
+ mechanism by providing their own generators that conform to the DarkMatterGeneratorIF
+ interface. Generally speaking, the generators feed off a set of schemas associated
+ with the DmgConfig object. Exactly how each generator works, what files it generates
+ and where it generates them is specific to each generator.
+</td>
+    </div>
+
   <div class="summary">
 
-<!-- org.dmd.dms.doc.web.SchemaPage.writeClassSummary(SchemaPage.java:371) -->
+<!-- org.dmd.dms.doc.web.SchemaPage.writeClassSummary(SchemaPage.java:383) -->
 
     <div class="classList">
     <h2> Classes (5)</h2>
@@ -50,7 +62,7 @@
       <td> name </td>
       </tr>
     </table>
-    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeTypeSummary(SchemaPage.java:413) -->
+    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeTypeSummary(SchemaPage.java:425) -->
 
     <div class="typeList">
     <h2>Types (1)</h2>
@@ -122,12 +134,9 @@
       <td> The name attribute is used to store a single string token that represents a unique name
  for an object with the set of definitions of which it is a part. A name starts with a letter followed
  by letters and numbers.
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:270) -->
 
 <table>
-<tr> <td class="attributeRule">
-<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
-
 </table>
       </td>
     </tr>
@@ -389,12 +398,9 @@
       <td> The name attribute is used to store a single string token that represents a unique name
  for an object with the set of definitions of which it is a part. A name starts with a letter followed
  by letters and numbers.
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:270) -->
 
 <table>
-<tr> <td class="attributeRule">
-<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
-
 </table>
       </td>
     </tr>
@@ -499,12 +505,9 @@
       <td> The name attribute is used to store a single string token that represents a unique name
  for an object with the set of definitions of which it is a part. A name starts with a letter followed
  by letters and numbers.
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:270) -->
 
 <table>
-<tr> <td class="attributeRule">
-<a class="blackText" href="dmv.html#dmvDefinitionNameCheck"> The name attribute must start with a letter, followed by a mix of letters and numbers. </a></td> </tr>
-
 </table>
       </td>
     </tr>
@@ -521,7 +524,7 @@
 
   <table>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="alias"> alias </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -533,12 +536,12 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>
-An alternative name for something.
-<p/>
+      An alternative name for something.
+
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="configSuffix"> configSuffix </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -550,8 +553,9 @@ An alternative name for something.
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>
-The suffix of an additional configuration files that are\n required by any of the specified generators. For example .mvc
-<p/>
+      The suffix of an additional configuration files that are
+ required by any of the specified generators. For example .mvc
+
       </td>
     </tr>
 
@@ -567,7 +571,7 @@ The suffix of an additional configuration files that are\n required by any of th
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="genClass"> genClass </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -579,8 +583,8 @@ The suffix of an additional configuration files that are\n required by any of th
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>
-The fully qualified Java class name of a code generation component.
-<p/>
+      The fully qualified Java class name of a code generation component.
+
       </td>
     </tr>
 
@@ -598,7 +602,7 @@ The fully qualified Java class name of a code generation component.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="genContext"> genContext </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -610,8 +614,8 @@ The fully qualified Java class name of a code generation component.
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>
-The generation context to which a code generation object belongs.
-<p/>
+      The generation context to which a code generation object belongs.
+
       </td>
     </tr>
 
@@ -628,7 +632,7 @@ The generation context to which a code generation object belongs.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="genContextName"> genContextName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -640,8 +644,8 @@ The generation context to which a code generation object belongs.
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>
-The name of a code generation context.
-<p/>
+      The name of a code generation context.
+
       </td>
     </tr>
 
@@ -657,7 +661,7 @@ The name of a code generation context.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="genPackage"> genPackage </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -669,8 +673,8 @@ The name of a code generation context.
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>
-The package name to be prepended to any generated code.
-<p/>
+      The package name to be prepended to any generated code.
+
       </td>
     </tr>
 
@@ -686,7 +690,7 @@ The package name to be prepended to any generated code.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="generator"> generator </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -698,8 +702,10 @@ The package name to be prepended to any generated code.
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>
-The fully qualified name of a class that that implements the\n DarkMatterGeneratorIF interface. The DMG Generator utility will call\n on this object to generate code.
-<p/>
+      The fully qualified name of a class that that implements the
+ DarkMatterGeneratorIF interface. The DMG Generator utility will call
+ on this object to generate code.
+
       </td>
     </tr>
 
@@ -715,7 +721,7 @@ The fully qualified name of a class that that implements the\n DarkMatterGenerat
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="schemaToLoad"> schemaToLoad </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -727,8 +733,8 @@ The fully qualified name of a class that that implements the\n DarkMatterGenerat
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>
-The name of schema for which code will be generated.
-<p/>
+      The name of schema for which code will be generated.
+
       </td>
     </tr>
 
@@ -744,7 +750,7 @@ The name of schema for which code will be generated.
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:22) -->
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="upperConstantName"> upperConstantName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -756,8 +762,8 @@ The name of schema for which code will be generated.
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>
-The name of something in upper case with underscores e.g. THIS_IS_UPPER_CONSTANT.
-<p/>
+      The name of something in upper case with underscores e.g. THIS_IS_UPPER_CONSTANT.
+
       </td>
     </tr>
 
@@ -777,7 +783,9 @@ The name of something in upper case with underscores e.g. THIS_IS_UPPER_CONSTANT
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> java.util.AbstractList$Itr@654df764 </td>
+      <td>
+The Generator type stores the fully qualified name of a class that\n implements the DarkMatterGeneratorIF. It also proviv=des the mechanism to instantiate\n the generator.
+      </td>
     </tr>
 
     <tr>
@@ -815,13 +823,8 @@ The name of something in upper case with underscores e.g. THIS_IS_UPPER_CONSTANT
         <a class="navLink" href="dmg.html"> dmg</a>
         <a class="navLink" href="dmp.html"> dmp</a>
         <a class="navLink" href="dmrbase.html"> dmrbase</a>
-        <a class="navLink" href="dmrldap.html"> dmrldap</a>
         <a class="navLink" href="dmt.html"> dmt</a>
         <a class="navLink" href="dmv.html"> dmv</a>
-        <a class="navLink" href="dsdA.html"> dsdA</a>
-        <a class="navLink" href="dsdB.html"> dsdB</a>
-        <a class="navLink" href="dsdC.html"> dsdC</a>
-        <a class="navLink" href="map.html"> map</a>
         <a class="navLink" href="meta.html"> meta</a>
         <a class="navLink" href="SchemaSummaryPage.html"> Summary </a>
     </div>

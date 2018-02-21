@@ -158,7 +158,7 @@ public class ComplexTypeSplitter {
 					// everything else \goes to the greedy part and we bump the position so that parsing stops
 					if ((i+1) == input.length()){
 						// If we're at the end of the input, it's just an empty value - no value for you! You greedy SOB!
-						rc = new ParsedNameValuePair();
+						rc = new ParsedNameValuePair(input.substring(i));
 					}
 					else
 						rc = new ParsedNameValuePair(input.substring(i));

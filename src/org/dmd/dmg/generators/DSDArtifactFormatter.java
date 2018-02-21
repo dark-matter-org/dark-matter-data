@@ -21,6 +21,7 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
+import java.util.Collections;
 
 import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
@@ -212,6 +213,7 @@ public class DSDArtifactFormatter {
     	out.write("        return(def.getDMO());\n");
 		out.write("    }\n\n");
 
+		ClassDefinition dsd = (ClassDefinition) ddm.getBaseDefinition();
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("    @Override\n");
 		out.write("    public DmcNamedObjectIF findNamedObjectMayClash(DmcObject object, DmcObjectName name, DmcNameClashResolverIF resolver, DmcAttributeInfo ai) throws DmcValueException {\n");
@@ -226,6 +228,15 @@ public class DSDArtifactFormatter {
 		out.write("                rc = allDefinitions.getDefinitionByNameAndType(dn);\n");
 		out.write("            } catch (DmcNameClashException e) {\n");
 		out.write("                rc = resolver.resolveClash(object, ai, e.getClashSet());\n");
+		out.write("                if (rc == null){\n");
+		out.write("                    DmcValueException ex = new DmcValueException(\"The reference to : \" + name.getNameString() + \" is ambiguous. You must specify the module name as a prefix to the name. Here are your options:\");\n");
+		out.write("                    Iterator<DmcNamedObjectIF> it = e.getMatches();\n");
+		out.write("                    while(it.hasNext()){\n");
+		out.write("                        " + dsd.getName() + " def = (" + dsd.getName() + ") it.next();\n");
+		out.write("                        ex.addMoreInfo(def.getDefinedIn" + ddm.getName() + "().getName().getNameString() + \".\" + name.getNameString());\n");
+		out.write("                    }\n");
+		out.write("                    throw(ex);\n");
+		out.write("                }\n");
 		out.write("            }\n");
 		out.write("        }\n");
 		out.write("        else{\n");
@@ -457,15 +468,22 @@ public class DSDArtifactFormatter {
 		imports.addImport("org.dmd.dmc.rules.SourceInfo", "To indicate the source of rule problems");
 		imports.addImport("org.dmd.dmw.DmwWrapper", "To handle factory created objects");
 		imports.addImport("org.dmd.dms.MetaSchema", "So that we can preserve newlines");
+//		imports.addImport("java.io.File", "To access file separator");
 		imports.addImport(ddm.getDefinedIn().getDMSASGImport(),"To allow loading of rules from the " + ddm.getDefinedIn().getName() + " schema");
 		
 		// Get the class that was generated for the module
 		ClassDefinition ddmClass = sm.isClass(ddm.getName().getNameString());
 		imports.addImport(ddmClass.getDmeImport(), "The kind of DDM we're reading");
 		
-		// The get the imports for each definition type and populate the structural definitions list
-		// that we'll use later
-		ArrayList<ClassDefinition> structuralDefs = new ArrayList<ClassDefinition>();
+		// We get the imports for each definition type and populate the structural definitions list
+		// that we'll use later.
+		// Note: because this will be used to format the addition of definitions in the generated
+		// definition manager, we have to take into account the derivation hierarchy so that structural
+		// class further down the hierarchy are added first - this fixes a bug where the addition
+		// of class B (which was derived from class A) was handled by the add definition for class A.
+		// This was simply because B was also an instance of A and got added as an A instance.
+
+		TreeMap<Integer, ArrayList<ClassDefinition>>	structuralDefs = new TreeMap<Integer, ArrayList<ClassDefinition>>(Collections.reverseOrder());
 		getImportsForDefinitionsInSingleModule(imports, ddm, structuralDefs);
 		
 		imports.addImport("org.dmd.dms.AttributeDefinition", "To allow addition of preserve newline attributes");
@@ -509,6 +527,10 @@ public class DSDArtifactFormatter {
 		out.write("        definitions  = d;\n");
 		out.write("        rules        = r;\n");
 		out.write("        rules.loadRules(" + ddm.getDefinedIn().getDMSASGName() + ".instance());\n");			
+		out.write("    }\n\n");
+		
+		out.write("    public SchemaManager schema(){\n");
+		out.write("        return(schema);\n");
 		out.write("    }\n\n");
 		
 		out.write("    void preserveNewLines(AttributeDefinitionIterableDMW attrs){\n");
@@ -587,6 +609,7 @@ public class DSDArtifactFormatter {
 		out.write("        }\n");
 		out.write("        catch(ClassCastException e){\n");
 		out.write("            ResultException ex = new ResultException();\n");
+		out.write("            ex.addError(\"All classes in your DSL must ultimately be derived from: " + baseClass.getName() + "\");\n");
 		out.write("            ex.addError(\"The following object is not valid in a ." + ddm.getFileExtension() + " file:\\n\\n\" + wrapper.toOIF());\n");
 		out.write("            ex.setLocationInfo(infile, lineNumber);\n");
 		out.write("            throw(ex);\n");
@@ -598,8 +621,8 @@ public class DSDArtifactFormatter {
 		out.write("        try{\n");
 		out.write("            // Run the rules against the definition\n");
 		out.write("            rules.executeInitializers(definition.getDmcObject());\n");
-		out.write("            rules.executeAttributeValidation(definition.getDmcObject());\n");
-		out.write("            rules.executeObjectValidation(definition.getDmcObject());\n");
+//		out.write("            rules.executeAttributeValidation(definition.getDmcObject());\n");
+//		out.write("            rules.executeObjectValidation(definition.getDmcObject());\n");
 		out.write("        }\n");
 		out.write("        catch(DmcRuleExceptionSet ex){\n");
 		out.write("            ex.source(new SourceInfo(infile, lineNumber));\n");
@@ -610,6 +633,21 @@ public class DSDArtifactFormatter {
 		out.write("        if (module == null){\n");
 		out.write("            if (definition instanceof " + ddm.getName() + "){\n");
 		out.write("                module = (" + ddm.getName() + ")definition;\n");
+		out.write("            \n");
+		out.write("                // Note: we use the / character directly since the DmcUncheckedOIFParser replaces the \\ characters on windows\n");
+		out.write("                int lastSep = infile.lastIndexOf(\"/\");\n");
+		out.write("                int period = infile.lastIndexOf('.');\n");
+		out.write("                String fn = infile.substring(lastSep+1, period);\n");
+		out.write("                if (module.getName() == null){\n");
+		out.write("                    ResultException ex = new ResultException(\"Missing name attribute for module definition\");\n");
+		out.write("                    ex.setLocationInfo(infile, lineNumber);\n");
+		out.write("                    throw(ex);\n");
+		out.write("                }\n");
+		out.write("                else if (!module.getName().getNameString().equals(fn)){\n");
+		out.write("                    ResultException ex = new ResultException(\"Module name: \" + module.getName().getNameString() + \" - must match file name: \" + fn);\n");
+		out.write("                    ex.setLocationInfo(infile, lineNumber);\n");
+		out.write("                    throw(ex);\n");
+		out.write("                }\n");
 		out.write("            \n");
 		out.write("                definition.setDotName(module.getName() + \".\" + definition.getConstructionClassName());\n");
 //		out.write("                definition.setNameAndTypeName(module.getName() + \".\" + definition.getConstructionClassName());\n");
@@ -643,18 +681,49 @@ public class DSDArtifactFormatter {
 //		out.write("            definition.setNameAndTypeName(definition.getName() + \".\" + definition.getConstructionClassName());\n");
 		out.write("            \n");
 		
+		out.write("            // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("            try{\n");
+		out.write("                // Run object level rules to ensure mandatory attributes are in place - can't add definition if no name attribute!\n");
+//		out.write("                rules.executeInitializers(definition.getDmcObject());\n");
+//		out.write("                rules.executeAttributeValidation(definition.getDmcObject());\n");
+		out.write("                rules.executeObjectValidation(definition.getDmcObject());\n");
+		out.write("            }\n");
+		out.write("            catch(DmcRuleExceptionSet ex){\n");
+		out.write("                ex.source(new SourceInfo(infile, lineNumber));\n");
+		out.write("                throw(ex);\n");
+		out.write("            }\n");
+		out.write("            // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("            \n");
+
+		
 		boolean first = true;
 		String condition = "if";
-		for(ClassDefinition cd: structuralDefs){
-			out.write("            " + condition + " (definition instanceof " + cd.getName() + "){\n");
-			out.write("                definitions.add" + cd.getName() + "((" + cd.getName() + ")definition);\n");
-			out.write("                module.add" + cd.getName() + "((" + cd.getName() + ")definition);\n");
-			out.write("            }\n");
-			if (first)
-				condition = "else if";
+		
+		for(Integer depth: structuralDefs.keySet()){
+			ArrayList<ClassDefinition>	atDepth = structuralDefs.get(depth);
+
+			for(ClassDefinition cd: atDepth){
+				out.write("            " + condition + " (definition instanceof " + cd.getName() + "){\n");
+				out.write("                definitions.add" + cd.getName() + "((" + cd.getName() + ")definition);\n");
+				out.write("                module.add" + cd.getName() + "((" + cd.getName() + ")definition);\n");
+				out.write("            }\n");
+				if (first)
+					condition = "else if";
+			}
 		}
 		out.write("\n");
 		
+		out.write("        }\n");
+		out.write("\n");
+		out.write("        try{\n");
+		out.write("            // Run the rules against the definition\n");
+//		out.write("            rules.executeInitializers(definition.getDmcObject());\n");
+		out.write("            rules.executeAttributeValidation(definition.getDmcObject());\n");
+		out.write("            rules.executeObjectValidation(definition.getDmcObject());\n");
+		out.write("        }\n");
+		out.write("        catch(DmcRuleExceptionSet ex){\n");
+		out.write("            ex.source(new SourceInfo(infile, lineNumber));\n");
+		out.write("            throw(ex);\n");
 		out.write("        }\n");
 		out.write("\n");
 		out.write("    }\n");
@@ -738,7 +807,7 @@ public class DSDArtifactFormatter {
 	 * @param ddm the DDM we're generating for
 	 * @param structuralDefs place to store the structural definition classes
 	 */
-	void getImportsForDefinitionsInSingleModule(ImportManager imports, DSDefinitionModule ddm, ArrayList<ClassDefinition> structuralDefs){
+	void getImportsForDefinitionsInSingleModule(ImportManager imports, DSDefinitionModule ddm, TreeMap<Integer, ArrayList<ClassDefinition>> structuralDefs){
 		ClassDefinition dsd = (ClassDefinition) ddm.getBaseDefinition();
 		
 		imports.addImport(dsd.getDmeImport(), "The base definition from the " + ddm.getName() + " Module");
@@ -750,7 +819,14 @@ public class DSDArtifactFormatter {
 				// Add the structural classes except for the one that represents the module
 				if (!cd.getName().getNameString().equals(ddm.getName().getNameString())){
 					imports.addImport(cd.getDmeImport(), "A definition from the " + ddm.getName() + " Module");
-					structuralDefs.add(cd);
+					int depth = cd.derivationDepth();
+					
+					ArrayList<ClassDefinition> atDepth = structuralDefs.get(depth);
+					if (atDepth == null){
+						atDepth = new ArrayList<ClassDefinition>();
+						structuralDefs.put(depth, atDepth);
+					}
+					atDepth.add(cd);
 				}
 			}
 		}
@@ -835,11 +911,17 @@ public class DSDArtifactFormatter {
 		out.write("        generator = g;\n");
 		out.write("\n");
 		
+		StringBuilder parserAccess = new StringBuilder();
+		
 		for(DSDefinitionModule mod: includedModules.values()){
 			out.write("        parserFor" + mod.getName() + " = new " + mod.getDefinitionParserName() + "(definitions, rules);\n");		
 			out.write("        finderFor" + mod.getName() + ".setSourceAndJarInfo(sourceDirs,jars);\n");	
 			out.write("        finderFor" + mod.getName() + ".findConfigs();\n");
 			out.write("\n");
+			
+			parserAccess.append("    public " + mod.getDefinitionParserName() + " parserFor" + mod.getName() + "(){\n");
+			parserAccess.append("        return(parserFor" + mod.getName() + ");\n");
+			parserAccess.append("    }\n\n");
 		}
 		
 		StringBuffer baseModuleLoaderFunctions = new StringBuffer();
@@ -874,6 +956,14 @@ public class DSDArtifactFormatter {
 		
 		out.write("    }\n\n");
 		out.write("\n");
+		
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    public DmvRuleManager getRuleManager(){\n");
+		out.write("        	return(rules);\n");
+		out.write("    }\n\n");
+		
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write(parserAccess.toString());
 		
 		if (baseModuleLoaderFunctions.length() > 0){
 			out.write(baseModuleLoaderFunctions.toString());
@@ -1095,7 +1185,7 @@ public class DSDArtifactFormatter {
 			imports.addImport(ddmClass.getDmeImport(), "One of the DDS modules we might load");
 		}
 		
-		members.addMember(ddm.getName() + "ParsingCoordinator", "parser", "Module parser");
+		members.addMember("protected " + ddm.getName() + "ParsingCoordinator", "parser", "Module parser");
 		members.addMember("protected CommandLine", "commandLine", "new CommandLine()", "Commandline parser");
 		members.addMember("protected BooleanVar", "helpFlag", "new BooleanVar()", "The help flag value");
 		members.addMember("protected StringArrayList", "srcdir", "new StringArrayList()", "The source directories we'll search");

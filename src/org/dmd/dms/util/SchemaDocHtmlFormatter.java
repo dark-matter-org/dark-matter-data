@@ -734,7 +734,7 @@ public class SchemaDocHtmlFormatter {
     }
 
 	public void generateIndex(String dir){
-        Iterator<DefinitionName>        it  = null;
+//        Iterator<DefinitionName>        it  = null;
         StringBuffer    sb  = new StringBuffer();
         initIndex();
 
@@ -824,7 +824,7 @@ public class SchemaDocHtmlFormatter {
 
 
         indexIT = index.keySet().iterator();
-        while(it.hasNext()){
+        while(indexIT.hasNext()){
             String key = indexIT.next();
             TreeMap<String,Token>     tm = index.get(key);
             String      fn = new String(dir + File.separator + "index-" + key + ".shtml");

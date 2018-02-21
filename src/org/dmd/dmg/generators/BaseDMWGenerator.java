@@ -3110,6 +3110,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 //	    	sb.append("        corew.getDmcObject().add(__" + ad.getName() + ", value);\n");
 			sb.append("    }\n\n");
 			
+			
 	    	////////////////////////////////////////////////////////////////////////////////
 	    	// deleter
 

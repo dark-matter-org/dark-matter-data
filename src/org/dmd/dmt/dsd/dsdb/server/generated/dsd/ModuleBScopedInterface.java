@@ -16,14 +16,16 @@
 package org.dmd.dmt.dsd.dsdb.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateScopedInterface(DSDArtifactFormatter.java:399)
-import java.util.Iterator;                                        // To provide iterators over definitions - (DSDArtifactFormatter.java:396)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateScopedInterface(DSDArtifactFormatter.java:414)
+import java.util.Iterator;                                        // To provide iterators over definitions - (DSDArtifactFormatter.java:409)
+import org.dmd.dmc.DmcNameClashException;                         // May be thrown when finding definitions - (DSDArtifactFormatter.java:410)
+import org.dmd.dmc.DmcValueException;                             // May be thrown when finding definitions - (DSDArtifactFormatter.java:411)
 import org.dmd.dmc.types.DotName;                                 // To support the find method for definitions - (DSDefinitionModule.java:163)
 import org.dmd.dmt.dsd.dsdb.server.extended.BConceptBase;         // A definition from the ModuleB Module - (DSDefinitionModule.java:161)
 import org.dmd.dmt.dsd.dsdb.server.extended.BConceptX;            // A definition from the ModuleB Module - (DSDefinitionModule.java:174)
 
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateScopedInterface(DSDArtifactFormatter.java:403)
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateScopedInterface(DSDArtifactFormatter.java:418)
 /**
  * This interface is implemented by the generated wrapper class for the ModuleB module.
  */
@@ -37,6 +39,7 @@ public interface ModuleBScopedInterface {
     public int getBConceptXCount();
     public BConceptX getBConceptX(DotName name);
     public Iterator<BConceptX> getAllBConceptX();
+    public BConceptX getBConceptXDefinition(String name) throws DmcNameClashException, DmcValueException;
 
 }
 

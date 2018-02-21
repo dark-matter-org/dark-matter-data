@@ -336,6 +336,8 @@ public class SchemaPage {
 		out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
 		out.write("  <div class=\"schemaName\"> " + sd.getName() + " </div>\n\n");
 		
+		writeDescription(out, sd);
+		
 		out.write("  <div class=\"summary\">\n\n");
 		
 		writeClassSummary(out, classes);
@@ -363,6 +365,16 @@ public class SchemaPage {
 		out.write("  </div> <!--  summary -->\n\n");
 		
 	}
+	
+	static void writeDescription(BufferedWriter out, SchemaDefinition sd) throws IOException{
+		if (sd.getDescription() != null){
+			out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
+			out.write("    <div class=\"schemaDescription\">\n");
+			out.write("    " + Converter.convert(sd.getDescriptionWithNewlines()) + "</td>\n");
+			out.write("    </div>\n\n");
+		}
+	}
+
 	
 	static void writeClassSummary(BufferedWriter out, TreeMap<String,ClassDefinition> defs) throws IOException {
 		if (defs.size() == 0)

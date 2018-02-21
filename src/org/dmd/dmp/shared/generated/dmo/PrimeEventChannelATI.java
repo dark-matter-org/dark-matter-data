@@ -17,7 +17,7 @@ package org.dmd.dmp.shared.generated.dmo;
 
 import java.io.Serializable;
 import org.dmd.dms.extended.ActionTriggerInfo;
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:396)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:405)
 
 
 /**

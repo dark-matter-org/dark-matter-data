@@ -76,6 +76,14 @@ svInteger		8
 hsTestEnum		TEST1
 hsTestEnum		TEST2
 
+CardinalityRuleData
+ruleName          canOnlyHavemvInteger
+ruleTitle         The mvInteger attribute must between 2 and 5 things in it.
+applyToAttribute  mvInteger
+applyToClass      TestBasicObjectFixed
+crMinimum         1
+crMaximum         5
+
 NumericRangeRuleData
 ruleName 			dmtSvIntegerNumericRange
 ruleTitle			svInteger must be in the range 1-10
@@ -260,6 +268,25 @@ may				someRelationMVI
 may				intToStringMAP
 may				hsStringName
 may				clientCountFilters
+may				limitedStringSV
+may				limitedStringMV
+
+
+StringSetRuleData
+ruleName			dmtCheckLimitedSV
+ruleTitle			The limitedStringSV attribute must be one of: Uno, Dos Fish, Hasta la vista.
+applyToAttribute	limitedStringSV
+allowedString		Uno
+allowedString		Dos Fish
+allowedString		Hasta la vista
+
+StringSetRuleData
+ruleName			dmtCheckLimitedMV
+ruleTitle			The limitedStringMV attribute must be one of: left, right, over there.
+applyToAttribute	limitedStringMV
+allowedString		left
+allowedString		right
+allowedString		over there
 
 ClassDefinition
 name            ClientCountFilter
@@ -289,6 +316,56 @@ name            UsingObjRefHM
 classType       STRUCTURAL
 dmdID			20
 may				objRefHM
+
+ClassDefinition
+name            ObjWithRefsDerivedA
+classType       STRUCTURAL
+dmdID			21
+derivedFrom		ObjWithRefs
+useWrapperType	EXTENDED
+isNamedBy		name
+must			name
+description Used to test restricting object references in derived classes.
+
+RestrictReferencesRuleData
+ruleName			rrrDerivedA
+ruleTitle			The objRefMV attribute can only refer to other objects of type ObjWithRefsDerivedA when used in a ObjWithRefsDerivedA instance.
+applyToAttribute	objRefMV
+applyToClass 		ObjWithRefsDerivedA
+allowedReference	ObjWithRefsDerivedA
+
+RestrictReferencesRuleData
+ruleName			rrrDerivedA2
+ruleTitle			The objRef attribute can only refer to other objects of type ObjWithRefsDerivedA when used in a ObjWithRefsDerivedA instance.
+applyToAttribute	objRef
+applyToClass 		ObjWithRefsDerivedA
+allowedReference	ObjWithRefsDerivedA
+
+ClassDefinition
+name            ObjWithRefsDerivedB
+classType       STRUCTURAL
+dmdID			22
+derivedFrom		ObjWithRefs
+useWrapperType	EXTENDED
+isNamedBy		name
+must			name
+description Used to test restricting object references in derived classes.
+
+RestrictReferencesRuleData
+ruleName			rrrDerivedB
+ruleTitle			The objRefMV attribute can only refer to other objects of type ObjWithRefsDerivedB when used in a ObjWithRefsDerivedB instance.
+applyToAttribute	objRefMV
+applyToClass 		ObjWithRefsDerivedB
+allowedReference	ObjWithRefsDerivedB
+
+RestrictReferencesRuleData
+ruleName			rrrDerivedB2
+ruleTitle			The objRef attribute can only refer to other objects of type ObjWithRefsDerivedB when used in a ObjWithRefsDerivedB instance.
+applyToAttribute	objRef
+applyToClass 		ObjWithRefsDerivedB
+allowedReference	ObjWithRefsDerivedB
+
+
 
 ///////////////////////////////////////////////////////////////////////////////
 // Primitive attribute usage
@@ -491,3 +568,4 @@ classType		STRUCTURAL
 dmdID			409
 may				svComplex
 may				mvComplex
+

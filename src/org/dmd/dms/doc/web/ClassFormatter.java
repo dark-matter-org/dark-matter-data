@@ -207,11 +207,13 @@ public class ClassFormatter {
 		if (ad.getDescription() == null){
 			sb.append("      <td> ");
 			appendAttributeRuleInfo(sb, cd, ad);
+			appendAdditionalInfo(sb, cd, ad);
 			sb.append("      </td>\n");
 		}
 		else{
 			sb.append("      <td> " + Converter.convert(ad.getDescriptionWithNewlines()));
 			appendAttributeRuleInfo(sb, cd, ad);
+			appendAdditionalInfo(sb, cd, ad);
 			sb.append("      </td>\n");
 		}
 		sb.append("    </tr>\n\n");		
@@ -298,6 +300,32 @@ public class ClassFormatter {
 			}
 			
 			sb.append("</table>\n");
+		}
+	}
+	
+	static void appendAdditionalInfo(StringBuffer sb, ClassDefinition cd, AttributeDefinition ad){
+		if ((ad.getTagsSize() > 0) || ad.getSearchable()){
+			sb.append("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
+			sb.append("<table>\n");
+			
+			if (ad.getSearchable()){
+				sb.append("<tr> <td class=\"attributeName\">Searchable</td> <td> true </td></tr>\n\n");				
+			}
+			
+			if (ad.getTagsSize() > 0){
+				boolean first = true;
+				Iterator<String> it = ad.getTags();
+				while(it.hasNext()){
+					if (first){
+						sb.append("<tr> <td class=\"attributeName\"> Tags </td> <td> " + it.next() + " </td></tr>\n\n");										
+					}
+					else{
+						sb.append("<tr> <td></td> <td> " + it.next() + " </td></tr>\n\n");										
+					}
+					first = false;
+				}
+			}
+			sb.append("</table>\n");			
 		}
 	}
 	

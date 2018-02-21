@@ -236,6 +236,11 @@ public class GenUtility {
 //
 //		addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcAttributeInfo", "Always required");
 		
+		if ( (cd != null) && (cd.getClassType() == ClassTypeEnum.AUXILIARY) ){
+			addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcAttributeInfo", "To support common aux functions");
+			addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcObject", "To support aux addition/removal");			
+		}
+		
 		if (anyAttributesAtThisLevel){
 			addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcAttribute", "Any attributes");
 			addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcValueException", "Any attributes");
@@ -255,7 +260,9 @@ public class GenUtility {
 //				DebugInfo.debug("HERE");
 //			}
 
-			if ( (td.getPrimitiveType() != null) && (cd != null) && (cd.getClassType() != ClassTypeEnum.AUXILIARY) ){
+//			if ( (td.getPrimitiveType() != null) && (cd != null) && (cd.getClassType() != ClassTypeEnum.AUXILIARY) ){
+			// FIX: wasn't picking up a complex type import for an AUX class - don't remember why AUX classes were excluded here
+			if ( (td.getPrimitiveType() != null) && (cd != null)){
 				if (td.getInternallyGenerated() && td.getIsRefType()){
 					// We have an internally generated reference type, only import if
 					// the definition is from a different schema, otherwise, we're
@@ -268,7 +275,8 @@ public class GenUtility {
 					}
 				}
 				else{
-					addImport(uniqueImports, longestImport, td.getPrimitiveType(), "Primitive type and !auxiliary class");
+//					addImport(uniqueImports, longestImport, td.getPrimitiveType(), "Primitive type and !auxiliary class");
+					addImport(uniqueImports, longestImport, td.getPrimitiveType(), "Primitive type");
 				}
 			}
 			
@@ -352,7 +360,8 @@ public class GenUtility {
 				}
 			}
 			else{
-				addImport(uniqueImports, longestImport, cd.getDerivedFrom().getDmoImport(), "Base class");
+				if ( (cd != null) && (cd.getClassType() != ClassTypeEnum.AUXILIARY))
+					addImport(uniqueImports, longestImport, cd.getDerivedFrom().getDmoImport(), "Base class");
 			}
 			
 			if (cd.getIsNamedBy() != null){
@@ -3090,6 +3099,7 @@ public class GenUtility {
     	out.write("package " + basePackage + ".generated.types;\n\n");
       
 		imports.addImport("java.io.Serializable","Marker interface for serialization");
+		imports.addImport("java.util.Iterator","For JSON formatting");
 		imports.addImport("org.dmd.dmc.DmcInputStreamIF","To support serialization");
 		imports.addImport("org.dmd.dmc.DmcOutputStreamIF","To support serialization");
 
@@ -3136,6 +3146,22 @@ public class GenUtility {
   		out.write("        super(ai);\n");
   		out.write("    }\n\n");
       		            	
+  		out.write("    @Override\n");
+  		out.write("    protected void formatValueAsJSON(StringBuffer sb, int padding, String indent) {\n");
+  		out.write("        if (getMVSize() == 0){\n");
+  		out.write("            getSV().toJSON(sb,padding,indent);\n");
+  		out.write("        }\n");
+  		out.write("        else {\n");
+  		out.write("            Iterator<" + cn + "> it = getMV();\n");
+  		out.write("            while(it.hasNext()){\n");
+  		out.write("                " + cn + " value = it.next();\n");
+  		out.write("                value.toJSON(sb,padding,indent);\n");
+  		out.write("                if (it.hasNext())\n");
+  		out.write("                    sb.append(\", \\n\");                    \n");
+  		out.write("            }\n");
+  		out.write("        }\n");
+  		out.write("    }\n\n");
+
   		out.write("    protected " + cn + " typeCheck(Object value) throws DmcValueException {\n");
   		out.write("        " + cn + " rc = null;\n\n");
   		

@@ -16,14 +16,17 @@
 package org.dmd.dmt.dsd.dsda.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateScopedInterface(DSDArtifactFormatter.java:399)
-import java.util.Iterator;                                        // To provide iterators over definitions - (DSDArtifactFormatter.java:396)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateScopedInterface(DSDArtifactFormatter.java:414)
+import java.util.Iterator;                                        // To provide iterators over definitions - (DSDArtifactFormatter.java:409)
+import org.dmd.dmc.DmcNameClashException;                         // May be thrown when finding definitions - (DSDArtifactFormatter.java:410)
+import org.dmd.dmc.DmcValueException;                             // May be thrown when finding definitions - (DSDArtifactFormatter.java:411)
 import org.dmd.dmc.types.DotName;                                 // To support the find method for definitions - (DSDefinitionModule.java:163)
+import org.dmd.dmt.dsd.dsda.server.extended.ABConceptX;           // A definition from the ModuleA Module - (DSDefinitionModule.java:174)
 import org.dmd.dmt.dsd.dsda.server.extended.AConceptBase;         // A definition from the ModuleA Module - (DSDefinitionModule.java:161)
 import org.dmd.dmt.dsd.dsda.server.extended.AConceptX;            // A definition from the ModuleA Module - (DSDefinitionModule.java:174)
 
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateScopedInterface(DSDArtifactFormatter.java:403)
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateScopedInterface(DSDArtifactFormatter.java:418)
 /**
  * This interface is implemented by the generated wrapper class for the ModuleA module.
  */
@@ -33,10 +36,17 @@ public interface ModuleAScopedInterface {
     public AConceptBase getAConceptBase(DotName name);
     public Iterator<AConceptBase> getAllAConceptBase();
 
+    public void addABConceptX(ABConceptX def);
+    public int getABConceptXCount();
+    public ABConceptX getABConceptX(DotName name);
+    public Iterator<ABConceptX> getAllABConceptX();
+    public ABConceptX getABConceptXDefinition(String name) throws DmcNameClashException, DmcValueException;
+
     public void addAConceptX(AConceptX def);
     public int getAConceptXCount();
     public AConceptX getAConceptX(DotName name);
     public Iterator<AConceptX> getAllAConceptX();
+    public AConceptX getAConceptXDefinition(String name) throws DmcNameClashException, DmcValueException;
 
 }
 

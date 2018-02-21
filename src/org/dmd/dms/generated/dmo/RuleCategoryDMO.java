@@ -83,7 +83,9 @@ public class RuleCategoryDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO 
         _ImAp.put(MetaDMSAG.__optimize.id,MetaDMSAG.__optimize);
         _ImAp.put(MetaDMSAG.__question.id,MetaDMSAG.__question);
         _ImAp.put(MetaDMSAG.__relatedToConcept.id,MetaDMSAG.__relatedToConcept);
+        _ImAp.put(MetaDMSAG.__relationship.id,MetaDMSAG.__relationship);
         _ImAp.put(MetaDMSAG.__ruleImport.id,MetaDMSAG.__ruleImport);
+        _ImAp.put(MetaDMSAG.__searchable.id,MetaDMSAG.__searchable);
         _ImAp.put(MetaDMSAG.__skip.id,MetaDMSAG.__skip);
         _ImAp.put(MetaDMSAG.__sortName.id,MetaDMSAG.__sortName);
         _ImAp.put(MetaDMSAG.__tags.id,MetaDMSAG.__tags);
@@ -111,7 +113,9 @@ public class RuleCategoryDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO 
         _SmAp.put(MetaDMSAG.__optimize.name,MetaDMSAG.__optimize);
         _SmAp.put(MetaDMSAG.__question.name,MetaDMSAG.__question);
         _SmAp.put(MetaDMSAG.__relatedToConcept.name,MetaDMSAG.__relatedToConcept);
+        _SmAp.put(MetaDMSAG.__relationship.name,MetaDMSAG.__relationship);
         _SmAp.put(MetaDMSAG.__ruleImport.name,MetaDMSAG.__ruleImport);
+        _SmAp.put(MetaDMSAG.__searchable.name,MetaDMSAG.__searchable);
         _SmAp.put(MetaDMSAG.__skip.name,MetaDMSAG.__skip);
         _SmAp.put(MetaDMSAG.__sortName.name,MetaDMSAG.__sortName);
         _SmAp.put(MetaDMSAG.__tags.name,MetaDMSAG.__tags);
@@ -734,6 +738,35 @@ public class RuleCategoryDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO 
     }
 
     /**
+     * The name of the relationship established via a reference to some other
+     * named object.\n <p/>\n This is a minor hack to allow creation of named
+     * relationships in graph databases. Eventually, relationships\n will become
+     * first class objects to which you can refer. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2340)
+    public String getRelationship(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__relationship);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets relationship to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2432)
+    public void setRelationship(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__relationship);
+        if (attr == null)
+            attr = new DmcTypeStringSV(MetaDMSAG.__relationship);
+        
+        attr.set(value);
+        set(MetaDMSAG.__relationship,attr);
+    }
+
+    /**
      * An import required for generation of the rule collection associated with\n
      * a RuleCategory. 
      * @return An Iterator of String objects.
@@ -760,6 +793,32 @@ public class RuleCategoryDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO 
         attr.add(value);
         add(MetaDMSAG.__ruleImport,attr);
         return(attr);
+    }
+
+    /**
+     * Indicates if something is searchable. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2340)
+    public Boolean getSearchable(){
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaDMSAG.__searchable);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets searchable to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2432)
+    public void setSearchable(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__searchable);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(MetaDMSAG.__searchable);
+        
+        attr.set(value);
+        set(MetaDMSAG.__searchable,attr);
     }
 
     /**

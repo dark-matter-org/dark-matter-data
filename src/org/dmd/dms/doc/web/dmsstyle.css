@@ -25,13 +25,13 @@ body {
 }
 
 #main, #header, #footer {
-	width: 900px;
+	width: 1300px;
 	margin: auto;
 }
 
 #content {
 	float:	right;
-	width:	750px;
+	width:	1050px;
 }
 
 #bodycopy {
@@ -101,6 +101,10 @@ td {
 	font-weight: bold;
 	font-size: larger;
 	padding-top: 50px;
+}
+
+.schemaDescription {
+	padding-top: 30px;
 }
 
 .ruleDefName {

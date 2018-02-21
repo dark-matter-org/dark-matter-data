@@ -23,7 +23,7 @@ import org.dmd.dmv.shared.generated.dmo.ReferencedAttributeTypeRuleDataDMO;     
 
 
 /**
- * The ReferencedAttributeTypeRule allowes you to restrict the type of\n an
+ * The ReferencedAttributeTypeRule allows you to restrict the type of\n an
  * attribute referred to by an AttributeDefinition reference. Some examples
  * include:\n <pre>\n ReferencedAttributeTypeRuleData\n ruleName         
  * dmvNRRApplyToAttribute\n ruleTitle         The applyToAttribute attribute

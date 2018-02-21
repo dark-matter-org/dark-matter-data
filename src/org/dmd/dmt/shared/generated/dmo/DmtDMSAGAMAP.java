@@ -1,13 +1,13 @@
 package org.dmd.dmt.shared.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpAttributeMapInitializer(DmoCompactSchemaFormatter.java:456)
-import java.util.HashMap;         // For storage of schema info - (DmoCompactSchemaFormatter.java:453)
-import org.dmd.dmc.*;             // Basic DMC stuff - (DmoCompactSchemaFormatter.java:454)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpAttributeMapInitializer(DmoCompactSchemaFormatter.java:464)
+import java.util.HashMap;         // For storage of schema info - (DmoCompactSchemaFormatter.java:461)
+import org.dmd.dmc.*;             // Basic DMC stuff - (DmoCompactSchemaFormatter.java:462)
 
 
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpAttributeMapInitializer(DmoCompactSchemaFormatter.java:460)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpAttributeMapInitializer(DmoCompactSchemaFormatter.java:468)
 public class DmtDMSAGAMAP {
 
     static protected void initSmAp(HashMap<Integer, DmcAttributeInfo> _SmAp){
@@ -39,6 +39,8 @@ public class DmtDMSAGAMAP {
         _SmAp.put(DmtDMSAG.__indexedString.id,DmtDMSAG.__indexedString);
         _SmAp.put(DmtDMSAG.__intToString.id,DmtDMSAG.__intToString);
         _SmAp.put(DmtDMSAG.__intToStringMAP.id,DmtDMSAG.__intToStringMAP);
+        _SmAp.put(DmtDMSAG.__limitedStringMV.id,DmtDMSAG.__limitedStringMV);
+        _SmAp.put(DmtDMSAG.__limitedStringSV.id,DmtDMSAG.__limitedStringSV);
         _SmAp.put(DmtDMSAG.__mvBoolean.id,DmtDMSAG.__mvBoolean);
         _SmAp.put(DmtDMSAG.__mvComplex.id,DmtDMSAG.__mvComplex);
         _SmAp.put(DmtDMSAG.__mvDate.id,DmtDMSAG.__mvDate);

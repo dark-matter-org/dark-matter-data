@@ -31,6 +31,12 @@ public class DebugManager {
 	TreeMap<String,DebugCategoryIF> categories = new TreeMap<String, DebugCategoryIF>();
 	
 	TreeMap<String, ArrayList<DebugCategoryIF>>	categoriesByTag = new TreeMap<String, ArrayList<DebugCategoryIF>>();
+	
+	/**
+	 * Key: a channel tag that might exist in the future
+	 * Value: a list of handlers that are interesting in that tag
+	 */
+	TreeMap<String, ArrayList<DebugHandlerIF>>	preregisters = new TreeMap<String, ArrayList<DebugHandlerIF>>();
 
 	private DebugManager(){
 		
@@ -40,6 +46,22 @@ public class DebugManager {
 		if (singleton == null)
 			singleton = new DebugManager();
 		return(singleton);
+	}
+	
+	/**
+	 * Lets a debug handler preregister interest in categories that have this tag. When the category
+	 * is advertised, we'll subscribe any interested handlers.
+	 * @param tag
+	 */
+	public void preregister(DebugHandlerIF handler, String tag){
+		ArrayList<DebugHandlerIF> handlers = preregisters.get(tag);
+		
+		if (handlers == null){
+			handlers = new ArrayList<DebugHandlerIF>();
+			preregisters.put(tag, handlers);
+		}
+		
+		handlers.add(handler);
 	}
 	
 	public DebugChannelIF advertise(DebugCategoryIF dc){
@@ -64,7 +86,20 @@ public class DebugManager {
 			channels.add(dc);
 		}
 		
-		return(dc.initializeChannel(unique));
+		DebugChannelIF rc = dc.initializeChannel(unique);
+		
+		tags = dc.getTags();
+		while(tags.hasNext()){
+			String tag = tags.next();
+			ArrayList<DebugHandlerIF> handlers = preregisters.get(tag);
+			if (handlers != null){
+				for(DebugHandlerIF h: handlers){
+					dc.getChannel().subscribe(h);
+				}
+			}
+		}
+		
+		return(rc);
 	}
 	
 	public Iterator<DebugCategoryIF> getCategoriesByTag(String tag){

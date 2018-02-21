@@ -73,7 +73,9 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
         _ImAp.put(MetaDMSAG.__question.id,MetaDMSAG.__question);
         _ImAp.put(MetaDMSAG.__refersToDefsFromDSD.id,MetaDMSAG.__refersToDefsFromDSD);
         _ImAp.put(MetaDMSAG.__relatedToConcept.id,MetaDMSAG.__relatedToConcept);
+        _ImAp.put(MetaDMSAG.__relationship.id,MetaDMSAG.__relationship);
         _ImAp.put(MetaDMSAG.__requiredBaseModule.id,MetaDMSAG.__requiredBaseModule);
+        _ImAp.put(MetaDMSAG.__searchable.id,MetaDMSAG.__searchable);
         _ImAp.put(MetaDMSAG.__skip.id,MetaDMSAG.__skip);
         _ImAp.put(MetaDMSAG.__sortName.id,MetaDMSAG.__sortName);
         _ImAp.put(MetaDMSAG.__supportDynamicSchemaLoading.id,MetaDMSAG.__supportDynamicSchemaLoading);
@@ -105,7 +107,9 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
         _SmAp.put(MetaDMSAG.__question.name,MetaDMSAG.__question);
         _SmAp.put(MetaDMSAG.__refersToDefsFromDSD.name,MetaDMSAG.__refersToDefsFromDSD);
         _SmAp.put(MetaDMSAG.__relatedToConcept.name,MetaDMSAG.__relatedToConcept);
+        _SmAp.put(MetaDMSAG.__relationship.name,MetaDMSAG.__relationship);
         _SmAp.put(MetaDMSAG.__requiredBaseModule.name,MetaDMSAG.__requiredBaseModule);
+        _SmAp.put(MetaDMSAG.__searchable.name,MetaDMSAG.__searchable);
         _SmAp.put(MetaDMSAG.__skip.name,MetaDMSAG.__skip);
         _SmAp.put(MetaDMSAG.__sortName.name,MetaDMSAG.__sortName);
         _SmAp.put(MetaDMSAG.__supportDynamicSchemaLoading.name,MetaDMSAG.__supportDynamicSchemaLoading);
@@ -819,6 +823,35 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
     }
 
     /**
+     * The name of the relationship established via a reference to some other
+     * named object.\n <p/>\n This is a minor hack to allow creation of named
+     * relationships in graph databases. Eventually, relationships\n will become
+     * first class objects to which you can refer. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2340)
+    public String getRelationship(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__relationship);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets relationship to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2432)
+    public void setRelationship(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__relationship);
+        if (attr == null)
+            attr = new DmcTypeStringSV(MetaDMSAG.__relationship);
+        
+        attr.set(value);
+        set(MetaDMSAG.__relationship,attr);
+    }
+
+    /**
      * A set of base module files that should be loaded before\n parsing of any
      * other modules associated with the DSD being defined. For example,\n the
      * dmdgpb (augmented Googoe Protocol Buffer specifications) DSD always
@@ -852,6 +885,32 @@ public class DSDefinitionModuleDMO extends org.dmd.dms.generated.dmo.DmsDefiniti
         attr.add(value);
         add(MetaDMSAG.__requiredBaseModule,attr);
         return(attr);
+    }
+
+    /**
+     * Indicates if something is searchable. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2340)
+    public Boolean getSearchable(){
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaDMSAG.__searchable);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets searchable to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2432)
+    public void setSearchable(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__searchable);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(MetaDMSAG.__searchable);
+        
+        attr.set(value);
+        set(MetaDMSAG.__searchable,attr);
     }
 
     /**

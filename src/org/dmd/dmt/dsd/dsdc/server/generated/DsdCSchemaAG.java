@@ -105,22 +105,22 @@ public class DsdCSchemaAG extends SchemaDefinition {
             ClassDefinitionDMO _CConceptBaseOBJ = new ClassDefinitionDMO();
             _CConceptBase = new ClassDefinition(_CConceptBaseOBJ,DsdCDMSAG.__CConceptBase);
             _CConceptBaseOBJ.setName("CConceptBase");
-            _CConceptBaseOBJ.setDmdID("-500148");
+            _CConceptBaseOBJ.setDmdID("-1000298");
             _CConceptBaseOBJ.setClassType("ABSTRACT");
             _CConceptBaseOBJ.setFile("/src/org/dmd/dmt/dsd/dsdc/shared/dmdconfig/classes.dmd");
             _CConceptBaseOBJ.setLineNumber("12");
-            _CConceptBaseOBJ.addDescription("The base definition for this DSD module.");
-            _CConceptBaseOBJ.setDerivedFrom("meta.DSDefinition");
             _CConceptBaseOBJ.setIsNamedBy("meta.name");
+            _CConceptBaseOBJ.addDescription("The base definition for this DSD module.");
             _CConceptBaseOBJ.setUseWrapperType("EXTENDED");
-            _CConceptBaseOBJ.setDmtREFImport("org.dmd.dmt.dsd.dsdc.shared.generated.types.CConceptBaseREF");
-            _CConceptBaseOBJ.setDmwIteratorClass("CConceptBaseIterableDMW");
+            _CConceptBaseOBJ.setDerivedFrom("meta.DSDefinition");
             _CConceptBaseOBJ.addMust("meta.name");
             _CConceptBaseOBJ.addMust("meta.dotName");
             _CConceptBaseOBJ.addMust("dsdC.definedInModuleC");
             _CConceptBaseOBJ.setDmwIteratorImport("org.dmd.dmt.dsd.dsdc.server.generated.dmw.CConceptBaseIterableDMW");
-            _CConceptBaseOBJ.setPartOfDefinitionModule("dsdC.ModuleC");
+            _CConceptBaseOBJ.setDmwIteratorClass("CConceptBaseIterableDMW");
+            _CConceptBaseOBJ.setDmtREFImport("org.dmd.dmt.dsd.dsdc.shared.generated.types.CConceptBaseREF");
             _CConceptBaseOBJ.setDotName("dsdC.CConceptBase.ClassDefinition");
+            _CConceptBaseOBJ.setPartOfDefinitionModule("dsdC.ModuleC");
             _CConceptBase.setDefinedIn(this);
             addClassDefList(_CConceptBase);
 
@@ -128,19 +128,19 @@ public class DsdCSchemaAG extends SchemaDefinition {
             ClassDefinitionDMO _CConceptXOBJ = new ClassDefinitionDMO();
             _CConceptX = new ClassDefinition(_CConceptXOBJ,DsdCDMSAG.__CConceptX);
             _CConceptXOBJ.setName("CConceptX");
-            _CConceptXOBJ.setDmdID("-500147");
+            _CConceptXOBJ.setDmdID("-1000297");
             _CConceptXOBJ.setClassType("STRUCTURAL");
             _CConceptXOBJ.setFile("/src/org/dmd/dmt/dsd/dsdc/shared/dmdconfig/classes.dmd");
             _CConceptXOBJ.setLineNumber("20");
-            _CConceptXOBJ.setDerivedFrom("dsdC.CConceptBase");
             _CConceptXOBJ.setIsNamedBy("meta.name");
             _CConceptXOBJ.setUseWrapperType("EXTENDED");
-            _CConceptXOBJ.setDmtREFImport("org.dmd.dmt.dsd.dsdc.shared.generated.types.CConceptXREF");
-            _CConceptXOBJ.setDmwIteratorClass("CConceptXIterableDMW");
+            _CConceptXOBJ.setDerivedFrom("dsdC.CConceptBase");
             _CConceptXOBJ.addMust("meta.name");
             _CConceptXOBJ.setDmwIteratorImport("org.dmd.dmt.dsd.dsdc.server.generated.dmw.CConceptXIterableDMW");
-            _CConceptXOBJ.setPartOfDefinitionModule("dsdC.ModuleC");
+            _CConceptXOBJ.setDmwIteratorClass("CConceptXIterableDMW");
+            _CConceptXOBJ.setDmtREFImport("org.dmd.dmt.dsd.dsdc.shared.generated.types.CConceptXREF");
             _CConceptXOBJ.setDotName("dsdC.CConceptX.ClassDefinition");
+            _CConceptXOBJ.setPartOfDefinitionModule("dsdC.ModuleC");
             _CConceptX.setDefinedIn(this);
             addClassDefList(_CConceptX);
 
@@ -148,26 +148,26 @@ public class DsdCSchemaAG extends SchemaDefinition {
             ClassDefinitionDMO _ModuleCOBJ = new ClassDefinitionDMO();
             _ModuleC = new ClassDefinition(_ModuleCOBJ,DsdCDMSAG.__ModuleC);
             _ModuleCOBJ.setName("ModuleC");
-            _ModuleCOBJ.setDmdID("-500149");
-            _ModuleCOBJ.setInternallyGenerated("true");
+            _ModuleCOBJ.setDmdID("-1000299");
             _ModuleCOBJ.setClassType("STRUCTURAL");
             _ModuleCOBJ.setFile("/src/org/dmd/dmt/dsd/dsdc/shared/dmdconfig/module.dmd");
             _ModuleCOBJ.setLineNumber("11");
-            _ModuleCOBJ.setDerivedFrom("dsdC.CConceptBase");
+            _ModuleCOBJ.setInternallyGenerated("true");
             _ModuleCOBJ.setIsNamedBy("meta.name");
             _ModuleCOBJ.setUseWrapperType("EXTENDED");
-            _ModuleCOBJ.setDmtREFImport("org.dmd.dmt.dsd.dsdc.shared.generated.types.ModuleCREF");
-            _ModuleCOBJ.setDmwIteratorClass("ModuleCIterableDMW");
+            _ModuleCOBJ.setDerivedFrom("dsdC.CConceptBase");
+            _ModuleCOBJ.addMust("meta.name");
             _ModuleCOBJ.addMay("meta.description");
             _ModuleCOBJ.addMay("meta.defFiles");
             _ModuleCOBJ.addMay("dsdC.dependsOnModuleC");
             _ModuleCOBJ.addMay("dsdB.dependsOnModuleB");
             _ModuleCOBJ.addMay("dsdA.dependsOnModuleA");
-            _ModuleCOBJ.addMust("meta.name");
             _ModuleCOBJ.setDmwIteratorImport("org.dmd.dmt.dsd.dsdc.server.generated.dmw.ModuleCIterableDMW");
+            _ModuleCOBJ.setDmwIteratorClass("ModuleCIterableDMW");
+            _ModuleCOBJ.setDmtREFImport("org.dmd.dmt.dsd.dsdc.shared.generated.types.ModuleCREF");
             _ModuleCOBJ.setDsdModuleDefinition("dsdC.ModuleC");
-            _ModuleCOBJ.setPartOfDefinitionModule("dsdC.ModuleC");
             _ModuleCOBJ.setDotName("dsdC.ModuleC.ClassDefinition");
+            _ModuleCOBJ.setPartOfDefinitionModule("dsdC.ModuleC");
             _ModuleC.setDefinedIn(this);
             addClassDefList(_ModuleC);
 
@@ -177,28 +177,28 @@ public class DsdCSchemaAG extends SchemaDefinition {
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
             AttributeDefinitionDMO _dependsOnModuleCOBJ = new AttributeDefinitionDMO();
             _dependsOnModuleC = new AttributeDefinition(_dependsOnModuleCOBJ);
-            _dependsOnModuleCOBJ.setType("dsdC.ModuleC");
+            _dependsOnModuleCOBJ.addDescription("Indicates the ModuleC on which something depends.");
             _dependsOnModuleCOBJ.setName("dependsOnModuleC");
             _dependsOnModuleCOBJ.setDmdID("-500149");
-            _dependsOnModuleCOBJ.addDescription("Indicates the ModuleC on which something depends.");
-            _dependsOnModuleCOBJ.setValueType("MULTI");
-            _dependsOnModuleCOBJ.setDotName("dsdC.dependsOnModuleC.AttributeDefinition");
-            _dependsOnModuleC.setDefinedIn(this);
+            _dependsOnModuleCOBJ.setType("dsdC.ModuleC");
             _dependsOnModuleCOBJ.setFile("/src/org/dmd/dmt/dsd/dsdc/shared/dmdconfig/attributes.dmd");
+            _dependsOnModuleCOBJ.setDotName("dsdC.dependsOnModuleC.AttributeDefinition");
             _dependsOnModuleCOBJ.setLineNumber("7");
+            _dependsOnModuleCOBJ.setValueType("MULTI");
+            _dependsOnModuleC.setDefinedIn(this);
             addAttributeDefList(_dependsOnModuleC);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
             AttributeDefinitionDMO _definedInModuleCOBJ = new AttributeDefinitionDMO();
             _definedInModuleC = new AttributeDefinition(_definedInModuleCOBJ);
-            _definedInModuleCOBJ.setType("dsdC.ModuleC");
+            _definedInModuleCOBJ.addDescription("Indicates the name of the ModuleC in which a definition is defined.");
             _definedInModuleCOBJ.setName("definedInModuleC");
             _definedInModuleCOBJ.setDmdID("-500148");
-            _definedInModuleCOBJ.addDescription("Indicates the name of the ModuleC in which a definition is defined.");
-            _definedInModuleCOBJ.setDotName("dsdC.definedInModuleC.AttributeDefinition");
-            _definedInModuleC.setDefinedIn(this);
+            _definedInModuleCOBJ.setType("dsdC.ModuleC");
             _definedInModuleCOBJ.setFile("/src/org/dmd/dmt/dsd/dsdc/shared/dmdconfig/attributes.dmd");
+            _definedInModuleCOBJ.setDotName("dsdC.definedInModuleC.AttributeDefinition");
             _definedInModuleCOBJ.setLineNumber("13");
+            _definedInModuleC.setDefinedIn(this);
             addAttributeDefList(_definedInModuleC);
 
     }
@@ -228,18 +228,18 @@ public class DsdCSchemaAG extends SchemaDefinition {
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
             DSDefinitionModuleDMO _ModuleCDSDOBJ = new DSDefinitionModuleDMO();
             _ModuleCDSD = new DSDefinitionModule(_ModuleCDSDOBJ);
+            _ModuleCDSDOBJ.setFileExtension("tmc");
             _ModuleCDSDOBJ.setName("ModuleC");
             _ModuleCDSDOBJ.setDmdID("1");
-            _ModuleCDSDOBJ.addRequiredBaseModule("modcBase");
             _ModuleCDSDOBJ.setModuleClassName("ModuleC");
-            _ModuleCDSDOBJ.setFileExtension("tmc");
-            _ModuleCDSDOBJ.setDefinedInModuleAttribute("dsdC.definedInModuleC");
-            _ModuleCDSDOBJ.setDotName("dsdC.ModuleC.DSDefinitionModule");
-            _ModuleCDSDOBJ.addRefersToDefsFromDSD("dsdB.ModuleB");
-            _ModuleCDSDOBJ.setModuleDependenceAttribute("dsdC.dependsOnModuleC");
-            _ModuleCDSDOBJ.setFile("/src/org/dmd/dmt/dsd/dsdc/shared/dmdconfig/module.dmd");
-            _ModuleCDSDOBJ.setLineNumber("11");
             _ModuleCDSDOBJ.setBaseDefinition("dsdC.CConceptBase");
+            _ModuleCDSDOBJ.setModuleDependenceAttribute("dsdC.dependsOnModuleC");
+            _ModuleCDSDOBJ.addRefersToDefsFromDSD("dsdB.ModuleB");
+            _ModuleCDSDOBJ.setDefinedInModuleAttribute("dsdC.definedInModuleC");
+            _ModuleCDSDOBJ.setFile("/src/org/dmd/dmt/dsd/dsdc/shared/dmdconfig/module.dmd");
+            _ModuleCDSDOBJ.setDotName("dsdC.ModuleC.DSDefinitionModule");
+            _ModuleCDSDOBJ.setLineNumber("11");
+            _ModuleCDSDOBJ.addRequiredBaseModule("modcBase");
             _ModuleCDSD.setDefinedIn(this);
             addDsdModuleList(_ModuleCDSD);
 

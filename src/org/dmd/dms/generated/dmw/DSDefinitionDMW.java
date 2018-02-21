@@ -506,6 +506,43 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
     }
 
     /**
+     * Indicates if something is searchable. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2393)
+    public Boolean getSearchable(){
+        return(mycore.getSearchable());
+    }
+
+    /**
+     * Sets searchable to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2466)
+    public void setSearchable(Object value) throws DmcValueException {
+        mycore.setSearchable(value);
+    }
+
+    /**
+     * The name of the relationship established via a reference to some other
+     * named object.\n <p/>\n This is a minor hack to allow creation of named
+     * relationships in graph databases. Eventually, relationships\n will become
+     * first class objects to which you can refer. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2393)
+    public String getRelationship(){
+        return(mycore.getRelationship());
+    }
+
+    /**
+     * Sets relationship to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2466)
+    public void setRelationship(Object value) throws DmcValueException {
+        mycore.setRelationship(value);
+    }
+
+    /**
      * Indicates the schema in which a type, attribute or class is defined. 
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2393)
