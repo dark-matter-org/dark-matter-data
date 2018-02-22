@@ -733,6 +733,7 @@ public class SchemaDocHtmlFormatter {
         return(sb.toString());
     }
 
+	@SuppressWarnings("unlikely-arg-type")
 	public void generateIndex(String dir){
 //        Iterator<DefinitionName>        it  = null;
         StringBuffer    sb  = new StringBuffer();

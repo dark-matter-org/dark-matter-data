@@ -28,6 +28,9 @@ public class DSDInteractive {
     // Where we're creating the DSL
     ProjectInfo	targetProject;
     
+    // The folder where the java will be generated, generally src or src/main/java
+    String		targetSourceFolder;
+    
     // The package for the DSL
     String		targetPackage;
     
@@ -92,6 +95,7 @@ public class DSDInteractive {
 	enum State {
 		getWorkspaceConfirmation,
 		getProject,
+		getJavaSrcFolder,
 		getPackage,
 		getDslAbbrev
 	}
@@ -133,8 +137,34 @@ public class DSDInteractive {
         		
         		targetProject = projectsByNumber.get(pnum);
         		
-        		System.out.println("We'll create the DSL in: " + targetProject.name);
-        		state = State.getPackage;
+        		System.out.println("We'll create the DSL in: " + targetProject.name + "\n");
+        		state = State.getJavaSrcFolder;
+        		break;
+        	case getJavaSrcFolder:
+        		System.out.println("By default, we generate the code beneath the \"src\" directory within your project.");
+        		System.out.println("However, if you're creating a Maven project, the code is likely in src/main/java.");
+        		System.out.println("Please specify the source folder e.g. src, src/main/java or something else:\n");
+        		
+        		input = getResponse();
+
+        		if (input.matches("[a-z][/a-z]*")){
+    				targetSourceFolder = input;
+    				
+    				String testFolderName = workspace + File.separator + targetProject.name + File.separator + targetSourceFolder;
+    				
+    				File tf = new File(testFolderName);
+    				if (!tf.exists()){
+    					System.err.println("Sorry, the target java source folder DOESN'T EXIST: " + testFolderName);
+    					continue;
+    				}
+    				System.out.println("Target java source folder: " + targetSourceFolder + "\n");
+    				state = State.getPackage;
+    			}
+    			else{
+    				System.err.println("Bad java source folder name: " + input + "\n");
+    				continue;
+    			}
+        		
         		break;
         	case getPackage:
     			System.out.println("Specify a new java package in which to create the DSL. This MUST be a new package.");
@@ -144,7 +174,7 @@ public class DSDInteractive {
     				targetPackage = input;
     				
     				String folder = input.replaceAll("\\.", File.separator);
-    				targetFolder = workspace + File.separator + targetProject.name + File.separator + "src" + File.separator + folder;
+    				targetFolder = workspace + File.separator + targetProject.name + File.separator + targetSourceFolder + File.separator + folder;
     				
     				File tf = new File(targetFolder);
     				if (tf.exists()){
