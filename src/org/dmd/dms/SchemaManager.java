@@ -2229,7 +2229,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
             return(new String("Clashing " + defType + ": " + defName + " - Initially defined as part of " + ga1.getObjectName() + " - Redefined in " + ga2.getObjectName()));
     }
 
-    String clashMsgDOT(DefinitionName defName, DmsDefinition newDef, HashMap<DotName, ? extends DmsDefinition> defMap, String defType){
+    @SuppressWarnings("unlikely-arg-type")
+	String clashMsgDOT(DefinitionName defName, DmsDefinition newDef, HashMap<DotName, ? extends DmsDefinition> defMap, String defType){
         DmsDefinition    existing = defMap.get(defName);
         SchemaDefinition ga1      = existing.getDefinedIn();
         SchemaDefinition ga2      = newDef.getDefinedIn();
@@ -2501,7 +2502,8 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
      * @throws DmcNameClashException 
      * @throws DmcValueException  
      */
-    public ClassDefinition cdef(String n) throws DmcNameClashException, DmcValueException {
+    @SuppressWarnings("unlikely-arg-type")
+	public ClassDefinition cdef(String n) throws DmcNameClashException, DmcValueException {
     	if (n.contains(".")){
     		try {
 				DefinitionName dn = new DefinitionName(n);

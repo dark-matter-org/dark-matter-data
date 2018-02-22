@@ -27,6 +27,7 @@ public class TestDataCache implements DmcNameResolverIF, DmcCacheIF {
 		data.put(obj.getObjectName(), obj);
 	}
 	
+	@SuppressWarnings("unlikely-arg-type")
 	public boolean delete(DmcObjectNameIF objname){
 		DmcObject obj = (DmcObject) data.get(objname);
 		

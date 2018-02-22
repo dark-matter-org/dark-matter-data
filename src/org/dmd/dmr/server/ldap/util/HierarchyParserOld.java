@@ -240,6 +240,7 @@ public class HierarchyParserOld implements DmcUncheckedOIFHandlerIF,  DmcNameRes
 	}
 
 
+	@SuppressWarnings("unlikely-arg-type")
 	public DmcNamedObjectIF findNamedObject(String name) {
 		try {
 			nameKey.setNameString(name);
