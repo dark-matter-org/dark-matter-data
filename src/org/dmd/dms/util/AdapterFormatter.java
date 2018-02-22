@@ -66,19 +66,16 @@ public class AdapterFormatter {
         out.write("    	   super(ai);\n");
         out.write("    }\n\n");
     	
-        out.write("    @Override\n");
         out.write("    public void setEmpty(){\n");
         out.write("    	   value = null;\n");
         out.write("    }\n\n");
     	
-        out.write("    @Override\n");
         out.write("    public boolean hasValue(){\n");
         out.write("    	   if (value == null)\n");
         out.write("    		   return(false);\n");
         out.write("    	   return(true);\n");
         out.write("    }\n\n");
     	
-        out.write("    @Override\n");
         out.write("    public void resetToExisting() {\n");
         out.write("    	if (existingValue == null)\n");
         out.write("    		value = null;\n");
@@ -89,7 +86,6 @@ public class AdapterFormatter {
         	out.write("    		value = existingValue.getMVCopy();\n");
         out.write("    }\n\n");
 
-        out.write("    @Override\n");
         out.write("    public void setExisting(DmcAttribute<?> attr) {\n");
         out.write("    	existingValue = (" + baseClass + ") attr;\n");
         out.write("    	if (existingValue != null)\n");
@@ -99,7 +95,6 @@ public class AdapterFormatter {
         	out.write("    		value = existingValue.getMVCopy();\n");
         out.write("    }\n\n");
 
-        out.write("    @Override\n");
         out.write("    public boolean valueChanged(){\n");
         if (SV)
             out.write("    	   return(valueChangedSV(existingValue, this));\n");
@@ -107,7 +102,6 @@ public class AdapterFormatter {
         	out.write("    	   return(valueChangedMV(existingValue, this));\n");
         out.write("    }\n\n");
     	
-        out.write("    @Override\n");
         out.write("    public void addMods(DmcTypeModifierMV mods){\n");
         if (SV)
         	out.write("    	   addModsSV(mods, existingValue, this);\n");
@@ -115,12 +109,10 @@ public class AdapterFormatter {
         	out.write("    	   addModsMV(mods, existingValue, this);\n");
         out.write("    }\n\n");
 
-        out.write("    @Override\n");
         out.write("    public DmcAttribute<?> getExisting() {\n");
         out.write("    	   return(existingValue);\n");
         out.write("    }\n\n");
         
-        out.write("    @Override\n");
         out.write("    public Object getValue() {\n");
         out.write("    	   return(value);\n");
         out.write("    }\n\n");

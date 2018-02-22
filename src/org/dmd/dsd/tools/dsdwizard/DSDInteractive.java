@@ -53,7 +53,7 @@ public class DSDInteractive {
 			gatherInput();
 			
 			DSLArtifactGenerator generator = new DSLArtifactGenerator();
-			generator.generateDSD(workspace, targetProject.name, targetPackage, targetFolder, targetDslAbbrev, targetModuleName);
+			generator.generateDSD(workspace, targetProject.name, targetSourceFolder, targetPackage, targetFolder, targetDslAbbrev, targetModuleName);
 		}
 		else{
 			System.err.println("Not running in an Eclipse project");

@@ -30,11 +30,14 @@ public class DSLArtifactGenerator {
 	// The project folder name
 	String 		dslProject;
 	
+	// The source folder beneath the project
+	String 		dslSourceFolder;
+	
     // The package for the DSL
     String		dslPackage;
     String		dslPackagePath;
     
-    // The folder location for the project - workspace/dslProject/src/dslPackagePath
+    // The folder location for the project - workspace/dslProject/dslSourceFolder/dslPackagePath
     String		dslFolder;
     
     // The file extension and/or abbreviation of the DSL name - this is all lowercase
@@ -74,9 +77,10 @@ public class DSLArtifactGenerator {
 		
 	}
 	
-	public void generateDSD(String ws, String project, String dpack, String folder, String abbrev, String name) throws ResultException, IOException, DmcValueException, DmcValueExceptionSet, DmcNameClashException, DmcRuleExceptionSet{
+	public void generateDSD(String ws, String project, String src, String dpack, String folder, String abbrev, String name) throws ResultException, IOException, DmcValueException, DmcValueExceptionSet, DmcNameClashException, DmcRuleExceptionSet{
 		workspace 		= ws;
 		dslProject		= project;
+		dslSourceFolder	= src;
 		dslPackage		= dpack;
 		dslPackagePath 	= dslPackage.replaceAll("\\.", File.separator);
 		dslFolder		= folder;
@@ -214,7 +218,7 @@ public class DSLArtifactGenerator {
 			// out of the jar
 			String[] temp = {
 					"-workspace", workspace,
-					"-srcdir", dslProject + "/src", "dark-matter-data/src", "dark-matter-concinnity/src",
+					"-srcdir", dslProject + File.separator + dslSourceFolder, "dark-matter-data/src", "dark-matter-concinnity/src",
 					"-targets", dslAbbrev,
 					"-autogen"
 			};
@@ -223,10 +227,11 @@ public class DSLArtifactGenerator {
 		else{
 			String[] temp = {
 					"-workspace", workspace,
-					"-srcdir", dslProject + "/src",
+					"-srcdir", dslProject + File.separator + dslSourceFolder,
 					"-jars", "dark-matter-data", "dark-matter-concinnity",
 					"-targets", dslAbbrev,
-					"-autogen"
+					"-autogen",
+					"-debug"
 			};
 			args = temp;			
 		}
@@ -245,7 +250,7 @@ public class DSLArtifactGenerator {
 			// out of the jar
 			String[] temp = {
 					"-workspace", workspace,
-					"-srcdir", dslProject + "/src", "dark-matter-data/src", "dark-matter-concinnity/src",
+					"-srcdir", dslProject + File.separator + dslSourceFolder, "dark-matter-data/src", "dark-matter-concinnity/src",
 					"-targets", dslAbbrev,
 					"-autogen"
 			};
@@ -254,7 +259,7 @@ public class DSLArtifactGenerator {
 		else{
 			String[] temp = {
 					"-workspace", workspace,
-					"-srcdir", dslProject + "/src",
+					"-srcdir", dslProject + File.separator + dslSourceFolder,
 					"-jars", "dark-matter-data", "dark-matter-concinnity",
 					"-targets", dslAbbrev,
 					"-autogen"
@@ -270,7 +275,7 @@ public class DSLArtifactGenerator {
 	void runTemplateGenerator() throws ResultException, IOException, DmcValueException, DmcValueExceptionSet, DmcNameClashException, DmcRuleExceptionSet{
 		String[] args = {
 				"-workspace", workspace,
-				"-srcdir", dslProject + "/src",
+				"-srcdir", dslProject + File.separator + dslSourceFolder,
 				"-autogen"
 		};
 		
@@ -523,31 +528,31 @@ public class DSLArtifactGenerator {
 		out.write("        \n");
 		out.write("    }\n\n");
 		
-		out.write("    @Override\n");
+//		out.write("    @Override\n");
 		out.write("    public void parsingComplete(" + upperAbbrev + "Module module, ConfigLocation location, " + upperAbbrev + "ModuleDefinitionManager definitions) throws ResultException {\n");
 		out.write("        // TODO Auto-generated method stub\n");
 		out.write("        \n");
 		out.write("    }\n");
 		out.write("\n");
-		out.write("    @Override\n");
+//		out.write("    @Override\n");
 		out.write("    public void objectResolutionComplete(" + upperAbbrev + "Module module, ConfigLocation location, " + upperAbbrev + "ModuleDefinitionManager definitions) throws ResultException {\n");
 		out.write("        // TODO Auto-generated method stub\n");
 		out.write("        \n");
 		out.write("    }\n");
 		out.write("\n");
-		out.write("    @Override\n");
+//		out.write("    @Override\n");
 		out.write("    public void generate(" + upperAbbrev + "Module module, ConfigLocation location, " + upperAbbrev + "ModuleDefinitionManager definitions) throws IOException {\n");
 		out.write("        // TODO Auto-generated method stub\n");
 		out.write("        \n");
 		out.write("    }\n");
 		out.write("\n");
-		out.write("    @Override\n");
+//		out.write("    @Override\n");
 		out.write("    public void generate(" + upperAbbrev + "ModuleDefinitionManager definitions) throws IOException {\n");
 		out.write("        // TODO Auto-generated method stub\n");
 		out.write("        \n");
 		out.write("    }\n");
 		out.write("\n");
-		out.write("    @Override\n");
+//		out.write("    @Override\n");
 		out.write("    public void displayHelp() {\n");
 		out.write("        // TODO Auto-generated method stub\n");
 		out.write("        \n");
