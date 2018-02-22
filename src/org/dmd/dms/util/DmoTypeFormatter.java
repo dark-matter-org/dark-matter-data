@@ -483,7 +483,6 @@ public class DmoTypeFormatter {
       	out.write("        myName.set(n);\n");
       	out.write("    }\n\n");
 
-      	out.write("    @Override\n");
       	out.write("    public DmcObjectName getObjectName(){\n");
       	out.write("        if (myName == null)\n");
       	out.write("            throw(new IllegalStateException(\"You've tried to access the name of an object but the name attribute hasn't been set.\"));\n");
@@ -498,7 +497,6 @@ public class DmoTypeFormatter {
       	out.write("        return(myName.getSV());\n");
       	out.write("    }\n\n");
 
-      	out.write("    @Override\n");
       	out.write("    public DmcAttribute<?> getObjectNameAttribute(){\n");
       	out.write("        if (myName == null)\n");
       	out.write("            throw(new IllegalStateException(\"You've tried to access the name of an object but the name attribute hasn't been set.\"));\n");

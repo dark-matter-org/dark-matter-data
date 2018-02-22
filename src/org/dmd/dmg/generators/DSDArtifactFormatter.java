@@ -171,7 +171,6 @@ public class DSDArtifactFormatter {
 		out.write("\n");
 		
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-		out.write("    @Override\n");
 		out.write("    public DmcNamedObjectIF findNamedObject(DmcObjectName name) {\n");
 		out.write("        DSDefinition def = null;\n");
     	out.write("        try {\n");
@@ -188,13 +187,11 @@ public class DSDArtifactFormatter {
 		out.write("    }\n\n");
 
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-		out.write("    @Override\n");
 		out.write("    public DmcNamedObjectIF findNamedObject(DmcObjectName name, int attributeID) {\n");
 		out.write("        throw(new IllegalStateException(\"This method is not supported on generated definition managers\"));\n");
 		out.write("    }\n\n");
 
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-		out.write("    @Override\n");
 		out.write("    public DmcObject findNamedDMO(DmcObjectName name) {\n");
 		out.write("        DSDefinition def = null;\n");
     	out.write("        try {\n");
@@ -215,7 +212,6 @@ public class DSDArtifactFormatter {
 
 		ClassDefinition dsd = (ClassDefinition) ddm.getBaseDefinition();
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-		out.write("    @Override\n");
 		out.write("    public DmcNamedObjectIF findNamedObjectMayClash(DmcObject object, DmcObjectName name, DmcNameClashResolverIF resolver, DmcAttributeInfo ai) throws DmcValueException {\n");
 		out.write("        DmcNamedObjectIF rc = null;\n");
 		out.write("        DotName dn = new DotName(name.getNameString() + \".\" + ai.type);\n");
@@ -247,7 +243,6 @@ public class DSDArtifactFormatter {
 		out.write("    }\n\n");
 		
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-		out.write("    @Override\n");
 		out.write("    public DmcNamedObjectIF resolveClash(DmcObject obj, DmcAttributeInfo ai, DmcNameClashObjectSet<?> ncos) throws DmcValueException {\n");
 		out.write("        DmcNamedObjectIF rc = null;\n");
 		out.write("        DSDefinition resolving = (DSDefinition) obj.getContainer();\n");
@@ -581,7 +576,6 @@ public class DSDArtifactFormatter {
 		
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		ClassDefinition baseClass = (ClassDefinition) ddm.getBaseDefinition();
-		out.write("    @Override\n");
 		out.write("    public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {\n");
 		out.write("        " + baseClass.getName() + " definition = null;\n");
 		out.write("        DmwWrapper wrapper = null;\n");

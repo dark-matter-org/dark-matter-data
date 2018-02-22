@@ -563,7 +563,7 @@ public class DmoCompactSchemaFormatter {
     		}
     		for(AttributeDefinition ad: cd.getMay()){
 //    			if (ad.getDefinedIn() != sd)
-    				manager.addImport(ad.getDefinedIn().getDMSASGImport(), "Optional attribute from " + ad.getDefinedIn().getDMSASGName());
+    				manager.addImport(ad.getDefinedIn().getDMSASGImport(), "Optional attribute: " + ad.getObjectName().getNameString() + " from " + ad.getDefinedIn().getDMSASGName());
     		}
     		if (cd.getDerivedFrom() != null){
 //    			if (cd.getDerivedFrom().getDefinedIn() != sd)
@@ -1173,7 +1173,7 @@ public class DmoCompactSchemaFormatter {
 			}
 			for(AttributeDefinition ad: cd.getMay()){
 				if (ad.getDefinedIn() != sd)
-					manager.addImport(ad.getDefinedIn().getDMSASGImport(), "Optional attribute from " + ad.getDefinedIn().getDMSASGName());
+					manager.addImport(ad.getDefinedIn().getDMSASGImport(), "Optional attribute: " + ad.getObjectName().getNameString() + " from " + ad.getDefinedIn().getDMSASGName());
 			}
     		if (cd.getDerivedFrom() != null){
     			if (cd.getDerivedFrom().getDefinedIn() != sd)
