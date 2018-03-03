@@ -1,33 +1,32 @@
 package org.dmd.dmt.shared.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:1219)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:1230)
 import java.util.ArrayList;                                                    // For storage of schema info - (DmoCompactSchemaFormatter.java:1145)
 import java.util.HashMap;                                                      // For storage of schema info - (DmoCompactSchemaFormatter.java:1144)
 import java.util.Iterator;                                                     // For access of schema info - (DmoCompactSchemaFormatter.java:1146)
 import org.dmd.dmc.*;                                                          // Basic DMC stuff - (DmoCompactSchemaFormatter.java:1147)
 import org.dmd.dmc.rules.RuleIF;                                               // For rule info - (DmoCompactSchemaFormatter.java:1148)
-import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;                              // Required attribute from DmpDMSAG - (DmoCompactSchemaFormatter.java:1172)
-import org.dmd.dmr.shared.base.generated.dmo.DmrbaseDMSAG;                     // Optional attribute: userName from DmrbaseDMSAG - (DmoCompactSchemaFormatter.java:1176)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                    // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:1172)
+import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;                              // Base class from DmpDMSAG - (DmoCompactSchemaFormatter.java:1183)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                    // Naming attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:1189)
 import org.dmd.dms.generated.enums.ClassTypeEnum;                              // Have class definitions - (DmoCompactSchemaFormatter.java:1152)
 import org.dmd.dms.generated.enums.DataTypeEnum;                               // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:1153)
 import org.dmd.dms.generated.enums.OriginalTypeEnum;                           // Have type/internal type definitions - (DmoCompactSchemaFormatter.java:1158)
-import org.dmd.dms.generated.enums.ValueTypeEnum;                              // Have attribute definitions - (DmoCompactSchemaFormatter.java:1187)
+import org.dmd.dms.generated.enums.ValueTypeEnum;                              // Have attribute definitions - (DmoCompactSchemaFormatter.java:1198)
 import org.dmd.dms.generated.types.DmcTypeIntegerSV;                           // Support for addition of svInteger values to the extensible InitRuleData class - (ClassDefinition.java:969)
 import org.dmd.dms.generated.types.DmcTypeStringMV;                            // Support for addition of mvString values to the extensible InitRuleData class - (ClassDefinition.java:969)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                            // Support for addition of svString values to the extensible InitRuleData class - (ClassDefinition.java:969)
 import org.dmd.dmt.shared.generated.types.DmcTypeDmtTestEnumSET;               // Support for addition of hsTestEnum values to the extensible InitRuleData class - (ClassDefinition.java:969)
-import org.dmd.dmv.shared.extended.rulesdmo.CardinalityRule;                   // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:1213)
-import org.dmd.dmv.shared.extended.rulesdmo.InitRule;                          // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:1213)
-import org.dmd.dmv.shared.extended.rulesdmo.NumericRangeRule;                  // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:1213)
-import org.dmd.dmv.shared.extended.rulesdmo.RestrictReferencesRule;            // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:1213)
-import org.dmd.dmv.shared.extended.rulesdmo.StringSetRule;                     // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:1213)
-import org.dmd.dmv.shared.generated.dmo.CardinalityRuleDataDMO;                // To instantiate CardinalityRuleData rule data - (DmoCompactSchemaFormatter.java:1212)
-import org.dmd.dmv.shared.generated.dmo.InitRuleDataDMO;                       // To instantiate InitRuleData rule data - (DmoCompactSchemaFormatter.java:1212)
-import org.dmd.dmv.shared.generated.dmo.NumericRangeRuleDataDMO;               // To instantiate NumericRangeRuleData rule data - (DmoCompactSchemaFormatter.java:1212)
-import org.dmd.dmv.shared.generated.dmo.RestrictReferencesRuleDataDMO;         // To instantiate RestrictReferencesRuleData rule data - (DmoCompactSchemaFormatter.java:1212)
-import org.dmd.dmv.shared.generated.dmo.StringSetRuleDataDMO;                  // To instantiate StringSetRuleData rule data - (DmoCompactSchemaFormatter.java:1212)
+import org.dmd.dmv.shared.extended.rulesdmo.CardinalityRule;                   // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:1224)
+import org.dmd.dmv.shared.extended.rulesdmo.InitRule;                          // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:1224)
+import org.dmd.dmv.shared.extended.rulesdmo.NumericRangeRule;                  // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:1224)
+import org.dmd.dmv.shared.extended.rulesdmo.RestrictReferencesRule;            // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:1224)
+import org.dmd.dmv.shared.extended.rulesdmo.StringSetRule;                     // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:1224)
+import org.dmd.dmv.shared.generated.dmo.CardinalityRuleDataDMO;                // To instantiate CardinalityRuleData rule data - (DmoCompactSchemaFormatter.java:1223)
+import org.dmd.dmv.shared.generated.dmo.InitRuleDataDMO;                       // To instantiate InitRuleData rule data - (DmoCompactSchemaFormatter.java:1223)
+import org.dmd.dmv.shared.generated.dmo.NumericRangeRuleDataDMO;               // To instantiate NumericRangeRuleData rule data - (DmoCompactSchemaFormatter.java:1223)
+import org.dmd.dmv.shared.generated.dmo.RestrictReferencesRuleDataDMO;         // To instantiate RestrictReferencesRuleData rule data - (DmoCompactSchemaFormatter.java:1223)
+import org.dmd.dmv.shared.generated.dmo.StringSetRuleDataDMO;                  // To instantiate StringSetRuleData rule data - (DmoCompactSchemaFormatter.java:1223)
 
 
 import org.dmd.dmt.shared.generated.types.*;
@@ -384,8 +383,8 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
             svStringValue2.set("the single valued string");
             _dmtInitTestBasicObjectFixedData.set(DmtDMSAG.__svString, svStringValue2);
             DmcTypeDmtTestEnumSET hsTestEnumValue3 = new DmcTypeDmtTestEnumSET(DmtDMSAG.__hsTestEnum);
-            hsTestEnumValue3.add("TEST2");
             hsTestEnumValue3.add("TEST1");
+            hsTestEnumValue3.add("TEST2");
             _dmtInitTestBasicObjectFixedData.add(DmtDMSAG.__hsTestEnum, hsTestEnumValue3);
             DmcTypeStringMV mvStringValue4 = new DmcTypeStringMV(DmtDMSAG.__mvString);
             mvStringValue4.add("first value");

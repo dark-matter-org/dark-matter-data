@@ -3,7 +3,7 @@ package org.dmd.dmt.dsd.dsdb.shared.generated.dmo;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchemaObjectInitializers(DmoCompactSchemaFormatter.java:527)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                         // For Meta references - (DmoCompactSchemaFormatter.java:552)
-import org.dmd.dmt.dsd.dsda.shared.generated.dmo.DsdADMSAG;         // Optional attribute: dependsOnModuleA from DsdADMSAG - (DmoCompactSchemaFormatter.java:566)
+import org.dmd.dmt.dsd.dsda.shared.generated.dmo.DsdADMSAG;         // Optional attribute (1): dependsOnModuleA from DsdADMSAG - (DmoCompactSchemaFormatter.java:566)
 import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.DsdBDMSAG;         // Required attribute from DsdBDMSAG - (DmoCompactSchemaFormatter.java:562)
 
 
