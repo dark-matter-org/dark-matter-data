@@ -138,4 +138,8 @@ public class Example implements Serializable {
         return(content);
     }
 
+    public void toJSON(StringBuffer sb, int padding, String indent) {
+        throw(new IllegalStateException("This needs to be implemented"));
+    }
+
 }

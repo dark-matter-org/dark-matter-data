@@ -223,4 +223,8 @@ public class Optimize implements Serializable {
         
     }
 
+    public void toJSON(StringBuffer sb, int padding, String indent) {
+        throw(new IllegalStateException("This needs to be implemented"));
+    }
+
 }

@@ -359,6 +359,10 @@ public class MetaComplexTypeFormatter {
 			out.write("    }\n\n");
 
 		}
+		
+		out.write("    public void toJSON(StringBuffer sb, int padding, String indent) {\n");
+		out.write("        throw(new IllegalStateException(\"This needs to be implemented\"));\n");
+		out.write("    }\n\n");
 
 		///////////////////////////////////////////////////////////////////////
 		

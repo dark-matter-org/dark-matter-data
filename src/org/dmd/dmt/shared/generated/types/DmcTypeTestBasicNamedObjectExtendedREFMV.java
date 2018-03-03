@@ -11,7 +11,7 @@ import org.dmd.dmc.DmcValueException;
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2338)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:531)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:529)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTestBasicNamedObjectExtendedREFMV extends DmcTypeTestBasicNamedObjectExtendedREF implements Serializable {

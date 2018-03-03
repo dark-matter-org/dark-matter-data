@@ -17,19 +17,16 @@ public class OneOfTheseAttributesRequiredRuleDataREFSVAdapter extends DmcTypeOne
     	   super(ai);
     }
 
-    @Override
     public void setEmpty(){
     	   value = null;
     }
 
-    @Override
     public boolean hasValue(){
     	   if (value == null)
     		   return(false);
     	   return(true);
     }
 
-    @Override
     public void resetToExisting() {
     	if (existingValue == null)
     		value = null;
@@ -37,29 +34,24 @@ public class OneOfTheseAttributesRequiredRuleDataREFSVAdapter extends DmcTypeOne
     		value = existingValue.getSVCopy();
     }
 
-    @Override
     public void setExisting(DmcAttribute<?> attr) {
     	existingValue = (DmcTypeOneOfTheseAttributesRequiredRuleDataREFSV) attr;
     	if (existingValue != null)
     		value = existingValue.getSVCopy();
     }
 
-    @Override
     public boolean valueChanged(){
     	   return(valueChangedSV(existingValue, this));
     }
 
-    @Override
     public void addMods(DmcTypeModifierMV mods){
     	   addModsSV(mods, existingValue, this);
     }
 
-    @Override
     public DmcAttribute<?> getExisting() {
     	   return(existingValue);
     }
 
-    @Override
     public Object getValue() {
     	   return(value);
     }

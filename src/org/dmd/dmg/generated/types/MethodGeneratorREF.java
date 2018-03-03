@@ -91,7 +91,6 @@ public class MethodGeneratorREF extends DmcNamedObjectNontransportableREF<Method
         myName.set(n);
     }
 
-    @Override
     public DmcObjectName getObjectName(){
         if (myName == null)
             throw(new IllegalStateException("You've tried to access the name of an object but the name attribute hasn't been set."));
@@ -106,7 +105,6 @@ public class MethodGeneratorREF extends DmcNamedObjectNontransportableREF<Method
         return(myName.getSV());
     }
 
-    @Override
     public DmcAttribute<?> getObjectNameAttribute(){
         if (myName == null)
             throw(new IllegalStateException("You've tried to access the name of an object but the name attribute hasn't been set."));
