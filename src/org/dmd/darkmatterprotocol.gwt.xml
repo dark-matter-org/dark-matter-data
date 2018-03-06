@@ -25,7 +25,11 @@
     <extend-configuration-property name="rpc.blacklist" value="com.google.gwt.user.client.ui.TreeListenerCollection"/>
   
   	<!-- Specify the paths for translatable code                    -->
-  	<source path='dmc'/>
+  	<source path='dmc'>
+  		<exclude name="**/DmcDefinitionSet.java" />
+  		<exclude name="**/DmcModuleIF.java" />
+  		<exclude name="**/DmcDefinitionManagerIF.java" />
+  	</source>
   	<source path='dmc/rules'/>
     <source path='dmp/client'/>
     <source path='dmp/shared'/>

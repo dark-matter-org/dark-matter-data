@@ -10,7 +10,7 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.DotName;
 import org.dmd.dmc.types.DefinitionName;
 import org.dmd.dms.DSDefinition;
-import org.dmd.util.exceptions.DebugInfo;
+//import org.dmd.util.exceptions.DebugInfo;
 
 /**
  * The DmcDefinitionSet class provides a mechanism to store a set of definitions
@@ -114,12 +114,12 @@ public class DmcDefinitionSet<DEF extends DSDefinition> {
 	 * @param nameAndTypeName
 	 */
 	void addByNameAndType(DEF def, DotName nameAndTypeName){
-		if (debug){
-			if (setName == null)
-				DebugInfo.debug(" : " + nameAndTypeName);
-			else
-				DebugInfo.debug(" - " + setName + " : " + nameAndTypeName);
-		}
+//		if (debug){
+//			if (setName == null)
+//				DebugInfo.debug(" : " + nameAndTypeName);
+//			else
+//				DebugInfo.debug(" - " + setName + " : " + nameAndTypeName);
+//		}
 		ArrayList<DEF> existingNameAndTypeSet = nameAndTypeMap.get(nameAndTypeName);
 		
 		if (existingNameAndTypeSet == null){
@@ -127,12 +127,12 @@ public class DmcDefinitionSet<DEF extends DSDefinition> {
 			nameAndTypeMap.put(nameAndTypeName, existingNameAndTypeSet);
 		}
 		else{
-			if (debug){
-				if (setName == null)
-					DebugInfo.debug("NAME-TYPE CLASH: " + nameAndTypeName);
-				else
-					DebugInfo.debug("NAME-TYPE CLASH - " + setName + "    : " + nameAndTypeName);
-			}
+//			if (debug){
+//				if (setName == null)
+//					DebugInfo.debug("NAME-TYPE CLASH: " + nameAndTypeName);
+//				else
+//					DebugInfo.debug("NAME-TYPE CLASH - " + setName + "    : " + nameAndTypeName);
+//			}
 		}
 		existingNameAndTypeSet.add(def);
 	}
@@ -142,12 +142,12 @@ public class DmcDefinitionSet<DEF extends DSDefinition> {
 	 * @param def
 	 */
 	void addByName(DEF def){
-		if (debug){
-			if (setName == null)
-				DebugInfo.debug(" : " + def.getName());
-			else
-				DebugInfo.debug(" - " + setName + " : " + def.getName());
-		}
+//		if (debug){
+//			if (setName == null)
+//				DebugInfo.debug(" : " + def.getName());
+//			else
+//				DebugInfo.debug(" - " + setName + " : " + def.getName());
+//		}
 		ArrayList<DEF> existingNameSet = nameMap.get(def.getName());
 		
 		if (existingNameSet == null){
@@ -155,12 +155,12 @@ public class DmcDefinitionSet<DEF extends DSDefinition> {
 			nameMap.put(def.getName(), existingNameSet);
 		}
 		else{
-			if (debug){
-				if (setName == null)
-					DebugInfo.debug("NAMEMAP CLASH: " + def.getName());
-				else
-					DebugInfo.debug("NAMEMAP CLASH - " + setName + "    : " + def.getName());
-			}
+//			if (debug){
+//				if (setName == null)
+//					DebugInfo.debug("NAMEMAP CLASH: " + def.getName());
+//				else
+//					DebugInfo.debug("NAMEMAP CLASH - " + setName + "    : " + def.getName());
+//			}
 		}
 		existingNameSet.add(def);
 	}
@@ -176,24 +176,24 @@ public class DmcDefinitionSet<DEF extends DSDefinition> {
 		if (!isGlobalSet)
 			throw(new IllegalStateException(""));
 		
-		if (debug){
-			if (setName == null)
-				DebugInfo.debug(" : " + fullName);
-			else
-				DebugInfo.debug(" - " + setName + " : " + fullName);
-		}
+//		if (debug){
+//			if (setName == null)
+//				DebugInfo.debug(" : " + fullName);
+//			else
+//				DebugInfo.debug(" - " + setName + " : " + fullName);
+//		}
 //		addByName(def);
 		addByNameAndType(def, nameAndTypeName);
 		addByFullName(def, fullName);
 	}
 	
 	void addByFullName(DEF def, DotName fullName){
-		if (debug){
-			if (setName == null)
-				DebugInfo.debug(" : " + fullName);
-			else
-				DebugInfo.debug(" - " + setName + " : " + fullName);
-		}
+//		if (debug){
+//			if (setName == null)
+//				DebugInfo.debug(" : " + fullName);
+//			else
+//				DebugInfo.debug(" - " + setName + " : " + fullName);
+//		}
 		if (fullDotNameMap.get(fullName) != null){
 			throw(new IllegalStateException("Clashing fully qualified name: " + fullName + " - in definition set: " + setName + " - For definition: \n\n" + def.toOIF()));
 		}
