@@ -1,6 +1,6 @@
 package org.dmd.dmc.util;
 
-import org.dmd.util.exceptions.DebugInfo;
+//import org.dmd.util.exceptions.DebugInfo;
 
 /**
  * The NameValuePair class is used to represent a name and a value (strangely enough).
@@ -20,18 +20,18 @@ public class ParsedNameValuePair {
 		name = n;
 		value = v;
 		
-		if ( (name==null) && (value==null)){
-			System.out.println(DebugInfo.getCurrentStack());
-		}
+//		if ( (name==null) && (value==null)){
+//			System.out.println(DebugInfo.getCurrentStack());
+//		}
 	}
 	
 	public ParsedNameValuePair(String v){
 		name = null;
 		value = v;
 		
-		if ( (name==null) && (value==null)){
-			System.out.println(DebugInfo.getCurrentStack());
-		}
+//		if ( (name==null) && (value==null)){
+//			System.out.println(DebugInfo.getCurrentStack());
+//		}
 	}
 	
 	public String toString(){

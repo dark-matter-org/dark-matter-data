@@ -1,13 +1,13 @@
 package org.dmd.dmt.dsd.dsdc.shared.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpClassMapInitializer(DmoCompactSchemaFormatter.java:503)
-import java.util.HashMap;         // For storage of schema info - (DmoCompactSchemaFormatter.java:500)
-import org.dmd.dmc.*;             // Basic DMC stuff - (DmoCompactSchemaFormatter.java:501)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpClassMapInitializer(DmoCompactSchemaFormatter.java:626)
+import java.util.HashMap;         // For storage of schema info - (DmoCompactSchemaFormatter.java:623)
+import org.dmd.dmc.*;             // Basic DMC stuff - (DmoCompactSchemaFormatter.java:624)
 
 
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpClassMapInitializer(DmoCompactSchemaFormatter.java:507)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpClassMapInitializer(DmoCompactSchemaFormatter.java:630)
 public class DsdCDMSAGCMAP {
 
     static protected void initCmAp(HashMap<Integer, DmcClassInfo> _CmAp){

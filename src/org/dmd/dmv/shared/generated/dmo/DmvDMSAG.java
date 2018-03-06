@@ -1,48 +1,48 @@
 package org.dmd.dmv.shared.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:1088)
-import java.util.ArrayList;                                                              // For storage of schema info - (DmoCompactSchemaFormatter.java:1022)
-import java.util.HashMap;                                                                // For storage of schema info - (DmoCompactSchemaFormatter.java:1021)
-import java.util.Iterator;                                                               // For access of schema info - (DmoCompactSchemaFormatter.java:1023)
-import org.dmd.dmc.*;                                                                    // Basic DMC stuff - (DmoCompactSchemaFormatter.java:1024)
-import org.dmd.dmc.rules.RuleIF;                                                         // For rule info - (DmoCompactSchemaFormatter.java:1025)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                              // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:1041)
-import org.dmd.dms.generated.enums.ClassTypeEnum;                                        // Have class definitions - (DmoCompactSchemaFormatter.java:1029)
-import org.dmd.dms.generated.enums.DataTypeEnum;                                         // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:1030)
-import org.dmd.dms.generated.enums.OriginalTypeEnum;                                     // Have type/internal type definitions - (DmoCompactSchemaFormatter.java:1035)
-import org.dmd.dms.generated.enums.ValueTypeEnum;                                        // Have attribute definitions - (DmoCompactSchemaFormatter.java:1056)
-import org.dmd.dmv.shared.extended.rulesdmo.AllowedAttributesRule;                       // To support instantiations of AllowedAttributesRule - (DmoCompactSchemaFormatter.java:1065)
-import org.dmd.dmv.shared.extended.rulesdmo.CardinalityRule;                             // To support instantiations of CardinalityRule - (DmoCompactSchemaFormatter.java:1065)
-import org.dmd.dmv.shared.extended.rulesdmo.CheckAttributesBasedOnValueRule;             // To support instantiations of CheckAttributesBasedOnValueRule - (DmoCompactSchemaFormatter.java:1065)
-import org.dmd.dmv.shared.extended.rulesdmo.InitRule;                                    // To support instantiations of InitRule - (DmoCompactSchemaFormatter.java:1065)
-import org.dmd.dmv.shared.extended.rulesdmo.NamedObjectRule;                             // To support instantiations of NamedObjectRule - (DmoCompactSchemaFormatter.java:1065)
-import org.dmd.dmv.shared.extended.rulesdmo.NumericRangeRule;                            // To support instantiations of NumericRangeRule - (DmoCompactSchemaFormatter.java:1065)
-import org.dmd.dmv.shared.extended.rulesdmo.OneOfTheseAttributesRequiredRule;            // To support instantiations of OneOfTheseAttributesRequiredRule - (DmoCompactSchemaFormatter.java:1065)
-import org.dmd.dmv.shared.extended.rulesdmo.OnlyOneOfTheseAttributesAllowedRule;         // To support instantiations of OnlyOneOfTheseAttributesAllowedRule - (DmoCompactSchemaFormatter.java:1065)
-import org.dmd.dmv.shared.extended.rulesdmo.PartCheckerRule;                             // To support instantiations of PartCheckerRule - (DmoCompactSchemaFormatter.java:1065)
-import org.dmd.dmv.shared.extended.rulesdmo.PatternMatchRule;                            // To support instantiations of PatternMatchRule - (DmoCompactSchemaFormatter.java:1065)
-import org.dmd.dmv.shared.extended.rulesdmo.ReferencedAttributeTypeRule;                 // To support instantiations of ReferencedAttributeTypeRule - (DmoCompactSchemaFormatter.java:1065)
-import org.dmd.dmv.shared.extended.rulesdmo.RelatedNumbersRule;                          // To support instantiations of RelatedNumbersRule - (DmoCompactSchemaFormatter.java:1065)
-import org.dmd.dmv.shared.extended.rulesdmo.RestrictReferencesRule;                      // To support instantiations of RestrictReferencesRule - (DmoCompactSchemaFormatter.java:1065)
-import org.dmd.dmv.shared.extended.rulesdmo.StringSetRule;                               // To support instantiations of StringSetRule - (DmoCompactSchemaFormatter.java:1065)
-import org.dmd.dmv.shared.extended.rulesdmo.UCOAllowedAttributesRule;                    // To support instantiations of UCOAllowedAttributesRule - (DmoCompactSchemaFormatter.java:1065)
-import org.dmd.dmv.shared.extended.rulesdmo.ValueLengthRule;                             // To support instantiations of ValueLengthRule - (DmoCompactSchemaFormatter.java:1065)
-import org.dmd.dmv.shared.generated.dmo.AllowedAttributesRuleDataDMO;                    // To instantiate AllowedAttributesRuleData rule data - (DmoCompactSchemaFormatter.java:1081)
-import org.dmd.dmv.shared.generated.dmo.CheckAttributesBasedOnValueRuleDataDMO;          // To instantiate CheckAttributesBasedOnValueRuleData rule data - (DmoCompactSchemaFormatter.java:1081)
-import org.dmd.dmv.shared.generated.dmo.NamedObjectRuleDataDMO;                          // To instantiate NamedObjectRuleData rule data - (DmoCompactSchemaFormatter.java:1081)
-import org.dmd.dmv.shared.generated.dmo.NumericRangeRuleDataDMO;                         // To instantiate NumericRangeRuleData rule data - (DmoCompactSchemaFormatter.java:1081)
-import org.dmd.dmv.shared.generated.dmo.OneOfTheseAttributesRequiredRuleDataDMO;         // To instantiate OneOfTheseAttributesRequiredRuleData rule data - (DmoCompactSchemaFormatter.java:1081)
-import org.dmd.dmv.shared.generated.dmo.PartCheckerRuleDataDMO;                          // To instantiate PartCheckerRuleData rule data - (DmoCompactSchemaFormatter.java:1081)
-import org.dmd.dmv.shared.generated.dmo.PatternMatchRuleDataDMO;                         // To instantiate PatternMatchRuleData rule data - (DmoCompactSchemaFormatter.java:1081)
-import org.dmd.dmv.shared.generated.dmo.ReferencedAttributeTypeRuleDataDMO;              // To instantiate ReferencedAttributeTypeRuleData rule data - (DmoCompactSchemaFormatter.java:1081)
-import org.dmd.dmv.shared.generated.dmo.RelatedNumbersRuleDataDMO;                       // To instantiate RelatedNumbersRuleData rule data - (DmoCompactSchemaFormatter.java:1081)
-import org.dmd.dmv.shared.generated.dmo.ValueLengthRuleDataDMO;                          // To instantiate ValueLengthRuleData rule data - (DmoCompactSchemaFormatter.java:1081)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:1230)
+import java.util.ArrayList;                                                              // For storage of schema info - (DmoCompactSchemaFormatter.java:1145)
+import java.util.HashMap;                                                                // For storage of schema info - (DmoCompactSchemaFormatter.java:1144)
+import java.util.Iterator;                                                               // For access of schema info - (DmoCompactSchemaFormatter.java:1146)
+import org.dmd.dmc.*;                                                                    // Basic DMC stuff - (DmoCompactSchemaFormatter.java:1147)
+import org.dmd.dmc.rules.RuleIF;                                                         // For rule info - (DmoCompactSchemaFormatter.java:1148)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                              // Base class from MetaDMSAG - (DmoCompactSchemaFormatter.java:1183)
+import org.dmd.dms.generated.enums.ClassTypeEnum;                                        // Have class definitions - (DmoCompactSchemaFormatter.java:1152)
+import org.dmd.dms.generated.enums.DataTypeEnum;                                         // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:1153)
+import org.dmd.dms.generated.enums.OriginalTypeEnum;                                     // Have type/internal type definitions - (DmoCompactSchemaFormatter.java:1158)
+import org.dmd.dms.generated.enums.ValueTypeEnum;                                        // Have attribute definitions - (DmoCompactSchemaFormatter.java:1198)
+import org.dmd.dmv.shared.extended.rulesdmo.AllowedAttributesRule;                       // To support instantiations of AllowedAttributesRule - (DmoCompactSchemaFormatter.java:1207)
+import org.dmd.dmv.shared.extended.rulesdmo.CardinalityRule;                             // To support instantiations of CardinalityRule - (DmoCompactSchemaFormatter.java:1207)
+import org.dmd.dmv.shared.extended.rulesdmo.CheckAttributesBasedOnValueRule;             // To support instantiations of CheckAttributesBasedOnValueRule - (DmoCompactSchemaFormatter.java:1207)
+import org.dmd.dmv.shared.extended.rulesdmo.InitRule;                                    // To support instantiations of InitRule - (DmoCompactSchemaFormatter.java:1207)
+import org.dmd.dmv.shared.extended.rulesdmo.NamedObjectRule;                             // To support instantiations of NamedObjectRule - (DmoCompactSchemaFormatter.java:1207)
+import org.dmd.dmv.shared.extended.rulesdmo.NumericRangeRule;                            // To support instantiations of NumericRangeRule - (DmoCompactSchemaFormatter.java:1207)
+import org.dmd.dmv.shared.extended.rulesdmo.OneOfTheseAttributesRequiredRule;            // To support instantiations of OneOfTheseAttributesRequiredRule - (DmoCompactSchemaFormatter.java:1207)
+import org.dmd.dmv.shared.extended.rulesdmo.OnlyOneOfTheseAttributesAllowedRule;         // To support instantiations of OnlyOneOfTheseAttributesAllowedRule - (DmoCompactSchemaFormatter.java:1207)
+import org.dmd.dmv.shared.extended.rulesdmo.PartCheckerRule;                             // To support instantiations of PartCheckerRule - (DmoCompactSchemaFormatter.java:1207)
+import org.dmd.dmv.shared.extended.rulesdmo.PatternMatchRule;                            // To support instantiations of PatternMatchRule - (DmoCompactSchemaFormatter.java:1207)
+import org.dmd.dmv.shared.extended.rulesdmo.ReferencedAttributeTypeRule;                 // To support instantiations of ReferencedAttributeTypeRule - (DmoCompactSchemaFormatter.java:1207)
+import org.dmd.dmv.shared.extended.rulesdmo.RelatedNumbersRule;                          // To support instantiations of RelatedNumbersRule - (DmoCompactSchemaFormatter.java:1207)
+import org.dmd.dmv.shared.extended.rulesdmo.RestrictReferencesRule;                      // To support instantiations of RestrictReferencesRule - (DmoCompactSchemaFormatter.java:1207)
+import org.dmd.dmv.shared.extended.rulesdmo.StringSetRule;                               // To support instantiations of StringSetRule - (DmoCompactSchemaFormatter.java:1207)
+import org.dmd.dmv.shared.extended.rulesdmo.UCOAllowedAttributesRule;                    // To support instantiations of UCOAllowedAttributesRule - (DmoCompactSchemaFormatter.java:1207)
+import org.dmd.dmv.shared.extended.rulesdmo.ValueLengthRule;                             // To support instantiations of ValueLengthRule - (DmoCompactSchemaFormatter.java:1207)
+import org.dmd.dmv.shared.generated.dmo.AllowedAttributesRuleDataDMO;                    // To instantiate AllowedAttributesRuleData rule data - (DmoCompactSchemaFormatter.java:1223)
+import org.dmd.dmv.shared.generated.dmo.CheckAttributesBasedOnValueRuleDataDMO;          // To instantiate CheckAttributesBasedOnValueRuleData rule data - (DmoCompactSchemaFormatter.java:1223)
+import org.dmd.dmv.shared.generated.dmo.NamedObjectRuleDataDMO;                          // To instantiate NamedObjectRuleData rule data - (DmoCompactSchemaFormatter.java:1223)
+import org.dmd.dmv.shared.generated.dmo.NumericRangeRuleDataDMO;                         // To instantiate NumericRangeRuleData rule data - (DmoCompactSchemaFormatter.java:1223)
+import org.dmd.dmv.shared.generated.dmo.OneOfTheseAttributesRequiredRuleDataDMO;         // To instantiate OneOfTheseAttributesRequiredRuleData rule data - (DmoCompactSchemaFormatter.java:1223)
+import org.dmd.dmv.shared.generated.dmo.PartCheckerRuleDataDMO;                          // To instantiate PartCheckerRuleData rule data - (DmoCompactSchemaFormatter.java:1223)
+import org.dmd.dmv.shared.generated.dmo.PatternMatchRuleDataDMO;                         // To instantiate PatternMatchRuleData rule data - (DmoCompactSchemaFormatter.java:1223)
+import org.dmd.dmv.shared.generated.dmo.ReferencedAttributeTypeRuleDataDMO;              // To instantiate ReferencedAttributeTypeRuleData rule data - (DmoCompactSchemaFormatter.java:1223)
+import org.dmd.dmv.shared.generated.dmo.RelatedNumbersRuleDataDMO;                       // To instantiate RelatedNumbersRuleData rule data - (DmoCompactSchemaFormatter.java:1223)
+import org.dmd.dmv.shared.generated.dmo.ValueLengthRuleDataDMO;                          // To instantiate ValueLengthRuleData rule data - (DmoCompactSchemaFormatter.java:1223)
 
 
 
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:138)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:145)
 public class DmvDMSAG implements DmcCompactSchemaIF {
 
 
@@ -78,7 +78,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __onePossibility = new DmcAttributeInfo("dmv", "onePossibility", -479989, "AttributeDefinition", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, 0, false);
     public final static DmcAttributeInfo __rhs = new DmcAttributeInfo("dmv", "rhs", -479995, "AttributeDefinition", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, 0, false);
 
-    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:184)
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:191)
     public final static DmcTypeInfo __type_AllowedAttributesRuleData = new DmcTypeInfo("AllowedAttributesRuleData", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_CardinalityRuleData = new DmcTypeInfo("CardinalityRuleData", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_CheckAttributesBasedOnValueRuleData = new DmcTypeInfo("CheckAttributesBasedOnValueRuleData", OriginalTypeEnum.REFERENCE);
@@ -97,7 +97,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
     public final static DmcTypeInfo __type_UCOAllowedAttributesRuleData = new DmcTypeInfo("UCOAllowedAttributesRuleData", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_ValueLengthRuleData = new DmcTypeInfo("ValueLengthRuleData", OriginalTypeEnum.REFERENCE);
 
-    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:225)
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:232)
     public final static DmcClassInfo __AllowedAttributesRuleData = new DmcClassInfo("AllowedAttributesRuleData","org.dmd.dmv.shared.generated.dmo.AllowedAttributesRuleDataDMO", -959999, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,MetaDMSAG.__ruleName);
     public final static DmcClassInfo __CardinalityRuleData = new DmcClassInfo("CardinalityRuleData","org.dmd.dmv.shared.generated.dmo.CardinalityRuleDataDMO", -959983, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,MetaDMSAG.__ruleName);
     public final static DmcClassInfo __CheckAttributesBasedOnValueRuleData = new DmcClassInfo("CheckAttributesBasedOnValueRuleData","org.dmd.dmv.shared.generated.dmo.CheckAttributesBasedOnValueRuleDataDMO", -959993, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,MetaDMSAG.__ruleName);
@@ -115,7 +115,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
     public final static DmcClassInfo __UCOAllowedAttributesRuleData = new DmcClassInfo("UCOAllowedAttributesRuleData","org.dmd.dmv.shared.generated.dmo.UCOAllowedAttributesRuleDataDMO", -959996, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,MetaDMSAG.__ruleName);
     public final static DmcClassInfo __ValueLengthRuleData = new DmcClassInfo("ValueLengthRuleData","org.dmd.dmv.shared.generated.dmo.ValueLengthRuleDataDMO", -959990, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,MetaDMSAG.__ruleName);
 
-    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:254)
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:261)
     public final static AllowedAttributesRule __dmvAllowedAttributes;
     public final static ReferencedAttributeTypeRule __dmvBasedOnAttribute;
     public final static OneOfTheseAttributesRequiredRule __dmvComplexTypeAttributeCheck;
@@ -180,220 +180,17 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
 
     }
 
-    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:308)
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:315)
     static {
 
 
-        __AllowedAttributesRuleData.addMust(MetaDMSAG.__ruleName);
-        __AllowedAttributesRuleData.addMust(MetaDMSAG.__ruleTitle);
-        __AllowedAttributesRuleData.addMay(MetaDMSAG.__applyToClass);
-        __AllowedAttributesRuleData.addMay(MetaDMSAG.__definedIn);
-        __AllowedAttributesRuleData.addMay(MetaDMSAG.__description);
-        __AllowedAttributesRuleData.addMay(MetaDMSAG.__file);
-        __AllowedAttributesRuleData.addMay(MetaDMSAG.__immediateHalt);
-        __AllowedAttributesRuleData.addMay(MetaDMSAG.__lineNumber);
-        __AllowedAttributesRuleData.addMay(MetaDMSAG.__msgKey);
-        __AllowedAttributesRuleData.addMay(MetaDMSAG.__msgParam);
-
-        __InitRuleData.addMust(MetaDMSAG.__ruleName);
-        __InitRuleData.addMust(MetaDMSAG.__ruleTitle);
-        __InitRuleData.addMay(MetaDMSAG.__applyToClass);
-        __InitRuleData.addMay(MetaDMSAG.__definedIn);
-        __InitRuleData.addMay(MetaDMSAG.__description);
-        __InitRuleData.addMay(MetaDMSAG.__file);
-        __InitRuleData.addMay(MetaDMSAG.__immediateHalt);
-        __InitRuleData.addMay(MetaDMSAG.__lineNumber);
-        __InitRuleData.addMay(MetaDMSAG.__msgKey);
-        __InitRuleData.addMay(MetaDMSAG.__msgParam);
-
-        __NumericRangeRuleData.addMust(MetaDMSAG.__applyToAttribute);
-        __NumericRangeRuleData.addMust(MetaDMSAG.__ruleName);
-        __NumericRangeRuleData.addMust(MetaDMSAG.__ruleTitle);
-        __NumericRangeRuleData.addMay(MetaDMSAG.__applyToClass);
-        __NumericRangeRuleData.addMay(MetaDMSAG.__definedIn);
-        __NumericRangeRuleData.addMay(MetaDMSAG.__description);
-        __NumericRangeRuleData.addMay(MetaDMSAG.__file);
-        __NumericRangeRuleData.addMay(MetaDMSAG.__immediateHalt);
-        __NumericRangeRuleData.addMay(MetaDMSAG.__lineNumber);
-        __NumericRangeRuleData.addMay(MetaDMSAG.__msgKey);
-        __NumericRangeRuleData.addMay(MetaDMSAG.__msgParam);
-        __NumericRangeRuleData.addMay(__nrrMaximum);
-        __NumericRangeRuleData.addMay(__nrrMinimum);
-
-        __UCOAllowedAttributesRuleData.addMust(MetaDMSAG.__ruleName);
-        __UCOAllowedAttributesRuleData.addMust(MetaDMSAG.__ruleTitle);
-        __UCOAllowedAttributesRuleData.addMay(MetaDMSAG.__applyToClass);
-        __UCOAllowedAttributesRuleData.addMay(MetaDMSAG.__definedIn);
-        __UCOAllowedAttributesRuleData.addMay(MetaDMSAG.__description);
-        __UCOAllowedAttributesRuleData.addMay(MetaDMSAG.__file);
-        __UCOAllowedAttributesRuleData.addMay(MetaDMSAG.__immediateHalt);
-        __UCOAllowedAttributesRuleData.addMay(MetaDMSAG.__lineNumber);
-        __UCOAllowedAttributesRuleData.addMay(MetaDMSAG.__msgKey);
-        __UCOAllowedAttributesRuleData.addMay(MetaDMSAG.__msgParam);
-
-        __RelatedNumbersRuleData.addMust(__lhs);
-        __RelatedNumbersRuleData.addMust(__numericRelation);
-        __RelatedNumbersRuleData.addMust(__rhs);
-        __RelatedNumbersRuleData.addMust(MetaDMSAG.__ruleName);
-        __RelatedNumbersRuleData.addMust(MetaDMSAG.__ruleTitle);
-        __RelatedNumbersRuleData.addMay(MetaDMSAG.__applyToClass);
-        __RelatedNumbersRuleData.addMay(MetaDMSAG.__definedIn);
-        __RelatedNumbersRuleData.addMay(MetaDMSAG.__description);
-        __RelatedNumbersRuleData.addMay(MetaDMSAG.__file);
-        __RelatedNumbersRuleData.addMay(MetaDMSAG.__immediateHalt);
-        __RelatedNumbersRuleData.addMay(MetaDMSAG.__lineNumber);
-        __RelatedNumbersRuleData.addMay(MetaDMSAG.__msgKey);
-        __RelatedNumbersRuleData.addMay(MetaDMSAG.__msgParam);
-
-        __CheckAttributesBasedOnValueRuleData.addMust(__basedOnAttribute);
-        __CheckAttributesBasedOnValueRuleData.addMust(__basedOnValue);
-        __CheckAttributesBasedOnValueRuleData.addMust(MetaDMSAG.__ruleName);
-        __CheckAttributesBasedOnValueRuleData.addMust(MetaDMSAG.__ruleTitle);
-        __CheckAttributesBasedOnValueRuleData.addMay(MetaDMSAG.__applyToClass);
-        __CheckAttributesBasedOnValueRuleData.addMay(MetaDMSAG.__definedIn);
-        __CheckAttributesBasedOnValueRuleData.addMay(MetaDMSAG.__description);
-        __CheckAttributesBasedOnValueRuleData.addMay(__excludeThisAttribute);
-        __CheckAttributesBasedOnValueRuleData.addMay(MetaDMSAG.__file);
-        __CheckAttributesBasedOnValueRuleData.addMay(MetaDMSAG.__immediateHalt);
-        __CheckAttributesBasedOnValueRuleData.addMay(__includeThisAttribute);
-        __CheckAttributesBasedOnValueRuleData.addMay(MetaDMSAG.__lineNumber);
-        __CheckAttributesBasedOnValueRuleData.addMay(MetaDMSAG.__msgKey);
-        __CheckAttributesBasedOnValueRuleData.addMay(MetaDMSAG.__msgParam);
-
-        __OneOfTheseAttributesRequiredRuleData.addMust(__onePossibility);
-        __OneOfTheseAttributesRequiredRuleData.addMust(MetaDMSAG.__ruleName);
-        __OneOfTheseAttributesRequiredRuleData.addMust(MetaDMSAG.__ruleTitle);
-        __OneOfTheseAttributesRequiredRuleData.addMay(__andOnlyOne);
-        __OneOfTheseAttributesRequiredRuleData.addMay(MetaDMSAG.__applyToClass);
-        __OneOfTheseAttributesRequiredRuleData.addMay(MetaDMSAG.__definedIn);
-        __OneOfTheseAttributesRequiredRuleData.addMay(MetaDMSAG.__description);
-        __OneOfTheseAttributesRequiredRuleData.addMay(MetaDMSAG.__file);
-        __OneOfTheseAttributesRequiredRuleData.addMay(MetaDMSAG.__immediateHalt);
-        __OneOfTheseAttributesRequiredRuleData.addMay(MetaDMSAG.__lineNumber);
-        __OneOfTheseAttributesRequiredRuleData.addMay(MetaDMSAG.__msgKey);
-        __OneOfTheseAttributesRequiredRuleData.addMay(MetaDMSAG.__msgParam);
-
-        __PatternMatchRuleData.addMust(MetaDMSAG.__applyToAttribute);
-        __PatternMatchRuleData.addMust(__matchesPattern);
-        __PatternMatchRuleData.addMust(MetaDMSAG.__ruleName);
-        __PatternMatchRuleData.addMust(MetaDMSAG.__ruleTitle);
-        __PatternMatchRuleData.addMay(MetaDMSAG.__applyToClass);
-        __PatternMatchRuleData.addMay(MetaDMSAG.__definedIn);
-        __PatternMatchRuleData.addMay(MetaDMSAG.__description);
-        __PatternMatchRuleData.addMay(MetaDMSAG.__file);
-        __PatternMatchRuleData.addMay(MetaDMSAG.__immediateHalt);
-        __PatternMatchRuleData.addMay(MetaDMSAG.__lineNumber);
-        __PatternMatchRuleData.addMay(MetaDMSAG.__msgKey);
-        __PatternMatchRuleData.addMay(MetaDMSAG.__msgParam);
-
-        __ValueLengthRuleData.addMust(MetaDMSAG.__applyToAttribute);
-        __ValueLengthRuleData.addMust(MetaDMSAG.__ruleName);
-        __ValueLengthRuleData.addMust(MetaDMSAG.__ruleTitle);
-        __ValueLengthRuleData.addMay(MetaDMSAG.__applyToClass);
-        __ValueLengthRuleData.addMay(MetaDMSAG.__definedIn);
-        __ValueLengthRuleData.addMay(MetaDMSAG.__description);
-        __ValueLengthRuleData.addMay(MetaDMSAG.__file);
-        __ValueLengthRuleData.addMay(MetaDMSAG.__immediateHalt);
-        __ValueLengthRuleData.addMay(MetaDMSAG.__lineNumber);
-        __ValueLengthRuleData.addMay(__maxLength);
-        __ValueLengthRuleData.addMay(__minLength);
-        __ValueLengthRuleData.addMay(MetaDMSAG.__msgKey);
-        __ValueLengthRuleData.addMay(MetaDMSAG.__msgParam);
-
-        __ReferencedAttributeTypeRuleData.addMust(MetaDMSAG.__applyToAttribute);
-        __ReferencedAttributeTypeRuleData.addMust(MetaDMSAG.__ruleName);
-        __ReferencedAttributeTypeRuleData.addMust(MetaDMSAG.__ruleTitle);
-        __ReferencedAttributeTypeRuleData.addMay(__allowedType);
-        __ReferencedAttributeTypeRuleData.addMay(__allowedValueType);
-        __ReferencedAttributeTypeRuleData.addMay(MetaDMSAG.__applyToClass);
-        __ReferencedAttributeTypeRuleData.addMay(MetaDMSAG.__definedIn);
-        __ReferencedAttributeTypeRuleData.addMay(MetaDMSAG.__description);
-        __ReferencedAttributeTypeRuleData.addMay(MetaDMSAG.__file);
-        __ReferencedAttributeTypeRuleData.addMay(MetaDMSAG.__immediateHalt);
-        __ReferencedAttributeTypeRuleData.addMay(MetaDMSAG.__lineNumber);
-        __ReferencedAttributeTypeRuleData.addMay(MetaDMSAG.__msgKey);
-        __ReferencedAttributeTypeRuleData.addMay(MetaDMSAG.__msgParam);
-
-        __OnlyOneOfTheseAttributesAllowedRuleData.addMust(__onePossibility);
-        __OnlyOneOfTheseAttributesAllowedRuleData.addMust(MetaDMSAG.__ruleName);
-        __OnlyOneOfTheseAttributesAllowedRuleData.addMust(MetaDMSAG.__ruleTitle);
-        __OnlyOneOfTheseAttributesAllowedRuleData.addMay(MetaDMSAG.__applyToClass);
-        __OnlyOneOfTheseAttributesAllowedRuleData.addMay(MetaDMSAG.__definedIn);
-        __OnlyOneOfTheseAttributesAllowedRuleData.addMay(MetaDMSAG.__description);
-        __OnlyOneOfTheseAttributesAllowedRuleData.addMay(MetaDMSAG.__file);
-        __OnlyOneOfTheseAttributesAllowedRuleData.addMay(MetaDMSAG.__immediateHalt);
-        __OnlyOneOfTheseAttributesAllowedRuleData.addMay(MetaDMSAG.__lineNumber);
-        __OnlyOneOfTheseAttributesAllowedRuleData.addMay(MetaDMSAG.__msgKey);
-        __OnlyOneOfTheseAttributesAllowedRuleData.addMay(MetaDMSAG.__msgParam);
-
-        __PartCheckerRuleData.addMust(MetaDMSAG.__ruleName);
-        __PartCheckerRuleData.addMust(MetaDMSAG.__ruleTitle);
-        __PartCheckerRuleData.addMay(MetaDMSAG.__applyToClass);
-        __PartCheckerRuleData.addMay(MetaDMSAG.__definedIn);
-        __PartCheckerRuleData.addMay(MetaDMSAG.__description);
-        __PartCheckerRuleData.addMay(MetaDMSAG.__file);
-        __PartCheckerRuleData.addMay(MetaDMSAG.__immediateHalt);
-        __PartCheckerRuleData.addMay(MetaDMSAG.__lineNumber);
-        __PartCheckerRuleData.addMay(MetaDMSAG.__msgKey);
-        __PartCheckerRuleData.addMay(MetaDMSAG.__msgParam);
-
-        __NamedObjectRuleData.addMust(MetaDMSAG.__ruleName);
-        __NamedObjectRuleData.addMust(MetaDMSAG.__ruleTitle);
-        __NamedObjectRuleData.addMay(MetaDMSAG.__applyToClass);
-        __NamedObjectRuleData.addMay(MetaDMSAG.__definedIn);
-        __NamedObjectRuleData.addMay(MetaDMSAG.__description);
-        __NamedObjectRuleData.addMay(MetaDMSAG.__file);
-        __NamedObjectRuleData.addMay(MetaDMSAG.__immediateHalt);
-        __NamedObjectRuleData.addMay(MetaDMSAG.__lineNumber);
-        __NamedObjectRuleData.addMay(MetaDMSAG.__msgKey);
-        __NamedObjectRuleData.addMay(MetaDMSAG.__msgParam);
-
-        __RestrictReferencesRuleData.addMust(__allowedReference);
-        __RestrictReferencesRuleData.addMust(MetaDMSAG.__applyToAttribute);
-        __RestrictReferencesRuleData.addMust(MetaDMSAG.__ruleName);
-        __RestrictReferencesRuleData.addMust(MetaDMSAG.__ruleTitle);
-        __RestrictReferencesRuleData.addMay(MetaDMSAG.__applyToClass);
-        __RestrictReferencesRuleData.addMay(MetaDMSAG.__definedIn);
-        __RestrictReferencesRuleData.addMay(MetaDMSAG.__description);
-        __RestrictReferencesRuleData.addMay(MetaDMSAG.__file);
-        __RestrictReferencesRuleData.addMay(MetaDMSAG.__immediateHalt);
-        __RestrictReferencesRuleData.addMay(MetaDMSAG.__lineNumber);
-        __RestrictReferencesRuleData.addMay(MetaDMSAG.__msgKey);
-        __RestrictReferencesRuleData.addMay(MetaDMSAG.__msgParam);
-
-        __CardinalityRuleData.addMust(MetaDMSAG.__applyToAttribute);
-        __CardinalityRuleData.addMust(__crMaximum);
-        __CardinalityRuleData.addMust(__crMinimum);
-        __CardinalityRuleData.addMust(MetaDMSAG.__ruleName);
-        __CardinalityRuleData.addMust(MetaDMSAG.__ruleTitle);
-        __CardinalityRuleData.addMay(MetaDMSAG.__applyToClass);
-        __CardinalityRuleData.addMay(MetaDMSAG.__definedIn);
-        __CardinalityRuleData.addMay(MetaDMSAG.__description);
-        __CardinalityRuleData.addMay(MetaDMSAG.__file);
-        __CardinalityRuleData.addMay(MetaDMSAG.__immediateHalt);
-        __CardinalityRuleData.addMay(MetaDMSAG.__lineNumber);
-        __CardinalityRuleData.addMay(MetaDMSAG.__msgKey);
-        __CardinalityRuleData.addMay(MetaDMSAG.__msgParam);
-
-        __StringSetRuleData.addMust(__allowedString);
-        __StringSetRuleData.addMust(MetaDMSAG.__applyToAttribute);
-        __StringSetRuleData.addMust(MetaDMSAG.__ruleName);
-        __StringSetRuleData.addMust(MetaDMSAG.__ruleTitle);
-        __StringSetRuleData.addMay(MetaDMSAG.__applyToClass);
-        __StringSetRuleData.addMay(MetaDMSAG.__definedIn);
-        __StringSetRuleData.addMay(MetaDMSAG.__description);
-        __StringSetRuleData.addMay(MetaDMSAG.__file);
-        __StringSetRuleData.addMay(MetaDMSAG.__immediateHalt);
-        __StringSetRuleData.addMay(MetaDMSAG.__lineNumber);
-        __StringSetRuleData.addMay(MetaDMSAG.__msgKey);
-        __StringSetRuleData.addMay(MetaDMSAG.__msgParam);
-
+        DmvDMSAG_INIT_1.initDefinitions();
     }
 
-    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:360)
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:372)
     static {
 
-        // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:364)
+        // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:376)
         // These instantiations are merely meant to ensure that you've overloaded
         // the base rule implementations
         @SuppressWarnings("unused")
@@ -429,7 +226,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
         @SuppressWarnings("unused")
         StringSetRule StringSetRuleInstance = new StringSetRule(new StringSetRuleDataDMO());
 
-        // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:379)
+        // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:391)
         try{
             AllowedAttributesRuleDataDMO _dmvAllowedAttributesData = new AllowedAttributesRuleDataDMO();
             _dmvAllowedAttributesData    .addDescription("Ensures that must/may attribute rules are followed. For classes of\n type EXTENSIBLE, only the must have attributes are checked.");

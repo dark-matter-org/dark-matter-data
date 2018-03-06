@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;                       // For type checking
 import org.dmd.dmc.types.IntegerVar;                        // For getNextField() - (MetaGenerator.java:3194)
 import org.dmd.dms.generated.enums.DataTypeEnum;            // For fake DmcAttributeInfo - (MetaGenerator.java:3195)
 import org.dmd.dms.generated.enums.ValueTypeEnum;           // For fake DmcAttributeInfo - (MetaGenerator.java:3196)
-import org.dmd.dms.generated.enums.WrapperTypeEnum;         // Type for field: wrapperType - (MetaGenerator.java:3506)
+import org.dmd.dms.generated.enums.WrapperTypeEnum;         // Type for field: wrapperType - (MetaGenerator.java:3510)
 
 
 
@@ -144,6 +144,10 @@ public class DmwTypeToWrapperType implements Serializable {
         }
 
         return(rc);
+    }
+
+    public void toJSON(StringBuffer sb, int padding, String indent) {
+        throw(new IllegalStateException("This needs to be implemented"));
     }
 
 }

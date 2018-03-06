@@ -31,7 +31,7 @@ import org.dmd.dmc.types.RuleName;    // key type import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2867)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:538)
  */
 @SuppressWarnings("serial")
 // public class DmcTypePartCheckerRuleDataREFMAP extends DmcTypePartCheckerRuleDataREF<PartCheckerRuleDataREF,RuleName> {

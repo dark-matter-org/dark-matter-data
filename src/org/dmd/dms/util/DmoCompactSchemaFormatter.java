@@ -563,12 +563,14 @@ public class DmoCompactSchemaFormatter {
     		}
     		for(AttributeDefinition ad: cd.getMay()){
 //    			if (ad.getDefinedIn() != sd)
-    				manager.addImport(ad.getDefinedIn().getDMSASGImport(), "Optional attribute: " + ad.getObjectName().getNameString() + " from " + ad.getDefinedIn().getDMSASGName());
+    				manager.addImport(ad.getDefinedIn().getDMSASGImport(), "Optional attribute (1): " + ad.getObjectName().getNameString() + " from " + ad.getDefinedIn().getDMSASGName());
     		}
-    		if (cd.getDerivedFrom() != null){
-//    			if (cd.getDerivedFrom().getDefinedIn() != sd)
-       				manager.addImport(cd.getDerivedFrom().getDefinedIn().getDMSASGImport(), "Base class from " + cd.getDerivedFrom().getDefinedIn().getDMSASGName());    				
-    		}
+    		
+    		// Not needed because the derived info is initialized in the base DMSAG
+//    		if (cd.getDerivedFrom() != null){
+////    			if (cd.getDerivedFrom().getDefinedIn() != sd)
+//       				manager.addImport(cd.getDerivedFrom().getDefinedIn().getDMSASGImport(), "Base class from " + cd.getDerivedFrom().getDefinedIn().getDMSASGName());    				
+//    		}
 	    	
 			sb.append("    // " + currentObject + " -- " + cd.getName() + "\n");
 			
@@ -1167,18 +1169,29 @@ public class DmoCompactSchemaFormatter {
 //    			if (ad.getDefinedIn() != sd)
 //    				manager.addImport(ad.getDefinedIn().getDMSASGImport(), "Optional attribute from " + ad.getDefinedIn().getDMSASGName());
 //    		}
-    		for(AttributeDefinition ad: cd.getMust()){
-			if (ad.getDefinedIn() != sd)
-				manager.addImport(ad.getDefinedIn().getDMSASGImport(), "Required attribute from " + ad.getDefinedIn().getDMSASGName());
-			}
-			for(AttributeDefinition ad: cd.getMay()){
-				if (ad.getDefinedIn() != sd)
-					manager.addImport(ad.getDefinedIn().getDMSASGImport(), "Optional attribute: " + ad.getObjectName().getNameString() + " from " + ad.getDefinedIn().getDMSASGName());
-			}
+    		
+    		// No longer required because the class instantiation has been split off
+//    		for(AttributeDefinition ad: cd.getMust()){
+//			if (ad.getDefinedIn() != sd)
+//				manager.addImport(ad.getDefinedIn().getDMSASGImport(), "Required attribute from " + ad.getDefinedIn().getDMSASGName());
+//			}
+    		// No longer required because the class instantiation has been split off
+//			for(AttributeDefinition ad: cd.getMay()){
+//				if (ad.getDefinedIn() != sd)
+//					manager.addImport(ad.getDefinedIn().getDMSASGImport(), "Optional attribute (2): " + ad.getObjectName().getNameString() + " from " + ad.getDefinedIn().getDMSASGName());
+//			}
     		if (cd.getDerivedFrom() != null){
-    			if (cd.getDerivedFrom().getDefinedIn() != sd)
-       				manager.addImport(cd.getDerivedFrom().getDefinedIn().getDMSASGImport(), "Base class from " + cd.getDerivedFrom().getDefinedIn().getDMSASGName());    				
+    			if (cd.getDerivedFrom().getDefinedIn() != sd) {
+       				manager.addImport(cd.getDerivedFrom().getDefinedIn().getDMSASGImport(), "Base class from " + cd.getDerivedFrom().getDefinedIn().getDMSASGName());
+    			}
     		}
+    		
+		if (cd.getIsNamedBy() != null) {
+			if (cd.getIsNamedBy().getDefinedIn() != sd) {
+				manager.addImport(cd.getIsNamedBy().getDefinedIn().getDMSASGImport(), "Naming attribute from " + cd.getIsNamedBy().getDefinedIn().getDMSASGName());
+			}
+		}
+
     	}
     	
         DmcAttribute<?> adef = sd.getDMO().get(MetaDMSAG.__attributeDefList);

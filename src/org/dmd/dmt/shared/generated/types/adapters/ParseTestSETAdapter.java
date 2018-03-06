@@ -17,19 +17,16 @@ public class ParseTestSETAdapter extends DmcTypeParseTestREFSET implements DmcAd
     	   super(ai);
     }
 
-    @Override
     public void setEmpty(){
     	   value = null;
     }
 
-    @Override
     public boolean hasValue(){
     	   if (value == null)
     		   return(false);
     	   return(true);
     }
 
-    @Override
     public void resetToExisting() {
     	if (existingValue == null)
     		value = null;
@@ -37,29 +34,24 @@ public class ParseTestSETAdapter extends DmcTypeParseTestREFSET implements DmcAd
     		value = existingValue.getMVCopy();
     }
 
-    @Override
     public void setExisting(DmcAttribute<?> attr) {
     	existingValue = (DmcTypeParseTestREFSET) attr;
     	if (existingValue != null)
     		value = existingValue.getMVCopy();
     }
 
-    @Override
     public boolean valueChanged(){
     	   return(valueChangedMV(existingValue, this));
     }
 
-    @Override
     public void addMods(DmcTypeModifierMV mods){
     	   addModsMV(mods, existingValue, this);
     }
 
-    @Override
     public DmcAttribute<?> getExisting() {
     	   return(existingValue);
     }
 
-    @Override
     public Object getValue() {
     	   return(value);
     }

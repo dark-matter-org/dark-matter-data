@@ -17,7 +17,7 @@ package org.dmd.dmc.util;
 
 import java.util.ArrayList;
 
-import org.dmd.util.exceptions.ResultException;
+//import org.dmd.util.exceptions.ResultException;
 
 /**
  * Defines an interface to some data store that allows for storage and retrieval
@@ -36,20 +36,23 @@ public interface UcoDataStoreIF {
 	 * @return a list of objects that match the request; it may be empty.
 	 * @throws ResultException if something wanky occurs
 	 */
-	public ArrayList<DmcUncheckedObject> findObjects(String className, String attrName, String searchFor) throws ResultException;
+//	public ArrayList<DmcUncheckedObject> findObjects(String className, String attrName, String searchFor) throws ResultException;
+	public ArrayList<DmcUncheckedObject> findObjects(String className, String attrName, String searchFor);
 	
 	/**
 	 * Allows you to write an object to the data store.
 	 * @param obj the object to be written
 	 * @throws ResultException if something wanky occurs
 	 */
-	public void writeObject(DmcUncheckedObject obj) throws ResultException;
+//	public void writeObject(DmcUncheckedObject obj) throws ResultException;
+	public void writeObject(DmcUncheckedObject obj);
 	
 	/**
 	 * Allows you to modify an existing object, probably one that you had retrieved via findObjects().
 	 * @param obj the object to be modified
 	 * @param newvals the new values for one or more attributes
 	 */
-	public void modifyObject(DmcUncheckedObject obj, ArrayList<NamedStringArray> newvals) throws ResultException;
+//	public void modifyObject(DmcUncheckedObject obj, ArrayList<NamedStringArray> newvals) throws ResultException;
+	public void modifyObject(DmcUncheckedObject obj, ArrayList<NamedStringArray> newvals);
 	
 }

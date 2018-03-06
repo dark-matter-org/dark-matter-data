@@ -1,19 +1,20 @@
 package org.dmd.dmt.shared.generated.types;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:147)
+// Called from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:148)
 import java.io.Serializable;                                     // To prevent serialization warnings - (NewComplexTypeFormatter.java:113)
 import java.util.ArrayList;                                      // To store ParsedNameValuePairs - (NewComplexTypeFormatter.java:120)
-import java.util.Iterator;                                       // To support multi-valued optional parts - (NewComplexTypeFormatter.java:124)
+import java.util.Iterator;                                       // To support multi-valued optional parts - (NewComplexTypeFormatter.java:125)
 import org.dmd.dmc.DmcAttributeInfo;                             // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:118)
 import org.dmd.dmc.DmcInputStreamIF;                             // Standard serialization techniques - (NewComplexTypeFormatter.java:114)
 import org.dmd.dmc.DmcOutputStreamIF;                            // Standard serialization techniques - (NewComplexTypeFormatter.java:115)
-import org.dmd.dmc.DmcValueException;                            // Standard value exception - (NewComplexTypeFormatter.java:142)
+import org.dmd.dmc.DmcValueException;                            // Standard value exception - (NewComplexTypeFormatter.java:143)
 import org.dmd.dmc.util.ComplexTypeSplitter;                     // For parsing initial input - (NewComplexTypeFormatter.java:119)
+import org.dmd.dmc.util.JSONUtil;                                // To perform escaping of things in JSON - (NewComplexTypeFormatter.java:122)
 import org.dmd.dmc.util.ParsedNameValuePair;                     // To store values parsed from initial input - (NewComplexTypeFormatter.java:121)
 import org.dmd.dms.generated.enums.DataTypeEnum;                 // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:116)
 import org.dmd.dms.generated.enums.ValueTypeEnum;                // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:117)
-import org.dmd.dms.generated.types.DmcTypeIntegerSTATIC;         // Standard type - (NewComplexTypeFormatter.java:989)
+import org.dmd.dms.generated.types.DmcTypeIntegerSTATIC;         // Standard type - (NewComplexTypeFormatter.java:1141)
 
 
 
@@ -22,7 +23,7 @@ import org.dmd.dms.generated.types.DmcTypeIntegerSTATIC;         // Standard typ
  * The DmtMultiValuedRequiredPartPrimitive class.
  * This code was auto-generated and shouldn't be alterred manually.
  * 
- * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:154)
+ * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:155)
  */
 public class DmtMultiValuedRequiredPartPrimitive implements Serializable {
 
@@ -44,13 +45,13 @@ public class DmtMultiValuedRequiredPartPrimitive implements Serializable {
      */
     @SuppressWarnings("unchecked")
     public DmtMultiValuedRequiredPartPrimitive(DmtMultiValuedRequiredPartPrimitive original){
-    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.getCopyConstructorAssignments(NewComplexTypeFormatter.java:926)
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.getCopyConstructorAssignments(NewComplexTypeFormatter.java:1078)
         valueV = (ArrayList<Integer>) original.valueV.clone();
     }
 
     /**
      * All fields constructor.
-     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:185)
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:186)
      */
     public DmtMultiValuedRequiredPartPrimitive(ArrayList<Integer> value_) throws DmcValueException {
         if (value_ != null){
@@ -63,14 +64,14 @@ public class DmtMultiValuedRequiredPartPrimitive implements Serializable {
 
     /**
      * String based constructor.
-     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:268)
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:269)
      */
     public DmtMultiValuedRequiredPartPrimitive(String initialInput) throws DmcValueException {
         initialize(initialInput);
     }
     /**
      * Initialize content based on string form.
-     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:276)
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:277)
      */
     void initialize(String initialInput) throws DmcValueException {
         ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput);
@@ -104,7 +105,7 @@ public class DmtMultiValuedRequiredPartPrimitive implements Serializable {
 
     /**
      * String form.
-     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:402)
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:403)
      */
     public String toString(){
         StringBuffer sb = new StringBuffer();
@@ -119,28 +120,46 @@ public class DmtMultiValuedRequiredPartPrimitive implements Serializable {
         return(sb.toString());
     }
 
-    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:513)
+    /**
+     * JSON form.
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:504)
+     */
+    public void toJSON(StringBuffer sb, int padding, String indent){
+        sb.append(indent + "{\n");
+            sb.append(indent + "  \"value\": [\n");
+            Iterator<Integer> it = valueV.iterator();
+            while(it.hasNext()){
+                Integer v = it.next();
+                sb.append(indent + "  \"" + JSONUtil.escape(v.toString()) + "\"");
+                if (it.hasNext())
+                    sb.append(",");
+            }
+            sb.append("\n" + indent + "]");
+        sb.append("\n" + indent + "}");
+    }
+
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:653)
     public Iterator<Integer> getValue(){
         if (valueV == null)
             return(null);
         return(valueV.iterator());
     }
 
-    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:520)
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:660)
     public boolean hasValue(){
         if (valueV == null)
             return(false);
         return(true);
     }
 
-    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:527)
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:667)
     public int getValueSize(){
         if (valueV == null)
             return(0);
         return(valueV.size());
     }
 
-    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:534)
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:674)
     public Integer getValue(int index){
         if (valueV == null)
             return(null);

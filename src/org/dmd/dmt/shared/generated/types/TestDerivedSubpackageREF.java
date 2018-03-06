@@ -76,7 +76,6 @@ public class TestDerivedSubpackageREF extends DmcNamedObjectNontransportableREF<
         myName.set(n);
     }
 
-    @Override
     public DmcObjectName getObjectName(){
         if (myName == null)
             throw(new IllegalStateException("You've tried to access the name of an object but the name attribute hasn't been set."));
@@ -91,7 +90,6 @@ public class TestDerivedSubpackageREF extends DmcNamedObjectNontransportableREF<
         return(myName.getSV());
     }
 
-    @Override
     public DmcAttribute<?> getObjectNameAttribute(){
         if (myName == null)
             throw(new IllegalStateException("You've tried to access the name of an object but the name attribute hasn't been set."));
