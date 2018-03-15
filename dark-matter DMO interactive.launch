@@ -6,9 +6,6 @@
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
 </listAttribute>
-<listAttribute key="org.eclipse.debug.ui.favoriteGroups">
-<listEntry value="org.eclipse.debug.ui.launchGroup.run"/>
-</listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.dmd.dms.tools.dmogenerator.DmoGeneratorMain"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-workspace ${workspace_loc} -srcdir dark-matter-data/src -checkRules"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="dark-matter-data"/>

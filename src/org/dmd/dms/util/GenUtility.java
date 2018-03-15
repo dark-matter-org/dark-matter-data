@@ -149,6 +149,9 @@ public class GenUtility {
 				TypeDefinition td = ad.getType();
 				types.put(td.getName(), td);
 				
+				if (td.getIsRefType())
+					addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcOmni", "Lazy resolution");
+				
 				TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType(),ad.getIndexSize());
 				typeAndAttr.put(ta.name, ta);
 				
