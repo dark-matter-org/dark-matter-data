@@ -55,6 +55,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         _ImAp.put(MetaDMSAG.__designatedFilterAttribute.id,MetaDMSAG.__designatedFilterAttribute);
         _ImAp.put(MetaDMSAG.__designatedNameAttribute.id,MetaDMSAG.__designatedNameAttribute);
         _ImAp.put(MetaDMSAG.__dmdID.id,MetaDMSAG.__dmdID);
+        _ImAp.put(MetaDMSAG.__dmoFromModule.id,MetaDMSAG.__dmoFromModule);
         _ImAp.put(MetaDMSAG.__dotName.id,MetaDMSAG.__dotName);
         _ImAp.put(MetaDMSAG.__example.id,MetaDMSAG.__example);
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
@@ -94,6 +95,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         _SmAp.put(MetaDMSAG.__designatedFilterAttribute.name,MetaDMSAG.__designatedFilterAttribute);
         _SmAp.put(MetaDMSAG.__designatedNameAttribute.name,MetaDMSAG.__designatedNameAttribute);
         _SmAp.put(MetaDMSAG.__dmdID.name,MetaDMSAG.__dmdID);
+        _SmAp.put(MetaDMSAG.__dmoFromModule.name,MetaDMSAG.__dmoFromModule);
         _SmAp.put(MetaDMSAG.__dotName.name,MetaDMSAG.__dotName);
         _SmAp.put(MetaDMSAG.__example.name,MetaDMSAG.__example);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
@@ -459,6 +461,36 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         
         attr.set(value);
         set(MetaDMSAG.__dmdID,attr);
+    }
+
+    /**
+     * A bit of a hack to allow for creation of fully qualified dot names\n in
+     * the DMODefinitionSet that's used for caching definitions in GWT. On the
+     * DMW side, this\n is taken care of by overloading the
+     * getNameOfModuleWhereThisCameFrom() to access the \n getDefinedInModule
+     * attribute and getting the name of the module. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2340)
+    public String getDmoFromModule(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__dmoFromModule);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets dmoFromModule to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2432)
+    public void setDmoFromModule(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__dmoFromModule);
+        if (attr == null)
+            attr = new DmcTypeStringSV(MetaDMSAG.__dmoFromModule);
+        
+        attr.set(value);
+        set(MetaDMSAG.__dmoFromModule,attr);
     }
 
     /**

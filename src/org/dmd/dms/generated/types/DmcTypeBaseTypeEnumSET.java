@@ -29,7 +29,7 @@ import org.dmd.dms.generated.enums.BaseTypeEnum;    // DmcType import
  * The DmcTypeBaseTypeEnumSET provides storage for a set of BaseTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2634)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2637)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:598)
  */
 @SuppressWarnings("serial")
@@ -62,7 +62,7 @@ public class DmcTypeBaseTypeEnumSET extends DmcTypeBaseTypeEnum implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2675)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2678)
     public DmcAttribute<BaseTypeEnum> cloneIt(){
         synchronized(this){
             DmcTypeBaseTypeEnumSET rc = getNew();
@@ -81,7 +81,7 @@ public class DmcTypeBaseTypeEnumSET extends DmcTypeBaseTypeEnum implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2698)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public BaseTypeEnum add(Object v) throws DmcValueException {
         synchronized(this){
             BaseTypeEnum rc = typeCheck(v);
@@ -97,7 +97,7 @@ public class DmcTypeBaseTypeEnumSET extends DmcTypeBaseTypeEnum implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2718)
     public BaseTypeEnum del(Object v){
         synchronized(this){
             BaseTypeEnum rc = null;
@@ -121,7 +121,7 @@ public class DmcTypeBaseTypeEnumSET extends DmcTypeBaseTypeEnum implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2740)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2743)
     public Iterator<BaseTypeEnum> getMV(){
         synchronized(this){
             if (value == null)
@@ -134,7 +134,7 @@ public class DmcTypeBaseTypeEnumSET extends DmcTypeBaseTypeEnum implements Seria
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2754)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2757)
     public Set<BaseTypeEnum> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -153,7 +153,7 @@ public class DmcTypeBaseTypeEnumSET extends DmcTypeBaseTypeEnum implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2774)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2777)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -163,7 +163,7 @@ public class DmcTypeBaseTypeEnumSET extends DmcTypeBaseTypeEnum implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2785)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2788)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

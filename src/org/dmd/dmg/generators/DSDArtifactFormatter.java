@@ -671,6 +671,7 @@ public class DSDArtifactFormatter {
 		out.write("            }\n");
 		out.write("            \n");
 		out.write("            definition." + definedInModuleMethod + "(module);\n");
+		out.write("            definition.setDmoFromModule(module.getName().getNameString());\n");
 		out.write("            definition.setDotName(module.getName() + \".\" + definition.getName() + \".\" + definition.getConstructionClassName());\n");
 //		out.write("            definition.setNameAndTypeName(definition.getName() + \".\" + definition.getConstructionClassName());\n");
 		out.write("            \n");

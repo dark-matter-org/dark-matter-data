@@ -93,6 +93,23 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 		return(getGeneratedDsdPackage() + "." + getName() + "GlobalInterface");
 	}
 	
+	/**
+	 * @return the full package name of the generated.dsd package associated with this module.
+	 */
+	public String getGeneratedDmoPackage(){
+		ClassDefinition dsd = (ClassDefinition) this.getBaseDefinition();
+
+		// Note: only the DMW iterator import will give us the base generated directory for DMW classes
+		int genindex = dsd.getDmoImport().indexOf("generated");
+		String frontPart = dsd.getDmoImport().substring(0, genindex);
+		
+		return(frontPart + "generated.dsd");
+	}
+	
+	public String getDMOGlobalInterfaceImport(){
+		return(getGeneratedDmoPackage() + "." + getName() + "GlobalInterface");
+	}
+	
 	public String getGlobalInterfaceName(){
 		return(getName() + "GlobalInterface");
 	}
@@ -176,6 +193,33 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 	}
 	
 	/**
+	 * Populates the ImportManager with the definitions for just this DSD module.
+	 * @param imports the place to store the imports.
+	 * @param scoped indicates if the imports are for the scoped interface (which doesn't include the
+	 * module itself) or for the global interface
+	 */
+	public void getDMOImportsForInterface(ImportManager imports, boolean scoped){
+		ClassDefinition dsd = (ClassDefinition) this.getBaseDefinition();
+		
+		imports.addImport(dsd.getDmoImport(), "A definition from the " + this.getName() + " Module");
+		imports.addImport("java.util.Iterator", "To allow access to our definitions");
+		imports.addImport("org.dmd.dmc.types.DotName", "To support the find method for definitions");
+		
+		TreeMap<DefinitionName,ClassDefinition> allDerived = dsd.getAllDerived();
+		for(ClassDefinition cd : allDerived.values()){
+			if (scoped){
+				// If the class has the same name as this module definition, it's the 
+				// internally generated class to represent the module and we don't want
+				// that in the case of the scoped interface.
+				if (cd.getName().getNameString().equals(getName().getNameString()))
+					continue;
+			}
+			
+			imports.addImport(cd.getDmoImport(), "A definition from the " + this.getName() + " Module");
+		}
+	}
+	
+	/**
 	 * @param scoped flag to indicate if the imports are for the global interface (implemented
 	 * by global definition managers) or the scoped interface (which is implemented by a module
 	 * to manage its own definitions)
@@ -205,6 +249,41 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 			sb.append("    public " + cd.getName() + " get" + cd.getName() + "(DotName name);\n");
 			sb.append("    public Iterator<" + cd.getName() + "> getAll" + cd.getName() + "();\n");
 			sb.append("    public " + cd.getName() + " get" + cd.getName() + "Definition(String name) throws DmcNameClashException, DmcValueException;\n\n");
+		}
+		
+		return(sb.toString());
+	}
+
+	/**
+	 * @param scoped flag to indicate if the imports are for the global interface (implemented
+	 * by global definition managers) or the scoped interface (which is implemented by a module
+	 * to manage its own definitions)
+	 * @return the methods to be implemented on definitions interface for this module.
+	 */
+	public String getDMOInterfaceMethods(boolean scoped){
+		ClassDefinition dsd = (ClassDefinition) this.getBaseDefinition();
+		StringBuffer sb = new StringBuffer();
+		
+		// We don't advertise adding to the base definition set
+//		sb.append("    public void add" + dsd.getName() + "(" + dsd.getName() +" def);\n");
+		sb.append("    public int get" + dsd.getName() + "Count();\n");
+		sb.append("    public " + dsd.getName() + "DMO get" + dsd.getName() + "(DotName name);\n");
+		sb.append("    public Iterator<" + dsd.getName() + "DMO> getAll" + dsd.getName() + "();\n\n");
+
+		TreeMap<DefinitionName,ClassDefinition> allDerived = dsd.getAllDerived();
+		for(ClassDefinition cd : allDerived.values()){
+			if (scoped){
+				// If the class has the same name as this module definition, it's the 
+				// internally generated class to represent the module and we don't want
+				// that in the case of the scoped interface.
+				if (cd.getName().getNameString().equals(getName().getNameString()))
+					continue;
+			}
+			sb.append("    public void add" + cd.getName() + "(" + cd.getName() +"DMO def);\n");
+			sb.append("    public int get" + cd.getName() + "Count();\n");
+			sb.append("    public " + cd.getName() + "DMO get" + cd.getName() + "(DotName name);\n");
+			sb.append("    public Iterator<" + cd.getName() + "DMO> getAll" + cd.getName() + "();\n");
+			sb.append("    public " + cd.getName() + "DMO get" + cd.getName() + "Definition(String name) throws DmcNameClashException, DmcValueException;\n\n");
 		}
 		
 		return(sb.toString());
@@ -272,6 +351,75 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 			sb.append("    }\n\n");
 			
 			sb.append("    public " + cd.getName() + " get" + cd.getName() + "Definition(String name) throws DmcNameClashException, DmcValueException{\n");
+			sb.append("        return(" + cd.getName() + "Defs.getDefinition(name));\n");
+			sb.append("    }\n\n");
+		}
+		
+		return(sb.toString());
+	}
+	
+	/**
+	 * @return the implementations of the definitions interface for this module.
+	 */
+	public String getDMOInterfaceMethodsImplementations(boolean scoped){
+		ClassDefinition dsd = (ClassDefinition) this.getBaseDefinition();
+		StringBuffer sb = new StringBuffer();
+		
+		sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		sb.append("    // " + DebugInfo.getWhereWeWereCalledFrom() + "\n");
+		sb.append("    /**\n");
+		sb.append("     * All definitions are added to the base definition collection.\n");
+		sb.append("     */\n");
+		sb.append("    void add" + dsd.getName() + "(" + dsd.getName() + "DMO def){\n");
+		sb.append("        " + dsd.getName() + "Defs.add(def);\n");
+//		if (!scoped){
+//			// We only add this hook for the overall definition manager so that we have access
+//			// to a single definition set with all definitions
+//			sb.append("        allDefinitions.add(def);\n");
+//		}
+		sb.append("    }\n\n");
+		
+		sb.append("    public int get" + dsd.getName() + "Count(){\n");
+		sb.append("        return(" + dsd.getName() + "Defs.size());\n");
+		sb.append("    }\n\n");
+		
+		sb.append("    public " + dsd.getName() + "DMO get" + dsd.getName() + "(DotName name){\n");
+		sb.append("        return(" + dsd.getName() + "Defs.getDefinition(name));\n");
+		sb.append("    }\n\n");
+		
+		sb.append("    public Iterator<" + dsd.getName() + "DMO> getAll" + dsd.getName() + "(){\n");
+		sb.append("        return(" + dsd.getName() + "Defs.values().iterator());\n");
+		sb.append("    }\n\n");
+
+		TreeMap<DefinitionName,ClassDefinition> allDerived = dsd.getAllDerived();
+		for(ClassDefinition cd : allDerived.values()){
+			if (scoped){
+				// If the class has the same name as this module definition, it's the 
+				// internally generated class to represent the module and we don't want
+				// that in the case of the scoped interface.
+				if (cd.getName().getNameString().equals(getName().getNameString()))
+					continue;
+			}
+			sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+			sb.append("    public void add" + cd.getName() + "(" + cd.getName() + "DMO def){\n");
+			sb.append("        " + cd.getName() + "Defs.add(def);\n");
+			getBaseClassAddCall(cd.getDerivedFrom(), sb);
+//			sb.append("        add" + dsd.getName() + "(def);\n");
+			sb.append("    }\n\n");
+			
+			sb.append("    public int get" + cd.getName() + "Count(){\n");
+			sb.append("        return(" + cd.getName() + "Defs.size());\n");
+			sb.append("    }\n\n");
+			
+			sb.append("    public " + cd.getName() + "DMO get" + cd.getName() + "(DotName name){\n");
+			sb.append("        return(" + cd.getName() + "Defs.getDefinition(name));\n");
+			sb.append("    }\n\n");
+			
+			sb.append("    public Iterator<" + cd.getName() + "DMO> getAll" + cd.getName() + "(){\n");
+			sb.append("        return(" + cd.getName() + "Defs.values().iterator());\n");
+			sb.append("    }\n\n");
+			
+			sb.append("    public " + cd.getName() + "DMO get" + cd.getName() + "Definition(String name) throws DmcNameClashException, DmcValueException{\n");
 			sb.append("        return(" + cd.getName() + "Defs.getDefinition(name));\n");
 			sb.append("    }\n\n");
 		}

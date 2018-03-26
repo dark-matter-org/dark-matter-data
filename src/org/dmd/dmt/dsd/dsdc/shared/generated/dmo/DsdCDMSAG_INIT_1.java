@@ -1,3 +1,18 @@
+//	---------------------------------------------------------------------------
+//	dark-matter-data
+//	Copyright (c) 2013 dark-matter-data committers
+//	---------------------------------------------------------------------------
+//	This program is free software; you can redistribute it and/or modify it
+//	under the terms of the GNU Lesser General Public License as published by the
+//	Free Software Foundation; either version 3 of the License, or (at your
+//	option) any later version.
+//	This program is distributed in the hope that it will be useful, but WITHOUT
+//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
+//	more details.
+//	You should have received a copy of the GNU Lesser General Public License along
+//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
+//	---------------------------------------------------------------------------
 package org.dmd.dmt.dsd.dsdc.shared.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
@@ -20,6 +35,7 @@ public class DsdCDMSAG_INIT_1 {
         DsdCDMSAG.__CConceptBase.addMay(MetaDMSAG.__comment);
         DsdCDMSAG.__CConceptBase.addMay(MetaDMSAG.__definedIn);
         DsdCDMSAG.__CConceptBase.addMay(MetaDMSAG.__description);
+        DsdCDMSAG.__CConceptBase.addMay(MetaDMSAG.__dmoFromModule);
         DsdCDMSAG.__CConceptBase.addMay(MetaDMSAG.__dotName);
         DsdCDMSAG.__CConceptBase.addMay(MetaDMSAG.__example);
         DsdCDMSAG.__CConceptBase.addMay(MetaDMSAG.__file);
@@ -44,6 +60,7 @@ public class DsdCDMSAG_INIT_1 {
         DsdCDMSAG.__CConceptX.addMay(MetaDMSAG.__comment);
         DsdCDMSAG.__CConceptX.addMay(MetaDMSAG.__definedIn);
         DsdCDMSAG.__CConceptX.addMay(MetaDMSAG.__description);
+        DsdCDMSAG.__CConceptX.addMay(MetaDMSAG.__dmoFromModule);
         DsdCDMSAG.__CConceptX.addMay(MetaDMSAG.__dotName);
         DsdCDMSAG.__CConceptX.addMay(MetaDMSAG.__example);
         DsdCDMSAG.__CConceptX.addMay(MetaDMSAG.__file);
@@ -72,6 +89,7 @@ public class DsdCDMSAG_INIT_1 {
         DsdCDMSAG.__ModuleC.addMay(DsdBDMSAG.__dependsOnModuleB);
         DsdCDMSAG.__ModuleC.addMay(DsdCDMSAG.__dependsOnModuleC);
         DsdCDMSAG.__ModuleC.addMay(MetaDMSAG.__description);
+        DsdCDMSAG.__ModuleC.addMay(MetaDMSAG.__dmoFromModule);
         DsdCDMSAG.__ModuleC.addMay(MetaDMSAG.__dotName);
         DsdCDMSAG.__ModuleC.addMay(MetaDMSAG.__example);
         DsdCDMSAG.__ModuleC.addMay(MetaDMSAG.__file);

@@ -15,24 +15,24 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmv.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:405)
-import java.io.Serializable;                                                // Always required - (GenUtility.java:224)
-import java.util.*;                                                         // Always required if we have any MV attributes - (GenUtility.java:221)
-import org.dmd.dmc.DmcAttribute;                                            // Named object - (GenUtility.java:385)
-import org.dmd.dmc.DmcNamedObjectIF;                                        // Named object - (GenUtility.java:384)
-import org.dmd.dmc.DmcOmni;                                                 // Lazy resolution - (GenUtility.java:328)
-import org.dmd.dmc.DmcSliceInfo;                                            // Required for object slicing - (GenUtility.java:229)
-import org.dmd.dmc.DmcValueException;                                       // Any attributes - (GenUtility.java:246)
-import org.dmd.dmc.types.RuleName;                                          // Naming attribute type - (GenUtility.java:379)
-import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;                    // Type specific set/add - (GenUtility.java:315)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                 // Required for MODREC constructor - (GenUtility.java:228)
-import org.dmd.dms.generated.dmo.RuleDataDMO;                               // Base class - (GenUtility.java:364)
-import org.dmd.dms.generated.types.AttributeDefinitionREF;                  // Helper class - (GenUtility.java:343)
-import org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREFMV;         // Reference type - (GenUtility.java:308)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                       // Required for MODREC constructor - (GenUtility.java:227)
-import org.dmd.dms.generated.types.DmcTypeRuleNameSV;                       // Required type - (GenUtility.java:336)
-import org.dmd.dms.generated.types.DmcTypeStringMV;                         // Required type - (GenUtility.java:336)
-import org.dmd.dms.generated.types.DmcTypeStringSV;                         // Required type - (GenUtility.java:336)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:408)
+import java.io.Serializable;                                                // Always required - (GenUtility.java:227)
+import java.util.*;                                                         // Always required if we have any MV attributes - (GenUtility.java:224)
+import org.dmd.dmc.DmcAttribute;                                            // Named object - (GenUtility.java:388)
+import org.dmd.dmc.DmcNamedObjectIF;                                        // Named object - (GenUtility.java:387)
+import org.dmd.dmc.DmcOmni;                                                 // Lazy resolution - (GenUtility.java:331)
+import org.dmd.dmc.DmcSliceInfo;                                            // Required for object slicing - (GenUtility.java:232)
+import org.dmd.dmc.DmcValueException;                                       // Any attributes - (GenUtility.java:249)
+import org.dmd.dmc.types.RuleName;                                          // Naming attribute type - (GenUtility.java:382)
+import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;                    // Type specific set/add - (GenUtility.java:318)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                 // Required for MODREC constructor - (GenUtility.java:231)
+import org.dmd.dms.generated.dmo.RuleDataDMO;                               // Base class - (GenUtility.java:367)
+import org.dmd.dms.generated.types.AttributeDefinitionREF;                  // Helper class - (GenUtility.java:346)
+import org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREFMV;         // Reference type - (GenUtility.java:311)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                       // Required for MODREC constructor - (GenUtility.java:230)
+import org.dmd.dms.generated.types.DmcTypeRuleNameSV;                       // Required type - (GenUtility.java:339)
+import org.dmd.dms.generated.types.DmcTypeStringMV;                         // Required type - (GenUtility.java:339)
+import org.dmd.dms.generated.types.DmcTypeStringSV;                         // Required type - (GenUtility.java:339)
 
 // Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:678)
 /**
@@ -130,7 +130,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMO  extends RuleDataDMO  im
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1121)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
     public Iterator<String> getDescription(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -142,7 +142,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMO  extends RuleDataDMO  im
     /**
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1133)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public String getNthDescription(int i){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -155,7 +155,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMO  extends RuleDataDMO  im
      * Adds another description to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1147)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1150)
     public DmcAttribute<?> addDescription(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -175,7 +175,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMO  extends RuleDataDMO  im
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1222)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1225)
     public boolean descriptionContains(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -187,7 +187,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMO  extends RuleDataDMO  im
      * Adds another description value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1254)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1257)
     public DmcAttribute<?> addDescription(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -201,7 +201,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMO  extends RuleDataDMO  im
     /**
      * Returns the number of values in description
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1271)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1274)
     public int getDescriptionSize(){
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null){
@@ -217,7 +217,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMO  extends RuleDataDMO  im
      * Deletes a description value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1329)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1332)
     public DmcAttribute<?> delDescription(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         
@@ -233,7 +233,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMO  extends RuleDataDMO  im
      * Deletes a description from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1345)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1348)
     public DmcAttribute<?> delDescription(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         
@@ -248,12 +248,12 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMO  extends RuleDataDMO  im
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1364)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1367)
     public void remDescription(){
          rem(MetaDMSAG.__description);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
     public RuleName getRuleName(){
         DmcTypeRuleNameSV attr = (DmcTypeRuleNameSV) get(MetaDMSAG.__ruleName);
         if (attr == null)
@@ -266,7 +266,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMO  extends RuleDataDMO  im
      * Sets ruleName to the specified value.
      * @param value RuleName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:833)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
     public void setRuleName(RuleName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__ruleName);
         if (attr == null)
@@ -285,7 +285,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMO  extends RuleDataDMO  im
      * Sets ruleName to the specified value.
      * @param value A value compatible with DmcTypeRuleNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
     public void setRuleName(Object value) throws DmcValueException {
         DmcTypeRuleNameSV attr  = (DmcTypeRuleNameSV) get(MetaDMSAG.__ruleName);
         if (attr == null)
@@ -298,12 +298,12 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMO  extends RuleDataDMO  im
     /**
      * Removes the ruleName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
     public void remRuleName(){
          rem(MetaDMSAG.__ruleName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
     public String getRuleTitle(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__ruleTitle);
         if (attr == null)
@@ -316,7 +316,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMO  extends RuleDataDMO  im
      * Sets ruleTitle to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:833)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
     public void setRuleTitle(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__ruleTitle);
         if (attr == null)
@@ -335,7 +335,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMO  extends RuleDataDMO  im
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
     public void setRuleTitle(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(MetaDMSAG.__ruleTitle);
         if (attr == null)
@@ -348,7 +348,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMO  extends RuleDataDMO  im
     /**
      * Removes the ruleTitle attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
     public void remRuleTitle(){
          rem(MetaDMSAG.__ruleTitle);
     }
@@ -357,7 +357,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMO  extends RuleDataDMO  im
      * @return An Iterator of AttributeDefinitionDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:979)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:982)
     public Iterator<AttributeDefinitionREF> getOnePossibility(){
         DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) get(DmvDMSAG.__onePossibility);
         if (attr == null)
@@ -377,7 +377,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMO  extends RuleDataDMO  im
      * @return An Iterator of AttributeDefinitionREFs without attempting lazy resolution (if it's turned on).
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:999)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1002)
     public Iterator<AttributeDefinitionREF> getOnePossibilityREFs(){
         DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) get(DmvDMSAG.__onePossibility);
         if (attr == null)
@@ -390,7 +390,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMO  extends RuleDataDMO  im
      * Adds another onePossibility to the specified value.
      * @param value AttributeDefinition
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1013)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1016)
     public DmcAttribute<?> addOnePossibility(AttributeDefinitionDMO value) {
         DmcAttribute<?> attr = get(DmvDMSAG.__onePossibility);
         if (attr == null)
@@ -410,7 +410,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMO  extends RuleDataDMO  im
      * Adds another onePossibility value.
      * @param value A value compatible with AttributeDefinition
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1254)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1257)
     public DmcAttribute<?> addOnePossibility(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmvDMSAG.__onePossibility);
         if (attr == null)
@@ -424,7 +424,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMO  extends RuleDataDMO  im
     /**
      * Returns the number of values in onePossibility
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1271)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1274)
     public int getOnePossibilitySize(){
         DmcAttribute<?> attr = get(DmvDMSAG.__onePossibility);
         if (attr == null){
@@ -440,7 +440,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMO  extends RuleDataDMO  im
      * Deletes a onePossibility value.
      * @param value The AttributeDefinition to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1310)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1313)
     public DmcAttribute<?> delOnePossibility(Object value){
         DmcAttribute<?> attr = get(DmvDMSAG.__onePossibility);
         
@@ -455,7 +455,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMO  extends RuleDataDMO  im
     /**
      * Removes the onePossibility attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1364)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1367)
     public void remOnePossibility(){
          rem(DmvDMSAG.__onePossibility);
     }

@@ -340,15 +340,15 @@ public class TestSerialization {
 
 		DmcTraceableInputStream dis = new DmcTraceableInputStream(is, DmwOmni.instance().getSchema(), true, 35);
 		
-		CreateRequest request = (CreateRequest) deserializer.deserialize(dis);
-		
-		System.out.println(request.toOIF(15));
-		
-		assertNotNull("Construction class info should not be null after deserialization.", request.getDMO().getConstructionClassInfo());
-		
-		ObjWithRefs dmw = (ObjWithRefs) request.getNewObjectWrapped();
-		
-		System.out.println("\n\nThe new object wrapped:\n" + dmw.toOIF(15));
+//		CreateRequest request = (CreateRequest) deserializer.deserialize(dis);
+//		
+//		System.out.println(request.toOIF(15));
+//		
+//		assertNotNull("Construction class info should not be null after deserialization.", request.getDMO().getConstructionClassInfo());
+//		
+//		ObjWithRefs dmw = (ObjWithRefs) request.getNewObjectWrapped();
+//		
+//		System.out.println("\n\nThe new object wrapped:\n" + dmw.toOIF(15));
 	}
 	
 	
@@ -383,9 +383,9 @@ public class TestSerialization {
 
 		DmcTraceableInputStream dis = new DmcTraceableInputStream(is, DmwOmni.instance().getSchema(), true, 35);
 		
-		SetRequest request = (SetRequest) deserializer.deserialize(dis);
-		
-		System.out.println(request);
+//		SetRequest request = (SetRequest) deserializer.deserialize(dis);
+//		
+//		System.out.println(request);
 		
 	}
 	

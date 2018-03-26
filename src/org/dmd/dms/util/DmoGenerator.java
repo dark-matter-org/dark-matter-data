@@ -39,6 +39,7 @@ import org.dmd.util.parsing.ConfigLocation;
 public class DmoGenerator {
 	
 	DmoFormatter					dmoFormatter;
+	DmoCacheFormatter			dmoCacheFormatter;
 	DmoTypeFormatter				typeFormatter;
 	DmoEnumFormatter				enumFormatter;
 	DmoActionFormatter				actionFormatter;
@@ -49,6 +50,7 @@ public class DmoGenerator {
 	
 	String gendir;
 	String dmodir;
+	String dsddir;
 	String auxdir;
 	String typedir;
 	String adapterdir;
@@ -71,6 +73,7 @@ public class DmoGenerator {
 	
 	void initialize(PrintStream o){
 		dmoFormatter 			= new DmoFormatter(o);
+		dmoCacheFormatter 		= new DmoCacheFormatter();
 		typeFormatter			= new DmoTypeFormatter(o);
 		enumFormatter			= new DmoEnumFormatter(o);
 		actionFormatter			= new DmoActionFormatter(o);
@@ -94,6 +97,7 @@ public class DmoGenerator {
 	public void generateCode(SchemaManager sm, SchemaDefinition sd, ConfigLocation sl) throws IOException, ResultException, DmcNameClashException, IllegalArgumentException, DmcValueException {
 		gendir 		= sl.getConfigParentDirectory() + File.separator + "generated";
 		dmodir 		= gendir + File.separator + "dmo";
+		dsddir 		= gendir + File.separator + "dsd";
 		// NOTE: on windows, you can't create a folder called "aux" - don't ask me why!
 		auxdir 		= gendir + File.separator + "dmo";
 		typedir 	= gendir + File.separator + "types";
@@ -109,11 +113,14 @@ public class DmoGenerator {
 		readFileHeader(sd,sl);
 		
 		dmoFormatter.setFileHeader(fileHeader);
+		dmoCacheFormatter.setFileHeader(fileHeader);
 		typeFormatter.setFileHeader(fileHeader);
 		enumFormatter.setFileHeader(fileHeader);
 		actionFormatter.setFileHeader(fileHeader);
 		
 		dmoFormatter.dumpDMOs(sm, sd, dmodir, auxdir);
+		
+		dmoCacheFormatter.dumpCache(dsddir, sl, sd, sm);
 		
 		typeFormatter.dumpTypes(sd, typedir);
 		
@@ -193,6 +200,10 @@ public class DmoGenerator {
 		File ddf = new File(dmodir);
 		if (!ddf.exists())
 			ddf.mkdir();
+		
+		File dsdf = new File(dsddir);
+		if (!dsdf.exists())
+			dsdf.mkdir();
 		
 		File adf = new File(auxdir);
 		if (!adf.exists())

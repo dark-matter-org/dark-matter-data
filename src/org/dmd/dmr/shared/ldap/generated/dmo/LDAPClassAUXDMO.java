@@ -15,17 +15,17 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmr.shared.ldap.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:405)
-import org.dmd.dmc.DmcAttribute;                                            // Any attributes - (GenUtility.java:245)
-import org.dmd.dmc.DmcAttributeInfo;                                        // Auxiliary class - (GenUtility.java:355)
-import org.dmd.dmc.DmcObject;                                               // Auxiliary class - (GenUtility.java:354)
-import org.dmd.dmc.DmcValueException;                                       // Any attributes - (GenUtility.java:246)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:408)
+import org.dmd.dmc.DmcAttribute;                                            // Any attributes - (GenUtility.java:248)
+import org.dmd.dmc.DmcAttributeInfo;                                        // Auxiliary class - (GenUtility.java:358)
+import org.dmd.dmc.DmcObject;                                               // Auxiliary class - (GenUtility.java:357)
+import org.dmd.dmc.DmcValueException;                                       // Any attributes - (GenUtility.java:249)
 import org.dmd.dmr.shared.ldap.generated.dmo.DmrldapDMSAG;                  // Attribute from dmrldap schema - (GenUtility.java:132)
-import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;                    // Type specific set/add - (GenUtility.java:315)
+import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;                    // Type specific set/add - (GenUtility.java:318)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                 // Attribute from meta schema - (GenUtility.java:135)
-import org.dmd.dms.generated.types.AttributeDefinitionREF;                  // Helper class - (GenUtility.java:343)
-import org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREFSV;         // Reference type - (GenUtility.java:308)
-import org.dmd.dms.generated.types.DmcTypeStringSV;                         // Required type - (GenUtility.java:336)
+import org.dmd.dms.generated.types.AttributeDefinitionREF;                  // Helper class - (GenUtility.java:346)
+import org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREFSV;         // Reference type - (GenUtility.java:311)
+import org.dmd.dms.generated.types.DmcTypeStringSV;                         // Required type - (GenUtility.java:339)
 
 // Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:678)
 /**

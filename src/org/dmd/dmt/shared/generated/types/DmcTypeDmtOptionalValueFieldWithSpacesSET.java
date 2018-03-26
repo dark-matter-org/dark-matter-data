@@ -15,7 +15,7 @@ import org.dmd.dmt.shared.generated.types.DmcTypeDmtOptionalValueFieldWithSpaces
  * The DmcTypeDmtOptionalValueFieldWithSpacesSET provides storage for a set of DmtOptionalValueFieldWithSpaces
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2634)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2637)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:127)
  */
 @SuppressWarnings("serial")
@@ -48,7 +48,7 @@ public class DmcTypeDmtOptionalValueFieldWithSpacesSET extends DmcTypeDmtOptiona
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2675)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2678)
     public DmcAttribute<DmtOptionalValueFieldWithSpaces> cloneIt(){
         synchronized(this){
             DmcTypeDmtOptionalValueFieldWithSpacesSET rc = getNew();
@@ -67,7 +67,7 @@ public class DmcTypeDmtOptionalValueFieldWithSpacesSET extends DmcTypeDmtOptiona
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2698)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public DmtOptionalValueFieldWithSpaces add(Object v) throws DmcValueException {
         synchronized(this){
             DmtOptionalValueFieldWithSpaces rc = typeCheck(v);
@@ -83,7 +83,7 @@ public class DmcTypeDmtOptionalValueFieldWithSpacesSET extends DmcTypeDmtOptiona
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2718)
     public DmtOptionalValueFieldWithSpaces del(Object v){
         synchronized(this){
             DmtOptionalValueFieldWithSpaces rc = null;
@@ -107,7 +107,7 @@ public class DmcTypeDmtOptionalValueFieldWithSpacesSET extends DmcTypeDmtOptiona
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2740)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2743)
     public Iterator<DmtOptionalValueFieldWithSpaces> getMV(){
         synchronized(this){
             if (value == null)
@@ -120,7 +120,7 @@ public class DmcTypeDmtOptionalValueFieldWithSpacesSET extends DmcTypeDmtOptiona
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2754)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2757)
     public Set<DmtOptionalValueFieldWithSpaces> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -139,7 +139,7 @@ public class DmcTypeDmtOptionalValueFieldWithSpacesSET extends DmcTypeDmtOptiona
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2774)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2777)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -149,7 +149,7 @@ public class DmcTypeDmtOptionalValueFieldWithSpacesSET extends DmcTypeDmtOptiona
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2785)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2788)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

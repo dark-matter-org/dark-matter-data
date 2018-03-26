@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeValueLengthRuleDataREFSET provides storage for a set of ValueLengthRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2634)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2637)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:530)
  */
 @SuppressWarnings("serial")
@@ -61,7 +61,7 @@ public class DmcTypeValueLengthRuleDataREFSET extends DmcTypeValueLengthRuleData
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2675)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2678)
     public DmcAttribute<ValueLengthRuleDataREF> cloneIt(){
         synchronized(this){
             DmcTypeValueLengthRuleDataREFSET rc = getNew();
@@ -80,7 +80,7 @@ public class DmcTypeValueLengthRuleDataREFSET extends DmcTypeValueLengthRuleData
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2698)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public ValueLengthRuleDataREF add(Object v) throws DmcValueException {
         synchronized(this){
             ValueLengthRuleDataREF rc = typeCheck(v);
@@ -96,7 +96,7 @@ public class DmcTypeValueLengthRuleDataREFSET extends DmcTypeValueLengthRuleData
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2718)
     public ValueLengthRuleDataREF del(Object v){
         synchronized(this){
             ValueLengthRuleDataREF rc = null;
@@ -120,7 +120,7 @@ public class DmcTypeValueLengthRuleDataREFSET extends DmcTypeValueLengthRuleData
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2740)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2743)
     public Iterator<ValueLengthRuleDataREF> getMV(){
         synchronized(this){
             if (value == null)
@@ -133,7 +133,7 @@ public class DmcTypeValueLengthRuleDataREFSET extends DmcTypeValueLengthRuleData
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2754)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2757)
     public Set<ValueLengthRuleDataREF> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -152,7 +152,7 @@ public class DmcTypeValueLengthRuleDataREFSET extends DmcTypeValueLengthRuleData
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2774)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2777)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -162,7 +162,7 @@ public class DmcTypeValueLengthRuleDataREFSET extends DmcTypeValueLengthRuleData
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2785)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2788)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

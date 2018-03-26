@@ -13,7 +13,7 @@ public class DmtOptionalValueFieldWithColonsTest {
 
 	@Test
 	public void testAllValues() throws DmcValueException {
-		DmtOptionalValueFieldWithColons field = new DmtOptionalValueFieldWithColons("String:test:this is the rest");
+		DmtOptionalValueFieldWithColons field = new DmtOptionalValueFieldWithColons("String:test:description=\"this is the rest\"");
 		
 		assertNotNull(field.getType());
 		assertEquals("The type should be String", "String", field.getType().toString());
@@ -51,7 +51,7 @@ public class DmtOptionalValueFieldWithColonsTest {
 		
 		assertNull(field.getDescription());
 		
-		field = new DmtOptionalValueFieldWithColons("String:test:");
+		field = new DmtOptionalValueFieldWithColons("String:test");
 		
 		assertNotNull(field.getType());
 		

@@ -30,7 +30,7 @@ import org.dmd.dmc.types.RuleName;    // key type import
  * The DmcTypeOneOfTheseAttributesRequiredRuleDataREFMAP provides storage for a map of OneOfTheseAttributesRequiredRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2867)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2870)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:538)
  */
 @SuppressWarnings("serial")
@@ -73,7 +73,7 @@ public class DmcTypeOneOfTheseAttributesRequiredRuleDataREFMAP extends DmcTypeOn
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2924)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2927)
     public DmcAttribute<OneOfTheseAttributesRequiredRuleDataREF> cloneIt(){
         synchronized(this){
             DmcTypeOneOfTheseAttributesRequiredRuleDataREFMAP rc = getNew();
@@ -92,7 +92,7 @@ public class DmcTypeOneOfTheseAttributesRequiredRuleDataREFMAP extends DmcTypeOn
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2944)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2947)
     public OneOfTheseAttributesRequiredRuleDataREF add(Object v) throws DmcValueException {
         synchronized(this){
             OneOfTheseAttributesRequiredRuleDataREF newval = typeCheck(v);
@@ -112,7 +112,7 @@ public class DmcTypeOneOfTheseAttributesRequiredRuleDataREFMAP extends DmcTypeOn
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2965)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2968)
     public OneOfTheseAttributesRequiredRuleDataREF del(Object key){
         synchronized(this){
     
@@ -127,7 +127,7 @@ public class DmcTypeOneOfTheseAttributesRequiredRuleDataREFMAP extends DmcTypeOn
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2981)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2984)
     public Iterator<OneOfTheseAttributesRequiredRuleDataREF> getMV(){
         synchronized(this){
     
@@ -143,7 +143,7 @@ public class DmcTypeOneOfTheseAttributesRequiredRuleDataREFMAP extends DmcTypeOn
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2998)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3001)
     public Map<RuleName,OneOfTheseAttributesRequiredRuleDataREF> getMVCopy(){
         synchronized(this){
             Map<RuleName,OneOfTheseAttributesRequiredRuleDataREF> clone = null;
@@ -163,7 +163,7 @@ public class DmcTypeOneOfTheseAttributesRequiredRuleDataREFMAP extends DmcTypeOn
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3019)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3022)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -174,7 +174,7 @@ public class DmcTypeOneOfTheseAttributesRequiredRuleDataREFMAP extends DmcTypeOn
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3031)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3034)
     public OneOfTheseAttributesRequiredRuleDataREF getByKey(Object key){
         synchronized(this){
            if (value == null)
@@ -188,7 +188,7 @@ public class DmcTypeOneOfTheseAttributesRequiredRuleDataREFMAP extends DmcTypeOn
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3046)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3049)
     public boolean contains(Object v){
         synchronized(this){
            if (value == null)
@@ -204,7 +204,7 @@ public class DmcTypeOneOfTheseAttributesRequiredRuleDataREFMAP extends DmcTypeOn
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3063)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3066)
     public boolean containsKey(Object key){
         synchronized(this){
            if (value == null)

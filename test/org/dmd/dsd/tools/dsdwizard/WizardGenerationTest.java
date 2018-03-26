@@ -1,20 +1,5 @@
 package org.dmd.dsd.tools.dsdwizard;
 
-//import static org.junit.Assert.assertEquals;
-//
-//import java.io.File;
-import java.io.IOException;
-
-import org.dmd.dmc.DmcNameClashException;
-import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.DmcValueExceptionSet;
-import org.dmd.dmc.rules.DmcRuleExceptionSet;
-import org.dmd.util.exceptions.ResultException;
-//
-//import org.dmd.util.exceptions.DebugInfo;
-//import org.dmd.util.exceptions.ResultException;
-import org.junit.Test;
-
 public class WizardGenerationTest {
 	
 //	@Test
@@ -50,12 +35,12 @@ public class WizardGenerationTest {
 //		return(runDir);
 //	}
 	
-	@Test
-	public void test() throws IOException, ResultException, DmcValueException, DmcValueExceptionSet, DmcNameClashException, DmcRuleExceptionSet {
-		String[] args = null;
-		DSDInteractive interactive = new DSDInteractive(args);
-		
-		interactive.run();
-	}
+//	@Test
+//	public void test() throws IOException, ResultException, DmcValueException, DmcValueExceptionSet, DmcNameClashException, DmcRuleExceptionSet {
+//		String[] args = null;
+//		DSDInteractive interactive = new DSDInteractive(args);
+//		
+//		interactive.run();
+//	}
 
 }
