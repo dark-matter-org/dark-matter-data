@@ -13,23 +13,38 @@
 //	You should have received a copy of the GNU Lesser General Public License along
 //	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
 //	---------------------------------------------------------------------------
+//	---------------------------------------------------------------------------
+//	dark-matter-data
+//	Copyright (c) 2013 dark-matter-data committers
+//	---------------------------------------------------------------------------
+//	This program is free software; you can redistribute it and/or modify it
+//	under the terms of the GNU Lesser General Public License as published by the
+//	Free Software Foundation; either version 3 of the License, or (at your
+//	option) any later version.
+//	This program is distributed in the hope that it will be useful, but WITHOUT
+//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
+//	more details.
+//	You should have received a copy of the GNU Lesser General Public License along
+//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
+//	---------------------------------------------------------------------------
 package org.dmd.dmt.dsd.dsdb.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:405)
-import java.io.Serializable;                                                    // Always required - (GenUtility.java:224)
-import org.dmd.dmc.DmcAttribute;                                                // Named object - (GenUtility.java:385)
-import org.dmd.dmc.DmcNamedObjectIF;                                            // Named object - (GenUtility.java:384)
-import org.dmd.dmc.DmcOmni;                                                     // Lazy resolution - (GenUtility.java:328)
-import org.dmd.dmc.DmcValueException;                                           // Any attributes - (GenUtility.java:246)
-import org.dmd.dmc.types.DefinitionName;                                        // Naming attribute type - (GenUtility.java:379)
-import org.dmd.dmc.types.DotName;                                               // Primitive type - (GenUtility.java:279)
-import org.dmd.dms.generated.dmo.DSDefinitionDMO;                               // Base class - (GenUtility.java:364)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                     // Attribute from meta schema - (GenUtility.java:194)
-import org.dmd.dms.generated.types.DmcTypeDefinitionNameSV;                     // Required type - (GenUtility.java:336)
-import org.dmd.dms.generated.types.DmcTypeDotNameSV;                            // Required type - (GenUtility.java:336)
-import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.ModuleBDMO;                    // Type specific set/add - (GenUtility.java:315)
-import org.dmd.dmt.dsd.dsdb.shared.generated.types.DmcTypeModuleBREFSV;         // Reference type - (GenUtility.java:308)
-import org.dmd.dmt.dsd.dsdb.shared.generated.types.ModuleBREF;                  // Helper class - (GenUtility.java:343)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:408)
+import java.io.Serializable;                                                    // Always required - (GenUtility.java:227)
+import org.dmd.dmc.DmcAttribute;                                                // Named object - (GenUtility.java:388)
+import org.dmd.dmc.DmcNamedObjectIF;                                            // Named object - (GenUtility.java:387)
+import org.dmd.dmc.DmcOmni;                                                     // Lazy resolution - (GenUtility.java:331)
+import org.dmd.dmc.DmcValueException;                                           // Any attributes - (GenUtility.java:249)
+import org.dmd.dmc.types.DefinitionName;                                        // Naming attribute type - (GenUtility.java:382)
+import org.dmd.dmc.types.DotName;                                               // Primitive type - (GenUtility.java:282)
+import org.dmd.dms.generated.dmo.DSDefinitionDMO;                               // Base class - (GenUtility.java:367)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                     // Attribute from meta schema - (GenUtility.java:197)
+import org.dmd.dms.generated.types.DmcTypeDefinitionNameSV;                     // Required type - (GenUtility.java:339)
+import org.dmd.dms.generated.types.DmcTypeDotNameSV;                            // Required type - (GenUtility.java:339)
+import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.ModuleBDMO;                    // Type specific set/add - (GenUtility.java:318)
+import org.dmd.dmt.dsd.dsdb.shared.generated.types.DmcTypeModuleBREFSV;         // Reference type - (GenUtility.java:311)
+import org.dmd.dmt.dsd.dsdb.shared.generated.types.ModuleBREF;                  // Helper class - (GenUtility.java:346)
 
 // Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:678)
 /**
@@ -89,7 +104,7 @@ abstract public class BConceptBaseDMO  extends DSDefinitionDMO  implements DmcNa
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
     public DefinitionName getName(){
         DmcTypeDefinitionNameSV attr = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -102,7 +117,7 @@ abstract public class BConceptBaseDMO  extends DSDefinitionDMO  implements DmcNa
      * Sets name to the specified value.
      * @param value DefinitionName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:833)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
     public void setName(DefinitionName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -121,7 +136,7 @@ abstract public class BConceptBaseDMO  extends DSDefinitionDMO  implements DmcNa
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
     public void setName(Object value) throws DmcValueException {
         DmcTypeDefinitionNameSV attr  = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -134,12 +149,12 @@ abstract public class BConceptBaseDMO  extends DSDefinitionDMO  implements DmcNa
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
     public void remName(){
          rem(MetaDMSAG.__name);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
     public DotName getDotName(){
         DmcTypeDotNameSV attr = (DmcTypeDotNameSV) get(MetaDMSAG.__dotName);
         if (attr == null)
@@ -152,7 +167,7 @@ abstract public class BConceptBaseDMO  extends DSDefinitionDMO  implements DmcNa
      * Sets dotName to the specified value.
      * @param value DotName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:833)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
     public void setDotName(DotName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__dotName);
         if (attr == null)
@@ -171,7 +186,7 @@ abstract public class BConceptBaseDMO  extends DSDefinitionDMO  implements DmcNa
      * Sets dotName to the specified value.
      * @param value A value compatible with DmcTypeDotNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
     public void setDotName(Object value) throws DmcValueException {
         DmcTypeDotNameSV attr  = (DmcTypeDotNameSV) get(MetaDMSAG.__dotName);
         if (attr == null)
@@ -184,12 +199,12 @@ abstract public class BConceptBaseDMO  extends DSDefinitionDMO  implements DmcNa
     /**
      * Removes the dotName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
     public void remDotName(){
          rem(MetaDMSAG.__dotName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:664)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:667)
     public ModuleBREF getDefinedInModuleB(){
         DmcTypeModuleBREFSV attr = (DmcTypeModuleBREFSV) get(DsdBDMSAG.__definedInModuleB);
         if (attr == null)
@@ -220,7 +235,7 @@ abstract public class BConceptBaseDMO  extends DSDefinitionDMO  implements DmcNa
      * Sets definedInModuleB to the specified value.
      * @param value ModuleBDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:718)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:721)
     public void setDefinedInModuleB(ModuleBDMO value) {
         DmcAttribute<?> attr = get(DsdBDMSAG.__definedInModuleB);
         if (attr == null)
@@ -241,7 +256,7 @@ abstract public class BConceptBaseDMO  extends DSDefinitionDMO  implements DmcNa
      * Sets definedInModuleB to the specified value.
      * @param value A value compatible with DmcTypeModuleBREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
     public void setDefinedInModuleB(Object value) throws DmcValueException {
         DmcTypeModuleBREFSV attr  = (DmcTypeModuleBREFSV) get(DsdBDMSAG.__definedInModuleB);
         if (attr == null)
@@ -256,7 +271,7 @@ abstract public class BConceptBaseDMO  extends DSDefinitionDMO  implements DmcNa
     /**
      * Removes the definedInModuleB attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
     public void remDefinedInModuleB(){
          rem(DsdBDMSAG.__definedInModuleB);
     }

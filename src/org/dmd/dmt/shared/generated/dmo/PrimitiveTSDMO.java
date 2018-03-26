@@ -1,15 +1,15 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:405)
-import java.io.Serializable;                                  // Always required - (GenUtility.java:224)
-import java.util.*;                                           // Always required if we have any MV attributes - (GenUtility.java:221)
-import org.dmd.dmc.DmcAttribute;                              // Any attributes - (GenUtility.java:245)
-import org.dmd.dmc.DmcObject;                                 // Structural class - (GenUtility.java:359)
-import org.dmd.dmc.DmcSliceInfo;                              // Required for object slicing - (GenUtility.java:229)
-import org.dmd.dmc.DmcValueException;                         // Any attributes - (GenUtility.java:246)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                   // Required for MODREC constructor - (GenUtility.java:228)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor - (GenUtility.java:227)
-import org.dmd.dms.generated.types.DmcTypeStringSET;          // Required type - (GenUtility.java:336)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:408)
+import java.io.Serializable;                                  // Always required - (GenUtility.java:227)
+import java.util.*;                                           // Always required if we have any MV attributes - (GenUtility.java:224)
+import org.dmd.dmc.DmcAttribute;                              // Any attributes - (GenUtility.java:248)
+import org.dmd.dmc.DmcObject;                                 // Structural class - (GenUtility.java:362)
+import org.dmd.dmc.DmcSliceInfo;                              // Required for object slicing - (GenUtility.java:232)
+import org.dmd.dmc.DmcValueException;                         // Any attributes - (GenUtility.java:249)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                   // Required for MODREC constructor - (GenUtility.java:231)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor - (GenUtility.java:230)
+import org.dmd.dms.generated.types.DmcTypeStringSET;          // Required type - (GenUtility.java:339)
 
 // Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:678)
 /**
@@ -66,7 +66,7 @@ public class PrimitiveTSDMO  extends DmcObject  implements Serializable  {
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1121)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
     public Iterator<String> getTsString(){
         DmcTypeStringSET attr = (DmcTypeStringSET) get(DmtDMSAG.__tsString);
         if (attr == null)
@@ -78,7 +78,7 @@ public class PrimitiveTSDMO  extends DmcObject  implements Serializable  {
     /**
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1133)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public String getNthTsString(int i){
         DmcTypeStringSET attr = (DmcTypeStringSET) get(DmtDMSAG.__tsString);
         if (attr == null)
@@ -91,7 +91,7 @@ public class PrimitiveTSDMO  extends DmcObject  implements Serializable  {
      * Adds another tsString to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1147)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1150)
     public DmcAttribute<?> addTsString(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsString);
         if (attr == null)
@@ -111,7 +111,7 @@ public class PrimitiveTSDMO  extends DmcObject  implements Serializable  {
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1222)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1225)
     public boolean tsStringContains(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsString);
         if (attr == null)
@@ -123,7 +123,7 @@ public class PrimitiveTSDMO  extends DmcObject  implements Serializable  {
      * Adds another tsString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1254)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1257)
     public DmcAttribute<?> addTsString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsString);
         if (attr == null)
@@ -137,7 +137,7 @@ public class PrimitiveTSDMO  extends DmcObject  implements Serializable  {
     /**
      * Returns the number of values in tsString
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1271)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1274)
     public int getTsStringSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__tsString);
         if (attr == null){
@@ -153,7 +153,7 @@ public class PrimitiveTSDMO  extends DmcObject  implements Serializable  {
      * Deletes a tsString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1329)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1332)
     public DmcAttribute<?> delTsString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsString);
         
@@ -169,7 +169,7 @@ public class PrimitiveTSDMO  extends DmcObject  implements Serializable  {
      * Deletes a tsString from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1345)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1348)
     public DmcAttribute<?> delTsString(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsString);
         
@@ -184,7 +184,7 @@ public class PrimitiveTSDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the tsString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1364)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1367)
     public void remTsString(){
          rem(DmtDMSAG.__tsString);
     }

@@ -13,6 +13,21 @@
 //	You should have received a copy of the GNU Lesser General Public License along
 //	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
 //	---------------------------------------------------------------------------
+//	---------------------------------------------------------------------------
+//	dark-matter-data
+//	Copyright (c) 2013 dark-matter-data committers
+//	---------------------------------------------------------------------------
+//	This program is free software; you can redistribute it and/or modify it
+//	under the terms of the GNU Lesser General Public License as published by the
+//	Free Software Foundation; either version 3 of the License, or (at your
+//	option) any later version.
+//	This program is distributed in the hope that it will be useful, but WITHOUT
+//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
+//	more details.
+//	You should have received a copy of the GNU Lesser General Public License along
+//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
+//	---------------------------------------------------------------------------
 package org.dmd.dmt.dsd.dsda.shared.generated.types;
 
 import java.io.Serializable;
@@ -30,7 +45,7 @@ import org.dmd.dmc.types.DefinitionName;    // key type import
  * The DmcTypeAConceptXREFMAP provides storage for a map of AConceptXREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2867)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2870)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:538)
  */
 @SuppressWarnings("serial")
@@ -73,7 +88,7 @@ public class DmcTypeAConceptXREFMAP extends DmcTypeAConceptXREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2924)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2927)
     public DmcAttribute<AConceptXREF> cloneIt(){
         synchronized(this){
             DmcTypeAConceptXREFMAP rc = getNew();
@@ -92,7 +107,7 @@ public class DmcTypeAConceptXREFMAP extends DmcTypeAConceptXREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2944)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2947)
     public AConceptXREF add(Object v) throws DmcValueException {
         synchronized(this){
             AConceptXREF newval = typeCheck(v);
@@ -112,7 +127,7 @@ public class DmcTypeAConceptXREFMAP extends DmcTypeAConceptXREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2965)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2968)
     public AConceptXREF del(Object key){
         synchronized(this){
     
@@ -127,7 +142,7 @@ public class DmcTypeAConceptXREFMAP extends DmcTypeAConceptXREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2981)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2984)
     public Iterator<AConceptXREF> getMV(){
         synchronized(this){
     
@@ -143,7 +158,7 @@ public class DmcTypeAConceptXREFMAP extends DmcTypeAConceptXREF implements Seria
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2998)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3001)
     public Map<DefinitionName,AConceptXREF> getMVCopy(){
         synchronized(this){
             Map<DefinitionName,AConceptXREF> clone = null;
@@ -163,7 +178,7 @@ public class DmcTypeAConceptXREFMAP extends DmcTypeAConceptXREF implements Seria
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3019)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3022)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -174,7 +189,7 @@ public class DmcTypeAConceptXREFMAP extends DmcTypeAConceptXREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3031)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3034)
     public AConceptXREF getByKey(Object key){
         synchronized(this){
            if (value == null)
@@ -188,7 +203,7 @@ public class DmcTypeAConceptXREFMAP extends DmcTypeAConceptXREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3046)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3049)
     public boolean contains(Object v){
         synchronized(this){
            if (value == null)
@@ -204,7 +219,7 @@ public class DmcTypeAConceptXREFMAP extends DmcTypeAConceptXREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3063)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3066)
     public boolean containsKey(Object key){
         synchronized(this){
            if (value == null)

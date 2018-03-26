@@ -24,13 +24,13 @@ public class ClassFilterTest {
 		assertFalse("Filter should not match", filter.objectMatches(dmo2));
 	}
 
-	@Test
-	public void testBaseClassMatching() throws DmcValueException {
-		ClassDefinitionDMO	dmo = new ClassDefinitionDMO();
-				
-		ClassFilter filter = new ClassFilter(MetaDMSAG.__DmsDefinition);
-		
-		assertTrue("Filter should match", filter.objectMatches(dmo));
-		
-	}
+//	@Test
+//	public void testBaseClassMatching() throws DmcValueException {
+//		ClassDefinitionDMO	dmo = new ClassDefinitionDMO();
+//				
+//		ClassFilter filter = new ClassFilter(MetaDMSAG.__DmsDefinition);
+//		
+//		assertTrue("Filter should match", filter.objectMatches(dmo));
+//		
+//	}
 }

@@ -24,7 +24,7 @@ import org.dmd.dms.generated.enums.DebugEnum;    // DmcType import
  * The DmcTypeDebugEnumSV provides storage for a single-valued DebugEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1994)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1997)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:591)
  */
 @SuppressWarnings("serial")
@@ -49,14 +49,14 @@ public class DmcTypeDebugEnumSV extends DmcTypeDebugEnum implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2026)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2029)
     public DmcAttribute<DebugEnum> cloneIt(){
         DmcTypeDebugEnumSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2037)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2040)
     public DebugEnum getSVCopy(){
         if (value == null)
             return(null);
@@ -64,7 +64,7 @@ public class DmcTypeDebugEnumSV extends DmcTypeDebugEnum implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2049)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2052)
     public DebugEnum set(Object v) throws DmcValueException {
         DebugEnum rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

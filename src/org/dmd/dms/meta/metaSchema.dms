@@ -2262,6 +2262,17 @@ type						Boolean
 version						3.0.5
 description					A flag to indicate if you want your data repository to create an index for a named object.
 
+AttributeDefinition
+name						dmoFromModule
+dmdID					191
+type						String
+internalUse				true
+version					3.0.6
+description				A bit of a hack to allow for creation of fully qualified dot names
+ in the DMODefinitionSet that's used for caching definitions in GWT. On the DMW side, this
+ is taken care of by overloading the getNameOfModuleWhereThisCameFrom() to access the 
+ getDefinedInModule attribute and getting the name of the module.
+
 //AttributeDefinition
 //name                		nameAndTypeName
 //dmdID						176
@@ -2341,6 +2352,7 @@ may           	definedIn
 may          	file
 may        		lineNumber
 may				dotName
+may				dmoFromModule
 description		The domain specific definition (DSDefinition) forms the basis for all definitions
  that use dark-matter as their basis. The initial dark-matter mechanisms were focussed only on 
  schema for data objects, but, as the project developed, other, domain specific sets of definitions

@@ -614,6 +614,27 @@ public abstract class DSDefinitionDMW extends DmwNamedObjectWrapper {
         mycore.setDotName(value);
     }
 
+    /**
+     * A bit of a hack to allow for creation of fully qualified dot names\n in
+     * the DMODefinitionSet that's used for caching definitions in GWT. On the
+     * DMW side, this\n is taken care of by overloading the
+     * getNameOfModuleWhereThisCameFrom() to access the \n getDefinedInModule
+     * attribute and getting the name of the module. 
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2393)
+    public String getDmoFromModule(){
+        return(mycore.getDmoFromModule());
+    }
+
+    /**
+     * Sets dmoFromModule to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2466)
+    public void setDmoFromModule(Object value) throws DmcValueException {
+        mycore.setDmoFromModule(value);
+    }
+
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation

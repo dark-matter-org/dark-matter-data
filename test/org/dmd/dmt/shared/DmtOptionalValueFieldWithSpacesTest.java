@@ -13,7 +13,7 @@ public class DmtOptionalValueFieldWithSpacesTest {
 
 	@Test
 	public void testAllValues() throws DmcValueException {
-		DmtOptionalValueFieldWithSpaces field = new DmtOptionalValueFieldWithSpaces("String test this is the rest");
+		DmtOptionalValueFieldWithSpaces field = new DmtOptionalValueFieldWithSpaces("String test description=\"this is the rest\"");
 		
 		assertNotNull(field.getType());
 		assertEquals("The type should be String", "String", field.getType().toString());
@@ -53,7 +53,7 @@ public class DmtOptionalValueFieldWithSpacesTest {
 	
 	@Test
 	public void boundaryConditions() throws DmcValueException{
-		DmtOptionalValueFieldWithSpaces field = new DmtOptionalValueFieldWithSpaces("String test x");
+		DmtOptionalValueFieldWithSpaces field = new DmtOptionalValueFieldWithSpaces("String test description=x");
 		
 		assertNotNull(field.getType());
 		assertEquals("The type should be String", "String", field.getType().toString());

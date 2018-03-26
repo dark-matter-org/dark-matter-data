@@ -355,13 +355,13 @@ public class TestIndexedAttributes {
 		DmwDeserializer			deserializer 	= new DmwDeserializer(DmwOmni.instance().getSchema());
 		DmcTraceableInputStream dis 			= new DmcTraceableInputStream(is, DmwOmni.instance().getSchema(), true, 35);
 		
-		SetRequest request = (SetRequest) deserializer.deserialize(dis);
-		
-		System.out.println("\n\n" + request + "\n");
-		
-		obj.applyModifier(request.getModifyAttribute());
-		
-		System.out.println("Modified object:\n\n" + obj.toOIF());
+//		SetRequest request = (SetRequest) deserializer.deserialize(dis);
+//		
+//		System.out.println("\n\n" + request + "\n");
+//		
+//		obj.applyModifier(request.getModifyAttribute());
+//		
+//		System.out.println("Modified object:\n\n" + obj.toOIF());
 
 	}
 
@@ -537,19 +537,19 @@ public class TestIndexedAttributes {
 		DmwDeserializer			deserializer 	= new DmwDeserializer(DmwOmni.instance().getSchema());
 		DmcTraceableInputStream dis 			= new DmcTraceableInputStream(is, DmwOmni.instance().getSchema(), true, 35);
 		
-		DMPEvent event = (DMPEvent) deserializer.deserialize(dis);
-		
-		System.out.println("\n\n" + event + "\n");
-		
-		boolean modified = obj.applyModifier(event.getModifyAttribute());
-		
-		assertEquals("Object should be flagged as modified", true, modified);
-		
-		assertNotNull("0th index should not be null", obj.getNthIndexedPlainObjRef(0));
-		
-		assertNull("4th index should be null", obj.getNthIndexedPlainObjRef(4));
-		
-		System.out.println("Modified object:\n\n" + obj.toOIF());
+//		DMPEvent event = (DMPEvent) deserializer.deserialize(dis);
+//		
+//		System.out.println("\n\n" + event + "\n");
+//		
+//		boolean modified = obj.applyModifier(event.getModifyAttribute());
+//		
+//		assertEquals("Object should be flagged as modified", true, modified);
+//		
+//		assertNotNull("0th index should not be null", obj.getNthIndexedPlainObjRef(0));
+//		
+//		assertNull("4th index should be null", obj.getNthIndexedPlainObjRef(4));
+//		
+//		System.out.println("Modified object:\n\n" + obj.toOIF());
 
 	}
 

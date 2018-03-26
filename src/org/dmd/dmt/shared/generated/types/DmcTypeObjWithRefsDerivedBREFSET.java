@@ -13,7 +13,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeObjWithRefsDerivedBREFSET provides storage for a set of ObjWithRefsDerivedBREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2634)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2637)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:530)
  */
 @SuppressWarnings("serial")
@@ -46,7 +46,7 @@ public class DmcTypeObjWithRefsDerivedBREFSET extends DmcTypeObjWithRefsDerivedB
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2675)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2678)
     public DmcAttribute<ObjWithRefsDerivedBREF> cloneIt(){
         synchronized(this){
             DmcTypeObjWithRefsDerivedBREFSET rc = getNew();
@@ -65,7 +65,7 @@ public class DmcTypeObjWithRefsDerivedBREFSET extends DmcTypeObjWithRefsDerivedB
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2698)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public ObjWithRefsDerivedBREF add(Object v) throws DmcValueException {
         synchronized(this){
             ObjWithRefsDerivedBREF rc = typeCheck(v);
@@ -81,7 +81,7 @@ public class DmcTypeObjWithRefsDerivedBREFSET extends DmcTypeObjWithRefsDerivedB
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2718)
     public ObjWithRefsDerivedBREF del(Object v){
         synchronized(this){
             ObjWithRefsDerivedBREF rc = null;
@@ -105,7 +105,7 @@ public class DmcTypeObjWithRefsDerivedBREFSET extends DmcTypeObjWithRefsDerivedB
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2740)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2743)
     public Iterator<ObjWithRefsDerivedBREF> getMV(){
         synchronized(this){
             if (value == null)
@@ -118,7 +118,7 @@ public class DmcTypeObjWithRefsDerivedBREFSET extends DmcTypeObjWithRefsDerivedB
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2754)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2757)
     public Set<ObjWithRefsDerivedBREF> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -137,7 +137,7 @@ public class DmcTypeObjWithRefsDerivedBREFSET extends DmcTypeObjWithRefsDerivedB
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2774)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2777)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -147,7 +147,7 @@ public class DmcTypeObjWithRefsDerivedBREFSET extends DmcTypeObjWithRefsDerivedB
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2785)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2788)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

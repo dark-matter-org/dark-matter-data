@@ -15,7 +15,7 @@ import org.dmd.dmc.types.DefinitionName;    // key type import
  * The DmcTypeObjWithRefsDerivedAREFMAP provides storage for a map of ObjWithRefsDerivedAREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2867)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2870)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:538)
  */
 @SuppressWarnings("serial")
@@ -58,7 +58,7 @@ public class DmcTypeObjWithRefsDerivedAREFMAP extends DmcTypeObjWithRefsDerivedA
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2924)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2927)
     public DmcAttribute<ObjWithRefsDerivedAREF> cloneIt(){
         synchronized(this){
             DmcTypeObjWithRefsDerivedAREFMAP rc = getNew();
@@ -77,7 +77,7 @@ public class DmcTypeObjWithRefsDerivedAREFMAP extends DmcTypeObjWithRefsDerivedA
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2944)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2947)
     public ObjWithRefsDerivedAREF add(Object v) throws DmcValueException {
         synchronized(this){
             ObjWithRefsDerivedAREF newval = typeCheck(v);
@@ -97,7 +97,7 @@ public class DmcTypeObjWithRefsDerivedAREFMAP extends DmcTypeObjWithRefsDerivedA
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2965)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2968)
     public ObjWithRefsDerivedAREF del(Object key){
         synchronized(this){
     
@@ -112,7 +112,7 @@ public class DmcTypeObjWithRefsDerivedAREFMAP extends DmcTypeObjWithRefsDerivedA
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2981)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2984)
     public Iterator<ObjWithRefsDerivedAREF> getMV(){
         synchronized(this){
     
@@ -128,7 +128,7 @@ public class DmcTypeObjWithRefsDerivedAREFMAP extends DmcTypeObjWithRefsDerivedA
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2998)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3001)
     public Map<DefinitionName,ObjWithRefsDerivedAREF> getMVCopy(){
         synchronized(this){
             Map<DefinitionName,ObjWithRefsDerivedAREF> clone = null;
@@ -148,7 +148,7 @@ public class DmcTypeObjWithRefsDerivedAREFMAP extends DmcTypeObjWithRefsDerivedA
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3019)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3022)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -159,7 +159,7 @@ public class DmcTypeObjWithRefsDerivedAREFMAP extends DmcTypeObjWithRefsDerivedA
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3031)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3034)
     public ObjWithRefsDerivedAREF getByKey(Object key){
         synchronized(this){
            if (value == null)
@@ -173,7 +173,7 @@ public class DmcTypeObjWithRefsDerivedAREFMAP extends DmcTypeObjWithRefsDerivedA
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3046)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3049)
     public boolean contains(Object v){
         synchronized(this){
            if (value == null)
@@ -189,7 +189,7 @@ public class DmcTypeObjWithRefsDerivedAREFMAP extends DmcTypeObjWithRefsDerivedA
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3063)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3066)
     public boolean containsKey(Object key){
         synchronized(this){
            if (value == null)

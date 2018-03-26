@@ -1,11 +1,11 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:405)
-import org.dmd.dmc.DmcAttribute;                            // Any attributes - (GenUtility.java:245)
-import org.dmd.dmc.DmcAttributeInfo;                        // Auxiliary class - (GenUtility.java:355)
-import org.dmd.dmc.DmcObject;                               // Auxiliary class - (GenUtility.java:354)
-import org.dmd.dmc.DmcValueException;                       // Any attributes - (GenUtility.java:246)
-import org.dmd.dms.generated.types.DmcTypeStringSV;         // Required type - (GenUtility.java:336)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:408)
+import org.dmd.dmc.DmcAttribute;                            // Any attributes - (GenUtility.java:248)
+import org.dmd.dmc.DmcAttributeInfo;                        // Auxiliary class - (GenUtility.java:358)
+import org.dmd.dmc.DmcObject;                               // Auxiliary class - (GenUtility.java:357)
+import org.dmd.dmc.DmcValueException;                       // Any attributes - (GenUtility.java:249)
+import org.dmd.dms.generated.types.DmcTypeStringSV;         // Required type - (GenUtility.java:339)
 import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;           // Attribute from dmt schema - (GenUtility.java:132)
 
 // Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:678)
