@@ -25,6 +25,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.dmd.dmc.DmcNameClashException;
+import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmc.util.DmcUncheckedObject;
@@ -1710,11 +1711,17 @@ if (an.equals("requiredPart"))
 					out.write("        mycore.setContainer(this);\n");
 					out.write("    }\n\n");
 
-					out.write("    protected " + cn
-							+ "DMW(DmcObject obj, ClassDefinition cd) {\n");
+					out.write("    protected " + cn + "DMW(DmcObject obj, ClassDefinition cd) {\n");
 					out.write("        super(obj,cd);\n");
 					out.write("        mycore = (" + cn + "DMO) core;\n");
 					out.write("        mycore.setContainer(this);\n");
+					out.write("    }\n\n");
+
+					out.write("    @Override\n");
+					out.write("    public void setDmcObject(DmcObject obj) {\n");
+					out.write("        core   = obj;\n");
+					out.write("        mycore = (" + cn + "DMO) obj;\n");
+					out.write("        obj.setContainer(this);\n");
 					out.write("    }\n\n");
 
 					out.write("    public  " + cn + "DMO getDMO() {\n");

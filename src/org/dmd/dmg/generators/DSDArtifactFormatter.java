@@ -19,9 +19,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.TreeMap;
-import java.util.Collections;
 
 import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
@@ -141,6 +141,18 @@ public class DSDArtifactFormatter {
 		imports.addImport("org.dmd.dmc.DmcAttributeInfo", "Used when resolving clashes");
 		imports.addImport("org.dmd.dmc.DmcNameClashObjectSet", "Used when resolving clashes");
 		imports.addImport("org.dmd.dmc.DmcNameClashException", "Used when resolving clashes");
+
+		// To support indexed retrieval from the cache
+		Iterator<DSDefinitionModule> dsdit = includedModules.values().iterator();
+		while(dsdit.hasNext()) {
+			DSDefinitionModule current = dsdit.next();
+			imports.addImport(current.getDefinedIn().getDMSASGImport(),"To allow use of DmcClassInfo from the " + current.getDefinedIn().getName() + " schema for index access");
+		}
+		imports.addImport("java.util.TreeMap", "To organize access to our indices");
+		imports.addImport("java.util.Collection", "To return values from indices");
+		imports.addImport("org.dmd.dmc.DmcClassInfo", "The class info for our indices");
+		imports.addImport("org.dmd.dmw.DmwNamedObjectWrapper", "What we return from getIndex()");
+
 		
 		out.write(imports.getFormattedImports());
 		
@@ -154,10 +166,17 @@ public class DSDArtifactFormatter {
 		
 		dumpDefinitionManagerMembers(out, includedModules);
 		
+		out.write("    TreeMap<DmcClassInfo,DmcDefinitionSet<?>>	indicesByClass;\n");
+		out.write("\n");
+		
+		
 		out.write("    public " + ddm.getName() + "DefinitionManager(){\n\n");
 		
 		out.write("        // This will be populated as a result of adding definitions to the definition sets for each definition type\n");
 		out.write("        allDefinitions = new DmcDefinitionSet<DSDefinition>(\"allDefinitions\");\n\n");
+		
+		out.write("        indicesByClass = new TreeMap<>();\n\n");
+		
 		initializeDefinitionManagerMembers(out, includedModules);
 		
 		out.write("    }\n\n");
@@ -171,19 +190,30 @@ public class DSDArtifactFormatter {
 		out.write("\n");
 		
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    public Collection<DmwNamedObjectWrapper> getIndex(DmcClassInfo ci){\n");
+		out.write("        DmcDefinitionSet<?>    dds = indicesByClass.get(ci);\n");
+		out.write("        \n");
+		out.write("        if (dds == null)\n");
+		out.write("            throw(new IllegalStateException(\"No index available for class: \" + ci.name));\n");
+		out.write("        \n");
+		out.write("        return(dds.getIndex());\n");
+		out.write("    }\n");
+		out.write("\n");
+		
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("    public DmcNamedObjectIF findNamedObject(DmcObjectName name) {\n");
 		out.write("        DSDefinition def = null;\n");
-    	out.write("        try {\n");
-    	out.write("    	       def = allDefinitions.getDefinition(name.toString());\n");
-    	out.write("        } catch (DmcNameClashException e) {\n");
-    	out.write("    	       // TODO Auto-generated catch block\n");
-    	out.write("    	       e.printStackTrace();\n");
-    	out.write("        } catch (DmcValueException e) {\n");
-    	out.write("    	       // TODO Auto-generated catch block\n");
-    	out.write("    	       e.printStackTrace();\n");
-    	out.write("        }\n");
-    	out.write("\n");
-    	out.write("        return(def);\n");
+	    	out.write("        try {\n");
+	    	out.write("    	       def = allDefinitions.getDefinition(name.toString());\n");
+	    	out.write("        } catch (DmcNameClashException e) {\n");
+	    	out.write("    	       // TODO Auto-generated catch block\n");
+	    	out.write("    	       e.printStackTrace();\n");
+	    	out.write("        } catch (DmcValueException e) {\n");
+	    	out.write("    	       // TODO Auto-generated catch block\n");
+	    	out.write("    	       e.printStackTrace();\n");
+	    	out.write("        }\n");
+	    	out.write("\n");
+	    	out.write("        return(def);\n");
 		out.write("    }\n\n");
 
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
@@ -194,20 +224,20 @@ public class DSDArtifactFormatter {
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("    public DmcObject findNamedDMO(DmcObjectName name) {\n");
 		out.write("        DSDefinition def = null;\n");
-    	out.write("        try {\n");
-    	out.write("    	       def = allDefinitions.getDefinition(name.toString());\n");
-    	out.write("        } catch (DmcNameClashException e) {\n");
-    	out.write("    	       // TODO Auto-generated catch block\n");
-    	out.write("    	       e.printStackTrace();\n");
-    	out.write("        } catch (DmcValueException e) {\n");
-    	out.write("    	       // TODO Auto-generated catch block\n");
-    	out.write("    	       e.printStackTrace();\n");
-    	out.write("        }\n");
-    	out.write("\n");
-    	out.write("        if (def==null)\n");
-    	out.write("            return(null);\n");
-    	out.write("\n");
-    	out.write("        return(def.getDMO());\n");
+	    	out.write("        try {\n");
+	    	out.write("    	       def = allDefinitions.getDefinition(name.toString());\n");
+	    	out.write("        } catch (DmcNameClashException e) {\n");
+	    	out.write("    	       // TODO Auto-generated catch block\n");
+	    	out.write("    	       e.printStackTrace();\n");
+	    	out.write("        } catch (DmcValueException e) {\n");
+	    	out.write("    	       // TODO Auto-generated catch block\n");
+	    	out.write("    	       e.printStackTrace();\n");
+	    	out.write("        }\n");
+	    	out.write("\n");
+	    	out.write("        if (def==null)\n");
+	    	out.write("            return(null);\n");
+	    	out.write("\n");
+	    	out.write("        return(def.getDMO());\n");
 		out.write("    }\n\n");
 
 		ClassDefinition dsd = (ClassDefinition) ddm.getBaseDefinition();
@@ -262,9 +292,54 @@ public class DSDArtifactFormatter {
 		
 		dumpDefinitionInterfaceMethods(out, includedModules);
 		
+		dumpAddMethod(out, ddm);
+		
 		out.write("}\n\n");
 		
 		out.close();
+	}
+	
+	/**
+	 * This dumps a single add() method that will add the specified definition to the appropriate
+	 * indices.
+	 * @param out the place we're writing
+	 * @throws IOException
+	 */
+	void dumpAddMethod(ManagedFileWriter out, DSDefinitionModule ddm) throws IOException {
+		ImportManager imports = new ImportManager();
+		TreeMap<Integer, ArrayList<ClassDefinition>>	structuralDefs = new TreeMap<Integer, ArrayList<ClassDefinition>>(Collections.reverseOrder());
+		getImportsForDefinitionsInSingleModule(imports, ddm, structuralDefs);
+
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    public void addDefinition(DSDefinition definition){\n");
+
+		boolean first = true;
+		String condition = "if";
+		
+		for(Integer depth: structuralDefs.keySet()){
+			ArrayList<ClassDefinition>	atDepth = structuralDefs.get(depth);
+
+			for(ClassDefinition cd: atDepth){
+				out.write("            " + condition + " (definition instanceof " + cd.getName() + "){\n");
+				out.write("                add" + cd.getName() + "((" + cd.getName() + ")definition);\n");
+//				out.write("                module.add" + cd.getName() + "((" + cd.getName() + ")definition);\n");
+				out.write("            }\n");
+				if (first)
+					condition = "else if";
+			}
+		}
+		
+		// NOTE NOTE NOTE
+		// And then, we also add the module itself, since the module isn't derived from the
+		// base definition and doesn't show up in the structuralDefs
+		out.write("            " + condition + " (definition instanceof " + ddm.getModuleClassName() + "){\n");
+		out.write("                add" + ddm.getModuleClassName() + "((" + ddm.getModuleClassName() + ")definition);\n");
+		out.write("            }\n");
+		
+		out.write("\n");
+		
+		out.write("    }\n\n");
+		
 	}
 	
 	/**
@@ -334,11 +409,17 @@ public class DSDArtifactFormatter {
 		for(DSDefinitionModule ddm : modules.values()){
 			ClassDefinition dsd = (ClassDefinition) ddm.getBaseDefinition();
 			
+			String dmsagClass = ddm.getDefinedIn().getDMSASGName()+ ".__" + dsd.getName();
+			
 			out.write("        " + dsd.getName() + "Defs = new DmcDefinitionSet<" + dsd.getName() + ">(\"" + dsd.getName() + "\", allDefinitions);\n");
+			out.write("        indicesByClass.put(" + dmsagClass + ", " + dsd.getName() + "Defs);\n\n");
 			
 			TreeMap<DefinitionName,ClassDefinition> allDerived = dsd.getAllDerived();
 			for(ClassDefinition cd : allDerived.values()){
+				dmsagClass = ddm.getDefinedIn().getDMSASGName()+ ".__" + cd.getName();
+				
 				out.write("        " + cd.getName() + "Defs = new DmcDefinitionSet<" + cd.getName() + ">(\"" + cd.getName() + "\", allDefinitions);\n");
+				out.write("        indicesByClass.put(" + dmsagClass + ", " + cd.getName() + "Defs);\n\n");
 			}
 		}
 		out.write("\n");

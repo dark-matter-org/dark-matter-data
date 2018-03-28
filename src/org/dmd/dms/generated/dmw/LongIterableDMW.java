@@ -27,7 +27,7 @@ import org.dmd.dmw.DmwMVIterator;         // The base multi-value iterator - (Ge
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1773)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpTypeIterables(MetaGenerator.java:694)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpTypeIterables(MetaGenerator.java:695)
  */
 public class LongIterableDMW extends DmwMVIterator<Long> {
 
