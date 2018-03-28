@@ -10,7 +10,7 @@ import org.dmd.dmt.server.generated.dmw.ComplexTypeTestDMW;  // wrapper type imp
  * it Iterable.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1824)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1827)
  *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:99)
  */
 public class ComplexTypeTestIterableDMW extends DmwObjectIterator<ComplexTypeTestDMW, ComplexTypeTestDMO> {

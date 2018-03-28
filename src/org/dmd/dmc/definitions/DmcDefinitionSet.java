@@ -2,6 +2,9 @@ package org.dmd.dmc.definitions;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcNameClashException;
@@ -11,6 +14,7 @@ import org.dmd.dmc.types.DotName;
 import org.dmd.dmc.types.DefinitionName;
 import org.dmd.dms.DSDefinition;
 //import org.dmd.util.exceptions.DebugInfo;
+import org.dmd.dmw.DmwNamedObjectWrapper;
 
 /**
  * The DmcDefinitionSet class provides a mechanism to store a set of definitions
@@ -259,6 +263,28 @@ public class DmcDefinitionSet<DEF extends DSDefinition> {
 	 */
 	public Collection<DEF> values(){
 		return(fullDotNameMap.values());
+	}
+	
+	/**
+	 * This method is used to support GetRequest retrieval when a definition manager is used
+	 * as a caching mechanism.
+	 * @return An iterator over the set of objects in the index. It will be an empty iterator
+     * if there are no objects.
+	 */
+	@SuppressWarnings("unchecked")
+	public Collection<DmwNamedObjectWrapper> getIndex(){
+		synchronized (fullDotNameMap) {
+			if (fullDotNameMap.size() == 0)
+				return((((List<DmwNamedObjectWrapper>) Collections.EMPTY_LIST)));
+				
+			LinkedList<DmwNamedObjectWrapper> values = new LinkedList<DmwNamedObjectWrapper>();
+			
+			for(DEF def: fullDotNameMap.values()) {
+				values.add(def);
+			}
+	
+			return(values);
+		}
 	}
 	
 	/**

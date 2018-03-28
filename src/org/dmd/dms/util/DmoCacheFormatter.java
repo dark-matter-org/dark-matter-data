@@ -1,12 +1,10 @@
 package org.dmd.dms.util;
 
 import java.io.IOException;
-import java.io.PrintStream;
 import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.types.DefinitionName;
-import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.DSDefinitionModule;
 import org.dmd.dms.SchemaDefinition;
