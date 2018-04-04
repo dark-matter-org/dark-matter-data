@@ -69,6 +69,14 @@ public interface DmcPresentationTrackerIF {
 	 */
 	public boolean debug();
 	
+	/**
+	 * When a form is first rendered, it's often convenient to force validation on
+	 * all of the fields so that they can display whether or not they're mandatory i.e.
+	 * that they require a value. Calling this method will call isValid() on all 
+	 * DmcPresentationIF implementers being tracked.
+	 */
+	public void validateAll();
+	
 	// NOTE: dropped this for now because of indexed attributes - multiple presentations
 	// will wind up feeding off the same attribute.
 //	/**
