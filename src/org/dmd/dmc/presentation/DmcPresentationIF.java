@@ -76,6 +76,14 @@ public interface DmcPresentationIF {
 	public boolean isReady();
 	
 	/**
+	 * This allows a DmcPresentationTrackerIF implementor to trigger validation on
+	 * all of its bindings and have them indicate if they're ready or not ready. The
+	 * exact mechanism of checking validity is implementation specific.
+	 * @return true if the binding is valid and false otherwise
+	 */
+	public boolean isValid();
+	
+	/**
 	 * Sets the tracker that keeps tabs on whether or not all presentation components
 	 * are in a ready state. Your presentation implementation should call the tracker's
 	 * isReady() or isNotReady() methods when its readiness state changes.
@@ -111,6 +119,12 @@ public interface DmcPresentationIF {
 	 * @return true if there have been any user interaction and false otherwise
 	 */
 	public boolean valueChanged();
+	
+	/**
+	 * This method is used to set the state of the value presentation to enable or disable editting.
+	 * @param flag true to enable editing and false otherwise
+	 */
+	public void setEnabled(boolean flag);
 	
 	/**
 	 * For multi-valued attributes that have a specified index (indexed attributes), the attribute
