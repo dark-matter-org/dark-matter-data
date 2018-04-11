@@ -204,6 +204,37 @@ abstract public class ActionResponseDMW extends Response {
     }
 
     // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    public Integer getServerActionID(){
+        return(((ActionResponseDMO) core).getServerActionID());
+    }
+
+    /**
+     * Sets serverActionID to the specified value.
+     * @param value A value compatible with DmcTypeInteger
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1584)
+    public void setServerActionID(Object value) throws DmcValueException {
+        ((ActionResponseDMO) core).setServerActionID(value);
+    }
+
+    /**
+     * Sets serverActionID to the specified value.
+     * @param value Integer
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1593)
+    public void setServerActionID(Integer value){
+        ((ActionResponseDMO) core).setServerActionID(value);
+    }
+
+    /**
+     * Removes the serverActionID attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1619)
+    public void remServerActionID(){
+        ((ActionResponseDMO) core).remServerActionID();
+    }
+
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
     public Long getTimeMS(){
         return(((ActionResponseDMO) core).getTimeMS());
     }

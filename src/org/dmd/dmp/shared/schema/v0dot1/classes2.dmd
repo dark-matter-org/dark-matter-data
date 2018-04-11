@@ -155,6 +155,7 @@ derivedFrom     Response
 must            timeMS
 must            actionName
 may             objectList
+may				serverActionID
 description 	The ActionResponse returns the results of a particular ActionRequest. Exactly what is
  returned will depend on the efActionDef.
  
@@ -312,3 +313,22 @@ derivedFrom     Response
 may				applicationName
 may				applicationVersion
 description		The PreAuthResponse is sent as a result of a PreAuthRequest.
+
+ClassDefinition
+name            ActionCancelRequest
+classType       EXTENSIBLE
+dmdID			25
+useWrapperType	EXTENDED
+derivedFrom     Request
+must            serverActionID
+description 	The ActionCancelRequest is used to cancel an action that is running
+ on the server. The serverActionID will have been sent in any ActionResponse
+ after the action starts execution.
+
+ClassDefinition
+name            ActionCancelResponse
+classType       EXTENSIBLE
+dmdID			26
+useWrapperType	EXTENDED
+derivedFrom     Response
+description 	The ActionCancelResponse returns the results of cancelling a running action.

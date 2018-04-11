@@ -25,6 +25,7 @@ import org.dmd.dmc.DmcValueException;                          // Any attributes
 import org.dmd.dmp.shared.generated.dmo.ResponseDMO;           // Base class - (GenUtility.java:367)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                    // Required for MODREC constructor - (GenUtility.java:231)
 import org.dmd.dms.generated.types.DmcTypeDmcObjectMV;         // Required type - (GenUtility.java:339)
+import org.dmd.dms.generated.types.DmcTypeIntegerSV;           // Required type - (GenUtility.java:339)
 import org.dmd.dms.generated.types.DmcTypeLongSV;              // Required type - (GenUtility.java:339)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;          // Required for MODREC constructor - (GenUtility.java:230)
 import org.dmd.dms.generated.types.DmcTypeStringSV;            // Required type - (GenUtility.java:339)
@@ -207,6 +208,56 @@ public class ActionResponseDMO  extends ResponseDMO  implements Serializable  {
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1367)
     public void remObjectList(){
          rem(DmpDMSAG.__objectList);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
+    public Integer getServerActionID(){
+        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(DmpDMSAG.__serverActionID);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets serverActionID to the specified value.
+     * @param value Integer
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
+    public void setServerActionID(Integer value) {
+        DmcAttribute<?> attr = get(DmpDMSAG.__serverActionID);
+        if (attr == null)
+            attr = new DmcTypeIntegerSV(DmpDMSAG.__serverActionID);
+        
+        try{
+            attr.set(value);
+            set(DmpDMSAG.__serverActionID,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets serverActionID to the specified value.
+     * @param value A value compatible with DmcTypeIntegerSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
+    public void setServerActionID(Object value) throws DmcValueException {
+        DmcTypeIntegerSV attr  = (DmcTypeIntegerSV) get(DmpDMSAG.__serverActionID);
+        if (attr == null)
+            attr = new DmcTypeIntegerSV(DmpDMSAG.__serverActionID);
+        
+        attr.set(value);
+        set(DmpDMSAG.__serverActionID,attr);
+    }
+
+    /**
+     * Removes the serverActionID attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
+    public void remServerActionID(){
+         rem(DmpDMSAG.__serverActionID);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)

@@ -336,6 +336,14 @@ type                Boolean
 description			Used in conjunction with the primeEventChannel action to indicate that the
  response has come via the event channel.
 
+AttributeDefinition
+name                serverActionID
+dmdID				46
+type                Integer
+description			The serverActionID is a unique identifier assigned by a server that's
+ handling ActionRequests. If you need to cancel a running action, you would provide this
+ value in the request.
+
 //AttributeDefinition
 //name                targetObject
 //dmdID				30
