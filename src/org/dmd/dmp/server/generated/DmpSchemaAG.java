@@ -62,6 +62,8 @@ public class DmpSchemaAG extends SchemaDefinition {
     public static ClassDefinition _DenotifyResponse;
     public static ClassDefinition _PreAuthRequest;
     public static ClassDefinition _PreAuthResponse;
+    public static ClassDefinition _ActionCancelRequest;
+    public static ClassDefinition _ActionCancelResponse;
 
     public static AttributeDefinition _requestID;
     public static AttributeDefinition _sessionID;
@@ -106,6 +108,7 @@ public class DmpSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _myOwnEvent;
     public static AttributeDefinition _objectsToCome;
     public static AttributeDefinition _eventChannelReady;
+    public static AttributeDefinition _serverActionID;
 
 
 
@@ -396,13 +399,14 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ActionResponseOBJ.setDmdID("1011");
             _ActionResponseOBJ.setClassType("EXTENSIBLE");
             _ActionResponseOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _ActionResponseOBJ.setLineNumber("160");
+            _ActionResponseOBJ.setLineNumber("161");
             _ActionResponseOBJ.addDescription("The ActionResponse returns the results of a particular ActionRequest. Exactly what is\n returned will depend on the efActionDef.");
             _ActionResponseOBJ.setUseWrapperType("EXTENDED");
             _ActionResponseOBJ.setDerivedFrom("dmp.Response");
             _ActionResponseOBJ.addMust("dmp.timeMS");
             _ActionResponseOBJ.addMust("dmp.actionName");
             _ActionResponseOBJ.addMay("dmp.objectList");
+            _ActionResponseOBJ.addMay("dmp.serverActionID");
             _ActionResponseOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.ActionResponseIterableDMW");
             _ActionResponseOBJ.setDmwIteratorClass("ActionResponseIterableDMW");
             _ActionResponseOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.ActionResponseREF");
@@ -417,7 +421,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _SetRequestOBJ.setDmdID("1012");
             _SetRequestOBJ.setClassType("STRUCTURAL");
             _SetRequestOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _SetRequestOBJ.setLineNumber("173");
+            _SetRequestOBJ.setLineNumber("174");
             _SetRequestOBJ.addDescription("The SetRequest allows you to alter the attribute values associated\n with an object. Like the get request, the set of attributes that can be manipulated\n will depend on the object type that is specified.");
             _SetRequestOBJ.setUseWrapperType("EXTENDED");
             _SetRequestOBJ.setDerivedFrom("dmp.Request");
@@ -438,7 +442,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _SetResponseOBJ.setDmdID("1013");
             _SetResponseOBJ.setClassType("EXTENSIBLE");
             _SetResponseOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _SetResponseOBJ.setLineNumber("185");
+            _SetResponseOBJ.setLineNumber("186");
             _SetResponseOBJ.addDescription("The SetResponse returns the results of a particular SetRequest. The objectList will contain\n the objects with the previously specified edits.");
             _SetResponseOBJ.setUseWrapperType("EXTENDED");
             _SetResponseOBJ.setDerivedFrom("dmp.Response");
@@ -459,7 +463,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _CreateRequestOBJ.setDmdID("1014");
             _CreateRequestOBJ.setClassType("STRUCTURAL");
             _CreateRequestOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _CreateRequestOBJ.setLineNumber("197");
+            _CreateRequestOBJ.setLineNumber("198");
             _CreateRequestOBJ.addDescription("The CreateRequest allows you to create a new object. If the parentName is specified,\n the object will be created beneath that parent object.");
             _CreateRequestOBJ.setUseWrapperType("EXTENDED");
             _CreateRequestOBJ.setDerivedFrom("dmp.Request");
@@ -480,7 +484,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _CreateResponseOBJ.setDmdID("1015");
             _CreateResponseOBJ.setClassType("STRUCTURAL");
             _CreateResponseOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _CreateResponseOBJ.setLineNumber("208");
+            _CreateResponseOBJ.setLineNumber("209");
             _CreateResponseOBJ.addDescription("The CreateResponse returns the results of a particular CreateRequest. The objectList\n contents will be implementation specific e.g. if there were problems with object creation there\n may be error indications.");
             _CreateResponseOBJ.setUseWrapperType("EXTENDED");
             _CreateResponseOBJ.setDerivedFrom("dmp.Response");
@@ -499,7 +503,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DeleteRequestOBJ.setDmdID("1016");
             _DeleteRequestOBJ.setClassType("STRUCTURAL");
             _DeleteRequestOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _DeleteRequestOBJ.setLineNumber("220");
+            _DeleteRequestOBJ.setLineNumber("221");
             _DeleteRequestOBJ.addDescription("The DeleteRequest allows you to delete one or more objects. If no scope is specified,\n the scope is assumed to be BASE i.e. just the specific object indicated by the targets. The behaviour\n of this request is implementation specific.");
             _DeleteRequestOBJ.setUseWrapperType("EXTENDED");
             _DeleteRequestOBJ.setDerivedFrom("dmp.Request");
@@ -519,7 +523,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DeleteResponseOBJ.setDmdID("1017");
             _DeleteResponseOBJ.setClassType("STRUCTURAL");
             _DeleteResponseOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _DeleteResponseOBJ.setLineNumber("231");
+            _DeleteResponseOBJ.setLineNumber("232");
             _DeleteResponseOBJ.addDescription("The DeleteResponse returns the results of a particular DeleteRequest. The objectList\n contents will be implementation specific e.g. if there were problems with object deletion there\n may be error indications.");
             _DeleteResponseOBJ.setUseWrapperType("EXTENDED");
             _DeleteResponseOBJ.setDerivedFrom("dmp.Response");
@@ -538,7 +542,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DMPEventOBJ.setDmdID("1018");
             _DMPEventOBJ.setClassType("STRUCTURAL");
             _DMPEventOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _DMPEventOBJ.setLineNumber("251");
+            _DMPEventOBJ.setLineNumber("252");
             _DMPEventOBJ.addDescription("The Event class allows for the asynchronous notification of noteworthy system events.");
             _DMPEventOBJ.setUseWrapperType("EXTENDED");
             _DMPEventOBJ.setDerivedFrom("dmp.DMPMessage");
@@ -568,7 +572,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _NotifyRequestOBJ.setDmdID("1019");
             _NotifyRequestOBJ.setClassType("STRUCTURAL");
             _NotifyRequestOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _NotifyRequestOBJ.setLineNumber("263");
+            _NotifyRequestOBJ.setLineNumber("264");
             _NotifyRequestOBJ.addDescription("The NotifyRequest allows you to register for events on an arbitrary object or set\n of objects.");
             _NotifyRequestOBJ.setUseWrapperType("EXTENDED");
             _NotifyRequestOBJ.setDerivedFrom("dmp.Request");
@@ -590,7 +594,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _NotifyResponseOBJ.setClassType("STRUCTURAL");
             _NotifyResponseOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
             _NotifyResponseOBJ.setDotName("dmp.NotifyResponse.ClassDefinition");
-            _NotifyResponseOBJ.setLineNumber("271");
+            _NotifyResponseOBJ.setLineNumber("272");
             _NotifyResponseOBJ.addDescription("The NotifyResponse is sent as the result of a NotifyRequest.");
             _NotifyResponseOBJ.setUseWrapperType("EXTENDED");
             _NotifyResponseOBJ.setDerivedFrom("dmp.Response");
@@ -607,7 +611,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DenotifyRequestOBJ.setDmdID("1021");
             _DenotifyRequestOBJ.setClassType("STRUCTURAL");
             _DenotifyRequestOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _DenotifyRequestOBJ.setLineNumber("284");
+            _DenotifyRequestOBJ.setLineNumber("285");
             _DenotifyRequestOBJ.addDescription("The DenotifyRequest allows you to deregister for event notification on\n one or more objects.");
             _DenotifyRequestOBJ.setUseWrapperType("EXTENDED");
             _DenotifyRequestOBJ.setDerivedFrom("dmp.Request");
@@ -629,7 +633,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DenotifyResponseOBJ.setDmdID("1022");
             _DenotifyResponseOBJ.setClassType("STRUCTURAL");
             _DenotifyResponseOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _DenotifyResponseOBJ.setLineNumber("295");
+            _DenotifyResponseOBJ.setLineNumber("296");
             _DenotifyResponseOBJ.addDescription("The DenotifyResponse is sent as a result of a DenotifyRequest.");
             _DenotifyResponseOBJ.setUseWrapperType("EXTENDED");
             _DenotifyResponseOBJ.setDerivedFrom("dmp.Response");
@@ -651,7 +655,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _PreAuthRequestOBJ.setClassType("STRUCTURAL");
             _PreAuthRequestOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
             _PreAuthRequestOBJ.setDotName("dmp.PreAuthRequest.ClassDefinition");
-            _PreAuthRequestOBJ.setLineNumber("305");
+            _PreAuthRequestOBJ.setLineNumber("306");
             _PreAuthRequestOBJ.addDescription("The PreAuthRequest allows for the retrieval of information from the\n servlet before a user has authenticated. Exactly what type of information can be \n retrieved is application specific.");
             _PreAuthRequestOBJ.setUseWrapperType("EXTENDED");
             _PreAuthRequestOBJ.setDerivedFrom("dmp.Request");
@@ -668,7 +672,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _PreAuthResponseOBJ.setDmdID("1024");
             _PreAuthResponseOBJ.setClassType("STRUCTURAL");
             _PreAuthResponseOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _PreAuthResponseOBJ.setLineNumber("314");
+            _PreAuthResponseOBJ.setLineNumber("316");
             _PreAuthResponseOBJ.addDescription("The PreAuthResponse is sent as a result of a PreAuthRequest.");
             _PreAuthResponseOBJ.setUseWrapperType("EXTENDED");
             _PreAuthResponseOBJ.setDerivedFrom("dmp.Response");
@@ -680,6 +684,43 @@ public class DmpSchemaAG extends SchemaDefinition {
             _PreAuthResponseOBJ.setDotName("dmp.PreAuthResponse.ClassDefinition");
             _PreAuthResponse.setDefinedIn(this);
             addClassDefList(_PreAuthResponse);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            ClassDefinitionDMO _ActionCancelRequestOBJ = new ClassDefinitionDMO();
+            _ActionCancelRequest = new ClassDefinition(_ActionCancelRequestOBJ,DmpDMSAG.__ActionCancelRequest);
+            _ActionCancelRequestOBJ.setName("ActionCancelRequest");
+            _ActionCancelRequestOBJ.setDmdID("1025");
+            _ActionCancelRequestOBJ.setClassType("EXTENSIBLE");
+            _ActionCancelRequestOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
+            _ActionCancelRequestOBJ.setLineNumber("327");
+            _ActionCancelRequestOBJ.addDescription("The ActionCancelRequest is used to cancel an action that is running\n on the server. The serverActionID will have been sent in any ActionResponse\n after the action starts execution.");
+            _ActionCancelRequestOBJ.setUseWrapperType("EXTENDED");
+            _ActionCancelRequestOBJ.setDerivedFrom("dmp.Request");
+            _ActionCancelRequestOBJ.addMust("dmp.serverActionID");
+            _ActionCancelRequestOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.ActionCancelRequestIterableDMW");
+            _ActionCancelRequestOBJ.setDmwIteratorClass("ActionCancelRequestIterableDMW");
+            _ActionCancelRequestOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.ActionCancelRequestREF");
+            _ActionCancelRequestOBJ.setDotName("dmp.ActionCancelRequest.ClassDefinition");
+            _ActionCancelRequest.setDefinedIn(this);
+            addClassDefList(_ActionCancelRequest);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            ClassDefinitionDMO _ActionCancelResponseOBJ = new ClassDefinitionDMO();
+            _ActionCancelResponse = new ClassDefinition(_ActionCancelResponseOBJ,DmpDMSAG.__ActionCancelResponse);
+            _ActionCancelResponseOBJ.setName("ActionCancelResponse");
+            _ActionCancelResponseOBJ.setDmdID("1026");
+            _ActionCancelResponseOBJ.setClassType("EXTENSIBLE");
+            _ActionCancelResponseOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
+            _ActionCancelResponseOBJ.setDotName("dmp.ActionCancelResponse.ClassDefinition");
+            _ActionCancelResponseOBJ.setLineNumber("334");
+            _ActionCancelResponseOBJ.addDescription("The ActionCancelResponse returns the results of cancelling a running action.");
+            _ActionCancelResponseOBJ.setUseWrapperType("EXTENDED");
+            _ActionCancelResponseOBJ.setDerivedFrom("dmp.Response");
+            _ActionCancelResponseOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.ActionCancelResponseIterableDMW");
+            _ActionCancelResponseOBJ.setDmwIteratorClass("ActionCancelResponseIterableDMW");
+            _ActionCancelResponse.setDefinedIn(this);
+            _ActionCancelResponseOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.ActionCancelResponseREF");
+            addClassDefList(_ActionCancelResponse);
 
     }
 
@@ -1250,6 +1291,19 @@ public class DmpSchemaAG extends SchemaDefinition {
             _eventChannelReadyOBJ.setLineNumber("338");
             _eventChannelReady.setDefinedIn(this);
             addAttributeDefList(_eventChannelReady);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            AttributeDefinitionDMO _serverActionIDOBJ = new AttributeDefinitionDMO();
+            _serverActionID = new AttributeDefinition(_serverActionIDOBJ);
+            _serverActionIDOBJ.addDescription("The serverActionID is a unique identifier assigned by a server that's\n handling ActionRequests. If you need to cancel a running action, you would provide this\n value in the request.");
+            _serverActionIDOBJ.setName("serverActionID");
+            _serverActionIDOBJ.setDmdID("546");
+            _serverActionIDOBJ.setType("meta.Integer");
+            _serverActionIDOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
+            _serverActionIDOBJ.setDotName("dmp.serverActionID.AttributeDefinition");
+            _serverActionIDOBJ.setLineNumber("346");
+            _serverActionID.setDefinedIn(this);
+            addAttributeDefList(_serverActionID);
 
     }
 

@@ -42,6 +42,7 @@ public class DmpDMSAGAMAP {
         _SmAp.put(DmpDMSAG.__responseText.id,DmpDMSAG.__responseText);
         _SmAp.put(DmpDMSAG.__responseType.id,DmpDMSAG.__responseType);
         _SmAp.put(DmpDMSAG.__scope.id,DmpDMSAG.__scope);
+        _SmAp.put(DmpDMSAG.__serverActionID.id,DmpDMSAG.__serverActionID);
         _SmAp.put(DmpDMSAG.__sessionID.id,DmpDMSAG.__sessionID);
         _SmAp.put(DmpDMSAG.__slice.id,DmpDMSAG.__slice);
         _SmAp.put(DmpDMSAG.__source.id,DmpDMSAG.__source);

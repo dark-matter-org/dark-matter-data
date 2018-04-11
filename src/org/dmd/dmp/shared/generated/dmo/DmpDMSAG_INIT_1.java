@@ -172,6 +172,7 @@ public class DmpDMSAG_INIT_1 {
         DmpDMSAG.__ActionResponse.addMay(DmpDMSAG.__objectList);
         DmpDMSAG.__ActionResponse.addMay(DmpDMSAG.__responseCategory);
         DmpDMSAG.__ActionResponse.addMay(DmpDMSAG.__responseText);
+        DmpDMSAG.__ActionResponse.addMay(DmpDMSAG.__serverActionID);
         DmpDMSAG.__ActionResponse.addMay(DmpDMSAG.__timeMS);
         DmpDMSAG.__ActionResponse.addMay(DmpDMSAG.__trackingEnabled);
 
@@ -365,6 +366,32 @@ public class DmpDMSAG_INIT_1 {
         DmpDMSAG.__PreAuthResponse.addMay(DmpDMSAG.__responseText);
         DmpDMSAG.__PreAuthResponse.addMay(DmpDMSAG.__timeMS);
         DmpDMSAG.__PreAuthResponse.addMay(DmpDMSAG.__trackingEnabled);
+
+    // 25 -- ActionCancelRequest
+        DmpDMSAG.__ActionCancelRequest.addMust(DmpDMSAG.__requestID);
+        DmpDMSAG.__ActionCancelRequest.addMust(DmpDMSAG.__serverActionID);
+        DmpDMSAG.__ActionCancelRequest.addMay(DmpDMSAG.__handlerID);
+        DmpDMSAG.__ActionCancelRequest.addMay(DmpDMSAG.__notifyOriginator);
+        DmpDMSAG.__ActionCancelRequest.addMay(MetaDMSAG.__nvp);
+        DmpDMSAG.__ActionCancelRequest.addMay(DmpDMSAG.__originatorID);
+        DmpDMSAG.__ActionCancelRequest.addMay(DmpDMSAG.__readableFormat);
+        DmpDMSAG.__ActionCancelRequest.addMay(DmpDMSAG.__responseFormat);
+        DmpDMSAG.__ActionCancelRequest.addMay(DmpDMSAG.__sessionID);
+        DmpDMSAG.__ActionCancelRequest.addMay(DmpDMSAG.__timeMS);
+        DmpDMSAG.__ActionCancelRequest.addMay(DmpDMSAG.__timeoutSeconds);
+        DmpDMSAG.__ActionCancelRequest.addMay(DmpDMSAG.__trackingEnabled);
+        DmpDMSAG.__ActionCancelRequest.addMay(DmrbaseDMSAG.__userName);
+
+    // 26 -- ActionCancelResponse
+        DmpDMSAG.__ActionCancelResponse.addMust(DmpDMSAG.__lastResponse);
+        DmpDMSAG.__ActionCancelResponse.addMust(DmpDMSAG.__requestID);
+        DmpDMSAG.__ActionCancelResponse.addMust(DmpDMSAG.__responseType);
+        DmpDMSAG.__ActionCancelResponse.addMay(DmpDMSAG.__handlerID);
+        DmpDMSAG.__ActionCancelResponse.addMay(MetaDMSAG.__nvp);
+        DmpDMSAG.__ActionCancelResponse.addMay(DmpDMSAG.__responseCategory);
+        DmpDMSAG.__ActionCancelResponse.addMay(DmpDMSAG.__responseText);
+        DmpDMSAG.__ActionCancelResponse.addMay(DmpDMSAG.__timeMS);
+        DmpDMSAG.__ActionCancelResponse.addMay(DmpDMSAG.__trackingEnabled);
 
 
     }

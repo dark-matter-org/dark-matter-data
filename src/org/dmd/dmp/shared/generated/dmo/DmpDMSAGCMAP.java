@@ -11,6 +11,8 @@ import org.dmd.dmc.*;             // Basic DMC stuff - (DmoCompactSchemaFormatte
 public class DmpDMSAGCMAP {
 
     static protected void initCmAp(HashMap<Integer, DmcClassInfo> _CmAp){
+        _CmAp.put(DmpDMSAG.__ActionCancelRequest.id,DmpDMSAG.__ActionCancelRequest);
+        _CmAp.put(DmpDMSAG.__ActionCancelResponse.id,DmpDMSAG.__ActionCancelResponse);
         _CmAp.put(DmpDMSAG.__ActionRequest.id,DmpDMSAG.__ActionRequest);
         _CmAp.put(DmpDMSAG.__ActionResponse.id,DmpDMSAG.__ActionResponse);
         _CmAp.put(DmpDMSAG.__CreateRequest.id,DmpDMSAG.__CreateRequest);
