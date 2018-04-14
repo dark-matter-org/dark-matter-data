@@ -1,5 +1,7 @@
 package org.dmd.dmp.client;
 
+import org.dmd.dmp.shared.generated.dmo.ActionCancelRequestDMO;
+import org.dmd.dmp.shared.generated.dmo.ActionCancelResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.ActionRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.ActionResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.CreateRequestDMO;
@@ -86,6 +88,13 @@ public interface DMPServiceAsync {
 	 * @param callback The callback to handle the response.
 	 */
 	void action(ActionRequestDMO actionRequest, AsyncCallback<ActionResponseDMO> callback);
+
+	/**
+	 * Cancels a running action.
+	 * @param actionCancelRequest The request.
+	 * @param callback The callback to handle the response.
+	 */
+	void actionCancel(ActionCancelRequestDMO actionCancelRequest, AsyncCallback<ActionCancelResponseDMO> callback);
 
 	/**
 	 * Allows for registration of interest in events associated with objects.

@@ -53,7 +53,7 @@ abstract public class Request extends RequestDMW {
 		}
 		response.setResponseType(ResponseTypeEnum.SUCCESS);
 		if (getTimeMS() != null)
-			response.setTimeMS(getTimeMS());
+			response.setTimeMS(System.currentTimeMillis());
 		if (getHandlerID() != null)
 			response.setHandlerID(getHandlerID());
 	}
@@ -69,7 +69,7 @@ abstract public class Request extends RequestDMW {
 		}
 		response.setResponseType(ResponseTypeEnum.ERROR);
 		if (getTimeMS() != null)
-			response.setTimeMS(getTimeMS());
+			response.setTimeMS(System.currentTimeMillis());
 		if (getHandlerID() != null)
 			response.setHandlerID(getHandlerID());
 	}

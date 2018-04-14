@@ -39,7 +39,11 @@ public enum ResponseTypeEnum implements DmcEnumIF
 
     PROGRESSTEXT(4,"Indicates that the request is proceeding and that this is a textual update on the progress of the request."),
 
-    PROGRESSPERCENT(5,"Indicates that the request is proceeding and that this is the percentage of the processing that's complete.");
+    PROGRESSPERCENT(5,"Indicates that the request is proceeding and that this is the percentage of the processing that's complete."),
+
+    HEARTBEAT(6,"Indicates that an action is still in progress."),
+
+    CANCELLED(7,"Indicates that an operation has been cancelled; generally used when an action is cancelled.");
 
     // Maps our integer value to the enumeration value
     private static final Map<Integer,ResponseTypeEnum> lookup = new HashMap<Integer,ResponseTypeEnum>();
