@@ -1,5 +1,7 @@
 package org.dmd.dmp.client;
 
+import org.dmd.dmp.shared.generated.dmo.ActionCancelRequestDMO;
+import org.dmd.dmp.shared.generated.dmo.ActionCancelResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.ActionRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.ActionResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.CreateRequestDMO;
@@ -47,6 +49,8 @@ public interface DMPService extends RemoteService {
 	DeleteResponseDMO delete(DeleteRequestDMO deleteRequest);
 
 	ActionResponseDMO action(ActionRequestDMO actionRequest);
+
+	ActionCancelResponseDMO actionCancel(ActionCancelRequestDMO actionCancelRequest);
 
 	NotifyResponseDMO notify(NotifyRequestDMO notifyRequest);
 
