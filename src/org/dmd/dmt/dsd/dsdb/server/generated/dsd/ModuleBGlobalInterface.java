@@ -42,11 +42,19 @@ public interface ModuleBGlobalInterface {
     public Iterator<BConceptX> getAllBConceptX();
     public BConceptX getBConceptXDefinition(String name) throws DmcNameClashException, DmcValueException;
 
+    public Iterator<BConceptX> getBConceptXDefinitionsByName(String name) throws DmcValueException;
+
+    public int getBConceptXDefinitionCountByName(String name) throws DmcValueException;
+
     public void addModuleB(ModuleB def);
     public int getModuleBCount();
     public ModuleB getModuleB(DotName name);
     public Iterator<ModuleB> getAllModuleB();
     public ModuleB getModuleBDefinition(String name) throws DmcNameClashException, DmcValueException;
+
+    public Iterator<ModuleB> getModuleBDefinitionsByName(String name) throws DmcValueException;
+
+    public int getModuleBDefinitionCountByName(String name) throws DmcValueException;
 
 }
 

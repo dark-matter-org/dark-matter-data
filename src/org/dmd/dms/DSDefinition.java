@@ -1,12 +1,13 @@
 package org.dmd.dms;
 
+import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.definitions.DmcDefinitionIF;
 import org.dmd.dmc.types.DotName;
 import org.dmd.dms.generated.dmw.DSDefinitionDMW;
 
-public class DSDefinition extends DSDefinitionDMW implements DmcDefinitionIF {
+public class DSDefinition extends DSDefinitionDMW implements DmcDefinitionIF, DmcNamedObjectIF {
 	
 	private static DotName fullDotName;
 

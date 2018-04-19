@@ -1,6 +1,8 @@
 package org.dmd.dms.util;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.TreeMap;
 
@@ -10,6 +12,7 @@ import org.dmd.dms.DSDefinitionModule;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.dmw.DSDefinitionModuleIterableDMW;
+import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.ManagedFileWriter;
 import org.dmd.util.codegen.ImplementsManager;
@@ -81,6 +84,7 @@ public class DmoCacheFormatter {
 		imports.addImport("org.dmd.dmc.DmcNamedObjectIF", "To support object resolution");
 		imports.addImport("org.dmd.dmc.DmcObject", "To support object resolution");
 		imports.addImport("org.dmd.dmc.DmcObjectName", "To support object resolution");
+//		imports.addImport("org.dmd.dmc.DmcOmni", "To support class resolution");
 		imports.addImport("org.dmd.dmc.DmcValueExceptionSet", "Can be thrown when we try to resolve references");
 		imports.addImport("org.dmd.dmc.DmcValueException", "Can be thrown when we try to resolve references");
 		imports.addImport("org.dmd.dmc.DmcAttributeInfo", "Used when resolving clashes");
@@ -111,7 +115,7 @@ public class DmoCacheFormatter {
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("    public void resolveReferences() throws DmcValueExceptionSet {\n");
 		out.write("        for(DSDefinitionDMO def: allDefinitions.values()){\n");
-		out.write("            def.resolveReferences(this,this);\n");
+		out.write("            def.resolveReferencesExceptClass(this,this);\n");
 		out.write("        }\n");
 		out.write("    }\n");
 		out.write("\n");
@@ -119,17 +123,22 @@ public class DmoCacheFormatter {
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("    public DmcNamedObjectIF findNamedObject(DmcObjectName name) {\n");
 		out.write("        DSDefinitionDMO def = null;\n");
-	    	out.write("        try {\n");
-	    	out.write("    	       def = allDefinitions.getDefinition(name.toString());\n");
-	    	out.write("        } catch (DmcNameClashException e) {\n");
-	    	out.write("    	       // TODO Auto-generated catch block\n");
-	    	out.write("    	       e.printStackTrace();\n");
-	    	out.write("        } catch (DmcValueException e) {\n");
-	    	out.write("    	       // TODO Auto-generated catch block\n");
-	    	out.write("    	       e.printStackTrace();\n");
-	    	out.write("        }\n");
-	    	out.write("\n");
-	    	out.write("        return(def);\n");
+    	out.write("        try {\n");
+    	out.write("    	       def = allDefinitions.getDefinition(name.toString());\n");
+    	out.write("        } catch (DmcNameClashException e) {\n");
+    	out.write("    	       // TODO Auto-generated catch block\n");
+    	out.write("    	       e.printStackTrace();\n");
+    	out.write("        } catch (DmcValueException e) {\n");
+    	out.write("    	       // TODO Auto-generated catch block\n");
+    	out.write("    	       e.printStackTrace();\n");
+    	out.write("        }\n");
+    	out.write("\n");
+//    	out.write("        if (def == null) {\n");
+//    	out.write("            // Fall back to the schema\n");
+//    	out.write("            return(DmcOmni.instance().findNamedObject(name));\n");
+//    	out.write("        }\n");
+    	out.write("        return(def);\n");
+    	out.write("\n");
 		out.write("    }\n\n");
 
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
@@ -140,20 +149,22 @@ public class DmoCacheFormatter {
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("    public DmcObject findNamedDMO(DmcObjectName name) {\n");
 		out.write("        DSDefinitionDMO def = null;\n");
-	    	out.write("        try {\n");
-	    	out.write("    	       def = allDefinitions.getDefinition(name.toString());\n");
-	    	out.write("        } catch (DmcNameClashException e) {\n");
-	    	out.write("    	       // TODO Auto-generated catch block\n");
-	    	out.write("    	       e.printStackTrace();\n");
-	    	out.write("        } catch (DmcValueException e) {\n");
-	    	out.write("    	       // TODO Auto-generated catch block\n");
-	    	out.write("    	       e.printStackTrace();\n");
-	    	out.write("        }\n");
-	    	out.write("\n");
-	    	out.write("        if (def==null)\n");
-	    	out.write("            return(null);\n");
-	    	out.write("\n");
-	    	out.write("        return(def);\n");
+    	out.write("        try {\n");
+    	out.write("    	       def = allDefinitions.getDefinition(name.toString());\n");
+    	out.write("        } catch (DmcNameClashException e) {\n");
+    	out.write("    	       // TODO Auto-generated catch block\n");
+    	out.write("    	       e.printStackTrace();\n");
+    	out.write("        } catch (DmcValueException e) {\n");
+    	out.write("    	       // TODO Auto-generated catch block\n");
+    	out.write("    	       e.printStackTrace();\n");
+    	out.write("        }\n");
+    	out.write("\n");
+//    	out.write("        if (def == null) {\n");
+//    	out.write("            // Fall back to the schema\n");
+//    	out.write("            return(DmcOmni.instance().findNamedDMO(name));\n");
+//    	out.write("        }\n");
+//    	out.write("\n");
+    	out.write("        return(def);\n");
 		out.write("    }\n\n");
 
 		ClassDefinition dsd = (ClassDefinition) ddm.getBaseDefinition();
@@ -185,6 +196,11 @@ public class DmoCacheFormatter {
 		out.write("            rc = allDefinitions.getDefinition(dn);\n");
 		out.write("        }\n");
 		out.write("    \n");
+//		out.write("        if (rc == null) {\n");
+//		out.write("            // Fall back to the schema\n");
+//		out.write("            return(DmcOmni.instance().findNamedObject(name));\n");
+//		out.write("        }\n");
+//		out.write("    \n");
 		out.write("        return(rc);\n");
 		out.write("    }\n\n");
 		
@@ -206,6 +222,8 @@ public class DmoCacheFormatter {
 		
 		
 		dumpDefinitionInterfaceMethods(out, includedModules);
+		
+		dumpAddMethod(out, ddm);
 		
 		out.write("}\n\n");
 		
@@ -244,6 +262,86 @@ public class DmoCacheFormatter {
 		}
 	}
 	
+	///////////////////////////////////////////////////////////////////////////
+	
+	/**
+	 * This dumps a single add() method that will add the specified definition to the appropriate
+	 * indices.
+	 * @param out the place we're writing
+	 * @throws IOException
+	 */
+	void dumpAddMethod(ManagedFileWriter out, DSDefinitionModule ddm) throws IOException {
+		ImportManager imports = new ImportManager();
+		TreeMap<Integer, ArrayList<ClassDefinition>>	structuralDefs = new TreeMap<Integer, ArrayList<ClassDefinition>>(Collections.reverseOrder());
+		getImportsForDefinitionsInSingleModule(imports, ddm, structuralDefs);
+
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    public void addDefinition(DSDefinitionDMO definition){\n");
+
+		boolean first = true;
+		String condition = "if";
+		
+		for(Integer depth: structuralDefs.keySet()){
+			ArrayList<ClassDefinition>	atDepth = structuralDefs.get(depth);
+
+			for(ClassDefinition cd: atDepth){
+				out.write("            " + condition + " (definition instanceof " + cd.getName() + "DMO){\n");
+				out.write("                add" + cd.getName() + "((" + cd.getName() + "DMO)definition);\n");
+				out.write("            }\n");
+				if (first)
+					condition = "else if";
+			}
+		}
+		
+		// NOTE NOTE NOTE
+		// And then, we also add the module itself, since the module isn't derived from the
+		// base definition and doesn't show up in the structuralDefs
+		out.write("            " + condition + " (definition instanceof " + ddm.getModuleClassName() + "DMO){\n");
+		out.write("                add" + ddm.getModuleClassName() + "((" + ddm.getModuleClassName() + "DMO)definition);\n");
+		out.write("            }\n");
+		
+		out.write("\n");
+		
+		out.write("    }\n\n");
+		
+	}
+
+	/**
+	 * We populate the imports with the base definition and the various derived definitions that are structural.
+	 * We don't bother with abstract defs because they'll never be specified in a config. We also hold on to
+	 * the structural classes so that we can generate the object handling code later.
+	 * @param imports the import manager to populate
+	 * @param ddm the DDM we're generating for
+	 * @param structuralDefs place to store the structural definition classes
+	 */
+	void getImportsForDefinitionsInSingleModule(ImportManager imports, DSDefinitionModule ddm, TreeMap<Integer, ArrayList<ClassDefinition>> structuralDefs){
+		ClassDefinition dsd = (ClassDefinition) ddm.getBaseDefinition();
+		
+		imports.addImport(dsd.getDmeImport(), "The base definition from the " + ddm.getName() + " Module");
+		
+		TreeMap<DefinitionName,ClassDefinition> allDerived = dsd.getAllDerived();
+		for(ClassDefinition cd : allDerived.values()){
+//		for(ClassDefinition cd : dsd.getDerivedClasses()){
+			if (cd.getClassType() == ClassTypeEnum.STRUCTURAL){
+				// Add the structural classes except for the one that represents the module
+				if (!cd.getName().getNameString().equals(ddm.getName().getNameString())){
+					imports.addImport(cd.getDmeImport(), "A definition from the " + ddm.getName() + " Module");
+					int depth = cd.derivationDepth();
+					
+					ArrayList<ClassDefinition> atDepth = structuralDefs.get(depth);
+					if (atDepth == null){
+						atDepth = new ArrayList<ClassDefinition>();
+						structuralDefs.put(depth, atDepth);
+					}
+					atDepth.add(cd);
+				}
+			}
+		}
+				
+	}
+
+	///////////////////////////////////////////////////////////////////////////
+		
 	/**
 	 * This method generates an interface that has the methods required to store and retrieve
 	 * the definitions associated with a particular DSD module, including the module type itself.

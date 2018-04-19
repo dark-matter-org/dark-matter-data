@@ -25,7 +25,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.dmd.dmc.DmcNameClashException;
-import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmc.util.DmcUncheckedObject;

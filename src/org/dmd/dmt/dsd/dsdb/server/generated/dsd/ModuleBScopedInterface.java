@@ -41,5 +41,9 @@ public interface ModuleBScopedInterface {
     public Iterator<BConceptX> getAllBConceptX();
     public BConceptX getBConceptXDefinition(String name) throws DmcNameClashException, DmcValueException;
 
+    public Iterator<BConceptX> getBConceptXDefinitionsByName(String name) throws DmcValueException;
+
+    public int getBConceptXDefinitionCountByName(String name) throws DmcValueException;
+
 }
 

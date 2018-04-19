@@ -201,7 +201,7 @@ public class ModuleBDefinitionManager implements DmcNameClashResolverIF, DmcName
         return(rc);
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:299)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:302)
     // Called from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionInterfaceMethods(DSDArtifactFormatter.java:402)
     /**
      * All definitions are added to the base definition collection.
@@ -222,7 +222,7 @@ public class ModuleBDefinitionManager implements DmcNameClashResolverIF, DmcName
         return(AConceptBaseDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:334)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:337)
     public void addABConceptX(ABConceptX def){
         ABConceptXDefs.add(def);
         addAConceptX(def);
@@ -244,7 +244,15 @@ public class ModuleBDefinitionManager implements DmcNameClashResolverIF, DmcName
         return(ABConceptXDefs.getDefinition(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:334)
+    public Iterator<ABConceptX> getABConceptXDefinitionsByName(String name) throws DmcValueException{
+        return(ABConceptXDefs.getDefinitionsByName(name));
+    }
+
+    public int getABConceptXDefinitionCountByName(String name) throws DmcValueException{
+        return(ABConceptXDefs.getDefinitionCountByName(name));
+    }
+
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:337)
     public void addAConceptX(AConceptX def){
         AConceptXDefs.add(def);
         addAConceptBase(def);
@@ -266,7 +274,15 @@ public class ModuleBDefinitionManager implements DmcNameClashResolverIF, DmcName
         return(AConceptXDefs.getDefinition(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:334)
+    public Iterator<AConceptX> getAConceptXDefinitionsByName(String name) throws DmcValueException{
+        return(AConceptXDefs.getDefinitionsByName(name));
+    }
+
+    public int getAConceptXDefinitionCountByName(String name) throws DmcValueException{
+        return(AConceptXDefs.getDefinitionCountByName(name));
+    }
+
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:337)
     public void addModuleA(ModuleA def){
         ModuleADefs.add(def);
         addAConceptBase(def);
@@ -288,7 +304,15 @@ public class ModuleBDefinitionManager implements DmcNameClashResolverIF, DmcName
         return(ModuleADefs.getDefinition(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:299)
+    public Iterator<ModuleA> getModuleADefinitionsByName(String name) throws DmcValueException{
+        return(ModuleADefs.getDefinitionsByName(name));
+    }
+
+    public int getModuleADefinitionCountByName(String name) throws DmcValueException{
+        return(ModuleADefs.getDefinitionCountByName(name));
+    }
+
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:302)
     // Called from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionInterfaceMethods(DSDArtifactFormatter.java:402)
     /**
      * All definitions are added to the base definition collection.
@@ -309,7 +333,7 @@ public class ModuleBDefinitionManager implements DmcNameClashResolverIF, DmcName
         return(BConceptBaseDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:334)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:337)
     public void addBConceptX(BConceptX def){
         BConceptXDefs.add(def);
         addBConceptBase(def);
@@ -331,7 +355,15 @@ public class ModuleBDefinitionManager implements DmcNameClashResolverIF, DmcName
         return(BConceptXDefs.getDefinition(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:334)
+    public Iterator<BConceptX> getBConceptXDefinitionsByName(String name) throws DmcValueException{
+        return(BConceptXDefs.getDefinitionsByName(name));
+    }
+
+    public int getBConceptXDefinitionCountByName(String name) throws DmcValueException{
+        return(BConceptXDefs.getDefinitionCountByName(name));
+    }
+
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:337)
     public void addModuleB(ModuleB def){
         ModuleBDefs.add(def);
         addBConceptBase(def);
@@ -351,6 +383,14 @@ public class ModuleBDefinitionManager implements DmcNameClashResolverIF, DmcName
 
     public ModuleB getModuleBDefinition(String name) throws DmcNameClashException, DmcValueException{
         return(ModuleBDefs.getDefinition(name));
+    }
+
+    public Iterator<ModuleB> getModuleBDefinitionsByName(String name) throws DmcValueException{
+        return(ModuleBDefs.getDefinitionsByName(name));
+    }
+
+    public int getModuleBDefinitionCountByName(String name) throws DmcValueException{
+        return(ModuleBDefs.getDefinitionCountByName(name));
     }
 
 

@@ -16,51 +16,52 @@
 package org.dmd.dmt.dsd.dsdc.shared.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCacheFormatter.generateDefinitionManager(DmoCacheFormatter.java:90)
-import java.util.Iterator;                                                       // To allow access to our definitions - (DmoCacheFormatter.java:77)
-import org.dmd.dmc.DmcAttributeInfo;                                             // Used when resolving clashes - (DmoCacheFormatter.java:86)
-import org.dmd.dmc.DmcNameClashException;                                        // Used when resolving clashes - (DmoCacheFormatter.java:88)
-import org.dmd.dmc.DmcNameClashObjectSet;                                        // Used when resolving clashes - (DmoCacheFormatter.java:87)
-import org.dmd.dmc.DmcNameClashResolverIF;                                       // To support object resolution - (DmoCacheFormatter.java:79)
-import org.dmd.dmc.DmcNameResolverWithClashSupportIF;                            // To support object resolution - (DmoCacheFormatter.java:80)
-import org.dmd.dmc.DmcNamedObjectIF;                                             // To support object resolution - (DmoCacheFormatter.java:81)
-import org.dmd.dmc.DmcObject;                                                    // To support object resolution - (DmoCacheFormatter.java:82)
-import org.dmd.dmc.DmcObjectName;                                                // To support object resolution - (DmoCacheFormatter.java:83)
-import org.dmd.dmc.DmcValueException;                                            // Can be thrown when we try to resolve references - (DmoCacheFormatter.java:85)
-import org.dmd.dmc.DmcValueExceptionSet;                                         // Can be thrown when we try to resolve references - (DmoCacheFormatter.java:84)
-import org.dmd.dmc.definitions.DMODefinitionSet;                                 // Our base to provide definition set storage - (DmoCacheFormatter.java:76)
-import org.dmd.dmc.types.DotName;                                                // To support the find method for definitions - (DmoCacheFormatter.java:78)
-import org.dmd.dms.generated.dmo.DSDefinitionDMO;                                // The base of all definitions - (DmoCacheFormatter.java:75)
-import org.dmd.dmt.dsd.dsda.shared.generated.dmo.ABConceptXDMO;                  // A definition from the ModuleA Module - (DmoCacheFormatter.java:232)
-import org.dmd.dmt.dsd.dsda.shared.generated.dmo.AConceptBaseDMO;                // A definition from the ModuleA Module - (DmoCacheFormatter.java:228)
-import org.dmd.dmt.dsd.dsda.shared.generated.dmo.AConceptXDMO;                   // A definition from the ModuleA Module - (DmoCacheFormatter.java:232)
-import org.dmd.dmt.dsd.dsda.shared.generated.dmo.ModuleADMO;                     // A definition from the ModuleA Module - (DmoCacheFormatter.java:232)
-import org.dmd.dmt.dsd.dsda.shared.generated.dsd.ModuleAGlobalInterface;         // Interface for ModuleA definitions - (DmoCacheFormatter.java:225)
-import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.BConceptBaseDMO;                // A definition from the ModuleB Module - (DmoCacheFormatter.java:228)
-import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.BConceptXDMO;                   // A definition from the ModuleB Module - (DmoCacheFormatter.java:232)
-import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.ModuleBDMO;                     // A definition from the ModuleB Module - (DmoCacheFormatter.java:232)
-import org.dmd.dmt.dsd.dsdb.shared.generated.dsd.ModuleBGlobalInterface;         // Interface for ModuleB definitions - (DmoCacheFormatter.java:225)
-import org.dmd.dmt.dsd.dsdc.shared.generated.dmo.CConceptBaseDMO;                // A definition from the ModuleC Module - (DmoCacheFormatter.java:228)
-import org.dmd.dmt.dsd.dsdc.shared.generated.dmo.CConceptXDMO;                   // A definition from the ModuleC Module - (DmoCacheFormatter.java:232)
-import org.dmd.dmt.dsd.dsdc.shared.generated.dmo.ModuleCDMO;                     // A definition from the ModuleC Module - (DmoCacheFormatter.java:232)
-import org.dmd.dmt.dsd.dsdc.shared.generated.dsd.ModuleCGlobalInterface;         // Interface for ModuleC definitions - (DmoCacheFormatter.java:225)
+// Called from: org.dmd.dms.util.DmoCacheFormatter.generateDefinitionManager(DmoCacheFormatter.java:94)
+import java.util.Iterator;                                                       // To allow access to our definitions - (DmoCacheFormatter.java:80)
+import org.dmd.dmc.DmcAttributeInfo;                                             // Used when resolving clashes - (DmoCacheFormatter.java:90)
+import org.dmd.dmc.DmcNameClashException;                                        // Used when resolving clashes - (DmoCacheFormatter.java:92)
+import org.dmd.dmc.DmcNameClashObjectSet;                                        // Used when resolving clashes - (DmoCacheFormatter.java:91)
+import org.dmd.dmc.DmcNameClashResolverIF;                                       // To support object resolution - (DmoCacheFormatter.java:82)
+import org.dmd.dmc.DmcNameResolverWithClashSupportIF;                            // To support object resolution - (DmoCacheFormatter.java:83)
+import org.dmd.dmc.DmcNamedObjectIF;                                             // To support object resolution - (DmoCacheFormatter.java:84)
+import org.dmd.dmc.DmcObject;                                                    // To support object resolution - (DmoCacheFormatter.java:85)
+import org.dmd.dmc.DmcObjectName;                                                // To support object resolution - (DmoCacheFormatter.java:86)
+import org.dmd.dmc.DmcOmni;                                                      // To support class resolution - (DmoCacheFormatter.java:87)
+import org.dmd.dmc.DmcValueException;                                            // Can be thrown when we try to resolve references - (DmoCacheFormatter.java:89)
+import org.dmd.dmc.DmcValueExceptionSet;                                         // Can be thrown when we try to resolve references - (DmoCacheFormatter.java:88)
+import org.dmd.dmc.definitions.DMODefinitionSet;                                 // Our base to provide definition set storage - (DmoCacheFormatter.java:79)
+import org.dmd.dmc.types.DotName;                                                // To support the find method for definitions - (DmoCacheFormatter.java:81)
+import org.dmd.dms.generated.dmo.DSDefinitionDMO;                                // The base of all definitions - (DmoCacheFormatter.java:78)
+import org.dmd.dmt.dsd.dsda.shared.generated.dmo.ABConceptXDMO;                  // A definition from the ModuleA Module - (DmoCacheFormatter.java:250)
+import org.dmd.dmt.dsd.dsda.shared.generated.dmo.AConceptBaseDMO;                // A definition from the ModuleA Module - (DmoCacheFormatter.java:246)
+import org.dmd.dmt.dsd.dsda.shared.generated.dmo.AConceptXDMO;                   // A definition from the ModuleA Module - (DmoCacheFormatter.java:250)
+import org.dmd.dmt.dsd.dsda.shared.generated.dmo.ModuleADMO;                     // A definition from the ModuleA Module - (DmoCacheFormatter.java:250)
+import org.dmd.dmt.dsd.dsda.shared.generated.dsd.ModuleAGlobalInterface;         // Interface for ModuleA definitions - (DmoCacheFormatter.java:243)
+import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.BConceptBaseDMO;                // A definition from the ModuleB Module - (DmoCacheFormatter.java:246)
+import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.BConceptXDMO;                   // A definition from the ModuleB Module - (DmoCacheFormatter.java:250)
+import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.ModuleBDMO;                     // A definition from the ModuleB Module - (DmoCacheFormatter.java:250)
+import org.dmd.dmt.dsd.dsdb.shared.generated.dsd.ModuleBGlobalInterface;         // Interface for ModuleB definitions - (DmoCacheFormatter.java:243)
+import org.dmd.dmt.dsd.dsdc.shared.generated.dmo.CConceptBaseDMO;                // A definition from the ModuleC Module - (DmoCacheFormatter.java:246)
+import org.dmd.dmt.dsd.dsdc.shared.generated.dmo.CConceptXDMO;                   // A definition from the ModuleC Module - (DmoCacheFormatter.java:250)
+import org.dmd.dmt.dsd.dsdc.shared.generated.dmo.ModuleCDMO;                     // A definition from the ModuleC Module - (DmoCacheFormatter.java:250)
+import org.dmd.dmt.dsd.dsdc.shared.generated.dsd.ModuleCGlobalInterface;         // Interface for ModuleC definitions - (DmoCacheFormatter.java:243)
 
 
-// Generated from: org.dmd.dms.util.DmoCacheFormatter.generateDefinitionManager(DmoCacheFormatter.java:94)
+// Generated from: org.dmd.dms.util.DmoCacheFormatter.generateDefinitionManager(DmoCacheFormatter.java:98)
 public class ModuleCDefinitionDMOCache implements DmcNameClashResolverIF, DmcNameResolverWithClashSupportIF, ModuleAGlobalInterface, ModuleBGlobalInterface, ModuleCGlobalInterface {
 
     DMODefinitionSet<DSDefinitionDMO>	allDefinitions;
 
-    // Generated from: org.dmd.dms.util.DmoCacheFormatter.dumpDefinitionManagerMembers(DmoCacheFormatter.java:289)
+    // Generated from: org.dmd.dms.util.DmoCacheFormatter.dumpDefinitionManagerMembers(DmoCacheFormatter.java:387)
     DMODefinitionSet<AConceptBaseDMO> AConceptBaseDefs;
     DMODefinitionSet<ABConceptXDMO> ABConceptXDefs;
     DMODefinitionSet<AConceptXDMO> AConceptXDefs;
     DMODefinitionSet<ModuleADMO> ModuleADefs;
-    // Generated from: org.dmd.dms.util.DmoCacheFormatter.dumpDefinitionManagerMembers(DmoCacheFormatter.java:289)
+    // Generated from: org.dmd.dms.util.DmoCacheFormatter.dumpDefinitionManagerMembers(DmoCacheFormatter.java:387)
     DMODefinitionSet<BConceptBaseDMO> BConceptBaseDefs;
     DMODefinitionSet<BConceptXDMO> BConceptXDefs;
     DMODefinitionSet<ModuleBDMO> ModuleBDefs;
-    // Generated from: org.dmd.dms.util.DmoCacheFormatter.dumpDefinitionManagerMembers(DmoCacheFormatter.java:289)
+    // Generated from: org.dmd.dms.util.DmoCacheFormatter.dumpDefinitionManagerMembers(DmoCacheFormatter.java:387)
     DMODefinitionSet<CConceptBaseDMO> CConceptBaseDefs;
     DMODefinitionSet<CConceptXDMO> CConceptXDefs;
     DMODefinitionSet<ModuleCDMO> ModuleCDefs;
@@ -70,7 +71,7 @@ public class ModuleCDefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
         // This will be populated as a result of adding definitions to the definition sets for each definition type
         allDefinitions = new DMODefinitionSet<DSDefinitionDMO>("allDefinitions");
 
-        // Generated from: org.dmd.dms.util.DmoCacheFormatter.initializeDefinitionManagerMembers(DmoCacheFormatter.java:301)
+        // Generated from: org.dmd.dms.util.DmoCacheFormatter.initializeDefinitionManagerMembers(DmoCacheFormatter.java:399)
         AConceptBaseDefs = new DMODefinitionSet<AConceptBaseDMO>("AConceptBase", allDefinitions);
         ABConceptXDefs = new DMODefinitionSet<ABConceptXDMO>("ABConceptX", allDefinitions);
         AConceptXDefs = new DMODefinitionSet<AConceptXDMO>("AConceptX", allDefinitions);
@@ -84,14 +85,14 @@ public class ModuleCDefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
 
     }
 
-    // Generated from: org.dmd.dms.util.DmoCacheFormatter.generateDefinitionManager(DmoCacheFormatter.java:111)
+    // Generated from: org.dmd.dms.util.DmoCacheFormatter.generateDefinitionManager(DmoCacheFormatter.java:115)
     public void resolveReferences() throws DmcValueExceptionSet {
         for(DSDefinitionDMO def: allDefinitions.values()){
-            def.resolveReferences(this,this);
+            def.resolveReferencesExceptClass(this,this);
         }
     }
 
-    // Generated from: org.dmd.dms.util.DmoCacheFormatter.generateDefinitionManager(DmoCacheFormatter.java:119)
+    // Generated from: org.dmd.dms.util.DmoCacheFormatter.generateDefinitionManager(DmoCacheFormatter.java:123)
     public DmcNamedObjectIF findNamedObject(DmcObjectName name) {
         DSDefinitionDMO def = null;
         try {
@@ -105,14 +106,15 @@ public class ModuleCDefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
         }
 
         return(def);
+
     }
 
-    // Generated from: org.dmd.dms.util.DmoCacheFormatter.generateDefinitionManager(DmoCacheFormatter.java:135)
+    // Generated from: org.dmd.dms.util.DmoCacheFormatter.generateDefinitionManager(DmoCacheFormatter.java:144)
     public DmcNamedObjectIF findNamedObject(DmcObjectName name, int attributeID) {
         throw(new IllegalStateException("This method is not supported on generated definition managers"));
     }
 
-    // Generated from: org.dmd.dms.util.DmoCacheFormatter.generateDefinitionManager(DmoCacheFormatter.java:140)
+    // Generated from: org.dmd.dms.util.DmoCacheFormatter.generateDefinitionManager(DmoCacheFormatter.java:149)
     public DmcObject findNamedDMO(DmcObjectName name) {
         DSDefinitionDMO def = null;
         try {
@@ -125,13 +127,10 @@ public class ModuleCDefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
     	       e.printStackTrace();
         }
 
-        if (def==null)
-            return(null);
-
         return(def);
     }
 
-    // Generated from: org.dmd.dms.util.DmoCacheFormatter.generateDefinitionManager(DmoCacheFormatter.java:160)
+    // Generated from: org.dmd.dms.util.DmoCacheFormatter.generateDefinitionManager(DmoCacheFormatter.java:171)
     public DmcNamedObjectIF findNamedObjectMayClash(DmcObject object, DmcObjectName name, DmcNameClashResolverIF resolver, DmcAttributeInfo ai) throws DmcValueException {
         DmcNamedObjectIF rc = null;
         DotName dn = new DotName(name.getNameString() + "." + ai.type);
@@ -162,7 +161,7 @@ public class ModuleCDefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
         return(rc);
     }
 
-    // Generated from: org.dmd.dms.util.DmoCacheFormatter.generateDefinitionManager(DmoCacheFormatter.java:191)
+    // Generated from: org.dmd.dms.util.DmoCacheFormatter.generateDefinitionManager(DmoCacheFormatter.java:207)
     public DmcNamedObjectIF resolveClash(DmcObject obj, DmcAttributeInfo ai, DmcNameClashObjectSet<?> ncos) throws DmcValueException {
         DmcNamedObjectIF rc = null;
         DSDefinitionDMO resolving = (DSDefinitionDMO) obj.getContainer();
@@ -178,8 +177,8 @@ public class ModuleCDefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
         return(rc);
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:368)
-    // Called from: org.dmd.dms.util.DmoCacheFormatter.dumpDefinitionInterfaceMethods(DmoCacheFormatter.java:323)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:381)
+    // Called from: org.dmd.dms.util.DmoCacheFormatter.dumpDefinitionInterfaceMethods(DmoCacheFormatter.java:421)
     /**
      * All definitions are added to the base definition collection.
      */
@@ -199,7 +198,7 @@ public class ModuleCDefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
         return(AConceptBaseDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:403)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:416)
     public void addABConceptX(ABConceptXDMO def){
         ABConceptXDefs.add(def);
         addAConceptX(def);
@@ -221,7 +220,7 @@ public class ModuleCDefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
         return(ABConceptXDefs.getDefinition(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:403)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:416)
     public void addAConceptX(AConceptXDMO def){
         AConceptXDefs.add(def);
         addAConceptBase(def);
@@ -243,7 +242,7 @@ public class ModuleCDefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
         return(AConceptXDefs.getDefinition(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:403)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:416)
     public void addModuleA(ModuleADMO def){
         ModuleADefs.add(def);
         addAConceptBase(def);
@@ -265,8 +264,8 @@ public class ModuleCDefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
         return(ModuleADefs.getDefinition(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:368)
-    // Called from: org.dmd.dms.util.DmoCacheFormatter.dumpDefinitionInterfaceMethods(DmoCacheFormatter.java:323)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:381)
+    // Called from: org.dmd.dms.util.DmoCacheFormatter.dumpDefinitionInterfaceMethods(DmoCacheFormatter.java:421)
     /**
      * All definitions are added to the base definition collection.
      */
@@ -286,7 +285,7 @@ public class ModuleCDefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
         return(BConceptBaseDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:403)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:416)
     public void addBConceptX(BConceptXDMO def){
         BConceptXDefs.add(def);
         addBConceptBase(def);
@@ -308,7 +307,7 @@ public class ModuleCDefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
         return(BConceptXDefs.getDefinition(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:403)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:416)
     public void addModuleB(ModuleBDMO def){
         ModuleBDefs.add(def);
         addBConceptBase(def);
@@ -330,8 +329,8 @@ public class ModuleCDefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
         return(ModuleBDefs.getDefinition(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:368)
-    // Called from: org.dmd.dms.util.DmoCacheFormatter.dumpDefinitionInterfaceMethods(DmoCacheFormatter.java:323)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:381)
+    // Called from: org.dmd.dms.util.DmoCacheFormatter.dumpDefinitionInterfaceMethods(DmoCacheFormatter.java:421)
     /**
      * All definitions are added to the base definition collection.
      */
@@ -351,7 +350,7 @@ public class ModuleCDefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
         return(CConceptBaseDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:403)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:416)
     public void addCConceptX(CConceptXDMO def){
         CConceptXDefs.add(def);
         addCConceptBase(def);
@@ -373,7 +372,7 @@ public class ModuleCDefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
         return(CConceptXDefs.getDefinition(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:403)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:416)
     public void addModuleC(ModuleCDMO def){
         ModuleCDefs.add(def);
         addCConceptBase(def);
@@ -395,6 +394,17 @@ public class ModuleCDefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
         return(ModuleCDefs.getDefinition(name));
     }
 
+
+    // Generated from: org.dmd.dms.util.DmoCacheFormatter.dumpAddMethod(DmoCacheFormatter.java:278)
+    public void addDefinition(DSDefinitionDMO definition){
+            if (definition instanceof CConceptXDMO){
+                addCConceptX((CConceptXDMO)definition);
+            }
+            else if (definition instanceof ModuleCDMO){
+                addModuleC((ModuleCDMO)definition);
+            }
+
+    }
 
 }
 

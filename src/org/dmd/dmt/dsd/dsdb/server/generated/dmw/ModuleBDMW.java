@@ -545,7 +545,7 @@ abstract public class ModuleBDMW extends BConceptBase implements DmcDefinitionIF
         ((ModuleBDMO) core).remName();
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:299)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:302)
     // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperFunctions(DMWGenerator.java:212)
     /**
      * All definitions are added to the base definition collection.
@@ -566,7 +566,7 @@ abstract public class ModuleBDMW extends BConceptBase implements DmcDefinitionIF
         return(BConceptBaseDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:334)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:337)
     public void addBConceptX(BConceptX def){
         BConceptXDefs.add(def);
         addBConceptBase(def);
@@ -586,6 +586,14 @@ abstract public class ModuleBDMW extends BConceptBase implements DmcDefinitionIF
 
     public BConceptX getBConceptXDefinition(String name) throws DmcNameClashException, DmcValueException{
         return(BConceptXDefs.getDefinition(name));
+    }
+
+    public Iterator<BConceptX> getBConceptXDefinitionsByName(String name) throws DmcValueException{
+        return(BConceptXDefs.getDefinitionsByName(name));
+    }
+
+    public int getBConceptXDefinitionCountByName(String name) throws DmcValueException{
+        return(BConceptXDefs.getDefinitionCountByName(name));
     }
 
     // Generated from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperFunctions(DMWGenerator.java:222)

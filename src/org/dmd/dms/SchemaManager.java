@@ -2275,10 +2275,19 @@ public class SchemaManager implements DmcNameResolverWithClashSupportIF, DmcName
         }
         else{
             if (ga2 == null)
-                return(new String("Clashing " + defType + ": " + defID + " " + newDef.getName() + " - Initially defined in " + ga1.getObjectName() + " existing: " + existing.getName() + " - Redefined in " + currentSchema.getObjectName()));
+                return(new String("Clashing " + defType + ": " + defID + " " + newDef.getName() + "(" + justFileName(newDef) + ") - Initially defined in " + ga1.getObjectName() + " existing: " + existing.getName() + "(" + justFileName(existing) + ") - Redefined in " + currentSchema.getObjectName()));
             else
-                return(new String("Clashing " + defType + ": " + defID + " " + newDef.getName() + " - Initially defined in " + ga1.getObjectName() + " existing: " + existing.getName() + " - Redefined in " + ga2.getObjectName()));
+                return(new String("Clashing " + defType + ": " + defID + " " + newDef.getName() + "(" + justFileName(newDef) + ") - Initially defined in " + ga1.getObjectName() + " existing: " + existing.getName() + "(" + justFileName(existing) + ") - Redefined in " + ga2.getObjectName()));
         }
+    }
+    
+    String justFileName(DmsDefinition def) {
+    	if (def.getFile() == null)
+    		return("");
+    	int lastslash = def.getFile().lastIndexOf('/');
+    	if (lastslash == -1)
+    		return("");
+    	return(def.getFile().substring(lastslash+1));
     }
 
     /**
