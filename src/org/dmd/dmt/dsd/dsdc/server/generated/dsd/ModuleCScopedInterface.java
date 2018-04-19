@@ -41,5 +41,9 @@ public interface ModuleCScopedInterface {
     public Iterator<CConceptX> getAllCConceptX();
     public CConceptX getCConceptXDefinition(String name) throws DmcNameClashException, DmcValueException;
 
+    public Iterator<CConceptX> getCConceptXDefinitionsByName(String name) throws DmcValueException;
+
+    public int getCConceptXDefinitionCountByName(String name) throws DmcValueException;
+
 }
 

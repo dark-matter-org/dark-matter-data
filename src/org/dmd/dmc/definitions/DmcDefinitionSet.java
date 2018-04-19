@@ -3,6 +3,7 @@ package org.dmd.dmc.definitions;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.TreeMap;
@@ -291,8 +292,7 @@ public class DmcDefinitionSet<DEF extends DSDefinition> {
 	 * Attempts to return a definition based on its name.
 	 * @param name the name of the definition you're looking for
 	 * @return the definition or null if it doesn't exist
-	 * @throws DmcNameClashException if there's more than one definition with the specified
-	 * name, we throw an exception
+	 * @throws DmcNameClashException if there's more than one definition with the specified name, we throw an exception
 	 * @throws DmcValueException 
 	 */
 	public DEF getDefinition(String name) throws DmcNameClashException, DmcValueException {
@@ -308,6 +308,35 @@ public class DmcDefinitionSet<DEF extends DSDefinition> {
 		@SuppressWarnings("unchecked")
 		DmcNameClashException mdce = new DmcNameClashException("",(ArrayList<DmcNamedObjectIF>) existing);
 		throw(mdce);
+	}
+	
+	/**
+	 * Gets the definitions with the specified name.
+	 * @param name the name of the definition.
+	 * @return an Iterator over the available definitions with that name or null.
+	 * @throws DmcValueException
+	 */
+	public Iterator<DEF> getDefinitionsByName(String name) throws DmcValueException {
+		DefinitionName dn = new DefinitionName(name);
+		ArrayList<DEF> defs = nameMap.get(dn);
+		if (defs == null)
+			return(null);
+		return(defs.iterator());
+	}
+	
+	/**
+	 * Using just the name of the definition (without the module), let's you know how many
+	 * definitions of that name exist.
+	 * @param name the definition name
+	 * @return the number of definitions with that name
+	 * @throws DmcValueException
+	 */
+	public int getDefinitionCountByName(String name) throws DmcValueException {
+		DefinitionName dn = new DefinitionName(name);
+		ArrayList<DEF> defs = nameMap.get(dn);
+		if (defs == null)
+			return(0);
+		return(defs.size());
 	}
 	
 	/**

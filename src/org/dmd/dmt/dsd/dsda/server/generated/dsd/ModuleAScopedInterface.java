@@ -42,11 +42,19 @@ public interface ModuleAScopedInterface {
     public Iterator<ABConceptX> getAllABConceptX();
     public ABConceptX getABConceptXDefinition(String name) throws DmcNameClashException, DmcValueException;
 
+    public Iterator<ABConceptX> getABConceptXDefinitionsByName(String name) throws DmcValueException;
+
+    public int getABConceptXDefinitionCountByName(String name) throws DmcValueException;
+
     public void addAConceptX(AConceptX def);
     public int getAConceptXCount();
     public AConceptX getAConceptX(DotName name);
     public Iterator<AConceptX> getAllAConceptX();
     public AConceptX getAConceptXDefinition(String name) throws DmcNameClashException, DmcValueException;
+
+    public Iterator<AConceptX> getAConceptXDefinitionsByName(String name) throws DmcValueException;
+
+    public int getAConceptXDefinitionCountByName(String name) throws DmcValueException;
 
 }
 
