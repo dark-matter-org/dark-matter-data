@@ -218,7 +218,9 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
         
         // Note: the rule manager automatically loads the meta schema and DMV rules.
         ruleManager		= new DmvRuleManager();
-		DebugInfo.debug("\n\n*** RULE TRACING DISABLED ***\n\n");
+        
+        if (!terseV)
+        	DebugInfo.debug("\n\n*** RULE TRACING DISABLED ***\n\n");
 //        DmcOmni.instance().ruleTracer(new ConsoleRuleTracer());
 //        DmcOmni.instance().ruleTracing(true);
     }
