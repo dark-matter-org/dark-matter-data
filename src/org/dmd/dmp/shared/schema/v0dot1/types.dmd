@@ -43,7 +43,9 @@ enumValue		5 PROGRESSPERCENT Indicates that the request is proceeding and that t
  of the processing that's complete.
 enumValue		6 HEARTBEAT Indicates that an action is still in progress.
 enumValue		7 CANCELLED Indicates that an operation has been cancelled; generally used when an action is cancelled.
+enumValue		8 PROGRESSOBJECTS Indicates that the objectList will contain application specific objects that indicate some sort of progress.
 description	The ResponseTypeEnum indicates the type of a response.
+
 
 EnumDefinition
 name			ResponseCategoryEnum

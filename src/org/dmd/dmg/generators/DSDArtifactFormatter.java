@@ -203,17 +203,22 @@ public class DSDArtifactFormatter {
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("    public DmcNamedObjectIF findNamedObject(DmcObjectName name) {\n");
 		out.write("        DSDefinition def = null;\n");
-	    	out.write("        try {\n");
-	    	out.write("    	       def = allDefinitions.getDefinition(name.toString());\n");
-	    	out.write("        } catch (DmcNameClashException e) {\n");
-	    	out.write("    	       // TODO Auto-generated catch block\n");
-	    	out.write("    	       e.printStackTrace();\n");
-	    	out.write("        } catch (DmcValueException e) {\n");
-	    	out.write("    	       // TODO Auto-generated catch block\n");
-	    	out.write("    	       e.printStackTrace();\n");
-	    	out.write("        }\n");
-	    	out.write("\n");
-	    	out.write("        return(def);\n");
+    	out.write("        try {\n");
+    	out.write("    	       def = allDefinitions.getDefinition(name.toString());\n");
+    	out.write("        } catch (DmcNameClashException e) {\n");
+    	out.write("    	       // TODO Auto-generated catch block\n");
+    	out.write("    	       e.printStackTrace();\n");
+    	out.write("        } catch (DmcValueException e) {\n");
+    	out.write("    	       // TODO Auto-generated catch block\n");
+    	out.write("    	       e.printStackTrace();\n");
+    	out.write("        }\n");
+    	out.write("\n");
+    	out.write("        return(def);\n");
+		out.write("    }\n\n");
+
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    public DSDefinition findDefinition(DotName name) {\n");
+    	out.write("    	   return(allDefinitions.getDefinition(name));\n");
 		out.write("    }\n\n");
 
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
@@ -724,7 +729,8 @@ public class DSDArtifactFormatter {
 		out.write("                    throw(ex);\n");
 		out.write("                }\n");
 		out.write("            \n");
-		out.write("                definition.setDotName(module.getName() + \".\" + definition.getConstructionClassName());\n");
+		out.write("                definition.setDotName(module.getName() + \".\" + module.getName() + \".\" + definition.getConstructionClassName());\n");
+//		out.write("                definition.setDotName(module.getName() + \".\" + definition.getConstructionClassName());\n");
 //		out.write("                definition.setNameAndTypeName(module.getName() + \".\" + definition.getConstructionClassName());\n");
 		out.write("            \n");
 		out.write("                module." + definedInModuleMethod + "(module);\n");

@@ -27,6 +27,7 @@ import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmc.util.DmcUncheckedObject;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
 
@@ -307,6 +308,7 @@ public class DmcUncheckedOIFParser {
         	
             exG.result.addResult(Result.FATAL,e.toString());
             exG.result.lastResult().moreMessages("Occurred while reading file: " + fileName + " at line: " + in.getLineNumber());
+            exG.result.lastResult().moreMessages(DebugInfo.extractTheStack(e));
             uco = null;
         }
 

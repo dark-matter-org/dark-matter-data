@@ -1387,11 +1387,12 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ResponseTypeEnumOBJ.addEnumValue("5 PROGRESSPERCENT Indicates that the request is proceeding and that this is the percentage of the processing that's complete.");
             _ResponseTypeEnumOBJ.addEnumValue("6 HEARTBEAT Indicates that an action is still in progress.");
             _ResponseTypeEnumOBJ.addEnumValue("7 CANCELLED Indicates that an operation has been cancelled; generally used when an action is cancelled.");
+            _ResponseTypeEnumOBJ.addEnumValue("8 PROGRESSOBJECTS Indicates that the objectList will contain application specific objects that indicate some sort of progress.");
             _ResponseTypeEnumOBJ.addDescription("The ResponseTypeEnum indicates the type of a response.");
             _ResponseTypeEnumOBJ.setName("ResponseTypeEnum");
             _ResponseTypeEnumOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/types.dmd");
             _ResponseTypeEnumOBJ.setDotName("dmp.ResponseTypeEnum.EnumDefinition");
-            _ResponseTypeEnumOBJ.setLineNumber("47");
+            _ResponseTypeEnumOBJ.setLineNumber("48");
             _ResponseTypeEnum.setDefinedIn(this);
             addEnumDefList(_ResponseTypeEnum);
 
@@ -1408,7 +1409,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ResponseCategoryEnumOBJ.setName("ResponseCategoryEnum");
             _ResponseCategoryEnumOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/types.dmd");
             _ResponseCategoryEnumOBJ.setDotName("dmp.ResponseCategoryEnum.EnumDefinition");
-            _ResponseCategoryEnumOBJ.setLineNumber("57");
+            _ResponseCategoryEnumOBJ.setLineNumber("59");
             _ResponseCategoryEnum.setDefinedIn(this);
             addEnumDefList(_ResponseCategoryEnum);
 
@@ -1421,7 +1422,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ResponseFormatEnumOBJ.setName("ResponseFormatEnum");
             _ResponseFormatEnumOBJ.setFile("/src/org/dmd/dmp/shared/schema/v0dot1/types.dmd");
             _ResponseFormatEnumOBJ.setDotName("dmp.ResponseFormatEnum.EnumDefinition");
-            _ResponseFormatEnumOBJ.setLineNumber("63");
+            _ResponseFormatEnumOBJ.setLineNumber("65");
             _ResponseFormatEnum.setDefinedIn(this);
             addEnumDefList(_ResponseFormatEnum);
 
