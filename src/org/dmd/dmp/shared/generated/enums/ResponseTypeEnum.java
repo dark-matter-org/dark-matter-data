@@ -43,7 +43,9 @@ public enum ResponseTypeEnum implements DmcEnumIF
 
     HEARTBEAT(6,"Indicates that an action is still in progress."),
 
-    CANCELLED(7,"Indicates that an operation has been cancelled; generally used when an action is cancelled.");
+    CANCELLED(7,"Indicates that an operation has been cancelled; generally used when an action is cancelled."),
+
+    PROGRESSOBJECTS(8,"Indicates that the objectList will contain application specific objects that indicate some sort of progress.");
 
     // Maps our integer value to the enumeration value
     private static final Map<Integer,ResponseTypeEnum> lookup = new HashMap<Integer,ResponseTypeEnum>();

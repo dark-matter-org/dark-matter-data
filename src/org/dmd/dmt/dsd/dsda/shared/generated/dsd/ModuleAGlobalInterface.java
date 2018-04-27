@@ -16,10 +16,10 @@
 package org.dmd.dmt.dsd.dsda.shared.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCacheFormatter.generateGlobalInterface(DmoCacheFormatter.java:366)
-import java.util.Iterator;                                                // To provide iterators over definitions - (DmoCacheFormatter.java:361)
-import org.dmd.dmc.DmcNameClashException;                                 // May be thrown when finding definitions - (DmoCacheFormatter.java:362)
-import org.dmd.dmc.DmcValueException;                                     // May be thrown when finding definitions - (DmoCacheFormatter.java:363)
+// Called from: org.dmd.dms.util.DmoCacheFormatter.generateGlobalInterface(DmoCacheFormatter.java:368)
+import java.util.Iterator;                                                // To provide iterators over definitions - (DmoCacheFormatter.java:363)
+import org.dmd.dmc.DmcNameClashException;                                 // May be thrown when finding definitions - (DmoCacheFormatter.java:364)
+import org.dmd.dmc.DmcValueException;                                     // May be thrown when finding definitions - (DmoCacheFormatter.java:365)
 import org.dmd.dmc.types.DotName;                                         // To support the find method for definitions - (DSDefinitionModule.java:206)
 import org.dmd.dmt.dsd.dsda.shared.generated.dmo.ABConceptXDMO;           // A definition from the ModuleA Module - (DSDefinitionModule.java:218)
 import org.dmd.dmt.dsd.dsda.shared.generated.dmo.AConceptBaseDMO;         // A definition from the ModuleA Module - (DSDefinitionModule.java:204)
@@ -27,7 +27,7 @@ import org.dmd.dmt.dsd.dsda.shared.generated.dmo.AConceptXDMO;            // A d
 import org.dmd.dmt.dsd.dsda.shared.generated.dmo.ModuleADMO;              // A definition from the ModuleA Module - (DSDefinitionModule.java:218)
 
 
-// Generated from: org.dmd.dms.util.DmoCacheFormatter.generateGlobalInterface(DmoCacheFormatter.java:370)
+// Generated from: org.dmd.dms.util.DmoCacheFormatter.generateGlobalInterface(DmoCacheFormatter.java:372)
 /**
  * This interface is implemented by definition managers that store definitions from the ModuleA module.
  */

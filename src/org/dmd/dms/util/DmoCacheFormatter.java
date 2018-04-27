@@ -78,6 +78,7 @@ public class DmoCacheFormatter {
 		imports.addImport("org.dmd.dms.generated.dmo.DSDefinitionDMO", "The base of all definitions");
 		imports.addImport("org.dmd.dmc.definitions.DMODefinitionSet", "Our base to provide definition set storage");
 		imports.addImport("java.util.Iterator", "To allow access to our definitions");
+		imports.addImport("java.util.logging.Logger", "To allow logging of exceptions");
 		imports.addImport("org.dmd.dmc.types.DotName", "To support the find method for definitions");
 		imports.addImport("org.dmd.dmc.DmcNameClashResolverIF", "To support object resolution");
 		imports.addImport("org.dmd.dmc.DmcNameResolverWithClashSupportIF", "To support object resolution");
@@ -98,6 +99,7 @@ public class DmoCacheFormatter {
 		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("public class " + ddm.getName() + "DefinitionDMOCache " + impl.getFormattedImplementations() + "{\n\n");
 		
+		out.write("    private Logger logger;\n");
 		out.write("    DMODefinitionSet<DSDefinitionDMO>	allDefinitions;\n");
 		out.write("\n");
 		
@@ -105,6 +107,7 @@ public class DmoCacheFormatter {
 		
 		out.write("    public " + ddm.getName() + "DefinitionDMOCache(){\n\n");
 		
+		out.write("        logger = Logger.getLogger(getClass().getName());\n\n");
 		out.write("        // This will be populated as a result of adding definitions to the definition sets for each definition type\n");
 		out.write("        allDefinitions = new DMODefinitionSet<DSDefinitionDMO>(\"allDefinitions\");\n\n");
 
@@ -126,11 +129,9 @@ public class DmoCacheFormatter {
     	out.write("        try {\n");
     	out.write("    	       def = allDefinitions.getDefinition(name.toString());\n");
     	out.write("        } catch (DmcNameClashException e) {\n");
-    	out.write("    	       // TODO Auto-generated catch block\n");
-    	out.write("    	       e.printStackTrace();\n");
+    	out.write("    	       logger.fine(e.toString());\n");
     	out.write("        } catch (DmcValueException e) {\n");
-    	out.write("    	       // TODO Auto-generated catch block\n");
-    	out.write("    	       e.printStackTrace();\n");
+    	out.write("    	       logger.fine(e.toString());\n");
     	out.write("        }\n");
     	out.write("\n");
 //    	out.write("        if (def == null) {\n");
@@ -150,13 +151,14 @@ public class DmoCacheFormatter {
 		out.write("    public DmcObject findNamedDMO(DmcObjectName name) {\n");
 		out.write("        DSDefinitionDMO def = null;\n");
     	out.write("        try {\n");
-    	out.write("    	       def = allDefinitions.getDefinition(name.toString());\n");
+    	out.write("            if (name instanceof DotName)\n");
+    	out.write("                def = allDefinitions.getDefinition((DotName)name);\n");
+    	out.write("            else\n");
+    	out.write("                def = allDefinitions.getDefinition(name.toString());\n");
     	out.write("        } catch (DmcNameClashException e) {\n");
-    	out.write("    	       // TODO Auto-generated catch block\n");
-    	out.write("    	       e.printStackTrace();\n");
+    	out.write("    	       logger.fine(e.toString());\n");
     	out.write("        } catch (DmcValueException e) {\n");
-    	out.write("    	       // TODO Auto-generated catch block\n");
-    	out.write("    	       e.printStackTrace();\n");
+    	out.write("    	       logger.fine(e.toString());\n");
     	out.write("        }\n");
     	out.write("\n");
 //    	out.write("        if (def == null) {\n");

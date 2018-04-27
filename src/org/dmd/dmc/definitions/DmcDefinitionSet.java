@@ -305,8 +305,12 @@ public class DmcDefinitionSet<DEF extends DSDefinition> {
 		if (existing.size() == 1)
 			return(existing.get(0));
 		
-		@SuppressWarnings("unchecked")
-		DmcNameClashException mdce = new DmcNameClashException("",(ArrayList<DmcNamedObjectIF>) existing);
+//		@SuppressWarnings("unchecked")
+		ArrayList<DmcNamedObjectIF> clash = new ArrayList<>();
+		for(DEF def: existing) {
+			clash.add(def);
+		}
+		DmcNameClashException mdce = new DmcNameClashException("",clash);
 		throw(mdce);
 	}
 	
