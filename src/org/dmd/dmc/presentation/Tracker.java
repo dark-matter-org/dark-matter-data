@@ -59,6 +59,11 @@ public class Tracker implements DmcPresentationTrackerIF {
 		return(debug);
 	}
 	
+	public void debug(String message){
+		if (debug)
+			logger.log(Level.FINE, message);
+	}
+	
 	String getFieldName(DmcPresentationIF dpi){
 		if (dpi.getAdapter() == null)
 			return(dpi.getLabel());

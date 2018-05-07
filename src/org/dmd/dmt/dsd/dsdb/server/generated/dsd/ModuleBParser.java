@@ -28,8 +28,8 @@ import org.dmd.dms.MetaSchema;                                                  
 import org.dmd.dms.SchemaManager;                                                // Manages the schemas we use - (DSDArtifactFormatter.java:522)
 import org.dmd.dms.generated.dmw.AttributeDefinitionIterableDMW;                 // To allow addition of preserve newline attributes - (DSDArtifactFormatter.java:571)
 import org.dmd.dms.generated.dmw.StringIterableDMW;                              // To iterate over defFiles - (DSDArtifactFormatter.java:548)
-import org.dmd.dmt.dsd.dsdb.server.extended.BConceptBase;                        // The base definition from the ModuleB Module - (DSDArtifactFormatter.java:894)
-import org.dmd.dmt.dsd.dsdb.server.extended.BConceptX;                           // A definition from the ModuleB Module - (DSDArtifactFormatter.java:902)
+import org.dmd.dmt.dsd.dsdb.server.extended.BConceptBase;                        // The base definition from the ModuleB Module - (DSDArtifactFormatter.java:895)
+import org.dmd.dmt.dsd.dsdb.server.extended.BConceptX;                           // A definition from the ModuleB Module - (DSDArtifactFormatter.java:903)
 import org.dmd.dmt.dsd.dsdb.server.extended.ModuleB;                             // The kind of DDM we're reading - (DSDArtifactFormatter.java:557)
 import org.dmd.dmt.dsd.dsdb.server.generated.DsdBSchemaAG;                       // The schema recognized by this parser - (DSDArtifactFormatter.java:542)
 import org.dmd.dmt.dsd.dsdb.server.generated.dsd.ModuleBGlobalInterface;         // Interface to our definition storage - (DSDArtifactFormatter.java:530)
@@ -190,7 +190,7 @@ public class ModuleBParser implements DsdParserInterface, DmcUncheckedOIFHandler
                     throw(ex);
                 }
             
-                definition.setDotName(module.getName() + "." + definition.getConstructionClassName());
+                definition.setDotName(module.getName() + "." + module.getName() + "." + definition.getConstructionClassName());
             
                 module.setDefinedInModuleB(module);
                 definitions.addModuleB(module);
@@ -202,7 +202,7 @@ public class ModuleBParser implements DsdParserInterface, DmcUncheckedOIFHandler
             }
         }
         else{
-            // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:752)
+            // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:753)
             if (definition instanceof ModuleB){
                 ResultException ex = new ResultException("Multiple ModuleB definitions while parsing config: " + location.getFileName());
                 ex.setLocationInfo(infile, lineNumber);
@@ -213,7 +213,7 @@ public class ModuleBParser implements DsdParserInterface, DmcUncheckedOIFHandler
             definition.setDmoFromModule(module.getName().getNameString());
             definition.setDotName(module.getName() + "." + definition.getName() + "." + definition.getConstructionClassName());
             
-            // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:765)
+            // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:766)
             try{
                 // Run object level rules to ensure mandatory attributes are in place - can't add definition if no name attribute!
                 rules.executeObjectValidation(definition.getDmcObject());
@@ -222,7 +222,7 @@ public class ModuleBParser implements DsdParserInterface, DmcUncheckedOIFHandler
                 ex.source(new SourceInfo(infile, lineNumber));
                 throw(ex);
             }
-            // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:776)
+            // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:777)
             
             if (definition instanceof BConceptX){
                 definitions.addBConceptX((BConceptX)definition);

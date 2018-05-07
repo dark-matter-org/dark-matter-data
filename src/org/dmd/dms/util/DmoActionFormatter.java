@@ -24,6 +24,7 @@ import java.util.Iterator;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.SchemaDefinition;
+import org.dmd.dms.generated.dmw.AttributeDefinitionIterableDMW;
 import org.dmd.util.BooleanVar;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.DebugInfo;
@@ -86,13 +87,42 @@ public class DmoActionFormatter {
       
       	out.write("import java.io.Serializable;\n");
       	out.write("import org.dmd.dms.extended.ActionTriggerInfo;\n");
+      	out.write("import org.dmd.dmc.DmcValueExceptionSet;\n");
+      	
       	
 		BooleanVar	anyMVAttributes = new BooleanVar(false);
 		BooleanVar	anySVAttributes = new BooleanVar(false);
 
       	
       	out.write(GenUtility.getImports(ad, allAttr, anySVAttributes, anyMVAttributes) + "\n");
+ 
+      	boolean anySVRef = false;
+      	boolean anyMVRef = false;
+      	for(AttributeDefinition attr : allAttr){
+			switch(attr.getValueType()){
+			case SINGLE:
+				anySVRef = true;
+			case MULTI:
+			case HASHSET:
+			case TREESET:
+				anyMVRef = true;
+				break;
+			case HASHMAPPED:
+				break;
+			case TREEMAPPED:
+				break;
+			}
+      	}
+
+		if (anySVRef){
+	      	out.write("import org.dmd.dms.generated.types.DmcTypeDmcObjectSV;\n");					
+		}
+		if (anyMVRef){
+	      	out.write("import org.dmd.dms.generated.types.DmcTypeDmcObjectMV;\n");					
+	      	out.write("import org.dmd.dmc.DmcObject;\n");					
+		}
       	
+
 //      	out.write("import org.dmd.dmc.DmcValueException;\n");
 //      	out.write("import " + schemaPackage + ".generated.dmo." + td.getName() + "DMO;\n\n");
 //      	
@@ -119,12 +149,18 @@ public class DmoActionFormatter {
       	for(AttributeDefinition attr : allAttr){
 			switch(attr.getValueType()){
 			case SINGLE:
-				GenUtility.formatSV(attr, sb);
+				if (attr.getType().getIsRefType())
+					GenUtility.formatSVObjectAccess(attr, sb);
+				else
+					GenUtility.formatSV(attr, sb);
 				break;
 			case MULTI:
 			case HASHSET:
 			case TREESET:
-				GenUtility.formatMV(attr, sb);
+				if (attr.getType().getIsRefType())
+					GenUtility.formatMVObjectAccess(attr, sb);
+				else
+					GenUtility.formatMV(attr, sb);
 				break;
 			case HASHMAPPED:
 				break;
@@ -139,6 +175,31 @@ public class DmoActionFormatter {
       	}
       	
       	out.write(sb.toString());
+      	
+      	out.write("\n");
+  		out.write("    public void checkParams() throws DmcValueExceptionSet {\n");
+      	if (ad.getMustParmSize() > 0) {
+      		out.write("        DmcValueExceptionSet ex = null;\n\n");
+      		
+      		AttributeDefinitionIterableDMW it = ad.getMustParm();
+      		while(it.hasNext()) {
+      			AttributeDefinition attr = it.next();
+      			
+          		out.write("        if (get(\"" + attr.getDMSAGReference() + "\") == null){\n");
+          		out.write("            if (ex == null)\n");
+          		out.write("                ex = new DmcValueExceptionSet();\n");
+          		out.write("            ex.add(new DmcValueException(\"" + cappedName + "ATI - missing mandatory parameter: " + attr.getName() + "\"));\n");
+          		out.write("        }\n");
+
+      		}
+      		out.write("        if (ex != null)\n");
+      		out.write("            throw(ex);\n");
+      	}
+      	else {
+      		out.write("        // No mandatory parameters to check\n");
+      	}
+      	out.write("  }\n\n");
+
       	
 //      	out.write("    protected " + td.getName() + "DMO typeCheck(Object value) throws DmcValueException {\n");
 //      	out.write("        " + td.getName() + "DMO rc = null;\n");

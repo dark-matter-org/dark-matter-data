@@ -1,5 +1,9 @@
 ActionDefinition
 name 			testAction
 mustParm		svBoolean
+mustParm		svTestBasicNamedObjectFixed
+mayParm			mvTestBasicNamedObjectFixed
 mayParm         name
+mayParm			plainObjRef
+mayParm			svUnnamedObj
 description 	Defines the parameters for a test action.

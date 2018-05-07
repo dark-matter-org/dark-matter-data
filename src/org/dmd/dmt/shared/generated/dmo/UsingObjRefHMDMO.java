@@ -68,9 +68,9 @@ public class UsingObjRefHMDMO  extends DmcObject  implements Serializable  {
     /**
      * @return An Iterator of ObjWithRefsDMO objects.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1405)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1559)
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1417)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1571)
     public Iterator<ObjWithRefsREF> getObjRefHM(){
         DmcTypeObjWithRefsREFMAP attr = (DmcTypeObjWithRefsREFMAP) get(DmtDMSAG.__objRefHM);
         if (attr == null)
@@ -89,7 +89,7 @@ public class UsingObjRefHMDMO  extends DmcObject  implements Serializable  {
     /**
      * @return An Iterator of ObjWithRefsREFs without attempting lazy resolution (if it's turned on).
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1436)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1590)
     @SuppressWarnings("unchecked")
     public Iterator<ObjWithRefsREF> getObjRefHMREFs(){
         DmcTypeObjWithRefsREFMAP attr = (DmcTypeObjWithRefsREFMAP) get(DmtDMSAG.__objRefHM);
@@ -103,7 +103,7 @@ public class UsingObjRefHMDMO  extends DmcObject  implements Serializable  {
      * @param key The key of the value you want.
      * @return The ObjWithRefs associated with the specified key.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1470)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1624)
     public ObjWithRefsREF getObjRefHM(Object key){
         DmcTypeObjWithRefsREFMAP attr = (DmcTypeObjWithRefsREFMAP) get(DmtDMSAG.__objRefHM);
         if (attr == null)
@@ -116,7 +116,7 @@ public class UsingObjRefHMDMO  extends DmcObject  implements Serializable  {
      * Adds another objRefHM value.
      * @param value A value compatible with ObjWithRefs
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1522)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1676)
     public DmcAttribute<?> addObjRefHM(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__objRefHM);
         if (attr == null)
@@ -131,7 +131,7 @@ public class UsingObjRefHMDMO  extends DmcObject  implements Serializable  {
      * Adds another objRefHM value.
      * @param value ObjWithRefs
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1538)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1692)
     public DmcAttribute<?> addObjRefHM(ObjWithRefsDMO value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__objRefHM);
         if (attr == null)
@@ -151,7 +151,7 @@ public class UsingObjRefHMDMO  extends DmcObject  implements Serializable  {
      * Deletes a objRefHM value.
      * @param value The ObjWithRefs to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1597)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1751)
     public DmcAttribute<?> delObjRefHM(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__objRefHM);
         
@@ -167,7 +167,7 @@ public class UsingObjRefHMDMO  extends DmcObject  implements Serializable  {
      * Deletes a objRefHM value.
      * @param value The ObjWithRefs to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1615)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1769)
     public DmcAttribute<?> delObjRefHM(ObjWithRefsDMO value){
         DmcAttribute<?> attr = get(DmtDMSAG.__objRefHM);
         
@@ -182,7 +182,7 @@ public class UsingObjRefHMDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the objRefHM attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1711)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1865)
     public void remObjRefHM(){
          rem(DmtDMSAG.__objRefHM);
     }

@@ -68,7 +68,7 @@ public class ExtendedRefMVDMO  extends DmcObject  implements Serializable  {
      * @return An Iterator of SomeRelationDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:982)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public Iterator<SomeRelation> getMvExtendedRef(){
         DmcTypeSomeRelationMV attr = (DmcTypeSomeRelationMV) get(DmtDMSAG.__mvExtendedRef);
         if (attr == null)
@@ -88,7 +88,7 @@ public class ExtendedRefMVDMO  extends DmcObject  implements Serializable  {
      * @return An Iterator of SomeRelationREFs without attempting lazy resolution (if it's turned on).
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1002)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1156)
     public Iterator<SomeRelation> getMvExtendedRefREFs(){
         DmcTypeSomeRelationMV attr = (DmcTypeSomeRelationMV) get(DmtDMSAG.__mvExtendedRef);
         if (attr == null)
@@ -101,7 +101,7 @@ public class ExtendedRefMVDMO  extends DmcObject  implements Serializable  {
      * Adds another mvExtendedRef to the specified value.
      * @param value SomeRelation
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1016)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1170)
     public DmcAttribute<?> addMvExtendedRef(SomeRelation value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvExtendedRef);
         if (attr == null)
@@ -121,7 +121,7 @@ public class ExtendedRefMVDMO  extends DmcObject  implements Serializable  {
      * Adds another mvExtendedRef value.
      * @param value A value compatible with SomeRelation
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1257)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1411)
     public DmcAttribute<?> addMvExtendedRef(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvExtendedRef);
         if (attr == null)
@@ -135,7 +135,7 @@ public class ExtendedRefMVDMO  extends DmcObject  implements Serializable  {
     /**
      * Returns the number of values in mvExtendedRef
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1274)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1428)
     public int getMvExtendedRefSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvExtendedRef);
         if (attr == null){
@@ -151,7 +151,7 @@ public class ExtendedRefMVDMO  extends DmcObject  implements Serializable  {
      * Deletes a mvExtendedRef value.
      * @param value The SomeRelation to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1313)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1467)
     public DmcAttribute<?> delMvExtendedRef(Object value){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvExtendedRef);
         
@@ -166,7 +166,7 @@ public class ExtendedRefMVDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the mvExtendedRef attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1367)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1521)
     public void remMvExtendedRef(){
          rem(DmtDMSAG.__mvExtendedRef);
     }

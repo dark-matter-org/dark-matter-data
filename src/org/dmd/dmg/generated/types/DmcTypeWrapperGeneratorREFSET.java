@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeWrapperGeneratorREFSET provides storage for a set of WrapperGeneratorREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2637)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2791)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:530)
  */
 @SuppressWarnings("serial")
@@ -61,7 +61,7 @@ public class DmcTypeWrapperGeneratorREFSET extends DmcTypeWrapperGeneratorREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2678)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2832)
     public DmcAttribute<WrapperGeneratorREF> cloneIt(){
         synchronized(this){
             DmcTypeWrapperGeneratorREFSET rc = getNew();
@@ -80,7 +80,7 @@ public class DmcTypeWrapperGeneratorREFSET extends DmcTypeWrapperGeneratorREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2855)
     public WrapperGeneratorREF add(Object v) throws DmcValueException {
         synchronized(this){
             WrapperGeneratorREF rc = typeCheck(v);
@@ -96,7 +96,7 @@ public class DmcTypeWrapperGeneratorREFSET extends DmcTypeWrapperGeneratorREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2718)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2872)
     public WrapperGeneratorREF del(Object v){
         synchronized(this){
             WrapperGeneratorREF rc = null;
@@ -120,7 +120,7 @@ public class DmcTypeWrapperGeneratorREFSET extends DmcTypeWrapperGeneratorREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2743)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2897)
     public Iterator<WrapperGeneratorREF> getMV(){
         synchronized(this){
             if (value == null)
@@ -133,7 +133,7 @@ public class DmcTypeWrapperGeneratorREFSET extends DmcTypeWrapperGeneratorREF im
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2757)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2911)
     public Set<WrapperGeneratorREF> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -152,7 +152,7 @@ public class DmcTypeWrapperGeneratorREFSET extends DmcTypeWrapperGeneratorREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2777)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2931)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -162,7 +162,7 @@ public class DmcTypeWrapperGeneratorREFSET extends DmcTypeWrapperGeneratorREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2788)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2942)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

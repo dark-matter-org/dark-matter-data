@@ -63,7 +63,7 @@ public class ExtendedRefSVDMO  extends DmcObject  implements Serializable  {
         return(rc);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:739)
     /**
      * @return The SomeRelation, attempting lazy resolution (if it's turned on).
      */
@@ -82,7 +82,7 @@ public class ExtendedRefSVDMO  extends DmcObject  implements Serializable  {
         return(attr.getSV());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:775)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:768)
     /**
      * @return The SomeRelation without attempting lazy resolution (if it's turned on).
      */
@@ -98,7 +98,7 @@ public class ExtendedRefSVDMO  extends DmcObject  implements Serializable  {
      * Sets svExtendedRef to the specified value.
      * @param value SomeRelation
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
     public void setSvExtendedRef(SomeRelation value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__svExtendedRef);
         if (attr == null)
@@ -117,7 +117,7 @@ public class ExtendedRefSVDMO  extends DmcObject  implements Serializable  {
      * Sets svExtendedRef to the specified value.
      * @param value A value compatible with DmcTypeSomeRelationSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
     public void setSvExtendedRef(Object value) throws DmcValueException {
         DmcTypeSomeRelationSV attr  = (DmcTypeSomeRelationSV) get(DmtDMSAG.__svExtendedRef);
         if (attr == null)
@@ -132,7 +132,7 @@ public class ExtendedRefSVDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the svExtendedRef attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
     public void remSvExtendedRef(){
          rem(DmtDMSAG.__svExtendedRef);
     }

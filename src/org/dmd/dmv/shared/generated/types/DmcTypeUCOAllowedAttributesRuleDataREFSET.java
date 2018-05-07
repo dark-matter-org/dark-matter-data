@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeUCOAllowedAttributesRuleDataREFSET provides storage for a set of UCOAllowedAttributesRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2637)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2791)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:530)
  */
 @SuppressWarnings("serial")
@@ -61,7 +61,7 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFSET extends DmcTypeUCOAllowed
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2678)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2832)
     public DmcAttribute<UCOAllowedAttributesRuleDataREF> cloneIt(){
         synchronized(this){
             DmcTypeUCOAllowedAttributesRuleDataREFSET rc = getNew();
@@ -80,7 +80,7 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFSET extends DmcTypeUCOAllowed
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2855)
     public UCOAllowedAttributesRuleDataREF add(Object v) throws DmcValueException {
         synchronized(this){
             UCOAllowedAttributesRuleDataREF rc = typeCheck(v);
@@ -96,7 +96,7 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFSET extends DmcTypeUCOAllowed
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2718)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2872)
     public UCOAllowedAttributesRuleDataREF del(Object v){
         synchronized(this){
             UCOAllowedAttributesRuleDataREF rc = null;
@@ -120,7 +120,7 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFSET extends DmcTypeUCOAllowed
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2743)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2897)
     public Iterator<UCOAllowedAttributesRuleDataREF> getMV(){
         synchronized(this){
             if (value == null)
@@ -133,7 +133,7 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFSET extends DmcTypeUCOAllowed
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2757)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2911)
     public Set<UCOAllowedAttributesRuleDataREF> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -152,7 +152,7 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFSET extends DmcTypeUCOAllowed
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2777)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2931)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -162,7 +162,7 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFSET extends DmcTypeUCOAllowed
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2788)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2942)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

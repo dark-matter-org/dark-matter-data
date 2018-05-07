@@ -69,9 +69,9 @@ public class NamedObjTMDMO  extends DmcObject  implements Serializable  {
     /**
      * @return An Iterator of ObjWithRefsDMO objects.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1405)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1559)
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1417)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1571)
     public Iterator<ObjWithRefsREF> getTmNamedObj(){
         DmcTypeObjWithRefsREFMAP attr = (DmcTypeObjWithRefsREFMAP) get(DmtDMSAG.__tmNamedObj);
         if (attr == null)
@@ -90,7 +90,7 @@ public class NamedObjTMDMO  extends DmcObject  implements Serializable  {
     /**
      * @return An Iterator of ObjWithRefsREFs without attempting lazy resolution (if it's turned on).
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1436)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1590)
     @SuppressWarnings("unchecked")
     public Iterator<ObjWithRefsREF> getTmNamedObjREFs(){
         DmcTypeObjWithRefsREFMAP attr = (DmcTypeObjWithRefsREFMAP) get(DmtDMSAG.__tmNamedObj);
@@ -104,7 +104,7 @@ public class NamedObjTMDMO  extends DmcObject  implements Serializable  {
      * @param key The key of the value you want.
      * @return The ObjWithRefs associated with the specified key.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1470)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1624)
     public ObjWithRefsREF getTmNamedObj(Object key){
         DmcTypeObjWithRefsREFMAP attr = (DmcTypeObjWithRefsREFMAP) get(DmtDMSAG.__tmNamedObj);
         if (attr == null)
@@ -116,7 +116,7 @@ public class NamedObjTMDMO  extends DmcObject  implements Serializable  {
     /**
      * @return The first key of the map.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1504)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1658)
     public DefinitionName getTmNamedObjFirstKey(){
         DmcTypeObjWithRefsREFMAP attr = (DmcTypeObjWithRefsREFMAP) get(DmtDMSAG.__tmNamedObj);
         if (attr == null)
@@ -129,7 +129,7 @@ public class NamedObjTMDMO  extends DmcObject  implements Serializable  {
      * Adds another tmNamedObj value.
      * @param value A value compatible with ObjWithRefs
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1522)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1676)
     public DmcAttribute<?> addTmNamedObj(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__tmNamedObj);
         if (attr == null)
@@ -144,7 +144,7 @@ public class NamedObjTMDMO  extends DmcObject  implements Serializable  {
      * Adds another tmNamedObj value.
      * @param value ObjWithRefs
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1538)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1692)
     public DmcAttribute<?> addTmNamedObj(ObjWithRefsDMO value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__tmNamedObj);
         if (attr == null)
@@ -164,7 +164,7 @@ public class NamedObjTMDMO  extends DmcObject  implements Serializable  {
      * Deletes a tmNamedObj value.
      * @param value The ObjWithRefs to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1597)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1751)
     public DmcAttribute<?> delTmNamedObj(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__tmNamedObj);
         
@@ -180,7 +180,7 @@ public class NamedObjTMDMO  extends DmcObject  implements Serializable  {
      * Deletes a tmNamedObj value.
      * @param value The ObjWithRefs to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1615)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1769)
     public DmcAttribute<?> delTmNamedObj(ObjWithRefsDMO value){
         DmcAttribute<?> attr = get(DmtDMSAG.__tmNamedObj);
         
@@ -195,7 +195,7 @@ public class NamedObjTMDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the tmNamedObj attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1711)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1865)
     public void remTmNamedObj(){
          rem(DmtDMSAG.__tmNamedObj);
     }

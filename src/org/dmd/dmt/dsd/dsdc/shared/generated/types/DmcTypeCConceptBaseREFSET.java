@@ -43,7 +43,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeCConceptBaseREFSET provides storage for a set of CConceptBaseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2637)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2791)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:530)
  */
 @SuppressWarnings("serial")
@@ -76,7 +76,7 @@ public class DmcTypeCConceptBaseREFSET extends DmcTypeCConceptBaseREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2678)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2832)
     public DmcAttribute<CConceptBaseREF> cloneIt(){
         synchronized(this){
             DmcTypeCConceptBaseREFSET rc = getNew();
@@ -95,7 +95,7 @@ public class DmcTypeCConceptBaseREFSET extends DmcTypeCConceptBaseREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2855)
     public CConceptBaseREF add(Object v) throws DmcValueException {
         synchronized(this){
             CConceptBaseREF rc = typeCheck(v);
@@ -111,7 +111,7 @@ public class DmcTypeCConceptBaseREFSET extends DmcTypeCConceptBaseREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2718)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2872)
     public CConceptBaseREF del(Object v){
         synchronized(this){
             CConceptBaseREF rc = null;
@@ -135,7 +135,7 @@ public class DmcTypeCConceptBaseREFSET extends DmcTypeCConceptBaseREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2743)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2897)
     public Iterator<CConceptBaseREF> getMV(){
         synchronized(this){
             if (value == null)
@@ -148,7 +148,7 @@ public class DmcTypeCConceptBaseREFSET extends DmcTypeCConceptBaseREF implements
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2757)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2911)
     public Set<CConceptBaseREF> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -167,7 +167,7 @@ public class DmcTypeCConceptBaseREFSET extends DmcTypeCConceptBaseREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2777)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2931)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -177,7 +177,7 @@ public class DmcTypeCConceptBaseREFSET extends DmcTypeCConceptBaseREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2788)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2942)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)
