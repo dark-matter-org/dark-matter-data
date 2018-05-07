@@ -34,7 +34,7 @@ abstract public class TestAbstractFixedDMO  extends DmcObject  implements Serial
         super(oc);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
     public String getSvString(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmtDMSAG.__svString);
         if (attr == null)
@@ -47,7 +47,7 @@ abstract public class TestAbstractFixedDMO  extends DmcObject  implements Serial
      * Sets svString to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
     public void setSvString(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__svString);
         if (attr == null)
@@ -66,7 +66,7 @@ abstract public class TestAbstractFixedDMO  extends DmcObject  implements Serial
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
     public void setSvString(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmtDMSAG.__svString);
         if (attr == null)
@@ -79,7 +79,7 @@ abstract public class TestAbstractFixedDMO  extends DmcObject  implements Serial
     /**
      * Removes the svString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
     public void remSvString(){
          rem(DmtDMSAG.__svString);
     }

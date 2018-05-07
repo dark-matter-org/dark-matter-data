@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeNumericRangeRuleDataREFSET provides storage for a set of NumericRangeRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2637)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2791)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:530)
  */
 @SuppressWarnings("serial")
@@ -61,7 +61,7 @@ public class DmcTypeNumericRangeRuleDataREFSET extends DmcTypeNumericRangeRuleDa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2678)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2832)
     public DmcAttribute<NumericRangeRuleDataREF> cloneIt(){
         synchronized(this){
             DmcTypeNumericRangeRuleDataREFSET rc = getNew();
@@ -80,7 +80,7 @@ public class DmcTypeNumericRangeRuleDataREFSET extends DmcTypeNumericRangeRuleDa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2855)
     public NumericRangeRuleDataREF add(Object v) throws DmcValueException {
         synchronized(this){
             NumericRangeRuleDataREF rc = typeCheck(v);
@@ -96,7 +96,7 @@ public class DmcTypeNumericRangeRuleDataREFSET extends DmcTypeNumericRangeRuleDa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2718)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2872)
     public NumericRangeRuleDataREF del(Object v){
         synchronized(this){
             NumericRangeRuleDataREF rc = null;
@@ -120,7 +120,7 @@ public class DmcTypeNumericRangeRuleDataREFSET extends DmcTypeNumericRangeRuleDa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2743)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2897)
     public Iterator<NumericRangeRuleDataREF> getMV(){
         synchronized(this){
             if (value == null)
@@ -133,7 +133,7 @@ public class DmcTypeNumericRangeRuleDataREFSET extends DmcTypeNumericRangeRuleDa
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2757)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2911)
     public Set<NumericRangeRuleDataREF> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -152,7 +152,7 @@ public class DmcTypeNumericRangeRuleDataREFSET extends DmcTypeNumericRangeRuleDa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2777)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2931)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -162,7 +162,7 @@ public class DmcTypeNumericRangeRuleDataREFSET extends DmcTypeNumericRangeRuleDa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2788)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2942)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

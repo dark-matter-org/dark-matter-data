@@ -2429,9 +2429,13 @@ public class DmtSchemaAG extends SchemaDefinition {
             _testActionOBJ.setName("testAction");
             _testActionOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/actions.dmd");
             _testActionOBJ.setDotName("dmt.testAction.ActionDefinition");
-            _testActionOBJ.setLineNumber("5");
+            _testActionOBJ.setLineNumber("9");
             _testActionOBJ.addMustParm("dmt.svBoolean");
+            _testActionOBJ.addMustParm("dmt.svTestBasicNamedObjectFixed");
+            _testActionOBJ.addMayParm("dmt.mvTestBasicNamedObjectFixed");
             _testActionOBJ.addMayParm("meta.name");
+            _testActionOBJ.addMayParm("dmt.plainObjRef");
+            _testActionOBJ.addMayParm("dmt.svUnnamedObj");
             _testAction.setDefinedIn(this);
             addActionDefList(_testAction);
 

@@ -67,7 +67,7 @@ public class PrimitiveHMDMO  extends DmcObject  implements Serializable  {
      * @return An Iterator of StringToString objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1452)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1606)
     public Iterator<StringToString> getHmString(){
         DmcTypeStringToStringMAP attr = (DmcTypeStringToStringMAP) get(DmtDMSAG.__hmString);
         if (attr == null)
@@ -80,7 +80,7 @@ public class PrimitiveHMDMO  extends DmcObject  implements Serializable  {
      * @param key The key of the value you want.
      * @return The StringToString associated with the specified key.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1484)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1638)
     public StringToString getHmString(Object key){
         DmcTypeStringToStringMAP attr = (DmcTypeStringToStringMAP) get(DmtDMSAG.__hmString);
         if (attr == null)
@@ -93,7 +93,7 @@ public class PrimitiveHMDMO  extends DmcObject  implements Serializable  {
      * Adds another hmString value.
      * @param value A value compatible with StringToString
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1522)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1676)
     public DmcAttribute<?> addHmString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__hmString);
         if (attr == null)
@@ -108,7 +108,7 @@ public class PrimitiveHMDMO  extends DmcObject  implements Serializable  {
      * Adds another hmString value.
      * @param value StringToString
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1559)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1713)
     public DmcAttribute<?> addHmString(StringToString value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__hmString);
         if (attr == null)
@@ -128,7 +128,7 @@ public class PrimitiveHMDMO  extends DmcObject  implements Serializable  {
      * Deletes a hmString value.
      * @param key The key of the StringToString to be deleted from the map of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1639)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1793)
     public DmcAttribute<?> delHmString(Object key){
         DmcAttribute<?> attr = get(DmtDMSAG.__hmString);
         
@@ -146,7 +146,7 @@ public class PrimitiveHMDMO  extends DmcObject  implements Serializable  {
      * Deletes a hmString value.
      * @param key the String key value
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1657)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1811)
     public DmcAttribute<?> delHmString(String key) {
         DmcAttribute<?> attr = get(DmtDMSAG.__hmString);
         
@@ -163,7 +163,7 @@ public class PrimitiveHMDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the hmString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1711)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1865)
     public void remHmString(){
          rem(DmtDMSAG.__hmString);
     }

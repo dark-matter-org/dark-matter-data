@@ -622,9 +622,6 @@ public class GenUtility {
 	}
 	
 	static public void formatSV(AttributeDefinition ad, StringBuffer sb){
-//		if (ad.getName().getNameString().equals("valueType"))
-//			DebugInfo.debug("HERE");
-		
     	String typeClassName 	= ad.getType().getTypeClassName();
     	String attrType 		= "DmcType" + ad.getType().getName();
     	// Try to get the nullReturnValue from the attribute first - and try the type second
@@ -634,10 +631,6 @@ public class GenUtility {
     	
     	if (genericArgs == null)
     		genericArgs = "<?>";
-    	
-//    	if (ad.getName().getNameString().equals("ipAddr")){
-//    		DebugInfo.debug(ad.toOIF(15));
-//    	}
     	
     	if (nullReturnValue == null){
     		nullReturnValue = ad.getType().getNullReturnValue();
@@ -914,6 +907,167 @@ public class GenUtility {
 
 	}
 	
+	/**
+	 * This is a specialized function used to format ActionTriggerInfo derivatives.
+	 * When dealing with object types we just handle them as DMOs, we don't use
+	 * references.
+	 * @param ad the attribute we're accessing
+	 * @param sb the string buffer to which we write the function
+	 */
+	static public void formatSVObjectAccess(AttributeDefinition ad, StringBuffer sb){
+		// If this is an unnamed object, just use the normal mechanisms
+		if (ad.getType().getOriginalClass().getIsNamedBy()== null) {
+			formatSV(ad,sb);
+			return;
+		}
+		
+		// Otherwise, we perform our hack...
+		
+//    	String typeClassName 	= ad.getType().getTypeClassName();
+    	String attrType 		= "DmcTypeDmcObjectSV";
+    	// Try to get the nullReturnValue from the attribute first - and try the type second
+    	String nullReturnValue 	= ad.getNullReturnValue();
+    	String typeName 		= ad.getType().getName().getNameString();
+    	String genericArgs		= ad.getGenericArgs();
+    	
+    	if (genericArgs == null)
+    		genericArgs = "<?>";
+    	
+    	if (nullReturnValue == null){
+    		nullReturnValue = ad.getType().getNullReturnValue();
+    	}
+    	    	
+    	////////////////////////////////////////////////////////////////////////////////
+    	// getter
+
+    	StringBuffer 	functionName 	= new StringBuffer();
+    	functionName.append(ad.getName());
+    	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
+    	
+		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+		sb.append("    public " + typeName + "DMO get" + functionName + "(){\n");		
+		sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
+		sb.append("        if (attr == null)\n");
+    	if (nullReturnValue == null)
+    		sb.append("            return(null);\n");
+    	else
+    		sb.append("            return(" + nullReturnValue + ");\n");
+    	sb.append("\n");
+    	sb.append("        return((" + typeName + "DMO)attr.getSV());\n");
+    	sb.append("    }\n\n");
+	    	
+    	
+    	////////////////////////////////////////////////////////////////////////////////
+    	// setter
+    	
+		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+    	sb.append("    /**\n");
+    	sb.append("     * Sets " + ad.getName() + " to the specified value.\n");
+    	sb.append("     * @param value A value compatible with " + attrType + "\n");
+    	sb.append("     */\n");
+		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+    	sb.append("    public void set" + functionName + "(" + typeName + "DMO value){\n");
+    	sb.append("        " + attrType + " attr  = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
+    	sb.append("        if (attr == null)\n");
+    	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
+    	sb.append("        \n");
+    	sb.append("        try {\n");
+    	sb.append("            attr.set(value);\n");
+    	sb.append("            set(" + ad.getDMSAGReference() + ",attr);\n");
+    	sb.append("        } catch (DmcValueException e) {\n");
+    	sb.append("            throw(new IllegalStateException(\"This set" + functionName + "() call should never throw an exception\", e));\n");
+    	sb.append("        }\n");
+    	sb.append("    }\n\n");
+    	
+    	////////////////////////////////////////////////////////////////////////////////
+    	// remover
+		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+		sb.append("    /**\n");
+		sb.append("     * Removes the " + ad.getName() + " attribute value.\n");
+		sb.append("     */\n");
+		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+		sb.append("    public void rem" + functionName + "(){\n");
+		sb.append("         rem(" + ad.getDMSAGReference() + ");\n");
+		sb.append("    }\n\n");
+		
+
+	}
+	
+	/**
+	 * This is a specialized function used to format ActionTriggerInfo derivatives.
+	 * When dealing with object types we just handle them as DMOs, we don't use
+	 * references.
+	 * @param ad the attribute we're accessing
+	 * @param sb the string buffer to which we write the function
+	 */
+	static public void formatMVObjectAccess(AttributeDefinition ad, StringBuffer sb){
+		// If this is an unnamed object, just use the normal mechanisms
+		if (ad.getType().getOriginalClass().getIsNamedBy()== null) {
+			formatMV(ad,sb);
+			return;
+		}
+		
+		// Otherwise, we perform our hack...
+		
+		
+//    	String typeClassName 	= ad.getType().getTypeClassName();
+    	String attrType 		= "DmcTypeDmcObjectMV";
+    	// Try to get the nullReturnValue from the attribute first - and try the type second
+    	String nullReturnValue 	= ad.getNullReturnValue();
+    	String typeName 		= ad.getType().getName().getNameString();
+    	String genericArgs		= ad.getGenericArgs();
+    	
+    	if (genericArgs == null)
+    		genericArgs = "<?>";
+    	
+    	if (nullReturnValue == null){
+    		nullReturnValue = ad.getType().getNullReturnValue();
+    	}
+    	    	    	
+    	////////////////////////////////////////////////////////////////////////////////
+    	// adder
+
+    	StringBuffer 	functionName 	= new StringBuffer();
+    	functionName.append(ad.getName());
+    	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
+    	
+		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+    	sb.append("    public DmcAttribute<?> add" + functionName + "(" + typeName + "DMO value) {\n");
+    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
+    	sb.append("        if (attr == null)\n");
+    	sb.append("            attr = new " + attrType  + "(" + ad.getDMSAGReference() + ");\n");
+    	sb.append("        \n");
+    	sb.append("        try{\n");
+    	sb.append("            setLastValue(attr.add(value));\n");
+    	sb.append("            add(" + ad.getDMSAGReference() + ",attr);\n");
+    	sb.append("        }\n");
+    	sb.append("        catch(DmcValueException ex){\n");
+    	sb.append("            throw(new IllegalStateException(\"The type specific add() method shouldn't throw exceptions!\",ex));\n");
+    	sb.append("        }\n");
+    	sb.append("        return(attr);\n");
+    	sb.append("    }\n");
+    	sb.append("\n");
+    	
+		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
+    	sb.append("    public Iterator<" + typeName + "DMO> get" + functionName + "(){\n");
+    	sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
+    	sb.append("        if (attr == null)\n");
+    	sb.append("            return( ((List<" + typeName + "DMO>) Collections.EMPTY_LIST).iterator() );\n");
+    	sb.append("        else {\n");
+    	sb.append("            ArrayList<" + typeName + "DMO> list = new ArrayList<>();\n");
+    	sb.append("            Iterator<DmcObject> it = attr.getMV();\n");
+    	sb.append("            while(it.hasNext()) {\n");
+    	sb.append("                list.add((" + typeName + "DMO) it.next());\n");
+    	sb.append("            }\n");
+    	sb.append("            return(list.iterator());\n");
+    	sb.append("        }\n");
+    	sb.append("    }\n");
+    	sb.append("\n");
+		
+
+	}
+
 	static public void formatMV(AttributeDefinition ad, StringBuffer sb){
     	String typeClassName = ad.getType().getTypeClassName();
     	String attrType = "DmcType" + ad.getType().getName();

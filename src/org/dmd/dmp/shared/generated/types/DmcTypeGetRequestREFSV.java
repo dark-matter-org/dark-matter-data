@@ -24,7 +24,7 @@ import org.dmd.dmp.shared.generated.dmo.GetRequestDMO;    // DmcType import
  * The DmcTypeGetRequestREFSV provides storage for a single-valued GetRequest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1997)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2151)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:254)
  */
 @SuppressWarnings("serial")
@@ -49,14 +49,14 @@ public class DmcTypeGetRequestREFSV extends DmcTypeGetRequestREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2029)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2183)
     public DmcAttribute<GetRequestDMO> cloneIt(){
         DmcTypeGetRequestREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2040)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2194)
     public GetRequestDMO getSVCopy(){
         if (value == null)
             return(null);
@@ -64,7 +64,7 @@ public class DmcTypeGetRequestREFSV extends DmcTypeGetRequestREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2052)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2206)
     public GetRequestDMO set(Object v) throws DmcValueException {
         GetRequestDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

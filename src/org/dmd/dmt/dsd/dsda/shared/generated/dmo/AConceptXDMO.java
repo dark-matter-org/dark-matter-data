@@ -111,7 +111,7 @@ public class AConceptXDMO  extends AConceptBaseDMO  implements DmcNamedObjectIF,
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
     public DefinitionName getName(){
         DmcTypeDefinitionNameSV attr = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -124,7 +124,7 @@ public class AConceptXDMO  extends AConceptBaseDMO  implements DmcNamedObjectIF,
      * Sets name to the specified value.
      * @param value DefinitionName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
     public void setName(DefinitionName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -143,7 +143,7 @@ public class AConceptXDMO  extends AConceptBaseDMO  implements DmcNamedObjectIF,
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
     public void setName(Object value) throws DmcValueException {
         DmcTypeDefinitionNameSV attr  = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -156,7 +156,7 @@ public class AConceptXDMO  extends AConceptBaseDMO  implements DmcNamedObjectIF,
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
     public void remName(){
          rem(MetaDMSAG.__name);
     }

@@ -11,7 +11,7 @@ import org.dmd.dmt.shared.generated.dmo.UnnamedObjHSDMO;    // DmcType import
  * The DmcTypeUnnamedObjHSREFMV provides storage for a multi-valued UnnamedObjHS
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2341)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2495)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:255)
  */
 @SuppressWarnings("serial")
@@ -35,7 +35,7 @@ public class DmcTypeUnnamedObjHSREFMV extends DmcTypeUnnamedObjHSREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2372)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2526)
     public DmcAttribute<UnnamedObjHSDMO> cloneIt(){
         synchronized(this){
             DmcTypeUnnamedObjHSREFMV rc = getNew();
@@ -64,7 +64,7 @@ public class DmcTypeUnnamedObjHSREFMV extends DmcTypeUnnamedObjHSREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2405)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2559)
     public UnnamedObjHSDMO add(Object v) throws DmcValueException {
         synchronized(this){
             UnnamedObjHSDMO rc = typeCheck(v);
@@ -76,7 +76,7 @@ public class DmcTypeUnnamedObjHSREFMV extends DmcTypeUnnamedObjHSREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2418)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2572)
     public UnnamedObjHSDMO del(Object v){
         synchronized(this){
             if (value == null)
@@ -100,7 +100,7 @@ public class DmcTypeUnnamedObjHSREFMV extends DmcTypeUnnamedObjHSREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2452)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2606)
     public Iterator<UnnamedObjHSDMO> getMV(){
         synchronized(this){
             if (value == null)
@@ -111,7 +111,7 @@ public class DmcTypeUnnamedObjHSREFMV extends DmcTypeUnnamedObjHSREF implements 
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2464)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2618)
     public ArrayList<UnnamedObjHSDMO> getMVCopy(){
         synchronized(this){
             if (value == null)
@@ -122,7 +122,7 @@ public class DmcTypeUnnamedObjHSREFMV extends DmcTypeUnnamedObjHSREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2476)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2630)
     public int getMVSize(){
         synchronized(this){
             if (getAttributeInfo().indexSize == 0){
@@ -136,7 +136,7 @@ public class DmcTypeUnnamedObjHSREFMV extends DmcTypeUnnamedObjHSREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2491)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2645)
     public UnnamedObjHSDMO getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -146,7 +146,7 @@ public class DmcTypeUnnamedObjHSREFMV extends DmcTypeUnnamedObjHSREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2502)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2656)
     public UnnamedObjHSDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
@@ -173,7 +173,7 @@ public class DmcTypeUnnamedObjHSREFMV extends DmcTypeUnnamedObjHSREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2530)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2684)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -196,7 +196,7 @@ public class DmcTypeUnnamedObjHSREFMV extends DmcTypeUnnamedObjHSREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2554)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2708)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

@@ -30,7 +30,7 @@ import org.dmd.dmc.types.FullyQualifiedName;    // key type import
  * The DmcTypeHierarchicObjectREFMAP provides storage for a map of HierarchicObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2870)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3024)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:538)
  */
 @SuppressWarnings("serial")
@@ -73,7 +73,7 @@ public class DmcTypeHierarchicObjectREFMAP extends DmcTypeHierarchicObjectREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2927)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3081)
     public DmcAttribute<HierarchicObjectREF> cloneIt(){
         synchronized(this){
             DmcTypeHierarchicObjectREFMAP rc = getNew();
@@ -92,7 +92,7 @@ public class DmcTypeHierarchicObjectREFMAP extends DmcTypeHierarchicObjectREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2947)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3101)
     public HierarchicObjectREF add(Object v) throws DmcValueException {
         synchronized(this){
             HierarchicObjectREF newval = typeCheck(v);
@@ -112,7 +112,7 @@ public class DmcTypeHierarchicObjectREFMAP extends DmcTypeHierarchicObjectREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2968)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3122)
     public HierarchicObjectREF del(Object key){
         synchronized(this){
     
@@ -127,7 +127,7 @@ public class DmcTypeHierarchicObjectREFMAP extends DmcTypeHierarchicObjectREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2984)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3138)
     public Iterator<HierarchicObjectREF> getMV(){
         synchronized(this){
     
@@ -143,7 +143,7 @@ public class DmcTypeHierarchicObjectREFMAP extends DmcTypeHierarchicObjectREF im
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3001)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3155)
     public Map<FullyQualifiedName,HierarchicObjectREF> getMVCopy(){
         synchronized(this){
             Map<FullyQualifiedName,HierarchicObjectREF> clone = null;
@@ -163,7 +163,7 @@ public class DmcTypeHierarchicObjectREFMAP extends DmcTypeHierarchicObjectREF im
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3022)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3176)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -174,7 +174,7 @@ public class DmcTypeHierarchicObjectREFMAP extends DmcTypeHierarchicObjectREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3034)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3188)
     public HierarchicObjectREF getByKey(Object key){
         synchronized(this){
            if (value == null)
@@ -188,7 +188,7 @@ public class DmcTypeHierarchicObjectREFMAP extends DmcTypeHierarchicObjectREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3049)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3203)
     public boolean contains(Object v){
         synchronized(this){
            if (value == null)
@@ -204,7 +204,7 @@ public class DmcTypeHierarchicObjectREFMAP extends DmcTypeHierarchicObjectREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3066)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3220)
     public boolean containsKey(Object key){
         synchronized(this){
            if (value == null)

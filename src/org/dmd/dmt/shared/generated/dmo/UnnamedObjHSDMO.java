@@ -67,7 +67,7 @@ public class UnnamedObjHSDMO  extends DmcObject  implements Serializable  {
      * @return An Iterator of TestBasicObjectFixedDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:970)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
     public Iterator<TestBasicObjectFixedDMO> getHsUnnamedObj(){
         DmcTypeTestBasicObjectFixedREFSET attr = (DmcTypeTestBasicObjectFixedREFSET) get(DmtDMSAG.__hsUnnamedObj);
         if (attr == null)
@@ -80,7 +80,7 @@ public class UnnamedObjHSDMO  extends DmcObject  implements Serializable  {
      * Adds another hsUnnamedObj to the specified value.
      * @param value TestBasicObjectFixed
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1016)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1170)
     public DmcAttribute<?> addHsUnnamedObj(TestBasicObjectFixedDMO value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsUnnamedObj);
         if (attr == null)
@@ -100,7 +100,7 @@ public class UnnamedObjHSDMO  extends DmcObject  implements Serializable  {
      * Adds another hsUnnamedObj value.
      * @param value A value compatible with TestBasicObjectFixed
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1257)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1411)
     public DmcAttribute<?> addHsUnnamedObj(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsUnnamedObj);
         if (attr == null)
@@ -114,7 +114,7 @@ public class UnnamedObjHSDMO  extends DmcObject  implements Serializable  {
     /**
      * Returns the number of values in hsUnnamedObj
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1274)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1428)
     public int getHsUnnamedObjSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__hsUnnamedObj);
         if (attr == null){
@@ -130,7 +130,7 @@ public class UnnamedObjHSDMO  extends DmcObject  implements Serializable  {
      * Deletes a hsUnnamedObj value.
      * @param value The TestBasicObjectFixed to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1296)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1450)
     public DmcAttribute<?> delHsUnnamedObj(Object value){
         DmcAttribute<?> attr = get(DmtDMSAG.__hsUnnamedObj);
         
@@ -145,7 +145,7 @@ public class UnnamedObjHSDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the hsUnnamedObj attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1367)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1521)
     public void remHsUnnamedObj(){
          rem(DmtDMSAG.__hsUnnamedObj);
     }

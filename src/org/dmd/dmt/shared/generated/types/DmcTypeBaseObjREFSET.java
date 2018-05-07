@@ -13,7 +13,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeBaseObjREFSET provides storage for a set of BaseObjREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2637)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2791)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:530)
  */
 @SuppressWarnings("serial")
@@ -46,7 +46,7 @@ public class DmcTypeBaseObjREFSET extends DmcTypeBaseObjREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2678)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2832)
     public DmcAttribute<BaseObjREF> cloneIt(){
         synchronized(this){
             DmcTypeBaseObjREFSET rc = getNew();
@@ -65,7 +65,7 @@ public class DmcTypeBaseObjREFSET extends DmcTypeBaseObjREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2855)
     public BaseObjREF add(Object v) throws DmcValueException {
         synchronized(this){
             BaseObjREF rc = typeCheck(v);
@@ -81,7 +81,7 @@ public class DmcTypeBaseObjREFSET extends DmcTypeBaseObjREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2718)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2872)
     public BaseObjREF del(Object v){
         synchronized(this){
             BaseObjREF rc = null;
@@ -105,7 +105,7 @@ public class DmcTypeBaseObjREFSET extends DmcTypeBaseObjREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2743)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2897)
     public Iterator<BaseObjREF> getMV(){
         synchronized(this){
             if (value == null)
@@ -118,7 +118,7 @@ public class DmcTypeBaseObjREFSET extends DmcTypeBaseObjREF implements Serializa
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2757)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2911)
     public Set<BaseObjREF> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -137,7 +137,7 @@ public class DmcTypeBaseObjREFSET extends DmcTypeBaseObjREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2777)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2931)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -147,7 +147,7 @@ public class DmcTypeBaseObjREFSET extends DmcTypeBaseObjREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2788)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2942)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

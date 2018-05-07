@@ -70,6 +70,12 @@ public interface DmcPresentationTrackerIF {
 	public boolean debug();
 	
 	/**
+	 * Log the specified debug message.
+	 * @param message the message to be logged.
+	 */
+	public void debug(String message);
+	
+	/**
 	 * When a form is first rendered, it's often convenient to force validation on
 	 * all of the fields so that they can display whether or not they're mandatory i.e.
 	 * that they require a value. Calling this method will call isValid() on all 
