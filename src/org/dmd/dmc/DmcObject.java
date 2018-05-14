@@ -777,6 +777,23 @@ abstract public class DmcObject implements Serializable {
 	}
 	
 	/**
+	 * Indicates if there's an explicit value set for the specified attribute. This can be
+	 * useful in cases where we want to determine if a value has been explicitly set, as opposed
+	 * to a wrapper method that is returning a default value that has been provided for an attribute.
+	 * @param ai the attribute info definition.
+	 * @return true if there's a value and false otherwise
+	 */
+	public boolean hasValue(DmcAttributeInfo ai){
+		synchronized (attributes) {
+			DmcAttribute<?> rc = attributes.get(ai.id);
+			if (rc == null)
+				return(false);
+			
+			return(true);
+		}
+	}
+	
+	/**
 	 * Retrieves the names of attributes in this object. If you only want the single
 	 * valued attributes.
 	 * @param onlySV  if true, will only return single valued attribute names.
