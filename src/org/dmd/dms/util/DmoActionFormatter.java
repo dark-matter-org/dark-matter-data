@@ -185,7 +185,7 @@ public class DmoActionFormatter {
       		while(it.hasNext()) {
       			AttributeDefinition attr = it.next();
       			
-          		out.write("        if (get(\"" + attr.getDMSAGReference() + "\") == null){\n");
+          		out.write("        if (get(" + attr.getDMSAGReference() + ") == null){\n");
           		out.write("            if (ex == null)\n");
           		out.write("                ex = new DmcValueExceptionSet();\n");
           		out.write("            ex.add(new DmcValueException(\"" + cappedName + "ATI - missing mandatory parameter: " + attr.getName() + "\"));\n");

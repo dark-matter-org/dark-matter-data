@@ -105,6 +105,14 @@ public interface DmcPresentationIF {
 	public void resetToExisting();
 	
 	/**
+	 * This methods allows you to set the presentation to be empty. This may be used by
+	 * higher level logic associated with a form that needs to remove values from some
+	 * fields due to the state of another field. The implementation should alter the
+	 * associated value adapter to be empty.
+	 */
+	public void setEmpty();
+	
+	/**
 	 * This aspect is more tricky than it might first appear. Although the adapter has a
 	 * valueChanged() method on it that could be used by a DmcPresentationTrackerIF component,
 	 * that method can't take into account changes in the presentation state that are 

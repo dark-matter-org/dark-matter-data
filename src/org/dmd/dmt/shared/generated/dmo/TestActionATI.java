@@ -350,12 +350,12 @@ public class TestActionATI extends ActionTriggerInfo implements Serializable {
     public void checkParams() throws DmcValueExceptionSet {
         DmcValueExceptionSet ex = null;
 
-        if (get("DmtDMSAG.__svBoolean") == null){
+        if (get(DmtDMSAG.__svBoolean) == null){
             if (ex == null)
                 ex = new DmcValueExceptionSet();
             ex.add(new DmcValueException("TestActionATI - missing mandatory parameter: svBoolean"));
         }
-        if (get("DmtDMSAG.__svTestBasicNamedObjectFixed") == null){
+        if (get(DmtDMSAG.__svTestBasicNamedObjectFixed) == null){
             if (ex == null)
                 ex = new DmcValueExceptionSet();
             ex.add(new DmcValueException("TestActionATI - missing mandatory parameter: svTestBasicNamedObjectFixed"));
