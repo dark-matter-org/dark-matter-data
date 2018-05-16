@@ -91,6 +91,9 @@ public class DmoCacheFormatter {
 		imports.addImport("org.dmd.dmc.DmcAttributeInfo", "Used when resolving clashes");
 		imports.addImport("org.dmd.dmc.DmcNameClashObjectSet", "Used when resolving clashes");
 		imports.addImport("org.dmd.dmc.DmcNameClashException", "Used when resolving clashes");
+		imports.addImport("org.dmd.dmv.shared.DmvRuleManager", "To allow access to the rule manager");
+		
+		getRuleSchemaImports(imports,includedModules);
 		
 		out.write(imports.getFormattedImports());
 		
@@ -99,7 +102,8 @@ public class DmoCacheFormatter {
 		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("public class " + ddm.getName() + "DefinitionDMOCache " + impl.getFormattedImplementations() + "{\n\n");
 		
-		out.write("    private Logger logger;\n");
+		out.write("    private Logger                       logger;\n");
+		out.write("    private DmvRuleManager               ruleManager;\n");
 		out.write("    DMODefinitionSet<DSDefinitionDMO>	allDefinitions;\n");
 		out.write("\n");
 		
@@ -108,12 +112,22 @@ public class DmoCacheFormatter {
 		out.write("    public " + ddm.getName() + "DefinitionDMOCache(){\n\n");
 		
 		out.write("        logger = Logger.getLogger(getClass().getName());\n\n");
+		
+		out.write("        ruleManager = new DmvRuleManager();\n");
+		out.write(getRuleInitializers(includedModules));
+		
 		out.write("        // This will be populated as a result of adding definitions to the definition sets for each definition type\n");
 		out.write("        allDefinitions = new DMODefinitionSet<DSDefinitionDMO>(\"allDefinitions\");\n\n");
 
 		initializeDefinitionManagerMembers(out, includedModules);
 		
 		out.write("    }\n\n");
+		
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    public DmvRuleManager ruleManager(){\n");
+		out.write("        return(ruleManager);\n");
+		out.write("    }\n");
+		out.write("\n");
 		
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("    public void resolveReferences() throws DmcValueExceptionSet {\n");
@@ -230,6 +244,23 @@ public class DmoCacheFormatter {
 		out.write("}\n\n");
 		
 		out.close();
+	}
+	
+	private void getRuleSchemaImports(ImportManager imports, TreeMap<String, DSDefinitionModule> includedModules) {
+		for(DSDefinitionModule ddm: includedModules.values()) {
+			imports.addImport(ddm.getDefinedIn().getDMSASGImport(),"To allow loading of rules from the " + ddm.getDefinedIn().getName() + " schema");
+		}
+	}
+	
+	private String getRuleInitializers(TreeMap<String, DSDefinitionModule> includedModules) {
+		StringBuilder sb = new StringBuilder();
+		
+		for(DSDefinitionModule ddm: includedModules.values()) {
+			sb.append("        ruleManager.loadRules(" + ddm.getDefinedIn().getDMSASGName() + ".instance());\n");
+		}
+		sb.append("\n");
+		
+		return(sb.toString());
 	}
 	
 	/**

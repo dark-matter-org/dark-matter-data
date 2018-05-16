@@ -16,17 +16,17 @@
 package org.dmd.dmt.dsd.dsdc.shared.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCacheFormatter.generateGlobalInterface(DmoCacheFormatter.java:368)
-import java.util.Iterator;                                                // To provide iterators over definitions - (DmoCacheFormatter.java:363)
-import org.dmd.dmc.DmcNameClashException;                                 // May be thrown when finding definitions - (DmoCacheFormatter.java:364)
-import org.dmd.dmc.DmcValueException;                                     // May be thrown when finding definitions - (DmoCacheFormatter.java:365)
+// Called from: org.dmd.dms.util.DmoCacheFormatter.generateGlobalInterface(DmoCacheFormatter.java:399)
+import java.util.Iterator;                                                // To provide iterators over definitions - (DmoCacheFormatter.java:394)
+import org.dmd.dmc.DmcNameClashException;                                 // May be thrown when finding definitions - (DmoCacheFormatter.java:395)
+import org.dmd.dmc.DmcValueException;                                     // May be thrown when finding definitions - (DmoCacheFormatter.java:396)
 import org.dmd.dmc.types.DotName;                                         // To support the find method for definitions - (DSDefinitionModule.java:206)
 import org.dmd.dmt.dsd.dsdc.shared.generated.dmo.CConceptBaseDMO;         // A definition from the ModuleC Module - (DSDefinitionModule.java:204)
 import org.dmd.dmt.dsd.dsdc.shared.generated.dmo.CConceptXDMO;            // A definition from the ModuleC Module - (DSDefinitionModule.java:218)
 import org.dmd.dmt.dsd.dsdc.shared.generated.dmo.ModuleCDMO;              // A definition from the ModuleC Module - (DSDefinitionModule.java:218)
 
 
-// Generated from: org.dmd.dms.util.DmoCacheFormatter.generateGlobalInterface(DmoCacheFormatter.java:372)
+// Generated from: org.dmd.dms.util.DmoCacheFormatter.generateGlobalInterface(DmoCacheFormatter.java:403)
 /**
  * This interface is implemented by definition managers that store definitions from the ModuleC module.
  */
