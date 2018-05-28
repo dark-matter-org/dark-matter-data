@@ -796,6 +796,11 @@ public class DmoCompactSchemaFormatter {
             	String mv 				= ad.getSV("valueType");
             	String indexSize		= ad.getSV("indexSize");
 	        	String weakReference	= ad.getSV("weakReference");
+	        	String dataType			= "PERSISTENT";
+	        	
+	        	if (ad.get("dataType") != null) {
+	        		dataType = ad.getSV("dataType");
+	        	}
 	        	
 	        	if (indexSize == null)
 	        		indexSize = "0";
@@ -803,7 +808,7 @@ public class DmoCompactSchemaFormatter {
 	        	if (weakReference == null)
 	        		weakReference = "false";
         		
-            	writeAttributeInfoMETA(out, n, ID, t, mv, "false", indexSize, weakReference);
+            	writeAttributeInfoMETA(out, n, ID, t, mv, dataType, "false", indexSize, weakReference);
 			}
 		}
         
@@ -1273,7 +1278,7 @@ public class DmoCompactSchemaFormatter {
 	 * @param wr  weak reference
 	 * @throws IOException
 	 */
-    void writeAttributeInfoMETA(BufferedWriter out, String n, String ID, String t, String mv, String opt, String is, String wr) throws IOException {
+    void writeAttributeInfoMETA(BufferedWriter out, String n, String ID, String t, String mv, String dataType, String opt, String is, String wr) throws IOException {
     	out.write("    public final static DmcAttributeInfo __" + n + " = new DmcAttributeInfo(");
     	out.write("\"meta\",");
     	out.write("\"" + n + "\",");
@@ -1285,7 +1290,7 @@ public class DmoCompactSchemaFormatter {
     	else
     		out.write("ValueTypeEnum.MULTI,");
     	
-   		out.write("DataTypeEnum.PERSISTENT");
+   		out.write("DataTypeEnum." + dataType);
     	
    		out.write("," + is);
     	

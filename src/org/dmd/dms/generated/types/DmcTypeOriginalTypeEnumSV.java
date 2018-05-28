@@ -24,8 +24,8 @@ import org.dmd.dms.generated.enums.OriginalTypeEnum;    // DmcType import
  * The DmcTypeOriginalTypeEnumSV provides storage for a single-valued OriginalTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1997)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:592)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2151)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:591)
  */
 @SuppressWarnings("serial")
 public class DmcTypeOriginalTypeEnumSV extends DmcTypeOriginalTypeEnum implements Serializable {
@@ -49,14 +49,14 @@ public class DmcTypeOriginalTypeEnumSV extends DmcTypeOriginalTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2029)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2183)
     public DmcAttribute<OriginalTypeEnum> cloneIt(){
         DmcTypeOriginalTypeEnumSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2040)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2194)
     public OriginalTypeEnum getSVCopy(){
         if (value == null)
             return(null);
@@ -64,7 +64,7 @@ public class DmcTypeOriginalTypeEnumSV extends DmcTypeOriginalTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2052)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2206)
     public OriginalTypeEnum set(Object v) throws DmcValueException {
         OriginalTypeEnum rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

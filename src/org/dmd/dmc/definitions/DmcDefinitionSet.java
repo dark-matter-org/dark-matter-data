@@ -16,6 +16,8 @@ import org.dmd.dmc.types.DefinitionName;
 import org.dmd.dms.DSDefinition;
 //import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.dmw.DmwNamedObjectWrapper;
+import org.dmd.dmw.DmwWrapper;
+import org.dmd.util.exceptions.ResultException;
 
 /**
  * The DmcDefinitionSet class provides a mechanism to store a set of definitions
@@ -35,33 +37,36 @@ public class DmcDefinitionSet<DEF extends DSDefinition> {
 	
 	// The definitions keyed by DefinitionName, there could be more than one definition with the same name.
 	// The name is simply the name of the definition.
-	TreeMap<DefinitionName,ArrayList<DEF>>	nameMap;
+	private TreeMap<DefinitionName,ArrayList<DEF>>	nameMap;
 	
 	// The dotnames of a set of definitions must be unique. The dot name is
 	// of the form module.name.type
-	TreeMap<DotName,DEF>					fullDotNameMap;
+	private TreeMap<DotName,DEF>					fullDotNameMap;
 	
 	// The name and type map may contain ambiguous entries, so it is similar to the 
 	// name map, however, the dot names are of the form name.type
-	TreeMap<DotName,ArrayList<DEF>>			nameAndTypeMap;
+	private TreeMap<DotName,ArrayList<DEF>>			nameAndTypeMap;
 	
 	// In some cases, it's useful to know the longest definition name; usually when formatting code
-	int 									longestName;
+	private int 									longestName;
 	
 	// The name of this definition set
-	String 									setName;
+	private String 									setName;
 	
 	// If className is set, the definition set works in a somewhat different way in order to
 	// allow for the maintenance of types derived from a base type. For
-	String 									className;
+	private String 									className;
 	
 	// The global definition set. Any definitions added to a set that has a handle to the
 	// global definition set will be added to this as well.
-	DmcDefinitionSet<DSDefinition>			globalSet;
+	private DmcDefinitionSet<DSDefinition>			globalSet;
 	
 	// This is set to true if this set is a global set so that we can enforce addition
 	// to the set via internal mechanisms i.e. via the addGlobal() method.
-	boolean									isGlobalSet;
+	private boolean									isGlobalSet;
+	
+	// Handle to the definition set from which our class is derived
+	private DmcDefinitionSet<?>			derivedFromSet;
 	
 	/**
 	 * Constructs a new global definition set. This type of set doesn't have a class
@@ -75,6 +80,7 @@ public class DmcDefinitionSet<DEF extends DSDefinition> {
 		className		= null;
 		globalSet		= null;
 		isGlobalSet		= false;
+		derivedFromSet	= null;
 	}
 	
 	/**
@@ -92,6 +98,7 @@ public class DmcDefinitionSet<DEF extends DSDefinition> {
 		className		= null;
 		globalSet		= null;
 		isGlobalSet		= true;
+		derivedFromSet	= null;
 	}
 	
 	/**
@@ -107,6 +114,24 @@ public class DmcDefinitionSet<DEF extends DSDefinition> {
 		className		= cn;
 		globalSet		= gs;
 		isGlobalSet		= false;
+		derivedFromSet	= null;
+	}
+	
+	/**
+	 * Constructs a new definition set.
+	 * @param cn the name of the class of definition being stored in this definition set
+	 * @param gs the global definition set
+	 * @param derivedFrom definition set for class from which we're derived
+	 */
+	public DmcDefinitionSet(String cn, DmcDefinitionSet<DSDefinition> gs, DmcDefinitionSet<?> derivedFrom){
+		nameMap 		= new TreeMap<DefinitionName, ArrayList<DEF>>();
+		fullDotNameMap 	= new TreeMap<DotName, DEF>();
+		nameAndTypeMap 	= new TreeMap<DotName, ArrayList<DEF>>();
+		setName 		= cn;
+		className		= cn;
+		globalSet		= gs;
+		isGlobalSet		= false;
+		derivedFromSet	= derivedFrom;
 	}
 	
 	static public void debug(boolean f){
@@ -143,6 +168,24 @@ public class DmcDefinitionSet<DEF extends DSDefinition> {
 	}
 	
 	/**
+	 * This method is used to delete definitions from the nameAndType map.
+	 * @param def
+	 * @param nameAndTypeName
+	 */
+	void deleteByNameAndType(DEF def, DotName nameAndTypeName){
+		ArrayList<DEF> existingNameAndTypeSet = nameAndTypeMap.get(nameAndTypeName);
+		
+		if (existingNameAndTypeSet == null){
+			throw(new IllegalStateException("No entry in nameAndTypeMap for: " + def.toOIF()));
+		}
+		else{
+			if (!existingNameAndTypeSet.remove(def))
+				throw(new IllegalStateException("Could not delete entry in nameAndTypeMap for: " + def.toOIF()));
+
+		}
+	}
+	
+	/**
 	 * This method is used to add definitions to the nameMap.
 	 * @param def
 	 */
@@ -171,6 +214,22 @@ public class DmcDefinitionSet<DEF extends DSDefinition> {
 	}
 	
 	/**
+	 * This method is used to delete definitions from the nameMap.
+	 * @param def the definition to be removed.
+	 */
+	void deleteByName(DEF def){
+		ArrayList<DEF> existingNameSet = nameMap.get(def.getName());
+		
+		if (existingNameSet == null){
+			throw(new IllegalStateException("No entry in nameMap for: " + def.toOIF()));
+		}
+		else{
+			if (!existingNameSet.remove(def))
+				throw(new IllegalStateException("Could not delete entry in nameMap for: " + def.toOIF()));
+		}
+	}
+	
+	/**
 	 * This method is called on a global set to add an alias for a definition in the
 	 * case of derived definition types. 
 	 * @param def the definition.
@@ -192,6 +251,21 @@ public class DmcDefinitionSet<DEF extends DSDefinition> {
 		addByFullName(def, fullName);
 	}
 	
+	/**
+	 * This method is called on a global set to remove an alias for a definition in the
+	 * case of derived definition types. 
+	 * @param def the definition.
+	 * @param fullName the definition's fully qualified name.
+	 * @param nameAndTypeName the definition's name and type name.
+	 */
+	void deleteGlobal(DEF def, DotName fullName, DotName nameAndTypeName){
+		if (!isGlobalSet)
+			throw(new IllegalStateException(""));
+		
+		deleteByNameAndType(def, nameAndTypeName);
+		deleteByFullName(fullName);
+	}
+	
 	void addByFullName(DEF def, DotName fullName){
 //		if (debug){
 //			if (setName == null)
@@ -203,6 +277,15 @@ public class DmcDefinitionSet<DEF extends DSDefinition> {
 			throw(new IllegalStateException("Clashing fully qualified name: " + fullName + " - in definition set: " + setName + " - For definition: \n\n" + def.toOIF()));
 		}
 		fullDotNameMap.put(fullName, def);			
+	}
+	
+	/**
+	 * Deletes the definition from the full name map.
+	 * @param fullName the dot name of the definition to be deleted.
+	 */
+	void deleteByFullName(DotName fullName){
+		if (fullDotNameMap.remove(fullName)== null)			
+			throw(new IllegalStateException("Could not delete entry in fullDotNameMap for: " + fullName));
 	}
 	
 	/**
@@ -234,6 +317,80 @@ public class DmcDefinitionSet<DEF extends DSDefinition> {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * Deletes the specified object from this definition set.
+	 * @param dn the fully qualified name of a definition.
+	 * @throws ResultException if the object deosn't exist or is of the wrong class.
+	 */
+	@SuppressWarnings("unchecked")
+	public void delete(DotName dn) throws ResultException {
+		DSDefinition dsd = fullDotNameMap.get(dn);
+		if (dsd == null) {
+			throw(new ResultException("The specified object: " + dn.getNameString() + " of class: " + className + "  doesn't exist"));
+		}
+		else {
+			if (dsd.getConstructionClassName().equals(className)) {
+				delete((DEF)dsd);
+			}
+			else
+				throw(new ResultException("The specified object: " + dn.getNameString() + " is not of class: " + className));
+		}
+	}
+	
+	/**
+	 * When we delete up the chain of derivation, we have a small hack to get around the
+	 * fact that our derivedFromSet is not typed, so go through this intermediate function
+	 * to cast the derived definition to the correct type.
+	 * @param dsd the definition to be deleted
+	 * @throws ResultException
+	 */
+	protected void deleteFromBase(DSDefinition dsd) throws ResultException {
+		@SuppressWarnings("unchecked")
+		DEF def = (DEF) dsd;
+		delete(def);
+	}
+	
+	/**
+	 * Deletes the specified definition from all maps. If the definition has any references
+	 * to it (that are not self referential), an exception is thrown.
+	 * @param def the definition to be deleted.
+	 */
+	public void delete(DEF def) throws ResultException {
+		ArrayList<DmwWrapper> refs = def.getReferringObjects();
+		ResultException	ex = null;
+		if (refs.size() > 0) {
+			for(DmwWrapper wrapper: refs) {
+				DSDefinition referring = (DSDefinition) wrapper;
+				if (def.getDotName().equals(referring.getDotName()))
+					continue;
+				if (ex == null)
+					ex = new ResultException("Cannot delete object because of outstanding references: " + def.getDotName());
+				ex.moreMessages(referring.getDotName().getNameString());
+			}
+			if (ex != null)
+				throw(ex);
+		}
+		try {
+			DotName nameAndTypeName = new DotName(def.getName()+ "." + className);
+			DotName fullName = new DotName(def.getNameOfModuleWhereThisCameFrom()+ "." + def.getName() + "." + className);
+
+			deleteByName(def);
+			deleteByNameAndType(def, nameAndTypeName);
+			deleteByFullName(fullName);
+			
+			if (globalSet != null)
+				globalSet.deleteGlobal(def, fullName, nameAndTypeName);
+			
+			if (derivedFromSet != null)
+				derivedFromSet.deleteFromBase(def);
+				
+		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 	}
 	
@@ -381,4 +538,56 @@ public class DmcDefinitionSet<DEF extends DSDefinition> {
 		return(sb.toString());
 	}
 
+	public String summary() {
+		StringBuilder sb = new StringBuilder();
+		
+		if (fullDotNameMap.size() == 0)
+			return("");
+		
+		if (setName != null)
+			sb.append("setname:     " + setName + "\n");
+		
+		if (className != null)
+			sb.append("classname:   " + className + "\n");
+		
+		if (derivedFromSet != null)
+			sb.append("derivedfrom: " + derivedFromSet.className + "\n");
+
+		sb.append("fullDotNameMap: " + fullDotNameMap.size() + "\n");
+		for(DotName dn: fullDotNameMap.keySet()) {
+			DEF def = fullDotNameMap.get(dn);
+			if (def == null)
+				sb.append("    " + dn + " -- no value\n");
+			else
+				sb.append("    " + dn + " -- " + def.getConstructionClassName() + "\n");
+				
+		}
+		sb.append("\n");
+		
+		sb.append("nameMap:\n");
+		for(DefinitionName dn: nameMap.keySet()) {
+			sb.append("    " + dn.getNameString() + "\n");
+			ArrayList<DEF> defs = nameMap.get(dn);
+			if (defs == null)
+				continue;
+			for(DEF def: defs) {
+				sb.append("        " + def.getDotName());
+			}
+		}
+		sb.append("\n");
+		
+		sb.append("nameAndTypeMap:\n");
+		for(DotName dn: nameAndTypeMap.keySet()) {
+			sb.append("    " + dn.getNameString() + "\n");
+			ArrayList<DEF> defs = nameAndTypeMap.get(dn);
+			if (defs == null)
+				continue;
+			for(DEF def: defs) {
+				sb.append("        " + def.getDotName());
+			}
+		}
+		sb.append("\n\n");
+		
+		return(sb.toString());
+	}
 }

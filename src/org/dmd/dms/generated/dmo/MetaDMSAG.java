@@ -101,7 +101,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __extendsInterface = new DmcAttributeInfo("meta","extendsInterface",119,"String",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __field = new DmcAttributeInfo("meta","field",105,"Field",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __fieldSeparator = new DmcAttributeInfo("meta","fieldSeparator",104,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
-    public final static DmcAttributeInfo __file = new DmcAttributeInfo("meta","file",74,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
+    public final static DmcAttributeInfo __file = new DmcAttributeInfo("meta","file",74,"String",ValueTypeEnum.SINGLE,DataTypeEnum.NONPERSISTENT,0,false);
     public final static DmcAttributeInfo __fileExtension = new DmcAttributeInfo("meta","fileExtension",161,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __filterAttributeDef = new DmcAttributeInfo("meta","filterAttributeDef",127,"AttributeDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __generatedFileHeader = new DmcAttributeInfo("meta","generatedFileHeader",81,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
@@ -135,7 +135,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __javaClass = new DmcAttributeInfo("meta","javaClass",34,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __keyClass = new DmcAttributeInfo("meta","keyClass",96,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __keyImport = new DmcAttributeInfo("meta","keyImport",97,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
-    public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("meta","lineNumber",75,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
+    public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("meta","lineNumber",75,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.NONPERSISTENT,0,false);
     public final static DmcAttributeInfo __loadSchemaClass = new DmcAttributeInfo("meta","loadSchemaClass",173,"SchemaAndReason",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __longName = new DmcAttributeInfo("meta","longName",134,"LongName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __may = new DmcAttributeInfo("meta","may",27,"AttributeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,0,false);
@@ -211,7 +211,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __why = new DmcAttributeInfo("meta","why",184,"Concinnity",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,true);
     public final static DmcAttributeInfo __wrapperClassName = new DmcAttributeInfo("meta","wrapperClassName",6,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:812)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:817)
     public final static DmcTypeInfo __type_ActionDefinition = new DmcTypeInfo("ActionDefinition", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_AttributeDefinition = new DmcTypeInfo("AttributeDefinition", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_AttributeID = new DmcTypeInfo("AttributeID", OriginalTypeEnum.TYPE);
@@ -285,7 +285,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcTypeInfo __type_UUIDName = new DmcTypeInfo("UUIDName", OriginalTypeEnum.NAMETYPE);
     public final static DmcTypeInfo __type_ValueTypeEnumREF = new DmcTypeInfo("ValueTypeEnumREF", OriginalTypeEnum.ENUM);
     public final static DmcTypeInfo __type_WrapperTypeEnumREF = new DmcTypeInfo("WrapperTypeEnumREF", OriginalTypeEnum.ENUM);
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:846)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:851)
 
     public final static DmcClassInfo __ActionTriggerInfo = new DmcClassInfo("ActionTriggerInfo","org.dmd.dms.generated.dmo.ActionTriggerInfoDMO",14,ClassTypeEnum.ABSTRACT,DataTypeEnum.PERSISTENT,null,null);
     public final static DmcClassInfo __DSDefinition = new DmcClassInfo("DSDefinition","org.dmd.dms.generated.dmo.DSDefinitionDMO",1,ClassTypeEnum.ABSTRACT,DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
@@ -308,7 +308,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcClassInfo __TypeDefinition = new DmcClassInfo("TypeDefinition","org.dmd.dms.generated.dmo.TypeDefinitionDMO",6,ClassTypeEnum.STRUCTURAL,DataTypeEnum.PERSISTENT,__DmsDefinition,MetaDMSAG.__name);
     public final static DmcClassInfo __RuleData = new DmcClassInfo("RuleData","org.dmd.dms.generated.dmo.RuleDataDMO",17,ClassTypeEnum.ABSTRACT,DataTypeEnum.PERSISTENT,null,MetaDMSAG.__ruleName);
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:856)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:861)
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;
 

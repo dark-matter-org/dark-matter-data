@@ -16,10 +16,10 @@
 package org.dmd.dms.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1757)
-import java.util.Iterator;                   // Beacuse we're iterating - (GenUtility.java:1750)
-import org.dmd.dmc.types.StringName;         // This is the type we're iterating - (GenUtility.java:1754)
-import org.dmd.dmw.DmwMVIterator;            // The base multi-value iterator - (GenUtility.java:1751)
+// Called from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1911)
+import java.util.Iterator;                   // Beacuse we're iterating - (GenUtility.java:1904)
+import org.dmd.dmc.types.StringName;         // This is the type we're iterating - (GenUtility.java:1908)
+import org.dmd.dmw.DmwMVIterator;            // The base multi-value iterator - (GenUtility.java:1905)
 
 
 /**
@@ -27,8 +27,8 @@ import org.dmd.dmw.DmwMVIterator;            // The base multi-value iterator - 
  * it Iterable.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1773)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpTypeIterables(MetaGenerator.java:695)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1927)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpTypeIterables(MetaGenerator.java:694)
  */
 public class StringNameIterableDMW extends DmwMVIterator<StringName> {
 

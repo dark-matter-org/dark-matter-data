@@ -17,23 +17,23 @@ package org.dmd.dms.generated.dmw;
 
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1638)
-import java.util.*;                           // To support access functions - (MetaGenerator.java:1611)
-import org.dmd.dmc.*;                         // Basic dark-matter infrastructure - (MetaGenerator.java:1613)
-import org.dmd.dmc.types.*;                   // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1612)
-import org.dmd.dms.*;                         // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1619)
-import org.dmd.dms.generated.dmo.*;           // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1615)
-import org.dmd.dms.generated.enums.*;         // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1616)
-import org.dmd.dms.generated.types.*;         // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1617)
-import org.dmd.dmw.*;                         // Base wrapper capabilities - (MetaGenerator.java:1614)
-import org.dmd.util.exceptions.*;             // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1618)
+// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1637)
+import java.util.*;                           // To support access functions - (MetaGenerator.java:1610)
+import org.dmd.dmc.*;                         // Basic dark-matter infrastructure - (MetaGenerator.java:1612)
+import org.dmd.dmc.types.*;                   // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1611)
+import org.dmd.dms.*;                         // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1618)
+import org.dmd.dms.generated.dmo.*;           // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1614)
+import org.dmd.dms.generated.enums.*;         // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1615)
+import org.dmd.dms.generated.types.*;         // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1616)
+import org.dmd.dmw.*;                         // Base wrapper capabilities - (MetaGenerator.java:1613)
+import org.dmd.util.exceptions.*;             // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1617)
 
 /**
  * The RuleData class serves as a common base for all ClassDefinitions\n that
  * are generated internally to represent the data associated with
  * RuleDefinitions. 
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1647)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1646)
  */
 @SuppressWarnings("unused")
 public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
@@ -72,7 +72,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
     /**
      * The title of a rule. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2400)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2399)
     public String getRuleTitle(){
         return(mycore.getRuleTitle());
     }
@@ -81,7 +81,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2473)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2472)
     public void setRuleTitle(Object value) throws DmcValueException {
         mycore.setRuleTitle(value);
     }
@@ -91,7 +91,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * a rule.\n The name starts with a single letter and can be followed by a
      * mix of letters and numbers. No spaces or \n other characters are allowed. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2400)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2399)
     public RuleName getRuleName(){
         return(mycore.getRuleName());
     }
@@ -100,7 +100,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * Sets ruleName to the specified value.
      * @param value A value compatible with DmcTypeRuleNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2473)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2472)
     public void setRuleName(Object value) throws DmcValueException {
         mycore.setRuleName(value);
     }
@@ -112,7 +112,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * HTML\n documentation. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2609)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2608)
     public Iterator<String> getDescription(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
         if (attr == null)
@@ -121,7 +121,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
         return(attr.getMV());
     }
 
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2623)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2622)
     public Iterator<String> getDescriptionWithNewlines(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
         if (attr == null)
@@ -144,7 +144,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * Adds another description value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2689)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2688)
     public void addDescription(Object value) throws DmcValueException {
         mycore.addDescription(value);
     }
@@ -152,7 +152,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
     /**
      * Returns the number of description values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2702)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2701)
     public int getDescriptionSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__description);
         if (attr == null)
@@ -163,7 +163,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
     /**
      * Indicates the schema in which a type, attribute or class is defined. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2400)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2399)
     public SchemaDefinition getDefinedIn(){
         DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) mycore.get(MetaDMSAG.__definedIn);
         if (attr == null)
@@ -176,7 +176,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * Sets definedIn to the specified value.
      * @param value A value compatible with SchemaDefinition
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2460)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2459)
     public void setDefinedIn(SchemaDefinition value) throws DmcValueException {
         mycore.setDefinedIn(value.getDmcObject());
     }
@@ -184,7 +184,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
     /**
      * Indicates the file from which a definition was loaded. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2400)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2399)
     public String getFile(){
         return(mycore.getFile());
     }
@@ -193,7 +193,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2473)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2472)
     public void setFile(Object value) throws DmcValueException {
         mycore.setFile(value);
     }
@@ -201,7 +201,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
     /**
      * Indicates the line number of the file from which a definition was loaded. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2400)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2399)
     public Integer getLineNumber(){
         return(mycore.getLineNumber());
     }
@@ -210,7 +210,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2473)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2472)
     public void setLineNumber(Object value) throws DmcValueException {
         mycore.setLineNumber(value);
     }
@@ -218,7 +218,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
     /**
      * The class to which a rule should be applied. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2400)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2399)
     public ClassDefinition getApplyToClass(){
         DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) mycore.get(MetaDMSAG.__applyToClass);
         if (attr == null)
@@ -231,7 +231,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * Sets applyToClass to the specified value.
      * @param value A value compatible with ClassDefinition
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2460)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2459)
     public void setApplyToClass(ClassDefinition value) throws DmcValueException {
         mycore.setApplyToClass(value.getDmcObject());
     }
@@ -243,7 +243,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * with the application of a set \n of rules, so this flag gives the option
      * of halting further processing. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2400)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2399)
     public Boolean getImmediateHalt(){
         return(mycore.getImmediateHalt());
     }
@@ -252,7 +252,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * Sets immediateHalt to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2473)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2472)
     public void setImmediateHalt(Object value) throws DmcValueException {
         mycore.setImmediateHalt(value);
     }
@@ -262,7 +262,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * used\n to look up translated messages. This is primarily a GWT mechanism,
      * but should be applicable in\n other contexts. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2400)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2399)
     public String getMsgKey(){
         return(mycore.getMsgKey());
     }
@@ -271,7 +271,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * Sets msgKey to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2473)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2472)
     public void setMsgKey(Object value) throws DmcValueException {
         mycore.setMsgKey(value);
     }
@@ -281,7 +281,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * substituted\n into translated messages. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2609)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2608)
     public Iterator<String> getMsgParam(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__msgParam);
         if (attr == null)
@@ -294,7 +294,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * Adds another msgParam value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2689)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2688)
     public void addMsgParam(Object value) throws DmcValueException {
         mycore.addMsgParam(value);
     }
@@ -302,7 +302,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
     /**
      * Returns the number of msgParam values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2702)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2701)
     public int getMsgParamSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__msgParam);
         if (attr == null)
@@ -313,7 +313,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1814)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1813)
 
     /**
      * @return The name of this object from the ruleName attribute.

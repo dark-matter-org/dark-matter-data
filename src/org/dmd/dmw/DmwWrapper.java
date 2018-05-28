@@ -238,6 +238,10 @@ public abstract class DmwWrapper extends DmcContainer {
 		return(core.toOIF());
 	}
 	
+	public String toPersistentOIF(){
+		return(core.toPersistentOIF());
+	}
+	
 	public String toOIF(int padding){
 		return(core.toOIF(padding));
 	}

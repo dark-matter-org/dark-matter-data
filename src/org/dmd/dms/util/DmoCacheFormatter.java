@@ -78,6 +78,7 @@ public class DmoCacheFormatter {
 		imports.addImport("org.dmd.dms.generated.dmo.DSDefinitionDMO", "The base of all definitions");
 		imports.addImport("org.dmd.dmc.definitions.DMODefinitionSet", "Our base to provide definition set storage");
 		imports.addImport("java.util.Iterator", "To allow access to our definitions");
+		imports.addImport("java.util.TreeMap", "To allow access to indices by class");
 		imports.addImport("java.util.logging.Logger", "To allow logging of exceptions");
 		imports.addImport("org.dmd.dmc.types.DotName", "To support the find method for definitions");
 		imports.addImport("org.dmd.dmc.DmcNameClashResolverIF", "To support object resolution");
@@ -104,7 +105,9 @@ public class DmoCacheFormatter {
 		
 		out.write("    private Logger                       logger;\n");
 		out.write("    private DmvRuleManager               ruleManager;\n");
-		out.write("    DMODefinitionSet<DSDefinitionDMO>	allDefinitions;\n");
+		out.write("    private DMODefinitionSet<DSDefinitionDMO>	allDefinitions;\n");
+		out.write("\n");
+		out.write("    private TreeMap<String,DMODefinitionSet<?>>	indicesByClass;\n");
 		out.write("\n");
 		
 		dumpDefinitionManagerMembers(out, includedModules);
@@ -118,6 +121,8 @@ public class DmoCacheFormatter {
 		
 		out.write("        // This will be populated as a result of adding definitions to the definition sets for each definition type\n");
 		out.write("        allDefinitions = new DMODefinitionSet<DSDefinitionDMO>(\"allDefinitions\");\n\n");
+
+		out.write("        indicesByClass = new TreeMap<>();\n\n");
 
 		initializeDefinitionManagerMembers(out, includedModules);
 		
@@ -154,6 +159,21 @@ public class DmoCacheFormatter {
 //    	out.write("        }\n");
     	out.write("        return(def);\n");
     	out.write("\n");
+		out.write("    }\n\n");
+
+		out.write("    public DSDefinitionDMO findDefinition(DotName name) {\n");
+		out.write("        return(allDefinitions.getDefinition(name));\n");
+		out.write("    }\n\n");		
+		
+		out.write("    public void deleteDefinition(DotName name) throws Exception {\n");
+		out.write("        DSDefinitionDMO def = allDefinitions.getDefinition(name);\n");
+		out.write("        \n");
+		out.write("        if (def == null)\n");
+		out.write("            throw(new Exception(\"Could not find object to delete: \" + name.getNameString()));\n");
+		out.write("        \n");
+		out.write("        DMODefinitionSet<?> dds = indicesByClass.get(def.getConstructionClassName());\n");
+		out.write("        dds.delete(name);\n");
+		out.write("        def.youAreDeleted();\n");
 		out.write("    }\n\n");
 
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
@@ -240,6 +260,8 @@ public class DmoCacheFormatter {
 		dumpDefinitionInterfaceMethods(out, includedModules);
 		
 		dumpAddMethod(out, ddm);
+		
+		dumpSummaryMethod(out, ddm);
 		
 		out.write("}\n\n");
 		
@@ -338,6 +360,32 @@ public class DmoCacheFormatter {
 		out.write("    }\n\n");
 		
 	}
+	
+	/**
+	 * This dumps a single summary() method that will dump a summary of all indices.
+	 * @param out the place we're writing
+	 * @throws IOException
+	 */
+	void dumpSummaryMethod(ManagedFileWriter out, DSDefinitionModule ddm) throws IOException {
+
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    public String summary(){\n");
+		out.write("        StringBuilder sb = new StringBuilder();\n");
+
+		ClassDefinition dsd = (ClassDefinition) ddm.getBaseDefinition();
+				
+		ArrayList<ClassDefinition>	derivedByDepth = new ArrayList<>();
+		dsd.getDerivedClassesDepthFirst(derivedByDepth);
+		for(ClassDefinition cd: derivedByDepth) {
+			out.write("        sb.append(" + cd.getName() + "Defs.summary());\n");
+		}
+		
+		out.write("       return(sb.toString());\n");
+		
+		out.write("    }\n\n");
+		
+	}
+
 
 	/**
 	 * We populate the imports with the base definition and the various derived definitions that are structural.
@@ -418,11 +466,11 @@ public class DmoCacheFormatter {
 			ClassDefinition dsd = (ClassDefinition) ddm.getBaseDefinition();
 			
 			out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-			out.write("    DMODefinitionSet<" + dsd.getName() + "DMO> " + dsd.getName() + "Defs;\n");
+			out.write("    private DMODefinitionSet<" + dsd.getName() + "DMO> " + dsd.getName() + "Defs;\n");
 			
 			TreeMap<DefinitionName,ClassDefinition> allDerived = dsd.getAllDerived();
 			for(ClassDefinition cd : allDerived.values()){
-				out.write("    DMODefinitionSet<" + cd.getName() + "DMO> " + cd.getName() + "Defs;\n");			
+				out.write("    private DMODefinitionSet<" + cd.getName() + "DMO> " + cd.getName() + "Defs;\n");			
 			}
 		}
 		out.write("\n");
@@ -433,12 +481,34 @@ public class DmoCacheFormatter {
 		for(DSDefinitionModule ddm : modules.values()){
 			ClassDefinition dsd = (ClassDefinition) ddm.getBaseDefinition();
 			
-			out.write("        " + dsd.getName() + "Defs = new DMODefinitionSet<" + dsd.getName() + "DMO>(\"" + dsd.getName() + "\", allDefinitions);\n");
+//			out.write("        " + dsd.getName() + "Defs = new DMODefinitionSet<" + dsd.getName() + "DMO>(\"" + dsd.getName() + "\", allDefinitions);\n");
+//			out.write("        indicesByClass.put(" + dsd.getName() + "Defs.className(), " + dsd.getName() + "Defs);\n\n");
+//			
+//			TreeMap<DefinitionName,ClassDefinition> allDerived = dsd.getAllDerived();
+//			for(ClassDefinition cd : allDerived.values()){
+//				out.write("        " + cd.getName() + "Defs = new DMODefinitionSet<" + cd.getName() + "DMO>(\"" + cd.getName() + "\", allDefinitions);\n");
+//				out.write("        indicesByClass.put(" + cd.getName() + "Defs.className(), " + cd.getName() + "Defs);\n\n");
+//			}
 			
-			TreeMap<DefinitionName,ClassDefinition> allDerived = dsd.getAllDerived();
-			for(ClassDefinition cd : allDerived.values()){
-				out.write("        " + cd.getName() + "Defs = new DMODefinitionSet<" + cd.getName() + "DMO>(\"" + cd.getName() + "\", allDefinitions);\n");
+			ArrayList<ClassDefinition>	derivedByDepth = new ArrayList<>();
+			dsd.getDerivedClassesDepthFirst(derivedByDepth);
+			boolean first = true;
+			for(ClassDefinition cd: derivedByDepth) {
+				if (first) {
+					out.write("        " + cd.getName() + "Defs = new DMODefinitionSet<" + cd.getName() + "DMO>(\"" + cd.getName() + "\", allDefinitions);\n");
+					out.write("        indicesByClass.put(" + cd.getName() + "Defs.className(), " + cd.getName() + "Defs);\n\n");
+					first = false;
+				}
+				else {
+					out.write("        " + cd.getName() + "Defs = new DMODefinitionSet<" + cd.getName() + "DMO>(\"" + cd.getName() + "\", allDefinitions, " + cd.getDerivedFrom().getName() + "Defs);\n");
+					out.write("        indicesByClass.put(" + cd.getName() + "Defs.className(), " + cd.getName() + "Defs);\n\n");
+				}
+//				if (cd.getDerivedFrom() != null)
+//					out.write("//        " + cd.getName() + " -> " + cd.getDerivedFrom().getName() + "\n");
+//				else
+//					out.write("//        " + cd.getName());
 			}
+			
 		}
 		out.write("\n");
 	}

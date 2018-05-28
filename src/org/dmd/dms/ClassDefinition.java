@@ -32,6 +32,7 @@ import org.dmd.dms.generated.dmo.ClassDefinitionDMO;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.dmo.RuleDataDMO;
 import org.dmd.dms.generated.dmw.ClassDefinitionDMW;
+import org.dmd.dms.generated.dmw.ClassDefinitionIterableDMW;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
 import org.dmd.dms.generated.types.DmwTypeToWrapperType;
@@ -1049,6 +1050,22 @@ public class ClassDefinition extends ClassDefinitionDMW {
     	if (getDerivedFrom() != null){
         	depth.set(depth.intValue() + 1);
     		getDerivedFrom().determineDepth(depth);
+    	}
+    }
+    
+    /**
+     * This method will add this class to the classes array and then be called recursively
+     * for all derived classes. This provides an ordered hierarchy of classes from the specified root.
+     * @param classes place to return the results
+     */
+    public void getDerivedClassesDepthFirst(ArrayList<ClassDefinition> classes) {
+    	classes.add(this);
+    	if (getDerivedClassesSize() > 0) {
+    		ClassDefinitionIterableDMW cdit = getDerivedClasses();
+	    	while(cdit.hasNext()){
+	    		ClassDefinition cd = cdit.next();
+	    		cd.getDerivedClassesDepthFirst(classes);
+	    	}
     	}
     }
 }

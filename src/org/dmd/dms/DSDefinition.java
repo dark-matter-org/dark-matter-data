@@ -37,4 +37,10 @@ public class DSDefinition extends DSDefinitionDMW implements DmcDefinitionIF, Dm
 		}
 		return(fullDotName);
 	}
+	
+	public boolean equals(DSDefinition dsd) {
+		if (getDotName().equals(dsd.getDotName()))
+			return(true);
+		return(false);
+	}
 }

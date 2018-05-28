@@ -1344,6 +1344,7 @@ AttributeDefinition
 name               	file
 dmdID				74
 type               	String
+dataType			NONPERSISTENT
 internalUse			true
 description 		Indicates the file from which a definition was loaded.
 
@@ -1351,6 +1352,7 @@ AttributeDefinition
 name               	lineNumber
 dmdID				75
 type               	Integer
+dataType			NONPERSISTENT
 internalUse			true
 description 		Indicates the line number of the file from which a definition was loaded.
 
