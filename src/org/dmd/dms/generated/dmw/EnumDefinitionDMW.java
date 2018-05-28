@@ -17,18 +17,18 @@ package org.dmd.dms.generated.dmw;
 
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1638)
-import java.util.*;                                     // To support access functions - (MetaGenerator.java:1611)
-import org.dmd.dmc.*;                                   // Basic dark-matter infrastructure - (MetaGenerator.java:1613)
-import org.dmd.dmc.definitions.DmcDefinitionIF;         // Because this is a DS definition - (MetaGenerator.java:1626)
-import org.dmd.dmc.types.*;                             // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1612)
-import org.dmd.dms.*;                                   // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1619)
-import org.dmd.dms.generated.dmo.*;                     // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1615)
-import org.dmd.dms.generated.enums.*;                   // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1616)
-import org.dmd.dms.generated.types.*;                   // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1617)
-import org.dmd.dms.types.*;                             // Required for EnumDefinition - (MetaGenerator.java:1622)
-import org.dmd.dmw.*;                                   // Base wrapper capabilities - (MetaGenerator.java:1614)
-import org.dmd.util.exceptions.*;                       // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1618)
+// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1637)
+import java.util.*;                                     // To support access functions - (MetaGenerator.java:1610)
+import org.dmd.dmc.*;                                   // Basic dark-matter infrastructure - (MetaGenerator.java:1612)
+import org.dmd.dmc.definitions.DmcDefinitionIF;         // Because this is a DS definition - (MetaGenerator.java:1625)
+import org.dmd.dmc.types.*;                             // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1611)
+import org.dmd.dms.*;                                   // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1618)
+import org.dmd.dms.generated.dmo.*;                     // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1614)
+import org.dmd.dms.generated.enums.*;                   // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1615)
+import org.dmd.dms.generated.types.*;                   // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1616)
+import org.dmd.dms.types.*;                             // Required for EnumDefinition - (MetaGenerator.java:1621)
+import org.dmd.dmw.*;                                   // Base wrapper capabilities - (MetaGenerator.java:1613)
+import org.dmd.util.exceptions.*;                       // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1617)
 
 /**
  * The EnumDefinition allows for the definition of real Java enums that
@@ -37,7 +37,7 @@ import org.dmd.util.exceptions.*;                       // Blanket import becaus
  * ever you would use a TypeDefinition name i.e.\n they can be used in the
  * type attribute of AttributeDefinitions. 
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1647)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1646)
  */
 @SuppressWarnings("unused")
 public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcDefinitionIF {
@@ -90,7 +90,7 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * a unique name\n for an object with the set of definitions of which it is a
      * part. A name starts with a letter followed\n by letters and numbers. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2400)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2399)
     public DefinitionName getName(){
         return(mycore.getName());
     }
@@ -99,7 +99,7 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2473)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2472)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
@@ -109,7 +109,7 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * definition. 
      * @return An Iterator of EnumValue objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2609)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2608)
     public Iterator<EnumValue> getEnumValue(){
         DmcTypeEnumValueMV attr = (DmcTypeEnumValueMV) mycore.get(MetaDMSAG.__enumValue);
         if (attr == null)
@@ -122,7 +122,7 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * Adds another enumValue value.
      * @param value A value compatible with DmcTypeEnumValueMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2689)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2688)
     public void addEnumValue(Object value) throws DmcValueException {
         mycore.addEnumValue(value);
     }
@@ -130,7 +130,7 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
     /**
      * Returns the number of enumValue values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2702)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2701)
     public int getEnumValueSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__enumValue);
         if (attr == null)
@@ -145,7 +145,7 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * HTML\n documentation. 
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2609)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2608)
     public Iterator<String> getDescription(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
         if (attr == null)
@@ -154,7 +154,7 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
         return(attr.getMV());
     }
 
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2623)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2622)
     public Iterator<String> getDescriptionWithNewlines(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__description);
         if (attr == null)
@@ -177,7 +177,7 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * Adds another description value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2689)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2688)
     public void addDescription(Object value) throws DmcValueException {
         mycore.addDescription(value);
     }
@@ -185,7 +185,7 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
     /**
      * Returns the number of description values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2702)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2701)
     public int getDescriptionSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__description);
         if (attr == null)
@@ -200,7 +200,7 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * when they aren't actually set on an object. This just gives a convenient
      * mechanism to\n provide a default value for non-existent attribute values. 
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2400)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2399)
     public String getNullReturnValue(){
         return(mycore.getNullReturnValue());
     }
@@ -209,7 +209,7 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
      * Sets nullReturnValue to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2473)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2472)
     public void setNullReturnValue(Object value) throws DmcValueException {
         mycore.setNullReturnValue(value);
     }
@@ -217,7 +217,7 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition implements DmcD
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1814)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1813)
 
     /**
      * @return The name of this object from the name attribute.

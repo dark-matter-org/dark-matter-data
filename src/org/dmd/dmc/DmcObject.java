@@ -1434,6 +1434,30 @@ abstract public class DmcObject implements Serializable {
 	}
 	
 	/**
+	 * Returns the object in Object Instance Format (OIF). The attribute values
+	 * will be automatically aligned beyond the length of the longest attribute
+	 * name. Only attributes with DataType PERSISTENT will be returned.
+	 * @return The String representation of the object.
+	 */
+	public String toPersistentOIF(){
+		synchronized (attributes) {
+			int longest = 0;
+			for(DmcAttribute<?> attr : attributes.values()){
+				if (attr.ID == __objectClass.id)
+					continue;
+				
+				if (attr.attrInfo.dataType != DataTypeEnum.PERSISTENT)
+					continue;
+				
+				if (attr.getName().length() > longest)
+					longest = attr.getName().length();
+			}
+	
+			return(toPersistentOIF(longest+2));
+		}
+	}
+	
+	/**
 	 * Returns the object in Object Instance Format (OIF).
 	 * @return The String representation of the object.
 	 */
@@ -1483,6 +1507,55 @@ abstract public class DmcObject implements Serializable {
 			
 			for(DmcAttribute<?> attr : attributes.values())
 				sorted.put(attr.getName(), attr);
+			
+			for(DmcAttribute<?> attr : sorted.values()){
+				if ( attr.getID() != __objectClass.id )
+					attr.toOIF(sb,padding);
+			}
+		}
+		else{
+			// If we have a naming attribute and it's available, dump it
+			if ( (getConstructionClassInfo() != null) && (getConstructionClassInfo().nameAttribute != null) ){
+				DmcAttribute<?> attr = get(getConstructionClassInfo().nameAttribute);
+				if (attr != null)
+					attr.toOIF(sb, padding);
+			}
+			
+			// Just dump the modifier, not the attributes
+			if (getModifier().getMVSize() > 0)
+				getModifier().toOIF(sb, padding);
+			else
+				sb.append("* no modifications\n");
+		}
+		
+
+		return(sb.toString());
+	}
+	
+	/**
+	 * Returns the object in Object Instance Format (OIF) with the attribute name left
+	 * justified in an amount of space indicated by padding. This just provides a more
+	 * readable version of the object.
+	 * <p/>
+	 * Only attributes with DataType PERSISTENT will be displayed.
+	 * @param padding The amount of space in which to display the attribute names.
+	 * @return The String representation of the object.
+	 */
+	public String toPersistentOIF(int padding){
+		StringBuffer	sb = new StringBuffer();
+		
+		appendClassNames(sb);
+		
+		if (getModifier() == null){
+			// Dump the attribute values
+			TreeMap<String,DmcAttribute<?>> sorted = new TreeMap<String, DmcAttribute<?>>();
+			
+			for(DmcAttribute<?> attr : attributes.values()) {
+				if (attr.attrInfo.dataType != DataTypeEnum.PERSISTENT)
+					continue;
+
+				sorted.put(attr.getName(), attr);
+			}
 			
 			for(DmcAttribute<?> attr : sorted.values()){
 				if ( attr.getID() != __objectClass.id )

@@ -16,12 +16,12 @@
 package org.dmd.dmt.dsd.dsda.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:157)
-import java.util.Collection;                                                     // To return values from indices - (DSDArtifactFormatter.java:152)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:158)
+import java.util.Collection;                                                     // To return values from indices - (DSDArtifactFormatter.java:153)
 import java.util.Iterator;                                                       // To allow access to our definitions - (DSDArtifactFormatter.java:132)
-import java.util.TreeMap;                                                        // To organize access to our indices - (DSDArtifactFormatter.java:151)
+import java.util.TreeMap;                                                        // To organize access to our indices - (DSDArtifactFormatter.java:152)
 import org.dmd.dmc.DmcAttributeInfo;                                             // Used when resolving clashes - (DSDArtifactFormatter.java:141)
-import org.dmd.dmc.DmcClassInfo;                                                 // The class info for our indices - (DSDArtifactFormatter.java:153)
+import org.dmd.dmc.DmcClassInfo;                                                 // The class info for our indices - (DSDArtifactFormatter.java:154)
 import org.dmd.dmc.DmcNameClashException;                                        // Used when resolving clashes - (DSDArtifactFormatter.java:143)
 import org.dmd.dmc.DmcNameClashObjectSet;                                        // Used when resolving clashes - (DSDArtifactFormatter.java:142)
 import org.dmd.dmc.DmcNameClashResolverIF;                                       // To support object resolution - (DSDArtifactFormatter.java:134)
@@ -34,27 +34,28 @@ import org.dmd.dmc.DmcValueExceptionSet;                                        
 import org.dmd.dmc.definitions.DmcDefinitionSet;                                 // Our base to provide definition set storage - (DSDArtifactFormatter.java:131)
 import org.dmd.dmc.types.DotName;                                                // To support the find method for definitions - (DSDArtifactFormatter.java:133)
 import org.dmd.dms.DSDefinition;                                                 // The base of all definitions - (DSDArtifactFormatter.java:130)
-import org.dmd.dmt.dsd.dsda.server.extended.ABConceptX;                          // A definition from the ModuleA Module - (DSDArtifactFormatter.java:367)
-import org.dmd.dmt.dsd.dsda.server.extended.AConceptBase;                        // A definition from the ModuleA Module - (DSDArtifactFormatter.java:363)
-import org.dmd.dmt.dsd.dsda.server.extended.AConceptX;                           // A definition from the ModuleA Module - (DSDArtifactFormatter.java:367)
-import org.dmd.dmt.dsd.dsda.server.extended.ModuleA;                             // A definition from the ModuleA Module - (DSDArtifactFormatter.java:367)
-import org.dmd.dmt.dsd.dsda.server.generated.dsd.ModuleAGlobalInterface;         // Interface for ModuleA definitions - (DSDArtifactFormatter.java:360)
-import org.dmd.dmt.dsd.dsda.shared.generated.dmo.DsdADMSAG;                      // To allow use of DmcClassInfo from the dsdA schema for index access - (DSDArtifactFormatter.java:149)
-import org.dmd.dmw.DmwNamedObjectWrapper;                                        // What we return from getIndex() - (DSDArtifactFormatter.java:154)
+import org.dmd.dmt.dsd.dsda.server.extended.ABConceptX;                          // A definition from the ModuleA Module - (DSDArtifactFormatter.java:414)
+import org.dmd.dmt.dsd.dsda.server.extended.AConceptBase;                        // A definition from the ModuleA Module - (DSDArtifactFormatter.java:410)
+import org.dmd.dmt.dsd.dsda.server.extended.AConceptX;                           // A definition from the ModuleA Module - (DSDArtifactFormatter.java:414)
+import org.dmd.dmt.dsd.dsda.server.extended.ModuleA;                             // A definition from the ModuleA Module - (DSDArtifactFormatter.java:414)
+import org.dmd.dmt.dsd.dsda.server.generated.dsd.ModuleAGlobalInterface;         // Interface for ModuleA definitions - (DSDArtifactFormatter.java:407)
+import org.dmd.dmt.dsd.dsda.shared.generated.dmo.DsdADMSAG;                      // To allow use of DmcClassInfo from the dsdA schema for index access - (DSDArtifactFormatter.java:150)
+import org.dmd.dmw.DmwNamedObjectWrapper;                                        // What we return from getIndex() - (DSDArtifactFormatter.java:155)
+import org.dmd.util.exceptions.ResultException;                                  // When deletion problems occur - (DSDArtifactFormatter.java:144)
 
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:161)
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:162)
 public class ModuleADefinitionManager implements DmcNameClashResolverIF, DmcNameResolverWithClashSupportIF, ModuleAGlobalInterface {
 
-    DmcDefinitionSet<DSDefinition>	allDefinitions;
+    private DmcDefinitionSet<DSDefinition>	allDefinitions;
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionManagerMembers(DSDArtifactFormatter.java:386)
-    DmcDefinitionSet<AConceptBase> AConceptBaseDefs;
-    DmcDefinitionSet<ABConceptX> ABConceptXDefs;
-    DmcDefinitionSet<AConceptX> AConceptXDefs;
-    DmcDefinitionSet<ModuleA> ModuleADefs;
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionManagerMembers(DSDArtifactFormatter.java:433)
+    private DmcDefinitionSet<AConceptBase> AConceptBaseDefs;
+    private DmcDefinitionSet<ABConceptX> ABConceptXDefs;
+    private DmcDefinitionSet<AConceptX> AConceptXDefs;
+    private DmcDefinitionSet<ModuleA> ModuleADefs;
 
-    TreeMap<DmcClassInfo,DmcDefinitionSet<?>>	indicesByClass;
+    private TreeMap<DmcClassInfo,DmcDefinitionSet<?>>	indicesByClass;
 
     public ModuleADefinitionManager(){
 
@@ -63,30 +64,30 @@ public class ModuleADefinitionManager implements DmcNameClashResolverIF, DmcName
 
         indicesByClass = new TreeMap<>();
 
-        // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.initializeDefinitionManagerMembers(DSDArtifactFormatter.java:413)
+        // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.initializeDefinitionManagerMembers(DSDArtifactFormatter.java:460)
         AConceptBaseDefs = new DmcDefinitionSet<AConceptBase>("AConceptBase", allDefinitions);
         indicesByClass.put(DsdADMSAG.__AConceptBase, AConceptBaseDefs);
 
-        ABConceptXDefs = new DmcDefinitionSet<ABConceptX>("ABConceptX", allDefinitions);
-        indicesByClass.put(DsdADMSAG.__ABConceptX, ABConceptXDefs);
-
-        AConceptXDefs = new DmcDefinitionSet<AConceptX>("AConceptX", allDefinitions);
+        AConceptXDefs = new DmcDefinitionSet<AConceptX>("AConceptX", allDefinitions, AConceptBaseDefs);
         indicesByClass.put(DsdADMSAG.__AConceptX, AConceptXDefs);
 
-        ModuleADefs = new DmcDefinitionSet<ModuleA>("ModuleA", allDefinitions);
+        ABConceptXDefs = new DmcDefinitionSet<ABConceptX>("ABConceptX", allDefinitions, AConceptXDefs);
+        indicesByClass.put(DsdADMSAG.__ABConceptX, ABConceptXDefs);
+
+        ModuleADefs = new DmcDefinitionSet<ModuleA>("ModuleA", allDefinitions, AConceptBaseDefs);
         indicesByClass.put(DsdADMSAG.__ModuleA, ModuleADefs);
 
 
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:184)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:185)
     public void resolveReferences() throws DmcValueExceptionSet {
         for(DSDefinition def: allDefinitions.values()){
             def.resolveReferences(this,this);
         }
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:192)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:193)
     public Collection<DmwNamedObjectWrapper> getIndex(DmcClassInfo ci){
         DmcDefinitionSet<?>    dds = indicesByClass.get(ci);
         
@@ -96,7 +97,7 @@ public class ModuleADefinitionManager implements DmcNameClashResolverIF, DmcName
         return(dds.getIndex());
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:203)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:204)
     public DmcNamedObjectIF findNamedObject(DmcObjectName name) {
         DSDefinition def = null;
         try {
@@ -112,17 +113,36 @@ public class ModuleADefinitionManager implements DmcNameClashResolverIF, DmcName
         return(def);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:219)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:220)
     public DSDefinition findDefinition(DotName name) {
     	   return(allDefinitions.getDefinition(name));
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:224)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:225)
+    /**
+     * Attempts to delete the definition with the specified name. If you have
+     * enabled back reference tracking via DmcOmni, it will also clean up any
+     * existing references from this definition to other definitions.
+     * @param name the fully qualified DotName of the definition to be deleted.
+     * @throws ResultException if the definition can't, be found or if there are outstanding references to it.
+     */
+    public void deleteDefinition(DotName name) throws ResultException {
+        DSDefinition def = allDefinitions.getDefinition(name);
+        
+        if (def == null)
+            throw(new ResultException("Could not find object to delete: " + name.getNameString()));
+        
+        DmcDefinitionSet<?> dds = indicesByClass.get(def.getConstructionClassInfo());
+        dds.delete(name);
+        def.youAreDeleted();
+    }
+
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:244)
     public DmcNamedObjectIF findNamedObject(DmcObjectName name, int attributeID) {
         throw(new IllegalStateException("This method is not supported on generated definition managers"));
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:229)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:249)
     public DmcObject findNamedDMO(DmcObjectName name) {
         DSDefinition def = null;
         try {
@@ -141,7 +161,7 @@ public class ModuleADefinitionManager implements DmcNameClashResolverIF, DmcName
         return(def.getDMO());
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:249)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:269)
     public DmcNamedObjectIF findNamedObjectMayClash(DmcObject object, DmcObjectName name, DmcNameClashResolverIF resolver, DmcAttributeInfo ai) throws DmcValueException {
         DmcNamedObjectIF rc = null;
         DotName dn = new DotName(name.getNameString() + "." + ai.type);
@@ -172,7 +192,7 @@ public class ModuleADefinitionManager implements DmcNameClashResolverIF, DmcName
         return(rc);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:280)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:300)
     public DmcNamedObjectIF resolveClash(DmcObject obj, DmcAttributeInfo ai, DmcNameClashObjectSet<?> ncos) throws DmcValueException {
         DmcNamedObjectIF rc = null;
         DSDefinition resolving = (DSDefinition) obj.getContainer();
@@ -189,7 +209,7 @@ public class ModuleADefinitionManager implements DmcNameClashResolverIF, DmcName
     }
 
     // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:302)
-    // Called from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionInterfaceMethods(DSDArtifactFormatter.java:407)
+    // Called from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionInterfaceMethods(DSDArtifactFormatter.java:454)
     /**
      * All definitions are added to the base definition collection.
      */
@@ -300,7 +320,7 @@ public class ModuleADefinitionManager implements DmcNameClashResolverIF, DmcName
     }
 
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpAddMethod(DSDArtifactFormatter.java:318)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpAddMethod(DSDArtifactFormatter.java:340)
     public void addDefinition(DSDefinition definition){
             if (definition instanceof ABConceptX){
                 addABConceptX((ABConceptX)definition);
@@ -312,6 +332,16 @@ public class ModuleADefinitionManager implements DmcNameClashResolverIF, DmcName
                 addModuleA((ModuleA)definition);
             }
 
+    }
+
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpSummaryMethod(DSDArtifactFormatter.java:379)
+    public String summary(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(AConceptBaseDefs.summary());
+        sb.append(AConceptXDefs.summary());
+        sb.append(ABConceptXDefs.summary());
+        sb.append(ModuleADefs.summary());
+       return(sb.toString());
     }
 
 }

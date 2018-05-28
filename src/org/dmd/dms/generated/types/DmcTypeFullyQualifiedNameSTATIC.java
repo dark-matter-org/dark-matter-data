@@ -29,8 +29,8 @@ import org.dmd.dmc.types.FullyQualifiedName;    // base type import
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:2172)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2087)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:2326)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2241)
  */
 public class DmcTypeFullyQualifiedNameSTATIC implements DmcNameBuilderIF {
     

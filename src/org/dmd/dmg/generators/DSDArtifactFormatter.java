@@ -141,6 +141,7 @@ public class DSDArtifactFormatter {
 		imports.addImport("org.dmd.dmc.DmcAttributeInfo", "Used when resolving clashes");
 		imports.addImport("org.dmd.dmc.DmcNameClashObjectSet", "Used when resolving clashes");
 		imports.addImport("org.dmd.dmc.DmcNameClashException", "Used when resolving clashes");
+		imports.addImport("org.dmd.util.exceptions.ResultException", "When deletion problems occur");
 
 		// To support indexed retrieval from the cache
 		Iterator<DSDefinitionModule> dsdit = includedModules.values().iterator();
@@ -161,12 +162,12 @@ public class DSDArtifactFormatter {
 		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("public class " + ddm.getName() + "DefinitionManager " + impl.getFormattedImplementations() + "{\n\n");
 		
-		out.write("    DmcDefinitionSet<DSDefinition>	allDefinitions;\n");
+		out.write("    private DmcDefinitionSet<DSDefinition>	allDefinitions;\n");
 		out.write("\n");
 		
 		dumpDefinitionManagerMembers(out, includedModules);
 		
-		out.write("    TreeMap<DmcClassInfo,DmcDefinitionSet<?>>	indicesByClass;\n");
+		out.write("    private TreeMap<DmcClassInfo,DmcDefinitionSet<?>>	indicesByClass;\n");
 		out.write("\n");
 		
 		
@@ -219,6 +220,25 @@ public class DSDArtifactFormatter {
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("    public DSDefinition findDefinition(DotName name) {\n");
     	out.write("    	   return(allDefinitions.getDefinition(name));\n");
+		out.write("    }\n\n");
+
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    /**\n");
+		out.write("     * Attempts to delete the definition with the specified name. If you have\n");
+		out.write("     * enabled back reference tracking via DmcOmni, it will also clean up any\n");
+		out.write("     * existing references from this definition to other definitions.\n");
+		out.write("     * @param name the fully qualified DotName of the definition to be deleted.\n");
+		out.write("     * @throws ResultException if the definition can't, be found or if there are outstanding references to it.\n");
+		out.write("     */\n");
+		out.write("    public void deleteDefinition(DotName name) throws ResultException {\n");
+		out.write("        DSDefinition def = allDefinitions.getDefinition(name);\n");
+		out.write("        \n");
+		out.write("        if (def == null)\n");
+		out.write("            throw(new ResultException(\"Could not find object to delete: \" + name.getNameString()));\n");
+		out.write("        \n");
+		out.write("        DmcDefinitionSet<?> dds = indicesByClass.get(def.getConstructionClassInfo());\n");
+		out.write("        dds.delete(name);\n");
+		out.write("        def.youAreDeleted();\n");
 		out.write("    }\n\n");
 
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
@@ -299,6 +319,8 @@ public class DSDArtifactFormatter {
 		
 		dumpAddMethod(out, ddm);
 		
+		dumpSummaryMethod(out, ddm);
+		
 		out.write("}\n\n");
 		
 		out.close();
@@ -348,6 +370,31 @@ public class DSDArtifactFormatter {
 	}
 	
 	/**
+	 * This dumps a single summary() method that will dump a summary of all indices.
+	 * @param out the place we're writing
+	 * @throws IOException
+	 */
+	void dumpSummaryMethod(ManagedFileWriter out, DSDefinitionModule ddm) throws IOException {
+
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    public String summary(){\n");
+		out.write("        StringBuilder sb = new StringBuilder();\n");
+
+		ClassDefinition dsd = (ClassDefinition) ddm.getBaseDefinition();
+				
+		ArrayList<ClassDefinition>	derivedByDepth = new ArrayList<>();
+		dsd.getDerivedClassesDepthFirst(derivedByDepth);
+		for(ClassDefinition cd: derivedByDepth) {
+			out.write("        sb.append(" + cd.getName() + "Defs.summary());\n");
+		}
+		
+		out.write("       return(sb.toString());\n");
+		
+		out.write("    }\n\n");
+		
+	}
+	
+	/**
 	 * This method will call itself recursively until we've progressed through all
 	 * dependencies of a given DSD module via the refersToDefsFromDSD attribute.
 	 * @param imports place to gather imports
@@ -384,11 +431,11 @@ public class DSDArtifactFormatter {
 			ClassDefinition dsd = (ClassDefinition) ddm.getBaseDefinition();
 			
 			out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-			out.write("    DmcDefinitionSet<" + dsd.getName() + "> " + dsd.getName() + "Defs;\n");
+			out.write("    private DmcDefinitionSet<" + dsd.getName() + "> " + dsd.getName() + "Defs;\n");
 			
 			TreeMap<DefinitionName,ClassDefinition> allDerived = dsd.getAllDerived();
 			for(ClassDefinition cd : allDerived.values()){
-				out.write("    DmcDefinitionSet<" + cd.getName() + "> " + cd.getName() + "Defs;\n");			
+				out.write("    private DmcDefinitionSet<" + cd.getName() + "> " + cd.getName() + "Defs;\n");			
 			}
 		}
 		out.write("\n");
@@ -416,16 +463,39 @@ public class DSDArtifactFormatter {
 			
 			String dmsagClass = ddm.getDefinedIn().getDMSASGName()+ ".__" + dsd.getName();
 			
-			out.write("        " + dsd.getName() + "Defs = new DmcDefinitionSet<" + dsd.getName() + ">(\"" + dsd.getName() + "\", allDefinitions);\n");
-			out.write("        indicesByClass.put(" + dmsagClass + ", " + dsd.getName() + "Defs);\n\n");
+//			out.write("        " + dsd.getName() + "Defs = new DmcDefinitionSet<" + dsd.getName() + ">(\"" + dsd.getName() + "\", allDefinitions);\n");
+//			out.write("        indicesByClass.put(" + dmsagClass + ", " + dsd.getName() + "Defs);\n\n");
+//			
+//			TreeMap<DefinitionName,ClassDefinition> allDerived = dsd.getAllDerived();
+//			for(ClassDefinition cd : allDerived.values()){
+//				dmsagClass = ddm.getDefinedIn().getDMSASGName()+ ".__" + cd.getName();
+//				
+//				out.write("        " + cd.getName() + "Defs = new DmcDefinitionSet<" + cd.getName() + ">(\"" + cd.getName() + "\", allDefinitions);\n");
+//				out.write("        indicesByClass.put(" + dmsagClass + ", " + cd.getName() + "Defs);\n\n");
+//			}
 			
-			TreeMap<DefinitionName,ClassDefinition> allDerived = dsd.getAllDerived();
-			for(ClassDefinition cd : allDerived.values()){
+			ArrayList<ClassDefinition>	derivedByDepth = new ArrayList<>();
+			dsd.getDerivedClassesDepthFirst(derivedByDepth);
+			boolean first = true;
+			for(ClassDefinition cd: derivedByDepth) {
 				dmsagClass = ddm.getDefinedIn().getDMSASGName()+ ".__" + cd.getName();
-				
-				out.write("        " + cd.getName() + "Defs = new DmcDefinitionSet<" + cd.getName() + ">(\"" + cd.getName() + "\", allDefinitions);\n");
-				out.write("        indicesByClass.put(" + dmsagClass + ", " + cd.getName() + "Defs);\n\n");
+
+				if (first) {
+					out.write("        " + cd.getName() + "Defs = new DmcDefinitionSet<" + cd.getName() + ">(\"" + cd.getName() + "\", allDefinitions);\n");
+					out.write("        indicesByClass.put(" + dmsagClass + ", " + cd.getName() + "Defs);\n\n");
+					first = false;
+				}
+				else {
+					out.write("        " + cd.getName() + "Defs = new DmcDefinitionSet<" + cd.getName() + ">(\"" + cd.getName() + "\", allDefinitions, " + cd.getDerivedFrom().getName() + "Defs);\n");
+					out.write("        indicesByClass.put(" + dmsagClass + ", " + cd.getName() + "Defs);\n\n");					
+				}
+					
+//				if (cd.getDerivedFrom() != null)
+//					out.write("//        " + cd.getName() + " -> " + cd.getDerivedFrom().getName() + "\n");
+//				else
+//					out.write("//        " + cd.getName());
 			}
+			
 		}
 		out.write("\n");
 	}

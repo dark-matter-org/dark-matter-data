@@ -25,8 +25,8 @@ import org.dmd.dmc.types.DmcTypeLongName;    // DmcType import
  * The DmcTypeLongNameSV provides storage for a single-valued LongName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1997)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:665)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2151)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:664)
  */
 @SuppressWarnings("serial")
 public class DmcTypeLongNameSV extends DmcTypeLongName implements Serializable {
@@ -50,14 +50,14 @@ public class DmcTypeLongNameSV extends DmcTypeLongName implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2029)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2183)
     public DmcAttribute<LongName> cloneIt(){
         DmcTypeLongNameSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2040)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2194)
     public LongName getSVCopy(){
         if (value == null)
             return(null);
@@ -65,7 +65,7 @@ public class DmcTypeLongNameSV extends DmcTypeLongName implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2052)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2206)
     public LongName set(Object v) throws DmcValueException {
         LongName rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
