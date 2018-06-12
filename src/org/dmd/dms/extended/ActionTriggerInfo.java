@@ -17,7 +17,9 @@ package org.dmd.dms.extended;
 
 import java.io.Serializable;
 
+import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.generated.dmo.ActionTriggerInfoDMO;
 
 /**
@@ -48,5 +50,13 @@ public class ActionTriggerInfo extends ActionTriggerInfoDMO implements Serializa
 		
 	public String getActionName(){
 		return(getName().getNameString());
+	}
+	
+	public void checkParams() throws DmcValueExceptionSet {
+		throw(new IllegalStateException("This should have been overloaded in the generated derived class"));
+	}
+	
+	public boolean isInstanceOf(DmcObject object) {
+		throw(new IllegalStateException("This should have been overloaded in the generated derived class"));
 	}
 }

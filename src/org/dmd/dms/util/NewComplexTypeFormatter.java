@@ -497,6 +497,18 @@ public class NewComplexTypeFormatter {
 		
 		
 		///////////////////////////////////////////////////////////////////////
+		// EQUALS
+		
+		out.write("    @Override\n");
+		out.write("    public boolean equals(Object obj) {\n");
+		out.write("        if (obj instanceof " + ctn + ") {\n");
+		out.write("            return(this.toString().equals(((" + ctn + ")obj).toString()));\n");
+		out.write("        }\n");
+		out.write("        return(false);\n");
+		out.write("    }\n");
+		
+		
+		///////////////////////////////////////////////////////////////////////
 		// JSON
     	
         out.write("    /**\n");

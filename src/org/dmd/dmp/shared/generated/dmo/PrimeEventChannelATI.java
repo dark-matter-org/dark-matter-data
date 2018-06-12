@@ -21,6 +21,7 @@ import org.dmd.dmc.DmcValueExceptionSet;
 // Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:408)
 
 
+import org.dmd.dmc.DmcObject;
 /**
  * This is the generated ActionTriggerInfo derivative for the primeEventChannel action.
  * <P>
@@ -38,8 +39,16 @@ public class PrimeEventChannelATI extends ActionTriggerInfo implements Serializa
     }
 
 
+    @Override
     public void checkParams() throws DmcValueExceptionSet {
         // No mandatory parameters to check
   }
+
+    @Override
+    public boolean isInstanceOf(DmcObject object) {
+        if (object instanceof PrimeEventChannelATI)
+            return(true);
+        return(false);
+    }
 
 }
