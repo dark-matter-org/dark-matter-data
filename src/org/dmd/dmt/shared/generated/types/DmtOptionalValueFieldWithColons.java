@@ -23,9 +23,9 @@ import org.dmd.dmc.util.JSONUtil;                                          // To
 import org.dmd.dmc.util.ParsedNameValuePair;                               // To store values parsed from initial input - (NewComplexTypeFormatter.java:121)
 import org.dmd.dms.generated.enums.DataTypeEnum;                           // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:116)
 import org.dmd.dms.generated.enums.ValueTypeEnum;                          // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:117)
-import org.dmd.dms.generated.types.DmcTypeStringSTATIC;                    // Standard type - (NewComplexTypeFormatter.java:1141)
-import org.dmd.dms.generated.types.DmcTypeTypeDefinitionREFSTATIC;         // Internally generated type - (NewComplexTypeFormatter.java:1141)
-import org.dmd.dms.generated.types.TypeDefinitionREF;                      // Object reference - (NewComplexTypeFormatter.java:1116)
+import org.dmd.dms.generated.types.DmcTypeStringSTATIC;                    // Standard type - (NewComplexTypeFormatter.java:1153)
+import org.dmd.dms.generated.types.DmcTypeTypeDefinitionREFSTATIC;         // Internally generated type - (NewComplexTypeFormatter.java:1153)
+import org.dmd.dms.generated.types.TypeDefinitionREF;                      // Object reference - (NewComplexTypeFormatter.java:1128)
 
 
 
@@ -65,7 +65,7 @@ public class DmtOptionalValueFieldWithColons implements Serializable {
      * Copy constructor.
      */
     public DmtOptionalValueFieldWithColons(DmtOptionalValueFieldWithColons original){
-    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.getCopyConstructorAssignments(NewComplexTypeFormatter.java:1078)
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.getCopyConstructorAssignments(NewComplexTypeFormatter.java:1090)
         typeV =  original.typeV;
         nameV =  original.nameV;
         descriptionV =  original.descriptionV;
@@ -151,9 +151,16 @@ public class DmtOptionalValueFieldWithColons implements Serializable {
         return(sb.toString());
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof DmtOptionalValueFieldWithColons) {
+            return(this.toString().equals(((DmtOptionalValueFieldWithColons)obj).toString()));
+        }
+        return(false);
+    }
     /**
      * JSON form.
-     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:504)
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:516)
      */
     public void toJSON(StringBuffer sb, int padding, String indent){
         sb.append(indent + "{\n");
@@ -179,7 +186,7 @@ public class DmtOptionalValueFieldWithColons implements Serializable {
         return(descriptionV);
     }
 
-    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:692)
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:704)
     @SuppressWarnings({"unchecked", "rawtypes"})
     public void resolve(DmcNameResolverIF resolver, String attrName) throws DmcValueException {
         DmcNamedObjectIF  obj = null;
@@ -199,7 +206,7 @@ public class DmtOptionalValueFieldWithColons implements Serializable {
         
     }
 
-    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:763)
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:775)
     @SuppressWarnings({"unchecked", "rawtypes"})
     public void resolve(DmcNameResolverWithClashSupportIF resolver, DmcObject object, DmcNameClashResolverIF ncr, DmcAttributeInfo ai) throws DmcValueException, DmcValueExceptionSet {
         DmcNamedObjectIF  obj = null;

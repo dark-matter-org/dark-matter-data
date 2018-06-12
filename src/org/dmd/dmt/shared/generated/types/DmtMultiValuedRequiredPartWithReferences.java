@@ -24,8 +24,8 @@ import org.dmd.dmc.util.JSONUtil;                                          // To
 import org.dmd.dmc.util.ParsedNameValuePair;                               // To store values parsed from initial input - (NewComplexTypeFormatter.java:121)
 import org.dmd.dms.generated.enums.DataTypeEnum;                           // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:116)
 import org.dmd.dms.generated.enums.ValueTypeEnum;                          // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:117)
-import org.dmd.dms.generated.types.DmcTypeTypeDefinitionREFSTATIC;         // Internally generated type - (NewComplexTypeFormatter.java:1141)
-import org.dmd.dms.generated.types.TypeDefinitionREF;                      // Object reference - (NewComplexTypeFormatter.java:1116)
+import org.dmd.dms.generated.types.DmcTypeTypeDefinitionREFSTATIC;         // Internally generated type - (NewComplexTypeFormatter.java:1153)
+import org.dmd.dms.generated.types.TypeDefinitionREF;                      // Object reference - (NewComplexTypeFormatter.java:1128)
 
 
 
@@ -56,7 +56,7 @@ public class DmtMultiValuedRequiredPartWithReferences implements Serializable {
      */
     @SuppressWarnings("unchecked")
     public DmtMultiValuedRequiredPartWithReferences(DmtMultiValuedRequiredPartWithReferences original){
-    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.getCopyConstructorAssignments(NewComplexTypeFormatter.java:1078)
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.getCopyConstructorAssignments(NewComplexTypeFormatter.java:1090)
         typeV = (ArrayList<TypeDefinitionREF>) original.typeV.clone();
     }
 
@@ -131,9 +131,16 @@ public class DmtMultiValuedRequiredPartWithReferences implements Serializable {
         return(sb.toString());
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof DmtMultiValuedRequiredPartWithReferences) {
+            return(this.toString().equals(((DmtMultiValuedRequiredPartWithReferences)obj).toString()));
+        }
+        return(false);
+    }
     /**
      * JSON form.
-     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:504)
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:516)
      */
     public void toJSON(StringBuffer sb, int padding, String indent){
         sb.append(indent + "{\n");
@@ -149,35 +156,35 @@ public class DmtMultiValuedRequiredPartWithReferences implements Serializable {
         sb.append("\n" + indent + "}");
     }
 
-    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:653)
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:665)
     public Iterator<TypeDefinitionREF> getType(){
         if (typeV == null)
             return(null);
         return(typeV.iterator());
     }
 
-    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:660)
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:672)
     public boolean hasType(){
         if (typeV == null)
             return(false);
         return(true);
     }
 
-    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:667)
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:679)
     public int getTypeSize(){
         if (typeV == null)
             return(0);
         return(typeV.size());
     }
 
-    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:674)
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:686)
     public TypeDefinitionREF getType(int index){
         if (typeV == null)
             return(null);
         return(typeV.get(index));
     }
 
-    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:692)
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:704)
     @SuppressWarnings({"unchecked", "rawtypes"})
     public void resolve(DmcNameResolverIF resolver, String attrName) throws DmcValueException {
         DmcNamedObjectIF  obj = null;
@@ -201,7 +208,7 @@ public class DmtMultiValuedRequiredPartWithReferences implements Serializable {
         
     }
 
-    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:763)
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:775)
     @SuppressWarnings({"unchecked", "rawtypes"})
     public void resolve(DmcNameResolverWithClashSupportIF resolver, DmcObject object, DmcNameClashResolverIF ncr, DmcAttributeInfo ai) throws DmcValueException, DmcValueExceptionSet {
         DmcNamedObjectIF  obj = null;

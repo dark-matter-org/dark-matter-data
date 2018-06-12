@@ -13,7 +13,7 @@ import org.dmd.dmc.util.JSONUtil;                               // To perform es
 import org.dmd.dmc.util.ParsedNameValuePair;                    // To store values parsed from initial input - (NewComplexTypeFormatter.java:121)
 import org.dmd.dms.generated.enums.DataTypeEnum;                // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:116)
 import org.dmd.dms.generated.enums.ValueTypeEnum;               // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:117)
-import org.dmd.dms.generated.types.DmcTypeStringSTATIC;         // Standard type - (NewComplexTypeFormatter.java:1141)
+import org.dmd.dms.generated.types.DmcTypeStringSTATIC;         // Standard type - (NewComplexTypeFormatter.java:1153)
 
 
 
@@ -48,7 +48,7 @@ public class MenuElementTypeAndComment implements Serializable {
      * Copy constructor.
      */
     public MenuElementTypeAndComment(MenuElementTypeAndComment original){
-    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.getCopyConstructorAssignments(NewComplexTypeFormatter.java:1078)
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.getCopyConstructorAssignments(NewComplexTypeFormatter.java:1090)
         typeV =  original.typeV;
         commentV =  original.commentV;
     }
@@ -109,9 +109,16 @@ public class MenuElementTypeAndComment implements Serializable {
         return(sb.toString());
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof MenuElementTypeAndComment) {
+            return(this.toString().equals(((MenuElementTypeAndComment)obj).toString()));
+        }
+        return(false);
+    }
     /**
      * JSON form.
-     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:504)
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:516)
      */
     public void toJSON(StringBuffer sb, int padding, String indent){
         sb.append(indent + "{\n");

@@ -780,8 +780,13 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 			if (!adapter.hasValue())
 				rc = true;
 			else{
-				if (!existingValue.getSV().equals(adapter.getValue()))
+				// NOTE: originally, we just compared the values directly,
+				// but, this doesn't work for complex types, so now, we
+				// compare the string representations of the values
+				if (!existingValue.getSV().toString().equals(adapter.getValue().toString()))
 					rc = true;
+//				if (!existingValue.getSV().equals(adapter.getValue()))
+//					rc = true;
 			}
 		}
 		

@@ -21,9 +21,9 @@ import org.dmd.dmt.shared.generated.types.DmcTypeTestBasicObjectFixedREFSV;     
 import org.dmd.dmt.shared.generated.types.TestBasicNamedObjectFixedREF;                  // Helper class - (GenUtility.java:346)
 
 
+import org.dmd.dmc.DmcObject;
 import org.dmd.dms.generated.types.DmcTypeDmcObjectSV;
 import org.dmd.dms.generated.types.DmcTypeDmcObjectMV;
-import org.dmd.dmc.DmcObject;
 /**
  * This is the generated ActionTriggerInfo derivative for the testAction action.
  * <P>
@@ -347,6 +347,7 @@ public class TestActionATI extends ActionTriggerInfo implements Serializable {
     }
 
 
+    @Override
     public void checkParams() throws DmcValueExceptionSet {
         DmcValueExceptionSet ex = null;
 
@@ -363,5 +364,12 @@ public class TestActionATI extends ActionTriggerInfo implements Serializable {
         if (ex != null)
             throw(ex);
   }
+
+    @Override
+    public boolean isInstanceOf(DmcObject object) {
+        if (object instanceof TestActionATI)
+            return(true);
+        return(false);
+    }
 
 }

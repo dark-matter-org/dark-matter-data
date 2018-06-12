@@ -114,12 +114,12 @@ public class DmoActionFormatter {
 			}
       	}
 
+      	out.write("import org.dmd.dmc.DmcObject;\n");					
 		if (anySVRef){
 	      	out.write("import org.dmd.dms.generated.types.DmcTypeDmcObjectSV;\n");					
 		}
 		if (anyMVRef){
 	      	out.write("import org.dmd.dms.generated.types.DmcTypeDmcObjectMV;\n");					
-	      	out.write("import org.dmd.dmc.DmcObject;\n");					
 		}
       	
 
@@ -177,6 +177,7 @@ public class DmoActionFormatter {
       	out.write(sb.toString());
       	
       	out.write("\n");
+      	out.write("    @Override\n");
   		out.write("    public void checkParams() throws DmcValueExceptionSet {\n");
       	if (ad.getMustParmSize() > 0) {
       		out.write("        DmcValueExceptionSet ex = null;\n\n");
@@ -201,6 +202,14 @@ public class DmoActionFormatter {
       	out.write("  }\n\n");
 
       	
+      	out.write("    @Override\n");
+  		out.write("    public boolean isInstanceOf(DmcObject object) {\n");
+      	out.write("        if (object instanceof " + cappedName + "ATI)\n");
+      	out.write("            return(true);\n");
+      	out.write("        return(false);\n");
+      	out.write("    }\n\n");
+      	
+
 //      	out.write("    protected " + td.getName() + "DMO typeCheck(Object value) throws DmcValueException {\n");
 //      	out.write("        " + td.getName() + "DMO rc = null;\n");
 //      	out.write("\n");
