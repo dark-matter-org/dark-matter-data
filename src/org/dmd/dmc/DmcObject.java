@@ -306,6 +306,7 @@ abstract public class DmcObject implements Serializable {
 			if (getBackref() == null){
 				setInfo(BACKREFS,BACKREFS_SIZE,new DmcTypeModifierMV());
 			}
+			
 			try {
 				getBackref().add(mod);
 			} catch (DmcValueException e) {
@@ -564,8 +565,14 @@ abstract public class DmcObject implements Serializable {
 		
 		if (DmcOmni.instance().backRefTracking()){
 			DmcTypeModifierMV mods = getBackref();
-			if (mods != null)
+			if (mods != null) {
 				DmcOmni.instance().removeReferences(mods);
+				Iterator<Modifier> it = mods.getMV();
+				while(it.hasNext()){
+					Modifier mod = it.next();
+					removeBackref(mod);
+				}
+			}
 			
 			// And in the other direction - we see if we have any references to other
 			// object and remove the backrefs
@@ -1353,13 +1360,25 @@ abstract public class DmcObject implements Serializable {
 						DmcNamedObjectIF referrer 	= mod.getReferringObject();
 						DmcObject		 obj		= (DmcObject) referrer;
 						DmcAttribute<?> attr = mod.getAttribute();
-						if (attr.getAttributeInfo().valueType == ValueTypeEnum.SINGLE)
-							sb.append("  (" + obj.getConstructionClassName() + ") " + referrer.getObjectName() + " via SV " + attr.getName() + "\n");
-						else{
-							if (attr.getAttributeInfo().indexSize == 0)
-								sb.append("  (" + obj.getConstructionClassName() + ") " +  referrer.getObjectName() + " via MV " + attr.getName() + "\n");
-							else
-								sb.append("  (" + obj.getConstructionClassName() + ") " +  referrer.getObjectName() + " via INDEX " + mod.getIndex() + " " + attr.getName() + "\n");
+						if (attr == null) {
+							// This can happen when we're dealing with references from complex types
+							if (mod.getRefFromComplexType() == null) {
+								
+							}
+							else {
+								sb.append("  (" + obj.getConstructionClassName() + ") " + referrer.getObjectName() + " via part: " + mod.getPartName() + " in attribute "+ mod.getAttributeName() + "\n");
+								
+							}
+						}
+						else {
+							if (attr.getAttributeInfo().valueType == ValueTypeEnum.SINGLE)
+								sb.append("  (" + obj.getConstructionClassName() + ") " + referrer.getObjectName() + " via SV " + attr.getName() + "\n");
+							else{
+								if (attr.getAttributeInfo().indexSize == 0)
+									sb.append("  (" + obj.getConstructionClassName() + ") " +  referrer.getObjectName() + " via MV " + attr.getName() + "\n");
+								else
+									sb.append("  (" + obj.getConstructionClassName() + ") " +  referrer.getObjectName() + " via INDEX " + mod.getIndex() + " " + attr.getName() + "\n");
+							}
 						}
 					}
 				}

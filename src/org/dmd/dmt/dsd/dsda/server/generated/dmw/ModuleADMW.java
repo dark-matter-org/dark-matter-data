@@ -523,14 +523,14 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
         return(AConceptXDefs.getDefinitionCountByName(name));
     }
 
-    // Generated from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperFunctions(DMWGenerator.java:222)
+    // Generated from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperFunctions(DMWGenerator.java:221)
     /**
      * This method indicates the name of the module from which this definition was loaded.
+     * And, since this is a module, it's just the name of the module.
      */
     @Override
     public String getNameOfModuleWhereThisCameFrom(){
-        ModuleAREF ref = ((ModuleADMO) core).getDefinedInModuleA();
-        return(ref.getName().getNameString());
+        return(getName().getNameString());
     }
 
 
