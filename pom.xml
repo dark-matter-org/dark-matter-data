@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.connectifex</groupId>
   <artifactId>dark-matter-data</artifactId>
-  <version>3.0.6</version>
+  <version>3.0.7</version>
   
   <dependencies>
     <dependency>

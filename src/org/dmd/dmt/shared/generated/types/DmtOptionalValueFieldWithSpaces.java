@@ -261,7 +261,7 @@ public class DmtOptionalValueFieldWithSpaces implements Serializable {
                 ((DmcNamedObjectREF)typeV).setObject(obj);
         
             if (DmcOmni.instance().backRefTracking()){
-                Modifier backrefMod = new Modifier("type", object, typeV, ai.id);
+                Modifier backrefMod = new Modifier("type", object, typeV, ai.id, ai.name);
                 if (obj instanceof DmcContainerIF)
                     ((DmcContainerIF)obj).getDmcObject().addBackref(backrefMod);
                 else
@@ -283,7 +283,7 @@ public class DmtOptionalValueFieldWithSpaces implements Serializable {
                 ((DmcNamedObjectREF)otherTypeV).setObject(obj);
         
             if (DmcOmni.instance().backRefTracking()){
-                Modifier backrefMod = new Modifier("otherType", object, otherTypeV, ai.id);
+                Modifier backrefMod = new Modifier("otherType", object, otherTypeV, ai.id, ai.name);
                 if (obj instanceof DmcContainerIF)
                     ((DmcContainerIF)obj).getDmcObject().addBackref(backrefMod);
                 else

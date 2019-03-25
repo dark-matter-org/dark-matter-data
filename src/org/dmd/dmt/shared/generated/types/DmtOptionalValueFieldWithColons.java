@@ -224,7 +224,7 @@ public class DmtOptionalValueFieldWithColons implements Serializable {
                 ((DmcNamedObjectREF)typeV).setObject(obj);
         
             if (DmcOmni.instance().backRefTracking()){
-                Modifier backrefMod = new Modifier("type", object, typeV, ai.id);
+                Modifier backrefMod = new Modifier("type", object, typeV, ai.id, ai.name);
                 if (obj instanceof DmcContainerIF)
                     ((DmcContainerIF)obj).getDmcObject().addBackref(backrefMod);
                 else

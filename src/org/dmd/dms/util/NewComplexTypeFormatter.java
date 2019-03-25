@@ -795,7 +795,7 @@ public class NewComplexTypeFormatter {
 	            	out.write("                ((DmcNamedObjectREF)" + pn + valSuffix + ").setObject(obj);\n");
 	            	out.write("        \n");
 	            	out.write("            if (DmcOmni.instance().backRefTracking()){\n");
-	            	out.write("                Modifier backrefMod = new Modifier(\"" + pn + "\", object, " + pn + valSuffix + ", ai.id);\n");
+	            	out.write("                Modifier backrefMod = new Modifier(\"" + pn + "\", object, " + pn + valSuffix + ", ai.id, ai.name);\n");
 	            	out.write("                if (obj instanceof DmcContainerIF)\n");
 	            	out.write("                    ((DmcContainerIF)obj).getDmcObject().addBackref(backrefMod);\n");
 	            	out.write("                else\n");

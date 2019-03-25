@@ -58,6 +58,9 @@ public class Modifier implements Serializable {
 	int				attributeID;
 	String			value;
 	
+	// The part name if we're dealing with a complex type
+	String			partName;
+	
 	// Used when dealing with indexed attributes
 	int				index;
 	
@@ -85,6 +88,7 @@ public class Modifier implements Serializable {
 		attributeName 	= null;
 		attributeID		= -1;
 		value 			= null;
+		partName		= null;
 		index			= -1;
 		attribute		= null;
 		referringObject	= null;
@@ -100,6 +104,7 @@ public class Modifier implements Serializable {
 		attributeName 	= original.attributeName;
 		attributeID		= original.attributeID;
 		value 			= original.value;
+		partName		= null;
 		index			= original.index;
 		attribute		= original.attribute;
 		referringObject	= original.referringObject;
@@ -116,6 +121,7 @@ public class Modifier implements Serializable {
 		attributeName 	= attr.getName();
 		attributeID		= attr.getID();
 		value			= null;
+		partName		= null;
 		index			= -1;
 		attribute 		= attr;
 		referringObject	= null;
@@ -132,6 +138,7 @@ public class Modifier implements Serializable {
 		attributeName 	= ai.name;
 		attributeID		= ai.id;
 		value			= "none";
+		partName		= null;
 		index			= -1;
 		attribute 		= null;
 		referringObject	= null;
@@ -149,6 +156,7 @@ public class Modifier implements Serializable {
 		attributeName 	= attr.getName();
 		attributeID		= attr.getID();
 		value			= null;
+		partName		= null;
 		index			= idx;
 		attribute 		= attr;
 		referringObject	= null;
@@ -166,6 +174,7 @@ public class Modifier implements Serializable {
 		attributeName 	= ai.name;
 		attributeID		= ai.id;
 		value			= "none";
+		partName		= null;
 		index			= idx;
 		attribute 		= null;
 		referringObject	= null;
@@ -193,6 +202,7 @@ public class Modifier implements Serializable {
 		attributeName 	= attr.getName();
 		attributeID		= attr.getID();
 		value			= null;
+		partName		= null;
 		index			= -1;
 		attribute 		= attr;
 		referringObject	= (DmcNamedObjectIF) referrer;
@@ -214,6 +224,7 @@ public class Modifier implements Serializable {
 		attributeName 		= null;
 		attributeID			= 0;
 		value				= null;
+		partName			= pn;
 		index				= -1;
 		attribute 			= null;
 		referringObject		= (DmcNamedObjectIF) referrer;
@@ -226,6 +237,7 @@ public class Modifier implements Serializable {
 	 * @param pn       the name of the part in the complex type that's doing the referring.
 	 * @param referrer the object that is now referring to another object.
 	 * @param ctr      the reference in the complex type.
+	 * @param ai       the attribute id
 	 */
 	public Modifier(String pn, DmcObject referrer, DmcNamedObjectREF<?> ctr, int ai){
 		operation = ModifyTypeEnum.NONE;
@@ -234,6 +246,30 @@ public class Modifier implements Serializable {
 		attributeName 		= null;
 		attributeID			= ai;
 		value				= null;
+		partName			= pn;
+		index				= -1;
+		attribute 			= null;
+		referringObject		= (DmcNamedObjectIF) referrer;
+		refFromComplexType	= ctr;
+	}
+	
+	/**
+	 * Same as above, but with the attribute ID passed in so that we can support 
+	 * DmcObject.getReferringObjectsViaAttribute().
+	 * @param pn       the name of the part in the complex type that's doing the referring.
+	 * @param referrer the object that is now referring to another object.
+	 * @param ctr      the reference in the complex type.
+	 * @param ai       the attribute id
+	 * @param an       the attribute name
+	 */
+	public Modifier(String pn, DmcObject referrer, DmcNamedObjectREF<?> ctr, int ai, String an){
+		operation = ModifyTypeEnum.NONE;
+		
+		haveAttribute		= false;
+		attributeName 		= an;
+		attributeID			= ai;
+		value				= null;
+		partName			= pn;
 		index				= -1;
 		attribute 			= null;
 		referringObject		= (DmcNamedObjectIF) referrer;
@@ -263,6 +299,7 @@ public class Modifier implements Serializable {
 		attributeName 	= attr.getName();
 		attributeID		= attr.getID();
 		value			= null;
+		partName		= null;
 		index			= idx;
 		attribute 		= attr;
 		referringObject	= (DmcNamedObjectIF) referrer;
@@ -420,6 +457,10 @@ public class Modifier implements Serializable {
 	
 	public Object getValue(){
 		return(value);
+	}
+	
+	public String getPartName(){
+		return(partName);
 	}
 	
 	public String toString(){

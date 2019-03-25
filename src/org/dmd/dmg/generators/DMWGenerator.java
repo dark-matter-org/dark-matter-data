@@ -217,17 +217,30 @@ public class DMWGenerator extends BaseDMWGenerator {
 			// This abstract method is defined in DSDefinition. 
 			// Here we overload this method on strucutural classes
 			if (cd.getClassType() == ClassTypeEnum.STRUCTURAL){
-				AttributeDefinition attr = cd.getPartOfDefinitionModule().getDefinedInModuleAttribute();
-				String attrNamePart = Manipulator.capFirstChar(attr.getName().getNameString());
-				out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-				out.write("    /**\n");
-				out.write("     * This method indicates the name of the module from which this definition was loaded.\n");
-				out.write("     */\n");
-				out.write("    @Override\n");
-				out.write("    public String getNameOfModuleWhereThisCameFrom(){\n");
-				out.write("        " + cd.getPartOfDefinitionModule().getName() + "REF ref = ((" + cd.getName() + "DMO) core).get" + attrNamePart + "();\n");
-				out.write("        return(ref.getName().getNameString());\n");
-				out.write("    }\n\n");
+				if (cd.getDsdModuleDefinition() != null){
+					out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+					out.write("    /**\n");
+					out.write("     * This method indicates the name of the module from which this definition was loaded.\n");
+					out.write("     * And, since this is a module, it's just the name of the module.\n");
+					out.write("     */\n");
+					out.write("    @Override\n");
+					out.write("    public String getNameOfModuleWhereThisCameFrom(){\n");
+					out.write("        return(getName().getNameString());\n");
+					out.write("    }\n\n");					
+				}
+				else {
+					AttributeDefinition attr = cd.getPartOfDefinitionModule().getDefinedInModuleAttribute();
+					String attrNamePart = Manipulator.capFirstChar(attr.getName().getNameString());
+					out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+					out.write("    /**\n");
+					out.write("     * This method indicates the name of the module from which this definition was loaded.\n");
+					out.write("     */\n");
+					out.write("    @Override\n");
+					out.write("    public String getNameOfModuleWhereThisCameFrom(){\n");
+					out.write("        " + cd.getPartOfDefinitionModule().getName() + "REF ref = ((" + cd.getName() + "DMO) core).get" + attrNamePart + "();\n");
+					out.write("        return(ref.getName().getNameString());\n");
+					out.write("    }\n\n");
+				}
 			}
 //			DebugInfo.debug(cd.toOIF());
 		}
