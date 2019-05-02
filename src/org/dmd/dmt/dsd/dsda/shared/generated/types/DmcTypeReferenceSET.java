@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2013 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -13,7 +13,22 @@
 //	You should have received a copy of the GNU Lesser General Public License along
 //	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
 //	---------------------------------------------------------------------------
-package org.dmd.dms.generated.types;
+//	---------------------------------------------------------------------------
+//	dark-matter-data
+//	Copyright (c) 2013 dark-matter-data committers
+//	---------------------------------------------------------------------------
+//	This program is free software; you can redistribute it and/or modify it
+//	under the terms of the GNU Lesser General Public License as published by the
+//	Free Software Foundation; either version 3 of the License, or (at your
+//	option) any later version.
+//	This program is distributed in the hope that it will be useful, but WITHOUT
+//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
+//	more details.
+//	You should have received a copy of the GNU Lesser General Public License along
+//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
+//	---------------------------------------------------------------------------
+package org.dmd.dmt.dsd.dsda.shared.generated.types;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -24,53 +39,54 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dms.generated.enums.GPBFieldTypeEnum;    // DmcType import
+import org.dmd.dmt.dsd.dsda.shared.generated.types.Reference;    // base type import
+import org.dmd.dmt.dsd.dsda.shared.generated.types.DmcTypeReference;    // DmcType import
 /**
- * The DmcTypeGPBFieldTypeEnumSET provides storage for a set of GPBFieldTypeEnum
+ * The DmcTypeReferenceSET provides storage for a set of Reference
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2791)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:598)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:127)
  */
 @SuppressWarnings("serial")
-public class DmcTypeGPBFieldTypeEnumSET extends DmcTypeGPBFieldTypeEnum implements Serializable {
+public class DmcTypeReferenceSET extends DmcTypeReference implements Serializable {
     
-     private final static Iterator<GPBFieldTypeEnum> emptyList =  (new HashSet<GPBFieldTypeEnum>()).iterator();
+     private final static Iterator<Reference> emptyList =  (new HashSet<Reference>()).iterator();
     
     
-    protected Set<GPBFieldTypeEnum> value;
+    protected Set<Reference> value;
     
-    public DmcTypeGPBFieldTypeEnumSET(){
+    public DmcTypeReferenceSET(){
         value = null;
     }
     
-    public DmcTypeGPBFieldTypeEnumSET(DmcAttributeInfo ai){
+    public DmcTypeReferenceSET(DmcAttributeInfo ai){
         super(ai);
         initValue();
     }
     
     void initValue(){
         if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-            value = new HashSet<GPBFieldTypeEnum>();
+            value = new HashSet<Reference>();
         else
-            value = new TreeSet<GPBFieldTypeEnum>();
+            value = new TreeSet<Reference>();
     }
     
     @Override
-    public DmcTypeGPBFieldTypeEnumSET getNew(){
-        return(new DmcTypeGPBFieldTypeEnumSET(getAttributeInfo()));
+    public DmcTypeReferenceSET getNew(){
+        return(new DmcTypeReferenceSET(getAttributeInfo()));
     }
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2832)
-    public DmcAttribute<GPBFieldTypeEnum> cloneIt(){
+    public DmcAttribute<Reference> cloneIt(){
         synchronized(this){
-            DmcTypeGPBFieldTypeEnumSET rc = getNew();
+            DmcTypeReferenceSET rc = getNew();
     
             if (value == null)
                 return(rc);
     
-            for(GPBFieldTypeEnum val: value)
+            for(Reference val: value)
             try {
                 rc.add(val);
             } catch (DmcValueException e) {
@@ -82,9 +98,9 @@ public class DmcTypeGPBFieldTypeEnumSET extends DmcTypeGPBFieldTypeEnum implemen
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2855)
-    public GPBFieldTypeEnum add(Object v) throws DmcValueException {
+    public Reference add(Object v) throws DmcValueException {
         synchronized(this){
-            GPBFieldTypeEnum rc = typeCheck(v);
+            Reference rc = typeCheck(v);
             if (value == null)
                 initValue();
         
@@ -98,9 +114,9 @@ public class DmcTypeGPBFieldTypeEnumSET extends DmcTypeGPBFieldTypeEnum implemen
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2872)
-    public GPBFieldTypeEnum del(Object v){
+    public Reference del(Object v){
         synchronized(this){
-            GPBFieldTypeEnum rc = null;
+            Reference rc = null;
             if (value == null)
                 return(rc);
             
@@ -122,32 +138,32 @@ public class DmcTypeGPBFieldTypeEnumSET extends DmcTypeGPBFieldTypeEnum implemen
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2897)
-    public Iterator<GPBFieldTypeEnum> getMV(){
+    public Iterator<Reference> getMV(){
         synchronized(this){
             if (value == null)
                 return(emptyList);
 
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-                return( (new HashSet<GPBFieldTypeEnum>(value)).iterator() );
+                return( (new HashSet<Reference>(value)).iterator() );
             else
-                return( (new TreeSet<GPBFieldTypeEnum>(value)).iterator() );
+                return( (new TreeSet<Reference>(value)).iterator() );
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2911)
-    public Set<GPBFieldTypeEnum> getMVCopy(){
+    public Set<Reference> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
                 if (value == null)
-                    return(new HashSet<GPBFieldTypeEnum>());
+                    return(new HashSet<Reference>());
                 else
-                    return(new HashSet<GPBFieldTypeEnum>(value));
+                    return(new HashSet<Reference>(value));
             }
             else{
                 if (value == null)
-                    return(new TreeSet<GPBFieldTypeEnum>(value));
+                    return(new TreeSet<Reference>(value));
                 else
-                    return(new TreeSet<GPBFieldTypeEnum>(value));
+                    return(new TreeSet<Reference>(value));
             }
         }
     }
@@ -170,7 +186,7 @@ public class DmcTypeGPBFieldTypeEnumSET extends DmcTypeGPBFieldTypeEnum implemen
                 return(false);
             
             try {
-                GPBFieldTypeEnum val = typeCheck(v);
+                Reference val = typeCheck(v);
                 return(value.contains(val));
             } catch (DmcValueException e) {
                 return(false);

@@ -1,0 +1,10 @@
+ModuleA
+name test
+
+ABConceptX
+name concept1
+
+ABConceptX
+name concept2
+referenceToAB concept1
+

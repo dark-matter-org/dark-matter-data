@@ -12,6 +12,7 @@ import org.dmd.dmt.dsd.dsda.server.extended.ABConceptX;                 // Requi
 import org.dmd.dmt.dsd.dsda.server.extended.AConceptX;                  // Derived class - (BaseDMWGenerator.java:1248)
 import org.dmd.dmt.dsd.dsda.shared.generated.dmo.ABConceptXDMO;         // Class not auxiliary or abstract - (BaseDMWGenerator.java:1252)
 import org.dmd.dmt.dsd.dsda.shared.generated.types.ModuleAREF;          // Required to access defined in module name - (DMWGenerator.java:181)
+import org.dmd.dmt.dsd.dsda.shared.generated.types.Reference;           // Primitive type - (BaseDMWGenerator.java:1150)
 
 
 
@@ -111,6 +112,37 @@ abstract public class ABConceptXDMW extends AConceptX implements DmcDefinitionIF
     // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1619)
     public void remName(){
         ((ABConceptXDMO) core).remName();
+    }
+
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    public Reference getReferenceToAB(){
+        return(((ABConceptXDMO) core).getReferenceToAB());
+    }
+
+    /**
+     * Sets referenceToAB to the specified value.
+     * @param value A value compatible with DmcTypeReference
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1584)
+    public void setReferenceToAB(Object value) throws DmcValueException {
+        ((ABConceptXDMO) core).setReferenceToAB(value);
+    }
+
+    /**
+     * Sets referenceToAB to the specified value.
+     * @param value Reference
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1593)
+    public void setReferenceToAB(Reference value){
+        ((ABConceptXDMO) core).setReferenceToAB(value);
+    }
+
+    /**
+     * Removes the referenceToAB attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1619)
+    public void remReferenceToAB(){
+        ((ABConceptXDMO) core).remReferenceToAB();
     }
 
     // Generated from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperFunctions(DMWGenerator.java:234)

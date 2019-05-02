@@ -39,8 +39,10 @@ public class DsdASchemaAG extends SchemaDefinition {
 
     public static AttributeDefinition _dependsOnModuleA;
     public static AttributeDefinition _definedInModuleA;
+    public static AttributeDefinition _referenceToAB;
 
 
+    public static ComplexTypeDefinition _Reference;
 
 
 
@@ -130,11 +132,12 @@ public class DsdASchemaAG extends SchemaDefinition {
             _ABConceptXOBJ.setDmdID("-1000096");
             _ABConceptXOBJ.setClassType("STRUCTURAL");
             _ABConceptXOBJ.setFile("/src/org/dmd/dmt/dsd/dsda/shared/dmdconfig/classes.dmd");
-            _ABConceptXOBJ.setLineNumber("29");
+            _ABConceptXOBJ.setLineNumber("30");
             _ABConceptXOBJ.setIsNamedBy("meta.name");
             _ABConceptXOBJ.setUseWrapperType("EXTENDED");
             _ABConceptXOBJ.setDerivedFrom("dsdA.AConceptX");
             _ABConceptXOBJ.addMust("meta.name");
+            _ABConceptXOBJ.addMay("dsdA.referenceToAB");
             _ABConceptXOBJ.setDmwIteratorImport("org.dmd.dmt.dsd.dsda.server.generated.dmw.ABConceptXIterableDMW");
             _ABConceptXOBJ.setDmwIteratorClass("ABConceptXIterableDMW");
             _ABConceptXOBJ.setDmtREFImport("org.dmd.dmt.dsd.dsda.shared.generated.types.ABConceptXREF");
@@ -198,6 +201,19 @@ public class DsdASchemaAG extends SchemaDefinition {
             _definedInModuleA.setDefinedIn(this);
             addAttributeDefList(_definedInModuleA);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            AttributeDefinitionDMO _referenceToABOBJ = new AttributeDefinitionDMO();
+            _referenceToAB = new AttributeDefinition(_referenceToABOBJ);
+            _referenceToABOBJ.addDescription("Indicates a reference to an ABConceptX object");
+            _referenceToABOBJ.setName("referenceToAB");
+            _referenceToABOBJ.setDmdID("-500047");
+            _referenceToABOBJ.setType("dsdA.Reference");
+            _referenceToABOBJ.setFile("/src/org/dmd/dmt/dsd/dsda/shared/dmdconfig/attributes.dmd");
+            _referenceToABOBJ.setDotName("dsdA.referenceToAB.AttributeDefinition");
+            _referenceToABOBJ.setLineNumber("19");
+            _referenceToAB.setDefinedIn(this);
+            addAttributeDefList(_referenceToAB);
+
     }
 
     // Generated from: org.dmd.dmg.util.SchemaFormatter.dumpInitFunction(SchemaFormatter.java:313)
@@ -206,6 +222,18 @@ public class DsdASchemaAG extends SchemaDefinition {
 
     // Generated from: org.dmd.dmg.util.SchemaFormatter.dumpInitFunction(SchemaFormatter.java:313)
     private void initComplexTypes() throws DmcValueException {
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            ComplexTypeDefinitionDMO _ReferenceOBJ = new ComplexTypeDefinitionDMO();
+            _Reference = new ComplexTypeDefinition(_ReferenceOBJ);
+            _ReferenceOBJ.addRequiredPart("ABConceptX toConcept \"The reference toanother ABConcept\"");
+            _ReferenceOBJ.setName("Reference");
+            _ReferenceOBJ.addOptionalPart("String descr \"An optional description\" quoted=true");
+            _ReferenceOBJ.setFile("/src/org/dmd/dmt/dsd/dsda/shared/dmdconfig/types.dmd");
+            _ReferenceOBJ.setDotName("dsdA.Reference.ComplexTypeDefinition");
+            _ReferenceOBJ.setLineNumber("4");
+            _Reference.setDefinedIn(this);
+            addComplexTypeDefList(_Reference);
+
     }
 
     // Generated from: org.dmd.dmg.util.SchemaFormatter.dumpInitFunction(SchemaFormatter.java:313)

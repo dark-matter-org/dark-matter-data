@@ -93,6 +93,7 @@ public class DsdADMSAG_INIT_1 {
         DsdADMSAG.__ABConceptX.addMay(MetaDMSAG.__obsolete);
         DsdADMSAG.__ABConceptX.addMay(MetaDMSAG.__optimize);
         DsdADMSAG.__ABConceptX.addMay(MetaDMSAG.__question);
+        DsdADMSAG.__ABConceptX.addMay(DsdADMSAG.__referenceToAB);
         DsdADMSAG.__ABConceptX.addMay(MetaDMSAG.__relationship);
         DsdADMSAG.__ABConceptX.addMay(MetaDMSAG.__searchable);
         DsdADMSAG.__ABConceptX.addMay(MetaDMSAG.__skip);

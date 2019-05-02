@@ -63,8 +63,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static EnumDefinition      _DebugEnum;
     public static EnumDefinition      _WrapperTypeEnum;
     public static EnumDefinition      _OriginalTypeEnum;
-    public static EnumDefinition      _GPBScalarTypeEnum;
-    public static EnumDefinition      _GPBFieldTypeEnum;
 
     // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:344)
     public static TypeDefinition      _String;
@@ -3714,43 +3712,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _FilterTypeEnumOBJ.setNullReturnValue("FilterTypeEnum.NONE");
         _FilterTypeEnum.setDefinedIn(this);
         addEnumDefList(_FilterTypeEnum);
-
-        EnumDefinitionDMO _GPBFieldTypeEnumOBJ = new EnumDefinitionDMO();
-        _GPBFieldTypeEnum = new EnumDefinition(_GPBFieldTypeEnumOBJ);
-        _GPBFieldTypeEnumOBJ.setDotName("meta.GPBFieldTypeEnum.EnumDefinition");
-        _GPBFieldTypeEnumOBJ.addEnumValue("0 REQUIRED A required field.");
-        _GPBFieldTypeEnumOBJ.addEnumValue("1 OPTIONAL An optional field.");
-        _GPBFieldTypeEnumOBJ.addEnumValue("2 REPEATED A repeated field.");
-        _GPBFieldTypeEnumOBJ.setFile("metaSchema.dms");
-        _GPBFieldTypeEnumOBJ.setLineNumber("563");
-        _GPBFieldTypeEnumOBJ.setName("GPBFieldTypeEnum");
-        _GPBFieldTypeEnum.setDefinedIn(this);
-        addEnumDefList(_GPBFieldTypeEnum);
-
-        EnumDefinitionDMO _GPBScalarTypeEnumOBJ = new EnumDefinitionDMO();
-        _GPBScalarTypeEnum = new EnumDefinition(_GPBScalarTypeEnumOBJ);
-        _GPBScalarTypeEnumOBJ.addDescription("The GPBScalarTypeEnum indicates the various mechanisms for encoding attribute values\n using Google Protocol Buffers.");
-        _GPBScalarTypeEnumOBJ.setDotName("meta.GPBScalarTypeEnum.EnumDefinition");
-        _GPBScalarTypeEnumOBJ.addEnumValue("0 DOUBLE 	Java double - C++ double.");
-        _GPBScalarTypeEnumOBJ.addEnumValue("1 FLOAT 	Java float - C++ float.");
-        _GPBScalarTypeEnumOBJ.addEnumValue("2 INT32 	Java int - C++ int32. Uses variable-length encoding. Inefficient for encoding negative numbers - if your field is likely to have negative values, use sint32 instead.");
-        _GPBScalarTypeEnumOBJ.addEnumValue("3 INT64 	Java long - C++ int64. Uses variable-length encoding. Inefficient for encoding negative numbers - if your field is likely to have negative values, use sint64 instead.");
-        _GPBScalarTypeEnumOBJ.addEnumValue("4 UINT32 	Java int - C++ uint32. Uses variable-length encoding. In Java, unsigned 32-bit integers are represented using their signed counterparts, with the top bit simply being stored in the sign bit.");
-        _GPBScalarTypeEnumOBJ.addEnumValue("5 UINT64 	Java long - C++ uint64. Uses variable-length encoding. In Java, unsigned 64-bit integers are represented using their signed counterparts, with the top bit simply being stored in the sign bit.");
-        _GPBScalarTypeEnumOBJ.addEnumValue("6 SINT32 	Java int - C++ int32. Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s.");
-        _GPBScalarTypeEnumOBJ.addEnumValue("7 SINT64 	Java long - C++ int64. Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s.");
-        _GPBScalarTypeEnumOBJ.addEnumValue("8 FIXED32 	Java int - C++ uint32. Always four bytes. More efficient than uint32 if values are often greater than 2^28.");
-        _GPBScalarTypeEnumOBJ.addEnumValue("9 FIXED64 	Java long - C++ uint64. Always eight bytes. More efficient than uint64 if values are often greater than 2^56.");
-        _GPBScalarTypeEnumOBJ.addEnumValue("10 SFIXED32 Java int - C++ int32. Always four bytes.");
-        _GPBScalarTypeEnumOBJ.addEnumValue("11 SFIXED64 Java long - C++ int64. Always eight bytes.");
-        _GPBScalarTypeEnumOBJ.addEnumValue("12 BOOL 	Java boolean - C++ bool.");
-        _GPBScalarTypeEnumOBJ.addEnumValue("13 STRING 	Java String - C++ string. A string must always contain UTF-8 encoded or 7-bit ASCII text.");
-        _GPBScalarTypeEnumOBJ.addEnumValue("14 BYTES 	Java ByteString - C++ string. May contain any arbitrary sequence of bytes.");
-        _GPBScalarTypeEnumOBJ.setFile("metaSchema.dms");
-        _GPBScalarTypeEnumOBJ.setLineNumber("557");
-        _GPBScalarTypeEnumOBJ.setName("GPBScalarTypeEnum");
-        _GPBScalarTypeEnum.setDefinedIn(this);
-        addEnumDefList(_GPBScalarTypeEnum);
 
         EnumDefinitionDMO _ModifyTypeEnumOBJ = new EnumDefinitionDMO();
         _ModifyTypeEnum = new EnumDefinition(_ModifyTypeEnumOBJ);

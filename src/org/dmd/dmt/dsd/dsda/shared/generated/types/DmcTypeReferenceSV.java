@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2013 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -13,51 +13,67 @@
 //	You should have received a copy of the GNU Lesser General Public License along
 //	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
 //	---------------------------------------------------------------------------
-package org.dmd.dms.generated.types;
+//	---------------------------------------------------------------------------
+//	dark-matter-data
+//	Copyright (c) 2013 dark-matter-data committers
+//	---------------------------------------------------------------------------
+//	This program is free software; you can redistribute it and/or modify it
+//	under the terms of the GNU Lesser General Public License as published by the
+//	Free Software Foundation; either version 3 of the License, or (at your
+//	option) any later version.
+//	This program is distributed in the hope that it will be useful, but WITHOUT
+//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
+//	more details.
+//	You should have received a copy of the GNU Lesser General Public License along
+//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
+//	---------------------------------------------------------------------------
+package org.dmd.dmt.dsd.dsda.shared.generated.types;
 
 import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dms.generated.enums.GPBFieldTypeEnum;    // DmcType import
+import org.dmd.dmt.dsd.dsda.shared.generated.types.Reference;    // base type import
+import org.dmd.dmt.dsd.dsda.shared.generated.types.DmcTypeReference;    // DmcType import
 /**
- * The DmcTypeGPBFieldTypeEnumSV provides storage for a single-valued GPBFieldTypeEnum
+ * The DmcTypeReferenceSV provides storage for a single-valued Reference
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2151)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:591)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:125)
  */
 @SuppressWarnings("serial")
-public class DmcTypeGPBFieldTypeEnumSV extends DmcTypeGPBFieldTypeEnum implements Serializable {
+public class DmcTypeReferenceSV extends DmcTypeReference implements Serializable {
     
-    protected GPBFieldTypeEnum value;
+    protected Reference value;
     
-    public DmcTypeGPBFieldTypeEnumSV(){
+    public DmcTypeReferenceSV(){
     
     }
     
-    public DmcTypeGPBFieldTypeEnumSV(DmcAttributeInfo ai){
+    public DmcTypeReferenceSV(DmcAttributeInfo ai){
         super(ai);
     }
     
-    public DmcTypeGPBFieldTypeEnumSV getNew(){
-        return(new DmcTypeGPBFieldTypeEnumSV(getAttributeInfo()));
+    public DmcTypeReferenceSV getNew(){
+        return(new DmcTypeReferenceSV(getAttributeInfo()));
     }
     
-    public DmcTypeGPBFieldTypeEnumSV getNew(DmcAttributeInfo ai){
-        return(new DmcTypeGPBFieldTypeEnumSV(ai));
+    public DmcTypeReferenceSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeReferenceSV(ai));
     }
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2183)
-    public DmcAttribute<GPBFieldTypeEnum> cloneIt(){
-        DmcTypeGPBFieldTypeEnumSV rc = getNew();
+    public DmcAttribute<Reference> cloneIt(){
+        DmcTypeReferenceSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2194)
-    public GPBFieldTypeEnum getSVCopy(){
+    public Reference getSVCopy(){
         if (value == null)
             return(null);
         return(cloneValue(value));
@@ -65,8 +81,8 @@ public class DmcTypeGPBFieldTypeEnumSV extends DmcTypeGPBFieldTypeEnum implement
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2206)
-    public GPBFieldTypeEnum set(Object v) throws DmcValueException {
-        GPBFieldTypeEnum rc = typeCheck(v);
+    public Reference set(Object v) throws DmcValueException {
+        Reference rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
         // the applyModifier() mechanism on DmcObject where we only return true
         // if something changed as a result of the modifier
@@ -82,7 +98,7 @@ public class DmcTypeGPBFieldTypeEnumSV extends DmcTypeGPBFieldTypeEnum implement
     }
     
     @Override
-    public GPBFieldTypeEnum getSV(){
+    public Reference getSV(){
         return(value);
     }
     

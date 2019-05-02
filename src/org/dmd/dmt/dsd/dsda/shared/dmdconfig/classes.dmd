@@ -27,3 +27,4 @@ useWrapperType	EXTENDED
 derivedFrom		AConceptX
 isNamedBy		name
 must			name
+may				referenceToAB

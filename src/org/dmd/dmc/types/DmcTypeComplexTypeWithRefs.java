@@ -8,6 +8,7 @@ import org.dmd.dmc.DmcNameClashResolverIF;
 import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNameResolverWithClashSupportIF;
 import org.dmd.dmc.DmcObject;
+import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 
@@ -33,6 +34,8 @@ abstract public class DmcTypeComplexTypeWithRefs<VALUE> extends DmcAttribute<VAL
 	
 	abstract public void resolveValue(DmcNameResolverWithClashSupportIF resolver, VALUE value, DmcObject object, DmcNameClashResolverIF ncr, DmcAttributeInfo ai) throws DmcValueException, DmcValueExceptionSet;
 	
+	abstract public void removeBackRefsFromValue(VALUE value);
+	
 	public void resolve(DmcNameResolverIF resolver, String attrName) throws DmcValueException {
 		if (getMVSize() == 0){
 			resolveValue(resolver, getSV(), attrName);
@@ -53,6 +56,20 @@ abstract public class DmcTypeComplexTypeWithRefs<VALUE> extends DmcAttribute<VAL
 			Iterator<VALUE> it = getMV();
 			while(it.hasNext()){
 				resolveValue(resolver, it.next(), object, ncr, ai);
+			}
+		}
+	}
+	
+	public void removeBackReferences() {
+		if (DmcOmni.instance().backRefTracking()){
+			if (getMVSize() == 0){
+				removeBackRefsFromValue(getSV());
+			}
+			else{
+				Iterator<VALUE> it = getMV();
+				while(it.hasNext()){
+					removeBackRefsFromValue(it.next());
+				}
 			}
 		}
 	}

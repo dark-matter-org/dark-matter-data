@@ -28,6 +28,7 @@ public class DsdBDMSAGAMAP {
     static protected void initSmAp(HashMap<Integer, DmcAttributeInfo> _SmAp){
         _SmAp.put(DsdBDMSAG.__definedInModuleB.id,DsdBDMSAG.__definedInModuleB);
         _SmAp.put(DsdBDMSAG.__dependsOnModuleB.id,DsdBDMSAG.__dependsOnModuleB);
+        _SmAp.put(DsdBDMSAG.__reference.id,DsdBDMSAG.__reference);
     }
 
 }

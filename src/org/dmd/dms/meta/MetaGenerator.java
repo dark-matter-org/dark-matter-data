@@ -3396,6 +3396,21 @@ if (an.equals("requiredPart"))
 			}
 
 			out.write("    }\n\n");
+			
+			///////////////////////
+			
+	        out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+			out.write("    public void removeBackRefsFromValue(){\n");
+			
+			for (String fn : refFields) {
+				out.write("        if (" + fn + " != null){\n");
+				out.write("            " + fn + ".removeBackref();\n");
+				out.write("        }\n");
+			}
+			
+			
+			out.write("    }\n\n");
+
 
 		}
 

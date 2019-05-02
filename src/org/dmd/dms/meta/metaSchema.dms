@@ -535,31 +535,31 @@ enumValue		6 NAMETYPE The type is a name type.
 description     The OriginalTypeEnum indicates the source of type, whether explicitly defined
  or implicitly defined and generated as an internal type.
 
-EnumDefinition
-name			GPBScalarTypeEnum
-enumValue		0 DOUBLE 	Java double - C++ double.
-enumValue		1 FLOAT 	Java float - C++ float.
-enumValue		2 INT32 	Java int - C++ int32. Uses variable-length encoding. Inefficient for encoding negative numbers - if your field is likely to have negative values, use sint32 instead.
-enumValue		3 INT64 	Java long - C++ int64. Uses variable-length encoding. Inefficient for encoding negative numbers - if your field is likely to have negative values, use sint64 instead.
-enumValue		4 UINT32 	Java int - C++ uint32. Uses variable-length encoding. In Java, unsigned 32-bit integers are represented using their signed counterparts, with the top bit simply being stored in the sign bit.
-enumValue		5 UINT64 	Java long - C++ uint64. Uses variable-length encoding. In Java, unsigned 64-bit integers are represented using their signed counterparts, with the top bit simply being stored in the sign bit.
-enumValue		6 SINT32 	Java int - C++ int32. Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s.
-enumValue		7 SINT64 	Java long - C++ int64. Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s.
-enumValue		8 FIXED32 	Java int - C++ uint32. Always four bytes. More efficient than uint32 if values are often greater than 2^28.
-enumValue		9 FIXED64 	Java long - C++ uint64. Always eight bytes. More efficient than uint64 if values are often greater than 2^56.
-enumValue		10 SFIXED32 Java int - C++ int32. Always four bytes.
-enumValue		11 SFIXED64 Java long - C++ int64. Always eight bytes.
-enumValue		12 BOOL 	Java boolean - C++ bool.
-enumValue		13 STRING 	Java String - C++ string. A string must always contain UTF-8 encoded or 7-bit ASCII text.
-enumValue		14 BYTES 	Java ByteString - C++ string. May contain any arbitrary sequence of bytes.
-description The GPBScalarTypeEnum indicates the various mechanisms for encoding attribute values
- using Google Protocol Buffers.
+//EnumDefinition
+//name			GPBScalarTypeEnum
+//enumValue		0 DOUBLE 	Java double - C++ double.
+//enumValue		1 FLOAT 	Java float - C++ float.
+//enumValue		2 INT32 	Java int - C++ int32. Uses variable-length encoding. Inefficient for encoding negative numbers - if your field is likely to have negative values, use sint32 instead.
+//enumValue		3 INT64 	Java long - C++ int64. Uses variable-length encoding. Inefficient for encoding negative numbers - if your field is likely to have negative values, use sint64 instead.
+//enumValue		4 UINT32 	Java int - C++ uint32. Uses variable-length encoding. In Java, unsigned 32-bit integers are represented using their signed counterparts, with the top bit simply being stored in the sign bit.
+//enumValue		5 UINT64 	Java long - C++ uint64. Uses variable-length encoding. In Java, unsigned 64-bit integers are represented using their signed counterparts, with the top bit simply being stored in the sign bit.
+//enumValue		6 SINT32 	Java int - C++ int32. Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s.
+//enumValue		7 SINT64 	Java long - C++ int64. Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s.
+//enumValue		8 FIXED32 	Java int - C++ uint32. Always four bytes. More efficient than uint32 if values are often greater than 2^28.
+//enumValue		9 FIXED64 	Java long - C++ uint64. Always eight bytes. More efficient than uint64 if values are often greater than 2^56.
+//enumValue		10 SFIXED32 Java int - C++ int32. Always four bytes.
+//enumValue		11 SFIXED64 Java long - C++ int64. Always eight bytes.
+//enumValue		12 BOOL 	Java boolean - C++ bool.
+//enumValue		13 STRING 	Java String - C++ string. A string must always contain UTF-8 encoded or 7-bit ASCII text.
+//enumValue		14 BYTES 	Java ByteString - C++ string. May contain any arbitrary sequence of bytes.
+//description The GPBScalarTypeEnum indicates the various mechanisms for encoding attribute values
+// using Google Protocol Buffers.
 
-EnumDefinition
-name GPBFieldTypeEnum
-enumValue		0 REQUIRED A required field.
-enumValue		1 OPTIONAL An optional field.
-enumValue		2 REPEATED A repeated field.
+//EnumDefinition
+//name GPBFieldTypeEnum
+//enumValue		0 REQUIRED A required field.
+//enumValue		1 OPTIONAL An optional field.
+//enumValue		2 REPEATED A repeated field.
 
 ///////////////////////////////////////////////////////////////////////////////
 // RULE CATEGORIES

@@ -11,3 +11,9 @@ dmdID			2
 type			ModuleB
 description		Indicates the name of the ModuleB in which a definition is defined.
 
+AttributeDefinition
+name			reference
+dmdID			3
+type			Reference
+description		Indicates a reference to an ABConceptX.
+

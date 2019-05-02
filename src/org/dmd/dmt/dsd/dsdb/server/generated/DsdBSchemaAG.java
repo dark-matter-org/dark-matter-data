@@ -53,6 +53,7 @@ public class DsdBSchemaAG extends SchemaDefinition {
 
     public static AttributeDefinition _dependsOnModuleB;
     public static AttributeDefinition _definedInModuleB;
+    public static AttributeDefinition _reference;
 
 
 
@@ -199,6 +200,19 @@ public class DsdBSchemaAG extends SchemaDefinition {
             _definedInModuleBOBJ.setLineNumber("13");
             _definedInModuleB.setDefinedIn(this);
             addAttributeDefList(_definedInModuleB);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            AttributeDefinitionDMO _referenceOBJ = new AttributeDefinitionDMO();
+            _reference = new AttributeDefinition(_referenceOBJ);
+            _referenceOBJ.addDescription("Indicates a reference to an ABConceptX.");
+            _referenceOBJ.setName("reference");
+            _referenceOBJ.setDmdID("-500097");
+            _referenceOBJ.setType("dsdA.Reference");
+            _referenceOBJ.setFile("/src/org/dmd/dmt/dsd/dsdb/shared/dmdconfig/attributes.dmd");
+            _referenceOBJ.setDotName("dsdB.reference.AttributeDefinition");
+            _referenceOBJ.setLineNumber("19");
+            _reference.setDefinedIn(this);
+            addAttributeDefList(_reference);
 
     }
 
