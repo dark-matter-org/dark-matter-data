@@ -3304,6 +3304,7 @@ public class GenUtility {
   		out.write("    }\n\n");
       		            	
   		out.write("    @Override\n");
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
   		out.write("    protected void formatValueAsJSON(StringBuffer sb, int padding, String indent) {\n");
   		out.write("        if (getMVSize() == 0){\n");
   		out.write("            getSV().toJSON(sb,padding,indent);\n");
@@ -3319,6 +3320,7 @@ public class GenUtility {
   		out.write("        }\n");
   		out.write("    }\n\n");
 
+  		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
   		out.write("    protected " + cn + " typeCheck(Object value) throws DmcValueException {\n");
   		out.write("        " + cn + " rc = null;\n\n");
   		
@@ -3341,6 +3343,7 @@ public class GenUtility {
       
   		out.write("    /**\n");
   		out.write("     * Returns a clone of a value associated with this type.\n");
+  		out.write("     * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
   		out.write("     */\n");
   		out.write("    public " + cn + " cloneValue(" + cn + " val){\n");
  		out.write("        return(new " + cn + "(val));\n");
@@ -3348,6 +3351,7 @@ public class GenUtility {
       	
   		out.write("    /**\n");
   		out.write("     * Writes a " + cn + ".\n");
+  		out.write("     * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
   		out.write("     */\n");
   		out.write("    @Override\n");
   		out.write("    public void serializeValue(DmcOutputStreamIF dos, " + cn + " value) throws Exception {\n");
@@ -3356,6 +3360,7 @@ public class GenUtility {
   	
   		out.write("    /**\n");
   		out.write("     * Reads a " + cn + ".\n");
+  		out.write("     * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
       	out.write("     */\n");
       	out.write("    @Override\n");
       	out.write("    public " + cn + " deserializeValue(DmcInputStreamIF dis) throws Exception {\n");
@@ -3367,6 +3372,7 @@ public class GenUtility {
       	if (containsRefs){
 	  		out.write("    /**\n");
 	  		out.write("     * Resolves a " + cn + ".\n");
+	  		out.write("     * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 	  		out.write("     */\n");
 	  		out.write("    @Override\n");
 	  		out.write("    public void resolveValue(DmcNameResolverIF resolver, " + cn + " value, String attrName) throws DmcValueException {\n");
@@ -3375,10 +3381,20 @@ public class GenUtility {
 	  		
 	  		out.write("    /**\n");
 	  		out.write("     * Resolves a " + cn + ".\n");
+	  		out.write("     * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 	  		out.write("     */\n");
 	  		out.write("    @Override\n");
 	  		out.write("    public void resolveValue(DmcNameResolverWithClashSupportIF resolver, " + cn + " value, DmcObject object, DmcNameClashResolverIF ncr, DmcAttributeInfo ai) throws DmcValueException, DmcValueExceptionSet {\n");
 	  		out.write("        value.resolve(resolver,object,ncr,ai);\n");
+	  		out.write("    }\n\n");
+
+	  		out.write("    /**\n");
+	  		out.write("     * Removes references to other objects from a " + cn + ".\n");
+	  		out.write("     * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+	  		out.write("     */\n");
+//	  		out.write("    @Override\n");
+	  		out.write("    public void removeBackRefsFromValue(" + cn + " value){\n");
+	  		out.write("        value.removeBackRefsFromValue();\n");
 	  		out.write("    }\n\n");
 
       	}

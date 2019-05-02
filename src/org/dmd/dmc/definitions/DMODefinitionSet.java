@@ -135,6 +135,10 @@ public class DMODefinitionSet<DEF extends DSDefinitionDMO> {
 		debug = f;
 	}
 	
+	static public boolean debug(){
+		return(debug);
+	}
+	
 	public String className() {
 		return(className);
 	}

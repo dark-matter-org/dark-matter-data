@@ -16,16 +16,18 @@
 package org.dmd.dmt.dsd.dsda.shared.generated.dmo;
 
 // Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:408)
-import java.io.Serializable;                                           // Always required - (GenUtility.java:227)
-import org.dmd.dmc.DmcAttribute;                                       // Named object - (GenUtility.java:388)
-import org.dmd.dmc.DmcNamedObjectIF;                                   // Named object - (GenUtility.java:387)
-import org.dmd.dmc.DmcSliceInfo;                                       // Required for object slicing - (GenUtility.java:232)
-import org.dmd.dmc.DmcValueException;                                  // Any attributes - (GenUtility.java:249)
-import org.dmd.dmc.types.DefinitionName;                               // Naming attribute type - (GenUtility.java:382)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                            // Required for MODREC constructor - (GenUtility.java:231)
-import org.dmd.dms.generated.types.DmcTypeDefinitionNameSV;            // Required type - (GenUtility.java:339)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                  // Required for MODREC constructor - (GenUtility.java:230)
-import org.dmd.dmt.dsd.dsda.shared.generated.dmo.AConceptXDMO;         // Base class - (GenUtility.java:367)
+import java.io.Serializable;                                                   // Always required - (GenUtility.java:227)
+import org.dmd.dmc.DmcAttribute;                                               // Named object - (GenUtility.java:388)
+import org.dmd.dmc.DmcNamedObjectIF;                                           // Named object - (GenUtility.java:387)
+import org.dmd.dmc.DmcSliceInfo;                                               // Required for object slicing - (GenUtility.java:232)
+import org.dmd.dmc.DmcValueException;                                          // Any attributes - (GenUtility.java:249)
+import org.dmd.dmc.types.DefinitionName;                                       // Naming attribute type - (GenUtility.java:382)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                    // Required for MODREC constructor - (GenUtility.java:231)
+import org.dmd.dms.generated.types.DmcTypeDefinitionNameSV;                    // Required type - (GenUtility.java:339)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                          // Required for MODREC constructor - (GenUtility.java:230)
+import org.dmd.dmt.dsd.dsda.shared.generated.dmo.AConceptXDMO;                 // Base class - (GenUtility.java:367)
+import org.dmd.dmt.dsd.dsda.shared.generated.types.DmcTypeReferenceSV;         // Required type - (GenUtility.java:339)
+import org.dmd.dmt.dsd.dsda.shared.generated.types.Reference;                  // Primitive type - (GenUtility.java:282)
 
 // Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:678)
 /**
@@ -109,6 +111,56 @@ public class ABConceptXDMO  extends AConceptXDMO  implements DmcNamedObjectIF, S
             return(0);
         
         return(objn.hashCode());
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    public Reference getReferenceToAB(){
+        DmcTypeReferenceSV attr = (DmcTypeReferenceSV) get(DsdADMSAG.__referenceToAB);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets referenceToAB to the specified value.
+     * @param value Reference
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    public void setReferenceToAB(Reference value) {
+        DmcAttribute<?> attr = get(DsdADMSAG.__referenceToAB);
+        if (attr == null)
+            attr = new DmcTypeReferenceSV(DsdADMSAG.__referenceToAB);
+        
+        try{
+            attr.set(value);
+            set(DsdADMSAG.__referenceToAB,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets referenceToAB to the specified value.
+     * @param value A value compatible with DmcTypeReferenceSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    public void setReferenceToAB(Object value) throws DmcValueException {
+        DmcTypeReferenceSV attr  = (DmcTypeReferenceSV) get(DsdADMSAG.__referenceToAB);
+        if (attr == null)
+            attr = new DmcTypeReferenceSV(DsdADMSAG.__referenceToAB);
+        
+        attr.set(value);
+        set(DsdADMSAG.__referenceToAB,attr);
+    }
+
+    /**
+     * Removes the referenceToAB attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    public void remReferenceToAB(){
+         rem(DsdADMSAG.__referenceToAB);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)

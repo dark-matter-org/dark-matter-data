@@ -313,6 +313,7 @@ public class MetaComplexTypeFormatter {
 
 		if (hasRefs) {
 			out.write("    @SuppressWarnings({\"unchecked\", \"rawtypes\"})\n");
+	        out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 			out.write("    public void resolve(DmcNameResolverIF resolver, String attrName) throws DmcValueException {\n");
 			out.write("        DmcNamedObjectIF  obj = null;\n\n");
 
@@ -334,6 +335,7 @@ public class MetaComplexTypeFormatter {
 			
 			
 			out.write("    @SuppressWarnings({\"unchecked\", \"rawtypes\"})\n");
+	        out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 			out.write("    public void resolve(DmcNameResolverWithClashSupportIF resolver, DmcObject object, DmcNameClashResolverIF ncr, DmcAttributeInfo ai) throws DmcValueException, DmcValueExceptionSet {\n");
 			out.write("        DmcNamedObjectIF  obj = null;\n\n");
 
@@ -357,6 +359,11 @@ public class MetaComplexTypeFormatter {
 			}
 
 			out.write("    }\n\n");
+			
+	        out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+			out.write("    public void removeBackRefsFromValue(){\n");
+			out.write("    }\n\n");
+			
 
 		}
 		

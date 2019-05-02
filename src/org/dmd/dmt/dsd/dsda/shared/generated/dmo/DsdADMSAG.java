@@ -48,12 +48,14 @@ public class DsdADMSAG implements DmcCompactSchemaIF {
 
     public final static DmcAttributeInfo __definedInModuleA = new DmcAttributeInfo("dsdA", "definedInModuleA", -500048, "ModuleA", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, 0, false);
     public final static DmcAttributeInfo __dependsOnModuleA = new DmcAttributeInfo("dsdA", "dependsOnModuleA", -500049, "ModuleA", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, 0, false);
+    public final static DmcAttributeInfo __referenceToAB = new DmcAttributeInfo("dsdA", "referenceToAB", -500047, "Reference", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, 0, false);
 
     // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:191)
     public final static DmcTypeInfo __type_ABConceptX = new DmcTypeInfo("ABConceptX", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_AConceptBase = new DmcTypeInfo("AConceptBase", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_AConceptX = new DmcTypeInfo("AConceptX", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_ModuleA = new DmcTypeInfo("ModuleA", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_Reference = new DmcTypeInfo("Reference", OriginalTypeEnum.COMPLEXTYPE);
 
     // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:232)
     public final static DmcClassInfo __AConceptBase = new DmcClassInfo("AConceptBase","org.dmd.dmt.dsd.dsda.shared.generated.dmo.AConceptBaseDMO", -1000098, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,MetaDMSAG.__DSDefinition,MetaDMSAG.__name);

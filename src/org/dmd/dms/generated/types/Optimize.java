@@ -190,6 +190,7 @@ public class Optimize implements Serializable {
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})
+    // Generated from: org.dmd.dms.meta.MetaComplexTypeFormatter.dumpComplexType(MetaComplexTypeFormatter.java:316)
     public void resolve(DmcNameResolverIF resolver, String attrName) throws DmcValueException {
         DmcNamedObjectIF  obj = null;
 
@@ -207,6 +208,7 @@ public class Optimize implements Serializable {
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})
+    // Generated from: org.dmd.dms.meta.MetaComplexTypeFormatter.dumpComplexType(MetaComplexTypeFormatter.java:338)
     public void resolve(DmcNameResolverWithClashSupportIF resolver, DmcObject object, DmcNameClashResolverIF ncr, DmcAttributeInfo ai) throws DmcValueException, DmcValueExceptionSet {
         DmcNamedObjectIF  obj = null;
 
@@ -221,6 +223,10 @@ public class Optimize implements Serializable {
                 ((DmcNamedObjectREF)why).setObject(obj);
         }
         
+    }
+
+    // Generated from: org.dmd.dms.meta.MetaComplexTypeFormatter.dumpComplexType(MetaComplexTypeFormatter.java:363)
+    public void removeBackRefsFromValue(){
     }
 
     public void toJSON(StringBuffer sb, int padding, String indent) {

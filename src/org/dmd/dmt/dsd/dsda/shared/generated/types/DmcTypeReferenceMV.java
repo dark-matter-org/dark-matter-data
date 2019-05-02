@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2013 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -13,7 +13,22 @@
 //	You should have received a copy of the GNU Lesser General Public License along
 //	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
 //	---------------------------------------------------------------------------
-package org.dmd.dms.generated.types;
+//	---------------------------------------------------------------------------
+//	dark-matter-data
+//	Copyright (c) 2013 dark-matter-data committers
+//	---------------------------------------------------------------------------
+//	This program is free software; you can redistribute it and/or modify it
+//	under the terms of the GNU Lesser General Public License as published by the
+//	Free Software Foundation; either version 3 of the License, or (at your
+//	option) any later version.
+//	This program is distributed in the hope that it will be useful, but WITHOUT
+//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
+//	more details.
+//	You should have received a copy of the GNU Lesser General Public License along
+//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
+//	---------------------------------------------------------------------------
+package org.dmd.dmt.dsd.dsda.shared.generated.types;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -21,45 +36,46 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dms.generated.enums.GPBScalarTypeEnum;    // DmcType import
+import org.dmd.dmt.dsd.dsda.shared.generated.types.Reference;    // base type import
+import org.dmd.dmt.dsd.dsda.shared.generated.types.DmcTypeReference;    // DmcType import
 /**
- * The DmcTypeGPBScalarTypeEnumMV provides storage for a multi-valued GPBScalarTypeEnum
+ * The DmcTypeReferenceMV provides storage for a multi-valued Reference
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2495)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:595)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:126)
  */
 @SuppressWarnings("serial")
-public class DmcTypeGPBScalarTypeEnumMV extends DmcTypeGPBScalarTypeEnum implements Serializable {
+public class DmcTypeReferenceMV extends DmcTypeReference implements Serializable {
     
-    private final static Iterator<GPBScalarTypeEnum> emptyList = (new ArrayList<GPBScalarTypeEnum>()).iterator();
+    private final static Iterator<Reference> emptyList = (new ArrayList<Reference>()).iterator();
     
-    protected ArrayList<GPBScalarTypeEnum> value;
+    protected ArrayList<Reference> value;
     
-    public DmcTypeGPBScalarTypeEnumMV(){
+    public DmcTypeReferenceMV(){
     
     }
     
-    public DmcTypeGPBScalarTypeEnumMV(DmcAttributeInfo ai){
+    public DmcTypeReferenceMV(DmcAttributeInfo ai){
         super(ai);
     }
     
     @Override
-    public DmcTypeGPBScalarTypeEnumMV getNew(){
-        return(new DmcTypeGPBScalarTypeEnumMV(getAttributeInfo()));
+    public DmcTypeReferenceMV getNew(){
+        return(new DmcTypeReferenceMV(getAttributeInfo()));
     }
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2526)
-    public DmcAttribute<GPBScalarTypeEnum> cloneIt(){
+    public DmcAttribute<Reference> cloneIt(){
         synchronized(this){
-            DmcTypeGPBScalarTypeEnumMV rc = getNew();
+            DmcTypeReferenceMV rc = getNew();
     
             if (value == null)
                 return(rc);
     
             if (getAttributeInfo().indexSize == 0){
-                for(GPBScalarTypeEnum val: value)
+                for(Reference val: value)
                 try {
                     rc.add(val);
                 } catch (DmcValueException e) {
@@ -80,11 +96,11 @@ public class DmcTypeGPBScalarTypeEnumMV extends DmcTypeGPBScalarTypeEnum impleme
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2559)
-    public GPBScalarTypeEnum add(Object v) throws DmcValueException {
+    public Reference add(Object v) throws DmcValueException {
         synchronized(this){
-            GPBScalarTypeEnum rc = typeCheck(v);
+            Reference rc = typeCheck(v);
             if (value == null)
-                value = new ArrayList<GPBScalarTypeEnum>();
+                value = new ArrayList<Reference>();
             value.add(rc);
             return(rc);
         }
@@ -92,13 +108,13 @@ public class DmcTypeGPBScalarTypeEnumMV extends DmcTypeGPBScalarTypeEnum impleme
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2572)
-    public GPBScalarTypeEnum del(Object v){
+    public Reference del(Object v){
         synchronized(this){
             if (value == null)
                 return(null);
     
-            GPBScalarTypeEnum key = null;
-            GPBScalarTypeEnum rc = null;
+            Reference key = null;
+            Reference rc = null;
             try {
                 key = typeCheck(v);
             } catch (DmcValueException e) {
@@ -116,23 +132,23 @@ public class DmcTypeGPBScalarTypeEnumMV extends DmcTypeGPBScalarTypeEnum impleme
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2606)
-    public Iterator<GPBScalarTypeEnum> getMV(){
+    public Iterator<Reference> getMV(){
         synchronized(this){
             if (value == null)
                 return(emptyList);
     
-            ArrayList<GPBScalarTypeEnum> clone = new ArrayList<GPBScalarTypeEnum>(value);
+            ArrayList<Reference> clone = new ArrayList<Reference>(value);
             return(clone.iterator());
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2618)
-    public ArrayList<GPBScalarTypeEnum> getMVCopy(){
+    public ArrayList<Reference> getMVCopy(){
         synchronized(this){
             if (value == null)
-                return(new ArrayList<GPBScalarTypeEnum>());
+                return(new ArrayList<Reference>());
             else 
-                return(new ArrayList<GPBScalarTypeEnum>(value));
+                return(new ArrayList<Reference>(value));
         }
     }
     
@@ -152,7 +168,7 @@ public class DmcTypeGPBScalarTypeEnumMV extends DmcTypeGPBScalarTypeEnum impleme
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2645)
-    public GPBScalarTypeEnum getMVnth(int index){
+    public Reference getMVnth(int index){
         synchronized(this){
             if (value == null)
                 return(null);
@@ -162,7 +178,7 @@ public class DmcTypeGPBScalarTypeEnumMV extends DmcTypeGPBScalarTypeEnum impleme
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2656)
-    public GPBScalarTypeEnum setMVnth(int index, Object v) throws DmcValueException {
+    public Reference setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
                 throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
@@ -170,13 +186,13 @@ public class DmcTypeGPBScalarTypeEnumMV extends DmcTypeGPBScalarTypeEnum impleme
             if ( (index < 0) || (index >= getAttributeInfo().indexSize))
                 throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
             
-            GPBScalarTypeEnum rc = null;
+            Reference rc = null;
             
             if (v != null)
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<GPBScalarTypeEnum>(getAttributeInfo().indexSize);
+                value = new ArrayList<Reference>(getAttributeInfo().indexSize);
                 for(int i=0;i<getAttributeInfo().indexSize;i++)
                     value.add(null);
             }
@@ -218,7 +234,7 @@ public class DmcTypeGPBScalarTypeEnumMV extends DmcTypeGPBScalarTypeEnum impleme
                 return(false);
 
             try {
-                GPBScalarTypeEnum val = typeCheck(v);
+                Reference val = typeCheck(v);
                 return(value.contains(val));
             } catch (DmcValueException e) {
                 return(false);

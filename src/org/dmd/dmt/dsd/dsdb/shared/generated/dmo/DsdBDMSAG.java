@@ -48,6 +48,7 @@ public class DsdBDMSAG implements DmcCompactSchemaIF {
 
     public final static DmcAttributeInfo __definedInModuleB = new DmcAttributeInfo("dsdB", "definedInModuleB", -500098, "ModuleB", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, 0, false);
     public final static DmcAttributeInfo __dependsOnModuleB = new DmcAttributeInfo("dsdB", "dependsOnModuleB", -500099, "ModuleB", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, 0, false);
+    public final static DmcAttributeInfo __reference = new DmcAttributeInfo("dsdB", "reference", -500097, "Reference", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, 0, false);
 
     // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:191)
     public final static DmcTypeInfo __type_BConceptBase = new DmcTypeInfo("BConceptBase", OriginalTypeEnum.REFERENCE);

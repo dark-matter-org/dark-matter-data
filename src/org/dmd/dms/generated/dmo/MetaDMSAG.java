@@ -247,8 +247,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcTypeInfo __type_FilterTypeEnumREF = new DmcTypeInfo("FilterTypeEnumREF", OriginalTypeEnum.ENUM);
     public final static DmcTypeInfo __type_Float = new DmcTypeInfo("Float", OriginalTypeEnum.TYPE);
     public final static DmcTypeInfo __type_FullyQualifiedName = new DmcTypeInfo("FullyQualifiedName", OriginalTypeEnum.NAMETYPE);
-    public final static DmcTypeInfo __type_GPBFieldTypeEnumREF = new DmcTypeInfo("GPBFieldTypeEnumREF", OriginalTypeEnum.ENUM);
-    public final static DmcTypeInfo __type_GPBScalarTypeEnumREF = new DmcTypeInfo("GPBScalarTypeEnumREF", OriginalTypeEnum.ENUM);
     public final static DmcTypeInfo __type_Integer = new DmcTypeInfo("Integer", OriginalTypeEnum.TYPE);
     public final static DmcTypeInfo __type_IntegerName = new DmcTypeInfo("IntegerName", OriginalTypeEnum.NAMETYPE);
     public final static DmcTypeInfo __type_IntegerToBoolean = new DmcTypeInfo("IntegerToBoolean", OriginalTypeEnum.TYPE);

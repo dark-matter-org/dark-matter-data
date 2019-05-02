@@ -846,7 +846,6 @@ public class NewComplexTypeFormatter {
 	            	out.write("        \n");
             	}
             	else{
-//            		throw(new IllegalStateException("No support yet for multi-valued parts that are complex types with refs!"));
 	            	out.write("        if (" + pn + " != null){\n");
 	            	out.write("            for(" + type.getName() + " v: " + pn + "){\n");
 	            	out.write("                v.resolve(resolver, object, ncr, ai);\n");
@@ -858,6 +857,58 @@ public class NewComplexTypeFormatter {
 
 
         	out.write("    }\n\n");
+        	
+        	
+    /////////////////////// BACKREF REMOVAL
+        	
+	        out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+			out.write("    public void removeBackRefsFromValue(){\n");
+            for(Part part: refFields){
+            	String pn = part.getName();
+            	TypeDefinition type = (TypeDefinition) part.getType().getObject().getContainer();
+            	
+            	if (type.getComplexType() == null){
+        	        out.write("        // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+	            	out.write("        if (" + pn + valSuffix + " != null){\n");
+	            	out.write("            " + pn + valSuffix + ".removeBackref();\n");
+	            	out.write("        }\n");
+	            	out.write("        \n");
+            	}
+            	else{
+        	        out.write("        // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+	            	out.write("        if (" + pn + valSuffix + " != null){\n");
+	            	out.write("            " + pn + valSuffix + ".removeBackref();\n");
+	            	out.write("        }\n");
+	            	out.write("        \n");
+            	}
+            }
+            
+            for(Part part: mvrefFields){
+            	TypeDefinition	type = (TypeDefinition) part.getType().getObject().getContainer();
+            	String pn = part.getName() + valSuffix;
+            	
+            	if (type.getComplexType() == null){
+        	        out.write("        // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+	            	out.write("        if (" + pn + " != null){\n");
+	            	out.write("            for(" + type.getName() + "REF v: " + pn + "){\n");
+	            	out.write("                v.removeBackref();\n");
+	            	out.write("            }\n");
+	            	out.write("        }\n");
+	            	out.write("        \n");
+            	}
+            	else{
+        	        out.write("        // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+	            	out.write("        if (" + pn + " != null){\n");
+	            	out.write("            for(" + type.getName() + " v: " + pn + "){\n");
+	            	out.write("                v.removeBackref();\n");
+	            	out.write("            }\n");
+	            	out.write("        }\n");
+	            	out.write("        \n");
+            	}
+            }
+            
+			out.write("    }\n\n");
+
 
         }
     	

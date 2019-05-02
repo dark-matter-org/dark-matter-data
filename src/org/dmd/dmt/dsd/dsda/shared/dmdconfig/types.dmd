@@ -1,0 +1,4 @@
+ComplexTypeDefinition
+name 			Reference
+requiredPart	ABConceptX   	toConcept	"The reference toanother ABConcept"
+optionalPart    String			descr		"An optional description" quoted=true

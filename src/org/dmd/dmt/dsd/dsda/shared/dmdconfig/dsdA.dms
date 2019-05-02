@@ -2,6 +2,7 @@ SchemaDefinition
 name       			dsdA
 schemaBaseID		-500050
 schemaIDRange		50
+defFiles    		types.dmd
 defFiles    		attributes.dmd
 defFiles    		classes.dmd
 defFiles			module.dmd

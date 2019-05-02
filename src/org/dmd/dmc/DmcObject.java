@@ -1179,6 +1179,9 @@ abstract public class DmcObject implements Serializable {
 //							}
 //						}
 					}
+					else if (attr instanceof DmcTypeComplexTypeWithRefs){
+						((DmcTypeComplexTypeWithRefs<?>)attr).removeBackReferences();
+					}
 				}
 			}
 			
