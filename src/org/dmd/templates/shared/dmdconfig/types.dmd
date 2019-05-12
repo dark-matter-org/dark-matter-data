@@ -1,0 +1,7 @@
+EnumDefinition
+name            CardinalityEnum
+enumValue		0 ONE 	Indicates that a section may appear once. You have to manually add the Section.
+enumValue		1 MANY  Indicates that a section will appear many times.
+enumValue		2 STATIC  Indicates that a section is static and will be automatically added.
+description		The CardinalityEnum indicates whether a Section will exist one or many times within another Section,
+ or whther the Section is static and always added automatically.

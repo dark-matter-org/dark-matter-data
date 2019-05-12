@@ -1,0 +1,150 @@
+ClassDefinition
+name			TdlDefinition
+classType   	ABSTRACT
+dmdID			2
+useWrapperType	EXTENDED
+derivedFrom		DSDefinition
+isNamedBy		name
+must			name
+must			dotName
+must			definedInTdlModule
+may				description
+description		The TdlDefinition provides a common base for all dark-matter
+ Template Definition Language (TDL) definitions.
+
+ClassDefinition
+name 			ContainedElement
+classType      	ABSTRACT
+dmdID			3
+useWrapperType	EXTENDED
+derivedFrom		TdlDefinition
+isNamedBy		name
+must			name
+
+ClassDefinition
+name 			Section
+classType      	STRUCTURAL
+dmdID			4
+useWrapperType	EXTENDED
+derivedFrom		ContainedElement
+isNamedBy		name
+must			name
+may				contains
+may				startsWith
+may				endsWith
+may				startsWithText
+may				endsWithText
+may				value
+may				hasTemplate
+may				usesTemplate
+description		A Section represents part of a textual artifact that you want to format.
+ The artifact could be an XHTML document, an XML document, a piece of code, a form
+ letter - whatever. The content of a Section may start with another Section or static
+ piece of text and, likewise, end with a Section or static piece of text.
+ <p/>
+ Sections can also contain other (sub) Sections. 
+ <p/>
+ Sections can also have named values that can be inserted into Templates. By specifying
+ values, you define a set of values that can be accessed and embedded within the associated
+ Template.
+ <p/>
+ When a Section's format() method is called, it will dump the contents in the following order:
+ <ul>
+ <li> any starts with material </li>
+ <li> the formatted contents of the associated Template </li>
+ <li> the formatted contents of any contained Sections </li>
+ <li> any ends with material </li>
+ </ul>
+
+OnlyOneOfTheseAttributesAllowedRuleData
+ruleName			dmtdlStartsWith
+ruleTitle			A Section can only startWith another Section or with a static piece of text. 
+applyToClass		Section
+onePossibility		startsWith
+onePossibility		startsWithText
+
+ClassDefinition
+name 			TextualArtifact
+classType      	STRUCTURAL
+dmdID			5
+useWrapperType	EXTENDED
+derivedFrom		TdlDefinition
+isNamedBy		name
+must			name
+must			contains
+description		A TextualArtifact is the top level entity that is comprised of Sections
+ and formatted via Templates. 
+
+OnlyOneOfTheseAttributesAllowedRuleData
+ruleName			dmtdlEndsWith
+ruleTitle			A Section can only endWith another Section or with a static piece of text. 
+applyToClass		Section
+onePossibility		endsWith
+onePossibility		endsWithText
+
+ClassDefinition
+name 			ExtensionHook
+classType      	STRUCTURAL
+dmdID			6
+useWrapperType	EXTENDED
+derivedFrom		ContainedElement
+isNamedBy		name
+must			name
+must			usesSection
+must			targetObjectClass
+description		The dark-matter Domain Specific Definition (DSD) mechanisms allow for the
+ extension of objects using auxliary classes and arbitrary name value pairs (via the nvp attribute).
+ These mechanisms are useful because they allow you to augment an existing Domain Specific Language
+ (DSL) with your own information that can be used to facilitate generation of other types
+ of artifacts.
+ <p/>
+ However, you might also want that additional information to show up in the documentation
+ produced as part of the base DSL. That's where the ExtensionHook mechanism comes into play;
+ although you can use this for your own purposes to allow others to extend the
+ content of your generated artifacts - there's nothing dark-matter specific about 
+ the mechanism.
+ <p/>
+ When defining your Sections, you may indicate that they contain ExtensionHooks.  This
+ will result in the generation of an ExtensionHook interface for the template definition module.
+ Other designers who have extended your DSL then create a class that implements the ExtensionHook
+ interface and have it dynamically loaded when the artifact generator is invoked (this is usually
+ done via commandline arguments that are passed to the generated TemplateLoader). It's up to the
+ designer of the base DSL to provide these mechanisms.
+ <p/>
+ When formatting the artifact, the base DSL designer will call the method on a Section
+ (in the appropriate sequence) to have the TemplateLoader call any registered classes that
+ implement the ExtensionHook interface.
+ 
+
+ClassDefinition
+name 			Template
+classType      	STRUCTURAL
+dmdID			7
+useWrapperType	EXTENDED
+isNamedBy		name
+must			name
+must			format
+may				file
+may				lineNumber
+may				debugOn
+may				description
+description		The Template object provides a mechanism to define an arbitrary set of
+ text that allows for the insertion of the named values defined as part of the associated
+ Section definition.
+ <p/>
+ By convention, the Template associated with a Section has the same name as the Section. For example:
+ <pre>
+ Section
+ name Header
+ </pre>
+ would have a template as follows:
+ <pre>
+ Template
+ name Header
+ </pre>
+ Templates are kept separate from the Section definitions so that their content can be
+ changed without regenerating code. Templates are loaded using the generated TemplateParser
+ for a given TdlModule.
+
+
+

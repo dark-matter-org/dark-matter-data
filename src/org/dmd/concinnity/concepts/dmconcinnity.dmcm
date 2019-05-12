@@ -1,0 +1,23 @@
+ConcinnityModule
+name dmconcinnity
+description	The dmconcinnity module defines a variety of base concepts that are generally useful
+ in the domain for software and hardware development.
+ 
+Concept
+name		Software
+description Instructions that tell a computer what to do. Software is the entire set of programs,
+ procedures, and routines associated with the operation of a computer system, including the
+ operating system. The term differentiates these features from hardware, the physical components
+ of a computer system. 
+
+Concept
+name 		Enumeration
+isRelatedTo	Software
+description	An enumeration indicates a restricted set of values to which a variable may be set.
+
+Concept
+name		EnumValue
+isRelatedTo	Enumeration
+description A particular value that is part of an overall enumeration. An EnumValue will often have
+ a particular numeric value associated with it, but at this level, it is meant to capture the 
+ concept of one choice among many.

@@ -6,6 +6,7 @@ import org.dmd.dmc.rules.DmcRuleException;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmv.shared.generated.dmo.RelatedNumbersRuleDataDMO;
 import org.dmd.dmv.shared.generated.rulesdmo.RelatedNumbersRuleBaseImpl;
+import org.dmd.util.exceptions.DebugInfo;
 
 /**
  * On the surface, this seems like a pretty trivial rule, but things get interesting
@@ -39,8 +40,23 @@ public class RelatedNumbersRule extends RelatedNumbersRuleBaseImpl {
 			return;
 		
 		if ( (lhs != null) && (rhs != null)){
-			Double 	lv 		= (Double) lhs.getSV();
-			Double 	rv 		= (Double) rhs.getSV();
+			Double 	lv 		= null;
+			Double 	rv 		= null;
+			
+			if (lhs.getSV() instanceof Double)
+				lv = (Double) lhs.getSV();
+			else if (lhs.getSV() instanceof Integer)
+				lv = ((Integer)lhs.getSV()).doubleValue();
+			else
+				throw(new IllegalStateException("RelatedNumbersRule accepts only Double compatible values or Integer, not: " + lhs.getSV().getClass().getName()));
+			
+			if (rhs.getSV() instanceof Double)
+				rv = (Double) rhs.getSV();
+			else if (rhs.getSV() instanceof Integer)
+				rv = ((Integer)rhs.getSV()).doubleValue();
+			else
+				throw(new IllegalStateException("RelatedNumbersRule accepts only Double compatible values or Integer, not: " + lhs.getSV().getClass().getName()));
+			
 			boolean	okay 	= false;
 			
 			// We have both values, test the relationship

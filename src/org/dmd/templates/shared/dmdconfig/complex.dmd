@@ -1,0 +1,16 @@
+
+ComplexTypeDefinition
+name Contains
+requiredPart CardinalityEnum	occurences	"The number of times a contained Section will occur."
+requiredPart ContainedElement	element 	"The Section or ExtensionHook being referenced."
+description	The Contains type indicates the number of times a Section will occur within a contain Section
+
+
+ComplexTypeDefinition
+name Value
+requiredPart String			valueName   	"The name of the value that can be inserted into a Template"
+requiredPart String			description 	"A description of the value." quoted=true
+description	The Value type indicates a name for a value that can be referenced in a Template along
+ with a short description.
+
+ 

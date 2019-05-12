@@ -1,0 +1,11 @@
+DSDefinitionModule
+name						ConcinnityModule
+fileExtension				dmcm
+dmdID						1
+moduleClassName				ConcinnityModule
+moduleDependenceAttribute 	dependsOnConcinnityModule
+baseDefinition				ConcinnityDefinition
+definedInModuleAttribute	definedInConcinnityModule
+supportDynamicSchemaLoading	true
+//requiredBaseModule			gpbbase
+

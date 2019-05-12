@@ -1,0 +1,76 @@
+AttributeDefinition
+name			definedInConcinnityModule
+dmdID			1
+type			ConcinnityModule
+description		Indicates the name of the ConcinnityModule in which a definition is defined.
+
+AttributeDefinition
+name			dependsOnConcinnityModule
+dmdID			2
+type			ConcinnityModule
+valueType       MULTI
+description		Indicates the ConcinnityModule on which something depends.
+
+AttributeDefinition
+name			is
+dmdID			3
+type			Concept
+description		Indicates that a Concept is directly related to another Concept.
+ This could be used to model a derivation hierarchy, for example, or simple to indicate
+ that a Concept is a direct embodiment of a Concept.
+
+AttributeDefinition
+name			isLike
+dmdID			4
+type			Concept
+valueType       MULTI
+description		Indicates that a Concept is like one or more other Concepts. This implies
+ that the Concept has characteristics of the other Concepts. For instance, a hydrofoil
+ is like a boat, but it isn't a boat.
+ 
+AttributeDefinition
+name			isRelatedTo
+dmdID			5
+type			Concept
+valueType       MULTI
+description		Indicates that a Concept is loosely related to one or more other Concepts.
+ This doesn't necessarily imply that the Concept has characteristics of the other Concepts,
+ merely that it has an association with other concepts.
+
+AttributeDefinition
+name			represents
+dmdID			6
+type			Concept
+description		Indicates that a Concept directly represents another Concept, but usually
+ in a different context. For instance, you may have an EnumValue that represents a piece
+ of Hardware.
+
+AttributeDefinition
+name			parent
+dmdID			7
+type			Concept
+description		Indicates that a Concept is direct child of some parent Concept. For instance,
+ you might be creating a high level concept for mapping enuemerations from one disparate system
+ to another. You could define a gametypeenum that was basedOn enumeration (see dmconcinnity.dmcm).
+ <pre>
+ Concept
+ name        GameTypeEnum
+ basedOn     Enumeration
+ description Broad categories of games.
+ </pre>
+ You could then define a series of values for the enumeration by indicating a parent relationship:
+ <pre>
+ Concept
+ name        fps
+ is          EnumValue
+ parent      GameTypeEnum
+ description First person shooter.
+ </pre>
+ <pre>
+ Concept
+ name        puzzle
+ is          EnumValue
+ parent      GameTypeEnum
+ description A game that requires the player to solve puzzles of some sort.
+ </pre>
+
