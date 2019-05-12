@@ -19,8 +19,11 @@ import org.dmd.util.DmcTraceableInputStream;
 import org.dmd.util.DmcTraceableOutputStream;
 import org.dmd.util.exceptions.ResultException;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
+import org.junit.runners.*;
 import org.junit.Test;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TestExtendedRequest {
 
 	static String testDataPath = "/test/org/dmd/dmt/shared/data";
@@ -54,7 +57,7 @@ public class TestExtendedRequest {
 	}
 
 	@Test
-	public void testExtendedRequestSerialize() throws DmcValueException, Exception{
+	public void testExtendedRequestAASerialize() throws DmcValueException, Exception{
 		DataOutputStream os = new DataOutputStream(new FileOutputStream(temp.getAbsolutePath()));
 
 		ClientCountFilterRequest	request = new ClientCountFilterRequest();
@@ -77,7 +80,7 @@ public class TestExtendedRequest {
 	}
 	
 	@Test
-	public void testExtendedRequestDeserialize() throws Exception{
+	public void testExtendedRequestBBDeserialize() throws Exception{
 		DataInputStream	is = new DataInputStream(new FileInputStream(temp.getAbsolutePath()));
 		
 		System.out.println("\nReading...\n\n");

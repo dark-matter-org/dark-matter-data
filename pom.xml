@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.connectifex</groupId>
   <artifactId>dark-matter-data</artifactId>
-  <version>3.0.8</version>
+  <version>3.0.9</version>
   
   <dependencies>
     <dependency>
@@ -33,12 +33,6 @@
 	    <version>1.1.1</version>
 	</dependency>
 	
-    <dependency>
-      <groupId>com.connectifex</groupId>
-      <artifactId>dark-matter-templates</artifactId>
-      <version>1.0.1</version>
-    </dependency>
-    
     <!-- https://mvnrepository.com/artifact/com.google.gwt/gwt-servlet -->
 	<dependency>
 	    <groupId>com.google.gwt</groupId>

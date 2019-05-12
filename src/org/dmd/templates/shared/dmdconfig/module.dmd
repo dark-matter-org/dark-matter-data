@@ -1,0 +1,27 @@
+DSDefinitionModule
+name						TdlModule
+fileExtension				dmtdl
+dmdID						1
+moduleClassName				TdlModule
+moduleDependenceAttribute 	dependsOnTdlModule
+baseDefinition				TdlDefinition
+definedInModuleAttribute	definedInTdlModule
+must						package
+must						templateFile
+may							templateFileSuffix
+may							maxFastAddValues
+may							insertMarker
+may							commentFormat
+description					A TdlModule is used to define a set of Sections that
+ define the overall structure of a textual artifact. When run through the dmtdlgen
+ utility, a set of classes are generated to represent these different artifact sections.
+ <p/>
+ By convention, you should place the .dmtdl files along with your other dark-matter 
+ config files e.g. in the dmconfig folder with your dark-matter schema or with 
+ your .dmg wrapper generation files. However, there is no restriction on where you
+ place your .dmtdl files, but it's recommended that they exist in a separate subfolder.
+ <p/>
+ When the dmtdlgen utility is run, a folder (named generated) will be created at
+ the same level as the dmconfig folder (or whatever you called it). This will contain
+ a dmtdl subpackage that will contain the generated code that represents the 
+ various Sections that you've defined.

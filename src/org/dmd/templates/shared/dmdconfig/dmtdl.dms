@@ -1,0 +1,22 @@
+SchemaDefinition
+name       			dmtdl
+schemaBaseID		-478600
+schemaIDRange		50
+dependsOn			dmv
+defFiles			types.dmd
+defFiles			complex.dmd
+defFiles    		attributes.dmd
+defFiles    		classes.dmd
+// Note: handling the module like this is a hack to get around some object resolve issues
+// Eventually, it will probably wind up in the classes file. Or all definitions may be in one file
+// like MVW.
+defFiles			module.dmd
+generatedFileHeader LGPL.txt
+schemaPackage 		org.dmd.templates.shared
+dmwPackage 			org.dmd.templates.server
+description The dark-matter Template Definition Language (TDL) schema defines objects that
+ allow you to define the structure of an artifact composed of a series of Sections and Templates
+ that are used to format the Sections.
+
+ 
+

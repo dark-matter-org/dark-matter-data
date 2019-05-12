@@ -1,0 +1,36 @@
+// Note: The ConcinnityModule uses dmdID 1
+
+ClassDefinition
+name			ConcinnityDefinition
+classType   	ABSTRACT
+dmdID			2
+useWrapperType	EXTENDED
+derivedFrom		Concinnity
+isNamedBy		name
+must			name
+must			dotName
+must			definedInConcinnityModule
+description		The ConcinnityDefinition provides a common base for all Concinnity related definitions.
+ 
+ClassDefinition
+name			Concept
+classType		STRUCTURAL
+dmdID			3
+useWrapperType	EXTENDED
+derivedFrom		ConcinnityDefinition
+isNamedBy		name
+must			name
+may				is
+may				isLike
+may				isRelatedTo
+may				represents
+may				hint
+//nvp				garbage		"This is just garbage"
+//nvp				garbage		"And this is more garbage"
+//nvp				someValue	5
+description		The Concept class provides a flexible mechanism for defining concepts that can be
+ linked in arbitrary or structured ways to other concepts. Concepts allow other, disparate information
+ from other dark-matter Domain Specific Languages (DSLs) to be linked together at a conceptual level.
+ <p/>
+ How you use this mechanism is bounded only by your imagination.
+

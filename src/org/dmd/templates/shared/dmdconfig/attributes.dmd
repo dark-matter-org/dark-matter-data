@@ -1,0 +1,195 @@
+AttributeDefinition
+name				definedInTdlModule
+dmdID				1
+type				TdlModule
+description			Indicates the name of the TdlModule in which a definition is defined.
+
+AttributeDefinition
+name				dependsOnTdlModule
+dmdID				2
+type				TdlModule
+valueType       	MULTI
+description			Indicates the TdlModule on which something depends.
+
+AttributeDefinition
+name				insertMarker
+dmdID				3
+type				String
+nullReturnValue		"::"
+description			The character sequence that's used to indicate the start and end of
+ where a value is inserted in a Template. The default insertMarker is double colon ::.
+ We make this configurable because you never know the exact nature of the format you're
+ trying to create. If double colons are a construct in that format, you'll have to choose
+ some other character sequence to indicate where data is inserted.
+
+AttributeDefinition
+name				format
+dmdID				4
+type				String
+preserveNewlines	true
+description			Indicates the matrix of text into which various parts of a dark-matter object
+ may be embedded.
+
+ValueLengthRuleData
+ruleName         dmtdlInsertMarkerLength
+ruleTitle        The insert marker must be 2 - 3 characters long.
+applyToAttribute insertMarker
+minLength        2
+maxLength        3
+
+AttributeDefinition
+name				usesTemplate
+dmdID				5
+type				Boolean
+nullReturnValue		true
+description			By default, all Sections require an associated template, however
+ if you set this to false, we don't look for an associated template. However, if 
+ a Section has specified values, it must always have a Template. We'll complain
+ if this is set to false, but the Section has values.
+
+AttributeDefinition
+name				contains
+dmdID				6
+type				Contains
+valueType			MULTI
+description			Indicates the other Sections contained by a Section and whether they occur one or many times.
+
+AttributeDefinition
+name				startsWith
+dmdID				7
+type				Section
+description			Indicates the Sections that this section of artifact will start with.
+
+AttributeDefinition
+name				startsWithText
+dmdID				8
+type				String
+preserveNewlines	true
+description			If the text that the section will start with is static, it can be specified via this attribute.
+
+AttributeDefinition
+name				endsWith
+dmdID				9
+type				Section
+description			Indicates the Sections that this section of artifact will end with.
+
+AttributeDefinition
+name				endsWithText
+dmdID				10
+type				String
+preserveNewlines	true
+description			If the text that the section will end with is static, it can be specified via this attribute.
+
+AttributeDefinition
+name				value
+dmdID				11
+type				Value
+valueType       	MULTI
+description			The name and description of a value that can be inserted into a Template. This name will be used
+ when generating the interface of the Section being formatted.
+
+AttributeDefinition
+name				templateFile
+dmdID				12
+type				String
+description			The name of the associated file that contains the Template definitions for each 
+ of the Sections (if they require a Template).
+
+AttributeDefinition
+name				package
+dmdID				13
+type				String
+description			The name of the package in which you're placing the artifact generation code.
+
+AttributeDefinition
+name				hasTemplate
+dmdID				14
+type				Boolean
+nullReturnValue		true
+description			Indicates whether or not a Section has an associated Template; by default, 
+ all Sections require a Template. If, for some reason, a Section doesn't require a Template,
+ just set this attribute to false.
+
+AttributeDefinition
+name				templateFileSuffix
+dmdID				15
+type				String
+nullReturnValue		"dmt"
+description			The suffix of the template file. By default, the suffix will be .dmt, but,
+ if that suffix clashes with some other file type you're using, you can change it.
+
+AttributeDefinition
+name				maxFastAddValues
+dmdID				16
+type				Integer
+nullReturnValue		8
+description			For most Sections, there aren't usually too many values, so the generated
+ code will provide a fastAdd() method for sub Sections with each of the values being provided
+ via an argument. That way, you don't have create the sub Section, hang on to it and populate
+ it value by value. However, creating methods with lots of arguments can get a bit messy.
+ <p/>
+ By default, the most values we'll provide arguments for in a fastAdd() function will be 8.
+ If you want to allow more values, just bump this number up.
+
+AttributeDefinition
+name				commentFormat
+dmdID				17
+type				String
+preserveNewlines	true
+description			By specifying a commentFormat for your TdlModule, you allow the formatting
+ mechanism to automatically indicate the Template that was used for format the output. This
+ is useful when debugging your formatted output.
+//example code: Comment for XML :
+// <pre>
+// <!-- ::comment:: -->
+// </pre>
+//example code: Comment for Java :
+// <pre>
+// // ::comment:: 
+// </pre>
+//example code: Multi-line comment for Java :
+// <pre>
+// /* ::comment:: */
+// </pre>
+
+PatternMatchRuleData
+ruleName	dmtdlCommentFormat
+ruleTitle	The commentFormat must contain the value insertion ::comment::
+matchesPattern .*::comment::.*
+applyToAttribute commentFormat
+
+AttributeDefinition
+name				debugOn
+dmdID				18
+type				Boolean
+nullReturnValue		true
+description			Although it's useful to have debug comments prepended to your generated
+ artifact, there are times when you don't want that information dumped for particular Templates.
+ For example, if your artifact must start with a particular text sequence. So, if
+ you've specified a commentFormat for your TdlModule  but you don't want the debug
+ comment for a particular Template, just set the debug attribute to false.
+//example code : Turning off the debug comment :
+// Template
+// name   FirstPart
+// format <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+// debug  false
+
+AttributeDefinition
+name				usesSection
+dmdID				19
+type				Section
+description			The Section type that will be used to format the contents of an ExtensionHook.
+
+AttributeDefinition
+name				targetObjectClass
+dmdID				20
+type				String
+description			The fully qualified name of the type of object that is being formatted when
+ an ExtensionHook is called.
+
+PatternMatchRuleData
+ruleName	dmtdlTargetObjectClass
+ruleTitle	The targetObjectClass must be a valid, fully qualified, Java class name.
+matchesPattern ([a-zA-Z_$][a-zA-Z0-9_$]*.)*[a-zA-Z_$][a-zA-Z0-9_$]*
+applyToAttribute targetObjectClass
+

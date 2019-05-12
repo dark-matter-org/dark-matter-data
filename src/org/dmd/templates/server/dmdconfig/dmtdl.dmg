@@ -1,0 +1,6 @@
+DmgConfig
+genPackage      	org.dmd.templates.server
+schemaToLoad		dmtdl
+generator			org.dmd.dmg.generators.DMWGenerator
+generatedFileHeader LGPL.txt
+description     	We generate the wrappers for the dark-matter Template Definition Language definitions.
