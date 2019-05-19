@@ -17,18 +17,18 @@ package org.dmd.dmv.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:442)
-import java.util.ArrayList;                                              // Support for MULTI attribute - (BaseDMWGenerator.java:2114)
-import java.util.Iterator;                                               // Support copy of MV objects - (BaseDMWGenerator.java:2128)
-import org.dmd.dmc.*;                                                    // If any attributes - (BaseDMWGenerator.java:975)
+import java.util.ArrayList;                                              // Support for MULTI attribute - (BaseDMWGenerator.java:2116)
+import java.util.Iterator;                                               // Support copy of MV objects - (BaseDMWGenerator.java:2130)
+import org.dmd.dmc.*;                                                    // If any attributes - (BaseDMWGenerator.java:977)
 import org.dmd.dmc.types.RuleName;                                       // Is named by - (BaseDMWGenerator.java:939)
-import org.dmd.dms.AttributeDefinition;                                  // Is reference type - (BaseDMWGenerator.java:995)
+import org.dmd.dms.AttributeDefinition;                                  // Is reference type - (BaseDMWGenerator.java:997)
 import org.dmd.dms.ClassDefinition;                                      // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:944)
-import org.dmd.dms.RuleData;                                             // Derived class - (BaseDMWGenerator.java:1136)
+import org.dmd.dms.RuleData;                                             // Derived class - (BaseDMWGenerator.java:1138)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                              // Attribute description from the meta schema - (BaseDMWGenerator.java:910)
-import org.dmd.dms.generated.dmw.StringIterableDMW;                      // For multi-valued String - (BaseDMWGenerator.java:1991)
-import org.dmd.dms.generated.types.AttributeDefinitionREF;               // Is reference type REF - (BaseDMWGenerator.java:1003)
+import org.dmd.dms.generated.dmw.StringIterableDMW;                      // For multi-valued String - (BaseDMWGenerator.java:1993)
+import org.dmd.dms.generated.types.AttributeDefinitionREF;               // Is reference type REF - (BaseDMWGenerator.java:1005)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                    // Required for MODREC constructor - (BaseDMWGenerator.java:948)
-import org.dmd.dmv.shared.generated.dmo.NumericRangeRuleDataDMO;         // Class not auxiliary or abstract - (BaseDMWGenerator.java:1140)
+import org.dmd.dmv.shared.generated.dmo.NumericRangeRuleDataDMO;         // Class not auxiliary or abstract - (BaseDMWGenerator.java:1142)
 
 
 
@@ -91,7 +91,7 @@ public class NumericRangeRuleDataDMW extends RuleData implements DmcNamedObjectI
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGenerator.getAccessFunctions(BaseDMWGenerator.java:1185)
+    // org.dmd.dmg.generators.BaseDMWGenerator.getAccessFunctions(BaseDMWGenerator.java:1187)
     public RuleName getObjectName(){
         return(((NumericRangeRuleDataDMO) core).getRuleName());
     }
@@ -114,7 +114,7 @@ public class NumericRangeRuleDataDMW extends RuleData implements DmcNamedObjectI
     /**
      * @return A AttributeDefinition object.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1322)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1324)
     public AttributeDefinition getApplyToAttribute(){
         AttributeDefinitionREF ref = ((NumericRangeRuleDataDMO) core).getApplyToAttribute();
         if (ref == null)
@@ -130,7 +130,7 @@ public class NumericRangeRuleDataDMW extends RuleData implements DmcNamedObjectI
      * Sets the applyToAttribute to the specified value.
      * @param value A value compatible with AttributeDefinitionREF
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1407)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1409)
     public void setApplyToAttribute(AttributeDefinition value) {
         ((NumericRangeRuleDataDMO) core).setApplyToAttribute(value.getDMO());
     }
@@ -139,7 +139,7 @@ public class NumericRangeRuleDataDMW extends RuleData implements DmcNamedObjectI
      * Sets the applyToAttribute to the specified value.
      * @param value A value compatible with AttributeDefinitionREF
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1416)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1418)
     public void setApplyToAttribute(Object value) throws DmcValueException {
         ((NumericRangeRuleDataDMO) core).setApplyToAttribute(value);
     }
@@ -147,7 +147,7 @@ public class NumericRangeRuleDataDMW extends RuleData implements DmcNamedObjectI
     /**
      * Removes the applyToAttribute attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1507)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
     public void remApplyToAttribute(){
         ((NumericRangeRuleDataDMO) core).remApplyToAttribute();
     }
@@ -155,7 +155,7 @@ public class NumericRangeRuleDataDMW extends RuleData implements DmcNamedObjectI
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1559)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
     public int getDescriptionSize(){
         return(((NumericRangeRuleDataDMO) core).getDescriptionSize());
     }
@@ -163,7 +163,7 @@ public class NumericRangeRuleDataDMW extends RuleData implements DmcNamedObjectI
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1567)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
     public boolean getDescriptionIsEmpty(){
         if (((NumericRangeRuleDataDMO) core).getDescriptionSize() == 0)
             return(true);
@@ -173,7 +173,7 @@ public class NumericRangeRuleDataDMW extends RuleData implements DmcNamedObjectI
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1577)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
     public boolean getDescriptionHasValue(){
         if (((NumericRangeRuleDataDMO) core).getDescriptionSize() == 0)
             return(false);
@@ -183,7 +183,7 @@ public class NumericRangeRuleDataDMW extends RuleData implements DmcNamedObjectI
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1995)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
     public StringIterableDMW getDescriptionIterable(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__description);
         if (attr == null)
@@ -196,7 +196,7 @@ public class NumericRangeRuleDataDMW extends RuleData implements DmcNamedObjectI
      * Adds another description value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2021)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
     public void addDescription(Object value) throws DmcValueException {
         ((NumericRangeRuleDataDMO) core).addDescription(value);
     }
@@ -205,7 +205,7 @@ public class NumericRangeRuleDataDMW extends RuleData implements DmcNamedObjectI
      * Adds another description value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2031)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2033)
     public void addDescription(String value){
         ((NumericRangeRuleDataDMO) core).addDescription(value);
     }
@@ -214,7 +214,7 @@ public class NumericRangeRuleDataDMW extends RuleData implements DmcNamedObjectI
      * Returns true if the collection contains the description value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2088)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
     public boolean descriptionContains(String value){
         return(((NumericRangeRuleDataDMO) core).descriptionContains(value));
     }
@@ -222,7 +222,7 @@ public class NumericRangeRuleDataDMW extends RuleData implements DmcNamedObjectI
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2132)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getDescriptionCopy(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__description);
@@ -243,7 +243,7 @@ public class NumericRangeRuleDataDMW extends RuleData implements DmcNamedObjectI
      * Deletes a description value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2159)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
     public void delDescription(Object value) throws DmcValueException {
         ((NumericRangeRuleDataDMO) core).delDescription(value);
     }
@@ -252,7 +252,7 @@ public class NumericRangeRuleDataDMW extends RuleData implements DmcNamedObjectI
      * Deletes a description value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2168)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
     public void delDescription(String value){
         ((NumericRangeRuleDataDMO) core).delDescription(value);
     }
@@ -260,12 +260,12 @@ public class NumericRangeRuleDataDMW extends RuleData implements DmcNamedObjectI
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2180)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
     public void remDescription(){
         ((NumericRangeRuleDataDMO) core).remDescription();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1362)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1364)
     public Double getNrrMaximum(){
         return(((NumericRangeRuleDataDMO) core).getNrrMaximum());
     }
@@ -274,7 +274,7 @@ public class NumericRangeRuleDataDMW extends RuleData implements DmcNamedObjectI
      * Sets nrrMaximum to the specified value.
      * @param value A value compatible with DmcTypeDouble
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1472)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
     public void setNrrMaximum(Object value) throws DmcValueException {
         ((NumericRangeRuleDataDMO) core).setNrrMaximum(value);
     }
@@ -283,7 +283,7 @@ public class NumericRangeRuleDataDMW extends RuleData implements DmcNamedObjectI
      * Sets nrrMaximum to the specified value.
      * @param value Double
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1481)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
     public void setNrrMaximum(Double value){
         ((NumericRangeRuleDataDMO) core).setNrrMaximum(value);
     }
@@ -291,12 +291,12 @@ public class NumericRangeRuleDataDMW extends RuleData implements DmcNamedObjectI
     /**
      * Removes the nrrMaximum attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1507)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
     public void remNrrMaximum(){
         ((NumericRangeRuleDataDMO) core).remNrrMaximum();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1362)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1364)
     public Double getNrrMinimum(){
         return(((NumericRangeRuleDataDMO) core).getNrrMinimum());
     }
@@ -305,7 +305,7 @@ public class NumericRangeRuleDataDMW extends RuleData implements DmcNamedObjectI
      * Sets nrrMinimum to the specified value.
      * @param value A value compatible with DmcTypeDouble
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1472)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
     public void setNrrMinimum(Object value) throws DmcValueException {
         ((NumericRangeRuleDataDMO) core).setNrrMinimum(value);
     }
@@ -314,7 +314,7 @@ public class NumericRangeRuleDataDMW extends RuleData implements DmcNamedObjectI
      * Sets nrrMinimum to the specified value.
      * @param value Double
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1481)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
     public void setNrrMinimum(Double value){
         ((NumericRangeRuleDataDMO) core).setNrrMinimum(value);
     }
@@ -322,12 +322,12 @@ public class NumericRangeRuleDataDMW extends RuleData implements DmcNamedObjectI
     /**
      * Removes the nrrMinimum attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1507)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
     public void remNrrMinimum(){
         ((NumericRangeRuleDataDMO) core).remNrrMinimum();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1362)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1364)
     public RuleName getRuleName(){
         return(((NumericRangeRuleDataDMO) core).getRuleName());
     }
@@ -336,7 +336,7 @@ public class NumericRangeRuleDataDMW extends RuleData implements DmcNamedObjectI
      * Sets ruleName to the specified value.
      * @param value A value compatible with DmcTypeRuleName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1472)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
     public void setRuleName(Object value) throws DmcValueException {
         ((NumericRangeRuleDataDMO) core).setRuleName(value);
     }
@@ -345,7 +345,7 @@ public class NumericRangeRuleDataDMW extends RuleData implements DmcNamedObjectI
      * Sets ruleName to the specified value.
      * @param value RuleName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1481)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
     public void setRuleName(RuleName value){
         ((NumericRangeRuleDataDMO) core).setRuleName(value);
     }
@@ -353,12 +353,12 @@ public class NumericRangeRuleDataDMW extends RuleData implements DmcNamedObjectI
     /**
      * Removes the ruleName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1507)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
     public void remRuleName(){
         ((NumericRangeRuleDataDMO) core).remRuleName();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1362)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1364)
     public String getRuleTitle(){
         return(((NumericRangeRuleDataDMO) core).getRuleTitle());
     }
@@ -367,7 +367,7 @@ public class NumericRangeRuleDataDMW extends RuleData implements DmcNamedObjectI
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1472)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
     public void setRuleTitle(Object value) throws DmcValueException {
         ((NumericRangeRuleDataDMO) core).setRuleTitle(value);
     }
@@ -376,7 +376,7 @@ public class NumericRangeRuleDataDMW extends RuleData implements DmcNamedObjectI
      * Sets ruleTitle to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1481)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
     public void setRuleTitle(String value){
         ((NumericRangeRuleDataDMO) core).setRuleTitle(value);
     }
@@ -384,7 +384,7 @@ public class NumericRangeRuleDataDMW extends RuleData implements DmcNamedObjectI
     /**
      * Removes the ruleTitle attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1507)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
     public void remRuleTitle(){
         ((NumericRangeRuleDataDMO) core).remRuleTitle();
     }

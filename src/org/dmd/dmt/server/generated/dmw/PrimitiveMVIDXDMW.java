@@ -17,16 +17,16 @@ package org.dmd.dmt.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:442)
-import java.util.ArrayList;                                        // Support for MULTI attribute - (BaseDMWGenerator.java:2114)
-import java.util.Iterator;                                         // Support copy of MV objects - (BaseDMWGenerator.java:2128)
-import org.dmd.dmc.*;                                              // If any attributes - (BaseDMWGenerator.java:975)
+import java.util.ArrayList;                                        // Support for MULTI attribute - (BaseDMWGenerator.java:2116)
+import java.util.Iterator;                                         // Support copy of MV objects - (BaseDMWGenerator.java:2130)
+import org.dmd.dmc.*;                                              // If any attributes - (BaseDMWGenerator.java:977)
 import org.dmd.dms.ClassDefinition;                                // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:944)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                        // Required for MODREC constructor - (BaseDMWGenerator.java:949)
-import org.dmd.dms.generated.dmw.StringIterableDMW;                // For multi-valued String - (BaseDMWGenerator.java:1991)
+import org.dmd.dms.generated.dmw.StringIterableDMW;                // For multi-valued String - (BaseDMWGenerator.java:1993)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;              // Required for MODREC constructor - (BaseDMWGenerator.java:948)
 import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                  // Attribute mvIdxString from the dmt schema - (BaseDMWGenerator.java:910)
-import org.dmd.dmt.shared.generated.dmo.PrimitiveMVIDXDMO;         // Class not auxiliary or abstract - (BaseDMWGenerator.java:1140)
-import org.dmd.dmw.DmwWrapper;                                     // Unnamed object wrapper - (BaseDMWGenerator.java:1123)
+import org.dmd.dmt.shared.generated.dmo.PrimitiveMVIDXDMO;         // Class not auxiliary or abstract - (BaseDMWGenerator.java:1142)
+import org.dmd.dmw.DmwWrapper;                                     // Unnamed object wrapper - (BaseDMWGenerator.java:1125)
 
 
 
@@ -78,7 +78,7 @@ public class PrimitiveMVIDXDMW extends DmwWrapper {
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1559)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
     public int getMvIdxStringSize(){
         return(((PrimitiveMVIDXDMO) core).getMvIdxStringSize());
     }
@@ -86,7 +86,7 @@ public class PrimitiveMVIDXDMW extends DmwWrapper {
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1567)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
     public boolean getMvIdxStringIsEmpty(){
         if (((PrimitiveMVIDXDMO) core).getMvIdxStringSize() == 0)
             return(true);
@@ -96,7 +96,7 @@ public class PrimitiveMVIDXDMW extends DmwWrapper {
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1577)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
     public boolean getMvIdxStringHasValue(){
         if (((PrimitiveMVIDXDMO) core).getMvIdxStringSize() == 0)
             return(false);
@@ -106,7 +106,7 @@ public class PrimitiveMVIDXDMW extends DmwWrapper {
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1995)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
     public StringIterableDMW getMvIdxStringIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvIdxString);
         if (attr == null)
@@ -119,7 +119,7 @@ public class PrimitiveMVIDXDMW extends DmwWrapper {
      * Adds another mvIdxString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2021)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
     public void addMvIdxString(Object value) throws DmcValueException {
         ((PrimitiveMVIDXDMO) core).addMvIdxString(value);
     }
@@ -129,7 +129,7 @@ public class PrimitiveMVIDXDMW extends DmwWrapper {
      * @param index The index to set.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2042)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2044)
     public void setNthMvIdxString(int index, String value){
         ((PrimitiveMVIDXDMO) core).setNthMvIdxString(index, value);
     }
@@ -138,7 +138,7 @@ public class PrimitiveMVIDXDMW extends DmwWrapper {
      * Gets the mvIdxString value at the specified index.
      * @param index The index to retreive.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2051)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2053)
     public String getNthMvIdxString(int index){
         return(((PrimitiveMVIDXDMO) core).getNthMvIdxString(index));
     }
@@ -147,7 +147,7 @@ public class PrimitiveMVIDXDMW extends DmwWrapper {
      * Returns true if the collection contains the mvIdxString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2088)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
     public boolean mvIdxStringContains(String value){
         return(((PrimitiveMVIDXDMO) core).mvIdxStringContains(value));
     }
@@ -155,7 +155,7 @@ public class PrimitiveMVIDXDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2132)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getMvIdxStringCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvIdxString);
@@ -176,7 +176,7 @@ public class PrimitiveMVIDXDMW extends DmwWrapper {
      * Deletes a mvIdxString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2159)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
     public void delMvIdxString(Object value) throws DmcValueException {
         ((PrimitiveMVIDXDMO) core).delMvIdxString(value);
     }
@@ -185,7 +185,7 @@ public class PrimitiveMVIDXDMW extends DmwWrapper {
      * Deletes a mvIdxString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2168)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
     public void delMvIdxString(String value){
         ((PrimitiveMVIDXDMO) core).delMvIdxString(value);
     }
@@ -193,7 +193,7 @@ public class PrimitiveMVIDXDMW extends DmwWrapper {
     /**
      * Removes the mvIdxString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2180)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
     public void remMvIdxString(){
         ((PrimitiveMVIDXDMO) core).remMvIdxString();
     }

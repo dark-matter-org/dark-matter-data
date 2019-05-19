@@ -455,7 +455,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
         	}
         }
         
-        if (cd.getUsesWrapperInterfaceSize() > 0) {
+        if ( (genContext.equals("dmw")) && (cd.getUsesWrapperInterfaceSize() > 0) ) {
 			Iterator<String> wit = cd.getUsesWrapperInterface();
 			while(wit.hasNext()) {
 				String tmp = wit.next();
@@ -539,7 +539,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
         			out.write("abstract public class " + cd.getName() + genSuffix + " extends " + cd.getDerivedFrom().getName() + genSuffix + " " + impl + "{\n");
         		}
         		else {
-        			if (cd.getUsesWrapperInterfaceSize() > 0) {
+        			if ( (genContext.equals("dmw")) && (cd.getUsesWrapperInterfaceSize() > 0) ) {
 	                    out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 	        			out.write("abstract public class " + cd.getName() + genSuffix + " extends " + cd.getDerivedFrom().getName() + genSuffix + " " + impl + "{\n");
         			}
@@ -953,7 +953,9 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 			imports.addImport(cd.getDmeImport(), "Required for getModificationRecorder()");
 		}
 		
-		if (cd.getUsesWrapperInterfaceSize() > 0) {
+		// TODO: usesWrapperInterface only operates in the dmw context for now
+		// May want to add support for GXT as well
+		if ( (genContext.equals("dmw")) && (cd.getUsesWrapperInterfaceSize() > 0)) {
 			if (!(cd.getDmwWrapperType(genContext) == WrapperTypeEnum.EXTENDED)){
 				throw(new IllegalStateException("The ClassDefinition: " + cd.getName() + " must useWrapperType EXTENDED in order to specify useWrapperInterface"));
 			}

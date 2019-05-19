@@ -17,18 +17,18 @@ package org.dmd.dmp.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:442)
-import java.util.ArrayList;                                        // Support for MULTI attribute - (BaseDMWGenerator.java:2114)
-import java.util.Iterator;                                         // Support copy of MV objects - (BaseDMWGenerator.java:2128)
-import org.dmd.dmc.*;                                              // If any attributes - (BaseDMWGenerator.java:975)
+import java.util.ArrayList;                                        // Support for MULTI attribute - (BaseDMWGenerator.java:2116)
+import java.util.Iterator;                                         // Support copy of MV objects - (BaseDMWGenerator.java:2130)
+import org.dmd.dmc.*;                                              // If any attributes - (BaseDMWGenerator.java:977)
 import org.dmd.dmp.server.extended.DMPMessage;                     // Required for getModificationRecorder() - (BaseDMWGenerator.java:953)
-import org.dmd.dmp.shared.generated.dmo.DMPMessageDMO;             // Abstract class - (BaseDMWGenerator.java:1118)
+import org.dmd.dmp.shared.generated.dmo.DMPMessageDMO;             // Abstract class - (BaseDMWGenerator.java:1120)
 import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;                  // Attribute requestID from the dmp schema - (BaseDMWGenerator.java:910)
 import org.dmd.dms.ClassDefinition;                                // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:944)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                        // Attribute nvp from the meta schema - (BaseDMWGenerator.java:910)
-import org.dmd.dms.generated.dmw.IntegerIterableDMW;               // For multi-valued Integer - (BaseDMWGenerator.java:1991)
-import org.dmd.dms.generated.dmw.NameValuePairIterableDMW;         // For multi-valued NameValuePair - (BaseDMWGenerator.java:1991)
-import org.dmd.dms.generated.types.NameValuePair;                  // Primitive type - (BaseDMWGenerator.java:1038)
-import org.dmd.dmw.DmwWrapper;                                     // Unnamed object wrapper - (BaseDMWGenerator.java:1123)
+import org.dmd.dms.generated.dmw.IntegerIterableDMW;               // For multi-valued Integer - (BaseDMWGenerator.java:1993)
+import org.dmd.dms.generated.dmw.NameValuePairIterableDMW;         // For multi-valued NameValuePair - (BaseDMWGenerator.java:1993)
+import org.dmd.dms.generated.types.NameValuePair;                  // Primitive type - (BaseDMWGenerator.java:1040)
+import org.dmd.dmw.DmwWrapper;                                     // Unnamed object wrapper - (BaseDMWGenerator.java:1125)
 
 
 
@@ -61,7 +61,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
     /**
      * @return The number of NameValuePair items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1559)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
     public int getNvpSize(){
         return(((DMPMessageDMO) core).getNvpSize());
     }
@@ -69,7 +69,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
     /**
      * @return true if there are no NameValuePairDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1567)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
     public boolean getNvpIsEmpty(){
         if (((DMPMessageDMO) core).getNvpSize() == 0)
             return(true);
@@ -79,7 +79,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
     /**
      * @return true if there are any NameValuePairDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1577)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
     public boolean getNvpHasValue(){
         if (((DMPMessageDMO) core).getNvpSize() == 0)
             return(false);
@@ -89,7 +89,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
     /**
      * @return An Iterator of NameValuePair objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1995)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
     public NameValuePairIterableDMW getNvpIterable(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__nvp);
         if (attr == null)
@@ -102,7 +102,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
      * Adds another nvp value.
      * @param value A value compatible with NameValuePair
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2021)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
     public void addNvp(Object value) throws DmcValueException {
         ((DMPMessageDMO) core).addNvp(value);
     }
@@ -111,7 +111,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
      * Adds another nvp value.
      * @param value A value compatible with NameValuePair
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2031)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2033)
     public void addNvp(NameValuePair value){
         ((DMPMessageDMO) core).addNvp(value);
     }
@@ -120,7 +120,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
      * Returns true if the collection contains the nvp value.
      * @param value A value compatible with NameValuePair
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2088)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
     public boolean nvpContains(NameValuePair value){
         return(((DMPMessageDMO) core).nvpContains(value));
     }
@@ -128,7 +128,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of NameValuePair objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2132)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
     @SuppressWarnings("unchecked")
     public ArrayList<NameValuePair> getNvpCopy(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__nvp);
@@ -149,7 +149,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
      * Deletes a nvp value.
      * @param value The NameValuePair to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2159)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
     public void delNvp(Object value) throws DmcValueException {
         ((DMPMessageDMO) core).delNvp(value);
     }
@@ -158,7 +158,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
      * Deletes a nvp value.
      * @param value The NameValuePair to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2168)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
     public void delNvp(NameValuePair value){
         ((DMPMessageDMO) core).delNvp(value);
     }
@@ -166,7 +166,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
     /**
      * Removes the nvp attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2180)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
     public void remNvp(){
         ((DMPMessageDMO) core).remNvp();
     }
@@ -174,7 +174,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
     /**
      * @return The number of Integer items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1559)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
     public int getRequestIDSize(){
         return(((DMPMessageDMO) core).getRequestIDSize());
     }
@@ -182,7 +182,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
     /**
      * @return true if there are no IntegerDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1567)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
     public boolean getRequestIDIsEmpty(){
         if (((DMPMessageDMO) core).getRequestIDSize() == 0)
             return(true);
@@ -192,7 +192,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
     /**
      * @return true if there are any IntegerDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1577)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
     public boolean getRequestIDHasValue(){
         if (((DMPMessageDMO) core).getRequestIDSize() == 0)
             return(false);
@@ -202,7 +202,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
     /**
      * @return An Iterator of Integer objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1995)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
     public IntegerIterableDMW getRequestIDIterable(){
         DmcAttribute<?> attr = core.get(DmpDMSAG.__requestID);
         if (attr == null)
@@ -215,7 +215,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
      * Adds another requestID value.
      * @param value A value compatible with Integer
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2021)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
     public void addRequestID(Object value) throws DmcValueException {
         ((DMPMessageDMO) core).addRequestID(value);
     }
@@ -224,7 +224,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
      * Adds another requestID value.
      * @param value A value compatible with Integer
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2031)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2033)
     public void addRequestID(Integer value){
         ((DMPMessageDMO) core).addRequestID(value);
     }
@@ -233,7 +233,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
      * Returns true if the collection contains the requestID value.
      * @param value A value compatible with Integer
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2088)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
     public boolean requestIDContains(Integer value){
         return(((DMPMessageDMO) core).requestIDContains(value));
     }
@@ -241,7 +241,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of Integer objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2132)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
     @SuppressWarnings("unchecked")
     public ArrayList<Integer> getRequestIDCopy(){
         DmcAttribute<?> attr = core.get(DmpDMSAG.__requestID);
@@ -262,7 +262,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
      * Deletes a requestID value.
      * @param value The Integer to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2159)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
     public void delRequestID(Object value) throws DmcValueException {
         ((DMPMessageDMO) core).delRequestID(value);
     }
@@ -271,7 +271,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
      * Deletes a requestID value.
      * @param value The Integer to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2168)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
     public void delRequestID(Integer value){
         ((DMPMessageDMO) core).delRequestID(value);
     }
@@ -279,12 +279,12 @@ abstract public class DMPMessageDMW extends DmwWrapper {
     /**
      * Removes the requestID attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2180)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
     public void remRequestID(){
         ((DMPMessageDMO) core).remRequestID();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1362)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1364)
     public Long getTimeMS(){
         return(((DMPMessageDMO) core).getTimeMS());
     }
@@ -293,7 +293,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
      * Sets timeMS to the specified value.
      * @param value A value compatible with DmcTypeLong
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1472)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
     public void setTimeMS(Object value) throws DmcValueException {
         ((DMPMessageDMO) core).setTimeMS(value);
     }
@@ -302,7 +302,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
      * Sets timeMS to the specified value.
      * @param value Long
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1481)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
     public void setTimeMS(Long value){
         ((DMPMessageDMO) core).setTimeMS(value);
     }
@@ -310,12 +310,12 @@ abstract public class DMPMessageDMW extends DmwWrapper {
     /**
      * Removes the timeMS attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1507)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
     public void remTimeMS(){
         ((DMPMessageDMO) core).remTimeMS();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1362)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1364)
     public Boolean isTrackingEnabled(){
         return(((DMPMessageDMO) core).isTrackingEnabled());
     }
@@ -324,7 +324,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
      * Sets trackingEnabled to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1472)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
     public void setTrackingEnabled(Object value) throws DmcValueException {
         ((DMPMessageDMO) core).setTrackingEnabled(value);
     }
@@ -333,7 +333,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
      * Sets trackingEnabled to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1481)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
     public void setTrackingEnabled(Boolean value){
         ((DMPMessageDMO) core).setTrackingEnabled(value);
     }
@@ -341,7 +341,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
     /**
      * Removes the trackingEnabled attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1507)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
     public void remTrackingEnabled(){
         ((DMPMessageDMO) core).remTrackingEnabled();
     }

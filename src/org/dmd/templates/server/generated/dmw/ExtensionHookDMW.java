@@ -17,17 +17,17 @@ package org.dmd.templates.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:442)
-import org.dmd.dmc.*;                                                   // If any attributes - (BaseDMWGenerator.java:975)
+import org.dmd.dmc.*;                                                   // If any attributes - (BaseDMWGenerator.java:977)
 import org.dmd.dmc.definitions.DmcDefinitionIF;                         // The object is a domain specific definition - (BaseDMWGenerator.java:411)
 import org.dmd.dmc.types.DefinitionName;                                // Is named by - (BaseDMWGenerator.java:939)
 import org.dmd.dms.ClassDefinition;                                     // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:944)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                             // Required for MODREC constructor - (BaseDMWGenerator.java:949)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                   // Required for MODREC constructor - (BaseDMWGenerator.java:948)
-import org.dmd.templates.server.extended.ContainedElement;              // Derived class - (BaseDMWGenerator.java:1136)
+import org.dmd.templates.server.extended.ContainedElement;              // Derived class - (BaseDMWGenerator.java:1138)
 import org.dmd.templates.server.extended.ExtensionHook;                 // Required for getModificationRecorder() - (BaseDMWGenerator.java:953)
-import org.dmd.templates.server.extended.Section;                       // Is reference type - (BaseDMWGenerator.java:995)
-import org.dmd.templates.shared.generated.dmo.ExtensionHookDMO;         // Class not auxiliary or abstract - (BaseDMWGenerator.java:1140)
-import org.dmd.templates.shared.generated.types.SectionREF;             // Is reference type REF - (BaseDMWGenerator.java:1003)
+import org.dmd.templates.server.extended.Section;                       // Is reference type - (BaseDMWGenerator.java:997)
+import org.dmd.templates.shared.generated.dmo.ExtensionHookDMO;         // Class not auxiliary or abstract - (BaseDMWGenerator.java:1142)
+import org.dmd.templates.shared.generated.types.SectionREF;             // Is reference type REF - (BaseDMWGenerator.java:1005)
 import org.dmd.templates.shared.generated.types.TdlModuleREF;           // Required to access defined in module name - (DMWGenerator.java:181)
 
 
@@ -101,7 +101,7 @@ abstract public class ExtensionHookDMW extends ContainedElement implements DmcDe
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGenerator.getAccessFunctions(BaseDMWGenerator.java:1185)
+    // org.dmd.dmg.generators.BaseDMWGenerator.getAccessFunctions(BaseDMWGenerator.java:1187)
     public DefinitionName getObjectName(){
         return(((ExtensionHookDMO) core).getName());
     }
@@ -121,7 +121,7 @@ abstract public class ExtensionHookDMW extends ContainedElement implements DmcDe
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1362)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1364)
     public DefinitionName getName(){
         return(((ExtensionHookDMO) core).getName());
     }
@@ -130,7 +130,7 @@ abstract public class ExtensionHookDMW extends ContainedElement implements DmcDe
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1472)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
     public void setName(Object value) throws DmcValueException {
         ((ExtensionHookDMO) core).setName(value);
     }
@@ -139,7 +139,7 @@ abstract public class ExtensionHookDMW extends ContainedElement implements DmcDe
      * Sets name to the specified value.
      * @param value DefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1481)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
     public void setName(DefinitionName value){
         ((ExtensionHookDMO) core).setName(value);
     }
@@ -147,12 +147,12 @@ abstract public class ExtensionHookDMW extends ContainedElement implements DmcDe
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1507)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
     public void remName(){
         ((ExtensionHookDMO) core).remName();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1362)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1364)
     public String getTargetObjectClass(){
         return(((ExtensionHookDMO) core).getTargetObjectClass());
     }
@@ -161,7 +161,7 @@ abstract public class ExtensionHookDMW extends ContainedElement implements DmcDe
      * Sets targetObjectClass to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1472)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
     public void setTargetObjectClass(Object value) throws DmcValueException {
         ((ExtensionHookDMO) core).setTargetObjectClass(value);
     }
@@ -170,7 +170,7 @@ abstract public class ExtensionHookDMW extends ContainedElement implements DmcDe
      * Sets targetObjectClass to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1481)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
     public void setTargetObjectClass(String value){
         ((ExtensionHookDMO) core).setTargetObjectClass(value);
     }
@@ -178,7 +178,7 @@ abstract public class ExtensionHookDMW extends ContainedElement implements DmcDe
     /**
      * Removes the targetObjectClass attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1507)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
     public void remTargetObjectClass(){
         ((ExtensionHookDMO) core).remTargetObjectClass();
     }
@@ -186,7 +186,7 @@ abstract public class ExtensionHookDMW extends ContainedElement implements DmcDe
     /**
      * @return A Section object.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1322)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1324)
     public Section getUsesSection(){
         SectionREF ref = ((ExtensionHookDMO) core).getUsesSection();
         if (ref == null)
@@ -202,7 +202,7 @@ abstract public class ExtensionHookDMW extends ContainedElement implements DmcDe
      * Sets the usesSection to the specified value.
      * @param value A value compatible with SectionREF
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1407)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1409)
     public void setUsesSection(Section value) {
         ((ExtensionHookDMO) core).setUsesSection(value.getDMO());
     }
@@ -211,7 +211,7 @@ abstract public class ExtensionHookDMW extends ContainedElement implements DmcDe
      * Sets the usesSection to the specified value.
      * @param value A value compatible with SectionREF
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1416)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1418)
     public void setUsesSection(Object value) throws DmcValueException {
         ((ExtensionHookDMO) core).setUsesSection(value);
     }
@@ -219,7 +219,7 @@ abstract public class ExtensionHookDMW extends ContainedElement implements DmcDe
     /**
      * Removes the usesSection attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1507)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
     public void remUsesSection(){
         ((ExtensionHookDMO) core).remUsesSection();
     }

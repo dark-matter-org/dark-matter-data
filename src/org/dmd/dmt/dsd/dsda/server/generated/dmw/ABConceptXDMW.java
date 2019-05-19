@@ -17,17 +17,17 @@ package org.dmd.dmt.dsd.dsda.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:442)
-import org.dmd.dmc.*;                                                   // If any attributes - (BaseDMWGenerator.java:975)
+import org.dmd.dmc.*;                                                   // If any attributes - (BaseDMWGenerator.java:977)
 import org.dmd.dmc.definitions.DmcDefinitionIF;                         // The object is a domain specific definition - (BaseDMWGenerator.java:411)
 import org.dmd.dmc.types.DefinitionName;                                // Is named by - (BaseDMWGenerator.java:939)
 import org.dmd.dms.ClassDefinition;                                     // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:944)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                             // Required for MODREC constructor - (BaseDMWGenerator.java:949)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                   // Required for MODREC constructor - (BaseDMWGenerator.java:948)
 import org.dmd.dmt.dsd.dsda.server.extended.ABConceptX;                 // Required for getModificationRecorder() - (BaseDMWGenerator.java:953)
-import org.dmd.dmt.dsd.dsda.server.extended.AConceptX;                  // Derived class - (BaseDMWGenerator.java:1136)
-import org.dmd.dmt.dsd.dsda.shared.generated.dmo.ABConceptXDMO;         // Class not auxiliary or abstract - (BaseDMWGenerator.java:1140)
+import org.dmd.dmt.dsd.dsda.server.extended.AConceptX;                  // Derived class - (BaseDMWGenerator.java:1138)
+import org.dmd.dmt.dsd.dsda.shared.generated.dmo.ABConceptXDMO;         // Class not auxiliary or abstract - (BaseDMWGenerator.java:1142)
 import org.dmd.dmt.dsd.dsda.shared.generated.types.ModuleAREF;          // Required to access defined in module name - (DMWGenerator.java:181)
-import org.dmd.dmt.dsd.dsda.shared.generated.types.Reference;           // Primitive type - (BaseDMWGenerator.java:1038)
+import org.dmd.dmt.dsd.dsda.shared.generated.types.Reference;           // Primitive type - (BaseDMWGenerator.java:1040)
 
 
 
@@ -78,7 +78,7 @@ abstract public class ABConceptXDMW extends AConceptX implements DmcDefinitionIF
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGenerator.getAccessFunctions(BaseDMWGenerator.java:1185)
+    // org.dmd.dmg.generators.BaseDMWGenerator.getAccessFunctions(BaseDMWGenerator.java:1187)
     public DefinitionName getObjectName(){
         return(((ABConceptXDMO) core).getName());
     }
@@ -98,7 +98,7 @@ abstract public class ABConceptXDMW extends AConceptX implements DmcDefinitionIF
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1362)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1364)
     public DefinitionName getName(){
         return(((ABConceptXDMO) core).getName());
     }
@@ -107,7 +107,7 @@ abstract public class ABConceptXDMW extends AConceptX implements DmcDefinitionIF
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1472)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
     public void setName(Object value) throws DmcValueException {
         ((ABConceptXDMO) core).setName(value);
     }
@@ -116,7 +116,7 @@ abstract public class ABConceptXDMW extends AConceptX implements DmcDefinitionIF
      * Sets name to the specified value.
      * @param value DefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1481)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
     public void setName(DefinitionName value){
         ((ABConceptXDMO) core).setName(value);
     }
@@ -124,12 +124,12 @@ abstract public class ABConceptXDMW extends AConceptX implements DmcDefinitionIF
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1507)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
     public void remName(){
         ((ABConceptXDMO) core).remName();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1362)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1364)
     public Reference getReferenceToAB(){
         return(((ABConceptXDMO) core).getReferenceToAB());
     }
@@ -138,7 +138,7 @@ abstract public class ABConceptXDMW extends AConceptX implements DmcDefinitionIF
      * Sets referenceToAB to the specified value.
      * @param value A value compatible with DmcTypeReference
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1472)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
     public void setReferenceToAB(Object value) throws DmcValueException {
         ((ABConceptXDMO) core).setReferenceToAB(value);
     }
@@ -147,7 +147,7 @@ abstract public class ABConceptXDMW extends AConceptX implements DmcDefinitionIF
      * Sets referenceToAB to the specified value.
      * @param value Reference
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1481)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
     public void setReferenceToAB(Reference value){
         ((ABConceptXDMO) core).setReferenceToAB(value);
     }
@@ -155,7 +155,7 @@ abstract public class ABConceptXDMW extends AConceptX implements DmcDefinitionIF
     /**
      * Removes the referenceToAB attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1507)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
     public void remReferenceToAB(){
         ((ABConceptXDMO) core).remReferenceToAB();
     }
