@@ -14,4 +14,10 @@ public class ObjWithRefs extends ObjWithRefsDMW {
 		super(dmo,cd);
 	}
 
+	@Override
+	public void doSomething() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

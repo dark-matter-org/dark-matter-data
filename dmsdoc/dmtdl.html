@@ -1,0 +1,3604 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+<link rel="stylesheet" type="text/css" href="dmsstyle.css" />
+<title>The dmtdl Schema</title>
+</head>
+
+<body>
+
+  <div id="header"> <div class="headerBar"> </div> </div>
+
+  <div id="main">
+
+    <div id="content">
+
+<!-- org.dmd.dms.doc.web.SchemaPage.writeSchemaSummary(SchemaPage.java:336) -->
+
+  <div class="schemaName"> dmtdl </div>
+
+<!-- org.dmd.dms.doc.web.SchemaPage.writeDescription(SchemaPage.java:371) -->
+
+    <div class="schemaDescription">
+    The dark-matter Template Definition Language (TDL) schema defines objects that
+ allow you to define the structure of an artifact composed of a series of Sections and Templates
+ that are used to format the Sections.
+</td>
+    </div>
+
+  <div class="summary">
+
+<!-- org.dmd.dms.doc.web.SchemaPage.writeClassSummary(SchemaPage.java:383) -->
+
+    <div class="classList">
+    <h2> Classes (7)</h2>
+    <table>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#ContainedElement"> ContainedElement </a></td>
+      <td> name </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#ExtensionHook"> ExtensionHook </a></td>
+      <td> name </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#Section"> Section </a></td>
+      <td> name </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#TdlDefinition"> TdlDefinition </a></td>
+      <td> name </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#TdlModule"> TdlModule </a></td>
+      <td> name </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#Template"> Template </a></td>
+      <td> name </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#TextualArtifact"> TextualArtifact </a></td>
+      <td> name </td>
+      </tr>
+    </table>
+    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeComplexTypeSummary(SchemaPage.java:445) -->
+
+    <div class="complextypeList">
+    <h2>Complex Types (2)</h2>
+    <ul>
+      <li> <a class="deflink" href="#Contains"> Contains </a></li>
+      <li> <a class="deflink" href="#Value"> Value </a></li>
+    </ul>
+    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeEnumSummary(SchemaPage.java:479) -->
+
+    <div class="enumList">
+    <h2>Enums (1)</h2>
+    <ul>
+      <li> <a class="deflink" href="#CardinalityEnum"> CardinalityEnum </a></li>
+    </ul>
+    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeRuleInstancesSummary(SchemaPage.java:547) -->
+
+    <div class="ruledefs">
+    <h2> Rule Instances (5)</h2>
+    <ul>
+      <li> <a class="deflink" href="#dmtdlCommentFormat"> The commentFormat must contain the value insertion ::comment:: </a></li>
+      <li> <a class="deflink" href="#dmtdlEndsWith"> A Section can only endWith another Section or with a static piece of text. </a></li>
+      <li> <a class="deflink" href="#dmtdlInsertMarkerLength"> The insert marker must be 2 - 3 characters long. </a></li>
+      <li> <a class="deflink" href="#dmtdlStartsWith"> A Section can only startWith another Section or with a static piece of text. </a></li>
+      <li> <a class="deflink" href="#dmtdlTargetObjectClass"> The targetObjectClass must be a valid, fully qualified, Java class name. </a></li>
+    </ul>
+    </div>  </div> <!--  summary -->
+
+<!-- org.dmd.dms.doc.web.SchemaPage.writeClasses(SchemaPage.java:203) -->
+
+<div class="classDetails">
+
+<h2> Class Details </h2>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.dumpDetails(ClassFormatter.java:23) -->
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="ContainedElement"> ContainedElement </a> </td></tr>
+<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">ABSTRACT</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:79) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="meta.html#DSDefinition">DSDefinition</a> <br />
+      <a href="dmtdl.html#TdlDefinition">TdlDefinition</a>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.derived(ClassFormatter.java:100) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Derived classes</td>
+      <td colspan="2">
+      <div class="derived"> <a href="dmtdl.html#ExtensionHook">ExtensionHook</a> </div>      <div class="derived"> <a href="dmtdl.html#Section">Section</a> </div>      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.wrapper(ClassFormatter.java:137) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:151) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="meta.html#name">name</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmtdl.html#definedInTdlModule">definedInTdlModule</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="dmtdl.html#TdlModule">TdlModule</a> </td>
+      <td> Indicates the name of the TdlModule in which a definition is defined.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dotName">dotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The dotName attribute is used to store dot separated names.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name
+ for an object with the set of definitions of which it is a part. A name starts with a letter followed
+ by letters and numbers.
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:270) -->
+
+<table>
+</table>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#comment">comment</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A comment or note associated with the definition of something. For
+ code that's generated from a definition, comments may be added to the code, as opposed to 
+ descriptions which are meant to assist in generating documentation. In the end, it's up to
+ the designer of a DSL to determine how comments are used.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dotName">dotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The dotName attribute is used to store dot separated names.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#example">example</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Example">Example</a> </td>
+      <td> The example attribute is used to provide additional
+ examples of how some defined thing is to be used.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#hint">hint</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A short description of something that can be dumped as one line summary of something.
+ For longer explanations, use the description attribute.
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:270) -->
+
+<table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvHintLength"> The hint for something should be at most 80 characters. </a></td> </tr>
+
+</table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#nvp">nvp</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#NameValuePair">NameValuePair</a> </td>
+      <td> A set of additional name value pairs that can be associated with an object.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#obsolete">obsolete</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The version at which something became obsolete.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#optimize">optimize</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Depending on what you're modelling, you often come across
+ places where you can see an opportunity to optimize, streamline or improve something e.g. merging
+ concepts together, representing something differently, adding a relationship - whatever.
+ However, these ideas often get lost in the shuffle or, if you add them into an overall
+ description of something, they don't stand out.
+ <p/>
+ Any dark-matter definition can be decorated with optimize notes. These notes provide
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#question">question</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A question associated with the definition of something.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#relationship">relationship</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of the relationship established via a reference to some other named object.
+ <p/>
+ This is a minor hack to allow creation of named relationships in graph databases. Eventually, relationships
+ will become first class objects to which you can refer.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#searchable">searchable</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> Indicates if something is searchable.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#skip">skip</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A version from which something should be excluded (even though it is included
+ in later versions). This is an unusual situation, and should be approached with extreme caution!
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#sortName">sortName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The sortName is used in siutations where we need a name
+ for storage of a definition that is globally unique but can be sorted on the basis
+ of the definition name, not the module name. The dotName for a definition is
+ module.definition...type, whereas the sortName would be definition...module.type.
+ So, for things like documentation generation, the sortName provides a more 
+ natural ordering.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#tags">tags</a> </td>
+      <td class="valueType"> P TS </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A collection of tags that can facilitate searching for
+ definitions. The values are limited to a-zA-Z0-9 and the space character.
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:270) -->
+
+<table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvTagsCheck"> The tags attribute must be a mix of letters, numbers and spaces. </a></td> </tr>
+
+</table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#version">version</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The version at which something was introduced. Version names
+ are assumed to be lexicographically sortable i.e. the name of a version must have a nautral
+ sort order that increases.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#why">why</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Concinnity">Concinnity</a> </td>
+      <td> An indication of why something was added to a specification or a system.
+ This might be a reference to a requirement or feature concept. How this is used will depend on context.
+ Due to the fact that it is a weak reference, you may also just put in free form text, since it
+ will simply be treated as an unresolved reference.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#definedIn">definedIn</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </td>
+      <td> Indicates the schema in which a type, attribute or class is defined.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dmoFromModule">dmoFromModule</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A bit of a hack to allow for creation of fully qualified dot names
+ in the DMODefinitionSet that's used for caching definitions in GWT. On the DMW side, this
+ is taken care of by overloading the getNameOfModuleWhereThisCameFrom() to access the 
+ getDefinedInModule attribute and getting the name of the module.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Indicates the file from which a definition was loaded.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> Indicates the line number of the file from which a definition was loaded.
+      </td>
+    </tr>
+
+  </table>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.dumpDetails(ClassFormatter.java:23) -->
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="ExtensionHook"> ExtensionHook </a> </td></tr>
+<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:54) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The dark-matter Domain Specific Definition (DSD) mechanisms allow for the
+ extension of objects using auxliary classes and arbitrary name value pairs (via the nvp attribute).
+ These mechanisms are useful because they allow you to augment an existing Domain Specific Language
+ (DSL) with your own information that can be used to facilitate generation of other types
+ of artifacts.
+ <p/>
+ However, you might also want that additional information to show up in the documentation
+ produced as part of the base DSL. That's where the ExtensionHook mechanism comes into play;
+ although you can use this for your own purposes to allow others to extend the
+ content of your generated artifacts - there's nothing dark-matter specific about 
+ the mechanism.
+ <p/>
+ When defining your Sections, you may indicate that they contain ExtensionHooks.  This
+ will result in the generation of an ExtensionHook interface for the template definition module.
+ Other designers who have extended your DSL then create a class that implements the ExtensionHook
+ interface and have it dynamically loaded when the artifact generator is invoked (this is usually
+ done via commandline arguments that are passed to the generated TemplateLoader). It's up to the
+ designer of the base DSL to provide these mechanisms.
+ <p/>
+ When formatting the artifact, the base DSL designer will call the method on a Section
+ (in the appropriate sequence) to have the TemplateLoader call any registered classes that
+ implement the ExtensionHook interface.
+</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:79) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="meta.html#DSDefinition">DSDefinition</a> <br />
+      <a href="dmtdl.html#TdlDefinition">TdlDefinition</a> <br />
+      <a href="dmtdl.html#ContainedElement">ContainedElement</a>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.wrapper(ClassFormatter.java:137) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:151) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="meta.html#name">name</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmtdl.html#definedInTdlModule">definedInTdlModule</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="dmtdl.html#TdlModule">TdlModule</a> </td>
+      <td> Indicates the name of the TdlModule in which a definition is defined.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dotName">dotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The dotName attribute is used to store dot separated names.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name
+ for an object with the set of definitions of which it is a part. A name starts with a letter followed
+ by letters and numbers.
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:270) -->
+
+<table>
+</table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmtdl.html#targetObjectClass">targetObjectClass</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The fully qualified name of the type of object that is being formatted when
+ an ExtensionHook is called.
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:270) -->
+
+<table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmtdl.html#dmtdlTargetObjectClass"> The targetObjectClass must be a valid, fully qualified, Java class name. </a></td> </tr>
+
+</table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmtdl.html#usesSection">usesSection</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="dmtdl.html#Section">Section</a> </td>
+      <td> The Section type that will be used to format the contents of an ExtensionHook.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#comment">comment</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A comment or note associated with the definition of something. For
+ code that's generated from a definition, comments may be added to the code, as opposed to 
+ descriptions which are meant to assist in generating documentation. In the end, it's up to
+ the designer of a DSL to determine how comments are used.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dotName">dotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The dotName attribute is used to store dot separated names.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#example">example</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Example">Example</a> </td>
+      <td> The example attribute is used to provide additional
+ examples of how some defined thing is to be used.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#hint">hint</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A short description of something that can be dumped as one line summary of something.
+ For longer explanations, use the description attribute.
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:270) -->
+
+<table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvHintLength"> The hint for something should be at most 80 characters. </a></td> </tr>
+
+</table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#nvp">nvp</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#NameValuePair">NameValuePair</a> </td>
+      <td> A set of additional name value pairs that can be associated with an object.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#obsolete">obsolete</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The version at which something became obsolete.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#optimize">optimize</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Depending on what you're modelling, you often come across
+ places where you can see an opportunity to optimize, streamline or improve something e.g. merging
+ concepts together, representing something differently, adding a relationship - whatever.
+ However, these ideas often get lost in the shuffle or, if you add them into an overall
+ description of something, they don't stand out.
+ <p/>
+ Any dark-matter definition can be decorated with optimize notes. These notes provide
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#question">question</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A question associated with the definition of something.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#relationship">relationship</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of the relationship established via a reference to some other named object.
+ <p/>
+ This is a minor hack to allow creation of named relationships in graph databases. Eventually, relationships
+ will become first class objects to which you can refer.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#searchable">searchable</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> Indicates if something is searchable.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#skip">skip</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A version from which something should be excluded (even though it is included
+ in later versions). This is an unusual situation, and should be approached with extreme caution!
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#sortName">sortName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The sortName is used in siutations where we need a name
+ for storage of a definition that is globally unique but can be sorted on the basis
+ of the definition name, not the module name. The dotName for a definition is
+ module.definition...type, whereas the sortName would be definition...module.type.
+ So, for things like documentation generation, the sortName provides a more 
+ natural ordering.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#tags">tags</a> </td>
+      <td class="valueType"> P TS </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A collection of tags that can facilitate searching for
+ definitions. The values are limited to a-zA-Z0-9 and the space character.
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:270) -->
+
+<table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvTagsCheck"> The tags attribute must be a mix of letters, numbers and spaces. </a></td> </tr>
+
+</table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#version">version</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The version at which something was introduced. Version names
+ are assumed to be lexicographically sortable i.e. the name of a version must have a nautral
+ sort order that increases.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#why">why</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Concinnity">Concinnity</a> </td>
+      <td> An indication of why something was added to a specification or a system.
+ This might be a reference to a requirement or feature concept. How this is used will depend on context.
+ Due to the fact that it is a weak reference, you may also just put in free form text, since it
+ will simply be treated as an unresolved reference.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#definedIn">definedIn</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </td>
+      <td> Indicates the schema in which a type, attribute or class is defined.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dmoFromModule">dmoFromModule</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A bit of a hack to allow for creation of fully qualified dot names
+ in the DMODefinitionSet that's used for caching definitions in GWT. On the DMW side, this
+ is taken care of by overloading the getNameOfModuleWhereThisCameFrom() to access the 
+ getDefinedInModule attribute and getting the name of the module.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Indicates the file from which a definition was loaded.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> Indicates the line number of the file from which a definition was loaded.
+      </td>
+    </tr>
+
+  </table>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.dumpDetails(ClassFormatter.java:23) -->
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="Section"> Section </a> </td></tr>
+<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:54) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">A Section represents part of a textual artifact that you want to format.
+ The artifact could be an XHTML document, an XML document, a piece of code, a form
+ letter - whatever. The content of a Section may start with another Section or static
+ piece of text and, likewise, end with a Section or static piece of text.
+ <p/>
+ Sections can also contain other (sub) Sections. 
+ <p/>
+ Sections can also have named values that can be inserted into Templates. By specifying
+ values, you define a set of values that can be accessed and embedded within the associated
+ Template.
+ <p/>
+ When a Section's format() method is called, it will dump the contents in the following order:
+ <ul>
+ <li> any starts with material </li>
+ <li> the formatted contents of the associated Template </li>
+ <li> the formatted contents of any contained Sections </li>
+ <li> any ends with material </li>
+ </ul>
+</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:79) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="meta.html#DSDefinition">DSDefinition</a> <br />
+      <a href="dmtdl.html#TdlDefinition">TdlDefinition</a> <br />
+      <a href="dmtdl.html#ContainedElement">ContainedElement</a>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.wrapper(ClassFormatter.java:137) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:151) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="meta.html#name">name</a> </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendClassRuleInfo(ClassFormatter.java:224) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Rules</td>
+<td>
+<table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmtdl.html#dmtdlEndsWith"> A Section can only endWith another Section or with a static piece of text. </a></td> </tr>
+
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmtdl.html#dmtdlStartsWith"> A Section can only startWith another Section or with a static piece of text. </a></td> </tr>
+
+</table>
+</td>
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmtdl.html#definedInTdlModule">definedInTdlModule</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="dmtdl.html#TdlModule">TdlModule</a> </td>
+      <td> Indicates the name of the TdlModule in which a definition is defined.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dotName">dotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The dotName attribute is used to store dot separated names.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name
+ for an object with the set of definitions of which it is a part. A name starts with a letter followed
+ by letters and numbers.
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:270) -->
+
+<table>
+</table>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#comment">comment</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A comment or note associated with the definition of something. For
+ code that's generated from a definition, comments may be added to the code, as opposed to 
+ descriptions which are meant to assist in generating documentation. In the end, it's up to
+ the designer of a DSL to determine how comments are used.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmtdl.html#contains">contains</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="dmtdl.html#Contains">Contains</a> </td>
+      <td> Indicates the other Sections contained by a Section and whether they occur one or many times.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dotName">dotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The dotName attribute is used to store dot separated names.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmtdl.html#endsWith">endsWith</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="dmtdl.html#Section">Section</a> </td>
+      <td> Indicates the Sections that this section of artifact will end with.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmtdl.html#endsWithText">endsWithText</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> If the text that the section will end with is static, it can be specified via this attribute.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#example">example</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Example">Example</a> </td>
+      <td> The example attribute is used to provide additional
+ examples of how some defined thing is to be used.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmtdl.html#hasTemplate">hasTemplate</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> Indicates whether or not a Section has an associated Template; by default, 
+ all Sections require a Template. If, for some reason, a Section doesn't require a Template,
+ just set this attribute to false.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#hint">hint</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A short description of something that can be dumped as one line summary of something.
+ For longer explanations, use the description attribute.
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:270) -->
+
+<table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvHintLength"> The hint for something should be at most 80 characters. </a></td> </tr>
+
+</table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#nvp">nvp</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#NameValuePair">NameValuePair</a> </td>
+      <td> A set of additional name value pairs that can be associated with an object.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#obsolete">obsolete</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The version at which something became obsolete.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#optimize">optimize</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Depending on what you're modelling, you often come across
+ places where you can see an opportunity to optimize, streamline or improve something e.g. merging
+ concepts together, representing something differently, adding a relationship - whatever.
+ However, these ideas often get lost in the shuffle or, if you add them into an overall
+ description of something, they don't stand out.
+ <p/>
+ Any dark-matter definition can be decorated with optimize notes. These notes provide
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#question">question</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A question associated with the definition of something.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#relationship">relationship</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of the relationship established via a reference to some other named object.
+ <p/>
+ This is a minor hack to allow creation of named relationships in graph databases. Eventually, relationships
+ will become first class objects to which you can refer.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#searchable">searchable</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> Indicates if something is searchable.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#skip">skip</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A version from which something should be excluded (even though it is included
+ in later versions). This is an unusual situation, and should be approached with extreme caution!
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#sortName">sortName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The sortName is used in siutations where we need a name
+ for storage of a definition that is globally unique but can be sorted on the basis
+ of the definition name, not the module name. The dotName for a definition is
+ module.definition...type, whereas the sortName would be definition...module.type.
+ So, for things like documentation generation, the sortName provides a more 
+ natural ordering.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmtdl.html#startsWith">startsWith</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="dmtdl.html#Section">Section</a> </td>
+      <td> Indicates the Sections that this section of artifact will start with.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmtdl.html#startsWithText">startsWithText</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> If the text that the section will start with is static, it can be specified via this attribute.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#tags">tags</a> </td>
+      <td class="valueType"> P TS </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A collection of tags that can facilitate searching for
+ definitions. The values are limited to a-zA-Z0-9 and the space character.
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:270) -->
+
+<table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvTagsCheck"> The tags attribute must be a mix of letters, numbers and spaces. </a></td> </tr>
+
+</table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmtdl.html#usesTemplate">usesTemplate</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> By default, all Sections require an associated template, however
+ if you set this to false, we don't look for an associated template. However, if 
+ a Section has specified values, it must always have a Template. We'll complain
+ if this is set to false, but the Section has values.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmtdl.html#value">value</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="dmtdl.html#Value">Value</a> </td>
+      <td> The name and description of a value that can be inserted into a Template. This name will be used
+ when generating the interface of the Section being formatted.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#version">version</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The version at which something was introduced. Version names
+ are assumed to be lexicographically sortable i.e. the name of a version must have a nautral
+ sort order that increases.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#why">why</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Concinnity">Concinnity</a> </td>
+      <td> An indication of why something was added to a specification or a system.
+ This might be a reference to a requirement or feature concept. How this is used will depend on context.
+ Due to the fact that it is a weak reference, you may also just put in free form text, since it
+ will simply be treated as an unresolved reference.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#definedIn">definedIn</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </td>
+      <td> Indicates the schema in which a type, attribute or class is defined.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dmoFromModule">dmoFromModule</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A bit of a hack to allow for creation of fully qualified dot names
+ in the DMODefinitionSet that's used for caching definitions in GWT. On the DMW side, this
+ is taken care of by overloading the getNameOfModuleWhereThisCameFrom() to access the 
+ getDefinedInModule attribute and getting the name of the module.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Indicates the file from which a definition was loaded.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> Indicates the line number of the file from which a definition was loaded.
+      </td>
+    </tr>
+
+  </table>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.dumpDetails(ClassFormatter.java:23) -->
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="TdlDefinition"> TdlDefinition </a> </td></tr>
+<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:54) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The TdlDefinition provides a common base for all dark-matter
+ Template Definition Language (TDL) definitions.
+</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">ABSTRACT</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:79) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="meta.html#DSDefinition">DSDefinition</a>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.derived(ClassFormatter.java:100) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Derived classes</td>
+      <td colspan="2">
+      <div class="derived"> <a href="dmtdl.html#ContainedElement">ContainedElement</a> </div>      <div class="derived"> <a href="dmtdl.html#TdlModule">TdlModule</a> </div>      <div class="derived"> <a href="dmtdl.html#TextualArtifact">TextualArtifact</a> </div>      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.wrapper(ClassFormatter.java:137) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:151) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="meta.html#name">name</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmtdl.html#definedInTdlModule">definedInTdlModule</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="dmtdl.html#TdlModule">TdlModule</a> </td>
+      <td> Indicates the name of the TdlModule in which a definition is defined.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dotName">dotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The dotName attribute is used to store dot separated names.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name
+ for an object with the set of definitions of which it is a part. A name starts with a letter followed
+ by letters and numbers.
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:270) -->
+
+<table>
+</table>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#comment">comment</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A comment or note associated with the definition of something. For
+ code that's generated from a definition, comments may be added to the code, as opposed to 
+ descriptions which are meant to assist in generating documentation. In the end, it's up to
+ the designer of a DSL to determine how comments are used.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dotName">dotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The dotName attribute is used to store dot separated names.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#example">example</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Example">Example</a> </td>
+      <td> The example attribute is used to provide additional
+ examples of how some defined thing is to be used.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#hint">hint</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A short description of something that can be dumped as one line summary of something.
+ For longer explanations, use the description attribute.
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:270) -->
+
+<table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvHintLength"> The hint for something should be at most 80 characters. </a></td> </tr>
+
+</table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#nvp">nvp</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#NameValuePair">NameValuePair</a> </td>
+      <td> A set of additional name value pairs that can be associated with an object.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#obsolete">obsolete</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The version at which something became obsolete.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#optimize">optimize</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Depending on what you're modelling, you often come across
+ places where you can see an opportunity to optimize, streamline or improve something e.g. merging
+ concepts together, representing something differently, adding a relationship - whatever.
+ However, these ideas often get lost in the shuffle or, if you add them into an overall
+ description of something, they don't stand out.
+ <p/>
+ Any dark-matter definition can be decorated with optimize notes. These notes provide
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#question">question</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A question associated with the definition of something.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#relationship">relationship</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of the relationship established via a reference to some other named object.
+ <p/>
+ This is a minor hack to allow creation of named relationships in graph databases. Eventually, relationships
+ will become first class objects to which you can refer.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#searchable">searchable</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> Indicates if something is searchable.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#skip">skip</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A version from which something should be excluded (even though it is included
+ in later versions). This is an unusual situation, and should be approached with extreme caution!
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#sortName">sortName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The sortName is used in siutations where we need a name
+ for storage of a definition that is globally unique but can be sorted on the basis
+ of the definition name, not the module name. The dotName for a definition is
+ module.definition...type, whereas the sortName would be definition...module.type.
+ So, for things like documentation generation, the sortName provides a more 
+ natural ordering.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#tags">tags</a> </td>
+      <td class="valueType"> P TS </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A collection of tags that can facilitate searching for
+ definitions. The values are limited to a-zA-Z0-9 and the space character.
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:270) -->
+
+<table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvTagsCheck"> The tags attribute must be a mix of letters, numbers and spaces. </a></td> </tr>
+
+</table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#version">version</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The version at which something was introduced. Version names
+ are assumed to be lexicographically sortable i.e. the name of a version must have a nautral
+ sort order that increases.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#why">why</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Concinnity">Concinnity</a> </td>
+      <td> An indication of why something was added to a specification or a system.
+ This might be a reference to a requirement or feature concept. How this is used will depend on context.
+ Due to the fact that it is a weak reference, you may also just put in free form text, since it
+ will simply be treated as an unresolved reference.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#definedIn">definedIn</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </td>
+      <td> Indicates the schema in which a type, attribute or class is defined.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dmoFromModule">dmoFromModule</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A bit of a hack to allow for creation of fully qualified dot names
+ in the DMODefinitionSet that's used for caching definitions in GWT. On the DMW side, this
+ is taken care of by overloading the getNameOfModuleWhereThisCameFrom() to access the 
+ getDefinedInModule attribute and getting the name of the module.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Indicates the file from which a definition was loaded.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> Indicates the line number of the file from which a definition was loaded.
+      </td>
+    </tr>
+
+  </table>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.dumpDetails(ClassFormatter.java:23) -->
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="TdlModule"> TdlModule </a> </td></tr>
+<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:54) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">A TdlModule is used to define a set of Sections that
+ define the overall structure of a textual artifact. When run through the dmtdlgen
+ utility, a set of classes are generated to represent these different artifact sections.
+ <p/>
+ By convention, you should place the .dmtdl files along with your other dark-matter 
+ config files e.g. in the dmconfig folder with your dark-matter schema or with 
+ your .dmg wrapper generation files. However, there is no restriction on where you
+ place your .dmtdl files, but it's recommended that they exist in a separate subfolder.
+ <p/>
+ When the dmtdlgen utility is run, a folder (named generated) will be created at
+ the same level as the dmconfig folder (or whatever you called it). This will contain
+ a dmtdl subpackage that will contain the generated code that represents the 
+ various Sections that you've defined.
+</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:79) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="meta.html#DSDefinition">DSDefinition</a> <br />
+      <a href="dmtdl.html#TdlDefinition">TdlDefinition</a>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.wrapper(ClassFormatter.java:137) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:151) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="meta.html#name">name</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmtdl.html#definedInTdlModule">definedInTdlModule</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="dmtdl.html#TdlModule">TdlModule</a> </td>
+      <td> Indicates the name of the TdlModule in which a definition is defined.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dotName">dotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The dotName attribute is used to store dot separated names.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name
+ for an object with the set of definitions of which it is a part. A name starts with a letter followed
+ by letters and numbers.
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:270) -->
+
+<table>
+</table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmtdl.html#package">package</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of the package in which you're placing the artifact generation code.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmtdl.html#templateFile">templateFile</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of the associated file that contains the Template definitions for each 
+ of the Sections (if they require a Template).
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#comment">comment</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A comment or note associated with the definition of something. For
+ code that's generated from a definition, comments may be added to the code, as opposed to 
+ descriptions which are meant to assist in generating documentation. In the end, it's up to
+ the designer of a DSL to determine how comments are used.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmtdl.html#commentFormat">commentFormat</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> By specifying a commentFormat for your TdlModule, you allow the formatting
+ mechanism to automatically indicate the Template that was used for format the output. This
+ is useful when debugging your formatted output.
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:270) -->
+
+<table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmtdl.html#dmtdlCommentFormat"> The commentFormat must contain the value insertion ::comment:: </a></td> </tr>
+
+</table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#defFiles">defFiles</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A list of files that contain the class, attribute and type definitions
+ that comprise a schema.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmtdl.html#dependsOnTdlModule">dependsOnTdlModule</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="dmtdl.html#TdlModule">TdlModule</a> </td>
+      <td> Indicates the TdlModule on which something depends.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dotName">dotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The dotName attribute is used to store dot separated names.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#example">example</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Example">Example</a> </td>
+      <td> The example attribute is used to provide additional
+ examples of how some defined thing is to be used.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#hint">hint</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A short description of something that can be dumped as one line summary of something.
+ For longer explanations, use the description attribute.
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:270) -->
+
+<table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvHintLength"> The hint for something should be at most 80 characters. </a></td> </tr>
+
+</table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmtdl.html#insertMarker">insertMarker</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The character sequence that's used to indicate the start and end of
+ where a value is inserted in a Template. The default insertMarker is double colon ::.
+ We make this configurable because you never know the exact nature of the format you're
+ trying to create. If double colons are a construct in that format, you'll have to choose
+ some other character sequence to indicate where data is inserted.
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:270) -->
+
+<table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmtdl.html#dmtdlInsertMarkerLength"> The insert marker must be 2 - 3 characters long. </a></td> </tr>
+
+</table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmtdl.html#maxFastAddValues">maxFastAddValues</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> For most Sections, there aren't usually too many values, so the generated
+ code will provide a fastAdd() method for sub Sections with each of the values being provided
+ via an argument. That way, you don't have create the sub Section, hang on to it and populate
+ it value by value. However, creating methods with lots of arguments can get a bit messy.
+ <p/>
+ By default, the most values we'll provide arguments for in a fastAdd() function will be 8.
+ If you want to allow more values, just bump this number up.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#nvp">nvp</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#NameValuePair">NameValuePair</a> </td>
+      <td> A set of additional name value pairs that can be associated with an object.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#obsolete">obsolete</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The version at which something became obsolete.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#optimize">optimize</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Depending on what you're modelling, you often come across
+ places where you can see an opportunity to optimize, streamline or improve something e.g. merging
+ concepts together, representing something differently, adding a relationship - whatever.
+ However, these ideas often get lost in the shuffle or, if you add them into an overall
+ description of something, they don't stand out.
+ <p/>
+ Any dark-matter definition can be decorated with optimize notes. These notes provide
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#question">question</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A question associated with the definition of something.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#relationship">relationship</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of the relationship established via a reference to some other named object.
+ <p/>
+ This is a minor hack to allow creation of named relationships in graph databases. Eventually, relationships
+ will become first class objects to which you can refer.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#searchable">searchable</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> Indicates if something is searchable.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#skip">skip</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A version from which something should be excluded (even though it is included
+ in later versions). This is an unusual situation, and should be approached with extreme caution!
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#sortName">sortName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The sortName is used in siutations where we need a name
+ for storage of a definition that is globally unique but can be sorted on the basis
+ of the definition name, not the module name. The dotName for a definition is
+ module.definition...type, whereas the sortName would be definition...module.type.
+ So, for things like documentation generation, the sortName provides a more 
+ natural ordering.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#tags">tags</a> </td>
+      <td class="valueType"> P TS </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A collection of tags that can facilitate searching for
+ definitions. The values are limited to a-zA-Z0-9 and the space character.
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:270) -->
+
+<table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvTagsCheck"> The tags attribute must be a mix of letters, numbers and spaces. </a></td> </tr>
+
+</table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmtdl.html#templateFileSuffix">templateFileSuffix</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The suffix of the template file. By default, the suffix will be .dmt, but,
+ if that suffix clashes with some other file type you're using, you can change it.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#version">version</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The version at which something was introduced. Version names
+ are assumed to be lexicographically sortable i.e. the name of a version must have a nautral
+ sort order that increases.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#why">why</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Concinnity">Concinnity</a> </td>
+      <td> An indication of why something was added to a specification or a system.
+ This might be a reference to a requirement or feature concept. How this is used will depend on context.
+ Due to the fact that it is a weak reference, you may also just put in free form text, since it
+ will simply be treated as an unresolved reference.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#definedIn">definedIn</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </td>
+      <td> Indicates the schema in which a type, attribute or class is defined.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dmoFromModule">dmoFromModule</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A bit of a hack to allow for creation of fully qualified dot names
+ in the DMODefinitionSet that's used for caching definitions in GWT. On the DMW side, this
+ is taken care of by overloading the getNameOfModuleWhereThisCameFrom() to access the 
+ getDefinedInModule attribute and getting the name of the module.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Indicates the file from which a definition was loaded.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> Indicates the line number of the file from which a definition was loaded.
+      </td>
+    </tr>
+
+  </table>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.dumpDetails(ClassFormatter.java:23) -->
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="Template"> Template </a> </td></tr>
+<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:54) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The Template object provides a mechanism to define an arbitrary set of
+ text that allows for the insertion of the named values defined as part of the associated
+ Section definition.
+ <p/>
+ By convention, the Template associated with a Section has the same name as the Section. For example:
+ <pre>
+ Section
+ name Header
+ </pre>
+ would have a template as follows:
+ <pre>
+ Template
+ name Header
+ </pre>
+ Templates are kept separate from the Section definitions so that their content can be
+ changed without regenerating code. Templates are loaded using the generated TemplateParser
+ for a given TdlModule.
+</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.wrapper(ClassFormatter.java:137) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:151) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="meta.html#name">name</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmtdl.html#format">format</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Indicates the matrix of text into which various parts of a dark-matter object
+ may be embedded.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name
+ for an object with the set of definitions of which it is a part. A name starts with a letter followed
+ by letters and numbers.
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:270) -->
+
+<table>
+</table>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmtdl.html#debugOn">debugOn</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> Although it's useful to have debug comments prepended to your generated
+ artifact, there are times when you don't want that information dumped for particular Templates.
+ For example, if your artifact must start with a particular text sequence. So, if
+ you've specified a commentFormat for your TdlModule  but you don't want the debug
+ comment for a particular Template, just set the debug attribute to false.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Indicates the file from which a definition was loaded.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> Indicates the line number of the file from which a definition was loaded.
+      </td>
+    </tr>
+
+  </table>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.dumpDetails(ClassFormatter.java:23) -->
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="TextualArtifact"> TextualArtifact </a> </td></tr>
+<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:54) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">A TextualArtifact is the top level entity that is comprised of Sections
+ and formatted via Templates.
+</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:79) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="meta.html#DSDefinition">DSDefinition</a> <br />
+      <a href="dmtdl.html#TdlDefinition">TdlDefinition</a>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.wrapper(ClassFormatter.java:137) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:151) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="meta.html#name">name</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmtdl.html#contains">contains</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="dmtdl.html#Contains">Contains</a> </td>
+      <td> Indicates the other Sections contained by a Section and whether they occur one or many times.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmtdl.html#definedInTdlModule">definedInTdlModule</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="dmtdl.html#TdlModule">TdlModule</a> </td>
+      <td> Indicates the name of the TdlModule in which a definition is defined.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dotName">dotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The dotName attribute is used to store dot separated names.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DefinitionName">DefinitionName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name
+ for an object with the set of definitions of which it is a part. A name starts with a letter followed
+ by letters and numbers.
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:270) -->
+
+<table>
+</table>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#comment">comment</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A comment or note associated with the definition of something. For
+ code that's generated from a definition, comments may be added to the code, as opposed to 
+ descriptions which are meant to assist in generating documentation. In the end, it's up to
+ the designer of a DSL to determine how comments are used.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dotName">dotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The dotName attribute is used to store dot separated names.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#example">example</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Example">Example</a> </td>
+      <td> The example attribute is used to provide additional
+ examples of how some defined thing is to be used.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#hint">hint</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A short description of something that can be dumped as one line summary of something.
+ For longer explanations, use the description attribute.
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:270) -->
+
+<table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvHintLength"> The hint for something should be at most 80 characters. </a></td> </tr>
+
+</table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#nvp">nvp</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#NameValuePair">NameValuePair</a> </td>
+      <td> A set of additional name value pairs that can be associated with an object.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#obsolete">obsolete</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The version at which something became obsolete.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#optimize">optimize</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Depending on what you're modelling, you often come across
+ places where you can see an opportunity to optimize, streamline or improve something e.g. merging
+ concepts together, representing something differently, adding a relationship - whatever.
+ However, these ideas often get lost in the shuffle or, if you add them into an overall
+ description of something, they don't stand out.
+ <p/>
+ Any dark-matter definition can be decorated with optimize notes. These notes provide
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#question">question</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A question associated with the definition of something.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#relationship">relationship</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of the relationship established via a reference to some other named object.
+ <p/>
+ This is a minor hack to allow creation of named relationships in graph databases. Eventually, relationships
+ will become first class objects to which you can refer.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#searchable">searchable</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> Indicates if something is searchable.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#skip">skip</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A version from which something should be excluded (even though it is included
+ in later versions). This is an unusual situation, and should be approached with extreme caution!
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#sortName">sortName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DotName">DotName</a> </td>
+      <td> The sortName is used in siutations where we need a name
+ for storage of a definition that is globally unique but can be sorted on the basis
+ of the definition name, not the module name. The dotName for a definition is
+ module.definition...type, whereas the sortName would be definition...module.type.
+ So, for things like documentation generation, the sortName provides a more 
+ natural ordering.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#tags">tags</a> </td>
+      <td class="valueType"> P TS </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A collection of tags that can facilitate searching for
+ definitions. The values are limited to a-zA-Z0-9 and the space character.
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:270) -->
+
+<table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvTagsCheck"> The tags attribute must be a mix of letters, numbers and spaces. </a></td> </tr>
+
+</table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#version">version</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The version at which something was introduced. Version names
+ are assumed to be lexicographically sortable i.e. the name of a version must have a nautral
+ sort order that increases.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#why">why</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Concinnity">Concinnity</a> </td>
+      <td> An indication of why something was added to a specification or a system.
+ This might be a reference to a requirement or feature concept. How this is used will depend on context.
+ Due to the fact that it is a weak reference, you may also just put in free form text, since it
+ will simply be treated as an unresolved reference.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#definedIn">definedIn</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </td>
+      <td> Indicates the schema in which a type, attribute or class is defined.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dmoFromModule">dmoFromModule</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A bit of a hack to allow for creation of fully qualified dot names
+ in the DMODefinitionSet that's used for caching definitions in GWT. On the DMW side, this
+ is taken care of by overloading the getNameOfModuleWhereThisCameFrom() to access the 
+ getDefinedInModule attribute and getting the name of the module.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Indicates the file from which a definition was loaded.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> Indicates the line number of the file from which a definition was loaded.
+      </td>
+    </tr>
+
+  </table>
+
+</div> <!-- classDetails -->
+
+<!-- org.dmd.dms.doc.web.SchemaPage.writeAttributes(SchemaPage.java:223) -->
+
+<div class="attributeDetails">
+
+<h2> Attribute Details </h2>
+
+  <table>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="commentFormat"> commentFormat </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>
+      By specifying a commentFormat for your TdlModule, you allow the formatting
+ mechanism to automatically indicate the Template that was used for format the output. This
+ is useful when debugging your formatted output.
+
+      </td>
+    </tr>
+
+<tr> <td class="spacer"> <td> </td> </td> <td class="attributeRule">
+<a class="blackText" href="dmtdl.html#dmtdlCommentFormat"> The commentFormat must contain the value insertion ::comment:: </a></td> </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        <tr>
+          <td> TdlModule (<a href="dmtdl.html#TdlModule">dmtdl</a>) </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="contains"> contains </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P MV </div> <div class="attrType"> <a href="dmtdl.html#Contains">Contains</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>
+      Indicates the other Sections contained by a Section and whether they occur one or many times.
+
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        <tr>
+          <td> Section (<a href="dmtdl.html#Section">dmtdl</a>) </td>
+          <td> TextualArtifact (<a href="dmtdl.html#TextualArtifact">dmtdl</a>) </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="debugOn"> debugOn </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#Boolean">Boolean</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>
+      Although it's useful to have debug comments prepended to your generated
+ artifact, there are times when you don't want that information dumped for particular Templates.
+ For example, if your artifact must start with a particular text sequence. So, if
+ you've specified a commentFormat for your TdlModule  but you don't want the debug
+ comment for a particular Template, just set the debug attribute to false.
+
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        <tr>
+          <td> Template (<a href="dmtdl.html#Template">dmtdl</a>) </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="definedInTdlModule"> definedInTdlModule </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="dmtdl.html#TdlModule">TdlModule</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>
+      Indicates the name of the TdlModule in which a definition is defined.
+
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        <tr>
+          <td> TdlDefinition (<a href="dmtdl.html#TdlDefinition">dmtdl</a>) </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="dependsOnTdlModule"> dependsOnTdlModule </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P MV </div> <div class="attrType"> <a href="dmtdl.html#TdlModule">TdlModule</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>
+      Indicates the TdlModule on which something depends.
+
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        <tr>
+          <td> TdlModule (<a href="dmtdl.html#TdlModule">dmtdl</a>) </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="endsWith"> endsWith </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="dmtdl.html#Section">Section</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>
+      Indicates the Sections that this section of artifact will end with.
+
+      </td>
+    </tr>
+
+<tr> <td class="spacer"> <td> </td> </td> <td class="attributeRule">
+<a class="blackText" href="dmtdl.html#dmtdlEndsWith"> A Section can only endWith another Section or with a static piece of text. </a></td> </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        <tr>
+          <td> Section (<a href="dmtdl.html#Section">dmtdl</a>) </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="endsWithText"> endsWithText </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>
+      If the text that the section will end with is static, it can be specified via this attribute.
+
+      </td>
+    </tr>
+
+<tr> <td class="spacer"> <td> </td> </td> <td class="attributeRule">
+<a class="blackText" href="dmtdl.html#dmtdlEndsWith"> A Section can only endWith another Section or with a static piece of text. </a></td> </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        <tr>
+          <td> Section (<a href="dmtdl.html#Section">dmtdl</a>) </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="format"> format </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>
+      Indicates the matrix of text into which various parts of a dark-matter object
+ may be embedded.
+
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        <tr>
+          <td> Template (<a href="dmtdl.html#Template">dmtdl</a>) </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="hasTemplate"> hasTemplate </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#Boolean">Boolean</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>
+      Indicates whether or not a Section has an associated Template; by default, 
+ all Sections require a Template. If, for some reason, a Section doesn't require a Template,
+ just set this attribute to false.
+
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        <tr>
+          <td> Section (<a href="dmtdl.html#Section">dmtdl</a>) </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="insertMarker"> insertMarker </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>
+      The character sequence that's used to indicate the start and end of
+ where a value is inserted in a Template. The default insertMarker is double colon ::.
+ We make this configurable because you never know the exact nature of the format you're
+ trying to create. If double colons are a construct in that format, you'll have to choose
+ some other character sequence to indicate where data is inserted.
+
+      </td>
+    </tr>
+
+<tr> <td class="spacer"> <td> </td> </td> <td class="attributeRule">
+<a class="blackText" href="dmtdl.html#dmtdlInsertMarkerLength"> The insert marker must be 2 - 3 characters long. </a></td> </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        <tr>
+          <td> TdlModule (<a href="dmtdl.html#TdlModule">dmtdl</a>) </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="maxFastAddValues"> maxFastAddValues </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#Integer">Integer</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>
+      For most Sections, there aren't usually too many values, so the generated
+ code will provide a fastAdd() method for sub Sections with each of the values being provided
+ via an argument. That way, you don't have create the sub Section, hang on to it and populate
+ it value by value. However, creating methods with lots of arguments can get a bit messy.
+ <p/>
+ By default, the most values we'll provide arguments for in a fastAdd() function will be 8.
+ If you want to allow more values, just bump this number up.
+
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        <tr>
+          <td> TdlModule (<a href="dmtdl.html#TdlModule">dmtdl</a>) </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="package"> package </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>
+      The name of the package in which you're placing the artifact generation code.
+
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        <tr>
+          <td> TdlModule (<a href="dmtdl.html#TdlModule">dmtdl</a>) </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="startsWith"> startsWith </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="dmtdl.html#Section">Section</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>
+      Indicates the Sections that this section of artifact will start with.
+
+      </td>
+    </tr>
+
+<tr> <td class="spacer"> <td> </td> </td> <td class="attributeRule">
+<a class="blackText" href="dmtdl.html#dmtdlStartsWith"> A Section can only startWith another Section or with a static piece of text. </a></td> </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        <tr>
+          <td> Section (<a href="dmtdl.html#Section">dmtdl</a>) </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="startsWithText"> startsWithText </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>
+      If the text that the section will start with is static, it can be specified via this attribute.
+
+      </td>
+    </tr>
+
+<tr> <td class="spacer"> <td> </td> </td> <td class="attributeRule">
+<a class="blackText" href="dmtdl.html#dmtdlStartsWith"> A Section can only startWith another Section or with a static piece of text. </a></td> </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        <tr>
+          <td> Section (<a href="dmtdl.html#Section">dmtdl</a>) </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="targetObjectClass"> targetObjectClass </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>
+      The fully qualified name of the type of object that is being formatted when
+ an ExtensionHook is called.
+
+      </td>
+    </tr>
+
+<tr> <td class="spacer"> <td> </td> </td> <td class="attributeRule">
+<a class="blackText" href="dmtdl.html#dmtdlTargetObjectClass"> The targetObjectClass must be a valid, fully qualified, Java class name. </a></td> </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        <tr>
+          <td> ExtensionHook (<a href="dmtdl.html#ExtensionHook">dmtdl</a>) </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="templateFile"> templateFile </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>
+      The name of the associated file that contains the Template definitions for each 
+ of the Sections (if they require a Template).
+
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        <tr>
+          <td> TdlModule (<a href="dmtdl.html#TdlModule">dmtdl</a>) </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="templateFileSuffix"> templateFileSuffix </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>
+      The suffix of the template file. By default, the suffix will be .dmt, but,
+ if that suffix clashes with some other file type you're using, you can change it.
+
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        <tr>
+          <td> TdlModule (<a href="dmtdl.html#TdlModule">dmtdl</a>) </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="usesSection"> usesSection </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="dmtdl.html#Section">Section</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>
+      The Section type that will be used to format the contents of an ExtensionHook.
+
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        <tr>
+          <td> ExtensionHook (<a href="dmtdl.html#ExtensionHook">dmtdl</a>) </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="usesTemplate"> usesTemplate </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#Boolean">Boolean</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>
+      By default, all Sections require an associated template, however
+ if you set this to false, we don't look for an associated template. However, if 
+ a Section has specified values, it must always have a Template. We'll complain
+ if this is set to false, but the Section has values.
+
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        <tr>
+          <td> Section (<a href="dmtdl.html#Section">dmtdl</a>) </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="value"> value </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P MV </div> <div class="attrType"> <a href="dmtdl.html#Value">Value</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>
+      The name and description of a value that can be inserted into a Template. This name will be used
+ when generating the interface of the Section being formatted.
+
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        <tr>
+          <td> Section (<a href="dmtdl.html#Section">dmtdl</a>) </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+  </table>
+
+</div> <!-- attributeDetails -->
+
+<!-- org.dmd.dms.doc.web.SchemaPage.writeComplexTypes(SchemaPage.java:263) -->
+
+<div class="complexTypeDetails">
+
+<h2> Complex Type Details </h2>
+
+  <table>
+
+    <tr> <td class="typeName" colspan="5"> <a name="Contains"> Contains </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td colspan="4"> The Contains type indicates the number of times a Section will occur within a contain Section
+ </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label" colspan="3">Field Separator: 
+SPACE</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td colspan ="3">
+<table>
+  <tr>
+    <td> contains (<a href="dmtdl.html#contains">dmtdl</a>) </td>
+</tr>
+</table>
+      </td>
+    </tr>
+
+    <tr> <td class="typeName" colspan="5"> <a name="Value"> Value </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td colspan="4"> The Value type indicates a name for a value that can be referenced in a Template along
+ with a short description.
+ </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label" colspan="3">Field Separator: 
+SPACE</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td colspan ="3">
+<table>
+  <tr>
+    <td> value (<a href="dmtdl.html#value">dmtdl</a>) </td>
+</tr>
+</table>
+      </td>
+    </tr>
+
+  </table>
+
+</div> <!-- typeDetails -->
+
+<!-- org.dmd.dms.doc.web.SchemaPage.writeEnums(SchemaPage.java:303) -->
+
+<div class="enumDetails">
+
+<h2> Enum Details </h2>
+
+  <table>
+
+<!-- org.dmd.dms.doc.web.EnumFormatter.dumpDetails(EnumFormatter.java:14) -->
+
+    <tr> <td class="className" colspan="4"> <a name="CardinalityEnum"> CardinalityEnum </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label" colspan="2">Description</td>
+      <td>The CardinalityEnum indicates whether a Section will exist one or many times within another Section,
+ or whther the Section is static and always added automatically.
+</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 0</td>
+      <td> ONE</td>
+      <td>Indicates that a section may appear once. You have to manually add the Section.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 1</td>
+      <td> MANY</td>
+      <td>Indicates that a section will appear many times.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 2</td>
+      <td> STATIC</td>
+      <td>Indicates that a section is static and will be automatically added.</td>
+    </tr>
+
+  </table>
+
+</div> <!-- enumDetails -->
+
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstanceDetails(RuleInstanceFormatter.java:50) -->
+<div class="ruleInstances">
+
+<h2> Rule Instances </h2>
+
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstanceDetails(RuleInstanceFormatter.java:56) -->
+  <table>
+
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:97) -->
+    <tr> <td class="ruleDefName" colspan="4"> OnlyOneOfTheseAttributesAllowedRule (CLASS)</td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="3" class="ruleDetailTitle">
+      <a name ="dmtdlEndsWith">
+        A Section can only endWith another Section or with a static piece of text.
+      </a>
+      </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> Apply to class: </td>
+      <td> dmtdl.Section </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel"> Rule arguments </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> onePossibility </td>
+      <td>
+dmtdl.endsWith
+<br>dmtdl.endsWithText
+      </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="3" class="ruleDetailTitle">
+      <a name ="dmtdlStartsWith">
+        A Section can only startWith another Section or with a static piece of text.
+      </a>
+      </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> Apply to class: </td>
+      <td> dmtdl.Section </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel"> Rule arguments </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> onePossibility </td>
+      <td>
+dmtdl.startsWith
+<br>dmtdl.startsWithText
+      </td>
+    </tr>
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:97) -->
+    <tr> <td class="ruleDefName" colspan="4"> PatternMatchRule (ATTRIBUTE)</td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="3" class="ruleDetailTitle">
+      <a name ="dmtdlCommentFormat">
+        The commentFormat must contain the value insertion ::comment::
+      </a>
+      </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> Apply to attribute: </td>
+      <td> dmtdl.commentFormat </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel"> Rule arguments </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> matchesPattern </td>
+      <td> .*::comment::.*</td>    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="3" class="ruleDetailTitle">
+      <a name ="dmtdlTargetObjectClass">
+        The targetObjectClass must be a valid, fully qualified, Java class name.
+      </a>
+      </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> Apply to attribute: </td>
+      <td> dmtdl.targetObjectClass </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel"> Rule arguments </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> matchesPattern </td>
+      <td> ([a-zA-Z_$][a-zA-Z0-9_$]*.)*[a-zA-Z_$][a-zA-Z0-9_$]*</td>    </tr>
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:97) -->
+    <tr> <td class="ruleDefName" colspan="4"> ValueLengthRule (ATTRIBUTE)</td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="3" class="ruleDetailTitle">
+      <a name ="dmtdlInsertMarkerLength">
+        The insert marker must be 2 - 3 characters long.
+      </a>
+      </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> Apply to attribute: </td>
+      <td> dmtdl.insertMarker </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel"> Rule arguments </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> maxLength </td>
+      <td> 3</td>    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> minLength </td>
+      <td> 2</td>    </tr>
+  </table>
+
+</div> <!-- ruleInstances -->
+
+    </div>
+
+<!-- org.dmd.dms.doc.web.Summarizer.buildSidebar(Summarizer.java:227) -->
+    <div id="sidebar">
+        <a class="navLink" href="dmg.html"> dmg</a>
+        <a class="navLink" href="dmp.html"> dmp</a>
+        <a class="navLink" href="dmrbase.html"> dmrbase</a>
+        <a class="navLink" href="dmt.html"> dmt</a>
+        <a class="navLink" href="dmtdl.html"> dmtdl</a>
+        <a class="navLink" href="dmv.html"> dmv</a>
+        <a class="navLink" href="meta.html"> meta</a>
+        <a class="navLink" href="SchemaSummaryPage.html"> Summary </a>
+    </div>
+  </div> <!-- main -->
+
+  <div id="footer"> </div>
+
+</body>
+
+</html>

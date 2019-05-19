@@ -455,6 +455,15 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
         	}
         }
         
+        if (cd.getUsesWrapperInterfaceSize() > 0) {
+			Iterator<String> wit = cd.getUsesWrapperInterface();
+			while(wit.hasNext()) {
+				String tmp = wit.next();
+				int lastDot = tmp.lastIndexOf(".");
+				implManager.addImplements(tmp.substring(lastDot+1));
+			}
+        }
+        
         if (isDefinition){
         	implManager.addImplements("DmcDefinitionIF");
         	if (impl.length() > 0)
@@ -519,16 +528,26 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
             		if (cd.getClassType() == ClassTypeEnum.ABSTRACT){
                 		out.write("abstract public class " + cd.getName() + genSuffix + " extends " + cd.getDerivedFrom().getName() + " " + impl + "{\n");
             		}
-            		else
+            		else {
+                        out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
             			out.write("public class " + cd.getName() + genSuffix + " extends " + cd.getDerivedFrom().getName() + " " + impl + "{\n");
+            		}
             	}
         	}
         	else{
         		if (cd.getClassType() == ClassTypeEnum.ABSTRACT){
         			out.write("abstract public class " + cd.getName() + genSuffix + " extends " + cd.getDerivedFrom().getName() + genSuffix + " " + impl + "{\n");
         		}
-        		else
-        			out.write("public class " + cd.getName() + genSuffix + " extends " + cd.getDerivedFrom().getName() + genSuffix + " " + impl + "{\n");
+        		else {
+        			if (cd.getUsesWrapperInterfaceSize() > 0) {
+	                    out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+	        			out.write("abstract public class " + cd.getName() + genSuffix + " extends " + cd.getDerivedFrom().getName() + genSuffix + " " + impl + "{\n");
+        			}
+        			else {
+	                    out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+	        			out.write("public class " + cd.getName() + genSuffix + " extends " + cd.getDerivedFrom().getName() + genSuffix + " " + impl + "{\n");
+        			}
+        		}
         	}
         		
         }
@@ -824,11 +843,6 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 		TreeMap<String,TypeAndAttr>			typeAndAttr 	= new TreeMap<String,TypeAndAttr>();
 		boolean								needDmwOmni		= false;
 		
-//		ImportManager	imports = new ImportManager();
-		// Key: type name
-		// Value: comment
-//		TreeMap<String,String>	uniqueImports = new TreeMap<String, String>();
-
 		anyAttributes = false;
 		
 		cd.adjustJavaClass(genContext,genSuffix);
@@ -843,7 +857,6 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 			boolean shouldAddType = true;
 			
 			anyAttributes = true;
-//			AttributeDefinition ad = may.next();
 			TypeDefinition td = ad.getType();
 			
 			if (ad.getGenericArgs() != null){
@@ -918,142 +931,6 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 			
 		}
 		
-//		Iterator<AttributeDefinition> may = cd.getMay();
-//		if (may != null){
-//			while(may.hasNext()){
-//				// NOTE: COMPLICATED! We always add the type of the attribute to our global types
-//				// map EXCEPT IF the type is a non-referential, MULTI/SET attribute. Gaa!
-//				//
-//				// This is because WE DON'T want the primitive type any more, just the TYPEIterableDMW.
-//				// If the value is a single valued type, we'll want the primitive type.
-//				
-//				boolean shouldAddType = true;
-//				
-//				anyAttributes = true;
-//				AttributeDefinition ad = may.next();
-//				TypeDefinition td = ad.getType();
-//				
-//				if (ad.getGenericArgs() != null){
-//					if (ad.getGenericArgs().equals("<DmcObjectName>"))
-//						needDmwOmni = true;
-//				}
-//				
-//				switch(ad.getValueType()){
-//				case SINGLE:
-//					anySVAttributes =  true;
-//					break;
-//				case HASHMAPPED:
-//				case TREEMAPPED:
-//					anyMVAttributes = true;
-//					if (ad.getType().getIsRefType())
-//						anyMVRefs = true;
-//					
-//					iterables.put(td.getName(),td);
-//					break;
-//				case MULTI:
-//				case HASHSET:
-//				case TREESET:
-//					anyMVAttributes = true;
-//					
-//					if (ad.getType().getIsRefType())
-//						anyMVRefs = true;
-//					
-//					iterables.put(td.getName(),td);
-//					
-//					break;
-//				}
-//				
-//				if (shouldAddType){
-//					types.put(td.getName(), td);
-//					TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType(),ad.getIndexSize());
-//					typeAndAttr.put(ta.name, ta);
-//				}
-//				
-//				appendAttributeInfo(attributeInfo, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), ad.getDataType());
-//
-//				if (ad.getGenericArgsImport() != null)
-//					genericImports.add(ad.getGenericArgsImport());
-//
-//				if (ad.getValueType() != ValueTypeEnum.SINGLE){
-//					if (!ad.getType().getIsExtendedRefType()){
-//						if ((ad.getIndexSize() != null) && (ad.getType().getIsRefType())){
-//							// Don't import the schema of indexed, object refs
-//						}
-//						else
-//							imports.addImport(ad.getDefinedIn().getDMSASGImport(), "Attribute " + ad.getName() + " from the " + ad.getDefinedIn().getName() + " schema");
-//					}
-//				}
-//
-//				allAttr.add(ad);
-//			}
-//		}
-//		
-//		Iterator<AttributeDefinition> must = cd.getMust();
-//		if (must != null){
-//			while(must.hasNext()){
-//				// NOTE: COMPLICATED! We always add the type of the attribute to our global types
-//				// map EXCEPT IF the type is a non-referential, MULTI/SET attribute. Gaa!
-//				//
-//				// This is because WE DON'T want the primitive type any more, just the TYPEIterableDMW.
-//				// If the value is a single valued type, we'll want the primitive type.
-//				
-//				boolean shouldAddType = true;
-//				anyAttributes = true;
-//				AttributeDefinition ad = must.next();
-//				TypeDefinition td = ad.getType();
-//				
-//				if (ad.getGenericArgs() != null){
-//					if (ad.getGenericArgs().equals("<DmcObjectName>"))
-//						needDmwOmni = true;
-//				}
-//				
-//				switch(ad.getValueType()){
-//				case SINGLE:
-//					anySVAttributes =  true;
-//					break;
-//				case HASHMAPPED:
-//				case TREEMAPPED:
-//					anyMVAttributes = true;
-//					if (ad.getType().getIsRefType())
-//						anyMVRefs = true;
-//
-//					iterables.put(td.getName(),td);
-//					break;
-//				case MULTI:
-//				case HASHSET:
-//				case TREESET:
-//					anyMVAttributes = true;
-//					if (ad.getType().getIsRefType())
-//						anyMVRefs = true;
-//
-//					iterables.put(td.getName(),td);
-//					break;
-//				}
-//
-//				if (shouldAddType){
-//					types.put(td.getName(), td);
-//					TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType(),ad.getIndexSize());
-//					typeAndAttr.put(ta.name, ta);
-//				}
-//				
-//				appendAttributeInfo(attributeInfo, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), ad.getDataType());
-//
-//				if (ad.getGenericArgsImport() != null)
-//					genericImports.add(ad.getGenericArgsImport());
-//
-//				if (ad.getValueType() != ValueTypeEnum.SINGLE){
-//					if (!ad.getType().getIsExtendedRefType()){
-//						if ((ad.getIndexSize() != null) && (ad.getType().getIsRefType())){
-//							// Don't import the schema of indexed, object refs
-//						}
-//						else
-//							imports.addImport(ad.getDefinedIn().getDMSASGImport(), "Attribute " + ad.getName() + " from the " + ad.getDefinedIn().getName() + " schema");
-//					}
-//				}
-//				
-//				allAttr.add(ad);
-//			}
-//		}
 		
 		if (cd.getIsNamedBy() != null){
 			AttributeDefinition isNamedBy = cd.getIsNamedBy();
@@ -1074,6 +951,17 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 		
 		if (cd.getDmwWrapperType(genContext) == WrapperTypeEnum.EXTENDED){
 			imports.addImport(cd.getDmeImport(), "Required for getModificationRecorder()");
+		}
+		
+		if (cd.getUsesWrapperInterfaceSize() > 0) {
+			if (!(cd.getDmwWrapperType(genContext) == WrapperTypeEnum.EXTENDED)){
+				throw(new IllegalStateException("The ClassDefinition: " + cd.getName() + " must useWrapperType EXTENDED in order to specify useWrapperInterface"));
+			}
+			
+			Iterator<String> wit = cd.getUsesWrapperInterface();
+			while(wit.hasNext()) {
+				imports.addImport(wit.next(), "Uses wrapper type");
+			}
 		}
 		
 		if ( (cd.getClassType() == ClassTypeEnum.AUXILIARY) && anyMVAttributes){

@@ -169,10 +169,9 @@ public class Field implements Serializable {
         if (type != null){
             type.removeBackref();
         }
-        
     }
 
-    // org.dmd.dms.meta.MetaGenerator.dumpComplexType(MetaGenerator.java:3420)
+    // org.dmd.dms.meta.MetaGenerator.dumpComplexType(MetaGenerator.java:3419)
     String getNextField(String input, IntegerVar seppos, String fn, boolean last) throws DmcValueException {
     	   String rc = null;
     	   int start = seppos.intValue();

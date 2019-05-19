@@ -2275,6 +2275,19 @@ description				A bit of a hack to allow for creation of fully qualified dot name
  is taken care of by overloading the getNameOfModuleWhereThisCameFrom() to access the 
  getDefinedInModule attribute and getting the name of the module.
 
+AttributeDefinition
+name                		usesWrapperInterface
+dmdID						192
+type                		String
+valueType					MULTI
+description    				The fully qualified name of a Java interface that should
+ be implemented on an extended wrapper class. This is a useful mechanism to specify
+ common functionality across a set of classes that, otherwise, may not have anything in
+ common i.e. they aren't in the same derivation hierarchy.
+ </p>
+ This results in an implements statement being added to the DmwWrapper derivative.
+
+
 //AttributeDefinition
 //name                		nameAndTypeName
 //dmdID						176
@@ -2472,6 +2485,7 @@ may             isNamedBy
 may          	javaClass
 may             intendedToExtend
 may				usesInterface
+may				usesWrapperInterface
 may				useWrapperType
 may				dmwWrapperType
 may            	allowedParents

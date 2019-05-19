@@ -188,15 +188,13 @@
     </div><!-- org.dmd.dms.doc.web.SchemaPage.writeEnumSummary(SchemaPage.java:479) -->
 
     <div class="enumList">
-    <h2>Enums (13)</h2>
+    <h2>Enums (11)</h2>
     <ul>
       <li> <a class="deflink" href="#BaseTypeEnum"> BaseTypeEnum </a></li>
       <li> <a class="deflink" href="#ClassTypeEnum"> ClassTypeEnum </a></li>
       <li> <a class="deflink" href="#DataTypeEnum"> DataTypeEnum </a></li>
       <li> <a class="deflink" href="#DebugEnum"> DebugEnum </a></li>
       <li> <a class="deflink" href="#FilterTypeEnum"> FilterTypeEnum </a></li>
-      <li> <a class="deflink" href="#GPBFieldTypeEnum"> GPBFieldTypeEnum </a></li>
-      <li> <a class="deflink" href="#GPBScalarTypeEnum"> GPBScalarTypeEnum </a></li>
       <li> <a class="deflink" href="#ModifyTypeEnum"> ModifyTypeEnum </a></li>
       <li> <a class="deflink" href="#OperationalContextEnum"> OperationalContextEnum </a></li>
       <li> <a class="deflink" href="#OriginalTypeEnum"> OriginalTypeEnum </a></li>
@@ -207,12 +205,17 @@
     </div><!-- org.dmd.dms.doc.web.SchemaPage.writeRuleCategorySummary(SchemaPage.java:513) -->
 
     <div class="categories">
-    <h2> Rule Categories (5)</h2>
+    <h2> Rule Categories (10)</h2>
     <ul>
       <li> <a class="deflink" href="#AttributeValidation"> AttributeValidation </a></li>
       <li> <a class="deflink" href="#AttributeValidationWithResolver"> AttributeValidationWithResolver </a></li>
       <li> <a class="deflink" href="#Initialization"> Initialization </a></li>
       <li> <a class="deflink" href="#ObjectValidation"> ObjectValidation </a></li>
+      <li> <a class="deflink" href="#UCOAttributeAudit"> UCOAttributeAudit </a></li>
+      <li> <a class="deflink" href="#UCOAttributeNormalization"> UCOAttributeNormalization </a></li>
+      <li> <a class="deflink" href="#UCOMapping"> UCOMapping </a></li>
+      <li> <a class="deflink" href="#UCOObjectAudit"> UCOObjectAudit </a></li>
+      <li> <a class="deflink" href="#UCOObjectNormalization"> UCOObjectNormalization </a></li>
       <li> <a class="deflink" href="#UCOValidation"> UCOValidation </a></li>
     </ul>
     </div>  </div> <!--  summary -->
@@ -530,6 +533,19 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="meta.html#relationship">relationship</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of the relationship established via a reference to some other named object.
+ <p/>
+ This is a minor hack to allow creation of named relationships in graph databases. Eventually, relationships
+ will become first class objects to which you can refer.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#searchable">searchable</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> Indicates if something is searchable.
@@ -624,8 +640,21 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td> <a href="meta.html#file">file</a> </td>
+      <td> <a href="meta.html#dmoFromModule">dmoFromModule</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A bit of a hack to allow for creation of fully qualified dot names
+ in the DMODefinitionSet that's used for caching definitions in GWT. On the DMW side, this
+ is taken care of by overloading the getNameOfModuleWhereThisCameFrom() to access the 
+ getDefinedInModule attribute and getting the name of the module.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Indicates the file from which a definition was loaded.
       </td>
     </tr>
@@ -635,7 +664,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> Indicates the line number of the file from which a definition was loaded.
       </td>
     </tr>
@@ -1071,6 +1100,19 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="meta.html#relationship">relationship</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of the relationship established via a reference to some other named object.
+ <p/>
+ This is a minor hack to allow creation of named relationships in graph databases. Eventually, relationships
+ will become first class objects to which you can refer.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#searchable">searchable</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> Indicates if something is searchable.
@@ -1199,8 +1241,21 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td> <a href="meta.html#file">file</a> </td>
+      <td> <a href="meta.html#dmoFromModule">dmoFromModule</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A bit of a hack to allow for creation of fully qualified dot names
+ in the DMODefinitionSet that's used for caching definitions in GWT. On the DMW side, this
+ is taken care of by overloading the getNameOfModuleWhereThisCameFrom() to access the 
+ getDefinedInModule attribute and getting the name of the module.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Indicates the file from which a definition was loaded.
       </td>
     </tr>
@@ -1210,7 +1265,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> Indicates the line number of the file from which a definition was loaded.
       </td>
     </tr>
@@ -1378,6 +1433,16 @@
  code that's generated from a definition, comments may be added to the code, as opposed to 
  descriptions which are meant to assist in generating documentation. In the end, it's up to
  the designer of a DSL to determine how comments are used.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#createIndex">createIndex</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> A flag to indicate if you want your data repository to create an index for a named object.
       </td>
     </tr>
 
@@ -1631,6 +1696,19 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="meta.html#relationship">relationship</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of the relationship established via a reference to some other named object.
+ <p/>
+ This is a minor hack to allow creation of named relationships in graph databases. Eventually, relationships
+ will become first class objects to which you can refer.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#searchable">searchable</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> Indicates if something is searchable.
@@ -1733,6 +1811,21 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="meta.html#usesWrapperInterface">usesWrapperInterface</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The fully qualified name of a Java interface that should
+ be implemented on an extended wrapper class. This is a useful mechanism to specify
+ common functionality across a set of classes that, otherwise, may not have anything in
+ common i.e. they aren't in the same derivation hierarchy.
+ </p>
+ This results in an implements statement being added to the DmwWrapper derivative.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#version">version</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The version at which something was introduced. Version names
@@ -1827,6 +1920,19 @@
       <td> <a href="meta.html#dmoClass">dmoClass</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> This attribute indicates just the DMO class name e.g. MyClassDMO
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#dmoFromModule">dmoFromModule</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A bit of a hack to allow for creation of fully qualified dot names
+ in the DMODefinitionSet that's used for caching definitions in GWT. On the DMW side, this
+ is taken care of by overloading the getNameOfModuleWhereThisCameFrom() to access the 
+ getDefinedInModule attribute and getting the name of the module.
       </td>
     </tr>
 
@@ -1955,7 +2061,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#file">file</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Indicates the file from which a definition was loaded.
       </td>
     </tr>
@@ -2001,7 +2107,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> Indicates the line number of the file from which a definition was loaded.
       </td>
     </tr>
@@ -2319,6 +2425,19 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="meta.html#relationship">relationship</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of the relationship established via a reference to some other named object.
+ <p/>
+ This is a minor hack to allow creation of named relationships in graph databases. Eventually, relationships
+ will become first class objects to which you can refer.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#requiredPart">requiredPart</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#Part">Part</a> </td>
       <td> Indicates a required part of a complex type definition.
@@ -2423,8 +2542,21 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td> <a href="meta.html#file">file</a> </td>
+      <td> <a href="meta.html#dmoFromModule">dmoFromModule</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A bit of a hack to allow for creation of fully qualified dot names
+ in the DMODefinitionSet that's used for caching definitions in GWT. On the DMW side, this
+ is taken care of by overloading the getNameOfModuleWhereThisCameFrom() to access the 
+ getDefinedInModule attribute and getting the name of the module.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Indicates the file from which a definition was loaded.
       </td>
     </tr>
@@ -2434,7 +2566,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> Indicates the line number of the file from which a definition was loaded.
       </td>
     </tr>
@@ -2643,6 +2775,19 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="meta.html#relationship">relationship</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of the relationship established via a reference to some other named object.
+ <p/>
+ This is a minor hack to allow creation of named relationships in graph databases. Eventually, relationships
+ will become first class objects to which you can refer.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#searchable">searchable</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> Indicates if something is searchable.
@@ -2737,8 +2882,21 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td> <a href="meta.html#file">file</a> </td>
+      <td> <a href="meta.html#dmoFromModule">dmoFromModule</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A bit of a hack to allow for creation of fully qualified dot names
+ in the DMODefinitionSet that's used for caching definitions in GWT. On the DMW side, this
+ is taken care of by overloading the getNameOfModuleWhereThisCameFrom() to access the 
+ getDefinedInModule attribute and getting the name of the module.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Indicates the file from which a definition was loaded.
       </td>
     </tr>
@@ -2748,7 +2906,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> Indicates the line number of the file from which a definition was loaded.
       </td>
     </tr>
@@ -2805,7 +2963,7 @@
       <td class="spacer"> </td>
       <td class="label">Derived classes</td>
       <td colspan="2">
-      <div class="derived"> <a href="meta.html#Concinnity">Concinnity</a> </div>      <div class="derived"> <a href="meta.html#DmsDefinition">DmsDefinition</a> </div>      </td>
+      <div class="derived"> <a href="meta.html#Concinnity">Concinnity</a> </div>      <div class="derived"> <a href="meta.html#DmsDefinition">DmsDefinition</a> </div>      <div class="derived"> <a href="dmtdl.html#TdlDefinition">TdlDefinition</a> </div>      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.wrapper(ClassFormatter.java:137) -->
@@ -2969,6 +3127,19 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="meta.html#relationship">relationship</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of the relationship established via a reference to some other named object.
+ <p/>
+ This is a minor hack to allow creation of named relationships in graph databases. Eventually, relationships
+ will become first class objects to which you can refer.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#searchable">searchable</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> Indicates if something is searchable.
@@ -3063,8 +3234,21 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td> <a href="meta.html#file">file</a> </td>
+      <td> <a href="meta.html#dmoFromModule">dmoFromModule</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A bit of a hack to allow for creation of fully qualified dot names
+ in the DMODefinitionSet that's used for caching definitions in GWT. On the DMW side, this
+ is taken care of by overloading the getNameOfModuleWhereThisCameFrom() to access the 
+ getDefinedInModule attribute and getting the name of the module.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Indicates the file from which a definition was loaded.
       </td>
     </tr>
@@ -3074,7 +3258,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> Indicates the line number of the file from which a definition was loaded.
       </td>
     </tr>
@@ -3424,6 +3608,19 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="meta.html#relationship">relationship</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of the relationship established via a reference to some other named object.
+ <p/>
+ This is a minor hack to allow creation of named relationships in graph databases. Eventually, relationships
+ will become first class objects to which you can refer.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#requiredBaseModule">requiredBaseModule</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A set of base module files that should be loaded before
@@ -3549,8 +3746,21 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td> <a href="meta.html#file">file</a> </td>
+      <td> <a href="meta.html#dmoFromModule">dmoFromModule</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A bit of a hack to allow for creation of fully qualified dot names
+ in the DMODefinitionSet that's used for caching definitions in GWT. On the DMW side, this
+ is taken care of by overloading the getNameOfModuleWhereThisCameFrom() to access the 
+ getDefinedInModule attribute and getting the name of the module.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Indicates the file from which a definition was loaded.
       </td>
     </tr>
@@ -3560,7 +3770,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> Indicates the line number of the file from which a definition was loaded.
       </td>
     </tr>
@@ -3821,6 +4031,19 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="meta.html#relationship">relationship</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of the relationship established via a reference to some other named object.
+ <p/>
+ This is a minor hack to allow creation of named relationships in graph databases. Eventually, relationships
+ will become first class objects to which you can refer.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#searchable">searchable</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> Indicates if something is searchable.
@@ -3915,8 +4138,21 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td> <a href="meta.html#file">file</a> </td>
+      <td> <a href="meta.html#dmoFromModule">dmoFromModule</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A bit of a hack to allow for creation of fully qualified dot names
+ in the DMODefinitionSet that's used for caching definitions in GWT. On the DMW side, this
+ is taken care of by overloading the getNameOfModuleWhereThisCameFrom() to access the 
+ getDefinedInModule attribute and getting the name of the module.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Indicates the file from which a definition was loaded.
       </td>
     </tr>
@@ -3926,7 +4162,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> Indicates the line number of the file from which a definition was loaded.
       </td>
     </tr>
@@ -4176,6 +4412,19 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="meta.html#relationship">relationship</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of the relationship established via a reference to some other named object.
+ <p/>
+ This is a minor hack to allow creation of named relationships in graph databases. Eventually, relationships
+ will become first class objects to which you can refer.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#searchable">searchable</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> Indicates if something is searchable.
@@ -4270,8 +4519,21 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td> <a href="meta.html#file">file</a> </td>
+      <td> <a href="meta.html#dmoFromModule">dmoFromModule</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A bit of a hack to allow for creation of fully qualified dot names
+ in the DMODefinitionSet that's used for caching definitions in GWT. On the DMW side, this
+ is taken care of by overloading the getNameOfModuleWhereThisCameFrom() to access the 
+ getDefinedInModule attribute and getting the name of the module.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Indicates the file from which a definition was loaded.
       </td>
     </tr>
@@ -4281,7 +4543,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> Indicates the line number of the file from which a definition was loaded.
       </td>
     </tr>
@@ -4506,6 +4768,19 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="meta.html#relationship">relationship</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of the relationship established via a reference to some other named object.
+ <p/>
+ This is a minor hack to allow creation of named relationships in graph databases. Eventually, relationships
+ will become first class objects to which you can refer.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#searchable">searchable</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> Indicates if something is searchable.
@@ -4600,8 +4875,21 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td> <a href="meta.html#file">file</a> </td>
+      <td> <a href="meta.html#dmoFromModule">dmoFromModule</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A bit of a hack to allow for creation of fully qualified dot names
+ in the DMODefinitionSet that's used for caching definitions in GWT. On the DMW side, this
+ is taken care of by overloading the getNameOfModuleWhereThisCameFrom() to access the 
+ getDefinedInModule attribute and getting the name of the module.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Indicates the file from which a definition was loaded.
       </td>
     </tr>
@@ -4611,7 +4899,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> Indicates the line number of the file from which a definition was loaded.
       </td>
     </tr>
@@ -4858,6 +5146,19 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="meta.html#relationship">relationship</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of the relationship established via a reference to some other named object.
+ <p/>
+ This is a minor hack to allow creation of named relationships in graph databases. Eventually, relationships
+ will become first class objects to which you can refer.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#searchable">searchable</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> Indicates if something is searchable.
@@ -4952,8 +5253,21 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td> <a href="meta.html#file">file</a> </td>
+      <td> <a href="meta.html#dmoFromModule">dmoFromModule</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A bit of a hack to allow for creation of fully qualified dot names
+ in the DMODefinitionSet that's used for caching definitions in GWT. On the DMW side, this
+ is taken care of by overloading the getNameOfModuleWhereThisCameFrom() to access the 
+ getDefinedInModule attribute and getting the name of the module.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Indicates the file from which a definition was loaded.
       </td>
     </tr>
@@ -4963,7 +5277,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> Indicates the line number of the file from which a definition was loaded.
       </td>
     </tr>
@@ -5238,6 +5552,19 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="meta.html#relationship">relationship</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of the relationship established via a reference to some other named object.
+ <p/>
+ This is a minor hack to allow creation of named relationships in graph databases. Eventually, relationships
+ will become first class objects to which you can refer.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#requiredPart">requiredPart</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#Part">Part</a> </td>
       <td> Indicates a required part of a complex type definition.
@@ -5342,8 +5669,21 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td> <a href="meta.html#file">file</a> </td>
+      <td> <a href="meta.html#dmoFromModule">dmoFromModule</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A bit of a hack to allow for creation of fully qualified dot names
+ in the DMODefinitionSet that's used for caching definitions in GWT. On the DMW side, this
+ is taken care of by overloading the getNameOfModuleWhereThisCameFrom() to access the 
+ getDefinedInModule attribute and getting the name of the module.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Indicates the file from which a definition was loaded.
       </td>
     </tr>
@@ -5353,7 +5693,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> Indicates the line number of the file from which a definition was loaded.
       </td>
     </tr>
@@ -5657,6 +5997,19 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="meta.html#relationship">relationship</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of the relationship established via a reference to some other named object.
+ <p/>
+ This is a minor hack to allow creation of named relationships in graph databases. Eventually, relationships
+ will become first class objects to which you can refer.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#ruleImport">ruleImport</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> An import required for generation of the rule collection associated with
@@ -5762,8 +6115,21 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td> <a href="meta.html#file">file</a> </td>
+      <td> <a href="meta.html#dmoFromModule">dmoFromModule</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A bit of a hack to allow for creation of fully qualified dot names
+ in the DMODefinitionSet that's used for caching definitions in GWT. On the DMW side, this
+ is taken care of by overloading the getNameOfModuleWhereThisCameFrom() to access the 
+ getDefinedInModule attribute and getting the name of the module.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Indicates the file from which a definition was loaded.
       </td>
     </tr>
@@ -5773,7 +6139,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> Indicates the line number of the file from which a definition was loaded.
       </td>
     </tr>
@@ -5943,7 +6309,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#file">file</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Indicates the file from which a definition was loaded.
       </td>
     </tr>
@@ -5953,7 +6319,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> Indicates the line number of the file from which a definition was loaded.
       </td>
     </tr>
@@ -6248,6 +6614,19 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="meta.html#relationship">relationship</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of the relationship established via a reference to some other named object.
+ <p/>
+ This is a minor hack to allow creation of named relationships in graph databases. Eventually, relationships
+ will become first class objects to which you can refer.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#searchable">searchable</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> Indicates if something is searchable.
@@ -6342,8 +6721,21 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td> <a href="meta.html#file">file</a> </td>
+      <td> <a href="meta.html#dmoFromModule">dmoFromModule</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A bit of a hack to allow for creation of fully qualified dot names
+ in the DMODefinitionSet that's used for caching definitions in GWT. On the DMW side, this
+ is taken care of by overloading the getNameOfModuleWhereThisCameFrom() to access the 
+ getDefinedInModule attribute and getting the name of the module.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Indicates the file from which a definition was loaded.
       </td>
     </tr>
@@ -6353,7 +6745,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> Indicates the line number of the file from which a definition was loaded.
       </td>
     </tr>
@@ -6571,6 +6963,19 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="meta.html#relationship">relationship</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of the relationship established via a reference to some other named object.
+ <p/>
+ This is a minor hack to allow creation of named relationships in graph databases. Eventually, relationships
+ will become first class objects to which you can refer.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#searchable">searchable</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> Indicates if something is searchable.
@@ -6665,8 +7070,21 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td> <a href="meta.html#file">file</a> </td>
+      <td> <a href="meta.html#dmoFromModule">dmoFromModule</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A bit of a hack to allow for creation of fully qualified dot names
+ in the DMODefinitionSet that's used for caching definitions in GWT. On the DMW side, this
+ is taken care of by overloading the getNameOfModuleWhereThisCameFrom() to access the 
+ getDefinedInModule attribute and getting the name of the module.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Indicates the file from which a definition was loaded.
       </td>
     </tr>
@@ -6676,7 +7094,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> Indicates the line number of the file from which a definition was loaded.
       </td>
     </tr>
@@ -7011,6 +7429,19 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="meta.html#relationship">relationship</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of the relationship established via a reference to some other named object.
+ <p/>
+ This is a minor hack to allow creation of named relationships in graph databases. Eventually, relationships
+ will become first class objects to which you can refer.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#ruleCategoryList">ruleCategoryList</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#RuleCategory">RuleCategory</a> </td>
       <td> The RuleCategories defined in a schema.
@@ -7198,6 +7629,19 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="meta.html#dmoFromModule">dmoFromModule</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A bit of a hack to allow for creation of fully qualified dot names
+ in the DMODefinitionSet that's used for caching definitions in GWT. On the DMW side, this
+ is taken care of by overloading the getNameOfModuleWhereThisCameFrom() to access the 
+ getDefinedInModule attribute and getting the name of the module.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#enumDefList">enumDefList</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#EnumDefinition">EnumDefinition</a> </td>
       <td> A list of EnumDefinitions.
@@ -7219,7 +7663,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#file">file</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Indicates the file from which a definition was loaded.
       </td>
     </tr>
@@ -7240,7 +7684,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> Indicates the line number of the file from which a definition was loaded.
       </td>
     </tr>
@@ -7490,6 +7934,19 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="meta.html#relationship">relationship</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of the relationship established via a reference to some other named object.
+ <p/>
+ This is a minor hack to allow creation of named relationships in graph databases. Eventually, relationships
+ will become first class objects to which you can refer.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#searchable">searchable</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> Indicates if something is searchable.
@@ -7584,8 +8041,21 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td> <a href="meta.html#file">file</a> </td>
+      <td> <a href="meta.html#dmoFromModule">dmoFromModule</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A bit of a hack to allow for creation of fully qualified dot names
+ in the DMODefinitionSet that's used for caching definitions in GWT. On the DMW side, this
+ is taken care of by overloading the getNameOfModuleWhereThisCameFrom() to access the 
+ getDefinedInModule attribute and getting the name of the module.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Indicates the file from which a definition was loaded.
       </td>
     </tr>
@@ -7595,7 +8065,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> Indicates the line number of the file from which a definition was loaded.
       </td>
     </tr>
@@ -8011,6 +8481,19 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="meta.html#relationship">relationship</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of the relationship established via a reference to some other named object.
+ <p/>
+ This is a minor hack to allow creation of named relationships in graph databases. Eventually, relationships
+ will become first class objects to which you can refer.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#searchable">searchable</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> Indicates if something is searchable.
@@ -8105,6 +8588,19 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="meta.html#dmoFromModule">dmoFromModule</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A bit of a hack to allow for creation of fully qualified dot names
+ in the DMODefinitionSet that's used for caching definitions in GWT. On the DMW side, this
+ is taken care of by overloading the getNameOfModuleWhereThisCameFrom() to access the 
+ getDefinedInModule attribute and getting the name of the module.
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#dmwIteratorClass">dmwIteratorClass</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> This attribute indicates just the DmcContainerIterator name for a
@@ -8139,7 +8635,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#file">file</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Indicates the file from which a definition was loaded.
       </td>
     </tr>
@@ -8228,7 +8724,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td class="valueType"> N SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> Indicates the line number of the file from which a definition was loaded.
       </td>
     </tr>
@@ -8969,6 +9465,35 @@
     </tr>
 
 <!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="createIndex"> createIndex </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#Boolean">Boolean</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>
+      A flag to indicate if you want your data repository to create an index for a named object.
+
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        <tr>
+          <td> ClassDefinition (<a href="meta.html#ClassDefinition">meta</a>) </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="dataType"> dataType </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -9024,6 +9549,7 @@
         <table>
         <tr>
           <td> SchemaDefinition (<a href="meta.html#SchemaDefinition">meta</a>) </td>
+          <td> TdlModule (<a href="dmtdl.html#TdlModule">dmtdl</a>) </td>
         </tr>
         </table>
       </td>
@@ -9353,6 +9879,11 @@
         </tr>
         <tr>
           <td> StringSetRuleData (<a href="dmv.html#StringSetRuleData">dmv</a>) </td>
+          <td> TdlDefinition (<a href="dmtdl.html#TdlDefinition">dmtdl</a>) </td>
+          <td> TdlModule (<a href="dmtdl.html#TdlModule">dmtdl</a>) </td>
+        </tr>
+        <tr>
+          <td> Template (<a href="dmtdl.html#Template">dmtdl</a>) </td>
           <td> TypeDefinition (<a href="meta.html#TypeDefinition">meta</a>) </td>
           <td> UCOAllowedAttributesRuleData (<a href="dmv.html#UCOAllowedAttributesRuleData">dmv</a>) </td>
         </tr>
@@ -9602,6 +10133,38 @@
         <table>
         <tr>
           <td> ClassDefinition (<a href="meta.html#ClassDefinition">meta</a>) </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="dmoFromModule"> dmoFromModule </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>
+      A bit of a hack to allow for creation of fully qualified dot names
+ in the DMODefinitionSet that's used for caching definitions in GWT. On the DMW side, this
+ is taken care of by overloading the getNameOfModuleWhereThisCameFrom() to access the 
+ getDefinedInModule attribute and getting the name of the module.
+
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        <tr>
+          <td> DSDefinition (<a href="meta.html#DSDefinition">meta</a>) </td>
         </tr>
         </table>
       </td>
@@ -10028,6 +10591,7 @@
         <table>
         <tr>
           <td> DSDefinition (<a href="meta.html#DSDefinition">meta</a>) </td>
+          <td> TdlDefinition (<a href="dmtdl.html#TdlDefinition">dmtdl</a>) </td>
         </tr>
         </table>
       </td>
@@ -10449,7 +11013,7 @@
     <tr> <td class="className" colspan="3"> <a name="file"> file </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      <td colspan="2"> <div class="valueType"> N SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
       </td>
     </tr>
 
@@ -10471,6 +11035,8 @@
           <td> DSDefinition (<a href="meta.html#DSDefinition">meta</a>) </td>
           <td> HierarchicObject (<a href="dmrbase.html#HierarchicObject">dmrbase</a>) </td>
           <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
+        <tr>
+          <td> Template (<a href="dmtdl.html#Template">dmtdl</a>) </td>
         </tr>
         </table>
       </td>
@@ -11453,7 +12019,7 @@
     <tr> <td class="className" colspan="3"> <a name="lineNumber"> lineNumber </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#Integer">Integer</a> </div> 
+      <td colspan="2"> <div class="valueType"> N SV </div> <div class="attrType"> <a href="meta.html#Integer">Integer</a> </div> 
       </td>
     </tr>
 
@@ -11475,6 +12041,8 @@
           <td> DSDefinition (<a href="meta.html#DSDefinition">meta</a>) </td>
           <td> HierarchicObject (<a href="dmrbase.html#HierarchicObject">dmrbase</a>) </td>
           <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
+        <tr>
+          <td> Template (<a href="dmtdl.html#Template">dmtdl</a>) </td>
         </tr>
         </table>
       </td>
@@ -11945,32 +12513,42 @@
         <tr>
           <td> ComplexTypeDefinition (<a href="meta.html#ComplexTypeDefinition">meta</a>) </td>
           <td> Concinnity (<a href="meta.html#Concinnity">meta</a>) </td>
-          <td> DSDefinition (<a href="meta.html#DSDefinition">meta</a>) </td>
+          <td> ContainedElement (<a href="dmtdl.html#ContainedElement">dmtdl</a>) </td>
         </tr>
         <tr>
+          <td> DSDefinition (<a href="meta.html#DSDefinition">meta</a>) </td>
           <td> DSDefinitionModule (<a href="meta.html#DSDefinitionModule">meta</a>) </td>
           <td> Dependency (<a href="meta.html#Dependency">meta</a>) </td>
-          <td> DependencyImplementation (<a href="meta.html#DependencyImplementation">meta</a>) </td>
         </tr>
         <tr>
+          <td> DependencyImplementation (<a href="meta.html#DependencyImplementation">meta</a>) </td>
           <td> DmsDefinition (<a href="meta.html#DmsDefinition">meta</a>) </td>
           <td> EnumDefinition (<a href="meta.html#EnumDefinition">meta</a>) </td>
-          <td> ExtendedReferenceTypeDefinition (<a href="meta.html#ExtendedReferenceTypeDefinition">meta</a>) </td>
         </tr>
         <tr>
+          <td> ExtendedReferenceTypeDefinition (<a href="meta.html#ExtendedReferenceTypeDefinition">meta</a>) </td>
+          <td> ExtensionHook (<a href="dmtdl.html#ExtensionHook">dmtdl</a>) </td>
           <td> MethodGenerator (<a href="dmg.html#MethodGenerator">dmg</a>) </td>
+        </tr>
+        <tr>
           <td> ObjWithRefs (<a href="dmt.html#ObjWithRefs">dmt</a>) </td>
           <td> ObjWithRefsDerivedA (<a href="dmt.html#ObjWithRefsDerivedA">dmt</a>) </td>
+          <td> ObjWithRefsDerivedB (<a href="dmt.html#ObjWithRefsDerivedB">dmt</a>) </td>
         </tr>
         <tr>
-          <td> ObjWithRefsDerivedB (<a href="dmt.html#ObjWithRefsDerivedB">dmt</a>) </td>
           <td> RuleCategory (<a href="meta.html#RuleCategory">meta</a>) </td>
           <td> RuleDefinition (<a href="meta.html#RuleDefinition">meta</a>) </td>
+          <td> RunContext (<a href="meta.html#RunContext">meta</a>) </td>
         </tr>
         <tr>
-          <td> RunContext (<a href="meta.html#RunContext">meta</a>) </td>
           <td> SchemaDefinition (<a href="meta.html#SchemaDefinition">meta</a>) </td>
+          <td> Section (<a href="dmtdl.html#Section">dmtdl</a>) </td>
           <td> SliceDefinition (<a href="meta.html#SliceDefinition">meta</a>) </td>
+        </tr>
+        <tr>
+          <td> TdlDefinition (<a href="dmtdl.html#TdlDefinition">dmtdl</a>) </td>
+          <td> TdlModule (<a href="dmtdl.html#TdlModule">dmtdl</a>) </td>
+          <td> Template (<a href="dmtdl.html#Template">dmtdl</a>) </td>
         </tr>
         <tr>
           <td> TestBasicNamedObjectExtended (<a href="dmt.html#TestBasicNamedObjectExtended">dmt</a>) </td>
@@ -11984,7 +12562,10 @@
         </tr>
         <tr>
           <td> TestOneLevelSubpackageExtended (<a href="dmt.html#TestOneLevelSubpackageExtended">dmt</a>) </td>
+          <td> TextualArtifact (<a href="dmtdl.html#TextualArtifact">dmtdl</a>) </td>
           <td> TypeDefinition (<a href="meta.html#TypeDefinition">meta</a>) </td>
+        </tr>
+        <tr>
           <td> WrapperGenerator (<a href="dmg.html#WrapperGenerator">dmg</a>) </td>
         </tr>
       <tr>
@@ -12505,6 +13086,38 @@
         <table>
         <tr>
           <td> DmsDefinition (<a href="meta.html#DmsDefinition">meta</a>) </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="relationship"> relationship </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>
+      The name of the relationship established via a reference to some other named object.
+ <p/>
+ This is a minor hack to allow creation of named relationships in graph databases. Eventually, relationships
+ will become first class objects to which you can refer.
+
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        <tr>
+          <td> DSDefinition (<a href="meta.html#DSDefinition">meta</a>) </td>
         </tr>
         </table>
       </td>
@@ -13623,6 +14236,40 @@
     </tr>
 
 <!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
+    <tr> <td class="className" colspan="3"> <a name="usesWrapperInterface"> usesWrapperInterface </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P MV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>
+      The fully qualified name of a Java interface that should
+ be implemented on an extended wrapper class. This is a useful mechanism to specify
+ common functionality across a set of classes that, otherwise, may not have anything in
+ common i.e. they aren't in the same derivation hierarchy.
+ </p>
+ This results in an implements statement being added to the DmwWrapper derivative.
+
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+        <table>
+        <tr>
+          <td> ClassDefinition (<a href="meta.html#ClassDefinition">meta</a>) </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
     <tr> <td class="className" colspan="3"> <a name="uuidName"> uuidName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -13887,12 +14534,17 @@ Provides support for Boolean values. This type makes use of the <code> nullRetur
     <td> cacheResponse (<a href="dmp.html#cacheResponse">dmp</a>) </td>
     <td> createAttributeFactory (<a href="meta.html#createAttributeFactory">meta</a>) </td>
   <tr>
+    <td> createIndex (<a href="meta.html#createIndex">meta</a>) </td>
+    <td> debugOn (<a href="dmtdl.html#debugOn">dmtdl</a>) </td>
     <td> designatedFilterAttribute (<a href="meta.html#designatedFilterAttribute">meta</a>) </td>
-    <td> designatedNameAttribute (<a href="meta.html#designatedNameAttribute">meta</a>) </td>
-    <td> enabledDisabled (<a href="dmt.html#enabledDisabled">dmt</a>) </td>
 </tr>
   <tr>
+    <td> designatedNameAttribute (<a href="meta.html#designatedNameAttribute">meta</a>) </td>
+    <td> enabledDisabled (<a href="dmt.html#enabledDisabled">dmt</a>) </td>
     <td> eventChannelReady (<a href="dmp.html#eventChannelReady">dmp</a>) </td>
+</tr>
+  <tr>
+    <td> hasTemplate (<a href="dmtdl.html#hasTemplate">dmtdl</a>) </td>
     <td> immediateHalt (<a href="meta.html#immediateHalt">meta</a>) </td>
     <td> internalUse (<a href="meta.html#internalUse">meta</a>) </td>
 </tr>
@@ -13942,6 +14594,7 @@ Provides support for Boolean values. This type makes use of the <code> nullRetur
     <td> trackingEnabled (<a href="dmp.html#trackingEnabled">dmp</a>) </td>
 </tr>
   <tr>
+    <td> usesTemplate (<a href="dmtdl.html#usesTemplate">dmtdl</a>) </td>
     <td> weakReference (<a href="meta.html#weakReference">meta</a>) </td>
 </tr>
 </table>
@@ -14442,21 +15095,25 @@ Provides support for Integer values.
 </tr>
   <tr>
     <td> lineNumber (<a href="meta.html#lineNumber">meta</a>) </td>
+    <td> maxFastAddValues (<a href="dmtdl.html#maxFastAddValues">dmtdl</a>) </td>
     <td> maxLength (<a href="dmv.html#maxLength">dmv</a>) </td>
-    <td> minLength (<a href="dmv.html#minLength">dmv</a>) </td>
 </tr>
   <tr>
+    <td> minLength (<a href="dmv.html#minLength">dmv</a>) </td>
     <td> mvInteger (<a href="dmt.html#mvInteger">dmt</a>) </td>
     <td> originatorID (<a href="dmp.html#originatorID">dmp</a>) </td>
-    <td> requestID (<a href="dmp.html#requestID">dmp</a>) </td>
 </tr>
   <tr>
+    <td> requestID (<a href="dmp.html#requestID">dmp</a>) </td>
     <td> ruleCategoryID (<a href="meta.html#ruleCategoryID">meta</a>) </td>
     <td> schemaBaseID (<a href="meta.html#schemaBaseID">meta</a>) </td>
-    <td> schemaIDRange (<a href="meta.html#schemaIDRange">meta</a>) </td>
 </tr>
   <tr>
+    <td> schemaIDRange (<a href="meta.html#schemaIDRange">meta</a>) </td>
+    <td> serverActionID (<a href="dmp.html#serverActionID">dmp</a>) </td>
     <td> svInteger (<a href="dmt.html#svInteger">dmt</a>) </td>
+</tr>
+  <tr>
     <td> timeoutSeconds (<a href="dmp.html#timeoutSeconds">dmp</a>) </td>
     <td> tsInteger (<a href="dmt.html#tsInteger">dmt</a>) </td>
 </tr>
@@ -14910,39 +15567,44 @@ Provides support for String values.
     <td> comment (<a href="meta.html#comment">meta</a>) </td>
 </tr>
   <tr>
+    <td> commentFormat (<a href="dmtdl.html#commentFormat">dmtdl</a>) </td>
     <td> configSuffix (<a href="dmg.html#configSuffix">dmg</a>) </td>
     <td> defFiles (<a href="meta.html#defFiles">meta</a>) </td>
-    <td> dependsOn (<a href="meta.html#dependsOn">meta</a>) </td>
 </tr>
   <tr>
+    <td> dependsOn (<a href="meta.html#dependsOn">meta</a>) </td>
     <td> dependsOnSchema (<a href="meta.html#dependsOnSchema">meta</a>) </td>
     <td> description (<a href="meta.html#description">meta</a>) </td>
-    <td> dmeClass (<a href="meta.html#dmeClass">meta</a>) </td>
 </tr>
   <tr>
+    <td> dmeClass (<a href="meta.html#dmeClass">meta</a>) </td>
     <td> dmeImport (<a href="meta.html#dmeImport">meta</a>) </td>
     <td> dmoAuxClass (<a href="meta.html#dmoAuxClass">meta</a>) </td>
-    <td> dmoAuxClassImport (<a href="meta.html#dmoAuxClassImport">meta</a>) </td>
 </tr>
   <tr>
+    <td> dmoAuxClassImport (<a href="meta.html#dmoAuxClassImport">meta</a>) </td>
     <td> dmoClass (<a href="meta.html#dmoClass">meta</a>) </td>
+    <td> dmoFromModule (<a href="meta.html#dmoFromModule">meta</a>) </td>
+</tr>
+  <tr>
     <td> dmoImport (<a href="meta.html#dmoImport">meta</a>) </td>
     <td> dmtClass (<a href="meta.html#dmtClass">meta</a>) </td>
+    <td> dmtImport (<a href="meta.html#dmtImport">meta</a>) </td>
 </tr>
   <tr>
-    <td> dmtImport (<a href="meta.html#dmtImport">meta</a>) </td>
     <td> dmtREFImport (<a href="meta.html#dmtREFImport">meta</a>) </td>
     <td> dmwAuxClass (<a href="meta.html#dmwAuxClass">meta</a>) </td>
+    <td> dmwAuxClassImport (<a href="meta.html#dmwAuxClassImport">meta</a>) </td>
 </tr>
   <tr>
-    <td> dmwAuxClassImport (<a href="meta.html#dmwAuxClassImport">meta</a>) </td>
     <td> dmwClass (<a href="meta.html#dmwClass">meta</a>) </td>
     <td> dmwImport (<a href="meta.html#dmwImport">meta</a>) </td>
+    <td> dmwIteratorClass (<a href="meta.html#dmwIteratorClass">meta</a>) </td>
 </tr>
   <tr>
-    <td> dmwIteratorClass (<a href="meta.html#dmwIteratorClass">meta</a>) </td>
     <td> dmwIteratorImport (<a href="meta.html#dmwIteratorImport">meta</a>) </td>
     <td> dmwPackage (<a href="meta.html#dmwPackage">meta</a>) </td>
+    <td> endsWithText (<a href="dmtdl.html#endsWithText">dmtdl</a>) </td>
 </tr>
   <tr>
     <td> enumName (<a href="meta.html#enumName">meta</a>) </td>
@@ -14960,93 +15622,108 @@ Provides support for String values.
     <td> filter (<a href="dmp.html#filter">dmp</a>) </td>
 </tr>
   <tr>
+    <td> format (<a href="dmtdl.html#format">dmtdl</a>) </td>
     <td> genClass (<a href="dmg.html#genClass">dmg</a>) </td>
     <td> genPackage (<a href="dmg.html#genPackage">dmg</a>) </td>
-    <td> generatedFileHeader (<a href="meta.html#generatedFileHeader">meta</a>) </td>
 </tr>
   <tr>
+    <td> generatedFileHeader (<a href="meta.html#generatedFileHeader">meta</a>) </td>
     <td> genericArgs (<a href="meta.html#genericArgs">meta</a>) </td>
     <td> genericArgsImport (<a href="meta.html#genericArgsImport">meta</a>) </td>
-    <td> getMethod (<a href="meta.html#getMethod">meta</a>) </td>
 </tr>
   <tr>
+    <td> getMethod (<a href="meta.html#getMethod">meta</a>) </td>
     <td> getType (<a href="meta.html#getType">meta</a>) </td>
     <td> helperClassName (<a href="meta.html#helperClassName">meta</a>) </td>
-    <td> hint (<a href="meta.html#hint">meta</a>) </td>
 </tr>
   <tr>
+    <td> hint (<a href="meta.html#hint">meta</a>) </td>
     <td> hsString (<a href="dmt.html#hsString">dmt</a>) </td>
     <td> indexedString (<a href="dmt.html#indexedString">dmt</a>) </td>
-    <td> instantiation (<a href="meta.html#instantiation">meta</a>) </td>
 </tr>
   <tr>
+    <td> insertMarker (<a href="dmtdl.html#insertMarker">dmtdl</a>) </td>
+    <td> instantiation (<a href="meta.html#instantiation">meta</a>) </td>
     <td> javaClass (<a href="meta.html#javaClass">meta</a>) </td>
+</tr>
+  <tr>
     <td> keyClass (<a href="meta.html#keyClass">meta</a>) </td>
     <td> keyImport (<a href="meta.html#keyImport">meta</a>) </td>
+    <td> limitedStringMV (<a href="dmt.html#limitedStringMV">dmt</a>) </td>
 </tr>
   <tr>
-    <td> limitedStringMV (<a href="dmt.html#limitedStringMV">dmt</a>) </td>
     <td> limitedStringSV (<a href="dmt.html#limitedStringSV">dmt</a>) </td>
     <td> matchesPattern (<a href="dmv.html#matchesPattern">dmv</a>) </td>
+    <td> moduleClassName (<a href="meta.html#moduleClassName">meta</a>) </td>
 </tr>
   <tr>
-    <td> moduleClassName (<a href="meta.html#moduleClassName">meta</a>) </td>
     <td> msgKey (<a href="meta.html#msgKey">meta</a>) </td>
     <td> msgParam (<a href="meta.html#msgParam">meta</a>) </td>
+    <td> mvIdxString (<a href="dmt.html#mvIdxString">dmt</a>) </td>
 </tr>
   <tr>
-    <td> mvIdxString (<a href="dmt.html#mvIdxString">dmt</a>) </td>
     <td> mvString (<a href="dmt.html#mvString">dmt</a>) </td>
     <td> nonperString (<a href="dmt.html#nonperString">dmt</a>) </td>
+    <td> nullReturnValue (<a href="meta.html#nullReturnValue">meta</a>) </td>
 </tr>
   <tr>
-    <td> nullReturnValue (<a href="meta.html#nullReturnValue">meta</a>) </td>
     <td> obsolete (<a href="meta.html#obsolete">meta</a>) </td>
     <td> obsoleteVersion (<a href="meta.html#obsoleteVersion">meta</a>) </td>
+    <td> optimize (<a href="meta.html#optimize">meta</a>) </td>
 </tr>
   <tr>
-    <td> optimize (<a href="meta.html#optimize">meta</a>) </td>
+    <td> package (<a href="dmtdl.html#package">dmtdl</a>) </td>
     <td> password (<a href="dmrbase.html#password">dmrbase</a>) </td>
     <td> primitiveType (<a href="meta.html#primitiveType">meta</a>) </td>
 </tr>
   <tr>
     <td> question (<a href="meta.html#question">meta</a>) </td>
+    <td> relationship (<a href="meta.html#relationship">meta</a>) </td>
     <td> requestRoot (<a href="dmp.html#requestRoot">dmp</a>) </td>
-    <td> requiredBaseModule (<a href="meta.html#requiredBaseModule">meta</a>) </td>
 </tr>
   <tr>
+    <td> requiredBaseModule (<a href="meta.html#requiredBaseModule">meta</a>) </td>
     <td> responseText (<a href="dmp.html#responseText">dmp</a>) </td>
     <td> ruleImport (<a href="meta.html#ruleImport">meta</a>) </td>
-    <td> ruleTitle (<a href="meta.html#ruleTitle">meta</a>) </td>
 </tr>
   <tr>
+    <td> ruleTitle (<a href="meta.html#ruleTitle">meta</a>) </td>
     <td> schemaExtension (<a href="meta.html#schemaExtension">meta</a>) </td>
     <td> schemaPackage (<a href="meta.html#schemaPackage">meta</a>) </td>
-    <td> schemaToLoad (<a href="dmg.html#schemaToLoad">dmg</a>) </td>
 </tr>
   <tr>
+    <td> schemaToLoad (<a href="dmg.html#schemaToLoad">dmg</a>) </td>
     <td> sessionID (<a href="dmp.html#sessionID">dmp</a>) </td>
     <td> skip (<a href="meta.html#skip">meta</a>) </td>
-    <td> slice (<a href="dmp.html#slice">dmp</a>) </td>
 </tr>
   <tr>
+    <td> slice (<a href="dmp.html#slice">dmp</a>) </td>
+    <td> startsWithText (<a href="dmtdl.html#startsWithText">dmtdl</a>) </td>
     <td> subpackage (<a href="meta.html#subpackage">meta</a>) </td>
+</tr>
+  <tr>
     <td> svString (<a href="dmt.html#svString">dmt</a>) </td>
     <td> tags (<a href="meta.html#tags">meta</a>) </td>
+    <td> targetObjectClass (<a href="dmtdl.html#targetObjectClass">dmtdl</a>) </td>
 </tr>
   <tr>
+    <td> templateFile (<a href="dmtdl.html#templateFile">dmtdl</a>) </td>
+    <td> templateFileSuffix (<a href="dmtdl.html#templateFileSuffix">dmtdl</a>) </td>
     <td> transString (<a href="dmt.html#transString">dmt</a>) </td>
+</tr>
+  <tr>
     <td> tsString (<a href="dmt.html#tsString">dmt</a>) </td>
     <td> typeClassName (<a href="meta.html#typeClassName">meta</a>) </td>
+    <td> upperConstantName (<a href="dmg.html#upperConstantName">dmg</a>) </td>
 </tr>
   <tr>
-    <td> upperConstantName (<a href="dmg.html#upperConstantName">dmg</a>) </td>
     <td> useInterface (<a href="meta.html#useInterface">meta</a>) </td>
     <td> userFQN (<a href="dmp.html#userFQN">dmp</a>) </td>
+    <td> userName (<a href="dmt.html#userName">dmt</a>) </td>
 </tr>
   <tr>
-    <td> userName (<a href="dmt.html#userName">dmt</a>) </td>
     <td> usesInterface (<a href="meta.html#usesInterface">meta</a>) </td>
+    <td> usesWrapperInterface (<a href="meta.html#usesWrapperInterface">meta</a>) </td>
     <td> version (<a href="meta.html#version">meta</a>) </td>
 </tr>
   <tr>
@@ -15778,146 +16455,6 @@ SPACE</td>
 
 <!-- org.dmd.dms.doc.web.EnumFormatter.dumpDetails(EnumFormatter.java:14) -->
 
-    <tr> <td class="className" colspan="4"> <a name="GPBFieldTypeEnum"> GPBFieldTypeEnum </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td> 0</td>
-      <td> REQUIRED</td>
-      <td>A required field.</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> 1</td>
-      <td> OPTIONAL</td>
-      <td>An optional field.</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> 2</td>
-      <td> REPEATED</td>
-      <td>A repeated field.</td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.EnumFormatter.dumpDetails(EnumFormatter.java:14) -->
-
-    <tr> <td class="className" colspan="4"> <a name="GPBScalarTypeEnum"> GPBScalarTypeEnum </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label" colspan="2">Description</td>
-      <td>The GPBScalarTypeEnum indicates the various mechanisms for encoding attribute values
- using Google Protocol Buffers.
-</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> 0</td>
-      <td> DOUBLE</td>
-      <td>Java double - C++ double.</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> 1</td>
-      <td> FLOAT</td>
-      <td>Java float - C++ float.</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> 2</td>
-      <td> INT32</td>
-      <td>Java int - C++ int32. Uses variable-length encoding. Inefficient for encoding negative numbers - if your field is likely to have negative values, use sint32 instead.</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> 3</td>
-      <td> INT64</td>
-      <td>Java long - C++ int64. Uses variable-length encoding. Inefficient for encoding negative numbers - if your field is likely to have negative values, use sint64 instead.</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> 4</td>
-      <td> UINT32</td>
-      <td>Java int - C++ uint32. Uses variable-length encoding. In Java, unsigned 32-bit integers are represented using their signed counterparts, with the top bit simply being stored in the sign bit.</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> 5</td>
-      <td> UINT64</td>
-      <td>Java long - C++ uint64. Uses variable-length encoding. In Java, unsigned 64-bit integers are represented using their signed counterparts, with the top bit simply being stored in the sign bit.</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> 6</td>
-      <td> SINT32</td>
-      <td>Java int - C++ int32. Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s.</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> 7</td>
-      <td> SINT64</td>
-      <td>Java long - C++ int64. Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s.</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> 8</td>
-      <td> FIXED32</td>
-      <td>Java int - C++ uint32. Always four bytes. More efficient than uint32 if values are often greater than 2^28.</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> 9</td>
-      <td> FIXED64</td>
-      <td>Java long - C++ uint64. Always eight bytes. More efficient than uint64 if values are often greater than 2^56.</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> 10</td>
-      <td> SFIXED32</td>
-      <td>Java int - C++ int32. Always four bytes.</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> 11</td>
-      <td> SFIXED64</td>
-      <td>Java long - C++ int64. Always eight bytes.</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> 12</td>
-      <td> BOOL</td>
-      <td>Java boolean - C++ bool.</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> 13</td>
-      <td> STRING</td>
-      <td>Java String - C++ string. A string must always contain UTF-8 encoded or 7-bit ASCII text.</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> 14</td>
-      <td> BYTES</td>
-      <td>Java ByteString - C++ string. May contain any arbitrary sequence of bytes.</td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.EnumFormatter.dumpDetails(EnumFormatter.java:14) -->
-
     <tr> <td class="className" colspan="4"> <a name="ModifyTypeEnum"> ModifyTypeEnum </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -16180,6 +16717,7 @@ SPACE</td>
         <a class="navLink" href="dmp.html"> dmp</a>
         <a class="navLink" href="dmrbase.html"> dmrbase</a>
         <a class="navLink" href="dmt.html"> dmt</a>
+        <a class="navLink" href="dmtdl.html"> dmtdl</a>
         <a class="navLink" href="dmv.html"> dmv</a>
         <a class="navLink" href="meta.html"> meta</a>
         <a class="navLink" href="SchemaSummaryPage.html"> Summary </a>
