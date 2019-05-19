@@ -398,8 +398,8 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
             svStringValue2.set("the single valued string");
             _dmtInitTestBasicObjectFixedData.set(DmtDMSAG.__svString, svStringValue2);
             DmcTypeDmtTestEnumSET hsTestEnumValue3 = new DmcTypeDmtTestEnumSET(DmtDMSAG.__hsTestEnum);
-            hsTestEnumValue3.add("TEST2");
             hsTestEnumValue3.add("TEST1");
+            hsTestEnumValue3.add("TEST2");
             _dmtInitTestBasicObjectFixedData.add(DmtDMSAG.__hsTestEnum, hsTestEnumValue3);
             DmcTypeStringMV mvStringValue4 = new DmcTypeStringMV(DmtDMSAG.__mvString);
             mvStringValue4.add("first value");

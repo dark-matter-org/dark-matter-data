@@ -17,16 +17,16 @@ package org.dmd.dmv.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:442)
-import java.util.ArrayList;                                                   // Support for MULTI attribute - (BaseDMWGenerator.java:2114)
-import java.util.Iterator;                                                    // Support copy of MV objects - (BaseDMWGenerator.java:2128)
-import org.dmd.dmc.*;                                                         // If any attributes - (BaseDMWGenerator.java:975)
+import java.util.ArrayList;                                                   // Support for MULTI attribute - (BaseDMWGenerator.java:2116)
+import java.util.Iterator;                                                    // Support copy of MV objects - (BaseDMWGenerator.java:2130)
+import org.dmd.dmc.*;                                                         // If any attributes - (BaseDMWGenerator.java:977)
 import org.dmd.dmc.types.RuleName;                                            // Is named by - (BaseDMWGenerator.java:939)
 import org.dmd.dms.ClassDefinition;                                           // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:944)
-import org.dmd.dms.RuleData;                                                  // Derived class - (BaseDMWGenerator.java:1136)
+import org.dmd.dms.RuleData;                                                  // Derived class - (BaseDMWGenerator.java:1138)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                   // Attribute description from the meta schema - (BaseDMWGenerator.java:910)
-import org.dmd.dms.generated.dmw.StringIterableDMW;                           // For multi-valued String - (BaseDMWGenerator.java:1991)
+import org.dmd.dms.generated.dmw.StringIterableDMW;                           // For multi-valued String - (BaseDMWGenerator.java:1993)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                         // Required for MODREC constructor - (BaseDMWGenerator.java:948)
-import org.dmd.dmv.shared.generated.dmo.AllowedAttributesRuleDataDMO;         // Class not auxiliary or abstract - (BaseDMWGenerator.java:1140)
+import org.dmd.dmv.shared.generated.dmo.AllowedAttributesRuleDataDMO;         // Class not auxiliary or abstract - (BaseDMWGenerator.java:1142)
 
 
 
@@ -91,7 +91,7 @@ public class AllowedAttributesRuleDataDMW extends RuleData implements DmcNamedOb
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGenerator.getAccessFunctions(BaseDMWGenerator.java:1185)
+    // org.dmd.dmg.generators.BaseDMWGenerator.getAccessFunctions(BaseDMWGenerator.java:1187)
     public RuleName getObjectName(){
         return(((AllowedAttributesRuleDataDMO) core).getRuleName());
     }
@@ -114,7 +114,7 @@ public class AllowedAttributesRuleDataDMW extends RuleData implements DmcNamedOb
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1559)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
     public int getDescriptionSize(){
         return(((AllowedAttributesRuleDataDMO) core).getDescriptionSize());
     }
@@ -122,7 +122,7 @@ public class AllowedAttributesRuleDataDMW extends RuleData implements DmcNamedOb
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1567)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
     public boolean getDescriptionIsEmpty(){
         if (((AllowedAttributesRuleDataDMO) core).getDescriptionSize() == 0)
             return(true);
@@ -132,7 +132,7 @@ public class AllowedAttributesRuleDataDMW extends RuleData implements DmcNamedOb
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1577)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
     public boolean getDescriptionHasValue(){
         if (((AllowedAttributesRuleDataDMO) core).getDescriptionSize() == 0)
             return(false);
@@ -142,7 +142,7 @@ public class AllowedAttributesRuleDataDMW extends RuleData implements DmcNamedOb
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1995)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
     public StringIterableDMW getDescriptionIterable(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__description);
         if (attr == null)
@@ -155,7 +155,7 @@ public class AllowedAttributesRuleDataDMW extends RuleData implements DmcNamedOb
      * Adds another description value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2021)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
     public void addDescription(Object value) throws DmcValueException {
         ((AllowedAttributesRuleDataDMO) core).addDescription(value);
     }
@@ -164,7 +164,7 @@ public class AllowedAttributesRuleDataDMW extends RuleData implements DmcNamedOb
      * Adds another description value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2031)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2033)
     public void addDescription(String value){
         ((AllowedAttributesRuleDataDMO) core).addDescription(value);
     }
@@ -173,7 +173,7 @@ public class AllowedAttributesRuleDataDMW extends RuleData implements DmcNamedOb
      * Returns true if the collection contains the description value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2088)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
     public boolean descriptionContains(String value){
         return(((AllowedAttributesRuleDataDMO) core).descriptionContains(value));
     }
@@ -181,7 +181,7 @@ public class AllowedAttributesRuleDataDMW extends RuleData implements DmcNamedOb
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2132)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getDescriptionCopy(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__description);
@@ -202,7 +202,7 @@ public class AllowedAttributesRuleDataDMW extends RuleData implements DmcNamedOb
      * Deletes a description value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2159)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
     public void delDescription(Object value) throws DmcValueException {
         ((AllowedAttributesRuleDataDMO) core).delDescription(value);
     }
@@ -211,7 +211,7 @@ public class AllowedAttributesRuleDataDMW extends RuleData implements DmcNamedOb
      * Deletes a description value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2168)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
     public void delDescription(String value){
         ((AllowedAttributesRuleDataDMO) core).delDescription(value);
     }
@@ -219,12 +219,12 @@ public class AllowedAttributesRuleDataDMW extends RuleData implements DmcNamedOb
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2180)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
     public void remDescription(){
         ((AllowedAttributesRuleDataDMO) core).remDescription();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1362)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1364)
     public RuleName getRuleName(){
         return(((AllowedAttributesRuleDataDMO) core).getRuleName());
     }
@@ -233,7 +233,7 @@ public class AllowedAttributesRuleDataDMW extends RuleData implements DmcNamedOb
      * Sets ruleName to the specified value.
      * @param value A value compatible with DmcTypeRuleName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1472)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
     public void setRuleName(Object value) throws DmcValueException {
         ((AllowedAttributesRuleDataDMO) core).setRuleName(value);
     }
@@ -242,7 +242,7 @@ public class AllowedAttributesRuleDataDMW extends RuleData implements DmcNamedOb
      * Sets ruleName to the specified value.
      * @param value RuleName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1481)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
     public void setRuleName(RuleName value){
         ((AllowedAttributesRuleDataDMO) core).setRuleName(value);
     }
@@ -250,12 +250,12 @@ public class AllowedAttributesRuleDataDMW extends RuleData implements DmcNamedOb
     /**
      * Removes the ruleName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1507)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
     public void remRuleName(){
         ((AllowedAttributesRuleDataDMO) core).remRuleName();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1362)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1364)
     public String getRuleTitle(){
         return(((AllowedAttributesRuleDataDMO) core).getRuleTitle());
     }
@@ -264,7 +264,7 @@ public class AllowedAttributesRuleDataDMW extends RuleData implements DmcNamedOb
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1472)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
     public void setRuleTitle(Object value) throws DmcValueException {
         ((AllowedAttributesRuleDataDMO) core).setRuleTitle(value);
     }
@@ -273,7 +273,7 @@ public class AllowedAttributesRuleDataDMW extends RuleData implements DmcNamedOb
      * Sets ruleTitle to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1481)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
     public void setRuleTitle(String value){
         ((AllowedAttributesRuleDataDMO) core).setRuleTitle(value);
     }
@@ -281,7 +281,7 @@ public class AllowedAttributesRuleDataDMW extends RuleData implements DmcNamedOb
     /**
      * Removes the ruleTitle attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1507)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
     public void remRuleTitle(){
         ((AllowedAttributesRuleDataDMO) core).remRuleTitle();
     }
