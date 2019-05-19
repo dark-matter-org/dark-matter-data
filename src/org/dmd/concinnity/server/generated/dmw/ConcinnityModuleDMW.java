@@ -2,27 +2,27 @@ package org.dmd.concinnity.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:442)
-import java.util.ArrayList;                                                             // To support getMVCopy() - (BaseDMWGenerator.java:1181)
-import java.util.Iterator;                                                              // Support copy of MV objects - (BaseDMWGenerator.java:2240)
+import java.util.ArrayList;                                                             // To support getMVCopy() - (BaseDMWGenerator.java:1069)
+import java.util.Iterator;                                                              // Support copy of MV objects - (BaseDMWGenerator.java:2128)
 import org.dmd.concinnity.server.extended.Concept;                                      // A definition from the ConcinnityModule Module - (DSDefinitionModule.java:191)
-import org.dmd.concinnity.server.extended.ConcinnityDefinition;                         // Derived class - (BaseDMWGenerator.java:1248)
-import org.dmd.concinnity.server.extended.ConcinnityModule;                             // Required for getModificationRecorder() - (BaseDMWGenerator.java:1076)
-import org.dmd.concinnity.server.generated.dmw.ConcinnityModuleIterableDMW;             // For multi-valued ConcinnityModule - (BaseDMWGenerator.java:1709)
+import org.dmd.concinnity.server.extended.ConcinnityDefinition;                         // Derived class - (BaseDMWGenerator.java:1136)
+import org.dmd.concinnity.server.extended.ConcinnityModule;                             // Required for getModificationRecorder() - (BaseDMWGenerator.java:953)
+import org.dmd.concinnity.server.generated.dmw.ConcinnityModuleIterableDMW;             // For multi-valued ConcinnityModule - (BaseDMWGenerator.java:1597)
 import org.dmd.concinnity.server.generated.dsd.ConcinnityModuleScopedInterface;         // Required to manage module definition - (DMWGenerator.java:170)
-import org.dmd.concinnity.shared.generated.dmo.ConcinnityModuleDMO;                     // Class not auxiliary or abstract - (BaseDMWGenerator.java:1252)
-import org.dmd.concinnity.shared.generated.dmo.DmconcinnityDMSAG;                       // Attribute dependsOnConcinnityModule from the dmconcinnity schema - (BaseDMWGenerator.java:897)
+import org.dmd.concinnity.shared.generated.dmo.ConcinnityModuleDMO;                     // Class not auxiliary or abstract - (BaseDMWGenerator.java:1140)
+import org.dmd.concinnity.shared.generated.dmo.DmconcinnityDMSAG;                       // Attribute dependsOnConcinnityModule from the dmconcinnity schema - (BaseDMWGenerator.java:910)
 import org.dmd.concinnity.shared.generated.types.ConcinnityModuleREF;                   // Required to access defined in module name - (DMWGenerator.java:181)
-import org.dmd.dmc.*;                                                                   // If any attributes - (BaseDMWGenerator.java:1087)
+import org.dmd.dmc.*;                                                                   // If any attributes - (BaseDMWGenerator.java:975)
 import org.dmd.dmc.definitions.DmcDefinitionIF;                                         // The object is a domain specific definition - (BaseDMWGenerator.java:411)
 import org.dmd.dmc.definitions.DmcDefinitionSet;                                        // Our base to provide definition set storage - (DMWGenerator.java:171)
-import org.dmd.dmc.types.DefinitionName;                                                // Is named by - (BaseDMWGenerator.java:1062)
+import org.dmd.dmc.types.DefinitionName;                                                // Is named by - (BaseDMWGenerator.java:939)
 import org.dmd.dmc.types.DotName;                                                       // To support the find method for definitions - (DSDefinitionModule.java:180)
-import org.dmd.dms.ClassDefinition;                                                     // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:1067)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                             // Attribute defFiles from the meta schema - (BaseDMWGenerator.java:897)
-import org.dmd.dms.generated.dmw.SchemaAndReasonIterableDMW;                            // For multi-valued SchemaAndReason - (BaseDMWGenerator.java:2103)
-import org.dmd.dms.generated.dmw.StringIterableDMW;                                     // For multi-valued String - (BaseDMWGenerator.java:2103)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                                   // Required for MODREC constructor - (BaseDMWGenerator.java:1071)
-import org.dmd.dms.generated.types.SchemaAndReason;                                     // Primitive type - (BaseDMWGenerator.java:1150)
+import org.dmd.dms.ClassDefinition;                                                     // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:944)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                             // Attribute defFiles from the meta schema - (BaseDMWGenerator.java:910)
+import org.dmd.dms.generated.dmw.SchemaAndReasonIterableDMW;                            // For multi-valued SchemaAndReason - (BaseDMWGenerator.java:1991)
+import org.dmd.dms.generated.dmw.StringIterableDMW;                                     // For multi-valued String - (BaseDMWGenerator.java:1991)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                   // Required for MODREC constructor - (BaseDMWGenerator.java:948)
+import org.dmd.dms.generated.types.SchemaAndReason;                                     // Primitive type - (BaseDMWGenerator.java:1038)
 
 
 
@@ -31,7 +31,7 @@ import org.dmd.dms.generated.types.SchemaAndReason;                             
  * Generated from the dmconcinnity schema at version unknown
  * <P>
  * This code was auto-generated by the dmggenerator utility and shouldn't be alterred manually!
- * Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:479)
+ * Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:488)
  */
 abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implements ConcinnityModuleScopedInterface, DmcDefinitionIF, DmcNamedObjectIF {
 
@@ -41,17 +41,17 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
     DmcDefinitionSet<Concept>                  ConceptDefs                 = new DmcDefinitionSet<Concept>("ConcinnityModule-ConceptDefs");                     // All Concept definitions
     DmcDefinitionSet<ConcinnityModule>         ConcinnityModuleDefs        = new DmcDefinitionSet<ConcinnityModule>("ConcinnityModule-ConcinnityModuleDefs");   // All ConcinnityModule definitions
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:558)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:577)
     public ConcinnityModuleDMW() {
         super(new ConcinnityModuleDMO(), org.dmd.concinnity.server.generated.DmconcinnitySchemaAG._ConcinnityModule);
     }
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:564)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:583)
     public ConcinnityModuleDMW(DmcTypeModifierMV mods) {
         super(new ConcinnityModuleDMO(mods), org.dmd.concinnity.server.generated.DmconcinnitySchemaAG._ConcinnityModule);
     }
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:606)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:625)
     public ConcinnityModule getModificationRecorder(){
         ConcinnityModule rc = new ConcinnityModule();
         rc.setName(getName());
@@ -59,7 +59,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
         return(rc);
     }
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:627)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:646)
     public ConcinnityModuleDMW(ConcinnityModuleDMO obj) {
         super(obj, org.dmd.concinnity.server.generated.DmconcinnitySchemaAG._ConcinnityModule);
     }
@@ -74,12 +74,12 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
         return((ConcinnityModuleDMO) core);
     }
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:642)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:661)
     protected ConcinnityModuleDMW(ConcinnityModuleDMO obj, ClassDefinition cd) {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGenerator.getAccessFunctions(BaseDMWGenerator.java:1297)
+    // org.dmd.dmg.generators.BaseDMWGenerator.getAccessFunctions(BaseDMWGenerator.java:1185)
     public DefinitionName getObjectName(){
         return(((ConcinnityModuleDMO) core).getName());
     }
@@ -102,7 +102,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1671)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1559)
     public int getDefFilesSize(){
         return(((ConcinnityModuleDMO) core).getDefFilesSize());
     }
@@ -110,7 +110,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1679)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1567)
     public boolean getDefFilesIsEmpty(){
         if (((ConcinnityModuleDMO) core).getDefFilesSize() == 0)
             return(true);
@@ -120,7 +120,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1689)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1577)
     public boolean getDefFilesHasValue(){
         if (((ConcinnityModuleDMO) core).getDefFilesSize() == 0)
             return(false);
@@ -130,7 +130,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2107)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1995)
     public StringIterableDMW getDefFilesIterable(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__defFiles);
         if (attr == null)
@@ -143,7 +143,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
      * Adds another defFiles value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2133)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2021)
     public void addDefFiles(Object value) throws DmcValueException {
         ((ConcinnityModuleDMO) core).addDefFiles(value);
     }
@@ -152,7 +152,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
      * Adds another defFiles value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2143)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2031)
     public void addDefFiles(String value){
         ((ConcinnityModuleDMO) core).addDefFiles(value);
     }
@@ -161,7 +161,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
      * Returns true if the collection contains the defFiles value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2200)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2088)
     public boolean defFilesContains(String value){
         return(((ConcinnityModuleDMO) core).defFilesContains(value));
     }
@@ -169,7 +169,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2244)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2132)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getDefFilesCopy(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__defFiles);
@@ -190,7 +190,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
      * Deletes a defFiles value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2271)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2159)
     public void delDefFiles(Object value) throws DmcValueException {
         ((ConcinnityModuleDMO) core).delDefFiles(value);
     }
@@ -199,7 +199,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
      * Deletes a defFiles value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2280)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2168)
     public void delDefFiles(String value){
         ((ConcinnityModuleDMO) core).delDefFiles(value);
     }
@@ -207,7 +207,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
     /**
      * Removes the defFiles attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2292)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2180)
     public void remDefFiles(){
         ((ConcinnityModuleDMO) core).remDefFiles();
     }
@@ -215,7 +215,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
     /**
      * @return The number of ConcinnityModule items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1671)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1559)
     public int getDependsOnConcinnityModuleSize(){
         return(((ConcinnityModuleDMO) core).getDependsOnConcinnityModuleSize());
     }
@@ -223,7 +223,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
     /**
      * @return true if there are no ConcinnityModuleDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1679)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1567)
     public boolean getDependsOnConcinnityModuleIsEmpty(){
         if (((ConcinnityModuleDMO) core).getDependsOnConcinnityModuleSize() == 0)
             return(true);
@@ -233,7 +233,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
     /**
      * @return true if there are any ConcinnityModuleDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1689)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1577)
     public boolean getDependsOnConcinnityModuleHasValue(){
         if (((ConcinnityModuleDMO) core).getDependsOnConcinnityModuleSize() == 0)
             return(false);
@@ -243,7 +243,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
     /**
      * @return An Iterator of ConcinnityModuleDMO objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1716)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1604)
     public ConcinnityModuleIterableDMW getDependsOnConcinnityModuleIterable(){
         DmcAttribute<?> attr = core.get(DmconcinnityDMSAG.__dependsOnConcinnityModule);
         if (attr == null)
@@ -256,7 +256,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
      * Adds another dependsOnConcinnityModule value.
      * @param value A value compatible with ConcinnityModule
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1773)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1661)
     public DmcAttribute<?> addDependsOnConcinnityModule(ConcinnityModule value){
         DmcAttribute<?> attr = ((ConcinnityModuleDMO) core).addDependsOnConcinnityModule(((ConcinnityModuleDMO)value.getDmcObject()));
         return(attr);
@@ -266,7 +266,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
      * Deletes a dependsOnConcinnityModule value.
      * @param value The ConcinnityModule to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1823)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1711)
     public void delDependsOnConcinnityModule(ConcinnityModule value){
         ((ConcinnityModuleDMO) core).delDependsOnConcinnityModule(value.getDMO());
     }
@@ -274,7 +274,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
     /**
      * @return A COPY of the collection of ConcinnityModule objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1887)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1775)
     public ArrayList<ConcinnityModule> getDependsOnConcinnityModuleCopy(){
         DmcAttribute<?> attr = ((ConcinnityModuleDMO) core).get(DmconcinnityDMSAG.__dependsOnConcinnityModule);
         if (attr == null)
@@ -293,7 +293,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
     /**
      * Removes the dependsOnConcinnityModule attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2292)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2180)
     public void remDependsOnConcinnityModule(){
         ((ConcinnityModuleDMO) core).remDependsOnConcinnityModule();
     }
@@ -301,7 +301,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1671)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1559)
     public int getDescriptionSize(){
         return(((ConcinnityModuleDMO) core).getDescriptionSize());
     }
@@ -309,7 +309,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1679)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1567)
     public boolean getDescriptionIsEmpty(){
         if (((ConcinnityModuleDMO) core).getDescriptionSize() == 0)
             return(true);
@@ -319,7 +319,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1689)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1577)
     public boolean getDescriptionHasValue(){
         if (((ConcinnityModuleDMO) core).getDescriptionSize() == 0)
             return(false);
@@ -329,7 +329,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2107)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1995)
     public StringIterableDMW getDescriptionIterable(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__description);
         if (attr == null)
@@ -342,7 +342,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
      * Adds another description value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2133)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2021)
     public void addDescription(Object value) throws DmcValueException {
         ((ConcinnityModuleDMO) core).addDescription(value);
     }
@@ -351,7 +351,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
      * Adds another description value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2143)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2031)
     public void addDescription(String value){
         ((ConcinnityModuleDMO) core).addDescription(value);
     }
@@ -360,7 +360,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
      * Returns true if the collection contains the description value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2200)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2088)
     public boolean descriptionContains(String value){
         return(((ConcinnityModuleDMO) core).descriptionContains(value));
     }
@@ -368,7 +368,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2244)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2132)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getDescriptionCopy(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__description);
@@ -389,7 +389,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
      * Deletes a description value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2271)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2159)
     public void delDescription(Object value) throws DmcValueException {
         ((ConcinnityModuleDMO) core).delDescription(value);
     }
@@ -398,7 +398,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
      * Deletes a description value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2280)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2168)
     public void delDescription(String value){
         ((ConcinnityModuleDMO) core).delDescription(value);
     }
@@ -406,7 +406,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2292)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2180)
     public void remDescription(){
         ((ConcinnityModuleDMO) core).remDescription();
     }
@@ -414,7 +414,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
     /**
      * @return The number of SchemaAndReason items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1671)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1559)
     public int getLoadSchemaClassSize(){
         return(((ConcinnityModuleDMO) core).getLoadSchemaClassSize());
     }
@@ -422,7 +422,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
     /**
      * @return true if there are no SchemaAndReasonDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1679)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1567)
     public boolean getLoadSchemaClassIsEmpty(){
         if (((ConcinnityModuleDMO) core).getLoadSchemaClassSize() == 0)
             return(true);
@@ -432,7 +432,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
     /**
      * @return true if there are any SchemaAndReasonDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1689)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1577)
     public boolean getLoadSchemaClassHasValue(){
         if (((ConcinnityModuleDMO) core).getLoadSchemaClassSize() == 0)
             return(false);
@@ -442,7 +442,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
     /**
      * @return An Iterator of SchemaAndReason objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2107)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1995)
     public SchemaAndReasonIterableDMW getLoadSchemaClassIterable(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__loadSchemaClass);
         if (attr == null)
@@ -455,7 +455,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
      * Adds another loadSchemaClass value.
      * @param value A value compatible with SchemaAndReason
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2133)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2021)
     public void addLoadSchemaClass(Object value) throws DmcValueException {
         ((ConcinnityModuleDMO) core).addLoadSchemaClass(value);
     }
@@ -464,7 +464,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
      * Adds another loadSchemaClass value.
      * @param value A value compatible with SchemaAndReason
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2143)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2031)
     public void addLoadSchemaClass(SchemaAndReason value){
         ((ConcinnityModuleDMO) core).addLoadSchemaClass(value);
     }
@@ -473,7 +473,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
      * Returns true if the collection contains the loadSchemaClass value.
      * @param value A value compatible with SchemaAndReason
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2200)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2088)
     public boolean loadSchemaClassContains(SchemaAndReason value){
         return(((ConcinnityModuleDMO) core).loadSchemaClassContains(value));
     }
@@ -481,7 +481,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
     /**
      * @return A COPY of the collection of SchemaAndReason objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2244)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2132)
     @SuppressWarnings("unchecked")
     public ArrayList<SchemaAndReason> getLoadSchemaClassCopy(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__loadSchemaClass);
@@ -502,7 +502,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
      * Deletes a loadSchemaClass value.
      * @param value The SchemaAndReason to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2271)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2159)
     public void delLoadSchemaClass(Object value) throws DmcValueException {
         ((ConcinnityModuleDMO) core).delLoadSchemaClass(value);
     }
@@ -511,7 +511,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
      * Deletes a loadSchemaClass value.
      * @param value The SchemaAndReason to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2280)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2168)
     public void delLoadSchemaClass(SchemaAndReason value){
         ((ConcinnityModuleDMO) core).delLoadSchemaClass(value);
     }
@@ -519,12 +519,12 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
     /**
      * Removes the loadSchemaClass attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2292)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2180)
     public void remLoadSchemaClass(){
         ((ConcinnityModuleDMO) core).remLoadSchemaClass();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1362)
     public DefinitionName getName(){
         return(((ConcinnityModuleDMO) core).getName());
     }
@@ -533,7 +533,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1584)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1472)
     public void setName(Object value) throws DmcValueException {
         ((ConcinnityModuleDMO) core).setName(value);
     }
@@ -542,7 +542,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
      * Sets name to the specified value.
      * @param value DefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1593)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1481)
     public void setName(DefinitionName value){
         ((ConcinnityModuleDMO) core).setName(value);
     }
@@ -550,7 +550,7 @@ abstract public class ConcinnityModuleDMW extends ConcinnityDefinition implement
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1619)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1507)
     public void remName(){
         ((ConcinnityModuleDMO) core).remName();
     }

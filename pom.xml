@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.connectifex</groupId>
   <artifactId>dark-matter-data</artifactId>
-  <version>3.0.9</version>
+  <version>3.0.10</version>
   
   <dependencies>
     <dependency>
@@ -27,11 +27,13 @@
     
 	<!-- https://mvnrepository.com/artifact/de.novanic.gwteventservice/eventservice -->
 	<!-- had to manually install 1.1.1 and change artifact to gwteventservice not event service-->
+	<!-- 
 	<dependency>
 	    <groupId>de.novanic.gwteventservice</groupId>
 	    <artifactId>gwteventservice</artifactId>
 	    <version>1.1.1</version>
 	</dependency>
+	 -->
 	
     <!-- https://mvnrepository.com/artifact/com.google.gwt/gwt-servlet -->
 	<dependency>

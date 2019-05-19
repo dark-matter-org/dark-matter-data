@@ -237,6 +237,7 @@ classType       STRUCTURAL
 dmdID			16
 derivedFrom		BaseObj
 useWrapperType	EXTENDED
+usesWrapperInterface	org.dmd.dmt.server.extended.interfaces.SomeInterfaceIF
 isNamedBy		name
 must			name
 must			svString

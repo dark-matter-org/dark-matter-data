@@ -204,6 +204,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __useInterface = new DmcAttributeInfo("meta","useInterface",150,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __useWrapperType = new DmcAttributeInfo("meta","useWrapperType",82,"WrapperTypeEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __usesInterface = new DmcAttributeInfo("meta","usesInterface",24,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
+    public final static DmcAttributeInfo __usesWrapperInterface = new DmcAttributeInfo("meta","usesWrapperInterface",192,"String",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __uuidName = new DmcAttributeInfo("meta","uuidName",101,"UUIDName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __valueType = new DmcAttributeInfo("meta","valueType",12,"ValueTypeEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __version = new DmcAttributeInfo("meta","version",181,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
@@ -513,6 +514,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__useInterface.id,__useInterface);
         _SmAp.put(__useWrapperType.id,__useWrapperType);
         _SmAp.put(__usesInterface.id,__usesInterface);
+        _SmAp.put(__usesWrapperInterface.id,__usesWrapperInterface);
         _SmAp.put(__uuidName.id,__uuidName);
         _SmAp.put(__valueType.id,__valueType);
         _SmAp.put(__version.id,__version);
@@ -674,6 +676,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __ClassDefinition.addMay(__tags);
         __ClassDefinition.addMay(__useWrapperType);
         __ClassDefinition.addMay(__usesInterface);
+        __ClassDefinition.addMay(__usesWrapperInterface);
         __ClassDefinition.addMay(__version);
         __ClassDefinition.addMay(__why);
 

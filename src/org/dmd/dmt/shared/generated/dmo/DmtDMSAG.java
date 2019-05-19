@@ -356,7 +356,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
             _dmtCheckLimitedMVData       .setRuleName("dmtCheckLimitedMV");
             _dmtCheckLimitedMVData       .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _dmtCheckLimitedMVData       .setRuleTitle("The limitedStringMV attribute must be one of: left, right, over there.");
-            _dmtCheckLimitedMVData       .setLineNumber("290");
+            _dmtCheckLimitedMVData       .setLineNumber("291");
             _dmtCheckLimitedMVData       .addAllowedString("left");
             _dmtCheckLimitedMVData       .addAllowedString("over there");
             _dmtCheckLimitedMVData       .addAllowedString("right");
@@ -371,7 +371,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
             _dmtCheckLimitedSVData       .setRuleName("dmtCheckLimitedSV");
             _dmtCheckLimitedSVData       .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _dmtCheckLimitedSVData       .setRuleTitle("The limitedStringSV attribute must be one of: Uno, Dos Fish, Hasta la vista.");
-            _dmtCheckLimitedSVData       .setLineNumber("282");
+            _dmtCheckLimitedSVData       .setLineNumber("283");
             _dmtCheckLimitedSVData       .addAllowedString("Dos Fish");
             _dmtCheckLimitedSVData       .addAllowedString("Uno");
             _dmtCheckLimitedSVData       .addAllowedString("Hasta la vista");
@@ -446,7 +446,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
             _rrrDerivedAData             .setApplyToClass("ObjWithRefsDerivedA");
             _rrrDerivedAData             .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _rrrDerivedAData             .setRuleTitle("The objRefMV attribute can only refer to other objects of type ObjWithRefsDerivedA when used in a ObjWithRefsDerivedA instance.");
-            _rrrDerivedAData             .setLineNumber("336");
+            _rrrDerivedAData             .setLineNumber("337");
             _rrrDerivedAData             .setApplyToAttribute("objRefMV");
             _rrrDerivedAData             .setDefinedIn("dmt");
 
@@ -460,7 +460,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
             _rrrDerivedA2Data            .setApplyToClass("ObjWithRefsDerivedA");
             _rrrDerivedA2Data            .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _rrrDerivedA2Data            .setRuleTitle("The objRef attribute can only refer to other objects of type ObjWithRefsDerivedA when used in a ObjWithRefsDerivedA instance.");
-            _rrrDerivedA2Data            .setLineNumber("343");
+            _rrrDerivedA2Data            .setLineNumber("344");
             _rrrDerivedA2Data            .setApplyToAttribute("objRef");
             _rrrDerivedA2Data            .setDefinedIn("dmt");
 
@@ -474,7 +474,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
             _rrrDerivedBData             .setApplyToClass("ObjWithRefsDerivedB");
             _rrrDerivedBData             .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _rrrDerivedBData             .setRuleTitle("The objRefMV attribute can only refer to other objects of type ObjWithRefsDerivedB when used in a ObjWithRefsDerivedB instance.");
-            _rrrDerivedBData             .setLineNumber("360");
+            _rrrDerivedBData             .setLineNumber("361");
             _rrrDerivedBData             .setApplyToAttribute("objRefMV");
             _rrrDerivedBData             .setDefinedIn("dmt");
 
@@ -488,7 +488,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
             _rrrDerivedB2Data            .setApplyToClass("ObjWithRefsDerivedB");
             _rrrDerivedB2Data            .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _rrrDerivedB2Data            .setRuleTitle("The objRef attribute can only refer to other objects of type ObjWithRefsDerivedB when used in a ObjWithRefsDerivedB instance.");
-            _rrrDerivedB2Data            .setLineNumber("367");
+            _rrrDerivedB2Data            .setLineNumber("368");
             _rrrDerivedB2Data            .setApplyToAttribute("objRef");
             _rrrDerivedB2Data            .setDefinedIn("dmt");
 

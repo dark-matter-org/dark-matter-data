@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;                       // For type checking
 import org.dmd.dmc.types.IntegerVar;                        // For getNextField() - (MetaGenerator.java:3200)
 import org.dmd.dms.generated.enums.DataTypeEnum;            // For fake DmcAttributeInfo - (MetaGenerator.java:3201)
 import org.dmd.dms.generated.enums.ValueTypeEnum;           // For fake DmcAttributeInfo - (MetaGenerator.java:3202)
-import org.dmd.dms.generated.enums.WrapperTypeEnum;         // Type for field: wrapperType - (MetaGenerator.java:3532)
+import org.dmd.dms.generated.enums.WrapperTypeEnum;         // Type for field: wrapperType - (MetaGenerator.java:3531)
 
 
 
@@ -110,7 +110,7 @@ public class DmwTypeToWrapperType implements Serializable {
         return(wrapperType);
     }
 
-    // org.dmd.dms.meta.MetaGenerator.dumpComplexType(MetaGenerator.java:3420)
+    // org.dmd.dms.meta.MetaGenerator.dumpComplexType(MetaGenerator.java:3419)
     String getNextField(String input, IntegerVar seppos, String fn, boolean last) throws DmcValueException {
     	   String rc = null;
     	   int start = seppos.intValue();

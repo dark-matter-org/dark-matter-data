@@ -384,6 +384,44 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition implements Dmc
     }
 
     /**
+     * The fully qualified name of a Java interface that should\n be implemented
+     * on an extended wrapper class. This is a useful mechanism to specify\n
+     * common functionality across a set of classes that, otherwise, may not have
+     * anything in\n common i.e. they aren't in the same derivation hierarchy.\n
+     * </p>\n This results in an implements statement being added to the
+     * DmwWrapper derivative. 
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2608)
+    public Iterator<String> getUsesWrapperInterface(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__usesWrapperInterface);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another usesWrapperInterface value.
+     * @param value A value compatible with DmcTypeStringMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2688)
+    public void addUsesWrapperInterface(Object value) throws DmcValueException {
+        mycore.addUsesWrapperInterface(value);
+    }
+
+    /**
+     * Returns the number of usesWrapperInterface values.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2701)
+    public int getUsesWrapperInterfaceSize(){
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__usesWrapperInterface);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
+    /**
      * Indicates whether you want to use the generated DMW wrapper\n or the
      * extended wrapper you've created yourself. 
      */
