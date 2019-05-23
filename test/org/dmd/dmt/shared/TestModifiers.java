@@ -36,8 +36,11 @@ import org.dmd.util.DmcTraceableOutputStream;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TestModifiers {
 
 	static String testDataPath = "/test/org/dmd/dmt/shared/data";
@@ -67,7 +70,7 @@ public class TestModifiers {
 	}
 
 	@Test
-	public void testPrimitiveTypes() throws DmcValueException{
+	public void aatestPrimitiveTypes() throws DmcValueException{
 		System.out.println("\n***** testPrimitiveTypes\n");
 		
 		DmcOmni.instance().reset();
@@ -99,7 +102,7 @@ public class TestModifiers {
 	}
 	
 	@Test
-	public void testDeletionOfNonexistentValues() throws DmcValueException{
+	public void bbtestDeletionOfNonexistentValues() throws DmcValueException{
 		System.out.println("\n***** testDeletionOfNonexistentValues\n");
 		
 		TestBasicObjectFixedDMO	dmo = new TestBasicObjectFixedDMO();
@@ -115,7 +118,7 @@ public class TestModifiers {
 	}
 	
 	@Test
-	public void applyModifer() throws DmcValueException, DmcValueExceptionSet{
+	public void ccapplyModifer() throws DmcValueException, DmcValueExceptionSet{
 		System.out.println("\n***** applyModifer\n");
 		
 		ObjWithRefs	obj1	= new ObjWithRefs();
@@ -145,7 +148,7 @@ public class TestModifiers {
 	
 	
 	@Test
-	public void serializeModifer() throws Exception {
+	public void ddserializeModifer() throws Exception {
 		System.out.println("\n***** serializeModifer\n");
 		
 		DataOutputStream os = new DataOutputStream(new FileOutputStream(temp.getAbsolutePath()));
@@ -182,7 +185,7 @@ public class TestModifiers {
 	}
 	
 	@Test
-	public void deserializeModifer() throws Exception {
+	public void eedeserializeModifer() throws Exception {
 		System.out.println("\n***** deserializeModifer\n");
 		
 		DataInputStream			is 				= new DataInputStream(new FileInputStream(temp.getAbsolutePath()));
@@ -206,7 +209,7 @@ public class TestModifiers {
 	}
 	
 	@Test
-	public void testSVChanges() throws DmcValueException, DmcValueExceptionSet{
+	public void fftestSVChanges() throws DmcValueException, DmcValueExceptionSet{
 		System.out.println("\n***** testSVChanges\n");
 		
 		DmcTypeModifierMV	mods 		= null;
@@ -227,7 +230,7 @@ public class TestModifiers {
 	}
 	
 	@Test
-	public void testMVChanges() throws DmcValueException, DmcValueExceptionSet{
+	public void ggtestMVChanges() throws DmcValueException, DmcValueExceptionSet{
 		System.out.println("\n***** testMVChanges\n");
 		
 		DmcTypeModifierMV	mods 		= null;
@@ -276,7 +279,7 @@ public class TestModifiers {
 	
 	
 	@Test
-	public void testModifierSlices() throws DmcValueException, DmcValueExceptionSet{
+	public void hhtestModifierSlices() throws DmcValueException, DmcValueExceptionSet{
 		System.out.println("\n***** testModifierSlices\n");
 		
 		ObjWithRefs	obj = new ObjWithRefs();
@@ -319,7 +322,7 @@ public class TestModifiers {
 	}
 	
 	@Test
-	public void testDelFromMissingMappedAttribute() throws DmcValueException, DmcValueExceptionSet{
+	public void iitestDelFromMissingMappedAttribute() throws DmcValueException, DmcValueExceptionSet{
 		System.out.println("\n***** testDelFromMissingMappedAttribute\n");
 		
 		ObjWithRefs	obj = new ObjWithRefs();
@@ -347,7 +350,7 @@ public class TestModifiers {
 	}
 	
 	@Test
-	public void testDuplicateValueInHashSetValue() throws DmcValueException{
+	public void jjtestDuplicateValueInHashSetValue() throws DmcValueException{
 		System.out.println("\n***** testDuplicateValueInHashSetValue\n");
 		
 		ObjWithRefs	obj = new ObjWithRefs();
@@ -365,7 +368,7 @@ public class TestModifiers {
 	}
 	
 	@Test
-	public void testOIFObjectWithModifier() throws DmcValueException{
+	public void kktestOIFObjectWithModifier() throws DmcValueException{
 		System.out.println("\n***** testOIFObjectWithModifier\n");
 		
 		ObjWithRefs	obj = new ObjWithRefs();
@@ -387,7 +390,7 @@ public class TestModifiers {
 	}
 	
 	@Test
-	public void testHashSetChangesRecorded() throws DmcValueException {
+	public void lltestHashSetChangesRecorded() throws DmcValueException {
 		ObjWithRefs obj1 = new ObjWithRefs();
 		
 		DmcTypeModifierMV mods = new DmcTypeModifierMV();
@@ -418,7 +421,7 @@ public class TestModifiers {
 	}
 	
 	@Test
-	public void testDeletionInMappedReferences() throws DmcValueException, DmcValueExceptionSet{
+	public void mmtestDeletionInMappedReferences() throws DmcValueException, DmcValueExceptionSet{
 		ObjWithRefs	obj1 = new ObjWithRefs();
 		obj1.setName("obj1");
 		
@@ -441,7 +444,7 @@ public class TestModifiers {
 	}
 	
 	@Test
-	public void testDeletionInMappedReferencesWhileBackTracking() throws DmcValueException {
+	public void nntestDeletionInMappedReferencesWhileBackTracking() throws DmcValueException {
 		DmcOmni.instance().reset();
 		DmcOmni.instance().addCompactSchema(DmpDMSAG.instance());
 		DmcOmni.instance().addCompactSchema(DmtDMSAG.instance());
