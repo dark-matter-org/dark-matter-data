@@ -51,7 +51,7 @@ public interface ModuleCGeneratorInterface {
      * @param location where the module was found
      * @param definitions the current set of definitions
      */
-    public void generate(ModuleC module, ConfigLocation location, ModuleCDefinitionManager definitions) throws IOException;
+    public void generate(ModuleC module, ConfigLocation location, ModuleCDefinitionManager definitions) throws ResultException, IOException;
 
     /**
      * Derived classes should overload this method to perform artifact generation when no target module
@@ -59,7 +59,7 @@ public interface ModuleCGeneratorInterface {
      * where you want to load and resolve objects across many modules.
      * @param definitions the current set of definitions
      */
-    public void generate(ModuleCDefinitionManager definitions) throws IOException;
+    public void generate(ModuleCDefinitionManager definitions) throws ResultException, IOException;
 
     /**
      * Called if the help flag is found anywhere on the commandline.
