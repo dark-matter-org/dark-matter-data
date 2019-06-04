@@ -51,7 +51,7 @@ public interface ConcinnityModuleGeneratorInterface {
      * @param location where the module was found
      * @param definitions the current set of definitions
      */
-    public void generate(ConcinnityModule module, ConfigLocation location, ConcinnityModuleDefinitionManager definitions) throws IOException;
+    public void generate(ConcinnityModule module, ConfigLocation location, ConcinnityModuleDefinitionManager definitions) throws ResultException, IOException;
 
     /**
      * Derived classes should overload this method to perform artifact generation when no target module
@@ -59,7 +59,7 @@ public interface ConcinnityModuleGeneratorInterface {
      * where you want to load and resolve objects across many modules.
      * @param definitions the current set of definitions
      */
-    public void generate(ConcinnityModuleDefinitionManager definitions) throws IOException;
+    public void generate(ConcinnityModuleDefinitionManager definitions) throws ResultException, IOException;
 
     /**
      * Called if the help flag is found anywhere on the commandline.

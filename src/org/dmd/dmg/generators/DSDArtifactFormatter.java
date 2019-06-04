@@ -1480,7 +1480,7 @@ public class DSDArtifactFormatter {
 		out.write("     * @param location where the module was found\n");
 		out.write("     * @param definitions the current set of definitions\n");
 		out.write("     */\n");
-		out.write("    public void generate(" + ddm.getName() + " module, ConfigLocation location, " + ddm.getName() + "DefinitionManager definitions) throws IOException;\n");
+		out.write("    public void generate(" + ddm.getName() + " module, ConfigLocation location, " + ddm.getName() + "DefinitionManager definitions) throws ResultException, IOException;\n");
 		out.write("\n");
 		out.write("    /**\n");
 		out.write("     * Derived classes should overload this method to perform artifact generation when no target module\n");
@@ -1488,7 +1488,7 @@ public class DSDArtifactFormatter {
 		out.write("     * where you want to load and resolve objects across many modules.\n");
 		out.write("     * @param definitions the current set of definitions\n");
 		out.write("     */\n");
-		out.write("    public void generate(" + ddm.getName() + "DefinitionManager definitions) throws IOException;\n");
+		out.write("    public void generate(" + ddm.getName() + "DefinitionManager definitions) throws ResultException, IOException;\n");
 		out.write("\n");
 		out.write("    /**\n");
 		out.write("     * Called if the help flag is found anywhere on the commandline.\n");
