@@ -17,8 +17,8 @@ package org.dmd.dmp.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:442)
-import java.util.ArrayList;                                        // Support for MULTI attribute - (BaseDMWGenerator.java:2116)
-import java.util.Iterator;                                         // Support copy of MV objects - (BaseDMWGenerator.java:2130)
+import java.util.ArrayList;                                        // Support for MULTI attribute - (BaseDMWGenerator.java:2119)
+import java.util.Iterator;                                         // Support copy of MV objects - (BaseDMWGenerator.java:2133)
 import org.dmd.dmc.*;                                              // If any attributes - (BaseDMWGenerator.java:977)
 import org.dmd.dmc.DmcObject;                                      // Primitive type - (BaseDMWGenerator.java:1040)
 import org.dmd.dmp.server.extended.CreateResponse;                 // Required for getModificationRecorder() - (BaseDMWGenerator.java:953)
@@ -27,7 +27,7 @@ import org.dmd.dmp.shared.generated.dmo.CreateResponseDMO;         // Class not 
 import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;                  // Attribute objectList from the dmp schema - (BaseDMWGenerator.java:910)
 import org.dmd.dms.ClassDefinition;                                // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:944)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                        // Required for MODREC constructor - (BaseDMWGenerator.java:949)
-import org.dmd.dms.generated.dmw.DmcObjectIterableDMW;             // For multi-valued DmcObject - (BaseDMWGenerator.java:1993)
+import org.dmd.dms.generated.dmw.DmcObjectIterableDMW;             // For multi-valued DmcObject - (BaseDMWGenerator.java:1995)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;              // Required for MODREC constructor - (BaseDMWGenerator.java:948)
 
 
@@ -84,7 +84,7 @@ abstract public class CreateResponseDMW extends Response {
     /**
      * @return The number of DmcObject items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getObjectListSize(){
         return(((CreateResponseDMO) core).getObjectListSize());
     }
@@ -92,7 +92,7 @@ abstract public class CreateResponseDMW extends Response {
     /**
      * @return true if there are no DmcObjectDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getObjectListIsEmpty(){
         if (((CreateResponseDMO) core).getObjectListSize() == 0)
             return(true);
@@ -102,7 +102,7 @@ abstract public class CreateResponseDMW extends Response {
     /**
      * @return true if there are any DmcObjectDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getObjectListHasValue(){
         if (((CreateResponseDMO) core).getObjectListSize() == 0)
             return(false);
@@ -112,7 +112,7 @@ abstract public class CreateResponseDMW extends Response {
     /**
      * @return An Iterator of DmcObject objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1999)
     public DmcObjectIterableDMW getObjectListIterable(){
         DmcAttribute<?> attr = core.get(DmpDMSAG.__objectList);
         if (attr == null)
@@ -124,8 +124,9 @@ abstract public class CreateResponseDMW extends Response {
     /**
      * Adds another objectList value.
      * @param value A value compatible with DmcObject
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
     public void addObjectList(Object value) throws DmcValueException {
         ((CreateResponseDMO) core).addObjectList(value);
     }
@@ -134,16 +135,16 @@ abstract public class CreateResponseDMW extends Response {
      * Adds another objectList value.
      * @param value A value compatible with DmcObject
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2033)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2036)
     public void addObjectList(DmcObject value){
         ((CreateResponseDMO) core).addObjectList(value);
     }
 
     /**
-     * Returns true if the collection contains the objectList value.
      * @param value A value compatible with DmcObject
+     * @return true if the collection contains the objectList value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2093)
     public boolean objectListContains(DmcObject value){
         return(((CreateResponseDMO) core).objectListContains(value));
     }
@@ -151,7 +152,7 @@ abstract public class CreateResponseDMW extends Response {
     /**
      * @return A COPY of the collection of DmcObject objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2137)
     @SuppressWarnings("unchecked")
     public ArrayList<DmcObject> getObjectListCopy(){
         DmcAttribute<?> attr = core.get(DmpDMSAG.__objectList);
@@ -171,8 +172,9 @@ abstract public class CreateResponseDMW extends Response {
     /**
      * Deletes a objectList value.
      * @param value The DmcObject to be deleted from set of attribute values.
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2165)
     public void delObjectList(Object value) throws DmcValueException {
         ((CreateResponseDMO) core).delObjectList(value);
     }
@@ -181,7 +183,7 @@ abstract public class CreateResponseDMW extends Response {
      * Deletes a objectList value.
      * @param value The DmcObject to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2174)
     public void delObjectList(DmcObject value){
         ((CreateResponseDMO) core).delObjectList(value);
     }
@@ -189,7 +191,7 @@ abstract public class CreateResponseDMW extends Response {
     /**
      * Removes the objectList attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remObjectList(){
         ((CreateResponseDMO) core).remObjectList();
     }

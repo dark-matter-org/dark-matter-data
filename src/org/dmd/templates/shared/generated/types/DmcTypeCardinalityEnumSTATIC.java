@@ -40,8 +40,8 @@ import org.dmd.templates.shared.generated.enums.CardinalityEnum;    // DmcType i
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:2326)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2241)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:2343)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2258)
  */
 public class DmcTypeCardinalityEnumSTATIC {
     

@@ -100,8 +100,9 @@ public class NamedObjSVDMW extends DmwWrapper {
     /**
      * Sets the svNamedObj to the specified value.
      * @param value A value compatible with ObjWithRefsREF
+     * @throws DmcValueException is the value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1418)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1419)
     public void setSvNamedObj(Object value) throws DmcValueException {
         ((NamedObjSVDMO) core).setSvNamedObj(value);
     }
@@ -109,7 +110,7 @@ public class NamedObjSVDMW extends DmwWrapper {
     /**
      * Removes the svNamedObj attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remSvNamedObj(){
         ((NamedObjSVDMO) core).remSvNamedObj();
     }

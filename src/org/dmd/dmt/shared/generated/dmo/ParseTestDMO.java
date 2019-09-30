@@ -86,7 +86,10 @@ public class ParseTestDMO  extends DmcObject  implements Serializable  {
         return(rc);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:660)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:661)
+    /**
+     * @return the TestBasicObjectFixedDMO
+     */
     public TestBasicObjectFixedDMO getSvUnnamedObj(){
         DmcTypeTestBasicObjectFixedREFSV attr = (DmcTypeTestBasicObjectFixedREFSV) get(DmtDMSAG.__svUnnamedObj);
         if (attr == null)
@@ -95,11 +98,12 @@ public class ParseTestDMO  extends DmcObject  implements Serializable  {
         return(attr.getSV());
     }
 
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:718)
     /**
      * Sets svUnnamedObj to the specified value.
      * @param value TestBasicObjectFixedDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:714)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:723)
     public void setSvUnnamedObj(TestBasicObjectFixedDMO value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__svUnnamedObj);
         if (attr == null)
@@ -117,8 +121,9 @@ public class ParseTestDMO  extends DmcObject  implements Serializable  {
     /**
      * Sets svUnnamedObj to the specified value.
      * @param value A value compatible with DmcTypeTestBasicObjectFixedREFSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setSvUnnamedObj(Object value) throws DmcValueException {
         DmcTypeTestBasicObjectFixedREFSV attr  = (DmcTypeTestBasicObjectFixedREFSV) get(DmtDMSAG.__svUnnamedObj);
         if (attr == null)
@@ -131,7 +136,7 @@ public class ParseTestDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the svUnnamedObj attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remSvUnnamedObj(){
          rem(DmtDMSAG.__svUnnamedObj);
     }
@@ -140,7 +145,7 @@ public class ParseTestDMO  extends DmcObject  implements Serializable  {
      * @return An Iterator of TestBasicObjectFixedDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1134)
     public Iterator<TestBasicObjectFixedDMO> getMvUnnamedObj(){
         DmcTypeTestBasicObjectFixedREFMV attr = (DmcTypeTestBasicObjectFixedREFMV) get(DmtDMSAG.__mvUnnamedObj);
         if (attr == null)
@@ -152,8 +157,9 @@ public class ParseTestDMO  extends DmcObject  implements Serializable  {
     /**
      * Adds another mvUnnamedObj to the specified value.
      * @param value TestBasicObjectFixed
+     * @return the attribute instance
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1170)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1181)
     public DmcAttribute<?> addMvUnnamedObj(TestBasicObjectFixedDMO value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvUnnamedObj);
         if (attr == null)
@@ -172,8 +178,10 @@ public class ParseTestDMO  extends DmcObject  implements Serializable  {
     /**
      * Adds another mvUnnamedObj value.
      * @param value A value compatible with TestBasicObjectFixed
+     * @return the attribute instance
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1411)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
     public DmcAttribute<?> addMvUnnamedObj(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvUnnamedObj);
         if (attr == null)
@@ -185,9 +193,9 @@ public class ParseTestDMO  extends DmcObject  implements Serializable  {
     }
 
     /**
-     * Returns the number of values in mvUnnamedObj
+     * @return the number of values in mvUnnamedObj
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1428)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
     public int getMvUnnamedObjSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvUnnamedObj);
         if (attr == null){
@@ -202,8 +210,8 @@ public class ParseTestDMO  extends DmcObject  implements Serializable  {
     /**
      * Deletes a mvUnnamedObj value.
      * @param value The TestBasicObjectFixed to be deleted from set of attribute values.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1450)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1464)
     public DmcAttribute<?> delMvUnnamedObj(Object value){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvUnnamedObj);
         
@@ -218,12 +226,12 @@ public class ParseTestDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the mvUnnamedObj attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1521)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
     public void remMvUnnamedObj(){
          rem(DmtDMSAG.__mvUnnamedObj);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public Boolean isSvBoolean(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(DmtDMSAG.__svBoolean);
         if (attr == null)
@@ -236,7 +244,7 @@ public class ParseTestDMO  extends DmcObject  implements Serializable  {
      * Sets svBoolean to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setSvBoolean(Boolean value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__svBoolean);
         if (attr == null)
@@ -254,8 +262,9 @@ public class ParseTestDMO  extends DmcObject  implements Serializable  {
     /**
      * Sets svBoolean to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setSvBoolean(Object value) throws DmcValueException {
         DmcTypeBooleanSV attr  = (DmcTypeBooleanSV) get(DmtDMSAG.__svBoolean);
         if (attr == null)
@@ -268,7 +277,7 @@ public class ParseTestDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the svBoolean attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remSvBoolean(){
          rem(DmtDMSAG.__svBoolean);
     }
@@ -276,7 +285,7 @@ public class ParseTestDMO  extends DmcObject  implements Serializable  {
     /**
      * @return The nth ObjWithRefs value and attempt lazy resolution if it's on.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1204)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1215)
     public ObjWithRefsREF getNthMvIdxNamedObj(int i){
         DmcTypeObjWithRefsREFMV attr = (DmcTypeObjWithRefsREFMV) get(DmtDMSAG.__mvIdxNamedObj);
         if (attr == null)
@@ -295,7 +304,7 @@ public class ParseTestDMO  extends DmcObject  implements Serializable  {
     /**
      * @return The nth ObjWithRefs value without attempting lazy resolution.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1223)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1234)
     public ObjWithRefsREF getNthMvIdxNamedObjREF(int i){
         DmcTypeObjWithRefsREFMV attr = (DmcTypeObjWithRefsREFMV) get(DmtDMSAG.__mvIdxNamedObj);
         if (attr == null)
@@ -308,7 +317,7 @@ public class ParseTestDMO  extends DmcObject  implements Serializable  {
      * Sets the mvIdxNamedObj value at the specified index.
      * @param value ObjWithRefs
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1237)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1248)
     public DmcAttribute<?> setNthMvIdxNamedObj(int index, ObjWithRefsDMO value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxNamedObj);
         if (attr == null){
@@ -338,8 +347,10 @@ public class ParseTestDMO  extends DmcObject  implements Serializable  {
     /**
      * Adds another mvIdxNamedObj value.
      * @param value A value compatible with ObjWithRefs
+     * @return the attribute instance
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1411)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
     public DmcAttribute<?> addMvIdxNamedObj(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxNamedObj);
         if (attr == null)
@@ -351,9 +362,9 @@ public class ParseTestDMO  extends DmcObject  implements Serializable  {
     }
 
     /**
-     * Returns the number of values in mvIdxNamedObj
+     * @return the number of values in mvIdxNamedObj
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1428)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
     public int getMvIdxNamedObjSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxNamedObj);
         if (attr == null){
@@ -368,8 +379,8 @@ public class ParseTestDMO  extends DmcObject  implements Serializable  {
     /**
      * Deletes a mvIdxNamedObj value.
      * @param value The ObjWithRefs to be deleted from set of attribute values.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1467)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1482)
     public DmcAttribute<?> delMvIdxNamedObj(Object value){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxNamedObj);
         
@@ -384,7 +395,7 @@ public class ParseTestDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the mvIdxNamedObj attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1521)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
     public void remMvIdxNamedObj(){
          rem(DmtDMSAG.__mvIdxNamedObj);
     }
@@ -392,7 +403,7 @@ public class ParseTestDMO  extends DmcObject  implements Serializable  {
     /**
      * @return The nth TestBasicObjectFixed value without attempting lazy resolution.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1191)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1202)
     public TestBasicObjectFixedDMO getNthMvIdxUnnamedObj(int i){
         DmcTypeTestBasicObjectFixedREFMV attr = (DmcTypeTestBasicObjectFixedREFMV) get(DmtDMSAG.__mvIdxUnnamedObj);
         if (attr == null)
@@ -405,7 +416,7 @@ public class ParseTestDMO  extends DmcObject  implements Serializable  {
      * Sets the mvIdxUnnamedObj value at the specified index.
      * @param value TestBasicObjectFixed
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1237)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1248)
     public DmcAttribute<?> setNthMvIdxUnnamedObj(int index, TestBasicObjectFixedDMO value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxUnnamedObj);
         if (attr == null){
@@ -434,8 +445,10 @@ public class ParseTestDMO  extends DmcObject  implements Serializable  {
     /**
      * Adds another mvIdxUnnamedObj value.
      * @param value A value compatible with TestBasicObjectFixed
+     * @return the attribute instance
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1411)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
     public DmcAttribute<?> addMvIdxUnnamedObj(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxUnnamedObj);
         if (attr == null)
@@ -447,9 +460,9 @@ public class ParseTestDMO  extends DmcObject  implements Serializable  {
     }
 
     /**
-     * Returns the number of values in mvIdxUnnamedObj
+     * @return the number of values in mvIdxUnnamedObj
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1428)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
     public int getMvIdxUnnamedObjSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxUnnamedObj);
         if (attr == null){
@@ -464,8 +477,8 @@ public class ParseTestDMO  extends DmcObject  implements Serializable  {
     /**
      * Deletes a mvIdxUnnamedObj value.
      * @param value The TestBasicObjectFixed to be deleted from set of attribute values.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1450)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1464)
     public DmcAttribute<?> delMvIdxUnnamedObj(Object value){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxUnnamedObj);
         
@@ -480,7 +493,7 @@ public class ParseTestDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the mvIdxUnnamedObj attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1521)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
     public void remMvIdxUnnamedObj(){
          rem(DmtDMSAG.__mvIdxUnnamedObj);
     }

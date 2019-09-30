@@ -23,10 +23,10 @@ import org.dmd.dms.ClassDefinition;                                     // Passi
 import org.dmd.dms.generated.dmo.MetaDMSAG;                             // Required for MODREC constructor - (BaseDMWGenerator.java:949)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                   // Required for MODREC constructor - (BaseDMWGenerator.java:948)
 import org.dmd.dmt.server.extended.ObjWithRefs;                         // Is reference type - (BaseDMWGenerator.java:997)
-import org.dmd.dmt.server.generated.dmw.ObjWithRefsIterableDMW;         // For multi-valued ObjWithRefs - (BaseDMWGenerator.java:1599)
+import org.dmd.dmt.server.generated.dmw.ObjWithRefsIterableDMW;         // For multi-valued ObjWithRefs - (BaseDMWGenerator.java:1600)
 import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                       // Attribute hsNamedObj from the dmt schema - (BaseDMWGenerator.java:910)
 import org.dmd.dmt.shared.generated.dmo.NamedObjHSDMO;                  // Class not auxiliary or abstract - (BaseDMWGenerator.java:1142)
-import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;                 // For multi-valued adds of ObjWithRefs - (BaseDMWGenerator.java:1657)
+import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;                 // For multi-valued adds of ObjWithRefs - (BaseDMWGenerator.java:1658)
 import org.dmd.dmw.DmwWrapper;                                          // Unnamed object wrapper - (BaseDMWGenerator.java:1125)
 
 
@@ -79,7 +79,7 @@ public class NamedObjHSDMW extends DmwWrapper {
     /**
      * @return The number of ObjWithRefs items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getHsNamedObjSize(){
         return(((NamedObjHSDMO) core).getHsNamedObjSize());
     }
@@ -87,7 +87,7 @@ public class NamedObjHSDMW extends DmwWrapper {
     /**
      * @return true if there are no ObjWithRefsDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getHsNamedObjIsEmpty(){
         if (((NamedObjHSDMO) core).getHsNamedObjSize() == 0)
             return(true);
@@ -97,7 +97,7 @@ public class NamedObjHSDMW extends DmwWrapper {
     /**
      * @return true if there are any ObjWithRefsDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getHsNamedObjHasValue(){
         if (((NamedObjHSDMO) core).getHsNamedObjSize() == 0)
             return(false);
@@ -107,7 +107,7 @@ public class NamedObjHSDMW extends DmwWrapper {
     /**
      * @return An Iterator of ObjWithRefsDMO objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1606)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1607)
     public ObjWithRefsIterableDMW getHsNamedObjIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__hsNamedObj);
         if (attr == null)
@@ -119,8 +119,9 @@ public class NamedObjHSDMW extends DmwWrapper {
     /**
      * Adds another hsNamedObj value.
      * @param value A value compatible with ObjWithRefs
+     * @return the attribute instance
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1663)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1665)
     public DmcAttribute<?> addHsNamedObj(ObjWithRefs value){
         DmcAttribute<?> attr = ((NamedObjHSDMO) core).addHsNamedObj(((ObjWithRefsDMO)value.getDmcObject()));
         return(attr);
@@ -130,7 +131,7 @@ public class NamedObjHSDMW extends DmwWrapper {
      * Deletes a hsNamedObj value.
      * @param value The ObjWithRefs to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1713)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1715)
     public void delHsNamedObj(ObjWithRefs value){
         ((NamedObjHSDMO) core).delHsNamedObj(value.getDMO());
     }
@@ -138,7 +139,7 @@ public class NamedObjHSDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of ObjWithRefs objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1777)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1779)
     public HashSet<ObjWithRefs> getHsNamedObjCopy(){
         DmcAttribute<?> attr = ((NamedObjHSDMO) core).get(DmtDMSAG.__hsNamedObj);
         if (attr == null)
@@ -157,7 +158,7 @@ public class NamedObjHSDMW extends DmwWrapper {
     /**
      * Removes the hsNamedObj attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remHsNamedObj(){
         ((NamedObjHSDMO) core).remHsNamedObj();
     }

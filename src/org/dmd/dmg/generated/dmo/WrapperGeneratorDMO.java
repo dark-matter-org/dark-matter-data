@@ -136,7 +136,7 @@ public class WrapperGeneratorDMO  extends DmcObject  implements DmcNamedObjectIF
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public DefinitionName getName(){
         DmcTypeDefinitionNameSV attr = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -149,7 +149,7 @@ public class WrapperGeneratorDMO  extends DmcObject  implements DmcNamedObjectIF
      * Sets name to the specified value.
      * @param value DefinitionName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setName(DefinitionName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -167,8 +167,9 @@ public class WrapperGeneratorDMO  extends DmcObject  implements DmcNamedObjectIF
     /**
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setName(Object value) throws DmcValueException {
         DmcTypeDefinitionNameSV attr  = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -181,12 +182,15 @@ public class WrapperGeneratorDMO  extends DmcObject  implements DmcNamedObjectIF
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remName(){
          rem(MetaDMSAG.__name);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:660)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:678)
+    /**
+     * @return the GenerationContextREF
+     */
     public GenerationContextREF getGenContext(){
         DmcTypeGenerationContextREFSV attr = (DmcTypeGenerationContextREFSV) get(DmgDMSAG.__genContext);
         if (attr == null)
@@ -202,8 +206,9 @@ public class WrapperGeneratorDMO  extends DmcObject  implements DmcNamedObjectIF
         return(attr.getSV());
     }
 
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:700)
     /**
-     * Returns the reference to GenerationContext without attempting lazy resolution (if turned on).
+     * @return the reference to GenerationContext without attempting lazy resolution (if turned on).
      */
     public GenerationContextREF getGenContextREF(){
         DmcTypeGenerationContextREFSV attr = (DmcTypeGenerationContextREFSV) get(DmgDMSAG.__genContext);
@@ -213,11 +218,12 @@ public class WrapperGeneratorDMO  extends DmcObject  implements DmcNamedObjectIF
         return(attr.getSV());
     }
 
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:718)
     /**
      * Sets genContext to the specified value.
      * @param value GenerationContextDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:714)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:723)
     public void setGenContext(GenerationContextDMO value) {
         DmcAttribute<?> attr = get(DmgDMSAG.__genContext);
         if (attr == null)
@@ -237,8 +243,9 @@ public class WrapperGeneratorDMO  extends DmcObject  implements DmcNamedObjectIF
     /**
      * Sets genContext to the specified value.
      * @param value A value compatible with DmcTypeGenerationContextREFSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setGenContext(Object value) throws DmcValueException {
         DmcTypeGenerationContextREFSV attr  = (DmcTypeGenerationContextREFSV) get(DmgDMSAG.__genContext);
         if (attr == null)
@@ -253,12 +260,12 @@ public class WrapperGeneratorDMO  extends DmcObject  implements DmcNamedObjectIF
     /**
      * Removes the genContext attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remGenContext(){
          rem(DmgDMSAG.__genContext);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public ClassTypeEnum getClassType(){
         DmcTypeClassTypeEnumSV attr = (DmcTypeClassTypeEnumSV) get(MetaDMSAG.__classType);
         if (attr == null)
@@ -271,7 +278,7 @@ public class WrapperGeneratorDMO  extends DmcObject  implements DmcNamedObjectIF
      * Sets classType to the specified value.
      * @param value ClassTypeEnum
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setClassType(ClassTypeEnum value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__classType);
         if (attr == null)
@@ -289,8 +296,9 @@ public class WrapperGeneratorDMO  extends DmcObject  implements DmcNamedObjectIF
     /**
      * Sets classType to the specified value.
      * @param value A value compatible with DmcTypeClassTypeEnumSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setClassType(Object value) throws DmcValueException {
         DmcTypeClassTypeEnumSV attr  = (DmcTypeClassTypeEnumSV) get(MetaDMSAG.__classType);
         if (attr == null)
@@ -303,12 +311,12 @@ public class WrapperGeneratorDMO  extends DmcObject  implements DmcNamedObjectIF
     /**
      * Removes the classType attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remClassType(){
          rem(MetaDMSAG.__classType);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public String getGenClass(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmgDMSAG.__genClass);
         if (attr == null)
@@ -321,7 +329,7 @@ public class WrapperGeneratorDMO  extends DmcObject  implements DmcNamedObjectIF
      * Sets genClass to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setGenClass(String value) {
         DmcAttribute<?> attr = get(DmgDMSAG.__genClass);
         if (attr == null)
@@ -339,8 +347,9 @@ public class WrapperGeneratorDMO  extends DmcObject  implements DmcNamedObjectIF
     /**
      * Sets genClass to the specified value.
      * @param value A value compatible with DmcTypeStringSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setGenClass(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmgDMSAG.__genClass);
         if (attr == null)
@@ -353,7 +362,7 @@ public class WrapperGeneratorDMO  extends DmcObject  implements DmcNamedObjectIF
     /**
      * Removes the genClass attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remGenClass(){
          rem(DmgDMSAG.__genClass);
     }

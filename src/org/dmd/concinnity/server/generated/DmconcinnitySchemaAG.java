@@ -27,7 +27,7 @@ import org.dmd.concinnity.shared.generated.dmo.DmconcinnityDMSAG;
  * for ad hoc representation of concepts and various types of relationships\n
  * between them. All Domain Specific Definitions (DSDs) generated as part of
  * the \n dark-matter mechanisms inherently allow for references to
- * Concinnity.\n <p/>\n Concinnity is defined as: the skillful and harmonious
+ * Concinnity.\n <p>\n Concinnity is defined as: the skillful and harmonious
  * arrangement or fitting together of the different parts of something.
  * <P>
  * Generated from the dmconcinnity schema at version unknown
@@ -128,7 +128,7 @@ public class DmconcinnitySchemaAG extends SchemaDefinition {
             _ConceptOBJ.setFile("/src/org/dmd/concinnity/shared/dmconfig/classes.dmd");
             _ConceptOBJ.setLineNumber("36");
             _ConceptOBJ.setIsNamedBy("meta.name");
-            _ConceptOBJ.addDescription("The Concept class provides a flexible mechanism for defining concepts that can be\n linked in arbitrary or structured ways to other concepts. Concepts allow other, disparate information\n from other dark-matter Domain Specific Languages (DSLs) to be linked together at a conceptual level.\n <p/>\n How you use this mechanism is bounded only by your imagination.");
+            _ConceptOBJ.addDescription("The Concept class provides a flexible mechanism for defining concepts that can be\n linked in arbitrary or structured ways to other concepts. Concepts allow other, disparate information\n from other dark-matter Domain Specific Languages (DSLs) to be linked together at a conceptual level.\n <p>\n How you use this mechanism is bounded only by your imagination.");
             _ConceptOBJ.setUseWrapperType("EXTENDED");
             _ConceptOBJ.setDerivedFrom("dmconcinnity.ConcinnityDefinition");
             _ConceptOBJ.addMust("meta.name");

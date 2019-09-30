@@ -18,12 +18,12 @@ package org.dmd.dmt.server.generated.dmw;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:442)
 import java.util.HashMap;                                           // To support getMVCopy() - (BaseDMWGenerator.java:1076)
-import java.util.Iterator;                                          // Support copy of MV objects - (BaseDMWGenerator.java:2543)
+import java.util.Iterator;                                          // Support copy of MV objects - (BaseDMWGenerator.java:2547)
 import org.dmd.dmc.*;                                               // If any attributes - (BaseDMWGenerator.java:977)
 import org.dmd.dmc.types.StringToString;                            // Primitive type - (BaseDMWGenerator.java:1040)
 import org.dmd.dms.ClassDefinition;                                 // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:944)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                         // Required for MODREC constructor - (BaseDMWGenerator.java:949)
-import org.dmd.dms.generated.dmw.StringToStringIterableDMW;         // For multi-valued StringToString - (BaseDMWGenerator.java:2456)
+import org.dmd.dms.generated.dmw.StringToStringIterableDMW;         // For multi-valued StringToString - (BaseDMWGenerator.java:2460)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;               // Required for MODREC constructor - (BaseDMWGenerator.java:948)
 import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                   // Attribute hmString from the dmt schema - (BaseDMWGenerator.java:910)
 import org.dmd.dmt.shared.generated.dmo.PrimitiveHMDMO;             // Class not auxiliary or abstract - (BaseDMWGenerator.java:1142)
@@ -79,7 +79,7 @@ public class PrimitiveHMDMW extends DmwWrapper {
     /**
      * @return The number of StringToStringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2234)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2238)
     public int getHmStringSize(){
         DmcAttribute<?> attr = ((PrimitiveHMDMO) core).get(DmtDMSAG.__hmString);
         if (attr == null)
@@ -91,7 +91,7 @@ public class PrimitiveHMDMW extends DmwWrapper {
     /**
      * @return true if there are no StringToStringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2246)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2250)
     public boolean getHmStringIsEmpty(){
         DmcAttribute<?> attr = ((PrimitiveHMDMO) core).get(DmtDMSAG.__hmString);
         if (attr == null)
@@ -103,7 +103,7 @@ public class PrimitiveHMDMW extends DmwWrapper {
     /**
      * @return true if there are any StringToStringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2258)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2262)
     public boolean getHmStringHasValue(){
         DmcAttribute<?> attr = ((PrimitiveHMDMO) core).get(DmtDMSAG.__hmString);
         if (attr == null)
@@ -115,7 +115,7 @@ public class PrimitiveHMDMW extends DmwWrapper {
     /**
      * @return The keyed StringToString object if it's available and null otherwise.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2274)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2278)
     public StringToString getHmString(Object key){
         DmcAttribute<?> attr = ((PrimitiveHMDMO) core).get(DmtDMSAG.__hmString);
         if (attr == null)
@@ -127,7 +127,7 @@ public class PrimitiveHMDMW extends DmwWrapper {
     /**
      * @return An Iterator of StringToString objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2461)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2465)
     public StringToStringIterableDMW getHmStringIterable(){
         DmcAttribute<?> attr = ((PrimitiveHMDMO) core).get(DmtDMSAG.__hmString);
         if (attr == null)
@@ -140,7 +140,7 @@ public class PrimitiveHMDMW extends DmwWrapper {
      * Adds another hmString value.
      * @param value A value compatible with StringToString
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2488)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2492)
     public void addHmString(Object value) throws DmcValueException {
         ((PrimitiveHMDMO) core).addHmString(value);
     }
@@ -149,7 +149,7 @@ public class PrimitiveHMDMW extends DmwWrapper {
      * Adds another hmString value.
      * @param value StringToString
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2497)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2501)
     public void addHmString(StringToString value) {
         ((PrimitiveHMDMO) core).addHmString(value);
     }
@@ -158,7 +158,7 @@ public class PrimitiveHMDMW extends DmwWrapper {
      * Deletes a hmString value.
      * @param value The StringToString to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2513)
     public void delHmString(Object value){
         ((PrimitiveHMDMO) core).delHmString(value);
     }
@@ -167,7 +167,7 @@ public class PrimitiveHMDMW extends DmwWrapper {
      * Deletes a hmString value.
      * @param value The StringToString to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2518)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2522)
     public void delHmString(String value){
         ((PrimitiveHMDMO) core).delHmString(value);
     }
@@ -175,7 +175,7 @@ public class PrimitiveHMDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of StringToString objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2548)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2552)
     @SuppressWarnings("unchecked")
     public HashMap<String,StringToString> getHmStringCopy(){
         DmcAttribute<?> attr = ((PrimitiveHMDMO) core).get(DmtDMSAG.__hmString);
@@ -196,7 +196,7 @@ public class PrimitiveHMDMW extends DmwWrapper {
     /**
      * Removes the hmString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2589)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2593)
     public void remHmString(){
         ((PrimitiveHMDMO) core).remHmString();
     }

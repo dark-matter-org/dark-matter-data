@@ -17,10 +17,9 @@ package org.dmd.util.parsing;
 
 import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmc.util.DmcUncheckedObject;
-import org.dmd.util.exceptions.*;
+import org.dmd.util.exceptions.ResultException;
 
 /**
  * This interface defines objects that can process DmcUncheckedObject after
@@ -35,9 +34,10 @@ public interface DmcUncheckedOIFHandlerIF {
      * @param obj The object to be handled.
      * @param infile Name of the file from which the object was loaded.
      * @param lineNumber The line in the file where the object ended.
-     * @throws ResultException, DmcValueException 
-     * @throws DmcNameClashException 
-     * @throws DmcValueExceptionSet 
+     * @throws ResultException if problems occur
+     * @throws DmcValueException  if values are incorrect
+     * @throws DmcRuleExceptionSet  if rule problems
+     * @throws DmcNameClashException if names clash
      */
     public void handleObject(DmcUncheckedObject obj, String infile, int lineNumber) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException;
 

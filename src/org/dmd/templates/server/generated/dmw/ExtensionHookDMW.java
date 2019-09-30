@@ -38,23 +38,23 @@ import org.dmd.templates.shared.generated.types.TdlModuleREF;           // Requi
  * pairs (via the nvp attribute).\n These mechanisms are useful because they
  * allow you to augment an existing Domain Specific Language\n (DSL) with
  * your own information that can be used to facilitate generation of other
- * types\n of artifacts.\n <p/>\n However, you might also want that
- * additional information to show up in the documentation\n produced as part
- * of the base DSL. That's where the ExtensionHook mechanism comes into
- * play;\n although you can use this for your own purposes to allow others to
- * extend the\n content of your generated artifacts - there's nothing
- * dark-matter specific about \n the mechanism.\n <p/>\n When defining your
- * Sections, you may indicate that they contain ExtensionHooks.  This\n will
- * result in the generation of an ExtensionHook interface for the template
- * definition module.\n Other designers who have extended your DSL then
- * create a class that implements the ExtensionHook\n interface and have it
- * dynamically loaded when the artifact generator is invoked (this is
- * usually\n done via commandline arguments that are passed to the generated
- * TemplateLoader). It's up to the\n designer of the base DSL to provide
- * these mechanisms.\n <p/>\n When formatting the artifact, the base DSL
- * designer will call the method on a Section\n (in the appropriate sequence)
- * to have the TemplateLoader call any registered classes that\n implement
- * the ExtensionHook interface.
+ * types\n of artifacts.\n <p>\n However, you might also want that additional
+ * information to show up in the documentation\n produced as part of the base
+ * DSL. That's where the ExtensionHook mechanism comes into play;\n although
+ * you can use this for your own purposes to allow others to extend the\n
+ * content of your generated artifacts - there's nothing dark-matter specific
+ * about \n the mechanism.\n <p>\n When defining your Sections, you may
+ * indicate that they contain ExtensionHooks.  This\n will result in the
+ * generation of an ExtensionHook interface for the template definition
+ * module.\n Other designers who have extended your DSL then create a class
+ * that implements the ExtensionHook\n interface and have it dynamically
+ * loaded when the artifact generator is invoked (this is usually\n done via
+ * commandline arguments that are passed to the generated TemplateLoader).
+ * It's up to the\n designer of the base DSL to provide these mechanisms.\n
+ * <p>\n When formatting the artifact, the base DSL designer will call the
+ * method on a Section\n (in the appropriate sequence) to have the
+ * TemplateLoader call any registered classes that\n implement the
+ * ExtensionHook interface.
  * <P>
  * Generated from the dmtdl schema at version unknown
  * <P>
@@ -130,7 +130,7 @@ abstract public class ExtensionHookDMW extends ContainedElement implements DmcDe
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setName(Object value) throws DmcValueException {
         ((ExtensionHookDMO) core).setName(value);
     }
@@ -139,7 +139,7 @@ abstract public class ExtensionHookDMW extends ContainedElement implements DmcDe
      * Sets name to the specified value.
      * @param value DefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setName(DefinitionName value){
         ((ExtensionHookDMO) core).setName(value);
     }
@@ -147,7 +147,7 @@ abstract public class ExtensionHookDMW extends ContainedElement implements DmcDe
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remName(){
         ((ExtensionHookDMO) core).remName();
     }
@@ -161,7 +161,7 @@ abstract public class ExtensionHookDMW extends ContainedElement implements DmcDe
      * Sets targetObjectClass to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setTargetObjectClass(Object value) throws DmcValueException {
         ((ExtensionHookDMO) core).setTargetObjectClass(value);
     }
@@ -170,7 +170,7 @@ abstract public class ExtensionHookDMW extends ContainedElement implements DmcDe
      * Sets targetObjectClass to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setTargetObjectClass(String value){
         ((ExtensionHookDMO) core).setTargetObjectClass(value);
     }
@@ -178,7 +178,7 @@ abstract public class ExtensionHookDMW extends ContainedElement implements DmcDe
     /**
      * Removes the targetObjectClass attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remTargetObjectClass(){
         ((ExtensionHookDMO) core).remTargetObjectClass();
     }
@@ -210,8 +210,9 @@ abstract public class ExtensionHookDMW extends ContainedElement implements DmcDe
     /**
      * Sets the usesSection to the specified value.
      * @param value A value compatible with SectionREF
+     * @throws DmcValueException is the value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1418)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1419)
     public void setUsesSection(Object value) throws DmcValueException {
         ((ExtensionHookDMO) core).setUsesSection(value);
     }
@@ -219,7 +220,7 @@ abstract public class ExtensionHookDMW extends ContainedElement implements DmcDe
     /**
      * Removes the usesSection attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remUsesSection(){
         ((ExtensionHookDMO) core).remUsesSection();
     }

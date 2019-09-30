@@ -49,9 +49,9 @@ description		The NameContainer type allows for the storage of object names of di
  As you can see, the attribute name is <code>targets</code> and the value is <code> uuidName 809408a7-f00b-448c-beb6-00337e83acc4</code>.
  The <code>uuidName</code> attribute is the <code> designatedNameAttribute </code> for the <code> UUIDName </code> type. So, when parsing/deserializing a
  name container, we always know the underlying type of the name.
- <p/>
+ <p>
  This approach makes dark-matter name handling completely extensible.
- <p/>
+ <p>
  A similar approach is taken to filter specifications via the FilterContainer.
 
 TypeDefinition
@@ -121,7 +121,7 @@ typeClassName	org.dmd.dms.types.DmcTypeEnumValue
 primitiveType   org.dmd.dms.types.EnumValue
 description  The EnumValue type is used to store the definition of one enumerated value
  that comprises part of an overall EnumDefinition.
- <p/>
+ <p>
  The value of an EnumValue is comprised of at least three tokens and possibly a label:
  <pre>
  [enum integer value] [enum value name] [enum description] <: label>
@@ -132,7 +132,7 @@ description  The EnumValue type is used to store the definition of one enumerate
  </pre>
  Within an EnumDefinition, each EnumValue must have a unique integer identifier
  and a unique value name.
- <p/>
+ <p>
  The enum value name is automatically set to uppercase, even if it is specified
  in lower or mixed case.
 
@@ -574,7 +574,7 @@ ruleParam			org.dmd.dmc.DmcObject: :obj:The object to be initialized
 classInfoFromParam	obj.getConstructionClassInfo()
 description			Rules in this category are used to initialize objects to a known
  state after creation.
- <p/>
+ <p>
  Execution will be performed from the bottom of the derivation hierarchy to the top i.e.
  we look for rules for the construction class of the object being initialized and then
  move up the derivation hierarchy looking for rules associated with the base classes.
@@ -681,7 +681,7 @@ classInfoFromParam		DmcOmni.instance().getClassInfo(uco.getConstructionClass())
 ruleImport				org.dmd.dmc.DmcOmni
 description				Rules in this category are used to normalize DmcUncheckedObjects (UCOs)
  and may use information from an external data store to facilitate that.
- <p/>
+ <p>
  While the UCOAttributeNormalization category focuses on a single attribute, object normalization
  may manipulate many aspects of an object: adding/removing attributes and/or alterring existing
  attributes.
@@ -1985,7 +1985,7 @@ description    				Indicates if the class defined by a ClassDefinition and its d
  considered a set of domain specific definitions for defining data objects; the dark-matter Model View
  Whatever (MVW) definitions describe a set of domain specific concepts for defining aspects of a GWT
  application.
- <p/>
+ <p>
  A domain specific definition must be named by name and must have dotName as an attribute because the 
  generated class will implement the DmcDefinitionIF which assumes that these attributes exist. This
  interface allows these definitions to be managed as part of a set of definitions.
@@ -2113,7 +2113,7 @@ description    				The fully qualified name of a schema that is to
  of why the schema is being loaded. This is generally used
  when auxiliary class information is used in conjunction with a set of
  domain specific definitions.
- <p/>
+ <p>
  An example would be org.dmd.gpb.tools.generation.generated.GpbauxtestSchemaAG "Because we need the aux classes"
 
 AttributeDefinition
@@ -2127,7 +2127,7 @@ description    				A set of base module files that should be loaded before
  that the gpbbase.gpb file is loaded because it defines the base types of the fields
  that comprise messages. By specifying gpbbase.gpb as a requiredBaseModule, the
  generated parsing coordinator will ensure that this module is loaded on start-up.
- <p/>
+ <p>
  You should specify just the name of the module file to be loaded, not the file extension.
  The file extension is assumed to be fileExtension associated with the DSD.
 
@@ -2181,7 +2181,7 @@ description					Depending on what you're modelling, you often come across
  concepts together, representing something differently, adding a relationship - whatever.
  However, these ideas often get lost in the shuffle or, if you add them into an overall
  description of something, they don't stand out.
- <p/>
+ <p>
  Any dark-matter definition can be decorated with optimize notes. These notes provide
 
 AttributeDefinition
@@ -2253,7 +2253,7 @@ dmdID						189
 type						String
 version						3.0.5
 description					The name of the relationship established via a reference to some other named object.
- <p/>
+ <p>
  This is a minor hack to allow creation of named relationships in graph databases. Eventually, relationships
  will become first class objects to which you can refer.
 
@@ -2332,7 +2332,7 @@ description		The ActionTriggerInfo class simply provides a common base for the b
  Derivatives of this class are generated as part of the DMO generation
  process and have action specific interfaces to handle the parameters 
  required by an ActionDefinition.
- <p/>
+ <p>
  This mechanism is a replacement for the concept that ActionRequests were
  EXTENSIBLE objects. This way, the user can ask an object for the 
  ActionTriggerInfo (ATI) for a particular action and have a well defined
@@ -2375,19 +2375,19 @@ description		The domain specific definition (DSDefinition) forms the basis for a
  some additional higher order concepts were introduced to make the creation of new, domain specific
  definition sets easier and to allow them to build on and use each others' definitions in a 
  coherent manner.
- <p/>
+ <p>
  For instance, the Model View Whatever (MVW) framework, builds on the dark-matter schema 
  concepts and introduces definitions that align with the Google Web Toolkit (GWT) conceptual model
  of the elements that comprise GWT applications and the various relationships that exist between
  them. The infrastructure needed to parse, manage and use those definitions to generate code
  and documentation are very similar to those used in the base dark-matter schema mechanisms, but
  they had to be hand built for the domain.
- <p/>
+ <p>
  Other kinds of domain specific definitions started to emerge, Google Protocol Buffer (GPB),
  Simple Network Management Protocol (SNMP) etc. Having to build the infrastructure for these 
  definitions each time was tedious and, in the spirit of the rest of dark-matter, lent themselves
  to being defined, generated and extended to make the process the easier.
- <p/>
+ <p>
  Likewise, the code generation mechanisms originally employed have evolved and the more generic
  concept of artifact generation, based on definition sets, was introduced to allow for more rapid
  creation of utilities that generate code or documentation or other types of specifications.
@@ -2432,11 +2432,11 @@ may           	definedIn
 description		The DSDefinitionModule is a definition that defines a collection of definitions
  and provides a basis for the generation of various artifacts that allow for parsing and
  management of that set of definitions.
- <p/>
+ <p>
  The specific of a definition module will result in the generation of a ClassDefinition for
  the specified module type and thus, the dmdID associated with it must be unique across the
  set of classes that comprise the definitions encompassed by the module.
- <p/>
+ <p>
  The ClassDefinition will be named by name and will have the may and must attributes specified
  as part of the DSDefinitionModule.
 
@@ -2589,12 +2589,12 @@ description     The <code> TypeDefinition </code> is used to define the types of
  used to store strings is String. The <code> typeClassName </code> is the fully qualified name of the class
  derived from <code>DmcAttribute</code> that stores this type of value; they are always, by convention,
  named <code>DmcTypeXXX</code>.
- <p/>
+ <p>
  <code> TypeDefinitions </code> are automatically generated internally for <code>ClassDefinitions</code>, 
  <code>ComplexTypeDefinitions</code>, <code>ExtendedReferenceTypeDefinitions</code> and
  <code>EnumDefinitions</code> so that these objects can be referred to via the <code>type</code> attribute of <code> AttributeDefinitions</code>.
  These definitions are marked as <code> internallyGenerated </code>.
- <p/>
+ <p>
  The simplest <code> TypeDefinition </code> would look something like:
  <pre>
  TypeDefinition
@@ -2604,7 +2604,7 @@ description     The <code> TypeDefinition </code> is used to define the types of
  </pre>
  This form would be used for attribute types whose base type originates in <code> java.lang</code>.
  The dark-matter base types include: Boolean, Byte, Double, Float, Integer, Long, Short and String.
- <p/>
+ <p>
  <code>TypeDefinitions</code> also support the concept of specifying a <code> nullReturnValue </code>
  for the entire type i.e. whenever an attribute of the specified type is accessed, it will return
  that value when the attribute doesn't exist in the object. An example of this is the <code> Boolean </code> type:
@@ -2618,7 +2618,7 @@ description     The <code> TypeDefinition </code> is used to define the types of
                  value for an attribute of this type, a value of false will
                  be returned.
  </pre>
- <p/>
+ <p>
  The next most common form of <code> TypeDefinition </code> adds the <code> primitiveType </code>
  attribute. This is required for code generation so that we can import the appropriate type for
  use in the various getter/setter methods. An example would be the <code> Date </code> type.
@@ -2692,7 +2692,7 @@ may             description
 description		The ComplexTypeDefinition provides a mechanism for defining the structure of
  a complex type composed of other types. From this definition, a new DmcType is generated that
  has all of the required methods automatically defined.
- <p/>
+ <p>
  An example definition is the RuleParam:
  <pre>
  ComplexTypeDefinition
@@ -2710,7 +2710,7 @@ description		The ComplexTypeDefinition provides a mechanism for defining the str
  case, the generic args field isn't available and will be the empty string. When a field
  seperator is specified, all fields are, more or less optional, but the underlying type
  must be able to handle the empty string as a valid value. This wouldn't work with Integer.
- <p/>
+ <p>
  If no field separator is specified, the separator is assumed to be whitespace and additional
  whitespace is consumed during the parsing.
 
@@ -2880,12 +2880,12 @@ may             attributeInfoFromParam
 description		The RuleCategory allows for the definition of categories of rules to be applied
  to various objects and indicates the expected interface to be implemented by a rule instance.
  A RuleDefinition may belong to multiple categories. 
- <p/>
+ <p>
  RuleCategories fall into two broad types, ATTRIBUTE and CLASS level, as specified via the ruleType
  attribute. When a RuleDefinition belongs to an ATTRIBUTE level category, its instances will have
  a mandatory applyToAttribute attribute. Both ATTRIBUTE and CLASS level RuleDefinitions have an optional
  applyToClass attribute by default.
- <p/>
+ <p>
  Specifying a RuleCategory will cause the generation of several artifacts including:
  <ul>
  <li> a category interface: this interface will be created based on the ruleParam values and will be
@@ -2895,7 +2895,7 @@ description		The RuleCategory allows for the definition of categories of rules t
  </ul>
  Exactly how a RuleCategory applies rule instances is category specific and this behaviour should be
  part of the description of a rule category.
- <p/>
+ <p>
  For CLASS level rules, you must specify the classInfoFromParam attribute to indicate how to 
  get the DmcClassInfo from whatever object you are passing to the rule. For ATTRIBUTE level rules,
  you must specify both attributeInfoFromParam and classInfoFromParam.
@@ -2923,13 +2923,13 @@ description		The RuleDefinition allows for the definition of rules that can
  be applied to attributes or classes. Rules are not just for validation, they
  can be applied to objects at different times in an object's life cycle e.g. 
  the InitRule can initialize a set of attributes to known values.
- <p/>
+ <p>
  RuleDefinitions will result in the generation of ClassDefinitions that define the 
  DMOs that will carry the parameters associated with the rule and the expectation
  that you will define an implementation class for the rule that derives from
  an abstract BaseImpl (base implementation) of the rule that provides common
  rule infrastructure and appropriate abstract methods that must be filled in.
- <p/>
+ <p>
  RuleDefinitions and ClassDefinitions share the same dmdID space and the IDs must
  be unique. This is because each RuleDefinition results in the creation of a 
  ClassDefinition for the DMO part of the rule that carries the rule parameters.
@@ -2978,12 +2978,12 @@ description		The Dependency class allows for the definition of a named dependenc
  created by injecting RuleData into a rule implementation. If the rule implementation
  has dependencies on other objects, those dependencies are specified via references to
  Dependencies.
- <p/>
+ <p>
  A Dependency can be referred to via a RunContext definition which directs the generation
  of code that can instantiate the required object instances. Satisfying a Dependency relies
  on there being a DependencyImplementation that indicates how to instantiate the object
  that implements the interface defined by the dependency.
- <p/>
+ <p>
  If a Dependency specifies an instantiation, this is considered the default mechanism to
  fulfill the dependency. Other DependencyImplementations may be specified that override
  the specified instantiation in particular contexts.
@@ -3040,7 +3040,7 @@ description		When concinnity was conceived, it was conceived as a way of binding
  deal of hacking. I wanted to be able to refer to concinnity aspects from schema as well, so the
  compromise is to place the base class for Concinnity in the meta schema (so that reference attributes
  may refer to it). 
- <p/>
+ <p>
  Mechanisms exist to prevent any class other than ConcinnityDefinition from deriving directly from
  Concinnity, so you can be guaranteed that down casting a Concinnity reference will yield a ConcinnityDefinition.
 

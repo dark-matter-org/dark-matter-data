@@ -97,8 +97,9 @@ public class UnnamedObjSVDMW extends DmwWrapper {
     /**
      * Sets the svUnnamedObj to the specified value.
      * @param value A value compatible with TestBasicObjectFixedREF
+     * @throws DmcValueException is the value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1418)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1419)
     public void setSvUnnamedObj(Object value) throws DmcValueException {
         ((UnnamedObjSVDMO) core).setSvUnnamedObj(value);
     }
@@ -106,7 +107,7 @@ public class UnnamedObjSVDMW extends DmwWrapper {
     /**
      * Removes the svUnnamedObj attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remSvUnnamedObj(){
         ((UnnamedObjSVDMO) core).remSvUnnamedObj();
     }

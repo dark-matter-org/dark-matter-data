@@ -18,16 +18,16 @@ package org.dmd.dmv.server.generated.dmw;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:442)
 import java.util.ArrayList;                                                                 // To support getMVCopy() - (BaseDMWGenerator.java:1071)
-import java.util.Iterator;                                                                  // Support copy of MV objects - (BaseDMWGenerator.java:2130)
+import java.util.Iterator;                                                                  // Support copy of MV objects - (BaseDMWGenerator.java:2133)
 import org.dmd.dmc.*;                                                                       // If any attributes - (BaseDMWGenerator.java:977)
 import org.dmd.dmc.types.RuleName;                                                          // Is named by - (BaseDMWGenerator.java:939)
 import org.dmd.dms.AttributeDefinition;                                                     // Is reference type - (BaseDMWGenerator.java:997)
 import org.dmd.dms.ClassDefinition;                                                         // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:944)
 import org.dmd.dms.RuleData;                                                                // Derived class - (BaseDMWGenerator.java:1138)
-import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;                                    // For multi-valued adds of AttributeDefinition - (BaseDMWGenerator.java:1657)
+import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;                                    // For multi-valued adds of AttributeDefinition - (BaseDMWGenerator.java:1658)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                                 // Attribute description from the meta schema - (BaseDMWGenerator.java:910)
-import org.dmd.dms.generated.dmw.AttributeDefinitionIterableDMW;                            // For multi-valued AttributeDefinition - (BaseDMWGenerator.java:1599)
-import org.dmd.dms.generated.dmw.StringIterableDMW;                                         // For multi-valued String - (BaseDMWGenerator.java:1993)
+import org.dmd.dms.generated.dmw.AttributeDefinitionIterableDMW;                            // For multi-valued AttributeDefinition - (BaseDMWGenerator.java:1600)
+import org.dmd.dms.generated.dmw.StringIterableDMW;                                         // For multi-valued String - (BaseDMWGenerator.java:1995)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                                       // Required for MODREC constructor - (BaseDMWGenerator.java:948)
 import org.dmd.dmv.shared.generated.dmo.DmvDMSAG;                                           // Attribute onePossibility from the dmv schema - (BaseDMWGenerator.java:910)
 import org.dmd.dmv.shared.generated.dmo.OnlyOneOfTheseAttributesAllowedRuleDataDMO;         // Class not auxiliary or abstract - (BaseDMWGenerator.java:1142)
@@ -38,8 +38,8 @@ import org.dmd.dmv.shared.generated.dmo.OnlyOneOfTheseAttributesAllowedRuleDataD
  * The OnlyOneOfTheseAttributesAllowedRule allows you to specify\n that only
  * one of the possible attributes specified must be present\n in the object
  * being checked. This only makes sense where the attributes in\n question
- * are optional (may have) in the object.\n <p/>\n An example of this rule
- * can be seen below.\n <pre>\n OnlyOneOfTheseAttributesAllowedRule\n
+ * are optional (may have) in the object.\n <p>\n An example of this rule can
+ * be seen below.\n <pre>\n OnlyOneOfTheseAttributesAllowedRule\n
  * ruleName			dmvMoneySource\n ruleTitle			Only \n
  * applyToClass		PaymentMethod\n onePossibility		creditCardNumber\n
  * onePossibility		payPalAccount\n </pre>
@@ -113,7 +113,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMW extends RuleData impleme
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getDescriptionSize(){
         return(((OnlyOneOfTheseAttributesAllowedRuleDataDMO) core).getDescriptionSize());
     }
@@ -121,7 +121,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMW extends RuleData impleme
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getDescriptionIsEmpty(){
         if (((OnlyOneOfTheseAttributesAllowedRuleDataDMO) core).getDescriptionSize() == 0)
             return(true);
@@ -131,7 +131,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMW extends RuleData impleme
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getDescriptionHasValue(){
         if (((OnlyOneOfTheseAttributesAllowedRuleDataDMO) core).getDescriptionSize() == 0)
             return(false);
@@ -141,7 +141,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMW extends RuleData impleme
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1999)
     public StringIterableDMW getDescriptionIterable(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__description);
         if (attr == null)
@@ -153,8 +153,9 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMW extends RuleData impleme
     /**
      * Adds another description value.
      * @param value A value compatible with String
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
     public void addDescription(Object value) throws DmcValueException {
         ((OnlyOneOfTheseAttributesAllowedRuleDataDMO) core).addDescription(value);
     }
@@ -163,16 +164,16 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMW extends RuleData impleme
      * Adds another description value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2033)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2036)
     public void addDescription(String value){
         ((OnlyOneOfTheseAttributesAllowedRuleDataDMO) core).addDescription(value);
     }
 
     /**
-     * Returns true if the collection contains the description value.
      * @param value A value compatible with String
+     * @return true if the collection contains the description value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2093)
     public boolean descriptionContains(String value){
         return(((OnlyOneOfTheseAttributesAllowedRuleDataDMO) core).descriptionContains(value));
     }
@@ -180,7 +181,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMW extends RuleData impleme
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2137)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getDescriptionCopy(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__description);
@@ -200,8 +201,9 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMW extends RuleData impleme
     /**
      * Deletes a description value.
      * @param value The String to be deleted from set of attribute values.
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2165)
     public void delDescription(Object value) throws DmcValueException {
         ((OnlyOneOfTheseAttributesAllowedRuleDataDMO) core).delDescription(value);
     }
@@ -210,7 +212,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMW extends RuleData impleme
      * Deletes a description value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2174)
     public void delDescription(String value){
         ((OnlyOneOfTheseAttributesAllowedRuleDataDMO) core).delDescription(value);
     }
@@ -218,7 +220,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMW extends RuleData impleme
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remDescription(){
         ((OnlyOneOfTheseAttributesAllowedRuleDataDMO) core).remDescription();
     }
@@ -226,7 +228,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMW extends RuleData impleme
     /**
      * @return The number of AttributeDefinition items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getOnePossibilitySize(){
         return(((OnlyOneOfTheseAttributesAllowedRuleDataDMO) core).getOnePossibilitySize());
     }
@@ -234,7 +236,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMW extends RuleData impleme
     /**
      * @return true if there are no AttributeDefinitionDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getOnePossibilityIsEmpty(){
         if (((OnlyOneOfTheseAttributesAllowedRuleDataDMO) core).getOnePossibilitySize() == 0)
             return(true);
@@ -244,7 +246,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMW extends RuleData impleme
     /**
      * @return true if there are any AttributeDefinitionDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getOnePossibilityHasValue(){
         if (((OnlyOneOfTheseAttributesAllowedRuleDataDMO) core).getOnePossibilitySize() == 0)
             return(false);
@@ -254,7 +256,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMW extends RuleData impleme
     /**
      * @return An Iterator of AttributeDefinitionDMO objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1606)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1607)
     public AttributeDefinitionIterableDMW getOnePossibilityIterable(){
         DmcAttribute<?> attr = core.get(DmvDMSAG.__onePossibility);
         if (attr == null)
@@ -266,8 +268,9 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMW extends RuleData impleme
     /**
      * Adds another onePossibility value.
      * @param value A value compatible with AttributeDefinition
+     * @return the attribute instance
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1663)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1665)
     public DmcAttribute<?> addOnePossibility(AttributeDefinition value){
         DmcAttribute<?> attr = ((OnlyOneOfTheseAttributesAllowedRuleDataDMO) core).addOnePossibility(((AttributeDefinitionDMO)value.getDmcObject()));
         return(attr);
@@ -277,7 +280,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMW extends RuleData impleme
      * Deletes a onePossibility value.
      * @param value The AttributeDefinition to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1713)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1715)
     public void delOnePossibility(AttributeDefinition value){
         ((OnlyOneOfTheseAttributesAllowedRuleDataDMO) core).delOnePossibility(value.getDMO());
     }
@@ -285,7 +288,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMW extends RuleData impleme
     /**
      * @return A COPY of the collection of AttributeDefinition objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1777)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1779)
     public ArrayList<AttributeDefinition> getOnePossibilityCopy(){
         DmcAttribute<?> attr = ((OnlyOneOfTheseAttributesAllowedRuleDataDMO) core).get(DmvDMSAG.__onePossibility);
         if (attr == null)
@@ -304,7 +307,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMW extends RuleData impleme
     /**
      * Removes the onePossibility attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remOnePossibility(){
         ((OnlyOneOfTheseAttributesAllowedRuleDataDMO) core).remOnePossibility();
     }
@@ -318,7 +321,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMW extends RuleData impleme
      * Sets ruleName to the specified value.
      * @param value A value compatible with DmcTypeRuleName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setRuleName(Object value) throws DmcValueException {
         ((OnlyOneOfTheseAttributesAllowedRuleDataDMO) core).setRuleName(value);
     }
@@ -327,7 +330,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMW extends RuleData impleme
      * Sets ruleName to the specified value.
      * @param value RuleName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setRuleName(RuleName value){
         ((OnlyOneOfTheseAttributesAllowedRuleDataDMO) core).setRuleName(value);
     }
@@ -335,7 +338,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMW extends RuleData impleme
     /**
      * Removes the ruleName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remRuleName(){
         ((OnlyOneOfTheseAttributesAllowedRuleDataDMO) core).remRuleName();
     }
@@ -349,7 +352,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMW extends RuleData impleme
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setRuleTitle(Object value) throws DmcValueException {
         ((OnlyOneOfTheseAttributesAllowedRuleDataDMO) core).setRuleTitle(value);
     }
@@ -358,7 +361,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMW extends RuleData impleme
      * Sets ruleTitle to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setRuleTitle(String value){
         ((OnlyOneOfTheseAttributesAllowedRuleDataDMO) core).setRuleTitle(value);
     }
@@ -366,7 +369,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataDMW extends RuleData impleme
     /**
      * Removes the ruleTitle attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remRuleTitle(){
         ((OnlyOneOfTheseAttributesAllowedRuleDataDMO) core).remRuleTitle();
     }

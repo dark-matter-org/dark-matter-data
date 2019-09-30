@@ -22,9 +22,9 @@ import org.dmd.dms.ClassDefinition;                                             
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                      // Required for MODREC constructor - (BaseDMWGenerator.java:949)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                            // Required for MODREC constructor - (BaseDMWGenerator.java:948)
 import org.dmd.dmt.server.generated.dmw.TestBasicObjectFixedDMW;                 // Is reference type - (BaseDMWGenerator.java:997)
-import org.dmd.dmt.server.generated.dmw.TestBasicObjectFixedIterableDMW;         // For multi-valued TestBasicObjectFixed - (BaseDMWGenerator.java:1599)
+import org.dmd.dmt.server.generated.dmw.TestBasicObjectFixedIterableDMW;         // For multi-valued TestBasicObjectFixed - (BaseDMWGenerator.java:1600)
 import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                                // Attribute hsUnnamedObj from the dmt schema - (BaseDMWGenerator.java:910)
-import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;                 // For multi-valued adds of TestBasicObjectFixed - (BaseDMWGenerator.java:1657)
+import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;                 // For multi-valued adds of TestBasicObjectFixed - (BaseDMWGenerator.java:1658)
 import org.dmd.dmt.shared.generated.dmo.UnnamedObjHSDMO;                         // Class not auxiliary or abstract - (BaseDMWGenerator.java:1142)
 import org.dmd.dmw.DmwWrapper;                                                   // Unnamed object wrapper - (BaseDMWGenerator.java:1125)
 
@@ -78,7 +78,7 @@ public class UnnamedObjHSDMW extends DmwWrapper {
     /**
      * @return The number of TestBasicObjectFixed items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getHsUnnamedObjSize(){
         return(((UnnamedObjHSDMO) core).getHsUnnamedObjSize());
     }
@@ -86,7 +86,7 @@ public class UnnamedObjHSDMW extends DmwWrapper {
     /**
      * @return true if there are no TestBasicObjectFixedDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getHsUnnamedObjIsEmpty(){
         if (((UnnamedObjHSDMO) core).getHsUnnamedObjSize() == 0)
             return(true);
@@ -96,7 +96,7 @@ public class UnnamedObjHSDMW extends DmwWrapper {
     /**
      * @return true if there are any TestBasicObjectFixedDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getHsUnnamedObjHasValue(){
         if (((UnnamedObjHSDMO) core).getHsUnnamedObjSize() == 0)
             return(false);
@@ -106,7 +106,7 @@ public class UnnamedObjHSDMW extends DmwWrapper {
     /**
      * @return An Iterator of TestBasicObjectFixedDMO objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1606)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1607)
     public TestBasicObjectFixedIterableDMW getHsUnnamedObjIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__hsUnnamedObj);
         if (attr == null)
@@ -118,8 +118,9 @@ public class UnnamedObjHSDMW extends DmwWrapper {
     /**
      * Adds another hsUnnamedObj value.
      * @param value A value compatible with TestBasicObjectFixed
+     * @return the attribute instance
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1663)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1665)
     public DmcAttribute<?> addHsUnnamedObj(TestBasicObjectFixedDMW value){
         DmcAttribute<?> attr = ((UnnamedObjHSDMO) core).addHsUnnamedObj(((TestBasicObjectFixedDMO)value.getDmcObject()));
         return(attr);
@@ -129,7 +130,7 @@ public class UnnamedObjHSDMW extends DmwWrapper {
      * Deletes a hsUnnamedObj value.
      * @param value The TestBasicObjectFixed to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1713)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1715)
     public void delHsUnnamedObj(TestBasicObjectFixedDMW value){
         ((UnnamedObjHSDMO) core).delHsUnnamedObj(value.getDMO());
     }
@@ -137,7 +138,7 @@ public class UnnamedObjHSDMW extends DmwWrapper {
     /**
      * Removes the hsUnnamedObj attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remHsUnnamedObj(){
         ((UnnamedObjHSDMO) core).remHsUnnamedObj();
     }

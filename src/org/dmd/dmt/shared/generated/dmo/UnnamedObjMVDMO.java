@@ -82,7 +82,7 @@ public class UnnamedObjMVDMO  extends DmcObject  implements Serializable  {
      * @return An Iterator of TestBasicObjectFixedDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1134)
     public Iterator<TestBasicObjectFixedDMO> getMvUnnamedObj(){
         DmcTypeTestBasicObjectFixedREFMV attr = (DmcTypeTestBasicObjectFixedREFMV) get(DmtDMSAG.__mvUnnamedObj);
         if (attr == null)
@@ -94,8 +94,9 @@ public class UnnamedObjMVDMO  extends DmcObject  implements Serializable  {
     /**
      * Adds another mvUnnamedObj to the specified value.
      * @param value TestBasicObjectFixed
+     * @return the attribute instance
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1170)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1181)
     public DmcAttribute<?> addMvUnnamedObj(TestBasicObjectFixedDMO value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvUnnamedObj);
         if (attr == null)
@@ -114,8 +115,10 @@ public class UnnamedObjMVDMO  extends DmcObject  implements Serializable  {
     /**
      * Adds another mvUnnamedObj value.
      * @param value A value compatible with TestBasicObjectFixed
+     * @return the attribute instance
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1411)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
     public DmcAttribute<?> addMvUnnamedObj(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvUnnamedObj);
         if (attr == null)
@@ -127,9 +130,9 @@ public class UnnamedObjMVDMO  extends DmcObject  implements Serializable  {
     }
 
     /**
-     * Returns the number of values in mvUnnamedObj
+     * @return the number of values in mvUnnamedObj
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1428)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
     public int getMvUnnamedObjSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvUnnamedObj);
         if (attr == null){
@@ -144,8 +147,8 @@ public class UnnamedObjMVDMO  extends DmcObject  implements Serializable  {
     /**
      * Deletes a mvUnnamedObj value.
      * @param value The TestBasicObjectFixed to be deleted from set of attribute values.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1450)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1464)
     public DmcAttribute<?> delMvUnnamedObj(Object value){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvUnnamedObj);
         
@@ -160,7 +163,7 @@ public class UnnamedObjMVDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the mvUnnamedObj attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1521)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
     public void remMvUnnamedObj(){
          rem(DmtDMSAG.__mvUnnamedObj);
     }

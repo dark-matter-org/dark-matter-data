@@ -1376,6 +1376,12 @@ public class DSDArtifactFormatter {
 		out.write("     * Based on the command line arguments, we hunt for \n");
 		out.write("     *\n");
 		out.write("     * @param args the command line arguments\n");
+		out.write("     * @throws ResultException       if there are problems\n");
+		out.write("     * @throws DmcValueException     if values are incorrect\n");
+		out.write("     * @throws IOException           if IO problems\n");
+		out.write("     * @throws DmcRuleExceptionSet   if rule failures\n");
+		out.write("     * @throws DmcNameClashException if name clashes\n");
+		out.write("     * @throws DmcValueExceptionSet  if multiple value problems\n");
 		out.write("     */\n");
 		out.write("    public void run(String[] args) throws ResultException, DmcValueException, IOException, DmcRuleExceptionSet, DmcNameClashException, DmcValueExceptionSet {\n");
 		out.write("\n");
@@ -1408,6 +1414,7 @@ public class DSDArtifactFormatter {
 		out.write("    /**\n");
 		out.write("     * Derived classes may overload this method to perform additional initialization\n");
 		out.write("     * including checking that commandline arguments are appropriate.\n");
+		out.write("     * @throws ResultException is there are problems\n");
 		out.write("     */\n");
 		out.write("    public void initialize() throws ResultException {\n");
 		out.write("    	 \n");
@@ -1462,6 +1469,7 @@ public class DSDArtifactFormatter {
 		out.write("     * @param module the module that was just parsed\n");
 		out.write("     * @param location the module's location\n");
 		out.write("     * @param definitions the current set of definitions\n");
+		out.write("     * @throws ResultException if there are problems\n");
 		out.write("     */\n");
 		out.write("    public void parsingComplete(" + ddm.getName() + " module, ConfigLocation location, " + ddm.getName() + "DefinitionManager definitions) throws ResultException;\n");
 		out.write("\n");
@@ -1471,6 +1479,7 @@ public class DSDArtifactFormatter {
 		out.write("     * @param module the module that was just parsed\n");
 		out.write("     * @param location the module's location\n");
 		out.write("     * @param definitions the current set of definitions\n");
+		out.write("     * @throws ResultException if there are problems\n");
 		out.write("     */\n");
 		out.write("    public void objectResolutionComplete(" + ddm.getName() + " module, ConfigLocation location, " + ddm.getName() + "DefinitionManager definitions) throws ResultException;\n");
 		out.write("\n");
@@ -1479,6 +1488,8 @@ public class DSDArtifactFormatter {
 		out.write("     * @param module the module for which generation is being performed\n");
 		out.write("     * @param location where the module was found\n");
 		out.write("     * @param definitions the current set of definitions\n");
+		out.write("     * @throws ResultException if there are problems\n");
+		out.write("     * @throws IOException if IO problems\n");
 		out.write("     */\n");
 		out.write("    public void generate(" + ddm.getName() + " module, ConfigLocation location, " + ddm.getName() + "DefinitionManager definitions) throws ResultException, IOException;\n");
 		out.write("\n");
@@ -1487,6 +1498,8 @@ public class DSDArtifactFormatter {
 		out.write("     * has been specified on the commandline. This is useful when doing things like generating documentation \n");
 		out.write("     * where you want to load and resolve objects across many modules.\n");
 		out.write("     * @param definitions the current set of definitions\n");
+		out.write("     * @throws ResultException is there are problems\n");
+		out.write("     * @throws IOException if IO problems\n");
 		out.write("     */\n");
 		out.write("    public void generate(" + ddm.getName() + "DefinitionManager definitions) throws ResultException, IOException;\n");
 		out.write("\n");

@@ -77,7 +77,10 @@ public class UnnamedObjSVDMO  extends DmcObject  implements Serializable  {
         return(rc);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:660)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:661)
+    /**
+     * @return the TestBasicObjectFixedDMO
+     */
     public TestBasicObjectFixedDMO getSvUnnamedObj(){
         DmcTypeTestBasicObjectFixedREFSV attr = (DmcTypeTestBasicObjectFixedREFSV) get(DmtDMSAG.__svUnnamedObj);
         if (attr == null)
@@ -86,11 +89,12 @@ public class UnnamedObjSVDMO  extends DmcObject  implements Serializable  {
         return(attr.getSV());
     }
 
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:718)
     /**
      * Sets svUnnamedObj to the specified value.
      * @param value TestBasicObjectFixedDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:714)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:723)
     public void setSvUnnamedObj(TestBasicObjectFixedDMO value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__svUnnamedObj);
         if (attr == null)
@@ -108,8 +112,9 @@ public class UnnamedObjSVDMO  extends DmcObject  implements Serializable  {
     /**
      * Sets svUnnamedObj to the specified value.
      * @param value A value compatible with DmcTypeTestBasicObjectFixedREFSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setSvUnnamedObj(Object value) throws DmcValueException {
         DmcTypeTestBasicObjectFixedREFSV attr  = (DmcTypeTestBasicObjectFixedREFSV) get(DmtDMSAG.__svUnnamedObj);
         if (attr == null)
@@ -122,7 +127,7 @@ public class UnnamedObjSVDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the svUnnamedObj attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remSvUnnamedObj(){
          rem(DmtDMSAG.__svUnnamedObj);
     }

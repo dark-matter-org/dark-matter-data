@@ -40,7 +40,7 @@ import org.dmd.dms.generated.types.DmcTypeStringSV;                             
  * can be\n linked in arbitrary or structured ways to other concepts.
  * Concepts allow other, disparate information\n from other dark-matter
  * Domain Specific Languages (DSLs) to be linked together at a conceptual
- * level.\n <p/>\n How you use this mechanism is bounded only by your
+ * level.\n <p>\n How you use this mechanism is bounded only by your
  * imagination.
  * <P>
  * Generated from the dmconcinnity schema at version unknown
@@ -124,7 +124,10 @@ public class ConceptDMO  extends ConcinnityDefinitionDMO  implements DmcNamedObj
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:660)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:678)
+    /**
+     * @return the ConceptREF
+     */
     public ConceptREF getIs(){
         DmcTypeConceptREFSV attr = (DmcTypeConceptREFSV) get(DmconcinnityDMSAG.__is);
         if (attr == null)
@@ -140,8 +143,9 @@ public class ConceptDMO  extends ConcinnityDefinitionDMO  implements DmcNamedObj
         return(attr.getSV());
     }
 
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:700)
     /**
-     * Returns the reference to Concept without attempting lazy resolution (if turned on).
+     * @return the reference to Concept without attempting lazy resolution (if turned on).
      */
     public ConceptREF getIsREF(){
         DmcTypeConceptREFSV attr = (DmcTypeConceptREFSV) get(DmconcinnityDMSAG.__is);
@@ -151,11 +155,12 @@ public class ConceptDMO  extends ConcinnityDefinitionDMO  implements DmcNamedObj
         return(attr.getSV());
     }
 
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:718)
     /**
      * Sets is to the specified value.
      * @param value ConceptDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:714)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:723)
     public void setIs(ConceptDMO value) {
         DmcAttribute<?> attr = get(DmconcinnityDMSAG.__is);
         if (attr == null)
@@ -175,8 +180,9 @@ public class ConceptDMO  extends ConcinnityDefinitionDMO  implements DmcNamedObj
     /**
      * Sets is to the specified value.
      * @param value A value compatible with DmcTypeConceptREFSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setIs(Object value) throws DmcValueException {
         DmcTypeConceptREFSV attr  = (DmcTypeConceptREFSV) get(DmconcinnityDMSAG.__is);
         if (attr == null)
@@ -191,7 +197,7 @@ public class ConceptDMO  extends ConcinnityDefinitionDMO  implements DmcNamedObj
     /**
      * Removes the is attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remIs(){
          rem(DmconcinnityDMSAG.__is);
     }
@@ -200,7 +206,7 @@ public class ConceptDMO  extends ConcinnityDefinitionDMO  implements DmcNamedObj
      * @return An Iterator of ConceptDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1146)
     public Iterator<ConceptREF> getIsLike(){
         DmcTypeConceptREFMV attr = (DmcTypeConceptREFMV) get(DmconcinnityDMSAG.__isLike);
         if (attr == null)
@@ -220,7 +226,7 @@ public class ConceptDMO  extends ConcinnityDefinitionDMO  implements DmcNamedObj
      * @return An Iterator of ConceptREFs without attempting lazy resolution (if it's turned on).
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1156)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1166)
     public Iterator<ConceptREF> getIsLikeREFs(){
         DmcTypeConceptREFMV attr = (DmcTypeConceptREFMV) get(DmconcinnityDMSAG.__isLike);
         if (attr == null)
@@ -232,8 +238,9 @@ public class ConceptDMO  extends ConcinnityDefinitionDMO  implements DmcNamedObj
     /**
      * Adds another isLike to the specified value.
      * @param value Concept
+     * @return the attribute instance
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1170)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1181)
     public DmcAttribute<?> addIsLike(ConceptDMO value) {
         DmcAttribute<?> attr = get(DmconcinnityDMSAG.__isLike);
         if (attr == null)
@@ -252,8 +259,10 @@ public class ConceptDMO  extends ConcinnityDefinitionDMO  implements DmcNamedObj
     /**
      * Adds another isLike value.
      * @param value A value compatible with Concept
+     * @return the attribute instance
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1411)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
     public DmcAttribute<?> addIsLike(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmconcinnityDMSAG.__isLike);
         if (attr == null)
@@ -265,9 +274,9 @@ public class ConceptDMO  extends ConcinnityDefinitionDMO  implements DmcNamedObj
     }
 
     /**
-     * Returns the number of values in isLike
+     * @return the number of values in isLike
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1428)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
     public int getIsLikeSize(){
         DmcAttribute<?> attr = get(DmconcinnityDMSAG.__isLike);
         if (attr == null){
@@ -282,8 +291,8 @@ public class ConceptDMO  extends ConcinnityDefinitionDMO  implements DmcNamedObj
     /**
      * Deletes a isLike value.
      * @param value The Concept to be deleted from set of attribute values.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1467)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1482)
     public DmcAttribute<?> delIsLike(Object value){
         DmcAttribute<?> attr = get(DmconcinnityDMSAG.__isLike);
         
@@ -298,7 +307,7 @@ public class ConceptDMO  extends ConcinnityDefinitionDMO  implements DmcNamedObj
     /**
      * Removes the isLike attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1521)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
     public void remIsLike(){
          rem(DmconcinnityDMSAG.__isLike);
     }
@@ -307,7 +316,7 @@ public class ConceptDMO  extends ConcinnityDefinitionDMO  implements DmcNamedObj
      * @return An Iterator of ConceptDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1146)
     public Iterator<ConceptREF> getIsRelatedTo(){
         DmcTypeConceptREFMV attr = (DmcTypeConceptREFMV) get(DmconcinnityDMSAG.__isRelatedTo);
         if (attr == null)
@@ -327,7 +336,7 @@ public class ConceptDMO  extends ConcinnityDefinitionDMO  implements DmcNamedObj
      * @return An Iterator of ConceptREFs without attempting lazy resolution (if it's turned on).
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1156)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1166)
     public Iterator<ConceptREF> getIsRelatedToREFs(){
         DmcTypeConceptREFMV attr = (DmcTypeConceptREFMV) get(DmconcinnityDMSAG.__isRelatedTo);
         if (attr == null)
@@ -339,8 +348,9 @@ public class ConceptDMO  extends ConcinnityDefinitionDMO  implements DmcNamedObj
     /**
      * Adds another isRelatedTo to the specified value.
      * @param value Concept
+     * @return the attribute instance
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1170)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1181)
     public DmcAttribute<?> addIsRelatedTo(ConceptDMO value) {
         DmcAttribute<?> attr = get(DmconcinnityDMSAG.__isRelatedTo);
         if (attr == null)
@@ -359,8 +369,10 @@ public class ConceptDMO  extends ConcinnityDefinitionDMO  implements DmcNamedObj
     /**
      * Adds another isRelatedTo value.
      * @param value A value compatible with Concept
+     * @return the attribute instance
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1411)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
     public DmcAttribute<?> addIsRelatedTo(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmconcinnityDMSAG.__isRelatedTo);
         if (attr == null)
@@ -372,9 +384,9 @@ public class ConceptDMO  extends ConcinnityDefinitionDMO  implements DmcNamedObj
     }
 
     /**
-     * Returns the number of values in isRelatedTo
+     * @return the number of values in isRelatedTo
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1428)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
     public int getIsRelatedToSize(){
         DmcAttribute<?> attr = get(DmconcinnityDMSAG.__isRelatedTo);
         if (attr == null){
@@ -389,8 +401,8 @@ public class ConceptDMO  extends ConcinnityDefinitionDMO  implements DmcNamedObj
     /**
      * Deletes a isRelatedTo value.
      * @param value The Concept to be deleted from set of attribute values.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1467)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1482)
     public DmcAttribute<?> delIsRelatedTo(Object value){
         DmcAttribute<?> attr = get(DmconcinnityDMSAG.__isRelatedTo);
         
@@ -405,12 +417,15 @@ public class ConceptDMO  extends ConcinnityDefinitionDMO  implements DmcNamedObj
     /**
      * Removes the isRelatedTo attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1521)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
     public void remIsRelatedTo(){
          rem(DmconcinnityDMSAG.__isRelatedTo);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:660)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:678)
+    /**
+     * @return the ConceptREF
+     */
     public ConceptREF getRepresents(){
         DmcTypeConceptREFSV attr = (DmcTypeConceptREFSV) get(DmconcinnityDMSAG.__represents);
         if (attr == null)
@@ -426,8 +441,9 @@ public class ConceptDMO  extends ConcinnityDefinitionDMO  implements DmcNamedObj
         return(attr.getSV());
     }
 
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:700)
     /**
-     * Returns the reference to Concept without attempting lazy resolution (if turned on).
+     * @return the reference to Concept without attempting lazy resolution (if turned on).
      */
     public ConceptREF getRepresentsREF(){
         DmcTypeConceptREFSV attr = (DmcTypeConceptREFSV) get(DmconcinnityDMSAG.__represents);
@@ -437,11 +453,12 @@ public class ConceptDMO  extends ConcinnityDefinitionDMO  implements DmcNamedObj
         return(attr.getSV());
     }
 
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:718)
     /**
      * Sets represents to the specified value.
      * @param value ConceptDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:714)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:723)
     public void setRepresents(ConceptDMO value) {
         DmcAttribute<?> attr = get(DmconcinnityDMSAG.__represents);
         if (attr == null)
@@ -461,8 +478,9 @@ public class ConceptDMO  extends ConcinnityDefinitionDMO  implements DmcNamedObj
     /**
      * Sets represents to the specified value.
      * @param value A value compatible with DmcTypeConceptREFSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setRepresents(Object value) throws DmcValueException {
         DmcTypeConceptREFSV attr  = (DmcTypeConceptREFSV) get(DmconcinnityDMSAG.__represents);
         if (attr == null)
@@ -477,12 +495,12 @@ public class ConceptDMO  extends ConcinnityDefinitionDMO  implements DmcNamedObj
     /**
      * Removes the represents attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remRepresents(){
          rem(DmconcinnityDMSAG.__represents);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public String getHint(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__hint);
         if (attr == null)
@@ -495,7 +513,7 @@ public class ConceptDMO  extends ConcinnityDefinitionDMO  implements DmcNamedObj
      * Sets hint to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setHint(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__hint);
         if (attr == null)
@@ -513,8 +531,9 @@ public class ConceptDMO  extends ConcinnityDefinitionDMO  implements DmcNamedObj
     /**
      * Sets hint to the specified value.
      * @param value A value compatible with DmcTypeStringSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setHint(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(MetaDMSAG.__hint);
         if (attr == null)
@@ -527,12 +546,12 @@ public class ConceptDMO  extends ConcinnityDefinitionDMO  implements DmcNamedObj
     /**
      * Removes the hint attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remHint(){
          rem(MetaDMSAG.__hint);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public DefinitionName getName(){
         DmcTypeDefinitionNameSV attr = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -545,7 +564,7 @@ public class ConceptDMO  extends ConcinnityDefinitionDMO  implements DmcNamedObj
      * Sets name to the specified value.
      * @param value DefinitionName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setName(DefinitionName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -563,8 +582,9 @@ public class ConceptDMO  extends ConcinnityDefinitionDMO  implements DmcNamedObj
     /**
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setName(Object value) throws DmcValueException {
         DmcTypeDefinitionNameSV attr  = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -577,7 +597,7 @@ public class ConceptDMO  extends ConcinnityDefinitionDMO  implements DmcNamedObj
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remName(){
          rem(MetaDMSAG.__name);
     }

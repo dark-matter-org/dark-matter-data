@@ -54,9 +54,9 @@ import org.dmd.dms.generated.types.DmcTypeStringSV;                         // R
 /**
  * The OneOfTheseAttributesRequiredRule allows you to specify\n that one of
  * the possible optional attributes specified must be present\n in the object
- * being checked.\n <p/>\n If only one of the possibilities is allowed, you
+ * being checked.\n <p>\n If only one of the possibilities is allowed, you
  * can specify the andOnlyOne\n flag and set it to true. In this case only
- * one of the possibilities will be allowed.\n <p/>\n An example of this rule
+ * one of the possibilities will be allowed.\n <p>\n An example of this rule
  * can be seen below.\n <pre>\n OneOfTheseAttributesRequiredRuleData\n
  * ruleName			dmvIncludeOrExclude\n ruleTitle			At least one of the
  * excludeThisAttribute or includeThisAttribute attributes must be
@@ -149,7 +149,7 @@ public class OneOfTheseAttributesRequiredRuleDataDMO  extends RuleDataDMO  imple
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1278)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1289)
     public Iterator<String> getDescription(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -161,7 +161,7 @@ public class OneOfTheseAttributesRequiredRuleDataDMO  extends RuleDataDMO  imple
     /**
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1290)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1301)
     public String getNthDescription(int i){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -174,7 +174,7 @@ public class OneOfTheseAttributesRequiredRuleDataDMO  extends RuleDataDMO  imple
      * Adds another description to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1304)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1315)
     public DmcAttribute<?> addDescription(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -194,7 +194,7 @@ public class OneOfTheseAttributesRequiredRuleDataDMO  extends RuleDataDMO  imple
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1379)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1390)
     public boolean descriptionContains(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -205,8 +205,10 @@ public class OneOfTheseAttributesRequiredRuleDataDMO  extends RuleDataDMO  imple
     /**
      * Adds another description value.
      * @param value A value compatible with String
+     * @return the attribute instance
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1411)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
     public DmcAttribute<?> addDescription(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -218,9 +220,9 @@ public class OneOfTheseAttributesRequiredRuleDataDMO  extends RuleDataDMO  imple
     }
 
     /**
-     * Returns the number of values in description
+     * @return the number of values in description
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1428)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
     public int getDescriptionSize(){
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null){
@@ -235,8 +237,8 @@ public class OneOfTheseAttributesRequiredRuleDataDMO  extends RuleDataDMO  imple
     /**
      * Deletes a description value.
      * @param value The String to be deleted from set of attribute values.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1486)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
     public DmcAttribute<?> delDescription(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         
@@ -251,8 +253,8 @@ public class OneOfTheseAttributesRequiredRuleDataDMO  extends RuleDataDMO  imple
     /**
      * Deletes a description from the specified value.
      * @param value String
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1519)
     public DmcAttribute<?> delDescription(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         
@@ -267,12 +269,12 @@ public class OneOfTheseAttributesRequiredRuleDataDMO  extends RuleDataDMO  imple
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1521)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
     public void remDescription(){
          rem(MetaDMSAG.__description);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public Boolean isAndOnlyOne(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(DmvDMSAG.__andOnlyOne);
         if (attr == null)
@@ -285,7 +287,7 @@ public class OneOfTheseAttributesRequiredRuleDataDMO  extends RuleDataDMO  imple
      * Sets andOnlyOne to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setAndOnlyOne(Boolean value) {
         DmcAttribute<?> attr = get(DmvDMSAG.__andOnlyOne);
         if (attr == null)
@@ -303,8 +305,9 @@ public class OneOfTheseAttributesRequiredRuleDataDMO  extends RuleDataDMO  imple
     /**
      * Sets andOnlyOne to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setAndOnlyOne(Object value) throws DmcValueException {
         DmcTypeBooleanSV attr  = (DmcTypeBooleanSV) get(DmvDMSAG.__andOnlyOne);
         if (attr == null)
@@ -317,12 +320,12 @@ public class OneOfTheseAttributesRequiredRuleDataDMO  extends RuleDataDMO  imple
     /**
      * Removes the andOnlyOne attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remAndOnlyOne(){
          rem(DmvDMSAG.__andOnlyOne);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public RuleName getRuleName(){
         DmcTypeRuleNameSV attr = (DmcTypeRuleNameSV) get(MetaDMSAG.__ruleName);
         if (attr == null)
@@ -335,7 +338,7 @@ public class OneOfTheseAttributesRequiredRuleDataDMO  extends RuleDataDMO  imple
      * Sets ruleName to the specified value.
      * @param value RuleName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setRuleName(RuleName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__ruleName);
         if (attr == null)
@@ -353,8 +356,9 @@ public class OneOfTheseAttributesRequiredRuleDataDMO  extends RuleDataDMO  imple
     /**
      * Sets ruleName to the specified value.
      * @param value A value compatible with DmcTypeRuleNameSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setRuleName(Object value) throws DmcValueException {
         DmcTypeRuleNameSV attr  = (DmcTypeRuleNameSV) get(MetaDMSAG.__ruleName);
         if (attr == null)
@@ -367,12 +371,12 @@ public class OneOfTheseAttributesRequiredRuleDataDMO  extends RuleDataDMO  imple
     /**
      * Removes the ruleName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remRuleName(){
          rem(MetaDMSAG.__ruleName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public String getRuleTitle(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__ruleTitle);
         if (attr == null)
@@ -385,7 +389,7 @@ public class OneOfTheseAttributesRequiredRuleDataDMO  extends RuleDataDMO  imple
      * Sets ruleTitle to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setRuleTitle(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__ruleTitle);
         if (attr == null)
@@ -403,8 +407,9 @@ public class OneOfTheseAttributesRequiredRuleDataDMO  extends RuleDataDMO  imple
     /**
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeStringSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setRuleTitle(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(MetaDMSAG.__ruleTitle);
         if (attr == null)
@@ -417,7 +422,7 @@ public class OneOfTheseAttributesRequiredRuleDataDMO  extends RuleDataDMO  imple
     /**
      * Removes the ruleTitle attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remRuleTitle(){
          rem(MetaDMSAG.__ruleTitle);
     }
@@ -426,7 +431,7 @@ public class OneOfTheseAttributesRequiredRuleDataDMO  extends RuleDataDMO  imple
      * @return An Iterator of AttributeDefinitionDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1146)
     public Iterator<AttributeDefinitionREF> getOnePossibility(){
         DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) get(DmvDMSAG.__onePossibility);
         if (attr == null)
@@ -446,7 +451,7 @@ public class OneOfTheseAttributesRequiredRuleDataDMO  extends RuleDataDMO  imple
      * @return An Iterator of AttributeDefinitionREFs without attempting lazy resolution (if it's turned on).
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1156)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1166)
     public Iterator<AttributeDefinitionREF> getOnePossibilityREFs(){
         DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) get(DmvDMSAG.__onePossibility);
         if (attr == null)
@@ -458,8 +463,9 @@ public class OneOfTheseAttributesRequiredRuleDataDMO  extends RuleDataDMO  imple
     /**
      * Adds another onePossibility to the specified value.
      * @param value AttributeDefinition
+     * @return the attribute instance
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1170)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1181)
     public DmcAttribute<?> addOnePossibility(AttributeDefinitionDMO value) {
         DmcAttribute<?> attr = get(DmvDMSAG.__onePossibility);
         if (attr == null)
@@ -478,8 +484,10 @@ public class OneOfTheseAttributesRequiredRuleDataDMO  extends RuleDataDMO  imple
     /**
      * Adds another onePossibility value.
      * @param value A value compatible with AttributeDefinition
+     * @return the attribute instance
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1411)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
     public DmcAttribute<?> addOnePossibility(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmvDMSAG.__onePossibility);
         if (attr == null)
@@ -491,9 +499,9 @@ public class OneOfTheseAttributesRequiredRuleDataDMO  extends RuleDataDMO  imple
     }
 
     /**
-     * Returns the number of values in onePossibility
+     * @return the number of values in onePossibility
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1428)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
     public int getOnePossibilitySize(){
         DmcAttribute<?> attr = get(DmvDMSAG.__onePossibility);
         if (attr == null){
@@ -508,8 +516,8 @@ public class OneOfTheseAttributesRequiredRuleDataDMO  extends RuleDataDMO  imple
     /**
      * Deletes a onePossibility value.
      * @param value The AttributeDefinition to be deleted from set of attribute values.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1467)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1482)
     public DmcAttribute<?> delOnePossibility(Object value){
         DmcAttribute<?> attr = get(DmvDMSAG.__onePossibility);
         
@@ -524,7 +532,7 @@ public class OneOfTheseAttributesRequiredRuleDataDMO  extends RuleDataDMO  imple
     /**
      * Removes the onePossibility attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1521)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
     public void remOnePossibility(){
          rem(DmvDMSAG.__onePossibility);
     }

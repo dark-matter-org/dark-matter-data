@@ -88,6 +88,7 @@ public abstract class DmwWrapper extends DmcContainer {
 	/**
 	 * Returns the references to this object formatted as a String. This will only
 	 * return a value if you've turned on backref tracking via the DmcOmni.
+	 * @return the references to this object formatted as a String.
 	 */
 	public String getBackRefs(){
 		return(core.getBackRefs());
@@ -113,6 +114,7 @@ public abstract class DmwWrapper extends DmcContainer {
 	/**
 	 * Returns the objects that are referring to this object. This will only
 	 * return a value if you've turned on backref tracking via the DmcOmni.
+	 * @return the objects that are referring to this object
 	 */
 	public ArrayList<DmwWrapper> getReferringObjects(){
 		ArrayList<DmwWrapper>	rc = new ArrayList<DmwWrapper>();
@@ -128,6 +130,7 @@ public abstract class DmwWrapper extends DmcContainer {
 	}
     
 	/**
+	 * @param ai the attribute via which we're referring
 	 * @return the objects that are referring to this object via the specified attribute. This will only
 	 * return a value if you've turned on backref tracking via the DmcOmni.
 	 */
@@ -147,8 +150,8 @@ public abstract class DmwWrapper extends DmcContainer {
     /**
      * Serializes our underlying DMO.
      * @param dos the output stream.
-     * @throws Exception
-     * @throws DmcValueException
+     * @throws Exception another error occurs
+     * @throws DmcValueException if values are incorrect
      */
     public void serializeIt(DmcOutputStreamIF dos) throws Exception, DmcValueException {
     	getDmcObject().serializeIt(dos);
@@ -171,7 +174,7 @@ public abstract class DmwWrapper extends DmcContainer {
 	/**
 	 * Adds the specified auxiliary class to the object.
 	 * @param cd The auxiliary class definition.
-	 * @throws DmcValueException
+	 * @throws DmcValueException if values are incorrect
 	 */
 	public void addAux(ClassDefinition cd) throws DmcValueException {
 		ClassDefinitionREF cdr = new ClassDefinitionREF(cd.getDMO());
@@ -253,8 +256,7 @@ public abstract class DmwWrapper extends DmcContainer {
 	/**
 	 * This method calls resolveReferences() on the underlying DMO.
 	 * @param resolver an entity that can resolve schema related references and references to other objects.
-	 * @throws ResultException 
-	 * @throws DmcValueExceptionSet 
+	 * @throws DmcValueExceptionSet if values are incorrect
 	 */
 	public void resolveReferences(DmcNameResolverIF resolver) throws DmcValueExceptionSet {
 		getDmcObject().resolveReferences(resolver);
@@ -268,7 +270,7 @@ public abstract class DmwWrapper extends DmcContainer {
 	 * between ambiguous/clashing names. 
 	 * @param rx the name resolver
 	 * @param ncr the clash resolver
-	 * @throws DmcValueExceptionSet
+	 * @throws DmcValueExceptionSet if values are incorrect
 	 */
 	public void resolveReferences(DmcNameResolverWithClashSupportIF rx, DmcNameClashResolverIF ncr) throws DmcValueExceptionSet {
 		getDmcObject().resolveReferences(rx,ncr);
@@ -281,8 +283,8 @@ public abstract class DmwWrapper extends DmcContainer {
 	 * @param rx The alternate name resolver.
 	 * @param ad The attribute through which the object is accessed.
 	 * @param obj The object reference.
-	 * @throws ResultException
-	 * @throws DmcValueException 
+	 * @throws ResultException if references can't be resolved
+	 * @throws DmcValueException if value are incorrect
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	DmcNamedObjectIF resolve(SchemaManager sm, DmcNameResolverIF rx, AttributeDefinition ad, DmcNamedObjectREF obj) throws DmcValueException{

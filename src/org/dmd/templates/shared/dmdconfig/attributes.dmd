@@ -127,7 +127,7 @@ description			For most Sections, there aren't usually too many values, so the ge
  code will provide a fastAdd() method for sub Sections with each of the values being provided
  via an argument. That way, you don't have create the sub Section, hang on to it and populate
  it value by value. However, creating methods with lots of arguments can get a bit messy.
- <p/>
+ <p>
  By default, the most values we'll provide arguments for in a fastAdd() function will be 8.
  If you want to allow more values, just bump this number up.
 

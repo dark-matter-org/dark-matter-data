@@ -43,7 +43,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeContainedElementREFSET provides storage for a set of ContainedElementREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2791)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2808)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:530)
  */
 @SuppressWarnings("serial")
@@ -76,7 +76,7 @@ public class DmcTypeContainedElementREFSET extends DmcTypeContainedElementREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2832)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2849)
     public DmcAttribute<ContainedElementREF> cloneIt(){
         synchronized(this){
             DmcTypeContainedElementREFSET rc = getNew();
@@ -95,7 +95,7 @@ public class DmcTypeContainedElementREFSET extends DmcTypeContainedElementREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2855)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2872)
     public ContainedElementREF add(Object v) throws DmcValueException {
         synchronized(this){
             ContainedElementREF rc = typeCheck(v);
@@ -111,7 +111,7 @@ public class DmcTypeContainedElementREFSET extends DmcTypeContainedElementREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2872)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2889)
     public ContainedElementREF del(Object v){
         synchronized(this){
             ContainedElementREF rc = null;
@@ -135,7 +135,7 @@ public class DmcTypeContainedElementREFSET extends DmcTypeContainedElementREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2897)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2914)
     public Iterator<ContainedElementREF> getMV(){
         synchronized(this){
             if (value == null)
@@ -148,7 +148,7 @@ public class DmcTypeContainedElementREFSET extends DmcTypeContainedElementREF im
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2911)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2928)
     public Set<ContainedElementREF> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -167,7 +167,7 @@ public class DmcTypeContainedElementREFSET extends DmcTypeContainedElementREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2931)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2948)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -177,7 +177,7 @@ public class DmcTypeContainedElementREFSET extends DmcTypeContainedElementREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2942)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2959)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

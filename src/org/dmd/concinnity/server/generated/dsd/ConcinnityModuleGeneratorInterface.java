@@ -16,15 +16,15 @@
 package org.dmd.concinnity.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1454)
-import java.io.IOException;                                                               // May occur during artifact generation - (DSDArtifactFormatter.java:1449)
-import org.dmd.concinnity.server.extended.ConcinnityModule;                               // The base module for generation - (DSDArtifactFormatter.java:1447)
-import org.dmd.concinnity.server.generated.dsd.ConcinnityModuleDefinitionManager;         // All parsed definition - (DSDArtifactFormatter.java:1452)
-import org.dmd.util.exceptions.ResultException;                                           // For problems found after parsing - (DSDArtifactFormatter.java:1451)
-import org.dmd.util.parsing.ConfigLocation;                                               // Where the config was loaded from - (DSDArtifactFormatter.java:1450)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1461)
+import java.io.IOException;                                                               // May occur during artifact generation - (DSDArtifactFormatter.java:1456)
+import org.dmd.concinnity.server.extended.ConcinnityModule;                               // The base module for generation - (DSDArtifactFormatter.java:1454)
+import org.dmd.concinnity.server.generated.dsd.ConcinnityModuleDefinitionManager;         // All parsed definition - (DSDArtifactFormatter.java:1459)
+import org.dmd.util.exceptions.ResultException;                                           // For problems found after parsing - (DSDArtifactFormatter.java:1458)
+import org.dmd.util.parsing.ConfigLocation;                                               // Where the config was loaded from - (DSDArtifactFormatter.java:1457)
 
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1456)
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1463)
 public interface ConcinnityModuleGeneratorInterface {
 
     /**
@@ -33,6 +33,7 @@ public interface ConcinnityModuleGeneratorInterface {
      * @param module the module that was just parsed
      * @param location the module's location
      * @param definitions the current set of definitions
+     * @throws ResultException if there are problems
      */
     public void parsingComplete(ConcinnityModule module, ConfigLocation location, ConcinnityModuleDefinitionManager definitions) throws ResultException;
 
@@ -42,6 +43,7 @@ public interface ConcinnityModuleGeneratorInterface {
      * @param module the module that was just parsed
      * @param location the module's location
      * @param definitions the current set of definitions
+     * @throws ResultException if there are problems
      */
     public void objectResolutionComplete(ConcinnityModule module, ConfigLocation location, ConcinnityModuleDefinitionManager definitions) throws ResultException;
 
@@ -50,6 +52,8 @@ public interface ConcinnityModuleGeneratorInterface {
      * @param module the module for which generation is being performed
      * @param location where the module was found
      * @param definitions the current set of definitions
+     * @throws ResultException if there are problems
+     * @throws IOException if IO problems
      */
     public void generate(ConcinnityModule module, ConfigLocation location, ConcinnityModuleDefinitionManager definitions) throws ResultException, IOException;
 
@@ -58,6 +62,8 @@ public interface ConcinnityModuleGeneratorInterface {
      * has been specified on the commandline. This is useful when doing things like generating documentation 
      * where you want to load and resolve objects across many modules.
      * @param definitions the current set of definitions
+     * @throws ResultException is there are problems
+     * @throws IOException if IO problems
      */
     public void generate(ConcinnityModuleDefinitionManager definitions) throws ResultException, IOException;
 

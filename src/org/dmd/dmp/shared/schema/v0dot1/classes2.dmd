@@ -72,7 +72,7 @@ description 	The LoginResponse is returned after a Login request is received. If
  login is successful, a session ID will be assigned and a request root will be given. All
  subsequent requests must contain the session ID and all requests will be checked to ensure
  that they pertain to objects at or below the request root.
- <p/>
+ <p>
  The response may also have an originatorID that is a unique identifier assigned by the 
  server. In some systems, this identifier will be stamped on all incoming requests and
  passed through to the events that are generated as a result of those requests. In this

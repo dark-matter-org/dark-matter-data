@@ -1414,6 +1414,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 					sb.append("    /**\n");
 					sb.append("     * Sets the " + ad.getName() + " to the specified value.\n");
 					sb.append("     * @param value A value compatible with " + typeName + "\n");
+					sb.append("     * @throws DmcValueException is the value is incorrect\n");
 					sb.append("     */\n");
 					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 					sb.append("    public void set" + functionName + "(Object value) throws DmcValueException {\n");
@@ -1659,6 +1660,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 						sb.append("    /**\n");
 						sb.append("     * Adds another " + ad.getName() + " value.\n");
 						sb.append("     * @param value A value compatible with " + typeName + "\n");
+						sb.append("     * @return the attribute instance\n");
 						sb.append("     */\n");
 						sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 						sb.append("    public DmcAttribute<?> add" + functionName + "(" + auxHolderClass + " value){\n");
@@ -2019,6 +2021,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("    /**\n");
 			sb.append("     * Adds another " + ad.getName() + " value.\n");
 			sb.append("     * @param value A value compatible with " + typeName + "\n");
+			sb.append("     * @throws DmcValueException if value is incorrect\n");
 			sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public void add" + functionName + "(Object value) throws DmcValueException {\n");
@@ -2084,8 +2087,8 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 	    	// contains
 			
 			sb.append("    /**\n");
-			sb.append("     * Returns true if the collection contains the " + ad.getName() + " value.\n");
 			sb.append("     * @param value A value compatible with " + typeName + "\n");
+			sb.append("     * @return true if the collection contains the " + ad.getName() + " value.\n");
 			sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public boolean " + ad.getName() + "Contains(" + typeName + " value){\n");
@@ -2095,8 +2098,8 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 			if (ad.getType().getAltType() != null){
 				String alt = ad.getType().getAltType();
 				sb.append("    /**\n");
-				sb.append("     * Returns true if the collection contains the " + alt + " value.\n");
 				sb.append("     * @param value A value compatible with " + alt + "\n");
+				sb.append("     * @return true if the collection contains the " + alt + " value.\n");
 				sb.append("     */\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    public boolean " + ad.getName() + "Contains(" + alt + " value){\n");
@@ -2157,6 +2160,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("    /**\n");
 			sb.append("     * Deletes a " + ad.getName() + " value.\n");
 			sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
+			sb.append("     * @throws DmcValueException if value is incorrect\n");
 			sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public void del" + functionName + "(Object value) throws DmcValueException {\n");

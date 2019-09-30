@@ -39,7 +39,7 @@ import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;    // DmcType import
  * The DmcTypeDMPEventREFSV provides storage for a single-valued DMPEvent
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2151)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2168)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:254)
  */
 @SuppressWarnings("serial")
@@ -64,14 +64,14 @@ public class DmcTypeDMPEventREFSV extends DmcTypeDMPEventREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2183)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2200)
     public DmcAttribute<DMPEventDMO> cloneIt(){
         DmcTypeDMPEventREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2194)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2211)
     public DMPEventDMO getSVCopy(){
         if (value == null)
             return(null);
@@ -79,7 +79,7 @@ public class DmcTypeDMPEventREFSV extends DmcTypeDMPEventREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2206)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2223)
     public DMPEventDMO set(Object v) throws DmcValueException {
         DMPEventDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

@@ -5,7 +5,7 @@ package org.dmd.concinnity.server.generated.dmw;
 import java.util.ArrayList;                                                   // To support getMVCopy() - (BaseDMWGenerator.java:1071)
 import org.dmd.concinnity.server.extended.Concept;                            // Required for getModificationRecorder() - (BaseDMWGenerator.java:953)
 import org.dmd.concinnity.server.extended.ConcinnityDefinition;               // Derived class - (BaseDMWGenerator.java:1138)
-import org.dmd.concinnity.server.generated.dmw.ConceptIterableDMW;            // For multi-valued Concept - (BaseDMWGenerator.java:1599)
+import org.dmd.concinnity.server.generated.dmw.ConceptIterableDMW;            // For multi-valued Concept - (BaseDMWGenerator.java:1600)
 import org.dmd.concinnity.shared.generated.dmo.ConceptDMO;                    // Class not auxiliary or abstract - (BaseDMWGenerator.java:1142)
 import org.dmd.concinnity.shared.generated.dmo.DmconcinnityDMSAG;             // Attribute isLike from the dmconcinnity schema - (BaseDMWGenerator.java:910)
 import org.dmd.concinnity.shared.generated.types.ConceptREF;                  // Is reference type REF - (BaseDMWGenerator.java:1005)
@@ -24,7 +24,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;                         //
  * can be\n linked in arbitrary or structured ways to other concepts.
  * Concepts allow other, disparate information\n from other dark-matter
  * Domain Specific Languages (DSLs) to be linked together at a conceptual
- * level.\n <p/>\n How you use this mechanism is bounded only by your
+ * level.\n <p>\n How you use this mechanism is bounded only by your
  * imagination.
  * <P>
  * Generated from the dmconcinnity schema at version unknown
@@ -101,7 +101,7 @@ abstract public class ConceptDMW extends ConcinnityDefinition implements DmcDefi
      * Sets hint to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setHint(Object value) throws DmcValueException {
         ((ConceptDMO) core).setHint(value);
     }
@@ -110,7 +110,7 @@ abstract public class ConceptDMW extends ConcinnityDefinition implements DmcDefi
      * Sets hint to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setHint(String value){
         ((ConceptDMO) core).setHint(value);
     }
@@ -118,7 +118,7 @@ abstract public class ConceptDMW extends ConcinnityDefinition implements DmcDefi
     /**
      * Removes the hint attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remHint(){
         ((ConceptDMO) core).remHint();
     }
@@ -150,8 +150,9 @@ abstract public class ConceptDMW extends ConcinnityDefinition implements DmcDefi
     /**
      * Sets the is to the specified value.
      * @param value A value compatible with ConceptREF
+     * @throws DmcValueException is the value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1418)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1419)
     public void setIs(Object value) throws DmcValueException {
         ((ConceptDMO) core).setIs(value);
     }
@@ -159,7 +160,7 @@ abstract public class ConceptDMW extends ConcinnityDefinition implements DmcDefi
     /**
      * Removes the is attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remIs(){
         ((ConceptDMO) core).remIs();
     }
@@ -167,7 +168,7 @@ abstract public class ConceptDMW extends ConcinnityDefinition implements DmcDefi
     /**
      * @return The number of Concept items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getIsLikeSize(){
         return(((ConceptDMO) core).getIsLikeSize());
     }
@@ -175,7 +176,7 @@ abstract public class ConceptDMW extends ConcinnityDefinition implements DmcDefi
     /**
      * @return true if there are no ConceptDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getIsLikeIsEmpty(){
         if (((ConceptDMO) core).getIsLikeSize() == 0)
             return(true);
@@ -185,7 +186,7 @@ abstract public class ConceptDMW extends ConcinnityDefinition implements DmcDefi
     /**
      * @return true if there are any ConceptDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getIsLikeHasValue(){
         if (((ConceptDMO) core).getIsLikeSize() == 0)
             return(false);
@@ -195,7 +196,7 @@ abstract public class ConceptDMW extends ConcinnityDefinition implements DmcDefi
     /**
      * @return An Iterator of ConceptDMO objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1606)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1607)
     public ConceptIterableDMW getIsLikeIterable(){
         DmcAttribute<?> attr = core.get(DmconcinnityDMSAG.__isLike);
         if (attr == null)
@@ -207,8 +208,9 @@ abstract public class ConceptDMW extends ConcinnityDefinition implements DmcDefi
     /**
      * Adds another isLike value.
      * @param value A value compatible with Concept
+     * @return the attribute instance
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1663)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1665)
     public DmcAttribute<?> addIsLike(Concept value){
         DmcAttribute<?> attr = ((ConceptDMO) core).addIsLike(((ConceptDMO)value.getDmcObject()));
         return(attr);
@@ -218,7 +220,7 @@ abstract public class ConceptDMW extends ConcinnityDefinition implements DmcDefi
      * Deletes a isLike value.
      * @param value The Concept to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1713)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1715)
     public void delIsLike(Concept value){
         ((ConceptDMO) core).delIsLike(value.getDMO());
     }
@@ -226,7 +228,7 @@ abstract public class ConceptDMW extends ConcinnityDefinition implements DmcDefi
     /**
      * @return A COPY of the collection of Concept objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1777)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1779)
     public ArrayList<Concept> getIsLikeCopy(){
         DmcAttribute<?> attr = ((ConceptDMO) core).get(DmconcinnityDMSAG.__isLike);
         if (attr == null)
@@ -245,7 +247,7 @@ abstract public class ConceptDMW extends ConcinnityDefinition implements DmcDefi
     /**
      * Removes the isLike attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remIsLike(){
         ((ConceptDMO) core).remIsLike();
     }
@@ -253,7 +255,7 @@ abstract public class ConceptDMW extends ConcinnityDefinition implements DmcDefi
     /**
      * @return The number of Concept items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getIsRelatedToSize(){
         return(((ConceptDMO) core).getIsRelatedToSize());
     }
@@ -261,7 +263,7 @@ abstract public class ConceptDMW extends ConcinnityDefinition implements DmcDefi
     /**
      * @return true if there are no ConceptDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getIsRelatedToIsEmpty(){
         if (((ConceptDMO) core).getIsRelatedToSize() == 0)
             return(true);
@@ -271,7 +273,7 @@ abstract public class ConceptDMW extends ConcinnityDefinition implements DmcDefi
     /**
      * @return true if there are any ConceptDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getIsRelatedToHasValue(){
         if (((ConceptDMO) core).getIsRelatedToSize() == 0)
             return(false);
@@ -281,7 +283,7 @@ abstract public class ConceptDMW extends ConcinnityDefinition implements DmcDefi
     /**
      * @return An Iterator of ConceptDMO objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1606)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1607)
     public ConceptIterableDMW getIsRelatedToIterable(){
         DmcAttribute<?> attr = core.get(DmconcinnityDMSAG.__isRelatedTo);
         if (attr == null)
@@ -293,8 +295,9 @@ abstract public class ConceptDMW extends ConcinnityDefinition implements DmcDefi
     /**
      * Adds another isRelatedTo value.
      * @param value A value compatible with Concept
+     * @return the attribute instance
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1663)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1665)
     public DmcAttribute<?> addIsRelatedTo(Concept value){
         DmcAttribute<?> attr = ((ConceptDMO) core).addIsRelatedTo(((ConceptDMO)value.getDmcObject()));
         return(attr);
@@ -304,7 +307,7 @@ abstract public class ConceptDMW extends ConcinnityDefinition implements DmcDefi
      * Deletes a isRelatedTo value.
      * @param value The Concept to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1713)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1715)
     public void delIsRelatedTo(Concept value){
         ((ConceptDMO) core).delIsRelatedTo(value.getDMO());
     }
@@ -312,7 +315,7 @@ abstract public class ConceptDMW extends ConcinnityDefinition implements DmcDefi
     /**
      * @return A COPY of the collection of Concept objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1777)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1779)
     public ArrayList<Concept> getIsRelatedToCopy(){
         DmcAttribute<?> attr = ((ConceptDMO) core).get(DmconcinnityDMSAG.__isRelatedTo);
         if (attr == null)
@@ -331,7 +334,7 @@ abstract public class ConceptDMW extends ConcinnityDefinition implements DmcDefi
     /**
      * Removes the isRelatedTo attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remIsRelatedTo(){
         ((ConceptDMO) core).remIsRelatedTo();
     }
@@ -345,7 +348,7 @@ abstract public class ConceptDMW extends ConcinnityDefinition implements DmcDefi
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setName(Object value) throws DmcValueException {
         ((ConceptDMO) core).setName(value);
     }
@@ -354,7 +357,7 @@ abstract public class ConceptDMW extends ConcinnityDefinition implements DmcDefi
      * Sets name to the specified value.
      * @param value DefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setName(DefinitionName value){
         ((ConceptDMO) core).setName(value);
     }
@@ -362,7 +365,7 @@ abstract public class ConceptDMW extends ConcinnityDefinition implements DmcDefi
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remName(){
         ((ConceptDMO) core).remName();
     }
@@ -394,8 +397,9 @@ abstract public class ConceptDMW extends ConcinnityDefinition implements DmcDefi
     /**
      * Sets the represents to the specified value.
      * @param value A value compatible with ConceptREF
+     * @throws DmcValueException is the value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1418)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1419)
     public void setRepresents(Object value) throws DmcValueException {
         ((ConceptDMO) core).setRepresents(value);
     }
@@ -403,7 +407,7 @@ abstract public class ConceptDMW extends ConcinnityDefinition implements DmcDefi
     /**
      * Removes the represents attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remRepresents(){
         ((ConceptDMO) core).remRepresents();
     }

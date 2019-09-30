@@ -41,7 +41,7 @@ name			DmtMultiValuedRequiredPartWithReferences
 requiredPart	TypeDefinition		type        "A bunch of types" multivalued=true
 description		Originally, multivalued was only applicable to optional parts, and that
  would mean specifying part=value for each value.
- <p/>
+ <p>
  There are many situations where it's handy to specify a set of values for
  something on a single line without syntactic cruft, and this complex type exercises
  those generation mechanisms for reference values.

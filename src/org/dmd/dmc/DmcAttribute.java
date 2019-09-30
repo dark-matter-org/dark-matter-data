@@ -152,9 +152,9 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 	/**
 	 * Derived classes must overload this method to determine if the value passed
 	 * in conforms with their type criteria.
-	 * @param value
-	 * @return E
-	 * @throws DmcValueException
+	 * @param value the value to be checked
+	 * @return a value holder
+	 * @throws DmcValueException if the value is incorrect
 	 */
 	abstract protected VALUE typeCheck(Object value) throws DmcValueException;
 	
@@ -162,7 +162,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 	 * This method must be overridden to clone whatever value is stored in this attribute.
 	 * The concept of clone constructors was considered, but this doesn't work for 
 	 * enumerated values.
-	 * @param original
+	 * @param original the original value
 	 * @return A clone of the value.
 	 */
 	abstract protected VALUE cloneValue(VALUE original);
@@ -175,7 +175,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 	 * output stream.
      * @param dos The output stream.
      * @param value The value to be serialized.
-     * @throws Exception
+     * @throws Exception if problems occur
 	 */
     abstract public void serializeValue(DmcOutputStreamIF dos, VALUE value) throws Exception;
 
@@ -183,7 +183,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
      * This method must be overridden to read a single value from the input stream.
      * @param dis the input stream.
      * @return A value read from the input stream.
-     * @throws Exception
+     * @throws Exception if problems occur
      */
     abstract public VALUE deserializeValue(DmcInputStreamIF dis) throws Exception;
 
@@ -213,6 +213,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 	 * Sets the value of a single-valued attribute.
 	 * @param value The value to be set
 	 * @throws DmcValueException if the value is not compatible with the underlying type.
+	 * @return the attribute value 
 	 */
 	public VALUE set(Object value) throws DmcValueException {
     	throw(new IllegalStateException("The set() method should be overloaded automatically by the DmcType[VALUE]SV class"));
@@ -220,7 +221,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 	
 	/**
 	 * Returns the single-valued attribute value.
-	 * @return VALUE
+	 * @return the attribute value
 	 */
 	public VALUE getSV(){
     	throw(new IllegalStateException("The getSV() method should be overloaded automatically by the DmcType[VALUE]SV class"));
@@ -234,6 +235,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 	 * allow duplicate values.
 	 * @param value The value to be added
 	 * @throws DmcValueException if the value is not compatible with the underlying type.
+	 * @return the attribute value 
 	 */
 	public VALUE add(Object value) throws DmcValueException {
     	throw(new IllegalStateException("The add() method should be overloaded automatically by the DmcType[VALUE]MV/MAP/SET classes"));
@@ -242,6 +244,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 	/**
 	 * Removes a value from a multi-valued attribute.
 	 * @param v The value to be removed.
+	 * @return the attribute value 
 	 */
 	public VALUE del(Object v){
     	throw(new IllegalStateException("The del() method should be overloaded automatically by the DmcType[VALUE]MV/MAP/SET classes"));
@@ -249,7 +252,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 	
 	/**
 	 * Returns an Iterator over a multi-valued attribute's values.
-	 * @return Iterator<VALUE>
+	 * @return Iterator&ltVALUE&gt
 	 */
 	public Iterator<VALUE> getMV(){
     	throw(new IllegalStateException("The getMV() method should be overloaded automatically by the DmcType[VALUE]MV/MAP/SET classes"));
@@ -267,7 +270,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 	/**
 	 * A convenience function to return the nth value from a multi-valued attribute.
 	 * @param index The value index.
-	 * @return E
+	 * @return the value
 	 */
 	public VALUE getMVnth(int index){
     	throw(new IllegalStateException("The getMVnth() method should be overloaded automatically by the DmcType[VALUE]MV class"));
@@ -278,7 +281,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 	 * is to be removed, set the value to null.
 	 * @param index The value index.
 	 * @param value The value to be set. if the value is null, that index location is nulled.
-	 * @return E
+	 * @return the value
 	 */
 	public VALUE setMVnth(int index, Object value) throws DmcValueException {
     	throw(new IllegalStateException("The setMVnth() method should be overloaded automatically by the DmcType[VALUE]MV class"));
@@ -286,7 +289,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 	
 	/**
 	 * This method is overloaded in DmcHashedAttribute - it returns null at this level.
-	 * @param key
+	 * @param key the key value
 	 * @return the value associated with the specified key for HASHMAPPED or TREEMAPPED
 	 * attributes.
 	 */
@@ -335,6 +338,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 	/**
 	 * This method is overridden in the auto-generated classes to create a deep clone
 	 * of the attribute.
+	 * @return a clone of the attribute
 	 */
 	abstract public DmcAttribute<VALUE> cloneIt();
     
@@ -344,8 +348,8 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
     /**
      * Serializes this attribute value.
      * @param dos The stream to which we're serialized.
-     * @throws IOException
-     * @throws DmcValueException 
+     * @throws IOException if IO problems occur
+     * @throws DmcValueException  if value problems occur
      */
     public void serializeIt(DmcOutputStreamIF dos) throws Exception {
     	if (attrInfo == null){
@@ -439,6 +443,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
      * This method is called in toOIF() to format an attribute value. If you want
      * a different String display format for a type of value, you can overload this
      * in your DmcType implementation. This method is NOT called for object names.
+     * @return the formatted value
      */
     protected String formatValue(VALUE value){
     	return(value.toString());
@@ -448,6 +453,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
      * Returns this attribute in Object Instance Format (OIF) which is basically the attribute
      * name followed by the string representation of the value of the attribute. For multi-valued
      * attributes, each value is dumped on a separate line, prepended with its name.
+     * @param sb the string buffer to which we write
      */
 	public void toOIF(StringBuffer sb) {
 		String name = "???";
@@ -704,6 +710,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
      * attributes that are part of modifiers. Such attribute always have only one value, so
      * this method will throw an IllegalStateException if there's more than one value in the 
      * attribute.
+     * @return the formatted value
      */
 	public String modifierFormat() {
 		String rc = null;
@@ -977,6 +984,9 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
     /**
      * This method may be overloaded to properly format attributes that refer directly
      * to DmcObjects or that are object references.
+     * @param sb the string buffer we write to
+     * @param padding the padding
+     * @param indent the indent
      */
     protected void formatValueAsJSON(StringBuffer sb, int padding, String indent) {
     	if (getMVSize() == 0){
@@ -1022,6 +1032,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
     /**
      * This method may be overloaded to properly format attributes that refer directly
      * to DmcObjects or that are object references.
+     * @param sb the string buffer we write to
      */
     protected void formatValueAsCompactJSON(StringBuffer sb) {
     	if (getMVSize() == 0){
@@ -1041,8 +1052,8 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 	 * Adds the attribute name and pads it with the required number of spaces. If the name is
 	 * longer than the padding, we do nothing.
 	 * @param attrName The name of the attribute.
-	 * @param padding  The amount of padding.
 	 * @param sb       The buffer where we're building the output.
+	 * @param padding  The amount of padding.
 	 */
 	private void addJSONNameWithPadding(DmcAttribute<?> attr, StringBuffer sb, int padding){
 		sb.append("\"" + attr.getName() + "\": ");

@@ -30,7 +30,7 @@ import org.dmd.dmt.shared.generated.types.DmcTypeDmtMultiValuedRequiredPartPrimi
  * The DmcTypeDmtMultiValuedRequiredPartPrimitiveSET provides storage for a set of DmtMultiValuedRequiredPartPrimitive
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2791)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2808)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:127)
  */
 @SuppressWarnings("serial")
@@ -63,7 +63,7 @@ public class DmcTypeDmtMultiValuedRequiredPartPrimitiveSET extends DmcTypeDmtMul
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2832)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2849)
     public DmcAttribute<DmtMultiValuedRequiredPartPrimitive> cloneIt(){
         synchronized(this){
             DmcTypeDmtMultiValuedRequiredPartPrimitiveSET rc = getNew();
@@ -82,7 +82,7 @@ public class DmcTypeDmtMultiValuedRequiredPartPrimitiveSET extends DmcTypeDmtMul
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2855)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2872)
     public DmtMultiValuedRequiredPartPrimitive add(Object v) throws DmcValueException {
         synchronized(this){
             DmtMultiValuedRequiredPartPrimitive rc = typeCheck(v);
@@ -98,7 +98,7 @@ public class DmcTypeDmtMultiValuedRequiredPartPrimitiveSET extends DmcTypeDmtMul
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2872)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2889)
     public DmtMultiValuedRequiredPartPrimitive del(Object v){
         synchronized(this){
             DmtMultiValuedRequiredPartPrimitive rc = null;
@@ -122,7 +122,7 @@ public class DmcTypeDmtMultiValuedRequiredPartPrimitiveSET extends DmcTypeDmtMul
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2897)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2914)
     public Iterator<DmtMultiValuedRequiredPartPrimitive> getMV(){
         synchronized(this){
             if (value == null)
@@ -135,7 +135,7 @@ public class DmcTypeDmtMultiValuedRequiredPartPrimitiveSET extends DmcTypeDmtMul
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2911)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2928)
     public Set<DmtMultiValuedRequiredPartPrimitive> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -154,7 +154,7 @@ public class DmcTypeDmtMultiValuedRequiredPartPrimitiveSET extends DmcTypeDmtMul
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2931)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2948)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -164,7 +164,7 @@ public class DmcTypeDmtMultiValuedRequiredPartPrimitiveSET extends DmcTypeDmtMul
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2942)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2959)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

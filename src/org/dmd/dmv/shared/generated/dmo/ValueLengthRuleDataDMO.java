@@ -55,7 +55,7 @@ import org.dmd.dms.generated.types.DmcTypeStringSV;                         // R
  * The ValueLengthRule allows you to indicate the maximum length,\n the
  * minimum length or both the maximum and minimum length of the String form
  * of\n a value associated with an attribute. It works for both single valued
- * and\n multi-valued attributes.\n <p/>\n If you have added types via the
+ * and\n multi-valued attributes.\n <p>\n If you have added types via the
  * TypeDefinition mechanisms,\n you should ensure that you have overloaded
  * the toString() method \n <pre>\n ValueLengthRuleData\n ruleName        
  * userNameLength\n ruleTitle        The user name must be between 6 and 20
@@ -156,7 +156,7 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1278)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1289)
     public Iterator<String> getDescription(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -168,7 +168,7 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
     /**
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1290)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1301)
     public String getNthDescription(int i){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -181,7 +181,7 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
      * Adds another description to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1304)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1315)
     public DmcAttribute<?> addDescription(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -201,7 +201,7 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1379)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1390)
     public boolean descriptionContains(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -212,8 +212,10 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
     /**
      * Adds another description value.
      * @param value A value compatible with String
+     * @return the attribute instance
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1411)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
     public DmcAttribute<?> addDescription(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -225,9 +227,9 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
     }
 
     /**
-     * Returns the number of values in description
+     * @return the number of values in description
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1428)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
     public int getDescriptionSize(){
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null){
@@ -242,8 +244,8 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
     /**
      * Deletes a description value.
      * @param value The String to be deleted from set of attribute values.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1486)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
     public DmcAttribute<?> delDescription(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         
@@ -258,8 +260,8 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
     /**
      * Deletes a description from the specified value.
      * @param value String
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1519)
     public DmcAttribute<?> delDescription(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         
@@ -274,12 +276,12 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1521)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
     public void remDescription(){
          rem(MetaDMSAG.__description);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public Integer getMaxLength(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(DmvDMSAG.__maxLength);
         if (attr == null)
@@ -292,7 +294,7 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
      * Sets maxLength to the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setMaxLength(Integer value) {
         DmcAttribute<?> attr = get(DmvDMSAG.__maxLength);
         if (attr == null)
@@ -310,8 +312,9 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
     /**
      * Sets maxLength to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setMaxLength(Object value) throws DmcValueException {
         DmcTypeIntegerSV attr  = (DmcTypeIntegerSV) get(DmvDMSAG.__maxLength);
         if (attr == null)
@@ -324,12 +327,12 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
     /**
      * Removes the maxLength attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remMaxLength(){
          rem(DmvDMSAG.__maxLength);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public Integer getMinLength(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(DmvDMSAG.__minLength);
         if (attr == null)
@@ -342,7 +345,7 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
      * Sets minLength to the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setMinLength(Integer value) {
         DmcAttribute<?> attr = get(DmvDMSAG.__minLength);
         if (attr == null)
@@ -360,8 +363,9 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
     /**
      * Sets minLength to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setMinLength(Object value) throws DmcValueException {
         DmcTypeIntegerSV attr  = (DmcTypeIntegerSV) get(DmvDMSAG.__minLength);
         if (attr == null)
@@ -374,12 +378,12 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
     /**
      * Removes the minLength attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remMinLength(){
          rem(DmvDMSAG.__minLength);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public RuleName getRuleName(){
         DmcTypeRuleNameSV attr = (DmcTypeRuleNameSV) get(MetaDMSAG.__ruleName);
         if (attr == null)
@@ -392,7 +396,7 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
      * Sets ruleName to the specified value.
      * @param value RuleName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setRuleName(RuleName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__ruleName);
         if (attr == null)
@@ -410,8 +414,9 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
     /**
      * Sets ruleName to the specified value.
      * @param value A value compatible with DmcTypeRuleNameSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setRuleName(Object value) throws DmcValueException {
         DmcTypeRuleNameSV attr  = (DmcTypeRuleNameSV) get(MetaDMSAG.__ruleName);
         if (attr == null)
@@ -424,12 +429,12 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
     /**
      * Removes the ruleName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remRuleName(){
          rem(MetaDMSAG.__ruleName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public String getRuleTitle(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__ruleTitle);
         if (attr == null)
@@ -442,7 +447,7 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
      * Sets ruleTitle to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setRuleTitle(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__ruleTitle);
         if (attr == null)
@@ -460,8 +465,9 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
     /**
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeStringSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setRuleTitle(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(MetaDMSAG.__ruleTitle);
         if (attr == null)
@@ -474,12 +480,15 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
     /**
      * Removes the ruleTitle attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remRuleTitle(){
          rem(MetaDMSAG.__ruleTitle);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:660)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:678)
+    /**
+     * @return the AttributeDefinitionREF
+     */
     public AttributeDefinitionREF getApplyToAttribute(){
         DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) get(MetaDMSAG.__applyToAttribute);
         if (attr == null)
@@ -495,8 +504,9 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
         return(attr.getSV());
     }
 
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:700)
     /**
-     * Returns the reference to AttributeDefinition without attempting lazy resolution (if turned on).
+     * @return the reference to AttributeDefinition without attempting lazy resolution (if turned on).
      */
     public AttributeDefinitionREF getApplyToAttributeREF(){
         DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) get(MetaDMSAG.__applyToAttribute);
@@ -506,11 +516,12 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
         return(attr.getSV());
     }
 
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:718)
     /**
      * Sets applyToAttribute to the specified value.
      * @param value AttributeDefinitionDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:714)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:723)
     public void setApplyToAttribute(AttributeDefinitionDMO value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__applyToAttribute);
         if (attr == null)
@@ -530,8 +541,9 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
     /**
      * Sets applyToAttribute to the specified value.
      * @param value A value compatible with DmcTypeAttributeDefinitionREFSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setApplyToAttribute(Object value) throws DmcValueException {
         DmcTypeAttributeDefinitionREFSV attr  = (DmcTypeAttributeDefinitionREFSV) get(MetaDMSAG.__applyToAttribute);
         if (attr == null)
@@ -546,7 +558,7 @@ public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements DmcNamedObj
     /**
      * Removes the applyToAttribute attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remApplyToAttribute(){
          rem(MetaDMSAG.__applyToAttribute);
     }

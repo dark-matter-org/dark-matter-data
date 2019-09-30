@@ -90,7 +90,7 @@ abstract public class ConcinnityDefinitionDMO  extends ConcinnityDMO  implements
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public DefinitionName getName(){
         DmcTypeDefinitionNameSV attr = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -103,7 +103,7 @@ abstract public class ConcinnityDefinitionDMO  extends ConcinnityDMO  implements
      * Sets name to the specified value.
      * @param value DefinitionName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setName(DefinitionName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -121,8 +121,9 @@ abstract public class ConcinnityDefinitionDMO  extends ConcinnityDMO  implements
     /**
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setName(Object value) throws DmcValueException {
         DmcTypeDefinitionNameSV attr  = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -135,12 +136,12 @@ abstract public class ConcinnityDefinitionDMO  extends ConcinnityDMO  implements
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remName(){
          rem(MetaDMSAG.__name);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public DotName getDotName(){
         DmcTypeDotNameSV attr = (DmcTypeDotNameSV) get(MetaDMSAG.__dotName);
         if (attr == null)
@@ -153,7 +154,7 @@ abstract public class ConcinnityDefinitionDMO  extends ConcinnityDMO  implements
      * Sets dotName to the specified value.
      * @param value DotName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setDotName(DotName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__dotName);
         if (attr == null)
@@ -171,8 +172,9 @@ abstract public class ConcinnityDefinitionDMO  extends ConcinnityDMO  implements
     /**
      * Sets dotName to the specified value.
      * @param value A value compatible with DmcTypeDotNameSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setDotName(Object value) throws DmcValueException {
         DmcTypeDotNameSV attr  = (DmcTypeDotNameSV) get(MetaDMSAG.__dotName);
         if (attr == null)
@@ -185,12 +187,15 @@ abstract public class ConcinnityDefinitionDMO  extends ConcinnityDMO  implements
     /**
      * Removes the dotName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remDotName(){
          rem(MetaDMSAG.__dotName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:660)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:678)
+    /**
+     * @return the ConcinnityModuleREF
+     */
     public ConcinnityModuleREF getDefinedInConcinnityModule(){
         DmcTypeConcinnityModuleREFSV attr = (DmcTypeConcinnityModuleREFSV) get(DmconcinnityDMSAG.__definedInConcinnityModule);
         if (attr == null)
@@ -206,8 +211,9 @@ abstract public class ConcinnityDefinitionDMO  extends ConcinnityDMO  implements
         return(attr.getSV());
     }
 
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:700)
     /**
-     * Returns the reference to ConcinnityModule without attempting lazy resolution (if turned on).
+     * @return the reference to ConcinnityModule without attempting lazy resolution (if turned on).
      */
     public ConcinnityModuleREF getDefinedInConcinnityModuleREF(){
         DmcTypeConcinnityModuleREFSV attr = (DmcTypeConcinnityModuleREFSV) get(DmconcinnityDMSAG.__definedInConcinnityModule);
@@ -217,11 +223,12 @@ abstract public class ConcinnityDefinitionDMO  extends ConcinnityDMO  implements
         return(attr.getSV());
     }
 
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:718)
     /**
      * Sets definedInConcinnityModule to the specified value.
      * @param value ConcinnityModuleDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:714)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:723)
     public void setDefinedInConcinnityModule(ConcinnityModuleDMO value) {
         DmcAttribute<?> attr = get(DmconcinnityDMSAG.__definedInConcinnityModule);
         if (attr == null)
@@ -241,8 +248,9 @@ abstract public class ConcinnityDefinitionDMO  extends ConcinnityDMO  implements
     /**
      * Sets definedInConcinnityModule to the specified value.
      * @param value A value compatible with DmcTypeConcinnityModuleREFSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setDefinedInConcinnityModule(Object value) throws DmcValueException {
         DmcTypeConcinnityModuleREFSV attr  = (DmcTypeConcinnityModuleREFSV) get(DmconcinnityDMSAG.__definedInConcinnityModule);
         if (attr == null)
@@ -257,7 +265,7 @@ abstract public class ConcinnityDefinitionDMO  extends ConcinnityDMO  implements
     /**
      * Removes the definedInConcinnityModule attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remDefinedInConcinnityModule(){
          rem(DmconcinnityDMSAG.__definedInConcinnityModule);
     }

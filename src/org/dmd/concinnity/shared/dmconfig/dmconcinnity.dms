@@ -15,6 +15,6 @@ description 		The dark-matter Concinnity schema defines a set of mechanisms
  that allow for ad hoc representation of concepts and various types of relationships
  between them. All Domain Specific Definitions (DSDs) generated as part of the 
  dark-matter mechanisms inherently allow for references to Concinnity.
- <p/>
+ <p>
  Concinnity is defined as: the skillful and harmonious arrangement or fitting together of the different parts of something.
 

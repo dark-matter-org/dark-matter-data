@@ -434,31 +434,37 @@ public class DmoTypeFormatter {
       	
       	out.write("    \n");
       	out.write("    \n");
+        out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
       	out.write("    public " + td.getName() + "REF(){\n");
       	out.write("    }\n\n");
 
+        out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
       	out.write("    public " + td.getName() + "REF(" + td.getName() + "DMO o){\n");
       	out.write("         object = o;\n");
       	out.write("         myName = (" + nameType + ")o.getObjectNameAttribute();\n");
       	out.write("    }\n\n");
 
+        out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
       	out.write("    public " + td.getName() + "REF(" + td.getOriginalClass().getIsNamedBy().getType().getName().getNameString() + " n) throws DmcValueException {\n");
       	out.write("         object = null;\n");
       	out.write("         myName = new " + nameType + "(__" + attrName + ");\n");
       	out.write("         myName.set(n);\n");
       	out.write("    }\n\n");
 
+        out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
       	out.write("    public " + td.getName() + "REF(String n) throws DmcValueException {\n");
       	out.write("         object = null;\n");
       	out.write("         myName = new " + nameType + "(__" + attrName + ");\n");
       	out.write("         myName.set(n);\n");
       	out.write("    }\n\n");
 
+        out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
       	out.write("    public " + td.getName() + "REF("+ td.getName() + "REF original){\n");
         out.write("        myName = original.myName;\n");
         out.write("        object = original.object;\n");
       	out.write("    }\n\n");
 
+        out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
       	out.write("    public void setObject(" + td.getName() + "DMO o){\n");
       	out.write("         object = o;\n");
       	out.write("         if (object != null)\n");
@@ -468,7 +474,7 @@ public class DmoTypeFormatter {
         out.write("    /**\n");
         out.write("     * Clones this reference.\n");
         out.write("     */\n");
-//        out.write("    @Override\n");
+        out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public " + td.getName() + "REF cloneMe(){\n");
         out.write("        " + td.getName() + "REF rc = new " + td.getName() + "REF();\n");
         out.write("        rc.myName = myName;\n");

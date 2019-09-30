@@ -79,7 +79,7 @@ abstract public class ActionCancelRequestDMW extends Request {
      * Sets serverActionID to the specified value.
      * @param value A value compatible with DmcTypeInteger
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setServerActionID(Object value) throws DmcValueException {
         ((ActionCancelRequestDMO) core).setServerActionID(value);
     }
@@ -88,7 +88,7 @@ abstract public class ActionCancelRequestDMW extends Request {
      * Sets serverActionID to the specified value.
      * @param value Integer
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setServerActionID(Integer value){
         ((ActionCancelRequestDMO) core).setServerActionID(value);
     }
@@ -96,7 +96,7 @@ abstract public class ActionCancelRequestDMW extends Request {
     /**
      * Removes the serverActionID attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remServerActionID(){
         ((ActionCancelRequestDMO) core).remServerActionID();
     }

@@ -106,7 +106,7 @@ abstract public class BConceptXDMW extends BConceptBase implements DmcDefinition
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setName(Object value) throws DmcValueException {
         ((BConceptXDMO) core).setName(value);
     }
@@ -115,7 +115,7 @@ abstract public class BConceptXDMW extends BConceptBase implements DmcDefinition
      * Sets name to the specified value.
      * @param value DefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setName(DefinitionName value){
         ((BConceptXDMO) core).setName(value);
     }
@@ -123,7 +123,7 @@ abstract public class BConceptXDMW extends BConceptBase implements DmcDefinition
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remName(){
         ((BConceptXDMO) core).remName();
     }

@@ -55,7 +55,7 @@ public class TestActionATI extends ActionTriggerInfo implements Serializable {
         super("TestAction","testAction");
     }
 
-    // org.dmd.dms.util.GenUtility.formatMVObjectAccess(GenUtility.java:1034)
+    // org.dmd.dms.util.GenUtility.formatMVObjectAccess(GenUtility.java:1044)
     public DmcAttribute<?> addMvTestBasicNamedObjectFixed(TestBasicNamedObjectFixedDMO value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvTestBasicNamedObjectFixed);
         if (attr == null)
@@ -71,7 +71,7 @@ public class TestActionATI extends ActionTriggerInfo implements Serializable {
         return(attr);
     }
 
-    // org.dmd.dms.util.GenUtility.formatMVObjectAccess(GenUtility.java:1051)
+    // org.dmd.dms.util.GenUtility.formatMVObjectAccess(GenUtility.java:1061)
     @SuppressWarnings("unchecked")
     public Iterator<TestBasicNamedObjectFixedDMO> getMvTestBasicNamedObjectFixed(){
         DmcTypeDmcObjectMV attr = (DmcTypeDmcObjectMV) get(DmtDMSAG.__mvTestBasicNamedObjectFixed);
@@ -87,7 +87,7 @@ public class TestActionATI extends ActionTriggerInfo implements Serializable {
         }
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public DefinitionName getName(){
         DmcTypeDefinitionNameSV attr = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -100,7 +100,7 @@ public class TestActionATI extends ActionTriggerInfo implements Serializable {
      * Sets name to the specified value.
      * @param value DefinitionName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setName(DefinitionName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -118,8 +118,9 @@ public class TestActionATI extends ActionTriggerInfo implements Serializable {
     /**
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setName(Object value) throws DmcValueException {
         DmcTypeDefinitionNameSV attr  = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -132,7 +133,7 @@ public class TestActionATI extends ActionTriggerInfo implements Serializable {
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remName(){
          rem(MetaDMSAG.__name);
     }
@@ -141,7 +142,7 @@ public class TestActionATI extends ActionTriggerInfo implements Serializable {
      * @return An Iterator of TestBasicObjectFixedDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1134)
     public Iterator<TestBasicObjectFixedDMO> getPlainObjRef(){
         DmcTypeTestBasicObjectFixedREFMV attr = (DmcTypeTestBasicObjectFixedREFMV) get(DmtDMSAG.__plainObjRef);
         if (attr == null)
@@ -153,8 +154,9 @@ public class TestActionATI extends ActionTriggerInfo implements Serializable {
     /**
      * Adds another plainObjRef to the specified value.
      * @param value TestBasicObjectFixed
+     * @return the attribute instance
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1170)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1181)
     public DmcAttribute<?> addPlainObjRef(TestBasicObjectFixedDMO value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__plainObjRef);
         if (attr == null)
@@ -173,8 +175,10 @@ public class TestActionATI extends ActionTriggerInfo implements Serializable {
     /**
      * Adds another plainObjRef value.
      * @param value A value compatible with TestBasicObjectFixed
+     * @return the attribute instance
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1411)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
     public DmcAttribute<?> addPlainObjRef(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__plainObjRef);
         if (attr == null)
@@ -186,9 +190,9 @@ public class TestActionATI extends ActionTriggerInfo implements Serializable {
     }
 
     /**
-     * Returns the number of values in plainObjRef
+     * @return the number of values in plainObjRef
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1428)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
     public int getPlainObjRefSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__plainObjRef);
         if (attr == null){
@@ -203,8 +207,8 @@ public class TestActionATI extends ActionTriggerInfo implements Serializable {
     /**
      * Deletes a plainObjRef value.
      * @param value The TestBasicObjectFixed to be deleted from set of attribute values.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1450)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1464)
     public DmcAttribute<?> delPlainObjRef(Object value){
         DmcAttribute<?> attr = get(DmtDMSAG.__plainObjRef);
         
@@ -219,12 +223,15 @@ public class TestActionATI extends ActionTriggerInfo implements Serializable {
     /**
      * Removes the plainObjRef attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1521)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
     public void remPlainObjRef(){
          rem(DmtDMSAG.__plainObjRef);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:660)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:661)
+    /**
+     * @return the TestBasicObjectFixedDMO
+     */
     public TestBasicObjectFixedDMO getSvUnnamedObj(){
         DmcTypeTestBasicObjectFixedREFSV attr = (DmcTypeTestBasicObjectFixedREFSV) get(DmtDMSAG.__svUnnamedObj);
         if (attr == null)
@@ -233,11 +240,12 @@ public class TestActionATI extends ActionTriggerInfo implements Serializable {
         return(attr.getSV());
     }
 
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:718)
     /**
      * Sets svUnnamedObj to the specified value.
      * @param value TestBasicObjectFixedDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:714)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:723)
     public void setSvUnnamedObj(TestBasicObjectFixedDMO value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__svUnnamedObj);
         if (attr == null)
@@ -255,8 +263,9 @@ public class TestActionATI extends ActionTriggerInfo implements Serializable {
     /**
      * Sets svUnnamedObj to the specified value.
      * @param value A value compatible with DmcTypeTestBasicObjectFixedREFSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setSvUnnamedObj(Object value) throws DmcValueException {
         DmcTypeTestBasicObjectFixedREFSV attr  = (DmcTypeTestBasicObjectFixedREFSV) get(DmtDMSAG.__svUnnamedObj);
         if (attr == null)
@@ -269,12 +278,12 @@ public class TestActionATI extends ActionTriggerInfo implements Serializable {
     /**
      * Removes the svUnnamedObj attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remSvUnnamedObj(){
          rem(DmtDMSAG.__svUnnamedObj);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public Boolean isSvBoolean(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(DmtDMSAG.__svBoolean);
         if (attr == null)
@@ -287,7 +296,7 @@ public class TestActionATI extends ActionTriggerInfo implements Serializable {
      * Sets svBoolean to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setSvBoolean(Boolean value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__svBoolean);
         if (attr == null)
@@ -305,8 +314,9 @@ public class TestActionATI extends ActionTriggerInfo implements Serializable {
     /**
      * Sets svBoolean to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setSvBoolean(Object value) throws DmcValueException {
         DmcTypeBooleanSV attr  = (DmcTypeBooleanSV) get(DmtDMSAG.__svBoolean);
         if (attr == null)
@@ -319,12 +329,12 @@ public class TestActionATI extends ActionTriggerInfo implements Serializable {
     /**
      * Removes the svBoolean attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remSvBoolean(){
          rem(DmtDMSAG.__svBoolean);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSVObjectAccess(GenUtility.java:947)
+    // org.dmd.dms.util.GenUtility.formatSVObjectAccess(GenUtility.java:957)
     public TestBasicNamedObjectFixedDMO getSvTestBasicNamedObjectFixed(){
         DmcTypeDmcObjectSV attr = (DmcTypeDmcObjectSV) get(DmtDMSAG.__svTestBasicNamedObjectFixed);
         if (attr == null)
@@ -333,12 +343,12 @@ public class TestActionATI extends ActionTriggerInfo implements Serializable {
         return((TestBasicNamedObjectFixedDMO)attr.getSV());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSVObjectAccess(GenUtility.java:963)
+    // org.dmd.dms.util.GenUtility.formatSVObjectAccess(GenUtility.java:973)
     /**
      * Sets svTestBasicNamedObjectFixed to the specified value.
      * @param value A value compatible with DmcTypeDmcObjectSV
      */
-    // org.dmd.dms.util.GenUtility.formatSVObjectAccess(GenUtility.java:968)
+    // org.dmd.dms.util.GenUtility.formatSVObjectAccess(GenUtility.java:978)
     public void setSvTestBasicNamedObjectFixed(TestBasicNamedObjectFixedDMO value){
         DmcTypeDmcObjectSV attr  = (DmcTypeDmcObjectSV) get(DmtDMSAG.__svTestBasicNamedObjectFixed);
         if (attr == null)
@@ -352,11 +362,11 @@ public class TestActionATI extends ActionTriggerInfo implements Serializable {
         }
     }
 
-    // org.dmd.dms.util.GenUtility.formatSVObjectAccess(GenUtility.java:984)
+    // org.dmd.dms.util.GenUtility.formatSVObjectAccess(GenUtility.java:994)
     /**
      * Removes the svTestBasicNamedObjectFixed attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSVObjectAccess(GenUtility.java:988)
+    // org.dmd.dms.util.GenUtility.formatSVObjectAccess(GenUtility.java:998)
     public void remSvTestBasicNamedObjectFixed(){
          rem(DmtDMSAG.__svTestBasicNamedObjectFixed);
     }

@@ -67,6 +67,12 @@ public abstract class ModuleCGenUtility implements ModuleCGeneratorInterface {
      * Based on the command line arguments, we hunt for 
      *
      * @param args the command line arguments
+     * @throws ResultException       if there are problems
+     * @throws DmcValueException     if values are incorrect
+     * @throws IOException           if IO problems
+     * @throws DmcRuleExceptionSet   if rule failures
+     * @throws DmcNameClashException if name clashes
+     * @throws DmcValueExceptionSet  if multiple value problems
      */
     public void run(String[] args) throws ResultException, DmcValueException, IOException, DmcRuleExceptionSet, DmcNameClashException, DmcValueExceptionSet {
 
@@ -99,22 +105,23 @@ public abstract class ModuleCGenUtility implements ModuleCGeneratorInterface {
     /**
      * Derived classes may overload this method to perform additional initialization
      * including checking that commandline arguments are appropriate.
+     * @throws ResultException is there are problems
      */
     public void initialize() throws ResultException {
     	 
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateBaseUtility(DSDArtifactFormatter.java:1418)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateBaseUtility(DSDArtifactFormatter.java:1425)
     public ConfigLocation getLocation(ModuleA module){
         return(parser.getLocation(module));
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateBaseUtility(DSDArtifactFormatter.java:1418)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateBaseUtility(DSDArtifactFormatter.java:1425)
     public ConfigLocation getLocation(ModuleB module){
         return(parser.getLocation(module));
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateBaseUtility(DSDArtifactFormatter.java:1418)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateBaseUtility(DSDArtifactFormatter.java:1425)
     public ConfigLocation getLocation(ModuleC module){
         return(parser.getLocation(module));
     }

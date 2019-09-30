@@ -108,7 +108,7 @@ public class ExtendedRefSVDMW extends DmwWrapper {
     /**
      * Removes the svExtendedRef attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remSvExtendedRef(){
         ((ExtendedRefSVDMO) core).remSvExtendedRef();
     }

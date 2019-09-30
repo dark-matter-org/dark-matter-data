@@ -21,7 +21,7 @@ import java.util.ArrayList;                                                     
 import java.util.Date;                                                           // Primitive type - (BaseDMWGenerator.java:1040)
 import java.util.HashMap;                                                        // To support getMVCopy() - (BaseDMWGenerator.java:1076)
 import java.util.HashSet;                                                        // To support getMVCopy() - (BaseDMWGenerator.java:1090)
-import java.util.Iterator;                                                       // Support copy of MV objects - (BaseDMWGenerator.java:2130)
+import java.util.Iterator;                                                       // Support copy of MV objects - (BaseDMWGenerator.java:2133)
 import java.util.TreeMap;                                                        // To support getMVCopy() - (BaseDMWGenerator.java:1080)
 import org.dmd.dmc.*;                                                            // If any attributes - (BaseDMWGenerator.java:977)
 import org.dmd.dmc.DmcAttributeInfo;                                             // Alternative type for AttributeID values - (BaseDMWGenerator.java:1048)
@@ -33,29 +33,29 @@ import org.dmd.dmc.types.NameContainer;                                         
 import org.dmd.dmc.types.StringName;                                             // Primitive type - (BaseDMWGenerator.java:1040)
 import org.dmd.dms.ClassDefinition;                                              // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:944)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                      // Required for MODREC constructor - (BaseDMWGenerator.java:949)
-import org.dmd.dms.generated.dmw.AttributeIDIterableDMW;                         // For multi-valued AttributeID - (BaseDMWGenerator.java:1993)
-import org.dmd.dms.generated.dmw.DateIterableDMW;                                // For multi-valued Date - (BaseDMWGenerator.java:1993)
-import org.dmd.dms.generated.dmw.IntegerToStringIterableDMW;                     // For multi-valued IntegerToString - (BaseDMWGenerator.java:2456)
-import org.dmd.dms.generated.dmw.NameContainerIterableDMW;                       // For multi-valued NameContainer - (BaseDMWGenerator.java:1993)
-import org.dmd.dms.generated.dmw.StringIterableDMW;                              // For multi-valued String - (BaseDMWGenerator.java:1993)
-import org.dmd.dms.generated.dmw.StringNameIterableDMW;                          // For multi-valued StringName - (BaseDMWGenerator.java:1993)
+import org.dmd.dms.generated.dmw.AttributeIDIterableDMW;                         // For multi-valued AttributeID - (BaseDMWGenerator.java:1995)
+import org.dmd.dms.generated.dmw.DateIterableDMW;                                // For multi-valued Date - (BaseDMWGenerator.java:1995)
+import org.dmd.dms.generated.dmw.IntegerToStringIterableDMW;                     // For multi-valued IntegerToString - (BaseDMWGenerator.java:2460)
+import org.dmd.dms.generated.dmw.NameContainerIterableDMW;                       // For multi-valued NameContainer - (BaseDMWGenerator.java:1995)
+import org.dmd.dms.generated.dmw.StringIterableDMW;                              // For multi-valued String - (BaseDMWGenerator.java:1995)
+import org.dmd.dms.generated.dmw.StringNameIterableDMW;                          // For multi-valued StringName - (BaseDMWGenerator.java:1995)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                            // Required for MODREC constructor - (BaseDMWGenerator.java:948)
 import org.dmd.dmt.server.extended.ClientCountFilter;                            // Is reference type - (BaseDMWGenerator.java:997)
 import org.dmd.dmt.server.extended.ObjWithRefs;                                  // Required for getModificationRecorder() - (BaseDMWGenerator.java:953)
 import org.dmd.dmt.server.extended.interfaces.SomeInterfaceIF;                   // Uses wrapper type - (BaseDMWGenerator.java:965)
 import org.dmd.dmt.server.generated.dmw.BaseObjDMW;                              // Derived class - (BaseDMWGenerator.java:1138)
-import org.dmd.dmt.server.generated.dmw.DmtTestEnumIterableDMW;                  // For multi-valued DmtTestEnum - (BaseDMWGenerator.java:1993)
-import org.dmd.dmt.server.generated.dmw.ObjWithRefsIterableDMW;                  // For multi-valued ObjWithRefs - (BaseDMWGenerator.java:1599)
-import org.dmd.dmt.server.generated.dmw.SomeRelationIterableDMW;                 // For multi-valued SomeRelation - (BaseDMWGenerator.java:1599)
+import org.dmd.dmt.server.generated.dmw.DmtTestEnumIterableDMW;                  // For multi-valued DmtTestEnum - (BaseDMWGenerator.java:1995)
+import org.dmd.dmt.server.generated.dmw.ObjWithRefsIterableDMW;                  // For multi-valued ObjWithRefs - (BaseDMWGenerator.java:1600)
+import org.dmd.dmt.server.generated.dmw.SomeRelationIterableDMW;                 // For multi-valued SomeRelation - (BaseDMWGenerator.java:1600)
 import org.dmd.dmt.server.generated.dmw.TestBasicObjectFixedDMW;                 // Is reference type - (BaseDMWGenerator.java:997)
-import org.dmd.dmt.server.generated.dmw.TestBasicObjectFixedIterableDMW;         // For multi-valued TestBasicObjectFixed - (BaseDMWGenerator.java:1599)
-import org.dmd.dmt.shared.generated.dmo.ClientCountFilterDMO;                    // For setNth of ClientCountFilter - (BaseDMWGenerator.java:1804)
+import org.dmd.dmt.server.generated.dmw.TestBasicObjectFixedIterableDMW;         // For multi-valued TestBasicObjectFixed - (BaseDMWGenerator.java:1600)
+import org.dmd.dmt.shared.generated.dmo.ClientCountFilterDMO;                    // For setNth of ClientCountFilter - (BaseDMWGenerator.java:1806)
 import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                                // Attribute attrIDs from the dmt schema - (BaseDMWGenerator.java:910)
 import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;                          // Class not auxiliary or abstract - (BaseDMWGenerator.java:1142)
-import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;                 // For setNth of TestBasicObjectFixed - (BaseDMWGenerator.java:1804)
+import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;                 // For setNth of TestBasicObjectFixed - (BaseDMWGenerator.java:1806)
 import org.dmd.dmt.shared.generated.enums.DmtTestEnum;                           // Primitive type - (BaseDMWGenerator.java:1040)
 import org.dmd.dmt.shared.generated.types.ObjWithRefsREF;                        // To support getMVCopy() for REFs ObjWithRefs-HASHMAPPED - (BaseDMWGenerator.java:1016)
-import org.dmd.dmt.shared.generated.types.SomeRelation;                          // For addition of MV SomeRelation - (BaseDMWGenerator.java:1643)
+import org.dmd.dmt.shared.generated.types.SomeRelation;                          // For addition of MV SomeRelation - (BaseDMWGenerator.java:1644)
 
 
 
@@ -136,7 +136,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Sets anotherSVString to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setAnotherSVString(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).setAnotherSVString(value);
     }
@@ -145,7 +145,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Sets anotherSVString to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setAnotherSVString(String value){
         ((ObjWithRefsDMO) core).setAnotherSVString(value);
     }
@@ -153,7 +153,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the anotherSVString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remAnotherSVString(){
         ((ObjWithRefsDMO) core).remAnotherSVString();
     }
@@ -161,7 +161,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The number of AttributeID items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getAttrIDsSize(){
         return(((ObjWithRefsDMO) core).getAttrIDsSize());
     }
@@ -169,7 +169,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are no AttributeIDDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getAttrIDsIsEmpty(){
         if (((ObjWithRefsDMO) core).getAttrIDsSize() == 0)
             return(true);
@@ -179,7 +179,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are any AttributeIDDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getAttrIDsHasValue(){
         if (((ObjWithRefsDMO) core).getAttrIDsSize() == 0)
             return(false);
@@ -189,7 +189,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return An Iterator of AttributeID objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1999)
     public AttributeIDIterableDMW getAttrIDsIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__attrIDs);
         if (attr == null)
@@ -201,8 +201,9 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Adds another attrIDs value.
      * @param value A value compatible with AttributeID
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
     public void addAttrIDs(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).addAttrIDs(value);
     }
@@ -211,7 +212,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Adds another attrIDs value.
      * @param value A value compatible with AttributeID
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2033)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2036)
     public void addAttrIDs(AttributeID value){
         ((ObjWithRefsDMO) core).addAttrIDs(value);
     }
@@ -220,25 +221,25 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Adds another DmcAttributeInfo value.
      * @param value A value compatible with DmcAttributeInfo
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2066)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2069)
     public void addAttrIDs(DmcAttributeInfo value){
         ((ObjWithRefsDMO) core).addAttrIDs(value);
     }
 
     /**
-     * Returns true if the collection contains the attrIDs value.
      * @param value A value compatible with AttributeID
+     * @return true if the collection contains the attrIDs value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2093)
     public boolean attrIDsContains(AttributeID value){
         return(((ObjWithRefsDMO) core).attrIDsContains(value));
     }
 
     /**
-     * Returns true if the collection contains the DmcAttributeInfo value.
      * @param value A value compatible with DmcAttributeInfo
+     * @return true if the collection contains the DmcAttributeInfo value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2101)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2104)
     public boolean attrIDsContains(DmcAttributeInfo value){
         return(((ObjWithRefsDMO) core).attrIDsContains(value));
     }
@@ -246,7 +247,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return A COPY of the collection of AttributeID objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2137)
     @SuppressWarnings("unchecked")
     public HashSet<AttributeID> getAttrIDsCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__attrIDs);
@@ -266,8 +267,9 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Deletes a attrIDs value.
      * @param value The AttributeID to be deleted from set of attribute values.
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2165)
     public void delAttrIDs(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).delAttrIDs(value);
     }
@@ -276,7 +278,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Deletes a attrIDs value.
      * @param value The AttributeID to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2174)
     public void delAttrIDs(AttributeID value){
         ((ObjWithRefsDMO) core).delAttrIDs(value);
     }
@@ -284,7 +286,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the attrIDs attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remAttrIDs(){
         ((ObjWithRefsDMO) core).remAttrIDs();
     }
@@ -292,7 +294,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The number of ClientCountFilter items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getClientCountFiltersSize(){
         return(((ObjWithRefsDMO) core).getClientCountFiltersSize());
     }
@@ -300,7 +302,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are no ClientCountFilterDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getClientCountFiltersIsEmpty(){
         if (((ObjWithRefsDMO) core).getClientCountFiltersSize() == 0)
             return(true);
@@ -310,7 +312,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are any ClientCountFilterDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getClientCountFiltersHasValue(){
         if (((ObjWithRefsDMO) core).getClientCountFiltersSize() == 0)
             return(false);
@@ -321,7 +323,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Sets the clientCountFilters value at the specified index.
      * @param value A value compatible with ClientCountFilter
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1821)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1823)
     public DmcAttribute<?> setNthClientCountFilters(int index, ClientCountFilter value){
         if (value == null)
             return(((ObjWithRefsDMO) core).setNthClientCountFilters(index, null));
@@ -332,7 +334,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The ClientCountFilter object at the specified index.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1865)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1867)
     public ClientCountFilter getNthClientCountFilters(int index){
         ClientCountFilterDMO dmo = ((ObjWithRefsDMO) core).getNthClientCountFilters(index);
         if (dmo == null)
@@ -344,7 +346,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the clientCountFilters attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remClientCountFilters(){
         ((ObjWithRefsDMO) core).remClientCountFilters();
     }
@@ -358,7 +360,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Sets enabledDisabled to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setEnabledDisabled(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).setEnabledDisabled(value);
     }
@@ -367,7 +369,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Sets enabledDisabled to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setEnabledDisabled(Boolean value){
         ((ObjWithRefsDMO) core).setEnabledDisabled(value);
     }
@@ -375,7 +377,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the enabledDisabled attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remEnabledDisabled(){
         ((ObjWithRefsDMO) core).remEnabledDisabled();
     }
@@ -383,7 +385,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The number of Date items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getHsDateSize(){
         return(((ObjWithRefsDMO) core).getHsDateSize());
     }
@@ -391,7 +393,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are no DateDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getHsDateIsEmpty(){
         if (((ObjWithRefsDMO) core).getHsDateSize() == 0)
             return(true);
@@ -401,7 +403,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are any DateDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getHsDateHasValue(){
         if (((ObjWithRefsDMO) core).getHsDateSize() == 0)
             return(false);
@@ -411,7 +413,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return An Iterator of Date objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1999)
     public DateIterableDMW getHsDateIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__hsDate);
         if (attr == null)
@@ -423,8 +425,9 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Adds another hsDate value.
      * @param value A value compatible with Date
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
     public void addHsDate(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).addHsDate(value);
     }
@@ -433,16 +436,16 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Adds another hsDate value.
      * @param value A value compatible with Date
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2033)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2036)
     public void addHsDate(Date value){
         ((ObjWithRefsDMO) core).addHsDate(value);
     }
 
     /**
-     * Returns true if the collection contains the hsDate value.
      * @param value A value compatible with Date
+     * @return true if the collection contains the hsDate value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2093)
     public boolean hsDateContains(Date value){
         return(((ObjWithRefsDMO) core).hsDateContains(value));
     }
@@ -450,7 +453,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return A COPY of the collection of Date objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2137)
     @SuppressWarnings("unchecked")
     public HashSet<Date> getHsDateCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__hsDate);
@@ -470,8 +473,9 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Deletes a hsDate value.
      * @param value The Date to be deleted from set of attribute values.
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2165)
     public void delHsDate(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).delHsDate(value);
     }
@@ -480,7 +484,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Deletes a hsDate value.
      * @param value The Date to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2174)
     public void delHsDate(Date value){
         ((ObjWithRefsDMO) core).delHsDate(value);
     }
@@ -488,7 +492,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the hsDate attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remHsDate(){
         ((ObjWithRefsDMO) core).remHsDate();
     }
@@ -496,7 +500,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The number of NameContainer items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getHsNamesSize(){
         return(((ObjWithRefsDMO) core).getHsNamesSize());
     }
@@ -504,7 +508,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are no NameContainerDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getHsNamesIsEmpty(){
         if (((ObjWithRefsDMO) core).getHsNamesSize() == 0)
             return(true);
@@ -514,7 +518,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are any NameContainerDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getHsNamesHasValue(){
         if (((ObjWithRefsDMO) core).getHsNamesSize() == 0)
             return(false);
@@ -524,7 +528,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return An Iterator of NameContainer objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1999)
     public NameContainerIterableDMW getHsNamesIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__hsNames);
         if (attr == null)
@@ -536,8 +540,9 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Adds another hsNames value.
      * @param value A value compatible with NameContainer
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
     public void addHsNames(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).addHsNames(value);
     }
@@ -546,7 +551,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Adds another hsNames value.
      * @param value A value compatible with NameContainer
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2033)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2036)
     public void addHsNames(NameContainer value){
         ((ObjWithRefsDMO) core).addHsNames(value);
     }
@@ -555,25 +560,25 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Adds another DmcObjectName value.
      * @param value A value compatible with DmcObjectName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2066)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2069)
     public void addHsNames(DmcObjectName value){
         ((ObjWithRefsDMO) core).addHsNames(value);
     }
 
     /**
-     * Returns true if the collection contains the hsNames value.
      * @param value A value compatible with NameContainer
+     * @return true if the collection contains the hsNames value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2093)
     public boolean hsNamesContains(NameContainer value){
         return(((ObjWithRefsDMO) core).hsNamesContains(value));
     }
 
     /**
-     * Returns true if the collection contains the DmcObjectName value.
      * @param value A value compatible with DmcObjectName
+     * @return true if the collection contains the DmcObjectName value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2101)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2104)
     public boolean hsNamesContains(DmcObjectName value){
         return(((ObjWithRefsDMO) core).hsNamesContains(value));
     }
@@ -581,7 +586,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return A COPY of the collection of NameContainer objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2137)
     @SuppressWarnings("unchecked")
     public HashSet<NameContainer> getHsNamesCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__hsNames);
@@ -601,8 +606,9 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Deletes a hsNames value.
      * @param value The NameContainer to be deleted from set of attribute values.
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2165)
     public void delHsNames(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).delHsNames(value);
     }
@@ -611,7 +617,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Deletes a hsNames value.
      * @param value The NameContainer to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2174)
     public void delHsNames(NameContainer value){
         ((ObjWithRefsDMO) core).delHsNames(value);
     }
@@ -619,7 +625,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the hsNames attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remHsNames(){
         ((ObjWithRefsDMO) core).remHsNames();
     }
@@ -627,7 +633,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getHsStringSize(){
         return(((ObjWithRefsDMO) core).getHsStringSize());
     }
@@ -635,7 +641,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getHsStringIsEmpty(){
         if (((ObjWithRefsDMO) core).getHsStringSize() == 0)
             return(true);
@@ -645,7 +651,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getHsStringHasValue(){
         if (((ObjWithRefsDMO) core).getHsStringSize() == 0)
             return(false);
@@ -655,7 +661,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1999)
     public StringIterableDMW getHsStringIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__hsString);
         if (attr == null)
@@ -667,8 +673,9 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Adds another hsString value.
      * @param value A value compatible with String
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
     public void addHsString(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).addHsString(value);
     }
@@ -677,16 +684,16 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Adds another hsString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2033)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2036)
     public void addHsString(String value){
         ((ObjWithRefsDMO) core).addHsString(value);
     }
 
     /**
-     * Returns true if the collection contains the hsString value.
      * @param value A value compatible with String
+     * @return true if the collection contains the hsString value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2093)
     public boolean hsStringContains(String value){
         return(((ObjWithRefsDMO) core).hsStringContains(value));
     }
@@ -694,7 +701,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2137)
     @SuppressWarnings("unchecked")
     public HashSet<String> getHsStringCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__hsString);
@@ -714,8 +721,9 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Deletes a hsString value.
      * @param value The String to be deleted from set of attribute values.
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2165)
     public void delHsString(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).delHsString(value);
     }
@@ -724,7 +732,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Deletes a hsString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2174)
     public void delHsString(String value){
         ((ObjWithRefsDMO) core).delHsString(value);
     }
@@ -732,7 +740,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the hsString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remHsString(){
         ((ObjWithRefsDMO) core).remHsString();
     }
@@ -740,7 +748,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The number of StringName items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getHsStringNameSize(){
         return(((ObjWithRefsDMO) core).getHsStringNameSize());
     }
@@ -748,7 +756,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are no StringNameDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getHsStringNameIsEmpty(){
         if (((ObjWithRefsDMO) core).getHsStringNameSize() == 0)
             return(true);
@@ -758,7 +766,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are any StringNameDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getHsStringNameHasValue(){
         if (((ObjWithRefsDMO) core).getHsStringNameSize() == 0)
             return(false);
@@ -768,7 +776,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return An Iterator of StringName objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1999)
     public StringNameIterableDMW getHsStringNameIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__hsStringName);
         if (attr == null)
@@ -780,8 +788,9 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Adds another hsStringName value.
      * @param value A value compatible with StringName
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
     public void addHsStringName(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).addHsStringName(value);
     }
@@ -790,16 +799,16 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Adds another hsStringName value.
      * @param value A value compatible with StringName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2033)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2036)
     public void addHsStringName(StringName value){
         ((ObjWithRefsDMO) core).addHsStringName(value);
     }
 
     /**
-     * Returns true if the collection contains the hsStringName value.
      * @param value A value compatible with StringName
+     * @return true if the collection contains the hsStringName value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2093)
     public boolean hsStringNameContains(StringName value){
         return(((ObjWithRefsDMO) core).hsStringNameContains(value));
     }
@@ -807,7 +816,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return A COPY of the collection of StringName objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2137)
     @SuppressWarnings("unchecked")
     public HashSet<StringName> getHsStringNameCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__hsStringName);
@@ -827,8 +836,9 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Deletes a hsStringName value.
      * @param value The StringName to be deleted from set of attribute values.
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2165)
     public void delHsStringName(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).delHsStringName(value);
     }
@@ -837,7 +847,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Deletes a hsStringName value.
      * @param value The StringName to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2174)
     public void delHsStringName(StringName value){
         ((ObjWithRefsDMO) core).delHsStringName(value);
     }
@@ -845,7 +855,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the hsStringName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remHsStringName(){
         ((ObjWithRefsDMO) core).remHsStringName();
     }
@@ -853,7 +863,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The number of DmtTestEnum items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getHsTestEnumSize(){
         return(((ObjWithRefsDMO) core).getHsTestEnumSize());
     }
@@ -861,7 +871,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are no DmtTestEnumDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getHsTestEnumIsEmpty(){
         if (((ObjWithRefsDMO) core).getHsTestEnumSize() == 0)
             return(true);
@@ -871,7 +881,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are any DmtTestEnumDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getHsTestEnumHasValue(){
         if (((ObjWithRefsDMO) core).getHsTestEnumSize() == 0)
             return(false);
@@ -881,7 +891,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return An Iterator of DmtTestEnum objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1999)
     public DmtTestEnumIterableDMW getHsTestEnumIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__hsTestEnum);
         if (attr == null)
@@ -893,8 +903,9 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Adds another hsTestEnum value.
      * @param value A value compatible with DmtTestEnum
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
     public void addHsTestEnum(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).addHsTestEnum(value);
     }
@@ -903,16 +914,16 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Adds another hsTestEnum value.
      * @param value A value compatible with DmtTestEnum
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2033)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2036)
     public void addHsTestEnum(DmtTestEnum value){
         ((ObjWithRefsDMO) core).addHsTestEnum(value);
     }
 
     /**
-     * Returns true if the collection contains the hsTestEnum value.
      * @param value A value compatible with DmtTestEnum
+     * @return true if the collection contains the hsTestEnum value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2093)
     public boolean hsTestEnumContains(DmtTestEnum value){
         return(((ObjWithRefsDMO) core).hsTestEnumContains(value));
     }
@@ -920,7 +931,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return A COPY of the collection of DmtTestEnum objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2137)
     @SuppressWarnings("unchecked")
     public HashSet<DmtTestEnum> getHsTestEnumCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__hsTestEnum);
@@ -940,8 +951,9 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Deletes a hsTestEnum value.
      * @param value The DmtTestEnum to be deleted from set of attribute values.
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2165)
     public void delHsTestEnum(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).delHsTestEnum(value);
     }
@@ -950,7 +962,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Deletes a hsTestEnum value.
      * @param value The DmtTestEnum to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2174)
     public void delHsTestEnum(DmtTestEnum value){
         ((ObjWithRefsDMO) core).delHsTestEnum(value);
     }
@@ -958,7 +970,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the hsTestEnum attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remHsTestEnum(){
         ((ObjWithRefsDMO) core).remHsTestEnum();
     }
@@ -966,7 +978,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The number of ObjWithRefs items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getIndexedObjRefSize(){
         return(((ObjWithRefsDMO) core).getIndexedObjRefSize());
     }
@@ -974,7 +986,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are no ObjWithRefsDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getIndexedObjRefIsEmpty(){
         if (((ObjWithRefsDMO) core).getIndexedObjRefSize() == 0)
             return(true);
@@ -984,7 +996,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are any ObjWithRefsDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getIndexedObjRefHasValue(){
         if (((ObjWithRefsDMO) core).getIndexedObjRefSize() == 0)
             return(false);
@@ -995,7 +1007,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Sets the indexedObjRef value at the specified index.
      * @param value A value compatible with ObjWithRefs
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1821)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1823)
     public DmcAttribute<?> setNthIndexedObjRef(int index, ObjWithRefs value){
         if (value == null)
             return(((ObjWithRefsDMO) core).setNthIndexedObjRef(index, null));
@@ -1006,7 +1018,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The ObjWithRefs object at the specified index.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1917)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1919)
     public ObjWithRefs getNthIndexedObjRef(int index){
         ObjWithRefsREF ref = ((ObjWithRefsDMO) core).getNthIndexedObjRef(index);
         if (ref == null)
@@ -1021,7 +1033,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The reference to the ObjWithRefs object at the specified index.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1957)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1959)
     public ObjWithRefsREF getNthIndexedObjRefREF(int index){
         ObjWithRefsREF ref = ((ObjWithRefsDMO) core).getNthIndexedObjRefREF(index);
         return(ref);
@@ -1030,7 +1042,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the indexedObjRef attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remIndexedObjRef(){
         ((ObjWithRefsDMO) core).remIndexedObjRef();
     }
@@ -1038,7 +1050,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The number of TestBasicObjectFixed items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getIndexedPlainObjRefSize(){
         return(((ObjWithRefsDMO) core).getIndexedPlainObjRefSize());
     }
@@ -1046,7 +1058,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are no TestBasicObjectFixedDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getIndexedPlainObjRefIsEmpty(){
         if (((ObjWithRefsDMO) core).getIndexedPlainObjRefSize() == 0)
             return(true);
@@ -1056,7 +1068,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are any TestBasicObjectFixedDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getIndexedPlainObjRefHasValue(){
         if (((ObjWithRefsDMO) core).getIndexedPlainObjRefSize() == 0)
             return(false);
@@ -1067,7 +1079,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Sets the indexedPlainObjRef value at the specified index.
      * @param value A value compatible with TestBasicObjectFixed
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1821)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1823)
     public DmcAttribute<?> setNthIndexedPlainObjRef(int index, TestBasicObjectFixedDMW value){
         if (value == null)
             return(((ObjWithRefsDMO) core).setNthIndexedPlainObjRef(index, null));
@@ -1078,7 +1090,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The TestBasicObjectFixedDMW object at the specified index.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1865)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1867)
     public TestBasicObjectFixedDMW getNthIndexedPlainObjRef(int index){
         TestBasicObjectFixedDMO dmo = ((ObjWithRefsDMO) core).getNthIndexedPlainObjRef(index);
         if (dmo == null)
@@ -1090,7 +1102,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the indexedPlainObjRef attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remIndexedPlainObjRef(){
         ((ObjWithRefsDMO) core).remIndexedPlainObjRef();
     }
@@ -1098,7 +1110,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getIndexedStringSize(){
         return(((ObjWithRefsDMO) core).getIndexedStringSize());
     }
@@ -1106,7 +1118,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getIndexedStringIsEmpty(){
         if (((ObjWithRefsDMO) core).getIndexedStringSize() == 0)
             return(true);
@@ -1116,7 +1128,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getIndexedStringHasValue(){
         if (((ObjWithRefsDMO) core).getIndexedStringSize() == 0)
             return(false);
@@ -1126,7 +1138,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1999)
     public StringIterableDMW getIndexedStringIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__indexedString);
         if (attr == null)
@@ -1138,8 +1150,9 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Adds another indexedString value.
      * @param value A value compatible with String
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
     public void addIndexedString(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).addIndexedString(value);
     }
@@ -1149,7 +1162,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * @param index The index to set.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2044)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2047)
     public void setNthIndexedString(int index, String value){
         ((ObjWithRefsDMO) core).setNthIndexedString(index, value);
     }
@@ -1158,16 +1171,16 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Gets the indexedString value at the specified index.
      * @param index The index to retreive.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2053)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2056)
     public String getNthIndexedString(int index){
         return(((ObjWithRefsDMO) core).getNthIndexedString(index));
     }
 
     /**
-     * Returns true if the collection contains the indexedString value.
      * @param value A value compatible with String
+     * @return true if the collection contains the indexedString value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2093)
     public boolean indexedStringContains(String value){
         return(((ObjWithRefsDMO) core).indexedStringContains(value));
     }
@@ -1175,7 +1188,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2137)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getIndexedStringCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__indexedString);
@@ -1195,8 +1208,9 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Deletes a indexedString value.
      * @param value The String to be deleted from set of attribute values.
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2165)
     public void delIndexedString(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).delIndexedString(value);
     }
@@ -1205,7 +1219,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Deletes a indexedString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2174)
     public void delIndexedString(String value){
         ((ObjWithRefsDMO) core).delIndexedString(value);
     }
@@ -1213,7 +1227,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the indexedString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remIndexedString(){
         ((ObjWithRefsDMO) core).remIndexedString();
     }
@@ -1221,7 +1235,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The number of IntegerToStringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2234)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2238)
     public int getIntToStringSize(){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(DmtDMSAG.__intToString);
         if (attr == null)
@@ -1233,7 +1247,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are no IntegerToStringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2246)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2250)
     public boolean getIntToStringIsEmpty(){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(DmtDMSAG.__intToString);
         if (attr == null)
@@ -1245,7 +1259,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are any IntegerToStringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2258)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2262)
     public boolean getIntToStringHasValue(){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(DmtDMSAG.__intToString);
         if (attr == null)
@@ -1257,7 +1271,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The keyed IntegerToString object if it's available and null otherwise.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2274)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2278)
     public IntegerToString getIntToString(Object key){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(DmtDMSAG.__intToString);
         if (attr == null)
@@ -1269,7 +1283,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return An Iterator of IntegerToString objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2461)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2465)
     public IntegerToStringIterableDMW getIntToStringIterable(){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(DmtDMSAG.__intToString);
         if (attr == null)
@@ -1282,7 +1296,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Adds another intToString value.
      * @param value A value compatible with IntegerToString
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2488)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2492)
     public void addIntToString(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).addIntToString(value);
     }
@@ -1291,7 +1305,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Adds another intToString value.
      * @param value IntegerToString
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2497)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2501)
     public void addIntToString(IntegerToString value) {
         ((ObjWithRefsDMO) core).addIntToString(value);
     }
@@ -1300,7 +1314,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Deletes a intToString value.
      * @param value The IntegerToString to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2513)
     public void delIntToString(Object value){
         ((ObjWithRefsDMO) core).delIntToString(value);
     }
@@ -1309,7 +1323,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Deletes a intToString value.
      * @param value The IntegerToString to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2518)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2522)
     public void delIntToString(Integer value){
         ((ObjWithRefsDMO) core).delIntToString(value);
     }
@@ -1317,7 +1331,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return A COPY of the collection of IntegerToString objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2548)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2552)
     @SuppressWarnings("unchecked")
     public HashMap<Integer,IntegerToString> getIntToStringCopy(){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(DmtDMSAG.__intToString);
@@ -1338,7 +1352,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the intToString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2589)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2593)
     public void remIntToString(){
         ((ObjWithRefsDMO) core).remIntToString();
     }
@@ -1346,7 +1360,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The number of IntegerToStringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2234)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2238)
     public int getIntToStringMAPSize(){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(DmtDMSAG.__intToStringMAP);
         if (attr == null)
@@ -1358,7 +1372,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are no IntegerToStringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2246)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2250)
     public boolean getIntToStringMAPIsEmpty(){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(DmtDMSAG.__intToStringMAP);
         if (attr == null)
@@ -1370,7 +1384,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are any IntegerToStringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2258)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2262)
     public boolean getIntToStringMAPHasValue(){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(DmtDMSAG.__intToStringMAP);
         if (attr == null)
@@ -1382,7 +1396,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The keyed IntegerToString object if it's available and null otherwise.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2274)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2278)
     public IntegerToString getIntToStringMAP(Object key){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(DmtDMSAG.__intToStringMAP);
         if (attr == null)
@@ -1394,7 +1408,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return the first key of the map.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2305)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2309)
     public Integer getIntToStringMAPFirstKey(){
         return(((ObjWithRefsDMO) core).getIntToStringMAPFirstKey());
     }
@@ -1402,7 +1416,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return An Iterator of IntegerToString objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2461)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2465)
     public IntegerToStringIterableDMW getIntToStringMAPIterable(){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(DmtDMSAG.__intToStringMAP);
         if (attr == null)
@@ -1415,7 +1429,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Adds another intToStringMAP value.
      * @param value A value compatible with IntegerToString
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2488)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2492)
     public void addIntToStringMAP(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).addIntToStringMAP(value);
     }
@@ -1424,7 +1438,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Adds another intToStringMAP value.
      * @param value IntegerToString
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2497)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2501)
     public void addIntToStringMAP(IntegerToString value) {
         ((ObjWithRefsDMO) core).addIntToStringMAP(value);
     }
@@ -1433,7 +1447,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Deletes a intToStringMAP value.
      * @param value The IntegerToString to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2513)
     public void delIntToStringMAP(Object value){
         ((ObjWithRefsDMO) core).delIntToStringMAP(value);
     }
@@ -1442,7 +1456,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Deletes a intToStringMAP value.
      * @param value The IntegerToString to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2518)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2522)
     public void delIntToStringMAP(Integer value){
         ((ObjWithRefsDMO) core).delIntToStringMAP(value);
     }
@@ -1450,7 +1464,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return A COPY of the collection of IntegerToString objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2548)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2552)
     @SuppressWarnings("unchecked")
     public TreeMap<Integer,IntegerToString> getIntToStringMAPCopy(){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(DmtDMSAG.__intToStringMAP);
@@ -1471,7 +1485,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the intToStringMAP attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2589)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2593)
     public void remIntToStringMAP(){
         ((ObjWithRefsDMO) core).remIntToStringMAP();
     }
@@ -1479,7 +1493,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getLimitedStringMVSize(){
         return(((ObjWithRefsDMO) core).getLimitedStringMVSize());
     }
@@ -1487,7 +1501,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getLimitedStringMVIsEmpty(){
         if (((ObjWithRefsDMO) core).getLimitedStringMVSize() == 0)
             return(true);
@@ -1497,7 +1511,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getLimitedStringMVHasValue(){
         if (((ObjWithRefsDMO) core).getLimitedStringMVSize() == 0)
             return(false);
@@ -1507,7 +1521,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1999)
     public StringIterableDMW getLimitedStringMVIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__limitedStringMV);
         if (attr == null)
@@ -1519,8 +1533,9 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Adds another limitedStringMV value.
      * @param value A value compatible with String
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
     public void addLimitedStringMV(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).addLimitedStringMV(value);
     }
@@ -1529,16 +1544,16 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Adds another limitedStringMV value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2033)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2036)
     public void addLimitedStringMV(String value){
         ((ObjWithRefsDMO) core).addLimitedStringMV(value);
     }
 
     /**
-     * Returns true if the collection contains the limitedStringMV value.
      * @param value A value compatible with String
+     * @return true if the collection contains the limitedStringMV value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2093)
     public boolean limitedStringMVContains(String value){
         return(((ObjWithRefsDMO) core).limitedStringMVContains(value));
     }
@@ -1546,7 +1561,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2137)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getLimitedStringMVCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__limitedStringMV);
@@ -1566,8 +1581,9 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Deletes a limitedStringMV value.
      * @param value The String to be deleted from set of attribute values.
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2165)
     public void delLimitedStringMV(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).delLimitedStringMV(value);
     }
@@ -1576,7 +1592,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Deletes a limitedStringMV value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2174)
     public void delLimitedStringMV(String value){
         ((ObjWithRefsDMO) core).delLimitedStringMV(value);
     }
@@ -1584,7 +1600,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the limitedStringMV attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remLimitedStringMV(){
         ((ObjWithRefsDMO) core).remLimitedStringMV();
     }
@@ -1598,7 +1614,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Sets limitedStringSV to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setLimitedStringSV(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).setLimitedStringSV(value);
     }
@@ -1607,7 +1623,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Sets limitedStringSV to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setLimitedStringSV(String value){
         ((ObjWithRefsDMO) core).setLimitedStringSV(value);
     }
@@ -1615,7 +1631,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the limitedStringSV attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remLimitedStringSV(){
         ((ObjWithRefsDMO) core).remLimitedStringSV();
     }
@@ -1623,7 +1639,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getMvStringSize(){
         return(((ObjWithRefsDMO) core).getMvStringSize());
     }
@@ -1631,7 +1647,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getMvStringIsEmpty(){
         if (((ObjWithRefsDMO) core).getMvStringSize() == 0)
             return(true);
@@ -1641,7 +1657,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getMvStringHasValue(){
         if (((ObjWithRefsDMO) core).getMvStringSize() == 0)
             return(false);
@@ -1651,7 +1667,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1999)
     public StringIterableDMW getMvStringIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvString);
         if (attr == null)
@@ -1663,8 +1679,9 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Adds another mvString value.
      * @param value A value compatible with String
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
     public void addMvString(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).addMvString(value);
     }
@@ -1673,16 +1690,16 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Adds another mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2033)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2036)
     public void addMvString(String value){
         ((ObjWithRefsDMO) core).addMvString(value);
     }
 
     /**
-     * Returns true if the collection contains the mvString value.
      * @param value A value compatible with String
+     * @return true if the collection contains the mvString value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2093)
     public boolean mvStringContains(String value){
         return(((ObjWithRefsDMO) core).mvStringContains(value));
     }
@@ -1690,7 +1707,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2137)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getMvStringCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvString);
@@ -1710,8 +1727,9 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2165)
     public void delMvString(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).delMvString(value);
     }
@@ -1720,7 +1738,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2174)
     public void delMvString(String value){
         ((ObjWithRefsDMO) core).delMvString(value);
     }
@@ -1728,7 +1746,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the mvString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remMvString(){
         ((ObjWithRefsDMO) core).remMvString();
     }
@@ -1736,7 +1754,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The number of DmtTestEnum items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getMvTestEnumSize(){
         return(((ObjWithRefsDMO) core).getMvTestEnumSize());
     }
@@ -1744,7 +1762,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are no DmtTestEnumDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getMvTestEnumIsEmpty(){
         if (((ObjWithRefsDMO) core).getMvTestEnumSize() == 0)
             return(true);
@@ -1754,7 +1772,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are any DmtTestEnumDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getMvTestEnumHasValue(){
         if (((ObjWithRefsDMO) core).getMvTestEnumSize() == 0)
             return(false);
@@ -1764,7 +1782,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return An Iterator of DmtTestEnum objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1999)
     public DmtTestEnumIterableDMW getMvTestEnumIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvTestEnum);
         if (attr == null)
@@ -1776,8 +1794,9 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Adds another mvTestEnum value.
      * @param value A value compatible with DmtTestEnum
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
     public void addMvTestEnum(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).addMvTestEnum(value);
     }
@@ -1786,16 +1805,16 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Adds another mvTestEnum value.
      * @param value A value compatible with DmtTestEnum
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2033)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2036)
     public void addMvTestEnum(DmtTestEnum value){
         ((ObjWithRefsDMO) core).addMvTestEnum(value);
     }
 
     /**
-     * Returns true if the collection contains the mvTestEnum value.
      * @param value A value compatible with DmtTestEnum
+     * @return true if the collection contains the mvTestEnum value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2093)
     public boolean mvTestEnumContains(DmtTestEnum value){
         return(((ObjWithRefsDMO) core).mvTestEnumContains(value));
     }
@@ -1803,7 +1822,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return A COPY of the collection of DmtTestEnum objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2137)
     @SuppressWarnings("unchecked")
     public ArrayList<DmtTestEnum> getMvTestEnumCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvTestEnum);
@@ -1823,8 +1842,9 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Deletes a mvTestEnum value.
      * @param value The DmtTestEnum to be deleted from set of attribute values.
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2165)
     public void delMvTestEnum(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).delMvTestEnum(value);
     }
@@ -1833,7 +1853,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Deletes a mvTestEnum value.
      * @param value The DmtTestEnum to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2174)
     public void delMvTestEnum(DmtTestEnum value){
         ((ObjWithRefsDMO) core).delMvTestEnum(value);
     }
@@ -1841,7 +1861,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the mvTestEnum attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remMvTestEnum(){
         ((ObjWithRefsDMO) core).remMvTestEnum();
     }
@@ -1855,7 +1875,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setName(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).setName(value);
     }
@@ -1864,7 +1884,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Sets name to the specified value.
      * @param value DefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setName(DefinitionName value){
         ((ObjWithRefsDMO) core).setName(value);
     }
@@ -1872,7 +1892,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remName(){
         ((ObjWithRefsDMO) core).remName();
     }
@@ -1880,7 +1900,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getNonperStringSize(){
         return(((ObjWithRefsDMO) core).getNonperStringSize());
     }
@@ -1888,7 +1908,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getNonperStringIsEmpty(){
         if (((ObjWithRefsDMO) core).getNonperStringSize() == 0)
             return(true);
@@ -1898,7 +1918,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getNonperStringHasValue(){
         if (((ObjWithRefsDMO) core).getNonperStringSize() == 0)
             return(false);
@@ -1908,7 +1928,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1999)
     public StringIterableDMW getNonperStringIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__nonperString);
         if (attr == null)
@@ -1920,8 +1940,9 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Adds another nonperString value.
      * @param value A value compatible with String
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
     public void addNonperString(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).addNonperString(value);
     }
@@ -1930,16 +1951,16 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Adds another nonperString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2033)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2036)
     public void addNonperString(String value){
         ((ObjWithRefsDMO) core).addNonperString(value);
     }
 
     /**
-     * Returns true if the collection contains the nonperString value.
      * @param value A value compatible with String
+     * @return true if the collection contains the nonperString value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2093)
     public boolean nonperStringContains(String value){
         return(((ObjWithRefsDMO) core).nonperStringContains(value));
     }
@@ -1947,7 +1968,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2137)
     @SuppressWarnings("unchecked")
     public HashSet<String> getNonperStringCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__nonperString);
@@ -1967,8 +1988,9 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Deletes a nonperString value.
      * @param value The String to be deleted from set of attribute values.
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2165)
     public void delNonperString(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).delNonperString(value);
     }
@@ -1977,7 +1999,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Deletes a nonperString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2174)
     public void delNonperString(String value){
         ((ObjWithRefsDMO) core).delNonperString(value);
     }
@@ -1985,7 +2007,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the nonperString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remNonperString(){
         ((ObjWithRefsDMO) core).remNonperString();
     }
@@ -2017,8 +2039,9 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Sets the objRef to the specified value.
      * @param value A value compatible with ObjWithRefsREF
+     * @throws DmcValueException is the value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1418)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1419)
     public void setObjRef(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).setObjRef(value);
     }
@@ -2026,7 +2049,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the objRef attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remObjRef(){
         ((ObjWithRefsDMO) core).remObjRef();
     }
@@ -2034,7 +2057,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The number of ObjWithRefsDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2234)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2238)
     public int getObjRefHMSize(){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(DmtDMSAG.__objRefHM);
         if (attr == null)
@@ -2046,7 +2069,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are no ObjWithRefsDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2246)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2250)
     public boolean getObjRefHMIsEmpty(){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(DmtDMSAG.__objRefHM);
         if (attr == null)
@@ -2058,7 +2081,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are any ObjWithRefsDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2258)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2262)
     public boolean getObjRefHMHasValue(){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(DmtDMSAG.__objRefHM);
         if (attr == null)
@@ -2070,7 +2093,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The keyed ObjWithRefs object if it's available and null otherwise.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2274)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2278)
     public ObjWithRefs getObjRefHM(Object key){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(DmtDMSAG.__objRefHM);
         if (attr == null)
@@ -2082,7 +2105,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return An Iterable of ObjWithRefs objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2329)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2333)
     public ObjWithRefsIterableDMW getObjRefHMIterable(){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(DmtDMSAG.__objRefHM);
         if (attr == null)
@@ -2100,7 +2123,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Adds another objRefHM value.
      * @param value ObjWithRefsDMW
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2363)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2367)
     public DmcAttribute<?> addObjRefHM(ObjWithRefs value) {
         return(((ObjWithRefsDMO) core).addObjRefHM(value.getDMO()));
     }
@@ -2109,7 +2132,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Deletes a objRefHM value.
      * @param value The ObjWithRefs to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2387)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2391)
     public void delObjRefHM(ObjWithRefs value){
         ((ObjWithRefsDMO) core).delObjRefHM(value.getDMO());
     }
@@ -2117,7 +2140,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return A COPY of the collection of ObjWithRefs objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2433)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2437)
     public HashMap<DefinitionName,ObjWithRefs> getObjRefHMCopy(){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(DmtDMSAG.__objRefHM);
         if (attr == null)
@@ -2136,7 +2159,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the objRefHM attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2589)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMAPPED(BaseDMWGenerator.java:2593)
     public void remObjRefHM(){
         ((ObjWithRefsDMO) core).remObjRefHM();
     }
@@ -2144,7 +2167,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The number of ObjWithRefs items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getObjRefMVSize(){
         return(((ObjWithRefsDMO) core).getObjRefMVSize());
     }
@@ -2152,7 +2175,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are no ObjWithRefsDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getObjRefMVIsEmpty(){
         if (((ObjWithRefsDMO) core).getObjRefMVSize() == 0)
             return(true);
@@ -2162,7 +2185,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are any ObjWithRefsDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getObjRefMVHasValue(){
         if (((ObjWithRefsDMO) core).getObjRefMVSize() == 0)
             return(false);
@@ -2172,7 +2195,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return An Iterator of ObjWithRefsDMO objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1606)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1607)
     public ObjWithRefsIterableDMW getObjRefMVIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__objRefMV);
         if (attr == null)
@@ -2184,8 +2207,9 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Adds another objRefMV value.
      * @param value A value compatible with ObjWithRefs
+     * @return the attribute instance
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1663)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1665)
     public DmcAttribute<?> addObjRefMV(ObjWithRefs value){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).addObjRefMV(((ObjWithRefsDMO)value.getDmcObject()));
         return(attr);
@@ -2195,7 +2219,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Deletes a objRefMV value.
      * @param value The ObjWithRefs to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1713)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1715)
     public void delObjRefMV(ObjWithRefs value){
         ((ObjWithRefsDMO) core).delObjRefMV(value.getDMO());
     }
@@ -2203,7 +2227,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return A COPY of the collection of ObjWithRefs objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1777)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1779)
     public ArrayList<ObjWithRefs> getObjRefMVCopy(){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(DmtDMSAG.__objRefMV);
         if (attr == null)
@@ -2222,7 +2246,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the objRefMV attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remObjRefMV(){
         ((ObjWithRefsDMO) core).remObjRefMV();
     }
@@ -2236,7 +2260,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Sets onOff to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setOnOff(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).setOnOff(value);
     }
@@ -2245,7 +2269,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Sets onOff to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setOnOff(Boolean value){
         ((ObjWithRefsDMO) core).setOnOff(value);
     }
@@ -2253,7 +2277,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the onOff attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remOnOff(){
         ((ObjWithRefsDMO) core).remOnOff();
     }
@@ -2261,7 +2285,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The number of TestBasicObjectFixed items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getPlainObjRefSize(){
         return(((ObjWithRefsDMO) core).getPlainObjRefSize());
     }
@@ -2269,7 +2293,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are no TestBasicObjectFixedDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getPlainObjRefIsEmpty(){
         if (((ObjWithRefsDMO) core).getPlainObjRefSize() == 0)
             return(true);
@@ -2279,7 +2303,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are any TestBasicObjectFixedDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getPlainObjRefHasValue(){
         if (((ObjWithRefsDMO) core).getPlainObjRefSize() == 0)
             return(false);
@@ -2289,7 +2313,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return An Iterator of TestBasicObjectFixedDMO objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1606)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1607)
     public TestBasicObjectFixedIterableDMW getPlainObjRefIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__plainObjRef);
         if (attr == null)
@@ -2301,8 +2325,9 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Adds another plainObjRef value.
      * @param value A value compatible with TestBasicObjectFixed
+     * @return the attribute instance
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1663)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1665)
     public DmcAttribute<?> addPlainObjRef(TestBasicObjectFixedDMW value){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).addPlainObjRef(((TestBasicObjectFixedDMO)value.getDmcObject()));
         return(attr);
@@ -2312,7 +2337,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Deletes a plainObjRef value.
      * @param value The TestBasicObjectFixed to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1713)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1715)
     public void delPlainObjRef(TestBasicObjectFixedDMW value){
         ((ObjWithRefsDMO) core).delPlainObjRef(value.getDMO());
     }
@@ -2320,7 +2345,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the plainObjRef attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remPlainObjRef(){
         ((ObjWithRefsDMO) core).remPlainObjRef();
     }
@@ -2328,7 +2353,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The number of SomeRelation items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getSomeRelationMVSize(){
         return(((ObjWithRefsDMO) core).getSomeRelationMVSize());
     }
@@ -2336,7 +2361,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are no SomeRelationDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getSomeRelationMVIsEmpty(){
         if (((ObjWithRefsDMO) core).getSomeRelationMVSize() == 0)
             return(true);
@@ -2346,7 +2371,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are any SomeRelationDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getSomeRelationMVHasValue(){
         if (((ObjWithRefsDMO) core).getSomeRelationMVSize() == 0)
             return(false);
@@ -2356,7 +2381,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return An Iterator of SomeRelationDMO objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1606)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1607)
     public SomeRelationIterableDMW getSomeRelationMVIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__someRelationMV);
         if (attr == null)
@@ -2369,7 +2394,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Adds another someRelationMV value.
      * @param value A value compatible with SomeRelation
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1649)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1650)
     public DmcAttribute<?> addSomeRelationMV(SomeRelation value){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).addSomeRelationMV(value);
         return(attr);
@@ -2379,7 +2404,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Deletes a someRelationMV value.
      * @param value The SomeRelation to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1703)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1705)
     public void delSomeRelationMV(SomeRelation value){
         ((ObjWithRefsDMO) core).delSomeRelationMV(value);
     }
@@ -2387,7 +2412,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return A COPY of the collection of SomeRelation objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1777)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1779)
     public ArrayList<ObjWithRefs> getSomeRelationMVCopy(){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(DmtDMSAG.__someRelationMV);
         if (attr == null)
@@ -2406,7 +2431,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the someRelationMV attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remSomeRelationMV(){
         ((ObjWithRefsDMO) core).remSomeRelationMV();
     }
@@ -2414,7 +2439,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The number of SomeRelation items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getSomeRelationMVISize(){
         return(((ObjWithRefsDMO) core).getSomeRelationMVISize());
     }
@@ -2422,7 +2447,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are no SomeRelationDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getSomeRelationMVIIsEmpty(){
         if (((ObjWithRefsDMO) core).getSomeRelationMVISize() == 0)
             return(true);
@@ -2432,7 +2457,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are any SomeRelationDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getSomeRelationMVIHasValue(){
         if (((ObjWithRefsDMO) core).getSomeRelationMVISize() == 0)
             return(false);
@@ -2443,7 +2468,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Sets the someRelationMVI value at the specified index.
      * @param value A value compatible with SomeRelation
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1811)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1813)
     public DmcAttribute<?> setNthSomeRelationMVI(int index, SomeRelation value){
         return(((ObjWithRefsDMO) core).setNthSomeRelationMVI(index, value));
     }
@@ -2451,7 +2476,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The SomeRelation object at the specified index.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1901)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1903)
     public ObjWithRefs getNthSomeRelationMVI(int index){
         SomeRelation ref = ((ObjWithRefsDMO) core).getNthSomeRelationMVI(index);
         if (ref == null)
@@ -2466,7 +2491,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The reference to the SomeRelation object at the specified index.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1947)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1949)
     public SomeRelation getNthSomeRelationMVIREF(int index){
         SomeRelation ref = ((ObjWithRefsDMO) core).getNthSomeRelationMVIREF(index);
         return(ref);
@@ -2475,7 +2500,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the someRelationMVI attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remSomeRelationMVI(){
         ((ObjWithRefsDMO) core).remSomeRelationMVI();
     }
@@ -2516,7 +2541,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the someRelationSV attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remSomeRelationSV(){
         ((ObjWithRefsDMO) core).remSomeRelationSV();
     }
@@ -2530,7 +2555,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Sets svBoolean to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setSvBoolean(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).setSvBoolean(value);
     }
@@ -2539,7 +2564,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Sets svBoolean to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setSvBoolean(Boolean value){
         ((ObjWithRefsDMO) core).setSvBoolean(value);
     }
@@ -2547,7 +2572,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the svBoolean attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remSvBoolean(){
         ((ObjWithRefsDMO) core).remSvBoolean();
     }
@@ -2561,7 +2586,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setSvString(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).setSvString(value);
     }
@@ -2570,7 +2595,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Sets svString to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setSvString(String value){
         ((ObjWithRefsDMO) core).setSvString(value);
     }
@@ -2578,7 +2603,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the svString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remSvString(){
         ((ObjWithRefsDMO) core).remSvString();
     }
@@ -2592,7 +2617,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Sets svTestEnum to the specified value.
      * @param value A value compatible with DmcTypeDmtTestEnum
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setSvTestEnum(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).setSvTestEnum(value);
     }
@@ -2601,7 +2626,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Sets svTestEnum to the specified value.
      * @param value DmtTestEnum
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setSvTestEnum(DmtTestEnum value){
         ((ObjWithRefsDMO) core).setSvTestEnum(value);
     }
@@ -2609,7 +2634,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the svTestEnum attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remSvTestEnum(){
         ((ObjWithRefsDMO) core).remSvTestEnum();
     }
@@ -2617,7 +2642,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getTransStringSize(){
         return(((ObjWithRefsDMO) core).getTransStringSize());
     }
@@ -2625,7 +2650,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getTransStringIsEmpty(){
         if (((ObjWithRefsDMO) core).getTransStringSize() == 0)
             return(true);
@@ -2635,7 +2660,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getTransStringHasValue(){
         if (((ObjWithRefsDMO) core).getTransStringSize() == 0)
             return(false);
@@ -2645,7 +2670,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1999)
     public StringIterableDMW getTransStringIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__transString);
         if (attr == null)
@@ -2657,8 +2682,9 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Adds another transString value.
      * @param value A value compatible with String
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
     public void addTransString(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).addTransString(value);
     }
@@ -2667,16 +2693,16 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Adds another transString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2033)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2036)
     public void addTransString(String value){
         ((ObjWithRefsDMO) core).addTransString(value);
     }
 
     /**
-     * Returns true if the collection contains the transString value.
      * @param value A value compatible with String
+     * @return true if the collection contains the transString value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2093)
     public boolean transStringContains(String value){
         return(((ObjWithRefsDMO) core).transStringContains(value));
     }
@@ -2684,7 +2710,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2137)
     @SuppressWarnings("unchecked")
     public HashSet<String> getTransStringCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__transString);
@@ -2704,8 +2730,9 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Deletes a transString value.
      * @param value The String to be deleted from set of attribute values.
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2165)
     public void delTransString(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).delTransString(value);
     }
@@ -2714,7 +2741,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
      * Deletes a transString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2174)
     public void delTransString(String value){
         ((ObjWithRefsDMO) core).delTransString(value);
     }
@@ -2722,7 +2749,7 @@ abstract public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjec
     /**
      * Removes the transString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remTransString(){
         ((ObjWithRefsDMO) core).remTransString();
     }

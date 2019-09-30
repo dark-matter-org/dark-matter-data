@@ -25,7 +25,7 @@ import org.dmd.dmt.server.generated.dmw.UnnamedObjHSDMW;  // wrapper type import
  * it Iterable.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1981)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1998)
  *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:99)
  */
 public class UnnamedObjHSIterableDMW extends DmwObjectIterator<UnnamedObjHSDMW, UnnamedObjHSDMO> {

@@ -23,7 +23,7 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;                          // Required
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                // Required for MODREC constructor - (BaseDMWGenerator.java:948)
 import org.dmd.dmt.server.extended.ObjWithRefs;                      // Is reference type - (BaseDMWGenerator.java:997)
 import org.dmd.dmt.shared.generated.dmo.ExtendedRefMVIDXDMO;         // Class not auxiliary or abstract - (BaseDMWGenerator.java:1142)
-import org.dmd.dmt.shared.generated.types.SomeRelation;              // For setNth of SomeRelation - (BaseDMWGenerator.java:1804)
+import org.dmd.dmt.shared.generated.types.SomeRelation;              // For setNth of SomeRelation - (BaseDMWGenerator.java:1806)
 import org.dmd.dmw.DmwWrapper;                                       // Unnamed object wrapper - (BaseDMWGenerator.java:1125)
 
 
@@ -76,7 +76,7 @@ public class ExtendedRefMVIDXDMW extends DmwWrapper {
     /**
      * @return The number of SomeRelation items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getMvIdxExtendedRefSize(){
         return(((ExtendedRefMVIDXDMO) core).getMvIdxExtendedRefSize());
     }
@@ -84,7 +84,7 @@ public class ExtendedRefMVIDXDMW extends DmwWrapper {
     /**
      * @return true if there are no SomeRelationDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getMvIdxExtendedRefIsEmpty(){
         if (((ExtendedRefMVIDXDMO) core).getMvIdxExtendedRefSize() == 0)
             return(true);
@@ -94,7 +94,7 @@ public class ExtendedRefMVIDXDMW extends DmwWrapper {
     /**
      * @return true if there are any SomeRelationDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getMvIdxExtendedRefHasValue(){
         if (((ExtendedRefMVIDXDMO) core).getMvIdxExtendedRefSize() == 0)
             return(false);
@@ -105,7 +105,7 @@ public class ExtendedRefMVIDXDMW extends DmwWrapper {
      * Sets the mvIdxExtendedRef value at the specified index.
      * @param value A value compatible with SomeRelation
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1811)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1813)
     public DmcAttribute<?> setNthMvIdxExtendedRef(int index, SomeRelation value){
         return(((ExtendedRefMVIDXDMO) core).setNthMvIdxExtendedRef(index, value));
     }
@@ -113,7 +113,7 @@ public class ExtendedRefMVIDXDMW extends DmwWrapper {
     /**
      * @return The SomeRelation object at the specified index.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1901)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1903)
     public ObjWithRefs getNthMvIdxExtendedRef(int index){
         SomeRelation ref = ((ExtendedRefMVIDXDMO) core).getNthMvIdxExtendedRef(index);
         if (ref == null)
@@ -128,7 +128,7 @@ public class ExtendedRefMVIDXDMW extends DmwWrapper {
     /**
      * @return The reference to the SomeRelation object at the specified index.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1947)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1949)
     public SomeRelation getNthMvIdxExtendedRefREF(int index){
         SomeRelation ref = ((ExtendedRefMVIDXDMO) core).getNthMvIdxExtendedRefREF(index);
         return(ref);
@@ -137,7 +137,7 @@ public class ExtendedRefMVIDXDMW extends DmwWrapper {
     /**
      * Removes the mvIdxExtendedRef attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remMvIdxExtendedRef(){
         ((ExtendedRefMVIDXDMO) core).remMvIdxExtendedRef();
     }
