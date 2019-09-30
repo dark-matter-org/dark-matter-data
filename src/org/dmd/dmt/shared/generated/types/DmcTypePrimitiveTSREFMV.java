@@ -26,7 +26,7 @@ import org.dmd.dmt.shared.generated.dmo.PrimitiveTSDMO;    // DmcType import
  * The DmcTypePrimitiveTSREFMV provides storage for a multi-valued PrimitiveTS
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2495)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:255)
  */
 @SuppressWarnings("serial")
@@ -50,7 +50,7 @@ public class DmcTypePrimitiveTSREFMV extends DmcTypePrimitiveTSREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2526)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2543)
     public DmcAttribute<PrimitiveTSDMO> cloneIt(){
         synchronized(this){
             DmcTypePrimitiveTSREFMV rc = getNew();
@@ -79,7 +79,7 @@ public class DmcTypePrimitiveTSREFMV extends DmcTypePrimitiveTSREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2559)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2576)
     public PrimitiveTSDMO add(Object v) throws DmcValueException {
         synchronized(this){
             PrimitiveTSDMO rc = typeCheck(v);
@@ -91,7 +91,7 @@ public class DmcTypePrimitiveTSREFMV extends DmcTypePrimitiveTSREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2572)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2589)
     public PrimitiveTSDMO del(Object v){
         synchronized(this){
             if (value == null)
@@ -115,7 +115,7 @@ public class DmcTypePrimitiveTSREFMV extends DmcTypePrimitiveTSREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2606)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2623)
     public Iterator<PrimitiveTSDMO> getMV(){
         synchronized(this){
             if (value == null)
@@ -126,7 +126,7 @@ public class DmcTypePrimitiveTSREFMV extends DmcTypePrimitiveTSREF implements Se
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2618)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2635)
     public ArrayList<PrimitiveTSDMO> getMVCopy(){
         synchronized(this){
             if (value == null)
@@ -137,7 +137,7 @@ public class DmcTypePrimitiveTSREFMV extends DmcTypePrimitiveTSREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2630)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2647)
     public int getMVSize(){
         synchronized(this){
             if (getAttributeInfo().indexSize == 0){
@@ -151,7 +151,7 @@ public class DmcTypePrimitiveTSREFMV extends DmcTypePrimitiveTSREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2645)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2662)
     public PrimitiveTSDMO getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -161,7 +161,7 @@ public class DmcTypePrimitiveTSREFMV extends DmcTypePrimitiveTSREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2656)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2673)
     public PrimitiveTSDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
@@ -188,7 +188,7 @@ public class DmcTypePrimitiveTSREFMV extends DmcTypePrimitiveTSREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2684)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2701)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -211,7 +211,7 @@ public class DmcTypePrimitiveTSREFMV extends DmcTypePrimitiveTSREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2708)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2725)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

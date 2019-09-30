@@ -100,7 +100,7 @@ public class DeleteResponseDMO  extends ResponseDMO  implements Serializable  {
      * @return An Iterator of DmcObject objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1278)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1289)
     public Iterator<DmcObject> getObjectList(){
         DmcTypeDmcObjectMV attr = (DmcTypeDmcObjectMV) get(DmpDMSAG.__objectList);
         if (attr == null)
@@ -112,7 +112,7 @@ public class DeleteResponseDMO  extends ResponseDMO  implements Serializable  {
     /**
      * @return The nth DmcObject value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1290)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1301)
     public DmcObject getNthObjectList(int i){
         DmcTypeDmcObjectMV attr = (DmcTypeDmcObjectMV) get(DmpDMSAG.__objectList);
         if (attr == null)
@@ -125,7 +125,7 @@ public class DeleteResponseDMO  extends ResponseDMO  implements Serializable  {
      * Adds another objectList to the specified value.
      * @param value DmcObject
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1304)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1315)
     public DmcAttribute<?> addObjectList(DmcObject value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__objectList);
         if (attr == null)
@@ -145,7 +145,7 @@ public class DeleteResponseDMO  extends ResponseDMO  implements Serializable  {
      * Returns true if we contain a valued keyed by the specified DmcObject.
      * @param value DmcObject
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1379)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1390)
     public boolean objectListContains(DmcObject value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__objectList);
         if (attr == null)
@@ -156,8 +156,10 @@ public class DeleteResponseDMO  extends ResponseDMO  implements Serializable  {
     /**
      * Adds another objectList value.
      * @param value A value compatible with DmcObject
+     * @return the attribute instance
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1411)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
     public DmcAttribute<?> addObjectList(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmpDMSAG.__objectList);
         if (attr == null)
@@ -169,9 +171,9 @@ public class DeleteResponseDMO  extends ResponseDMO  implements Serializable  {
     }
 
     /**
-     * Returns the number of values in objectList
+     * @return the number of values in objectList
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1428)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
     public int getObjectListSize(){
         DmcAttribute<?> attr = get(DmpDMSAG.__objectList);
         if (attr == null){
@@ -186,8 +188,8 @@ public class DeleteResponseDMO  extends ResponseDMO  implements Serializable  {
     /**
      * Deletes a objectList value.
      * @param value The DmcObject to be deleted from set of attribute values.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1486)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
     public DmcAttribute<?> delObjectList(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmpDMSAG.__objectList);
         
@@ -202,8 +204,8 @@ public class DeleteResponseDMO  extends ResponseDMO  implements Serializable  {
     /**
      * Deletes a objectList from the specified value.
      * @param value DmcObject
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1519)
     public DmcAttribute<?> delObjectList(DmcObject value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__objectList);
         
@@ -218,7 +220,7 @@ public class DeleteResponseDMO  extends ResponseDMO  implements Serializable  {
     /**
      * Removes the objectList attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1521)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
     public void remObjectList(){
          rem(DmpDMSAG.__objectList);
     }

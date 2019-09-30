@@ -45,7 +45,7 @@ import org.dmd.dmc.types.RuleName;    // key type import
  * The DmcTypePartCheckerRuleDataREFMAP provides storage for a map of PartCheckerRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3024)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3041)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:538)
  */
 @SuppressWarnings("serial")
@@ -88,7 +88,7 @@ public class DmcTypePartCheckerRuleDataREFMAP extends DmcTypePartCheckerRuleData
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3081)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3098)
     public DmcAttribute<PartCheckerRuleDataREF> cloneIt(){
         synchronized(this){
             DmcTypePartCheckerRuleDataREFMAP rc = getNew();
@@ -107,7 +107,7 @@ public class DmcTypePartCheckerRuleDataREFMAP extends DmcTypePartCheckerRuleData
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3101)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3118)
     public PartCheckerRuleDataREF add(Object v) throws DmcValueException {
         synchronized(this){
             PartCheckerRuleDataREF newval = typeCheck(v);
@@ -127,7 +127,7 @@ public class DmcTypePartCheckerRuleDataREFMAP extends DmcTypePartCheckerRuleData
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3122)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3139)
     public PartCheckerRuleDataREF del(Object key){
         synchronized(this){
     
@@ -142,7 +142,7 @@ public class DmcTypePartCheckerRuleDataREFMAP extends DmcTypePartCheckerRuleData
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3138)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3155)
     public Iterator<PartCheckerRuleDataREF> getMV(){
         synchronized(this){
     
@@ -158,7 +158,7 @@ public class DmcTypePartCheckerRuleDataREFMAP extends DmcTypePartCheckerRuleData
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3155)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3172)
     public Map<RuleName,PartCheckerRuleDataREF> getMVCopy(){
         synchronized(this){
             Map<RuleName,PartCheckerRuleDataREF> clone = null;
@@ -178,7 +178,7 @@ public class DmcTypePartCheckerRuleDataREFMAP extends DmcTypePartCheckerRuleData
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3176)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3193)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -189,7 +189,7 @@ public class DmcTypePartCheckerRuleDataREFMAP extends DmcTypePartCheckerRuleData
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3188)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3205)
     public PartCheckerRuleDataREF getByKey(Object key){
         synchronized(this){
            if (value == null)
@@ -203,7 +203,7 @@ public class DmcTypePartCheckerRuleDataREFMAP extends DmcTypePartCheckerRuleData
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3203)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3220)
     public boolean contains(Object v){
         synchronized(this){
            if (value == null)
@@ -219,7 +219,7 @@ public class DmcTypePartCheckerRuleDataREFMAP extends DmcTypePartCheckerRuleData
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3220)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3237)
     public boolean containsKey(Object key){
         synchronized(this){
            if (value == null)

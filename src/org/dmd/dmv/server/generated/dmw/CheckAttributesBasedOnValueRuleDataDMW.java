@@ -19,16 +19,16 @@ package org.dmd.dmv.server.generated.dmw;
 // Called from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:442)
 import java.util.ArrayList;                                                             // To support getMVCopy() - (BaseDMWGenerator.java:1071)
 import java.util.HashSet;                                                               // To support getMVCopy() - (BaseDMWGenerator.java:1090)
-import java.util.Iterator;                                                              // Support copy of MV objects - (BaseDMWGenerator.java:2130)
+import java.util.Iterator;                                                              // Support copy of MV objects - (BaseDMWGenerator.java:2133)
 import org.dmd.dmc.*;                                                                   // If any attributes - (BaseDMWGenerator.java:977)
 import org.dmd.dmc.types.RuleName;                                                      // Is named by - (BaseDMWGenerator.java:939)
 import org.dmd.dms.AttributeDefinition;                                                 // Is reference type - (BaseDMWGenerator.java:997)
 import org.dmd.dms.ClassDefinition;                                                     // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:944)
 import org.dmd.dms.RuleData;                                                            // Derived class - (BaseDMWGenerator.java:1138)
-import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;                                // For multi-valued adds of AttributeDefinition - (BaseDMWGenerator.java:1657)
+import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;                                // For multi-valued adds of AttributeDefinition - (BaseDMWGenerator.java:1658)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                             // Attribute description from the meta schema - (BaseDMWGenerator.java:910)
-import org.dmd.dms.generated.dmw.AttributeDefinitionIterableDMW;                        // For multi-valued AttributeDefinition - (BaseDMWGenerator.java:1599)
-import org.dmd.dms.generated.dmw.StringIterableDMW;                                     // For multi-valued String - (BaseDMWGenerator.java:1993)
+import org.dmd.dms.generated.dmw.AttributeDefinitionIterableDMW;                        // For multi-valued AttributeDefinition - (BaseDMWGenerator.java:1600)
+import org.dmd.dms.generated.dmw.StringIterableDMW;                                     // For multi-valued String - (BaseDMWGenerator.java:1995)
 import org.dmd.dms.generated.types.AttributeDefinitionREF;                              // Is reference type REF - (BaseDMWGenerator.java:1005)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                                   // Required for MODREC constructor - (BaseDMWGenerator.java:948)
 import org.dmd.dmv.shared.generated.dmo.CheckAttributesBasedOnValueRuleDataDMO;         // Class not auxiliary or abstract - (BaseDMWGenerator.java:1142)
@@ -145,8 +145,9 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * Sets the basedOnAttribute to the specified value.
      * @param value A value compatible with AttributeDefinitionREF
+     * @throws DmcValueException is the value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1418)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1419)
     public void setBasedOnAttribute(Object value) throws DmcValueException {
         ((CheckAttributesBasedOnValueRuleDataDMO) core).setBasedOnAttribute(value);
     }
@@ -154,7 +155,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * Removes the basedOnAttribute attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remBasedOnAttribute(){
         ((CheckAttributesBasedOnValueRuleDataDMO) core).remBasedOnAttribute();
     }
@@ -162,7 +163,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getBasedOnValueSize(){
         return(((CheckAttributesBasedOnValueRuleDataDMO) core).getBasedOnValueSize());
     }
@@ -170,7 +171,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getBasedOnValueIsEmpty(){
         if (((CheckAttributesBasedOnValueRuleDataDMO) core).getBasedOnValueSize() == 0)
             return(true);
@@ -180,7 +181,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getBasedOnValueHasValue(){
         if (((CheckAttributesBasedOnValueRuleDataDMO) core).getBasedOnValueSize() == 0)
             return(false);
@@ -190,7 +191,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1999)
     public StringIterableDMW getBasedOnValueIterable(){
         DmcAttribute<?> attr = core.get(DmvDMSAG.__basedOnValue);
         if (attr == null)
@@ -202,8 +203,9 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * Adds another basedOnValue value.
      * @param value A value compatible with String
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
     public void addBasedOnValue(Object value) throws DmcValueException {
         ((CheckAttributesBasedOnValueRuleDataDMO) core).addBasedOnValue(value);
     }
@@ -212,16 +214,16 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
      * Adds another basedOnValue value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2033)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2036)
     public void addBasedOnValue(String value){
         ((CheckAttributesBasedOnValueRuleDataDMO) core).addBasedOnValue(value);
     }
 
     /**
-     * Returns true if the collection contains the basedOnValue value.
      * @param value A value compatible with String
+     * @return true if the collection contains the basedOnValue value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2093)
     public boolean basedOnValueContains(String value){
         return(((CheckAttributesBasedOnValueRuleDataDMO) core).basedOnValueContains(value));
     }
@@ -229,7 +231,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2137)
     @SuppressWarnings("unchecked")
     public HashSet<String> getBasedOnValueCopy(){
         DmcAttribute<?> attr = core.get(DmvDMSAG.__basedOnValue);
@@ -249,8 +251,9 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * Deletes a basedOnValue value.
      * @param value The String to be deleted from set of attribute values.
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2165)
     public void delBasedOnValue(Object value) throws DmcValueException {
         ((CheckAttributesBasedOnValueRuleDataDMO) core).delBasedOnValue(value);
     }
@@ -259,7 +262,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
      * Deletes a basedOnValue value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2174)
     public void delBasedOnValue(String value){
         ((CheckAttributesBasedOnValueRuleDataDMO) core).delBasedOnValue(value);
     }
@@ -267,7 +270,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * Removes the basedOnValue attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remBasedOnValue(){
         ((CheckAttributesBasedOnValueRuleDataDMO) core).remBasedOnValue();
     }
@@ -275,7 +278,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getDescriptionSize(){
         return(((CheckAttributesBasedOnValueRuleDataDMO) core).getDescriptionSize());
     }
@@ -283,7 +286,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getDescriptionIsEmpty(){
         if (((CheckAttributesBasedOnValueRuleDataDMO) core).getDescriptionSize() == 0)
             return(true);
@@ -293,7 +296,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getDescriptionHasValue(){
         if (((CheckAttributesBasedOnValueRuleDataDMO) core).getDescriptionSize() == 0)
             return(false);
@@ -303,7 +306,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1999)
     public StringIterableDMW getDescriptionIterable(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__description);
         if (attr == null)
@@ -315,8 +318,9 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * Adds another description value.
      * @param value A value compatible with String
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
     public void addDescription(Object value) throws DmcValueException {
         ((CheckAttributesBasedOnValueRuleDataDMO) core).addDescription(value);
     }
@@ -325,16 +329,16 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
      * Adds another description value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2033)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2036)
     public void addDescription(String value){
         ((CheckAttributesBasedOnValueRuleDataDMO) core).addDescription(value);
     }
 
     /**
-     * Returns true if the collection contains the description value.
      * @param value A value compatible with String
+     * @return true if the collection contains the description value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2093)
     public boolean descriptionContains(String value){
         return(((CheckAttributesBasedOnValueRuleDataDMO) core).descriptionContains(value));
     }
@@ -342,7 +346,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2137)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getDescriptionCopy(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__description);
@@ -362,8 +366,9 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * Deletes a description value.
      * @param value The String to be deleted from set of attribute values.
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2165)
     public void delDescription(Object value) throws DmcValueException {
         ((CheckAttributesBasedOnValueRuleDataDMO) core).delDescription(value);
     }
@@ -372,7 +377,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
      * Deletes a description value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2174)
     public void delDescription(String value){
         ((CheckAttributesBasedOnValueRuleDataDMO) core).delDescription(value);
     }
@@ -380,7 +385,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remDescription(){
         ((CheckAttributesBasedOnValueRuleDataDMO) core).remDescription();
     }
@@ -388,7 +393,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * @return The number of AttributeDefinition items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getExcludeThisAttributeSize(){
         return(((CheckAttributesBasedOnValueRuleDataDMO) core).getExcludeThisAttributeSize());
     }
@@ -396,7 +401,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * @return true if there are no AttributeDefinitionDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getExcludeThisAttributeIsEmpty(){
         if (((CheckAttributesBasedOnValueRuleDataDMO) core).getExcludeThisAttributeSize() == 0)
             return(true);
@@ -406,7 +411,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * @return true if there are any AttributeDefinitionDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getExcludeThisAttributeHasValue(){
         if (((CheckAttributesBasedOnValueRuleDataDMO) core).getExcludeThisAttributeSize() == 0)
             return(false);
@@ -416,7 +421,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * @return An Iterator of AttributeDefinitionDMO objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1606)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1607)
     public AttributeDefinitionIterableDMW getExcludeThisAttributeIterable(){
         DmcAttribute<?> attr = core.get(DmvDMSAG.__excludeThisAttribute);
         if (attr == null)
@@ -428,8 +433,9 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * Adds another excludeThisAttribute value.
      * @param value A value compatible with AttributeDefinition
+     * @return the attribute instance
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1663)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1665)
     public DmcAttribute<?> addExcludeThisAttribute(AttributeDefinition value){
         DmcAttribute<?> attr = ((CheckAttributesBasedOnValueRuleDataDMO) core).addExcludeThisAttribute(((AttributeDefinitionDMO)value.getDmcObject()));
         return(attr);
@@ -439,7 +445,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
      * Deletes a excludeThisAttribute value.
      * @param value The AttributeDefinition to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1713)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1715)
     public void delExcludeThisAttribute(AttributeDefinition value){
         ((CheckAttributesBasedOnValueRuleDataDMO) core).delExcludeThisAttribute(value.getDMO());
     }
@@ -447,7 +453,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * @return A COPY of the collection of AttributeDefinition objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1777)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1779)
     public ArrayList<AttributeDefinition> getExcludeThisAttributeCopy(){
         DmcAttribute<?> attr = ((CheckAttributesBasedOnValueRuleDataDMO) core).get(DmvDMSAG.__excludeThisAttribute);
         if (attr == null)
@@ -466,7 +472,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * Removes the excludeThisAttribute attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remExcludeThisAttribute(){
         ((CheckAttributesBasedOnValueRuleDataDMO) core).remExcludeThisAttribute();
     }
@@ -474,7 +480,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * @return The number of AttributeDefinition items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getIncludeThisAttributeSize(){
         return(((CheckAttributesBasedOnValueRuleDataDMO) core).getIncludeThisAttributeSize());
     }
@@ -482,7 +488,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * @return true if there are no AttributeDefinitionDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getIncludeThisAttributeIsEmpty(){
         if (((CheckAttributesBasedOnValueRuleDataDMO) core).getIncludeThisAttributeSize() == 0)
             return(true);
@@ -492,7 +498,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * @return true if there are any AttributeDefinitionDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getIncludeThisAttributeHasValue(){
         if (((CheckAttributesBasedOnValueRuleDataDMO) core).getIncludeThisAttributeSize() == 0)
             return(false);
@@ -502,7 +508,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * @return An Iterator of AttributeDefinitionDMO objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1606)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1607)
     public AttributeDefinitionIterableDMW getIncludeThisAttributeIterable(){
         DmcAttribute<?> attr = core.get(DmvDMSAG.__includeThisAttribute);
         if (attr == null)
@@ -514,8 +520,9 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * Adds another includeThisAttribute value.
      * @param value A value compatible with AttributeDefinition
+     * @return the attribute instance
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1663)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1665)
     public DmcAttribute<?> addIncludeThisAttribute(AttributeDefinition value){
         DmcAttribute<?> attr = ((CheckAttributesBasedOnValueRuleDataDMO) core).addIncludeThisAttribute(((AttributeDefinitionDMO)value.getDmcObject()));
         return(attr);
@@ -525,7 +532,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
      * Deletes a includeThisAttribute value.
      * @param value The AttributeDefinition to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1713)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1715)
     public void delIncludeThisAttribute(AttributeDefinition value){
         ((CheckAttributesBasedOnValueRuleDataDMO) core).delIncludeThisAttribute(value.getDMO());
     }
@@ -533,7 +540,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * @return A COPY of the collection of AttributeDefinition objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1777)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1779)
     public ArrayList<AttributeDefinition> getIncludeThisAttributeCopy(){
         DmcAttribute<?> attr = ((CheckAttributesBasedOnValueRuleDataDMO) core).get(DmvDMSAG.__includeThisAttribute);
         if (attr == null)
@@ -552,7 +559,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * Removes the includeThisAttribute attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remIncludeThisAttribute(){
         ((CheckAttributesBasedOnValueRuleDataDMO) core).remIncludeThisAttribute();
     }
@@ -566,7 +573,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
      * Sets ruleName to the specified value.
      * @param value A value compatible with DmcTypeRuleName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setRuleName(Object value) throws DmcValueException {
         ((CheckAttributesBasedOnValueRuleDataDMO) core).setRuleName(value);
     }
@@ -575,7 +582,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
      * Sets ruleName to the specified value.
      * @param value RuleName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setRuleName(RuleName value){
         ((CheckAttributesBasedOnValueRuleDataDMO) core).setRuleName(value);
     }
@@ -583,7 +590,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * Removes the ruleName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remRuleName(){
         ((CheckAttributesBasedOnValueRuleDataDMO) core).remRuleName();
     }
@@ -597,7 +604,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setRuleTitle(Object value) throws DmcValueException {
         ((CheckAttributesBasedOnValueRuleDataDMO) core).setRuleTitle(value);
     }
@@ -606,7 +613,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
      * Sets ruleTitle to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setRuleTitle(String value){
         ((CheckAttributesBasedOnValueRuleDataDMO) core).setRuleTitle(value);
     }
@@ -614,7 +621,7 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
     /**
      * Removes the ruleTitle attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remRuleTitle(){
         ((CheckAttributesBasedOnValueRuleDataDMO) core).remRuleTitle();
     }

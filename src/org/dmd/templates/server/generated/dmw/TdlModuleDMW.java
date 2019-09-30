@@ -18,7 +18,7 @@ package org.dmd.templates.server.generated.dmw;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:442)
 import java.util.ArrayList;                                                     // To support getMVCopy() - (BaseDMWGenerator.java:1071)
-import java.util.Iterator;                                                      // Support copy of MV objects - (BaseDMWGenerator.java:2130)
+import java.util.Iterator;                                                      // Support copy of MV objects - (BaseDMWGenerator.java:2133)
 import org.dmd.dmc.*;                                                           // If any attributes - (BaseDMWGenerator.java:977)
 import org.dmd.dmc.definitions.DmcDefinitionIF;                                 // The object is a domain specific definition - (BaseDMWGenerator.java:411)
 import org.dmd.dmc.definitions.DmcDefinitionSet;                                // Our base to provide definition set storage - (DMWGenerator.java:171)
@@ -26,7 +26,7 @@ import org.dmd.dmc.types.DefinitionName;                                        
 import org.dmd.dmc.types.DotName;                                               // To support the find method for definitions - (DSDefinitionModule.java:180)
 import org.dmd.dms.ClassDefinition;                                             // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:944)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                     // Attribute defFiles from the meta schema - (BaseDMWGenerator.java:910)
-import org.dmd.dms.generated.dmw.StringIterableDMW;                             // For multi-valued String - (BaseDMWGenerator.java:1993)
+import org.dmd.dms.generated.dmw.StringIterableDMW;                             // For multi-valued String - (BaseDMWGenerator.java:1995)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                           // Required for MODREC constructor - (BaseDMWGenerator.java:948)
 import org.dmd.templates.server.extended.ContainedElement;                      // A definition from the TdlModule Module - (DSDefinitionModule.java:191)
 import org.dmd.templates.server.extended.ExtensionHook;                         // A definition from the TdlModule Module - (DSDefinitionModule.java:191)
@@ -34,7 +34,7 @@ import org.dmd.templates.server.extended.Section;                               
 import org.dmd.templates.server.extended.TdlDefinition;                         // Derived class - (BaseDMWGenerator.java:1138)
 import org.dmd.templates.server.extended.TdlModule;                             // Required for getModificationRecorder() - (BaseDMWGenerator.java:953)
 import org.dmd.templates.server.extended.TextualArtifact;                       // A definition from the TdlModule Module - (DSDefinitionModule.java:191)
-import org.dmd.templates.server.generated.dmw.TdlModuleIterableDMW;             // For multi-valued TdlModule - (BaseDMWGenerator.java:1599)
+import org.dmd.templates.server.generated.dmw.TdlModuleIterableDMW;             // For multi-valued TdlModule - (BaseDMWGenerator.java:1600)
 import org.dmd.templates.server.generated.dsd.TdlModuleScopedInterface;         // Required to manage module definition - (DMWGenerator.java:170)
 import org.dmd.templates.shared.generated.dmo.DmtdlDMSAG;                       // Attribute dependsOnTdlModule from the dmtdl schema - (BaseDMWGenerator.java:910)
 import org.dmd.templates.shared.generated.dmo.TdlModuleDMO;                     // Class not auxiliary or abstract - (BaseDMWGenerator.java:1142)
@@ -46,14 +46,14 @@ import org.dmd.templates.shared.generated.types.TdlModuleREF;                   
  * A TdlModule is used to define a set of Sections that\n define the overall
  * structure of a textual artifact. When run through the dmtdlgen\n utility,
  * a set of classes are generated to represent these different artifact
- * sections.\n <p/>\n By convention, you should place the .dmtdl files along
+ * sections.\n <p>\n By convention, you should place the .dmtdl files along
  * with your other dark-matter \n config files e.g. in the dmconfig folder
  * with your dark-matter schema or with \n your .dmg wrapper generation
  * files. However, there is no restriction on where you\n place your .dmtdl
  * files, but it's recommended that they exist in a separate subfolder.\n
- * <p/>\n When the dmtdlgen utility is run, a folder (named generated) will
- * be created at\n the same level as the dmconfig folder (or whatever you
- * called it). This will contain\n a dmtdl subpackage that will contain the
+ * <p>\n When the dmtdlgen utility is run, a folder (named generated) will be
+ * created at\n the same level as the dmconfig folder (or whatever you called
+ * it). This will contain\n a dmtdl subpackage that will contain the
  * generated code that represents the \n various Sections that you've defined.
  * <P>
  * Generated from the dmtdl schema at version unknown
@@ -139,7 +139,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
      * Sets commentFormat to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setCommentFormat(Object value) throws DmcValueException {
         ((TdlModuleDMO) core).setCommentFormat(value);
     }
@@ -148,7 +148,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
      * Sets commentFormat to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setCommentFormat(String value){
         ((TdlModuleDMO) core).setCommentFormat(value);
     }
@@ -156,7 +156,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * Removes the commentFormat attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remCommentFormat(){
         ((TdlModuleDMO) core).remCommentFormat();
     }
@@ -164,7 +164,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getDefFilesSize(){
         return(((TdlModuleDMO) core).getDefFilesSize());
     }
@@ -172,7 +172,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getDefFilesIsEmpty(){
         if (((TdlModuleDMO) core).getDefFilesSize() == 0)
             return(true);
@@ -182,7 +182,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getDefFilesHasValue(){
         if (((TdlModuleDMO) core).getDefFilesSize() == 0)
             return(false);
@@ -192,7 +192,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1999)
     public StringIterableDMW getDefFilesIterable(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__defFiles);
         if (attr == null)
@@ -204,8 +204,9 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * Adds another defFiles value.
      * @param value A value compatible with String
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
     public void addDefFiles(Object value) throws DmcValueException {
         ((TdlModuleDMO) core).addDefFiles(value);
     }
@@ -214,16 +215,16 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
      * Adds another defFiles value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2033)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2036)
     public void addDefFiles(String value){
         ((TdlModuleDMO) core).addDefFiles(value);
     }
 
     /**
-     * Returns true if the collection contains the defFiles value.
      * @param value A value compatible with String
+     * @return true if the collection contains the defFiles value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2093)
     public boolean defFilesContains(String value){
         return(((TdlModuleDMO) core).defFilesContains(value));
     }
@@ -231,7 +232,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2137)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getDefFilesCopy(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__defFiles);
@@ -251,8 +252,9 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * Deletes a defFiles value.
      * @param value The String to be deleted from set of attribute values.
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2165)
     public void delDefFiles(Object value) throws DmcValueException {
         ((TdlModuleDMO) core).delDefFiles(value);
     }
@@ -261,7 +263,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
      * Deletes a defFiles value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2174)
     public void delDefFiles(String value){
         ((TdlModuleDMO) core).delDefFiles(value);
     }
@@ -269,7 +271,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * Removes the defFiles attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remDefFiles(){
         ((TdlModuleDMO) core).remDefFiles();
     }
@@ -277,7 +279,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * @return The number of TdlModule items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getDependsOnTdlModuleSize(){
         return(((TdlModuleDMO) core).getDependsOnTdlModuleSize());
     }
@@ -285,7 +287,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * @return true if there are no TdlModuleDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getDependsOnTdlModuleIsEmpty(){
         if (((TdlModuleDMO) core).getDependsOnTdlModuleSize() == 0)
             return(true);
@@ -295,7 +297,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * @return true if there are any TdlModuleDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getDependsOnTdlModuleHasValue(){
         if (((TdlModuleDMO) core).getDependsOnTdlModuleSize() == 0)
             return(false);
@@ -305,7 +307,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * @return An Iterator of TdlModuleDMO objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1606)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1607)
     public TdlModuleIterableDMW getDependsOnTdlModuleIterable(){
         DmcAttribute<?> attr = core.get(DmtdlDMSAG.__dependsOnTdlModule);
         if (attr == null)
@@ -317,8 +319,9 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * Adds another dependsOnTdlModule value.
      * @param value A value compatible with TdlModule
+     * @return the attribute instance
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1663)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1665)
     public DmcAttribute<?> addDependsOnTdlModule(TdlModule value){
         DmcAttribute<?> attr = ((TdlModuleDMO) core).addDependsOnTdlModule(((TdlModuleDMO)value.getDmcObject()));
         return(attr);
@@ -328,7 +331,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
      * Deletes a dependsOnTdlModule value.
      * @param value The TdlModule to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1713)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1715)
     public void delDependsOnTdlModule(TdlModule value){
         ((TdlModuleDMO) core).delDependsOnTdlModule(value.getDMO());
     }
@@ -336,7 +339,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * @return A COPY of the collection of TdlModule objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1777)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1779)
     public ArrayList<TdlModule> getDependsOnTdlModuleCopy(){
         DmcAttribute<?> attr = ((TdlModuleDMO) core).get(DmtdlDMSAG.__dependsOnTdlModule);
         if (attr == null)
@@ -355,7 +358,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * Removes the dependsOnTdlModule attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remDependsOnTdlModule(){
         ((TdlModuleDMO) core).remDependsOnTdlModule();
     }
@@ -363,7 +366,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getDescriptionSize(){
         return(((TdlModuleDMO) core).getDescriptionSize());
     }
@@ -371,7 +374,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getDescriptionIsEmpty(){
         if (((TdlModuleDMO) core).getDescriptionSize() == 0)
             return(true);
@@ -381,7 +384,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getDescriptionHasValue(){
         if (((TdlModuleDMO) core).getDescriptionSize() == 0)
             return(false);
@@ -391,7 +394,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1999)
     public StringIterableDMW getDescriptionIterable(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__description);
         if (attr == null)
@@ -403,8 +406,9 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * Adds another description value.
      * @param value A value compatible with String
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
     public void addDescription(Object value) throws DmcValueException {
         ((TdlModuleDMO) core).addDescription(value);
     }
@@ -413,16 +417,16 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
      * Adds another description value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2033)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2036)
     public void addDescription(String value){
         ((TdlModuleDMO) core).addDescription(value);
     }
 
     /**
-     * Returns true if the collection contains the description value.
      * @param value A value compatible with String
+     * @return true if the collection contains the description value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2093)
     public boolean descriptionContains(String value){
         return(((TdlModuleDMO) core).descriptionContains(value));
     }
@@ -430,7 +434,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2137)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getDescriptionCopy(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__description);
@@ -450,8 +454,9 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * Deletes a description value.
      * @param value The String to be deleted from set of attribute values.
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2165)
     public void delDescription(Object value) throws DmcValueException {
         ((TdlModuleDMO) core).delDescription(value);
     }
@@ -460,7 +465,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
      * Deletes a description value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2174)
     public void delDescription(String value){
         ((TdlModuleDMO) core).delDescription(value);
     }
@@ -468,7 +473,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remDescription(){
         ((TdlModuleDMO) core).remDescription();
     }
@@ -482,7 +487,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
      * Sets insertMarker to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setInsertMarker(Object value) throws DmcValueException {
         ((TdlModuleDMO) core).setInsertMarker(value);
     }
@@ -491,7 +496,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
      * Sets insertMarker to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setInsertMarker(String value){
         ((TdlModuleDMO) core).setInsertMarker(value);
     }
@@ -499,7 +504,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * Removes the insertMarker attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remInsertMarker(){
         ((TdlModuleDMO) core).remInsertMarker();
     }
@@ -513,7 +518,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
      * Sets maxFastAddValues to the specified value.
      * @param value A value compatible with DmcTypeInteger
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setMaxFastAddValues(Object value) throws DmcValueException {
         ((TdlModuleDMO) core).setMaxFastAddValues(value);
     }
@@ -522,7 +527,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
      * Sets maxFastAddValues to the specified value.
      * @param value Integer
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setMaxFastAddValues(Integer value){
         ((TdlModuleDMO) core).setMaxFastAddValues(value);
     }
@@ -530,7 +535,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * Removes the maxFastAddValues attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remMaxFastAddValues(){
         ((TdlModuleDMO) core).remMaxFastAddValues();
     }
@@ -544,7 +549,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setName(Object value) throws DmcValueException {
         ((TdlModuleDMO) core).setName(value);
     }
@@ -553,7 +558,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
      * Sets name to the specified value.
      * @param value DefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setName(DefinitionName value){
         ((TdlModuleDMO) core).setName(value);
     }
@@ -561,7 +566,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remName(){
         ((TdlModuleDMO) core).remName();
     }
@@ -575,7 +580,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
      * Sets package to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setPackage(Object value) throws DmcValueException {
         ((TdlModuleDMO) core).setPackage(value);
     }
@@ -584,7 +589,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
      * Sets package to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setPackage(String value){
         ((TdlModuleDMO) core).setPackage(value);
     }
@@ -592,7 +597,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * Removes the package attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remPackage(){
         ((TdlModuleDMO) core).remPackage();
     }
@@ -606,7 +611,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
      * Sets templateFile to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setTemplateFile(Object value) throws DmcValueException {
         ((TdlModuleDMO) core).setTemplateFile(value);
     }
@@ -615,7 +620,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
      * Sets templateFile to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setTemplateFile(String value){
         ((TdlModuleDMO) core).setTemplateFile(value);
     }
@@ -623,7 +628,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * Removes the templateFile attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remTemplateFile(){
         ((TdlModuleDMO) core).remTemplateFile();
     }
@@ -637,7 +642,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
      * Sets templateFileSuffix to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setTemplateFileSuffix(Object value) throws DmcValueException {
         ((TdlModuleDMO) core).setTemplateFileSuffix(value);
     }
@@ -646,7 +651,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
      * Sets templateFileSuffix to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setTemplateFileSuffix(String value){
         ((TdlModuleDMO) core).setTemplateFileSuffix(value);
     }
@@ -654,7 +659,7 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
     /**
      * Removes the templateFileSuffix attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remTemplateFileSuffix(){
         ((TdlModuleDMO) core).remTemplateFileSuffix();
     }

@@ -31,6 +31,6 @@ may				hint
 description		The Concept class provides a flexible mechanism for defining concepts that can be
  linked in arbitrary or structured ways to other concepts. Concepts allow other, disparate information
  from other dark-matter Domain Specific Languages (DSLs) to be linked together at a conceptual level.
- <p/>
+ <p>
  How you use this mechanism is bounded only by your imagination.
 

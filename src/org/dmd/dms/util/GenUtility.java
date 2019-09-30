@@ -657,8 +657,11 @@ public class GenUtility {
     	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
 		
     	if (ad.getType().getIsRefType() && !ad.getType().getIsExtendedRefType()){
-			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			if (ad.getType().getOriginalClass().getIsNamedBy() == null){
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    /**\n");
+				sb.append("     * @return the " + typeName + "DMO\n");
+				sb.append("     */\n");
 				sb.append("    public " + typeName + "DMO get" + functionName + "(){\n");		
 				sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
 				sb.append("        if (attr == null)\n");
@@ -672,6 +675,10 @@ public class GenUtility {
 		    	
 			}
 			else{
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    /**\n");
+				sb.append("     * @return the " + typeName + "REF\n");
+				sb.append("     */\n");
 				sb.append("    public " + typeName + "REF get" + functionName + "(){\n");
 				sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
 				sb.append("        if (attr == null)\n");
@@ -690,8 +697,9 @@ public class GenUtility {
 		    	sb.append("        return(attr.getSV());\n");
 		    	sb.append("    }\n\n");
 		    	
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		    	sb.append("    /**\n");
-		    	sb.append("     * Returns the reference to " + typeName + " without attempting lazy resolution (if turned on).\n");
+		    	sb.append("     * @return the reference to " + typeName + " without attempting lazy resolution (if turned on).\n");
 		    	sb.append("     */\n");
 				sb.append("    public " + typeName + "REF get" + functionName + "REF(){\n");
 				sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
@@ -707,6 +715,7 @@ public class GenUtility {
 			}	    	
 
 			// NOTE: We need the attribute cast to the correct type here because of the removeBackReferences call
+			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 	    	sb.append("    /**\n");
 	    	sb.append("     * Sets " + ad.getName() + " to the specified value.\n");
 	    	sb.append("     * @param value " + typeName + "DMO\n");
@@ -878,6 +887,7 @@ public class GenUtility {
     	sb.append("    /**\n");
     	sb.append("     * Sets " + ad.getName() + " to the specified value.\n");
     	sb.append("     * @param value A value compatible with " + attrType + "\n");
+    	sb.append("     * @throws DmcValueException if value is not correct\n");
     	sb.append("     */\n");
 		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
     	sb.append("    public void set" + functionName + "(Object value) throws DmcValueException {\n");
@@ -1166,6 +1176,7 @@ public class GenUtility {
 		    	sb.append("    /**\n");
 		    	sb.append("     * Adds another " + ad.getName() + " to the specified value.\n");
 		    	sb.append("     * @param value " + typeName + "\n");
+		    	sb.append("     * @return the attribute instance\n");
 		    	sb.append("     */\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		    	sb.append("    public DmcAttribute<?> add" + functionName + "(" + typeName + DMO + " value) {\n");
@@ -1285,6 +1296,7 @@ public class GenUtility {
 			sb.append("    }\n\n");
 			
 	    	sb.append("    /**\n");
+			sb.append("     * @param i the index\n");
 			sb.append("     * @return The nth " + typeName + " value.\n");
 			sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
@@ -1300,6 +1312,7 @@ public class GenUtility {
 		    	sb.append("    /**\n");
 		    	sb.append("     * Adds another " + ad.getName() + " to the specified value.\n");
 		    	sb.append("     * @param value " + typeName + "\n");
+		    	sb.append("     * @return the attribute instance\n");
 		    	sb.append("     */\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		    	sb.append("    public DmcAttribute<?> add" + functionName + "(" + typeName + " value) {\n");
@@ -1373,8 +1386,8 @@ public class GenUtility {
 	    	}
 
 	    	sb.append("    /**\n");
-	    	sb.append("     * Returns true if we contain a valued keyed by the specified " + typeName + ".\n");
 	    	sb.append("     * @param value " + typeName + "\n");
+	    	sb.append("     * @return true if we contain a valued keyed by the specified " + typeName + ".\n");
 	    	sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 	    	sb.append("    public boolean " + ad.getName() + "Contains(" + typeName + " value) {\n");
@@ -1387,8 +1400,8 @@ public class GenUtility {
 	    	if (ad.getType().getAltType() != null){
 	    		String alt = ad.getType().getAltType();
 		    	sb.append("    /**\n");
-		    	sb.append("     * Returns true if we contain a valued keyed by the specified " + alt + ".\n");
 		    	sb.append("     * @param value " + alt + "\n");
+		    	sb.append("     * @return true if we contain a valued keyed by the specified " + alt + ".\n");
 		    	sb.append("     */\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		    	sb.append("    public boolean " + ad.getName() + "Contains(" + alt + " value) {\n");
@@ -1407,6 +1420,8 @@ public class GenUtility {
 		sb.append("    /**\n");
 		sb.append("     * Adds another " + ad.getName() + " value.\n");
 		sb.append("     * @param value A value compatible with " + typeName + "\n");
+    	sb.append("     * @return the attribute instance\n");
+    	sb.append("     * @throws DmcValueException if value is not correct\n");
 		sb.append("     */\n");
 		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    public DmcAttribute<?> add" + functionName + "(Object value) throws DmcValueException {\n");
@@ -1423,7 +1438,7 @@ public class GenUtility {
     	// size
 
 		sb.append("    /**\n");
-		sb.append("     * Returns the number of values in " + ad.getName() + "\n");
+		sb.append("     * @return the number of values in " + ad.getName() + "\n");
 		sb.append("     */\n");
 		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    public int get" + functionName + "Size(){\n");
@@ -1446,6 +1461,7 @@ public class GenUtility {
 				sb.append("    /**\n");
 				sb.append("     * Deletes a " + ad.getName() + " value.\n");
 				sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
+				sb.append("     * @return the deleted attribute instance");
 				sb.append("     */\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    public DmcAttribute<?> del" + functionName + "(Object value){\n");
@@ -1463,6 +1479,7 @@ public class GenUtility {
 				sb.append("    /**\n");
 				sb.append("     * Deletes a " + ad.getName() + " value.\n");
 				sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
+				sb.append("     * @return the deleted attribute instance");
 				sb.append("     */\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    public DmcAttribute<?> del" + functionName + "(Object value){\n");
@@ -1482,7 +1499,9 @@ public class GenUtility {
 			sb.append("    /**\n");
 			sb.append("     * Deletes a " + ad.getName() + " value.\n");
 			sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
-			sb.append("     */\n");//	    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
+			sb.append("     * @return the deleted attribute instance\n");
+			sb.append("     * @throws DmcValueException if the value is incorrect\n");
+			sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public DmcAttribute<?> del" + functionName + "(Object value) throws DmcValueException {\n");
 	    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
@@ -1498,6 +1517,7 @@ public class GenUtility {
 	    	sb.append("    /**\n");
 	    	sb.append("     * Deletes a " + ad.getName() + " from the specified value.\n");
 	    	sb.append("     * @param value " + typeName + "\n");
+			sb.append("     * @return the deleted attribute instance");
 	    	sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 	    	sb.append("    public DmcAttribute<?> del" + functionName + "(" + typeName + " value) {\n");

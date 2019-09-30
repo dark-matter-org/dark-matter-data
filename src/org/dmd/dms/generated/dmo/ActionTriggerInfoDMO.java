@@ -16,12 +16,12 @@
 package org.dmd.dms.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1944)
-import java.io.Serializable;                  // Serializable marker interface - (MetaGenerator.java:1893)
-import java.util.*;                           // Attribute info support - (MetaGenerator.java:1895)
-import org.dmd.dmc.*;                         // Dark matter core - (MetaGenerator.java:1917)
-import org.dmd.dmc.types.*;                   // Basic type access - (MetaGenerator.java:1907)
-import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGenerator.java:1933)
+// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1947)
+import java.io.Serializable;                  // Serializable marker interface - (MetaGenerator.java:1896)
+import java.util.*;                           // Attribute info support - (MetaGenerator.java:1898)
+import org.dmd.dmc.*;                         // Dark matter core - (MetaGenerator.java:1920)
+import org.dmd.dmc.types.*;                   // Basic type access - (MetaGenerator.java:1910)
+import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGenerator.java:1936)
 
 
 
@@ -30,13 +30,13 @@ import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGe
  * of information required to remotely trigger an action on an object. \n
  * Derivatives of this class are generated as part of the DMO generation\n
  * process and have action specific interfaces to handle the parameters \n
- * required by an ActionDefinition.\n <p/>\n This mechanism is a replacement
+ * required by an ActionDefinition.\n <p>\n This mechanism is a replacement
  * for the concept that ActionRequests were\n EXTENSIBLE objects. This way,
  * the user can ask an object for the \n ActionTriggerInfo (ATI) for a
  * particular action and have a well defined\n interface to specify the
  * parameters for the action. 
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1954)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1957)
  */
 @SuppressWarnings("serial")
 public class ActionTriggerInfoDMO extends DmcObject implements Serializable  {
@@ -90,8 +90,9 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable  {
      * The name attribute is used to store a single string token that represents
      * a unique name\n for an object with the set of definitions of which it is a
      * part. A name starts with a letter followed\n by letters and numbers. 
+     * @return the DefinitionName
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2346)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2351)
     public DefinitionName getName(){
         DmcTypeDefinitionNameSV attr = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -103,8 +104,9 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable  {
     /**
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
+     * @throws DmcValueException if the value is incorrect
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2438)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2443)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)

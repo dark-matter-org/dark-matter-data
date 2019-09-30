@@ -17,15 +17,15 @@ package org.dmd.dmv.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:442)
-import java.util.ArrayList;                                                // Support for MULTI attribute - (BaseDMWGenerator.java:2116)
-import java.util.Iterator;                                                 // Support copy of MV objects - (BaseDMWGenerator.java:2130)
+import java.util.ArrayList;                                                // Support for MULTI attribute - (BaseDMWGenerator.java:2119)
+import java.util.Iterator;                                                 // Support copy of MV objects - (BaseDMWGenerator.java:2133)
 import org.dmd.dmc.*;                                                      // If any attributes - (BaseDMWGenerator.java:977)
 import org.dmd.dmc.types.RuleName;                                         // Is named by - (BaseDMWGenerator.java:939)
 import org.dmd.dms.AttributeDefinition;                                    // Is reference type - (BaseDMWGenerator.java:997)
 import org.dmd.dms.ClassDefinition;                                        // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:944)
 import org.dmd.dms.RuleData;                                               // Derived class - (BaseDMWGenerator.java:1138)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                // Attribute description from the meta schema - (BaseDMWGenerator.java:910)
-import org.dmd.dms.generated.dmw.StringIterableDMW;                        // For multi-valued String - (BaseDMWGenerator.java:1993)
+import org.dmd.dms.generated.dmw.StringIterableDMW;                        // For multi-valued String - (BaseDMWGenerator.java:1995)
 import org.dmd.dms.generated.types.AttributeDefinitionREF;                 // Is reference type REF - (BaseDMWGenerator.java:1005)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                      // Required for MODREC constructor - (BaseDMWGenerator.java:948)
 import org.dmd.dmv.shared.generated.dmo.RelatedNumbersRuleDataDMO;         // Class not auxiliary or abstract - (BaseDMWGenerator.java:1142)
@@ -41,13 +41,13 @@ import org.dmd.dmv.shared.generated.enums.NumericRelationEnum;             // Pr
  * applyToClass    Person\n lhs             height\n rhs             girth\n
  * numericRelation GT\n description     If your girth exceeds your height,
  * you're in trouble!\n </pre>\n The rule will only test the relationship if
- * both attributes exist; if not,\n that's okay - the rule will pass.\n
- * <p/>\n It's a good rule of thumb to indicate the relationship you expect
- * in the\n title of the rule since this is what will be returned in the case
- * that \n the relationship check fails.\n <p/>\n NOTE: this rule works by
- * implicitly converting the values of the attributes\n to type Double in
- * order to be able to compare apples to apples. However,\n if you are
- * dealing with large numeric values you may run into issues.
+ * both attributes exist; if not,\n that's okay - the rule will pass.\n <p>\n
+ * It's a good rule of thumb to indicate the relationship you expect in the\n
+ * title of the rule since this is what will be returned in the case that \n
+ * the relationship check fails.\n <p>\n NOTE: this rule works by implicitly
+ * converting the values of the attributes\n to type Double in order to be
+ * able to compare apples to apples. However,\n if you are dealing with large
+ * numeric values you may run into issues.
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>
@@ -118,7 +118,7 @@ public class RelatedNumbersRuleDataDMW extends RuleData implements DmcNamedObjec
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getDescriptionSize(){
         return(((RelatedNumbersRuleDataDMO) core).getDescriptionSize());
     }
@@ -126,7 +126,7 @@ public class RelatedNumbersRuleDataDMW extends RuleData implements DmcNamedObjec
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getDescriptionIsEmpty(){
         if (((RelatedNumbersRuleDataDMO) core).getDescriptionSize() == 0)
             return(true);
@@ -136,7 +136,7 @@ public class RelatedNumbersRuleDataDMW extends RuleData implements DmcNamedObjec
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getDescriptionHasValue(){
         if (((RelatedNumbersRuleDataDMO) core).getDescriptionSize() == 0)
             return(false);
@@ -146,7 +146,7 @@ public class RelatedNumbersRuleDataDMW extends RuleData implements DmcNamedObjec
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1999)
     public StringIterableDMW getDescriptionIterable(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__description);
         if (attr == null)
@@ -158,8 +158,9 @@ public class RelatedNumbersRuleDataDMW extends RuleData implements DmcNamedObjec
     /**
      * Adds another description value.
      * @param value A value compatible with String
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
     public void addDescription(Object value) throws DmcValueException {
         ((RelatedNumbersRuleDataDMO) core).addDescription(value);
     }
@@ -168,16 +169,16 @@ public class RelatedNumbersRuleDataDMW extends RuleData implements DmcNamedObjec
      * Adds another description value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2033)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2036)
     public void addDescription(String value){
         ((RelatedNumbersRuleDataDMO) core).addDescription(value);
     }
 
     /**
-     * Returns true if the collection contains the description value.
      * @param value A value compatible with String
+     * @return true if the collection contains the description value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2093)
     public boolean descriptionContains(String value){
         return(((RelatedNumbersRuleDataDMO) core).descriptionContains(value));
     }
@@ -185,7 +186,7 @@ public class RelatedNumbersRuleDataDMW extends RuleData implements DmcNamedObjec
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2137)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getDescriptionCopy(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__description);
@@ -205,8 +206,9 @@ public class RelatedNumbersRuleDataDMW extends RuleData implements DmcNamedObjec
     /**
      * Deletes a description value.
      * @param value The String to be deleted from set of attribute values.
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2165)
     public void delDescription(Object value) throws DmcValueException {
         ((RelatedNumbersRuleDataDMO) core).delDescription(value);
     }
@@ -215,7 +217,7 @@ public class RelatedNumbersRuleDataDMW extends RuleData implements DmcNamedObjec
      * Deletes a description value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2174)
     public void delDescription(String value){
         ((RelatedNumbersRuleDataDMO) core).delDescription(value);
     }
@@ -223,7 +225,7 @@ public class RelatedNumbersRuleDataDMW extends RuleData implements DmcNamedObjec
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remDescription(){
         ((RelatedNumbersRuleDataDMO) core).remDescription();
     }
@@ -255,8 +257,9 @@ public class RelatedNumbersRuleDataDMW extends RuleData implements DmcNamedObjec
     /**
      * Sets the lhs to the specified value.
      * @param value A value compatible with AttributeDefinitionREF
+     * @throws DmcValueException is the value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1418)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1419)
     public void setLhs(Object value) throws DmcValueException {
         ((RelatedNumbersRuleDataDMO) core).setLhs(value);
     }
@@ -264,7 +267,7 @@ public class RelatedNumbersRuleDataDMW extends RuleData implements DmcNamedObjec
     /**
      * Removes the lhs attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remLhs(){
         ((RelatedNumbersRuleDataDMO) core).remLhs();
     }
@@ -278,7 +281,7 @@ public class RelatedNumbersRuleDataDMW extends RuleData implements DmcNamedObjec
      * Sets numericRelation to the specified value.
      * @param value A value compatible with DmcTypeNumericRelationEnum
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setNumericRelation(Object value) throws DmcValueException {
         ((RelatedNumbersRuleDataDMO) core).setNumericRelation(value);
     }
@@ -287,7 +290,7 @@ public class RelatedNumbersRuleDataDMW extends RuleData implements DmcNamedObjec
      * Sets numericRelation to the specified value.
      * @param value NumericRelationEnum
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setNumericRelation(NumericRelationEnum value){
         ((RelatedNumbersRuleDataDMO) core).setNumericRelation(value);
     }
@@ -295,7 +298,7 @@ public class RelatedNumbersRuleDataDMW extends RuleData implements DmcNamedObjec
     /**
      * Removes the numericRelation attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remNumericRelation(){
         ((RelatedNumbersRuleDataDMO) core).remNumericRelation();
     }
@@ -327,8 +330,9 @@ public class RelatedNumbersRuleDataDMW extends RuleData implements DmcNamedObjec
     /**
      * Sets the rhs to the specified value.
      * @param value A value compatible with AttributeDefinitionREF
+     * @throws DmcValueException is the value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1418)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1419)
     public void setRhs(Object value) throws DmcValueException {
         ((RelatedNumbersRuleDataDMO) core).setRhs(value);
     }
@@ -336,7 +340,7 @@ public class RelatedNumbersRuleDataDMW extends RuleData implements DmcNamedObjec
     /**
      * Removes the rhs attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remRhs(){
         ((RelatedNumbersRuleDataDMO) core).remRhs();
     }
@@ -350,7 +354,7 @@ public class RelatedNumbersRuleDataDMW extends RuleData implements DmcNamedObjec
      * Sets ruleName to the specified value.
      * @param value A value compatible with DmcTypeRuleName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setRuleName(Object value) throws DmcValueException {
         ((RelatedNumbersRuleDataDMO) core).setRuleName(value);
     }
@@ -359,7 +363,7 @@ public class RelatedNumbersRuleDataDMW extends RuleData implements DmcNamedObjec
      * Sets ruleName to the specified value.
      * @param value RuleName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setRuleName(RuleName value){
         ((RelatedNumbersRuleDataDMO) core).setRuleName(value);
     }
@@ -367,7 +371,7 @@ public class RelatedNumbersRuleDataDMW extends RuleData implements DmcNamedObjec
     /**
      * Removes the ruleName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remRuleName(){
         ((RelatedNumbersRuleDataDMO) core).remRuleName();
     }
@@ -381,7 +385,7 @@ public class RelatedNumbersRuleDataDMW extends RuleData implements DmcNamedObjec
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setRuleTitle(Object value) throws DmcValueException {
         ((RelatedNumbersRuleDataDMO) core).setRuleTitle(value);
     }
@@ -390,7 +394,7 @@ public class RelatedNumbersRuleDataDMW extends RuleData implements DmcNamedObjec
      * Sets ruleTitle to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setRuleTitle(String value){
         ((RelatedNumbersRuleDataDMO) core).setRuleTitle(value);
     }
@@ -398,7 +402,7 @@ public class RelatedNumbersRuleDataDMW extends RuleData implements DmcNamedObjec
     /**
      * Removes the ruleTitle attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remRuleTitle(){
         ((RelatedNumbersRuleDataDMO) core).remRuleTitle();
     }

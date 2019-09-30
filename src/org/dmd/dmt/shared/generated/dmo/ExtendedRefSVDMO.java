@@ -78,7 +78,7 @@ public class ExtendedRefSVDMO  extends DmcObject  implements Serializable  {
         return(rc);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:739)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:748)
     /**
      * @return The SomeRelation, attempting lazy resolution (if it's turned on).
      */
@@ -97,7 +97,7 @@ public class ExtendedRefSVDMO  extends DmcObject  implements Serializable  {
         return(attr.getSV());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:768)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:777)
     /**
      * @return The SomeRelation without attempting lazy resolution (if it's turned on).
      */
@@ -113,7 +113,7 @@ public class ExtendedRefSVDMO  extends DmcObject  implements Serializable  {
      * Sets svExtendedRef to the specified value.
      * @param value SomeRelation
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setSvExtendedRef(SomeRelation value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__svExtendedRef);
         if (attr == null)
@@ -131,8 +131,9 @@ public class ExtendedRefSVDMO  extends DmcObject  implements Serializable  {
     /**
      * Sets svExtendedRef to the specified value.
      * @param value A value compatible with DmcTypeSomeRelationSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setSvExtendedRef(Object value) throws DmcValueException {
         DmcTypeSomeRelationSV attr  = (DmcTypeSomeRelationSV) get(DmtDMSAG.__svExtendedRef);
         if (attr == null)
@@ -147,7 +148,7 @@ public class ExtendedRefSVDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the svExtendedRef attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remSvExtendedRef(){
          rem(DmtDMSAG.__svExtendedRef);
     }

@@ -94,7 +94,7 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
 	 * Generated schemas overload this method to provide access to their initialized
 	 * information.
 	 * @return The schema instance.
-	 * @throws DmcValueException
+	 * @throws DmcValueException if problems with instantiation values
 	 */
 	public SchemaDefinition getInstance() throws DmcValueException {
 		return(null);
@@ -159,7 +159,7 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
 	}
 
     /**
-     * Indicates if our initializeDefs() function has been called.
+     * @return true if our initializeDefs() function has been called.
      */
     public boolean defsComplete(){
         return(defsCompleteV);
@@ -231,6 +231,9 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     /**
      * Determines if this version of the schema contains different classes compared
      * to its predecessor.
+     * @param pred the predecessor
+     * @param sb place to store class changes
+     * @return the number of class changes
      */
     public int classChanges(SchemaDefinition pred, StringBuffer sb){
         int         rc = 0;
@@ -241,6 +244,10 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     /**
      * Determines if this version of the schema contains different attributes compared
      * to its predecessor.
+     * @param pred the prdecessor
+     * @param sb place to store changes
+     * @param currManager the current schema manager
+     * @return the number of attribute changes
      */
     public int attributeChanges(SchemaDefinition pred, StringBuffer sb, SchemaManager currManager){
 //        DmdGenericAttribute c = (DmdGenericAttribute)this.getAttr(MetaSchema._attributeDefList);
@@ -255,6 +262,9 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     /**
      * Determines if this version of the schema contains different types compared
      * to its predecessor.
+     * @param pred the prdecessor
+     * @param sb place to store changes
+     * @return the number of type changes
      */
     public int typeChanges(SchemaDefinition pred, StringBuffer sb){
 //        DmdGenericAttribute c = (DmdGenericAttribute)this.getAttr(MetaSchema._typeDefList);
@@ -269,7 +279,9 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     /**
      * Attempts to add the specified definition to the schema. This method is generally
      * only used by code that reads schemas such at the DmsSchemaParser.
-     * @throws DmcValueException 
+     * @param def the definition to be added
+     * @throws ResultException  if something goes wrong
+     * @throws DmcValueException if values are incorrect
      */
     public void addDefinition(DmsDefinition def) throws ResultException, DmcValueException {
     	
@@ -301,6 +313,9 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
         }
     }
     
+    /**
+     * @return the parsed rules
+     */
     public Iterator<DmcUncheckedObject>	getParsedRules(){
     	if (parsedRules == null)
     		return(null);
@@ -308,6 +323,10 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     	return(parsedRules.values().iterator());
     }
     
+    /**
+     * 
+     * @return true if there are rules
+     */
     public boolean hasParsedRules(){
     	if (parsedRules == null)
     		return(false);
@@ -317,8 +336,8 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     /**
      * This method will return the parsed rules translated into DMOs. 
      * @param sm the schema manager used by our Dmo
-     * @return
-     * @throws DmcNameClashException  
+     * @return the rule data
+     * @throws DmcNameClashException if rule names clash
      */
     public Iterator<RuleDataDMO> getParsedRulesDMOs(SchemaManager sm) throws DmcNameClashException {
     	if (parsedRulesDMOs == null){
@@ -362,7 +381,7 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     /**
      * Called when resolveReferences is performed on a schema manager being used by the
      * DmsSchemaParser.
-     * @param rr
+     * @param rr the rules
      */
     public void setResolvedRules(TreeMap<RuleName,RuleIF> rr){
     	resolvedRules = rr;
@@ -370,18 +389,30 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     
     /**
      * Called when we're formatting the compact schema rule data.
-     * @return
+     * @return the resolved rules
      */
     public TreeMap<RuleName,RuleIF> getResolvedRules(){
     	return(resolvedRules);
     }
     
+    /**
+     * Get the rule instances
+     * @param sm the schema manager
+     * @return the rule by name
+     * @throws DmcNameClashException if name clashes occur
+     */
     public TreeMap<RuleName,RuleIF> getRuleInstances(SchemaManager sm) throws DmcNameClashException {
     	if (ruleInstances == null)
     		getParsedRulesDMOs(sm);
     	return(ruleInstances);
     }
     
+    /**
+     * Add the parsed rules
+     * @param uco an unchecked object that represents rule data
+     * @throws ResultException if anything goes wrong
+     * @throws DmcValueException if values are incorrect
+     */
     public void addParsedRule(DmcUncheckedObject uco) throws ResultException, DmcValueException {
     	String ruleName = uco.getSV("ruleName");
     	
@@ -407,6 +438,9 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     	parsedRules.put(rn, uco);
     }
         
+    /**
+     * @return the compact schema representation
+     */
     public DynamicCompactSchema getCompactSchema(){
     	DynamicCompactSchema rc = new DynamicCompactSchema(getName().getNameString());
     	

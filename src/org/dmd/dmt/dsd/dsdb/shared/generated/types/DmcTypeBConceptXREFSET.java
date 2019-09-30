@@ -43,7 +43,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeBConceptXREFSET provides storage for a set of BConceptXREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2791)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2808)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:530)
  */
 @SuppressWarnings("serial")
@@ -76,7 +76,7 @@ public class DmcTypeBConceptXREFSET extends DmcTypeBConceptXREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2832)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2849)
     public DmcAttribute<BConceptXREF> cloneIt(){
         synchronized(this){
             DmcTypeBConceptXREFSET rc = getNew();
@@ -95,7 +95,7 @@ public class DmcTypeBConceptXREFSET extends DmcTypeBConceptXREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2855)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2872)
     public BConceptXREF add(Object v) throws DmcValueException {
         synchronized(this){
             BConceptXREF rc = typeCheck(v);
@@ -111,7 +111,7 @@ public class DmcTypeBConceptXREFSET extends DmcTypeBConceptXREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2872)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2889)
     public BConceptXREF del(Object v){
         synchronized(this){
             BConceptXREF rc = null;
@@ -135,7 +135,7 @@ public class DmcTypeBConceptXREFSET extends DmcTypeBConceptXREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2897)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2914)
     public Iterator<BConceptXREF> getMV(){
         synchronized(this){
             if (value == null)
@@ -148,7 +148,7 @@ public class DmcTypeBConceptXREFSET extends DmcTypeBConceptXREF implements Seria
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2911)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2928)
     public Set<BConceptXREF> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -167,7 +167,7 @@ public class DmcTypeBConceptXREFSET extends DmcTypeBConceptXREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2931)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2948)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -177,7 +177,7 @@ public class DmcTypeBConceptXREFSET extends DmcTypeBConceptXREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2942)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2959)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

@@ -17,30 +17,30 @@ package org.dmd.dms.generated.dmw;
 
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1637)
-import java.util.*;                                    // To support access functions - (MetaGenerator.java:1610)
-import org.dmd.dmc.*;                                  // Basic dark-matter infrastructure - (MetaGenerator.java:1612)
-import org.dmd.dmc.types.*;                            // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1611)
-import org.dmd.dms.*;                                  // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1618)
-import org.dmd.dms.extended.ActionTriggerInfo;         // A hack that should go away!  - (MetaGenerator.java:1632)
-import org.dmd.dms.generated.dmo.*;                    // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1614)
-import org.dmd.dms.generated.enums.*;                  // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1615)
-import org.dmd.dms.generated.types.*;                  // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1616)
-import org.dmd.dmw.*;                                  // Base wrapper capabilities - (MetaGenerator.java:1613)
-import org.dmd.util.exceptions.*;                      // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1617)
+// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1641)
+import java.util.*;                                    // To support access functions - (MetaGenerator.java:1614)
+import org.dmd.dmc.*;                                  // Basic dark-matter infrastructure - (MetaGenerator.java:1616)
+import org.dmd.dmc.types.*;                            // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1615)
+import org.dmd.dms.*;                                  // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1622)
+import org.dmd.dms.extended.ActionTriggerInfo;         // A hack that should go away!  - (MetaGenerator.java:1636)
+import org.dmd.dms.generated.dmo.*;                    // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1618)
+import org.dmd.dms.generated.enums.*;                  // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1619)
+import org.dmd.dms.generated.types.*;                  // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1620)
+import org.dmd.dmw.*;                                  // Base wrapper capabilities - (MetaGenerator.java:1617)
+import org.dmd.util.exceptions.*;                      // Blanket import because at the meta level it's tricky to determine the exact pieces we need - (MetaGenerator.java:1621)
 
 /**
  * The ActionTriggerInfo class simply provides a common base for the bundle\n
  * of information required to remotely trigger an action on an object. \n
  * Derivatives of this class are generated as part of the DMO generation\n
  * process and have action specific interfaces to handle the parameters \n
- * required by an ActionDefinition.\n <p/>\n This mechanism is a replacement
+ * required by an ActionDefinition.\n <p>\n This mechanism is a replacement
  * for the concept that ActionRequests were\n EXTENSIBLE objects. This way,
  * the user can ask an object for the \n ActionTriggerInfo (ATI) for a
  * particular action and have a well defined\n interface to specify the
  * parameters for the action. 
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1646)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1649)
  */
 @SuppressWarnings("unused")
 public abstract class ActionTriggerInfoDMW extends DmwWrapper {
@@ -80,8 +80,9 @@ public abstract class ActionTriggerInfoDMW extends DmwWrapper {
      * The name attribute is used to store a single string token that represents
      * a unique name\n for an object with the set of definitions of which it is a
      * part. A name starts with a letter followed\n by letters and numbers. 
+     * @return the DefinitionName
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2399)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2404)
     public DefinitionName getName(){
         return(mycore.getName());
     }
@@ -89,8 +90,9 @@ public abstract class ActionTriggerInfoDMW extends DmwWrapper {
     /**
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
+     * @throws DmcValueException if the value is incorrect
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2472)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2470)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }

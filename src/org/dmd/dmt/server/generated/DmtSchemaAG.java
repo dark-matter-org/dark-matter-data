@@ -2414,7 +2414,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             ComplexTypeDefinitionDMO _DmtMultiValuedRequiredPartWithReferencesOBJ = new ComplexTypeDefinitionDMO();
             _DmtMultiValuedRequiredPartWithReferences = new ComplexTypeDefinition(_DmtMultiValuedRequiredPartWithReferencesOBJ);
             _DmtMultiValuedRequiredPartWithReferencesOBJ.addRequiredPart("TypeDefinition type \"A bunch of types\" multivalued=true");
-            _DmtMultiValuedRequiredPartWithReferencesOBJ.addDescription("Originally, multivalued was only applicable to optional parts, and that\n would mean specifying part=value for each value.\n <p/>\n There are many situations where it's handy to specify a set of values for\n something on a single line without syntactic cruft, and this complex type exercises\n those generation mechanisms for reference values.");
+            _DmtMultiValuedRequiredPartWithReferencesOBJ.addDescription("Originally, multivalued was only applicable to optional parts, and that\n would mean specifying part=value for each value.\n <p>\n There are many situations where it's handy to specify a set of values for\n something on a single line without syntactic cruft, and this complex type exercises\n those generation mechanisms for reference values.");
             _DmtMultiValuedRequiredPartWithReferencesOBJ.setName("DmtMultiValuedRequiredPartWithReferences");
             _DmtMultiValuedRequiredPartWithReferencesOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/complex.dmd");
             _DmtMultiValuedRequiredPartWithReferencesOBJ.setDotName("dmt.DmtMultiValuedRequiredPartWithReferences.ComplexTypeDefinition");

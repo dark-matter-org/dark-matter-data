@@ -17,8 +17,8 @@ package org.dmd.templates.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:442)
-import java.util.ArrayList;                                                // Support for MULTI attribute - (BaseDMWGenerator.java:2116)
-import java.util.Iterator;                                                 // Support copy of MV objects - (BaseDMWGenerator.java:2130)
+import java.util.ArrayList;                                                // Support for MULTI attribute - (BaseDMWGenerator.java:2119)
+import java.util.Iterator;                                                 // Support copy of MV objects - (BaseDMWGenerator.java:2133)
 import org.dmd.dmc.*;                                                      // If any attributes - (BaseDMWGenerator.java:977)
 import org.dmd.dmc.definitions.DmcDefinitionIF;                            // The object is a domain specific definition - (BaseDMWGenerator.java:411)
 import org.dmd.dmc.types.DefinitionName;                                   // Is named by - (BaseDMWGenerator.java:939)
@@ -27,7 +27,7 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;                                // Re
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                      // Required for MODREC constructor - (BaseDMWGenerator.java:948)
 import org.dmd.templates.server.extended.TdlDefinition;                    // Derived class - (BaseDMWGenerator.java:1138)
 import org.dmd.templates.server.extended.TextualArtifact;                  // Required for getModificationRecorder() - (BaseDMWGenerator.java:953)
-import org.dmd.templates.server.generated.dmw.ContainsIterableDMW;         // For multi-valued Contains - (BaseDMWGenerator.java:1993)
+import org.dmd.templates.server.generated.dmw.ContainsIterableDMW;         // For multi-valued Contains - (BaseDMWGenerator.java:1995)
 import org.dmd.templates.shared.generated.dmo.DmtdlDMSAG;                  // Attribute contains from the dmtdl schema - (BaseDMWGenerator.java:910)
 import org.dmd.templates.shared.generated.dmo.TextualArtifactDMO;          // Class not auxiliary or abstract - (BaseDMWGenerator.java:1142)
 import org.dmd.templates.shared.generated.types.Contains;                  // Primitive type - (BaseDMWGenerator.java:1040)
@@ -107,7 +107,7 @@ abstract public class TextualArtifactDMW extends TdlDefinition implements DmcDef
     /**
      * @return The number of Contains items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getContainsSize(){
         return(((TextualArtifactDMO) core).getContainsSize());
     }
@@ -115,7 +115,7 @@ abstract public class TextualArtifactDMW extends TdlDefinition implements DmcDef
     /**
      * @return true if there are no ContainsDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getContainsIsEmpty(){
         if (((TextualArtifactDMO) core).getContainsSize() == 0)
             return(true);
@@ -125,7 +125,7 @@ abstract public class TextualArtifactDMW extends TdlDefinition implements DmcDef
     /**
      * @return true if there are any ContainsDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getContainsHasValue(){
         if (((TextualArtifactDMO) core).getContainsSize() == 0)
             return(false);
@@ -135,7 +135,7 @@ abstract public class TextualArtifactDMW extends TdlDefinition implements DmcDef
     /**
      * @return An Iterator of Contains objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1999)
     public ContainsIterableDMW getContainsIterable(){
         DmcAttribute<?> attr = core.get(DmtdlDMSAG.__contains);
         if (attr == null)
@@ -147,8 +147,9 @@ abstract public class TextualArtifactDMW extends TdlDefinition implements DmcDef
     /**
      * Adds another contains value.
      * @param value A value compatible with Contains
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
     public void addContains(Object value) throws DmcValueException {
         ((TextualArtifactDMO) core).addContains(value);
     }
@@ -157,16 +158,16 @@ abstract public class TextualArtifactDMW extends TdlDefinition implements DmcDef
      * Adds another contains value.
      * @param value A value compatible with Contains
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2033)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2036)
     public void addContains(Contains value){
         ((TextualArtifactDMO) core).addContains(value);
     }
 
     /**
-     * Returns true if the collection contains the contains value.
      * @param value A value compatible with Contains
+     * @return true if the collection contains the contains value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2093)
     public boolean containsContains(Contains value){
         return(((TextualArtifactDMO) core).containsContains(value));
     }
@@ -174,7 +175,7 @@ abstract public class TextualArtifactDMW extends TdlDefinition implements DmcDef
     /**
      * @return A COPY of the collection of Contains objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2137)
     @SuppressWarnings("unchecked")
     public ArrayList<Contains> getContainsCopy(){
         DmcAttribute<?> attr = core.get(DmtdlDMSAG.__contains);
@@ -194,8 +195,9 @@ abstract public class TextualArtifactDMW extends TdlDefinition implements DmcDef
     /**
      * Deletes a contains value.
      * @param value The Contains to be deleted from set of attribute values.
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2165)
     public void delContains(Object value) throws DmcValueException {
         ((TextualArtifactDMO) core).delContains(value);
     }
@@ -204,7 +206,7 @@ abstract public class TextualArtifactDMW extends TdlDefinition implements DmcDef
      * Deletes a contains value.
      * @param value The Contains to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2174)
     public void delContains(Contains value){
         ((TextualArtifactDMO) core).delContains(value);
     }
@@ -212,7 +214,7 @@ abstract public class TextualArtifactDMW extends TdlDefinition implements DmcDef
     /**
      * Removes the contains attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remContains(){
         ((TextualArtifactDMO) core).remContains();
     }
@@ -226,7 +228,7 @@ abstract public class TextualArtifactDMW extends TdlDefinition implements DmcDef
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setName(Object value) throws DmcValueException {
         ((TextualArtifactDMO) core).setName(value);
     }
@@ -235,7 +237,7 @@ abstract public class TextualArtifactDMW extends TdlDefinition implements DmcDef
      * Sets name to the specified value.
      * @param value DefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setName(DefinitionName value){
         ((TextualArtifactDMO) core).setName(value);
     }
@@ -243,7 +245,7 @@ abstract public class TextualArtifactDMW extends TdlDefinition implements DmcDef
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remName(){
         ((TextualArtifactDMO) core).remName();
     }

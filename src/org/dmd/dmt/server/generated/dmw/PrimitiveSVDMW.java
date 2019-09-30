@@ -80,7 +80,7 @@ public class PrimitiveSVDMW extends DmwWrapper {
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setSvString(Object value) throws DmcValueException {
         ((PrimitiveSVDMO) core).setSvString(value);
     }
@@ -89,7 +89,7 @@ public class PrimitiveSVDMW extends DmwWrapper {
      * Sets svString to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setSvString(String value){
         ((PrimitiveSVDMO) core).setSvString(value);
     }
@@ -97,7 +97,7 @@ public class PrimitiveSVDMW extends DmwWrapper {
     /**
      * Removes the svString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remSvString(){
         ((PrimitiveSVDMO) core).remSvString();
     }

@@ -102,8 +102,9 @@ abstract public class AConceptBaseDMW extends DSDefinition implements DmcDefinit
     /**
      * Sets the definedInModuleA to the specified value.
      * @param value A value compatible with ModuleAREF
+     * @throws DmcValueException is the value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1418)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1419)
     public void setDefinedInModuleA(Object value) throws DmcValueException {
         ((AConceptBaseDMO) core).setDefinedInModuleA(value);
     }
@@ -111,7 +112,7 @@ abstract public class AConceptBaseDMW extends DSDefinition implements DmcDefinit
     /**
      * Removes the definedInModuleA attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remDefinedInModuleA(){
         ((AConceptBaseDMO) core).remDefinedInModuleA();
     }
@@ -125,7 +126,7 @@ abstract public class AConceptBaseDMW extends DSDefinition implements DmcDefinit
      * Sets dotName to the specified value.
      * @param value A value compatible with DmcTypeDotName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setDotName(Object value) throws DmcValueException {
         ((AConceptBaseDMO) core).setDotName(value);
     }
@@ -134,7 +135,7 @@ abstract public class AConceptBaseDMW extends DSDefinition implements DmcDefinit
      * Sets dotName to the specified value.
      * @param value DotName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setDotName(DotName value){
         ((AConceptBaseDMO) core).setDotName(value);
     }
@@ -142,7 +143,7 @@ abstract public class AConceptBaseDMW extends DSDefinition implements DmcDefinit
     /**
      * Removes the dotName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remDotName(){
         ((AConceptBaseDMO) core).remDotName();
     }
@@ -156,7 +157,7 @@ abstract public class AConceptBaseDMW extends DSDefinition implements DmcDefinit
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setName(Object value) throws DmcValueException {
         ((AConceptBaseDMO) core).setName(value);
     }
@@ -165,7 +166,7 @@ abstract public class AConceptBaseDMW extends DSDefinition implements DmcDefinit
      * Sets name to the specified value.
      * @param value DefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setName(DefinitionName value){
         ((AConceptBaseDMO) core).setName(value);
     }
@@ -173,7 +174,7 @@ abstract public class AConceptBaseDMW extends DSDefinition implements DmcDefinit
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remName(){
         ((AConceptBaseDMO) core).remName();
     }

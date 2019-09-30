@@ -109,7 +109,7 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
         return(rc);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public NameContainer getSource(){
         DmcTypeNameContainerSV attr = (DmcTypeNameContainerSV) get(DmpDMSAG.__source);
         if (attr == null)
@@ -122,7 +122,7 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
      * Sets source to the specified value.
      * @param value NameContainer
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setSource(NameContainer value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__source);
         if (attr == null)
@@ -141,7 +141,7 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
      * Sets source to the specified value.
      * @param value NameContainer
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:855)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
     public void setSource(DmcObjectName value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__source);
         if (attr == null)
@@ -159,8 +159,9 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Sets source to the specified value.
      * @param value A value compatible with DmcTypeNameContainerSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setSource(Object value) throws DmcValueException {
         DmcTypeNameContainerSV attr  = (DmcTypeNameContainerSV) get(DmpDMSAG.__source);
         if (attr == null)
@@ -173,12 +174,15 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Removes the source attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remSource(){
          rem(DmpDMSAG.__source);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:660)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:678)
+    /**
+     * @return the ClassDefinitionREF
+     */
     public ClassDefinitionREF getSourceObjectClass(){
         DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) get(DmpDMSAG.__sourceObjectClass);
         if (attr == null)
@@ -194,8 +198,9 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
         return(attr.getSV());
     }
 
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:700)
     /**
-     * Returns the reference to ClassDefinition without attempting lazy resolution (if turned on).
+     * @return the reference to ClassDefinition without attempting lazy resolution (if turned on).
      */
     public ClassDefinitionREF getSourceObjectClassREF(){
         DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) get(DmpDMSAG.__sourceObjectClass);
@@ -205,11 +210,12 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
         return(attr.getSV());
     }
 
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:718)
     /**
      * Sets sourceObjectClass to the specified value.
      * @param value ClassDefinitionDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:714)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:723)
     public void setSourceObjectClass(ClassDefinitionDMO value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__sourceObjectClass);
         if (attr == null)
@@ -229,8 +235,9 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Sets sourceObjectClass to the specified value.
      * @param value A value compatible with DmcTypeClassDefinitionREFSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setSourceObjectClass(Object value) throws DmcValueException {
         DmcTypeClassDefinitionREFSV attr  = (DmcTypeClassDefinitionREFSV) get(DmpDMSAG.__sourceObjectClass);
         if (attr == null)
@@ -245,7 +252,7 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Removes the sourceObjectClass attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remSourceObjectClass(){
          rem(DmpDMSAG.__sourceObjectClass);
     }
@@ -254,7 +261,7 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
      * @return An Iterator of Modifier objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1278)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1289)
     public Iterator<Modifier> getModify(){
         DmcTypeModifierMV attr = (DmcTypeModifierMV) get(MetaDMSAG.__modify);
         if (attr == null)
@@ -266,7 +273,7 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * @return The nth Modifier value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1290)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1301)
     public Modifier getNthModify(int i){
         DmcTypeModifierMV attr = (DmcTypeModifierMV) get(MetaDMSAG.__modify);
         if (attr == null)
@@ -279,7 +286,7 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
      * Adds another modify to the specified value.
      * @param value Modifier
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1304)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1315)
     public DmcAttribute<?> addModify(Modifier value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__modify);
         if (attr == null)
@@ -299,7 +306,7 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
      * Returns true if we contain a valued keyed by the specified Modifier.
      * @param value Modifier
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1379)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1390)
     public boolean modifyContains(Modifier value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__modify);
         if (attr == null)
@@ -310,8 +317,10 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Adds another modify value.
      * @param value A value compatible with Modifier
+     * @return the attribute instance
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1411)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
     public DmcAttribute<?> addModify(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__modify);
         if (attr == null)
@@ -323,9 +332,9 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     }
 
     /**
-     * Returns the number of values in modify
+     * @return the number of values in modify
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1428)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
     public int getModifySize(){
         DmcAttribute<?> attr = get(MetaDMSAG.__modify);
         if (attr == null){
@@ -340,8 +349,8 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Deletes a modify value.
      * @param value The Modifier to be deleted from set of attribute values.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1486)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
     public DmcAttribute<?> delModify(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__modify);
         
@@ -356,8 +365,8 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Deletes a modify from the specified value.
      * @param value Modifier
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1519)
     public DmcAttribute<?> delModify(Modifier value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__modify);
         
@@ -372,12 +381,12 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Removes the modify attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1521)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
     public void remModify(){
          rem(MetaDMSAG.__modify);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public DmcObject getSourceObject(){
         DmcTypeDmcObjectSV attr = (DmcTypeDmcObjectSV) get(DmpDMSAG.__sourceObject);
         if (attr == null)
@@ -390,7 +399,7 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
      * Sets sourceObject to the specified value.
      * @param value DmcObject
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setSourceObject(DmcObject value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__sourceObject);
         if (attr == null)
@@ -408,8 +417,9 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Sets sourceObject to the specified value.
      * @param value A value compatible with DmcTypeDmcObjectSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setSourceObject(Object value) throws DmcValueException {
         DmcTypeDmcObjectSV attr  = (DmcTypeDmcObjectSV) get(DmpDMSAG.__sourceObject);
         if (attr == null)
@@ -422,12 +432,12 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Removes the sourceObject attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remSourceObject(){
          rem(DmpDMSAG.__sourceObject);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public Integer getOriginatorID(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(DmpDMSAG.__originatorID);
         if (attr == null)
@@ -440,7 +450,7 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
      * Sets originatorID to the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setOriginatorID(Integer value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__originatorID);
         if (attr == null)
@@ -458,8 +468,9 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Sets originatorID to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setOriginatorID(Object value) throws DmcValueException {
         DmcTypeIntegerSV attr  = (DmcTypeIntegerSV) get(DmpDMSAG.__originatorID);
         if (attr == null)
@@ -472,12 +483,12 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Removes the originatorID attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remOriginatorID(){
          rem(DmpDMSAG.__originatorID);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public Integer getHandlerID(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(DmpDMSAG.__handlerID);
         if (attr == null)
@@ -490,7 +501,7 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
      * Sets handlerID to the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setHandlerID(Integer value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__handlerID);
         if (attr == null)
@@ -508,8 +519,9 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Sets handlerID to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setHandlerID(Object value) throws DmcValueException {
         DmcTypeIntegerSV attr  = (DmcTypeIntegerSV) get(DmpDMSAG.__handlerID);
         if (attr == null)
@@ -522,12 +534,12 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Removes the handlerID attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remHandlerID(){
          rem(DmpDMSAG.__handlerID);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public Boolean isNotifyOriginator(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(DmpDMSAG.__notifyOriginator);
         if (attr == null)
@@ -540,7 +552,7 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
      * Sets notifyOriginator to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setNotifyOriginator(Boolean value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__notifyOriginator);
         if (attr == null)
@@ -558,8 +570,9 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Sets notifyOriginator to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setNotifyOriginator(Object value) throws DmcValueException {
         DmcTypeBooleanSV attr  = (DmcTypeBooleanSV) get(DmpDMSAG.__notifyOriginator);
         if (attr == null)
@@ -572,12 +585,12 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Removes the notifyOriginator attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remNotifyOriginator(){
          rem(DmpDMSAG.__notifyOriginator);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public String getSlice(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmpDMSAG.__slice);
         if (attr == null)
@@ -590,7 +603,7 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
      * Sets slice to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setSlice(String value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__slice);
         if (attr == null)
@@ -608,8 +621,9 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Sets slice to the specified value.
      * @param value A value compatible with DmcTypeStringSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setSlice(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmpDMSAG.__slice);
         if (attr == null)
@@ -622,12 +636,12 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Removes the slice attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remSlice(){
          rem(DmpDMSAG.__slice);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public Long getListenerID(){
         DmcTypeLongSV attr = (DmcTypeLongSV) get(DmpDMSAG.__listenerID);
         if (attr == null)
@@ -640,7 +654,7 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
      * Sets listenerID to the specified value.
      * @param value Long
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setListenerID(Long value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__listenerID);
         if (attr == null)
@@ -658,8 +672,9 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Sets listenerID to the specified value.
      * @param value A value compatible with DmcTypeLongSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setListenerID(Object value) throws DmcValueException {
         DmcTypeLongSV attr  = (DmcTypeLongSV) get(DmpDMSAG.__listenerID);
         if (attr == null)
@@ -672,12 +687,12 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Removes the listenerID attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remListenerID(){
          rem(DmpDMSAG.__listenerID);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public Boolean isMyOwnEvent(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(DmpDMSAG.__myOwnEvent);
         if (attr == null)
@@ -690,7 +705,7 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
      * Sets myOwnEvent to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setMyOwnEvent(Boolean value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__myOwnEvent);
         if (attr == null)
@@ -708,8 +723,9 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Sets myOwnEvent to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setMyOwnEvent(Object value) throws DmcValueException {
         DmcTypeBooleanSV attr  = (DmcTypeBooleanSV) get(DmpDMSAG.__myOwnEvent);
         if (attr == null)
@@ -722,12 +738,12 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Removes the myOwnEvent attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remMyOwnEvent(){
          rem(DmpDMSAG.__myOwnEvent);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public DMPEventTypeEnum getEventTypeDMP(){
         DmcTypeDMPEventTypeEnumSV attr = (DmcTypeDMPEventTypeEnumSV) get(DmpDMSAG.__eventTypeDMP);
         if (attr == null)
@@ -740,7 +756,7 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
      * Sets eventTypeDMP to the specified value.
      * @param value DMPEventTypeEnum
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setEventTypeDMP(DMPEventTypeEnum value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__eventTypeDMP);
         if (attr == null)
@@ -758,8 +774,9 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Sets eventTypeDMP to the specified value.
      * @param value A value compatible with DmcTypeDMPEventTypeEnumSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setEventTypeDMP(Object value) throws DmcValueException {
         DmcTypeDMPEventTypeEnumSV attr  = (DmcTypeDMPEventTypeEnumSV) get(DmpDMSAG.__eventTypeDMP);
         if (attr == null)
@@ -772,7 +789,7 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Removes the eventTypeDMP attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remEventTypeDMP(){
          rem(DmpDMSAG.__eventTypeDMP);
     }

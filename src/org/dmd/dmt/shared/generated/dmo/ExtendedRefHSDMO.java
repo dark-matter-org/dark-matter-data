@@ -83,7 +83,7 @@ public class ExtendedRefHSDMO  extends DmcObject  implements Serializable  {
      * @return An Iterator of SomeRelationDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1146)
     public Iterator<SomeRelation> getHsExtendedRef(){
         DmcTypeSomeRelationSET attr = (DmcTypeSomeRelationSET) get(DmtDMSAG.__hsExtendedRef);
         if (attr == null)
@@ -103,7 +103,7 @@ public class ExtendedRefHSDMO  extends DmcObject  implements Serializable  {
      * @return An Iterator of SomeRelationREFs without attempting lazy resolution (if it's turned on).
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1156)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1166)
     public Iterator<SomeRelation> getHsExtendedRefREFs(){
         DmcTypeSomeRelationSET attr = (DmcTypeSomeRelationSET) get(DmtDMSAG.__hsExtendedRef);
         if (attr == null)
@@ -115,8 +115,9 @@ public class ExtendedRefHSDMO  extends DmcObject  implements Serializable  {
     /**
      * Adds another hsExtendedRef to the specified value.
      * @param value SomeRelation
+     * @return the attribute instance
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1170)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1181)
     public DmcAttribute<?> addHsExtendedRef(SomeRelation value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsExtendedRef);
         if (attr == null)
@@ -135,8 +136,10 @@ public class ExtendedRefHSDMO  extends DmcObject  implements Serializable  {
     /**
      * Adds another hsExtendedRef value.
      * @param value A value compatible with SomeRelation
+     * @return the attribute instance
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1411)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
     public DmcAttribute<?> addHsExtendedRef(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsExtendedRef);
         if (attr == null)
@@ -148,9 +151,9 @@ public class ExtendedRefHSDMO  extends DmcObject  implements Serializable  {
     }
 
     /**
-     * Returns the number of values in hsExtendedRef
+     * @return the number of values in hsExtendedRef
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1428)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
     public int getHsExtendedRefSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__hsExtendedRef);
         if (attr == null){
@@ -165,8 +168,8 @@ public class ExtendedRefHSDMO  extends DmcObject  implements Serializable  {
     /**
      * Deletes a hsExtendedRef value.
      * @param value The SomeRelation to be deleted from set of attribute values.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1467)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1482)
     public DmcAttribute<?> delHsExtendedRef(Object value){
         DmcAttribute<?> attr = get(DmtDMSAG.__hsExtendedRef);
         
@@ -181,7 +184,7 @@ public class ExtendedRefHSDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the hsExtendedRef attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1521)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
     public void remHsExtendedRef(){
          rem(DmtDMSAG.__hsExtendedRef);
     }

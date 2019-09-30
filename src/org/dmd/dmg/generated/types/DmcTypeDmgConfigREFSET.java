@@ -44,7 +44,7 @@ import org.dmd.dmg.generated.dmo.DmgConfigDMO;    // DmcType import
  * The DmcTypeDmgConfigREFSET provides storage for a set of DmgConfigDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2791)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2808)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
  */
 @SuppressWarnings("serial")
@@ -77,7 +77,7 @@ public class DmcTypeDmgConfigREFSET extends DmcTypeDmgConfigREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2832)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2849)
     public DmcAttribute<DmgConfigDMO> cloneIt(){
         synchronized(this){
             DmcTypeDmgConfigREFSET rc = getNew();
@@ -96,7 +96,7 @@ public class DmcTypeDmgConfigREFSET extends DmcTypeDmgConfigREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2855)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2872)
     public DmgConfigDMO add(Object v) throws DmcValueException {
         synchronized(this){
             DmgConfigDMO rc = typeCheck(v);
@@ -112,7 +112,7 @@ public class DmcTypeDmgConfigREFSET extends DmcTypeDmgConfigREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2872)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2889)
     public DmgConfigDMO del(Object v){
         synchronized(this){
             DmgConfigDMO rc = null;
@@ -136,7 +136,7 @@ public class DmcTypeDmgConfigREFSET extends DmcTypeDmgConfigREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2897)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2914)
     public Iterator<DmgConfigDMO> getMV(){
         synchronized(this){
             if (value == null)
@@ -149,7 +149,7 @@ public class DmcTypeDmgConfigREFSET extends DmcTypeDmgConfigREF implements Seria
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2911)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2928)
     public Set<DmgConfigDMO> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -168,7 +168,7 @@ public class DmcTypeDmgConfigREFSET extends DmcTypeDmgConfigREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2931)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2948)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -178,7 +178,7 @@ public class DmcTypeDmgConfigREFSET extends DmcTypeDmgConfigREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2942)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2959)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

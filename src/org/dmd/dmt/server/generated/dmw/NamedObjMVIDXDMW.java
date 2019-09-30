@@ -23,7 +23,7 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;                       // Required fo
 import org.dmd.dms.generated.types.DmcTypeModifierMV;             // Required for MODREC constructor - (BaseDMWGenerator.java:948)
 import org.dmd.dmt.server.extended.ObjWithRefs;                   // Is reference type - (BaseDMWGenerator.java:997)
 import org.dmd.dmt.shared.generated.dmo.NamedObjMVIDXDMO;         // Class not auxiliary or abstract - (BaseDMWGenerator.java:1142)
-import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;           // For setNth of ObjWithRefs - (BaseDMWGenerator.java:1804)
+import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;           // For setNth of ObjWithRefs - (BaseDMWGenerator.java:1806)
 import org.dmd.dmt.shared.generated.types.ObjWithRefsREF;         // To support getMVCopy() for REFs ObjWithRefs-MULTI - (BaseDMWGenerator.java:1016)
 import org.dmd.dmw.DmwWrapper;                                    // Unnamed object wrapper - (BaseDMWGenerator.java:1125)
 
@@ -77,7 +77,7 @@ public class NamedObjMVIDXDMW extends DmwWrapper {
     /**
      * @return The number of ObjWithRefs items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getMvIdxNamedObjSize(){
         return(((NamedObjMVIDXDMO) core).getMvIdxNamedObjSize());
     }
@@ -85,7 +85,7 @@ public class NamedObjMVIDXDMW extends DmwWrapper {
     /**
      * @return true if there are no ObjWithRefsDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getMvIdxNamedObjIsEmpty(){
         if (((NamedObjMVIDXDMO) core).getMvIdxNamedObjSize() == 0)
             return(true);
@@ -95,7 +95,7 @@ public class NamedObjMVIDXDMW extends DmwWrapper {
     /**
      * @return true if there are any ObjWithRefsDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getMvIdxNamedObjHasValue(){
         if (((NamedObjMVIDXDMO) core).getMvIdxNamedObjSize() == 0)
             return(false);
@@ -106,7 +106,7 @@ public class NamedObjMVIDXDMW extends DmwWrapper {
      * Sets the mvIdxNamedObj value at the specified index.
      * @param value A value compatible with ObjWithRefs
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1821)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1823)
     public DmcAttribute<?> setNthMvIdxNamedObj(int index, ObjWithRefs value){
         if (value == null)
             return(((NamedObjMVIDXDMO) core).setNthMvIdxNamedObj(index, null));
@@ -117,7 +117,7 @@ public class NamedObjMVIDXDMW extends DmwWrapper {
     /**
      * @return The ObjWithRefs object at the specified index.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1917)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1919)
     public ObjWithRefs getNthMvIdxNamedObj(int index){
         ObjWithRefsREF ref = ((NamedObjMVIDXDMO) core).getNthMvIdxNamedObj(index);
         if (ref == null)
@@ -132,7 +132,7 @@ public class NamedObjMVIDXDMW extends DmwWrapper {
     /**
      * @return The reference to the ObjWithRefs object at the specified index.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1957)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1959)
     public ObjWithRefsREF getNthMvIdxNamedObjREF(int index){
         ObjWithRefsREF ref = ((NamedObjMVIDXDMO) core).getNthMvIdxNamedObjREF(index);
         return(ref);
@@ -141,7 +141,7 @@ public class NamedObjMVIDXDMW extends DmwWrapper {
     /**
      * Removes the mvIdxNamedObj attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remMvIdxNamedObj(){
         ((NamedObjMVIDXDMO) core).remMvIdxNamedObj();
     }

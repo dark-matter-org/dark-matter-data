@@ -17,13 +17,13 @@ package org.dmd.templates.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:442)
-import java.util.ArrayList;                                        // Support for MULTI attribute - (BaseDMWGenerator.java:2116)
-import java.util.Iterator;                                         // Support copy of MV objects - (BaseDMWGenerator.java:2130)
+import java.util.ArrayList;                                        // Support for MULTI attribute - (BaseDMWGenerator.java:2119)
+import java.util.Iterator;                                         // Support copy of MV objects - (BaseDMWGenerator.java:2133)
 import org.dmd.dmc.*;                                              // If any attributes - (BaseDMWGenerator.java:977)
 import org.dmd.dmc.types.DefinitionName;                           // Is named by - (BaseDMWGenerator.java:939)
 import org.dmd.dms.ClassDefinition;                                // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:944)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                        // Attribute description from the meta schema - (BaseDMWGenerator.java:910)
-import org.dmd.dms.generated.dmw.StringIterableDMW;                // For multi-valued String - (BaseDMWGenerator.java:1993)
+import org.dmd.dms.generated.dmw.StringIterableDMW;                // For multi-valued String - (BaseDMWGenerator.java:1995)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;              // Required for MODREC constructor - (BaseDMWGenerator.java:948)
 import org.dmd.dmw.DmwNamedObjectWrapper;                          // Named object wrapper - (BaseDMWGenerator.java:1132)
 import org.dmd.templates.server.extended.Template;                 // Required for getModificationRecorder() - (BaseDMWGenerator.java:953)
@@ -34,7 +34,7 @@ import org.dmd.templates.shared.generated.dmo.TemplateDMO;         // Class not 
 /**
  * The Template object provides a mechanism to define an arbitrary set of\n
  * text that allows for the insertion of the named values defined as part of
- * the associated\n Section definition.\n <p/>\n By convention, the Template
+ * the associated\n Section definition.\n <p>\n By convention, the Template
  * associated with a Section has the same name as the Section. For example:\n
  * <pre>\n Section\n name Header\n </pre>\n would have a template as
  * follows:\n <pre>\n Template\n name Header\n </pre>\n Templates are kept
@@ -116,7 +116,7 @@ public class TemplateDMW extends DmwNamedObjectWrapper implements DmcNamedObject
      * Sets debugOn to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setDebugOn(Object value) throws DmcValueException {
         ((TemplateDMO) core).setDebugOn(value);
     }
@@ -125,7 +125,7 @@ public class TemplateDMW extends DmwNamedObjectWrapper implements DmcNamedObject
      * Sets debugOn to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setDebugOn(Boolean value){
         ((TemplateDMO) core).setDebugOn(value);
     }
@@ -133,7 +133,7 @@ public class TemplateDMW extends DmwNamedObjectWrapper implements DmcNamedObject
     /**
      * Removes the debugOn attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remDebugOn(){
         ((TemplateDMO) core).remDebugOn();
     }
@@ -141,7 +141,7 @@ public class TemplateDMW extends DmwNamedObjectWrapper implements DmcNamedObject
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getDescriptionSize(){
         return(((TemplateDMO) core).getDescriptionSize());
     }
@@ -149,7 +149,7 @@ public class TemplateDMW extends DmwNamedObjectWrapper implements DmcNamedObject
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getDescriptionIsEmpty(){
         if (((TemplateDMO) core).getDescriptionSize() == 0)
             return(true);
@@ -159,7 +159,7 @@ public class TemplateDMW extends DmwNamedObjectWrapper implements DmcNamedObject
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getDescriptionHasValue(){
         if (((TemplateDMO) core).getDescriptionSize() == 0)
             return(false);
@@ -169,7 +169,7 @@ public class TemplateDMW extends DmwNamedObjectWrapper implements DmcNamedObject
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1999)
     public StringIterableDMW getDescriptionIterable(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__description);
         if (attr == null)
@@ -181,8 +181,9 @@ public class TemplateDMW extends DmwNamedObjectWrapper implements DmcNamedObject
     /**
      * Adds another description value.
      * @param value A value compatible with String
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
     public void addDescription(Object value) throws DmcValueException {
         ((TemplateDMO) core).addDescription(value);
     }
@@ -191,16 +192,16 @@ public class TemplateDMW extends DmwNamedObjectWrapper implements DmcNamedObject
      * Adds another description value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2033)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2036)
     public void addDescription(String value){
         ((TemplateDMO) core).addDescription(value);
     }
 
     /**
-     * Returns true if the collection contains the description value.
      * @param value A value compatible with String
+     * @return true if the collection contains the description value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2093)
     public boolean descriptionContains(String value){
         return(((TemplateDMO) core).descriptionContains(value));
     }
@@ -208,7 +209,7 @@ public class TemplateDMW extends DmwNamedObjectWrapper implements DmcNamedObject
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2137)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getDescriptionCopy(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__description);
@@ -228,8 +229,9 @@ public class TemplateDMW extends DmwNamedObjectWrapper implements DmcNamedObject
     /**
      * Deletes a description value.
      * @param value The String to be deleted from set of attribute values.
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2165)
     public void delDescription(Object value) throws DmcValueException {
         ((TemplateDMO) core).delDescription(value);
     }
@@ -238,7 +240,7 @@ public class TemplateDMW extends DmwNamedObjectWrapper implements DmcNamedObject
      * Deletes a description value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2174)
     public void delDescription(String value){
         ((TemplateDMO) core).delDescription(value);
     }
@@ -246,7 +248,7 @@ public class TemplateDMW extends DmwNamedObjectWrapper implements DmcNamedObject
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remDescription(){
         ((TemplateDMO) core).remDescription();
     }
@@ -260,7 +262,7 @@ public class TemplateDMW extends DmwNamedObjectWrapper implements DmcNamedObject
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setFile(Object value) throws DmcValueException {
         ((TemplateDMO) core).setFile(value);
     }
@@ -269,7 +271,7 @@ public class TemplateDMW extends DmwNamedObjectWrapper implements DmcNamedObject
      * Sets file to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setFile(String value){
         ((TemplateDMO) core).setFile(value);
     }
@@ -277,7 +279,7 @@ public class TemplateDMW extends DmwNamedObjectWrapper implements DmcNamedObject
     /**
      * Removes the file attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remFile(){
         ((TemplateDMO) core).remFile();
     }
@@ -291,7 +293,7 @@ public class TemplateDMW extends DmwNamedObjectWrapper implements DmcNamedObject
      * Sets format to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setFormat(Object value) throws DmcValueException {
         ((TemplateDMO) core).setFormat(value);
     }
@@ -300,7 +302,7 @@ public class TemplateDMW extends DmwNamedObjectWrapper implements DmcNamedObject
      * Sets format to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setFormat(String value){
         ((TemplateDMO) core).setFormat(value);
     }
@@ -308,7 +310,7 @@ public class TemplateDMW extends DmwNamedObjectWrapper implements DmcNamedObject
     /**
      * Removes the format attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remFormat(){
         ((TemplateDMO) core).remFormat();
     }
@@ -322,7 +324,7 @@ public class TemplateDMW extends DmwNamedObjectWrapper implements DmcNamedObject
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeInteger
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setLineNumber(Object value) throws DmcValueException {
         ((TemplateDMO) core).setLineNumber(value);
     }
@@ -331,7 +333,7 @@ public class TemplateDMW extends DmwNamedObjectWrapper implements DmcNamedObject
      * Sets lineNumber to the specified value.
      * @param value Integer
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setLineNumber(Integer value){
         ((TemplateDMO) core).setLineNumber(value);
     }
@@ -339,7 +341,7 @@ public class TemplateDMW extends DmwNamedObjectWrapper implements DmcNamedObject
     /**
      * Removes the lineNumber attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remLineNumber(){
         ((TemplateDMO) core).remLineNumber();
     }
@@ -353,7 +355,7 @@ public class TemplateDMW extends DmwNamedObjectWrapper implements DmcNamedObject
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setName(Object value) throws DmcValueException {
         ((TemplateDMO) core).setName(value);
     }
@@ -362,7 +364,7 @@ public class TemplateDMW extends DmwNamedObjectWrapper implements DmcNamedObject
      * Sets name to the specified value.
      * @param value DefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setName(DefinitionName value){
         ((TemplateDMO) core).setName(value);
     }
@@ -370,7 +372,7 @@ public class TemplateDMW extends DmwNamedObjectWrapper implements DmcNamedObject
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remName(){
         ((TemplateDMO) core).remName();
     }

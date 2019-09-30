@@ -300,7 +300,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _RmAp.add(__dmvDefinedInModuleAttribute);
 
             PatternMatchRuleDataDMO _dmvDefinitionNameCheckData = new PatternMatchRuleDataDMO();
-            _dmvDefinitionNameCheckData  .addDescription("Although the name attribute is defined as type DotName, when\n the value is used as the value for the name attribute, it must not contain the \n dot character. This is because we allow for references to definitions to be\n either the flat name of the definition, or its fully qualified name that includes\n the definition set name, for example, meta.must - which indicates the must attribute\n from the meta schema.\n <p/>\n This allows for the convention of referring to definitions in the most general\n way possible without having to fully qualify every reference.");
+            _dmvDefinitionNameCheckData  .addDescription("Although the name attribute is defined as type DotName, when\n the value is used as the value for the name attribute, it must not contain the \n dot character. This is because we allow for references to definitions to be\n either the flat name of the definition, or its fully qualified name that includes\n the definition set name, for example, meta.must - which indicates the must attribute\n from the meta schema.\n <p>\n This allows for the convention of referring to definitions in the most general\n way possible without having to fully qualify every reference.");
             _dmvDefinitionNameCheckData  .setMatchesPattern("[a-zA-Z][a-zA-Z0-9_]*");
             _dmvDefinitionNameCheckData  .setRuleName("dmvDefinitionNameCheck");
             _dmvDefinitionNameCheckData  .setApplyToClass("DmsDefinition");

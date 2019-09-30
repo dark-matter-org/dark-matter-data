@@ -24,6 +24,7 @@ public interface DmcNameResolverIF {
 
     /**
      * Finds a named object based on its name.
+     * @return the named object.
      */
     public DmcNamedObjectIF findNamedObject(DmcObjectName name);
     
@@ -33,12 +34,15 @@ public interface DmcNameResolverIF {
      * intended to handle the situation where we must resolve internal type definitions
      * as opposed to class definitions. This is due to the fact that we create internal
      * type definitions for classes that have the same name as the associated classes.
+     * @param name the name of an object
+     * @param attributeID the attribute by which it is named
+     * @return the named object
      */
     public DmcNamedObjectIF findNamedObject(DmcObjectName name, int attributeID);
     
     /**
      * Finds a DMO based on its name.
-     * @param name
+     * @param name the name of the object
      * @return A Dark Matter Object.
      */
     public DmcObject findNamedDMO(DmcObjectName name);

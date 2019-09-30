@@ -40,7 +40,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeWrapperGeneratorREFMV provides storage for a multi-valued WrapperGeneratorREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2495)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:529)
  */
 @SuppressWarnings("serial")
@@ -64,7 +64,7 @@ public class DmcTypeWrapperGeneratorREFMV extends DmcTypeWrapperGeneratorREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2526)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2543)
     public DmcAttribute<WrapperGeneratorREF> cloneIt(){
         synchronized(this){
             DmcTypeWrapperGeneratorREFMV rc = getNew();
@@ -93,7 +93,7 @@ public class DmcTypeWrapperGeneratorREFMV extends DmcTypeWrapperGeneratorREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2559)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2576)
     public WrapperGeneratorREF add(Object v) throws DmcValueException {
         synchronized(this){
             WrapperGeneratorREF rc = typeCheck(v);
@@ -105,7 +105,7 @@ public class DmcTypeWrapperGeneratorREFMV extends DmcTypeWrapperGeneratorREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2572)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2589)
     public WrapperGeneratorREF del(Object v){
         synchronized(this){
             if (value == null)
@@ -129,7 +129,7 @@ public class DmcTypeWrapperGeneratorREFMV extends DmcTypeWrapperGeneratorREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2606)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2623)
     public Iterator<WrapperGeneratorREF> getMV(){
         synchronized(this){
             if (value == null)
@@ -140,7 +140,7 @@ public class DmcTypeWrapperGeneratorREFMV extends DmcTypeWrapperGeneratorREF imp
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2618)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2635)
     public ArrayList<WrapperGeneratorREF> getMVCopy(){
         synchronized(this){
             if (value == null)
@@ -151,7 +151,7 @@ public class DmcTypeWrapperGeneratorREFMV extends DmcTypeWrapperGeneratorREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2630)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2647)
     public int getMVSize(){
         synchronized(this){
             if (getAttributeInfo().indexSize == 0){
@@ -165,7 +165,7 @@ public class DmcTypeWrapperGeneratorREFMV extends DmcTypeWrapperGeneratorREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2645)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2662)
     public WrapperGeneratorREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -175,7 +175,7 @@ public class DmcTypeWrapperGeneratorREFMV extends DmcTypeWrapperGeneratorREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2656)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2673)
     public WrapperGeneratorREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
@@ -202,7 +202,7 @@ public class DmcTypeWrapperGeneratorREFMV extends DmcTypeWrapperGeneratorREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2684)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2701)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -225,7 +225,7 @@ public class DmcTypeWrapperGeneratorREFMV extends DmcTypeWrapperGeneratorREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2708)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2725)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

@@ -1112,7 +1112,8 @@ if (an.equals("requiredPart"))
 		}
 	}
 
-	private void dumpCodeComment(NamedStringArray namedStringArray, BufferedWriter out, String indent) {
+	private void dumpCodeComment(NamedStringArray namedStringArray, BufferedWriter out, String indent, String returnType) {
+		
 		StringBuffer sb = new StringBuffer();
 		int offset;
 
@@ -1141,6 +1142,9 @@ if (an.equals("requiredPart"))
 				sb.delete(0, offset + 1);
 			}
 			out.write(indent + sb + "\n");
+			
+			if (returnType != null)
+				out.write(indent + "@return the " + returnType + "\n");
 		} catch (IOException e) {
 			System.out.println("IO Error:\n" + e);
 		}
@@ -1639,11 +1643,10 @@ if (an.equals("requiredPart"))
 					///////////////////////////////////////////////////////////
 
 					out.write("/**\n");
-					dumpCodeComment(go.get("description"), out, " * ");
+					dumpCodeComment(go.get("description"), out, " * ", null);
 
 					out.write(" * @author Auto Generated\n");
-					out.write(" * Generated from: "
-							+ DebugInfo.getWhereWeAreNow() + "\n");
+					out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 					out.write(" */\n");
 					out.write("@SuppressWarnings(\"unused\")\n");
 					
@@ -1742,13 +1745,11 @@ if (an.equals("requiredPart"))
 					// DmsDefinition for more info.
 					if ((derivedFrom != null)
 							&& derivedFrom.equals("DmsDefinition")) {
-						out.write("    protected " + cn
-								+ "DMW(ClassDefinition cd) {\n");
+						out.write("    protected " + cn + "DMW(ClassDefinition cd) {\n");
 						out.write("        super(cd);\n");
 						out.write("    }\n\n");
 
-						out.write("    protected " + cn
-								+ "DMW(String mn) throws DmcValueException {\n");
+						out.write("    protected " + cn + "DMW(String mn) throws DmcValueException {\n");
 						out.write("        super(new " + cn + "DMO());\n");
 						out.write("        mycore = (" + cn + "DMO) core;\n");
 						out.write("        mycore.setContainer(this);\n");
@@ -1790,7 +1791,9 @@ if (an.equals("requiredPart"))
 						// MULTIVALUED 2
 						String multiValued = attrObj.getSV("valueType");
 
-						dumpCodeComment(attrObj.get("description"), out, "     * ");
+						DmcUncheckedObject attributeDef = attributeDefs.get(currAttr);
+
+						dumpCodeComment(attrObj.get("description"), out, "     * ", attributeDef.getSV("type"));
 
 						if (multiValued != null) {
 							dumpMVAccessFunction(out, currAttr, false, cn + "DMO");
@@ -1947,7 +1950,7 @@ if (an.equals("requiredPart"))
 
 					out.write("/**\n");
 
-					dumpCodeComment(go.get("description"), out, " * ");
+					dumpCodeComment(go.get("description"), out, " * ", null);
 
 					out.write(" * @author Auto Generated\n");
 					out.write(" * Generated from: "
@@ -2112,7 +2115,9 @@ if (an.equals("requiredPart"))
 						// MULTIVALUED 5
 						String multiValued = attrObj.getSV("valueType");
 
-						dumpCodeComment(attrObj.get("description"), out, "     * ");
+						DmcUncheckedObject attributeDef = attributeDefs.get(currAttr);
+
+						dumpCodeComment(attrObj.get("description"), out, "     * ", attributeDef.getSV("type"));
 
 						if (multiValued != null) {
 							dumpMVAccessFunction(out, currAttr, true, cn
@@ -2432,18 +2437,15 @@ if (an.equals("requiredPart"))
 		if (DMO) {
 			out.write("    /**\n");
 			out.write("     * Sets " + attrname + " to the specified value.\n");
-			out.write("     * @param value A value compatible with " + attrType
-					+ "\n");
+			out.write("     * @param value A value compatible with " + attrType + "\n");
+			out.write("     * @throws DmcValueException if the value is incorrect\n");
 			out.write("     */\n");
 			out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			// out.write("    @SuppressWarnings(\"unchecked\")\n");
-			out.write("    public void set" + functionName
-					+ "(Object value) throws DmcValueException {\n");
-			out.write("        DmcAttribute<?> attr = get(MetaDMSAG.__"
-					+ attrname + ");\n");
+			out.write("    public void set" + functionName + "(Object value) throws DmcValueException {\n");
+			out.write("        DmcAttribute<?> attr = get(MetaDMSAG.__" + attrname + ");\n");
 			out.write("        if (attr == null)\n");
-			out.write("            attr = new " + attrType + "(MetaDMSAG.__"
-					+ attrname + ");\n");
+			out.write("            attr = new " + attrType + "(MetaDMSAG.__" + attrname + ");\n");
 			out.write("        \n");
 			out.write("        attr.set(value);\n");
 			out.write("        set(MetaDMSAG.__" + attrname + ",attr);\n");
@@ -2451,27 +2453,22 @@ if (an.equals("requiredPart"))
 		} else {
 			if (isObjREF) {
 				out.write("    /**\n");
-				out.write("     * Sets " + attrname
-						+ " to the specified value.\n");
-				out.write("     * @param value A value compatible with "
-						+ typeName + "\n");
+				out.write("     * Sets " + attrname + " to the specified value.\n");
+				out.write("     * @param value A value compatible with " + typeName + "\n");
+				out.write("     * @throws DmcValueException if the value is incorrect\n");
 				out.write("     */\n");
 				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				out.write("    public void set" + functionName + "(" + typeName
-						+ " value) throws DmcValueException {\n");
-				out.write("        mycore.set" + functionName
-						+ "(value.getDmcObject());\n");
+				out.write("    public void set" + functionName + "(" + typeName + " value) throws DmcValueException {\n");
+				out.write("        mycore.set" + functionName + "(value.getDmcObject());\n");
 				out.write("    }\n\n");
 			} else {
 				out.write("    /**\n");
-				out.write("     * Sets " + attrname
-						+ " to the specified value.\n");
-				out.write("     * @param value A value compatible with "
-						+ attrType + "\n");
+				out.write("     * Sets " + attrname + " to the specified value.\n");
+				out.write("     * @param value A value compatible with " + attrType + "\n");
+				out.write("     * @throws DmcValueException if the value is incorrect\n");
 				out.write("     */\n");
 				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				out.write("    public void set" + functionName
-						+ "(Object value) throws DmcValueException {\n");
+				out.write("    public void set" + functionName+ "(Object value) throws DmcValueException {\n");
 				out.write("        mycore.set" + functionName + "(value);\n");
 				out.write("    }\n\n");
 			}
@@ -2535,19 +2532,15 @@ if (an.equals("requiredPart"))
 
 		if (DMO) {
 			if (isObjREF) {
-				out.write("     * @return An Iterator of " + typeName
-						+ "DMO objects.\n");
+				out.write("     * @return An Iterator of " + typeName + "DMO objects.\n");
 				out.write("     */\n");
 				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				out.write("    public Iterator<" + typeName + "REF> get"
-						+ functionName + "(){\n");
+				out.write("    public Iterator<" + typeName + "REF> get" + functionName + "(){\n");
 			} else {
-				out.write("     * @return An Iterator of " + typeName
-						+ " objects.\n");
+				out.write("     * @return An Iterator of " + typeName + " objects.\n");
 				out.write("     */\n");
 				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				out.write("    public Iterator<" + typeName + "> get"
-						+ functionName + "(){\n");
+				out.write("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
 			}
 			out.write("        " + attrType + " attr = (" + attrType
 					+ ") get(MetaDMSAG.__" + attrname + ");\n");
@@ -2583,33 +2576,23 @@ if (an.equals("requiredPart"))
 			}
 		} else {
 			if (isObjREF) {
-				out.write("     * @return An Iterator of " + typeName
-						+ " objects.\n");
+				out.write("     * @return An Iterator of " + typeName + " objects.\n");
 				out.write("     */\n");
-				// out.write("    @SuppressWarnings(\"unchecked\")\n");
 				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				out.write("    public " + typeName + "IterableDMW get"
-						+ functionName + "(){\n");
-				// out.write("        DmcAttribute<?> attr = (" + attrType +
-				// ") mycore.get(MetaDMSAG.__" + attrname + ");\n");
-				out.write("        " + attrType + " attr = (" + attrType
-						+ ") mycore.get(MetaDMSAG.__" + attrname + ");\n");
+				out.write("    public " + typeName + "IterableDMW get" + functionName + "(){\n");
+				out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(MetaDMSAG.__" + attrname + ");\n");
 				out.write("        if (attr == null)\n");
-				out.write("            return(" + typeName
-						+ "IterableDMW.emptyList);\n");
+				out.write("            return(" + typeName + "IterableDMW.emptyList);\n");
 				out.write("\n");
 				out.write("        return(new " + typeName
 						+ "IterableDMW(attr.getMV()));\n");
 				out.write("    }\n\n");
 			} else {
-				out.write("     * @return An Iterator of " + typeName
-						+ " objects.\n");
+				out.write("     * @return An Iterator of " + typeName + " objects.\n");
 				out.write("     */\n");
 				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				out.write("    public Iterator<" + typeName + "> get"
-						+ functionName + "(){\n");
-				out.write("        " + attrType + " attr = (" + attrType
-						+ ") mycore.get(MetaDMSAG.__" + attrname + ");\n");
+				out.write("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
+				out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(MetaDMSAG.__" + attrname + ");\n");
 				out.write("        if (attr == null)\n");
 				out.write("            return(null);\n");
 				out.write("\n");
@@ -2646,18 +2629,15 @@ if (an.equals("requiredPart"))
 		if (DMO) {
 			out.write("    /**\n");
 			out.write("     * Adds another " + attrname + " value.\n");
-			out.write("     * @param value A value compatible with " + attrType
-					+ "\n");
+			out.write("     * @param value A value compatible with " + attrType + "\n");
+			out.write("     * @return the attribute instance\n");
+			out.write("     * @throws DmcValueException if the value is incorrect\n");
 			out.write("     */\n");
-			// out.write("    @SuppressWarnings(\"unchecked\")\n");
 			out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			out.write("    public DmcAttribute<?> add" + functionName
-					+ "(Object value) throws DmcValueException {\n");
-			out.write("        DmcAttribute<?> attr = get(MetaDMSAG.__"
-					+ attrname + ");\n");
+			out.write("    public DmcAttribute<?> add" + functionName + "(Object value) throws DmcValueException {\n");
+			out.write("        DmcAttribute<?> attr = get(MetaDMSAG.__" + attrname + ");\n");
 			out.write("        if (attr == null)\n");
-			out.write("            attr = new " + attrType + "(MetaDMSAG.__"
-					+ attrname + ");\n");
+			out.write("            attr = new " + attrType + "(MetaDMSAG.__" + attrname + ");\n");
 			out.write("        \n");
 			out.write("        attr.add(value);\n");
 			out.write("        add(MetaDMSAG.__" + attrname + ",attr);\n");
@@ -2667,41 +2647,33 @@ if (an.equals("requiredPart"))
 			if (isObjREF) {
 				out.write("    /**\n");
 				out.write("     * Adds another " + attrname + " value.\n");
-				out.write("     * @param value A value compatible with "
-						+ typeName + "\n");
+				out.write("     * @param value A value compatible with " + typeName + "\n");
+				out.write("     * @return the attribute instance\n");
+				out.write("     * @throws DmcValueException if the value is incorrect\n");
 				out.write("     */\n");
-				// out.write("    @SuppressWarnings(\"unchecked\")\n");
 				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				out.write("    public DmcAttribute<?> add" + functionName + "("
-						+ typeName + " value) throws DmcValueException {\n");
-				out.write("        DmcAttribute<?> attr = mycore.add"
-						+ functionName + "(value.getDmcObject());\n");
+				out.write("    public DmcAttribute<?> add" + functionName + "(" + typeName + " value) throws DmcValueException {\n");
+				out.write("        DmcAttribute<?> attr = mycore.add" + functionName + "(value.getDmcObject());\n");
 				out.write("        return(attr);\n");
 				out.write("    }\n\n");
 			} else {
 				out.write("    /**\n");
 				out.write("     * Adds another " + attrname + " value.\n");
-				out.write("     * @param value A value compatible with "
-						+ attrType + "\n");
+				out.write("     * @param value A value compatible with " + attrType + "\n");
+				out.write("     * @throws DmcValueException if the value is incorrect\n");
 				out.write("     */\n");
-				// out.write("    @SuppressWarnings(\"unchecked\")\n");
 				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-//				out.write("    public DmcAttribute<?> add" + functionName + "(Object value) throws DmcValueException {\n");
-//				out.write("        return(mycore.add" + functionName + "(value));\n");
-//				out.write("    }\n\n");
 				out.write("    public void add" + functionName + "(Object value) throws DmcValueException {\n");
 				out.write("        mycore.add" + functionName + "(value);\n");
 				out.write("    }\n\n");
 			}
 
 			out.write("    /**\n");
-			out.write("     * Returns the number of " + attrname + " values.\n");
+			out.write("     * @return the number of " + attrname + " values.\n");
 			out.write("     */\n");
-			// out.write("    @SuppressWarnings(\"unchecked\")\n");
 			out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			out.write("    public int get" + functionName + "Size(){\n");
-			out.write("        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__"
-					+ attrname + ");\n");
+			out.write("        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__" + attrname + ");\n");
 			out.write("        if (attr == null)\n");
 			out.write("            return(0);\n");
 			out.write("        return(attr.getMVSize());\n");

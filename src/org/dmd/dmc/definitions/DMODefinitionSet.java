@@ -135,10 +135,6 @@ public class DMODefinitionSet<DEF extends DSDefinitionDMO> {
 		debug = f;
 	}
 	
-	static public boolean debug(){
-		return(debug);
-	}
-	
 	public String className() {
 		return(className);
 	}
@@ -400,8 +396,12 @@ public class DMODefinitionSet<DEF extends DSDefinitionDMO> {
 		if (existing.size() == 1)
 			return(existing.get(0));
 		
-		@SuppressWarnings("unchecked")
-		DmcNameClashException mdce = new DmcNameClashException("",(ArrayList<DmcNamedObjectIF>) existing);
+		ArrayList<DmcNamedObjectIF>	namedObjects = new ArrayList<DmcNamedObjectIF>();
+		for(DEF obj: existing) {
+			namedObjects.add(obj);
+		}
+
+		DmcNameClashException mdce = new DmcNameClashException("",namedObjects);
 		throw(mdce);
 	}
 	
@@ -425,8 +425,12 @@ public class DMODefinitionSet<DEF extends DSDefinitionDMO> {
 		if (existing.size() == 1)
 			return(existing.get(0));
 		
-		@SuppressWarnings("unchecked")
-		DmcNameClashException mdce = new DmcNameClashException("",(ArrayList<DmcNamedObjectIF>) existing);
+		ArrayList<DmcNamedObjectIF>	namedObjects = new ArrayList<DmcNamedObjectIF>();
+		for(DEF obj: existing) {
+			namedObjects.add(obj);
+		}
+
+		DmcNameClashException mdce = new DmcNameClashException("",namedObjects);
 		throw(mdce);
 	}
 	

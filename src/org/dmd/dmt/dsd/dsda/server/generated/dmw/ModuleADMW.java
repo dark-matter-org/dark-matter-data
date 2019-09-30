@@ -18,7 +18,7 @@ package org.dmd.dmt.dsd.dsda.server.generated.dmw;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:442)
 import java.util.ArrayList;                                                      // To support getMVCopy() - (BaseDMWGenerator.java:1071)
-import java.util.Iterator;                                                       // Support copy of MV objects - (BaseDMWGenerator.java:2130)
+import java.util.Iterator;                                                       // Support copy of MV objects - (BaseDMWGenerator.java:2133)
 import org.dmd.dmc.*;                                                            // If any attributes - (BaseDMWGenerator.java:977)
 import org.dmd.dmc.definitions.DmcDefinitionIF;                                  // The object is a domain specific definition - (BaseDMWGenerator.java:411)
 import org.dmd.dmc.definitions.DmcDefinitionSet;                                 // Our base to provide definition set storage - (DMWGenerator.java:171)
@@ -26,13 +26,13 @@ import org.dmd.dmc.types.DefinitionName;                                        
 import org.dmd.dmc.types.DotName;                                                // To support the find method for definitions - (DSDefinitionModule.java:180)
 import org.dmd.dms.ClassDefinition;                                              // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:944)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                      // Attribute defFiles from the meta schema - (BaseDMWGenerator.java:910)
-import org.dmd.dms.generated.dmw.StringIterableDMW;                              // For multi-valued String - (BaseDMWGenerator.java:1993)
+import org.dmd.dms.generated.dmw.StringIterableDMW;                              // For multi-valued String - (BaseDMWGenerator.java:1995)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                            // Required for MODREC constructor - (BaseDMWGenerator.java:948)
 import org.dmd.dmt.dsd.dsda.server.extended.ABConceptX;                          // A definition from the ModuleA Module - (DSDefinitionModule.java:191)
 import org.dmd.dmt.dsd.dsda.server.extended.AConceptBase;                        // Derived class - (BaseDMWGenerator.java:1138)
 import org.dmd.dmt.dsd.dsda.server.extended.AConceptX;                           // A definition from the ModuleA Module - (DSDefinitionModule.java:191)
 import org.dmd.dmt.dsd.dsda.server.extended.ModuleA;                             // Required for getModificationRecorder() - (BaseDMWGenerator.java:953)
-import org.dmd.dmt.dsd.dsda.server.generated.dmw.ModuleAIterableDMW;             // For multi-valued ModuleA - (BaseDMWGenerator.java:1599)
+import org.dmd.dmt.dsd.dsda.server.generated.dmw.ModuleAIterableDMW;             // For multi-valued ModuleA - (BaseDMWGenerator.java:1600)
 import org.dmd.dmt.dsd.dsda.server.generated.dsd.ModuleAScopedInterface;         // Required to manage module definition - (DMWGenerator.java:170)
 import org.dmd.dmt.dsd.dsda.shared.generated.dmo.DsdADMSAG;                      // Attribute dependsOnModuleA from the dsdA schema - (BaseDMWGenerator.java:910)
 import org.dmd.dmt.dsd.dsda.shared.generated.dmo.ModuleADMO;                     // Class not auxiliary or abstract - (BaseDMWGenerator.java:1142)
@@ -117,7 +117,7 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getDefFilesSize(){
         return(((ModuleADMO) core).getDefFilesSize());
     }
@@ -125,7 +125,7 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getDefFilesIsEmpty(){
         if (((ModuleADMO) core).getDefFilesSize() == 0)
             return(true);
@@ -135,7 +135,7 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getDefFilesHasValue(){
         if (((ModuleADMO) core).getDefFilesSize() == 0)
             return(false);
@@ -145,7 +145,7 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1999)
     public StringIterableDMW getDefFilesIterable(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__defFiles);
         if (attr == null)
@@ -157,8 +157,9 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
     /**
      * Adds another defFiles value.
      * @param value A value compatible with String
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
     public void addDefFiles(Object value) throws DmcValueException {
         ((ModuleADMO) core).addDefFiles(value);
     }
@@ -167,16 +168,16 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
      * Adds another defFiles value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2033)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2036)
     public void addDefFiles(String value){
         ((ModuleADMO) core).addDefFiles(value);
     }
 
     /**
-     * Returns true if the collection contains the defFiles value.
      * @param value A value compatible with String
+     * @return true if the collection contains the defFiles value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2093)
     public boolean defFilesContains(String value){
         return(((ModuleADMO) core).defFilesContains(value));
     }
@@ -184,7 +185,7 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2137)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getDefFilesCopy(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__defFiles);
@@ -204,8 +205,9 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
     /**
      * Deletes a defFiles value.
      * @param value The String to be deleted from set of attribute values.
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2165)
     public void delDefFiles(Object value) throws DmcValueException {
         ((ModuleADMO) core).delDefFiles(value);
     }
@@ -214,7 +216,7 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
      * Deletes a defFiles value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2174)
     public void delDefFiles(String value){
         ((ModuleADMO) core).delDefFiles(value);
     }
@@ -222,7 +224,7 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
     /**
      * Removes the defFiles attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remDefFiles(){
         ((ModuleADMO) core).remDefFiles();
     }
@@ -230,7 +232,7 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
     /**
      * @return The number of ModuleA items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getDependsOnModuleASize(){
         return(((ModuleADMO) core).getDependsOnModuleASize());
     }
@@ -238,7 +240,7 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
     /**
      * @return true if there are no ModuleADMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getDependsOnModuleAIsEmpty(){
         if (((ModuleADMO) core).getDependsOnModuleASize() == 0)
             return(true);
@@ -248,7 +250,7 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
     /**
      * @return true if there are any ModuleADMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getDependsOnModuleAHasValue(){
         if (((ModuleADMO) core).getDependsOnModuleASize() == 0)
             return(false);
@@ -258,7 +260,7 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
     /**
      * @return An Iterator of ModuleADMO objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1606)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1607)
     public ModuleAIterableDMW getDependsOnModuleAIterable(){
         DmcAttribute<?> attr = core.get(DsdADMSAG.__dependsOnModuleA);
         if (attr == null)
@@ -270,8 +272,9 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
     /**
      * Adds another dependsOnModuleA value.
      * @param value A value compatible with ModuleA
+     * @return the attribute instance
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1663)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1665)
     public DmcAttribute<?> addDependsOnModuleA(ModuleA value){
         DmcAttribute<?> attr = ((ModuleADMO) core).addDependsOnModuleA(((ModuleADMO)value.getDmcObject()));
         return(attr);
@@ -281,7 +284,7 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
      * Deletes a dependsOnModuleA value.
      * @param value The ModuleA to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1713)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1715)
     public void delDependsOnModuleA(ModuleA value){
         ((ModuleADMO) core).delDependsOnModuleA(value.getDMO());
     }
@@ -289,7 +292,7 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
     /**
      * @return A COPY of the collection of ModuleA objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1777)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1779)
     public ArrayList<ModuleA> getDependsOnModuleACopy(){
         DmcAttribute<?> attr = ((ModuleADMO) core).get(DsdADMSAG.__dependsOnModuleA);
         if (attr == null)
@@ -308,7 +311,7 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
     /**
      * Removes the dependsOnModuleA attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remDependsOnModuleA(){
         ((ModuleADMO) core).remDependsOnModuleA();
     }
@@ -316,7 +319,7 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getDescriptionSize(){
         return(((ModuleADMO) core).getDescriptionSize());
     }
@@ -324,7 +327,7 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getDescriptionIsEmpty(){
         if (((ModuleADMO) core).getDescriptionSize() == 0)
             return(true);
@@ -334,7 +337,7 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getDescriptionHasValue(){
         if (((ModuleADMO) core).getDescriptionSize() == 0)
             return(false);
@@ -344,7 +347,7 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1999)
     public StringIterableDMW getDescriptionIterable(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__description);
         if (attr == null)
@@ -356,8 +359,9 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
     /**
      * Adds another description value.
      * @param value A value compatible with String
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
     public void addDescription(Object value) throws DmcValueException {
         ((ModuleADMO) core).addDescription(value);
     }
@@ -366,16 +370,16 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
      * Adds another description value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2033)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2036)
     public void addDescription(String value){
         ((ModuleADMO) core).addDescription(value);
     }
 
     /**
-     * Returns true if the collection contains the description value.
      * @param value A value compatible with String
+     * @return true if the collection contains the description value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2093)
     public boolean descriptionContains(String value){
         return(((ModuleADMO) core).descriptionContains(value));
     }
@@ -383,7 +387,7 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2137)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getDescriptionCopy(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__description);
@@ -403,8 +407,9 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
     /**
      * Deletes a description value.
      * @param value The String to be deleted from set of attribute values.
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2165)
     public void delDescription(Object value) throws DmcValueException {
         ((ModuleADMO) core).delDescription(value);
     }
@@ -413,7 +418,7 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
      * Deletes a description value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2174)
     public void delDescription(String value){
         ((ModuleADMO) core).delDescription(value);
     }
@@ -421,7 +426,7 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remDescription(){
         ((ModuleADMO) core).remDescription();
     }
@@ -435,7 +440,7 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setName(Object value) throws DmcValueException {
         ((ModuleADMO) core).setName(value);
     }
@@ -444,7 +449,7 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
      * Sets name to the specified value.
      * @param value DefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setName(DefinitionName value){
         ((ModuleADMO) core).setName(value);
     }
@@ -452,7 +457,7 @@ abstract public class ModuleADMW extends AConceptBase implements DmcDefinitionIF
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remName(){
         ((ModuleADMO) core).remName();
     }

@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.connectifex</groupId>
   <artifactId>dark-matter-data</artifactId>
-  <version>3.0.12</version>
+  <version>3.1.0</version>
   
   <!-- Even though the gwteventservice 1.1.1 dependency should be available from mvnrepository.com
   the dependency inclusion fails for some reason. It indicates that this is where the dependency
@@ -15,6 +15,17 @@
       <url>http://repo.opennms.org/maven2/</url>
     </repository>
   </repositories>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
 
   <dependencies>
     <dependency>
@@ -36,17 +47,7 @@
       <artifactId>commons-io</artifactId>
       <version>2.2</version>
     </dependency>
-    
-	<!-- https://mvnrepository.com/artifact/de.novanic.gwteventservice/eventservice -->
-	<!-- had to manually install 1.1.1 and change artifact to gwteventservice not event service-->
-	<!-- 
-	<dependency>
-	    <groupId>de.novanic.gwteventservice</groupId>
-	    <artifactId>gwteventservice</artifactId>
-	    <version>1.1.1</version>
-	</dependency>
-	 -->
-	 
+    	 
 	<!-- https://mvnrepository.com/artifact/de.novanic/gwteventservice -->
 	<dependency>
 	    <groupId>de.novanic</groupId>
@@ -95,11 +96,13 @@
         </excludes>
       </testResource>
     </testResources>
+    
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.7.0</version>
+        <version>3.8.1</version>
         <configuration>
+          <encoding>utf8</encoding>
           <source>1.8</source>
           <target>1.8</target>
         </configuration>
@@ -118,17 +121,87 @@
 	<plugin>
 		<groupId>org.apache.maven.plugins</groupId>
 		<artifactId>maven-source-plugin</artifactId>
-		<version>2.0.4</version>
+		<version>3.1.0</version>
 		<executions>
 			<execution>
 				<id>attach-sources</id>
 					<goals>
-        					<goal>jar</goal>
+        			  <goal>jar</goal>
 					</goals>
     			</execution>
 		</executions>
 	</plugin>
 	
+	<plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-javadoc-plugin</artifactId>
+		<version>3.1.1</version>
+		<configuration>
+			<doclint>none</doclint>  <!-- Turnoff all checks -->
+		</configuration>
+		<executions>
+			<execution>
+				<id>attach-javadocs</id>
+				<goals>
+					<goal>jar</goal>
+				</goals>
+			</execution>
+		</executions>
+	</plugin>
+
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-gpg-plugin</artifactId>
+      <version>1.5</version>
+      <executions>
+        <execution>
+          <id>sign-artifacts</id>
+          <phase>verify</phase>
+          <goals>
+            <goal>sign</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
+
+    <plugin>
+      <groupId>org.sonatype.plugins</groupId>
+      <artifactId>nexus-staging-maven-plugin</artifactId>
+      <version>1.6.7</version>
+      <extensions>true</extensions>
+      <configuration>
+        <serverId>ossrh</serverId>
+        <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+        <autoReleaseAfterClose>true</autoReleaseAfterClose>
+      </configuration>
+    </plugin>
+	
     </plugins>
   </build>
+  <name>dark-matter</name>
+  <url>https://github.com/dark-matter-org/dark-matter-data</url>
+  <description>The dark-matter project provides mechanism to define concepts associated with Domain Specific Languages (DSLs) and generate code that can be extended with business logic that supports the given DSL purpose.</description>
+  
+  <licenses>
+	  <license>
+	    <name>GNU Lesser General Public License, Version 3.0</name>
+	    <url>https://www.gnu.org/licenses/lgpl-3.0.en.html</url>
+	  </license>
+  </licenses>
+
+ <developers>
+    <developer>
+      <name>Peter Strong</name>
+      <email>peter@connectifex.com</email>
+      <organization>connectifex</organization>
+      <organizationUrl>https://github.com/dark-matter-org</organizationUrl>
+    </developer>
+  </developers>
+  
+ <scm>
+ 	<developerConnection>scm:git:git://github.com/dark-matter-org/dark-matter-data.git</developerConnection>
+ 	<url>https://github.com/dark-matter-org/dark-matter-data/tree/master</url>
+ 	<connection>scm:git:git://github.com/dark-matter-org/dark-matter-data.git</connection>
+ 	<tag></tag>
+ </scm>
 </project>

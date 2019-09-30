@@ -48,6 +48,8 @@ public interface DmcNameResolverWithClashSupportIF extends DmcNameResolverIF {
      * @param name the name of the object being referred to
      * @param resolver the entity that may resolve clashes if they occur
      * @param ai the attribute being resolved
+     * @return the named object
+     * @throws DmcValueException if values are incorrect
      */
     public DmcNamedObjectIF findNamedObjectMayClash(DmcObject object, DmcObjectName name, DmcNameClashResolverIF resolver, DmcAttributeInfo ai) throws DmcValueException;
 

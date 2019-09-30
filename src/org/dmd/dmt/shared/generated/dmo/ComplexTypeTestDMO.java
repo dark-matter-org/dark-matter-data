@@ -79,7 +79,7 @@ public class ComplexTypeTestDMO  extends DmcObject  implements Serializable  {
         return(rc);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public MenuElementTypeAndComment getSvComplex(){
         DmcTypeMenuElementTypeAndCommentSV attr = (DmcTypeMenuElementTypeAndCommentSV) get(DmtDMSAG.__svComplex);
         if (attr == null)
@@ -92,7 +92,7 @@ public class ComplexTypeTestDMO  extends DmcObject  implements Serializable  {
      * Sets svComplex to the specified value.
      * @param value MenuElementTypeAndComment
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setSvComplex(MenuElementTypeAndComment value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__svComplex);
         if (attr == null)
@@ -110,8 +110,9 @@ public class ComplexTypeTestDMO  extends DmcObject  implements Serializable  {
     /**
      * Sets svComplex to the specified value.
      * @param value A value compatible with DmcTypeMenuElementTypeAndCommentSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setSvComplex(Object value) throws DmcValueException {
         DmcTypeMenuElementTypeAndCommentSV attr  = (DmcTypeMenuElementTypeAndCommentSV) get(DmtDMSAG.__svComplex);
         if (attr == null)
@@ -124,7 +125,7 @@ public class ComplexTypeTestDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the svComplex attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remSvComplex(){
          rem(DmtDMSAG.__svComplex);
     }
@@ -133,7 +134,7 @@ public class ComplexTypeTestDMO  extends DmcObject  implements Serializable  {
      * @return An Iterator of MenuElementTypeAndComment objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1278)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1289)
     public Iterator<MenuElementTypeAndComment> getMvComplex(){
         DmcTypeMenuElementTypeAndCommentMV attr = (DmcTypeMenuElementTypeAndCommentMV) get(DmtDMSAG.__mvComplex);
         if (attr == null)
@@ -145,7 +146,7 @@ public class ComplexTypeTestDMO  extends DmcObject  implements Serializable  {
     /**
      * @return The nth MenuElementTypeAndComment value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1290)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1301)
     public MenuElementTypeAndComment getNthMvComplex(int i){
         DmcTypeMenuElementTypeAndCommentMV attr = (DmcTypeMenuElementTypeAndCommentMV) get(DmtDMSAG.__mvComplex);
         if (attr == null)
@@ -158,7 +159,7 @@ public class ComplexTypeTestDMO  extends DmcObject  implements Serializable  {
      * Adds another mvComplex to the specified value.
      * @param value MenuElementTypeAndComment
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1304)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1315)
     public DmcAttribute<?> addMvComplex(MenuElementTypeAndComment value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvComplex);
         if (attr == null)
@@ -178,7 +179,7 @@ public class ComplexTypeTestDMO  extends DmcObject  implements Serializable  {
      * Returns true if we contain a valued keyed by the specified MenuElementTypeAndComment.
      * @param value MenuElementTypeAndComment
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1379)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1390)
     public boolean mvComplexContains(MenuElementTypeAndComment value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvComplex);
         if (attr == null)
@@ -189,8 +190,10 @@ public class ComplexTypeTestDMO  extends DmcObject  implements Serializable  {
     /**
      * Adds another mvComplex value.
      * @param value A value compatible with MenuElementTypeAndComment
+     * @return the attribute instance
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1411)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
     public DmcAttribute<?> addMvComplex(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvComplex);
         if (attr == null)
@@ -202,9 +205,9 @@ public class ComplexTypeTestDMO  extends DmcObject  implements Serializable  {
     }
 
     /**
-     * Returns the number of values in mvComplex
+     * @return the number of values in mvComplex
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1428)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
     public int getMvComplexSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvComplex);
         if (attr == null){
@@ -219,8 +222,8 @@ public class ComplexTypeTestDMO  extends DmcObject  implements Serializable  {
     /**
      * Deletes a mvComplex value.
      * @param value The MenuElementTypeAndComment to be deleted from set of attribute values.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1486)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
     public DmcAttribute<?> delMvComplex(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvComplex);
         
@@ -235,8 +238,8 @@ public class ComplexTypeTestDMO  extends DmcObject  implements Serializable  {
     /**
      * Deletes a mvComplex from the specified value.
      * @param value MenuElementTypeAndComment
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1519)
     public DmcAttribute<?> delMvComplex(MenuElementTypeAndComment value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvComplex);
         
@@ -251,7 +254,7 @@ public class ComplexTypeTestDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the mvComplex attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1521)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
     public void remMvComplex(){
          rem(DmtDMSAG.__mvComplex);
     }

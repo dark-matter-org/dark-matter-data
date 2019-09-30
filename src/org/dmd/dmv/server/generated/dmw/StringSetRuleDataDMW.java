@@ -17,16 +17,16 @@ package org.dmd.dmv.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:442)
-import java.util.ArrayList;                                           // Support for MULTI attribute - (BaseDMWGenerator.java:2116)
+import java.util.ArrayList;                                           // Support for MULTI attribute - (BaseDMWGenerator.java:2119)
 import java.util.HashSet;                                             // To support getMVCopy() - (BaseDMWGenerator.java:1090)
-import java.util.Iterator;                                            // Support copy of MV objects - (BaseDMWGenerator.java:2130)
+import java.util.Iterator;                                            // Support copy of MV objects - (BaseDMWGenerator.java:2133)
 import org.dmd.dmc.*;                                                 // If any attributes - (BaseDMWGenerator.java:977)
 import org.dmd.dmc.types.RuleName;                                    // Is named by - (BaseDMWGenerator.java:939)
 import org.dmd.dms.AttributeDefinition;                               // Is reference type - (BaseDMWGenerator.java:997)
 import org.dmd.dms.ClassDefinition;                                   // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:944)
 import org.dmd.dms.RuleData;                                          // Derived class - (BaseDMWGenerator.java:1138)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                           // Attribute description from the meta schema - (BaseDMWGenerator.java:910)
-import org.dmd.dms.generated.dmw.StringIterableDMW;                   // For multi-valued String - (BaseDMWGenerator.java:1993)
+import org.dmd.dms.generated.dmw.StringIterableDMW;                   // For multi-valued String - (BaseDMWGenerator.java:1995)
 import org.dmd.dms.generated.types.AttributeDefinitionREF;            // Is reference type REF - (BaseDMWGenerator.java:1005)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                 // Required for MODREC constructor - (BaseDMWGenerator.java:948)
 import org.dmd.dmv.shared.generated.dmo.DmvDMSAG;                     // Attribute allowedString from the dmv schema - (BaseDMWGenerator.java:910)
@@ -110,7 +110,7 @@ public class StringSetRuleDataDMW extends RuleData implements DmcNamedObjectIF {
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getAllowedStringSize(){
         return(((StringSetRuleDataDMO) core).getAllowedStringSize());
     }
@@ -118,7 +118,7 @@ public class StringSetRuleDataDMW extends RuleData implements DmcNamedObjectIF {
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getAllowedStringIsEmpty(){
         if (((StringSetRuleDataDMO) core).getAllowedStringSize() == 0)
             return(true);
@@ -128,7 +128,7 @@ public class StringSetRuleDataDMW extends RuleData implements DmcNamedObjectIF {
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getAllowedStringHasValue(){
         if (((StringSetRuleDataDMO) core).getAllowedStringSize() == 0)
             return(false);
@@ -138,7 +138,7 @@ public class StringSetRuleDataDMW extends RuleData implements DmcNamedObjectIF {
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1999)
     public StringIterableDMW getAllowedStringIterable(){
         DmcAttribute<?> attr = core.get(DmvDMSAG.__allowedString);
         if (attr == null)
@@ -150,8 +150,9 @@ public class StringSetRuleDataDMW extends RuleData implements DmcNamedObjectIF {
     /**
      * Adds another allowedString value.
      * @param value A value compatible with String
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
     public void addAllowedString(Object value) throws DmcValueException {
         ((StringSetRuleDataDMO) core).addAllowedString(value);
     }
@@ -160,16 +161,16 @@ public class StringSetRuleDataDMW extends RuleData implements DmcNamedObjectIF {
      * Adds another allowedString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2033)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2036)
     public void addAllowedString(String value){
         ((StringSetRuleDataDMO) core).addAllowedString(value);
     }
 
     /**
-     * Returns true if the collection contains the allowedString value.
      * @param value A value compatible with String
+     * @return true if the collection contains the allowedString value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2093)
     public boolean allowedStringContains(String value){
         return(((StringSetRuleDataDMO) core).allowedStringContains(value));
     }
@@ -177,7 +178,7 @@ public class StringSetRuleDataDMW extends RuleData implements DmcNamedObjectIF {
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2137)
     @SuppressWarnings("unchecked")
     public HashSet<String> getAllowedStringCopy(){
         DmcAttribute<?> attr = core.get(DmvDMSAG.__allowedString);
@@ -197,8 +198,9 @@ public class StringSetRuleDataDMW extends RuleData implements DmcNamedObjectIF {
     /**
      * Deletes a allowedString value.
      * @param value The String to be deleted from set of attribute values.
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2165)
     public void delAllowedString(Object value) throws DmcValueException {
         ((StringSetRuleDataDMO) core).delAllowedString(value);
     }
@@ -207,7 +209,7 @@ public class StringSetRuleDataDMW extends RuleData implements DmcNamedObjectIF {
      * Deletes a allowedString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2174)
     public void delAllowedString(String value){
         ((StringSetRuleDataDMO) core).delAllowedString(value);
     }
@@ -215,7 +217,7 @@ public class StringSetRuleDataDMW extends RuleData implements DmcNamedObjectIF {
     /**
      * Removes the allowedString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remAllowedString(){
         ((StringSetRuleDataDMO) core).remAllowedString();
     }
@@ -247,8 +249,9 @@ public class StringSetRuleDataDMW extends RuleData implements DmcNamedObjectIF {
     /**
      * Sets the applyToAttribute to the specified value.
      * @param value A value compatible with AttributeDefinitionREF
+     * @throws DmcValueException is the value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1418)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1419)
     public void setApplyToAttribute(Object value) throws DmcValueException {
         ((StringSetRuleDataDMO) core).setApplyToAttribute(value);
     }
@@ -256,7 +259,7 @@ public class StringSetRuleDataDMW extends RuleData implements DmcNamedObjectIF {
     /**
      * Removes the applyToAttribute attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remApplyToAttribute(){
         ((StringSetRuleDataDMO) core).remApplyToAttribute();
     }
@@ -264,7 +267,7 @@ public class StringSetRuleDataDMW extends RuleData implements DmcNamedObjectIF {
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getDescriptionSize(){
         return(((StringSetRuleDataDMO) core).getDescriptionSize());
     }
@@ -272,7 +275,7 @@ public class StringSetRuleDataDMW extends RuleData implements DmcNamedObjectIF {
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getDescriptionIsEmpty(){
         if (((StringSetRuleDataDMO) core).getDescriptionSize() == 0)
             return(true);
@@ -282,7 +285,7 @@ public class StringSetRuleDataDMW extends RuleData implements DmcNamedObjectIF {
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getDescriptionHasValue(){
         if (((StringSetRuleDataDMO) core).getDescriptionSize() == 0)
             return(false);
@@ -292,7 +295,7 @@ public class StringSetRuleDataDMW extends RuleData implements DmcNamedObjectIF {
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1999)
     public StringIterableDMW getDescriptionIterable(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__description);
         if (attr == null)
@@ -304,8 +307,9 @@ public class StringSetRuleDataDMW extends RuleData implements DmcNamedObjectIF {
     /**
      * Adds another description value.
      * @param value A value compatible with String
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
     public void addDescription(Object value) throws DmcValueException {
         ((StringSetRuleDataDMO) core).addDescription(value);
     }
@@ -314,16 +318,16 @@ public class StringSetRuleDataDMW extends RuleData implements DmcNamedObjectIF {
      * Adds another description value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2033)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2036)
     public void addDescription(String value){
         ((StringSetRuleDataDMO) core).addDescription(value);
     }
 
     /**
-     * Returns true if the collection contains the description value.
      * @param value A value compatible with String
+     * @return true if the collection contains the description value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2093)
     public boolean descriptionContains(String value){
         return(((StringSetRuleDataDMO) core).descriptionContains(value));
     }
@@ -331,7 +335,7 @@ public class StringSetRuleDataDMW extends RuleData implements DmcNamedObjectIF {
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2137)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getDescriptionCopy(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__description);
@@ -351,8 +355,9 @@ public class StringSetRuleDataDMW extends RuleData implements DmcNamedObjectIF {
     /**
      * Deletes a description value.
      * @param value The String to be deleted from set of attribute values.
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2165)
     public void delDescription(Object value) throws DmcValueException {
         ((StringSetRuleDataDMO) core).delDescription(value);
     }
@@ -361,7 +366,7 @@ public class StringSetRuleDataDMW extends RuleData implements DmcNamedObjectIF {
      * Deletes a description value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2174)
     public void delDescription(String value){
         ((StringSetRuleDataDMO) core).delDescription(value);
     }
@@ -369,7 +374,7 @@ public class StringSetRuleDataDMW extends RuleData implements DmcNamedObjectIF {
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remDescription(){
         ((StringSetRuleDataDMO) core).remDescription();
     }
@@ -383,7 +388,7 @@ public class StringSetRuleDataDMW extends RuleData implements DmcNamedObjectIF {
      * Sets ruleName to the specified value.
      * @param value A value compatible with DmcTypeRuleName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setRuleName(Object value) throws DmcValueException {
         ((StringSetRuleDataDMO) core).setRuleName(value);
     }
@@ -392,7 +397,7 @@ public class StringSetRuleDataDMW extends RuleData implements DmcNamedObjectIF {
      * Sets ruleName to the specified value.
      * @param value RuleName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setRuleName(RuleName value){
         ((StringSetRuleDataDMO) core).setRuleName(value);
     }
@@ -400,7 +405,7 @@ public class StringSetRuleDataDMW extends RuleData implements DmcNamedObjectIF {
     /**
      * Removes the ruleName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remRuleName(){
         ((StringSetRuleDataDMO) core).remRuleName();
     }
@@ -414,7 +419,7 @@ public class StringSetRuleDataDMW extends RuleData implements DmcNamedObjectIF {
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setRuleTitle(Object value) throws DmcValueException {
         ((StringSetRuleDataDMO) core).setRuleTitle(value);
     }
@@ -423,7 +428,7 @@ public class StringSetRuleDataDMW extends RuleData implements DmcNamedObjectIF {
      * Sets ruleTitle to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setRuleTitle(String value){
         ((StringSetRuleDataDMO) core).setRuleTitle(value);
     }
@@ -431,7 +436,7 @@ public class StringSetRuleDataDMW extends RuleData implements DmcNamedObjectIF {
     /**
      * Removes the ruleTitle attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remRuleTitle(){
         ((StringSetRuleDataDMO) core).remRuleTitle();
     }

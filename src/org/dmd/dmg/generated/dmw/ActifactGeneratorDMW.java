@@ -104,7 +104,7 @@ public class ActifactGeneratorDMW extends DmwNamedObjectWrapper implements DmcNa
      * Sets genClass to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setGenClass(Object value) throws DmcValueException {
         ((ActifactGeneratorDMO) core).setGenClass(value);
     }
@@ -113,7 +113,7 @@ public class ActifactGeneratorDMW extends DmwNamedObjectWrapper implements DmcNa
      * Sets genClass to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setGenClass(String value){
         ((ActifactGeneratorDMO) core).setGenClass(value);
     }
@@ -121,7 +121,7 @@ public class ActifactGeneratorDMW extends DmwNamedObjectWrapper implements DmcNa
     /**
      * Removes the genClass attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remGenClass(){
         ((ActifactGeneratorDMO) core).remGenClass();
     }
@@ -135,7 +135,7 @@ public class ActifactGeneratorDMW extends DmwNamedObjectWrapper implements DmcNa
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setName(Object value) throws DmcValueException {
         ((ActifactGeneratorDMO) core).setName(value);
     }
@@ -144,7 +144,7 @@ public class ActifactGeneratorDMW extends DmwNamedObjectWrapper implements DmcNa
      * Sets name to the specified value.
      * @param value DefinitionName
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setName(DefinitionName value){
         ((ActifactGeneratorDMO) core).setName(value);
     }
@@ -152,7 +152,7 @@ public class ActifactGeneratorDMW extends DmwNamedObjectWrapper implements DmcNa
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remName(){
         ((ActifactGeneratorDMO) core).remName();
     }

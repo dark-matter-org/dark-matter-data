@@ -104,7 +104,7 @@ abstract public class BConceptBaseDMO  extends DSDefinitionDMO  implements DmcNa
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public DefinitionName getName(){
         DmcTypeDefinitionNameSV attr = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -117,7 +117,7 @@ abstract public class BConceptBaseDMO  extends DSDefinitionDMO  implements DmcNa
      * Sets name to the specified value.
      * @param value DefinitionName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setName(DefinitionName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -135,8 +135,9 @@ abstract public class BConceptBaseDMO  extends DSDefinitionDMO  implements DmcNa
     /**
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setName(Object value) throws DmcValueException {
         DmcTypeDefinitionNameSV attr  = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -149,12 +150,12 @@ abstract public class BConceptBaseDMO  extends DSDefinitionDMO  implements DmcNa
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remName(){
          rem(MetaDMSAG.__name);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public DotName getDotName(){
         DmcTypeDotNameSV attr = (DmcTypeDotNameSV) get(MetaDMSAG.__dotName);
         if (attr == null)
@@ -167,7 +168,7 @@ abstract public class BConceptBaseDMO  extends DSDefinitionDMO  implements DmcNa
      * Sets dotName to the specified value.
      * @param value DotName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setDotName(DotName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__dotName);
         if (attr == null)
@@ -185,8 +186,9 @@ abstract public class BConceptBaseDMO  extends DSDefinitionDMO  implements DmcNa
     /**
      * Sets dotName to the specified value.
      * @param value A value compatible with DmcTypeDotNameSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setDotName(Object value) throws DmcValueException {
         DmcTypeDotNameSV attr  = (DmcTypeDotNameSV) get(MetaDMSAG.__dotName);
         if (attr == null)
@@ -199,12 +201,15 @@ abstract public class BConceptBaseDMO  extends DSDefinitionDMO  implements DmcNa
     /**
      * Removes the dotName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remDotName(){
          rem(MetaDMSAG.__dotName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:660)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:678)
+    /**
+     * @return the ModuleBREF
+     */
     public ModuleBREF getDefinedInModuleB(){
         DmcTypeModuleBREFSV attr = (DmcTypeModuleBREFSV) get(DsdBDMSAG.__definedInModuleB);
         if (attr == null)
@@ -220,8 +225,9 @@ abstract public class BConceptBaseDMO  extends DSDefinitionDMO  implements DmcNa
         return(attr.getSV());
     }
 
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:700)
     /**
-     * Returns the reference to ModuleB without attempting lazy resolution (if turned on).
+     * @return the reference to ModuleB without attempting lazy resolution (if turned on).
      */
     public ModuleBREF getDefinedInModuleBREF(){
         DmcTypeModuleBREFSV attr = (DmcTypeModuleBREFSV) get(DsdBDMSAG.__definedInModuleB);
@@ -231,11 +237,12 @@ abstract public class BConceptBaseDMO  extends DSDefinitionDMO  implements DmcNa
         return(attr.getSV());
     }
 
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:718)
     /**
      * Sets definedInModuleB to the specified value.
      * @param value ModuleBDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:714)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:723)
     public void setDefinedInModuleB(ModuleBDMO value) {
         DmcAttribute<?> attr = get(DsdBDMSAG.__definedInModuleB);
         if (attr == null)
@@ -255,8 +262,9 @@ abstract public class BConceptBaseDMO  extends DSDefinitionDMO  implements DmcNa
     /**
      * Sets definedInModuleB to the specified value.
      * @param value A value compatible with DmcTypeModuleBREFSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setDefinedInModuleB(Object value) throws DmcValueException {
         DmcTypeModuleBREFSV attr  = (DmcTypeModuleBREFSV) get(DsdBDMSAG.__definedInModuleB);
         if (attr == null)
@@ -271,7 +279,7 @@ abstract public class BConceptBaseDMO  extends DSDefinitionDMO  implements DmcNa
     /**
      * Removes the definedInModuleB attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remDefinedInModuleB(){
          rem(DsdBDMSAG.__definedInModuleB);
     }

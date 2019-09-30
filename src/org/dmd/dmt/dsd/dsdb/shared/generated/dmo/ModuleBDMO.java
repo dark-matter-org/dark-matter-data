@@ -140,7 +140,7 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1278)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1289)
     public Iterator<String> getDescription(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -152,7 +152,7 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
     /**
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1290)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1301)
     public String getNthDescription(int i){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -165,7 +165,7 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
      * Adds another description to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1304)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1315)
     public DmcAttribute<?> addDescription(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -185,7 +185,7 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1379)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1390)
     public boolean descriptionContains(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -196,8 +196,10 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
     /**
      * Adds another description value.
      * @param value A value compatible with String
+     * @return the attribute instance
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1411)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
     public DmcAttribute<?> addDescription(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -209,9 +211,9 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
     }
 
     /**
-     * Returns the number of values in description
+     * @return the number of values in description
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1428)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
     public int getDescriptionSize(){
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null){
@@ -226,8 +228,8 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
     /**
      * Deletes a description value.
      * @param value The String to be deleted from set of attribute values.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1486)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
     public DmcAttribute<?> delDescription(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         
@@ -242,8 +244,8 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
     /**
      * Deletes a description from the specified value.
      * @param value String
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1519)
     public DmcAttribute<?> delDescription(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         
@@ -258,7 +260,7 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1521)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
     public void remDescription(){
          rem(MetaDMSAG.__description);
     }
@@ -267,7 +269,7 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1278)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1289)
     public Iterator<String> getDefFiles(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__defFiles);
         if (attr == null)
@@ -279,7 +281,7 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
     /**
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1290)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1301)
     public String getNthDefFiles(int i){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__defFiles);
         if (attr == null)
@@ -292,7 +294,7 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
      * Adds another defFiles to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1304)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1315)
     public DmcAttribute<?> addDefFiles(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__defFiles);
         if (attr == null)
@@ -312,7 +314,7 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1379)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1390)
     public boolean defFilesContains(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__defFiles);
         if (attr == null)
@@ -323,8 +325,10 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
     /**
      * Adds another defFiles value.
      * @param value A value compatible with String
+     * @return the attribute instance
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1411)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
     public DmcAttribute<?> addDefFiles(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__defFiles);
         if (attr == null)
@@ -336,9 +340,9 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
     }
 
     /**
-     * Returns the number of values in defFiles
+     * @return the number of values in defFiles
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1428)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
     public int getDefFilesSize(){
         DmcAttribute<?> attr = get(MetaDMSAG.__defFiles);
         if (attr == null){
@@ -353,8 +357,8 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
     /**
      * Deletes a defFiles value.
      * @param value The String to be deleted from set of attribute values.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1486)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
     public DmcAttribute<?> delDefFiles(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__defFiles);
         
@@ -369,8 +373,8 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
     /**
      * Deletes a defFiles from the specified value.
      * @param value String
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1519)
     public DmcAttribute<?> delDefFiles(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__defFiles);
         
@@ -385,7 +389,7 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
     /**
      * Removes the defFiles attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1521)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
     public void remDefFiles(){
          rem(MetaDMSAG.__defFiles);
     }
@@ -394,7 +398,7 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
      * @return An Iterator of ModuleBDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1146)
     public Iterator<ModuleBREF> getDependsOnModuleB(){
         DmcTypeModuleBREFMV attr = (DmcTypeModuleBREFMV) get(DsdBDMSAG.__dependsOnModuleB);
         if (attr == null)
@@ -414,7 +418,7 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
      * @return An Iterator of ModuleBREFs without attempting lazy resolution (if it's turned on).
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1156)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1166)
     public Iterator<ModuleBREF> getDependsOnModuleBREFs(){
         DmcTypeModuleBREFMV attr = (DmcTypeModuleBREFMV) get(DsdBDMSAG.__dependsOnModuleB);
         if (attr == null)
@@ -426,8 +430,9 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
     /**
      * Adds another dependsOnModuleB to the specified value.
      * @param value ModuleB
+     * @return the attribute instance
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1170)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1181)
     public DmcAttribute<?> addDependsOnModuleB(ModuleBDMO value) {
         DmcAttribute<?> attr = get(DsdBDMSAG.__dependsOnModuleB);
         if (attr == null)
@@ -446,8 +451,10 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
     /**
      * Adds another dependsOnModuleB value.
      * @param value A value compatible with ModuleB
+     * @return the attribute instance
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1411)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
     public DmcAttribute<?> addDependsOnModuleB(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DsdBDMSAG.__dependsOnModuleB);
         if (attr == null)
@@ -459,9 +466,9 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
     }
 
     /**
-     * Returns the number of values in dependsOnModuleB
+     * @return the number of values in dependsOnModuleB
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1428)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
     public int getDependsOnModuleBSize(){
         DmcAttribute<?> attr = get(DsdBDMSAG.__dependsOnModuleB);
         if (attr == null){
@@ -476,8 +483,8 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
     /**
      * Deletes a dependsOnModuleB value.
      * @param value The ModuleB to be deleted from set of attribute values.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1467)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1482)
     public DmcAttribute<?> delDependsOnModuleB(Object value){
         DmcAttribute<?> attr = get(DsdBDMSAG.__dependsOnModuleB);
         
@@ -492,7 +499,7 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
     /**
      * Removes the dependsOnModuleB attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1521)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
     public void remDependsOnModuleB(){
          rem(DsdBDMSAG.__dependsOnModuleB);
     }
@@ -501,7 +508,7 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
      * @return An Iterator of ModuleADMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1146)
     public Iterator<ModuleAREF> getDependsOnModuleA(){
         DmcTypeModuleAREFMV attr = (DmcTypeModuleAREFMV) get(DsdADMSAG.__dependsOnModuleA);
         if (attr == null)
@@ -521,7 +528,7 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
      * @return An Iterator of ModuleAREFs without attempting lazy resolution (if it's turned on).
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1156)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1166)
     public Iterator<ModuleAREF> getDependsOnModuleAREFs(){
         DmcTypeModuleAREFMV attr = (DmcTypeModuleAREFMV) get(DsdADMSAG.__dependsOnModuleA);
         if (attr == null)
@@ -533,8 +540,9 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
     /**
      * Adds another dependsOnModuleA to the specified value.
      * @param value ModuleA
+     * @return the attribute instance
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1170)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1181)
     public DmcAttribute<?> addDependsOnModuleA(ModuleADMO value) {
         DmcAttribute<?> attr = get(DsdADMSAG.__dependsOnModuleA);
         if (attr == null)
@@ -553,8 +561,10 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
     /**
      * Adds another dependsOnModuleA value.
      * @param value A value compatible with ModuleA
+     * @return the attribute instance
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1411)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
     public DmcAttribute<?> addDependsOnModuleA(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DsdADMSAG.__dependsOnModuleA);
         if (attr == null)
@@ -566,9 +576,9 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
     }
 
     /**
-     * Returns the number of values in dependsOnModuleA
+     * @return the number of values in dependsOnModuleA
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1428)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
     public int getDependsOnModuleASize(){
         DmcAttribute<?> attr = get(DsdADMSAG.__dependsOnModuleA);
         if (attr == null){
@@ -583,8 +593,8 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
     /**
      * Deletes a dependsOnModuleA value.
      * @param value The ModuleA to be deleted from set of attribute values.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1467)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1482)
     public DmcAttribute<?> delDependsOnModuleA(Object value){
         DmcAttribute<?> attr = get(DsdADMSAG.__dependsOnModuleA);
         
@@ -599,12 +609,12 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
     /**
      * Removes the dependsOnModuleA attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1521)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
     public void remDependsOnModuleA(){
          rem(DsdADMSAG.__dependsOnModuleA);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public DefinitionName getName(){
         DmcTypeDefinitionNameSV attr = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -617,7 +627,7 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
      * Sets name to the specified value.
      * @param value DefinitionName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setName(DefinitionName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -635,8 +645,9 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
     /**
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setName(Object value) throws DmcValueException {
         DmcTypeDefinitionNameSV attr  = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -649,7 +660,7 @@ public class ModuleBDMO  extends BConceptBaseDMO  implements DmcNamedObjectIF, S
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remName(){
          rem(MetaDMSAG.__name);
     }

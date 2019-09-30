@@ -79,7 +79,7 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 	/**
 	 * Attempts to resolve references with the specified name resolver.
 	 * @param rx The resolver.
-	 * @throws DmcValueException  
+	 * @throws DmcValueException if value problems
 	 */
 	public void resolveReferences(DmcNameResolverIF rx) throws DmcValueException {
 		if (getAttributeInfo().valueType == ValueTypeEnum.SINGLE){

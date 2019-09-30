@@ -59,12 +59,12 @@ import org.dmd.templates.shared.generated.types.Value;                       // 
  * The artifact could be an XHTML document, an XML document, a piece of code,
  * a form\n letter - whatever. The content of a Section may start with
  * another Section or static\n piece of text and, likewise, end with a
- * Section or static piece of text.\n <p/>\n Sections can also contain other
- * (sub) Sections. \n <p/>\n Sections can also have named values that can be
+ * Section or static piece of text.\n <p>\n Sections can also contain other
+ * (sub) Sections. \n <p>\n Sections can also have named values that can be
  * inserted into Templates. By specifying\n values, you define a set of
  * values that can be accessed and embedded within the associated\n
- * Template.\n <p/>\n When a Section's format() method is called, it will
- * dump the contents in the following order:\n <ul>\n <li> any starts with
+ * Template.\n <p>\n When a Section's format() method is called, it will dump
+ * the contents in the following order:\n <ul>\n <li> any starts with
  * material </li>\n <li> the formatted contents of the associated Template
  * </li>\n <li> the formatted contents of any contained Sections </li>\n <li>
  * any ends with material </li>\n </ul>
@@ -154,7 +154,7 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
      * @return An Iterator of Contains objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1278)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1289)
     public Iterator<Contains> getContains(){
         DmcTypeContainsMV attr = (DmcTypeContainsMV) get(DmtdlDMSAG.__contains);
         if (attr == null)
@@ -166,7 +166,7 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * @return The nth Contains value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1290)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1301)
     public Contains getNthContains(int i){
         DmcTypeContainsMV attr = (DmcTypeContainsMV) get(DmtdlDMSAG.__contains);
         if (attr == null)
@@ -179,7 +179,7 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
      * Adds another contains to the specified value.
      * @param value Contains
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1304)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1315)
     public DmcAttribute<?> addContains(Contains value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__contains);
         if (attr == null)
@@ -199,7 +199,7 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
      * Returns true if we contain a valued keyed by the specified Contains.
      * @param value Contains
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1379)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1390)
     public boolean containsContains(Contains value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__contains);
         if (attr == null)
@@ -210,8 +210,10 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * Adds another contains value.
      * @param value A value compatible with Contains
+     * @return the attribute instance
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1411)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
     public DmcAttribute<?> addContains(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__contains);
         if (attr == null)
@@ -223,9 +225,9 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     }
 
     /**
-     * Returns the number of values in contains
+     * @return the number of values in contains
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1428)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
     public int getContainsSize(){
         DmcAttribute<?> attr = get(DmtdlDMSAG.__contains);
         if (attr == null){
@@ -240,8 +242,8 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * Deletes a contains value.
      * @param value The Contains to be deleted from set of attribute values.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1486)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
     public DmcAttribute<?> delContains(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__contains);
         
@@ -256,8 +258,8 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * Deletes a contains from the specified value.
      * @param value Contains
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1519)
     public DmcAttribute<?> delContains(Contains value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__contains);
         
@@ -272,12 +274,15 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * Removes the contains attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1521)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
     public void remContains(){
          rem(DmtdlDMSAG.__contains);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:660)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:678)
+    /**
+     * @return the SectionREF
+     */
     public SectionREF getStartsWith(){
         DmcTypeSectionREFSV attr = (DmcTypeSectionREFSV) get(DmtdlDMSAG.__startsWith);
         if (attr == null)
@@ -293,8 +298,9 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
         return(attr.getSV());
     }
 
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:700)
     /**
-     * Returns the reference to Section without attempting lazy resolution (if turned on).
+     * @return the reference to Section without attempting lazy resolution (if turned on).
      */
     public SectionREF getStartsWithREF(){
         DmcTypeSectionREFSV attr = (DmcTypeSectionREFSV) get(DmtdlDMSAG.__startsWith);
@@ -304,11 +310,12 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
         return(attr.getSV());
     }
 
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:718)
     /**
      * Sets startsWith to the specified value.
      * @param value SectionDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:714)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:723)
     public void setStartsWith(SectionDMO value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__startsWith);
         if (attr == null)
@@ -328,8 +335,9 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * Sets startsWith to the specified value.
      * @param value A value compatible with DmcTypeSectionREFSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setStartsWith(Object value) throws DmcValueException {
         DmcTypeSectionREFSV attr  = (DmcTypeSectionREFSV) get(DmtdlDMSAG.__startsWith);
         if (attr == null)
@@ -344,12 +352,15 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * Removes the startsWith attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remStartsWith(){
          rem(DmtdlDMSAG.__startsWith);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:660)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:678)
+    /**
+     * @return the SectionREF
+     */
     public SectionREF getEndsWith(){
         DmcTypeSectionREFSV attr = (DmcTypeSectionREFSV) get(DmtdlDMSAG.__endsWith);
         if (attr == null)
@@ -365,8 +376,9 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
         return(attr.getSV());
     }
 
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:700)
     /**
-     * Returns the reference to Section without attempting lazy resolution (if turned on).
+     * @return the reference to Section without attempting lazy resolution (if turned on).
      */
     public SectionREF getEndsWithREF(){
         DmcTypeSectionREFSV attr = (DmcTypeSectionREFSV) get(DmtdlDMSAG.__endsWith);
@@ -376,11 +388,12 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
         return(attr.getSV());
     }
 
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:718)
     /**
      * Sets endsWith to the specified value.
      * @param value SectionDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:714)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:723)
     public void setEndsWith(SectionDMO value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__endsWith);
         if (attr == null)
@@ -400,8 +413,9 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * Sets endsWith to the specified value.
      * @param value A value compatible with DmcTypeSectionREFSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setEndsWith(Object value) throws DmcValueException {
         DmcTypeSectionREFSV attr  = (DmcTypeSectionREFSV) get(DmtdlDMSAG.__endsWith);
         if (attr == null)
@@ -416,12 +430,12 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * Removes the endsWith attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remEndsWith(){
          rem(DmtdlDMSAG.__endsWith);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public String getStartsWithText(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmtdlDMSAG.__startsWithText);
         if (attr == null)
@@ -434,7 +448,7 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
      * Sets startsWithText to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setStartsWithText(String value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__startsWithText);
         if (attr == null)
@@ -452,8 +466,9 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * Sets startsWithText to the specified value.
      * @param value A value compatible with DmcTypeStringSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setStartsWithText(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmtdlDMSAG.__startsWithText);
         if (attr == null)
@@ -466,12 +481,12 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * Removes the startsWithText attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remStartsWithText(){
          rem(DmtdlDMSAG.__startsWithText);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public String getEndsWithText(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmtdlDMSAG.__endsWithText);
         if (attr == null)
@@ -484,7 +499,7 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
      * Sets endsWithText to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setEndsWithText(String value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__endsWithText);
         if (attr == null)
@@ -502,8 +517,9 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * Sets endsWithText to the specified value.
      * @param value A value compatible with DmcTypeStringSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setEndsWithText(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmtdlDMSAG.__endsWithText);
         if (attr == null)
@@ -516,7 +532,7 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * Removes the endsWithText attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remEndsWithText(){
          rem(DmtdlDMSAG.__endsWithText);
     }
@@ -525,7 +541,7 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
      * @return An Iterator of Value objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1278)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1289)
     public Iterator<Value> getValue(){
         DmcTypeValueMV attr = (DmcTypeValueMV) get(DmtdlDMSAG.__value);
         if (attr == null)
@@ -537,7 +553,7 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * @return The nth Value value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1290)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1301)
     public Value getNthValue(int i){
         DmcTypeValueMV attr = (DmcTypeValueMV) get(DmtdlDMSAG.__value);
         if (attr == null)
@@ -550,7 +566,7 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
      * Adds another value to the specified value.
      * @param value Value
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1304)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1315)
     public DmcAttribute<?> addValue(Value value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__value);
         if (attr == null)
@@ -570,7 +586,7 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
      * Returns true if we contain a valued keyed by the specified Value.
      * @param value Value
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1379)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1390)
     public boolean valueContains(Value value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__value);
         if (attr == null)
@@ -581,8 +597,10 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * Adds another value value.
      * @param value A value compatible with Value
+     * @return the attribute instance
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1411)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
     public DmcAttribute<?> addValue(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__value);
         if (attr == null)
@@ -594,9 +612,9 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     }
 
     /**
-     * Returns the number of values in value
+     * @return the number of values in value
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1428)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
     public int getValueSize(){
         DmcAttribute<?> attr = get(DmtdlDMSAG.__value);
         if (attr == null){
@@ -611,8 +629,8 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * Deletes a value value.
      * @param value The Value to be deleted from set of attribute values.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1486)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
     public DmcAttribute<?> delValue(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__value);
         
@@ -627,8 +645,8 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * Deletes a value from the specified value.
      * @param value Value
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1519)
     public DmcAttribute<?> delValue(Value value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__value);
         
@@ -643,12 +661,12 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * Removes the value attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1521)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
     public void remValue(){
          rem(DmtdlDMSAG.__value);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public Boolean isHasTemplate(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(DmtdlDMSAG.__hasTemplate);
         if (attr == null)
@@ -661,7 +679,7 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
      * Sets hasTemplate to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setHasTemplate(Boolean value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__hasTemplate);
         if (attr == null)
@@ -679,8 +697,9 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * Sets hasTemplate to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setHasTemplate(Object value) throws DmcValueException {
         DmcTypeBooleanSV attr  = (DmcTypeBooleanSV) get(DmtdlDMSAG.__hasTemplate);
         if (attr == null)
@@ -693,12 +712,12 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * Removes the hasTemplate attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remHasTemplate(){
          rem(DmtdlDMSAG.__hasTemplate);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public Boolean isUsesTemplate(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(DmtdlDMSAG.__usesTemplate);
         if (attr == null)
@@ -711,7 +730,7 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
      * Sets usesTemplate to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setUsesTemplate(Boolean value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__usesTemplate);
         if (attr == null)
@@ -729,8 +748,9 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * Sets usesTemplate to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setUsesTemplate(Object value) throws DmcValueException {
         DmcTypeBooleanSV attr  = (DmcTypeBooleanSV) get(DmtdlDMSAG.__usesTemplate);
         if (attr == null)
@@ -743,12 +763,12 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * Removes the usesTemplate attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remUsesTemplate(){
          rem(DmtdlDMSAG.__usesTemplate);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public DefinitionName getName(){
         DmcTypeDefinitionNameSV attr = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -761,7 +781,7 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
      * Sets name to the specified value.
      * @param value DefinitionName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setName(DefinitionName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -779,8 +799,9 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setName(Object value) throws DmcValueException {
         DmcTypeDefinitionNameSV attr  = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -793,7 +814,7 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remName(){
          rem(MetaDMSAG.__name);
     }

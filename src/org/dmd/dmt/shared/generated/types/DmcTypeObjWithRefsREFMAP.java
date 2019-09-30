@@ -30,7 +30,7 @@ import org.dmd.dmc.types.DefinitionName;    // key type import
  * The DmcTypeObjWithRefsREFMAP provides storage for a map of ObjWithRefsREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3024)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3041)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:538)
  */
 @SuppressWarnings("serial")
@@ -73,7 +73,7 @@ public class DmcTypeObjWithRefsREFMAP extends DmcTypeObjWithRefsREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3081)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3098)
     public DmcAttribute<ObjWithRefsREF> cloneIt(){
         synchronized(this){
             DmcTypeObjWithRefsREFMAP rc = getNew();
@@ -92,7 +92,7 @@ public class DmcTypeObjWithRefsREFMAP extends DmcTypeObjWithRefsREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3101)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3118)
     public ObjWithRefsREF add(Object v) throws DmcValueException {
         synchronized(this){
             ObjWithRefsREF newval = typeCheck(v);
@@ -112,7 +112,7 @@ public class DmcTypeObjWithRefsREFMAP extends DmcTypeObjWithRefsREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3122)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3139)
     public ObjWithRefsREF del(Object key){
         synchronized(this){
     
@@ -127,7 +127,7 @@ public class DmcTypeObjWithRefsREFMAP extends DmcTypeObjWithRefsREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3138)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3155)
     public Iterator<ObjWithRefsREF> getMV(){
         synchronized(this){
     
@@ -143,7 +143,7 @@ public class DmcTypeObjWithRefsREFMAP extends DmcTypeObjWithRefsREF implements S
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3155)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3172)
     public Map<DefinitionName,ObjWithRefsREF> getMVCopy(){
         synchronized(this){
             Map<DefinitionName,ObjWithRefsREF> clone = null;
@@ -163,7 +163,7 @@ public class DmcTypeObjWithRefsREFMAP extends DmcTypeObjWithRefsREF implements S
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3176)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3193)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -174,7 +174,7 @@ public class DmcTypeObjWithRefsREFMAP extends DmcTypeObjWithRefsREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3188)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3205)
     public ObjWithRefsREF getByKey(Object key){
         synchronized(this){
            if (value == null)
@@ -188,7 +188,7 @@ public class DmcTypeObjWithRefsREFMAP extends DmcTypeObjWithRefsREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3203)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3220)
     public boolean contains(Object v){
         synchronized(this){
            if (value == null)
@@ -204,7 +204,7 @@ public class DmcTypeObjWithRefsREFMAP extends DmcTypeObjWithRefsREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3220)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3237)
     public boolean containsKey(Object key){
         synchronized(this){
            if (value == null)

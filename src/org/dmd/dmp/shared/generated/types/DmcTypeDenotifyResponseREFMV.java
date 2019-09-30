@@ -41,7 +41,7 @@ import org.dmd.dmp.shared.generated.dmo.DenotifyResponseDMO;    // DmcType impor
  * The DmcTypeDenotifyResponseREFMV provides storage for a multi-valued DenotifyResponse
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2495)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:255)
  */
 @SuppressWarnings("serial")
@@ -65,7 +65,7 @@ public class DmcTypeDenotifyResponseREFMV extends DmcTypeDenotifyResponseREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2526)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2543)
     public DmcAttribute<DenotifyResponseDMO> cloneIt(){
         synchronized(this){
             DmcTypeDenotifyResponseREFMV rc = getNew();
@@ -94,7 +94,7 @@ public class DmcTypeDenotifyResponseREFMV extends DmcTypeDenotifyResponseREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2559)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2576)
     public DenotifyResponseDMO add(Object v) throws DmcValueException {
         synchronized(this){
             DenotifyResponseDMO rc = typeCheck(v);
@@ -106,7 +106,7 @@ public class DmcTypeDenotifyResponseREFMV extends DmcTypeDenotifyResponseREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2572)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2589)
     public DenotifyResponseDMO del(Object v){
         synchronized(this){
             if (value == null)
@@ -130,7 +130,7 @@ public class DmcTypeDenotifyResponseREFMV extends DmcTypeDenotifyResponseREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2606)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2623)
     public Iterator<DenotifyResponseDMO> getMV(){
         synchronized(this){
             if (value == null)
@@ -141,7 +141,7 @@ public class DmcTypeDenotifyResponseREFMV extends DmcTypeDenotifyResponseREF imp
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2618)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2635)
     public ArrayList<DenotifyResponseDMO> getMVCopy(){
         synchronized(this){
             if (value == null)
@@ -152,7 +152,7 @@ public class DmcTypeDenotifyResponseREFMV extends DmcTypeDenotifyResponseREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2630)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2647)
     public int getMVSize(){
         synchronized(this){
             if (getAttributeInfo().indexSize == 0){
@@ -166,7 +166,7 @@ public class DmcTypeDenotifyResponseREFMV extends DmcTypeDenotifyResponseREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2645)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2662)
     public DenotifyResponseDMO getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -176,7 +176,7 @@ public class DmcTypeDenotifyResponseREFMV extends DmcTypeDenotifyResponseREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2656)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2673)
     public DenotifyResponseDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
@@ -203,7 +203,7 @@ public class DmcTypeDenotifyResponseREFMV extends DmcTypeDenotifyResponseREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2684)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2701)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -226,7 +226,7 @@ public class DmcTypeDenotifyResponseREFMV extends DmcTypeDenotifyResponseREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2708)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2725)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

@@ -44,7 +44,7 @@ import org.dmd.dmv.shared.generated.enums.NumericRelationEnum;    // DmcType imp
  * The DmcTypeNumericRelationEnumSET provides storage for a set of NumericRelationEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2791)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2808)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:362)
  */
 @SuppressWarnings("serial")
@@ -77,7 +77,7 @@ public class DmcTypeNumericRelationEnumSET extends DmcTypeNumericRelationEnum im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2832)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2849)
     public DmcAttribute<NumericRelationEnum> cloneIt(){
         synchronized(this){
             DmcTypeNumericRelationEnumSET rc = getNew();
@@ -96,7 +96,7 @@ public class DmcTypeNumericRelationEnumSET extends DmcTypeNumericRelationEnum im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2855)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2872)
     public NumericRelationEnum add(Object v) throws DmcValueException {
         synchronized(this){
             NumericRelationEnum rc = typeCheck(v);
@@ -112,7 +112,7 @@ public class DmcTypeNumericRelationEnumSET extends DmcTypeNumericRelationEnum im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2872)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2889)
     public NumericRelationEnum del(Object v){
         synchronized(this){
             NumericRelationEnum rc = null;
@@ -136,7 +136,7 @@ public class DmcTypeNumericRelationEnumSET extends DmcTypeNumericRelationEnum im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2897)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2914)
     public Iterator<NumericRelationEnum> getMV(){
         synchronized(this){
             if (value == null)
@@ -149,7 +149,7 @@ public class DmcTypeNumericRelationEnumSET extends DmcTypeNumericRelationEnum im
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2911)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2928)
     public Set<NumericRelationEnum> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -168,7 +168,7 @@ public class DmcTypeNumericRelationEnumSET extends DmcTypeNumericRelationEnum im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2931)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2948)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -178,7 +178,7 @@ public class DmcTypeNumericRelationEnumSET extends DmcTypeNumericRelationEnum im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2942)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2959)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

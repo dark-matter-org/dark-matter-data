@@ -17,13 +17,13 @@ package org.dmd.dmt.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:442)
-import java.util.ArrayList;                                                           // Support for MULTI attribute - (BaseDMWGenerator.java:2116)
-import java.util.Iterator;                                                            // Support copy of MV objects - (BaseDMWGenerator.java:2130)
+import java.util.ArrayList;                                                           // Support for MULTI attribute - (BaseDMWGenerator.java:2119)
+import java.util.Iterator;                                                            // Support copy of MV objects - (BaseDMWGenerator.java:2133)
 import org.dmd.dmc.*;                                                                 // If any attributes - (BaseDMWGenerator.java:977)
 import org.dmd.dms.ClassDefinition;                                                   // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:944)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                           // Required for MODREC constructor - (BaseDMWGenerator.java:949)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                                 // Required for MODREC constructor - (BaseDMWGenerator.java:948)
-import org.dmd.dmt.server.generated.dmw.MenuElementTypeAndCommentIterableDMW;         // For multi-valued MenuElementTypeAndComment - (BaseDMWGenerator.java:1993)
+import org.dmd.dmt.server.generated.dmw.MenuElementTypeAndCommentIterableDMW;         // For multi-valued MenuElementTypeAndComment - (BaseDMWGenerator.java:1995)
 import org.dmd.dmt.shared.generated.dmo.ComplexTypeTestDMO;                           // Class not auxiliary or abstract - (BaseDMWGenerator.java:1142)
 import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                                     // Attribute mvComplex from the dmt schema - (BaseDMWGenerator.java:910)
 import org.dmd.dmt.shared.generated.types.MenuElementTypeAndComment;                  // Primitive type - (BaseDMWGenerator.java:1040)
@@ -79,7 +79,7 @@ public class ComplexTypeTestDMW extends DmwWrapper {
     /**
      * @return The number of MenuElementTypeAndComment items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1561)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1562)
     public int getMvComplexSize(){
         return(((ComplexTypeTestDMO) core).getMvComplexSize());
     }
@@ -87,7 +87,7 @@ public class ComplexTypeTestDMW extends DmwWrapper {
     /**
      * @return true if there are no MenuElementTypeAndCommentDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1569)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1570)
     public boolean getMvComplexIsEmpty(){
         if (((ComplexTypeTestDMO) core).getMvComplexSize() == 0)
             return(true);
@@ -97,7 +97,7 @@ public class ComplexTypeTestDMW extends DmwWrapper {
     /**
      * @return true if there are any MenuElementTypeAndCommentDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1579)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1580)
     public boolean getMvComplexHasValue(){
         if (((ComplexTypeTestDMO) core).getMvComplexSize() == 0)
             return(false);
@@ -107,7 +107,7 @@ public class ComplexTypeTestDMW extends DmwWrapper {
     /**
      * @return An Iterator of MenuElementTypeAndComment objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1997)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1999)
     public MenuElementTypeAndCommentIterableDMW getMvComplexIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvComplex);
         if (attr == null)
@@ -119,8 +119,9 @@ public class ComplexTypeTestDMW extends DmwWrapper {
     /**
      * Adds another mvComplex value.
      * @param value A value compatible with MenuElementTypeAndComment
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2023)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2026)
     public void addMvComplex(Object value) throws DmcValueException {
         ((ComplexTypeTestDMO) core).addMvComplex(value);
     }
@@ -129,16 +130,16 @@ public class ComplexTypeTestDMW extends DmwWrapper {
      * Adds another mvComplex value.
      * @param value A value compatible with MenuElementTypeAndComment
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2033)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2036)
     public void addMvComplex(MenuElementTypeAndComment value){
         ((ComplexTypeTestDMO) core).addMvComplex(value);
     }
 
     /**
-     * Returns true if the collection contains the mvComplex value.
      * @param value A value compatible with MenuElementTypeAndComment
+     * @return true if the collection contains the mvComplex value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2090)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2093)
     public boolean mvComplexContains(MenuElementTypeAndComment value){
         return(((ComplexTypeTestDMO) core).mvComplexContains(value));
     }
@@ -146,7 +147,7 @@ public class ComplexTypeTestDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of MenuElementTypeAndComment objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2134)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2137)
     @SuppressWarnings("unchecked")
     public ArrayList<MenuElementTypeAndComment> getMvComplexCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvComplex);
@@ -166,8 +167,9 @@ public class ComplexTypeTestDMW extends DmwWrapper {
     /**
      * Deletes a mvComplex value.
      * @param value The MenuElementTypeAndComment to be deleted from set of attribute values.
+     * @throws DmcValueException if value is incorrect
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2161)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2165)
     public void delMvComplex(Object value) throws DmcValueException {
         ((ComplexTypeTestDMO) core).delMvComplex(value);
     }
@@ -176,7 +178,7 @@ public class ComplexTypeTestDMW extends DmwWrapper {
      * Deletes a mvComplex value.
      * @param value The MenuElementTypeAndComment to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2170)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2174)
     public void delMvComplex(MenuElementTypeAndComment value){
         ((ComplexTypeTestDMO) core).delMvComplex(value);
     }
@@ -184,7 +186,7 @@ public class ComplexTypeTestDMW extends DmwWrapper {
     /**
      * Removes the mvComplex attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2182)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2186)
     public void remMvComplex(){
         ((ComplexTypeTestDMO) core).remMvComplex();
     }
@@ -198,7 +200,7 @@ public class ComplexTypeTestDMW extends DmwWrapper {
      * Sets svComplex to the specified value.
      * @param value A value compatible with DmcTypeMenuElementTypeAndComment
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1475)
     public void setSvComplex(Object value) throws DmcValueException {
         ((ComplexTypeTestDMO) core).setSvComplex(value);
     }
@@ -207,7 +209,7 @@ public class ComplexTypeTestDMW extends DmwWrapper {
      * Sets svComplex to the specified value.
      * @param value MenuElementTypeAndComment
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1484)
     public void setSvComplex(MenuElementTypeAndComment value){
         ((ComplexTypeTestDMO) core).setSvComplex(value);
     }
@@ -215,7 +217,7 @@ public class ComplexTypeTestDMW extends DmwWrapper {
     /**
      * Removes the svComplex attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1509)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1510)
     public void remSvComplex(){
         ((ComplexTypeTestDMO) core).remSvComplex();
     }

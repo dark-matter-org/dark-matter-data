@@ -47,12 +47,12 @@ import org.dmd.dms.generated.types.DmcTypeStringSV;           // Required type -
  * login is successful, a session ID will be assigned and a request root will
  * be given. All\n subsequent requests must contain the session ID and all
  * requests will be checked to ensure\n that they pertain to objects at or
- * below the request root.\n <p/>\n The response may also have an
- * originatorID that is a unique identifier assigned by the \n server. In
- * some systems, this identifier will be stamped on all incoming requests
- * and\n passed through to the events that are generated as a result of those
- * requests. In this\n way, a client can tell whether the events it receives
- * came from its own requests or from\n requests made by other clients.
+ * below the request root.\n <p>\n The response may also have an originatorID
+ * that is a unique identifier assigned by the \n server. In some systems,
+ * this identifier will be stamped on all incoming requests and\n passed
+ * through to the events that are generated as a result of those requests. In
+ * this\n way, a client can tell whether the events it receives came from its
+ * own requests or from\n requests made by other clients.
  * <P>
  * Generated from the dmp schema at version 0.1
  * <P>
@@ -102,7 +102,7 @@ public class LoginResponseDMO  extends ResponseDMO  implements Serializable  {
         return(rc);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public String getSessionID(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmpDMSAG.__sessionID);
         if (attr == null)
@@ -115,7 +115,7 @@ public class LoginResponseDMO  extends ResponseDMO  implements Serializable  {
      * Sets sessionID to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setSessionID(String value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__sessionID);
         if (attr == null)
@@ -133,8 +133,9 @@ public class LoginResponseDMO  extends ResponseDMO  implements Serializable  {
     /**
      * Sets sessionID to the specified value.
      * @param value A value compatible with DmcTypeStringSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setSessionID(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmpDMSAG.__sessionID);
         if (attr == null)
@@ -147,12 +148,12 @@ public class LoginResponseDMO  extends ResponseDMO  implements Serializable  {
     /**
      * Removes the sessionID attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remSessionID(){
          rem(DmpDMSAG.__sessionID);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public Integer getOriginatorID(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(DmpDMSAG.__originatorID);
         if (attr == null)
@@ -165,7 +166,7 @@ public class LoginResponseDMO  extends ResponseDMO  implements Serializable  {
      * Sets originatorID to the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setOriginatorID(Integer value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__originatorID);
         if (attr == null)
@@ -183,8 +184,9 @@ public class LoginResponseDMO  extends ResponseDMO  implements Serializable  {
     /**
      * Sets originatorID to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setOriginatorID(Object value) throws DmcValueException {
         DmcTypeIntegerSV attr  = (DmcTypeIntegerSV) get(DmpDMSAG.__originatorID);
         if (attr == null)
@@ -197,12 +199,12 @@ public class LoginResponseDMO  extends ResponseDMO  implements Serializable  {
     /**
      * Removes the originatorID attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remOriginatorID(){
          rem(DmpDMSAG.__originatorID);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public String getRequestRoot(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmpDMSAG.__requestRoot);
         if (attr == null)
@@ -215,7 +217,7 @@ public class LoginResponseDMO  extends ResponseDMO  implements Serializable  {
      * Sets requestRoot to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setRequestRoot(String value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__requestRoot);
         if (attr == null)
@@ -233,8 +235,9 @@ public class LoginResponseDMO  extends ResponseDMO  implements Serializable  {
     /**
      * Sets requestRoot to the specified value.
      * @param value A value compatible with DmcTypeStringSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setRequestRoot(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmpDMSAG.__requestRoot);
         if (attr == null)
@@ -247,12 +250,12 @@ public class LoginResponseDMO  extends ResponseDMO  implements Serializable  {
     /**
      * Removes the requestRoot attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remRequestRoot(){
          rem(DmpDMSAG.__requestRoot);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public String getUserFQN(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmpDMSAG.__userFQN);
         if (attr == null)
@@ -265,7 +268,7 @@ public class LoginResponseDMO  extends ResponseDMO  implements Serializable  {
      * Sets userFQN to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setUserFQN(String value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__userFQN);
         if (attr == null)
@@ -283,8 +286,9 @@ public class LoginResponseDMO  extends ResponseDMO  implements Serializable  {
     /**
      * Sets userFQN to the specified value.
      * @param value A value compatible with DmcTypeStringSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setUserFQN(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmpDMSAG.__userFQN);
         if (attr == null)
@@ -297,7 +301,7 @@ public class LoginResponseDMO  extends ResponseDMO  implements Serializable  {
     /**
      * Removes the userFQN attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remUserFQN(){
          rem(DmpDMSAG.__userFQN);
     }

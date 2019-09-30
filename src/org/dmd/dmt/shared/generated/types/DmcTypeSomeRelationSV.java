@@ -25,7 +25,7 @@ import org.dmd.dmt.shared.generated.types.DmcTypeSomeRelation;    // DmcType imp
  * The DmcTypeSomeRelationSV provides storage for a single-valued SomeRelation
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2151)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2168)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:144)
  */
 @SuppressWarnings("serial")
@@ -50,14 +50,14 @@ public class DmcTypeSomeRelationSV extends DmcTypeSomeRelation implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2183)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2200)
     public DmcAttribute<SomeRelation> cloneIt(){
         DmcTypeSomeRelationSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2194)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2211)
     public SomeRelation getSVCopy(){
         if (value == null)
             return(null);
@@ -65,7 +65,7 @@ public class DmcTypeSomeRelationSV extends DmcTypeSomeRelation implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2206)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2223)
     public SomeRelation set(Object v) throws DmcValueException {
         SomeRelation rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

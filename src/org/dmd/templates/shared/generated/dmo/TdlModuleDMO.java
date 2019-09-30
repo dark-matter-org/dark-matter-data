@@ -55,14 +55,14 @@ import org.dmd.templates.shared.generated.types.TdlModuleREF;                  /
  * A TdlModule is used to define a set of Sections that\n define the overall
  * structure of a textual artifact. When run through the dmtdlgen\n utility,
  * a set of classes are generated to represent these different artifact
- * sections.\n <p/>\n By convention, you should place the .dmtdl files along
+ * sections.\n <p>\n By convention, you should place the .dmtdl files along
  * with your other dark-matter \n config files e.g. in the dmconfig folder
  * with your dark-matter schema or with \n your .dmg wrapper generation
  * files. However, there is no restriction on where you\n place your .dmtdl
  * files, but it's recommended that they exist in a separate subfolder.\n
- * <p/>\n When the dmtdlgen utility is run, a folder (named generated) will
- * be created at\n the same level as the dmconfig folder (or whatever you
- * called it). This will contain\n a dmtdl subpackage that will contain the
+ * <p>\n When the dmtdlgen utility is run, a folder (named generated) will be
+ * created at\n the same level as the dmconfig folder (or whatever you called
+ * it). This will contain\n a dmtdl subpackage that will contain the
  * generated code that represents the \n various Sections that you've defined.
  * <P>
  * Generated from the dmtdl schema at version unknown
@@ -150,7 +150,7 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1278)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1289)
     public Iterator<String> getDescription(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -162,7 +162,7 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     /**
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1290)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1301)
     public String getNthDescription(int i){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -175,7 +175,7 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
      * Adds another description to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1304)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1315)
     public DmcAttribute<?> addDescription(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -195,7 +195,7 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1379)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1390)
     public boolean descriptionContains(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -206,8 +206,10 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Adds another description value.
      * @param value A value compatible with String
+     * @return the attribute instance
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1411)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
     public DmcAttribute<?> addDescription(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -219,9 +221,9 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     }
 
     /**
-     * Returns the number of values in description
+     * @return the number of values in description
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1428)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
     public int getDescriptionSize(){
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null){
@@ -236,8 +238,8 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Deletes a description value.
      * @param value The String to be deleted from set of attribute values.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1486)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
     public DmcAttribute<?> delDescription(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         
@@ -252,8 +254,8 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Deletes a description from the specified value.
      * @param value String
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1519)
     public DmcAttribute<?> delDescription(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         
@@ -268,7 +270,7 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1521)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
     public void remDescription(){
          rem(MetaDMSAG.__description);
     }
@@ -277,7 +279,7 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1278)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1289)
     public Iterator<String> getDefFiles(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__defFiles);
         if (attr == null)
@@ -289,7 +291,7 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     /**
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1290)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1301)
     public String getNthDefFiles(int i){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__defFiles);
         if (attr == null)
@@ -302,7 +304,7 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
      * Adds another defFiles to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1304)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1315)
     public DmcAttribute<?> addDefFiles(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__defFiles);
         if (attr == null)
@@ -322,7 +324,7 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1379)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1390)
     public boolean defFilesContains(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__defFiles);
         if (attr == null)
@@ -333,8 +335,10 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Adds another defFiles value.
      * @param value A value compatible with String
+     * @return the attribute instance
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1411)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
     public DmcAttribute<?> addDefFiles(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__defFiles);
         if (attr == null)
@@ -346,9 +350,9 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     }
 
     /**
-     * Returns the number of values in defFiles
+     * @return the number of values in defFiles
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1428)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
     public int getDefFilesSize(){
         DmcAttribute<?> attr = get(MetaDMSAG.__defFiles);
         if (attr == null){
@@ -363,8 +367,8 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Deletes a defFiles value.
      * @param value The String to be deleted from set of attribute values.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1486)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
     public DmcAttribute<?> delDefFiles(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__defFiles);
         
@@ -379,8 +383,8 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Deletes a defFiles from the specified value.
      * @param value String
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1519)
     public DmcAttribute<?> delDefFiles(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__defFiles);
         
@@ -395,12 +399,12 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Removes the defFiles attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1521)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
     public void remDefFiles(){
          rem(MetaDMSAG.__defFiles);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public String getTemplateFileSuffix(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmtdlDMSAG.__templateFileSuffix);
         if (attr == null)
@@ -413,7 +417,7 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
      * Sets templateFileSuffix to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setTemplateFileSuffix(String value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__templateFileSuffix);
         if (attr == null)
@@ -431,8 +435,9 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Sets templateFileSuffix to the specified value.
      * @param value A value compatible with DmcTypeStringSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setTemplateFileSuffix(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmtdlDMSAG.__templateFileSuffix);
         if (attr == null)
@@ -445,12 +450,12 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Removes the templateFileSuffix attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remTemplateFileSuffix(){
          rem(DmtdlDMSAG.__templateFileSuffix);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public Integer getMaxFastAddValues(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(DmtdlDMSAG.__maxFastAddValues);
         if (attr == null)
@@ -463,7 +468,7 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
      * Sets maxFastAddValues to the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setMaxFastAddValues(Integer value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__maxFastAddValues);
         if (attr == null)
@@ -481,8 +486,9 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Sets maxFastAddValues to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setMaxFastAddValues(Object value) throws DmcValueException {
         DmcTypeIntegerSV attr  = (DmcTypeIntegerSV) get(DmtdlDMSAG.__maxFastAddValues);
         if (attr == null)
@@ -495,12 +501,12 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Removes the maxFastAddValues attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remMaxFastAddValues(){
          rem(DmtdlDMSAG.__maxFastAddValues);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public String getInsertMarker(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmtdlDMSAG.__insertMarker);
         if (attr == null)
@@ -513,7 +519,7 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
      * Sets insertMarker to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setInsertMarker(String value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__insertMarker);
         if (attr == null)
@@ -531,8 +537,9 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Sets insertMarker to the specified value.
      * @param value A value compatible with DmcTypeStringSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setInsertMarker(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmtdlDMSAG.__insertMarker);
         if (attr == null)
@@ -545,12 +552,12 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Removes the insertMarker attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remInsertMarker(){
          rem(DmtdlDMSAG.__insertMarker);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public String getCommentFormat(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmtdlDMSAG.__commentFormat);
         if (attr == null)
@@ -563,7 +570,7 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
      * Sets commentFormat to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setCommentFormat(String value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__commentFormat);
         if (attr == null)
@@ -581,8 +588,9 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Sets commentFormat to the specified value.
      * @param value A value compatible with DmcTypeStringSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setCommentFormat(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmtdlDMSAG.__commentFormat);
         if (attr == null)
@@ -595,7 +603,7 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Removes the commentFormat attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remCommentFormat(){
          rem(DmtdlDMSAG.__commentFormat);
     }
@@ -604,7 +612,7 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
      * @return An Iterator of TdlModuleDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1146)
     public Iterator<TdlModuleREF> getDependsOnTdlModule(){
         DmcTypeTdlModuleREFMV attr = (DmcTypeTdlModuleREFMV) get(DmtdlDMSAG.__dependsOnTdlModule);
         if (attr == null)
@@ -624,7 +632,7 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
      * @return An Iterator of TdlModuleREFs without attempting lazy resolution (if it's turned on).
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1156)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1166)
     public Iterator<TdlModuleREF> getDependsOnTdlModuleREFs(){
         DmcTypeTdlModuleREFMV attr = (DmcTypeTdlModuleREFMV) get(DmtdlDMSAG.__dependsOnTdlModule);
         if (attr == null)
@@ -636,8 +644,9 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Adds another dependsOnTdlModule to the specified value.
      * @param value TdlModule
+     * @return the attribute instance
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1170)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1181)
     public DmcAttribute<?> addDependsOnTdlModule(TdlModuleDMO value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__dependsOnTdlModule);
         if (attr == null)
@@ -656,8 +665,10 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Adds another dependsOnTdlModule value.
      * @param value A value compatible with TdlModule
+     * @return the attribute instance
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1411)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
     public DmcAttribute<?> addDependsOnTdlModule(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__dependsOnTdlModule);
         if (attr == null)
@@ -669,9 +680,9 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     }
 
     /**
-     * Returns the number of values in dependsOnTdlModule
+     * @return the number of values in dependsOnTdlModule
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1428)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
     public int getDependsOnTdlModuleSize(){
         DmcAttribute<?> attr = get(DmtdlDMSAG.__dependsOnTdlModule);
         if (attr == null){
@@ -686,8 +697,8 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Deletes a dependsOnTdlModule value.
      * @param value The TdlModule to be deleted from set of attribute values.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1467)
+     * @return the deleted attribute instance     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1482)
     public DmcAttribute<?> delDependsOnTdlModule(Object value){
         DmcAttribute<?> attr = get(DmtdlDMSAG.__dependsOnTdlModule);
         
@@ -702,12 +713,12 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Removes the dependsOnTdlModule attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1521)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
     public void remDependsOnTdlModule(){
          rem(DmtdlDMSAG.__dependsOnTdlModule);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public DefinitionName getName(){
         DmcTypeDefinitionNameSV attr = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -720,7 +731,7 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
      * Sets name to the specified value.
      * @param value DefinitionName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setName(DefinitionName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -738,8 +749,9 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setName(Object value) throws DmcValueException {
         DmcTypeDefinitionNameSV attr  = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -752,12 +764,12 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remName(){
          rem(MetaDMSAG.__name);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public String getPackage(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmtdlDMSAG.__package);
         if (attr == null)
@@ -770,7 +782,7 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
      * Sets package to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setPackage(String value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__package);
         if (attr == null)
@@ -788,8 +800,9 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Sets package to the specified value.
      * @param value A value compatible with DmcTypeStringSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setPackage(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmtdlDMSAG.__package);
         if (attr == null)
@@ -802,12 +815,12 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Removes the package attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remPackage(){
          rem(DmtdlDMSAG.__package);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public String getTemplateFile(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmtdlDMSAG.__templateFile);
         if (attr == null)
@@ -820,7 +833,7 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
      * Sets templateFile to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setTemplateFile(String value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__templateFile);
         if (attr == null)
@@ -838,8 +851,9 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Sets templateFile to the specified value.
      * @param value A value compatible with DmcTypeStringSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setTemplateFile(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmtdlDMSAG.__templateFile);
         if (attr == null)
@@ -852,7 +866,7 @@ public class TdlModuleDMO  extends TdlDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Removes the templateFile attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remTemplateFile(){
          rem(DmtdlDMSAG.__templateFile);
     }

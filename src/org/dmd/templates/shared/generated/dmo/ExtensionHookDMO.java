@@ -54,23 +54,23 @@ import org.dmd.templates.shared.generated.types.SectionREF;                  // 
  * pairs (via the nvp attribute).\n These mechanisms are useful because they
  * allow you to augment an existing Domain Specific Language\n (DSL) with
  * your own information that can be used to facilitate generation of other
- * types\n of artifacts.\n <p/>\n However, you might also want that
- * additional information to show up in the documentation\n produced as part
- * of the base DSL. That's where the ExtensionHook mechanism comes into
- * play;\n although you can use this for your own purposes to allow others to
- * extend the\n content of your generated artifacts - there's nothing
- * dark-matter specific about \n the mechanism.\n <p/>\n When defining your
- * Sections, you may indicate that they contain ExtensionHooks.  This\n will
- * result in the generation of an ExtensionHook interface for the template
- * definition module.\n Other designers who have extended your DSL then
- * create a class that implements the ExtensionHook\n interface and have it
- * dynamically loaded when the artifact generator is invoked (this is
- * usually\n done via commandline arguments that are passed to the generated
- * TemplateLoader). It's up to the\n designer of the base DSL to provide
- * these mechanisms.\n <p/>\n When formatting the artifact, the base DSL
- * designer will call the method on a Section\n (in the appropriate sequence)
- * to have the TemplateLoader call any registered classes that\n implement
- * the ExtensionHook interface.
+ * types\n of artifacts.\n <p>\n However, you might also want that additional
+ * information to show up in the documentation\n produced as part of the base
+ * DSL. That's where the ExtensionHook mechanism comes into play;\n although
+ * you can use this for your own purposes to allow others to extend the\n
+ * content of your generated artifacts - there's nothing dark-matter specific
+ * about \n the mechanism.\n <p>\n When defining your Sections, you may
+ * indicate that they contain ExtensionHooks.  This\n will result in the
+ * generation of an ExtensionHook interface for the template definition
+ * module.\n Other designers who have extended your DSL then create a class
+ * that implements the ExtensionHook\n interface and have it dynamically
+ * loaded when the artifact generator is invoked (this is usually\n done via
+ * commandline arguments that are passed to the generated TemplateLoader).
+ * It's up to the\n designer of the base DSL to provide these mechanisms.\n
+ * <p>\n When formatting the artifact, the base DSL designer will call the
+ * method on a Section\n (in the appropriate sequence) to have the
+ * TemplateLoader call any registered classes that\n implement the
+ * ExtensionHook interface.
  * <P>
  * Generated from the dmtdl schema at version unknown
  * <P>
@@ -153,7 +153,7 @@ public class ExtensionHookDMO  extends ContainedElementDMO  implements DmcNamedO
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public DefinitionName getName(){
         DmcTypeDefinitionNameSV attr = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -166,7 +166,7 @@ public class ExtensionHookDMO  extends ContainedElementDMO  implements DmcNamedO
      * Sets name to the specified value.
      * @param value DefinitionName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setName(DefinitionName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -184,8 +184,9 @@ public class ExtensionHookDMO  extends ContainedElementDMO  implements DmcNamedO
     /**
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeDefinitionNameSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setName(Object value) throws DmcValueException {
         DmcTypeDefinitionNameSV attr  = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -198,12 +199,15 @@ public class ExtensionHookDMO  extends ContainedElementDMO  implements DmcNamedO
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remName(){
          rem(MetaDMSAG.__name);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:660)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:678)
+    /**
+     * @return the SectionREF
+     */
     public SectionREF getUsesSection(){
         DmcTypeSectionREFSV attr = (DmcTypeSectionREFSV) get(DmtdlDMSAG.__usesSection);
         if (attr == null)
@@ -219,8 +223,9 @@ public class ExtensionHookDMO  extends ContainedElementDMO  implements DmcNamedO
         return(attr.getSV());
     }
 
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:700)
     /**
-     * Returns the reference to Section without attempting lazy resolution (if turned on).
+     * @return the reference to Section without attempting lazy resolution (if turned on).
      */
     public SectionREF getUsesSectionREF(){
         DmcTypeSectionREFSV attr = (DmcTypeSectionREFSV) get(DmtdlDMSAG.__usesSection);
@@ -230,11 +235,12 @@ public class ExtensionHookDMO  extends ContainedElementDMO  implements DmcNamedO
         return(attr.getSV());
     }
 
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:718)
     /**
      * Sets usesSection to the specified value.
      * @param value SectionDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:714)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:723)
     public void setUsesSection(SectionDMO value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__usesSection);
         if (attr == null)
@@ -254,8 +260,9 @@ public class ExtensionHookDMO  extends ContainedElementDMO  implements DmcNamedO
     /**
      * Sets usesSection to the specified value.
      * @param value A value compatible with DmcTypeSectionREFSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setUsesSection(Object value) throws DmcValueException {
         DmcTypeSectionREFSV attr  = (DmcTypeSectionREFSV) get(DmtdlDMSAG.__usesSection);
         if (attr == null)
@@ -270,12 +277,12 @@ public class ExtensionHookDMO  extends ContainedElementDMO  implements DmcNamedO
     /**
      * Removes the usesSection attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remUsesSection(){
          rem(DmtdlDMSAG.__usesSection);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:798)
     public String getTargetObjectClass(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmtdlDMSAG.__targetObjectClass);
         if (attr == null)
@@ -288,7 +295,7 @@ public class ExtensionHookDMO  extends ContainedElementDMO  implements DmcNamedO
      * Sets targetObjectClass to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:838)
     public void setTargetObjectClass(String value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__targetObjectClass);
         if (attr == null)
@@ -306,8 +313,9 @@ public class ExtensionHookDMO  extends ContainedElementDMO  implements DmcNamedO
     /**
      * Sets targetObjectClass to the specified value.
      * @param value A value compatible with DmcTypeStringSV
+     * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:892)
     public void setTargetObjectClass(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmtdlDMSAG.__targetObjectClass);
         if (attr == null)
@@ -320,7 +328,7 @@ public class ExtensionHookDMO  extends ContainedElementDMO  implements DmcNamedO
     /**
      * Removes the targetObjectClass attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:912)
     public void remTargetObjectClass(){
          rem(DmtdlDMSAG.__targetObjectClass);
     }

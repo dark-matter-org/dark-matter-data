@@ -261,6 +261,7 @@ abstract public class DmcObject implements Serializable {
 	 * Auto-generated derived classes override this to return an instance of themselves 
 	 * with just the specified slice of attributes. In the case of named objects, the 
 	 * object name is always part of the slice.
+	 * @param info the slice info
 	 * @return An instance of the derived class with the specified slice of attributes.
 	 */
 	abstract public DmcObject getSlice(DmcSliceInfo info);
@@ -296,7 +297,7 @@ abstract public class DmcObject implements Serializable {
 	/**
 	 * This method is used when we're tracking backrefs. The modifier will contain the
 	 * OPPOSITE of the SET/ADD operation that's creating a reference to THIS object.
-	 * @param mod
+	 * @param mod the modifier
 	 */
 	public void addBackref(Modifier mod){
 		if (isStaging())
@@ -372,7 +373,7 @@ abstract public class DmcObject implements Serializable {
 	/**
 	 * This method sets the modifier of the object which will track all changes made
 	 * to the object. Set the modifier to null to stop change tracking.
-	 * @param m
+	 * @param m where modifications will be stored
 	 */
 	public void setModifier(DmcTypeModifierMV m){
 		if (isStaging())
@@ -394,7 +395,7 @@ abstract public class DmcObject implements Serializable {
 	/**
 	 * This method is called in the add()/del() methods on DMOs to store the last value that was
 	 * added/deleted from a multi-valued attribute.
-	 * @param val
+	 * @param val the last value added/deleted
 	 */
 	protected void  setLastValue(Object val){
 		// If we don't have a modifier and backref tracking IS NOT turned on, don't bother
@@ -414,13 +415,15 @@ abstract public class DmcObject implements Serializable {
 	}
 	
 	/**
-	 * When a DMO is constructed with A DmcTypeModifier, this flag is set to true.
-	 * @param f
+	 * @param f When a DMO is constructed with A DmcTypeModifier, this flag is set to true.
 	 */
 	protected void modrec(Boolean f){
 		setInfo(MODREC,MODREC_SIZE,f);
 	}
 	
+	/**
+	 * @return whether this is a modification recorder or not
+	 */
 	protected Boolean isModrec(){
 		Boolean mr = (Boolean) getInfo(MODREC,MODREC_SIZE);
 		if (mr == null)
@@ -429,13 +432,15 @@ abstract public class DmcObject implements Serializable {
 	}
 	
 	/**
-	 * When a DMO is constructed in staging mode, this flag is set to true.
-	 * @param f
+	 * @param f when a DMO is constructed in staging mode, this flag is set to true.
 	 */
 	protected void staging(Boolean f){
 		setInfo(STAGING,STAGING_SIZE,f);
 	}
 	
+	/**
+	 * @return whether we're in staging mode or not
+	 */
 	protected Boolean isStaging(){
 		Boolean staging = (Boolean) getInfo(STAGING,STAGING_SIZE);
 		if (staging == null)
@@ -684,7 +689,7 @@ abstract public class DmcObject implements Serializable {
     /**
      * Adds the specified auxiliary class name to the object.
      * @param cd The auxiliary class name.
-     * @throws DmcValueException  
+     * @throws DmcValueException if class name not valid
      */
     public void addAux(String cd) throws DmcValueException {
     	DmcTypeClassDefinitionREFMV ocl = (DmcTypeClassDefinitionREFMV) get(__objectClass.id);
@@ -696,7 +701,7 @@ abstract public class DmcObject implements Serializable {
     /**
      * Adds the specified auxiliary class name to the object.
      * @param cd The auxiliary class name.
-     * @throws DmcValueException  
+     * @throws DmcValueException  if class reference incorrect
      */
     public void addAux(ClassDefinitionREF cd) throws DmcValueException {
     	DmcTypeClassDefinitionREFMV ocl = (DmcTypeClassDefinitionREFMV) get(__objectClass.id);
@@ -719,6 +724,7 @@ abstract public class DmcObject implements Serializable {
     /**
      * Determines if the specified class is in our ocl.
      * @param cd The auxiliary class name.
+     * @return true if we have specified auxiliary class
      */
     public boolean hasAux(String cd){
     	DmcTypeClassDefinitionREFMV ocl = (DmcTypeClassDefinitionREFMV) get(__objectClass.id);
@@ -835,7 +841,9 @@ abstract public class DmcObject implements Serializable {
 	 * same attribute to a different type, you get a class cast exception.
 	 * @param attrName  The attribute name.
 	 * @param attr      The attribute to be stored.
-	 * @throws DmcValueException 
+	 * @param <T>       the attribute type
+	 * @throws DmcValueException if value is incorrect
+	 * @return the attribute instance
 	 */
 	public <T extends DmcAttribute<?>> T set(String attrName, DmcAttribute<?> attr) throws DmcValueException {
 		DmcAttributeInfo ai = getAttributeInfo(attrName);
@@ -852,7 +860,9 @@ abstract public class DmcObject implements Serializable {
 	 * This method sets the value of a single-valued attribute.
 	 * @param ai  	the attribute info.
 	 * @param attr  the attribute to be stored.
-	 * @throws DmcValueException 
+	 * @param <T>   the attribute type
+	 * @throws DmcValueException if value is incorrect
+	 * @return the attribute instance
 	 */
 	@SuppressWarnings("unchecked")
 	public <T extends DmcAttribute<?>> T set(DmcAttributeInfo ai, DmcAttribute<?> attr) throws DmcValueException {		
@@ -904,7 +914,9 @@ abstract public class DmcObject implements Serializable {
 	 * same attribute to a different type, you get a class cast exception.
 	 * @param attrName  The attribute name.
 	 * @param attr      The attribute value to be stored.
-	 * @throws DmcValueException 
+	 * @param <T>   the attribute type
+	 * @throws DmcValueException if value is incorrect
+	 * @return the attribute instance
 	 */
 	public <T extends DmcAttribute<?>> T add(String attrName, DmcAttribute<?> attr) throws DmcValueException {
 		DmcAttributeInfo ai = getAttributeInfo(attrName);
@@ -922,7 +934,9 @@ abstract public class DmcObject implements Serializable {
 	 * same attribute to a different type, you get a class cast exception.
 	 * @param ai   The attribute info.
 	 * @param attr The attribute value to be stored.
-	 * @throws DmcValueException 
+	 * @param <T>   the attribute type
+	 * @throws DmcValueException if value is incorrect
+	 * @return the attribute instance
 	 */
 	@SuppressWarnings("unchecked")
 	public <T extends DmcAttribute<?>> T add(DmcAttributeInfo ai, DmcAttribute<?> attr) throws DmcValueException {
@@ -1001,8 +1015,7 @@ abstract public class DmcObject implements Serializable {
 	 * @param <T>      	The class 
 	 * @param attrName  The attribute name.
 	 * @param value     The value to be stored.
-	 * @throws DmcValueException 
-	 * @throws DmcValueException 
+	 * @return the attribute instance
 	 */
 	public <T extends DmcAttribute<?>> T del(String attrName, Object value){
 		DmcAttributeInfo ai = getAttributeInfo(attrName);
@@ -1040,8 +1053,7 @@ abstract public class DmcObject implements Serializable {
 	 * @param <T>      	The class 
 	 * @param ai    the attribute info.
 	 * @param value the value to be stored.
-	 * @throws DmcValueException 
-	 * @throws DmcValueException 
+	 * @return the attribute instance
 	 */
 	@SuppressWarnings("unchecked")
 	public <T extends DmcAttribute<?>> T del(DmcAttributeInfo ai, Object value){
@@ -1119,7 +1131,8 @@ abstract public class DmcObject implements Serializable {
 	/**
 	 * Removes the specified attribute from the object.
 	 * @param attrName The attribute name.
-	 * @throws DmcValueException 
+	 * @param <T>   the attribute type
+	 * @return the attribute instance
 	 */
 	public <T extends DmcAttribute<?>> T rem(String attrName){
 		DmcAttributeInfo ai = getAttributeInfo(attrName);
@@ -1133,7 +1146,8 @@ abstract public class DmcObject implements Serializable {
 	/**
 	 * Removes the specified attribute from the object.
 	 * @param ai the attribute info.
-	 * @throws DmcValueException 
+	 * @param <T>   the attribute type
+	 * @return the attribute instance
 	 */
 	@SuppressWarnings("unchecked")
 	public <T extends DmcAttribute<?>> T rem(DmcAttributeInfo ai){
@@ -1220,8 +1234,8 @@ abstract public class DmcObject implements Serializable {
 	 * This method is called in generated DMOs to handle the case where we're
 	 * using an empty DMO to create a modifier. When we perform setNth(#,null),
 	 * we have no attribute, so we create a specialized modifier. 
-	 * @param mod The appropriately typed attribute holder.
-	 * @param value The value to be deleted.
+	 * @param ai  The attribute info
+	 * @param idx The index of the value to be deleted.
 	 */
 	protected void nthNullFromEmptyAttribute(DmcAttributeInfo ai, int idx){
 		try {
@@ -1234,9 +1248,13 @@ abstract public class DmcObject implements Serializable {
 	/**
 	 * This method adds a value to a multi-valued attribute. If you had previously set the
 	 * same attribute to a different type, you get a class cast exception.
-	 * @param ai   The attribute info.
-	 * @param attr The attribute value to be stored.
-	 * @throws DmcValueException 
+	 * @param ai      The attribute info.
+	 * @param index   The insertion index.
+	 * @param attr    The attribute value to be stored.
+	 * @param previous    The previous value.
+	 * @param <T>   the attribute type
+	 * @return the attribute instance
+	 * @throws DmcValueException if the value is incorrect
 	 */
 	@SuppressWarnings("unchecked")
 	protected <T extends DmcAttribute<?>> T nth(DmcAttributeInfo ai, int index, DmcAttribute<?> attr, Object previous) throws DmcValueException {
@@ -1346,6 +1364,7 @@ abstract public class DmcObject implements Serializable {
 	 * code for the object, which can be useful when determining the actual object instance
 	 * you're referring to. The subsequent lines indicate the class of object doing the
 	 * referring, its name and the attribute via which the reference is maintained.
+	 * @return references returned as a String
 	 */
 	public String getBackRefs(){
 		synchronized(attributes){		
@@ -1393,6 +1412,7 @@ abstract public class DmcObject implements Serializable {
 	/**
 	 * Returns the objects that are referring to this object. This will only
 	 * return a value if you've turned on backref tracking via the DmcOmni.
+	 * @return the objects that refer to us
 	 */
 	public ArrayList<DmcObject> getReferringObjects(){
 		ArrayList<DmcObject>	rc = new ArrayList<DmcObject>();
@@ -1413,7 +1433,8 @@ abstract public class DmcObject implements Serializable {
 	}
 	
 	/**
-	 * Returns the objects that are referring to this object via the specified attribute. This will only
+	 * @param ai the attribute info
+	 * @return the objects that are referring to this object via the specified attribute. This will only
 	 * return a value if you've turned on backref tracking via the DmcOmni.
 	 */
 	public ArrayList<DmcObject> getReferringObjectsViaAttribute(DmcAttributeInfo ai){
@@ -1558,7 +1579,7 @@ abstract public class DmcObject implements Serializable {
 	 * Returns the object in Object Instance Format (OIF) with the attribute name left
 	 * justified in an amount of space indicated by padding. This just provides a more
 	 * readable version of the object.
-	 * <p/>
+	 * <p>
 	 * Only attributes with DataType PERSISTENT will be displayed.
 	 * @param padding The amount of space in which to display the attribute names.
 	 * @return The String representation of the object.
@@ -1754,7 +1775,7 @@ abstract public class DmcObject implements Serializable {
 	 * this method does is attempt to resolve references to named objects using the provided
 	 * name resolver.
 	 * @param rx A name resolver.
-	 * @throws Exception 
+	 * @throws DmcValueExceptionSet if there are problems resolving 
 	 */
 	public void resolveReferences(DmcNameResolverIF rx) throws DmcValueExceptionSet {
 		resolveReferences(rx, false, null);
@@ -1765,7 +1786,7 @@ abstract public class DmcObject implements Serializable {
 	 * and its associated ClassDefinition objects are not available e.g. in GWT UIs. Resolution
 	 * is performed as usual, but we skip the object class.
 	 * @param rx A name resolver.
-	 * @throws DmcValueExceptionSet
+	 * @throws DmcValueExceptionSet if there are problems resolving 
 	 */
 	public void resolveReferencesExceptClass(DmcNameResolverIF rx) throws DmcValueExceptionSet {
 		resolveReferences(rx, true, null);
@@ -1779,7 +1800,7 @@ abstract public class DmcObject implements Serializable {
 	 * between ambiguous/clashing names. 
 	 * @param rx the name resolver
 	 * @param ncr the clash resolver
-	 * @throws DmcValueExceptionSet
+	 * @throws DmcValueExceptionSet if there are problems resolving 
 	 */
 	public void resolveReferences(DmcNameResolverWithClashSupportIF rx, DmcNameClashResolverIF ncr) throws DmcValueExceptionSet {
 		resolveReferences(rx, false, ncr);		
@@ -1797,7 +1818,7 @@ abstract public class DmcObject implements Serializable {
 	 * between ambiguous/clashing names. 
 	 * @param rx the name resolver
 	 * @param ncr the clash resolver
-	 * @throws DmcValueExceptionSet
+	 * @throws DmcValueExceptionSet if there are problems resolving 
 	 */
 	public void resolveReferencesExceptClass(DmcNameResolverWithClashSupportIF rx, DmcNameClashResolverIF ncr) throws DmcValueExceptionSet {
 		resolveReferences(rx, true, ncr);		
@@ -1807,7 +1828,8 @@ abstract public class DmcObject implements Serializable {
 	 * We perform object resolution and optionally skip the class attribute.
 	 * @param rx A name resolver.
 	 * @param skipClass Indicates whether we should skip the class attribute or not.
-	 * @throws Exception 
+	 * @param ncr the name clash resolver
+	 * @throws DmcValueExceptionSet if there are problems resolving
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	protected void resolveReferences(DmcNameResolverIF rx, boolean skipClass, DmcNameClashResolverIF ncr) throws DmcValueExceptionSet {
@@ -2149,8 +2171,8 @@ abstract public class DmcObject implements Serializable {
 	/**
 	 * This method applies the modification operations defined in the modifier to this object.
 	 * @param mods The modifications to be applied.
-	 * @throws DmcValueExceptionSet
-	 * @throws DmcValueException
+	 * @throws DmcValueExceptionSet if multiple value problems
+	 * @throws DmcValueException if value problems
 	 * @return true if any changes were made to the object and false otherwise. 
 	 */
 	@SuppressWarnings("unchecked")
@@ -2388,7 +2410,7 @@ abstract public class DmcObject implements Serializable {
 	// Object serialization
 	
 	/**
-	 * Returns the data type of our construction class if we're in an operational context
+	 * @return the data type of our construction class if we're in an operational context
 	 * where the underlying class definition is available; otherwise, UNKNOWN is returned.
 	 */
 	public DataTypeEnum getDataType(){
@@ -2409,8 +2431,8 @@ abstract public class DmcObject implements Serializable {
     /**
      * Serializes the object using Dark Matter serialization techniques.
      * @param dos
-     * @throws IOException 
-     * @throws DmcValueException  
+     * @throws Exception if there are IO problems
+     * @throws DmcValueException  if there are value problems
      */
     public void serializeIt(DmcOutputStreamIF dos) throws Exception, DmcValueException {
 		synchronized (attributes) {
@@ -2465,6 +2487,11 @@ abstract public class DmcObject implements Serializable {
 		}
     }
     
+    /**
+     * Deserializes an object.
+     * @param dis the input stream
+     * @throws Exception if any problems encountered.
+     */
     public void deserializeIt(DmcInputStreamIF dis)  throws Exception {
     	int attrCount = dis.readAttributeCount();
     	
@@ -2491,6 +2518,7 @@ abstract public class DmcObject implements Serializable {
     /**
      * This method performs an attribute by attribute comparison of this
      * object with the specified object and returns true if they are equal.
+     * @return true if we equal the specified object
      */
     @Override
     public boolean equals(Object obj){
@@ -2659,6 +2687,7 @@ abstract public class DmcObject implements Serializable {
      * is to allow for the validation of a set of modifications before actually
      * applying them to the target object. 
      * @param mods the modification that might be applied
+     * @return the staging object
      */
     public DmcObject getStagingObject(DmcTypeModifier mods){
     	synchronized (attributes) {
