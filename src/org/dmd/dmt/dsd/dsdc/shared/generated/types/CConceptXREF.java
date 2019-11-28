@@ -58,31 +58,37 @@ public class CConceptXREF extends DmcNamedObjectNontransportableREF<CConceptXDMO
     
     DmcTypeDefinitionNameSV myName;    
     
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:437)
     public CConceptXREF(){
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:441)
     public CConceptXREF(CConceptXDMO o){
          object = o;
          myName = (DmcTypeDefinitionNameSV)o.getObjectNameAttribute();
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:447)
     public CConceptXREF(DefinitionName n) throws DmcValueException {
          object = null;
          myName = new DmcTypeDefinitionNameSV(__name);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:454)
     public CConceptXREF(String n) throws DmcValueException {
          object = null;
          myName = new DmcTypeDefinitionNameSV(__name);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:461)
     public CConceptXREF(CConceptXREF original){
         myName = original.myName;
         object = original.object;
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:467)
     public void setObject(CConceptXDMO o){
          object = o;
          if (object != null)
@@ -92,6 +98,7 @@ public class CConceptXREF extends DmcNamedObjectNontransportableREF<CConceptXDMO
     /**
      * Clones this reference.
      */
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:477)
     public CConceptXREF cloneMe(){
         CConceptXREF rc = new CConceptXREF();
         rc.myName = myName;

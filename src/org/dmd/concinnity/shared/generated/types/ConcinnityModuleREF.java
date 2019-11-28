@@ -58,31 +58,37 @@ public class ConcinnityModuleREF extends DmcNamedObjectNontransportableREF<Conci
     
     DmcTypeDefinitionNameSV myName;    
     
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:437)
     public ConcinnityModuleREF(){
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:441)
     public ConcinnityModuleREF(ConcinnityModuleDMO o){
          object = o;
          myName = (DmcTypeDefinitionNameSV)o.getObjectNameAttribute();
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:447)
     public ConcinnityModuleREF(DefinitionName n) throws DmcValueException {
          object = null;
          myName = new DmcTypeDefinitionNameSV(__name);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:454)
     public ConcinnityModuleREF(String n) throws DmcValueException {
          object = null;
          myName = new DmcTypeDefinitionNameSV(__name);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:461)
     public ConcinnityModuleREF(ConcinnityModuleREF original){
         myName = original.myName;
         object = original.object;
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:467)
     public void setObject(ConcinnityModuleDMO o){
          object = o;
          if (object != null)
@@ -92,6 +98,7 @@ public class ConcinnityModuleREF extends DmcNamedObjectNontransportableREF<Conci
     /**
      * Clones this reference.
      */
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:477)
     public ConcinnityModuleREF cloneMe(){
         ConcinnityModuleREF rc = new ConcinnityModuleREF();
         rc.myName = myName;

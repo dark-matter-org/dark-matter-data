@@ -58,31 +58,37 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataREF extends DmcNamedObjectNo
     
     DmcTypeRuleNameSV myName;    
     
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:437)
     public OnlyOneOfTheseAttributesAllowedRuleDataREF(){
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:441)
     public OnlyOneOfTheseAttributesAllowedRuleDataREF(OnlyOneOfTheseAttributesAllowedRuleDataDMO o){
          object = o;
          myName = (DmcTypeRuleNameSV)o.getObjectNameAttribute();
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:447)
     public OnlyOneOfTheseAttributesAllowedRuleDataREF(RuleName n) throws DmcValueException {
          object = null;
          myName = new DmcTypeRuleNameSV(__ruleName);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:454)
     public OnlyOneOfTheseAttributesAllowedRuleDataREF(String n) throws DmcValueException {
          object = null;
          myName = new DmcTypeRuleNameSV(__ruleName);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:461)
     public OnlyOneOfTheseAttributesAllowedRuleDataREF(OnlyOneOfTheseAttributesAllowedRuleDataREF original){
         myName = original.myName;
         object = original.object;
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:467)
     public void setObject(OnlyOneOfTheseAttributesAllowedRuleDataDMO o){
          object = o;
          if (object != null)
@@ -92,6 +98,7 @@ public class OnlyOneOfTheseAttributesAllowedRuleDataREF extends DmcNamedObjectNo
     /**
      * Clones this reference.
      */
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:477)
     public OnlyOneOfTheseAttributesAllowedRuleDataREF cloneMe(){
         OnlyOneOfTheseAttributesAllowedRuleDataREF rc = new OnlyOneOfTheseAttributesAllowedRuleDataREF();
         rc.myName = myName;

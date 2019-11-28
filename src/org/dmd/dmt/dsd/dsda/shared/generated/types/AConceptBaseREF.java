@@ -58,31 +58,37 @@ public class AConceptBaseREF extends DmcNamedObjectNontransportableREF<AConceptB
     
     DmcTypeDefinitionNameSV myName;    
     
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:437)
     public AConceptBaseREF(){
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:441)
     public AConceptBaseREF(AConceptBaseDMO o){
          object = o;
          myName = (DmcTypeDefinitionNameSV)o.getObjectNameAttribute();
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:447)
     public AConceptBaseREF(DefinitionName n) throws DmcValueException {
          object = null;
          myName = new DmcTypeDefinitionNameSV(__name);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:454)
     public AConceptBaseREF(String n) throws DmcValueException {
          object = null;
          myName = new DmcTypeDefinitionNameSV(__name);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:461)
     public AConceptBaseREF(AConceptBaseREF original){
         myName = original.myName;
         object = original.object;
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:467)
     public void setObject(AConceptBaseDMO o){
          object = o;
          if (object != null)
@@ -92,6 +98,7 @@ public class AConceptBaseREF extends DmcNamedObjectNontransportableREF<AConceptB
     /**
      * Clones this reference.
      */
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:477)
     public AConceptBaseREF cloneMe(){
         AConceptBaseREF rc = new AConceptBaseREF();
         rc.myName = myName;

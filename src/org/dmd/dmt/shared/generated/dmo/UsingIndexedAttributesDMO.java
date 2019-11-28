@@ -148,7 +148,7 @@ public class UsingIndexedAttributesDMO  extends DmcObject  implements Serializab
      * @return the attribute instance
      * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1426)
     public DmcAttribute<?> addSomeRelationIndexed(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__someRelationIndexed);
         if (attr == null)
@@ -162,7 +162,7 @@ public class UsingIndexedAttributesDMO  extends DmcObject  implements Serializab
     /**
      * @return the number of values in someRelationIndexed
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1443)
     public int getSomeRelationIndexedSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__someRelationIndexed);
         if (attr == null){
@@ -178,7 +178,7 @@ public class UsingIndexedAttributesDMO  extends DmcObject  implements Serializab
      * Deletes a someRelationIndexed value.
      * @param value The SomeRelation to be deleted from set of attribute values.
      * @return the deleted attribute instance     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1482)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1484)
     public DmcAttribute<?> delSomeRelationIndexed(Object value){
         DmcAttribute<?> attr = get(DmtDMSAG.__someRelationIndexed);
         
@@ -193,7 +193,7 @@ public class UsingIndexedAttributesDMO  extends DmcObject  implements Serializab
     /**
      * Removes the someRelationIndexed attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1541)
     public void remSomeRelationIndexed(){
          rem(DmtDMSAG.__someRelationIndexed);
     }
@@ -212,9 +212,10 @@ public class UsingIndexedAttributesDMO  extends DmcObject  implements Serializab
     }
 
     /**
+     * @param i the index
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1301)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1302)
     public String getNthIndexedString(int i){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(DmtDMSAG.__indexedString);
         if (attr == null)
@@ -227,7 +228,7 @@ public class UsingIndexedAttributesDMO  extends DmcObject  implements Serializab
      * Sets the value at the specified index.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1336)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1338)
     public DmcAttribute<?> setNthIndexedString(int index, String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__indexedString);
         if (attr == null){
@@ -255,10 +256,10 @@ public class UsingIndexedAttributesDMO  extends DmcObject  implements Serializab
     }
 
     /**
-     * Returns true if we contain a valued keyed by the specified String.
      * @param value String
+     * @return true if we contain a valued keyed by the specified String.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1390)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1392)
     public boolean indexedStringContains(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__indexedString);
         if (attr == null)
@@ -272,7 +273,7 @@ public class UsingIndexedAttributesDMO  extends DmcObject  implements Serializab
      * @return the attribute instance
      * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1426)
     public DmcAttribute<?> addIndexedString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__indexedString);
         if (attr == null)
@@ -286,7 +287,7 @@ public class UsingIndexedAttributesDMO  extends DmcObject  implements Serializab
     /**
      * @return the number of values in indexedString
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1443)
     public int getIndexedStringSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__indexedString);
         if (attr == null){
@@ -301,8 +302,10 @@ public class UsingIndexedAttributesDMO  extends DmcObject  implements Serializab
     /**
      * Deletes a indexedString value.
      * @param value The String to be deleted from set of attribute values.
-     * @return the deleted attribute instance     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
+     * @return the deleted attribute instance
+     * @throws DmcValueException if the value is incorrect
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1505)
     public DmcAttribute<?> delIndexedString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__indexedString);
         
@@ -318,7 +321,7 @@ public class UsingIndexedAttributesDMO  extends DmcObject  implements Serializab
      * Deletes a indexedString from the specified value.
      * @param value String
      * @return the deleted attribute instance     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1519)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1522)
     public DmcAttribute<?> delIndexedString(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__indexedString);
         
@@ -333,7 +336,7 @@ public class UsingIndexedAttributesDMO  extends DmcObject  implements Serializab
     /**
      * Removes the indexedString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1541)
     public void remIndexedString(){
          rem(DmtDMSAG.__indexedString);
     }

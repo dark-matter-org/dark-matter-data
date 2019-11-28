@@ -20,10 +20,10 @@ package org.dmd.concinnity.server.generated.dsd;
 import java.util.Collection;                                                            // To return values from indices - (DSDArtifactFormatter.java:153)
 import java.util.Iterator;                                                              // To allow access to our definitions - (DSDArtifactFormatter.java:132)
 import java.util.TreeMap;                                                               // To organize access to our indices - (DSDArtifactFormatter.java:152)
-import org.dmd.concinnity.server.extended.Concept;                                      // A definition from the ConcinnityModule Module - (DSDArtifactFormatter.java:414)
-import org.dmd.concinnity.server.extended.ConcinnityDefinition;                         // A definition from the ConcinnityModule Module - (DSDArtifactFormatter.java:410)
-import org.dmd.concinnity.server.extended.ConcinnityModule;                             // A definition from the ConcinnityModule Module - (DSDArtifactFormatter.java:414)
-import org.dmd.concinnity.server.generated.dsd.ConcinnityModuleGlobalInterface;         // Interface for ConcinnityModule definitions - (DSDArtifactFormatter.java:407)
+import org.dmd.concinnity.server.extended.Concept;                                      // A definition from the ConcinnityModule Module - (DSDArtifactFormatter.java:495)
+import org.dmd.concinnity.server.extended.ConcinnityDefinition;                         // A definition from the ConcinnityModule Module - (DSDArtifactFormatter.java:491)
+import org.dmd.concinnity.server.extended.ConcinnityModule;                             // A definition from the ConcinnityModule Module - (DSDArtifactFormatter.java:495)
+import org.dmd.concinnity.server.generated.dsd.ConcinnityModuleGlobalInterface;         // Interface for ConcinnityModule definitions - (DSDArtifactFormatter.java:488)
 import org.dmd.concinnity.shared.generated.dmo.DmconcinnityDMSAG;                       // To allow use of DmcClassInfo from the dmconcinnity schema for index access - (DSDArtifactFormatter.java:150)
 import org.dmd.dmc.DmcAttributeInfo;                                                    // Used when resolving clashes - (DSDArtifactFormatter.java:141)
 import org.dmd.dmc.DmcClassInfo;                                                        // The class info for our indices - (DSDArtifactFormatter.java:154)
@@ -48,7 +48,7 @@ public class ConcinnityModuleDefinitionManager implements ConcinnityModuleGlobal
 
     private DmcDefinitionSet<DSDefinition>	allDefinitions;
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionManagerMembers(DSDArtifactFormatter.java:433)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionManagerMembers(DSDArtifactFormatter.java:514)
     private DmcDefinitionSet<ConcinnityDefinition> ConcinnityDefinitionDefs;
     private DmcDefinitionSet<Concept> ConceptDefs;
     private DmcDefinitionSet<ConcinnityModule> ConcinnityModuleDefs;
@@ -62,7 +62,7 @@ public class ConcinnityModuleDefinitionManager implements ConcinnityModuleGlobal
 
         indicesByClass = new TreeMap<>();
 
-        // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.initializeDefinitionManagerMembers(DSDArtifactFormatter.java:460)
+        // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.initializeDefinitionManagerMembers(DSDArtifactFormatter.java:541)
         ConcinnityDefinitionDefs = new DmcDefinitionSet<ConcinnityDefinition>("ConcinnityDefinition", allDefinitions);
         indicesByClass.put(DmconcinnityDMSAG.__ConcinnityDefinition, ConcinnityDefinitionDefs);
 
@@ -113,7 +113,7 @@ public class ConcinnityModuleDefinitionManager implements ConcinnityModuleGlobal
     	   return(allDefinitions.getDefinition(name));
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:225)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:226)
     /**
      * Attempts to delete the definition with the specified name. If you have
      * enabled back reference tracking via DmcOmni, it will also clean up any
@@ -130,14 +130,24 @@ public class ConcinnityModuleDefinitionManager implements ConcinnityModuleGlobal
         DmcDefinitionSet<?> dds = indicesByClass.get(def.getConstructionClassInfo());
         dds.delete(name);
         def.youAreDeleted();
+        
+        ConcinnityDefinition base = (ConcinnityDefinition)def;
+        ConcinnityModule module = base.getDefinedInConcinnityModule();
+        
+        if (def instanceof Concept){
+            module.deleteConcept((Concept)def);
+        }
+        else if (def instanceof ConcinnityModule){
+        }
+
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:244)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:281)
     public DmcNamedObjectIF findNamedObject(DmcObjectName name, int attributeID) {
         throw(new IllegalStateException("This method is not supported on generated definition managers"));
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:249)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:286)
     public DmcObject findNamedDMO(DmcObjectName name) {
         DSDefinition def = null;
         try {
@@ -156,7 +166,7 @@ public class ConcinnityModuleDefinitionManager implements ConcinnityModuleGlobal
         return(def.getDMO());
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:269)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:305)
     public DmcNamedObjectIF findNamedObjectMayClash(DmcObject object, DmcObjectName name, DmcNameClashResolverIF resolver, DmcAttributeInfo ai) throws DmcValueException {
         DmcNamedObjectIF rc = null;
         DotName dn = new DotName(name.getNameString() + "." + ai.type);
@@ -187,7 +197,7 @@ public class ConcinnityModuleDefinitionManager implements ConcinnityModuleGlobal
         return(rc);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:300)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:336)
     public DmcNamedObjectIF resolveClash(DmcObject obj, DmcAttributeInfo ai, DmcNameClashObjectSet<?> ncos) throws DmcValueException {
         DmcNamedObjectIF rc = null;
         DSDefinition resolving = (DSDefinition) obj.getContainer();
@@ -203,13 +213,21 @@ public class ConcinnityModuleDefinitionManager implements ConcinnityModuleGlobal
         return(rc);
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:302)
-    // Called from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionInterfaceMethods(DSDArtifactFormatter.java:454)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:305)
+    // Called from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionInterfaceMethods(DSDArtifactFormatter.java:535)
     /**
      * All definitions are added to the base definition collection.
      */
     void addConcinnityDefinition(ConcinnityDefinition def){
         ConcinnityDefinitionDefs.add(def);
+    }
+
+    void deleteConcinnityDefinition(ConcinnityDefinition def){
+        try {
+            ConcinnityDefinitionDefs.delete(def);
+        } catch (ResultException e) {
+            throw(new IllegalStateException(e));
+        }
     }
 
     public int getConcinnityDefinitionCount(){
@@ -224,10 +242,19 @@ public class ConcinnityModuleDefinitionManager implements ConcinnityModuleGlobal
         return(ConcinnityDefinitionDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:337)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:343)
     public void addConcept(Concept def){
         ConceptDefs.add(def);
         addConcinnityDefinition(def);
+    }
+
+    public void deleteConcept(Concept def){
+        try{
+            ConceptDefs.delete(def);
+        } catch (ResultException e) {
+            throw(new IllegalStateException(e));
+        }
+        deleteConcinnityDefinition(def);
     }
 
     public int getConceptCount(){
@@ -254,10 +281,19 @@ public class ConcinnityModuleDefinitionManager implements ConcinnityModuleGlobal
         return(ConceptDefs.getDefinitionCountByName(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:337)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:343)
     public void addConcinnityModule(ConcinnityModule def){
         ConcinnityModuleDefs.add(def);
         addConcinnityDefinition(def);
+    }
+
+    public void deleteConcinnityModule(ConcinnityModule def){
+        try{
+            ConcinnityModuleDefs.delete(def);
+        } catch (ResultException e) {
+            throw(new IllegalStateException(e));
+        }
+        deleteConcinnityDefinition(def);
     }
 
     public int getConcinnityModuleCount(){
@@ -285,7 +321,7 @@ public class ConcinnityModuleDefinitionManager implements ConcinnityModuleGlobal
     }
 
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpAddMethod(DSDArtifactFormatter.java:340)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpAddMethod(DSDArtifactFormatter.java:378)
     public void addDefinition(DSDefinition definition){
             if (definition instanceof Concept){
                 addConcept((Concept)definition);
@@ -296,7 +332,19 @@ public class ConcinnityModuleDefinitionManager implements ConcinnityModuleGlobal
 
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpSummaryMethod(DSDArtifactFormatter.java:379)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpAddMethodAndUpdateModuleMethod(DSDArtifactFormatter.java:421)
+    public void addDefinition(DSDefinition definition, ConcinnityModule module){
+            if (definition instanceof Concept){
+                addConcept((Concept)definition);
+                module.addConcept((Concept)definition);
+            }
+            else if (definition instanceof ConcinnityModule){
+                addConcinnityModule((ConcinnityModule)definition);
+            }
+
+    }
+
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpSummaryMethod(DSDArtifactFormatter.java:460)
     public String summary(){
         StringBuilder sb = new StringBuilder();
         sb.append(ConcinnityDefinitionDefs.summary());

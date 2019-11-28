@@ -58,31 +58,37 @@ public class TdlModuleREF extends DmcNamedObjectNontransportableREF<TdlModuleDMO
     
     DmcTypeDefinitionNameSV myName;    
     
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:437)
     public TdlModuleREF(){
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:441)
     public TdlModuleREF(TdlModuleDMO o){
          object = o;
          myName = (DmcTypeDefinitionNameSV)o.getObjectNameAttribute();
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:447)
     public TdlModuleREF(DefinitionName n) throws DmcValueException {
          object = null;
          myName = new DmcTypeDefinitionNameSV(__name);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:454)
     public TdlModuleREF(String n) throws DmcValueException {
          object = null;
          myName = new DmcTypeDefinitionNameSV(__name);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:461)
     public TdlModuleREF(TdlModuleREF original){
         myName = original.myName;
         object = original.object;
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:467)
     public void setObject(TdlModuleDMO o){
          object = o;
          if (object != null)
@@ -92,6 +98,7 @@ public class TdlModuleREF extends DmcNamedObjectNontransportableREF<TdlModuleDMO
     /**
      * Clones this reference.
      */
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:477)
     public TdlModuleREF cloneMe(){
         TdlModuleREF rc = new TdlModuleREF();
         rc.myName = myName;

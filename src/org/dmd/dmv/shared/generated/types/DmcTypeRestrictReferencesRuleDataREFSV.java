@@ -38,8 +38,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeRestrictReferencesRuleDataREFSV provides storage for a single-valued RestrictReferencesRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2168)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:528)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2171)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:534)
  */
 @SuppressWarnings("serial")
 public class DmcTypeRestrictReferencesRuleDataREFSV extends DmcTypeRestrictReferencesRuleDataREF implements Serializable {
@@ -63,14 +63,14 @@ public class DmcTypeRestrictReferencesRuleDataREFSV extends DmcTypeRestrictRefer
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2200)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2203)
     public DmcAttribute<RestrictReferencesRuleDataREF> cloneIt(){
         DmcTypeRestrictReferencesRuleDataREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2211)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2214)
     public RestrictReferencesRuleDataREF getSVCopy(){
         if (value == null)
             return(null);
@@ -78,7 +78,7 @@ public class DmcTypeRestrictReferencesRuleDataREFSV extends DmcTypeRestrictRefer
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2223)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2226)
     public RestrictReferencesRuleDataREF set(Object v) throws DmcValueException {
         RestrictReferencesRuleDataREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

@@ -43,31 +43,37 @@ public class IntegerNamedObjectREF extends DmcNamedObjectNontransportableREF<Int
     
     DmcTypeIntegerNameSV myName;    
     
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:437)
     public IntegerNamedObjectREF(){
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:441)
     public IntegerNamedObjectREF(IntegerNamedObjectDMO o){
          object = o;
          myName = (DmcTypeIntegerNameSV)o.getObjectNameAttribute();
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:447)
     public IntegerNamedObjectREF(IntegerName n) throws DmcValueException {
          object = null;
          myName = new DmcTypeIntegerNameSV(__integerName);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:454)
     public IntegerNamedObjectREF(String n) throws DmcValueException {
          object = null;
          myName = new DmcTypeIntegerNameSV(__integerName);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:461)
     public IntegerNamedObjectREF(IntegerNamedObjectREF original){
         myName = original.myName;
         object = original.object;
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:467)
     public void setObject(IntegerNamedObjectDMO o){
          object = o;
          if (object != null)
@@ -77,6 +83,7 @@ public class IntegerNamedObjectREF extends DmcNamedObjectNontransportableREF<Int
     /**
      * Clones this reference.
      */
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:477)
     public IntegerNamedObjectREF cloneMe(){
         IntegerNamedObjectREF rc = new IntegerNamedObjectREF();
         rc.myName = myName;

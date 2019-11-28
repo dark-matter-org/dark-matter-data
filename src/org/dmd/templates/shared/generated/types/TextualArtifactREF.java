@@ -58,31 +58,37 @@ public class TextualArtifactREF extends DmcNamedObjectNontransportableREF<Textua
     
     DmcTypeDefinitionNameSV myName;    
     
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:437)
     public TextualArtifactREF(){
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:441)
     public TextualArtifactREF(TextualArtifactDMO o){
          object = o;
          myName = (DmcTypeDefinitionNameSV)o.getObjectNameAttribute();
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:447)
     public TextualArtifactREF(DefinitionName n) throws DmcValueException {
          object = null;
          myName = new DmcTypeDefinitionNameSV(__name);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:454)
     public TextualArtifactREF(String n) throws DmcValueException {
          object = null;
          myName = new DmcTypeDefinitionNameSV(__name);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:461)
     public TextualArtifactREF(TextualArtifactREF original){
         myName = original.myName;
         object = original.object;
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:467)
     public void setObject(TextualArtifactDMO o){
          object = o;
          if (object != null)
@@ -92,6 +98,7 @@ public class TextualArtifactREF extends DmcNamedObjectNontransportableREF<Textua
     /**
      * Clones this reference.
      */
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:477)
     public TextualArtifactREF cloneMe(){
         TextualArtifactREF rc = new TextualArtifactREF();
         rc.myName = myName;

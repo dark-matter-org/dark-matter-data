@@ -58,31 +58,37 @@ public class DotNamedObjectREF extends DmcNamedObjectNontransportableREF<DotName
     
     DmcTypeFullyQualifiedNameSV myName;    
     
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:437)
     public DotNamedObjectREF(){
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:441)
     public DotNamedObjectREF(DotNamedObjectDMO o){
          object = o;
          myName = (DmcTypeFullyQualifiedNameSV)o.getObjectNameAttribute();
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:447)
     public DotNamedObjectREF(FullyQualifiedName n) throws DmcValueException {
          object = null;
          myName = new DmcTypeFullyQualifiedNameSV(__FQN);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:454)
     public DotNamedObjectREF(String n) throws DmcValueException {
          object = null;
          myName = new DmcTypeFullyQualifiedNameSV(__FQN);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:461)
     public DotNamedObjectREF(DotNamedObjectREF original){
         myName = original.myName;
         object = original.object;
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:467)
     public void setObject(DotNamedObjectDMO o){
          object = o;
          if (object != null)
@@ -92,6 +98,7 @@ public class DotNamedObjectREF extends DmcNamedObjectNontransportableREF<DotName
     /**
      * Clones this reference.
      */
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:477)
     public DotNamedObjectREF cloneMe(){
         DotNamedObjectREF rc = new DotNamedObjectREF();
         rc.myName = myName;

@@ -58,31 +58,37 @@ public class CheckAttributesBasedOnValueRuleDataREF extends DmcNamedObjectNontra
     
     DmcTypeRuleNameSV myName;    
     
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:437)
     public CheckAttributesBasedOnValueRuleDataREF(){
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:441)
     public CheckAttributesBasedOnValueRuleDataREF(CheckAttributesBasedOnValueRuleDataDMO o){
          object = o;
          myName = (DmcTypeRuleNameSV)o.getObjectNameAttribute();
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:447)
     public CheckAttributesBasedOnValueRuleDataREF(RuleName n) throws DmcValueException {
          object = null;
          myName = new DmcTypeRuleNameSV(__ruleName);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:454)
     public CheckAttributesBasedOnValueRuleDataREF(String n) throws DmcValueException {
          object = null;
          myName = new DmcTypeRuleNameSV(__ruleName);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:461)
     public CheckAttributesBasedOnValueRuleDataREF(CheckAttributesBasedOnValueRuleDataREF original){
         myName = original.myName;
         object = original.object;
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:467)
     public void setObject(CheckAttributesBasedOnValueRuleDataDMO o){
          object = o;
          if (object != null)
@@ -92,6 +98,7 @@ public class CheckAttributesBasedOnValueRuleDataREF extends DmcNamedObjectNontra
     /**
      * Clones this reference.
      */
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:477)
     public CheckAttributesBasedOnValueRuleDataREF cloneMe(){
         CheckAttributesBasedOnValueRuleDataREF rc = new CheckAttributesBasedOnValueRuleDataREF();
         rc.myName = myName;

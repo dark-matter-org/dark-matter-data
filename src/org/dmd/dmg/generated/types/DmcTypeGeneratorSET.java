@@ -45,7 +45,7 @@ import org.dmd.dmg.types.DmcTypeGenerator;    // DmcType import
  * The DmcTypeGeneratorSET provides storage for a set of Generator
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2808)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2811)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:102)
  */
 @SuppressWarnings("serial")
@@ -78,7 +78,7 @@ public class DmcTypeGeneratorSET extends DmcTypeGenerator implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2849)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2852)
     public DmcAttribute<Generator> cloneIt(){
         synchronized(this){
             DmcTypeGeneratorSET rc = getNew();
@@ -97,7 +97,7 @@ public class DmcTypeGeneratorSET extends DmcTypeGenerator implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2872)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2875)
     public Generator add(Object v) throws DmcValueException {
         synchronized(this){
             Generator rc = typeCheck(v);
@@ -113,7 +113,7 @@ public class DmcTypeGeneratorSET extends DmcTypeGenerator implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2889)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2892)
     public Generator del(Object v){
         synchronized(this){
             Generator rc = null;
@@ -137,7 +137,7 @@ public class DmcTypeGeneratorSET extends DmcTypeGenerator implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2914)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2917)
     public Iterator<Generator> getMV(){
         synchronized(this){
             if (value == null)
@@ -150,7 +150,7 @@ public class DmcTypeGeneratorSET extends DmcTypeGenerator implements Serializabl
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2928)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2931)
     public Set<Generator> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -169,7 +169,7 @@ public class DmcTypeGeneratorSET extends DmcTypeGenerator implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2948)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2951)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -179,7 +179,7 @@ public class DmcTypeGeneratorSET extends DmcTypeGenerator implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2959)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2962)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

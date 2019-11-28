@@ -58,31 +58,37 @@ public class HierarchicObjectREF extends DmcNamedObjectNontransportableREF<Hiera
     
     DmcTypeFullyQualifiedNameSV myName;    
     
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:437)
     public HierarchicObjectREF(){
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:441)
     public HierarchicObjectREF(HierarchicObjectDMO o){
          object = o;
          myName = (DmcTypeFullyQualifiedNameSV)o.getObjectNameAttribute();
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:447)
     public HierarchicObjectREF(FullyQualifiedName n) throws DmcValueException {
          object = null;
          myName = new DmcTypeFullyQualifiedNameSV(__FQN);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:454)
     public HierarchicObjectREF(String n) throws DmcValueException {
          object = null;
          myName = new DmcTypeFullyQualifiedNameSV(__FQN);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:461)
     public HierarchicObjectREF(HierarchicObjectREF original){
         myName = original.myName;
         object = original.object;
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:467)
     public void setObject(HierarchicObjectDMO o){
          object = o;
          if (object != null)
@@ -92,6 +98,7 @@ public class HierarchicObjectREF extends DmcNamedObjectNontransportableREF<Hiera
     /**
      * Clones this reference.
      */
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:477)
     public HierarchicObjectREF cloneMe(){
         HierarchicObjectREF rc = new HierarchicObjectREF();
         rc.myName = myName;

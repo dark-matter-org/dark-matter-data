@@ -23,22 +23,23 @@ import org.dmd.dmc.*;                                                           
 import org.dmd.dmc.definitions.DmcDefinitionIF;                                 // The object is a domain specific definition - (BaseDMWGenerator.java:411)
 import org.dmd.dmc.definitions.DmcDefinitionSet;                                // Our base to provide definition set storage - (DMWGenerator.java:171)
 import org.dmd.dmc.types.DefinitionName;                                        // Is named by - (BaseDMWGenerator.java:939)
-import org.dmd.dmc.types.DotName;                                               // To support the find method for definitions - (DSDefinitionModule.java:180)
+import org.dmd.dmc.types.DotName;                                               // To support the find method for definitions - (DSDefinitionModule.java:181)
 import org.dmd.dms.ClassDefinition;                                             // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:944)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                     // Attribute defFiles from the meta schema - (BaseDMWGenerator.java:910)
 import org.dmd.dms.generated.dmw.StringIterableDMW;                             // For multi-valued String - (BaseDMWGenerator.java:1995)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                           // Required for MODREC constructor - (BaseDMWGenerator.java:948)
-import org.dmd.templates.server.extended.ContainedElement;                      // A definition from the TdlModule Module - (DSDefinitionModule.java:191)
-import org.dmd.templates.server.extended.ExtensionHook;                         // A definition from the TdlModule Module - (DSDefinitionModule.java:191)
-import org.dmd.templates.server.extended.Section;                               // A definition from the TdlModule Module - (DSDefinitionModule.java:191)
+import org.dmd.templates.server.extended.ContainedElement;                      // A definition from the TdlModule Module - (DSDefinitionModule.java:193)
+import org.dmd.templates.server.extended.ExtensionHook;                         // A definition from the TdlModule Module - (DSDefinitionModule.java:193)
+import org.dmd.templates.server.extended.Section;                               // A definition from the TdlModule Module - (DSDefinitionModule.java:193)
 import org.dmd.templates.server.extended.TdlDefinition;                         // Derived class - (BaseDMWGenerator.java:1138)
 import org.dmd.templates.server.extended.TdlModule;                             // Required for getModificationRecorder() - (BaseDMWGenerator.java:953)
-import org.dmd.templates.server.extended.TextualArtifact;                       // A definition from the TdlModule Module - (DSDefinitionModule.java:191)
+import org.dmd.templates.server.extended.TextualArtifact;                       // A definition from the TdlModule Module - (DSDefinitionModule.java:193)
 import org.dmd.templates.server.generated.dmw.TdlModuleIterableDMW;             // For multi-valued TdlModule - (BaseDMWGenerator.java:1600)
 import org.dmd.templates.server.generated.dsd.TdlModuleScopedInterface;         // Required to manage module definition - (DMWGenerator.java:170)
 import org.dmd.templates.shared.generated.dmo.DmtdlDMSAG;                       // Attribute dependsOnTdlModule from the dmtdl schema - (BaseDMWGenerator.java:910)
 import org.dmd.templates.shared.generated.dmo.TdlModuleDMO;                     // Class not auxiliary or abstract - (BaseDMWGenerator.java:1142)
 import org.dmd.templates.shared.generated.types.TdlModuleREF;                   // Required to access defined in module name - (DMWGenerator.java:181)
+import org.dmd.util.exceptions.ResultException;                                 // To support definition deletions - (DSDefinitionModule.java:182)
 
 
 
@@ -65,12 +66,12 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
 
     // Generated from: org.dmd.util.codegen.MemberManager.getFormattedMembers(MemberManager.java:64)
     // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperDefinitions(DMWGenerator.java:204)
-    DmcDefinitionSet<TdlDefinition>        TdlDefinitionDefs       = new DmcDefinitionSet<TdlDefinition>("TdlModule-allDefinitions");            // All definitions associated with this module
-    DmcDefinitionSet<ContainedElement>     ContainedElementDefs    = new DmcDefinitionSet<ContainedElement>("TdlModule-ContainedElementDefs");   // All ContainedElement definitions
-    DmcDefinitionSet<ExtensionHook>        ExtensionHookDefs       = new DmcDefinitionSet<ExtensionHook>("TdlModule-ExtensionHookDefs");         // All ExtensionHook definitions
-    DmcDefinitionSet<Section>              SectionDefs             = new DmcDefinitionSet<Section>("TdlModule-SectionDefs");                     // All Section definitions
-    DmcDefinitionSet<TdlModule>            TdlModuleDefs           = new DmcDefinitionSet<TdlModule>("TdlModule-TdlModuleDefs");                 // All TdlModule definitions
-    DmcDefinitionSet<TextualArtifact>      TextualArtifactDefs     = new DmcDefinitionSet<TextualArtifact>("TdlModule-TextualArtifactDefs");     // All TextualArtifact definitions
+    DmcDefinitionSet<TdlDefinition>        TdlDefinitionDefs       = new DmcDefinitionSet<TdlDefinition>("TdlModule-allDefinitions","TdlDefinition");                // All definitions associated with this module
+    DmcDefinitionSet<ContainedElement>     ContainedElementDefs    = new DmcDefinitionSet<ContainedElement>("TdlModule-ContainedElementDefs", "ContainedElement");   // All ContainedElement definitions
+    DmcDefinitionSet<ExtensionHook>        ExtensionHookDefs       = new DmcDefinitionSet<ExtensionHook>("TdlModule-ExtensionHookDefs", "ExtensionHook");            // All ExtensionHook definitions
+    DmcDefinitionSet<Section>              SectionDefs             = new DmcDefinitionSet<Section>("TdlModule-SectionDefs", "Section");                              // All Section definitions
+    DmcDefinitionSet<TdlModule>            TdlModuleDefs           = new DmcDefinitionSet<TdlModule>("TdlModule-TdlModuleDefs", "TdlModule");                        // All TdlModule definitions
+    DmcDefinitionSet<TextualArtifact>      TextualArtifactDefs     = new DmcDefinitionSet<TextualArtifact>("TdlModule-TextualArtifactDefs", "TextualArtifact");      // All TextualArtifact definitions
 
     // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:577)
     public TdlModuleDMW() {
@@ -664,13 +665,21 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
         ((TdlModuleDMO) core).remTemplateFileSuffix();
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:302)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:305)
     // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperFunctions(DMWGenerator.java:212)
     /**
      * All definitions are added to the base definition collection.
      */
     void addTdlDefinition(TdlDefinition def){
         TdlDefinitionDefs.add(def);
+    }
+
+    void deleteTdlDefinition(TdlDefinition def){
+        try {
+            TdlDefinitionDefs.delete(def);
+        } catch (ResultException e) {
+            throw(new IllegalStateException(e));
+        }
     }
 
     public int getTdlDefinitionCount(){
@@ -685,10 +694,19 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
         return(TdlDefinitionDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:337)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:343)
     public void addContainedElement(ContainedElement def){
         ContainedElementDefs.add(def);
         addTdlDefinition(def);
+    }
+
+    public void deleteContainedElement(ContainedElement def){
+        try{
+            ContainedElementDefs.delete(def);
+        } catch (ResultException e) {
+            throw(new IllegalStateException(e));
+        }
+        deleteTdlDefinition(def);
     }
 
     public int getContainedElementCount(){
@@ -715,10 +733,19 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
         return(ContainedElementDefs.getDefinitionCountByName(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:337)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:343)
     public void addExtensionHook(ExtensionHook def){
         ExtensionHookDefs.add(def);
         addContainedElement(def);
+    }
+
+    public void deleteExtensionHook(ExtensionHook def){
+        try{
+            ExtensionHookDefs.delete(def);
+        } catch (ResultException e) {
+            throw(new IllegalStateException(e));
+        }
+        deleteContainedElement(def);
     }
 
     public int getExtensionHookCount(){
@@ -745,10 +772,19 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
         return(ExtensionHookDefs.getDefinitionCountByName(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:337)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:343)
     public void addSection(Section def){
         SectionDefs.add(def);
         addContainedElement(def);
+    }
+
+    public void deleteSection(Section def){
+        try{
+            SectionDefs.delete(def);
+        } catch (ResultException e) {
+            throw(new IllegalStateException(e));
+        }
+        deleteContainedElement(def);
     }
 
     public int getSectionCount(){
@@ -775,10 +811,19 @@ abstract public class TdlModuleDMW extends TdlDefinition implements DmcDefinitio
         return(SectionDefs.getDefinitionCountByName(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:337)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:343)
     public void addTextualArtifact(TextualArtifact def){
         TextualArtifactDefs.add(def);
         addTdlDefinition(def);
+    }
+
+    public void deleteTextualArtifact(TextualArtifact def){
+        try{
+            TextualArtifactDefs.delete(def);
+        } catch (ResultException e) {
+            throw(new IllegalStateException(e));
+        }
+        deleteTdlDefinition(def);
     }
 
     public int getTextualArtifactCount(){

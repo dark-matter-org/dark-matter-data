@@ -45,8 +45,8 @@ import org.dmd.dmc.types.RuleName;    // key type import
  * The DmcTypeReferencedAttributeTypeRuleDataREFMAP provides storage for a map of ReferencedAttributeTypeRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3041)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:538)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3044)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:544)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeReferencedAttributeTypeRuleDataREFMAP extends DmcTypeReferencedAttributeTypeRuleDataREF<ReferencedAttributeTypeRuleDataREF,RuleName> {
@@ -88,7 +88,7 @@ public class DmcTypeReferencedAttributeTypeRuleDataREFMAP extends DmcTypeReferen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3098)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3101)
     public DmcAttribute<ReferencedAttributeTypeRuleDataREF> cloneIt(){
         synchronized(this){
             DmcTypeReferencedAttributeTypeRuleDataREFMAP rc = getNew();
@@ -107,7 +107,7 @@ public class DmcTypeReferencedAttributeTypeRuleDataREFMAP extends DmcTypeReferen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3118)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3121)
     public ReferencedAttributeTypeRuleDataREF add(Object v) throws DmcValueException {
         synchronized(this){
             ReferencedAttributeTypeRuleDataREF newval = typeCheck(v);
@@ -127,7 +127,7 @@ public class DmcTypeReferencedAttributeTypeRuleDataREFMAP extends DmcTypeReferen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3139)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3142)
     public ReferencedAttributeTypeRuleDataREF del(Object key){
         synchronized(this){
     
@@ -142,7 +142,7 @@ public class DmcTypeReferencedAttributeTypeRuleDataREFMAP extends DmcTypeReferen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3155)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3158)
     public Iterator<ReferencedAttributeTypeRuleDataREF> getMV(){
         synchronized(this){
     
@@ -158,7 +158,7 @@ public class DmcTypeReferencedAttributeTypeRuleDataREFMAP extends DmcTypeReferen
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3172)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3175)
     public Map<RuleName,ReferencedAttributeTypeRuleDataREF> getMVCopy(){
         synchronized(this){
             Map<RuleName,ReferencedAttributeTypeRuleDataREF> clone = null;
@@ -178,7 +178,7 @@ public class DmcTypeReferencedAttributeTypeRuleDataREFMAP extends DmcTypeReferen
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3193)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3196)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -189,7 +189,7 @@ public class DmcTypeReferencedAttributeTypeRuleDataREFMAP extends DmcTypeReferen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3205)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3208)
     public ReferencedAttributeTypeRuleDataREF getByKey(Object key){
         synchronized(this){
            if (value == null)
@@ -203,7 +203,7 @@ public class DmcTypeReferencedAttributeTypeRuleDataREFMAP extends DmcTypeReferen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3220)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3223)
     public boolean contains(Object v){
         synchronized(this){
            if (value == null)
@@ -219,7 +219,7 @@ public class DmcTypeReferencedAttributeTypeRuleDataREFMAP extends DmcTypeReferen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3237)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3240)
     public boolean containsKey(Object key){
         synchronized(this){
            if (value == null)

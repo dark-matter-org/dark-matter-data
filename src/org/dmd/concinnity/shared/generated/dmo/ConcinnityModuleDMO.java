@@ -133,9 +133,10 @@ public class ConcinnityModuleDMO  extends ConcinnityDefinitionDMO  implements Dm
     }
 
     /**
+     * @param i the index
      * @return The nth SchemaAndReason value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1301)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1302)
     public SchemaAndReason getNthLoadSchemaClass(int i){
         DmcTypeSchemaAndReasonMV attr = (DmcTypeSchemaAndReasonMV) get(MetaDMSAG.__loadSchemaClass);
         if (attr == null)
@@ -147,8 +148,9 @@ public class ConcinnityModuleDMO  extends ConcinnityDefinitionDMO  implements Dm
     /**
      * Adds another loadSchemaClass to the specified value.
      * @param value SchemaAndReason
+     * @return the attribute instance
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1315)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1317)
     public DmcAttribute<?> addLoadSchemaClass(SchemaAndReason value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__loadSchemaClass);
         if (attr == null)
@@ -165,10 +167,10 @@ public class ConcinnityModuleDMO  extends ConcinnityDefinitionDMO  implements Dm
     }
 
     /**
-     * Returns true if we contain a valued keyed by the specified SchemaAndReason.
      * @param value SchemaAndReason
+     * @return true if we contain a valued keyed by the specified SchemaAndReason.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1390)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1392)
     public boolean loadSchemaClassContains(SchemaAndReason value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__loadSchemaClass);
         if (attr == null)
@@ -182,7 +184,7 @@ public class ConcinnityModuleDMO  extends ConcinnityDefinitionDMO  implements Dm
      * @return the attribute instance
      * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1426)
     public DmcAttribute<?> addLoadSchemaClass(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__loadSchemaClass);
         if (attr == null)
@@ -196,7 +198,7 @@ public class ConcinnityModuleDMO  extends ConcinnityDefinitionDMO  implements Dm
     /**
      * @return the number of values in loadSchemaClass
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1443)
     public int getLoadSchemaClassSize(){
         DmcAttribute<?> attr = get(MetaDMSAG.__loadSchemaClass);
         if (attr == null){
@@ -211,8 +213,10 @@ public class ConcinnityModuleDMO  extends ConcinnityDefinitionDMO  implements Dm
     /**
      * Deletes a loadSchemaClass value.
      * @param value The SchemaAndReason to be deleted from set of attribute values.
-     * @return the deleted attribute instance     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
+     * @return the deleted attribute instance
+     * @throws DmcValueException if the value is incorrect
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1505)
     public DmcAttribute<?> delLoadSchemaClass(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__loadSchemaClass);
         
@@ -228,7 +232,7 @@ public class ConcinnityModuleDMO  extends ConcinnityDefinitionDMO  implements Dm
      * Deletes a loadSchemaClass from the specified value.
      * @param value SchemaAndReason
      * @return the deleted attribute instance     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1519)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1522)
     public DmcAttribute<?> delLoadSchemaClass(SchemaAndReason value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__loadSchemaClass);
         
@@ -243,7 +247,7 @@ public class ConcinnityModuleDMO  extends ConcinnityDefinitionDMO  implements Dm
     /**
      * Removes the loadSchemaClass attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1541)
     public void remLoadSchemaClass(){
          rem(MetaDMSAG.__loadSchemaClass);
     }
@@ -262,9 +266,10 @@ public class ConcinnityModuleDMO  extends ConcinnityDefinitionDMO  implements Dm
     }
 
     /**
+     * @param i the index
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1301)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1302)
     public String getNthDescription(int i){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -276,8 +281,9 @@ public class ConcinnityModuleDMO  extends ConcinnityDefinitionDMO  implements Dm
     /**
      * Adds another description to the specified value.
      * @param value String
+     * @return the attribute instance
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1315)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1317)
     public DmcAttribute<?> addDescription(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -294,10 +300,10 @@ public class ConcinnityModuleDMO  extends ConcinnityDefinitionDMO  implements Dm
     }
 
     /**
-     * Returns true if we contain a valued keyed by the specified String.
      * @param value String
+     * @return true if we contain a valued keyed by the specified String.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1390)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1392)
     public boolean descriptionContains(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -311,7 +317,7 @@ public class ConcinnityModuleDMO  extends ConcinnityDefinitionDMO  implements Dm
      * @return the attribute instance
      * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1426)
     public DmcAttribute<?> addDescription(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -325,7 +331,7 @@ public class ConcinnityModuleDMO  extends ConcinnityDefinitionDMO  implements Dm
     /**
      * @return the number of values in description
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1443)
     public int getDescriptionSize(){
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null){
@@ -340,8 +346,10 @@ public class ConcinnityModuleDMO  extends ConcinnityDefinitionDMO  implements Dm
     /**
      * Deletes a description value.
      * @param value The String to be deleted from set of attribute values.
-     * @return the deleted attribute instance     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
+     * @return the deleted attribute instance
+     * @throws DmcValueException if the value is incorrect
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1505)
     public DmcAttribute<?> delDescription(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         
@@ -357,7 +365,7 @@ public class ConcinnityModuleDMO  extends ConcinnityDefinitionDMO  implements Dm
      * Deletes a description from the specified value.
      * @param value String
      * @return the deleted attribute instance     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1519)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1522)
     public DmcAttribute<?> delDescription(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         
@@ -372,7 +380,7 @@ public class ConcinnityModuleDMO  extends ConcinnityDefinitionDMO  implements Dm
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1541)
     public void remDescription(){
          rem(MetaDMSAG.__description);
     }
@@ -391,9 +399,10 @@ public class ConcinnityModuleDMO  extends ConcinnityDefinitionDMO  implements Dm
     }
 
     /**
+     * @param i the index
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1301)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1302)
     public String getNthDefFiles(int i){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__defFiles);
         if (attr == null)
@@ -405,8 +414,9 @@ public class ConcinnityModuleDMO  extends ConcinnityDefinitionDMO  implements Dm
     /**
      * Adds another defFiles to the specified value.
      * @param value String
+     * @return the attribute instance
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1315)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1317)
     public DmcAttribute<?> addDefFiles(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__defFiles);
         if (attr == null)
@@ -423,10 +433,10 @@ public class ConcinnityModuleDMO  extends ConcinnityDefinitionDMO  implements Dm
     }
 
     /**
-     * Returns true if we contain a valued keyed by the specified String.
      * @param value String
+     * @return true if we contain a valued keyed by the specified String.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1390)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1392)
     public boolean defFilesContains(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__defFiles);
         if (attr == null)
@@ -440,7 +450,7 @@ public class ConcinnityModuleDMO  extends ConcinnityDefinitionDMO  implements Dm
      * @return the attribute instance
      * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1426)
     public DmcAttribute<?> addDefFiles(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__defFiles);
         if (attr == null)
@@ -454,7 +464,7 @@ public class ConcinnityModuleDMO  extends ConcinnityDefinitionDMO  implements Dm
     /**
      * @return the number of values in defFiles
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1443)
     public int getDefFilesSize(){
         DmcAttribute<?> attr = get(MetaDMSAG.__defFiles);
         if (attr == null){
@@ -469,8 +479,10 @@ public class ConcinnityModuleDMO  extends ConcinnityDefinitionDMO  implements Dm
     /**
      * Deletes a defFiles value.
      * @param value The String to be deleted from set of attribute values.
-     * @return the deleted attribute instance     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
+     * @return the deleted attribute instance
+     * @throws DmcValueException if the value is incorrect
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1505)
     public DmcAttribute<?> delDefFiles(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__defFiles);
         
@@ -486,7 +498,7 @@ public class ConcinnityModuleDMO  extends ConcinnityDefinitionDMO  implements Dm
      * Deletes a defFiles from the specified value.
      * @param value String
      * @return the deleted attribute instance     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1519)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1522)
     public DmcAttribute<?> delDefFiles(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__defFiles);
         
@@ -501,7 +513,7 @@ public class ConcinnityModuleDMO  extends ConcinnityDefinitionDMO  implements Dm
     /**
      * Removes the defFiles attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1541)
     public void remDefFiles(){
          rem(MetaDMSAG.__defFiles);
     }
@@ -566,7 +578,7 @@ public class ConcinnityModuleDMO  extends ConcinnityDefinitionDMO  implements Dm
      * @return the attribute instance
      * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1426)
     public DmcAttribute<?> addDependsOnConcinnityModule(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmconcinnityDMSAG.__dependsOnConcinnityModule);
         if (attr == null)
@@ -580,7 +592,7 @@ public class ConcinnityModuleDMO  extends ConcinnityDefinitionDMO  implements Dm
     /**
      * @return the number of values in dependsOnConcinnityModule
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1443)
     public int getDependsOnConcinnityModuleSize(){
         DmcAttribute<?> attr = get(DmconcinnityDMSAG.__dependsOnConcinnityModule);
         if (attr == null){
@@ -596,7 +608,7 @@ public class ConcinnityModuleDMO  extends ConcinnityDefinitionDMO  implements Dm
      * Deletes a dependsOnConcinnityModule value.
      * @param value The ConcinnityModule to be deleted from set of attribute values.
      * @return the deleted attribute instance     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1482)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1484)
     public DmcAttribute<?> delDependsOnConcinnityModule(Object value){
         DmcAttribute<?> attr = get(DmconcinnityDMSAG.__dependsOnConcinnityModule);
         
@@ -611,7 +623,7 @@ public class ConcinnityModuleDMO  extends ConcinnityDefinitionDMO  implements Dm
     /**
      * Removes the dependsOnConcinnityModule attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1541)
     public void remDependsOnConcinnityModule(){
          rem(DmconcinnityDMSAG.__dependsOnConcinnityModule);
     }

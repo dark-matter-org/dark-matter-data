@@ -16,44 +16,44 @@
 package org.dmd.concinnity.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:646)
-import java.util.Iterator;                                                              // To iterate over collections - (DSDArtifactFormatter.java:603)
-import org.dmd.concinnity.server.extended.Concept;                                      // A definition from the ConcinnityModule Module - (DSDArtifactFormatter.java:973)
-import org.dmd.concinnity.server.extended.ConcinnityDefinition;                         // The base definition from the ConcinnityModule Module - (DSDArtifactFormatter.java:965)
-import org.dmd.concinnity.server.extended.ConcinnityModule;                             // The kind of DDM we're reading - (DSDArtifactFormatter.java:627)
-import org.dmd.concinnity.server.generated.DmconcinnitySchemaAG;                        // The schema recognized by this parser - (DSDArtifactFormatter.java:612)
-import org.dmd.concinnity.server.generated.dsd.ConcinnityModuleGlobalInterface;         // Interface to our definition storage - (DSDArtifactFormatter.java:600)
-import org.dmd.concinnity.shared.generated.dmo.DmconcinnityDMSAG;                       // To allow loading of rules from the dmconcinnity schema - (DSDArtifactFormatter.java:623)
-import org.dmd.dmc.DmcNameClashException;                                               // May be thrown when instantiating objects - (DSDArtifactFormatter.java:614)
-import org.dmd.dmc.DmcValueException;                                                   // May be thrown when parsing objects - (DSDArtifactFormatter.java:613)
-import org.dmd.dmc.definitions.DsdParserInterface;                                      // Standard parser interface - (DSDArtifactFormatter.java:597)
-import org.dmd.dmc.rules.DmcRuleExceptionSet;                                           // May be thrown by rule manager - (DSDArtifactFormatter.java:616)
-import org.dmd.dmc.rules.SourceInfo;                                                    // To indicate the source of rule problems - (DSDArtifactFormatter.java:619)
-import org.dmd.dmc.util.DmcUncheckedObject;                                             // Basic parsing of objects - (DSDArtifactFormatter.java:596)
-import org.dmd.dms.AttributeDefinition;                                                 // To allow addition of preserve newline attributes - (DSDArtifactFormatter.java:640)
-import org.dmd.dms.MetaSchema;                                                          // So that we can preserve newlines - (DSDArtifactFormatter.java:621)
-import org.dmd.dms.SchemaDefinition;                                                    // To support dynamic loading of schemas - (DSDArtifactFormatter.java:604)
-import org.dmd.dms.SchemaManager;                                                       // Manages the schemas we use - (DSDArtifactFormatter.java:592)
-import org.dmd.dms.generated.dmw.AttributeDefinitionIterableDMW;                        // To allow addition of preserve newline attributes - (DSDArtifactFormatter.java:641)
-import org.dmd.dms.generated.dmw.StringIterableDMW;                                     // To iterate over defFiles - (DSDArtifactFormatter.java:618)
-import org.dmd.dms.generated.types.SchemaAndReason;                                     // To allow dynamic schema loading - (DSDArtifactFormatter.java:643)
-import org.dmd.dmv.shared.DmvRuleManager;                                               // The injected rule manager used for initializations - (DSDArtifactFormatter.java:617)
-import org.dmd.dmw.DmwObjectFactory;                                                    // Constructs wrapped objects - (DSDArtifactFormatter.java:599)
-import org.dmd.dmw.DmwWrapper;                                                          // To handle factory created objects - (DSDArtifactFormatter.java:620)
-import org.dmd.util.exceptions.ResultException;                                         // May be thrown by schema management - (DSDArtifactFormatter.java:615)
-import org.dmd.util.parsing.ConfigLocation;                                             // Config file location info - (DSDArtifactFormatter.java:598)
-import org.dmd.util.parsing.DmcUncheckedOIFHandlerIF;                                   // Basic parsing of objects - (DSDArtifactFormatter.java:595)
-import org.dmd.util.parsing.DmcUncheckedOIFParser;                                      // Basic parsing of objects - (DSDArtifactFormatter.java:594)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:727)
+import java.util.Iterator;                                                              // To iterate over collections - (DSDArtifactFormatter.java:684)
+import org.dmd.concinnity.server.extended.Concept;                                      // A definition from the ConcinnityModule Module - (DSDArtifactFormatter.java:1054)
+import org.dmd.concinnity.server.extended.ConcinnityDefinition;                         // The base definition from the ConcinnityModule Module - (DSDArtifactFormatter.java:1046)
+import org.dmd.concinnity.server.extended.ConcinnityModule;                             // The kind of DDM we're reading - (DSDArtifactFormatter.java:708)
+import org.dmd.concinnity.server.generated.DmconcinnitySchemaAG;                        // The schema recognized by this parser - (DSDArtifactFormatter.java:693)
+import org.dmd.concinnity.server.generated.dsd.ConcinnityModuleGlobalInterface;         // Interface to our definition storage - (DSDArtifactFormatter.java:681)
+import org.dmd.concinnity.shared.generated.dmo.DmconcinnityDMSAG;                       // To allow loading of rules from the dmconcinnity schema - (DSDArtifactFormatter.java:704)
+import org.dmd.dmc.DmcNameClashException;                                               // May be thrown when instantiating objects - (DSDArtifactFormatter.java:695)
+import org.dmd.dmc.DmcValueException;                                                   // May be thrown when parsing objects - (DSDArtifactFormatter.java:694)
+import org.dmd.dmc.definitions.DsdParserInterface;                                      // Standard parser interface - (DSDArtifactFormatter.java:678)
+import org.dmd.dmc.rules.DmcRuleExceptionSet;                                           // May be thrown by rule manager - (DSDArtifactFormatter.java:697)
+import org.dmd.dmc.rules.SourceInfo;                                                    // To indicate the source of rule problems - (DSDArtifactFormatter.java:700)
+import org.dmd.dmc.util.DmcUncheckedObject;                                             // Basic parsing of objects - (DSDArtifactFormatter.java:677)
+import org.dmd.dms.AttributeDefinition;                                                 // To allow addition of preserve newline attributes - (DSDArtifactFormatter.java:721)
+import org.dmd.dms.MetaSchema;                                                          // So that we can preserve newlines - (DSDArtifactFormatter.java:702)
+import org.dmd.dms.SchemaDefinition;                                                    // To support dynamic loading of schemas - (DSDArtifactFormatter.java:685)
+import org.dmd.dms.SchemaManager;                                                       // Manages the schemas we use - (DSDArtifactFormatter.java:673)
+import org.dmd.dms.generated.dmw.AttributeDefinitionIterableDMW;                        // To allow addition of preserve newline attributes - (DSDArtifactFormatter.java:722)
+import org.dmd.dms.generated.dmw.StringIterableDMW;                                     // To iterate over defFiles - (DSDArtifactFormatter.java:699)
+import org.dmd.dms.generated.types.SchemaAndReason;                                     // To allow dynamic schema loading - (DSDArtifactFormatter.java:724)
+import org.dmd.dmv.shared.DmvRuleManager;                                               // The injected rule manager used for initializations - (DSDArtifactFormatter.java:698)
+import org.dmd.dmw.DmwObjectFactory;                                                    // Constructs wrapped objects - (DSDArtifactFormatter.java:680)
+import org.dmd.dmw.DmwWrapper;                                                          // To handle factory created objects - (DSDArtifactFormatter.java:701)
+import org.dmd.util.exceptions.ResultException;                                         // May be thrown by schema management - (DSDArtifactFormatter.java:696)
+import org.dmd.util.parsing.ConfigLocation;                                             // Config file location info - (DSDArtifactFormatter.java:679)
+import org.dmd.util.parsing.DmcUncheckedOIFHandlerIF;                                   // Basic parsing of objects - (DSDArtifactFormatter.java:676)
+import org.dmd.util.parsing.DmcUncheckedOIFParser;                                      // Basic parsing of objects - (DSDArtifactFormatter.java:675)
 
 
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:649)
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:730)
 public class ConcinnityModuleParser implements DsdParserInterface, DmcUncheckedOIFHandlerIF {
 
     final static String fileExtension = "dmcm";
 
     // Generated from: org.dmd.util.codegen.MemberManager.getFormattedMembers(MemberManager.java:64)
-    // Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:663)
+    // Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:744)
     SchemaManager                      schema;                                             // Manages the schema for this DSD
     DmcUncheckedOIFParser              parser         = new DmcUncheckedOIFParser(this);   // Parses objects from the config file
     DmwObjectFactory                   factory;                                            // Instantiates wrapped objects
@@ -62,7 +62,7 @@ public class ConcinnityModuleParser implements DsdParserInterface, DmcUncheckedO
     ConfigLocation                     location;                                           // The location of the config being parsed
     ConcinnityModule                   module;                                             // The DDM module
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:666)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:747)
     public ConcinnityModuleParser(ConcinnityModuleGlobalInterface d, DmvRuleManager r) throws ResultException, DmcValueException, DmcNameClashException {
         schema = new SchemaManager();
         DmconcinnitySchemaAG sd = new DmconcinnitySchemaAG();
@@ -96,7 +96,7 @@ public class ConcinnityModuleParser implements DsdParserInterface, DmcUncheckedO
         return(fileExtension);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:700)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:781)
     public ConcinnityModule parseConfig(ConfigLocation l) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
         location = l;
 
@@ -127,7 +127,7 @@ public class ConcinnityModuleParser implements DsdParserInterface, DmcUncheckedO
         return(module);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:733)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:814)
     public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
         ConcinnityDefinition definition = null;
         DmwWrapper wrapper = null;
@@ -208,7 +208,7 @@ public class ConcinnityModuleParser implements DsdParserInterface, DmcUncheckedO
             }
         }
         else{
-            // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:823)
+            // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:904)
             if (definition instanceof ConcinnityModule){
                 ResultException ex = new ResultException("Multiple ConcinnityModule definitions while parsing config: " + location.getFileName());
                 ex.setLocationInfo(infile, lineNumber);
@@ -219,7 +219,7 @@ public class ConcinnityModuleParser implements DsdParserInterface, DmcUncheckedO
             definition.setDmoFromModule(module.getName().getNameString());
             definition.setDotName(module.getName() + "." + definition.getName() + "." + definition.getConstructionClassName());
             
-            // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:836)
+            // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:917)
             try{
                 // Run object level rules to ensure mandatory attributes are in place - can't add definition if no name attribute!
                 rules.executeObjectValidation(definition.getDmcObject());
@@ -228,7 +228,7 @@ public class ConcinnityModuleParser implements DsdParserInterface, DmcUncheckedO
                 ex.source(new SourceInfo(infile, lineNumber));
                 throw(ex);
             }
-            // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:847)
+            // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:928)
             
             if (definition instanceof Concept){
                 definitions.addConcept((Concept)definition);
@@ -248,7 +248,7 @@ public class ConcinnityModuleParser implements DsdParserInterface, DmcUncheckedO
         }
 
     }
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.writeLoadSchemasFunction(DSDArtifactFormatter.java:893)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.writeLoadSchemasFunction(DSDArtifactFormatter.java:974)
     void loadSchemas(ConcinnityModule module) throws ResultException {
         Class<?> schemaClass = null;
         SchemaDefinition sd	= null;

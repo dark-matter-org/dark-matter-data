@@ -140,7 +140,7 @@ public class NamedObjHSDMO  extends DmcObject  implements Serializable  {
      * @return the attribute instance
      * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1426)
     public DmcAttribute<?> addHsNamedObj(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsNamedObj);
         if (attr == null)
@@ -154,7 +154,7 @@ public class NamedObjHSDMO  extends DmcObject  implements Serializable  {
     /**
      * @return the number of values in hsNamedObj
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1443)
     public int getHsNamedObjSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__hsNamedObj);
         if (attr == null){
@@ -170,7 +170,7 @@ public class NamedObjHSDMO  extends DmcObject  implements Serializable  {
      * Deletes a hsNamedObj value.
      * @param value The ObjWithRefs to be deleted from set of attribute values.
      * @return the deleted attribute instance     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1482)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1484)
     public DmcAttribute<?> delHsNamedObj(Object value){
         DmcAttribute<?> attr = get(DmtDMSAG.__hsNamedObj);
         
@@ -185,7 +185,7 @@ public class NamedObjHSDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the hsNamedObj attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1541)
     public void remHsNamedObj(){
          rem(DmtDMSAG.__hsNamedObj);
     }

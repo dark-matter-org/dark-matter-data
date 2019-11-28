@@ -271,9 +271,10 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     }
 
     /**
+     * @param i the index
      * @return The nth Modifier value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1301)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1302)
     public Modifier getNthModify(int i){
         DmcTypeModifierMV attr = (DmcTypeModifierMV) get(MetaDMSAG.__modify);
         if (attr == null)
@@ -285,8 +286,9 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Adds another modify to the specified value.
      * @param value Modifier
+     * @return the attribute instance
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1315)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1317)
     public DmcAttribute<?> addModify(Modifier value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__modify);
         if (attr == null)
@@ -303,10 +305,10 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     }
 
     /**
-     * Returns true if we contain a valued keyed by the specified Modifier.
      * @param value Modifier
+     * @return true if we contain a valued keyed by the specified Modifier.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1390)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1392)
     public boolean modifyContains(Modifier value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__modify);
         if (attr == null)
@@ -320,7 +322,7 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
      * @return the attribute instance
      * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1426)
     public DmcAttribute<?> addModify(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__modify);
         if (attr == null)
@@ -334,7 +336,7 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * @return the number of values in modify
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1443)
     public int getModifySize(){
         DmcAttribute<?> attr = get(MetaDMSAG.__modify);
         if (attr == null){
@@ -349,8 +351,10 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Deletes a modify value.
      * @param value The Modifier to be deleted from set of attribute values.
-     * @return the deleted attribute instance     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
+     * @return the deleted attribute instance
+     * @throws DmcValueException if the value is incorrect
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1505)
     public DmcAttribute<?> delModify(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__modify);
         
@@ -366,7 +370,7 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
      * Deletes a modify from the specified value.
      * @param value Modifier
      * @return the deleted attribute instance     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1519)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1522)
     public DmcAttribute<?> delModify(Modifier value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__modify);
         
@@ -381,7 +385,7 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Removes the modify attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1541)
     public void remModify(){
          rem(MetaDMSAG.__modify);
     }

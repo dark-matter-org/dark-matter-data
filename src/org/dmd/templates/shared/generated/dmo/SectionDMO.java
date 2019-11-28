@@ -164,9 +164,10 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     }
 
     /**
+     * @param i the index
      * @return The nth Contains value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1301)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1302)
     public Contains getNthContains(int i){
         DmcTypeContainsMV attr = (DmcTypeContainsMV) get(DmtdlDMSAG.__contains);
         if (attr == null)
@@ -178,8 +179,9 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * Adds another contains to the specified value.
      * @param value Contains
+     * @return the attribute instance
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1315)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1317)
     public DmcAttribute<?> addContains(Contains value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__contains);
         if (attr == null)
@@ -196,10 +198,10 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     }
 
     /**
-     * Returns true if we contain a valued keyed by the specified Contains.
      * @param value Contains
+     * @return true if we contain a valued keyed by the specified Contains.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1390)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1392)
     public boolean containsContains(Contains value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__contains);
         if (attr == null)
@@ -213,7 +215,7 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
      * @return the attribute instance
      * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1426)
     public DmcAttribute<?> addContains(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__contains);
         if (attr == null)
@@ -227,7 +229,7 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * @return the number of values in contains
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1443)
     public int getContainsSize(){
         DmcAttribute<?> attr = get(DmtdlDMSAG.__contains);
         if (attr == null){
@@ -242,8 +244,10 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * Deletes a contains value.
      * @param value The Contains to be deleted from set of attribute values.
-     * @return the deleted attribute instance     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
+     * @return the deleted attribute instance
+     * @throws DmcValueException if the value is incorrect
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1505)
     public DmcAttribute<?> delContains(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__contains);
         
@@ -259,7 +263,7 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
      * Deletes a contains from the specified value.
      * @param value Contains
      * @return the deleted attribute instance     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1519)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1522)
     public DmcAttribute<?> delContains(Contains value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__contains);
         
@@ -274,7 +278,7 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * Removes the contains attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1541)
     public void remContains(){
          rem(DmtdlDMSAG.__contains);
     }
@@ -551,9 +555,10 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     }
 
     /**
+     * @param i the index
      * @return The nth Value value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1301)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1302)
     public Value getNthValue(int i){
         DmcTypeValueMV attr = (DmcTypeValueMV) get(DmtdlDMSAG.__value);
         if (attr == null)
@@ -565,8 +570,9 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * Adds another value to the specified value.
      * @param value Value
+     * @return the attribute instance
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1315)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1317)
     public DmcAttribute<?> addValue(Value value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__value);
         if (attr == null)
@@ -583,10 +589,10 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     }
 
     /**
-     * Returns true if we contain a valued keyed by the specified Value.
      * @param value Value
+     * @return true if we contain a valued keyed by the specified Value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1390)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1392)
     public boolean valueContains(Value value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__value);
         if (attr == null)
@@ -600,7 +606,7 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
      * @return the attribute instance
      * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1426)
     public DmcAttribute<?> addValue(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__value);
         if (attr == null)
@@ -614,7 +620,7 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * @return the number of values in value
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1443)
     public int getValueSize(){
         DmcAttribute<?> attr = get(DmtdlDMSAG.__value);
         if (attr == null){
@@ -629,8 +635,10 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * Deletes a value value.
      * @param value The Value to be deleted from set of attribute values.
-     * @return the deleted attribute instance     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
+     * @return the deleted attribute instance
+     * @throws DmcValueException if the value is incorrect
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1505)
     public DmcAttribute<?> delValue(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__value);
         
@@ -646,7 +654,7 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
      * Deletes a value from the specified value.
      * @param value Value
      * @return the deleted attribute instance     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1519)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1522)
     public DmcAttribute<?> delValue(Value value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__value);
         
@@ -661,7 +669,7 @@ public class SectionDMO  extends ContainedElementDMO  implements DmcNamedObjectI
     /**
      * Removes the value attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1541)
     public void remValue(){
          rem(DmtdlDMSAG.__value);
     }

@@ -58,31 +58,37 @@ public class GenerationContextREF extends DmcNamedObjectNontransportableREF<Gene
     
     DmcTypeCamelCaseNameSV myName;    
     
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:437)
     public GenerationContextREF(){
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:441)
     public GenerationContextREF(GenerationContextDMO o){
          object = o;
          myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:447)
     public GenerationContextREF(CamelCaseName n) throws DmcValueException {
          object = null;
          myName = new DmcTypeCamelCaseNameSV(__genContextName);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:454)
     public GenerationContextREF(String n) throws DmcValueException {
          object = null;
          myName = new DmcTypeCamelCaseNameSV(__genContextName);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:461)
     public GenerationContextREF(GenerationContextREF original){
         myName = original.myName;
         object = original.object;
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:467)
     public void setObject(GenerationContextDMO o){
          object = o;
          if (object != null)
@@ -92,6 +98,7 @@ public class GenerationContextREF extends DmcNamedObjectNontransportableREF<Gene
     /**
      * Clones this reference.
      */
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:477)
     public GenerationContextREF cloneMe(){
         GenerationContextREF rc = new GenerationContextREF();
         rc.myName = myName;

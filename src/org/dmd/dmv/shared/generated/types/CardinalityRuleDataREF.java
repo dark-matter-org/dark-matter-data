@@ -58,31 +58,37 @@ public class CardinalityRuleDataREF extends DmcNamedObjectNontransportableREF<Ca
     
     DmcTypeRuleNameSV myName;    
     
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:437)
     public CardinalityRuleDataREF(){
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:441)
     public CardinalityRuleDataREF(CardinalityRuleDataDMO o){
          object = o;
          myName = (DmcTypeRuleNameSV)o.getObjectNameAttribute();
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:447)
     public CardinalityRuleDataREF(RuleName n) throws DmcValueException {
          object = null;
          myName = new DmcTypeRuleNameSV(__ruleName);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:454)
     public CardinalityRuleDataREF(String n) throws DmcValueException {
          object = null;
          myName = new DmcTypeRuleNameSV(__ruleName);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:461)
     public CardinalityRuleDataREF(CardinalityRuleDataREF original){
         myName = original.myName;
         object = original.object;
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:467)
     public void setObject(CardinalityRuleDataDMO o){
          object = o;
          if (object != null)
@@ -92,6 +98,7 @@ public class CardinalityRuleDataREF extends DmcNamedObjectNontransportableREF<Ca
     /**
      * Clones this reference.
      */
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:477)
     public CardinalityRuleDataREF cloneMe(){
         CardinalityRuleDataREF rc = new CardinalityRuleDataREF();
         rc.myName = myName;

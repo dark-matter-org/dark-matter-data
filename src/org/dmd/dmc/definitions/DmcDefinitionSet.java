@@ -102,6 +102,25 @@ public class DmcDefinitionSet<DEF extends DSDefinition> {
 	}
 	
 	/**
+	 * Constructs a new global definition set. This type of set doesn't have a class
+	 * name and is used to store a global mapping of definitions of all types.
+	 * This form of the constructor also allows you to give the definition a name
+	 * that can be useful for debugging purposes.
+	 * @param sn the set name - so that we can see the name of this set when debugging
+	 * @param cn the class name
+	 */
+	public DmcDefinitionSet(String sn, String cn){
+		nameMap 		= new TreeMap<DefinitionName, ArrayList<DEF>>();
+		fullDotNameMap 	= new TreeMap<DotName, DEF>();
+		nameAndTypeMap 	= new TreeMap<DotName, ArrayList<DEF>>();
+		setName 		= sn;
+		className		= cn;
+		globalSet		= null;
+		isGlobalSet		= true;
+		derivedFromSet	= null;
+	}
+	
+	/**
 	 * Constructs a new definition set.
 	 * @param cn the name of the class of definition being stored in this definition set
 	 * @param gs the global definition set
@@ -457,6 +476,9 @@ public class DmcDefinitionSet<DEF extends DSDefinition> {
 		ArrayList<DEF> existing = nameMap.get(dn);
 		
 		if (existing == null)
+			return(null);
+		
+		if (existing.size() == 0)
 			return(null);
 		
 		if (existing.size() == 1)
