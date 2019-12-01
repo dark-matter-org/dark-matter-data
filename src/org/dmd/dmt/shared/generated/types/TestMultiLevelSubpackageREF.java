@@ -43,31 +43,37 @@ public class TestMultiLevelSubpackageREF extends DmcNamedObjectNontransportableR
     
     DmcTypeDefinitionNameSV myName;    
     
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:437)
     public TestMultiLevelSubpackageREF(){
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:441)
     public TestMultiLevelSubpackageREF(TestMultiLevelSubpackageDMO o){
          object = o;
          myName = (DmcTypeDefinitionNameSV)o.getObjectNameAttribute();
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:447)
     public TestMultiLevelSubpackageREF(DefinitionName n) throws DmcValueException {
          object = null;
          myName = new DmcTypeDefinitionNameSV(__name);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:454)
     public TestMultiLevelSubpackageREF(String n) throws DmcValueException {
          object = null;
          myName = new DmcTypeDefinitionNameSV(__name);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:461)
     public TestMultiLevelSubpackageREF(TestMultiLevelSubpackageREF original){
         myName = original.myName;
         object = original.object;
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:467)
     public void setObject(TestMultiLevelSubpackageDMO o){
          object = o;
          if (object != null)
@@ -77,6 +83,7 @@ public class TestMultiLevelSubpackageREF extends DmcNamedObjectNontransportableR
     /**
      * Clones this reference.
      */
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:477)
     public TestMultiLevelSubpackageREF cloneMe(){
         TestMultiLevelSubpackageREF rc = new TestMultiLevelSubpackageREF();
         rc.myName = myName;

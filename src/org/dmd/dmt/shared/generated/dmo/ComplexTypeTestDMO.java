@@ -144,9 +144,10 @@ public class ComplexTypeTestDMO  extends DmcObject  implements Serializable  {
     }
 
     /**
+     * @param i the index
      * @return The nth MenuElementTypeAndComment value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1301)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1302)
     public MenuElementTypeAndComment getNthMvComplex(int i){
         DmcTypeMenuElementTypeAndCommentMV attr = (DmcTypeMenuElementTypeAndCommentMV) get(DmtDMSAG.__mvComplex);
         if (attr == null)
@@ -158,8 +159,9 @@ public class ComplexTypeTestDMO  extends DmcObject  implements Serializable  {
     /**
      * Adds another mvComplex to the specified value.
      * @param value MenuElementTypeAndComment
+     * @return the attribute instance
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1315)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1317)
     public DmcAttribute<?> addMvComplex(MenuElementTypeAndComment value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvComplex);
         if (attr == null)
@@ -176,10 +178,10 @@ public class ComplexTypeTestDMO  extends DmcObject  implements Serializable  {
     }
 
     /**
-     * Returns true if we contain a valued keyed by the specified MenuElementTypeAndComment.
      * @param value MenuElementTypeAndComment
+     * @return true if we contain a valued keyed by the specified MenuElementTypeAndComment.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1390)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1392)
     public boolean mvComplexContains(MenuElementTypeAndComment value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvComplex);
         if (attr == null)
@@ -193,7 +195,7 @@ public class ComplexTypeTestDMO  extends DmcObject  implements Serializable  {
      * @return the attribute instance
      * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1426)
     public DmcAttribute<?> addMvComplex(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvComplex);
         if (attr == null)
@@ -207,7 +209,7 @@ public class ComplexTypeTestDMO  extends DmcObject  implements Serializable  {
     /**
      * @return the number of values in mvComplex
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1443)
     public int getMvComplexSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvComplex);
         if (attr == null){
@@ -222,8 +224,10 @@ public class ComplexTypeTestDMO  extends DmcObject  implements Serializable  {
     /**
      * Deletes a mvComplex value.
      * @param value The MenuElementTypeAndComment to be deleted from set of attribute values.
-     * @return the deleted attribute instance     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
+     * @return the deleted attribute instance
+     * @throws DmcValueException if the value is incorrect
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1505)
     public DmcAttribute<?> delMvComplex(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvComplex);
         
@@ -239,7 +243,7 @@ public class ComplexTypeTestDMO  extends DmcObject  implements Serializable  {
      * Deletes a mvComplex from the specified value.
      * @param value MenuElementTypeAndComment
      * @return the deleted attribute instance     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1519)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1522)
     public DmcAttribute<?> delMvComplex(MenuElementTypeAndComment value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvComplex);
         
@@ -254,7 +258,7 @@ public class ComplexTypeTestDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the mvComplex attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1541)
     public void remMvComplex(){
          rem(DmtDMSAG.__mvComplex);
     }

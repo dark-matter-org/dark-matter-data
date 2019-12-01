@@ -34,16 +34,16 @@ import org.dmd.dmc.DmcValueExceptionSet;                                        
 import org.dmd.dmc.definitions.DmcDefinitionSet;                                 // Our base to provide definition set storage - (DSDArtifactFormatter.java:131)
 import org.dmd.dmc.types.DotName;                                                // To support the find method for definitions - (DSDArtifactFormatter.java:133)
 import org.dmd.dms.DSDefinition;                                                 // The base of all definitions - (DSDArtifactFormatter.java:130)
-import org.dmd.dmt.dsd.dsda.server.extended.ABConceptX;                          // A definition from the ModuleA Module - (DSDArtifactFormatter.java:414)
-import org.dmd.dmt.dsd.dsda.server.extended.AConceptBase;                        // A definition from the ModuleA Module - (DSDArtifactFormatter.java:410)
-import org.dmd.dmt.dsd.dsda.server.extended.AConceptX;                           // A definition from the ModuleA Module - (DSDArtifactFormatter.java:414)
-import org.dmd.dmt.dsd.dsda.server.extended.ModuleA;                             // A definition from the ModuleA Module - (DSDArtifactFormatter.java:414)
-import org.dmd.dmt.dsd.dsda.server.generated.dsd.ModuleAGlobalInterface;         // Interface for ModuleA definitions - (DSDArtifactFormatter.java:407)
+import org.dmd.dmt.dsd.dsda.server.extended.ABConceptX;                          // A definition from the ModuleA Module - (DSDArtifactFormatter.java:495)
+import org.dmd.dmt.dsd.dsda.server.extended.AConceptBase;                        // A definition from the ModuleA Module - (DSDArtifactFormatter.java:491)
+import org.dmd.dmt.dsd.dsda.server.extended.AConceptX;                           // A definition from the ModuleA Module - (DSDArtifactFormatter.java:495)
+import org.dmd.dmt.dsd.dsda.server.extended.ModuleA;                             // A definition from the ModuleA Module - (DSDArtifactFormatter.java:495)
+import org.dmd.dmt.dsd.dsda.server.generated.dsd.ModuleAGlobalInterface;         // Interface for ModuleA definitions - (DSDArtifactFormatter.java:488)
 import org.dmd.dmt.dsd.dsda.shared.generated.dmo.DsdADMSAG;                      // To allow use of DmcClassInfo from the dsdA schema for index access - (DSDArtifactFormatter.java:150)
-import org.dmd.dmt.dsd.dsdb.server.extended.BConceptBase;                        // A definition from the ModuleB Module - (DSDArtifactFormatter.java:410)
-import org.dmd.dmt.dsd.dsdb.server.extended.BConceptX;                           // A definition from the ModuleB Module - (DSDArtifactFormatter.java:414)
-import org.dmd.dmt.dsd.dsdb.server.extended.ModuleB;                             // A definition from the ModuleB Module - (DSDArtifactFormatter.java:414)
-import org.dmd.dmt.dsd.dsdb.server.generated.dsd.ModuleBGlobalInterface;         // Interface for ModuleB definitions - (DSDArtifactFormatter.java:407)
+import org.dmd.dmt.dsd.dsdb.server.extended.BConceptBase;                        // A definition from the ModuleB Module - (DSDArtifactFormatter.java:491)
+import org.dmd.dmt.dsd.dsdb.server.extended.BConceptX;                           // A definition from the ModuleB Module - (DSDArtifactFormatter.java:495)
+import org.dmd.dmt.dsd.dsdb.server.extended.ModuleB;                             // A definition from the ModuleB Module - (DSDArtifactFormatter.java:495)
+import org.dmd.dmt.dsd.dsdb.server.generated.dsd.ModuleBGlobalInterface;         // Interface for ModuleB definitions - (DSDArtifactFormatter.java:488)
 import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.DsdBDMSAG;                      // To allow use of DmcClassInfo from the dsdB schema for index access - (DSDArtifactFormatter.java:150)
 import org.dmd.dmw.DmwNamedObjectWrapper;                                        // What we return from getIndex() - (DSDArtifactFormatter.java:155)
 import org.dmd.util.exceptions.ResultException;                                  // When deletion problems occur - (DSDArtifactFormatter.java:144)
@@ -54,12 +54,12 @@ public class ModuleBDefinitionManager implements DmcNameClashResolverIF, DmcName
 
     private DmcDefinitionSet<DSDefinition>	allDefinitions;
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionManagerMembers(DSDArtifactFormatter.java:433)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionManagerMembers(DSDArtifactFormatter.java:514)
     private DmcDefinitionSet<AConceptBase> AConceptBaseDefs;
     private DmcDefinitionSet<ABConceptX> ABConceptXDefs;
     private DmcDefinitionSet<AConceptX> AConceptXDefs;
     private DmcDefinitionSet<ModuleA> ModuleADefs;
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionManagerMembers(DSDArtifactFormatter.java:433)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionManagerMembers(DSDArtifactFormatter.java:514)
     private DmcDefinitionSet<BConceptBase> BConceptBaseDefs;
     private DmcDefinitionSet<BConceptX> BConceptXDefs;
     private DmcDefinitionSet<ModuleB> ModuleBDefs;
@@ -73,7 +73,7 @@ public class ModuleBDefinitionManager implements DmcNameClashResolverIF, DmcName
 
         indicesByClass = new TreeMap<>();
 
-        // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.initializeDefinitionManagerMembers(DSDArtifactFormatter.java:460)
+        // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.initializeDefinitionManagerMembers(DSDArtifactFormatter.java:541)
         AConceptBaseDefs = new DmcDefinitionSet<AConceptBase>("AConceptBase", allDefinitions);
         indicesByClass.put(DsdADMSAG.__AConceptBase, AConceptBaseDefs);
 
@@ -136,7 +136,7 @@ public class ModuleBDefinitionManager implements DmcNameClashResolverIF, DmcName
     	   return(allDefinitions.getDefinition(name));
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:225)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:226)
     /**
      * Attempts to delete the definition with the specified name. If you have
      * enabled back reference tracking via DmcOmni, it will also clean up any
@@ -153,14 +153,24 @@ public class ModuleBDefinitionManager implements DmcNameClashResolverIF, DmcName
         DmcDefinitionSet<?> dds = indicesByClass.get(def.getConstructionClassInfo());
         dds.delete(name);
         def.youAreDeleted();
+        
+        BConceptBase base = (BConceptBase)def;
+        ModuleB module = base.getDefinedInModuleB();
+        
+        if (def instanceof BConceptX){
+            module.deleteBConceptX((BConceptX)def);
+        }
+        else if (def instanceof ModuleB){
+        }
+
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:244)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:281)
     public DmcNamedObjectIF findNamedObject(DmcObjectName name, int attributeID) {
         throw(new IllegalStateException("This method is not supported on generated definition managers"));
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:249)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:286)
     public DmcObject findNamedDMO(DmcObjectName name) {
         DSDefinition def = null;
         try {
@@ -179,7 +189,7 @@ public class ModuleBDefinitionManager implements DmcNameClashResolverIF, DmcName
         return(def.getDMO());
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:269)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:305)
     public DmcNamedObjectIF findNamedObjectMayClash(DmcObject object, DmcObjectName name, DmcNameClashResolverIF resolver, DmcAttributeInfo ai) throws DmcValueException {
         DmcNamedObjectIF rc = null;
         DotName dn = new DotName(name.getNameString() + "." + ai.type);
@@ -210,7 +220,7 @@ public class ModuleBDefinitionManager implements DmcNameClashResolverIF, DmcName
         return(rc);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:300)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateDefinitionManager(DSDArtifactFormatter.java:336)
     public DmcNamedObjectIF resolveClash(DmcObject obj, DmcAttributeInfo ai, DmcNameClashObjectSet<?> ncos) throws DmcValueException {
         DmcNamedObjectIF rc = null;
         DSDefinition resolving = (DSDefinition) obj.getContainer();
@@ -226,13 +236,21 @@ public class ModuleBDefinitionManager implements DmcNameClashResolverIF, DmcName
         return(rc);
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:302)
-    // Called from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionInterfaceMethods(DSDArtifactFormatter.java:454)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:305)
+    // Called from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionInterfaceMethods(DSDArtifactFormatter.java:535)
     /**
      * All definitions are added to the base definition collection.
      */
     void addAConceptBase(AConceptBase def){
         AConceptBaseDefs.add(def);
+    }
+
+    void deleteAConceptBase(AConceptBase def){
+        try {
+            AConceptBaseDefs.delete(def);
+        } catch (ResultException e) {
+            throw(new IllegalStateException(e));
+        }
     }
 
     public int getAConceptBaseCount(){
@@ -247,10 +265,19 @@ public class ModuleBDefinitionManager implements DmcNameClashResolverIF, DmcName
         return(AConceptBaseDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:337)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:343)
     public void addABConceptX(ABConceptX def){
         ABConceptXDefs.add(def);
         addAConceptX(def);
+    }
+
+    public void deleteABConceptX(ABConceptX def){
+        try{
+            ABConceptXDefs.delete(def);
+        } catch (ResultException e) {
+            throw(new IllegalStateException(e));
+        }
+        deleteAConceptX(def);
     }
 
     public int getABConceptXCount(){
@@ -277,10 +304,19 @@ public class ModuleBDefinitionManager implements DmcNameClashResolverIF, DmcName
         return(ABConceptXDefs.getDefinitionCountByName(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:337)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:343)
     public void addAConceptX(AConceptX def){
         AConceptXDefs.add(def);
         addAConceptBase(def);
+    }
+
+    public void deleteAConceptX(AConceptX def){
+        try{
+            AConceptXDefs.delete(def);
+        } catch (ResultException e) {
+            throw(new IllegalStateException(e));
+        }
+        deleteAConceptBase(def);
     }
 
     public int getAConceptXCount(){
@@ -307,10 +343,19 @@ public class ModuleBDefinitionManager implements DmcNameClashResolverIF, DmcName
         return(AConceptXDefs.getDefinitionCountByName(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:337)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:343)
     public void addModuleA(ModuleA def){
         ModuleADefs.add(def);
         addAConceptBase(def);
+    }
+
+    public void deleteModuleA(ModuleA def){
+        try{
+            ModuleADefs.delete(def);
+        } catch (ResultException e) {
+            throw(new IllegalStateException(e));
+        }
+        deleteAConceptBase(def);
     }
 
     public int getModuleACount(){
@@ -337,13 +382,21 @@ public class ModuleBDefinitionManager implements DmcNameClashResolverIF, DmcName
         return(ModuleADefs.getDefinitionCountByName(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:302)
-    // Called from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionInterfaceMethods(DSDArtifactFormatter.java:454)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:305)
+    // Called from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpDefinitionInterfaceMethods(DSDArtifactFormatter.java:535)
     /**
      * All definitions are added to the base definition collection.
      */
     void addBConceptBase(BConceptBase def){
         BConceptBaseDefs.add(def);
+    }
+
+    void deleteBConceptBase(BConceptBase def){
+        try {
+            BConceptBaseDefs.delete(def);
+        } catch (ResultException e) {
+            throw(new IllegalStateException(e));
+        }
     }
 
     public int getBConceptBaseCount(){
@@ -358,10 +411,19 @@ public class ModuleBDefinitionManager implements DmcNameClashResolverIF, DmcName
         return(BConceptBaseDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:337)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:343)
     public void addBConceptX(BConceptX def){
         BConceptXDefs.add(def);
         addBConceptBase(def);
+    }
+
+    public void deleteBConceptX(BConceptX def){
+        try{
+            BConceptXDefs.delete(def);
+        } catch (ResultException e) {
+            throw(new IllegalStateException(e));
+        }
+        deleteBConceptBase(def);
     }
 
     public int getBConceptXCount(){
@@ -388,10 +450,19 @@ public class ModuleBDefinitionManager implements DmcNameClashResolverIF, DmcName
         return(BConceptXDefs.getDefinitionCountByName(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:337)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:343)
     public void addModuleB(ModuleB def){
         ModuleBDefs.add(def);
         addBConceptBase(def);
+    }
+
+    public void deleteModuleB(ModuleB def){
+        try{
+            ModuleBDefs.delete(def);
+        } catch (ResultException e) {
+            throw(new IllegalStateException(e));
+        }
+        deleteBConceptBase(def);
     }
 
     public int getModuleBCount(){
@@ -419,7 +490,7 @@ public class ModuleBDefinitionManager implements DmcNameClashResolverIF, DmcName
     }
 
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpAddMethod(DSDArtifactFormatter.java:340)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpAddMethod(DSDArtifactFormatter.java:378)
     public void addDefinition(DSDefinition definition){
             if (definition instanceof BConceptX){
                 addBConceptX((BConceptX)definition);
@@ -430,7 +501,19 @@ public class ModuleBDefinitionManager implements DmcNameClashResolverIF, DmcName
 
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpSummaryMethod(DSDArtifactFormatter.java:379)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpAddMethodAndUpdateModuleMethod(DSDArtifactFormatter.java:421)
+    public void addDefinition(DSDefinition definition, ModuleB module){
+            if (definition instanceof BConceptX){
+                addBConceptX((BConceptX)definition);
+                module.addBConceptX((BConceptX)definition);
+            }
+            else if (definition instanceof ModuleB){
+                addModuleB((ModuleB)definition);
+            }
+
+    }
+
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.dumpSummaryMethod(DSDArtifactFormatter.java:460)
     public String summary(){
         StringBuilder sb = new StringBuilder();
         sb.append(BConceptBaseDefs.summary());

@@ -82,7 +82,7 @@ public class PrimitiveTMDMO  extends DmcObject  implements Serializable  {
      * @return An Iterator of StringToString objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1623)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1626)
     public Iterator<StringToString> getTmString(){
         DmcTypeStringToStringMAP attr = (DmcTypeStringToStringMAP) get(DmtDMSAG.__tmString);
         if (attr == null)
@@ -95,7 +95,7 @@ public class PrimitiveTMDMO  extends DmcObject  implements Serializable  {
      * @param key The key of the value you want.
      * @return The StringToString associated with the specified key.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1655)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1658)
     public StringToString getTmString(Object key){
         DmcTypeStringToStringMAP attr = (DmcTypeStringToStringMAP) get(DmtDMSAG.__tmString);
         if (attr == null)
@@ -107,7 +107,7 @@ public class PrimitiveTMDMO  extends DmcObject  implements Serializable  {
     /**
      * @return The first key of the map.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1675)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1678)
     public String getTmStringFirstKey(){
         DmcTypeStringToStringMAP attr = (DmcTypeStringToStringMAP) get(DmtDMSAG.__tmString);
         if (attr == null)
@@ -120,7 +120,7 @@ public class PrimitiveTMDMO  extends DmcObject  implements Serializable  {
      * Adds another tmString value.
      * @param value A value compatible with StringToString
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1693)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1696)
     public DmcAttribute<?> addTmString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__tmString);
         if (attr == null)
@@ -135,7 +135,7 @@ public class PrimitiveTMDMO  extends DmcObject  implements Serializable  {
      * Adds another tmString value.
      * @param value StringToString
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1730)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1733)
     public DmcAttribute<?> addTmString(StringToString value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__tmString);
         if (attr == null)
@@ -155,7 +155,7 @@ public class PrimitiveTMDMO  extends DmcObject  implements Serializable  {
      * Deletes a tmString value.
      * @param key The key of the StringToString to be deleted from the map of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1810)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1813)
     public DmcAttribute<?> delTmString(Object key){
         DmcAttribute<?> attr = get(DmtDMSAG.__tmString);
         
@@ -173,7 +173,7 @@ public class PrimitiveTMDMO  extends DmcObject  implements Serializable  {
      * Deletes a tmString value.
      * @param key the String key value
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1828)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1831)
     public DmcAttribute<?> delTmString(String key) {
         DmcAttribute<?> attr = get(DmtDMSAG.__tmString);
         
@@ -190,7 +190,7 @@ public class PrimitiveTMDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the tmString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1882)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1885)
     public void remTmString(){
          rem(DmtDMSAG.__tmString);
     }

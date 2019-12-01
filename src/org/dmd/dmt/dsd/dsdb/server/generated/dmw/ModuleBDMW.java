@@ -23,7 +23,7 @@ import org.dmd.dmc.*;                                                           
 import org.dmd.dmc.definitions.DmcDefinitionIF;                                  // The object is a domain specific definition - (BaseDMWGenerator.java:411)
 import org.dmd.dmc.definitions.DmcDefinitionSet;                                 // Our base to provide definition set storage - (DMWGenerator.java:171)
 import org.dmd.dmc.types.DefinitionName;                                         // Is named by - (BaseDMWGenerator.java:939)
-import org.dmd.dmc.types.DotName;                                                // To support the find method for definitions - (DSDefinitionModule.java:180)
+import org.dmd.dmc.types.DotName;                                                // To support the find method for definitions - (DSDefinitionModule.java:181)
 import org.dmd.dms.ClassDefinition;                                              // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:944)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                      // Attribute defFiles from the meta schema - (BaseDMWGenerator.java:910)
 import org.dmd.dms.generated.dmw.StringIterableDMW;                              // For multi-valued String - (BaseDMWGenerator.java:1995)
@@ -33,13 +33,14 @@ import org.dmd.dmt.dsd.dsda.server.generated.dmw.ModuleAIterableDMW;            
 import org.dmd.dmt.dsd.dsda.shared.generated.dmo.DsdADMSAG;                      // Attribute dependsOnModuleA from the dsdA schema - (BaseDMWGenerator.java:910)
 import org.dmd.dmt.dsd.dsda.shared.generated.dmo.ModuleADMO;                     // For multi-valued adds of ModuleA - (BaseDMWGenerator.java:1658)
 import org.dmd.dmt.dsd.dsdb.server.extended.BConceptBase;                        // Derived class - (BaseDMWGenerator.java:1138)
-import org.dmd.dmt.dsd.dsdb.server.extended.BConceptX;                           // A definition from the ModuleB Module - (DSDefinitionModule.java:191)
+import org.dmd.dmt.dsd.dsdb.server.extended.BConceptX;                           // A definition from the ModuleB Module - (DSDefinitionModule.java:193)
 import org.dmd.dmt.dsd.dsdb.server.extended.ModuleB;                             // Required for getModificationRecorder() - (BaseDMWGenerator.java:953)
 import org.dmd.dmt.dsd.dsdb.server.generated.dmw.ModuleBIterableDMW;             // For multi-valued ModuleB - (BaseDMWGenerator.java:1600)
 import org.dmd.dmt.dsd.dsdb.server.generated.dsd.ModuleBScopedInterface;         // Required to manage module definition - (DMWGenerator.java:170)
 import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.DsdBDMSAG;                      // Attribute dependsOnModuleB from the dsdB schema - (BaseDMWGenerator.java:910)
 import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.ModuleBDMO;                     // Class not auxiliary or abstract - (BaseDMWGenerator.java:1142)
 import org.dmd.dmt.dsd.dsdb.shared.generated.types.ModuleBREF;                   // Required to access defined in module name - (DMWGenerator.java:181)
+import org.dmd.util.exceptions.ResultException;                                  // To support definition deletions - (DSDefinitionModule.java:182)
 
 
 
@@ -54,9 +55,9 @@ abstract public class ModuleBDMW extends BConceptBase implements DmcDefinitionIF
 
     // Generated from: org.dmd.util.codegen.MemberManager.getFormattedMembers(MemberManager.java:64)
     // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperDefinitions(DMWGenerator.java:204)
-    DmcDefinitionSet<BConceptBase>     BConceptBaseDefs    = new DmcDefinitionSet<BConceptBase>("ModuleB-allDefinitions");   // All definitions associated with this module
-    DmcDefinitionSet<BConceptX>        BConceptXDefs       = new DmcDefinitionSet<BConceptX>("ModuleB-BConceptXDefs");       // All BConceptX definitions
-    DmcDefinitionSet<ModuleB>          ModuleBDefs         = new DmcDefinitionSet<ModuleB>("ModuleB-ModuleBDefs");           // All ModuleB definitions
+    DmcDefinitionSet<BConceptBase>     BConceptBaseDefs    = new DmcDefinitionSet<BConceptBase>("ModuleB-allDefinitions","BConceptBase");   // All definitions associated with this module
+    DmcDefinitionSet<BConceptX>        BConceptXDefs       = new DmcDefinitionSet<BConceptX>("ModuleB-BConceptXDefs", "BConceptX");         // All BConceptX definitions
+    DmcDefinitionSet<ModuleB>          ModuleBDefs         = new DmcDefinitionSet<ModuleB>("ModuleB-ModuleBDefs", "ModuleB");               // All ModuleB definitions
 
     // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:577)
     public ModuleBDMW() {
@@ -551,13 +552,21 @@ abstract public class ModuleBDMW extends BConceptBase implements DmcDefinitionIF
         ((ModuleBDMO) core).remName();
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:302)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:305)
     // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperFunctions(DMWGenerator.java:212)
     /**
      * All definitions are added to the base definition collection.
      */
     void addBConceptBase(BConceptBase def){
         BConceptBaseDefs.add(def);
+    }
+
+    void deleteBConceptBase(BConceptBase def){
+        try {
+            BConceptBaseDefs.delete(def);
+        } catch (ResultException e) {
+            throw(new IllegalStateException(e));
+        }
     }
 
     public int getBConceptBaseCount(){
@@ -572,10 +581,19 @@ abstract public class ModuleBDMW extends BConceptBase implements DmcDefinitionIF
         return(BConceptBaseDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:337)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:343)
     public void addBConceptX(BConceptX def){
         BConceptXDefs.add(def);
         addBConceptBase(def);
+    }
+
+    public void deleteBConceptX(BConceptX def){
+        try{
+            BConceptXDefs.delete(def);
+        } catch (ResultException e) {
+            throw(new IllegalStateException(e));
+        }
+        deleteBConceptBase(def);
     }
 
     public int getBConceptXCount(){

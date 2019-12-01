@@ -191,7 +191,7 @@ public class ConcinnityModuleDefinitionDMOCache implements ConcinnityModuleGloba
         return(rc);
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:381)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:395)
     // Called from: org.dmd.dms.util.DmoCacheFormatter.dumpDefinitionInterfaceMethods(DmoCacheFormatter.java:524)
     /**
      * All definitions are added to the base definition collection.
@@ -212,7 +212,7 @@ public class ConcinnityModuleDefinitionDMOCache implements ConcinnityModuleGloba
         return(ConcinnityDefinitionDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:416)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:430)
     public void addConcept(ConceptDMO def){
         ConceptDefs.add(def);
         addConcinnityDefinition(def);
@@ -234,7 +234,7 @@ public class ConcinnityModuleDefinitionDMOCache implements ConcinnityModuleGloba
         return(ConceptDefs.getDefinition(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:416)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:430)
     public void addConcinnityModule(ConcinnityModuleDMO def){
         ConcinnityModuleDefs.add(def);
         addConcinnityDefinition(def);

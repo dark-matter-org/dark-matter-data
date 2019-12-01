@@ -163,9 +163,10 @@ public class RelatedNumbersRuleDataDMO  extends RuleDataDMO  implements DmcNamed
     }
 
     /**
+     * @param i the index
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1301)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1302)
     public String getNthDescription(int i){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -177,8 +178,9 @@ public class RelatedNumbersRuleDataDMO  extends RuleDataDMO  implements DmcNamed
     /**
      * Adds another description to the specified value.
      * @param value String
+     * @return the attribute instance
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1315)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1317)
     public DmcAttribute<?> addDescription(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -195,10 +197,10 @@ public class RelatedNumbersRuleDataDMO  extends RuleDataDMO  implements DmcNamed
     }
 
     /**
-     * Returns true if we contain a valued keyed by the specified String.
      * @param value String
+     * @return true if we contain a valued keyed by the specified String.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1390)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1392)
     public boolean descriptionContains(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -212,7 +214,7 @@ public class RelatedNumbersRuleDataDMO  extends RuleDataDMO  implements DmcNamed
      * @return the attribute instance
      * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1426)
     public DmcAttribute<?> addDescription(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -226,7 +228,7 @@ public class RelatedNumbersRuleDataDMO  extends RuleDataDMO  implements DmcNamed
     /**
      * @return the number of values in description
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1443)
     public int getDescriptionSize(){
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null){
@@ -241,8 +243,10 @@ public class RelatedNumbersRuleDataDMO  extends RuleDataDMO  implements DmcNamed
     /**
      * Deletes a description value.
      * @param value The String to be deleted from set of attribute values.
-     * @return the deleted attribute instance     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
+     * @return the deleted attribute instance
+     * @throws DmcValueException if the value is incorrect
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1505)
     public DmcAttribute<?> delDescription(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         
@@ -258,7 +262,7 @@ public class RelatedNumbersRuleDataDMO  extends RuleDataDMO  implements DmcNamed
      * Deletes a description from the specified value.
      * @param value String
      * @return the deleted attribute instance     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1519)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1522)
     public DmcAttribute<?> delDescription(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         
@@ -273,7 +277,7 @@ public class RelatedNumbersRuleDataDMO  extends RuleDataDMO  implements DmcNamed
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1541)
     public void remDescription(){
          rem(MetaDMSAG.__description);
     }

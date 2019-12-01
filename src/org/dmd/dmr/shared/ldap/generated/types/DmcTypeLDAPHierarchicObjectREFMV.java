@@ -40,8 +40,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeLDAPHierarchicObjectREFMV provides storage for a multi-valued LDAPHierarchicObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:529)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2515)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:535)
  */
 @SuppressWarnings("serial")
 public class DmcTypeLDAPHierarchicObjectREFMV extends DmcTypeLDAPHierarchicObjectREF implements Serializable {
@@ -64,7 +64,7 @@ public class DmcTypeLDAPHierarchicObjectREFMV extends DmcTypeLDAPHierarchicObjec
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2543)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2546)
     public DmcAttribute<LDAPHierarchicObjectREF> cloneIt(){
         synchronized(this){
             DmcTypeLDAPHierarchicObjectREFMV rc = getNew();
@@ -93,7 +93,7 @@ public class DmcTypeLDAPHierarchicObjectREFMV extends DmcTypeLDAPHierarchicObjec
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2576)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2579)
     public LDAPHierarchicObjectREF add(Object v) throws DmcValueException {
         synchronized(this){
             LDAPHierarchicObjectREF rc = typeCheck(v);
@@ -105,7 +105,7 @@ public class DmcTypeLDAPHierarchicObjectREFMV extends DmcTypeLDAPHierarchicObjec
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2589)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2592)
     public LDAPHierarchicObjectREF del(Object v){
         synchronized(this){
             if (value == null)
@@ -129,7 +129,7 @@ public class DmcTypeLDAPHierarchicObjectREFMV extends DmcTypeLDAPHierarchicObjec
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2623)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2626)
     public Iterator<LDAPHierarchicObjectREF> getMV(){
         synchronized(this){
             if (value == null)
@@ -140,7 +140,7 @@ public class DmcTypeLDAPHierarchicObjectREFMV extends DmcTypeLDAPHierarchicObjec
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2635)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2638)
     public ArrayList<LDAPHierarchicObjectREF> getMVCopy(){
         synchronized(this){
             if (value == null)
@@ -151,7 +151,7 @@ public class DmcTypeLDAPHierarchicObjectREFMV extends DmcTypeLDAPHierarchicObjec
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2647)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2650)
     public int getMVSize(){
         synchronized(this){
             if (getAttributeInfo().indexSize == 0){
@@ -165,7 +165,7 @@ public class DmcTypeLDAPHierarchicObjectREFMV extends DmcTypeLDAPHierarchicObjec
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2662)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2665)
     public LDAPHierarchicObjectREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -175,7 +175,7 @@ public class DmcTypeLDAPHierarchicObjectREFMV extends DmcTypeLDAPHierarchicObjec
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2673)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2676)
     public LDAPHierarchicObjectREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
@@ -202,7 +202,7 @@ public class DmcTypeLDAPHierarchicObjectREFMV extends DmcTypeLDAPHierarchicObjec
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2701)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2704)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -225,7 +225,7 @@ public class DmcTypeLDAPHierarchicObjectREFMV extends DmcTypeLDAPHierarchicObjec
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2725)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2728)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

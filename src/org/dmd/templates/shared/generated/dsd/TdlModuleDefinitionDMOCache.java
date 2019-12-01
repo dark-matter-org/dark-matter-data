@@ -206,7 +206,7 @@ public class TdlModuleDefinitionDMOCache implements DmcNameClashResolverIF, DmcN
         return(rc);
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:381)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:395)
     // Called from: org.dmd.dms.util.DmoCacheFormatter.dumpDefinitionInterfaceMethods(DmoCacheFormatter.java:524)
     /**
      * All definitions are added to the base definition collection.
@@ -227,7 +227,7 @@ public class TdlModuleDefinitionDMOCache implements DmcNameClashResolverIF, DmcN
         return(TdlDefinitionDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:416)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:430)
     public void addContainedElement(ContainedElementDMO def){
         ContainedElementDefs.add(def);
         addTdlDefinition(def);
@@ -249,7 +249,7 @@ public class TdlModuleDefinitionDMOCache implements DmcNameClashResolverIF, DmcN
         return(ContainedElementDefs.getDefinition(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:416)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:430)
     public void addExtensionHook(ExtensionHookDMO def){
         ExtensionHookDefs.add(def);
         addContainedElement(def);
@@ -271,7 +271,7 @@ public class TdlModuleDefinitionDMOCache implements DmcNameClashResolverIF, DmcN
         return(ExtensionHookDefs.getDefinition(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:416)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:430)
     public void addSection(SectionDMO def){
         SectionDefs.add(def);
         addContainedElement(def);
@@ -293,7 +293,7 @@ public class TdlModuleDefinitionDMOCache implements DmcNameClashResolverIF, DmcN
         return(SectionDefs.getDefinition(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:416)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:430)
     public void addTdlModule(TdlModuleDMO def){
         TdlModuleDefs.add(def);
         addTdlDefinition(def);
@@ -315,7 +315,7 @@ public class TdlModuleDefinitionDMOCache implements DmcNameClashResolverIF, DmcN
         return(TdlModuleDefs.getDefinition(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:416)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:430)
     public void addTextualArtifact(TextualArtifactDMO def){
         TextualArtifactDefs.add(def);
         addTdlDefinition(def);

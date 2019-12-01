@@ -43,31 +43,37 @@ public class UUIDNamedObjectREF extends DmcNamedObjectNontransportableREF<UUIDNa
     
     DmcTypeUUIDNameSV myName;    
     
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:437)
     public UUIDNamedObjectREF(){
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:441)
     public UUIDNamedObjectREF(UUIDNamedObjectDMO o){
          object = o;
          myName = (DmcTypeUUIDNameSV)o.getObjectNameAttribute();
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:447)
     public UUIDNamedObjectREF(UUIDName n) throws DmcValueException {
          object = null;
          myName = new DmcTypeUUIDNameSV(__uuidName);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:454)
     public UUIDNamedObjectREF(String n) throws DmcValueException {
          object = null;
          myName = new DmcTypeUUIDNameSV(__uuidName);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:461)
     public UUIDNamedObjectREF(UUIDNamedObjectREF original){
         myName = original.myName;
         object = original.object;
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:467)
     public void setObject(UUIDNamedObjectDMO o){
          object = o;
          if (object != null)
@@ -77,6 +83,7 @@ public class UUIDNamedObjectREF extends DmcNamedObjectNontransportableREF<UUIDNa
     /**
      * Clones this reference.
      */
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:477)
     public UUIDNamedObjectREF cloneMe(){
         UUIDNamedObjectREF rc = new UUIDNamedObjectREF();
         rc.myName = myName;

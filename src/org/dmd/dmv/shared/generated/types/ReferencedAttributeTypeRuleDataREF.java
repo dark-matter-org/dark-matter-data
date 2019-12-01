@@ -58,31 +58,37 @@ public class ReferencedAttributeTypeRuleDataREF extends DmcNamedObjectNontranspo
     
     DmcTypeRuleNameSV myName;    
     
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:437)
     public ReferencedAttributeTypeRuleDataREF(){
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:441)
     public ReferencedAttributeTypeRuleDataREF(ReferencedAttributeTypeRuleDataDMO o){
          object = o;
          myName = (DmcTypeRuleNameSV)o.getObjectNameAttribute();
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:447)
     public ReferencedAttributeTypeRuleDataREF(RuleName n) throws DmcValueException {
          object = null;
          myName = new DmcTypeRuleNameSV(__ruleName);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:454)
     public ReferencedAttributeTypeRuleDataREF(String n) throws DmcValueException {
          object = null;
          myName = new DmcTypeRuleNameSV(__ruleName);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:461)
     public ReferencedAttributeTypeRuleDataREF(ReferencedAttributeTypeRuleDataREF original){
         myName = original.myName;
         object = original.object;
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:467)
     public void setObject(ReferencedAttributeTypeRuleDataDMO o){
          object = o;
          if (object != null)
@@ -92,6 +98,7 @@ public class ReferencedAttributeTypeRuleDataREF extends DmcNamedObjectNontranspo
     /**
      * Clones this reference.
      */
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:477)
     public ReferencedAttributeTypeRuleDataREF cloneMe(){
         ReferencedAttributeTypeRuleDataREF rc = new ReferencedAttributeTypeRuleDataREF();
         rc.myName = myName;

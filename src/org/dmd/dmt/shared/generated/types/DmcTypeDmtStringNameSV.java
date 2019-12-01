@@ -25,7 +25,7 @@ import org.dmd.dmt.shared.types.DmcTypeDmtStringName;    // DmcType import
  * The DmcTypeDmtStringNameSV provides storage for a single-valued DmtStringName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2168)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2171)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:100)
  */
 @SuppressWarnings("serial")
@@ -50,14 +50,14 @@ public class DmcTypeDmtStringNameSV extends DmcTypeDmtStringName implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2200)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2203)
     public DmcAttribute<DmtStringName> cloneIt(){
         DmcTypeDmtStringNameSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2211)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2214)
     public DmtStringName getSVCopy(){
         if (value == null)
             return(null);
@@ -65,7 +65,7 @@ public class DmcTypeDmtStringNameSV extends DmcTypeDmtStringName implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2223)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2226)
     public DmtStringName set(Object v) throws DmcValueException {
         DmtStringName rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

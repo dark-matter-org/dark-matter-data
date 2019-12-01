@@ -196,9 +196,10 @@ public class TextualArtifactDMO  extends TdlDefinitionDMO  implements DmcNamedOb
     }
 
     /**
+     * @param i the index
      * @return The nth Contains value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1301)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1302)
     public Contains getNthContains(int i){
         DmcTypeContainsMV attr = (DmcTypeContainsMV) get(DmtdlDMSAG.__contains);
         if (attr == null)
@@ -210,8 +211,9 @@ public class TextualArtifactDMO  extends TdlDefinitionDMO  implements DmcNamedOb
     /**
      * Adds another contains to the specified value.
      * @param value Contains
+     * @return the attribute instance
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1315)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1317)
     public DmcAttribute<?> addContains(Contains value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__contains);
         if (attr == null)
@@ -228,10 +230,10 @@ public class TextualArtifactDMO  extends TdlDefinitionDMO  implements DmcNamedOb
     }
 
     /**
-     * Returns true if we contain a valued keyed by the specified Contains.
      * @param value Contains
+     * @return true if we contain a valued keyed by the specified Contains.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1390)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1392)
     public boolean containsContains(Contains value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__contains);
         if (attr == null)
@@ -245,7 +247,7 @@ public class TextualArtifactDMO  extends TdlDefinitionDMO  implements DmcNamedOb
      * @return the attribute instance
      * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1426)
     public DmcAttribute<?> addContains(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__contains);
         if (attr == null)
@@ -259,7 +261,7 @@ public class TextualArtifactDMO  extends TdlDefinitionDMO  implements DmcNamedOb
     /**
      * @return the number of values in contains
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1443)
     public int getContainsSize(){
         DmcAttribute<?> attr = get(DmtdlDMSAG.__contains);
         if (attr == null){
@@ -274,8 +276,10 @@ public class TextualArtifactDMO  extends TdlDefinitionDMO  implements DmcNamedOb
     /**
      * Deletes a contains value.
      * @param value The Contains to be deleted from set of attribute values.
-     * @return the deleted attribute instance     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
+     * @return the deleted attribute instance
+     * @throws DmcValueException if the value is incorrect
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1505)
     public DmcAttribute<?> delContains(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__contains);
         
@@ -291,7 +295,7 @@ public class TextualArtifactDMO  extends TdlDefinitionDMO  implements DmcNamedOb
      * Deletes a contains from the specified value.
      * @param value Contains
      * @return the deleted attribute instance     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1519)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1522)
     public DmcAttribute<?> delContains(Contains value) {
         DmcAttribute<?> attr = get(DmtdlDMSAG.__contains);
         
@@ -306,7 +310,7 @@ public class TextualArtifactDMO  extends TdlDefinitionDMO  implements DmcNamedOb
     /**
      * Removes the contains attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1541)
     public void remContains(){
          rem(DmtdlDMSAG.__contains);
     }

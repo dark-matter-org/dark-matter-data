@@ -58,31 +58,37 @@ public class RestrictReferencesRuleDataREF extends DmcNamedObjectNontransportabl
     
     DmcTypeRuleNameSV myName;    
     
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:437)
     public RestrictReferencesRuleDataREF(){
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:441)
     public RestrictReferencesRuleDataREF(RestrictReferencesRuleDataDMO o){
          object = o;
          myName = (DmcTypeRuleNameSV)o.getObjectNameAttribute();
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:447)
     public RestrictReferencesRuleDataREF(RuleName n) throws DmcValueException {
          object = null;
          myName = new DmcTypeRuleNameSV(__ruleName);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:454)
     public RestrictReferencesRuleDataREF(String n) throws DmcValueException {
          object = null;
          myName = new DmcTypeRuleNameSV(__ruleName);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:461)
     public RestrictReferencesRuleDataREF(RestrictReferencesRuleDataREF original){
         myName = original.myName;
         object = original.object;
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:467)
     public void setObject(RestrictReferencesRuleDataDMO o){
          object = o;
          if (object != null)
@@ -92,6 +98,7 @@ public class RestrictReferencesRuleDataREF extends DmcNamedObjectNontransportabl
     /**
      * Clones this reference.
      */
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:477)
     public RestrictReferencesRuleDataREF cloneMe(){
         RestrictReferencesRuleDataREF rc = new RestrictReferencesRuleDataREF();
         rc.myName = myName;

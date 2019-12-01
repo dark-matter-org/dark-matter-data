@@ -234,7 +234,7 @@ public class ModuleCDefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
         return(rc);
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:381)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:395)
     // Called from: org.dmd.dms.util.DmoCacheFormatter.dumpDefinitionInterfaceMethods(DmoCacheFormatter.java:524)
     /**
      * All definitions are added to the base definition collection.
@@ -255,7 +255,7 @@ public class ModuleCDefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
         return(AConceptBaseDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:416)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:430)
     public void addABConceptX(ABConceptXDMO def){
         ABConceptXDefs.add(def);
         addAConceptX(def);
@@ -277,7 +277,7 @@ public class ModuleCDefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
         return(ABConceptXDefs.getDefinition(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:416)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:430)
     public void addAConceptX(AConceptXDMO def){
         AConceptXDefs.add(def);
         addAConceptBase(def);
@@ -299,7 +299,7 @@ public class ModuleCDefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
         return(AConceptXDefs.getDefinition(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:416)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:430)
     public void addModuleA(ModuleADMO def){
         ModuleADefs.add(def);
         addAConceptBase(def);
@@ -321,7 +321,7 @@ public class ModuleCDefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
         return(ModuleADefs.getDefinition(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:381)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:395)
     // Called from: org.dmd.dms.util.DmoCacheFormatter.dumpDefinitionInterfaceMethods(DmoCacheFormatter.java:524)
     /**
      * All definitions are added to the base definition collection.
@@ -342,7 +342,7 @@ public class ModuleCDefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
         return(BConceptBaseDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:416)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:430)
     public void addBConceptX(BConceptXDMO def){
         BConceptXDefs.add(def);
         addBConceptBase(def);
@@ -364,7 +364,7 @@ public class ModuleCDefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
         return(BConceptXDefs.getDefinition(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:416)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:430)
     public void addModuleB(ModuleBDMO def){
         ModuleBDefs.add(def);
         addBConceptBase(def);
@@ -386,7 +386,7 @@ public class ModuleCDefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
         return(ModuleBDefs.getDefinition(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:381)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:395)
     // Called from: org.dmd.dms.util.DmoCacheFormatter.dumpDefinitionInterfaceMethods(DmoCacheFormatter.java:524)
     /**
      * All definitions are added to the base definition collection.
@@ -407,7 +407,7 @@ public class ModuleCDefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
         return(CConceptBaseDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:416)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:430)
     public void addCConceptX(CConceptXDMO def){
         CConceptXDefs.add(def);
         addCConceptBase(def);
@@ -429,7 +429,7 @@ public class ModuleCDefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
         return(CConceptXDefs.getDefinition(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:416)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:430)
     public void addModuleC(ModuleCDMO def){
         ModuleCDefs.add(def);
         addCConceptBase(def);

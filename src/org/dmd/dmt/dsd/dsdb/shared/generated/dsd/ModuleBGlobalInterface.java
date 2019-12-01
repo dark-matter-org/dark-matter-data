@@ -20,10 +20,10 @@ package org.dmd.dmt.dsd.dsdb.shared.generated.dsd;
 import java.util.Iterator;                                                // To provide iterators over definitions - (DmoCacheFormatter.java:442)
 import org.dmd.dmc.DmcNameClashException;                                 // May be thrown when finding definitions - (DmoCacheFormatter.java:443)
 import org.dmd.dmc.DmcValueException;                                     // May be thrown when finding definitions - (DmoCacheFormatter.java:444)
-import org.dmd.dmc.types.DotName;                                         // To support the find method for definitions - (DSDefinitionModule.java:206)
-import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.BConceptBaseDMO;         // A definition from the ModuleB Module - (DSDefinitionModule.java:204)
-import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.BConceptXDMO;            // A definition from the ModuleB Module - (DSDefinitionModule.java:218)
-import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.ModuleBDMO;              // A definition from the ModuleB Module - (DSDefinitionModule.java:218)
+import org.dmd.dmc.types.DotName;                                         // To support the find method for definitions - (DSDefinitionModule.java:208)
+import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.BConceptBaseDMO;         // A definition from the ModuleB Module - (DSDefinitionModule.java:206)
+import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.BConceptXDMO;            // A definition from the ModuleB Module - (DSDefinitionModule.java:220)
+import org.dmd.dmt.dsd.dsdb.shared.generated.dmo.ModuleBDMO;              // A definition from the ModuleB Module - (DSDefinitionModule.java:220)
 
 
 // Generated from: org.dmd.dms.util.DmoCacheFormatter.generateGlobalInterface(DmoCacheFormatter.java:451)

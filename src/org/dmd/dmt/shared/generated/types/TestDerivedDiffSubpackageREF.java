@@ -43,31 +43,37 @@ public class TestDerivedDiffSubpackageREF extends DmcNamedObjectNontransportable
     
     DmcTypeDefinitionNameSV myName;    
     
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:437)
     public TestDerivedDiffSubpackageREF(){
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:441)
     public TestDerivedDiffSubpackageREF(TestDerivedDiffSubpackageDMO o){
          object = o;
          myName = (DmcTypeDefinitionNameSV)o.getObjectNameAttribute();
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:447)
     public TestDerivedDiffSubpackageREF(DefinitionName n) throws DmcValueException {
          object = null;
          myName = new DmcTypeDefinitionNameSV(__name);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:454)
     public TestDerivedDiffSubpackageREF(String n) throws DmcValueException {
          object = null;
          myName = new DmcTypeDefinitionNameSV(__name);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:461)
     public TestDerivedDiffSubpackageREF(TestDerivedDiffSubpackageREF original){
         myName = original.myName;
         object = original.object;
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:467)
     public void setObject(TestDerivedDiffSubpackageDMO o){
          object = o;
          if (object != null)
@@ -77,6 +83,7 @@ public class TestDerivedDiffSubpackageREF extends DmcNamedObjectNontransportable
     /**
      * Clones this reference.
      */
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:477)
     public TestDerivedDiffSubpackageREF cloneMe(){
         TestDerivedDiffSubpackageREF rc = new TestDerivedDiffSubpackageREF();
         rc.myName = myName;

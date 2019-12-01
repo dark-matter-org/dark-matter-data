@@ -222,6 +222,7 @@ public class DSDArtifactFormatter {
     	out.write("    	   return(allDefinitions.getDefinition(name));\n");
 		out.write("    }\n\n");
 
+		ClassDefinition dsd = (ClassDefinition) ddm.getBaseDefinition();
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("    /**\n");
 		out.write("     * Attempts to delete the definition with the specified name. If you have\n");
@@ -239,6 +240,42 @@ public class DSDArtifactFormatter {
 		out.write("        DmcDefinitionSet<?> dds = indicesByClass.get(def.getConstructionClassInfo());\n");
 		out.write("        dds.delete(name);\n");
 		out.write("        def.youAreDeleted();\n");
+		out.write("        \n");
+		out.write("        " + dsd.getName() + " base = (" + dsd.getName() + ")def;\n");
+		out.write("        " + ddm.getModuleClassName() + " module = base.getDefinedIn" + ddm.getModuleClassName() + "();\n");
+		out.write("        \n");
+		
+		boolean first = true;
+		String condition = "if";
+		
+		ImportManager deleteImports = new ImportManager();
+		TreeMap<Integer, ArrayList<ClassDefinition>>	structuralDefs = new TreeMap<Integer, ArrayList<ClassDefinition>>(Collections.reverseOrder());
+		getImportsForDefinitionsInSingleModule(deleteImports, ddm, structuralDefs);
+
+		for(Integer depth: structuralDefs.keySet()){
+			ArrayList<ClassDefinition>	atDepth = structuralDefs.get(depth);
+
+			for(ClassDefinition cd: atDepth){
+				out.write("        " + condition + " (def instanceof " + cd.getName() + "){\n");
+//				out.write("            delete" + cd.getName() + "((" + cd.getName() + ")def);\n");
+				out.write("            module.delete" + cd.getName() + "((" + cd.getName() + ")def);\n");
+				out.write("        }\n");
+				if (first)
+					condition = "else if";
+			}
+		}
+		
+		// NOTE NOTE NOTE
+		// And then, we also add the module itself, since the module isn't derived from the
+		// base definition and doesn't show up in the structuralDefs
+		out.write("        " + condition + " (def instanceof " + ddm.getModuleClassName() + "){\n");
+//		out.write("            delete" + ddm.getModuleClassName() + "((" + ddm.getModuleClassName() + ")def);\n");
+		out.write("        }\n");
+		
+		out.write("\n");
+
+		
+		
 		out.write("    }\n\n");
 
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
@@ -265,7 +302,6 @@ public class DSDArtifactFormatter {
 	    	out.write("        return(def.getDMO());\n");
 		out.write("    }\n\n");
 
-		ClassDefinition dsd = (ClassDefinition) ddm.getBaseDefinition();
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write("    public DmcNamedObjectIF findNamedObjectMayClash(DmcObject object, DmcObjectName name, DmcNameClashResolverIF resolver, DmcAttributeInfo ai) throws DmcValueException {\n");
 		out.write("        DmcNamedObjectIF rc = null;\n");
@@ -319,6 +355,8 @@ public class DSDArtifactFormatter {
 		
 		dumpAddMethod(out, ddm);
 		
+		dumpAddMethodAndUpdateModuleMethod(out, ddm);
+		
 		dumpSummaryMethod(out, ddm);
 		
 		out.write("}\n\n");
@@ -327,7 +365,7 @@ public class DSDArtifactFormatter {
 	}
 	
 	/**
-	 * This dumps a single add() method that will add the specified definition to the appropriate
+	 * This dumps a single addDefinition() method that will add the specified definition to the appropriate
 	 * indices.
 	 * @param out the place we're writing
 	 * @throws IOException
@@ -350,6 +388,49 @@ public class DSDArtifactFormatter {
 				out.write("            " + condition + " (definition instanceof " + cd.getName() + "){\n");
 				out.write("                add" + cd.getName() + "((" + cd.getName() + ")definition);\n");
 //				out.write("                module.add" + cd.getName() + "((" + cd.getName() + ")definition);\n");
+				out.write("            }\n");
+				if (first)
+					condition = "else if";
+			}
+		}
+		
+		// NOTE NOTE NOTE
+		// And then, we also add the module itself, since the module isn't derived from the
+		// base definition and doesn't show up in the structuralDefs
+		out.write("            " + condition + " (definition instanceof " + ddm.getModuleClassName() + "){\n");
+		out.write("                add" + ddm.getModuleClassName() + "((" + ddm.getModuleClassName() + ")definition);\n");
+		out.write("            }\n");
+		
+		out.write("\n");
+		
+		out.write("    }\n\n");
+		
+	}
+	
+	/**
+	 * This dumps a single addDefinitionAndUpdateModule() method that will add the specified definition to the appropriate
+	 * indices.
+	 * @param out the place we're writing
+	 * @throws IOException
+	 */
+	void dumpAddMethodAndUpdateModuleMethod(ManagedFileWriter out, DSDefinitionModule ddm) throws IOException {
+		ImportManager imports = new ImportManager();
+		TreeMap<Integer, ArrayList<ClassDefinition>>	structuralDefs = new TreeMap<Integer, ArrayList<ClassDefinition>>(Collections.reverseOrder());
+		getImportsForDefinitionsInSingleModule(imports, ddm, structuralDefs);
+
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    public void addDefinition(DSDefinition definition, " + ddm.getModuleClassName() + " module){\n");
+
+		boolean first = true;
+		String condition = "if";
+		
+		for(Integer depth: structuralDefs.keySet()){
+			ArrayList<ClassDefinition>	atDepth = structuralDefs.get(depth);
+
+			for(ClassDefinition cd: atDepth){
+				out.write("            " + condition + " (definition instanceof " + cd.getName() + "){\n");
+				out.write("                add" + cd.getName() + "((" + cd.getName() + ")definition);\n");
+				out.write("                module.add" + cd.getName() + "((" + cd.getName() + ")definition);\n");
 				out.write("            }\n");
 				if (first)
 					condition = "else if";

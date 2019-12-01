@@ -25,6 +25,7 @@ import org.dmd.dms.generated.dmw.DSDefinitionModuleIterableDMW;
 import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.codegen.MemberManager;
 import org.dmd.util.exceptions.DebugInfo;
+import org.dmd.util.exceptions.ResultException;
 
 /**
  * The DSDefinitionModule is used to describe the base characteristics of a set
@@ -156,12 +157,12 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 //		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 //		out.write("    DmcDefinitionSet<" + dsd.getName() + "> " + dsd.getName() + "Defs;\n");
 		
-		members.addMember("DmcDefinitionSet<" + dsd.getName() + "> ", dsd.getName() + "Defs", "new " + "DmcDefinitionSet<" + dsd.getName() + ">(\"" + module + "-allDefinitions\")", "All definitions associated with this module");
+		members.addMember("DmcDefinitionSet<" + dsd.getName() + "> ", dsd.getName() + "Defs", "new " + "DmcDefinitionSet<" + dsd.getName() + ">(\"" + module + "-allDefinitions\",\"" + dsd.getName() + "\")", "All definitions associated with this module");
 		
 		TreeMap<DefinitionName,ClassDefinition> allDerived = dsd.getAllDerived();
 		for(ClassDefinition cd : allDerived.values()){
 //			out.write("    DmcDefinitionSet<" + cd.getName() + "> " + cd.getName() + "Defs;\n");			
-			members.addMember("DmcDefinitionSet<" + cd.getName() + "> ", cd.getName() + "Defs", "new " + "DmcDefinitionSet<" + cd.getName() + ">(\"" + module + "-" + cd.getName() + "Defs\")", "All " + cd.getName() + " definitions");
+			members.addMember("DmcDefinitionSet<" + cd.getName() + "> ", cd.getName() + "Defs", "new " + "DmcDefinitionSet<" + cd.getName() + ">(\"" + module + "-" + cd.getName() + "Defs\", \"" + cd.getName() + "\")", "All " + cd.getName() + " definitions");
 		}
 		
 	}
@@ -178,6 +179,7 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 		imports.addImport(dsd.getDmeImport(), "A definition from the " + this.getName() + " Module");
 		imports.addImport("java.util.Iterator", "To allow access to our definitions");
 		imports.addImport("org.dmd.dmc.types.DotName", "To support the find method for definitions");
+		imports.addImport("org.dmd.util.exceptions.ResultException", "To support definition deletions");
 		
 		TreeMap<DefinitionName,ClassDefinition> allDerived = dsd.getAllDerived();
 		for(ClassDefinition cd : allDerived.values()){
@@ -245,6 +247,7 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 					continue;
 			}
 			sb.append("    public void add" + cd.getName() + "(" + cd.getName() +" def);\n");
+			sb.append("    public void delete" + cd.getName() + "(" + cd.getName() +" def);\n");
 			sb.append("    public int get" + cd.getName() + "Count();\n");
 			sb.append("    public " + cd.getName() + " get" + cd.getName() + "(DotName name);\n");
 			sb.append("    public Iterator<" + cd.getName() + "> getAll" + cd.getName() + "();\n");
@@ -306,11 +309,14 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 		sb.append("     */\n");
 		sb.append("    void add" + dsd.getName() + "(" + dsd.getName() + " def){\n");
 		sb.append("        " + dsd.getName() + "Defs.add(def);\n");
-//		if (!scoped){
-//			// We only add this hook for the overall definition manager so that we have access
-//			// to a single definition set with all definitions
-//			sb.append("        allDefinitions.add(def);\n");
-//		}
+		sb.append("    }\n\n");
+		
+		sb.append("    void delete" + dsd.getName() + "(" + dsd.getName() + " def){\n");
+		sb.append("        try {\n");
+		sb.append("            " + dsd.getName() + "Defs.delete(def);\n");
+		sb.append("        } catch (ResultException e) {\n");
+		sb.append("            throw(new IllegalStateException(e));\n");
+		sb.append("        }\n");
 		sb.append("    }\n\n");
 		
 		sb.append("    public int get" + dsd.getName() + "Count(){\n");
@@ -338,7 +344,15 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 			sb.append("    public void add" + cd.getName() + "(" + cd.getName() + " def){\n");
 			sb.append("        " + cd.getName() + "Defs.add(def);\n");
 			getBaseClassAddCall(cd.getDerivedFrom(), sb);
-//			sb.append("        add" + dsd.getName() + "(def);\n");
+			sb.append("    }\n\n");
+			
+			sb.append("    public void delete" + cd.getName() + "(" + cd.getName() + " def){\n");
+			sb.append("        try{\n");
+			sb.append("            " + cd.getName() + "Defs.delete(def);\n");
+			sb.append("        } catch (ResultException e) {\n");
+			sb.append("            throw(new IllegalStateException(e));\n");
+			sb.append("        }\n");
+			getBaseClassDeleteCall(cd.getDerivedFrom(), sb);
 			sb.append("    }\n\n");
 			
 			sb.append("    public int get" + cd.getName() + "Count(){\n");
@@ -451,6 +465,19 @@ public class DSDefinitionModule extends DSDefinitionModuleDMW {
 			return;
 		
 		sb.append("        add" + cd.getName() + "(def);\n");
+	}
+	
+	/**
+	 * If we have a base class, we add this definition to its index as well. This allows us
+	 * to access all instances of any particular class type, even if it's abstract.
+	 * @param cd
+	 * @param sb
+	 */
+	void getBaseClassDeleteCall(ClassDefinition cd, StringBuffer sb){
+		if (cd == null)
+			return;
+		
+		sb.append("        delete" + cd.getName() + "(def);\n");
 	}
 
 

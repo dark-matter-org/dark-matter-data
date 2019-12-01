@@ -26,7 +26,7 @@ import org.dmd.dmt.shared.generated.dmo.NamedObjMVDMO;    // DmcType import
  * The DmcTypeNamedObjMVREFMV provides storage for a multi-valued NamedObjMV
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2515)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:255)
  */
 @SuppressWarnings("serial")
@@ -50,7 +50,7 @@ public class DmcTypeNamedObjMVREFMV extends DmcTypeNamedObjMVREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2543)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2546)
     public DmcAttribute<NamedObjMVDMO> cloneIt(){
         synchronized(this){
             DmcTypeNamedObjMVREFMV rc = getNew();
@@ -79,7 +79,7 @@ public class DmcTypeNamedObjMVREFMV extends DmcTypeNamedObjMVREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2576)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2579)
     public NamedObjMVDMO add(Object v) throws DmcValueException {
         synchronized(this){
             NamedObjMVDMO rc = typeCheck(v);
@@ -91,7 +91,7 @@ public class DmcTypeNamedObjMVREFMV extends DmcTypeNamedObjMVREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2589)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2592)
     public NamedObjMVDMO del(Object v){
         synchronized(this){
             if (value == null)
@@ -115,7 +115,7 @@ public class DmcTypeNamedObjMVREFMV extends DmcTypeNamedObjMVREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2623)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2626)
     public Iterator<NamedObjMVDMO> getMV(){
         synchronized(this){
             if (value == null)
@@ -126,7 +126,7 @@ public class DmcTypeNamedObjMVREFMV extends DmcTypeNamedObjMVREF implements Seri
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2635)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2638)
     public ArrayList<NamedObjMVDMO> getMVCopy(){
         synchronized(this){
             if (value == null)
@@ -137,7 +137,7 @@ public class DmcTypeNamedObjMVREFMV extends DmcTypeNamedObjMVREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2647)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2650)
     public int getMVSize(){
         synchronized(this){
             if (getAttributeInfo().indexSize == 0){
@@ -151,7 +151,7 @@ public class DmcTypeNamedObjMVREFMV extends DmcTypeNamedObjMVREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2662)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2665)
     public NamedObjMVDMO getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -161,7 +161,7 @@ public class DmcTypeNamedObjMVREFMV extends DmcTypeNamedObjMVREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2673)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2676)
     public NamedObjMVDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
@@ -188,7 +188,7 @@ public class DmcTypeNamedObjMVREFMV extends DmcTypeNamedObjMVREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2701)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2704)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -211,7 +211,7 @@ public class DmcTypeNamedObjMVREFMV extends DmcTypeNamedObjMVREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2725)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2728)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

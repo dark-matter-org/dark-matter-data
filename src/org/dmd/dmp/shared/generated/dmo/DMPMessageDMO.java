@@ -191,9 +191,10 @@ abstract public class DMPMessageDMO  extends DmcObject  implements de.novanic.ev
     }
 
     /**
+     * @param i the index
      * @return The nth NameValuePair value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1301)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1302)
     public NameValuePair getNthNvp(int i){
         DmcTypeNameValuePairMV attr = (DmcTypeNameValuePairMV) get(MetaDMSAG.__nvp);
         if (attr == null)
@@ -205,8 +206,9 @@ abstract public class DMPMessageDMO  extends DmcObject  implements de.novanic.ev
     /**
      * Adds another nvp to the specified value.
      * @param value NameValuePair
+     * @return the attribute instance
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1315)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1317)
     public DmcAttribute<?> addNvp(NameValuePair value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__nvp);
         if (attr == null)
@@ -223,10 +225,10 @@ abstract public class DMPMessageDMO  extends DmcObject  implements de.novanic.ev
     }
 
     /**
-     * Returns true if we contain a valued keyed by the specified NameValuePair.
      * @param value NameValuePair
+     * @return true if we contain a valued keyed by the specified NameValuePair.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1390)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1392)
     public boolean nvpContains(NameValuePair value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__nvp);
         if (attr == null)
@@ -240,7 +242,7 @@ abstract public class DMPMessageDMO  extends DmcObject  implements de.novanic.ev
      * @return the attribute instance
      * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1426)
     public DmcAttribute<?> addNvp(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__nvp);
         if (attr == null)
@@ -254,7 +256,7 @@ abstract public class DMPMessageDMO  extends DmcObject  implements de.novanic.ev
     /**
      * @return the number of values in nvp
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1443)
     public int getNvpSize(){
         DmcAttribute<?> attr = get(MetaDMSAG.__nvp);
         if (attr == null){
@@ -269,8 +271,10 @@ abstract public class DMPMessageDMO  extends DmcObject  implements de.novanic.ev
     /**
      * Deletes a nvp value.
      * @param value The NameValuePair to be deleted from set of attribute values.
-     * @return the deleted attribute instance     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
+     * @return the deleted attribute instance
+     * @throws DmcValueException if the value is incorrect
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1505)
     public DmcAttribute<?> delNvp(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__nvp);
         
@@ -286,7 +290,7 @@ abstract public class DMPMessageDMO  extends DmcObject  implements de.novanic.ev
      * Deletes a nvp from the specified value.
      * @param value NameValuePair
      * @return the deleted attribute instance     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1519)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1522)
     public DmcAttribute<?> delNvp(NameValuePair value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__nvp);
         
@@ -301,7 +305,7 @@ abstract public class DMPMessageDMO  extends DmcObject  implements de.novanic.ev
     /**
      * Removes the nvp attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1541)
     public void remNvp(){
          rem(MetaDMSAG.__nvp);
     }
@@ -320,9 +324,10 @@ abstract public class DMPMessageDMO  extends DmcObject  implements de.novanic.ev
     }
 
     /**
+     * @param i the index
      * @return The nth Integer value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1301)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1302)
     public Integer getNthRequestID(int i){
         DmcTypeIntegerMV attr = (DmcTypeIntegerMV) get(DmpDMSAG.__requestID);
         if (attr == null)
@@ -334,8 +339,9 @@ abstract public class DMPMessageDMO  extends DmcObject  implements de.novanic.ev
     /**
      * Adds another requestID to the specified value.
      * @param value Integer
+     * @return the attribute instance
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1315)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1317)
     public DmcAttribute<?> addRequestID(Integer value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__requestID);
         if (attr == null)
@@ -352,10 +358,10 @@ abstract public class DMPMessageDMO  extends DmcObject  implements de.novanic.ev
     }
 
     /**
-     * Returns true if we contain a valued keyed by the specified Integer.
      * @param value Integer
+     * @return true if we contain a valued keyed by the specified Integer.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1390)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1392)
     public boolean requestIDContains(Integer value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__requestID);
         if (attr == null)
@@ -369,7 +375,7 @@ abstract public class DMPMessageDMO  extends DmcObject  implements de.novanic.ev
      * @return the attribute instance
      * @throws DmcValueException if value is not correct
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1424)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1426)
     public DmcAttribute<?> addRequestID(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmpDMSAG.__requestID);
         if (attr == null)
@@ -383,7 +389,7 @@ abstract public class DMPMessageDMO  extends DmcObject  implements de.novanic.ev
     /**
      * @return the number of values in requestID
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1441)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1443)
     public int getRequestIDSize(){
         DmcAttribute<?> attr = get(DmpDMSAG.__requestID);
         if (attr == null){
@@ -398,8 +404,10 @@ abstract public class DMPMessageDMO  extends DmcObject  implements de.novanic.ev
     /**
      * Deletes a requestID value.
      * @param value The Integer to be deleted from set of attribute values.
-     * @return the deleted attribute instance     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1502)
+     * @return the deleted attribute instance
+     * @throws DmcValueException if the value is incorrect
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1505)
     public DmcAttribute<?> delRequestID(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmpDMSAG.__requestID);
         
@@ -415,7 +423,7 @@ abstract public class DMPMessageDMO  extends DmcObject  implements de.novanic.ev
      * Deletes a requestID from the specified value.
      * @param value Integer
      * @return the deleted attribute instance     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1519)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1522)
     public DmcAttribute<?> delRequestID(Integer value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__requestID);
         
@@ -430,7 +438,7 @@ abstract public class DMPMessageDMO  extends DmcObject  implements de.novanic.ev
     /**
      * Removes the requestID attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1538)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1541)
     public void remRequestID(){
          rem(DmpDMSAG.__requestID);
     }

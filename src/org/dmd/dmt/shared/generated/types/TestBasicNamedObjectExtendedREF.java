@@ -43,31 +43,37 @@ public class TestBasicNamedObjectExtendedREF extends DmcNamedObjectNontransporta
     
     DmcTypeDefinitionNameSV myName;    
     
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:437)
     public TestBasicNamedObjectExtendedREF(){
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:441)
     public TestBasicNamedObjectExtendedREF(TestBasicNamedObjectExtendedDMO o){
          object = o;
          myName = (DmcTypeDefinitionNameSV)o.getObjectNameAttribute();
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:447)
     public TestBasicNamedObjectExtendedREF(DefinitionName n) throws DmcValueException {
          object = null;
          myName = new DmcTypeDefinitionNameSV(__name);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:454)
     public TestBasicNamedObjectExtendedREF(String n) throws DmcValueException {
          object = null;
          myName = new DmcTypeDefinitionNameSV(__name);
          myName.set(n);
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:461)
     public TestBasicNamedObjectExtendedREF(TestBasicNamedObjectExtendedREF original){
         myName = original.myName;
         object = original.object;
     }
 
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:467)
     public void setObject(TestBasicNamedObjectExtendedDMO o){
          object = o;
          if (object != null)
@@ -77,6 +83,7 @@ public class TestBasicNamedObjectExtendedREF extends DmcNamedObjectNontransporta
     /**
      * Clones this reference.
      */
+    // Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:477)
     public TestBasicNamedObjectExtendedREF cloneMe(){
         TestBasicNamedObjectExtendedREF rc = new TestBasicNamedObjectExtendedREF();
         rc.myName = myName;

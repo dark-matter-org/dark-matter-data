@@ -29,7 +29,7 @@ import org.dmd.dmt.shared.generated.dmo.UnnamedObjMVIDXDMO;    // DmcType import
  * The DmcTypeUnnamedObjMVIDXREFSET provides storage for a set of UnnamedObjMVIDXDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2808)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2811)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
  */
 @SuppressWarnings("serial")
@@ -62,7 +62,7 @@ public class DmcTypeUnnamedObjMVIDXREFSET extends DmcTypeUnnamedObjMVIDXREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2849)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2852)
     public DmcAttribute<UnnamedObjMVIDXDMO> cloneIt(){
         synchronized(this){
             DmcTypeUnnamedObjMVIDXREFSET rc = getNew();
@@ -81,7 +81,7 @@ public class DmcTypeUnnamedObjMVIDXREFSET extends DmcTypeUnnamedObjMVIDXREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2872)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2875)
     public UnnamedObjMVIDXDMO add(Object v) throws DmcValueException {
         synchronized(this){
             UnnamedObjMVIDXDMO rc = typeCheck(v);
@@ -97,7 +97,7 @@ public class DmcTypeUnnamedObjMVIDXREFSET extends DmcTypeUnnamedObjMVIDXREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2889)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2892)
     public UnnamedObjMVIDXDMO del(Object v){
         synchronized(this){
             UnnamedObjMVIDXDMO rc = null;
@@ -121,7 +121,7 @@ public class DmcTypeUnnamedObjMVIDXREFSET extends DmcTypeUnnamedObjMVIDXREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2914)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2917)
     public Iterator<UnnamedObjMVIDXDMO> getMV(){
         synchronized(this){
             if (value == null)
@@ -134,7 +134,7 @@ public class DmcTypeUnnamedObjMVIDXREFSET extends DmcTypeUnnamedObjMVIDXREF impl
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2928)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2931)
     public Set<UnnamedObjMVIDXDMO> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -153,7 +153,7 @@ public class DmcTypeUnnamedObjMVIDXREFSET extends DmcTypeUnnamedObjMVIDXREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2948)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2951)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -163,7 +163,7 @@ public class DmcTypeUnnamedObjMVIDXREFSET extends DmcTypeUnnamedObjMVIDXREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2959)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2962)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

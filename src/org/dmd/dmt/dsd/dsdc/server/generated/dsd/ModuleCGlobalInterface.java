@@ -16,17 +16,18 @@
 package org.dmd.dmt.dsd.dsdc.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGlobalInterface(DSDArtifactFormatter.java:526)
-import java.util.Iterator;                                        // To provide iterators over definitions - (DSDArtifactFormatter.java:521)
-import org.dmd.dmc.DmcNameClashException;                         // May be thrown when finding definitions - (DSDArtifactFormatter.java:522)
-import org.dmd.dmc.DmcValueException;                             // May be thrown when finding definitions - (DSDArtifactFormatter.java:523)
-import org.dmd.dmc.types.DotName;                                 // To support the find method for definitions - (DSDefinitionModule.java:180)
-import org.dmd.dmt.dsd.dsdc.server.extended.CConceptBase;         // A definition from the ModuleC Module - (DSDefinitionModule.java:178)
-import org.dmd.dmt.dsd.dsdc.server.extended.CConceptX;            // A definition from the ModuleC Module - (DSDefinitionModule.java:191)
-import org.dmd.dmt.dsd.dsdc.server.extended.ModuleC;              // A definition from the ModuleC Module - (DSDefinitionModule.java:191)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGlobalInterface(DSDArtifactFormatter.java:607)
+import java.util.Iterator;                                        // To provide iterators over definitions - (DSDArtifactFormatter.java:602)
+import org.dmd.dmc.DmcNameClashException;                         // May be thrown when finding definitions - (DSDArtifactFormatter.java:603)
+import org.dmd.dmc.DmcValueException;                             // May be thrown when finding definitions - (DSDArtifactFormatter.java:604)
+import org.dmd.dmc.types.DotName;                                 // To support the find method for definitions - (DSDefinitionModule.java:181)
+import org.dmd.dmt.dsd.dsdc.server.extended.CConceptBase;         // A definition from the ModuleC Module - (DSDefinitionModule.java:179)
+import org.dmd.dmt.dsd.dsdc.server.extended.CConceptX;            // A definition from the ModuleC Module - (DSDefinitionModule.java:193)
+import org.dmd.dmt.dsd.dsdc.server.extended.ModuleC;              // A definition from the ModuleC Module - (DSDefinitionModule.java:193)
+import org.dmd.util.exceptions.ResultException;                   // To support definition deletions - (DSDefinitionModule.java:182)
 
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGlobalInterface(DSDArtifactFormatter.java:530)
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGlobalInterface(DSDArtifactFormatter.java:611)
 /**
  * This interface is implemented by definition managers that store definitions from the ModuleC module.
  */
@@ -37,6 +38,7 @@ public interface ModuleCGlobalInterface {
     public Iterator<CConceptBase> getAllCConceptBase();
 
     public void addCConceptX(CConceptX def);
+    public void deleteCConceptX(CConceptX def);
     public int getCConceptXCount();
     public CConceptX getCConceptX(DotName name);
     public Iterator<CConceptX> getAllCConceptX();
@@ -47,6 +49,7 @@ public interface ModuleCGlobalInterface {
     public int getCConceptXDefinitionCountByName(String name) throws DmcValueException;
 
     public void addModuleC(ModuleC def);
+    public void deleteModuleC(ModuleC def);
     public int getModuleCCount();
     public ModuleC getModuleC(DotName name);
     public Iterator<ModuleC> getAllModuleC();

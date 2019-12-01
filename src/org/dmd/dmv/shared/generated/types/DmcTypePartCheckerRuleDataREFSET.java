@@ -43,8 +43,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypePartCheckerRuleDataREFSET provides storage for a set of PartCheckerRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2808)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:530)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2811)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:536)
  */
 @SuppressWarnings("serial")
 public class DmcTypePartCheckerRuleDataREFSET extends DmcTypePartCheckerRuleDataREF implements Serializable {
@@ -76,7 +76,7 @@ public class DmcTypePartCheckerRuleDataREFSET extends DmcTypePartCheckerRuleData
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2849)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2852)
     public DmcAttribute<PartCheckerRuleDataREF> cloneIt(){
         synchronized(this){
             DmcTypePartCheckerRuleDataREFSET rc = getNew();
@@ -95,7 +95,7 @@ public class DmcTypePartCheckerRuleDataREFSET extends DmcTypePartCheckerRuleData
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2872)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2875)
     public PartCheckerRuleDataREF add(Object v) throws DmcValueException {
         synchronized(this){
             PartCheckerRuleDataREF rc = typeCheck(v);
@@ -111,7 +111,7 @@ public class DmcTypePartCheckerRuleDataREFSET extends DmcTypePartCheckerRuleData
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2889)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2892)
     public PartCheckerRuleDataREF del(Object v){
         synchronized(this){
             PartCheckerRuleDataREF rc = null;
@@ -135,7 +135,7 @@ public class DmcTypePartCheckerRuleDataREFSET extends DmcTypePartCheckerRuleData
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2914)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2917)
     public Iterator<PartCheckerRuleDataREF> getMV(){
         synchronized(this){
             if (value == null)
@@ -148,7 +148,7 @@ public class DmcTypePartCheckerRuleDataREFSET extends DmcTypePartCheckerRuleData
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2928)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2931)
     public Set<PartCheckerRuleDataREF> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -167,7 +167,7 @@ public class DmcTypePartCheckerRuleDataREFSET extends DmcTypePartCheckerRuleData
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2948)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2951)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -177,7 +177,7 @@ public class DmcTypePartCheckerRuleDataREFSET extends DmcTypePartCheckerRuleData
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2959)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2962)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)
