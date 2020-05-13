@@ -1,0 +1,41 @@
+// Generated from: org.dmd.dsd.tools.dsdwizard.DSLArtifactGenerator.createClassFile(DSLArtifactGenerator.java:353)
+
+ClassDefinition
+name                        DmuDefinition
+classType                   ABSTRACT
+dmdID                       2
+useWrapperType              EXTENDED
+derivedFrom                 DSDefinition
+isNamedBy                   name
+must                        name
+must                        definedInDmuModule
+description                 This is the module definition for the dmu domain-specific language.
+
+ClassDefinition
+name                        PayloadSortInfo
+classType                   STRUCTURAL
+subpackage					json
+dmdID                       10
+useWrapperType              EXTENDED
+derivedFrom                 DmuDefinition
+isNamedBy                   name
+must                        name
+may	                        pathAndKeys
+description <font color="red">json:</font> In order to perform the diff between an existing configuration on
+ the device and an incoming payload, the JSON objects must have arrays of objects
+ sorted based on specified key values. Otherwise, the com.github.fge.jsonpatch.diff.JsonDiff
+ diff mechanisms can't provide a decent comparison. 
+
+ClassDefinition
+name                        PayloadExample
+classType                   STRUCTURAL
+subpackage					json
+dmdID                       12
+useWrapperType              EXTENDED
+derivedFrom                 DmuDefinition
+isNamedBy                   name
+must                        name
+must						jsonPayload
+may							useSortInfo
+description					<font color="red">json:</font> The PayloadExample allows you to specify
+ examples of JSON payloads to be used to test various functionality.

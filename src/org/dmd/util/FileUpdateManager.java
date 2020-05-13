@@ -277,6 +277,7 @@ public class FileUpdateManager {
 			}
 		}
 		
+		fileHeader = null;
 		lastFolder = outFolder;
 	}
 }

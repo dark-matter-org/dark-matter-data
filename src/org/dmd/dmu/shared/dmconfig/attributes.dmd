@@ -1,0 +1,35 @@
+// Generated from: org.dmd.dsd.tools.dsdwizard.DSLArtifactGenerator.createAttributesFile(DSLArtifactGenerator.java:375)
+
+AttributeDefinition
+name           definedInDmuModule
+dmdID          1
+type           DmuModule
+description    Indicates that a definition came from this module.
+
+AttributeDefinition
+name           dependsOnDmuModule
+dmdID          2
+type           DmuModule
+valueType      MULTI
+description    Allows us to use definitions from another DmuModule
+
+AttributeDefinition
+name           		pathAndKeys
+dmdID          		10
+type           		PathAndKey
+valueType			MULTI
+description    		<font color="red">json:</font> A collection of path and key values
+ that indicate how various arrays of objects with a JSON payload are to be sorted.
+
+AttributeDefinition
+name           		jsonPayload
+dmdID          		11
+preserveNewlines	true
+type           		String
+description			<font color="red">test:</font> Indicates the JSON object that's our payload.
+
+AttributeDefinition
+name           		useSortInfo
+dmdID          		12
+type				PayloadSortInfo
+description			Reference to the PayloadSortInfo to be used for a payload.
