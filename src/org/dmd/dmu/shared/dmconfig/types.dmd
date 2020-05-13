@@ -1,0 +1,10 @@
+// Generated from: org.dmd.dsd.tools.dsdwizard.DSLArtifactGenerator.createPlaceHolder(DSLArtifactGenerator.java:404)
+
+// This a placeholder file for type definitions.
+
+TypeDefinition
+name 			PathAndKey
+typeClassName	org.dmd.dmu.shared.types.DmcTypePathAndKey
+primitiveType	org.dmd.dmu.shared.types.PathAndKey
+description		The PathAndKey provides support for indicating a path through
+ a JSON object to an array of objects and the key value to be used to sort those objects.

@@ -1,0 +1,16 @@
+// Generated from: org.dmd.dsd.tools.dsdwizard.DSLArtifactGenerator.createSchemaFile(DSLArtifactGenerator.java:303)
+
+SchemaDefinition
+name              	dmu
+schemaBaseID      	-430000
+schemaIDRange     	1000
+defFiles          	types.dmd
+defFiles          	complex.dmd
+defFiles          	attributes.dmd
+defFiles          	classes.dmd
+defFiles          	module.dmd
+generatedFileHeader LGPL.txt
+schemaPackage     	org.dmd.dmu.shared
+dmwPackage        	org.dmd.dmu.server
+description       	This is the schema definition for the dmu domain-specific language.
+

@@ -1,0 +1,13 @@
+// Generated from: org.dmd.dsd.tools.dsdwizard.DSLArtifactGenerator.createModuleFile(DSLArtifactGenerator.java:330)
+
+DSDefinitionModule
+name                        DmuModule
+fileExtension               dmu
+dmdID                       1
+moduleClassName             DmuModule
+moduleDependenceAttribute   dependsOnDmuModule
+baseDefinition              DmuDefinition
+definedInModuleAttribute    definedInDmuModule
+supportDynamicSchemaLoading true
+description                 This is the module definition for the dmu domain-specific language.
+

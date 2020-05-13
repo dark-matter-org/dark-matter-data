@@ -1,0 +1,8 @@
+// Generated from: org.dmd.dsd.tools.dsdwizard.DSLArtifactGenerator.createDmgFile(DSLArtifactGenerator.java:417)
+
+DmgConfig
+genPackage    org.dmd.dmu.server
+schemaToLoad  dmu
+generator     org.dmd.dmg.generators.DMWGenerator
+description   We generate wrappers for the dmu definitions.
+
