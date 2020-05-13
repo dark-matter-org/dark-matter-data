@@ -128,6 +128,15 @@ public class DeepSort {
 				PathAndKey pak = pathInfo.get(pathToHere);
 				if (pak == null) {
 					// No sorting info - just dump each object
+					JSONArray array = (JSONArray) value;
+					int stop = array.length()-1;
+					
+					for(int i=0; i<array.length(); i++) {
+						JSONObject arrobj = (JSONObject) array.get(i);
+						orderObject(arrobj, sb, pathInfo, path + "/" + key);
+						if (i < stop)
+							sb.append(", ");
+					}
 				}
 				else {
 					// We want to sort
