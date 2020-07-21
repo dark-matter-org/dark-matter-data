@@ -250,7 +250,7 @@ public class DmcUncheckedOIFParser {
                             }
 
                             try{
-                            	handler.handleObject(uco,fn, in.getLineNumber());
+                            	handler.handleObject(uco,fn, uco.lineNumber);
                             }
                             catch(ResultException ex){
 //                            	DebugInfo.debug(ex.toString());
@@ -326,7 +326,7 @@ public class DmcUncheckedOIFParser {
             }
 
             try{
-            	handler.handleObject(uco,fn,lastLine);
+            	handler.handleObject(uco,fn,uco.lineNumber);
             }
             catch(ResultException ex){
 //            	DebugInfo.debug(ex.toString());
