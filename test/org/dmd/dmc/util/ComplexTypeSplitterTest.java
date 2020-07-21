@@ -112,7 +112,7 @@ public class ComplexTypeSplitterTest {
 		assertEquals("Third value name should be version", "version", rc.get(2).name);
 		assertEquals("Third value should be 1.1.2.3", "1.1.2.3", rc.get(2).value);
 		assertEquals("Fourth value name should be comment", "comment", rc.get(3).name);
-		assertEquals("Fourth value should be null", null, rc.get(3).value);
+		assertEquals("Fourth value should be empty string", "", rc.get(3).value);
 		
 		rc = ComplexTypeSplitter.parse("   Integer tag version=1.1.2.3 	\t	comment=\"this 	is cool!\"");
 		

@@ -107,9 +107,11 @@ public class ComplexTypeSplitter {
 			if (input.charAt(i) == '"'){
 				String quotedPart = input.substring(position.intValue() + 1, i);
 				
-				// It's possible that we have nothing in the quotes, in which case the value would be null
+				// It's possible that we have nothing in the quotes, in which case the value would be
+				// an empty string. Originally, this had provided null as the value, but, since this
+				// is a quoted value, an empty string makes more sense.
 				if (quotedPart.length() == 0)
-					quotedPart = null;
+					quotedPart = "";
 				
 				rc = new ParsedNameValuePair(namePart, quotedPart);
 				position.set(i);
