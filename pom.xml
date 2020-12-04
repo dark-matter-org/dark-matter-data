@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.connectifex</groupId>
   <artifactId>dark-matter-data</artifactId>
-  <version>3.1.6</version>
+  <version>3.1.7</version>
   
   <!-- Even though the gwteventservice 1.1.1 dependency should be available from mvnrepository.com
   the dependency inclusion fails for some reason. It indicates that this is where the dependency
