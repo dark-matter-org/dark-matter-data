@@ -17,3 +17,10 @@ dmdID			3
 type			Reference
 description		Indicates a reference to an ABConceptX object
 
+AttributeDefinition
+name			typeAndAttr
+dmdID			4
+type			TypeAndAttribute
+description		A complex type with a reference and a String as required parts.
+
+

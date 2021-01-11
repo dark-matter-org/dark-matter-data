@@ -84,6 +84,7 @@ public class DsdADMSAG_INIT_1 {
         DsdADMSAG.__ABConceptX.addMay(MetaDMSAG.__skip);
         DsdADMSAG.__ABConceptX.addMay(MetaDMSAG.__sortName);
         DsdADMSAG.__ABConceptX.addMay(MetaDMSAG.__tags);
+        DsdADMSAG.__ABConceptX.addMay(DsdADMSAG.__typeAndAttr);
         DsdADMSAG.__ABConceptX.addMay(MetaDMSAG.__version);
         DsdADMSAG.__ABConceptX.addMay(MetaDMSAG.__why);
 
