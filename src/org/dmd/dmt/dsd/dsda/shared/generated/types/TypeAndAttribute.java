@@ -46,55 +46,54 @@ import org.dmd.dmt.dsd.dsda.shared.generated.types.DmcTypeABConceptXREFSTATIC;  
 
 @SuppressWarnings("serial")
 /**
- * The Reference class.
+ * The TypeAndAttribute class.
  * This code was auto-generated and shouldn't be alterred manually.
  * 
  * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:159)
  */
-public class Reference implements Serializable {
+public class TypeAndAttribute implements Serializable {
 
-    final static int requiredParts = 1;
+    final static int requiredParts = 2;
 
-    // The reference toanother ABConcept
-    ABConceptXREF toConceptV;
+    // The type
+    ABConceptXREF typeV;
 
-    final static DmcAttributeInfo toConceptAI = new DmcAttributeInfo("toConcept",0,"ABConceptX",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN, 0, false);
+    final static DmcAttributeInfo typeAI = new DmcAttributeInfo("type",0,"ABConceptX",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN, 0, false);
 
-    // An optional description
-    String descrV;
+    // An attribute name - for example purposes.
+    String attrV;
 
-    final static DmcAttributeInfo descrAI = new DmcAttributeInfo("descr",0,"String",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN, 0, false);
+    final static DmcAttributeInfo attrAI = new DmcAttributeInfo("attr",0,"String",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN, 0, false);
 
     /**
      * Default constructor.
      */
-    public Reference(){
+    public TypeAndAttribute(){
     }
 
     /**
      * Copy constructor.
      */
-    public Reference(Reference original){
+    public TypeAndAttribute(TypeAndAttribute original){
     // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.getCopyConstructorAssignments(NewComplexTypeFormatter.java:1154)
-        toConceptV =  original.toConceptV;
-        descrV =  original.descrV;
+        typeV =  original.typeV;
+        attrV =  original.attrV;
     }
 
     /**
      * All fields constructor.
      * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:190)
      */
-    public Reference(ABConceptXREF toConcept_, String descr_) throws DmcValueException {
-        toConceptV = DmcTypeABConceptXREFSTATIC.instance.typeCheck(toConcept_);
-        if (descr_ != null)
-            descrV = DmcTypeStringSTATIC.instance.typeCheck(descr_);
+    public TypeAndAttribute(ABConceptXREF type_, String attr_) throws DmcValueException {
+        typeV = DmcTypeABConceptXREFSTATIC.instance.typeCheck(type_);
+        attrV = DmcTypeStringSTATIC.instance.typeCheck(attr_);
     }
 
     /**
      * String based constructor.
      * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:273)
      */
-    public Reference(String initialInput) throws DmcValueException {
+    public TypeAndAttribute(String initialInput) throws DmcValueException {
         initialize(initialInput);
     }
     /**
@@ -102,29 +101,13 @@ public class Reference implements Serializable {
      * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:281)
      */
     void initialize(String initialInput) throws DmcValueException {
-        ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput);
+        ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput,'.');
 
         if (nvp.size() < requiredParts)
-            throw(new DmcValueException("Missing required values for complex type: Reference\nValue: " + initialInput));
+            throw(new DmcValueException("Missing required values for complex type: TypeAndAttribute\nValue: " + initialInput));
 
-        toConceptV = DmcTypeABConceptXREFSTATIC.instance.typeCheck(nvp.get(0).getValue());
-
-        if (nvp.size() > requiredParts){
-            for(int i=1; i<nvp.size(); i++){
-                if (nvp.get(i).getName() == null){
-                    if (nvp.get(i).getValue() == null)
-                        throw(new DmcValueException("Expecting a partname=\"some value\" in complex type: Reference\nValue: " + initialInput));
-                    else
-                        throw(new DmcValueException("Expecting a partname=\"" + nvp.get(i).getValue() + "\" in complex type: Reference\nValue: " + initialInput));
-                }
-                if (nvp.get(i).getName().equals("descr"))
-                    descrV = DmcTypeStringSTATIC.instance.typeCheck(nvp.get(i).getValue());
-                else{
-                    throw(new DmcValueException("Unknown field for complex type Reference: "  + nvp.get(i).getName()));
-                }
-            }
-        }
-
+        typeV = DmcTypeABConceptXREFSTATIC.instance.typeCheck(nvp.get(0).getValue());
+        attrV = DmcTypeStringSTATIC.instance.typeCheck(nvp.get(1).getValue());
     }
 
     /**
@@ -147,19 +130,16 @@ public class Reference implements Serializable {
      */
     public String toString(){
         StringBuffer sb = new StringBuffer();
-        sb.append(toConceptV.toString());
-        if (descrV != null){
-            sb.append(' ');
-            sb.append("descr=" + "\"" + descrV.toString() + "\"");
-        }
-
+        sb.append(typeV.toString());
+        sb.append('.');
+        sb.append(attrV.toString());
         return(sb.toString());
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Reference) {
-            return(this.toString().equals(((Reference)obj).toString()));
+        if (obj instanceof TypeAndAttribute) {
+            return(this.toString().equals(((TypeAndAttribute)obj).toString()));
         }
         return(false);
     }
@@ -169,21 +149,17 @@ public class Reference implements Serializable {
      */
     public void toJSON(StringBuffer sb, int padding, String indent){
         sb.append(indent + "{\n");
-        sb.append(indent + "  \"toConcept\": \"" + JSONUtil.escape(toConceptV.toString()) + "\"");
-        if (descrV != null){
-            sb.append(",\n");
-            sb.append(indent + "  \"descr\": \"" + JSONUtil.escape(descrV.toString()) + "\"");
-        }
-
+        sb.append(indent + "  \"type\": \"" + JSONUtil.escape(typeV.toString()) + "\",\n");
+        sb.append(indent + "  \"attr\": \"" + JSONUtil.escape(attrV.toString()) + "\"");
         sb.append("\n" + indent + "}");
     }
 
-    public ABConceptXREF getToConcept(){
-        return(toConceptV);
+    public ABConceptXREF getType(){
+        return(typeV);
     }
 
-    public String getDescr(){
-        return(descrV);
+    public String getAttr(){
+        return(attrV);
     }
 
     // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:708)
@@ -191,17 +167,17 @@ public class Reference implements Serializable {
     public void resolve(DmcNameResolverIF resolver, String attrName) throws DmcValueException {
         DmcNamedObjectIF  obj = null;
 
-        if ((toConceptV != null) && (!toConceptV.isResolved())){
-            obj = resolver.findNamedObject(toConceptV.getObjectName());
-            if (toConceptAI.weakReference)
+        if ((typeV != null) && (!typeV.isResolved())){
+            obj = resolver.findNamedObject(typeV.getObjectName());
+            if (typeAI.weakReference)
                 return;
             if (obj == null)
-                throw(new DmcValueException("Could not resolve reference to: " + toConceptV.getObjectName() + "(part: toConcept - of type: ABConceptX) via attribute: " + attrName));
+                throw(new DmcValueException("Could not resolve reference to: " + typeV.getObjectName() + "(part: type - of type: ABConceptX) via attribute: " + attrName));
         
             if (obj instanceof DmcContainerIF)
-                ((DmcNamedObjectREF)toConceptV).setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
+                ((DmcNamedObjectREF)typeV).setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
             else
-                ((DmcNamedObjectREF)toConceptV).setObject(obj);
+                ((DmcNamedObjectREF)typeV).setObject(obj);
         }
         
     }
@@ -211,25 +187,25 @@ public class Reference implements Serializable {
     public void resolve(DmcNameResolverWithClashSupportIF resolver, DmcObject object, DmcNameClashResolverIF ncr, DmcAttributeInfo ai) throws DmcValueException, DmcValueExceptionSet {
         DmcNamedObjectIF  obj = null;
 
-        if ((toConceptV != null) && (!toConceptV.isResolved())){
-            obj = resolver.findNamedObjectMayClash(object, toConceptV.getObjectName(), ncr, toConceptAI);
-            if (toConceptAI.weakReference)
+        if ((typeV != null) && (!typeV.isResolved())){
+            obj = resolver.findNamedObjectMayClash(object, typeV.getObjectName(), ncr, typeAI);
+            if (typeAI.weakReference)
                 return;
             if (obj == null)
-                throw(new DmcValueException("Could not resolve reference to: " + toConceptV.getObjectName() + "(part: toConcept - of type: ABConceptX) via attribute: " + ai.name));
+                throw(new DmcValueException("Could not resolve reference to: " + typeV.getObjectName() + "(part: type - of type: ABConceptX) via attribute: " + ai.name));
         
             if (obj instanceof DmcContainerIF)
-                ((DmcNamedObjectREF)toConceptV).setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
+                ((DmcNamedObjectREF)typeV).setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
             else
-                ((DmcNamedObjectREF)toConceptV).setObject(obj);
+                ((DmcNamedObjectREF)typeV).setObject(obj);
         
             if (DmcOmni.instance().backRefTracking()){
-                Modifier backrefMod = new Modifier("toConcept", object, toConceptV, ai.id, ai.name);
+                Modifier backrefMod = new Modifier("type", object, typeV, ai.id, ai.name);
                 if (obj instanceof DmcContainerIF)
                     ((DmcContainerIF)obj).getDmcObject().addBackref(backrefMod);
                 else
                     ((DmcObject)obj).addBackref(backrefMod);
-                toConceptV.setBackrefModifier(backrefMod);
+                typeV.setBackrefModifier(backrefMod);
             }
         }
         
@@ -238,8 +214,8 @@ public class Reference implements Serializable {
     // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:868)
     public void removeBackRefsFromValue(){
         // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:875)
-        if (toConceptV != null){
-            toConceptV.removeBackref();
+        if (typeV != null){
+            typeV.removeBackref();
         }
         
     }

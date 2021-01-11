@@ -28,3 +28,4 @@ derivedFrom		AConceptX
 isNamedBy		name
 must			name
 may				referenceToAB
+may				typeAndAttr

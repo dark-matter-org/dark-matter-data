@@ -2,3 +2,18 @@ ComplexTypeDefinition
 name 			Reference
 requiredPart	ABConceptX   	toConcept	"The reference toanother ABConcept"
 optionalPart    String			descr		"An optional description" quoted=true
+
+ComplexTypeDefinition
+name 			TypeAndAttribute
+fieldSeparator	.
+requiredPart	ABConceptX   	type		"The type"
+requiredPart	String   		attr		"An attribute name - for example purposes."
+description		Micro grammar type.attr - using this to test that we generate the
+ required resultion methods when this type is referred to in another complex type.
+
+ComplexTypeDefinition
+name 			ComplexWithComplex
+fieldSeparator	.
+requiredPart	String   			variable		"Some variable"
+requiredPart	TypeAndAttribute   	reference		"A complex type with a reference."
+description		We should generate the resolution code for the reference part when we generate ComplexWithComplex.

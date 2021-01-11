@@ -329,7 +329,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
             _canOnlyHavemvIntegerData    .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _canOnlyHavemvIntegerData    .setRuleTitle("The mvInteger attribute must between 2 and 5 things in it.");
             _canOnlyHavemvIntegerData    .setCrMaximum("5.0");
-            _canOnlyHavemvIntegerData    .setLineNumber("86");
+            _canOnlyHavemvIntegerData    .setLineNumber("79");
             _canOnlyHavemvIntegerData    .setApplyToAttribute("mvInteger");
             _canOnlyHavemvIntegerData    .setDefinedIn("dmt");
 
@@ -341,7 +341,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
             _dmtCheckLimitedMVData       .setRuleName("dmtCheckLimitedMV");
             _dmtCheckLimitedMVData       .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _dmtCheckLimitedMVData       .setRuleTitle("The limitedStringMV attribute must be one of: left, right, over there.");
-            _dmtCheckLimitedMVData       .setLineNumber("291");
+            _dmtCheckLimitedMVData       .setLineNumber("284");
             _dmtCheckLimitedMVData       .addAllowedString("left");
             _dmtCheckLimitedMVData       .addAllowedString("over there");
             _dmtCheckLimitedMVData       .addAllowedString("right");
@@ -356,7 +356,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
             _dmtCheckLimitedSVData       .setRuleName("dmtCheckLimitedSV");
             _dmtCheckLimitedSVData       .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _dmtCheckLimitedSVData       .setRuleTitle("The limitedStringSV attribute must be one of: Uno, Dos Fish, Hasta la vista.");
-            _dmtCheckLimitedSVData       .setLineNumber("283");
+            _dmtCheckLimitedSVData       .setLineNumber("276");
             _dmtCheckLimitedSVData       .addAllowedString("Dos Fish");
             _dmtCheckLimitedSVData       .addAllowedString("Uno");
             _dmtCheckLimitedSVData       .addAllowedString("Hasta la vista");
@@ -372,7 +372,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
             _dmtInitTestBasicObjectFixedData.setApplyToClass("TestBasicObjectFixed");
             _dmtInitTestBasicObjectFixedData.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _dmtInitTestBasicObjectFixedData.setRuleTitle("Initialize TestBasicObjectFixed");
-            _dmtInitTestBasicObjectFixedData.setLineNumber("78");
+            _dmtInitTestBasicObjectFixedData.setLineNumber("68");
             DmcTypeIntegerSV svIntegerValue1 = null;
             svIntegerValue1 = new DmcTypeIntegerSV(DmtDMSAG.__svInteger);
             svIntegerValue1.set("8");
@@ -402,7 +402,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
             _dmtSvFloatNumericRangeData  .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _dmtSvFloatNumericRangeData  .setNrrMaximum("2.5");
             _dmtSvFloatNumericRangeData  .setRuleTitle("svFloat must be in the range 1.5 - 2.5");
-            _dmtSvFloatNumericRangeData  .setLineNumber("102");
+            _dmtSvFloatNumericRangeData  .setLineNumber("95");
             _dmtSvFloatNumericRangeData  .setApplyToAttribute("svFloat");
             _dmtSvFloatNumericRangeData  .setDefinedIn("dmt");
 
@@ -417,7 +417,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
             _dmtSvIntegerNumericRangeData.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _dmtSvIntegerNumericRangeData.setNrrMaximum("10.0");
             _dmtSvIntegerNumericRangeData.setRuleTitle("svInteger must be in the range 1-10");
-            _dmtSvIntegerNumericRangeData.setLineNumber("94");
+            _dmtSvIntegerNumericRangeData.setLineNumber("87");
             _dmtSvIntegerNumericRangeData.setApplyToAttribute("svInteger");
             _dmtSvIntegerNumericRangeData.setDefinedIn("dmt");
 
@@ -431,7 +431,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
             _rrrDerivedAData             .setApplyToClass("ObjWithRefsDerivedA");
             _rrrDerivedAData             .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _rrrDerivedAData             .setRuleTitle("The objRefMV attribute can only refer to other objects of type ObjWithRefsDerivedA when used in a ObjWithRefsDerivedA instance.");
-            _rrrDerivedAData             .setLineNumber("337");
+            _rrrDerivedAData             .setLineNumber("331");
             _rrrDerivedAData             .setApplyToAttribute("objRefMV");
             _rrrDerivedAData             .setDefinedIn("dmt");
 
@@ -445,7 +445,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
             _rrrDerivedA2Data            .setApplyToClass("ObjWithRefsDerivedA");
             _rrrDerivedA2Data            .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _rrrDerivedA2Data            .setRuleTitle("The objRef attribute can only refer to other objects of type ObjWithRefsDerivedA when used in a ObjWithRefsDerivedA instance.");
-            _rrrDerivedA2Data            .setLineNumber("344");
+            _rrrDerivedA2Data            .setLineNumber("338");
             _rrrDerivedA2Data            .setApplyToAttribute("objRef");
             _rrrDerivedA2Data            .setDefinedIn("dmt");
 
@@ -459,7 +459,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
             _rrrDerivedBData             .setApplyToClass("ObjWithRefsDerivedB");
             _rrrDerivedBData             .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _rrrDerivedBData             .setRuleTitle("The objRefMV attribute can only refer to other objects of type ObjWithRefsDerivedB when used in a ObjWithRefsDerivedB instance.");
-            _rrrDerivedBData             .setLineNumber("361");
+            _rrrDerivedBData             .setLineNumber("355");
             _rrrDerivedBData             .setApplyToAttribute("objRefMV");
             _rrrDerivedBData             .setDefinedIn("dmt");
 
@@ -473,7 +473,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
             _rrrDerivedB2Data            .setApplyToClass("ObjWithRefsDerivedB");
             _rrrDerivedB2Data            .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _rrrDerivedB2Data            .setRuleTitle("The objRef attribute can only refer to other objects of type ObjWithRefsDerivedB when used in a ObjWithRefsDerivedB instance.");
-            _rrrDerivedB2Data            .setLineNumber("368");
+            _rrrDerivedB2Data            .setLineNumber("362");
             _rrrDerivedB2Data            .setApplyToAttribute("objRef");
             _rrrDerivedB2Data            .setDefinedIn("dmt");
 

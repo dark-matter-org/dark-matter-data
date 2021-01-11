@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2014 dark-matter-data committers
+//	Copyright (c) 2013 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -13,7 +13,7 @@
 //	You should have received a copy of the GNU Lesser General Public License along
 //	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
 //	---------------------------------------------------------------------------
-package org.dmd.templates.shared.generated.types;
+package org.dmd.dmt.dsd.dsda.shared.generated.types;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:152)
@@ -38,63 +38,62 @@ import org.dmd.dmc.util.JSONUtil;                                               
 import org.dmd.dmc.util.ParsedNameValuePair;                                              // To store values parsed from initial input - (NewComplexTypeFormatter.java:125)
 import org.dmd.dms.generated.enums.DataTypeEnum;                                          // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:120)
 import org.dmd.dms.generated.enums.ValueTypeEnum;                                         // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:121)
-import org.dmd.templates.shared.generated.enums.CardinalityEnum;                          // Primitive type - (NewComplexTypeFormatter.java:1200)
-import org.dmd.templates.shared.generated.types.ContainedElementREF;                      // Object reference - (NewComplexTypeFormatter.java:1192)
-import org.dmd.templates.shared.generated.types.DmcTypeCardinalityEnumSTATIC;             // Internally generated type - (NewComplexTypeFormatter.java:1217)
-import org.dmd.templates.shared.generated.types.DmcTypeContainedElementREFSTATIC;         // Internally generated type - (NewComplexTypeFormatter.java:1217)
+import org.dmd.dms.generated.types.DmcTypeStringSTATIC;                                   // Standard type - (NewComplexTypeFormatter.java:1217)
+import org.dmd.dmt.dsd.dsda.shared.generated.types.DmcTypeTypeAndAttributeSTATIC;         // Internally generated type - (NewComplexTypeFormatter.java:1217)
+import org.dmd.dmt.dsd.dsda.shared.generated.types.TypeAndAttribute;                      // Primitive type - (NewComplexTypeFormatter.java:1200)
 
 
 
 @SuppressWarnings("serial")
 /**
- * The Contains class.
+ * The ComplexWithComplex class.
  * This code was auto-generated and shouldn't be alterred manually.
  * 
  * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:159)
  */
-public class Contains implements Serializable {
+public class ComplexWithComplex implements Serializable {
 
     final static int requiredParts = 2;
 
-    // The number of times a contained Section will occur.
-    CardinalityEnum occurencesV;
+    // Some variable
+    String variableV;
 
-    final static DmcAttributeInfo occurencesAI = new DmcAttributeInfo("occurences",0,"CardinalityEnum",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN, 0, false);
+    final static DmcAttributeInfo variableAI = new DmcAttributeInfo("variable",0,"String",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN, 0, false);
 
-    // The Section or ExtensionHook being referenced.
-    ContainedElementREF elementV;
+    // A complex type with a reference.
+    TypeAndAttribute referenceV;
 
-    final static DmcAttributeInfo elementAI = new DmcAttributeInfo("element",0,"ContainedElement",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN, 0, false);
+    final static DmcAttributeInfo referenceAI = new DmcAttributeInfo("reference",0,"TypeAndAttribute",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN, 0, false);
 
     /**
      * Default constructor.
      */
-    public Contains(){
+    public ComplexWithComplex(){
     }
 
     /**
      * Copy constructor.
      */
-    public Contains(Contains original){
+    public ComplexWithComplex(ComplexWithComplex original){
     // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.getCopyConstructorAssignments(NewComplexTypeFormatter.java:1154)
-        occurencesV =  original.occurencesV;
-        elementV =  original.elementV;
+        variableV =  original.variableV;
+        referenceV =  original.referenceV;
     }
 
     /**
      * All fields constructor.
      * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:190)
      */
-    public Contains(CardinalityEnum occurences_, ContainedElementREF element_) throws DmcValueException {
-        occurencesV = DmcTypeCardinalityEnumSTATIC.instance.typeCheck(occurences_);
-        elementV = DmcTypeContainedElementREFSTATIC.instance.typeCheck(element_);
+    public ComplexWithComplex(String variable_, TypeAndAttribute reference_) throws DmcValueException {
+        variableV = DmcTypeStringSTATIC.instance.typeCheck(variable_);
+        referenceV = DmcTypeTypeAndAttributeSTATIC.instance.typeCheck(reference_);
     }
 
     /**
      * String based constructor.
      * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:273)
      */
-    public Contains(String initialInput) throws DmcValueException {
+    public ComplexWithComplex(String initialInput) throws DmcValueException {
         initialize(initialInput);
     }
     /**
@@ -102,13 +101,13 @@ public class Contains implements Serializable {
      * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:281)
      */
     void initialize(String initialInput) throws DmcValueException {
-        ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput);
+        ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput,'.');
 
         if (nvp.size() < requiredParts)
-            throw(new DmcValueException("Missing required values for complex type: Contains\nValue: " + initialInput));
+            throw(new DmcValueException("Missing required values for complex type: ComplexWithComplex\nValue: " + initialInput));
 
-        occurencesV = DmcTypeCardinalityEnumSTATIC.instance.typeCheck(nvp.get(0).getValue());
-        elementV = DmcTypeContainedElementREFSTATIC.instance.typeCheck(nvp.get(1).getValue());
+        variableV = DmcTypeStringSTATIC.instance.typeCheck(nvp.get(0).getValue());
+        referenceV = DmcTypeTypeAndAttributeSTATIC.instance.typeCheck(nvp.get(1).getValue());
     }
 
     /**
@@ -131,16 +130,16 @@ public class Contains implements Serializable {
      */
     public String toString(){
         StringBuffer sb = new StringBuffer();
-        sb.append(occurencesV.toString());
-        sb.append(' ');
-        sb.append(elementV.toString());
+        sb.append(variableV.toString());
+        sb.append('.');
+        sb.append(referenceV.toString());
         return(sb.toString());
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Contains) {
-            return(this.toString().equals(((Contains)obj).toString()));
+        if (obj instanceof ComplexWithComplex) {
+            return(this.toString().equals(((ComplexWithComplex)obj).toString()));
         }
         return(false);
     }
@@ -150,17 +149,19 @@ public class Contains implements Serializable {
      */
     public void toJSON(StringBuffer sb, int padding, String indent){
         sb.append(indent + "{\n");
-        sb.append(indent + "  \"occurences\": \"" + JSONUtil.escape(occurencesV.toString()) + "\",\n");
-        sb.append(indent + "  \"element\": \"" + JSONUtil.escape(elementV.toString()) + "\"");
+        sb.append(indent + "  \"variable\": \"" + JSONUtil.escape(variableV.toString()) + "\",\n");
+        sb.append(indent + "  \"reference\": ");
+        referenceV.toJSON(sb, padding, indent);
+        sb.append("");
         sb.append("\n" + indent + "}");
     }
 
-    public CardinalityEnum getOccurences(){
-        return(occurencesV);
+    public String getVariable(){
+        return(variableV);
     }
 
-    public ContainedElementREF getElement(){
-        return(elementV);
+    public TypeAndAttribute getReference(){
+        return(referenceV);
     }
 
     // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:708)
@@ -168,17 +169,8 @@ public class Contains implements Serializable {
     public void resolve(DmcNameResolverIF resolver, String attrName) throws DmcValueException {
         DmcNamedObjectIF  obj = null;
 
-        if ((elementV != null) && (!elementV.isResolved())){
-            obj = resolver.findNamedObject(elementV.getObjectName());
-            if (elementAI.weakReference)
-                return;
-            if (obj == null)
-                throw(new DmcValueException("Could not resolve reference to: " + elementV.getObjectName() + "(part: element - of type: ContainedElement) via attribute: " + attrName));
-        
-            if (obj instanceof DmcContainerIF)
-                ((DmcNamedObjectREF)elementV).setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
-            else
-                ((DmcNamedObjectREF)elementV).setObject(obj);
+        if (referenceV != null){
+            referenceV.resolve(resolver, attrName);
         }
         
     }
@@ -188,35 +180,17 @@ public class Contains implements Serializable {
     public void resolve(DmcNameResolverWithClashSupportIF resolver, DmcObject object, DmcNameClashResolverIF ncr, DmcAttributeInfo ai) throws DmcValueException, DmcValueExceptionSet {
         DmcNamedObjectIF  obj = null;
 
-        if ((elementV != null) && (!elementV.isResolved())){
-            obj = resolver.findNamedObjectMayClash(object, elementV.getObjectName(), ncr, elementAI);
-            if (elementAI.weakReference)
-                return;
-            if (obj == null)
-                throw(new DmcValueException("Could not resolve reference to: " + elementV.getObjectName() + "(part: element - of type: ContainedElement) via attribute: " + ai.name));
-        
-            if (obj instanceof DmcContainerIF)
-                ((DmcNamedObjectREF)elementV).setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
-            else
-                ((DmcNamedObjectREF)elementV).setObject(obj);
-        
-            if (DmcOmni.instance().backRefTracking()){
-                Modifier backrefMod = new Modifier("element", object, elementV, ai.id, ai.name);
-                if (obj instanceof DmcContainerIF)
-                    ((DmcContainerIF)obj).getDmcObject().addBackref(backrefMod);
-                else
-                    ((DmcObject)obj).addBackref(backrefMod);
-                elementV.setBackrefModifier(backrefMod);
-            }
+        if (referenceV != null){
+            referenceV.resolve(resolver, object, ncr, ai);
         }
         
     }
 
     // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:868)
     public void removeBackRefsFromValue(){
-        // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:875)
-        if (elementV != null){
-            elementV.removeBackref();
+        // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:883)
+        if (referenceV != null){
+            referenceV.removeBackRefsFromValue();
         }
         
     }

@@ -14,6 +14,7 @@ public class DsdADMSAGAMAP {
         _SmAp.put(DsdADMSAG.__definedInModuleA.id,DsdADMSAG.__definedInModuleA);
         _SmAp.put(DsdADMSAG.__dependsOnModuleA.id,DsdADMSAG.__dependsOnModuleA);
         _SmAp.put(DsdADMSAG.__referenceToAB.id,DsdADMSAG.__referenceToAB);
+        _SmAp.put(DsdADMSAG.__typeAndAttr.id,DsdADMSAG.__typeAndAttr);
     }
 
 }

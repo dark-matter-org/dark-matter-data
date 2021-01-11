@@ -87,6 +87,7 @@ public class NewComplexTypeFormatter {
         	
         	if (type.getComplexType() != null){
         		if (type.getComplexType().hasReferenceTypeParts()){
+        			hasRefs = true;
             		if ((part.getMultivalued() != null) && part.getMultivalued()){
 //            			DebugInfo.debug(part.getName() + " - is multi-valued and has references");
             			mvrefFields.add(part);
@@ -875,11 +876,20 @@ public class NewComplexTypeFormatter {
 	            	out.write("        \n");
             	}
             	else{
-        	        out.write("        // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-	            	out.write("        if (" + pn + valSuffix + " != null){\n");
-	            	out.write("            " + pn + valSuffix + ".removeBackref();\n");
-	            	out.write("        }\n");
-	            	out.write("        \n");
+            		if (type.getComplexType().hasReferenceTypeParts()){
+	        	        out.write("        // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		            	out.write("        if (" + pn + valSuffix + " != null){\n");
+		            	out.write("            " + pn + valSuffix + ".removeBackRefsFromValue();\n");
+		            	out.write("        }\n");
+		            	out.write("        \n");
+            		}
+            		else {
+	        	        out.write("        // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		            	out.write("        if (" + pn + valSuffix + " != null){\n");
+		            	out.write("            " + pn + valSuffix + ".removeBackref();\n");
+		            	out.write("        }\n");
+		            	out.write("        \n");
+            		}
             	}
             }
             

@@ -139,7 +139,7 @@ public class DmtdlDMSAG implements DmcCompactSchemaIF {
             _dmtdlCommentFormatData      .setRuleName("dmtdlCommentFormat");
             _dmtdlCommentFormatData      .setFile("/src/org/dmd/templates/shared/dmdconfig/attributes.dmd");
             _dmtdlCommentFormatData      .setRuleTitle("The commentFormat must contain the value insertion ::comment::");
-            _dmtdlCommentFormatData      .setLineNumber("160");
+            _dmtdlCommentFormatData      .setLineNumber("155");
             _dmtdlCommentFormatData      .setApplyToAttribute("commentFormat");
             _dmtdlCommentFormatData      .setDefinedIn("dmtdl");
 
@@ -154,7 +154,7 @@ public class DmtdlDMSAG implements DmcCompactSchemaIF {
             _dmtdlEndsWithData           .setApplyToClass("Section");
             _dmtdlEndsWithData           .setFile("/src/org/dmd/templates/shared/dmdconfig/classes.dmd");
             _dmtdlEndsWithData           .setRuleTitle("A Section can only endWith another Section or with a static piece of text.");
-            _dmtdlEndsWithData           .setLineNumber("84");
+            _dmtdlEndsWithData           .setLineNumber("78");
             _dmtdlEndsWithData           .setDefinedIn("dmtdl");
 
             __dmtdlEndsWith = new OnlyOneOfTheseAttributesAllowedRule(_dmtdlEndsWithData);
@@ -167,7 +167,7 @@ public class DmtdlDMSAG implements DmcCompactSchemaIF {
             _dmtdlInsertMarkerLengthData .setRuleName("dmtdlInsertMarkerLength");
             _dmtdlInsertMarkerLengthData .setFile("/src/org/dmd/templates/shared/dmdconfig/attributes.dmd");
             _dmtdlInsertMarkerLengthData .setRuleTitle("The insert marker must be 2 - 3 characters long.");
-            _dmtdlInsertMarkerLengthData .setLineNumber("39");
+            _dmtdlInsertMarkerLengthData .setLineNumber("33");
             _dmtdlInsertMarkerLengthData .setApplyToAttribute("insertMarker");
             _dmtdlInsertMarkerLengthData .setDefinedIn("dmtdl");
 
@@ -182,7 +182,7 @@ public class DmtdlDMSAG implements DmcCompactSchemaIF {
             _dmtdlStartsWithData         .setApplyToClass("Section");
             _dmtdlStartsWithData         .setFile("/src/org/dmd/templates/shared/dmdconfig/classes.dmd");
             _dmtdlStartsWithData         .setRuleTitle("A Section can only startWith another Section or with a static piece of text.");
-            _dmtdlStartsWithData         .setLineNumber("65");
+            _dmtdlStartsWithData         .setLineNumber("59");
             _dmtdlStartsWithData         .setDefinedIn("dmtdl");
 
             __dmtdlStartsWith = new OnlyOneOfTheseAttributesAllowedRule(_dmtdlStartsWithData);
@@ -194,7 +194,7 @@ public class DmtdlDMSAG implements DmcCompactSchemaIF {
             _dmtdlTargetObjectClassData  .setRuleName("dmtdlTargetObjectClass");
             _dmtdlTargetObjectClassData  .setFile("/src/org/dmd/templates/shared/dmdconfig/attributes.dmd");
             _dmtdlTargetObjectClassData  .setRuleTitle("The targetObjectClass must be a valid, fully qualified, Java class name.");
-            _dmtdlTargetObjectClassData  .setLineNumber("195");
+            _dmtdlTargetObjectClassData  .setLineNumber("190");
             _dmtdlTargetObjectClassData  .setApplyToAttribute("targetObjectClass");
             _dmtdlTargetObjectClassData  .setDefinedIn("dmtdl");
 
