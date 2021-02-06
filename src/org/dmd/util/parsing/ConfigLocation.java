@@ -153,11 +153,18 @@ public class ConfigLocation {
 		suffix 		= s;
 		
 		lastSlash = directory.lastIndexOf("/");
-		versionDirectory = directory.substring(0,lastSlash);
+		
+		if (lastSlash == -1)
+			versionDirectory = directory;
+		else
+			versionDirectory = directory.substring(0,lastSlash);
 		
 		if (versionDirectory.indexOf("dot") == -1){
 			// We don't have a version directory
-			configParentDirectory = directory.substring(0,lastSlash);
+			if (lastSlash == -1)
+				configParentDirectory = "";
+			else
+				configParentDirectory = directory.substring(0,lastSlash);
 			versionDirectory = null;
 			version = ConfigVersion.UNKNOWN;
 		}
