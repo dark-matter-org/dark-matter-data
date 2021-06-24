@@ -3325,7 +3325,7 @@ public class GenUtility {
       		            	
   		out.write("    @Override\n");
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-  		out.write("    protected void formatValueAsJSON(StringBuffer sb, int padding, String indent) {\n");
+  		out.write("    public void formatValueAsJSON(StringBuffer sb, int padding, String indent) {\n");
   		out.write("        if (getMVSize() == 0){\n");
   		out.write("            getSV().toJSON(sb,padding,indent);\n");
   		out.write("        }\n");
@@ -3341,7 +3341,7 @@ public class GenUtility {
   		out.write("    }\n\n");
 
   		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-  		out.write("    protected " + cn + " typeCheck(Object value) throws DmcValueException {\n");
+  		out.write("    public " + cn + " typeCheck(Object value) throws DmcValueException {\n");
   		out.write("        " + cn + " rc = null;\n\n");
   		
   		out.write("        if (value instanceof " + cn + "){\n");
