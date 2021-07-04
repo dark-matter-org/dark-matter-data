@@ -1,30 +1,15 @@
-//	---------------------------------------------------------------------------
-//	dark-matter-data
-//	Copyright (c) 2014 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
 package org.dmd.concinnity.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1542)
-import java.io.IOException;                                                               // May occur during artifact generation - (DSDArtifactFormatter.java:1537)
-import org.dmd.concinnity.server.extended.ConcinnityModule;                               // The base module for generation - (DSDArtifactFormatter.java:1535)
-import org.dmd.concinnity.server.generated.dsd.ConcinnityModuleDefinitionManager;         // All parsed definition - (DSDArtifactFormatter.java:1540)
-import org.dmd.util.exceptions.ResultException;                                           // For problems found after parsing - (DSDArtifactFormatter.java:1539)
-import org.dmd.util.parsing.ConfigLocation;                                               // Where the config was loaded from - (DSDArtifactFormatter.java:1538)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1553)
+import java.io.IOException;                                                               // May occur during artifact generation - (DSDArtifactFormatter.java:1548)
+import org.dmd.concinnity.server.extended.ConcinnityModule;                               // The base module for generation - (DSDArtifactFormatter.java:1546)
+import org.dmd.concinnity.server.generated.dsd.ConcinnityModuleDefinitionManager;         // All parsed definition - (DSDArtifactFormatter.java:1551)
+import org.dmd.util.exceptions.ResultException;                                           // For problems found after parsing - (DSDArtifactFormatter.java:1550)
+import org.dmd.util.parsing.ConfigLocation;                                               // Where the config was loaded from - (DSDArtifactFormatter.java:1549)
 
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1544)
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1555)
 public interface ConcinnityModuleGeneratorInterface {
 
     /**
@@ -38,7 +23,7 @@ public interface ConcinnityModuleGeneratorInterface {
     public void parsingComplete(ConcinnityModule module, ConfigLocation location, ConcinnityModuleDefinitionManager definitions) throws ResultException;
 
     /**
-     * Called after object resolution has completely succsessfully. This allows for 
+     * Called after object resolution has completely successfully. This allows for 
      * application of business logic not defined as part of rules etc.
      * @param module the module that was just parsed
      * @param location the module's location

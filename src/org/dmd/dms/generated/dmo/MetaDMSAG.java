@@ -71,7 +71,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __dmoAuxClass = new DmcAttributeInfo("meta","dmoAuxClass",37,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __dmoAuxClassImport = new DmcAttributeInfo("meta","dmoAuxClassImport",38,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __dmoClass = new DmcAttributeInfo("meta","dmoClass",36,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
-    public final static DmcAttributeInfo __dmoFromModule = new DmcAttributeInfo("meta","dmoFromModule",191,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
+    public final static DmcAttributeInfo __dmoFromModule = new DmcAttributeInfo("meta","dmoFromModule",191,"String",ValueTypeEnum.SINGLE,DataTypeEnum.NONPERSISTENT,0,false);
     public final static DmcAttributeInfo __dmoImport = new DmcAttributeInfo("meta","dmoImport",35,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __dmtClass = new DmcAttributeInfo("meta","dmtClass",46,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __dmtImport = new DmcAttributeInfo("meta","dmtImport",45,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
@@ -85,7 +85,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __dmwPackage = new DmcAttributeInfo("meta","dmwPackage",54,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __dmwTypeToPackage = new DmcAttributeInfo("meta","dmwTypeToPackage",123,"StringToString",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __dmwWrapperType = new DmcAttributeInfo("meta","dmwWrapperType",124,"DmwTypeToWrapperType",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,0,false);
-    public final static DmcAttributeInfo __dotName = new DmcAttributeInfo("meta","dotName",107,"DotName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
+    public final static DmcAttributeInfo __dotName = new DmcAttributeInfo("meta","dotName",107,"DotName",ValueTypeEnum.SINGLE,DataTypeEnum.NONPERSISTENT,0,false);
     public final static DmcAttributeInfo __dsdModuleDefinition = new DmcAttributeInfo("meta","dsdModuleDefinition",168,"DSDefinitionModule",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __dsdModuleList = new DmcAttributeInfo("meta","dsdModuleList",169,"DSDefinitionModule",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __enumDefList = new DmcAttributeInfo("meta","enumDefList",58,"EnumDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,0,false);

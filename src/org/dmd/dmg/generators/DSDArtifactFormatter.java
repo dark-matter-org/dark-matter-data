@@ -39,6 +39,7 @@ import org.dmd.util.ManagedFileWriter;
 import org.dmd.util.codegen.ImplementsManager;
 import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.codegen.MemberManager;
+import org.dmd.util.codegen.InitializationInterfaceManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
@@ -87,12 +88,12 @@ public class DSDArtifactFormatter {
 			Iterator<DSDefinitionModule> it =  sm.getDSDefinitionModules();
 			while(it.hasNext()){
 				DSDefinitionModule module = it.next();
-				DebugInfo.debug("DSDMODULE " + module.getName().getNameString());
+//				DebugInfo.debug("DSDMODULE " + module.getName().getNameString());
 				
 				// We only generate code for modules defined in the schema that
 				// was specified as part of the DMG config
 				if (module.getDefinedIn().getName().equals(sd.getName())){
-					generateDefinitionManager(config, dirname, module, includedModules);
+					generateDefinitionManager(config, dirname, module, includedModules, sm);
 					generateGlobalInterface(config, dirname, module);
 					generateScopedInterface(config, dirname, module);
 					generateParsingCoordinator(config, dirname, module, includedModules, sm);
@@ -107,7 +108,7 @@ public class DSDArtifactFormatter {
 	
 	///////////////////////////////////////////////////////////////////////////
 	
-	void generateDefinitionManager(DmgConfigDMO config, String dir, DSDefinitionModule ddm, TreeMap<String, DSDefinitionModule> includedModules) throws IOException {
+	void generateDefinitionManager(DmgConfigDMO config, String dir, DSDefinitionModule ddm, TreeMap<String, DSDefinitionModule> includedModules, SchemaManager sm) throws IOException, DmcNameClashException, DmcValueException {
 		if (fileHeader != null)
 			FileUpdateManager.instance().fileHeader(fileHeader);
 		
@@ -116,11 +117,16 @@ public class DSDArtifactFormatter {
 		ImportManager imports = new ImportManager();
 		ImplementsManager impl = new ImplementsManager();
 		
+		InitializationInterfaceManager iim = new InitializationInterfaceManager(config, ddm, sm);
+		
 //		// When we build up the set of imports we'll need, we also build the complete set of
 //		// modules from which we'll need definitions.
 //		TreeMap<String,DSDefinitionModule> includedModules = new TreeMap<String, DSDefinitionModule>();
 		
-		getImportsForDefinitions(imports, impl, ddm, includedModules);
+		getImportsForDefinitions(imports, impl, ddm, includedModules, iim);
+		
+		iim.generateInitializationInterface(dir);
+		iim.generateConfigLoader(dir);
 		
 		impl.addImplements("DmcNameResolverWithClashSupportIF");
 		impl.addImplements("DmcNameClashResolverIF");
@@ -154,13 +160,14 @@ public class DSDArtifactFormatter {
 		imports.addImport("org.dmd.dmc.DmcClassInfo", "The class info for our indices");
 		imports.addImport("org.dmd.dmw.DmwNamedObjectWrapper", "What we return from getIndex()");
 
-		
 		out.write(imports.getFormattedImports());
+		
+		out.write(iim.getInitializationImports().getFormattedImports());
 		
 		out.write("\n");
 		
 		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-		out.write("public class " + ddm.getName() + "DefinitionManager " + impl.getFormattedImplementations() + "{\n\n");
+		out.write("public class " + ddm.getName() + "DefinitionManager " + impl.getFormattedImplementations() + iim.getFormattedInitializationInterfaces() + "{\n\n");
 		
 		out.write("    private DmcDefinitionSet<DSDefinition>	allDefinitions;\n");
 		out.write("\n");
@@ -481,12 +488,16 @@ public class DSDArtifactFormatter {
 	 * @param imports place to gather imports
 	 * @param ddm the definition for which we're gathering imports
 	 * @param includedModules the names of modules from which we've already gathered import info
+	 * @throws DmcValueException 
+	 * @throws DmcNameClashException 
 	 */
-	void getImportsForDefinitions(ImportManager imports, ImplementsManager impl, DSDefinitionModule ddm, TreeMap<String, DSDefinitionModule> includedModules){
+	void getImportsForDefinitions(ImportManager imports, ImplementsManager impl, DSDefinitionModule ddm, TreeMap<String, DSDefinitionModule> includedModules, InitializationInterfaceManager vim) throws DmcNameClashException, DmcValueException{
 		ClassDefinition dsd = (ClassDefinition) ddm.getBaseDefinition();
 		
 		imports.addImport(ddm.getGlobalInterfaceImport(), "Interface for " + ddm.getName() + " definitions");
 		impl.addImplements(ddm.getGlobalInterfaceName());
+		
+		vim.addInterfaceFor(ddm);
 		
 		imports.addImport(dsd.getDmeImport(), "A definition from the " + ddm.getName() + " Module");
 		
@@ -502,7 +513,7 @@ public class DSDArtifactFormatter {
 			while(it.hasNext()){
 				DSDefinitionModule module = it.next();
 				if (includedModules.get(module.getName().getNameString()) == null)
-					getImportsForDefinitions(imports, impl, module, includedModules);
+					getImportsForDefinitions(imports, impl, module, includedModules, vim);
 			}
 		}
 	}
@@ -1555,7 +1566,7 @@ public class DSDArtifactFormatter {
 		out.write("    public void parsingComplete(" + ddm.getName() + " module, ConfigLocation location, " + ddm.getName() + "DefinitionManager definitions) throws ResultException;\n");
 		out.write("\n");
 		out.write("    /**\n");
-		out.write("     * Called after object resolution has completely succsessfully. This allows for \n");
+		out.write("     * Called after object resolution has completely successfully. This allows for \n");
 		out.write("     * application of business logic not defined as part of rules etc.\n");
 		out.write("     * @param module the module that was just parsed\n");
 		out.write("     * @param location the module's location\n");

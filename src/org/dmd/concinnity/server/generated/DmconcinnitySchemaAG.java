@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2014 dark-matter-data committers
+//	Copyright (c) 2014-2021 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -103,7 +103,7 @@ public class DmconcinnitySchemaAG extends SchemaDefinition {
             _ConcinnityDefinitionOBJ.setDmdID("-83998");
             _ConcinnityDefinitionOBJ.setClassType("ABSTRACT");
             _ConcinnityDefinitionOBJ.setFile("/src/org/dmd/concinnity/shared/dmconfig/classes.dmd");
-            _ConcinnityDefinitionOBJ.setLineNumber("14");
+            _ConcinnityDefinitionOBJ.setLineNumber("3");
             _ConcinnityDefinitionOBJ.setIsNamedBy("meta.name");
             _ConcinnityDefinitionOBJ.addDescription("The ConcinnityDefinition provides a common base for all Concinnity related definitions.");
             _ConcinnityDefinitionOBJ.setUseWrapperType("EXTENDED");
@@ -126,7 +126,7 @@ public class DmconcinnitySchemaAG extends SchemaDefinition {
             _ConceptOBJ.setDmdID("-83997");
             _ConceptOBJ.setClassType("STRUCTURAL");
             _ConceptOBJ.setFile("/src/org/dmd/concinnity/shared/dmconfig/classes.dmd");
-            _ConceptOBJ.setLineNumber("36");
+            _ConceptOBJ.setLineNumber("15");
             _ConceptOBJ.setIsNamedBy("meta.name");
             _ConceptOBJ.addDescription("The Concept class provides a flexible mechanism for defining concepts that can be\n linked in arbitrary or structured ways to other concepts. Concepts allow other, disparate information\n from other dark-matter Domain Specific Languages (DSLs) to be linked together at a conceptual level.\n <p>\n How you use this mechanism is bounded only by your imagination.");
             _ConceptOBJ.setUseWrapperType("EXTENDED");
@@ -152,7 +152,7 @@ public class DmconcinnitySchemaAG extends SchemaDefinition {
             _ConcinnityModuleOBJ.setDmdID("-83999");
             _ConcinnityModuleOBJ.setClassType("STRUCTURAL");
             _ConcinnityModuleOBJ.setFile("/src/org/dmd/concinnity/shared/dmconfig/module.dmd");
-            _ConcinnityModuleOBJ.setLineNumber("11");
+            _ConcinnityModuleOBJ.setLineNumber("1");
             _ConcinnityModuleOBJ.setInternallyGenerated("true");
             _ConcinnityModuleOBJ.setIsNamedBy("meta.name");
             _ConcinnityModuleOBJ.setUseWrapperType("EXTENDED");
@@ -183,7 +183,7 @@ public class DmconcinnitySchemaAG extends SchemaDefinition {
             _definedInConcinnityModuleOBJ.setType("dmconcinnity.ConcinnityModule");
             _definedInConcinnityModuleOBJ.setFile("/src/org/dmd/concinnity/shared/dmconfig/attributes.dmd");
             _definedInConcinnityModuleOBJ.setDotName("dmconcinnity.definedInConcinnityModule.AttributeDefinition");
-            _definedInConcinnityModuleOBJ.setLineNumber("6");
+            _definedInConcinnityModuleOBJ.setLineNumber("1");
             _definedInConcinnityModule.setDefinedIn(this);
             addAttributeDefList(_definedInConcinnityModule);
 
@@ -196,7 +196,7 @@ public class DmconcinnitySchemaAG extends SchemaDefinition {
             _dependsOnConcinnityModuleOBJ.setType("dmconcinnity.ConcinnityModule");
             _dependsOnConcinnityModuleOBJ.setFile("/src/org/dmd/concinnity/shared/dmconfig/attributes.dmd");
             _dependsOnConcinnityModuleOBJ.setDotName("dmconcinnity.dependsOnConcinnityModule.AttributeDefinition");
-            _dependsOnConcinnityModuleOBJ.setLineNumber("13");
+            _dependsOnConcinnityModuleOBJ.setLineNumber("7");
             _dependsOnConcinnityModuleOBJ.setValueType("MULTI");
             _dependsOnConcinnityModule.setDefinedIn(this);
             addAttributeDefList(_dependsOnConcinnityModule);
@@ -210,7 +210,7 @@ public class DmconcinnitySchemaAG extends SchemaDefinition {
             _isOBJ.setType("dmconcinnity.Concept");
             _isOBJ.setFile("/src/org/dmd/concinnity/shared/dmconfig/attributes.dmd");
             _isOBJ.setDotName("dmconcinnity.is.AttributeDefinition");
-            _isOBJ.setLineNumber("21");
+            _isOBJ.setLineNumber("14");
             _is.setDefinedIn(this);
             addAttributeDefList(_is);
 
@@ -223,7 +223,7 @@ public class DmconcinnitySchemaAG extends SchemaDefinition {
             _isLikeOBJ.setType("dmconcinnity.Concept");
             _isLikeOBJ.setFile("/src/org/dmd/concinnity/shared/dmconfig/attributes.dmd");
             _isLikeOBJ.setDotName("dmconcinnity.isLike.AttributeDefinition");
-            _isLikeOBJ.setLineNumber("30");
+            _isLikeOBJ.setLineNumber("22");
             _isLikeOBJ.setValueType("MULTI");
             _isLike.setDefinedIn(this);
             addAttributeDefList(_isLike);
@@ -237,7 +237,7 @@ public class DmconcinnitySchemaAG extends SchemaDefinition {
             _isRelatedToOBJ.setType("dmconcinnity.Concept");
             _isRelatedToOBJ.setFile("/src/org/dmd/concinnity/shared/dmconfig/attributes.dmd");
             _isRelatedToOBJ.setDotName("dmconcinnity.isRelatedTo.AttributeDefinition");
-            _isRelatedToOBJ.setLineNumber("39");
+            _isRelatedToOBJ.setLineNumber("31");
             _isRelatedToOBJ.setValueType("MULTI");
             _isRelatedTo.setDefinedIn(this);
             addAttributeDefList(_isRelatedTo);
@@ -251,7 +251,7 @@ public class DmconcinnitySchemaAG extends SchemaDefinition {
             _representsOBJ.setType("dmconcinnity.Concept");
             _representsOBJ.setFile("/src/org/dmd/concinnity/shared/dmconfig/attributes.dmd");
             _representsOBJ.setDotName("dmconcinnity.represents.AttributeDefinition");
-            _representsOBJ.setLineNumber("47");
+            _representsOBJ.setLineNumber("40");
             _represents.setDefinedIn(this);
             addAttributeDefList(_represents);
 
@@ -264,7 +264,7 @@ public class DmconcinnitySchemaAG extends SchemaDefinition {
             _parentOBJ.setType("dmconcinnity.Concept");
             _parentOBJ.setFile("/src/org/dmd/concinnity/shared/dmconfig/attributes.dmd");
             _parentOBJ.setDotName("dmconcinnity.parent.AttributeDefinition");
-            _parentOBJ.setLineNumber("76");
+            _parentOBJ.setLineNumber("48");
             _parent.setDefinedIn(this);
             addAttributeDefList(_parent);
 
@@ -304,7 +304,7 @@ public class DmconcinnitySchemaAG extends SchemaDefinition {
             _ConcinnityModuleDSDOBJ.setDefinedInModuleAttribute("dmconcinnity.definedInConcinnityModule");
             _ConcinnityModuleDSDOBJ.setFile("/src/org/dmd/concinnity/shared/dmconfig/module.dmd");
             _ConcinnityModuleDSDOBJ.setDotName("dmconcinnity.ConcinnityModule.DSDefinitionModule");
-            _ConcinnityModuleDSDOBJ.setLineNumber("11");
+            _ConcinnityModuleDSDOBJ.setLineNumber("1");
             _ConcinnityModuleDSDOBJ.setSupportDynamicSchemaLoading("true");
             _ConcinnityModuleDSD.setDefinedIn(this);
             addDsdModuleList(_ConcinnityModuleDSD);

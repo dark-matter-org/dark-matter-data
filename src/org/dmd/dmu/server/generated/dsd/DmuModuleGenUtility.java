@@ -1,28 +1,28 @@
 package org.dmd.dmu.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateBaseUtility(DSDArtifactFormatter.java:1437)
-import java.io.File;                                                         // To access the separator character - (DSDArtifactFormatter.java:1408)
-import java.io.IOException;                                                  // In case we have problems opening/writin got files - (DSDArtifactFormatter.java:1407)
-import org.dmd.dmc.DmcNameClashException;                                    // To handle parsing errors - (DSDArtifactFormatter.java:1411)
-import org.dmd.dmc.DmcValueException;                                        // To handle fundamental value errors - (DSDArtifactFormatter.java:1410)
-import org.dmd.dmc.DmcValueExceptionSet;                                     // May occur when resolving objects - (DSDArtifactFormatter.java:1413)
-import org.dmd.dmc.rules.DmcRuleExceptionSet;                                // To handle rule errors - (DSDArtifactFormatter.java:1412)
-import org.dmd.dmu.server.extended.DmuModule;                                // One of the DDS modules we might load - (DSDArtifactFormatter.java:1418)
-import org.dmd.dmu.server.generated.dsd.DmuModuleGeneratorInterface;         // Called by the parsing coordinator as configs are read - (DSDArtifactFormatter.java:1403)
-import org.dmd.dmu.server.generated.dsd.DmuModuleParsingCoordinator;         // Parses modules required for generation - (DSDArtifactFormatter.java:1402)
-import org.dmd.util.BooleanVar;                                              // Commandline flags - (DSDArtifactFormatter.java:1405)
-import org.dmd.util.exceptions.ResultException;                              // To handle parsing exceptions - (DSDArtifactFormatter.java:1409)
-import org.dmd.util.parsing.CommandLine;                                     // Commandline parsing - (DSDArtifactFormatter.java:1404)
-import org.dmd.util.parsing.ConfigLocation;                                  // Where a module was loaded from - (DSDArtifactFormatter.java:1414)
-import org.dmd.util.parsing.StringArrayList;                                 // Commandline string values - (DSDArtifactFormatter.java:1406)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateBaseUtility(DSDArtifactFormatter.java:1448)
+import java.io.File;                                                         // To access the separator character - (DSDArtifactFormatter.java:1419)
+import java.io.IOException;                                                  // In case we have problems opening/writin got files - (DSDArtifactFormatter.java:1418)
+import org.dmd.dmc.DmcNameClashException;                                    // To handle parsing errors - (DSDArtifactFormatter.java:1422)
+import org.dmd.dmc.DmcValueException;                                        // To handle fundamental value errors - (DSDArtifactFormatter.java:1421)
+import org.dmd.dmc.DmcValueExceptionSet;                                     // May occur when resolving objects - (DSDArtifactFormatter.java:1424)
+import org.dmd.dmc.rules.DmcRuleExceptionSet;                                // To handle rule errors - (DSDArtifactFormatter.java:1423)
+import org.dmd.dmu.server.extended.DmuModule;                                // One of the DDS modules we might load - (DSDArtifactFormatter.java:1429)
+import org.dmd.dmu.server.generated.dsd.DmuModuleGeneratorInterface;         // Called by the parsing coordinator as configs are read - (DSDArtifactFormatter.java:1414)
+import org.dmd.dmu.server.generated.dsd.DmuModuleParsingCoordinator;         // Parses modules required for generation - (DSDArtifactFormatter.java:1413)
+import org.dmd.util.BooleanVar;                                              // Commandline flags - (DSDArtifactFormatter.java:1416)
+import org.dmd.util.exceptions.ResultException;                              // To handle parsing exceptions - (DSDArtifactFormatter.java:1420)
+import org.dmd.util.parsing.CommandLine;                                     // Commandline parsing - (DSDArtifactFormatter.java:1415)
+import org.dmd.util.parsing.ConfigLocation;                                  // Where a module was loaded from - (DSDArtifactFormatter.java:1425)
+import org.dmd.util.parsing.StringArrayList;                                 // Commandline string values - (DSDArtifactFormatter.java:1417)
 
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateBaseUtility(DSDArtifactFormatter.java:1439)
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateBaseUtility(DSDArtifactFormatter.java:1450)
 public abstract class DmuModuleGenUtility implements DmuModuleGeneratorInterface {
 
     // Generated from: org.dmd.util.codegen.MemberManager.getFormattedMembers(MemberManager.java:64)
-    // Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateBaseUtility(DSDArtifactFormatter.java:1442)
+    // Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateBaseUtility(DSDArtifactFormatter.java:1453)
     protected DmuModuleParsingCoordinator    parser;                                   // Module parser
     protected CommandLine                    commandLine    = new CommandLine();       // Commandline parser
     protected BooleanVar                     helpFlag       = new BooleanVar();        // The help flag value
@@ -94,7 +94,7 @@ public abstract class DmuModuleGenUtility implements DmuModuleGeneratorInterface
     	 
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateBaseUtility(DSDArtifactFormatter.java:1506)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateBaseUtility(DSDArtifactFormatter.java:1517)
     public ConfigLocation getLocation(DmuModule module){
         return(parser.getLocation(module));
     }

@@ -1,15 +1,15 @@
 package org.dmd.dmu.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1542)
-import java.io.IOException;                                                 // May occur during artifact generation - (DSDArtifactFormatter.java:1537)
-import org.dmd.dmu.server.extended.DmuModule;                               // The base module for generation - (DSDArtifactFormatter.java:1535)
-import org.dmd.dmu.server.generated.dsd.DmuModuleDefinitionManager;         // All parsed definition - (DSDArtifactFormatter.java:1540)
-import org.dmd.util.exceptions.ResultException;                             // For problems found after parsing - (DSDArtifactFormatter.java:1539)
-import org.dmd.util.parsing.ConfigLocation;                                 // Where the config was loaded from - (DSDArtifactFormatter.java:1538)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1553)
+import java.io.IOException;                                                 // May occur during artifact generation - (DSDArtifactFormatter.java:1548)
+import org.dmd.dmu.server.extended.DmuModule;                               // The base module for generation - (DSDArtifactFormatter.java:1546)
+import org.dmd.dmu.server.generated.dsd.DmuModuleDefinitionManager;         // All parsed definition - (DSDArtifactFormatter.java:1551)
+import org.dmd.util.exceptions.ResultException;                             // For problems found after parsing - (DSDArtifactFormatter.java:1550)
+import org.dmd.util.parsing.ConfigLocation;                                 // Where the config was loaded from - (DSDArtifactFormatter.java:1549)
 
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1544)
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1555)
 public interface DmuModuleGeneratorInterface {
 
     /**
@@ -23,7 +23,7 @@ public interface DmuModuleGeneratorInterface {
     public void parsingComplete(DmuModule module, ConfigLocation location, DmuModuleDefinitionManager definitions) throws ResultException;
 
     /**
-     * Called after object resolution has completely succsessfully. This allows for 
+     * Called after object resolution has completely successfully. This allows for 
      * application of business logic not defined as part of rules etc.
      * @param module the module that was just parsed
      * @param location the module's location

@@ -1677,6 +1677,9 @@ abstract public class DmcObject implements Serializable {
         		continue;
         	}
 
+            if (attr.attrInfo.dataType == DataTypeEnum.NONPERSISTENT)
+            	continue;
+            
         	attr.toJSON(sb, padding, indentPlus + "  ");
         	
             if (it.hasNext()){
@@ -1684,7 +1687,10 @@ abstract public class DmcObject implements Serializable {
             }
         }
    
-//        sb.append("\n" + indentPlus + "}");
+        if (sb.toString().endsWith(",\n")) {
+			sb.deleteCharAt(sb.length()-1);
+			sb.deleteCharAt(sb.length()-1);
+        }
         
         sb.append("\n" + indent + "}");
 

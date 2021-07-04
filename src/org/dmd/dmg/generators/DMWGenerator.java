@@ -20,6 +20,8 @@ import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
 import org.dmd.dms.util.GenUtility;
+import org.dmd.util.UtilityOptions;
+import org.dmd.util.codegen.InitializationInterfaceManager;
 import org.dmd.util.codegen.ImplementsManager;
 import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.codegen.Manipulator;
@@ -77,7 +79,8 @@ public class DMWGenerator extends BaseDMWGenerator {
 	void createTypeIterables(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm) throws IOException, ResultException {
 		SchemaDefinition sd = sm.isSchema(config.getSchemaToLoad());
 		
-		sd.dumpInfo();
+		if (!UtilityOptions.instance().quietProgress())
+			sd.dumpInfo();
 		
 		Iterator<ClassDefinition>	classes = sd.getClassDefList();
 		if (classes != null){
@@ -282,6 +285,15 @@ public class DMWGenerator extends BaseDMWGenerator {
 		imports.addImport(cd.getDmwPackage(genContext) + ".generated." + genContext + "." + cd.getName() + genSuffix, "The wrapper we're extending");
 		imports.addImport(cd.getDmoImport(), "The wrapper we're extending");
 		imports.addImport("org.dmd.dms.ClassDefinition", "Used in derived constructors");
+		imports.addImport("org.dmd.util.exceptions.ResultException", "To report errors from validation");
+		
+		String defAccess = cd.getPartOfDefinitionModule().getModuleClassName() + InitializationInterfaceManager.DEF_INT_SUFFIX;
+		
+		imports.addImport(config.getGenPackage() + ".generated.dsd." + defAccess , "Definitions access");
+		
+		if (cd.getDsdModuleDefinition() != null)
+			imports.addImport("java.util.Iterator", "To iterate definitions");
+
 		
 		int lastDot = cd.getDmeImport().lastIndexOf(".");
 		
@@ -289,7 +301,10 @@ public class DMWGenerator extends BaseDMWGenerator {
 		
 		out.write(imports.getFormattedImports() + "\n");
 		
+		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		out.write(abstractClass + "public class " + cd.getName() + " extends " + cd.getName() + genSuffix + " {\n\n");
+		
+		out.write("    private boolean initialized;\n\n");
 
 		out.write("    public " + cd.getName() + "(){\n");
 		out.write("        super();\n");
@@ -298,6 +313,60 @@ public class DMWGenerator extends BaseDMWGenerator {
 		out.write("    public " + cd.getName() + "(" + cd.getName() + "DMO dmo, ClassDefinition cd){\n");
 		out.write("        super(dmo,cd);\n");
 		out.write("    }\n\n");
+		
+		out.write("    public void " +  InitializationInterfaceManager.INITIALIZE + "(" + defAccess + " definitions) throws ResultException {\n");
+		out.write("        if (!initialized){\n");
+		out.write("            // Add any required initialization or validation checks\n");
+		out.write("            // If you fail validation, throw a ResultException that includes a clear\n");
+		out.write("            // error description and location - uncomment the following example:\n");
+		out.write("//            ResultException ex = new ResultException(\"Error description\");\n");
+		out.write("//            ex.moreMessages(\"Additional error information\");\n");
+		out.write("//            ex.setLocationInfo(getFile(), getLineNumber());\n");
+		out.write("//            throw(ex);\n");
+		out.write("            initialized = true;\n");
+		out.write("        }\n");
+		out.write("    }\n\n");
+		
+		if (cd.getDsdModuleDefinition() != null){
+			// This is the module definition class, so we're going to overload the toJSON() method
+			// so that we can dump the entire module in JSON.			
+			String baseDefName = cd.getDsdModuleDefinition().getBaseDefinition().getName().getNameString(); 
+			
+			out.write("    /**\n");
+			out.write("     * @return the module in JSON format.\n");
+			out.write("     */\n");
+			out.write("    @Override\n");
+			out.write("    public String toJSON() {\n");
+			out.write("        StringBuffer sb = new StringBuffer();\n");
+			out.write("        \n");
+			out.write("        core.toJSON(sb, 0, \"\");\n");
+			out.write("        \n");
+			out.write("        if (get" + baseDefName + "Count() > 0) {\n");
+			out.write("            // Remove the final }\\n\n");
+			out.write("            sb.deleteCharAt(sb.length()-1);\n");
+			out.write("            sb.deleteCharAt(sb.length()-1);\n");
+			out.write("            \n");
+			out.write("            sb.append(\",\\n\");\n");
+			out.write("            sb.append(\"    \\\"definitions\\\": [\\n\");\n");
+			out.write("            \n");
+			out.write("            Iterator<" + baseDefName + "> it = getAll" + baseDefName + "();\n");
+			out.write("            while(it.hasNext()) {\n");
+			out.write("                " + baseDefName + " def = it.next();                \n");
+			out.write("                def.getDMO().toJSON(sb, 0, \"      \");\n");
+			out.write("                \n");
+			out.write("                if (it.hasNext())\n");
+			out.write("                    sb.append(\",\\n\");\n");
+			out.write("            }\n");
+			out.write("            sb.append(\"\\n    ]\\n\");\n");
+			out.write("            \n");
+			out.write("            sb.append(\"}\");\n");
+			out.write("        }\n");
+			out.write("        \n");
+			out.write("        return(sb.toString());\n");
+			out.write("    }\n");
+
+			
+		}
 		
 		out.write("}\n\n");
 		

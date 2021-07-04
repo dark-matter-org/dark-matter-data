@@ -1,18 +1,3 @@
-//	---------------------------------------------------------------------------
-//	dark-matter-data
-//	Copyright (c) 2014 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
 package org.dmd.dmu.server.generated;
 
 import org.dmd.dmc.DmcOmni;
@@ -91,7 +76,7 @@ public class DmuSchemaAG extends SchemaDefinition {
             _DmuDefinitionOBJ.setDmdID("-859998");
             _DmuDefinitionOBJ.setClassType("ABSTRACT");
             _DmuDefinitionOBJ.setFile("/src/org/dmd/dmu/shared/dmconfig/classes.dmd");
-            _DmuDefinitionOBJ.setLineNumber("13");
+            _DmuDefinitionOBJ.setLineNumber("3");
             _DmuDefinitionOBJ.setIsNamedBy("meta.name");
             _DmuDefinitionOBJ.addDescription("This is the module definition for the dmu domain-specific language.");
             _DmuDefinitionOBJ.setUseWrapperType("EXTENDED");
@@ -113,7 +98,7 @@ public class DmuSchemaAG extends SchemaDefinition {
             _PayloadSortInfoOBJ.setDmdID("-859990");
             _PayloadSortInfoOBJ.setClassType("STRUCTURAL");
             _PayloadSortInfoOBJ.setFile("/src/org/dmd/dmu/shared/dmconfig/classes.dmd");
-            _PayloadSortInfoOBJ.setLineNumber("28");
+            _PayloadSortInfoOBJ.setLineNumber("14");
             _PayloadSortInfoOBJ.setIsNamedBy("meta.name");
             _PayloadSortInfoOBJ.addDescription("<font color=\"red\">json:</font> In order to perform the diff between an existing configuration on\n the device and an incoming payload, the JSON objects must have arrays of objects\n sorted based on specified key values. Otherwise, the com.github.fge.jsonpatch.diff.JsonDiff\n diff mechanisms can't provide a decent comparison.");
             _PayloadSortInfoOBJ.setUseWrapperType("EXTENDED");
@@ -136,7 +121,7 @@ public class DmuSchemaAG extends SchemaDefinition {
             _PayloadExampleOBJ.setDmdID("-859988");
             _PayloadExampleOBJ.setClassType("STRUCTURAL");
             _PayloadExampleOBJ.setFile("/src/org/dmd/dmu/shared/dmconfig/classes.dmd");
-            _PayloadExampleOBJ.setLineNumber("41");
+            _PayloadExampleOBJ.setLineNumber("29");
             _PayloadExampleOBJ.setIsNamedBy("meta.name");
             _PayloadExampleOBJ.addDescription("<font color=\"red\">json:</font> The PayloadExample allows you to specify\n examples of JSON payloads to be used to test various functionality.");
             _PayloadExampleOBJ.setUseWrapperType("EXTENDED");
@@ -160,7 +145,7 @@ public class DmuSchemaAG extends SchemaDefinition {
             _DmuModuleOBJ.setDmdID("-859999");
             _DmuModuleOBJ.setClassType("STRUCTURAL");
             _DmuModuleOBJ.setFile("/src/org/dmd/dmu/shared/dmconfig/module.dmd");
-            _DmuModuleOBJ.setLineNumber("13");
+            _DmuModuleOBJ.setLineNumber("3");
             _DmuModuleOBJ.setInternallyGenerated("true");
             _DmuModuleOBJ.setIsNamedBy("meta.name");
             _DmuModuleOBJ.setUseWrapperType("EXTENDED");
@@ -192,7 +177,7 @@ public class DmuSchemaAG extends SchemaDefinition {
             _definedInDmuModuleOBJ.setType("dmu.DmuModule");
             _definedInDmuModuleOBJ.setFile("/src/org/dmd/dmu/shared/dmconfig/attributes.dmd");
             _definedInDmuModuleOBJ.setDotName("dmu.definedInDmuModule.AttributeDefinition");
-            _definedInDmuModuleOBJ.setLineNumber("8");
+            _definedInDmuModuleOBJ.setLineNumber("3");
             _definedInDmuModule.setDefinedIn(this);
             addAttributeDefList(_definedInDmuModule);
 
@@ -205,7 +190,7 @@ public class DmuSchemaAG extends SchemaDefinition {
             _dependsOnDmuModuleOBJ.setType("dmu.DmuModule");
             _dependsOnDmuModuleOBJ.setFile("/src/org/dmd/dmu/shared/dmconfig/attributes.dmd");
             _dependsOnDmuModuleOBJ.setDotName("dmu.dependsOnDmuModule.AttributeDefinition");
-            _dependsOnDmuModuleOBJ.setLineNumber("15");
+            _dependsOnDmuModuleOBJ.setLineNumber("9");
             _dependsOnDmuModuleOBJ.setValueType("MULTI");
             _dependsOnDmuModule.setDefinedIn(this);
             addAttributeDefList(_dependsOnDmuModule);
@@ -219,7 +204,7 @@ public class DmuSchemaAG extends SchemaDefinition {
             _pathAndKeysOBJ.setType("dmu.PathAndKey");
             _pathAndKeysOBJ.setFile("/src/org/dmd/dmu/shared/dmconfig/attributes.dmd");
             _pathAndKeysOBJ.setDotName("dmu.pathAndKeys.AttributeDefinition");
-            _pathAndKeysOBJ.setLineNumber("23");
+            _pathAndKeysOBJ.setLineNumber("16");
             _pathAndKeysOBJ.setValueType("MULTI");
             _pathAndKeys.setDefinedIn(this);
             addAttributeDefList(_pathAndKeys);
@@ -234,7 +219,7 @@ public class DmuSchemaAG extends SchemaDefinition {
             _jsonPayloadOBJ.setType("meta.String");
             _jsonPayloadOBJ.setFile("/src/org/dmd/dmu/shared/dmconfig/attributes.dmd");
             _jsonPayloadOBJ.setDotName("dmu.jsonPayload.AttributeDefinition");
-            _jsonPayloadOBJ.setLineNumber("30");
+            _jsonPayloadOBJ.setLineNumber("24");
             _jsonPayload.setDefinedIn(this);
             addAttributeDefList(_jsonPayload);
 
@@ -247,7 +232,7 @@ public class DmuSchemaAG extends SchemaDefinition {
             _useSortInfoOBJ.setType("dmu.PayloadSortInfo");
             _useSortInfoOBJ.setFile("/src/org/dmd/dmu/shared/dmconfig/attributes.dmd");
             _useSortInfoOBJ.setDotName("dmu.useSortInfo.AttributeDefinition");
-            _useSortInfoOBJ.setLineNumber("35");
+            _useSortInfoOBJ.setLineNumber("31");
             _useSortInfo.setDefinedIn(this);
             addAttributeDefList(_useSortInfo);
 
@@ -264,7 +249,7 @@ public class DmuSchemaAG extends SchemaDefinition {
             _PathAndKeyOBJ.setPrimitiveType("org.dmd.dmu.shared.types.PathAndKey");
             _PathAndKeyOBJ.setFile("/src/org/dmd/dmu/shared/dmconfig/types.dmd");
             _PathAndKeyOBJ.setDotName("dmu.PathAndKey.TypeDefinition");
-            _PathAndKeyOBJ.setLineNumber("10");
+            _PathAndKeyOBJ.setLineNumber("5");
             _PathAndKeyOBJ.setDmwIteratorImport("org.dmd.dmu.server.generated.dmw.PathAndKeyIterableDMW");
             _PathAndKeyOBJ.setDmwIteratorClass("PathAndKeyIterableDMW");
             _PathAndKey.setDefinedIn(this);
@@ -302,7 +287,7 @@ public class DmuSchemaAG extends SchemaDefinition {
             _DmuModuleDSDOBJ.setDefinedInModuleAttribute("dmu.definedInDmuModule");
             _DmuModuleDSDOBJ.setFile("/src/org/dmd/dmu/shared/dmconfig/module.dmd");
             _DmuModuleDSDOBJ.setDotName("dmu.DmuModule.DSDefinitionModule");
-            _DmuModuleDSDOBJ.setLineNumber("13");
+            _DmuModuleDSDOBJ.setLineNumber("3");
             _DmuModuleDSDOBJ.setSupportDynamicSchemaLoading("true");
             _DmuModuleDSDOBJ.addDescription("This is the module definition for the dmu domain-specific language.");
             _DmuModuleDSD.setDefinedIn(this);

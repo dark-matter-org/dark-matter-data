@@ -47,6 +47,7 @@ import org.dmd.dmv.server.DmvDynamicRuleManager;
 import org.dmd.dmv.shared.DmvRuleManager;
 import org.dmd.dmw.DmwObjectFactory;
 import org.dmd.dmw.DmwWrapper;
+import org.dmd.util.UtilityOptions;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
@@ -219,8 +220,8 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
         // Note: the rule manager automatically loads the meta schema and DMV rules.
         ruleManager		= new DmvRuleManager();
         
-        if (!terseV)
-        	DebugInfo.debug("\n\n*** RULE TRACING DISABLED ***\n\n");
+//        if (!terseV)
+//        	DebugInfo.debug("\n\n*** RULE TRACING DISABLED ***\n\n");
 //        DmcOmni.instance().ruleTracer(new ConsoleRuleTracer());
 //        DmcOmni.instance().ruleTracing(true);
     }
@@ -262,8 +263,10 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
         
         currFile = location.getFileName();
 
-        if (!terseV)
-            System.out.println("\nParsing schema: " + schemaName);
+        if (!terseV) {
+        	if (!UtilityOptions.instance().quietProgress())
+        		System.out.println("\nParsing schema: " + schemaName);
+        }
         
         // Hold the directory name globally so that we can use it later
         schemaDir = new String(location.getDirectory());
@@ -275,8 +278,10 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
             // and proceed with parsing.
             loadedFiles.put(currFile,null);
 
-            if (!terseV)
-                System.out.println("    Reading " + currFile);
+            if (!terseV) {
+            	if (!UtilityOptions.instance().quietProgress())
+            		System.out.println("    Reading " + currFile);
+            }
             
         	schemaParser.parseFile(currFile, location.isFromJAR());
             currSchema = (SchemaDefinition)schemaStack.pop();
@@ -554,10 +559,12 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
 //DebugInfo.debug("Reading def file: " + currFile);
 
                             if (!terseV){
-                            	if (location.isFromJAR())
-                            		System.out.println("      Reading " + currFile + " - from " + location.getJarFilename());
-                            	else
-                            		System.out.println("      Reading " + currFile);
+                            	if (!UtilityOptions.instance().quietProgress()) {
+	                            	if (location.isFromJAR())
+	                            		System.out.println("      Reading " + currFile + " - from " + location.getJarFilename());
+	                            	else
+	                            		System.out.println("      Reading " + currFile);
+                            	}
                             }
                             
                             if (location.isFromJAR()){

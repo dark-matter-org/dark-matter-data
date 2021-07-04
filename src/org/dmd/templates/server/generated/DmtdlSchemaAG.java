@@ -13,21 +13,6 @@
 //	You should have received a copy of the GNU Lesser General Public License along
 //	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
 //	---------------------------------------------------------------------------
-//	---------------------------------------------------------------------------
-//	dark-matter-data
-//	Copyright (c) 2014 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
 package org.dmd.templates.server.generated;
 
 import org.dmd.dmc.DmcOmni;
@@ -135,7 +120,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _TdlDefinitionOBJ.setDmdID("-957198");
             _TdlDefinitionOBJ.setClassType("ABSTRACT");
             _TdlDefinitionOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/classes.dmd");
-            _TdlDefinitionOBJ.setLineNumber("14");
+            _TdlDefinitionOBJ.setLineNumber("1");
             _TdlDefinitionOBJ.setIsNamedBy("meta.name");
             _TdlDefinitionOBJ.addDescription("The TdlDefinition provides a common base for all dark-matter\n Template Definition Language (TDL) definitions.");
             _TdlDefinitionOBJ.setUseWrapperType("EXTENDED");
@@ -159,7 +144,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _ContainedElementOBJ.setDmdID("-957197");
             _ContainedElementOBJ.setClassType("ABSTRACT");
             _ContainedElementOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/classes.dmd");
-            _ContainedElementOBJ.setLineNumber("23");
+            _ContainedElementOBJ.setLineNumber("15");
             _ContainedElementOBJ.setIsNamedBy("meta.name");
             _ContainedElementOBJ.setUseWrapperType("EXTENDED");
             _ContainedElementOBJ.setDerivedFrom("dmtdl.TdlDefinition");
@@ -179,7 +164,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _SectionOBJ.setDmdID("-957196");
             _SectionOBJ.setClassType("STRUCTURAL");
             _SectionOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/classes.dmd");
-            _SectionOBJ.setLineNumber("58");
+            _SectionOBJ.setLineNumber("24");
             _SectionOBJ.setIsNamedBy("meta.name");
             _SectionOBJ.addDescription("Way too long!");
             _SectionOBJ.setUseWrapperType("EXTENDED");
@@ -208,7 +193,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _TextualArtifactOBJ.setDmdID("-957195");
             _TextualArtifactOBJ.setClassType("STRUCTURAL");
             _TextualArtifactOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/classes.dmd");
-            _TextualArtifactOBJ.setLineNumber("77");
+            _TextualArtifactOBJ.setLineNumber("66");
             _TextualArtifactOBJ.setIsNamedBy("meta.name");
             _TextualArtifactOBJ.addDescription("A TextualArtifact is the top level entity that is comprised of Sections\n and formatted via Templates.");
             _TextualArtifactOBJ.setUseWrapperType("EXTENDED");
@@ -230,7 +215,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _ExtensionHookOBJ.setDmdID("-957194");
             _ExtensionHookOBJ.setClassType("STRUCTURAL");
             _ExtensionHookOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/classes.dmd");
-            _ExtensionHookOBJ.setLineNumber("117");
+            _ExtensionHookOBJ.setLineNumber("85");
             _ExtensionHookOBJ.setIsNamedBy("meta.name");
             _ExtensionHookOBJ.addDescription("Way too long!");
             _ExtensionHookOBJ.setUseWrapperType("EXTENDED");
@@ -253,7 +238,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _TemplateOBJ.setDmdID("-957193");
             _TemplateOBJ.setClassType("STRUCTURAL");
             _TemplateOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/classes.dmd");
-            _TemplateOBJ.setLineNumber("148");
+            _TemplateOBJ.setLineNumber("119");
             _TemplateOBJ.setIsNamedBy("meta.name");
             _TemplateOBJ.addDescription("Way too long!");
             _TemplateOBJ.setUseWrapperType("EXTENDED");
@@ -277,7 +262,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _TdlModuleOBJ.setDmdID("-957199");
             _TdlModuleOBJ.setClassType("STRUCTURAL");
             _TdlModuleOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/module.dmd");
-            _TdlModuleOBJ.setLineNumber("27");
+            _TdlModuleOBJ.setLineNumber("1");
             _TdlModuleOBJ.setInternallyGenerated("true");
             _TdlModuleOBJ.setIsNamedBy("meta.name");
             _TdlModuleOBJ.setUseWrapperType("EXTENDED");
@@ -314,7 +299,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _definedInTdlModuleOBJ.setType("dmtdl.TdlModule");
             _definedInTdlModuleOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/attributes.dmd");
             _definedInTdlModuleOBJ.setDotName("dmtdl.definedInTdlModule.AttributeDefinition");
-            _definedInTdlModuleOBJ.setLineNumber("6");
+            _definedInTdlModuleOBJ.setLineNumber("1");
             _definedInTdlModule.setDefinedIn(this);
             addAttributeDefList(_definedInTdlModule);
 
@@ -327,7 +312,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _dependsOnTdlModuleOBJ.setType("dmtdl.TdlModule");
             _dependsOnTdlModuleOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/attributes.dmd");
             _dependsOnTdlModuleOBJ.setDotName("dmtdl.dependsOnTdlModule.AttributeDefinition");
-            _dependsOnTdlModuleOBJ.setLineNumber("13");
+            _dependsOnTdlModuleOBJ.setLineNumber("7");
             _dependsOnTdlModuleOBJ.setValueType("MULTI");
             _dependsOnTdlModule.setDefinedIn(this);
             addAttributeDefList(_dependsOnTdlModule);
@@ -342,7 +327,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _insertMarkerOBJ.setNullReturnValue("::");
             _insertMarkerOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/attributes.dmd");
             _insertMarkerOBJ.setDotName("dmtdl.insertMarker.AttributeDefinition");
-            _insertMarkerOBJ.setLineNumber("24");
+            _insertMarkerOBJ.setLineNumber("14");
             _insertMarker.setDefinedIn(this);
             addAttributeDefList(_insertMarker);
 
@@ -356,7 +341,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _formatOBJ.setType("meta.String");
             _formatOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/attributes.dmd");
             _formatOBJ.setDotName("dmtdl.format.AttributeDefinition");
-            _formatOBJ.setLineNumber("32");
+            _formatOBJ.setLineNumber("25");
             _format.setDefinedIn(this);
             addAttributeDefList(_format);
 
@@ -370,7 +355,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _usesTemplateOBJ.setNullReturnValue("true");
             _usesTemplateOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/attributes.dmd");
             _usesTemplateOBJ.setDotName("dmtdl.usesTemplate.AttributeDefinition");
-            _usesTemplateOBJ.setLineNumber("49");
+            _usesTemplateOBJ.setLineNumber("40");
             _usesTemplate.setDefinedIn(this);
             addAttributeDefList(_usesTemplate);
 
@@ -383,7 +368,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _containsOBJ.setType("dmtdl.Contains");
             _containsOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/attributes.dmd");
             _containsOBJ.setDotName("dmtdl.contains.AttributeDefinition");
-            _containsOBJ.setLineNumber("56");
+            _containsOBJ.setLineNumber("50");
             _containsOBJ.setValueType("MULTI");
             _contains.setDefinedIn(this);
             addAttributeDefList(_contains);
@@ -397,7 +382,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _startsWithOBJ.setType("dmtdl.Section");
             _startsWithOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/attributes.dmd");
             _startsWithOBJ.setDotName("dmtdl.startsWith.AttributeDefinition");
-            _startsWithOBJ.setLineNumber("62");
+            _startsWithOBJ.setLineNumber("57");
             _startsWith.setDefinedIn(this);
             addAttributeDefList(_startsWith);
 
@@ -411,7 +396,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _startsWithTextOBJ.setType("meta.String");
             _startsWithTextOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/attributes.dmd");
             _startsWithTextOBJ.setDotName("dmtdl.startsWithText.AttributeDefinition");
-            _startsWithTextOBJ.setLineNumber("69");
+            _startsWithTextOBJ.setLineNumber("63");
             _startsWithText.setDefinedIn(this);
             addAttributeDefList(_startsWithText);
 
@@ -424,7 +409,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _endsWithOBJ.setType("dmtdl.Section");
             _endsWithOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/attributes.dmd");
             _endsWithOBJ.setDotName("dmtdl.endsWith.AttributeDefinition");
-            _endsWithOBJ.setLineNumber("75");
+            _endsWithOBJ.setLineNumber("70");
             _endsWith.setDefinedIn(this);
             addAttributeDefList(_endsWith);
 
@@ -438,7 +423,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _endsWithTextOBJ.setType("meta.String");
             _endsWithTextOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/attributes.dmd");
             _endsWithTextOBJ.setDotName("dmtdl.endsWithText.AttributeDefinition");
-            _endsWithTextOBJ.setLineNumber("82");
+            _endsWithTextOBJ.setLineNumber("76");
             _endsWithText.setDefinedIn(this);
             addAttributeDefList(_endsWithText);
 
@@ -451,7 +436,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _valueOBJ.setType("dmtdl.Value");
             _valueOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/attributes.dmd");
             _valueOBJ.setDotName("dmtdl.value.AttributeDefinition");
-            _valueOBJ.setLineNumber("90");
+            _valueOBJ.setLineNumber("83");
             _valueOBJ.setValueType("MULTI");
             _value.setDefinedIn(this);
             addAttributeDefList(_value);
@@ -465,7 +450,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _templateFileOBJ.setType("meta.String");
             _templateFileOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/attributes.dmd");
             _templateFileOBJ.setDotName("dmtdl.templateFile.AttributeDefinition");
-            _templateFileOBJ.setLineNumber("97");
+            _templateFileOBJ.setLineNumber("91");
             _templateFile.setDefinedIn(this);
             addAttributeDefList(_templateFile);
 
@@ -478,7 +463,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _packageOBJ.setType("meta.String");
             _packageOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/attributes.dmd");
             _packageOBJ.setDotName("dmtdl.package.AttributeDefinition");
-            _packageOBJ.setLineNumber("103");
+            _packageOBJ.setLineNumber("98");
             _package.setDefinedIn(this);
             addAttributeDefList(_package);
 
@@ -492,7 +477,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _hasTemplateOBJ.setNullReturnValue("true");
             _hasTemplateOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/attributes.dmd");
             _hasTemplateOBJ.setDotName("dmtdl.hasTemplate.AttributeDefinition");
-            _hasTemplateOBJ.setLineNumber("112");
+            _hasTemplateOBJ.setLineNumber("104");
             _hasTemplate.setDefinedIn(this);
             addAttributeDefList(_hasTemplate);
 
@@ -506,7 +491,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _templateFileSuffixOBJ.setNullReturnValue("dmt");
             _templateFileSuffixOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/attributes.dmd");
             _templateFileSuffixOBJ.setDotName("dmtdl.templateFileSuffix.AttributeDefinition");
-            _templateFileSuffixOBJ.setLineNumber("120");
+            _templateFileSuffixOBJ.setLineNumber("113");
             _templateFileSuffix.setDefinedIn(this);
             addAttributeDefList(_templateFileSuffix);
 
@@ -520,7 +505,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _maxFastAddValuesOBJ.setNullReturnValue("8");
             _maxFastAddValuesOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/attributes.dmd");
             _maxFastAddValuesOBJ.setDotName("dmtdl.maxFastAddValues.AttributeDefinition");
-            _maxFastAddValuesOBJ.setLineNumber("133");
+            _maxFastAddValuesOBJ.setLineNumber("121");
             _maxFastAddValues.setDefinedIn(this);
             addAttributeDefList(_maxFastAddValues);
 
@@ -534,7 +519,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _commentFormatOBJ.setType("meta.String");
             _commentFormatOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/attributes.dmd");
             _commentFormatOBJ.setDotName("dmtdl.commentFormat.AttributeDefinition");
-            _commentFormatOBJ.setLineNumber("154");
+            _commentFormatOBJ.setLineNumber("134");
             _commentFormat.setDefinedIn(this);
             addAttributeDefList(_commentFormat);
 
@@ -548,7 +533,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _debugOnOBJ.setNullReturnValue("true");
             _debugOnOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/attributes.dmd");
             _debugOnOBJ.setDotName("dmtdl.debugOn.AttributeDefinition");
-            _debugOnOBJ.setLineNumber("176");
+            _debugOnOBJ.setLineNumber("161");
             _debugOn.setDefinedIn(this);
             addAttributeDefList(_debugOn);
 
@@ -561,7 +546,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _usesSectionOBJ.setType("dmtdl.Section");
             _usesSectionOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/attributes.dmd");
             _usesSectionOBJ.setDotName("dmtdl.usesSection.AttributeDefinition");
-            _usesSectionOBJ.setLineNumber("182");
+            _usesSectionOBJ.setLineNumber("177");
             _usesSection.setDefinedIn(this);
             addAttributeDefList(_usesSection);
 
@@ -574,7 +559,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _targetObjectClassOBJ.setType("meta.String");
             _targetObjectClassOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/attributes.dmd");
             _targetObjectClassOBJ.setDotName("dmtdl.targetObjectClass.AttributeDefinition");
-            _targetObjectClassOBJ.setLineNumber("189");
+            _targetObjectClassOBJ.setLineNumber("183");
             _targetObjectClass.setDefinedIn(this);
             addAttributeDefList(_targetObjectClass);
 
@@ -595,7 +580,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _ContainsOBJ.setName("Contains");
             _ContainsOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/complex.dmd");
             _ContainsOBJ.setDotName("dmtdl.Contains.ComplexTypeDefinition");
-            _ContainsOBJ.setLineNumber("7");
+            _ContainsOBJ.setLineNumber("2");
             _Contains.setDefinedIn(this);
             addComplexTypeDefList(_Contains);
 
@@ -608,7 +593,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _ValueOBJ.setName("Value");
             _ValueOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/complex.dmd");
             _ValueOBJ.setDotName("dmtdl.Value.ComplexTypeDefinition");
-            _ValueOBJ.setLineNumber("15");
+            _ValueOBJ.setLineNumber("9");
             _Value.setDefinedIn(this);
             addComplexTypeDefList(_Value);
 
@@ -630,7 +615,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _CardinalityEnumOBJ.setName("CardinalityEnum");
             _CardinalityEnumOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/types.dmd");
             _CardinalityEnumOBJ.setDotName("dmtdl.CardinalityEnum.EnumDefinition");
-            _CardinalityEnumOBJ.setLineNumber("7");
+            _CardinalityEnumOBJ.setLineNumber("1");
             _CardinalityEnum.setDefinedIn(this);
             addEnumDefList(_CardinalityEnum);
 
@@ -654,7 +639,7 @@ public class DmtdlSchemaAG extends SchemaDefinition {
             _TdlModuleDSDOBJ.setDefinedInModuleAttribute("dmtdl.definedInTdlModule");
             _TdlModuleDSDOBJ.setFile("/src/org/dmd/templates/shared/dmdconfig/module.dmd");
             _TdlModuleDSDOBJ.setDotName("dmtdl.TdlModule.DSDefinitionModule");
-            _TdlModuleDSDOBJ.setLineNumber("27");
+            _TdlModuleDSDOBJ.setLineNumber("1");
             _TdlModuleDSDOBJ.addDescription("Way too long!");
             _TdlModuleDSDOBJ.addMust("dmtdl.package");
             _TdlModuleDSDOBJ.addMust("dmtdl.templateFile");

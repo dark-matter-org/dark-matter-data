@@ -138,7 +138,7 @@ public class DmoCompactSchemaFormatter {
         
         int objectInitializers = dumpSchemaObjectInitializers(sd, dmodir);
         
-        DebugInfo.debug("Creating " + objectInitializers + " initilizers");
+//        DebugInfo.debug("Creating " + objectInitializers + " initilizers");
 		
         out.write("\n");
 
@@ -382,7 +382,7 @@ public class DmoCompactSchemaFormatter {
 			}
 		}
 		
-		DebugInfo.debug("\n\n\n*** NEW RULE INSTANCE FORMATTING ***\n\n\n");
+//		DebugInfo.debug("\n\n\n*** NEW RULE INSTANCE FORMATTING ***\n\n\n");
 		TreeMap<RuleName,RuleIF> resolvedRules = sd.getResolvedRules();
 		
 		if ((resolvedRules != null) && (resolvedRules.size()>0) ){

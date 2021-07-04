@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2013 dark-matter-data committers
+//	Copyright (c) 2013-2021 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -40,9 +40,12 @@ public class DsdASchemaAG extends SchemaDefinition {
     public static AttributeDefinition _dependsOnModuleA;
     public static AttributeDefinition _definedInModuleA;
     public static AttributeDefinition _referenceToAB;
+    public static AttributeDefinition _typeAndAttr;
 
 
     public static ComplexTypeDefinition _Reference;
+    public static ComplexTypeDefinition _TypeAndAttribute;
+    public static ComplexTypeDefinition _ComplexWithComplex;
 
 
 
@@ -89,7 +92,7 @@ public class DsdASchemaAG extends SchemaDefinition {
             _AConceptBaseOBJ.setDmdID("-1000098");
             _AConceptBaseOBJ.setClassType("ABSTRACT");
             _AConceptBaseOBJ.setFile("/src/org/dmd/dmt/dsd/dsda/shared/dmdconfig/classes.dmd");
-            _AConceptBaseOBJ.setLineNumber("12");
+            _AConceptBaseOBJ.setLineNumber("1");
             _AConceptBaseOBJ.setIsNamedBy("meta.name");
             _AConceptBaseOBJ.addDescription("The base definition for this DSD module.");
             _AConceptBaseOBJ.setUseWrapperType("EXTENDED");
@@ -112,7 +115,7 @@ public class DsdASchemaAG extends SchemaDefinition {
             _AConceptXOBJ.setDmdID("-1000097");
             _AConceptXOBJ.setClassType("STRUCTURAL");
             _AConceptXOBJ.setFile("/src/org/dmd/dmt/dsd/dsda/shared/dmdconfig/classes.dmd");
-            _AConceptXOBJ.setLineNumber("21");
+            _AConceptXOBJ.setLineNumber("13");
             _AConceptXOBJ.setIsNamedBy("meta.name");
             _AConceptXOBJ.setUseWrapperType("EXTENDED");
             _AConceptXOBJ.setDerivedFrom("dsdA.AConceptBase");
@@ -132,12 +135,13 @@ public class DsdASchemaAG extends SchemaDefinition {
             _ABConceptXOBJ.setDmdID("-1000096");
             _ABConceptXOBJ.setClassType("STRUCTURAL");
             _ABConceptXOBJ.setFile("/src/org/dmd/dmt/dsd/dsda/shared/dmdconfig/classes.dmd");
-            _ABConceptXOBJ.setLineNumber("30");
+            _ABConceptXOBJ.setLineNumber("22");
             _ABConceptXOBJ.setIsNamedBy("meta.name");
             _ABConceptXOBJ.setUseWrapperType("EXTENDED");
             _ABConceptXOBJ.setDerivedFrom("dsdA.AConceptX");
             _ABConceptXOBJ.addMust("meta.name");
             _ABConceptXOBJ.addMay("dsdA.referenceToAB");
+            _ABConceptXOBJ.addMay("dsdA.typeAndAttr");
             _ABConceptXOBJ.setDmwIteratorImport("org.dmd.dmt.dsd.dsda.server.generated.dmw.ABConceptXIterableDMW");
             _ABConceptXOBJ.setDmwIteratorClass("ABConceptXIterableDMW");
             _ABConceptXOBJ.setDmtREFImport("org.dmd.dmt.dsd.dsda.shared.generated.types.ABConceptXREF");
@@ -153,7 +157,7 @@ public class DsdASchemaAG extends SchemaDefinition {
             _ModuleAOBJ.setDmdID("-1000099");
             _ModuleAOBJ.setClassType("STRUCTURAL");
             _ModuleAOBJ.setFile("/src/org/dmd/dmt/dsd/dsda/shared/dmdconfig/module.dmd");
-            _ModuleAOBJ.setLineNumber("8");
+            _ModuleAOBJ.setLineNumber("1");
             _ModuleAOBJ.setInternallyGenerated("true");
             _ModuleAOBJ.setIsNamedBy("meta.name");
             _ModuleAOBJ.setUseWrapperType("EXTENDED");
@@ -183,7 +187,7 @@ public class DsdASchemaAG extends SchemaDefinition {
             _dependsOnModuleAOBJ.setType("dsdA.ModuleA");
             _dependsOnModuleAOBJ.setFile("/src/org/dmd/dmt/dsd/dsda/shared/dmdconfig/attributes.dmd");
             _dependsOnModuleAOBJ.setDotName("dsdA.dependsOnModuleA.AttributeDefinition");
-            _dependsOnModuleAOBJ.setLineNumber("7");
+            _dependsOnModuleAOBJ.setLineNumber("1");
             _dependsOnModuleAOBJ.setValueType("MULTI");
             _dependsOnModuleA.setDefinedIn(this);
             addAttributeDefList(_dependsOnModuleA);
@@ -197,7 +201,7 @@ public class DsdASchemaAG extends SchemaDefinition {
             _definedInModuleAOBJ.setType("dsdA.ModuleA");
             _definedInModuleAOBJ.setFile("/src/org/dmd/dmt/dsd/dsda/shared/dmdconfig/attributes.dmd");
             _definedInModuleAOBJ.setDotName("dsdA.definedInModuleA.AttributeDefinition");
-            _definedInModuleAOBJ.setLineNumber("13");
+            _definedInModuleAOBJ.setLineNumber("8");
             _definedInModuleA.setDefinedIn(this);
             addAttributeDefList(_definedInModuleA);
 
@@ -210,9 +214,22 @@ public class DsdASchemaAG extends SchemaDefinition {
             _referenceToABOBJ.setType("dsdA.Reference");
             _referenceToABOBJ.setFile("/src/org/dmd/dmt/dsd/dsda/shared/dmdconfig/attributes.dmd");
             _referenceToABOBJ.setDotName("dsdA.referenceToAB.AttributeDefinition");
-            _referenceToABOBJ.setLineNumber("19");
+            _referenceToABOBJ.setLineNumber("14");
             _referenceToAB.setDefinedIn(this);
             addAttributeDefList(_referenceToAB);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            AttributeDefinitionDMO _typeAndAttrOBJ = new AttributeDefinitionDMO();
+            _typeAndAttr = new AttributeDefinition(_typeAndAttrOBJ);
+            _typeAndAttrOBJ.addDescription("A complex type with a reference and a String as required parts.");
+            _typeAndAttrOBJ.setName("typeAndAttr");
+            _typeAndAttrOBJ.setDmdID("-500046");
+            _typeAndAttrOBJ.setType("dsdA.TypeAndAttribute");
+            _typeAndAttrOBJ.setFile("/src/org/dmd/dmt/dsd/dsda/shared/dmdconfig/attributes.dmd");
+            _typeAndAttrOBJ.setDotName("dsdA.typeAndAttr.AttributeDefinition");
+            _typeAndAttrOBJ.setLineNumber("20");
+            _typeAndAttr.setDefinedIn(this);
+            addAttributeDefList(_typeAndAttr);
 
     }
 
@@ -230,9 +247,37 @@ public class DsdASchemaAG extends SchemaDefinition {
             _ReferenceOBJ.addOptionalPart("String descr \"An optional description\" quoted=true");
             _ReferenceOBJ.setFile("/src/org/dmd/dmt/dsd/dsda/shared/dmdconfig/types.dmd");
             _ReferenceOBJ.setDotName("dsdA.Reference.ComplexTypeDefinition");
-            _ReferenceOBJ.setLineNumber("4");
+            _ReferenceOBJ.setLineNumber("1");
             _Reference.setDefinedIn(this);
             addComplexTypeDefList(_Reference);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            ComplexTypeDefinitionDMO _TypeAndAttributeOBJ = new ComplexTypeDefinitionDMO();
+            _TypeAndAttribute = new ComplexTypeDefinition(_TypeAndAttributeOBJ);
+            _TypeAndAttributeOBJ.addRequiredPart("ABConceptX type \"The type\"");
+            _TypeAndAttributeOBJ.addRequiredPart("String attr \"An attribute name - for example purposes.\"");
+            _TypeAndAttributeOBJ.addDescription("Micro grammar type.attr - using this to test that we generate the\n required resultion methods when this type is referred to in another complex type.");
+            _TypeAndAttributeOBJ.setName("TypeAndAttribute");
+            _TypeAndAttributeOBJ.setFieldSeparator(".");
+            _TypeAndAttributeOBJ.setFile("/src/org/dmd/dmt/dsd/dsda/shared/dmdconfig/types.dmd");
+            _TypeAndAttributeOBJ.setDotName("dsdA.TypeAndAttribute.ComplexTypeDefinition");
+            _TypeAndAttributeOBJ.setLineNumber("6");
+            _TypeAndAttribute.setDefinedIn(this);
+            addComplexTypeDefList(_TypeAndAttribute);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            ComplexTypeDefinitionDMO _ComplexWithComplexOBJ = new ComplexTypeDefinitionDMO();
+            _ComplexWithComplex = new ComplexTypeDefinition(_ComplexWithComplexOBJ);
+            _ComplexWithComplexOBJ.addRequiredPart("String variable \"Some variable\"");
+            _ComplexWithComplexOBJ.addRequiredPart("TypeAndAttribute reference \"A complex type with a reference.\"");
+            _ComplexWithComplexOBJ.addDescription("We should generate the resolution code for the reference part when we generate ComplexWithComplex.");
+            _ComplexWithComplexOBJ.setName("ComplexWithComplex");
+            _ComplexWithComplexOBJ.setFieldSeparator(".");
+            _ComplexWithComplexOBJ.setFile("/src/org/dmd/dmt/dsd/dsda/shared/dmdconfig/types.dmd");
+            _ComplexWithComplexOBJ.setDotName("dsdA.ComplexWithComplex.ComplexTypeDefinition");
+            _ComplexWithComplexOBJ.setLineNumber("14");
+            _ComplexWithComplex.setDefinedIn(this);
+            addComplexTypeDefList(_ComplexWithComplex);
 
     }
 
@@ -262,7 +307,7 @@ public class DsdASchemaAG extends SchemaDefinition {
             _ModuleADSDOBJ.setDefinedInModuleAttribute("dsdA.definedInModuleA");
             _ModuleADSDOBJ.setFile("/src/org/dmd/dmt/dsd/dsda/shared/dmdconfig/module.dmd");
             _ModuleADSDOBJ.setDotName("dsdA.ModuleA.DSDefinitionModule");
-            _ModuleADSDOBJ.setLineNumber("8");
+            _ModuleADSDOBJ.setLineNumber("1");
             _ModuleADSD.setDefinedIn(this);
             addDsdModuleList(_ModuleADSD);
 

@@ -31,6 +31,7 @@ import org.dmd.dms.util.DmoGenerator;
 import org.dmd.dms.util.DmsSchemaParser;
 import org.dmd.util.BooleanVar;
 import org.dmd.util.FileUpdateManager;
+import org.dmd.util.UtilityOptions;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
 import org.dmd.util.parsing.Classifier;
@@ -83,7 +84,10 @@ public class DmoGenUtility {
 	BooleanVar		checkRules 	= new BooleanVar();
 	BooleanVar		checkOnly 	= new BooleanVar();
 	StringArrayList	targets		= new StringArrayList();
-	
+
+	BooleanVar		qwarnings	= new BooleanVar();
+	BooleanVar		qprogress	= new BooleanVar();
+
 	public DmoGenUtility(String[] args) throws ResultException, IOException, DmcValueException, DmcValueExceptionSet, DmcNameClashException {
 		initHelp();
 		cl = new CommandLine();
@@ -99,12 +103,25 @@ public class DmoGenUtility {
         cl.addOption("-checkOnly",	checkOnly,	"Indicates if you want to only check rule definitions, not generate code.");
         cl.addOption("-targets",	targets,	"Indicates you only want to generate for the specified configs");
 		
+        cl.addOption("-qwarnings",	qwarnings,	"Indicates that we don't want to see warning messages");
+        cl.addOption("-qprogress",	qprogress,	"Indicates that we don't want to see progress messages");
+		
 		cl.parseArgs(args);
 		
-		System.out.print("TARGETS(" + targets.size() + "): ");
-		for(int i=0; i<targets.size(); i++)
-			System.out.print(targets.get(i) + " ");
-		System.out.println();
+		if (qwarnings.booleanValue())
+			UtilityOptions.instance().quiteWarnings(qwarnings.booleanValue());
+		
+		if (qprogress.booleanValue())
+			UtilityOptions.instance().quiteProgress(qprogress.booleanValue());
+		
+		if (!UtilityOptions.instance().quietProgress()) {
+			System.out.print("TARGETS(" + targets.size() + "): ");
+		
+			for(int i=0; i<targets.size(); i++)
+				System.out.print(targets.get(i) + " ");
+			
+			System.out.println();
+		}
 		
 		dmsSchema = new SchemaManager();
 		
@@ -209,7 +226,8 @@ public class DmoGenUtility {
         				generateFromConfig(loc);
         			}
         			else{
-        				System.out.println("DMOGEN: " + loc.getConfigName() + " is not in the -targets list - not generating:  " + loc.getDirectory() + "\n");
+        				if (!UtilityOptions.instance().quietWarnings())
+        					System.out.println("DMOGEN: " + loc.getConfigName() + " is not in the -targets list - not generating:  " + loc.getDirectory() + "\n");
         			}
         		}
         	}
