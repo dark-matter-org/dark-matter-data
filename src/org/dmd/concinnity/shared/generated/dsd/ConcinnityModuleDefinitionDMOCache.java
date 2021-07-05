@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2014 dark-matter-data committers
+//	Copyright (c) 2014-2021 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -191,7 +191,7 @@ public class ConcinnityModuleDefinitionDMOCache implements ConcinnityModuleGloba
         return(rc);
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:395)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:403)
     // Called from: org.dmd.dms.util.DmoCacheFormatter.dumpDefinitionInterfaceMethods(DmoCacheFormatter.java:524)
     /**
      * All definitions are added to the base definition collection.
@@ -212,7 +212,7 @@ public class ConcinnityModuleDefinitionDMOCache implements ConcinnityModuleGloba
         return(ConcinnityDefinitionDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:430)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:438)
     public void addConcept(ConceptDMO def){
         ConceptDefs.add(def);
         addConcinnityDefinition(def);
@@ -234,7 +234,7 @@ public class ConcinnityModuleDefinitionDMOCache implements ConcinnityModuleGloba
         return(ConceptDefs.getDefinition(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:430)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:438)
     public void addConcinnityModule(ConcinnityModuleDMO def){
         ConcinnityModuleDefs.add(def);
         addConcinnityDefinition(def);

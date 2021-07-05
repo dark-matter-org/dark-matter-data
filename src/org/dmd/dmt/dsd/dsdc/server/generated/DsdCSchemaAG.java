@@ -1,21 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2013 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
-//	---------------------------------------------------------------------------
-//	dark-matter-data
-//	Copyright (c) 2013 dark-matter-data committers
+//	Copyright (c) 2013-2021 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -108,7 +93,7 @@ public class DsdCSchemaAG extends SchemaDefinition {
             _CConceptBaseOBJ.setDmdID("-1000298");
             _CConceptBaseOBJ.setClassType("ABSTRACT");
             _CConceptBaseOBJ.setFile("/src/org/dmd/dmt/dsd/dsdc/shared/dmdconfig/classes.dmd");
-            _CConceptBaseOBJ.setLineNumber("12");
+            _CConceptBaseOBJ.setLineNumber("1");
             _CConceptBaseOBJ.setIsNamedBy("meta.name");
             _CConceptBaseOBJ.addDescription("The base definition for this DSD module.");
             _CConceptBaseOBJ.setUseWrapperType("EXTENDED");
@@ -131,7 +116,7 @@ public class DsdCSchemaAG extends SchemaDefinition {
             _CConceptXOBJ.setDmdID("-1000297");
             _CConceptXOBJ.setClassType("STRUCTURAL");
             _CConceptXOBJ.setFile("/src/org/dmd/dmt/dsd/dsdc/shared/dmdconfig/classes.dmd");
-            _CConceptXOBJ.setLineNumber("20");
+            _CConceptXOBJ.setLineNumber("13");
             _CConceptXOBJ.setIsNamedBy("meta.name");
             _CConceptXOBJ.setUseWrapperType("EXTENDED");
             _CConceptXOBJ.setDerivedFrom("dsdC.CConceptBase");
@@ -151,7 +136,7 @@ public class DsdCSchemaAG extends SchemaDefinition {
             _ModuleCOBJ.setDmdID("-1000299");
             _ModuleCOBJ.setClassType("STRUCTURAL");
             _ModuleCOBJ.setFile("/src/org/dmd/dmt/dsd/dsdc/shared/dmdconfig/module.dmd");
-            _ModuleCOBJ.setLineNumber("11");
+            _ModuleCOBJ.setLineNumber("1");
             _ModuleCOBJ.setInternallyGenerated("true");
             _ModuleCOBJ.setIsNamedBy("meta.name");
             _ModuleCOBJ.setUseWrapperType("EXTENDED");
@@ -183,7 +168,7 @@ public class DsdCSchemaAG extends SchemaDefinition {
             _dependsOnModuleCOBJ.setType("dsdC.ModuleC");
             _dependsOnModuleCOBJ.setFile("/src/org/dmd/dmt/dsd/dsdc/shared/dmdconfig/attributes.dmd");
             _dependsOnModuleCOBJ.setDotName("dsdC.dependsOnModuleC.AttributeDefinition");
-            _dependsOnModuleCOBJ.setLineNumber("7");
+            _dependsOnModuleCOBJ.setLineNumber("1");
             _dependsOnModuleCOBJ.setValueType("MULTI");
             _dependsOnModuleC.setDefinedIn(this);
             addAttributeDefList(_dependsOnModuleC);
@@ -197,7 +182,7 @@ public class DsdCSchemaAG extends SchemaDefinition {
             _definedInModuleCOBJ.setType("dsdC.ModuleC");
             _definedInModuleCOBJ.setFile("/src/org/dmd/dmt/dsd/dsdc/shared/dmdconfig/attributes.dmd");
             _definedInModuleCOBJ.setDotName("dsdC.definedInModuleC.AttributeDefinition");
-            _definedInModuleCOBJ.setLineNumber("13");
+            _definedInModuleCOBJ.setLineNumber("8");
             _definedInModuleC.setDefinedIn(this);
             addAttributeDefList(_definedInModuleC);
 
@@ -238,7 +223,7 @@ public class DsdCSchemaAG extends SchemaDefinition {
             _ModuleCDSDOBJ.setDefinedInModuleAttribute("dsdC.definedInModuleC");
             _ModuleCDSDOBJ.setFile("/src/org/dmd/dmt/dsd/dsdc/shared/dmdconfig/module.dmd");
             _ModuleCDSDOBJ.setDotName("dsdC.ModuleC.DSDefinitionModule");
-            _ModuleCDSDOBJ.setLineNumber("11");
+            _ModuleCDSDOBJ.setLineNumber("1");
             _ModuleCDSDOBJ.addRequiredBaseModule("modcBase");
             _ModuleCDSD.setDefinedIn(this);
             addDsdModuleList(_ModuleCDSD);

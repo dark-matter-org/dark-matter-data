@@ -1,21 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2014 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
-//	---------------------------------------------------------------------------
-//	dark-matter-data
-//	Copyright (c) 2010 dark-matter-data committers
+//	Copyright (c) 2010-2021 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -100,7 +85,7 @@ public class DmrbaseSchemaAG extends SchemaDefinition {
             _HierarchicObjectOBJ.setDmdID("801");
             _HierarchicObjectOBJ.setClassType("STRUCTURAL");
             _HierarchicObjectOBJ.setFile("/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/classes.dmd");
-            _HierarchicObjectOBJ.setLineNumber("15");
+            _HierarchicObjectOBJ.setLineNumber("1");
             _HierarchicObjectOBJ.setIsNamedBy("meta.FQN");
             _HierarchicObjectOBJ.addDescription("A HierarchicObject is meant to represent any object that can\n be identified with a Fully Qualified Name (FQN) and exists in a containment\n relationship with other objects. The exact implementation of a HierarchicObject\n is application specific.");
             _HierarchicObjectOBJ.setUseWrapperType("EXTENDED");
@@ -121,7 +106,7 @@ public class DmrbaseSchemaAG extends SchemaDefinition {
             _DotNamedObjectOBJ.setDmdID("802");
             _DotNamedObjectOBJ.setClassType("STRUCTURAL");
             _DotNamedObjectOBJ.setFile("/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/classes.dmd");
-            _DotNamedObjectOBJ.setLineNumber("33");
+            _DotNamedObjectOBJ.setLineNumber("16");
             _DotNamedObjectOBJ.setIsNamedBy("meta.FQN");
             _DotNamedObjectOBJ.addDescription("Way too long!");
             _DotNamedObjectOBJ.setUseWrapperType("EXTENDED");
@@ -147,7 +132,7 @@ public class DmrbaseSchemaAG extends SchemaDefinition {
             _userNameOBJ.setFile("/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/attributes.dmd");
             _userNameOBJ.setDataType("PERSISTENT");
             _userNameOBJ.setDotName("dmrbase.userName.AttributeDefinition");
-            _userNameOBJ.setLineNumber("47");
+            _userNameOBJ.setLineNumber("41");
             _userName.setDefinedIn(this);
             addAttributeDefList(_userName);
 
@@ -161,7 +146,7 @@ public class DmrbaseSchemaAG extends SchemaDefinition {
             _passwordOBJ.setFile("/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/attributes.dmd");
             _passwordOBJ.setDataType("PERSISTENT");
             _passwordOBJ.setDotName("dmrbase.password.AttributeDefinition");
-            _passwordOBJ.setLineNumber("54");
+            _passwordOBJ.setLineNumber("48");
             _password.setDefinedIn(this);
             addAttributeDefList(_password);
 

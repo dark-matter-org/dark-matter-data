@@ -1600,6 +1600,9 @@ name                dotName
 dmdID				107
 type                DotName
 designatedNameAttribute true
+// NOTE: added to prevent exporting via toPersistentOIF()
+dataType			NONPERSISTENT
+internalUse			true
 description    The dotName attribute is used to store dot separated names.
 
 AttributeDefinition
@@ -2268,7 +2271,9 @@ AttributeDefinition
 name						dmoFromModule
 dmdID					191
 type						String
-internalUse				true
+// NOTE: added to prevent exporting via toPersistentOIF()
+dataType			NONPERSISTENT
+internalUse			true
 version					3.0.6
 description				A bit of a hack to allow for creation of fully qualified dot names
  in the DMODefinitionSet that's used for caching definitions in GWT. On the DMW side, this

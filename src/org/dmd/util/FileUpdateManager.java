@@ -211,6 +211,9 @@ public class FileUpdateManager {
 	 * @param message The message to be displayed.
 	 */
 	void reportProgress(String message){
+		if (UtilityOptions.instance().quietProgress())
+			return;
+		
 		if (lastFolder == null){
 			if (progressStream != null)
 				progressStream.println("");

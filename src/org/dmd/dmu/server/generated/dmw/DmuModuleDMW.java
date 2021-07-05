@@ -1,18 +1,3 @@
-//	---------------------------------------------------------------------------
-//	dark-matter-data
-//	Copyright (c) 2014 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
 package org.dmd.dmu.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
@@ -21,9 +6,9 @@ import java.util.ArrayList;                                               // To 
 import java.util.Iterator;                                                // Support copy of MV objects - (BaseDMWGenerator.java:2133)
 import org.dmd.dmc.*;                                                     // If any attributes - (BaseDMWGenerator.java:977)
 import org.dmd.dmc.definitions.DmcDefinitionIF;                           // The object is a domain specific definition - (BaseDMWGenerator.java:411)
-import org.dmd.dmc.definitions.DmcDefinitionSet;                          // Our base to provide definition set storage - (DMWGenerator.java:171)
+import org.dmd.dmc.definitions.DmcDefinitionSet;                          // Our base to provide definition set storage - (DMWGenerator.java:174)
 import org.dmd.dmc.types.DefinitionName;                                  // Is named by - (BaseDMWGenerator.java:939)
-import org.dmd.dmc.types.DotName;                                         // To support the find method for definitions - (DSDefinitionModule.java:181)
+import org.dmd.dmc.types.DotName;                                         // To support the find method for definitions - (DSDefinitionModule.java:189)
 import org.dmd.dms.ClassDefinition;                                       // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:944)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                               // Attribute defFiles from the meta schema - (BaseDMWGenerator.java:910)
 import org.dmd.dms.generated.dmw.SchemaAndReasonIterableDMW;              // For multi-valued SchemaAndReason - (BaseDMWGenerator.java:1995)
@@ -32,14 +17,14 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;                     // Req
 import org.dmd.dms.generated.types.SchemaAndReason;                       // Primitive type - (BaseDMWGenerator.java:1040)
 import org.dmd.dmu.server.extended.DmuDefinition;                         // Derived class - (BaseDMWGenerator.java:1138)
 import org.dmd.dmu.server.extended.DmuModule;                             // Required for getModificationRecorder() - (BaseDMWGenerator.java:953)
-import org.dmd.dmu.server.extended.json.PayloadExample;                   // A definition from the DmuModule Module - (DSDefinitionModule.java:193)
-import org.dmd.dmu.server.extended.json.PayloadSortInfo;                  // A definition from the DmuModule Module - (DSDefinitionModule.java:193)
+import org.dmd.dmu.server.extended.json.PayloadExample;                   // A definition from the DmuModule Module - (DSDefinitionModule.java:201)
+import org.dmd.dmu.server.extended.json.PayloadSortInfo;                  // A definition from the DmuModule Module - (DSDefinitionModule.java:201)
 import org.dmd.dmu.server.generated.dmw.DmuModuleIterableDMW;             // For multi-valued DmuModule - (BaseDMWGenerator.java:1600)
-import org.dmd.dmu.server.generated.dsd.DmuModuleScopedInterface;         // Required to manage module definition - (DMWGenerator.java:170)
+import org.dmd.dmu.server.generated.dsd.DmuModuleScopedInterface;         // Required to manage module definition - (DMWGenerator.java:173)
 import org.dmd.dmu.shared.generated.dmo.DmuDMSAG;                         // Attribute dependsOnDmuModule from the dmu schema - (BaseDMWGenerator.java:910)
 import org.dmd.dmu.shared.generated.dmo.DmuModuleDMO;                     // Class not auxiliary or abstract - (BaseDMWGenerator.java:1142)
-import org.dmd.dmu.shared.generated.types.DmuModuleREF;                   // Required to access defined in module name - (DMWGenerator.java:181)
-import org.dmd.util.exceptions.ResultException;                           // To support definition deletions - (DSDefinitionModule.java:182)
+import org.dmd.dmu.shared.generated.types.DmuModuleREF;                   // Required to access defined in module name - (DMWGenerator.java:184)
+import org.dmd.util.exceptions.ResultException;                           // To support definition deletions - (DSDefinitionModule.java:190)
 
 
 
@@ -54,7 +39,7 @@ import org.dmd.util.exceptions.ResultException;                           // To 
 abstract public class DmuModuleDMW extends DmuDefinition implements DmcDefinitionIF, DmcNamedObjectIF, DmuModuleScopedInterface {
 
     // Generated from: org.dmd.util.codegen.MemberManager.getFormattedMembers(MemberManager.java:64)
-    // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperDefinitions(DMWGenerator.java:204)
+    // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperDefinitions(DMWGenerator.java:207)
     DmcDefinitionSet<DmuDefinition>       DmuDefinitionDefs      = new DmcDefinitionSet<DmuDefinition>("DmuModule-allDefinitions","DmuDefinition");             // All definitions associated with this module
     DmcDefinitionSet<DmuModule>           DmuModuleDefs          = new DmcDefinitionSet<DmuModule>("DmuModule-DmuModuleDefs", "DmuModule");                     // All DmuModule definitions
     DmcDefinitionSet<PayloadExample>      PayloadExampleDefs     = new DmcDefinitionSet<PayloadExample>("DmuModule-PayloadExampleDefs", "PayloadExample");      // All PayloadExample definitions
@@ -581,8 +566,8 @@ abstract public class DmuModuleDMW extends DmuDefinition implements DmcDefinitio
         ((DmuModuleDMO) core).remName();
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:305)
-    // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperFunctions(DMWGenerator.java:212)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:313)
+    // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperFunctions(DMWGenerator.java:215)
     /**
      * All definitions are added to the base definition collection.
      */
@@ -610,7 +595,7 @@ abstract public class DmuModuleDMW extends DmuDefinition implements DmcDefinitio
         return(DmuDefinitionDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:343)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:351)
     public void addPayloadExample(PayloadExample def){
         PayloadExampleDefs.add(def);
         addDmuDefinition(def);
@@ -649,7 +634,7 @@ abstract public class DmuModuleDMW extends DmuDefinition implements DmcDefinitio
         return(PayloadExampleDefs.getDefinitionCountByName(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:343)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:351)
     public void addPayloadSortInfo(PayloadSortInfo def){
         PayloadSortInfoDefs.add(def);
         addDmuDefinition(def);
@@ -688,7 +673,7 @@ abstract public class DmuModuleDMW extends DmuDefinition implements DmcDefinitio
         return(PayloadSortInfoDefs.getDefinitionCountByName(name));
     }
 
-    // Generated from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperFunctions(DMWGenerator.java:221)
+    // Generated from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperFunctions(DMWGenerator.java:224)
     /**
      * This method indicates the name of the module from which this definition was loaded.
      * And, since this is a module, it's just the name of the module.

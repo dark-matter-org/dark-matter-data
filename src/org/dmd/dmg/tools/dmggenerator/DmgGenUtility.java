@@ -35,6 +35,7 @@ import org.dmd.dms.util.DmoGenerator;
 import org.dmd.dms.util.DmsSchemaParser;
 import org.dmd.util.BooleanVar;
 import org.dmd.util.FileUpdateManager;
+import org.dmd.util.UtilityOptions;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
 import org.dmd.util.parsing.CommandLine;
@@ -86,6 +87,9 @@ public class DmgGenUtility {
 	StringArrayList	jars 		= new StringArrayList();
 	StringArrayList	targets 	= new StringArrayList();
 	
+	BooleanVar		qwarnings	= new BooleanVar();
+	BooleanVar		qprogress	= new BooleanVar();
+
 	public DmgGenUtility(String[] args) throws ResultException, IOException, DmcValueException, DmcValueExceptionSet, DmcRuleExceptionSet, DmcNameClashException {
 		initHelp();
 		cl = new CommandLine();
@@ -98,11 +102,20 @@ public class DmgGenUtility {
         cl.addOption("-jars",   	jars,     	"The prefixs of jars to search for .dms config files.");
         cl.addOption("-targets",   	targets,    "Indicates you only want to generate for the specified configs.");
 		
+        cl.addOption("-qwarnings",	qwarnings,	"Indicates that we don't want to see warning messages");
+        cl.addOption("-qprogress",	qprogress,	"Indicates that we don't want to see progress messages");
+		
 		cl.parseArgs(args);
 		
 		if (helpFlag.booleanValue()){
 			System.out.println(help.toString());
 		}
+		
+		if (qwarnings.booleanValue())
+			UtilityOptions.instance().quiteWarnings(qwarnings.booleanValue());
+		
+		if (qprogress.booleanValue())
+			UtilityOptions.instance().quiteProgress(qprogress.booleanValue());
 		
 		baseSchema = new SchemaManager();
 		
@@ -212,7 +225,8 @@ public class DmgGenUtility {
             				generateFromConfig(version);
             			}
             			else{
-            				System.out.println("DMWGEN: " + loc.getConfigName() + " is not in the -targets list - not generating:  " + loc.getDirectory() + "\n");
+            				if (!UtilityOptions.instance().quietWarnings())
+            					System.out.println("DMWGEN: " + loc.getConfigName() + " is not in the -targets list - not generating:  " + loc.getDirectory() + "\n");
             			}
             		}
             	}

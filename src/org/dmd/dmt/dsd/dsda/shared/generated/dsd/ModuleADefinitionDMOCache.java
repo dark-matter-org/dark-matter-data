@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2013 dark-matter-data committers
+//	Copyright (c) 2013-2021 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -196,7 +196,7 @@ public class ModuleADefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
         return(rc);
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:395)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:403)
     // Called from: org.dmd.dms.util.DmoCacheFormatter.dumpDefinitionInterfaceMethods(DmoCacheFormatter.java:524)
     /**
      * All definitions are added to the base definition collection.
@@ -217,7 +217,7 @@ public class ModuleADefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
         return(AConceptBaseDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:430)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:438)
     public void addABConceptX(ABConceptXDMO def){
         ABConceptXDefs.add(def);
         addAConceptX(def);
@@ -239,7 +239,7 @@ public class ModuleADefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
         return(ABConceptXDefs.getDefinition(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:430)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:438)
     public void addAConceptX(AConceptXDMO def){
         AConceptXDefs.add(def);
         addAConceptBase(def);
@@ -261,7 +261,7 @@ public class ModuleADefinitionDMOCache implements DmcNameClashResolverIF, DmcNam
         return(AConceptXDefs.getDefinition(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:430)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:438)
     public void addModuleA(ModuleADMO def){
         ModuleADefs.add(def);
         addAConceptBase(def);

@@ -24,6 +24,7 @@ import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 import org.dmd.dmg.generated.dmo.DmgDMSAG;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmoObjectFactory;
+import org.dmd.util.UtilityOptions;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigFinder;
@@ -75,7 +76,8 @@ public class DmgParser implements DmcUncheckedOIFHandlerIF {
 			throw(ex);
 		}
 		
-		System.out.println("\nRead: " + infile);
+		if (!UtilityOptions.instance().quietProgress())
+			System.out.println("\nRead: " + infile);
 //		System.out.println(theConfig.toOIF(15));
 	}
 }

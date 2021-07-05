@@ -1,45 +1,30 @@
-//	---------------------------------------------------------------------------
-//	dark-matter-data
-//	Copyright (c) 2014 dark-matter-data committers
-//	---------------------------------------------------------------------------
-//	This program is free software; you can redistribute it and/or modify it
-//	under the terms of the GNU Lesser General Public License as published by the
-//	Free Software Foundation; either version 3 of the License, or (at your
-//	option) any later version.
-//	This program is distributed in the hope that it will be useful, but WITHOUT
-//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
-//	more details.
-//	You should have received a copy of the GNU Lesser General Public License along
-//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
-//	---------------------------------------------------------------------------
 package org.dmd.concinnity.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1127)
-import java.io.IOException;                                                                // If we run it to problems finding configs - (DSDArtifactFormatter.java:1087)
-import java.util.ArrayList;                                                                // To handle lists of things - (DSDArtifactFormatter.java:1089)
-import java.util.Iterator;                                                                 // To iterate over collections - (DSDArtifactFormatter.java:1088)
-import java.util.TreeMap;                                                                  // To handle loaded configs - (DSDArtifactFormatter.java:1090)
-import org.dmd.concinnity.server.extended.ConcinnityModule;                                // One of the DDS modules we might load - (DSDArtifactFormatter.java:1116)
-import org.dmd.concinnity.server.generated.dsd.ConcinnityModuleDefinitionManager;          // Maintains all parsed definitions - (DSDArtifactFormatter.java:1107)
-import org.dmd.concinnity.server.generated.dsd.ConcinnityModuleGeneratorInterface;         // The generator we call - (DSDArtifactFormatter.java:1110)
-import org.dmd.concinnity.server.generated.dsd.ConcinnityModuleParser;                     // Required to parse ConcinnityModule definitions - (DSDArtifactFormatter.java:1120)
-import org.dmd.concinnity.shared.generated.types.ConcinnityModuleREF;                      // To access references to ConcinnityModule - (DSDArtifactFormatter.java:1118)
-import org.dmd.dmc.DmcNameClashException;                                                  // To handle exceptions from parsing objects - (DSDArtifactFormatter.java:1095)
-import org.dmd.dmc.DmcValueException;                                                      // To handle exceptions from value handling - (DSDArtifactFormatter.java:1094)
-import org.dmd.dmc.DmcValueExceptionSet;                                                   // May occur when resolving objects - (DSDArtifactFormatter.java:1102)
-import org.dmd.dmc.rules.DmcRuleExceptionSet;                                              // In case we have rule failures - (DSDArtifactFormatter.java:1097)
-import org.dmd.dmc.types.DefinitionName;                                                   // Allows storage of parsed configs by name - (DSDArtifactFormatter.java:1092)
-import org.dmd.dms.DSDefinition;                                                           // The common base for all modules - so that we can get error location info - (DSDArtifactFormatter.java:1093)
-import org.dmd.dmv.shared.DmvRuleManager;                                                  // Allows for application of rules to our definitions - (DSDArtifactFormatter.java:1104)
-import org.dmd.util.exceptions.ResultException;                                            // To handle processing exceptions - (DSDArtifactFormatter.java:1096)
-import org.dmd.util.parsing.ConfigFinder;                                                  // Finds configs we may need to parse - (DSDArtifactFormatter.java:1099)
-import org.dmd.util.parsing.ConfigLocation;                                                // Handle to a discovered configuration - (DSDArtifactFormatter.java:1100)
-import org.dmd.util.parsing.ConfigVersion;                                                 // Handle to a particular config version - (DSDArtifactFormatter.java:1101)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1138)
+import java.io.IOException;                                                                // If we run it to problems finding configs - (DSDArtifactFormatter.java:1098)
+import java.util.ArrayList;                                                                // To handle lists of things - (DSDArtifactFormatter.java:1100)
+import java.util.Iterator;                                                                 // To iterate over collections - (DSDArtifactFormatter.java:1099)
+import java.util.TreeMap;                                                                  // To handle loaded configs - (DSDArtifactFormatter.java:1101)
+import org.dmd.concinnity.server.extended.ConcinnityModule;                                // One of the DDS modules we might load - (DSDArtifactFormatter.java:1127)
+import org.dmd.concinnity.server.generated.dsd.ConcinnityModuleDefinitionManager;          // Maintains all parsed definitions - (DSDArtifactFormatter.java:1118)
+import org.dmd.concinnity.server.generated.dsd.ConcinnityModuleGeneratorInterface;         // The generator we call - (DSDArtifactFormatter.java:1121)
+import org.dmd.concinnity.server.generated.dsd.ConcinnityModuleParser;                     // Required to parse ConcinnityModule definitions - (DSDArtifactFormatter.java:1131)
+import org.dmd.concinnity.shared.generated.types.ConcinnityModuleREF;                      // To access references to ConcinnityModule - (DSDArtifactFormatter.java:1129)
+import org.dmd.dmc.DmcNameClashException;                                                  // To handle exceptions from parsing objects - (DSDArtifactFormatter.java:1106)
+import org.dmd.dmc.DmcValueException;                                                      // To handle exceptions from value handling - (DSDArtifactFormatter.java:1105)
+import org.dmd.dmc.DmcValueExceptionSet;                                                   // May occur when resolving objects - (DSDArtifactFormatter.java:1113)
+import org.dmd.dmc.rules.DmcRuleExceptionSet;                                              // In case we have rule failures - (DSDArtifactFormatter.java:1108)
+import org.dmd.dmc.types.DefinitionName;                                                   // Allows storage of parsed configs by name - (DSDArtifactFormatter.java:1103)
+import org.dmd.dms.DSDefinition;                                                           // The common base for all modules - so that we can get error location info - (DSDArtifactFormatter.java:1104)
+import org.dmd.dmv.shared.DmvRuleManager;                                                  // Allows for application of rules to our definitions - (DSDArtifactFormatter.java:1115)
+import org.dmd.util.exceptions.ResultException;                                            // To handle processing exceptions - (DSDArtifactFormatter.java:1107)
+import org.dmd.util.parsing.ConfigFinder;                                                  // Finds configs we may need to parse - (DSDArtifactFormatter.java:1110)
+import org.dmd.util.parsing.ConfigLocation;                                                // Handle to a discovered configuration - (DSDArtifactFormatter.java:1111)
+import org.dmd.util.parsing.ConfigVersion;                                                 // Handle to a particular config version - (DSDArtifactFormatter.java:1112)
 
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1131)
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1142)
 /**
  * The parsing coordinator will find all config files associated with the ConcinnityModule DSD
  * and coordinate the parsing of the initial config file and all files on which it depends.
@@ -47,7 +32,7 @@ import org.dmd.util.parsing.ConfigVersion;                                      
 public class ConcinnityModuleParsingCoordinator {
 
     // Generated from: org.dmd.util.codegen.MemberManager.getFormattedMembers(MemberManager.java:64)
-    // Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1138)
+    // Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1149)
     DmvRuleManager                                   rules                            = new DmvRuleManager();                                  // Rule manager
     ConcinnityModuleDefinitionManager                definitions                      = new ConcinnityModuleDefinitionManager();               // Maintains all parsed definitions
     ConcinnityModuleGeneratorInterface               generator;                                                                                // Injected generator that we call when config loading is complete
@@ -57,7 +42,7 @@ public class ConcinnityModuleParsingCoordinator {
     TreeMap<DefinitionName, ConcinnityModuleInfo>    loadedConcinnityModuleConfigs    = new TreeMap<DefinitionName, ConcinnityModuleInfo>();   // The names/location of the ConcinnityModule modules that have been loaded
 
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1140)
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1151)
     public ConcinnityModuleParsingCoordinator(ConcinnityModuleGeneratorInterface g, ArrayList<String> sourceDirs, ArrayList<String> jars) throws ResultException, DmcValueException, DmcNameClashException, DmcRuleExceptionSet, IOException {
 
         generator = g;
@@ -69,17 +54,17 @@ public class ConcinnityModuleParsingCoordinator {
     }
 
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1193)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1204)
     public DmvRuleManager getRuleManager(){
         	return(rules);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1198)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1209)
     public ConcinnityModuleParser parserForConcinnityModule(){
         return(parserForConcinnityModule);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1205)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1216)
     public void generateForConfig(String configName) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException, DmcValueExceptionSet, IOException {
         ConfigVersion version = finderForConcinnityModule.getConfig(configName);
         
@@ -105,7 +90,7 @@ public class ConcinnityModuleParsingCoordinator {
         generator.generate(loaded,location,definitions);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1231)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1242)
     public void generateForAllConfigs() throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException, DmcValueExceptionSet, IOException {
         ConcinnityModule loaded = null;
         ConcinnityModuleInfo loadedInfo = null;
@@ -135,7 +120,7 @@ public class ConcinnityModuleParsingCoordinator {
 
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1263)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1274)
     ConcinnityModule loadConcinnityModuleModule(ConfigLocation location)  throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
         // If we've already loaded the file, skip it
         ConcinnityModuleInfo info = loadedConcinnityModuleConfigs.get(new DefinitionName(location.getConfigName()));
@@ -152,7 +137,7 @@ public class ConcinnityModuleParsingCoordinator {
         return(loaded);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1280)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1291)
     public ConfigLocation getLocation(ConcinnityModule module){
         ConcinnityModuleInfo info = loadedConcinnityModuleConfigs.get(module.getName());
         if (info == null)
@@ -161,7 +146,7 @@ public class ConcinnityModuleParsingCoordinator {
         return(info.location);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1291)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1302)
     void loadModuleDependencies(ModuleInfoBase mi) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
 
         if (mi.dependenciesLoaded)
@@ -189,20 +174,20 @@ public class ConcinnityModuleParsingCoordinator {
 
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1321)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1332)
     void missingConfigError(String missing) throws ResultException {
         ResultException ex = new ResultException("Could not find config: " + missing);
         throw(ex);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1327)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1338)
     void missingConfigError(DSDefinition module, String missing) throws ResultException {
         ResultException ex = new ResultException("Could not find config: " + missing);
         ex.setLocationInfo(module.getFile(), module.getLineNumber());
         throw(ex);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1335)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParsingCoordinator(DSDArtifactFormatter.java:1346)
     class ModuleInfoBase {
         ConfigLocation location;
         boolean        dependenciesLoaded;

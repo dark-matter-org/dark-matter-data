@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2010 dark-matter-data committers
+//	Copyright (c) 2010-2021 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -136,7 +136,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _AllowedAttributesRuleDataOBJ.setDmdID("-959999");
             _AllowedAttributesRuleDataOBJ.setClassType("STRUCTURAL");
             _AllowedAttributesRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _AllowedAttributesRuleDataOBJ.setLineNumber("22");
+            _AllowedAttributesRuleDataOBJ.setLineNumber("2");
             _AllowedAttributesRuleDataOBJ.setInternallyGenerated("true");
             _AllowedAttributesRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _AllowedAttributesRuleDataOBJ.setRuleDefinition("dmv.AllowedAttributesRule");
@@ -159,7 +159,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _InitRuleDataOBJ.setDmdID("-959998");
             _InitRuleDataOBJ.setClassType("EXTENSIBLE");
             _InitRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _InitRuleDataOBJ.setLineNumber("54");
+            _InitRuleDataOBJ.setLineNumber("31");
             _InitRuleDataOBJ.setInternallyGenerated("true");
             _InitRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _InitRuleDataOBJ.setRuleDefinition("dmv.InitRule");
@@ -182,7 +182,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _NumericRangeRuleDataOBJ.setDmdID("-959997");
             _NumericRangeRuleDataOBJ.setClassType("STRUCTURAL");
             _NumericRangeRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _NumericRangeRuleDataOBJ.setLineNumber("80");
+            _NumericRangeRuleDataOBJ.setLineNumber("57");
             _NumericRangeRuleDataOBJ.setInternallyGenerated("true");
             _NumericRangeRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _NumericRangeRuleDataOBJ.setRuleDefinition("dmv.NumericRangeRule");
@@ -208,7 +208,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _UCOAllowedAttributesRuleDataOBJ.setDmdID("-959996");
             _UCOAllowedAttributesRuleDataOBJ.setClassType("STRUCTURAL");
             _UCOAllowedAttributesRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _UCOAllowedAttributesRuleDataOBJ.setLineNumber("90");
+            _UCOAllowedAttributesRuleDataOBJ.setLineNumber("83");
             _UCOAllowedAttributesRuleDataOBJ.setInternallyGenerated("true");
             _UCOAllowedAttributesRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _UCOAllowedAttributesRuleDataOBJ.setRuleDefinition("dmv.UCOAllowedAttributesRule");
@@ -231,7 +231,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _RelatedNumbersRuleDataOBJ.setDmdID("-959994");
             _RelatedNumbersRuleDataOBJ.setClassType("STRUCTURAL");
             _RelatedNumbersRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _RelatedNumbersRuleDataOBJ.setLineNumber("135");
+            _RelatedNumbersRuleDataOBJ.setLineNumber("105");
             _RelatedNumbersRuleDataOBJ.setInternallyGenerated("true");
             _RelatedNumbersRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _RelatedNumbersRuleDataOBJ.setRuleDefinition("dmv.RelatedNumbersRule");
@@ -257,7 +257,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _CheckAttributesBasedOnValueRuleDataOBJ.setDmdID("-959993");
             _CheckAttributesBasedOnValueRuleDataOBJ.setClassType("STRUCTURAL");
             _CheckAttributesBasedOnValueRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _CheckAttributesBasedOnValueRuleDataOBJ.setLineNumber("164");
+            _CheckAttributesBasedOnValueRuleDataOBJ.setLineNumber("139");
             _CheckAttributesBasedOnValueRuleDataOBJ.setInternallyGenerated("true");
             _CheckAttributesBasedOnValueRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _CheckAttributesBasedOnValueRuleDataOBJ.setRuleDefinition("dmv.CheckAttributesBasedOnValueRule");
@@ -284,7 +284,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _OneOfTheseAttributesRequiredRuleDataOBJ.setDmdID("-959992");
             _OneOfTheseAttributesRequiredRuleDataOBJ.setClassType("STRUCTURAL");
             _OneOfTheseAttributesRequiredRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _OneOfTheseAttributesRequiredRuleDataOBJ.setLineNumber("199");
+            _OneOfTheseAttributesRequiredRuleDataOBJ.setLineNumber("177");
             _OneOfTheseAttributesRequiredRuleDataOBJ.setInternallyGenerated("true");
             _OneOfTheseAttributesRequiredRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _OneOfTheseAttributesRequiredRuleDataOBJ.setRuleDefinition("dmv.OneOfTheseAttributesRequiredRule");
@@ -309,7 +309,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _PatternMatchRuleDataOBJ.setDmdID("-959991");
             _PatternMatchRuleDataOBJ.setClassType("STRUCTURAL");
             _PatternMatchRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _PatternMatchRuleDataOBJ.setLineNumber("227");
+            _PatternMatchRuleDataOBJ.setLineNumber("209");
             _PatternMatchRuleDataOBJ.setInternallyGenerated("true");
             _PatternMatchRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _PatternMatchRuleDataOBJ.setRuleDefinition("dmv.PatternMatchRule");
@@ -334,7 +334,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ValueLengthRuleDataOBJ.setDmdID("-959990");
             _ValueLengthRuleDataOBJ.setClassType("STRUCTURAL");
             _ValueLengthRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _ValueLengthRuleDataOBJ.setLineNumber("309");
+            _ValueLengthRuleDataOBJ.setLineNumber("267");
             _ValueLengthRuleDataOBJ.setInternallyGenerated("true");
             _ValueLengthRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _ValueLengthRuleDataOBJ.setRuleDefinition("dmv.ValueLengthRule");
@@ -360,7 +360,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ReferencedAttributeTypeRuleDataOBJ.setDmdID("-959989");
             _ReferencedAttributeTypeRuleDataOBJ.setClassType("STRUCTURAL");
             _ReferencedAttributeTypeRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _ReferencedAttributeTypeRuleDataOBJ.setLineNumber("383");
+            _ReferencedAttributeTypeRuleDataOBJ.setLineNumber("348");
             _ReferencedAttributeTypeRuleDataOBJ.setInternallyGenerated("true");
             _ReferencedAttributeTypeRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _ReferencedAttributeTypeRuleDataOBJ.setRuleDefinition("dmv.ReferencedAttributeTypeRule");
@@ -386,7 +386,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setDmdID("-959988");
             _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setClassType("STRUCTURAL");
             _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setLineNumber("405");
+            _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setLineNumber("386");
             _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setInternallyGenerated("true");
             _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _OnlyOneOfTheseAttributesAllowedRuleDataOBJ.setRuleDefinition("dmv.OnlyOneOfTheseAttributesAllowedRule");
@@ -410,7 +410,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _PartCheckerRuleDataOBJ.setDmdID("-959986");
             _PartCheckerRuleDataOBJ.setClassType("STRUCTURAL");
             _PartCheckerRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _PartCheckerRuleDataOBJ.setLineNumber("420");
+            _PartCheckerRuleDataOBJ.setLineNumber("408");
             _PartCheckerRuleDataOBJ.setInternallyGenerated("true");
             _PartCheckerRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _PartCheckerRuleDataOBJ.setRuleDefinition("dmv.PartCheckerRule");
@@ -433,7 +433,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _NamedObjectRuleDataOBJ.setDmdID("-959985");
             _NamedObjectRuleDataOBJ.setClassType("STRUCTURAL");
             _NamedObjectRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _NamedObjectRuleDataOBJ.setLineNumber("435");
+            _NamedObjectRuleDataOBJ.setLineNumber("429");
             _NamedObjectRuleDataOBJ.setInternallyGenerated("true");
             _NamedObjectRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _NamedObjectRuleDataOBJ.setRuleDefinition("dmv.NamedObjectRule");
@@ -456,7 +456,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _RestrictReferencesRuleDataOBJ.setDmdID("-959984");
             _RestrictReferencesRuleDataOBJ.setClassType("STRUCTURAL");
             _RestrictReferencesRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _RestrictReferencesRuleDataOBJ.setLineNumber("464");
+            _RestrictReferencesRuleDataOBJ.setLineNumber("444");
             _RestrictReferencesRuleDataOBJ.setInternallyGenerated("true");
             _RestrictReferencesRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _RestrictReferencesRuleDataOBJ.setRuleDefinition("dmv.RestrictReferencesRule");
@@ -481,7 +481,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _CardinalityRuleDataOBJ.setDmdID("-959983");
             _CardinalityRuleDataOBJ.setClassType("STRUCTURAL");
             _CardinalityRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _CardinalityRuleDataOBJ.setLineNumber("510");
+            _CardinalityRuleDataOBJ.setLineNumber("476");
             _CardinalityRuleDataOBJ.setInternallyGenerated("true");
             _CardinalityRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _CardinalityRuleDataOBJ.setRuleDefinition("dmv.CardinalityRule");
@@ -507,7 +507,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _StringSetRuleDataOBJ.setDmdID("-959982");
             _StringSetRuleDataOBJ.setClassType("STRUCTURAL");
             _StringSetRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _StringSetRuleDataOBJ.setLineNumber("667");
+            _StringSetRuleDataOBJ.setLineNumber("652");
             _StringSetRuleDataOBJ.setInternallyGenerated("true");
             _StringSetRuleDataOBJ.setIsNamedBy("meta.ruleName");
             _StringSetRuleDataOBJ.setRuleDefinition("dmv.StringSetRule");
@@ -537,7 +537,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _nrrMinimumOBJ.setType("meta.Double");
             _nrrMinimumOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
             _nrrMinimumOBJ.setDotName("dmv.nrrMinimum.AttributeDefinition");
-            _nrrMinimumOBJ.setLineNumber("6");
+            _nrrMinimumOBJ.setLineNumber("1");
             _nrrMinimum.setDefinedIn(this);
             addAttributeDefList(_nrrMinimum);
 
@@ -550,7 +550,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _nrrMaximumOBJ.setType("meta.Double");
             _nrrMaximumOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
             _nrrMaximumOBJ.setDotName("dmv.nrrMaximum.AttributeDefinition");
-            _nrrMaximumOBJ.setLineNumber("12");
+            _nrrMaximumOBJ.setLineNumber("7");
             _nrrMaximum.setDefinedIn(this);
             addAttributeDefList(_nrrMaximum);
 
@@ -563,7 +563,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _numericRelationOBJ.setType("dmv.NumericRelationEnum");
             _numericRelationOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
             _numericRelationOBJ.setDotName("dmv.numericRelation.AttributeDefinition");
-            _numericRelationOBJ.setLineNumber("18");
+            _numericRelationOBJ.setLineNumber("13");
             _numericRelation.setDefinedIn(this);
             addAttributeDefList(_numericRelation);
 
@@ -576,7 +576,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _lhsOBJ.setType("meta.AttributeDefinition");
             _lhsOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
             _lhsOBJ.setDotName("dmv.lhs.AttributeDefinition");
-            _lhsOBJ.setLineNumber("26");
+            _lhsOBJ.setLineNumber("19");
             _lhs.setDefinedIn(this);
             addAttributeDefList(_lhs);
 
@@ -589,7 +589,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _rhsOBJ.setType("meta.AttributeDefinition");
             _rhsOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
             _rhsOBJ.setDotName("dmv.rhs.AttributeDefinition");
-            _rhsOBJ.setLineNumber("34");
+            _rhsOBJ.setLineNumber("27");
             _rhs.setDefinedIn(this);
             addAttributeDefList(_rhs);
 
@@ -602,7 +602,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _allowedTypeOBJ.setType("meta.TypeDefinition");
             _allowedTypeOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
             _allowedTypeOBJ.setDotName("dmv.allowedType.AttributeDefinition");
-            _allowedTypeOBJ.setLineNumber("42");
+            _allowedTypeOBJ.setLineNumber("35");
             _allowedTypeOBJ.setValueType("MULTI");
             _allowedType.setDefinedIn(this);
             addAttributeDefList(_allowedType);
@@ -616,7 +616,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _basedOnAttributeOBJ.setType("meta.AttributeDefinition");
             _basedOnAttributeOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
             _basedOnAttributeOBJ.setDotName("dmv.basedOnAttribute.AttributeDefinition");
-            _basedOnAttributeOBJ.setLineNumber("49");
+            _basedOnAttributeOBJ.setLineNumber("43");
             _basedOnAttribute.setDefinedIn(this);
             addAttributeDefList(_basedOnAttribute);
 
@@ -629,7 +629,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _basedOnValueOBJ.setType("meta.String");
             _basedOnValueOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
             _basedOnValueOBJ.setDotName("dmv.basedOnValue.AttributeDefinition");
-            _basedOnValueOBJ.setLineNumber("57");
+            _basedOnValueOBJ.setLineNumber("50");
             _basedOnValueOBJ.setValueType("HASHSET");
             _basedOnValue.setDefinedIn(this);
             addAttributeDefList(_basedOnValue);
@@ -643,7 +643,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _excludeThisAttributeOBJ.setType("meta.AttributeDefinition");
             _excludeThisAttributeOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
             _excludeThisAttributeOBJ.setDotName("dmv.excludeThisAttribute.AttributeDefinition");
-            _excludeThisAttributeOBJ.setLineNumber("65");
+            _excludeThisAttributeOBJ.setLineNumber("58");
             _excludeThisAttributeOBJ.setValueType("MULTI");
             _excludeThisAttribute.setDefinedIn(this);
             addAttributeDefList(_excludeThisAttribute);
@@ -657,7 +657,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _includeThisAttributeOBJ.setType("meta.AttributeDefinition");
             _includeThisAttributeOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
             _includeThisAttributeOBJ.setDotName("dmv.includeThisAttribute.AttributeDefinition");
-            _includeThisAttributeOBJ.setLineNumber("73");
+            _includeThisAttributeOBJ.setLineNumber("66");
             _includeThisAttributeOBJ.setValueType("MULTI");
             _includeThisAttribute.setDefinedIn(this);
             addAttributeDefList(_includeThisAttribute);
@@ -671,7 +671,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _onePossibilityOBJ.setType("meta.AttributeDefinition");
             _onePossibilityOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
             _onePossibilityOBJ.setDotName("dmv.onePossibility.AttributeDefinition");
-            _onePossibilityOBJ.setLineNumber("81");
+            _onePossibilityOBJ.setLineNumber("74");
             _onePossibilityOBJ.setValueType("MULTI");
             _onePossibility.setDefinedIn(this);
             addAttributeDefList(_onePossibility);
@@ -685,7 +685,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _andOnlyOneOBJ.setType("meta.Boolean");
             _andOnlyOneOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
             _andOnlyOneOBJ.setDotName("dmv.andOnlyOne.AttributeDefinition");
-            _andOnlyOneOBJ.setLineNumber("88");
+            _andOnlyOneOBJ.setLineNumber("82");
             _andOnlyOne.setDefinedIn(this);
             addAttributeDefList(_andOnlyOne);
 
@@ -698,7 +698,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _matchesPatternOBJ.setType("meta.String");
             _matchesPatternOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
             _matchesPatternOBJ.setDotName("dmv.matchesPattern.AttributeDefinition");
-            _matchesPatternOBJ.setLineNumber("95");
+            _matchesPatternOBJ.setLineNumber("89");
             _matchesPattern.setDefinedIn(this);
             addAttributeDefList(_matchesPattern);
 
@@ -711,7 +711,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _maxLengthOBJ.setType("meta.Integer");
             _maxLengthOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
             _maxLengthOBJ.setDotName("dmv.maxLength.AttributeDefinition");
-            _maxLengthOBJ.setLineNumber("101");
+            _maxLengthOBJ.setLineNumber("96");
             _maxLength.setDefinedIn(this);
             addAttributeDefList(_maxLength);
 
@@ -724,7 +724,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _minLengthOBJ.setType("meta.Integer");
             _minLengthOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
             _minLengthOBJ.setDotName("dmv.minLength.AttributeDefinition");
-            _minLengthOBJ.setLineNumber("107");
+            _minLengthOBJ.setLineNumber("102");
             _minLength.setDefinedIn(this);
             addAttributeDefList(_minLength);
 
@@ -737,7 +737,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _allowedValueTypeOBJ.setType("meta.ValueTypeEnum");
             _allowedValueTypeOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
             _allowedValueTypeOBJ.setDotName("dmv.allowedValueType.AttributeDefinition");
-            _allowedValueTypeOBJ.setLineNumber("113");
+            _allowedValueTypeOBJ.setLineNumber("108");
             _allowedValueType.setDefinedIn(this);
             addAttributeDefList(_allowedValueType);
 
@@ -750,7 +750,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _allowedReferenceOBJ.setType("meta.ClassDefinition");
             _allowedReferenceOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
             _allowedReferenceOBJ.setDotName("dmv.allowedReference.AttributeDefinition");
-            _allowedReferenceOBJ.setLineNumber("120");
+            _allowedReferenceOBJ.setLineNumber("114");
             _allowedReferenceOBJ.setValueType("MULTI");
             _allowedReference.setDefinedIn(this);
             addAttributeDefList(_allowedReference);
@@ -764,7 +764,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _crMinimumOBJ.setType("meta.Double");
             _crMinimumOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
             _crMinimumOBJ.setDotName("dmv.crMinimum.AttributeDefinition");
-            _crMinimumOBJ.setLineNumber("127");
+            _crMinimumOBJ.setLineNumber("121");
             _crMinimum.setDefinedIn(this);
             addAttributeDefList(_crMinimum);
 
@@ -777,7 +777,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _crMaximumOBJ.setType("meta.Double");
             _crMaximumOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
             _crMaximumOBJ.setDotName("dmv.crMaximum.AttributeDefinition");
-            _crMaximumOBJ.setLineNumber("134");
+            _crMaximumOBJ.setLineNumber("128");
             _crMaximum.setDefinedIn(this);
             addAttributeDefList(_crMaximum);
 
@@ -790,7 +790,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _allowedStringOBJ.setType("meta.String");
             _allowedStringOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
             _allowedStringOBJ.setDotName("dmv.allowedString.AttributeDefinition");
-            _allowedStringOBJ.setLineNumber("146");
+            _allowedStringOBJ.setLineNumber("141");
             _allowedStringOBJ.setValueType("HASHSET");
             _allowedString.setDefinedIn(this);
             addAttributeDefList(_allowedString);
@@ -824,7 +824,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _NumericRelationEnumOBJ.setName("NumericRelationEnum");
             _NumericRelationEnumOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/types.dmd");
             _NumericRelationEnumOBJ.setDotName("dmv.NumericRelationEnum.EnumDefinition");
-            _NumericRelationEnumOBJ.setLineNumber("10");
+            _NumericRelationEnumOBJ.setLineNumber("1");
             _NumericRelationEnum.setDefinedIn(this);
             addEnumDefList(_NumericRelationEnum);
 
@@ -841,7 +841,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _AllowedAttributesRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _AllowedAttributesRuleOBJ.setDotName("dmv.AllowedAttributesRule.RuleDefinition");
             _AllowedAttributesRuleOBJ.addRuleCategory("meta.ObjectValidation");
-            _AllowedAttributesRuleOBJ.setLineNumber("22");
+            _AllowedAttributesRuleOBJ.setLineNumber("2");
             _AllowedAttributesRule.setDefinedIn(this);
             addRuleDefinitionList(_AllowedAttributesRule);
 
@@ -854,7 +854,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _InitRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _InitRuleOBJ.setDotName("dmv.InitRule.RuleDefinition");
             _InitRuleOBJ.addRuleCategory("meta.Initialization");
-            _InitRuleOBJ.setLineNumber("54");
+            _InitRuleOBJ.setLineNumber("31");
             _InitRule.setDefinedIn(this);
             _InitRuleOBJ.setIsExtensible("true");
             addRuleDefinitionList(_InitRule);
@@ -870,7 +870,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _NumericRangeRuleOBJ.addMay("dmv.nrrMinimum");
             _NumericRangeRuleOBJ.addMay("dmv.nrrMaximum");
             _NumericRangeRuleOBJ.addRuleCategory("meta.AttributeValidation");
-            _NumericRangeRuleOBJ.setLineNumber("80");
+            _NumericRangeRuleOBJ.setLineNumber("57");
             _NumericRangeRule.setDefinedIn(this);
             addRuleDefinitionList(_NumericRangeRule);
 
@@ -883,7 +883,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _UCOAllowedAttributesRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _UCOAllowedAttributesRuleOBJ.setDotName("dmv.UCOAllowedAttributesRule.RuleDefinition");
             _UCOAllowedAttributesRuleOBJ.addRuleCategory("meta.UCOValidation");
-            _UCOAllowedAttributesRuleOBJ.setLineNumber("90");
+            _UCOAllowedAttributesRuleOBJ.setLineNumber("83");
             _UCOAllowedAttributesRule.setDefinedIn(this);
             addRuleDefinitionList(_UCOAllowedAttributesRule);
 
@@ -899,7 +899,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _RelatedNumbersRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _RelatedNumbersRuleOBJ.setDotName("dmv.RelatedNumbersRule.RuleDefinition");
             _RelatedNumbersRuleOBJ.addRuleCategory("meta.ObjectValidation");
-            _RelatedNumbersRuleOBJ.setLineNumber("135");
+            _RelatedNumbersRuleOBJ.setLineNumber("105");
             _RelatedNumbersRule.setDefinedIn(this);
             addRuleDefinitionList(_RelatedNumbersRule);
 
@@ -916,7 +916,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _CheckAttributesBasedOnValueRuleOBJ.addMay("dmv.excludeThisAttribute");
             _CheckAttributesBasedOnValueRuleOBJ.addMay("dmv.includeThisAttribute");
             _CheckAttributesBasedOnValueRuleOBJ.addRuleCategory("meta.ObjectValidation");
-            _CheckAttributesBasedOnValueRuleOBJ.setLineNumber("164");
+            _CheckAttributesBasedOnValueRuleOBJ.setLineNumber("139");
             _CheckAttributesBasedOnValueRule.setDefinedIn(this);
             addRuleDefinitionList(_CheckAttributesBasedOnValueRule);
 
@@ -931,7 +931,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _OneOfTheseAttributesRequiredRuleOBJ.setDotName("dmv.OneOfTheseAttributesRequiredRule.RuleDefinition");
             _OneOfTheseAttributesRequiredRuleOBJ.addMay("dmv.andOnlyOne");
             _OneOfTheseAttributesRequiredRuleOBJ.addRuleCategory("meta.ObjectValidation");
-            _OneOfTheseAttributesRequiredRuleOBJ.setLineNumber("199");
+            _OneOfTheseAttributesRequiredRuleOBJ.setLineNumber("177");
             _OneOfTheseAttributesRequiredRule.setDefinedIn(this);
             addRuleDefinitionList(_OneOfTheseAttributesRequiredRule);
 
@@ -945,7 +945,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _PatternMatchRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _PatternMatchRuleOBJ.setDotName("dmv.PatternMatchRule.RuleDefinition");
             _PatternMatchRuleOBJ.addRuleCategory("meta.AttributeValidation");
-            _PatternMatchRuleOBJ.setLineNumber("227");
+            _PatternMatchRuleOBJ.setLineNumber("209");
             _PatternMatchRule.setDefinedIn(this);
             addRuleDefinitionList(_PatternMatchRule);
 
@@ -960,7 +960,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ValueLengthRuleOBJ.addMay("dmv.maxLength");
             _ValueLengthRuleOBJ.addMay("dmv.minLength");
             _ValueLengthRuleOBJ.addRuleCategory("meta.AttributeValidation");
-            _ValueLengthRuleOBJ.setLineNumber("309");
+            _ValueLengthRuleOBJ.setLineNumber("267");
             _ValueLengthRule.setDefinedIn(this);
             addRuleDefinitionList(_ValueLengthRule);
 
@@ -975,7 +975,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ReferencedAttributeTypeRuleOBJ.addMay("dmv.allowedType");
             _ReferencedAttributeTypeRuleOBJ.addMay("dmv.allowedValueType");
             _ReferencedAttributeTypeRuleOBJ.addRuleCategory("meta.AttributeValidation");
-            _ReferencedAttributeTypeRuleOBJ.setLineNumber("383");
+            _ReferencedAttributeTypeRuleOBJ.setLineNumber("348");
             _ReferencedAttributeTypeRule.setDefinedIn(this);
             addRuleDefinitionList(_ReferencedAttributeTypeRule);
 
@@ -989,7 +989,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _OnlyOneOfTheseAttributesAllowedRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _OnlyOneOfTheseAttributesAllowedRuleOBJ.setDotName("dmv.OnlyOneOfTheseAttributesAllowedRule.RuleDefinition");
             _OnlyOneOfTheseAttributesAllowedRuleOBJ.addRuleCategory("meta.ObjectValidation");
-            _OnlyOneOfTheseAttributesAllowedRuleOBJ.setLineNumber("405");
+            _OnlyOneOfTheseAttributesAllowedRuleOBJ.setLineNumber("386");
             _OnlyOneOfTheseAttributesAllowedRule.setDefinedIn(this);
             addRuleDefinitionList(_OnlyOneOfTheseAttributesAllowedRule);
 
@@ -1002,7 +1002,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _PartCheckerRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _PartCheckerRuleOBJ.setDotName("dmv.PartCheckerRule.RuleDefinition");
             _PartCheckerRuleOBJ.addRuleCategory("meta.ObjectValidation");
-            _PartCheckerRuleOBJ.setLineNumber("420");
+            _PartCheckerRuleOBJ.setLineNumber("408");
             _PartCheckerRule.setDefinedIn(this);
             addRuleDefinitionList(_PartCheckerRule);
 
@@ -1015,7 +1015,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _NamedObjectRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _NamedObjectRuleOBJ.setDotName("dmv.NamedObjectRule.RuleDefinition");
             _NamedObjectRuleOBJ.addRuleCategory("meta.ObjectValidation");
-            _NamedObjectRuleOBJ.setLineNumber("435");
+            _NamedObjectRuleOBJ.setLineNumber("429");
             _NamedObjectRule.setDefinedIn(this);
             addRuleDefinitionList(_NamedObjectRule);
 
@@ -1029,7 +1029,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _RestrictReferencesRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _RestrictReferencesRuleOBJ.setDotName("dmv.RestrictReferencesRule.RuleDefinition");
             _RestrictReferencesRuleOBJ.addRuleCategory("meta.AttributeValidation");
-            _RestrictReferencesRuleOBJ.setLineNumber("464");
+            _RestrictReferencesRuleOBJ.setLineNumber("444");
             _RestrictReferencesRule.setDefinedIn(this);
             addRuleDefinitionList(_RestrictReferencesRule);
 
@@ -1044,7 +1044,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _CardinalityRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _CardinalityRuleOBJ.setDotName("dmv.CardinalityRule.RuleDefinition");
             _CardinalityRuleOBJ.addRuleCategory("meta.AttributeValidation");
-            _CardinalityRuleOBJ.setLineNumber("510");
+            _CardinalityRuleOBJ.setLineNumber("476");
             _CardinalityRule.setDefinedIn(this);
             addRuleDefinitionList(_CardinalityRule);
 
@@ -1058,7 +1058,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _StringSetRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _StringSetRuleOBJ.setDotName("dmv.StringSetRule.RuleDefinition");
             _StringSetRuleOBJ.addRuleCategory("meta.AttributeValidation");
-            _StringSetRuleOBJ.setLineNumber("667");
+            _StringSetRuleOBJ.setLineNumber("652");
             _StringSetRule.setDefinedIn(this);
             addRuleDefinitionList(_StringSetRule);
 

@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2012-2021 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -24,7 +24,7 @@ import org.dmd.dms.generated.enums.DataTypeEnum;    // DmcType import
  * The DmcTypeDataTypeEnumSV provides storage for a single-valued DataTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2151)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2171)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:591)
  */
 @SuppressWarnings("serial")
@@ -49,14 +49,14 @@ public class DmcTypeDataTypeEnumSV extends DmcTypeDataTypeEnum implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2183)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2203)
     public DmcAttribute<DataTypeEnum> cloneIt(){
         DmcTypeDataTypeEnumSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2194)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2214)
     public DataTypeEnum getSVCopy(){
         if (value == null)
             return(null);
@@ -64,7 +64,7 @@ public class DmcTypeDataTypeEnumSV extends DmcTypeDataTypeEnum implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2206)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2226)
     public DataTypeEnum set(Object v) throws DmcValueException {
         DataTypeEnum rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

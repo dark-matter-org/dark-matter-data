@@ -196,7 +196,7 @@ public class DmuModuleDefinitionDMOCache implements DmcNameClashResolverIF, DmcN
         return(rc);
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:395)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:403)
     // Called from: org.dmd.dms.util.DmoCacheFormatter.dumpDefinitionInterfaceMethods(DmoCacheFormatter.java:524)
     /**
      * All definitions are added to the base definition collection.
@@ -217,7 +217,7 @@ public class DmuModuleDefinitionDMOCache implements DmcNameClashResolverIF, DmcN
         return(DmuDefinitionDefs.values().iterator());
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:430)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:438)
     public void addDmuModule(DmuModuleDMO def){
         DmuModuleDefs.add(def);
         addDmuDefinition(def);
@@ -239,7 +239,7 @@ public class DmuModuleDefinitionDMOCache implements DmcNameClashResolverIF, DmcN
         return(DmuModuleDefs.getDefinition(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:430)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:438)
     public void addPayloadExample(PayloadExampleDMO def){
         PayloadExampleDefs.add(def);
         addDmuDefinition(def);
@@ -261,7 +261,7 @@ public class DmuModuleDefinitionDMOCache implements DmcNameClashResolverIF, DmcN
         return(PayloadExampleDefs.getDefinition(name));
     }
 
-    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:430)
+    // Generated from: org.dmd.dms.DSDefinitionModule.getDMOInterfaceMethodsImplementations(DSDefinitionModule.java:438)
     public void addPayloadSortInfo(PayloadSortInfoDMO def){
         PayloadSortInfoDefs.add(def);
         addDmuDefinition(def);

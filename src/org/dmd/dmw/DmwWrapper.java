@@ -237,20 +237,52 @@ public abstract class DmwWrapper extends DmcContainer {
 	
 	////////////////////////////////////////////////////////////////////////////////
 	
+	/**
+	 * The object with all attributes. This includes internal user attribute such as
+	 * the name of the file from which it was loaded, the line number etc.
+	 * @return the object's representation in Object Instance Format (OIF)
+	 */
 	public String toOIF(){
 		return(core.toOIF());
 	}
 	
+	/**
+	 * The object with just the persistent attributes and none of the internal use 
+	 * attributes.
+	 * @return the object's representation in Object Instance Format (OIF) 
+	 */
 	public String toPersistentOIF(){
 		return(core.toPersistentOIF());
 	}
 	
+	/**
+	 * The object with all attributes. This includes internal user attribute such as
+	 * the name of the file from which it was loaded, the line number etc.
+	 * @param padding a set padding for the attribute name.
+	 * @return the object's representation in Object Instance Format (OIF)
+	 */
 	public String toOIF(int padding){
 		return(core.toOIF(padding));
 	}
 	
+	/**
+	 * The object with all attributes. This includes internal user attribute such as
+	 * the name of the file from which it was loaded, the line number etc.
+	 * @return the object's representation in Object Instance Format (OIF)
+	 */
 	public String toString(){
 		return(core.toOIF());
+	}
+	
+	////////////////////////////////////////////////////////////////////////////////
+	
+	/**
+	 * The object with just the persistent attributes and none of the internal use 
+	 * attributes.
+	 * @return a JSON representation of the object.
+	 */
+	public String toJSON() {
+		return(core.toJSON());
 	}
 	
 	/**

@@ -43,7 +43,7 @@ public class DmoCacheFormatter {
 			Iterator<DSDefinitionModule> it =  sm.getDSDefinitionModules();
 			while(it.hasNext()){
 				DSDefinitionModule module = it.next();
-				DebugInfo.debug("DSDMODULE " + module.getName().getNameString());
+//				DebugInfo.debug("DSDMODULE " + module.getName().getNameString());
 				
 				// We only generate code for modules defined in the schema that
 				// was specified as part of the DMG config
