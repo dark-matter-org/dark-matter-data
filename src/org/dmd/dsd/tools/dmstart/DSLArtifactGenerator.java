@@ -20,6 +20,7 @@ import org.dmd.util.exceptions.ResultException;
 public class DSLArtifactGenerator {
 	
 	private final static String CONCEPTA = "ConceptA";
+	private final static String CONCEPTB = "ConceptB";
 	
 	private String		workspace;
 	
@@ -177,8 +178,10 @@ public class DSLArtifactGenerator {
 		createModuleFile();
 		createAttributesFile();
 		createClassFile();
-		createPlaceHolder(sharedDmconfigDir, "complex.dmd", "complex type definitions.");
-		createPlaceHolder(sharedDmconfigDir, "types.dmd", "type definitions.");
+		createComplexTypesFile();
+//		createPlaceHolder(sharedDmconfigDir, "complex.dmd", "complex type definitions.");
+		createTypesFile();
+//		createPlaceHolder(sharedDmconfigDir, "types.dmd", "type definitions.");
 		
 		System.out.println("\n\nCreating extended wrapper configuration:\n");
 		createDmgFile();
@@ -323,8 +326,10 @@ public class DSLArtifactGenerator {
 		out.write("            \n");
 		out.write("            Iterator<" + dslBaseName + CONCEPTA + "> it = loader.definitionManager().getAll" + dslBaseName + CONCEPTA + "();\n");
 		out.write("            while(it.hasNext()) {\n");
+		out.write("                " + dslBaseName + CONCEPTA + " concept = it.next();\n");
 		out.write("                \n");
-		out.write("                System.out.println(it.next().toPersistentOIF() + \"\\n\");\n");
+		out.write("                System.out.println(concept.toPersistentOIF() + \"\\n\\n\");\n");
+		out.write("                System.out.println(concept.toJSON() + \"\\n\\n\");\n");
 		out.write("            }\n");
 		out.write("        }\n");
 		out.write("        else {\n");
@@ -341,7 +346,7 @@ public class DSLArtifactGenerator {
 		out.write("        help.append(___);\n");
 		out.write("        help.append(\"-h                       Displays help information\\n\");\n");
 		out.write("        help.append(___);\n");
-		out.write("        help.append(\"-srcdirs [dirs]          Indicates one or more directories to search for .moo modules. \\n\");\n");
+		out.write("        help.append(\"-srcdirs [dirs]          Indicates one or more directories to search for ."+ dslAbbrev + " modules. \\n\");\n");
 		out.write("        help.append(___);\n");
 		out.write("        help.append(\"-modules [mod names]     One or more modules you wish to load.\\n\");\n");
 		out.write("        help.append(___);\n");
@@ -416,11 +421,21 @@ public class DSLArtifactGenerator {
 	void createDslExampleFile() throws IOException {
 		BufferedWriter out = new BufferedWriter(new FileWriter(exampleFile));
 		
-		out.write("MooModule\n");
+		out.write(dslBaseName + "Module\n");
 		out.write("name example\n");
 		out.write("\n");
-		out.write("Moo" + CONCEPTA + "\n");
-		out.write("name concept1\n");
+		out.write(dslBaseName + "ConceptA\n");
+		out.write("name        concept1\n");
+		out.write("stringValue just some string\n");
+		out.write("refToB      william\n");
+		out.write("intValue    99\n");
+		out.write("alternate   william \"prefers this:\" bill note=\"Shakespeare can be odd\"\n");
+		out.write("\n");
+		out.write(dslBaseName + "ConceptB\n");
+		out.write("name        william\n");
+		out.write("strArray    string1\n");
+		out.write("strArray    string2\n");
+		out.write("schemaType  JSON\n");
 
 		out.close();
 	}
@@ -575,6 +590,8 @@ public class DSLArtifactGenerator {
 		out.write("must                        name\n");
 		out.write("must                        definedIn" + moduleName + "\n");
 		out.write("description                 This is class definition from which all concepts for the " + dslAbbrev + " domain-specific language will be derived.\n");
+		out.write("//\n");
+		out.write("description                 DO NOT ALTER THIS DEFINITION!!!\n\n");
 		out.write("\n");
 		
 		out.write("ClassDefinition\n");
@@ -585,8 +602,86 @@ public class DSLArtifactGenerator {
 		out.write("derivedFrom                 " + dslBaseName + "Definition\n");
 		out.write("isNamedBy                   name\n");
 		out.write("must                        name\n");
+		out.write("may                         stringValue\n");
+		out.write("may                         intValue\n");
+		out.write("may                         refToB\n");
+		out.write("may                         alternate\n");
+		out.write("may                         description\n");
 		out.write("description                 This is an example concept - rename it to reflect a concept you wish to model.\n");
 		out.write("\n");
+
+		out.write("ClassDefinition\n");
+		out.write("name                        " + dslBaseName + CONCEPTB + "\n");
+		out.write("classType                   STRUCTURAL\n");
+		out.write("dmdID                       10\n");
+		out.write("useWrapperType              EXTENDED\n");
+		out.write("derivedFrom                 " + dslBaseName + "Definition\n");
+		out.write("isNamedBy                   name\n");
+		out.write("must                        name\n");
+		out.write("may                         schemaType\n");
+		out.write("may                         strArray\n");
+		out.write("may                         description\n");
+		out.write("description                 This is an example concept - rename it to reflect a concept you wish to model.\n");
+		out.write("\n");
+
+		out.close();
+		
+		System.out.println("    - created: " + fn);
+	}
+
+	void createComplexTypesFile() throws IOException{
+		String fn = sharedDmconfigDir + File.separator + "complex.dmd";
+		BufferedWriter out = new BufferedWriter(new FileWriter(fn));
+		
+		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n\n");
+		out.write("// This a placeholder file for complex type definitions.\n");
+		out.write("\n");
+		out.write("ComplexTypeDefinition\n");
+		out.write("name            AlternateNameType\n");
+		out.write("requiredPart    XdslConceptB conceptb  \"A reference to a XdslConceptB instance.\"\n");
+		out.write("requiredPart    String       why       \"Why you're giving it an alternate name.\" quoted=true\n");
+		out.write("requiredPart    String       alternate \"The alternate name of something.\"\n");
+		out.write("optionalPart    String       note      \"Some other note you want to add.\"        quoted=true\n");
+		out.write("description     An example of a complex type. You can think of this as a micro grammar\n");
+		out.write(" to define an attribute with many parts, both required and optional. The generated code\n");
+		out.write(" takes care of sanity checking and gathering all of the parts for use.\n");
+		out.write(" </p>\n");
+		out.write(" The micro grammar is:\n");
+		out.write(" <pre>\n");
+		out.write(" conceptb \"why\" alternate [note]\n");
+		out.write(" </pre>\n");
+		out.write(" Where:\n");
+		out.write(" <ul>\n");
+		out.write(" <li>conceptb  - A reference to a XdslConceptB instance. </li>\n");
+		out.write(" <li>why       - Why you're giving it an alternate name. </li>\n");
+		out.write(" <li>alternate - The alternate name of something. </li>\n");
+		out.write(" </ul>\n");
+		out.write(" Optional:\n");
+		out.write(" <ul>\n");
+		out.write(" <li>optional  - Some other note you want to add. </li>\n");
+		out.write(" </ul>\n");
+		out.write("//\n");
+		out.write("description  An example: william \"prefers this:\" bill note=\"Shakespeare can be odd.\"\n");
+
+		out.close();
+		
+		System.out.println("    - created: " + fn);
+	}
+
+	void createTypesFile() throws IOException{
+		String fn = sharedDmconfigDir + File.separator + "types.dmd";
+		BufferedWriter out = new BufferedWriter(new FileWriter(fn));
+		
+		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n\n");
+		out.write("// This a placeholder file for type definitions.\n");
+		out.write("\n");
+		out.write("EnumDefinition\n");
+		out.write("name             SchemaTypeEnum\n");
+		out.write("nullReturnValue     SchemaTypeEnum.JSON\n");
+		out.write("enumValue        0 AVRO        The schemas is AVRO.\n");
+		out.write("enumValue        1 JSON        The schemas is JSON.\n");
+		out.write("enumValue        2 XML         The schema is XML.\n");
+		out.write("description      An example of an Enum type.\n");
 
 		out.close();
 		
@@ -605,6 +700,7 @@ public class DSLArtifactGenerator {
 		out.write("dataType       NONPERSISTENT\n");
 		out.write("internalUse    true\n");
 		out.write("description    Indicates that a definition came from this module.\n");
+		out.write("//\n");
 		out.write("description    DO NOT ALTER THIS DEFINITION!!!\n\n");
 
 		out.write("AttributeDefinition\n");
@@ -613,8 +709,55 @@ public class DSLArtifactGenerator {
 		out.write("type           " + moduleName + "\n");
 		out.write("valueType      MULTI\n");
 		out.write("description    Allows us to use definitions from another " + moduleName + "\n");
+		out.write("//\n");
 		out.write("description    DO NOT ALTER THIS DEFINITION!!!\n\n");
 		
+		out.write("\n");
+		out.write("// Here are some example attributes.\n");
+		out.write("// Base primitive types include:\n");
+		out.write("// Boolean Double Float Integer Long Short String\n");
+		out.write(" \n");
+		out.write("AttributeDefinition\n");
+		out.write("name           stringValue\n");
+		out.write("dmdID          10\n");
+		out.write("type           String\n");
+		out.write("description    Holds a String\n");
+		out.write("\n");
+		out.write("AttributeDefinition\n");
+		out.write("name           intValue\n");
+		out.write("dmdID          15\n");
+		out.write("type           Integer\n");
+		out.write("description    Holds a Integer\n");
+		out.write("\n");
+		out.write("AttributeDefinition\n");
+		out.write("name           strArray\n");
+		out.write("dmdID          20\n");
+		out.write("type           String\n");
+		out.write("valueType      MULTI\n");
+		out.write("description    Holds an multi-valued String\n");
+		out.write("\n");
+		out.write("AttributeDefinition\n");
+		out.write("name           refToB\n");
+		out.write("dmdID          25\n");
+		out.write("type           XdslConceptB\n");
+		out.write("description    A reference to an instance of a XdslConceptB object. A reference\n");
+		out.write(" attribute is one that refers to a \"named\" object class\n");
+		out.write("\n");
+		out.write("AttributeDefinition\n");
+		out.write("name           schemaType\n");
+		out.write("dmdID          30\n");
+		out.write("type           SchemaTypeEnum\n");
+		out.write("description    Am indication of schema type - see the types.dmd file for the \n");
+		out.write(" definition of the enum type.\n");
+		out.write("\n");
+		out.write("AttributeDefinition\n");
+		out.write("name           alternate\n");
+		out.write("dmdID          35\n");
+		out.write("type           AlternateNameType\n");
+		out.write("description    Allows for the specification of an alternate name for something.\n");
+		out.write("\n");
+		out.write("\n");
+
 		out.write("// ADD YOUR OWN ATTRIBUTES BELOW THIS POINT \n");
 		out.write("// THE dmdID values MUST BE UNIQUE \n\n");
 		
