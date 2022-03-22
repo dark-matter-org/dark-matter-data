@@ -1226,11 +1226,11 @@ public class DSDArtifactFormatter {
 		out.write("        \n");
 		out.write("        " + ddm.getName() + " loaded = load" + ddm.getName() + "Module(location);\n");
 		out.write("        \n");
-		out.write("        if (location.isFromJAR()){\n");
-		out.write("            ResultException ex = new ResultException(\"We can't run generation for a config loaded from a JAR: \" + configName);\n");
-		out.write("            ex.moreMessages(location.toString());\n");
-		out.write("            throw(ex);\n");
-		out.write("        }\n");
+//		out.write("        if (location.isFromJAR()){\n");
+//		out.write("            ResultException ex = new ResultException(\"We can't run generation for a config loaded from a JAR: \" + configName);\n");
+//		out.write("            ex.moreMessages(location.toString());\n");
+//		out.write("            throw(ex);\n");
+//		out.write("        }\n");
 		out.write("        \n");
 		out.write("        generator.parsingComplete(loaded, location, definitions);\n");
 		out.write("        \n");
