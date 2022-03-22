@@ -638,7 +638,7 @@ public class DSLArtifactGenerator {
 		out.write("\n");
 		out.write("ComplexTypeDefinition\n");
 		out.write("name            AlternateNameType\n");
-		out.write("requiredPart    XdslConceptB conceptb  \"A reference to a XdslConceptB instance.\"\n");
+		out.write("requiredPart    " + dslBaseName + "ConceptB conceptb  \"A reference to a " + dslBaseName + "ConceptB instance.\"\n");
 		out.write("requiredPart    String       why       \"Why you're giving it an alternate name.\" quoted=true\n");
 		out.write("requiredPart    String       alternate \"The alternate name of something.\"\n");
 		out.write("optionalPart    String       note      \"Some other note you want to add.\"        quoted=true\n");
@@ -652,7 +652,7 @@ public class DSLArtifactGenerator {
 		out.write(" </pre>\n");
 		out.write(" Where:\n");
 		out.write(" <ul>\n");
-		out.write(" <li>conceptb  - A reference to a XdslConceptB instance. </li>\n");
+		out.write(" <li>conceptb  - A reference to a " + dslBaseName + "ConceptB instance. </li>\n");
 		out.write(" <li>why       - Why you're giving it an alternate name. </li>\n");
 		out.write(" <li>alternate - The alternate name of something. </li>\n");
 		out.write(" </ul>\n");
@@ -739,8 +739,8 @@ public class DSLArtifactGenerator {
 		out.write("AttributeDefinition\n");
 		out.write("name           refToB\n");
 		out.write("dmdID          25\n");
-		out.write("type           XdslConceptB\n");
-		out.write("description    A reference to an instance of a XdslConceptB object. A reference\n");
+		out.write("type           " + dslBaseName + "ConceptB\n");
+		out.write("description    A reference to an instance of a " + dslBaseName + "ConceptB object. A reference\n");
 		out.write(" attribute is one that refers to a \"named\" object class\n");
 		out.write("\n");
 		out.write("AttributeDefinition\n");
