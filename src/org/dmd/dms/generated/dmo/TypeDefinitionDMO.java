@@ -143,6 +143,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
         _ImAp.put(MetaDMSAG.__nameAttributeDef.id,MetaDMSAG.__nameAttributeDef);
         _ImAp.put(MetaDMSAG.__nullReturnValue.id,MetaDMSAG.__nullReturnValue);
+        _ImAp.put(MetaDMSAG.__numericOrBoolean.id,MetaDMSAG.__numericOrBoolean);
         _ImAp.put(MetaDMSAG.__nvp.id,MetaDMSAG.__nvp);
         _ImAp.put(MetaDMSAG.__obsolete.id,MetaDMSAG.__obsolete);
         _ImAp.put(MetaDMSAG.__optimize.id,MetaDMSAG.__optimize);
@@ -190,6 +191,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
         _SmAp.put(MetaDMSAG.__nameAttributeDef.name,MetaDMSAG.__nameAttributeDef);
         _SmAp.put(MetaDMSAG.__nullReturnValue.name,MetaDMSAG.__nullReturnValue);
+        _SmAp.put(MetaDMSAG.__numericOrBoolean.name,MetaDMSAG.__numericOrBoolean);
         _SmAp.put(MetaDMSAG.__nvp.name,MetaDMSAG.__nvp);
         _SmAp.put(MetaDMSAG.__obsolete.name,MetaDMSAG.__obsolete);
         _SmAp.put(MetaDMSAG.__optimize.name,MetaDMSAG.__optimize);
@@ -1152,6 +1154,37 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         
         attr.set(value);
         set(MetaDMSAG.__nullReturnValue,attr);
+    }
+
+    /**
+     * When we perform toJSON() operations, we need to know whether to quote\n
+     * values. If the type of a property is numeric or boolean, we omit the
+     * quotes. This\n value is set to true on TypeDefinitions generated as part
+     * of the MetaSchemaAG -\n Boolean, Integer, Long, Short, Float and Double. 
+     * @return the Boolean
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2351)
+    public Boolean getNumericOrBoolean(){
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaDMSAG.__numericOrBoolean);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets numericOrBoolean to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     * @throws DmcValueException if the value is incorrect
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2443)
+    public void setNumericOrBoolean(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__numericOrBoolean);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(MetaDMSAG.__numericOrBoolean);
+        
+        attr.set(value);
+        set(MetaDMSAG.__numericOrBoolean,attr);
     }
 
     /**
