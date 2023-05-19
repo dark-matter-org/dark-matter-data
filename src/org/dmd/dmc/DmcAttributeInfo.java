@@ -15,6 +15,8 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc;
 
+import java.util.TreeSet;
+
 import org.dmd.dmc.types.DotName;
 import org.dmd.dms.generated.enums.DataTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
@@ -28,6 +30,13 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * information is derived from the AttributeDefinition of Dark Matter Schema (DMS) specifications.
  */
 public class DmcAttributeInfo implements Comparable<DmcAttributeInfo> {
+	
+	private final static String BOOLEAN = "Boolean";
+	private final static String INTEGER = "Integer";
+	private final static String LONG	= "Long";
+	private final static String SHORT	= "Short";
+	private final static String FLOAT	= "Float";
+	private final static String DOUBLE	= "Double";
 
 	// The qualified name of the attribute i.e. schema.attribute
 	final public DotName		qualifiedName;
@@ -55,6 +64,23 @@ public class DmcAttributeInfo implements Comparable<DmcAttributeInfo> {
 	// when the name can't be resolved.
 	final public boolean		weakReference;
 	
+	// This is set during construction depending on whether the specified type is numeic or boolean
+	final public boolean		numericOrBoolean;
+	
+	// We maintain the set of names for type that are numeric or boolean. This allows
+	// for proper formatting of JSON that requires that these values not be quoted.
+	private static TreeSet<String>	numericOrBooleanTypeNames;
+	
+	static {
+		numericOrBooleanTypeNames = new TreeSet<>();
+		numericOrBooleanTypeNames.add(BOOLEAN);
+		numericOrBooleanTypeNames.add(INTEGER);
+		numericOrBooleanTypeNames.add(LONG);
+		numericOrBooleanTypeNames.add(SHORT);
+		numericOrBooleanTypeNames.add(FLOAT);
+		numericOrBooleanTypeNames.add(DOUBLE);
+	}
+	
 	/**
 	 * This form is used in ComplexTypeDefinitions - it has no schema name.
 	 * @param n the name of the attribute.
@@ -72,6 +98,10 @@ public class DmcAttributeInfo implements Comparable<DmcAttributeInfo> {
 		dataType		= dte;
 		indexSize		= 0;
 		weakReference	= false;
+		if (numericOrBooleanTypeNames.contains(type))
+			numericOrBoolean = true;
+		else
+			numericOrBoolean = false;
 	}
 	
 	/**
@@ -93,6 +123,10 @@ public class DmcAttributeInfo implements Comparable<DmcAttributeInfo> {
 		dataType		= dte;
 		indexSize		= is;
 		weakReference	= wr;
+		if (numericOrBooleanTypeNames.contains(type))
+			numericOrBoolean = true;
+		else
+			numericOrBoolean = false;
 	}
 	
 	public DmcAttributeInfo(String schema, String n, int i, String t, ValueTypeEnum at, DataTypeEnum dte){
@@ -104,6 +138,10 @@ public class DmcAttributeInfo implements Comparable<DmcAttributeInfo> {
 		dataType		= dte;
 		indexSize		= 0;
 		weakReference	= false;
+		if (numericOrBooleanTypeNames.contains(type))
+			numericOrBoolean = true;
+		else
+			numericOrBoolean = false;
 	}
 	
 //	public DmcAttributeInfo(String n, int i, String t, ValueTypeEnum at, DataTypeEnum dte, int is){
@@ -125,6 +163,10 @@ public class DmcAttributeInfo implements Comparable<DmcAttributeInfo> {
 		dataType		= dte;
 		indexSize		= is;
 		weakReference	= false;
+		if (numericOrBooleanTypeNames.contains(type))
+			numericOrBoolean = true;
+		else
+			numericOrBoolean = false;
 	}
 	
 	public DmcAttributeInfo(String schema, String n, int i, String t, ValueTypeEnum at, DataTypeEnum dte, int is, boolean wr){
@@ -136,6 +178,17 @@ public class DmcAttributeInfo implements Comparable<DmcAttributeInfo> {
 		dataType		= dte;
 		indexSize		= is;
 		weakReference	= wr;
+		if (numericOrBooleanTypeNames.contains(type))
+			numericOrBoolean = true;
+		else
+			numericOrBoolean = false;
+	}
+	
+	/**
+	 * @return true if this attribute's type is numeric or boolean
+	 */
+	public boolean isNumericOrBoolean() {
+		return(numericOrBoolean);
 	}
 	
 //	public String toString(){

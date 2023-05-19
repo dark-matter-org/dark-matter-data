@@ -568,7 +568,12 @@ public class NewComplexTypeFormatter {
 						out.write("            Iterator<" + type.getName() + REF + "> it = " + pn + ".iterator();\n");
 						out.write("            while(it.hasNext()){\n");
 						out.write("                " + type.getName() + REF + " v = it.next();\n");
-						out.write("                sb.append(indent + \"  \\\"\" + JSONUtil.escape(v.toString()) + \"\\\"\");\n");
+						if (type.getNumericOrBoolean()) {
+//					        out.write("                // NUMBOOL 1 Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+							out.write("                sb.append(indent + \"  \" + v.toString() + \"\");\n");
+						}
+						else
+							out.write("                sb.append(indent + \"  \\\"\" + JSONUtil.escape(v.toString()) + \"\\\"\");\n");
 //						out.write("                sb.append(indent + \"  \\\"\" + v.toString().replace(\"\\\"\", \"\\\\\\\"\") + \"\\\"\");\n");
 //						out.write("                sb.append(indent + \"\\\"" + key + "\\\": \\\"\" + v.toString().replace(\"\\\"\", \"\\\\\\\"\") + \"\\\"\");\n");
 						out.write("                if (it.hasNext())\n");
@@ -585,8 +590,13 @@ public class NewComplexTypeFormatter {
 						out.write("        sb.append(\"" + ENDING + "\");\n");
 					}
 					else
-								out.write("        sb.append(indent + \"  \\\"" + key + "\\\": \\\"\" + JSONUtil.escape(" + pn + ".toString()) + \"\\\"" + ENDING + "\");\n");
-//								out.write("        sb.append(indent + \"  \\\"" + key + "\\\": \\\"\" + " + pn + ".toString().replace(\"\\\"\", \"\\\\\\\"\") + \"\\\"" + ENDING + "\");\n");
+						if (type.getNumericOrBoolean()) {
+//					        out.write("        // NUMBOOL 2 Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+							out.write("        sb.append(indent + \"  \\\"" + key + "\\\": \" + " + pn + ".toString() + \"" + ENDING + "\");\n");
+						}
+						else
+							out.write("        sb.append(indent + \"  \\\"" + key + "\\\": \\\"\" + JSONUtil.escape(" + pn + ".toString()) + \"\\\"" + ENDING + "\");\n");
+//							out.write("        sb.append(indent + \"  \\\"" + key + "\\\": \\\"\" + " + pn + ".toString().replace(\"\\\"\", \"\\\\\\\"\") + \"\\\"" + ENDING + "\");\n");
 				}
 					
 			}
@@ -617,7 +627,12 @@ public class NewComplexTypeFormatter {
 						out.write("            Iterator<" + type.getName() + REF + "> it = " + pn + ".iterator();\n");
 						out.write("            while(it.hasNext()){\n");
 						out.write("                " + type.getName() + REF + " v = it.next();\n");
-						out.write("                sb.append(indent + \"  \\\"\" + JSONUtil.escape(v.toString()) + \"\\\"\");\n");
+						if (type.getNumericOrBoolean()) {
+//					        out.write("                // NUMBOOL 3 Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+							out.write("                sb.append(indent + \"  \" + v.toString() + \"\");\n");
+						}
+						else
+							out.write("                sb.append(indent + \"  \\\"\" + JSONUtil.escape(v.toString()) + \"\\\"\");\n");
 //						out.write("                sb.append(indent + \"  \\\"\" + v.toString().replace(\"\\\"\", \"\\\\\\\"\") + \"\\\"\");\n");
 //						out.write("                sb.append(indent + \"\\\"" + key + "\\\": \\\"\" + v.toString().replace(\"\\\"\", \"\\\\\\\"\") + \"\\\"\");\n");
 						out.write("                if (it.hasNext())\n");
@@ -633,7 +648,12 @@ public class NewComplexTypeFormatter {
 						out.write("        " + pn + ".toJSON(sb, padding, indent);\n");
 					}
 					
-					out.write("            sb.append(indent + \"  \\\"" + key + "\\\": \\\"\" + JSONUtil.escape(" + pn + ".toString()) + \"\\\"\");\n");
+					if (type.getNumericOrBoolean()) {
+//				        out.write("            // NUMBOOL 4 Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+						out.write("            sb.append(indent + \"  \\\"" + key + "\\\": \" + " + pn + ".toString() + \"\");\n");
+					}
+					else
+						out.write("            sb.append(indent + \"  \\\"" + key + "\\\": \\\"\" + JSONUtil.escape(" + pn + ".toString()) + \"\\\"\");\n");
 //					out.write("            sb.append(indent + \"  \\\"" + key + "\\\": \\\"\" + " + pn + ".toString().replace(\"\\\"\", \"\\\\\\\"\") + \"\\\"\");\n");
 				}
 				

@@ -1000,7 +1000,11 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
     		if (value.contains("\""))
     			value = value.replace("\"", "\\\"");
 //    		sb.append("\"" + getSV().toString().replace("\"", "\\\"") + "\"");
-    		sb.append("\"" + value + "\"");
+    		
+    		if (attrInfo.isNumericOrBoolean())
+        		sb.append(value);
+    		else
+    			sb.append("\"" + value + "\"");
     	}
     	else {
     		Iterator<VALUE> it = getMV();
@@ -1016,7 +1020,12 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
         		if (value.contains("\""))
         			value = value.replace("\"", "\\\"");
 //        		sb.append(indent + "  " + "\"" + value.toString().replace("\"", "\\\"") + "\"");
-        		sb.append(indent + "  " + "\"" + value + "\"");
+        		
+        		if (attrInfo.isNumericOrBoolean())
+            		sb.append(indent + "  " + value);
+        		else
+        			sb.append(indent + "  " + "\"" + value + "\"");
+        		
         		if (it.hasNext())
         			sb.append(", \n");        			
     		}

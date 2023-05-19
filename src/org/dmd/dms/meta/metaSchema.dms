@@ -72,29 +72,34 @@ description		The AttributeID type allows for the storage of unique attribute ide
  Currently this is only used in the dark-matter protocol attributeSelector attribute.
 
 TypeDefinition
-name    		Integer
-typeClassName	org.dmd.dmc.types.DmcTypeInteger
-description		Provides support for Integer values.
+name    			Integer
+typeClassName		org.dmd.dmc.types.DmcTypeInteger
+numericOrBoolean	true
+description			Provides support for Integer values.
 
 TypeDefinition
-name    		Float
-typeClassName	org.dmd.dmc.types.DmcTypeFloat
-description		Provides support for Float values.
+name    			Float
+typeClassName		org.dmd.dmc.types.DmcTypeFloat
+numericOrBoolean	true
+description			Provides support for Float values.
 
 TypeDefinition
-name    		Double
-typeClassName	org.dmd.dmc.types.DmcTypeDouble
-description		Provides support for Double values.
+name    			Double
+typeClassName		org.dmd.dmc.types.DmcTypeDouble
+numericOrBoolean	true
+description			Provides support for Double values.
 
 TypeDefinition
-name    		Long
-typeClassName	org.dmd.dmc.types.DmcTypeLong
-description		Provides support for Long values.
+name    			Long
+typeClassName		org.dmd.dmc.types.DmcTypeLong
+numericOrBoolean	true
+description			Provides support for Long values.
 
 TypeDefinition
-name    		Short
-typeClassName	org.dmd.dmc.types.DmcTypeShort
-description		Provides support for Short values.
+name    			Short
+typeClassName		org.dmd.dmc.types.DmcTypeShort
+numericOrBoolean	true
+description			Provides support for Short values.
 
 TypeDefinition
 name    		Byte
@@ -108,10 +113,11 @@ primitiveType	java.util.Date
 description		Provides support for Date values.
 
 TypeDefinition
-name	 		Boolean
-typeClassName	org.dmd.dmc.types.DmcTypeBoolean
-nullReturnValue false
-description		Provides support for Boolean values. This type makes use of the <code> nullReturnValue </code>
+name	 			Boolean
+typeClassName		org.dmd.dmc.types.DmcTypeBoolean
+nullReturnValue 	false
+numericOrBoolean	true
+description			Provides support for Boolean values. This type makes use of the <code> nullReturnValue </code>
  flag so that, even if there is no value for an attribute of this type, a value of false will
  be returned.
 
@@ -2292,6 +2298,14 @@ description    				The fully qualified name of a Java interface that should
  </p>
  This results in an implements statement being added to the DmwWrapper derivative.
 
+AttributeDefinition
+name                		numericOrBoolean
+dmdID						193
+type                		Boolean
+description When we perform toJSON() operations, we need to know whether to quote
+ values. If the type of a property is numeric or boolean, we omit the quotes. This
+ value is set to true on TypeDefinitions generated as part of the MetaSchemaAG -
+ Boolean, Integer, Long, Short, Float and Double.
 
 //AttributeDefinition
 //name                		nameAndTypeName
@@ -2586,6 +2600,7 @@ may				enumName
 may				originalClass
 may				nameAttributeDef
 may				filterAttributeDef
+may				numericOrBoolean
 // generic args may be obsolete
 may				genericArgs
 description     The <code> TypeDefinition </code> is used to define the types of attributes that can be used

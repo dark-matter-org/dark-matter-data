@@ -154,6 +154,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __nameAttributeDef = new DmcAttributeInfo("meta","nameAttributeDef",90,"AttributeDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __namingAttribute = new DmcAttributeInfo("meta","namingAttribute",64,"AttributeDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __nullReturnValue = new DmcAttributeInfo("meta","nullReturnValue",7,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
+    public final static DmcAttributeInfo __numericOrBoolean = new DmcAttributeInfo("meta","numericOrBoolean",193,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __nvp = new DmcAttributeInfo("meta","nvp",178,"NameValuePair",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __objectClass = new DmcAttributeInfo("meta","objectClass",1,"ClassDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,0,false);
     public final static DmcAttributeInfo __obsolete = new DmcAttributeInfo("meta","obsolete",183,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,0,false);
@@ -464,6 +465,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__nameAttributeDef.id,__nameAttributeDef);
         _SmAp.put(__namingAttribute.id,__namingAttribute);
         _SmAp.put(__nullReturnValue.id,__nullReturnValue);
+        _SmAp.put(__numericOrBoolean.id,__numericOrBoolean);
         _SmAp.put(__nvp.id,__nvp);
         _SmAp.put(__objectClass.id,__objectClass);
         _SmAp.put(__obsolete.id,__obsolete);
@@ -1110,6 +1112,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __TypeDefinition.addMay(__lineNumber);
         __TypeDefinition.addMay(__nameAttributeDef);
         __TypeDefinition.addMay(__nullReturnValue);
+        __TypeDefinition.addMay(__numericOrBoolean);
         __TypeDefinition.addMay(__nvp);
         __TypeDefinition.addMay(__obsolete);
         __TypeDefinition.addMay(__optimize);
