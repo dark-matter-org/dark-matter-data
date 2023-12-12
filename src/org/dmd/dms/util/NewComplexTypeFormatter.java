@@ -644,17 +644,21 @@ public class NewComplexTypeFormatter {
 				}
 				else{
 					if (isComplex){
-						out.write("        sb.append(indent + \"  \\\"" + key + "\\\": \");\n");
-						out.write("        " + pn + ".toJSON(sb, padding, indent);\n");
+				        out.write("            // complex: " + DebugInfo.getWhereWeAreNow() + "\n");
+						out.write("            sb.append(indent + \"  \\\"" + key + "\\\": \");\n");
+						out.write("            " + pn + ".toJSON(sb, padding, indent);\n");
 					}
-					
-					if (type.getNumericOrBoolean()) {
+					else {
+						if (type.getNumericOrBoolean()) {
 //				        out.write("            // NUMBOOL 4 Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-						out.write("            sb.append(indent + \"  \\\"" + key + "\\\": \" + " + pn + ".toString() + \"\");\n");
-					}
-					else
-						out.write("            sb.append(indent + \"  \\\"" + key + "\\\": \\\"\" + JSONUtil.escape(" + pn + ".toString()) + \"\\\"\");\n");
+							out.write("            sb.append(indent + \"  \\\"" + key + "\\\": \" + " + pn + ".toString() + \"\");\n");
+						}
+						else {
+					        out.write("            // non-complex non-numeric non-bool: " + DebugInfo.getWhereWeAreNow() + "\n");
+							out.write("            sb.append(indent + \"  \\\"" + key + "\\\": \\\"\" + JSONUtil.escape(" + pn + ".toString()) + \"\\\"\");\n");
+						}
 //					out.write("            sb.append(indent + \"  \\\"" + key + "\\\": \\\"\" + " + pn + ".toString().replace(\"\\\"\", \"\\\\\\\"\") + \"\\\"\");\n");
+					}
 				}
 				
 				out.write("        }\n\n");
