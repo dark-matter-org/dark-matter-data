@@ -15,6 +15,9 @@ import org.dmd.util.codegen.Manipulator;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
+/**
+ * The NewComplexTypeFormatter is used to format complex types.
+ */
 public class NewComplexTypeFormatter {
 	
 //	public static void dumpComplexTypes(String fileHeader, SchemaDefinition sd, String typedir) throws IOException, ResultException{
